@@ -1,0 +1,259 @@
+{
+  "id": "kobold",
+  "name": "Cẩu Đầu Nhân (Kobold)",
+  "lifespan": 25,
+  "spawn_rate_percentage": 3,
+  "context": "Kỷ Nguyên Khai Hoang – Thợ mỏ bất đắc dĩ sống lay lắt tại các hang đá ngoài Rừng Tân Thủ và tầng nông của Vực Thẳm. Chỉ khoảng 25% cá thể có thể sống sót qua tuổi dậy thì để tiến hóa, phần lớn bỏ mạng sớm do bẫy rập, sập hầm hoặc làm bia tập chém.",
+  "desc": "Sinh vật nhỏ bé có hình dáng lai giữa chó hoang và thằn lằn. Kobold nhát gan, yếu ớt nhưng bù lại cực kỳ khéo léo trong việc đào hầm, đánh hơi quặng mỏ và chế tạo bẫy sập. Chúng tôn thờ loài Rồng như thần thánh dẫu hiếm khi được nhìn thấy rồng thực sự.",
+  "society": "Sống thành bầy lớn sâu dưới lòng đất hoặc các mỏ quặng hoang trên núi. Phân công lao động vô cùng tàn khốc: con non vừa biết đi đã bị ép cầm cuốc, kẻ yếu làm mồi nhử bẫy, kẻ mạnh hơn làm giám sát. Bầy đàn đối mặt với tỉ lệ chết trẻ cực cao, những cá thể vượt qua mốc 25% sinh tồn sẽ tiến hóa lớp vảy sừng cứng cáp và nắm quyền lãnh đạo.",
+  "stages": [
+    {
+      "id": "infant",
+      "name": "Cún thằn lằn",
+      "start": 0,
+      "themes": [
+        "Ăn đất sét để sống",
+        "Tranh giành nấm mốc",
+        "Lẩn trốn nhện khổng lồ",
+        "Tập sủa để báo động",
+        "Làm bia thịt cho bầy"
+      ]
+    },
+    {
+      "id": "child",
+      "name": "Thợ đào nhí",
+      "start": 3,
+      "themes": [
+        "Vác cuốc chim lớn hơn cơ thể",
+        "Đào hầm sập",
+        "Bị đánh roi nếu lười biếng",
+        "Tìm quặng sắt vụn",
+        "Tàn tật do đá đè"
+      ]
+    },
+    {
+      "id": "teen",
+      "name": "Kỹ sư bẫy rập",
+      "start": 6,
+      "themes": [
+        "Lắp bẫy gấu rỉ sét",
+        "Chế tạo bom khói",
+        "Trinh sát mặt đất",
+        "Đụng độ Mạo hiểm giả tập sự",
+        "Bước vào Ngã rẽ tiến hóa"
+      ]
+    },
+    {
+      "id": "adult",
+      "name": "Chiến binh sừng vảy",
+      "start": 10,
+      "themes": [
+        "Tiến hóa thành công, lớp vảy cứng lại",
+        "Đánh lén đoàn thương nhân",
+        "Bán quặng chợ đen",
+        "Bảo vệ mỏ",
+        "Thờ cúng Tượng Rồng"
+      ]
+    },
+    {
+      "id": "middle",
+      "name": "Giám sát mỏ",
+      "start": 15,
+      "themes": [
+        "Đánh đập tân binh",
+        "Phát hiện mỏ nguyên liệu quý (Mithril)",
+        "Giao thương ngầm với Ma tộc",
+        "Mất chi do tranh giành quyền lực"
+      ]
+    },
+    {
+      "id": "elder",
+      "name": "Trưởng lão vuốt cùn",
+      "start": 20,
+      "themes": [
+        "Lú lẫn, rụng nanh",
+        "Ho ra máu do bệnh phổi mạn tính",
+        "Vẽ lại bản đồ bẫy",
+        "Hy sinh đánh bom liều chết để bảo vệ bầy"
+      ]
+    }
+  ],
+  "origins": [
+    {
+      "id": "origin_overworld",
+      "name": "Mỏ hoang Sườn Núi",
+      "weight": 40,
+      "text": "Bạn cất tiếng khóc chào đời tại một hầm mỏ cạn kiệt thuộc Rừng Tân Thủ. Không có quái vật lớn, nhưng Mạo hiểm giả người phàm thường xuyên ghé qua đây để cày cấp. Cửa sinh tồn của bạn là phải đào thật sâu.",
+      "effects": {
+        "AGI": 1,
+        "LUCK": 1,
+        "flags": [
+          "overworld_kobold"
+        ]
+      }
+    },
+    {
+      "id": "origin_dungeon_miner",
+      "name": "Đáy mỏ tăm tối Vực Thẳm",
+      "weight": 30,
+      "text": "Bạn ra đời giữa tiếng đục đẽo chát chúa của tầng ngục ngầm. Cha mẹ nhét ngay vào tay bạn một cái xẻng gãy thay vì bình sữa.",
+      "effects": {
+        "STR": 1,
+        "AGI": 1,
+        "flags": [
+          "dungeon_miner"
+        ]
+      }
+    },
+    {
+      "id": "origin_dwarf_slave",
+      "name": "Cũi sắt Người Lùn",
+      "weight": 20,
+      "text": "Bạn mở mắt trong lồng sắt của tộc Dwarf. Chúng đập gãy một ngón chân của bạn và xích bạn lại như một con chó săn chuyên dùng để dò mìn trong hầm ngục.",
+      "effects": {
+        "AGI": 2,
+        "LUCK": -2,
+        "flags": [
+          "dwarf_slave"
+        ]
+      }
+    },
+    {
+      "id": "origin_dragon_blessed",
+      "name": "Gần hang Rồng Cổ Đại",
+      "weight": 10,
+      "text": "Tổ của bạn vô tình nằm sát vách hang Rồng. Hơi nóng và ma lực tản ra khiến lớp vảy non của bạn đỏ rực lên đầy kiêu hãnh.",
+      "effects": {
+        "STR": 2,
+        "INT": 1,
+        "flags": [
+          "dragon_blessed"
+        ]
+      }
+    },
+    {
+      "id": "kobold_sulfur_nest",
+      "name": "Tổ ấp Quặng Lưu Huỳnh",
+      "weight": 20,
+      "text": "Mùi lưu huỳnh hăng hắc khắc sâu vào buồng phổi nhỏ bé của bạn ngay từ hơi thở đầu tiên. Bánh xe định mệnh xoay vần, linh hồn bạn tái sinh thành một cẩu đầu nhân dạt trôi nơi đáy vực dung nham rực đỏ.",
+      "effects": {
+        "AGI": 1,
+        "health": -5,
+        "flags": [
+          "dungeon_miner"
+        ]
+      }
+    }
+  ],
+  "signature": [
+    "Đào tẩu địa đạo: Khả năng đào hầm tẩu thoát cực nhanh khi lượng máu giảm xuống dưới 20%.",
+    "Bậc thầy bẫy rập: Chắp vá vũ khí hỏng, dây leo, kẽm gai thành các bẫy chết người chặn đường Mạo hiểm giả.",
+    "Đánh hơi quặng hiếm: Mũi cực thính, có thể ngửi thấy mùi Vàng, Bạc và Tinh thể Mana qua vách đá dày.",
+    "Nhát gan bẩm sinh: Kháng lệnh tử chiến, tự động kích hoạt kỹ năng bỏ chạy khi đối mặt với kẻ thù có cấp độ cao hơn.",
+    "Huyết thống Rồng (Hiếm): Ở tỉ lệ 25% cá thể sống sót tiến hóa, có thể thức tỉnh khả năng kháng lửa hoặc khạc ra tàn lửa nhỏ."
+  ],
+  "milestones": [
+    {
+      "id": "ms_purge",
+      "name": "Sự kiện Đại Thanh Trừng",
+      "choices": [
+        "Bỏ chạy thục mạng mặc kệ đồng loại (Sống sót 100% nhưng mang danh hèn nhát)",
+        "Nấp dưới xác đồng bọn giả chết (Cần May mắn)",
+        "Nổi điên kích hoạt Huyết thống Rồng tử chiến (Tỉ lệ 25% sống sót và Tiến hóa thành Dragon-kin Kobold, 75% chết tại chỗ)"
+      ]
+    },
+    {
+      "id": "ms_collapse",
+      "name": "Sập hầm ngục diện rộng",
+      "choices": [
+        "Dùng thân mình chống đỡ xà nhà cho bầy (Cần Sức mạnh lớn)",
+        "Tự đào một đường máu nhỏ để trườn ra ngoài (Cần Khéo léo)",
+        "Tuyệt vọng gào khóc gọi Mẹ (Bỏ mạng)"
+      ]
+    },
+    {
+      "id": "ms_merchant",
+      "name": "Giao tranh với Thương đoàn",
+      "choices": [
+        "Chơi ném bom mù rồi tẩu thoát cùng túi lương khô (Tăng Tốc độ)",
+        "Dụ chúng vào trận địa bẫy mìn (Cần Trí tuệ)",
+        "Chấp nhận đầu hàng làm cu li khuân vác"
+      ]
+    },
+    {
+      "id": "ms_dragon_scale",
+      "name": "Tìm thấy vảy Rồng rụng",
+      "choices": [
+        "Đánh liều nhai nuốt để cưỡng chế tiến hóa (Nguy cơ vỡ nội tạng)",
+        "Đem hiến tế cho Tù trưởng (Được thăng chức Giám sát)",
+        "Lén giấu làm của riêng (Tăng Tài sản)"
+      ]
+    }
+  ],
+  "deaths": [
+    {
+      "id": "death_adventurer",
+      "kind": "violent",
+      "text": "Năm {age} tuổi, bạn bị một thanh gươm của Mạo hiểm giả thực tập đâm xuyên bụng ngoài Rừng Tân Thủ. Chúng reo hò vì vừa hoàn thành nhiệm vụ hướng dẫn."
+    },
+    {
+      "id": "death_collapse",
+      "kind": "violent",
+      "text": "Năm {age} tuổi, một tảng đá hàng tấn sập xuống đè nát bạn thành tương. Một cái chết quá đỗi bình thường của nghề thợ mỏ."
+    },
+    {
+      "id": "death_trap",
+      "kind": "violent",
+      "text": "Ở tuổi {age}, chứng lú lẫn khiến bạn bước nhầm vào bãi mìn nổ do chính mình đặt tháng trước. Cơ thể bạn văng tung tóe khắp vách hang."
+    },
+    {
+      "id": "death_lung_disease",
+      "kind": "health",
+      "text": "Phổi của bạn bị hủy hoại hoàn toàn bởi bụi quặng quỷ và khí độc, bạn ho ra máu đen và lịm đi ở tuổi {age}."
+    },
+    {
+      "id": "death_old",
+      "kind": "old",
+      "text": "Tuổi {age}, bạn nhắm mắt bên chiếc cuốc chim đã mòn vẹt. Vượt qua tỉ lệ tử vong 75%, linh hồn bạn kiêu hãnh bay về miền đất của loài Rồng."
+    }
+  ],
+  "names": {
+    "male": [
+      "Deek",
+      "Rik",
+      "Tuk",
+      "Nak",
+      "Snik",
+      "Vark",
+      "Gek",
+      "Mik",
+      "Zuk",
+      "Rak"
+    ],
+    "female": [
+      "Dika",
+      "Riki",
+      "Tuka",
+      "Naka",
+      "Snika",
+      "Varki",
+      "Geka",
+      "Mika",
+      "Zuka",
+      "Raka"
+    ],
+    "family": [
+      "Đuôi Cụt",
+      "Mũi Than",
+      "Vuốt Mòn",
+      "Tai Rách",
+      "Răng Đen"
+    ]
+  },
+  "flags": [
+    "overworld_kobold",
+    "dungeon_miner",
+    "dwarf_slave",
+    "dragon_blessed"
+  ]
+}

@@ -1,0 +1,226 @@
+{
+  "id": "ghoul",
+  "name": "Ngạ Quỷ (Ghoul)",
+  "lifespan": 9999,
+  "spawn_rate_percentage": 0.5,
+  "context": "Kỷ Nguyên Khai Hoang Hầm Ngục – Tử linh ăn xác thối lang thang trong bóng tối. Bị ám ảnh bởi cơn đói thịt sống vĩnh cửu và là mục tiêu thanh tẩy hàng đầu của các Giáo hội.",
+  "desc": "Xác chết được hồi sinh bằng tà thuật tăm tối, hoàn toàn vô tri. Dù tay chân rữa nát và bốc mùi, Ghoul lại sở hữu móng vuốt sắc lẹm mang đầy mầm bệnh hoại tử. Chúng di chuyển thoăn thoắt vào ban đêm và là cơn ác mộng của những lữ khách đi lạc.",
+  "society": "Hoàn toàn không có xã hội hay ý thức bầy đàn. Chúng di chuyển tập trung với nhau chỉ vì bị thu hút bởi cùng một mùi máu thịt. Rất thường xuyên, Ghoul trở thành những con rối vô hồn bị các Tử linh sư (Necromancer) điều khiển làm bia đỡ đạn.",
+  "stages": [
+    {
+      "id": "infant",
+      "name": "Xác chết thức tỉnh",
+      "start": 0,
+      "themes": [
+        "Bàn tay khô héo chui lên từ nấm mồ",
+        "Cơ khớp cứng đờ",
+        "Ăn giun dế để qua cơn đói",
+        "Khiếp sợ ánh sáng mặt trời"
+      ]
+    },
+    {
+      "id": "child",
+      "name": "Ác quỷ thèm thịt",
+      "start": 11,
+      "themes": [
+        "Săn bắt động vật nhỏ trong rừng",
+        "Móng vuốt bắt đầu dài ra và đen sì",
+        "Lẩn trốn Kỵ sĩ Thánh quang",
+        "Bới xác chết chưa phân hủy để cắn xé"
+      ]
+    },
+    {
+      "id": "teen",
+      "name": "Thợ săn đêm",
+      "start": 51,
+      "themes": [
+        "Tấn công lữ khách đi đêm",
+        "Lây truyền dịch bệnh cho các ngôi làng lân cận",
+        "Bò bằng 4 chi với tốc độ kinh hoàng",
+        "Đối mặt giết chóc Mạo hiểm giả"
+      ]
+    },
+    {
+      "id": "adult",
+      "name": "Tai ương nghĩa trang",
+      "start": 151,
+      "themes": [
+        "Trở thành con đầu đàn vô hình",
+        "Tiếng gào thét có thể kêu gọi và điều khiển những Zombie thấp kém hơn",
+        "Tàn sát quy mô nhỏ"
+      ]
+    },
+    {
+      "id": "middle",
+      "name": "Ghoul chúa",
+      "start": 301,
+      "themes": [
+        "Hấp thụ đủ máu thịt người để phát triển một dạng trí tuệ mờ nhạt",
+        "Lớp da chết kháng được cả phép thuật hệ lửa và băng cấp thấp"
+      ]
+    },
+    {
+      "id": "elder",
+      "name": "Khô cốt diệt vong",
+      "start": 1000,
+      "themes": [
+        "Thịt rữa hết chỉ còn khung xương đen nhánh",
+        "Ngưng tụ oán khí ngút trời",
+        "Được Ma Vương thu nạp làm tướng tiên phong"
+      ]
+    }
+  ],
+  "origins": [
+    {
+      "id": "origin_graveyard",
+      "name": "Nghĩa trang hoang tàn",
+      "weight": 50,
+      "text": "Giữa đêm khuya thanh vắng, bàn tay rữa nát của bạn phá vỡ lớp đất tơi xốp bò lên mặt đất. Xung quanh chỉ có tiếng quạ kêu và bia mộ đổ nát.",
+      "effects": {
+        "STR": 1,
+        "INT": -2,
+        "flags": [
+          "undead_curse"
+        ]
+      }
+    },
+    {
+      "id": "origin_massgrave",
+      "name": "Hố chôn tập thể",
+      "weight": 30,
+      "text": "Thức tỉnh giữa hàng ngàn cái xác thối rữa của một cuộc Thánh chiến đẫm máu. Oán khí dày đặc giúp bạn cử động linh hoạt hơn.",
+      "effects": {
+        "AGI": 2,
+        "LUCK": -1,
+        "flags": [
+          "mass_grave"
+        ]
+      }
+    },
+    {
+      "id": "origin_experiment",
+      "name": "Bàn thí nghiệm Tử linh",
+      "weight": 20,
+      "text": "Bạn được đánh thức bởi ma thuật đen của một Tử linh sư điên rồ. Bạn bị khâu chắp vá từ nhiều mảnh xác và bị buộc tội phải nghe lời hắn.",
+      "effects": {
+        "STR": 2,
+        "INT": -1,
+        "flags": [
+          "necromancer_puppet"
+        ]
+      }
+    },
+    {
+      "id": "blood_battlefield",
+      "name": "Chiến trường đẫm máu",
+      "weight": 20,
+      "text": "Xung đột ma thuật tàn phá Thảo Nguyên Gió Hú, để lại hàng vạn xác chết vương vãi đẫm máu. Từ trong bùn lầy tử khí, linh hồn bạn bị kéo giật về cõi trần bằng một tà thuật cấm kỵ.",
+      "effects": {
+        "STR": 2,
+        "AGI": 1,
+        "health": -5,
+        "flags": [
+          "undead_curse"
+        ]
+      }
+    },
+    {
+      "id": "dark_altar",
+      "name": "Tế đàn hắc ám",
+      "weight": 20,
+      "text": "Ngọn lửa Hắc Nguyệt bùng cháy trên bàn tế, vắt kiệt sinh mệnh của hàng chục kẻ dị giáo để gọi hồn một ác quỷ. Bánh xe định mệnh khẽ xoay, bạn mở bừng đôi mắt đỏ ngòm giữa tiếng tụng niệm rợn người.",
+      "effects": {
+        "INT": -2,
+        "LUCK": -1,
+        "health": 10,
+        "flags": [
+          "necromancer_puppet"
+        ]
+      }
+    }
+  ],
+  "signature": [
+    "Tầm nhìn máu thịt: Ngửi và nhìn thấy nhịp đập của sinh vật sống qua tường và trong bóng tối mù mịt.",
+    "Ăn xác phục hồi: Cắn xé và nuốt chửng xác chết (kể cả xác đồng loại) để phục hồi ngay lập tức những bộ phận cơ thể bị chặt đứt.",
+    "Mầm bệnh hoại tử: Vết cào của Ghoul mang độc tính tử thi; nếu kẻ thù không có thần chú thanh tẩy, vết thương sẽ lở loét đến chết.",
+    "Miễn nhiễm Tử linh: Không biết đau, không bị ảnh hưởng bởi độc dược, sát thương tinh thần hay bùa chú kiểm soát tâm trí. Khắc tinh tuyệt đối là Thánh Quang (Ánh sáng thần thánh)."
+  ],
+  "milestones": [
+    {
+      "id": "ms_holy_maiden",
+      "name": "Đánh hơi thấy Thánh nữ đi lạc trong sương mù",
+      "choices": [
+        "Mù quáng lao vào cắn xé vì cơn đói (Bị vầng hào quang thiêu đốt tơi tả)",
+        "Bản năng sinh tồn trỗi dậy, núp vào bụi rậm rình rập",
+        "Quay đầu bỏ chạy"
+      ]
+    },
+    {
+      "id": "ms_master_dead",
+      "name": "Pháp sư Tử linh (Chủ nhân) mất kiểm soát ma thuật",
+      "choices": [
+        "Tận dụng cơ hội xé xác hắn để đổi lấy tự do",
+        "Kế thừa sức mạnh tà ác đang rò rỉ của hắn",
+        "Cam chịu bị cuốn vào vụ nổ ma lực và biến thành tro"
+      ]
+    },
+    {
+      "id": "ms_winter",
+      "name": "Mùa đông khắc nghiệt âm độ",
+      "choices": [
+        "Lớp thịt thối bị đóng băng cứng ngắc không thể lết đi (Chờ đợi Mùa xuân)",
+        "Đào sâu xuống lòng đất mồ côi để ngủ đông",
+        "Lết vào hang gấu ăn thịt gấu đang ngủ"
+      ]
+    }
+  ],
+  "deaths": [
+    {
+      "id": "death_holy",
+      "kind": "violent",
+      "text": "Ở tuổi {age}, bạn bị một Giáo sĩ cấp cao phát hiện. Thánh quang rực rỡ từ cây thập tự thiêu rụi bạn thành một nhúm tro tàn không thể hồi sinh."
+    },
+    {
+      "id": "death_faded",
+      "kind": "health",
+      "text": "Tuổi {age}, cơn đói dai dẳng không được đáp ứng qua hàng thập kỷ khiến oán khí duy trì cơ thể bạn tan biến vào hư vô."
+    },
+    {
+      "id": "death_dismembered",
+      "kind": "violent",
+      "text": "Năm {age} tuổi, một nhóm Mạo hiểm giả băm vằm bạn đứt lìa tứ chi. Dù không chết ngay, bạn nằm thối rữa và bất động vĩnh viễn trên bãi cỏ."
+    },
+    {
+      "id": "death_material",
+      "kind": "violent",
+      "text": "Một tên Pháp sư tà ác mạnh hơn đã nghiền nát cơ thể bạn ở tuổi {age} chỉ để lấy 'Lõi tử linh' bên trong lồng ngực làm nguyên liệu giả kim."
+    },
+    {
+      "id": "holy_fire",
+      "kind": "violent",
+      "text": "Tia sáng thanh tẩy từ Kỵ sĩ Thánh Quang thiêu rụi thân xác mục nát của bạn thành tro tàn ở tuổi {age}."
+    },
+    {
+      "id": "starvation",
+      "kind": "health",
+      "text": "Ở tuổi {age}, bạn hoàn toàn cạn kiệt tà năng và tan thành cát bụi vì không tìm được máu thịt tươi để duy trì sự tồn tại."
+    }
+  ],
+  "names": {
+    "any": [
+      "Kẻ Ăn Xác",
+      "Móng Vuốt Đen",
+      "Hơi Thở Thối",
+      "Xác Chết Lạc Lối",
+      "Tai Ương Bóng Đêm",
+      "Tiếng Lết Chân",
+      "Khô Cốt"
+    ],
+    "family": []
+  },
+  "flags": [
+    "undead_curse",
+    "mass_grave",
+    "necromancer_puppet"
+  ]
+}

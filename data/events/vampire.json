@@ -1,0 +1,41 @@
+[
+  { "id": "vp_first_night", "races": ["vampire"], "stages": ["infant"], "weight": 10,
+    "text": "Đêm đầu tiên của kiếp sống mới, bạn nhận ra mình không còn bóng trong gương. Chỉ còn cơn khát, cháy bỏng nơi cổ họng.", "effects": { "AGI": 1 } },
+  { "id": "vp_ms_thirst", "races": ["vampire"], "stages": ["infant", "child"], "weight": 12,
+    "text": "Giữa phố đông người, cơn khát máu bùng lên như một ngọn lửa. Từng nhịp tim quanh bạn vang lên như tiếng trống gọi mời.",
+    "choices": [
+      { "label": "Cắn xé bừa bãi", "text": "Bạn lao vào kẻ qua đường gần nhất. Cơn khát được thỏa mãn, nhưng từ đêm đó Giáo hội treo thưởng cho cái đầu của bạn.", "effects": { "health": 20, "flags": ["hunted"] }, "moment": "Bị Giáo hội truy nã" },
+      { "label": "Cắn một con chuột cống", "text": "Bạn rút vào ngõ tối, nghiến răng cắn cổ một con chuột cống. Máu nó tanh nồng, nhưng bạn vẫn còn giữ được nhân tính.", "effects": { "joy": -5, "flags": ["humane"] } },
+      { "label": "Quyến rũ một tiểu thư", "check": { "stat": "INT", "target": 6 },
+        "success": { "text": "Ánh mắt bạn khóa chặt lấy nàng. Từ đêm ấy, nàng tự nguyện dâng máu mỗi tuần mà không hề nhớ vì sao.", "effects": { "health": 15, "flags": ["blood_servant"] }, "moment": "Có được nguồn máu riêng" },
+        "fail": { "text": "Nàng hét lên, và những ngọn đuốc bắt đầu đổ về phía bạn.", "effects": { "health": -20 } } }
+    ] },
+  { "id": "vp_hide", "races": ["vampire"], "stages": ["child"], "weight": 8,
+    "text": "Bạn học cách sống giữa loài người: mỉm cười không để lộ nanh, từ chối mọi lời mời dùng bữa trưa. Một bá tước tương lai đang dần thành hình.", "effects": { "INT": 1, "wealth": 10 } },
+  { "id": "vp_domain", "races": ["vampire"], "stages": ["teen"], "weight": 8,
+    "text": "Bạn xây dựng lãnh địa riêng trong một lâu đài cổ trên vách núi. Những người hầu bị thôi miên lặng lẽ thắp nến mỗi khi màn đêm buông xuống.", "effects": { "wealth": 25, "joy": 10 }, "moment": "Xây dựng lãnh địa riêng" },
+  { "id": "vp_ms_knight", "races": ["vampire"], "stages": ["teen", "adult"], "weight": 9,
+    "text": "Giữa ban trưa, cánh cổng lâu đài bị phá tung. Kỵ sĩ Thánh Quang tràn vào, mang theo ánh mặt trời trên lưỡi kiếm.",
+    "choices": [
+      { "label": "Hóa sương mù phản công", "check": { "stat": "AGI", "target": 8 },
+        "success": { "text": "Bạn tan thành làn sương mỏng, luồn ra sau lưng kẻ dẫn đầu và bẻ gãy cổ hắn. Những kẻ còn lại bỏ chạy trong kinh hoàng.", "effects": { "wealth": 10, "joy": 10 }, "moment": "Đẩy lùi Kỵ sĩ Thánh Quang" },
+        "fail": { "text": "Một tia nắng lọt qua khe cửa, đốt cháy làn sương của bạn.", "effects": { "health": -40 } } },
+      { "label": "Gọi dơi rồi bỏ trốn", "text": "Bầy dơi che kín đại sảnh, và bạn tẩu thoát qua đường hầm bí mật. Lâu đài cùng mọi của cải đều mất trắng.", "effects": { "wealth": -30, "joy": -10 } },
+      { "label": "Dùng Huyết thuật cấm kỵ", "text": "Máu từ cơ thể bạn hóa thành trăm ngàn mũi giáo. Kỵ sĩ ngã xuống, nhưng cái giá là những vết bỏng không bao giờ lành.", "effects": { "health": -30, "INT": 2 }, "moment": "Thi triển Huyết thuật cấm kỵ" }
+    ] },
+  { "id": "vp_ms_wolves", "races": ["vampire"], "stages": ["child", "teen", "adult"], "weight": 7,
+    "text": "Một bầy Người Sói tiến vào bãi săn của bạn, tiếng tru của chúng xé toạc màn đêm.",
+    "choices": [
+      { "label": "Đấu tay đôi", "check": { "stat": "STR", "target": 9 },
+        "success": { "text": "Bạn đối đầu với con đầu đàn bằng tay không và bẻ gãy xương sống nó. Bầy sói rút lui.", "effects": { "STR": 1, "joy": 10 }, "moment": "Hạ gục thủ lĩnh Người Sói" },
+        "fail": { "text": "Nanh vuốt Người Sói nhanh hơn sự kiêu ngạo của bạn.", "death": "Bạn bị xé xác giữa rừng đêm sau {age} năm tồn tại." } },
+      { "label": "Giăng bẫy dây bạc", "check": { "stat": "INT", "target": 6 },
+        "success": { "text": "Những sợi dây nạm bạc trói chặt cả bầy. Bạn thong thả bước qua giữa tiếng rên rỉ của chúng.", "effects": { "wealth": 15 } },
+        "fail": { "text": "Một con sói né được bẫy và cắn vào vai bạn.", "effects": { "health": -20 } } },
+      { "label": "Đàm phán chia bãi săn", "check": { "stat": "INT", "target": 5 },
+        "success": { "text": "Bạn và thủ lĩnh bầy sói vạch một ranh giới bằng máu. Hòa bình kéo dài suốt một thế kỷ.", "effects": { "joy": 5, "flags": ["treaty"] } },
+        "fail": { "text": "Chúng coi sự ôn hòa của bạn là yếu đuối.", "effects": { "health": -15 } } }
+    ] },
+  { "id": "vp_ennui", "races": ["vampire"], "stages": ["middle", "elder", "ancient"], "weight": 6,
+    "text": "Những thế kỷ trôi qua như những đêm dài nối tiếp. Bạn bắt đầu quên dần gương mặt của những người từng yêu thương.", "effects": { "joy": -10, "INT": 1 } }
+]

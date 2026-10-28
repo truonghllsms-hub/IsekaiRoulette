@@ -1,0 +1,290 @@
+{
+  "id": "goblin",
+  "name": "Yêu Tinh Xanh (Goblin)",
+  "lifespan": 20,
+  "spawn_rate_percentage": 4,
+  "context": "Kỷ Nguyên Khai Hoang Hầm Ngục – Sống lay lắt tại Tầng Thượng của Vực Thẳm và Rừng Tân Thủ, luôn là con mồi cho Mạo hiểm giả.",
+  "desc": "Những sinh vật da xanh thấp bé sống chui lủi dưới những tầng ngục nông hoặc bìa rừng, mang bản tính ranh mãnh, hèn nhát và tàn nhẫn. Bị khinh miệt bởi mọi chủng tộc, Goblin lấy số lượng bầy đàn và khả năng sinh tồn khắc nghiệt để bù đắp cho sự yếu ớt bẩm sinh.",
+  "society": "Sống thành bầy đàn đông đúc trong các hang động ngập ngụa rác thải hoặc bụi rậm. Con non bị vứt bỏ tự sinh tự diệt từ lúc lọt lòng; kẻ nào sống sót qua cơn đói sẽ được bầy chấp nhận làm lực lượng đi nhặt thức ăn. Kẻ đứng đầu là Tù Trưởng (cá thể to khỏe và bạo lực nhất) hoặc Pháp Sư (cá thể vô tình hấp thụ được chút ma lực rò rỉ).",
+  "stages": [
+    {
+      "id": "infant",
+      "name": "Ấu tể da xanh",
+      "start": 0,
+      "themes": [
+        "Giành giật rêu đá",
+        "Trốn tránh đồng loại lớn",
+        "Nhận thức bóng tối",
+        "Nhiễm bệnh từ rác",
+        "Ăn xác thối"
+      ]
+    },
+    {
+      "id": "child",
+      "name": "Yêu tinh nhí",
+      "start": 2,
+      "themes": [
+        "Ném đá người lạ",
+        "Ăn trộm thức ăn",
+        "Học chế bẫy gai",
+        "Tàn sát con yếu hơn",
+        "Săn chuột hầm ngục"
+      ]
+    },
+    {
+      "id": "teen",
+      "name": "Tiểu yêu ranh mãnh",
+      "start": 4,
+      "themes": [
+        "Phục kích đoàn thương nhân",
+        "Bắt cóc",
+        "Chế vũ khí rỉ sét",
+        "Tranh giành địa bàn",
+        "Tham gia bầy đàn đi săn"
+      ]
+    },
+    {
+      "id": "adult",
+      "name": "Chiến binh hang động",
+      "start": 6,
+      "themes": [
+        "Tử chiến Mạo hiểm giả",
+        "Sinh sản bầy đàn",
+        "Cướp bóc Thánh quang",
+        "Giành chức vụ trong hang",
+        "Hộ tống Tù trưởng"
+      ]
+    },
+    {
+      "id": "middle",
+      "name": "Yêu tinh già dặn",
+      "start": 11,
+      "themes": [
+        "Truyền mẹo sinh tồn",
+        "Bị thương tật (mất chi/chột mắt)",
+        "Tế thần rác rưởi",
+        "Âm mưu lật đổ Tù trưởng",
+        "Dẫn đường qua bẫy"
+      ]
+    },
+    {
+      "id": "elder",
+      "name": "Lão làng Vực thẳm",
+      "start": 16,
+      "themes": [
+        "Sống thọ kỷ lục",
+        "Lú lẫn ma thuật",
+        "Làm vật tế",
+        "Hồi tưởng ký ức kinh hoàng về Rồng",
+        "Ăn thịt đồng loại để sống"
+      ]
+    }
+  ],
+  "origins": [
+    {
+      "id": "origin_forest_newbie",
+      "name": "Bụi rậm Rừng Tân Thủ",
+      "weight": 30,
+      "text": "Bạn ra đời dưới một tán lá mục ngoài bìa rừng - bãi thực hành của các Mạo hiểm giả cấp thấp. Nếu biết nằm im lẩn trốn, bạn sẽ có một tuổi thơ an toàn, no đủ với quả mọng và ếch nhái, tỉ lệ chết yểu thấp hơn hẳn dưới hầm ngục.",
+      "effects": {
+        "LUCK": 1,
+        "STR": 1,
+        "flags": [
+          "forest_goblin"
+        ]
+      }
+    },
+    {
+      "id": "origin_trash",
+      "name": "Đống rác Hầm ngục",
+      "weight": 25,
+      "text": "Bạn chui ra từ bọc nhầy ném giữa đống rác hôi thối ở tầng nông Vực Thẳm. Bản năng gào thét bạn phải nhai nát mẩu xương khô bên cạnh trước khi bị thằng nhãi da xanh khác cướp mất.",
+      "effects": {
+        "STR": 1,
+        "wealth": -10,
+        "flags": [
+          "dungeon_scavenger"
+        ]
+      }
+    },
+    {
+      "id": "origin_royal",
+      "name": "Hang Ổ Tù Trưởng",
+      "weight": 20,
+      "text": "Bạn là con của Tù trưởng, được vứt cho miếng thịt chuột ôi thiu. Đám Goblin xung quanh nhìn bạn với ánh mắt thèm thuồng tàn độc, chực chờ bạn lơ là để xé xác.",
+      "effects": {
+        "STR": 2,
+        "wealth": 5,
+        "flags": [
+          "hated",
+          "chief_son"
+        ]
+      }
+    },
+    {
+      "id": "origin_ambush",
+      "name": "Bia tập chém Tân thủ",
+      "weight": 15,
+      "text": "Tiếng khóc của bạn vang lên ngay lúc một nhóm Mạo hiểm giả tuổi teen đang thực hành vung kiếm. Mẹ bạn thẳng tay ném bạn vào bụi gai làm mồi nhử rồi cắm đầu chạy trốn.",
+      "effects": {
+        "AGI": 2,
+        "LUCK": -2,
+        "flags": [
+          "orphan"
+        ]
+      }
+    },
+    {
+      "id": "origin_shaman",
+      "name": "Đứa con của Pháp Sư",
+      "weight": 7,
+      "text": "Bạn sinh ra với vết bớt phát sáng lờ mờ. Lão Pháp sư già khú của bầy lập tức xách cổ bạn về để làm cu li lau chùi đũa phép và nếm thử thuốc độc.",
+      "effects": {
+        "INT": 2,
+        "STR": -1,
+        "flags": [
+          "shaman_apprentice"
+        ]
+      }
+    },
+    {
+      "id": "origin_mutant",
+      "name": "Đột biến dị thường",
+      "weight": 3,
+      "text": "Vừa bóc màng nhầy, bạn đã sở hữu cơ bắp cuồn cuộn hơn hẳn đồng loại. Bạn lập tức bóp cổ con quái nhí bên cạnh để thị uy sức mạnh tuyệt đối của mình.",
+      "effects": {
+        "STR": 3,
+        "INT": -2,
+        "flags": [
+          "hobgoblin_blood"
+        ]
+      }
+    }
+  ],
+  "signature": [
+    "Ăn rác tiến hóa: Có thể nhai nuốt kim loại rỉ sét hoặc lõi ma thuật cấp thấp để tăng chỉ số dẫu có nguy cơ vỡ bụng.",
+    "Chế tác lởm chởm: Khả năng ghép xương, dây leo và dao cùn thành các bẫy sập chết người chặn đường Mạo hiểm giả.",
+    "Cơn điên bầy đàn: Khi số lượng Goblin xung quanh vượt quá 10, bạn được cộng dồn sát thương nhưng mất hoàn toàn lý trí.",
+    "Lột da ngụy trang: Lột quần áo, giáp trụ của các Mạo hiểm giả đã chết khoác lên người để dọa nạt các tộc yếu hơn.",
+    "Tôn thờ phế phẩm: Lập bàn thờ và cuồng tín quỳ lạy một chiếc giày, mảnh gương vỡ hoặc viên gạch rơi từ mặt đất xuống.",
+    "Lá chắn thịt: Kỹ năng sinh tồn cơ bản - ném đồng loại ra đỡ đòn hộ mình khi bị tấn công."
+  ],
+  "milestones": [
+    {
+      "id": "ms_raid",
+      "name": "Chạm trán nhóm Mạo hiểm giả tập sự",
+      "choices": [
+        "Nằm im nín thở dưới lớp bùn lầy chờ họ đi qua (Cần Khéo léo, sống sót an toàn)",
+        "Nhảy ra cướp túi lương khô của tên yếu nhất nhóm (Cần Tốc độ, nguy cơ bị chém)",
+        "Bị phát hiện, vội ném đồng loại ra đỡ kiếm rồi bỏ chạy (Mang cờ 'traitor')"
+      ]
+    },
+    {
+      "id": "ms_evolution",
+      "name": "Đứng trước ngã rẽ Tiến hóa",
+      "choices": [
+        "Cắn nuốt lõi ma lực rạn nứt nhặt được (Tiến hóa thành Shaman)",
+        "Săn thú rừng, tập tạ bằng đá tảng mỗi ngày (Tiến hóa thành Hobgoblin)",
+        "Mài răng và móng vuốt, hòa mình vào bóng đêm (Tiến hóa thành Assassin)"
+      ]
+    },
+    {
+      "id": "ms_chief",
+      "name": "Tranh giành Ngôi Tù Trưởng",
+      "choices": [
+        "Thách đấu đập vỡ sọ Tù trưởng cũ",
+        "Bỏ nấm độc hái trong rừng vào nồi thịt chuột của lão",
+        "Cúi đầu làm tiểu đệ, nhẫn nhục chờ lão chết già"
+      ]
+    },
+    {
+      "id": "ms_famine",
+      "name": "Lãnh thổ cạn kiệt thức ăn",
+      "choices": [
+        "Ăn thịt những cá thể già yếu trong bầy để sống qua ngày (Giảm Đạo đức)",
+        "Liều lĩnh bò vào kho lương của con người ở bìa rừng (Giao tranh lớn, chết 50%)",
+        "Di cư sâu xuống Hầm ngục tăm tối (Gặp quái vật mạnh hơn)"
+      ]
+    },
+    {
+      "id": "ms_despair",
+      "name": "Bị đẩy vào đường cùng",
+      "choices": [
+        "Đầu hàng và xin làm linh thú sai vặt cho một Pháp sư con người (Mang cờ 'tamed_pet')",
+        "Bốc một nắm nấm tử độc nhai nuốt để tử chiến (Tăng bạo kích, chết sau 1 lượt)",
+        "Nhảy xuống dòng sông ngầm chảy xiết phó mặc cho số phận (Cần May mắn)"
+      ]
+    }
+  ],
+  "deaths": [
+    {
+      "id": "death_adventurer",
+      "kind": "violent",
+      "text": "Năm {age} tuổi, bạn bị một Mạo hiểm giả tập sự chém bay đầu lấy tai đổi thưởng; cái chết của bạn chỉ đáng giá 2 đồng xu đồng."
+    },
+    {
+      "id": "death_starvation",
+      "kind": "health",
+      "text": "Lê lết qua tuổi {age}, dạ dày bạn quặn thắt rồi vỡ tung vì đã cố nhai đến hòn đá cuối cùng trong cơn đói gào thét."
+    },
+    {
+      "id": "death_trap",
+      "kind": "violent",
+      "text": "Năm {age} tuổi, bạn vô tình dẫm trúng chính cái bẫy gấu rỉ sét do mình giăng ra đêm qua, máu chảy cạn trước khi đồng loại kịp tới lột đồ bạn."
+    },
+    {
+      "id": "death_old",
+      "kind": "old",
+      "text": "Bạn cạn kiệt sinh lực ở tuổi {age}. Việc một Goblin chết già là điều hiếm hoi tới mức đám trẻ trong hang tưởng bạn là một loài quái vật bí ẩn."
+    },
+    {
+      "id": "death_boss",
+      "kind": "violent",
+      "text": "Ở tuổi {age}, bạn bị Tù trưởng nắm gáy ném thẳng vào mõm con Minotaur đang thịnh nộ để làm bao cát câu giờ."
+    }
+  ],
+  "names": {
+    "male": [
+      "Grik",
+      "Snag",
+      "Grob",
+      "Mug",
+      "Zark",
+      "Krug",
+      "Snik",
+      "Gluk",
+      "Ruk",
+      "Zit"
+    ],
+    "female": [
+      "Grika",
+      "Sna",
+      "Mugi",
+      "Zari",
+      "Kruka",
+      "Nok",
+      "Gila",
+      "Ruti",
+      "Zita",
+      "Mee"
+    ],
+    "family": [
+      "Gãy Răng",
+      "Tai Sứt",
+      "Mũi Tẹt",
+      "Da Ghẻ",
+      "Đớp Rác"
+    ]
+  },
+  "flags": [
+    "forest_goblin",
+    "dungeon_scavenger",
+    "hated",
+    "chief_son",
+    "orphan",
+    "shaman_apprentice",
+    "hobgoblin_blood",
+    "traitor",
+    "tamed_pet"
+  ]
+}

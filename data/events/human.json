@@ -1,0 +1,61 @@
+[
+  { "id": "h_naming", "races": ["human"], "stages": ["infant"], "weight": 8, "require": { "notFlags": ["orphan"] },
+    "text": "Bạn được làm lễ đặt tên ở nhà thờ làng. Bạn khóc suốt buổi lễ.", "effects": { "joy": 2 } },
+  { "id": "h_geese", "races": ["human"], "stages": ["child"], "weight": 6, "require": { "notFlags": ["noble"] },
+    "text": "Bạn được giao việc chăn ngỗng. Lũ ngỗng không hề tôn trọng bạn.", "effects": { "STR": 1 } },
+  { "id": "h_orphan_nuns", "races": ["human"], "stages": ["child"], "weight": 10, "require": { "flags": ["orphan"] },
+    "text": "Các nữ tu dạy bạn cầu nguyện và giặt đồ. Bạn giỏi giặt đồ hơn.", "effects": { "STR": 1, "joy": 3 } },
+  { "id": "h_school", "races": ["human"], "stages": ["child"], "weight": 9, "require": { "notFlags": ["noble"] },
+    "text": "Thầy đồ trong làng nhận dạy chữ, mỗi tháng hai đồng bạc.",
+    "choices": [
+      { "label": "Xin đi học", "text": "Bạn ngồi bàn cuối. Bạn học nhanh hơn bạn bàn đầu.", "effects": { "INT": 2, "wealth": -8, "flags": ["educated"] }, "moment": "Được đi học" },
+      { "label": "Ở nhà phụ việc", "text": "Bạn ở nhà phụ cha mẹ. Đôi tay bạn chai sớm.", "effects": { "STR": 1, "wealth": 3 } }
+    ] },
+  { "id": "h_tutor", "races": ["human"], "stages": ["child"], "weight": 10, "require": { "flags": ["noble"] },
+    "text": "Gia đình thuê cho bạn ba gia sư. Bạn ghét cả ba.", "effects": { "INT": 2, "joy": -3, "flags": ["educated"] } },
+  { "id": "h_academy", "races": ["human"], "stages": ["teen"], "weight": 8, "require": { "INT": 7 },
+    "text": "Học viện Ma pháp Hoàng gia mở kỳ tuyển sinh.",
+    "choices": [
+      { "label": "Đi thi", "check": { "stat": "INT", "target": 9 },
+        "success": { "text": "Tên bạn nằm ở cuối danh sách đỗ. Nhưng vẫn là có tên.", "effects": { "INT": 3, "flags": ["mage", "job"] }, "moment": "Đỗ vào Học viện Ma pháp" },
+        "fail": { "text": "Bạn trượt. Lá thư từ chối được viết rất lịch sự.", "effects": { "joy": -10 } } },
+      { "label": "Không thi", "text": "Bạn ở lại. Có lẽ phép thuật không dành cho bạn.", "effects": {} }
+    ] },
+  { "id": "h_job", "races": ["human"], "stages": ["teen", "adult"], "weight": 12, "minAge": 15, "require": { "notFlags": ["job"] },
+    "text": "Đã đến lúc chọn một nghề.",
+    "choices": [
+      { "label": "Gia nhập hội mạo hiểm giả", "text": "Bạn nhận tấm thẻ đồng hạng F. Nó lạnh và nhẹ hơn bạn tưởng.", "effects": { "STR": 1, "flags": ["adventurer", "job"] }, "moment": "Trở thành mạo hiểm giả" },
+      { "label": "Học nghề thợ rèn", "text": "Ông thợ rèn nhận bạn làm học việc. Lò rèn nóng như mùa hè không bao giờ hết.", "effects": { "STR": 1, "wealth": 5, "flags": ["smith", "job"] }, "moment": "Học nghề rèn" },
+      { "label": "Làm thư ký tòa thị chính", "require": { "INT": 6 }, "text": "Bạn được giao một cái bàn và một chồng giấy cao hơn đầu.", "effects": { "INT": 1, "wealth": 10, "flags": ["clerk", "job"] }, "moment": "Làm thư ký" }
+    ] },
+  { "id": "h_goblin_quest", "races": ["human"], "stages": ["adult", "middle"], "once": false, "weight": 4, "require": { "flags": ["adventurer"] },
+    "text": "Bạn nhận nhiệm vụ diệt goblin. Bạn trở về với ít tiền thưởng và nhiều vết cào.", "effects": { "wealth": 8, "health": -6 } },
+  { "id": "h_dragon_raid", "races": ["human"], "stages": ["adult"], "weight": 6, "require": { "flags": ["adventurer"] },
+    "text": "Hội mạo hiểm giả dán thông báo: một con rồng vừa xuất hiện ở dãy núi phía bắc.",
+    "choices": [
+      { "label": "Tham gia đội thảo phạt", "check": { "stat": "STR", "target": 10 },
+        "success": { "text": "Bạn là một trong ba người trở về. Người ta bắt đầu hát về bạn.", "effects": { "wealth": 50, "joy": 10, "flags": ["hero"] }, "moment": "Sống sót sau trận thảo phạt rồng" },
+        "fail": { "text": "Ngọn lửa đến trước khi bạn kịp rút kiếm.", "death": "Bạn tử trận trong cuộc thảo phạt rồng, ở tuổi {age}." } },
+      { "label": "Ở lại", "text": "Bạn ở lại. Ba tuần sau, không ai trong đội trở về.", "effects": { "joy": -5 } }
+    ] },
+  { "id": "h_first_sword", "races": ["human"], "stages": ["adult"], "weight": 8, "require": { "flags": ["smith"] },
+    "text": "Bạn rèn xong thanh kiếm đầu tiên mà không cần ai sửa lại.", "effects": { "wealth": 10, "joy": 5 }, "moment": "Rèn thanh kiếm đầu tiên" },
+  { "id": "h_clerk_tax", "races": ["human"], "stages": ["adult", "middle"], "weight": 8, "require": { "flags": ["clerk"] },
+    "text": "Bạn phát hiện một khoản thuế bị ghi sai. Bạn sửa lại, và không ai cảm ơn bạn.", "effects": { "INT": 1 } },
+  { "id": "h_teleport", "races": ["human"], "stages": ["adult"], "weight": 8, "require": { "flags": ["mage"] },
+    "text": "Bạn thi triển được phép dịch chuyển. Bạn lệch mục tiêu ba dặm.", "effects": { "INT": 1, "joy": 5 } },
+  { "id": "h_tax_hike", "races": ["human"], "stages": ["adult", "middle"], "once": false, "weight": 2,
+    "text": "Lãnh chúa lại tăng thuế. Năm nay bữa ăn mỏng hơn.", "effects": { "wealth": -6 } },
+  { "id": "h_arranged", "races": ["human"], "stages": ["teen"], "weight": 12, "require": { "flags": ["noble"] },
+    "text": "Gia đình sắp đặt cho bạn một cuộc hôn nhân chính trị với nhà bên kia sông.",
+    "choices": [
+      { "label": "Chấp nhận", "text": "Đám cưới kéo dài ba ngày. Bạn chỉ nhớ mình rất mệt.", "effects": { "wealth": 30, "joy": -5, "flags": ["partner", "married"] }, "moment": "Hôn nhân chính trị" },
+      { "label": "Bỏ trốn", "check": { "stat": "AGI", "target": 6 },
+        "success": { "text": "Bạn trèo qua tường thành lúc nửa đêm và không bao giờ quay lại.", "effects": { "wealth": -40, "joy": 15, "unflags": ["noble"] }, "moment": "Bỏ trốn khỏi lâu đài" },
+        "fail": { "text": "Bạn bị lính gác đưa về trước khi kịp ra khỏi cổng.", "effects": { "joy": -15 } } }
+    ] },
+  { "id": "h_retire", "races": ["human"], "stages": ["elder"], "weight": 6, "require": { "flags": ["job"] },
+    "text": "Bạn treo dụng cụ lên tường lần cuối.", "effects": { "joy": 5 }, "moment": "Nghỉ hưu" },
+  { "id": "h_hero_statue", "races": ["human"], "stages": ["middle", "elder"], "weight": 10, "require": { "flags": ["hero"] },
+    "text": "Thị trấn dựng tượng bạn ở quảng trường. Bức tượng đẹp hơn bạn nhiều.", "effects": { "joy": 10 } }
+]

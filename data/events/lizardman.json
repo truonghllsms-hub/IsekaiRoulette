@@ -1,0 +1,37 @@
+[
+  { "id": "lz_hatch_swim", "races": ["lizardman"], "stages": ["infant"], "weight": 10,
+    "text": "Bạn lặn xuống làn nước đen ngay khi vừa thoát khỏi vỏ trứng. Phía trên, bóng một con chim quỷ lượn vòng rồi bỏ đi trong thất vọng.", "effects": { "AGI": 1 } },
+  { "id": "lz_dart", "races": ["lizardman"], "stages": ["child"], "weight": 9,
+    "text": "Bạn học cách tẩm nọc ếch độc lên những chiếc phi tiêu xương. Con cá sấu đầu tiên bạn hạ gục to gấp mười lần bạn.", "effects": { "AGI": 1, "STR": 1 }, "moment": "Hạ gục con cá sấu đầu tiên" },
+  { "id": "lz_ms_ship", "races": ["lizardman"], "stages": ["teen", "adult"], "weight": 10,
+    "text": "Một đoàn thuyền buôn của loài người lững lờ trôi qua Sông Bùn Nhão, chở đầy vũ khí sắt sáng loáng.",
+    "choices": [
+      { "label": "Đục lật thuyền", "check": { "stat": "AGI", "target": 6 },
+        "success": { "text": "Bạn lặn dưới đáy sông và đục thủng từng thân thuyền. Hàng hóa chìm xuống lòng đầm, nơi chỉ tộc bạn có thể nhặt lên.", "effects": { "wealth": 20 }, "moment": "Đánh chìm thuyền buôn loài người" },
+        "fail": { "text": "Một mũi lao từ trên thuyền phóng xuống, xuyên qua vai bạn.", "effects": { "health": -25 } } },
+      { "label": "Giăng bẫy độc", "text": "Làn sương độc phủ kín đoàn thuyền. Không ai sống sót, và nước sông đổi màu suốt nhiều ngày.", "effects": { "wealth": 30, "joy": -10, "flags": ["butcher"] } },
+      { "label": "Đàm phán đổi hàng", "check": { "stat": "INT", "target": 6 },
+        "success": { "text": "Bạn trồi lên mặt nước, giơ cao bình nọc độc quý. Thương nhân run rẩy đổi cho bạn cả một bó giáo sắt.", "effects": { "wealth": 10, "STR": 1, "flags": ["trader"] }, "moment": "Giao thương với loài người" },
+        "fail": { "text": "Chúng đáp lại lời chào của bạn bằng một loạt tên bắn.", "effects": { "health": -20 } } }
+    ] },
+  { "id": "lz_ms_sacrifice", "races": ["lizardman"], "stages": ["adult", "middle"], "weight": 8,
+    "text": "Đêm trăng máu, trống da cá sấu vang rền quanh Tế Đàn Xương Cốt. Nghi lễ hiến tế Tà thần Rắn hằng năm đã bắt đầu.",
+    "choices": [
+      { "label": "Bắt tù binh tế thần", "check": { "stat": "STR", "target": 6 },
+        "success": { "text": "Bạn kéo về một gã lính loài người. Khi máu hắn đổ xuống tế đàn, bạn cảm thấy ánh mắt của Tà thần dừng lại nơi mình.", "effects": { "LUCK": 2, "flags": ["snake_blessed"] }, "moment": "Nhận phước lành của Tà thần Rắn" },
+        "fail": { "text": "Gã lính chống trả quyết liệt hơn bạn tưởng.", "effects": { "health": -25 } } },
+      { "label": "Hiến máu của mình", "text": "Bạn rạch cổ tay, để máu mình chảy xuống tế đàn. Bộ lạc cúi đầu trước sự hy sinh ấy.", "effects": { "health": -15, "joy": 5, "INT": 1 } },
+      { "label": "Từ chối", "text": "Bạn quay lưng lại với tế đàn. Sáng hôm sau, bộ lạc trục xuất bạn khỏi đầm lầy.", "effects": { "joy": -15, "flags": ["exiled"] }, "moment": "Bị trục xuất khỏi bộ lạc" }
+    ] },
+  { "id": "lz_ms_territory", "races": ["lizardman"], "stages": ["adult"], "weight": 8,
+    "text": "Một bộ lạc Orc từ Thảo Nguyên Gió Hú tràn xuống, đòi chiếm bãi săn của tộc bạn.",
+    "choices": [
+      { "label": "Dìm chúng xuống đầm", "check": { "stat": "STR", "target": 6 },
+        "success": { "text": "Bạn kéo từng tên Orc xuống bùn sâu. Đầm lầy là đồng minh trung thành nhất của bạn.", "effects": { "joy": 10, "STR": 1 }, "moment": "Đánh bại bộ lạc Orc" },
+        "fail": { "text": "Một gã Orc túm đuôi bạn quật vào gốc cây. Bạn phải tự cắt đuôi để thoát.", "effects": { "health": -30 } } },
+      { "label": "Tẩm độc nguồn nước", "text": "Cả bộ lạc Orc nôn ra máu và rút lui. Đầm lầy im lặng suốt nhiều tháng.", "effects": { "wealth": 10, "joy": -5, "flags": ["butcher"] } },
+      { "label": "Nhường bãi săn", "text": "Bạn dẫn bộ lạc lùi sâu vào đầm lầy. Mùa đông năm ấy, nhiều đứa trẻ không qua khỏi.", "effects": { "wealth": -15, "joy": -10 } }
+    ] },
+  { "id": "lz_elder_stone", "races": ["lizardman"], "stages": ["elder"], "weight": 8,
+    "text": "Lớp vảy của bạn đã hóa sừng, cứng như đá tảng. Đôi mắt mù lòa, nhưng bạn cảm nhận được từng gợn sóng trên mặt đầm.", "effects": { "INT": 1, "joy": 3 } }
+]

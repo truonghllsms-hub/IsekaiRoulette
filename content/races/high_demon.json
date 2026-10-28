@@ -1,0 +1,211 @@
+{
+  "id": "high_demon",
+  "name": "Ma Tộc Thượng Đẳng (High Demon)",
+  "lifespan": 10000,
+  "spawn_rate_percentage": 0.2,
+  "context": "Kỷ Nguyên Khai Hoang Hầm Ngục – Kẻ thống trị Ma giới, mang sức mạnh tà ác tột bậc và trí tuệ thâm sâu. Kẻ thù vĩnh cửu của các vì sao và thần linh, luôn nuôi mộng nhấn chìm thế giới vào bóng tối.",
+  "desc": "Dòng dõi quý tộc bậc nhất của Ma giới, sở hữu vẻ ngoài toát lên sự áp đảo. Chúng có thể mang hình dáng một ác quỷ khổng lồ đáng sợ, hoặc một nam/nữ nhân tuyệt mỹ với cặp sừng oai vệ. Lời nói của chúng là luật lệ, cái nhìn của chúng mang theo sự tuyệt vọng.",
+  "society": "Cai trị Ma giới bằng chế độ độc tài tuyệt đối dựa trên sự tàn bạo và mưu mô. Điều khiển hàng trăm vạn ác quỷ thấp kém (Imp, Demon, Hellhound) chỉ bằng một ý niệm. Mối bận tâm duy nhất của High Demon là các ván cờ chính trị với Thần linh hoặc việc mở các cánh cổng không gian để xâm lược mặt đất.",
+  "stages": [
+    {
+      "id": "infant",
+      "name": "Hạt giống tai ương",
+      "start": 0,
+      "themes": [
+        "Sát hại anh chị em để củng cố quyền kế vị",
+        "Học cách thao túng hắc ám ma pháp",
+        "Tra tấn linh hồn người chết làm thú vui",
+        "Thiết lập khế ước máu với quái vật hầm ngục"
+      ]
+    },
+    {
+      "id": "child",
+      "name": "Ma tướng trẻ tuổi",
+      "start": 500,
+      "themes": [
+        "Lãnh đạo các sư đoàn quỷ",
+        "Đồ sát và thâu tóm các tầng hầm ngục",
+        "Chơi trò thao túng chính trị giữa các vương quốc loài người",
+        "Tạo ra giáo phái Hắc Nguyệt"
+      ]
+    },
+    {
+      "id": "teen",
+      "name": "Kẻ chinh phạt",
+      "start": 2000,
+      "themes": [
+        "Chỉ huy hàng vạn quái vật phá vỡ kết giới tiến lên mặt đất",
+        "Tàn sát các thành phố Thánh quang",
+        "Bắt cóc và tha hóa Thánh Nữ",
+        "Tạo ra các trận mưa sao băng lửa"
+      ]
+    },
+    {
+      "id": "adult",
+      "name": "Bạo chúa Vực thẳm",
+      "start": 5000,
+      "themes": [
+        "Xưng vương tại Ma giới",
+        "Tàn sát bất cứ bộ tộc quỷ nào dám kháng lệnh",
+        "Đập nát phong ấn ngàn năm",
+        "Trực tiếp giao chiến với các Dũng giả Huyền thoại"
+      ]
+    },
+    {
+      "id": "middle",
+      "name": "Ma Vương",
+      "start": 7000,
+      "themes": [
+        "Ngồi trên ngai vàng xương trắng, cơ thể liên kết trực tiếp với lõi của Vực thẳm",
+        "Chỉ cần thở cũng làm cây cối trên lục địa khô héo",
+        "Mọi kẻ thù đều phải quỳ rạp"
+      ]
+    },
+    {
+      "id": "elder",
+      "name": "Thực thể tà ác",
+      "start": 9000,
+      "themes": [
+        "Lột bỏ xác phàm, linh hồn thăng hoa thành một thực thể thuần tà ác",
+        "Trở thành nỗi sợ vô hình trong tâm trí của mọi sinh vật sống"
+      ]
+    }
+  ],
+  "origins": [
+    {
+      "id": "origin_royal",
+      "name": "Ngai vàng rỉ máu",
+      "weight": 70,
+      "text": "Kế thừa vương quyền từ thuở lọt lòng, bạn ra đời trong cung điện tăm tối nhất Ma giới. Lõi ma lực nguyên thủy trong người bạn đủ sức san phẳng một ngọn núi. Mọi sinh linh thấp kém xung quanh tự động run rẩy quỳ rạp.",
+      "effects": {
+        "STR": 3,
+        "INT": 3,
+        "AGI": 3,
+        "wealth": 10,
+        "flags": [
+          "royal_demon"
+        ]
+      }
+    },
+    {
+      "id": "origin_void",
+      "name": "Vực Thẳm Hư Vô",
+      "weight": 30,
+      "text": "Bạn không có cha mẹ. Bạn được sinh ra từ sự tích tụ oán khí và hàng vạn linh hồn bị nguyền rủa tại tận cùng địa ngục. Không có ai che chở, bạn phải tự mình chứng minh sức mạnh diệt vong.",
+      "effects": {
+        "INT": 4,
+        "LUCK": 2,
+        "flags": [
+          "void_born"
+        ]
+      }
+    },
+    {
+      "id": "hd_origin_blood_moon",
+      "name": "Trăng Máu Vực Thẳm",
+      "weight": 20,
+      "text": "Dưới ánh trăng đỏ rực của Vực Thẳm Phân Tầng, bạn hóa hình từ hàng vạn linh hồn oán hận. Quyền năng tột đỉnh chảy trong huyết quản, báo hiệu một kỷ nguyên hỗn mang mới sắp bắt đầu trên lục địa Aethelgard.",
+      "effects": {
+        "INT": 2,
+        "STR": 1,
+        "joy": -10,
+        "flags": [
+          "void_born",
+          "royal_demon"
+        ]
+      }
+    }
+  ],
+  "signature": [
+    "Quyền năng tuyệt đối: Có thể sử dụng mọi phép thuật Hắc ám ở cấp độ Hủy diệt mà không cần niệm chú.",
+    "Áp đảo linh hồn: Khi xuất hiện, toàn bộ quái vật cấp thấp (như Goblin, Imp, Orc) tự động quỳ gối xin thề trung thành, con người cấp thấp thì chết đứng vì sợ hãi.",
+    "Bóp méo không gian: Có khả năng dịch chuyển tức thời, tạo ra các vết rách không gian để hút kẻ thù vào hư không.",
+    "Cám dỗ diện rộng: Đọc thấu dục vọng của cả vạn quân địch, khiến chúng tự quay ra tàn sát lẫn nhau chỉ bằng một lời thì thầm."
+  ],
+  "milestones": [
+    {
+      "id": "ms_holy_war",
+      "name": "Đỉnh điểm của tham vọng (Quyết định phát động Thánh Chiến)",
+      "choices": [
+        "Xé rách không gian, tự mình dẫn quân đoàn tàn sát nhân loại (Con đường Ma Vương Hủy diệt)",
+        "Đứng sau giật dây, dùng dịch bệnh và tha hóa vua chúa để loài người tự diệt (Con đường Thao túng tâm lý)",
+        "Ở lại Vực thẳm ngủ vùi chờ đợi thời cơ"
+      ]
+    },
+    {
+      "id": "ms_hero_sword",
+      "name": "Dũng giả mang Thánh Kiếm giáng thế",
+      "choices": [
+        "Cử hàng loạt Tướng quỷ đi tiêu hao thể lực hắn trước (Chiến thuật)",
+        "Hóa thân thành một mỹ nhân/hiền triết dụ dỗ Dũng giả sa ngã (Cần Trí tuệ tột bậc)",
+        "Ngồi trên ngai vàng kiêu ngạo chờ hắn đến quyết đấu (Tử chiến sòng phẳng)"
+      ]
+    },
+    {
+      "id": "ms_betrayal",
+      "name": "Sự phản bội của Ma tướng thân tín",
+      "choices": [
+        "Tàn nhẫn moi tim kẻ phản đồ và treo xác hắn thị uy (Tàn bạo)",
+        "Tương kế tựu kế lừa hắn vào bẫy dung nham (Mưu mô)",
+        "Bị ám sát bất thành nhưng mất đi nửa ma lực (Suy yếu)"
+      ]
+    }
+  ],
+  "deaths": [
+    {
+      "id": "death_holy_sword",
+      "kind": "violent",
+      "text": "Ở tuổi {age}, ánh sáng Thánh Kiếm của Dũng giả đã đâm xuyên qua ngực bạn. Ngai vàng sụp đổ, đế chế hắc ám tan vỡ, bạn chết đi để nhường chỗ cho hòa bình."
+    },
+    {
+      "id": "death_sealed",
+      "kind": "violent",
+      "text": "Năm {age} tuổi, thay vì giết bạn, Thần linh và Pháp sư đã hy sinh hàng ngàn mạng sống để phong ấn bạn vào lõi tinh cầu. Bạn tồn tại vĩnh viễn trong không gian tối tăm không có khái niệm thời gian."
+    },
+    {
+      "id": "death_betrayed",
+      "kind": "violent",
+      "text": "Tuổi {age}, trong lúc bạn đang suy yếu sau trận chiến với Thánh Quang, ba tên Ma Tướng thân tín nhất đã hợp sức xé xác bạn để chia nhau ngôi vị Ma Vương."
+    },
+    {
+      "id": "death_world_end",
+      "kind": "old",
+      "text": "Sống qua hàng ngàn năm đến tuổi {age}, ma lực của thế giới cạn kiệt, Vực thẳm sụp đổ. Không còn sức mạnh chống đỡ, cơ thể kiêu hãnh của bạn tự phân rã thành bụi không gian."
+    },
+    {
+      "id": "hd_death_light",
+      "kind": "violent",
+      "text": "Cột sáng thiêng liêng từ Tháp Ma Pháp Bạch Ngà đâm xuyên qua lõi ác quỷ của bạn, thiêu rụi triều đại hắc ám ở tuổi {age}."
+    }
+  ],
+  "names": {
+    "male": [
+      "Lucifer",
+      "Baal",
+      "Mephisto",
+      "Azmodeus",
+      "Astaroth",
+      "Belial",
+      "Malphas",
+      "Vassago",
+      "Zagan"
+    ],
+    "female": [
+      "Lilith",
+      "Morrigan",
+      "Hel",
+      "Ereshkigal",
+      "Lamia"
+    ],
+    "family": [
+      "Chúa Tể Vực Thẳm",
+      "Kẻ Cám Dỗ",
+      "Kẻ Hủy Diệt Các Vì Sao",
+      "Ánh Sáng Lụi Tàn"
+    ]
+  },
+  "flags": [
+    "royal_demon",
+    "void_born"
+  ]
+}

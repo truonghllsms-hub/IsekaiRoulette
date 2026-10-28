@@ -1,0 +1,230 @@
+{
+  "id": "lizardman",
+  "name": "Thằn Lằn Nhân (Lizardman)",
+  "lifespan": 50,
+  "spawn_rate_percentage": 3,
+  "context": "Kỷ Nguyên Khai Hoang Hầm Ngục – Sát thủ thầm lặng của các vùng đầm lầy ngầm hoặc rừng rậm nhiệt đới ẩm, những bậc thầy chế tạo và sử dụng kịch độc.",
+  "desc": "Sinh vật nửa người nửa thằn lằn, khoác lớp vảy cứng cáp như áo giáp. Chúng có khả năng bơi lội siêu phàm, di chuyển không phát ra tiếng động dưới nước. Lizardman tàn nhẫn, bài ngoại, có tính phòng thủ lãnh thổ cực cao và miễn nhiễm với hầu hết các loại độc dược tự nhiên.",
+  "society": "Sống bầy đàn thành các bộ lạc khép kín sâu trong đầm lầy. Xã hội được dẫn dắt bởi một Tư tế (Shaman) hoặc Chiến binh mạnh nhất. Lizardman tôn thờ Tà thần Rắn hoặc Rồng Đầm Lầy, thường xuyên tổ chức các nghi lễ bắt Mạo hiểm giả hoặc tộc người khác về để hiến tế máu.",
+  "stages": [
+    {
+      "id": "infant",
+      "name": "Nòng nọc vảy sừng",
+      "start": 0,
+      "themes": [
+        "Nở ra từ trứng dưới bùn",
+        "Bơi lội lẩn trốn thiên địch",
+        "Cắn xé anh em cùng lứa để giành thức ăn",
+        "Phát triển phổi kép"
+      ]
+    },
+    {
+      "id": "child",
+      "name": "Thợ săn đầm lầy",
+      "start": 5,
+      "themes": [
+        "Học lặn tĩnh lặng",
+        "Chế tạo phi tiêu độc từ ếch nhái",
+        "Săn cá sấu khổng lồ",
+        "Ngụy trang tiệp màu bùn",
+        "Tham gia nghi lễ tắm máu"
+      ]
+    },
+    {
+      "id": "teen",
+      "name": "Chiến binh gai độc",
+      "start": 12,
+      "themes": [
+        "Phục kích các tàu buôn đi ngang",
+        "Bắt tù binh loài người",
+        "Lột da kẻ thù làm chiến lợi phẩm",
+        "Bảo vệ bãi đẻ trứng"
+      ]
+    },
+    {
+      "id": "adult",
+      "name": "Thủ lĩnh bộ lạc",
+      "start": 20,
+      "themes": [
+        "Dẫn dắt các cuộc đi săn lớn",
+        "Đánh đuổi Thú nhân hoặc Slime",
+        "Giao thương ngầm đổi độc dược lấy vũ khí sắt"
+      ]
+    },
+    {
+      "id": "middle",
+      "name": "Tư tế Tà thần",
+      "start": 35,
+      "themes": [
+        "Nhận được khải tượng từ Tà thần",
+        "Chủ trì các buổi hiến tế man rợ",
+        "Chế tạo kịch độc từ chính máu của mình",
+        "Lột xác lần cuối"
+      ]
+    },
+    {
+      "id": "elder",
+      "name": "Cổ thằn lằn",
+      "start": 45,
+      "themes": [
+        "Lớp vảy hóa sừng nham nhở cứng như đá",
+        "Đôi mắt mù lòa nhưng cảm nhận rung động nhạy bén",
+        "Chờ đợi cái chết hoặc tự hiến tế bản thân"
+      ]
+    }
+  ],
+  "origins": [
+    {
+      "id": "origin_swamp",
+      "name": "Bãi đẻ trứng ngập nước",
+      "weight": 60,
+      "text": "Bạn tự đập vỡ vỏ trứng trong một vũng bùn lầy lội. Bản năng sinh tồn buộc bạn phải lặn ngay xuống nước trước khi bị lũ chim quỷ tha đi.",
+      "effects": {
+        "AGI": 1,
+        "STR": 1,
+        "flags": [
+          "swamp_born"
+        ]
+      }
+    },
+    {
+      "id": "origin_slave",
+      "name": "Nô lệ trốn chạy",
+      "weight": 20,
+      "text": "Mẹ bạn là một nô lệ bị bắt. Bạn sinh ra trong xiềng xích nhưng đã trốn thoát thành công vào đầm lầy thiêng nước độc.",
+      "effects": {
+        "AGI": 2,
+        "LUCK": -1,
+        "flags": [
+          "escaped_slave"
+        ]
+      }
+    },
+    {
+      "id": "origin_poison",
+      "name": "Hồ nước độc",
+      "weight": 15,
+      "text": "Quả trứng của bạn bị rơi xuống vùng nước nhiễm nọc độc của Boss hầm ngục. Bạn nở ra với lớp vảy tím rực rỡ và máu mang độc tính cao.",
+      "effects": {
+        "STR": -1,
+        "INT": 1,
+        "flags": [
+          "poison_blood"
+        ]
+      }
+    },
+    {
+      "id": "origin_blessed",
+      "name": "Tế đàn Rắn",
+      "weight": 5,
+      "text": "Quả trứng của bạn được ấp bằng máu hiến tế ngay trên Tế đàn. Bạn sinh ra mang theo phước lành của Tà thần.",
+      "effects": {
+        "INT": 2,
+        "LUCK": 1,
+        "flags": [
+          "snake_blessed"
+        ]
+      }
+    },
+    {
+      "id": "hatchery_of_culling",
+      "name": "Hố Bùn Huyết Lục",
+      "weight": 20,
+      "text": "Bạn vỡ vỏ trong hố bùn sâu thẳm, nơi hàng ngàn con non phải cắn xé nhau để giành quyền sống sót. Bánh xe định mệnh nhuốm máu ngay từ khoảnh khắc bạn cất tiếng rít đầu tiên, định hình một linh hồn tàn nhẫn.",
+      "effects": {
+        "STR": 2,
+        "health": -10,
+        "flags": [
+          "swamp_born",
+          "poison_blood"
+        ]
+      }
+    }
+  ],
+  "signature": [
+    "Sát thủ dưới nước: Tàng hình và di chuyển nhanh gấp đôi khi ở dưới nước/bùn lầy.",
+    "Nọc độc mù lòa: Có thể khạc nọc độc thẳng vào mắt kẻ thù, gây mù lòa và ăn mòn giáp trụ.",
+    "Tự đứt đuôi: Thoát khỏi một đòn chí mạng hoặc bẫy sập bằng cách tự cắt đứt đuôi (đuôi sẽ mọc lại sau vài năm).",
+    "Huyết mạch kháng độc: Hoàn toàn miễn nhiễm với các loại độc dược, miasma (khí độc hầm ngục) và dịch bệnh."
+  ],
+  "milestones": [
+    {
+      "id": "ms_merchant_ship",
+      "name": "Đoàn thương nhân loài người đi thuyền qua đầm lầy",
+      "choices": [
+        "Phục kích đục lật thuyền cướp bóc (Cần Khéo léo)",
+        "Giăng bẫy độc tàn sát toàn bộ (Đẫm máu)",
+        "Bơi lên đàm phán đổi ma thú lấy vũ khí sắt (Cần Trí tuệ)"
+      ]
+    },
+    {
+      "id": "ms_sacrifice",
+      "name": "Nghi lễ hiến tế Tà thần hàng năm",
+      "choices": [
+        "Bắt sống tù binh loài người về tế thần (Nhận phước lành)",
+        "Tự nguyện cắt cổ tay hiến một phần máu (Tôn trọng, đau đớn)",
+        "Từ chối tham gia (Bị trục xuất khỏi bộ lạc)"
+      ]
+    },
+    {
+      "id": "ms_territory",
+      "name": "Xung đột tranh địa bàn với tộc Orc/Beastman",
+      "choices": [
+        "Dìm chúng xuống đầm lầy (Lợi dụng địa hình)",
+        "Chơi chiến tranh du kích tẩm độc vào nguồn nước (Tàn ác)",
+        "Chấp nhận đầu hàng nhường bãi săn để giữ mạng"
+      ]
+    }
+  ],
+  "deaths": [
+    {
+      "id": "death_skinned",
+      "kind": "violent",
+      "text": "Năm {age} tuổi, bạn bị một nhóm Mạo hiểm giả bắt được. Chúng lột sống lớp vảy sừng của bạn để đem về thành phố chế tác áo giáp kháng phép."
+    },
+    {
+      "id": "death_freeze",
+      "kind": "health",
+      "text": "Là sinh vật máu lạnh, một đợt bão tuyết ập đến đột ngột khi bạn {age} tuổi khiến bạn chết cóng trước khi kịp tìm hang trú ẩn."
+    },
+    {
+      "id": "death_poison_dragon",
+      "kind": "violent",
+      "text": "Tuổi {age}, bạn cả gan thách thức một con Rồng Đầm Lầy và bị nọc độc cấp cao hơn của nó dung giải nội tạng."
+    },
+    {
+      "id": "death_old",
+      "kind": "old",
+      "text": "Bạn hòa mình vào bùn lầy tĩnh lặng ở tuổi {age}. Lớp vảy của bạn rụng xuống, nuôi dưỡng thế hệ nòng nọc tiếp theo."
+    }
+  ],
+  "names": {
+    "male": [
+      "Sszth",
+      "Visk",
+      "Zassz",
+      "Kresh",
+      "Sslith"
+    ],
+    "female": [
+      "Thraka",
+      "Zinth",
+      "Riss",
+      "Vessk",
+      "Hisst"
+    ],
+    "family": [
+      "Vảy Độc",
+      "Đuôi Gai",
+      "Mắt Rắn",
+      "Lưỡi Chẻ",
+      "Bóng Đầm Lầy"
+    ]
+  },
+  "flags": [
+    "swamp_born",
+    "escaped_slave",
+    "poison_blood",
+    "snake_blessed"
+  ]
+}

@@ -1,0 +1,882 @@
+[
+  {
+    "id": "imp_infant_soul_scraps",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "weight": 5,
+    "require": {
+      "flags": [
+        "hellborn"
+      ]
+    },
+    "text": "Bạn lén lút liếm láp những vụn linh hồn rơi vãi dưới sàn nhà ngập ngụa hắc ám. Hương vị đắng chát của sự sống lụi tàn thắp lên ngọn lửa nhận thức đầu tiên trong tâm trí bạn.",
+    "effects": {
+      "INT": 1,
+      "joy": 5
+    }
+  },
+  {
+    "id": "imp_infant_hellhound_bully",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "weight": 5,
+    "once": false,
+    "text": "Một bầy chó săn địa ngục gầm gừ lao tới, ngoạm lấy đôi cánh dơi non nớt của bạn và quăng quật không thương tiếc. Kẻ yếu tại Ma giới chỉ có thể cắn răng chịu đựng để lớn lên.",
+    "effects": {
+      "health": -10,
+      "joy": -5
+    }
+  },
+  {
+    "id": "imp_infant_cauldron_dip",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "weight": 4,
+    "once": false,
+    "text": "Trượt chân rơi tõm vào vạc dầu đun sôi, làn da đỏ au của bạn không hề cháy rụi mà lại hấp thụ nhiệt lượng hừng hực. Ngọn lửa nguyên thủy đang tôi luyện lớp vỏ bọc yếu ớt này.",
+    "effects": {
+      "STR": 1,
+      "health": -5
+    }
+  },
+  {
+    "id": "imp_infant_dark_gnaw",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 4,
+    "text": "Giữa kỷ nguyên bệnh dịch lan tràn, bạn phải gặm nhấm một khúc xương mục nát nhuốm đầy tử khí để chống lại cơn đói. Bóng tối ăn mòn thể xác, nhưng cũng hun đúc ý chí sinh tồn.",
+    "effects": {
+      "health": -8,
+      "joy": -10,
+      "STR": 1
+    }
+  },
+  {
+    "id": "imp_infant_wand_poke",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "weight": 5,
+    "require": {
+      "flags": [
+        "familiar_pet"
+      ]
+    },
+    "text": "Một tên pháp sư tập sự dùng đũa phép chọc mạnh vào người bạn, phóng ra những tia điện giật tung người. Nỗi đau thể xác nhắc nhở bạn về thân phận nô lệ hèn mọn chốn trần gian.",
+    "effects": {
+      "health": -15,
+      "INT": 1,
+      "joy": -10
+    }
+  },
+  {
+    "id": "imp_infant_cape_grab",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "weight": 8,
+    "text": "Một Thượng Đẳng Ma Tộc lướt qua mang theo uy áp hủy diệt, vạt áo choàng đen tuyền của hắn quệt gần chỗ bạn. Số phận vẫy gọi kẻ liều lĩnh bấu víu lấy quyền lực.",
+    "choices": [
+      {
+        "label": "Nhảy lên bám lấy vạt áo",
+        "check": {
+          "stat": "AGI",
+          "target": 5
+        },
+        "success": {
+          "text": "Bạn bám chặt lấy lớp vải ma thuật, được mang bay vút qua những tầng Vực Thẳm và nhặt được vài tinh thể quý giá. Quyền lực che chở kẻ nhanh nhạy.",
+          "effects": {
+            "wealth": 15,
+            "LUCK": 1
+          },
+          "moment": "Bạn đã dũng cảm đu bám một Thượng Đẳng Ma Tộc."
+        },
+        "fail": {
+          "text": "Bạn trượt tay, ngã nhào xuống dòng dung nham cuộn trào bên dưới trong ánh nhìn dửng dưng của kẻ bề trên.",
+          "death": "Năm {age} tuổi, sinh mệnh nhỏ bé của bạn tan chảy trong dòng dung nham Vực Thẳm vì một cú nhảy tự mãn."
+        }
+      },
+      {
+        "label": "Rụt rè trốn vào đống tro tàn",
+        "text": "Bạn cuộn tròn người lại, tàng hình vào đống tro xám xịt để tránh bị dẫm nát. Sự hèn nhát đôi khi là tấm khiên vững chắc nhất.",
+        "effects": {
+          "joy": -5,
+          "AGI": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "imp_child_hide_weapon",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "child"
+    ],
+    "weight": 5,
+    "once": false,
+    "text": "Bạn tàng hình chớp nhoáng, nẫng mất cây rìu chiến của một gã Ngưu Đầu Nhân và giấu nó dưới đống phân dơi. Tiếng gầm rú điên loạn của hắn là bản giao hưởng tuyệt hảo nhất cho sự ranh ma của bạn.",
+    "effects": {
+      "AGI": 1,
+      "joy": 10
+    }
+  },
+  {
+    "id": "imp_child_flee_crusade",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "child"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 6,
+    "text": "Thánh Vệ Quân tràn xuống Vực Thẳm, bạn bị cuốn theo dòng thác ma vật hoảng loạn dẫm đạp lên nhau chạy trốn. Ánh sáng của Nữ thần Lumina thiêu đốt da thịt, khắc sâu mối thù truyền kiếp.",
+    "effects": {
+      "health": -20,
+      "AGI": 1
+    }
+  },
+  {
+    "id": "imp_child_sulfur_high",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "child"
+    ],
+    "weight": 4,
+    "once": false,
+    "text": "Bạn tìm thấy một kẽ nứt phun khói lưu huỳnh đặc quánh và hít lấy hít để một hơi dài. Ảo giác lâng lâng che mờ đi thực tại tàn khốc, dẫu phổi bạn đang kêu gào trong đau đớn.",
+    "effects": {
+      "joy": 15,
+      "health": -5
+    }
+  },
+  {
+    "id": "imp_child_eavesdrop_curses",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "child"
+    ],
+    "weight": 5,
+    "require": {
+      "flags": [
+        "hellborn"
+      ]
+    },
+    "text": "Nấp trên xà nhà nứt nẻ, bạn lẩm nhẩm học theo những lời nguyền rủa tà ác mà bọn yêu thuật sư giao tiếp. Tri thức cấm kỵ chầm chậm ngấm vào dòng máu rực lửa của bạn.",
+    "effects": {
+      "INT": 1,
+      "LUCK": 1
+    }
+  },
+  {
+    "id": "imp_child_steal_coins",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "child"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "weight": 6,
+    "text": "Lợi dụng lễ hội giao thương, bạn luồn lách qua chân dòng người và nẫng được vài Đồng Cẩm Thạch lấp lánh từ túi một thương nhân loài người. Khởi đầu của một tay đạo chích huyền thoại hay chỉ là trò vặt vãnh?",
+    "effects": {
+      "wealth": 10,
+      "joy": 5,
+      "AGI": 1
+    }
+  },
+  {
+    "id": "imp_teen_clean_tower",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 5,
+    "require": {
+      "flags": [
+        "familiar_pet"
+      ]
+    },
+    "once": false,
+    "text": "Bị ném cho một chiếc giẻ rách, bạn phải nai lưng cọ rửa vô số bậc thang xoắn ốc của Tháp Ma Pháp Bạch Ngà. Dưới khế ước sai vặt, vinh quang ma thuật chỉ là những giọt mồ hôi đắng ngắt.",
+    "effects": {
+      "joy": -15,
+      "STR": 1,
+      "health": -5
+    }
+  },
+  {
+    "id": "imp_teen_war_messenger",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "eras": [
+      "demon_lord"
+    ],
+    "weight": 7,
+    "once": false,
+    "text": "Bay sát mặt đất, bạn vội vã đưa bức thư da người qua chiến trường rực lửa cho Quân Đoàn Hủy Diệt. Mũi tên ánh sáng xé gió lướt qua cánh, tử thần luôn đồng hành trên mỗi nhịp thở.",
+    "effects": {
+      "AGI": 2,
+      "health": -15,
+      "wealth": 10
+    }
+  },
+  {
+    "id": "imp_teen_contract_loophole",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 7,
+    "require": {
+      "notFlags": [
+        "unbound_imp"
+      ]
+    },
+    "text": "Bằng sự tinh quái bẩm sinh, bạn phát hiện một lỗ hổng ngôn ngữ trong khế ước máu trói buộc linh hồn mình. Xiềng xích vô hình kêu răng rắc rồi vỡ vụn, trả lại cho bạn bầu trời tự do đẫm máu.",
+    "effects": {
+      "INT": 2,
+      "flags": [
+        "unbound_imp"
+      ]
+    },
+    "moment": "Tự tay phá vỡ xiềng xích khế ước bằng trí tuệ xảo quyệt."
+  },
+  {
+    "id": "imp_teen_howling_steppe",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 5,
+    "require": {
+      "flags": [
+        "unbound_imp"
+      ]
+    },
+    "text": "Bạn vỗ đôi cánh tự do lượn lờ trên Thảo Nguyên Gió Hú, hít căng lồng ngực mùi vị của bầu trời không bị giới hạn. Khoảnh khắc này, một tiểu quỷ cũng có thể ôm ấp mộng tưởng vĩ đại.",
+    "effects": {
+      "joy": 25,
+      "LUCK": 1
+    }
+  },
+  {
+    "id": "imp_teen_taste_potion",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 6,
+    "once": false,
+    "text": "Nhân lúc không có ai, bạn lè lưỡi nếm thử giọt chất lỏng lấp lánh rỉ ra từ chiếc vạc độc dược. Lục phủ ngũ tạng như bị thiêu đốt, nhưng ma năng trong huyết quản dường như lại cuộn trào mãnh liệt hơn.",
+    "effects": {
+      "health": -20,
+      "INT": 1,
+      "LUCK": 1
+    }
+  },
+  {
+    "id": "imp_teen_starving_trade",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 5,
+    "text": "Lợi dụng nạn đói lan tràn, bạn dùng một mẩu bánh mì thiu để đổi lấy món trang sức gia truyền từ một kẻ hấp hối. Lòng tham vô đáy của loài quỷ nở rộ giữa kỷ nguyên tăm tối.",
+    "effects": {
+      "wealth": 20,
+      "joy": 5
+    }
+  },
+  {
+    "id": "imp_teen_spy_mages",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 6,
+    "require": {
+      "flags": [
+        "familiar_pet"
+      ]
+    },
+    "text": "Kích hoạt khả năng tàng hình chớp nhoáng, bạn đu bám trên trần nhà để nghe lén bí mật của một vị trưởng lão ma pháp. Thông tin chính là thứ vũ khí sắc bén nhất của kẻ yếu.",
+    "effects": {
+      "INT": 1,
+      "flags": [
+        "informant"
+      ]
+    }
+  },
+  {
+    "id": "imp_teen_kicked_knight",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "weight": 5,
+    "once": false,
+    "text": "Đang nhởn nhơ xin ăn tại thủ đô Sanctus, một Hiệp sĩ Thánh Quang chán ghét tung cú đá trời giáng hất văng bạn vào tường gạch. Hòa bình của nhân loại chưa bao giờ dành cho ma vật.",
+    "effects": {
+      "health": -25,
+      "joy": -10
+    }
+  },
+  {
+    "id": "imp_teen_sell_secret",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 6,
+    "require": {
+      "flags": [
+        "informant"
+      ]
+    },
+    "text": "Bạn lén tuồn cuộn giấy da chứa bí mật ma pháp cho một đặc sứ của Hội Bóng Đêm, đổi lấy một túi Tinh Bạc rủng rỉnh. Lệnh truy nã đã được ban hành, nhưng rủi ro đi kèm với giàu sang.",
+    "effects": {
+      "wealth": 30,
+      "flags": [
+        "wanted"
+      ]
+    },
+    "moment": "Bán đứng phe ánh sáng để chuộc lợi, trở thành kẻ bị săn lùng."
+  },
+  {
+    "id": "imp_teen_blood_contract",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 9,
+    "text": "Một thiếu niên loài người tuyệt vọng vẽ trận đồ máu tại Đầm Lầy Tử Khí, quỳ lạy cầu xin bạn ban cho sức mạnh để trả thù. Kẻ yếu đuối đang tự dâng linh hồn mình cho loài quỷ.",
+    "choices": [
+      {
+        "label": "Lập khế ước lừa gạt lấy linh hồn",
+        "check": {
+          "stat": "INT",
+          "target": 7
+        },
+        "success": {
+          "text": "Với những điều khoản rắc rối được cài cắm tinh vi, bạn cắn nuốt trọn vẹn linh hồn hắn mà chẳng tốn giọt ma năng nào. Chào mừng đến với nghệ thuật hắc ám, kẻ lừa gạt.",
+          "effects": {
+            "wealth": 25,
+            "flags": [
+              "soul_thief"
+            ]
+          },
+          "moment": "Lần đầu tiên lừa gạt và cắn nuốt thành công một linh hồn con người."
+        },
+        "fail": {
+          "text": "Khế ước phản phệ! Kiến thức ma pháp hạn hẹp khiến bạn bị trận đồ cuốn lấy, linh hồn tổn thương nặng nề và phải chật vật mới thoát ra được.",
+          "effects": {
+            "health": -30,
+            "joy": -15
+          }
+        }
+      },
+      {
+        "label": "Cười nhạo và vỗ cánh bỏ đi",
+        "text": "Một linh hồn rẻ rách chẳng bõ bèn gì với rủi ro dính líu đến thù hận nhân loại. Bạn nhổ nước bọt vào trận đồ rồi bay đi.",
+        "effects": {
+          "AGI": 1,
+          "joy": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "imp_adult_stolen_plans",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "eras": [
+      "demon_lord"
+    ],
+    "weight": 7,
+    "require": {
+      "flags": [
+        "informant"
+      ],
+      "AGI": 5
+    },
+    "text": "Nhờ tài tàng hình và sự lanh lẹ, bạn đột nhập vào doanh trại Thánh Vệ Quân và đánh cắp thành công bản đồ hành quân tuyến đầu. Bóng tối của Ma Vương ngày càng bành trướng nhờ những đôi cánh dơi bé nhỏ như bạn.",
+    "effects": {
+      "wealth": 20,
+      "joy": 10,
+      "flags": [
+        "chaos_bringer"
+      ]
+    }
+  },
+  {
+    "id": "imp_adult_scam_souls",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 6,
+    "require": {
+      "flags": [
+        "soul_thief"
+      ]
+    },
+    "once": false,
+    "text": "Bạn lảng vảng quanh các khu ổ chuột, dùng những lời hứa hẹn hão huyền để gạt gẫm linh hồn của những kẻ cùng cực. Mùi vị của sự dối trá ngon ngọt hơn bất kỳ thứ sơn hào hải vị nào trên trần thế.",
+    "effects": {
+      "INT": 1,
+      "wealth": 15,
+      "joy": 5
+    }
+  },
+  {
+    "id": "imp_adult_betrayal",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 7,
+    "require": {
+      "flags": [
+        "familiar_pet"
+      ]
+    },
+    "text": "Bạn âm thầm đánh tráo nguyên liệu trong vạc thuốc của tên pháp sư loài người, khiến một vụ nổ ma thuật xé toạc ngọn tháp. Dẫm lên cái xác cháy đen của kẻ từng làm chủ mình, bạn khẽ mỉm cười đón lấy tự do.",
+    "effects": {
+      "INT": 1,
+      "joy": 20,
+      "unflags": [
+        "familiar_pet"
+      ],
+      "flags": [
+        "unbound_imp",
+        "wanted"
+      ]
+    }
+  },
+  {
+    "id": "imp_adult_black_market",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "weight": 5,
+    "once": false,
+    "text": "Lợi dụng thời bình, bạn luồn lách vào Vực Thẳm Phân Tầng, trở thành một tay môi giới chợ đen sừng sỏ bán máu rồng và vảy tiên cá. Trí tuệ ranh ma giúp bạn nhét đầy túi những Lõi Mana quý giá.",
+    "effects": {
+      "wealth": 25,
+      "INT": 1
+    }
+  },
+  {
+    "id": "imp_adult_escape_plan",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 5,
+    "require": {
+      "flags": [
+        "unbound_imp"
+      ]
+    },
+    "text": "Giấu mình dưới một hầm ngục bỏ hoang, bạn vẽ những trận đồ triệu hồi ngược, ấp ủ âm mưu mở cổng không gian trốn về Ma giới. Tiếng gọi của quê hương rực lửa vẫn luôn văng vẳng trong huyết quản.",
+    "effects": {
+      "INT": 2,
+      "joy": 5
+    }
+  },
+  {
+    "id": "imp_adult_courtship",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 4,
+    "text": "Bạn bay lượn vòng quanh, múa điệu vờn cánh đầy hoang dại để thu hút sự chú ý của một Tiểu quỷ có cặp sừng cong quyến rũ. Ngay cả những tạo vật bị ruồng bỏ nhất cũng có quyền khao khát hơi ấm đồng loại.",
+    "effects": {
+      "joy": 15,
+      "health": 5
+    }
+  },
+  {
+    "id": "imp_adult_fire_upgrade",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 6,
+    "once": false,
+    "text": "Cố gắng hội tụ ma năng từ Đảo Tro Tàn, bạn nâng cấp được ngọn lửa vặt vãnh của mình thành một quả cầu hỏa ngục có khả năng thiêu rụi thép nguội. Kẻ thù giờ đây sẽ phải dè chừng cơn phẫn nộ của loài quỷ đỏ.",
+    "effects": {
+      "STR": 2,
+      "health": -5
+    }
+  },
+  {
+    "id": "imp_adult_inquisitor_trap",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 8,
+    "require": {
+      "flags": [
+        "wanted"
+      ]
+    },
+    "text": "Lệnh truy nã đã dẫn một toán Giáo trưởng Thánh Quang đến tận sào huyệt của bạn. Những mũi giáo ánh sáng bủa vây mọi ngóc ngách, chặn đứng đường lùi của một sinh linh tà ác.",
+    "choices": [
+      {
+        "label": "Tàng hình và luồn lách qua khe hở lưỡi giáo",
+        "check": {
+          "stat": "AGI",
+          "target": 8
+        },
+        "success": {
+          "text": "Thân hình nhỏ bé và sự nhanh nhẹn tuyệt đỉnh giúp bạn hóa thành một làn khói xám, lọt qua vòng vây chết chóc trong gang tấc. Bạn để lại phía sau những tiếng chửi rủa bất lực của đám người mộ đạo.",
+          "effects": {
+            "AGI": 2,
+            "joy": 10
+          },
+          "moment": "Tẩu thoát ngoạn mục khỏi vòng vây của Giáo hội Thánh Quang."
+        },
+        "fail": {
+          "text": "Ánh sáng thần thánh vô hiệu hóa phép tàng hình, một mũi thương xuyên thấu qua cánh dơi ghim chặt bạn xuống nền đất lạnh lẽo.",
+          "death": "Năm {age} tuổi, bạn bị Giáo hội thiêu sống trên giàn hỏa thiêu vì tội trạng chống lại ánh sáng Nữ thần."
+        }
+      },
+      {
+        "label": "Đầu hàng và xin ký khế ước làm bầy tớ",
+        "text": "Bạn cụp đôi cánh dơi, vứt bỏ mọi sự kiêu hãnh để quỳ rạp xuống liếm giày gã Giáo trưởng. Đổi lấy mạng sống, bạn phải đeo chiếc vòng cổ giam cầm ma năng và chịu kiếp nô lệ một lần nữa.",
+        "effects": {
+          "joy": -30,
+          "health": -10,
+          "flags": [
+            "familiar_pet"
+          ],
+          "unflags": [
+            "unbound_imp"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "imp_middle_corrupt_knight",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 6,
+    "require": {
+      "INT": 6,
+      "flags": [
+        "soul_thief"
+      ]
+    },
+    "text": "Bằng những lời thì thầm ma quỷ mỗi đêm, bạn đã gieo rắc sự hoài nghi vào tâm trí một Hiệp sĩ Thánh Quang, biến hắn thành một bạo chúa tàn độc. Nghệ thuật thao túng tâm lý chính là quyền lực tối cao của kẻ không có sức mạnh cơ bắp.",
+    "effects": {
+      "INT": 2,
+      "joy": 15,
+      "flags": [
+        "tyrant_maker"
+      ]
+    }
+  },
+  {
+    "id": "imp_middle_hoard_gold",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 5,
+    "once": false,
+    "text": "Đêm qua đêm, bạn say sưa đếm lại số Đồng Cẩm Thạch và Tinh Bạc giấu kĩ dưới gầm chiếc giường ẩm mốc. Niềm vui nhỏ nhoi của một lão quỷ là nhìn tài sản lớn dần, mặc kệ thế giới đang sụp đổ ngoài kia.",
+    "effects": {
+      "wealth": 10,
+      "joy": 5
+    }
+  },
+  {
+    "id": "imp_middle_goblin_disciple",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 6,
+    "text": "Bạn thu nhận một gã Goblin hôi hám làm đệ tử sai vặt, tận hưởng cảm giác được làm kẻ bề trên sau nửa đời người bị sai bảo. Hắn lén lút cống nạp cho bạn những món đồ ăn trộm rẻ tiền nhưng đầy thành ý.",
+    "effects": {
+      "joy": 10,
+      "LUCK": 1
+    }
+  },
+  {
+    "id": "imp_middle_scavenger",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 5,
+    "once": false,
+    "text": "Bay lượn tầm thấp trên chiến trường rực lửa ngập xác chết, bạn nhanh tay thu thập vũ khí, giáp trụ gãy nát của cả hai phe để bán đồng nát. Chiến tranh là địa ngục với trần thế, nhưng lại là mỏ vàng của ma tộc lanh lợi.",
+    "effects": {
+      "wealth": 20,
+      "health": -5
+    }
+  },
+  {
+    "id": "imp_middle_plague_doctor",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 6,
+    "text": "Bạn khoác lên mình chiếc áo choàng đen và mặt nạ quạ, mạo danh một thầy thuốc dịch bệnh đi lại nghênh ngang giữa phố thị loài người. Vừa bòn rút tiền của bệnh nhân, bạn vừa tận hưởng cảnh tượng sinh mệnh lụi tàn.",
+    "effects": {
+      "INT": 1,
+      "wealth": 25,
+      "joy": 10
+    }
+  },
+  {
+    "id": "imp_middle_stiff_wings",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 4,
+    "text": "Cơn gió buốt lạnh từ Thảo Nguyên Gió Hú khiến khớp xương cánh của bạn nhức mỏi, những chiếc lông tơ ma thuật rụng tơi tả. Dấu hiệu tuổi tác bắt đầu đuổi kịp vòng đời ngắn ngủi của giống loài Tiểu quỷ.",
+    "effects": {
+      "AGI": -2,
+      "health": -10
+    }
+  },
+  {
+    "id": "imp_middle_dark_moon_cult",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 5,
+    "require": {
+      "flags": [
+        "chaos_bringer"
+      ]
+    },
+    "text": "Bạn được mời dự buổi hiến tế bí mật của Hắc Nguyệt Hội, nơi con người tôn sùng ma vật như những vị thần mới. Ngồi vắt vẻo trên bệ đá, bạn nhếch mép cười nhạo sự hèn mọn và ngu xuẩn của nhân loại.",
+    "effects": {
+      "joy": 15,
+      "INT": 1,
+      "wealth": 10
+    }
+  },
+  {
+    "id": "imp_middle_broken_horn",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 4,
+    "text": "Trong một vụ tranh giành địa bàn làm ăn ngầm, bạn bị một tên Orc giáng chùy gãy mất một bên sừng kiêu hãnh. Cơn đau thấu xương nhắc nhở bạn rằng chốn ma giới không bao giờ có chỗ cho sự bất cẩn.",
+    "effects": {
+      "STR": -1,
+      "health": -15,
+      "joy": -10
+    }
+  },
+  {
+    "id": "imp_middle_demon_promotion",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 8,
+    "require": {
+      "INT": 7
+    },
+    "text": "Đại Ác Quỷ cai quản Vực Thẳm mở một bài kiểm tra tàn khốc để cất nhắc một Tiểu quỷ lên làm tay sai trung cấp. Nếu thành công, bạn sẽ có quyền lực ra lệnh cho đồng loại; nếu thất bại, linh hồn bạn sẽ làm mồi cho ngọn lửa vĩnh cửu.",
+    "choices": [
+      {
+        "label": "Dùng mưu hèn kế bẩn triệt hạ đối thủ",
+        "check": {
+          "stat": "INT",
+          "target": 9
+        },
+        "success": {
+          "text": "Bạn cài bẫy nổ ma thuật vào đường đua, thổi bay toàn bộ đối thủ cạnh tranh trước vạch đích. Sự tàn nhẫn và xảo quyệt của bạn khiến Đại Ác Quỷ phá lên cười thích thú, ban cho bạn ấn chú thăng cấp.",
+          "effects": {
+            "STR": 2,
+            "INT": 2,
+            "joy": 25,
+            "flags": [
+              "tyrant_maker"
+            ]
+          },
+          "moment": "Gian lận và tàn nhẫn để thăng cấp thành tay sai đắc lực của Đại Ác Quỷ."
+        },
+        "fail": {
+          "text": "Trò bịp bợm của bạn bị nhìn thấu. Thay vì được thăng cấp, bạn bị Đại Ác Quỷ nhai nghiến một nửa đôi cánh rồi ném xuống Đầm Lầy Tử Khí chờ chết.",
+          "effects": {
+            "health": -40,
+            "AGI": -3,
+            "joy": -20
+          }
+        }
+      },
+      {
+        "label": "Từ bỏ cơ hội, giữ mạng là trên hết",
+        "text": "Bạn lén lút rút lui khỏi cuộc thi đẫm máu ngay trước khi nó bắt đầu. Sự hèn nhát đôi khi lại là bí quyết trường thọ duy nhất của loài quỷ yếu ớt.",
+        "effects": {
+          "joy": -5,
+          "LUCK": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "imp_elder_evil_advisor",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 6,
+    "require": {
+      "flags": [
+        "tyrant_maker"
+      ]
+    },
+    "text": "Với tuổi đời và kinh nghiệm lọc lõi, bạn giờ đây thảnh thơi ngồi trên vai một Lãnh chúa tàn bạo, rỉ vào tai hắn những mưu đồ chính trị độc ác nhất. Dù thân xác đã già nua trụi cánh, quyền lực bóng tối trong tay bạn lại rực rỡ hơn bao giờ hết.",
+    "effects": {
+      "INT": 2,
+      "wealth": 30,
+      "joy": 20
+    }
+  },
+  {
+    "id": "imp_elder_fading_fire",
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 5,
+    "text": "Hơi thở của bạn không còn nhả ra khói lưu huỳnh, ngọn lửa ma thuật trong lồng ngực đang lụi tàn dần theo thời gian. Bạn cuộn tròn trong một góc tối, bình thản đón chờ bánh xe luân hồi của Hư Vô một lần nữa lăn qua.",
+    "effects": {
+      "health": -30,
+      "STR": -2,
+      "AGI": -2
+    }
+  }
+]

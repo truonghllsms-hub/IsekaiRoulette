@@ -1,0 +1,53 @@
+[
+  { "id": "oc_first_scar", "races": ["orc"], "stages": ["infant"], "weight": 10,
+    "text": "Người anh cùng lứa cào một vết dài trên má bạn trong lúc tranh miếng thịt sống. Mẹ bạn mỉm cười: vết sẹo đầu đời là dấu hiệu của một chiến binh.", "effects": { "STR": 1 }, "moment": "Vết sẹo đầu đời" },
+  { "id": "oc_boar_hunt", "races": ["orc"], "stages": ["child"], "weight": 9,
+    "text": "Bạn theo đoàn thợ săn hạ một con lợn rừng khổng lồ. Chiếc nanh của nó được treo trên cổ bạn từ hôm ấy.", "effects": { "STR": 1, "joy": 5 } },
+  { "id": "oc_tattoo", "races": ["orc"], "stages": ["teen"], "weight": 8,
+    "text": "Lão Pháp sư xăm lên ngực bạn những hoa văn bằng máu và tro. Mỗi đường mực là một lời thề với Chiến thần.", "effects": { "STR": 1, "health": -5 } },
+  { "id": "oc_ms_arena", "races": ["orc"], "stages": ["teen", "adult"], "weight": 14, "require": { "flags": ["gladiator"] },
+    "text": "Trận chung kết sinh tử tại Đấu Trường Huyết Sa. Hàng vạn quý tộc gào thét trên khán đài, đối diện bạn là nhà vô địch loài người.",
+    "choices": [
+      { "label": "Nghiền nát nhà vô địch", "check": { "stat": "STR", "target": 10 },
+        "success": { "text": "Rìu của bạn bổ đôi khiên của hắn, rồi bổ đôi hắn. Theo luật đấu trường, bạn được trả tự do.", "effects": { "joy": 20, "flags": ["freed"], "unflags": ["gladiator"] }, "moment": "Giành tự do trên Đấu Trường Huyết Sa" },
+        "fail": { "text": "Lưỡi giáo của nhà vô địch tìm được khe hở trên ngực bạn.", "death": "Bạn ngã xuống nền cát đẫm máu ở tuổi {age}, giữa tiếng reo hò vô cảm." } },
+      { "label": "Kích động nổi loạn", "check": { "stat": "INT", "target": 5 },
+        "success": { "text": "Bạn hướng rìu lên khán đài và gầm lên. Hàng trăm nô lệ phá xích, và Đấu Trường Huyết Sa chìm trong biển lửa.", "effects": { "joy": 15, "flags": ["rebel"], "unflags": ["gladiator"] }, "moment": "Lãnh đạo cuộc nổi loạn nô lệ" },
+        "fail": { "text": "Lính canh dập tắt cuộc nổi loạn trước khi nó kịp bùng lên.", "effects": { "health": -40 } } },
+      { "label": "Buông vũ khí", "text": "Bạn buông rìu và ngẩng mặt nhìn trời.", "death": "Bạn chọn cái chết vinh quang thay vì làm trò tiêu khiển, ở tuổi {age}." }
+    ] },
+  { "id": "oc_ms_human_attack", "races": ["orc"], "stages": ["teen", "adult"], "weight": 9,
+    "text": "Đoàn kỵ binh loài người tràn qua thảo nguyên, giáo mác dựng đứng như một rừng thép. Bộ lạc của bạn nằm ngay trên đường tiến quân.",
+    "choices": [
+      { "label": "Tử thủ bảo vệ bộ lạc", "check": { "stat": "STR", "target": 9 },
+        "success": { "text": "Bạn đứng chắn trước những kẻ yếu suốt một ngày một đêm. Khi đoàn kỵ binh rút lui, cả bộ lạc hô vang tên bạn.", "effects": { "joy": 15, "flags": ["honorable"] }, "moment": "Tử thủ bảo vệ bộ lạc" },
+        "fail": { "text": "Bức tường thép nghiền qua bạn.", "death": "Bạn ngã xuống trước lều của bộ lạc ở tuổi {age}, rìu vẫn nắm chặt trong tay." } },
+      { "label": "Rút lui phục kích", "check": { "stat": "AGI", "target": 6 },
+        "success": { "text": "Bạn dụ kỵ binh vào rừng sâu và phục kích từng toán một. Chiến thắng, dù những lão chiến binh gọi đó là hèn nhát.", "effects": { "wealth": 10, "joy": -5 } },
+        "fail": { "text": "Kỵ binh đuổi kịp bạn ở bìa rừng.", "effects": { "health": -25 } } },
+      { "label": "Một mình xông vào", "check": { "stat": "STR", "target": 12 },
+        "success": { "text": "Bạn lao vào giữa ngàn quân như một cơn bão máu. Đội hình kỵ binh tan vỡ, và các thi sĩ loài người sẽ còn kể về bạn trong ác mộng.", "effects": { "STR": 2, "joy": 20 }, "moment": "Một mình phá tan đội kỵ binh" },
+        "fail": { "text": "Bạn biến mất giữa biển giáo mác.", "death": "Bạn tử chiến giữa ngàn quân ở tuổi {age}. Bộ lạc sẽ hát tên bạn muôn đời." } }
+    ] },
+  { "id": "oc_ms_duel", "races": ["orc"], "stages": ["adult", "middle"], "weight": 10, "require": { "notFlags": ["warchief"] },
+    "text": "Bạn ném rìu xuống chân Tù trưởng. Cuộc Huyết Đấu tranh ngôi đã bắt đầu, và cả bộ lạc vây thành vòng tròn.",
+    "choices": [
+      { "label": "Bổ đôi đầu đối thủ", "check": { "stat": "STR", "target": 10 },
+        "success": { "text": "Một nhát rìu duy nhất. Bạn bước qua xác lão Tù trưởng và ngồi lên ngai da sói.", "effects": { "wealth": 30, "joy": 15, "flags": ["warchief"] }, "moment": "Lên ngôi Tù trưởng" },
+        "fail": { "text": "Bạn bại trận, bị tước rìu và lưu đày khỏi bộ lạc.", "effects": { "health": -30, "joy": -20, "flags": ["exiled"] } } },
+      { "label": "Thắng nhưng tha mạng", "check": { "stat": "STR", "target": 9 },
+        "success": { "text": "Bạn đè lão xuống đất rồi thu rìu lại. Lòng người ngả về phía bạn, và lão tự nguyện nhường ngôi.", "effects": { "joy": 20, "flags": ["honorable", "warchief"] }, "moment": "Thắng Huyết Đấu và tha mạng đối thủ" },
+        "fail": { "text": "Lão không đáp lại lòng nhân từ của bạn. Bạn bị lưu đày.", "effects": { "health": -35, "flags": ["exiled"] } } }
+    ] },
+  { "id": "oc_ms_demon_alliance", "races": ["orc"], "stages": ["adult", "middle"], "weight": 7,
+    "text": "Sứ giả của Ma Vương đặt trước mặt bạn một chén máu quỷ đen sánh. Uống nó, bạn sẽ có sức mạnh vô song, và một chủ nhân mới.",
+    "choices": [
+      { "label": "Uống máu quỷ", "text": "Máu quỷ thiêu đốt huyết quản bạn. Khi cơn đau qua đi, bạn đã trở thành một Ác thú bạo tàn của Quân Đoàn Hủy Diệt.", "effects": { "STR": 3, "INT": -1, "flags": ["demon_army"] }, "moment": "Gia nhập Quân Đoàn Hủy Diệt" },
+      { "label": "Chém đầu sứ giả", "text": "Bạn hất đổ chén máu và chém phăng đầu sứ giả. Orc không quỳ trước ai.", "effects": { "joy": 10, "flags": ["free_orc"] } },
+      { "label": "Đòi cống nạp vũ khí", "check": { "stat": "INT", "target": 5 },
+        "success": { "text": "Ma Vương gửi tới một xe rìu thép đen để mua lòng trung thành của bạn. Bạn nhận rìu, và vẫn chưa trả lời.", "effects": { "wealth": 25 } },
+        "fail": { "text": "Sứ giả không thích bị mặc cả.", "effects": { "health": -25 } } }
+    ] },
+  { "id": "oc_old_shame", "races": ["orc"], "stages": ["elder"], "weight": 8,
+    "text": "Cơ bắp bạn teo tóp, những vết thương cũ nhức nhối mỗi đêm. Với một Orc, sống đến tuổi này là một nỗi nhục.", "effects": { "joy": -10, "STR": -1 } }
+]

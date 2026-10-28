@@ -1,0 +1,255 @@
+{
+  "id": "slime",
+  "name": "Bùn Nhão (Slime)",
+  "lifespan": 9999,
+  "spawn_rate_percentage": 3,
+  "context": "Kỷ Nguyên Khai Hoang Hầm Ngục – Tận cùng của chuỗi thức ăn, sinh vật lỏng lẻo vô tri nhưng mang tiềm năng tiến hóa vô hạn, xuất hiện ở khắp mọi nơi có cặn ma lực.",
+  "desc": "Thực thể nhầy nhụa, không có hình thù cố định, vô tri và hành động hoàn toàn theo bản năng. Lúc mới sinh, Slime gần như vô hại. Tuy nhiên, chúng có khả năng tiêu hóa và dung hợp mọi vật chất—từ rêu đá, vũ khí rỉ sét đến ma lực—để không ngừng tiến hóa thành những thảm họa thực sự.",
+  "society": "Hoàn toàn không có khái niệm xã hội hay bầy đàn. Slime trôi nổi độc lập trong hầm ngục để tìm kiếm thức ăn. Chúng là kẻ thù của vạn vật, kể cả đồng loại, bởi một con Slime khổng lồ sẵn sàng nuốt chửng những con Slime nhỏ hơn để gia tăng khối lượng.",
+  "stages": [
+    {
+      "id": "infant",
+      "name": "Giọt nhầy nhỏ",
+      "start": 0,
+      "themes": [
+        "Lẩn tránh những bước chân khổng lồ",
+        "Hấp thụ rêu đá ẩm ướt",
+        "Tiêu hóa côn trùng chết",
+        "Bị đá văng vào góc tối",
+        "Làm quen với bóng tối"
+      ]
+    },
+    {
+      "id": "child",
+      "name": "Khối bùn trượt",
+      "start": 5,
+      "themes": [
+        "Nuốt trọn xương chuột",
+        "Luồn lách qua các bẫy sập",
+        "Chạy trốn Mạo hiểm giả tập sự",
+        "Hấp thụ cặn ma lực từ quặng vụn",
+        "Dung hợp với Slime yếu hơn"
+      ]
+    },
+    {
+      "id": "teen",
+      "name": "Slime trưởng thành",
+      "start": 15,
+      "themes": [
+        "Hòa tan vũ khí rỉ sét nhặt được",
+        "Hấp thụ ếch nhái và dơi",
+        "Tiến hóa theo nguyên tố (nếu ăn được lõi ma thuật)",
+        "Học cách phân bào khi gặp nguy",
+        "Bị Pháp sư bắt làm thí nghiệm"
+      ]
+    },
+    {
+      "id": "adult",
+      "name": "Quái vật dẻo",
+      "start": 50,
+      "themes": [
+        "Nhấn chìm Mạo hiểm giả cấp thấp",
+        "Kháng lại ngọn đuốc",
+        "Tiết ra axit độc hại",
+        "Trở thành 'máy dọn rác' của hầm ngục",
+        "Cứng hóa bề mặt để bảo vệ lõi"
+      ]
+    },
+    {
+      "id": "middle",
+      "name": "Slime khổng lồ",
+      "start": 200,
+      "themes": [
+        "Ngụy trang thành vũng nước lớn",
+        "Nuốt chửng rương báu",
+        "Tiêu hóa quái vật khác (Goblin, Kobold)",
+        "Trở thành Mini-Boss khu vực",
+        "Phân tách sinh ra hàng vạn Slime con"
+      ]
+    },
+    {
+      "id": "ancient",
+      "name": "Vua Bùn Nhão",
+      "start": 500,
+      "themes": [
+        "Hấp thụ Thánh tích cổ đại",
+        "Sinh ra nhận thức ngoại cảm",
+        "Dung hợp với lõi hầm ngục",
+        "Trở thành Thảm họa diệt vong",
+        "Nuốt chửng vạn vật"
+      ]
+    }
+  ],
+  "origins": [
+    {
+      "id": "origin_puredrip",
+      "name": "Cặn ma lực đọng lại",
+      "weight": 40,
+      "text": "Bạn sinh ra từ một vũng nước nhỏ giọt trên trần hầm ngục. Không có ký ức, chỉ có cơn đói thôi thúc bạn trườn đi tìm thức ăn.",
+      "effects": {
+        "INT": 1,
+        "STR": -1,
+        "flags": [
+          "pure_slime"
+        ]
+      }
+    },
+    {
+      "id": "origin_corpse",
+      "name": "Nuôi dưỡng bằng xác thối",
+      "weight": 30,
+      "text": "Hình thành ngay trên cái xác đang phân hủy của một Mạo hiểm giả xui xẻo. Dòng máu tanh tưởi là bữa ăn định hình cơ thể bạn.",
+      "effects": {
+        "STR": 1,
+        "LUCK": -1,
+        "flags": [
+          "blood_slime"
+        ]
+      }
+    },
+    {
+      "id": "origin_experiment",
+      "name": "Bình thí nghiệm vỡ",
+      "weight": 20,
+      "text": "Thức tỉnh trên sàn đá lạnh lẽo sau khi một bình thí nghiệm của Pháp sư bị đập vỡ. Quanh bạn là những mảnh kính và ma lực hỗn loạn.",
+      "effects": {
+        "INT": 2,
+        "AGI": -1,
+        "flags": [
+          "magic_slime"
+        ]
+      }
+    },
+    {
+      "id": "origin_mimic",
+      "name": "Đáy rương rỗng",
+      "weight": 10,
+      "text": "Mở mắt dưới đáy một chiếc rương gỗ mục nát bị lãng quên. Bóng tối và sự chật hẹp khơi dậy bản năng bắt chước đồ vật của bạn.",
+      "effects": {
+        "LUCK": 1,
+        "wealth": 5,
+        "flags": [
+          "mimic_potential"
+        ]
+      }
+    },
+    {
+      "id": "demon_corpse",
+      "name": "Máu Thịt Ác Quỷ",
+      "weight": 10,
+      "text": "Bánh xe định mệnh khẽ xoay, bạn tỉnh giấc giữa vũng máu đen ngòm của một Ác ma vừa gục ngã tại Vực Thẳm Phân Tầng. Thể xác nhầy nhụa của bạn thành hình từ chính sự tà ác và oán hận còn sót lại trên chiến trường.",
+      "effects": {
+        "STR": 2,
+        "health": 15,
+        "flags": [
+          "blood_slime"
+        ]
+      }
+    }
+  ],
+  "signature": [
+    "Hấp thụ vạn vật: Nhai nuốt vũ khí, áo giáp, hoặc nguyên liệu ma thuật để tăng chỉ số vĩnh viễn (Nuốt kiếm tăng sát thương, nuốt khiên tăng giáp).",
+    "Phân bào sinh tồn: Có thể hy sinh 50% sinh lực hiện tại để tách làm hai, tạo ra một bản sao đánh lạc hướng kẻ địch khi gặp nguy hiểm.",
+    "Hình dạng lỏng: Kháng lại các đòn chém, đâm thông thường. Dễ dàng luồn qua kẽ hở, cống rãnh, hoặc khe nứt nhỏ nhất.",
+    "Ngụy trang môi trường: Tự động đổi màu tiệp với cảnh vật xung quanh (hóa thành vũng nước, thạch nhũ, hoặc rương báu).",
+    "Dịch vị axit: Cơ thể tiết ra chất ăn mòn mạnh, làm hỏng trang bị của bất cứ kẻ nào dám chạm vào."
+  ],
+  "milestones": [
+    {
+      "id": "ms_elemental_core",
+      "name": "Nuốt phải Tinh thể Nguyên tố",
+      "choices": [
+        "Hấp thụ Lõi Lửa (Tiến hóa thành Fire Slime)",
+        "Hấp thụ Bọc Độc (Tiến hóa thành Poison Slime)",
+        "Nhả ra vì đau đớn (Giữ nguyên bản chất, tăng cường Thể lực tối đa)"
+      ]
+    },
+    {
+      "id": "ms_capture",
+      "name": "Bị Mạo hiểm giả tóm gọn",
+      "choices": [
+        "Giả chết tan thành vũng nước (Cần May mắn)",
+        "Phun axit vào mắt kẻ địch rồi trườn đi (Cần Khéo léo)",
+        "Chịu đựng bị tống vào bình làm sủng vật (Sống an toàn nhưng mất tự do, mang cờ 'tamed_pet')"
+      ]
+    },
+    {
+      "id": "ms_core_exposed",
+      "name": "Lõi ma lực bị nhắm tới",
+      "choices": [
+        "Hút đất đá vào người làm vỏ bọc cứng (Tăng Giáp, giảm Tốc độ)",
+        "Phân tách thành hàng chục giọt nhỏ bỏ chạy (Giảm cấp độ)",
+        "Quăng mình lên mặt kẻ địch bóp nghẹt chúng (Cần Sức mạnh)"
+      ]
+    },
+    {
+      "id": "ms_mimic_chest",
+      "name": "Phát hiện Rương báu mở nắp",
+      "choices": [
+        "Chui vào rương trống nằm im rình rập (Tiến hóa thành quái vật Mimic)",
+        "Hòa tan luôn chiếc rương để lấy dưỡng chất gỗ và sắt",
+        "Bỏ qua, tiếp tục trườn đi"
+      ]
+    }
+  ],
+  "deaths": [
+    {
+      "id": "death_sunlight",
+      "kind": "health",
+      "text": "Năm {age} tuổi, bạn trườn nhầm lên mặt đất giữa ban ngày. Ánh nắng gay gắt thiêu đốt khiến bạn bốc hơi thành một vệt cặn khô khốc."
+    },
+    {
+      "id": "death_magic_fire",
+      "kind": "violent",
+      "text": "Một quả cầu lửa của tên Pháp sư đã nung sôi và thiêu rụi hoàn toàn cơ thể lỏng lẻo của bạn ở tuổi {age}."
+    },
+    {
+      "id": "death_core_smashed",
+      "kind": "violent",
+      "text": "Năm {age} tuổi, một gã thợ rèn vung búa đập vỡ nát lõi ma lực giấu sâu trong cơ thể bạn. Bạn vỡ vụn thành bọt nước vô tri."
+    },
+    {
+      "id": "death_frozen",
+      "kind": "health",
+      "text": "Mùa đông khắc nghiệt dưới hầm ngục đóng băng cơ thể bạn thành một khối đá ở tuổi {age}, trước khi bị một kẻ qua đường dẫm nát."
+    },
+    {
+      "id": "death_mana_depleted",
+      "kind": "old",
+      "text": "Đạt đến {age} tuổi, ma lực duy trì lõi của bạn cạn kiệt. Bạn dần mờ đi và tĩnh lặng thấm vào lòng đất, kết thúc một vòng đời."
+    }
+  ],
+  "names": {
+    "any": [
+      "Bloop",
+      "Squish",
+      "Goo",
+      "Slurp",
+      "Plop",
+      "Jello",
+      "Mucus",
+      "Drop",
+      "Splatch",
+      "Ooze",
+      "Glug",
+      "Blob",
+      "Splat",
+      "Viscous",
+      "Melt"
+    ],
+    "family": [
+      "Nhầy Nhụa",
+      "Axit",
+      "Bọt Nước",
+      "Không Xương",
+      "Trơn Tuột"
+    ]
+  },
+  "flags": [
+    "pure_slime",
+    "blood_slime",
+    "magic_slime",
+    "mimic_potential",
+    "tamed_pet"
+  ]
+}

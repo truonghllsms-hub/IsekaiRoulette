@@ -1,0 +1,891 @@
+[
+  {
+    "id": "vampire_infant_demon_refusal",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "eras": [
+      "demon_lord"
+    ],
+    "weight": 5,
+    "require": {
+      "flags": [
+        "pure_blood"
+      ]
+    },
+    "text": "Quân Đoàn Hủy Diệt vẫy gọi các ma vật quy thuận Ma Vương, nhưng huyết quản kiêu hãnh của bạn khước từ tiếng gọi của lũ quái vật thấp kém. Kẻ mang dòng máu bất tử tuyệt đối không cúi đầu trước bất kỳ ai.",
+    "effects": {
+      "INT": 1,
+      "joy": 5
+    }
+  },
+  {
+    "id": "vampire_infant_rat_blood",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "once": false,
+    "weight": 6,
+    "text": "Cơn khát máu điên cuồng cào xé thực quản, buộc bạn phải vồ lấy bầy chuột cống hôi hám trong Đầm Lầy Tử Khí để duy trì hơi tàn. Bản năng sinh tồn ác liệt đang mài giũa nanh vuốt của bạn trong bóng tối.",
+    "effects": {
+      "health": -10,
+      "joy": -10
+    }
+  },
+  {
+    "id": "vampire_infant_sunlight_burn",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "weight": 6,
+    "text": "Một vệt nắng ban mai vô tình lọt qua khe nứt của hầm mộ, thiêu đốt làn da nhợt nhạt của bạn thành những vết sẹo rỉ máu đen ngòm. Lời nguyền của Thánh quang đã khắc sâu vào linh hồn một nỗi sợ hãi kinh hoàng.",
+    "effects": {
+      "health": -15,
+      "AGI": 1
+    }
+  },
+  {
+    "id": "vampire_infant_night_prowl",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "once": false,
+    "weight": 5,
+    "text": "Dưới màn đêm êm ả của kỷ nguyên hòa bình, bạn vụng về vươn đôi cánh dơi non nớt, xé toạc bóng tối để cảm nhận sức mạnh dị thường. Thú vui săn mồi trong cô độc vỗ về phần người đang dần phai nhạt.",
+    "effects": {
+      "STR": 1,
+      "AGI": 1,
+      "joy": 5
+    }
+  },
+  {
+    "id": "vampire_infant_starvation_dream",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "weight": 5,
+    "require": {
+      "below": {
+        "health": 35
+      }
+    },
+    "text": "Kiệt sức vì cơn khát, bạn bất tỉnh giữa đống hoang tàn, chìm vào cơn mộng mị về một biển máu đỏ rực. Quyền năng cổ đại trong huyết quản tự động hấp thụ ma lực để giữ cho sinh mệnh vĩnh hằng không bị vụn vỡ.",
+    "effects": {
+      "health": 15,
+      "LUCK": 1
+    }
+  },
+  {
+    "id": "vampire_infant_flee_crusaders",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 6,
+    "text": "Tiếng kèn của Thánh Vệ Quân rền vang trên mặt đất, lùng sục từng tấc đất để thanh tẩy tà ác. Sự cuồng tín của loài người buộc sinh linh bóng tối như bạn phải đào sâu hơn vào cõi tĩnh lặng dưới Vực Thẳm.",
+    "effects": {
+      "joy": -5,
+      "LUCK": 1,
+      "health": -5
+    }
+  },
+  {
+    "id": "vampire_infant_wanderer_prey",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "weight": 8,
+    "text": "Một kẻ lang thang bị thương nặng gục ngã trước nơi trú ẩn, mùi máu tươi ngọt ngào của hắn điên cuồng khiêu khích bản năng dã thú đang say ngủ trong bạn.",
+    "choices": [
+      {
+        "label": "Vồ lấy hắn để hút cạn dòng máu nóng hổi",
+        "check": {
+          "stat": "AGI",
+          "target": 4
+        },
+        "success": {
+          "text": "Đôi nanh sắc nhọn cắm phập vào tĩnh mạch, bạn say sưa nuốt chìm giọt sinh mệnh ấm nóng đầu tiên.",
+          "effects": {
+            "health": 20,
+            "STR": 1,
+            "flags": [
+              "hunted"
+            ]
+          },
+          "moment": "Nếm thử dòng máu đầu tiên của nhân loại."
+        },
+        "fail": {
+          "text": "Chút phản xạ của con người khiến bạn luống cuống, kẻ kia giật mình vùng dậy, phóng một mũi dao bạc đâm xuyên qua lồng ngực tử linh non nớt.",
+          "death": "Bị dao bạc xuyên tim, thân xác bất tử tan thành tro bụi khi chỉ mới {age} tuổi."
+        }
+      },
+      {
+        "label": "Kìm nén cơn khát, lùi sâu vào bóng tối",
+        "text": "Sự nhân tính lấn át bản năng, bạn co mình lại trong góc tối lạnh lẽo, mặc cho cơn đói cào xé tâm can.",
+        "effects": {
+          "joy": -15,
+          "INT": 1,
+          "flags": [
+            "humane"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "vampire_child_market_watch",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "child"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "weight": 5,
+    "require": {
+      "flags": [
+        "humane"
+      ]
+    },
+    "text": "Khoác một tấm áo choàng dày, bạn len lỏi vào chợ đêm Sanctus, lẳng lặng quan sát loài người yếu ớt nhưng tràn đầy sinh khí. Ánh đèn lồng ấm áp hắt lên gương mặt ma mị, khơi gợi một nỗi hoài niệm kỳ lạ.",
+    "effects": {
+      "INT": 1,
+      "joy": 10
+    }
+  },
+  {
+    "id": "vampire_child_first_familiar",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "child"
+    ],
+    "once": false,
+    "weight": 6,
+    "text": "Ánh mắt đỏ thẫm của bạn vô tình thôi miên một gã thợ săn đi lạc, biến hắn thành tay sai đầu tiên quỳ rạp dưới chân bạn. Hạt giống quyền lực bắt đầu nảy mầm trong đế chế bóng đêm của riêng bạn.",
+    "effects": {
+      "wealth": 10,
+      "joy": 10,
+      "flags": [
+        "blood_servant"
+      ]
+    },
+    "moment": "Chiêu mộ được tôi tớ đầu tiên."
+  },
+  {
+    "id": "vampire_child_plague_walker",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "child"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 6,
+    "text": "Dịch bệnh Hắc Tử càn quét lục địa, nhưng bạn ung dung dạo bước giữa Đầm Lầy Tử Khí chứa đầy thi thể. Thân xác tử linh hoàn toàn miễn nhiễm với tai ương của cõi trần, một đặc ân của sự vĩnh hằng.",
+    "effects": {
+      "health": 20,
+      "LUCK": 1
+    }
+  },
+  {
+    "id": "vampire_child_silver_coins",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "child"
+    ],
+    "weight": 5,
+    "require": {
+      "flags": [
+        "blood_servant"
+      ]
+    },
+    "text": "Những kẻ tay sai mang về cho bạn hàng túi đồng Tinh Bạc cướp được từ Thương Đoàn Sói Bạc, thứ kim loại mà chính bạn chẳng dám chạm tay vào. Quyền lực gián tiếp mở ra cánh cửa nhung lụa xa hoa cho Huyết đệ.",
+    "effects": {
+      "wealth": 20,
+      "joy": 5
+    }
+  },
+  {
+    "id": "vampire_child_blood_magic",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "child"
+    ],
+    "weight": 6,
+    "text": "Lần đầu tiên thử nghiệm Huyết thuật, một quả cầu máu nổ tung rực rỡ, khắc sâu ấn ký ma pháp bóng tối lên mu bàn tay. Sức mạnh ma mị chớm nở, dẫu cái giá phải trả là một phần sinh khí hư hao.",
+    "effects": {
+      "INT": 2,
+      "health": -10,
+      "STR": 1
+    }
+  },
+  {
+    "id": "vampire_child_maiden_hunt",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "child"
+    ],
+    "once": false,
+    "weight": 6,
+    "require": {
+      "flags": [
+        "pure_blood"
+      ]
+    },
+    "text": "Hương vị thuần khiết của những cô gái trinh nữ dần trở thành nỗi ám ảnh, thôi thúc bạn vung nanh múa vuốt săn lùng họ dưới ánh trăng bạc. Sự kiêu ngạo của dòng máu Chân Tổ xem loài người chỉ là những chén rượu ngọt ngào.",
+    "effects": {
+      "joy": 15,
+      "health": 15,
+      "flags": [
+        "hunted"
+      ]
+    }
+  },
+  {
+    "id": "vampire_child_crusader_ambush",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "child"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 8,
+    "require": {
+      "flags": [
+        "hunted"
+      ]
+    },
+    "text": "Một tiểu đội Giáo hội Thánh Quang mang bùa chú dò tìm đã phong tỏa khu rừng, ánh đuốc rực sáng áp sát bức tường đá che giấu hang ổ của bạn.",
+    "choices": [
+      {
+        "label": "Hóa thân thành dơi quỷ mở đường máu",
+        "check": {
+          "stat": "STR",
+          "target": 6
+        },
+        "success": {
+          "text": "Bạn hóa thành màn sương đen xé toạc đội hình, tàn nhẫn nuốt chửng máu của tên đội trưởng trước khi biến mất vào không trung.",
+          "effects": {
+            "STR": 2,
+            "health": 20,
+            "wealth": 10
+          }
+        },
+        "fail": {
+          "text": "Mũi tên tẩm Thánh thủy xuyên qua màn đêm, ghim chặt cánh dơi của bạn xuống mặt đất lạnh lẽo.",
+          "death": "Bị Thánh quang thiêu rụi thành tro, kết thúc chuỗi ngày bất tử khi vừa {age} tuổi."
+        }
+      },
+      {
+        "label": "Phủ phục dưới lớp bùn lầy giấu khí tức",
+        "text": "Kìm nén sự phẫn nộ, bạn lặn ngụp trong bùn nhơ, vận tà thuật che giấu khí tức tử linh nhẫn nhục chờ chúng đi qua.",
+        "effects": {
+          "health": -10,
+          "joy": -15,
+          "INT": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "vampire_teen_silver_resist",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 6,
+    "require": {
+      "flags": [
+        "pure_blood"
+      ]
+    },
+    "text": "Dòng máu Chân Tổ qua hàng thế kỷ đã dung hợp ma lực, giúp bạn bắt đầu miễn nhiễm với những vũ khí bạc cấp thấp. Chàng Bá tước bóng đêm giờ đây ung dung tự tại, không còn nao núng trước những lưỡi gươm thợ săn.",
+    "effects": {
+      "STR": 1,
+      "health": 20
+    }
+  },
+  {
+    "id": "vampire_teen_dark_alliance",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "eras": [
+      "demon_lord"
+    ],
+    "weight": 5,
+    "text": "Hội Bóng Đêm cử sứ giả mang theo lễ vật ngỏ lời liên minh, hứa hẹn nhượng lại một phần Đồng Bằng Thánh Quang nếu bạn góp quân lật đổ vương quốc. Cán cân định mệnh đang nằm gọn trong nanh vuốt của bạn.",
+    "effects": {
+      "wealth": 25,
+      "joy": 10,
+      "flags": [
+        "treaty"
+      ]
+    }
+  },
+  {
+    "id": "vampire_teen_noble_dance",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "once": false,
+    "weight": 6,
+    "text": "Trong những vũ hội hào nhoáng của loài người, bạn khoác bộ âu phục lộng lẫy, quyến rũ các phu nhân quý tộc bằng nụ cười ma mị. Hút máu không còn là sự sinh tồn, mà đã thăng hoa thành một nghệ thuật duy mỹ tàn nhẫn.",
+    "effects": {
+      "joy": 15,
+      "wealth": 15,
+      "INT": 1
+    }
+  },
+  {
+    "id": "vampire_teen_cult_worship",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 5,
+    "text": "Lợi dụng thời kỳ đen tối, một tà giáo bí mật quỳ rạp dưới chân lâu đài, dâng lên bạn những vật tế sống thuần khiết nhất. Họ tôn xưng bạn là Sứ Giả Hắc Nguyệt, đấng cứu rỗi cai quản màn đêm vĩnh hằng.",
+    "effects": {
+      "joy": 25,
+      "wealth": 20,
+      "flags": [
+        "cult_vampire"
+      ]
+    }
+  },
+  {
+    "id": "vampire_teen_estate_build",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 5,
+    "require": {
+      "flags": [
+        "blood_servant"
+      ]
+    },
+    "text": "Bầy tôi tớ không quản ngày đêm thi công ròng rã, cuối cùng cũng cất lên một điền trang tráng lệ tại góc khuất Đại Ngàn Lục Bảo. Nơi đây chính thức trở thành thiên đường sa đọa, phô diễn sự hào nhoáng vô song của một Bá tước Huyết Tộc.",
+    "effects": {
+      "wealth": -20,
+      "joy": 30
+    },
+    "moment": "Xây dựng điền trang sa đọa tại Đại Ngàn Lục Bảo."
+  },
+  {
+    "id": "vampire_teen_melancholy_violin",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "once": false,
+    "weight": 5,
+    "text": "Việc sống quá nhiều thế kỷ khiến bạn bắt đầu cảm thấy lạc lõng, chỉ có giai điệu vĩ cầm bi thương trong đêm dông bão mới xoa dịu được tâm hồn lạnh lẽo. Trái tim bất tử đập những nhịp cô độc đến rợn người.",
+    "effects": {
+      "joy": -10,
+      "INT": 1
+    }
+  },
+  {
+    "id": "vampire_teen_assassin_charm",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 8,
+    "text": "Một sát thủ của Giáo hội Thánh Quang trà trộn vào điền trang, mũi dao tẩm bạc kề sát cổ bạn trong lúc bạn đang nhấm nháp ly rượu vang pha máu.",
+    "choices": [
+      {
+        "label": "Dùng Mị hoặc tâm trí để tẩy não hắn",
+        "check": {
+          "stat": "INT",
+          "target": 6
+        },
+        "success": {
+          "text": "Đôi mắt đỏ rực của bạn đập nát ý chí của tên sát thủ, biến hắn thành một con rối ngoan ngoãn thề trung thành với bóng tối.",
+          "effects": {
+            "joy": 15,
+            "INT": 1,
+            "flags": [
+              "blood_servant"
+            ]
+          },
+          "moment": "Tẩy não sát thủ của Giáo hội thành tay sai."
+        },
+        "fail": {
+          "text": "Đức tin của hắn quá mạnh mẽ, lưỡi dao bạc vung lên cắt phăng yết hầu trước khi tà thuật của bạn kịp phát huy tác dụng.",
+          "death": "Chết dưới tay một sát thủ vô danh khi chưa kịp chạm tới đỉnh cao quyền lực ở tuổi {age}."
+        }
+      },
+      {
+        "label": "Hóa thành sương mù né tránh rồi kết liễu",
+        "text": "Bạn tan thành màn sương đen lạnh lẽo, vòng ra sau lưng và thẳng tay bẻ gãy cổ gã sát thủ. Thêm một cái xác phiền phức phải dọn dẹp.",
+        "effects": {
+          "joy": -5,
+          "STR": 1,
+          "flags": [
+            "hunted"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "vampire_adult_blood_mastery",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 6,
+    "text": "Bạn hoàn toàn làm chủ Huyết thuật cấm kị, có thể rút cạn huyết mạch của một kỵ sĩ chỉ bằng một cái phẩy tay. Uy áp của Chân Tổ giờ đây bao trùm lên vạn vật như một vị thần cai quản cái chết.",
+    "effects": {
+      "INT": 2,
+      "STR": 1,
+      "health": 15
+    }
+  },
+  {
+    "id": "vampire_adult_strength",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 6,
+    "require": {
+      "flags": [
+        "pure_blood"
+      ]
+    },
+    "text": "Sức mạnh thể chất của bạn vượt xa mọi ranh giới sinh học, dễ dàng dùng tay không bóp nát búa tạ của người lùn. Ngay cả ma vật hung bạo nhất cũng phải phủ phục trước sức mạnh thuần túy này.",
+    "effects": {
+      "STR": 2,
+      "health": 10
+    }
+  },
+  {
+    "id": "vampire_adult_sun_walker",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 5,
+    "text": "Khoác lên mình chiếc áo choàng dệt từ tơ nhện Hư Vô, bạn hiên ngang bước đi dưới ánh nắng dịu nhẹ của Thảo Nguyên Gió Hú. Sự kiêu hãnh của dòng máu cổ đại đã lấn át một phần lời nguyền của ánh sáng mặt trời.",
+    "effects": {
+      "AGI": 1,
+      "joy": 10,
+      "health": 5
+    }
+  },
+  {
+    "id": "vampire_adult_hibernation",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "once": false,
+    "weight": 5,
+    "text": "Bạn chìm vào giấc ngủ đông dài hàng thập kỷ dưới hầm ngầm, mặc kệ dòng chảy thời đại. Khi tỉnh giấc, thế giới đã thay đổi nhưng nhan sắc của bạn vẫn ma mị và bất diệt như thuở hồng hoang.",
+    "effects": {
+      "health": 30,
+      "joy": -5,
+      "STR": 1
+    }
+  },
+  {
+    "id": "vampire_adult_servant_grave",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 6,
+    "require": {
+      "flags": [
+        "blood_servant"
+      ]
+    },
+    "text": "Đứng trước bia mộ của người tay sai con người trung thành nay đã chết già, bạn nhận ra sự nghiệt ngã của thời gian đối với nhân loại. Một giọt huyết lệ khẽ rơi, minh chứng cho chút nhân tính hiếm hoi còn sót lại.",
+    "effects": {
+      "joy": -15,
+      "INT": 1
+    }
+  },
+  {
+    "id": "vampire_adult_ancient_encounter",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 5,
+    "text": "Tại gốc Cây Thế Giới Yggdrasil, bạn tương ngộ với một Tinh linh cổ đại. Hai kẻ mang sinh mệnh vĩnh hằng bị thời gian lãng quên cùng cạn chén rượu Huyết Kim dưới ánh trăng cô độc.",
+    "effects": {
+      "joy": 20,
+      "INT": 1,
+      "wealth": 10
+    }
+  },
+  {
+    "id": "vampire_adult_ivory_tower_raid",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 8,
+    "require": {
+      "flags": [
+        "pure_blood"
+      ]
+    },
+    "text": "Đại ma pháp sư của Tháp Bạch Ngà giăng một kết giới khổng lồ hòng bắt sống bạn để trích xuất dòng máu Chân Tổ làm vật liệu luyện kim.",
+    "choices": [
+      {
+        "label": "Phá vỡ kết giới và cướp Lõi Mana",
+        "check": {
+          "stat": "INT",
+          "target": 8
+        },
+        "success": {
+          "text": "Bạn dùng Huyết thuật dung hòa kết giới, không những tẩu thoát mà còn xé toạc lồng ngực gã pháp sư để đoạt lấy Lõi Mana vĩnh cửu.",
+          "effects": {
+            "INT": 2,
+            "wealth": 30,
+            "joy": 10
+          },
+          "moment": "Cướp Lõi Mana của Đại ma pháp sư."
+        },
+        "fail": {
+          "text": "Ma lực của bạn không đủ để xuyên thủng rào chắn, ánh sáng Thánh quang từ bẫy rập ập xuống thiêu đốt mọi giọt máu trong cơ thể.",
+          "death": "Bị luyện hóa thành một viên ngọc máu vô tri ở tuổi {age}."
+        }
+      },
+      {
+        "label": "Triệu hồi dơi quỷ đánh lạc hướng để tẩu thoát",
+        "text": "Biết không thể địch lại cạm bẫy, bạn vứt bỏ sự kiêu ngạo, dùng sinh mạng của hàng ngàn con dơi quỷ làm bia đỡ đạn để lẩn trốn vào Vực Thẳm.",
+        "effects": {
+          "health": -15,
+          "wealth": -10,
+          "joy": -15
+        }
+      }
+    ]
+  },
+  {
+    "id": "vampire_middle_beast_legion",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 6,
+    "text": "Chỉ bằng một ý niệm, hàng vạn dơi quỷ và sói đêm ùa ra từ Dãy Núi Răng Cưa che rợp bầu trời. Đạt đến đỉnh cao quyền lực, Huyết Vương chính là hiện thân của một tai ương diệt vong.",
+    "effects": {
+      "STR": 2,
+      "INT": 1,
+      "joy": 15
+    }
+  },
+  {
+    "id": "vampire_middle_church_defiance",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 6,
+    "require": {
+      "flags": [
+        "hunted"
+      ]
+    },
+    "text": "Bạn một mình xông vào Thánh điện Sanctus, ngạo nghễ xé nát cờ hiệu của Nữ thần Lumina giữa vòng vây Thánh Vệ Quân. Lịch sử Aethelgard kinh hoàng ghi nhận kẻ tà đạo vĩ đại dám thách thức cả thần linh.",
+    "effects": {
+      "STR": 2,
+      "joy": 25,
+      "health": -10,
+      "flags": [
+        "cult_vampire"
+      ]
+    }
+  },
+  {
+    "id": "vampire_middle_puppet_kings",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 6,
+    "text": "Các vị vua nhân loại lừng lẫy giờ đây chỉ là những con rối bị bạn giật dây từ trong bóng tối. Bất kỳ vương triều nào từ chối cống nạp những trinh nữ thuần khiết đều sẽ sụp đổ tàn khốc chỉ trong một đêm.",
+    "effects": {
+      "wealth": 30,
+      "joy": 20,
+      "INT": 1
+    }
+  },
+  {
+    "id": "vampire_middle_demon_laugh",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "eras": [
+      "demon_lord"
+    ],
+    "weight": 5,
+    "text": "Quân Đoàn Hủy Diệt mang đến tối hậu thư thu phục của Ma Vương, nhưng bạn chỉ cười nhạt rồi ném đầu gã sứ giả ra ngoài lâu đài. Thế gian này chỉ có một màn đêm, và nó hoàn toàn thuộc về Huyết Vương.",
+    "effects": {
+      "STR": 1,
+      "joy": 15,
+      "flags": [
+        "hunted"
+      ]
+    }
+  },
+  {
+    "id": "vampire_middle_sire_childe",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 6,
+    "text": "Lần đầu tiên sau ngàn năm, bạn ban phát nụ hôn bất tử, biến đổi một kẻ phàm trần ưu tú thành Quý tộc Huyết Tộc. Một thế hệ tử linh tinh anh mới cất tiếng khóc chào đời, quỳ rạp dưới gót giày của người kiến tạo.",
+    "effects": {
+      "joy": 15,
+      "INT": 1,
+      "flags": [
+        "noble_pact"
+      ]
+    },
+    "moment": "Kiến tạo nên một thế hệ Quý tộc Huyết Tộc mới."
+  },
+  {
+    "id": "vampire_middle_marble_skin",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 5,
+    "text": "Cơ thể bạn giờ đây lạnh lẽo và cứng rắn như một pho tượng cẩm thạch trắng bệch, tuyệt đối miễn nhiễm với mọi loại độc dược trên đời. Hơi ấm sinh mệnh đã nhường chỗ hoàn toàn cho vẻ đẹp siêu thực của cái chết.",
+    "effects": {
+      "health": 20,
+      "STR": 1,
+      "AGI": -1
+    }
+  },
+  {
+    "id": "vampire_middle_grand_crusade",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 8,
+    "text": "Giáo triều dốc toàn lực phái ba vị Hồng y vĩ đại nhất mang theo Thánh khí thượng cổ đến phong ấn Huyết Vương.",
+    "choices": [
+      {
+        "label": "Triển khai cấm thuật Huyết Vực nghênh chiến",
+        "check": {
+          "stat": "STR",
+          "target": 10
+        },
+        "success": {
+          "text": "Bầu trời nhuốm màu đỏ thẫm, Huyết Vực càn quét mọi tia sáng và nuốt chửng cả ba vị Hồng y cùng Thánh khí của họ.",
+          "effects": {
+            "STR": 3,
+            "wealth": 40,
+            "joy": 30
+          },
+          "moment": "Diệt gọn ba Hồng y, trở thành cơn ác mộng của Giáo hội."
+        },
+        "fail": {
+          "text": "Thánh khí thượng cổ bùng nổ vầng hào quang rực rỡ, thiêu đốt Huyết Vực thành hư vô và xuyên thủng trái tim bất tử của bạn.",
+          "death": "Bị Thánh quang vĩnh cửu thiêu rụi thành tro bụi tàn tạ ở tuổi {age}."
+        }
+      },
+      {
+        "label": "Hy sinh tay sai để mở cổng dịch chuyển",
+        "text": "Không nắm chắc phần thắng, bạn tàn nhẫn hút cạn sinh lực của hàng trăm tay sai để mở cổng không gian tẩu thoát đến Đảo Tro Tàn.",
+        "effects": {
+          "health": -20,
+          "wealth": -30,
+          "joy": -20,
+          "unflags": [
+            "blood_servant"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "vampire_elder_weariness",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "once": false,
+    "weight": 6,
+    "text": "Sự vĩnh hằng nhàm chán như một tấm màn xám xịt phủ lên vạn vật. Bạn mệt mỏi chối từ những cuộc chiến tranh vô nghĩa của lũ sinh linh phù du đang giành giật từng mảnh vụn quyền lực.",
+    "effects": {
+      "joy": -15,
+      "INT": 1
+    }
+  },
+  {
+    "id": "vampire_elder_forgotten_name",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 5,
+    "text": "Một chiều thu rụng lá, bạn chợt sững người khi nhận ra mình đã hoàn toàn quên mất tên gọi thời con người. Huyết Vương vĩ đại rốt cuộc chỉ còn là một cỗ máy thời gian trôi dạt giữa cõi hư vô.",
+    "effects": {
+      "joy": -20,
+      "INT": 1,
+      "health": -5
+    }
+  },
+  {
+    "id": "vampire_elder_blood_wine",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "once": false,
+    "weight": 5,
+    "text": "Rót ly rượu ủ từ máu của vương tộc hàng ngàn năm trước, bạn nhấp một ngụm để tưởng nhớ những kẻ thù hùng mạnh nay đã hóa thành cát bụi. Kẻ chiến thắng cuối cùng của trò chơi sinh mệnh lại là kẻ cô đơn nhất.",
+    "effects": {
+      "joy": 10,
+      "wealth": -5
+    }
+  },
+  {
+    "id": "vampire_elder_era_end",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 6,
+    "text": "Nhìn bầu trời rực cháy khi Kỷ Nguyên Tăm Tối tàn lụi, bạn chẳng còn mảy may xúc động trước sự diệt vong của thế giới. Bánh xe định mệnh dẫu có vỡ nát, Tro tàn bất tử vẫn sẽ ngạo nghễ tồn tại vượt thời gian.",
+    "effects": {
+      "INT": 2,
+      "LUCK": 1
+    }
+  },
+  {
+    "id": "vampire_elder_eternal_slumber",
+    "races": [
+      "vampire"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 8,
+    "text": "Trong cỗ quan tài máu phủ đầy rêu phong, bạn khép lại đôi mắt đã nhìn thấu hưng suy của cả lục địa. Giấc ngủ ngàn năm bắt đầu, lặng lẽ chờ đợi một ngày kia sẽ có kẻ dại dột đến đánh thức huyền thoại.",
+    "effects": {
+      "health": 40,
+      "joy": -10,
+      "STR": -1
+    },
+    "moment": "Chìm vào giấc ngủ ngàn năm, trở thành truyền thuyết của lục địa."
+  }
+]

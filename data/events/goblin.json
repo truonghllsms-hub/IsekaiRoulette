@@ -1,0 +1,81 @@
+[
+  { "id": "g_first_meat", "races": ["goblin"], "stages": ["infant"], "weight": 10,
+    "text": "Giữa bầy ấu tể gào khóc, bàn tay xanh nhỏ bé của bạn giật được mẩu xương còn dính thịt. Trận chiến đầu tiên của đời bạn, bạn đã thắng.", "effects": { "STR": 1 } },
+  { "id": "g_dark_eyes", "races": ["goblin"], "stages": ["infant"], "weight": 8,
+    "text": "Đôi mắt bạn dần quen với bóng tối hang sâu. Nơi kẻ khác chỉ thấy hư vô, bạn nhìn rõ từng vệt rêu và từng chiếc nanh đang rình rập.", "effects": { "AGI": 1 } },
+  { "id": "g_named", "races": ["goblin"], "stages": ["child"], "weight": 10,
+    "text": "Tù trưởng gầm lên một âm thanh khàn đục khi chỉ về phía bạn: {name}. Từ khoảnh khắc ấy, bạn không còn là một sinh vật vô danh giữa bầy đàn.", "effects": { "joy": 10 }, "moment": "Được ban tên" },
+  { "id": "g_trap", "races": ["goblin"], "stages": ["child"], "weight": 8,
+    "text": "Bạn học cách bện dây leo cùng gai nhọn thành cạm bẫy. Con mồi đầu tiên nó tóm được, trớ trêu thay, lại chính là bàn chân của bạn.", "effects": { "AGI": 1, "health": -3 } },
+  { "id": "g_chief_lesson", "races": ["goblin"], "stages": ["child"], "weight": 12, "require": { "flags": ["chief_son"] },
+    "text": "Phụ vương của bạn dạy rằng ngai vàng của hang động chỉ thuộc về kẻ gầm to nhất. Đêm đó, những ánh mắt thèm khát xung quanh nhìn bạn lâu hơn thường lệ.", "effects": { "STR": 1, "joy": -3 } },
+  { "id": "g_shaman_poison", "races": ["goblin"], "stages": ["child", "teen"], "weight": 12, "require": { "flags": ["shaman_apprentice"] },
+    "text": "Lão Pháp sư bắt bạn nếm thử một lọ thuốc màu tím. Bạn nôn suốt ba ngày, nhưng khi tỉnh dậy, những ký tự cổ trên vách đá bỗng trở nên dễ hiểu lạ thường.", "effects": { "INT": 2, "health": -10 } },
+  { "id": "g_human_child", "races": ["goblin"], "stages": ["child", "teen"], "weight": 5,
+    "text": "Nơi bìa Rừng Tân Thủ, bạn chạm mặt một đứa trẻ loài người. Hai sinh linh nhỏ bé nhìn nhau thật lâu dưới ánh hoàng hôn, rồi cùng quay lưng bỏ chạy.", "effects": { "joy": 3 }, "moment": "Gặp một đứa trẻ loài người" },
+  { "id": "g_shiny", "races": ["goblin"], "once": false, "weight": 3,
+    "text": "Bạn nhặt được một vật lấp lánh rơi từ thế giới bên trên. Nó được đặt lên bàn thờ phế phẩm của bạn, giữa chiếc giày rách và mảnh gương vỡ.", "effects": { "wealth": 3, "joy": 2 } },
+  { "id": "g_caravan_raid", "races": ["goblin"], "stages": ["teen"], "weight": 10,
+    "text": "Tiếng trống da chuột dồn dập vang lên. Bầy đàn chuẩn bị phục kích một đoàn xe thương nhân đang băng qua con đường mòn ven rừng.",
+    "choices": [
+      { "label": "Xông lên đầu", "check": { "stat": "STR", "target": 5 },
+        "success": { "text": "Bạn là kẻ đầu tiên leo lên cỗ xe. Bạn trở về hang với bao bột mì to hơn cả thân mình, và lần đầu được bầy đàn tung hô.", "effects": { "wealth": 15, "joy": 5, "flags": ["raider"] }, "moment": "Cuộc phục kích đầu tiên" },
+        "fail": { "text": "Một gã lính đánh thuê vung khiên quật bạn bay vào bụi gai. Bạn bò về hang trong bóng tối, máu nhỏ giọt sau lưng.", "effects": { "health": -30 } } },
+      { "label": "Đi sau nhặt đồ", "text": "Bạn lặng lẽ theo sau, nhặt nhạnh những gì rơi vãi. Một chiếc nồi méo trở thành báu vật lớn nhất đời bạn.", "effects": { "wealth": 5, "AGI": 1 } }
+    ] },
+  { "id": "g_ms_raid", "races": ["goblin"], "stages": ["teen", "adult"], "weight": 10,
+    "text": "Ba Mạo hiểm giả tập sự bước vào lãnh địa của bạn, ánh đuốc rọi khắp vách hang. Một trong số họ run rẩy còn hơn cả bạn.",
+    "choices": [
+      { "label": "Nằm im dưới bùn", "check": { "stat": "AGI", "target": 5 },
+        "success": { "text": "Bạn nín thở dưới lớp bùn lầy, nghe tiếng giày sắt bước qua ngay trên đầu. Khi bóng tối trở lại, bạn vẫn còn sống.", "effects": { "AGI": 1 } },
+        "fail": { "text": "Một bọt khí phản bội bạn. Lưỡi kiếm cắm xuống bùn, chỉ cách tim bạn một đốt ngón tay.", "effects": { "health": -30 } } },
+      { "label": "Cướp túi lương khô", "check": { "stat": "AGI", "target": 7 },
+        "success": { "text": "Như một bóng ma xanh, bạn giật phắt túi lương khô của kẻ yếu nhất rồi biến mất vào lòng hang. Đêm ấy cả bầy được một bữa no.", "effects": { "wealth": 12, "joy": 8 }, "moment": "Cướp lương khô của Mạo hiểm giả" },
+        "fail": { "text": "Lưỡi kiếm của kẻ tập sự nhanh hơn bạn tưởng.", "death": "Bạn bị chém bay đầu ở tuổi {age}, chiếc tai trái được mang về Hội đổi lấy hai đồng xu." } },
+      { "label": "Ném đồng loại ra đỡ", "text": "Bạn túm cổ một con Goblin bên cạnh ném về phía lưỡi kiếm rồi cắm đầu chạy. Tiếng thét sau lưng sẽ theo bạn vào từng giấc mơ.", "effects": { "joy": -10, "flags": ["traitor"] } }
+    ] },
+  { "id": "g_ms_evolution", "races": ["goblin"], "stages": ["adult"], "weight": 10,
+    "text": "Một luồng sức mạnh lạ lùng cuộn trào trong huyết quản. Bạn đứng trước ngã rẽ Tiến hóa, nơi số phận của cả giống loài chờ bạn lựa chọn.",
+    "choices": [
+      { "label": "Nuốt lõi ma lực", "text": "Lõi ma lực rạn nứt tan chảy trong lồng ngực bạn. Đôi mắt bạn rực lên ánh tím: bạn đã trở thành Goblin Pháp Sư.", "effects": { "INT": 3, "health": -10, "flags": ["shaman"] }, "moment": "Tiến hóa thành Goblin Pháp Sư" },
+      { "label": "Rèn luyện thể xác", "check": { "stat": "STR", "target": 5 },
+        "success": { "text": "Ngày qua ngày vác đá tảng và săn thú dữ, thân thể bạn vươn cao gấp rưỡi đồng loại. Bầy đàn cúi đầu trước một Hobgoblin.", "effects": { "STR": 3, "health": 15, "flags": ["hobgoblin"] }, "moment": "Tiến hóa thành Hobgoblin" },
+        "fail": { "text": "Một tảng đá trượt khỏi tay, nghiền nát hai ngón chân của bạn.", "effects": { "health": -20, "AGI": -1 } } },
+      { "label": "Hòa vào bóng đêm", "text": "Bạn mài nanh vuốt dưới ánh trăng và học cách bước đi không một tiếng động. Một Goblin Sát Thủ đã ra đời.", "effects": { "AGI": 3, "flags": ["assassin"] }, "moment": "Tiến hóa thành Goblin Sát Thủ" }
+    ] },
+  { "id": "g_mate", "races": ["goblin"], "stages": ["adult"], "weight": 8, "require": { "notFlags": ["partner"] },
+    "text": "Một Goblin khác đặt dưới chân bạn con chuột béo nhất nó săn được. Nơi hang sâu tăm tối này, đó là lời thề nguyện thiêng liêng nhất.", "effects": { "joy": 15, "flags": ["partner"] }, "moment": "Nhận lời thề nguyện" },
+  { "id": "g_ms_chief", "races": ["goblin"], "stages": ["middle"], "weight": 12, "require": { "notFlags": ["chief"] },
+    "text": "Lão Tù trưởng đã già, nanh rụng và mắt mờ. Trong đêm trăng máu, cả bộ lạc lặng lẽ quay sang nhìn bạn.",
+    "choices": [
+      { "label": "Thách đấu", "check": { "stat": "STR", "target": 8 },
+        "success": { "text": "Cây chùy của bạn giáng xuống, và tiếng sọ vỡ vang dội khắp hang động. Bạn bước lên ngai đá giữa tiếng gầm thét tôn vinh.", "effects": { "wealth": 30, "joy": 15, "flags": ["chief"] }, "moment": "Đoạt ngôi Tù trưởng" },
+        "fail": { "text": "Lão già còn giữ một đòn hiểm cuối cùng.", "death": "Bạn gục ngã dưới chân ngai đá ở tuổi {age}, và bầy đàn bước qua xác bạn như bước qua một hòn đá." } },
+      { "label": "Bỏ nấm độc", "check": { "stat": "INT", "target": 5 },
+        "success": { "text": "Lão nhai ngấu nghiến nồi thịt chuột tẩm nấm độc rồi ngã vật ra. Không ai biết chuyện gì đã xảy ra, trừ bạn, kẻ đang ngồi trên ngai.", "effects": { "wealth": 25, "flags": ["chief"] }, "moment": "Đầu độc lão Tù trưởng" },
+        "fail": { "text": "Lão ngửi thấy mùi nấm và bắt bạn nuốt hết phần còn lại.", "effects": { "health": -40 } } },
+      { "label": "Nhẫn nhục chờ đợi", "text": "Bạn cúi đầu làm tiểu đệ. Mùa đông năm ấy, một kẻ khác nhanh tay hơn bạn.", "effects": { "joy": -5 } }
+    ] },
+  { "id": "g_ms_famine", "races": ["goblin"], "stages": ["child", "teen", "adult", "middle"], "weight": 6,
+    "text": "Lãnh thổ cạn kiệt thức ăn. Trong hang sâu, những ánh mắt đói khát bắt đầu nhìn nhau theo cách đáng sợ.",
+    "choices": [
+      { "label": "Ăn kẻ yếu trong bầy", "text": "Bạn sống sót qua mùa đói. Nhưng có điều gì đó trong bạn đã chết theo những kẻ bị ăn thịt.", "effects": { "health": 15, "joy": -15, "flags": ["cannibal"] } },
+      { "label": "Đột nhập kho lương", "check": { "stat": "AGI", "target": 6 },
+        "success": { "text": "Bạn lẻn vào kho lương của loài người và kéo về một bao lúa mạch. Cả bầy sống sót nhờ bạn.", "effects": { "wealth": 15, "health": 10, "joy": 10 }, "moment": "Cứu bầy đàn khỏi nạn đói" },
+        "fail": { "text": "Lũ chó canh kho đánh hơi thấy bạn.", "death": "Bạn chết dưới nanh lũ chó canh kho ở tuổi {age}, cách bao lúa mạch chỉ một sải tay." } },
+      { "label": "Di cư xuống hầm ngục", "check": { "stat": "LUCK", "target": 5 },
+        "success": { "text": "Tầng sâu hơn của Vực Thẳm đầy rẫy hiểm nguy, nhưng cũng đầy rẫy xác quái vật để ăn. Bạn sống sót.", "effects": { "STR": 1, "health": 5 } },
+        "fail": { "text": "Một bóng đen khổng lồ chờ sẵn ở tầng sâu. Bạn thoát được, nhưng mất một con mắt.", "effects": { "health": -30, "LUCK": -1 } } }
+    ] },
+  { "id": "g_ms_despair", "races": ["goblin"], "stages": ["teen", "adult", "middle"], "weight": 12, "require": { "below": { "health": 40 } },
+    "text": "Thân thể rách nát, bị đồng loại xua đuổi và kẻ thù truy đuổi, bạn bị dồn đến bờ vực tuyệt vọng.",
+    "choices": [
+      { "label": "Làm linh thú cho Pháp sư", "text": "Bạn quỳ rạp trước một Pháp sư loài người. Ông ta khoác lên cổ bạn chiếc vòng da, và lần đầu tiên trong đời bạn được ăn no mỗi ngày.", "effects": { "health": 25, "joy": -10, "flags": ["tamed_pet"] }, "moment": "Trở thành linh thú của Pháp sư" },
+      { "label": "Nuốt nấm tử độc", "text": "Bạn nhai một nắm nấm tử độc, đôi mắt đỏ ngầu, và lao vào kẻ thù với sức mạnh chưa từng có.", "death": "Bạn ngã xuống ở tuổi {age}, nhưng đã kéo theo ba kẻ truy đuổi xuống cõi Hư Vô cùng mình." },
+      { "label": "Nhảy xuống sông ngầm", "check": { "stat": "LUCK", "target": 5 },
+        "success": { "text": "Dòng nước cuộn xiết cuốn bạn đi suốt một đêm, rồi đặt bạn lên một bãi cát xa lạ. Bạn còn sống.", "effects": { "health": 15, "LUCK": 1 } },
+        "fail": { "text": "Dòng sông ngầm không trả lại những gì nó đã nuốt.", "death": "Dòng sông ngầm nhấn chìm bạn ở tuổi {age}." } }
+    ] },
+  { "id": "g_oldest", "races": ["goblin"], "stages": ["elder"], "weight": 10,
+    "text": "Bạn đã trở thành Goblin già nhất hang. Lũ ấu tể nhìn bạn bằng ánh mắt kinh hãi, như nhìn một huyền thoại sống sót từ thuở hồng hoang.", "effects": { "joy": 5 }, "moment": "Goblin già nhất hang" }
+]

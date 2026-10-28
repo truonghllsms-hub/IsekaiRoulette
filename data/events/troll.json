@@ -1,0 +1,36 @@
+[
+  { "id": "tr_regrow", "races": ["troll"], "stages": ["infant"], "weight": 10,
+    "text": "Một con sói cắn đứt bàn tay của bạn. Bạn ngơ ngác nhìn bàn tay mới chậm rãi mọc lại, rồi tiếp tục bốc bùn ăn.", "effects": { "health": 10 }, "moment": "Bàn tay tự mọc lại" },
+  { "id": "tr_tree_club", "races": ["troll"], "stages": ["child"], "weight": 9,
+    "text": "Bạn nhổ bật một cây sồi cổ thụ làm gậy chống. Cả khu rừng im bặt trước sức mạnh của một đứa trẻ.", "effects": { "STR": 2 } },
+  { "id": "tr_ms_ring", "races": ["troll"], "stages": ["child", "teen"], "weight": 7,
+    "text": "Giữa bãi cỏ, một chiếc nhẫn khắc cổ ngữ lấp lánh ánh ma thuật. Bạn nhặt nó lên bằng hai ngón tay to như khúc gỗ.",
+    "choices": [
+      { "label": "Nhai cho đỡ đói", "text": "Chiếc nhẫn vỡ rôm rốp giữa hai hàm răng. Từ hôm đó, phép thuật bắn vào bạn như mưa phùn.", "effects": { "INT": 1, "health": -5, "flags": ["magic_resist"] }, "moment": "Nuốt chiếc nhẫn ma thuật" },
+      { "label": "Cố đeo vào ngón tay", "text": "Chiếc nhẫn kẹt cứng nơi đốt ngón tay, khiến nó sưng tím suốt một mùa.", "effects": { "health": -10, "joy": -5 } },
+      { "label": "Tặng con Goblin", "text": "Bạn trao chiếc nhẫn cho một con Goblin đi ngang qua. Nó nhìn bạn như nhìn thần linh.", "effects": { "joy": 8, "LUCK": 1 } }
+    ] },
+  { "id": "tr_ms_knight", "races": ["troll"], "stages": ["teen", "adult"], "weight": 10,
+    "text": "Một Kỵ sĩ Hoàng gia giáp bạc dừng ngựa trước cây cầu của bạn, ngẩng cao đầu từ chối nộp lộ phí.",
+    "choices": [
+      { "label": "Đập bẹp cả người lẫn ngựa", "check": { "stat": "STR", "target": 8 },
+        "success": { "text": "Cây gậy sồi giáng xuống. Từ bộ giáp bẹp dúm, một túi tiền vàng lăn ra.", "effects": { "wealth": 20, "joy": 5 }, "moment": "Đập bẹp một Kỵ sĩ Hoàng gia" },
+        "fail": { "text": "Thanh gươm tẩm lửa của hắn chém đứt cánh tay bạn. Lần này, nó mọc lại rất chậm.", "effects": { "health": -35 } } },
+      { "label": "Nhận đồng vàng hắn đưa", "text": "Hắn đặt vào tay bạn một cục đá sơn vàng. Bạn ngắm nghía nó suốt nhiều đêm, lòng hân hoan vô hạn.", "effects": { "joy": 10, "flags": ["fool_gold"] } }
+    ] },
+  { "id": "tr_ms_fire", "races": ["troll"], "stages": ["adult", "middle"], "weight": 9,
+    "text": "Một tổ đội Mạo hiểm giả bao vây bạn, tay cầm đuốc lửa và những bình dầu hỏa. Lần đầu tiên trong đời, bạn biết thế nào là sợ hãi.",
+    "choices": [
+      { "label": "Nhảy xuống sông", "check": { "stat": "AGI", "target": 4 },
+        "success": { "text": "Bạn khóc lóc lao xuống dòng sông chảy xiết. Ngọn lửa tắt ngúm, và bạn trôi dạt đến một khu rừng mới.", "effects": { "joy": -5 } },
+        "fail": { "text": "Bạn vấp ngã trước bờ sông, lửa đã kịp liếm khắp lưng.", "effects": { "health": -30 } } },
+      { "label": "Đập nát tất cả", "check": { "stat": "STR", "target": 9 },
+        "success": { "text": "Bạn chịu bỏng lao vào và nghiền nát cả tổ đội. Những vết sẹo lửa sẽ không bao giờ lành.", "effects": { "wealth": 15, "health": -20, "flags": ["scarred"] }, "moment": "Sống sót qua trận hỏa công" },
+        "fail": { "text": "Biển lửa nuốt chửng thân thể khổng lồ của bạn.", "death": "Bạn hóa thành tro giữa trận hỏa công ở tuổi {age}, cách duy nhất khiến một Troll không thể hồi phục." } },
+      { "label": "Quỳ gối van xin", "check": { "stat": "LUCK", "target": 6 },
+        "success": { "text": "Chúng cười ngặt nghẽo trước cảnh một gã khổng lồ khóc lóc, rồi bỏ đi.", "effects": { "joy": -10 } },
+        "fail": { "text": "Chúng không có lòng thương xót.", "effects": { "health": -40 } } }
+    ] },
+  { "id": "tr_moss_hill", "races": ["troll"], "stages": ["elder"], "weight": 8,
+    "text": "Bạn ngủ liền một mạch suốt nhiều năm. Rễ cây bám chặt lấy người, chim chóc làm tổ trên vai bạn.", "effects": { "health": 5, "joy": 5 } }
+]

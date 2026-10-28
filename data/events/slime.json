@@ -1,0 +1,64 @@
+[
+  { "id": "s_eye", "races": ["slime"], "stages": ["infant"], "weight": 10,
+    "text": "Giữa khối nhầy vô tri, một con mắt mờ đục chậm rãi hình thành. Hình ảnh đầu tiên bạn thấy về thế giới là tám chiếc chân lông lá của một con nhện hang.", "effects": { "INT": 1 } },
+  { "id": "s_footsteps", "races": ["slime"], "stages": ["infant"], "weight": 8,
+    "text": "Mặt đất rung lên dưới những bước chân khổng lồ. Bạn rút mình vào khe đá, học bài học đầu tiên của kẻ đứng cuối chuỗi thức ăn: ẩn mình là sống.", "effects": { "AGI": 1 } },
+  { "id": "s_lab_notes", "races": ["slime"], "stages": ["infant", "child"], "weight": 12, "require": { "flags": ["magic_slime"] },
+    "text": "Những mảnh ma lực hỗn loạn từ bình thí nghiệm vỡ vẫn vương trong cơ thể bạn. Thỉnh thoảng, bạn chợt hiểu những điều mà một khối nhầy lẽ ra không thể hiểu.", "effects": { "INT": 1 } },
+  { "id": "s_moss", "races": ["slime"], "stages": ["child", "teen", "adult"], "once": false, "weight": 3,
+    "text": "Bạn trườn qua thảm rêu ẩm và hấp thụ từng sợi xanh mướt. Khối thân thể nhỏ bé lớn thêm một chút, và cơn đói tạm lắng xuống.", "effects": { "health": 6 } },
+  { "id": "s_rat_bones", "races": ["slime"], "stages": ["child"], "weight": 7,
+    "text": "Bạn nuốt trọn bộ xương của một con chuột hầm ngục. Lần đầu tiên, cơ thể lỏng lẻo của bạn có được thứ gì đó giống như một bộ khung.", "effects": { "STR": 1 } },
+  { "id": "s_ms_capture", "races": ["slime"], "stages": ["child", "teen"], "weight": 10,
+    "text": "Một bàn tay đeo găng da tóm gọn lấy bạn. Gã Mạo hiểm giả nhìn bạn với nụ cười của kẻ vừa tìm được món hời.",
+    "choices": [
+      { "label": "Giả chết", "check": { "stat": "LUCK", "target": 5 },
+        "success": { "text": "Bạn tan thành một vũng nước vô hồn. Gã chửi thề, chùi tay vào áo rồi bỏ đi.", "effects": { "joy": 5 } },
+        "fail": { "text": "Gã không bị lừa. Hắn bóp mạnh cho đến khi bạn vỡ ra một nửa.", "effects": { "health": -30 } } },
+      { "label": "Phun axit rồi trốn", "check": { "stat": "AGI", "target": 5 },
+        "success": { "text": "Dòng axit bắn thẳng vào mắt gã. Trong tiếng gào thét, bạn trườn qua khe đá và biến mất.", "effects": { "AGI": 1 }, "moment": "Thoát khỏi tay Mạo hiểm giả" },
+        "fail": { "text": "Axit chỉ làm cháy xém đôi găng. Gã ném bạn vào tường đá.", "effects": { "health": -25 } } },
+      { "label": "Chịu làm sủng vật", "text": "Bạn bị nhốt vào một chiếc bình thủy tinh. Mất đi tự do, nhưng mỗi ngày đều có thức ăn rơi xuống từ trên cao.", "effects": { "health": 15, "joy": -10, "flags": ["tamed_pet"] }, "moment": "Trở thành sủng vật trong bình" }
+    ] },
+  { "id": "s_split", "races": ["slime"], "stages": ["teen"], "weight": 9,
+    "text": "Cơ thể bạn rung lên dữ dội. Bản năng nguyên thủy thì thầm rằng bạn có thể tách làm đôi.",
+    "choices": [
+      { "label": "Phân bào", "text": "Bạn tách làm hai. Một nửa của bạn trôi đi về phía bóng tối và không bao giờ quay lại.", "effects": { "health": -15, "joy": 5, "flags": ["split"] }, "moment": "Phân bào lần đầu" },
+      { "label": "Kìm lại", "text": "Bạn giữ mình nguyên vẹn, và khối thân thể đặc quánh thêm một phần.", "effects": { "STR": 1 } }
+    ] },
+  { "id": "s_ms_elemental", "races": ["slime"], "stages": ["teen", "adult"], "weight": 10,
+    "text": "Bạn vô tình nuốt phải một Tinh thể Nguyên tố nằm lăn lóc giữa đống đổ nát. Nó bỏng rát, và nó đang đòi hỏi bạn phải chọn.",
+    "choices": [
+      { "label": "Hấp thụ Lõi Lửa", "text": "Ngọn lửa hòa vào thân thể bạn, nhuộm nó thành sắc đỏ cam rực cháy. Bạn đã trở thành Slime Lửa.", "effects": { "STR": 2, "INT": 1, "flags": ["fire_slime"] }, "moment": "Tiến hóa thành Slime Lửa" },
+      { "label": "Hấp thụ Bọc Độc", "text": "Độc tố len lỏi vào từng giọt nhầy. Mọi thứ bạn chạm vào đều bắt đầu thối rữa: bạn là Slime Độc.", "effects": { "STR": 1, "AGI": 1, "flags": ["poison_slime"] }, "moment": "Tiến hóa thành Slime Độc" },
+      { "label": "Nhả ra", "text": "Bạn nhổ tinh thể ra trong đau đớn. Dù không tiến hóa, cơ thể bạn trở nên dẻo dai hơn bao giờ hết.", "effects": { "health": 20 } }
+    ] },
+  { "id": "s_rookie", "races": ["slime"], "stages": ["teen", "adult"], "once": false, "weight": 3,
+    "text": "Một Mạo hiểm giả tập sự vung kiếm chém vào bạn. Lưỡi kiếm xuyên qua cơ thể lỏng của bạn như xuyên qua nước.", "effects": { "AGI": 1, "health": -3 } },
+  { "id": "s_speech", "races": ["slime"], "stages": ["adult"], "weight": 8, "require": { "INT": 5 },
+    "text": "Bạn học được cách rung cơ thể thành âm thanh. Lời đầu tiên bạn nói ra thế gian là \"đói\".", "effects": { "INT": 2, "flags": ["speech"] }, "moment": "Cất lời đầu tiên" },
+  { "id": "s_named", "races": ["slime"], "stages": ["adult"], "weight": 10, "require": { "flags": ["speech"] },
+    "text": "Một cô bé lạc đường gặp bạn trong rừng sâu và gọi bạn là {name}. Bạn dẫn cô bé về tới bìa rừng, và giữ cái tên ấy mãi mãi.", "effects": { "joy": 15 }, "moment": "Được một cô bé đặt tên" },
+  { "id": "s_ms_core", "races": ["slime"], "stages": ["adult", "middle"], "weight": 9,
+    "text": "Một gã thợ săn quái vật đã nhận ra lõi ma lực ẩn sâu trong cơ thể bạn. Mũi giáo của hắn nhắm thẳng vào nó.",
+    "choices": [
+      { "label": "Tạo vỏ đá", "text": "Bạn hút đất đá vào người, bao bọc lõi bằng một lớp vỏ cứng. Mũi giáo gãy đôi.", "effects": { "STR": 2, "AGI": -1, "flags": ["stone_shell"] } },
+      { "label": "Tách thành giọt nhỏ", "text": "Bạn vỡ thành hàng chục giọt nhầy và chạy tán loạn. Phải rất lâu sau bạn mới gom lại được mình.", "effects": { "health": -20, "AGI": 1 } },
+      { "label": "Bóp nghẹt hắn", "check": { "stat": "STR", "target": 6 },
+        "success": { "text": "Bạn quăng mình lên mặt hắn và siết chặt. Khi mọi thứ lặng yên, bạn tiêu hóa luôn cả bộ giáp của hắn.", "effects": { "STR": 2, "health": 15 }, "moment": "Nuốt chửng một thợ săn quái vật" },
+        "fail": { "text": "Mũi giáo xuyên qua người bạn, sượt qua lõi chỉ trong gang tấc.", "effects": { "health": -35 } } }
+    ] },
+  { "id": "s_ms_mimic", "races": ["slime"], "stages": ["adult", "middle"], "weight": 7,
+    "text": "Giữa căn phòng bỏ hoang của hầm ngục, một chiếc rương báu nằm mở nắp, trống rỗng và mời gọi.",
+    "choices": [
+      { "label": "Chui vào rương", "text": "Bạn trườn vào và hòa làm một với lớp gỗ mục. Kẻ tham lam tiếp theo mở nắp sẽ không bao giờ ra ngoài nữa: bạn đã thành Mimic.", "effects": { "wealth": 15, "STR": 1, "flags": ["mimic"] }, "moment": "Tiến hóa thành Mimic" },
+      { "label": "Hòa tan chiếc rương", "text": "Bạn nuốt trọn gỗ và sắt. Một bữa ăn thịnh soạn hiếm hoi.", "effects": { "health": 10, "STR": 1 } },
+      { "label": "Trườn đi", "text": "Bạn bỏ qua chiếc rương và tiếp tục hành trình vô tận trong bóng tối.", "effects": {} }
+    ] },
+  { "id": "s_mini_boss", "races": ["slime"], "stages": ["middle"], "weight": 8,
+    "text": "Khối thân thể của bạn giờ lấp kín cả một gian phòng. Các Mạo hiểm giả bắt đầu gọi tầng ngục này bằng tên của bạn.", "effects": { "STR": 2, "joy": 5 }, "moment": "Trở thành Mini-Boss của hầm ngục" },
+  { "id": "s_king", "races": ["slime"], "stages": ["ancient"], "weight": 10,
+    "text": "Bạn đã sống lâu hơn cả những vương triều trên mặt đất. Trong các truyền thuyết, người ta bắt đầu gọi bạn là Vua Bùn Nhão.", "effects": { "joy": 10, "flags": ["slime_king"] }, "moment": "Được gọi là Vua Bùn Nhão" },
+  { "id": "s_lake", "races": ["slime"], "stages": ["ancient"], "once": false, "weight": 3,
+    "text": "Bạn nằm yên dưới đáy một hồ ngầm suốt nhiều thập kỷ. Những đàn cá mù lặng lẽ bơi xuyên qua cơ thể bạn.", "effects": { "joy": 3, "health": 5 } }
+]

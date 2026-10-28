@@ -1,0 +1,4337 @@
+[
+  {
+    "id": "beastman_infant_1",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "weight": 6,
+    "text": "Chiếc răng nanh đầu tiên chọc thủng lợi, mang theo cơn sốt hầm hập. Dòng máu dã thú đang thức tỉnh trong sinh linh bé nhỏ.",
+    "effects": {
+      "STR": 1,
+      "health": -5
+    }
+  },
+  {
+    "id": "beastman_infant_2",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "once": false,
+    "weight": 5,
+    "text": "Đêm rằm sáng vằng vặc, bạn bất giác hếch mõm lên trời cất tiếng tru non nớt. Bản năng cổ xưa kết nối linh hồn bạn với vầng trăng.",
+    "effects": {
+      "joy": 5
+    }
+  },
+  {
+    "id": "beastman_infant_3",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "weight": 8,
+    "text": "Bạn từ chối đi bằng hai chân, kiên quyết bò bốn chi nhanh thoăn thoắt khắp nhà. Sự hoang dã bẩm sinh làm cha mẹ vừa buồn cười vừa đau đầu.",
+    "effects": {
+      "AGI": 1,
+      "joy": 3
+    }
+  },
+  {
+    "id": "beastman_infant_4",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "weight": 6,
+    "text": "Một thương nhân từ Sanctus đi ngang qua và nhầm bạn với một thú nhồi bông quý hiếm. Ông ta ném lại vài Đồng Cẩm Thạch trước khi bị gầm đuổi đi.",
+    "effects": {
+      "wealth": 5,
+      "LUCK": 1
+    }
+  },
+  {
+    "id": "beastman_infant_5",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 8,
+    "text": "Tiếng giầy sắt của Thánh Vệ Quân rầm rập ngoài cửa, cha mẹ cuống cuồng giấu bạn xuống hầm ngầm. Hơi thở chiến tranh phả cái lạnh vào tâm hồn non nớt.",
+    "effects": {
+      "joy": -10,
+      "health": -3
+    }
+  },
+  {
+    "id": "beastman_infant_6",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "weight": 7,
+    "text": "Nắng vàng ươm rải mật trên Thảo Nguyên Gió Hú, bạn nằm lăn lộn trên vạt cỏ mềm. Hơi thở bình yên của Tự Nhiên bao bọc sinh mệnh nhỏ nhoi.",
+    "effects": {
+      "health": 10,
+      "joy": 10
+    }
+  },
+  {
+    "id": "beastman_infant_7",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 6,
+    "require": {
+      "health": 4
+    },
+    "text": "Dịch bệnh lạ từ Đầm Lầy Tử Khí tràn tới, nhưng sức sống mãnh liệt của Thú nhân đã đốt cháy mầm bệnh trong nôi. Bạn sống sót như một kỳ tích.",
+    "effects": {
+      "STR": 1,
+      "health": -5,
+      "flags": [
+        "disease_survivor"
+      ]
+    }
+  },
+  {
+    "id": "beastman_infant_8",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "eras": [
+      "demon_lord"
+    ],
+    "weight": 7,
+    "text": "Một bóng đen ma vật sượt ngang qua mái lều, mang theo mùi lưu huỳnh hôi thối. Bạn khóc thét lên, linh cảm được ác mộng của lục địa sắp bắt đầu.",
+    "effects": {
+      "joy": -8,
+      "INT": 1
+    }
+  },
+  {
+    "id": "beastman_infant_choice_1",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "weight": 10,
+    "text": "Một đốm sáng hình hồ điệp lấp lánh từ Tháp Ngà bay lạc qua chiếc nôi, tỏa ra ma lực dụ dỗ sinh linh bé nhỏ.",
+    "choices": [
+      {
+        "label": "Vồ lấy hồ điệp",
+        "check": {
+          "stat": "AGI",
+          "target": 3
+        },
+        "success": {
+          "text": "Móng vuốt non nớt chộp trúng vệt sáng, bụi ma thuật tan vào da thịt khiến bạn cảm thấy tràn trề sức sống.",
+          "effects": {
+            "LUCK": 1,
+            "health": 8
+          },
+          "moment": "Chộp được phép thuật"
+        },
+        "fail": {
+          "text": "Bạn vồ hụt, ngã nhào khỏi nôi và va đầu vào đá bầm tím.",
+          "effects": {
+            "health": -8,
+            "joy": -5
+          }
+        }
+      },
+      {
+        "label": "Nằm im quan sát",
+        "text": "Đôi mắt tròn xoe phản chiếu luồng sáng ma thuật tuyệt đẹp, trí óc non nớt của bạn ghi nhận một thứ ánh sáng huyền bí.",
+        "effects": {
+          "INT": 1,
+          "joy": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_child_1",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "child"
+    ],
+    "weight": 8,
+    "text": "Bạn được người lớn đưa ra đồng cỏ tập săn chuột đất. Lần đầu nếm mùi máu nóng, bản năng dã thú trong bạn gầm gừ thỏa mãn.",
+    "effects": {
+      "STR": 1,
+      "joy": 5
+    }
+  },
+  {
+    "id": "beastman_child_2",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "child"
+    ],
+    "weight": 6,
+    "text": "Móng vuốt dài ra quá nhanh khiến bạn vô tình cào rách thảm len trong nhà. Bị ăn một trận đòn, nhưng bạn biết vuốt mình rất bén.",
+    "effects": {
+      "AGI": 1,
+      "joy": -5
+    }
+  },
+  {
+    "id": "beastman_child_3",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "child"
+    ],
+    "once": false,
+    "weight": 5,
+    "text": "Lao vào ẩu đả với đám trẻ Thú nhân khác để tranh một miếng đùi thú quay. Quy luật kẻ mạnh được bạn khắc cốt ghi tâm từ những vết bầm.",
+    "effects": {
+      "STR": 1,
+      "health": -4,
+      "joy": 8
+    }
+  },
+  {
+    "id": "beastman_child_4",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "child"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 7,
+    "text": "Những lính đánh thuê của Thương Đoàn Sói Bạc nai nịt gọn gàng lên đường tiến ra tiền tuyến. Sự vĩ đại của chiến tranh in bóng vào đáy mắt bạn.",
+    "effects": {
+      "INT": 1,
+      "joy": -5,
+      "flags": [
+        "war_inspired"
+      ]
+    }
+  },
+  {
+    "id": "beastman_child_5",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "child"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "weight": 7,
+    "text": "Tham gia lễ hội Nảy Mầm rộn rã quanh bếp lửa lớn. Tín ngưỡng của Tự Nhiên Giáo dạy bạn cách trân trọng vạn vật của Aethelgard.",
+    "effects": {
+      "health": 5,
+      "joy": 10
+    }
+  },
+  {
+    "id": "beastman_child_6",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "child"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 8,
+    "text": "Cơn đói cào xé ruột gan khiến bạn ăn nhầm phải rễ cây độc trên sườn đồi. Bạn nôn thốc nôn tháo suốt đêm nhưng cơ thể lại dai dẳng thêm một chút.",
+    "effects": {
+      "health": -10,
+      "STR": 1,
+      "joy": -10
+    }
+  },
+  {
+    "id": "beastman_child_7",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "child"
+    ],
+    "eras": [
+      "demon_lord"
+    ],
+    "weight": 9,
+    "text": "Bóng đen của một con Cốt Long xẹt qua che khuất mặt trời. Áp lực kinh hoàng ép bạn quỳ rạp xuống đất, run rẩy nhận ra sự nhỏ bé của mình.",
+    "effects": {
+      "joy": -15,
+      "INT": 1
+    }
+  },
+  {
+    "id": "beastman_child_8",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "child"
+    ],
+    "weight": 6,
+    "text": "Một trưởng lão dạy bạn cách đọc hướng gió và theo dấu vết. Những bài học hoang dã ấy đáng giá hơn vạn cuốn sách trong Tháp Ngà.",
+    "effects": {
+      "AGI": 1,
+      "INT": 1
+    }
+  },
+  {
+    "id": "beastman_child_9",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "child"
+    ],
+    "weight": 7,
+    "require": {
+      "LUCK": 3
+    },
+    "text": "Lạc đường sâu vào Đại Ngàn Lục Bảo, may mắn được một chiến binh Tuần Lâm Trọng Vệ phát hiện đem về. Sự kỳ vĩ của rừng thiêng làm bạn nghẹt thở.",
+    "effects": {
+      "LUCK": 1,
+      "joy": 5
+    }
+  },
+  {
+    "id": "beastman_child_10",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "child"
+    ],
+    "once": false,
+    "weight": 5,
+    "text": "Nhảy ùm xuống dòng suối buốt giá giữa mùa Săn Bão. Cái lạnh cắt da không dập tắt được ngọn lửa sinh mệnh mà rèn giũa nó thêm quật cường.",
+    "effects": {
+      "health": 8,
+      "STR": 1
+    }
+  },
+  {
+    "id": "beastman_child_11",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "child"
+    ],
+    "weight": 6,
+    "text": "Lục lọi dưới lớp tuyết ven đường mòn, bạn vô tình bới được một Đồng Cẩm Thạch vứt lăn lóc. Định mệnh đôi khi cũng mỉm cười.",
+    "effects": {
+      "wealth": 10,
+      "joy": 5
+    }
+  },
+  {
+    "id": "beastman_child_12",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "child"
+    ],
+    "weight": 7,
+    "require": {
+      "STR": 4
+    },
+    "text": "Bạn gầm lên, xốc vác một khúc gỗ lớn gấp đôi cơ thể phụ giúp gia đình dựng lều. Những ánh mắt tròn xoe thán phục từ người lớn làm bạn nở mũi.",
+    "effects": {
+      "joy": 10,
+      "health": -2
+    }
+  },
+  {
+    "id": "beastman_child_13",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "child"
+    ],
+    "weight": 7,
+    "require": {
+      "LUCK": 4
+    },
+    "text": "Tình cờ vấp ngã đúng chỗ có tổ ong mật lớn. Bạn no nê một bữa ngọt lịm từ món quà hào phóng của Tự Nhiên.",
+    "effects": {
+      "health": 15,
+      "joy": 15
+    }
+  },
+  {
+    "id": "beastman_child_14",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "child"
+    ],
+    "weight": 6,
+    "require": {
+      "below": {
+        "INT": 3
+      }
+    },
+    "text": "Tưởng cục đá tỏa sáng là kẹo, bạn há to mõm cắn rắc một cái. Chảy cả máu lợi, bạn học được một bài học cay đắng về việc nhìn trước khi ăn.",
+    "effects": {
+      "health": -5,
+      "joy": -5
+    }
+  },
+  {
+    "id": "beastman_child_15",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "child"
+    ],
+    "weight": 6,
+    "text": "Ngồi trên mỏm đá cao ngắm nhìn hình bóng xa xăm của Cây Thế Giới Yggdrasil vươn tới chín tầng mây. Một cảm giác kính úy tràn ngập trong tim.",
+    "effects": {
+      "INT": 1,
+      "joy": 8
+    }
+  },
+  {
+    "id": "beastman_child_16",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "child"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "once": false,
+    "weight": 5,
+    "text": "Nằm ườn ngủ trưa dưới tán lá cổ thụ rực đỏ mùa Lửa Trại. Đời sống êm đềm trôi qua khe khẽ như hơi thở của thần linh.",
+    "effects": {
+      "health": 10,
+      "joy": 5
+    }
+  },
+  {
+    "id": "beastman_child_17",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "child"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 8,
+    "text": "Bọn buôn nô lệ từ Giáo hội lẻn vào rình bắt bạn. Bằng bản năng sinh tồn mãnh liệt, bạn cắn đứt ngón tay tên cầm đầu và chạy trốn vào bụi rậm.",
+    "effects": {
+      "STR": 1,
+      "health": -5,
+      "flags": [
+        "scarred_face"
+      ]
+    }
+  },
+  {
+    "id": "beastman_child_18",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "child"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 7,
+    "text": "Một đoàn Thánh Vệ Quân rầm rập hành quân ra tiền tuyến và đánh rơi vài đồng Tinh Bạc. Bạn thoăn thoắt nhặt nhạnh trước khi bị ai phát hiện.",
+    "effects": {
+      "wealth": 15,
+      "AGI": 1
+    }
+  },
+  {
+    "id": "beastman_child_19",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "child"
+    ],
+    "weight": 6,
+    "text": "Bắt chước lửng mật, bạn gieo mình qua khe nứt nhỏ trên vách đá. Đôi chân dẻo dai bẩm sinh giúp bạn tiếp đất gọn gàng trong tiếng hò reo của lũ trẻ.",
+    "effects": {
+      "AGI": 1,
+      "joy": 5
+    }
+  },
+  {
+    "id": "beastman_child_20",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "child"
+    ],
+    "eras": [
+      "demon_lord"
+    ],
+    "weight": 8,
+    "text": "Tiếng rống của một ma thú đột biến vang vọng từ Đại Ngàn Lục Bảo. Lông trên cổ bạn dựng đứng, bản năng mách bảo đây không phải thời đại để yếu đuối.",
+    "effects": {
+      "joy": -8,
+      "STR": 1
+    }
+  },
+  {
+    "id": "beastman_child_21",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "child"
+    ],
+    "weight": 8,
+    "text": "Theo nghi thức trưởng thành sơ bộ, bạn bị xỏ khuyên tai bằng một chiếc răng nanh rỗng. Đau buốt thấu xương, nhưng bạn kiêu hãnh gầm vang.",
+    "effects": {
+      "STR": 1,
+      "health": -3,
+      "joy": 5
+    }
+  },
+  {
+    "id": "beastman_child_22",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "child"
+    ],
+    "weight": 7,
+    "text": "Chạy theo một tinh linh đom đóm, bạn lọt thỏm vào hố bẫy của thợ săn. Bạn dùng móng vuốt đào vách đất trèo lên suốt cả đêm ròng rã.",
+    "effects": {
+      "AGI": 2,
+      "health": -5,
+      "joy": -5
+    }
+  },
+  {
+    "id": "beastman_child_23",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "child"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "once": false,
+    "weight": 5,
+    "text": "Bên đống lửa bập bùng mùa Săn Bão, già làng kể tráng ca về trận chiến trên Đỉnh Răng Cưa. Khát vọng vinh quang rực cháy trong đáy mắt bạn.",
+    "effects": {
+      "INT": 1,
+      "joy": 5
+    }
+  },
+  {
+    "id": "beastman_child_choice_1",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "child"
+    ],
+    "weight": 10,
+    "require": {
+      "STR": 3
+    },
+    "text": "Bạn phát hiện một bọng ong mật khổng lồ bên sườn đồi, nhưng ngay dưới gốc cây là một con gấu xám đang say ngủ.",
+    "choices": [
+      {
+        "label": "Lẻn xuống cướp mật",
+        "check": {
+          "stat": "AGI",
+          "target": 6
+        },
+        "success": {
+          "text": "Bước chân nhẹ như gió của Thú nhân giúp bạn nẫng trọn tảng mật vàng óng rồi chuồn êm. Ngọt đến lịm tim!",
+          "effects": {
+            "health": 15,
+            "joy": 20
+          },
+          "moment": "Trộm mật ong trước mũi gấu"
+        },
+        "fail": {
+          "text": "Bạn giẫm cành cây khô đánh thức con gấu. Nó gầm lên tát bạn một cú văng xa mười thước.",
+          "effects": {
+            "health": -15,
+            "STR": 1,
+            "joy": -10
+          }
+        }
+      },
+      {
+        "label": "Nhịn thèm bỏ đi",
+        "text": "Bản năng sinh tồn nhắc nhở bạn không nên chọc giận chúa sơn lâm. Bạn nuốt nước bọt rời đi, cõi lòng tiếc nuối.",
+        "effects": {
+          "joy": -5,
+          "INT": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_child_choice_2",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "child"
+    ],
+    "eras": [
+      "dark_age",
+      "demon_lord"
+    ],
+    "weight": 9,
+    "text": "Tò mò lang thang tới ven Đầm Lầy Tử Khí, bạn thấy một bông hoa tỏa ánh sáng tím lập lòe mọc trên xác một con quái vật.",
+    "choices": [
+      {
+        "label": "Bứt lấy ăn thử",
+        "check": {
+          "stat": "LUCK",
+          "target": 9
+        },
+        "success": {
+          "text": "Chất độc chết người không đánh gục được bạn mà lại thức tỉnh một mạch mana kỳ dị. Sức lực cuộn trào bứt phá giới hạn.",
+          "effects": {
+            "STR": 2,
+            "AGI": 2,
+            "health": 10,
+            "flags": [
+              "toxic_mutation"
+            ]
+          },
+          "moment": "Sống sót khi nuốt hoa độc tử khí"
+        },
+        "fail": {
+          "text": "Bạn vừa nuốt xuống thì họng bỏng rát như lửa thiêu.",
+          "death": "Chất độc lan tràn phá hủy lục phủ ngũ tạng, bạn sùi bọt mép và gục ngã vĩnh viễn ở tuổi {age} ven Đầm Lầy Tử Khí."
+        }
+      },
+      {
+        "label": "Tuyệt đối tránh xa",
+        "text": "Ghi nhớ lời răn của Tự Nhiên Giáo, bạn nhanh chóng lùi lại khỏi luồng chướng khí hôi thối để bảo toàn sinh mạng.",
+        "effects": {
+          "INT": 1,
+          "joy": -2
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_child_choice_3",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "child"
+    ],
+    "weight": 8,
+    "text": "Vài tên tùy tùng kiêu ngạo của Thương Đoàn Sói Bạc đi ngang ném bùn vào mặt bạn và mỉa mai đám thú nhân là 'động vật hoang dã'.",
+    "choices": [
+      {
+        "label": "Gầm lên lao vào đánh",
+        "check": {
+          "stat": "STR",
+          "target": 3
+        },
+        "success": {
+          "text": "Vuốt sắc của bạn cào toạc mặt tên đi đầu. Đám người sợ hãi vứt lại một túi Tinh Bạc rồi tháo chạy.",
+          "effects": {
+            "STR": 1,
+            "wealth": 20,
+            "joy": 10
+          },
+          "moment": "Cào rách mặt kẻ thù kiêu ngạo"
+        },
+        "fail": {
+          "text": "Chúng đông và to con hơn. Bạn bị đấm túi bụi và bị lột sạch những gì có trên người.",
+          "effects": {
+            "health": -10,
+            "wealth": -10,
+            "joy": -15
+          }
+        }
+      },
+      {
+        "label": "Gạt bùn, nuốt giận",
+        "text": "Bạn lườm chúng bằng đôi mắt sắc lẹm, ghi nhớ từng khuôn mặt rồi lặng lẽ lùi vào bóng râm.",
+        "effects": {
+          "INT": 1,
+          "joy": -5
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_teen_1",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 8,
+    "text": "Cơ thể bước vào giai đoạn trổ mã đột ngột. Khung xương nở nang, cơ bắp cuồn cuộn khiến bạn đau nhức vật vã suốt những đêm trăng.",
+    "effects": {
+      "STR": 2,
+      "health": -5
+    }
+  },
+  {
+    "id": "beastman_teen_2",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 9,
+    "text": "Lần đầu tiên đi săn một mình, bạn hạ gục được một con lợn rừng gai dũng mãnh. Dòng máu nóng làm cơn khát máu dã thú thức tỉnh bừng bừng.",
+    "effects": {
+      "STR": 1,
+      "joy": 15,
+      "flags": [
+        "child_hunter"
+      ]
+    }
+  },
+  {
+    "id": "beastman_teen_3",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 7,
+    "text": "Thánh Vệ Quân trưng dụng sức lao động, ép bạn đập búa rèn giáo mác cả ngày. Bù lại, bạn nhận được chút Huyết Kim lẻn giấu đi.",
+    "effects": {
+      "STR": 1,
+      "wealth": 15,
+      "joy": -5
+    }
+  },
+  {
+    "id": "beastman_teen_4",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "once": false,
+    "weight": 5,
+    "text": "Trong lễ hội Lửa Trại, bạn nghêu ngao hát điệu dân ca cổ của tộc bằng chất giọng vỡ ồm ồm. Cả bầy cười ồ lên vui vẻ.",
+    "effects": {
+      "joy": 8
+    }
+  },
+  {
+    "id": "beastman_teen_5",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 6,
+    "text": "Một tu sĩ bịp bợm của Hắc Nguyệt Hội cố dụ dỗ bạn làm vật tế ma thuật. Nhờ sự nhạy bén hoang dã, bạn nhe nanh gầm gừ đuổi hắn cúp đuôi.",
+    "effects": {
+      "INT": 1,
+      "joy": 5
+    }
+  },
+  {
+    "id": "beastman_teen_6",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 8,
+    "text": "Nạn đói quét qua Thảo Nguyên. Bạn chủ động nhường đi phần thịt héo hon duy nhất của mình cho những đứa trẻ nheo nhóc trong bầy.",
+    "effects": {
+      "health": -10,
+      "joy": 10,
+      "LUCK": 1
+    }
+  },
+  {
+    "id": "beastman_teen_7",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "once": false,
+    "weight": 5,
+    "text": "Thi chạy chặng dài với những Thú nhân đồng lứa dọc theo sườn Núi Răng Cưa. Gió rít bên tai, tự do chảy tràn trong từng nhịp thở.",
+    "effects": {
+      "AGI": 1,
+      "health": 5
+    }
+  },
+  {
+    "id": "beastman_teen_8",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "eras": [
+      "demon_lord"
+    ],
+    "weight": 7,
+    "text": "Quân Đoàn Hủy Diệt xua lũ quái vật tấn công bìa rừng. Dù chưa trưởng thành, bạn đã phải cầm cây lao gỗ đứng lên bảo vệ lãnh thổ.",
+    "effects": {
+      "STR": 1,
+      "joy": -10,
+      "health": -5
+    }
+  },
+  {
+    "id": "beastman_teen_9",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 9,
+    "text": "Bạn phải tham gia 'Thử Thách Máu'—sinh tồn ba ngày trong hang sâu không mang theo vũ khí. Trở về với những vết cào rớm máu, bạn được công nhận.",
+    "effects": {
+      "health": -10,
+      "STR": 2,
+      "flags": [
+        "first_blood"
+      ]
+    }
+  },
+  {
+    "id": "beastman_teen_10",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 6,
+    "text": "Lén ra Vực Thẳm Phân Tầng để bơi, bạn xém bị một con quái ngư khổng lồ đớp trọn đôi chân. Sóng lưng đổ mồ hôi lạnh toát.",
+    "effects": {
+      "LUCK": 1,
+      "AGI": 1,
+      "health": -5
+    }
+  },
+  {
+    "id": "beastman_teen_11",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 7,
+    "text": "Một pháp sư mặc áo choàng từ Tháp Ngà Ma Pháp đi ngang qua, khen ngợi cốt cách đặc dị của bạn. Ông ta tặng bạn một Lõi Mana nhạt màu.",
+    "effects": {
+      "INT": 1,
+      "wealth": 10,
+      "joy": 5
+    }
+  },
+  {
+    "id": "beastman_teen_12",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 7,
+    "text": "Thời kỳ nổi loạn tuổi mới lớn, bạn cãi lại người lớn và tự bỏ đi bụi. Đói meo sau ba ngày lang thang, bạn lầm lũi mò về nhà.",
+    "effects": {
+      "joy": 5,
+      "health": -8,
+      "flags": [
+        "teen_rebel"
+      ]
+    }
+  },
+  {
+    "id": "beastman_teen_13",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 8,
+    "text": "Bắt gặp một lính đào ngũ đang hấp hối ven đường, bạn không ngần ngại lột sạch vũ khí và cả thanh đao găm nạm Huyết Kim của hắn.",
+    "effects": {
+      "wealth": 30,
+      "STR": 1
+    }
+  },
+  {
+    "id": "beastman_teen_14",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "once": false,
+    "weight": 6,
+    "text": "Xách mớ lông thú săn được đi đổi lấy bánh kẹo từ Thương Đoàn Sói Bạc. Việc giao thương giúp trí óc hoang dã của bạn trở nên sắc sảo hơn đôi chút.",
+    "effects": {
+      "wealth": 8,
+      "INT": 1,
+      "joy": 5
+    }
+  },
+  {
+    "id": "beastman_teen_15",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 7,
+    "text": "Tập luyện tiếng gầm gừ uy hiếp, sóng âm vô tình làm sập một ụ đá mục. Cả bầy kinh ngạc nhìn bạn như một chiến binh thực thụ.",
+    "effects": {
+      "STR": 1,
+      "joy": 8
+    }
+  },
+  {
+    "id": "beastman_teen_16",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 7,
+    "text": "Bệnh dịch hắc ám tràn tới từ Đầm Lầy Tử Khí làm rụng dần từng mảng lông của bạn. Thể xác suy kiệt, nhưng ý chí sinh tồn thì rực sáng như ngọn đuốc trong đêm.",
+    "effects": {
+      "health": -15,
+      "STR": 1,
+      "joy": -10
+    }
+  },
+  {
+    "id": "beastman_teen_17",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "once": false,
+    "weight": 6,
+    "text": "Được cử đi giao dịch với một đoàn buôn lùn ở Dãy Núi Răng Cưa. Bằng sự nhanh trí hiếm thấy ở Thú nhân, bạn xoay xở đổi được một lượng lớn quặng sắt tốt.",
+    "effects": {
+      "INT": 1,
+      "wealth": 15,
+      "joy": 5
+    }
+  },
+  {
+    "id": "beastman_teen_18",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "eras": [
+      "demon_lord"
+    ],
+    "weight": 8,
+    "text": "Trinh sát dọc Thảo Nguyên Gió Hú, bạn phát hiện dấu chân khổng lồ bốc cháy của một Ác Ma. Lòng can đảm hòa lẫn nỗi sợ hãi nguyên thủy đang réo gọi.",
+    "effects": {
+      "AGI": 1,
+      "joy": -5
+    }
+  },
+  {
+    "id": "beastman_teen_19",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 7,
+    "require": {
+      "STR": 5
+    },
+    "text": "Bị cuốn vào một cuộc đụng độ nhỏ giữa Thánh Vệ Quân và lũ cướp thảo nguyên. Bạn tung một cú đấm nát khiên một tên cướp, dọn đường máu trốn thoát.",
+    "effects": {
+      "STR": 1,
+      "health": -5,
+      "joy": 5
+    }
+  },
+  {
+    "id": "beastman_teen_20",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 6,
+    "text": "Đánh cược với đám bạn, bạn leo vút lên một rễ phụ khổng lồ của Cây Thế Giới Yggdrasil. Từ trên cao nhìn xuống, cõi Aethelgard trải dài vô tận đập vào mắt bạn.",
+    "effects": {
+      "AGI": 1,
+      "INT": 1,
+      "joy": 10
+    }
+  },
+  {
+    "id": "beastman_teen_choice_1",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 10,
+    "text": "Một con Báo Gai đột biến xâm phạm lãnh thổ săn bắn của bạn. Tiếng gầm của nó mang tính khiêu khích trắng trợn đối với cái tôi đang độ bẻ gãy sừng trâu.",
+    "choices": [
+      {
+        "label": "Giao chiến một mất một còn",
+        "check": {
+          "stat": "AGI",
+          "target": 6
+        },
+        "success": {
+          "text": "Nhờ thân thủ linh hoạt, bạn né được những cú vồ chí mạng và cắm ngập móng vuốt vào yết hầu nó. Chiến lợi phẩm là tấm da báo gai tuyệt đẹp.",
+          "effects": {
+            "STR": 2,
+            "wealth": 20,
+            "flags": [
+              "gai_panther_slayer"
+            ]
+          },
+          "moment": "Hạ gục Báo Gai đột biến"
+        },
+        "fail": {
+          "text": "Con quái thú quá nhanh. Bạn bị một cú tát xé rách mảng da lưng và phải ôm vết thương tháo chạy thảm hại.",
+          "effects": {
+            "health": -20,
+            "STR": -1,
+            "joy": -15
+          }
+        }
+      },
+      {
+        "label": "Kêu gọi bầy đàn xua đuổi",
+        "text": "Dẹp bỏ sĩ diện, bạn rú lên gọi cứu viện. Con Báo Gai đành hậm hực bỏ đi khi thấy đám đông Thú nhân kéo đến.",
+        "effects": {
+          "INT": 1,
+          "joy": -5
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_teen_choice_2",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 9,
+    "text": "Một gã cò mồi xảo quyệt từ Đấu Trường Huyết Sa tiếp cận, hứa hẹn vinh quang và tiền tài nếu bạn ký tên bằng máu vào khế ước quyết đấu.",
+    "choices": [
+      {
+        "label": "Ký bằng máu tươi",
+        "check": {
+          "stat": "STR",
+          "target": 6
+        },
+        "success": {
+          "text": "Trận ra mắt của bạn biến thành một màn tàn sát đẫm máu. Đám đông cuồng loạn hô vang tên bạn khi bạn bẻ cổ tên giác đấu cự cựu.",
+          "effects": {
+            "STR": 2,
+            "wealth": 30,
+            "joy": 10,
+            "flags": [
+              "gladiator"
+            ]
+          },
+          "moment": "Nhà vô địch trẻ của Đấu Trường"
+        },
+        "fail": {
+          "text": "Trượt chân trên vũng máu, bạn bị đâm xuyên qua đùi và bị ném ra khỏi võ đài như rác rưởi sau khi thua cược.",
+          "effects": {
+            "health": -25,
+            "wealth": -15,
+            "joy": -20
+          }
+        }
+      },
+      {
+        "label": "Nhe nanh đuổi gã đi",
+        "text": "Bản năng hoang dã từ chối việc đổ máu mua vui cho bọn quý tộc hôi hám. Bạn đuổi cổ tên cò mồi và quay về với đồng cỏ tự do.",
+        "effects": {
+          "joy": 5,
+          "INT": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_teen_choice_3",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 8,
+    "text": "Khi đi bắt cá ở Vực Thẳm Phân Tầng, bạn phát hiện một hang động ẩn giấu lấp lánh ánh sáng của những khối tinh thể lạ.",
+    "choices": [
+      {
+        "label": "Trèo xuống thám hiểm",
+        "check": {
+          "stat": "LUCK",
+          "target": 6
+        },
+        "success": {
+          "text": "Bất chấp vách đá trơn trượt, bạn lấy được vài viên tinh thể Lõi Mana tinh khiết từ thời Thượng Cổ mà không đánh thức bầy quái dơi.",
+          "effects": {
+            "wealth": 35,
+            "INT": 1,
+            "joy": 15
+          },
+          "moment": "Phát hiện tinh thể Mana Thượng Cổ"
+        },
+        "fail": {
+          "text": "Trượt tay ngã xuống một mỏm đá nhọn hắt hơi. Cú ngã suýt cướp đi mạng sống nếu bạn không bám kịp vào một sợi dây leo mục.",
+          "effects": {
+            "health": -20,
+            "LUCK": -1,
+            "joy": -10
+          }
+        }
+      },
+      {
+        "label": "Trở về báo cho già làng",
+        "text": "Già làng khen ngợi sự cẩn trọng của bạn và dẫn các thợ săn đến khai thác an toàn. Bạn được chia một phần nhỏ tài sản.",
+        "effects": {
+          "wealth": 10,
+          "joy": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_teen_choice_4",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 9,
+    "text": "Cơn bão lốc xoáy mùa Săn Bão bất thần ập tới khi bạn đang đi hái thuốc. Một đứa bé Thú nhân trong làng đang bám víu tuyệt vọng trên thân cây sắp gãy.",
+    "choices": [
+      {
+        "label": "Lao ra cứu đứa bé",
+        "check": {
+          "stat": "STR",
+          "target": 6
+        },
+        "success": {
+          "text": "Bất chấp gió quật tơi bời, bạn gồng mình bám rễ vươn tới ôm trọn đứa bé lăn vào hang đá vừa kịp lúc thân cây đổ ầm xuống.",
+          "effects": {
+            "STR": 1,
+            "joy": 20,
+            "health": -5,
+            "flags": [
+              "village_hero"
+            ]
+          },
+          "moment": "Cứu người giữa bão tố"
+        },
+        "fail": {
+          "text": "Gió bão hất văng bạn đập đầu vào tảng đá. Cả bạn và đứa bé đều bị cuốn đi.",
+          "death": "Cuồng phong xé nát sinh mệnh bạn, để lại cái xác bầm dập của một người hùng thất bại ở tuổi {age}."
+        }
+      },
+      {
+        "label": "Chạy đi tìm chỗ nấp",
+        "text": "Bạn đau đớn nhắm mắt quay đi, bảo toàn sinh mạng cho chính mình. Tiếng khóc của đứa bé bị bão nuốt chửng ám ảnh bạn nhiều đêm liền.",
+        "effects": {
+          "joy": -20,
+          "health": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_teen_choice_5",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 8,
+    "text": "Một đám cuồng tín Hắc Nguyệt Hội chặn đường bạn và vứt xuống một con thỏ hiến tế, dụ dỗ bạn nếm máu tươi để nhận lấy sức mạnh bóng tối.",
+    "choices": [
+      {
+        "label": "Uống máu hiến tế",
+        "check": {
+          "stat": "INT",
+          "target": 6
+        },
+        "success": {
+          "text": "Máu hắc ám làm tâm trí bạn sắc bén một cách tàn nhẫn, nhưng bản thân bạn không bị tẩy não. Bạn lợi dụng được ma thuật của chúng rồi bỏ trốn.",
+          "effects": {
+            "INT": 2,
+            "STR": 1,
+            "joy": -10,
+            "flags": [
+              "dark_magic_taint"
+            ]
+          },
+          "moment": "Lừa lọc tín đồ Hắc Nguyệt Hội"
+        },
+        "fail": {
+          "text": "Bạn uống vào và ngay lập tức mất trí vì ma dược. Bọn chúng biến bạn thành một con rối cuồng loạn mất hết nhận thức.",
+          "death": "Linh hồn bị hủ hóa, bạn sống như một cái xác không hồn phục vụ tà giáo và chết mòn trong xó tối ở tuổi {age}."
+        }
+      },
+      {
+        "label": "Từ chối và tấn công",
+        "text": "Vuốt sắc của bạn cào nát mặt tên cầm đầu. Đám cuồng tín hốt hoảng rút lui nhưng nguyền rủa bạn sẽ gặp xui xẻo.",
+        "effects": {
+          "LUCK": -1,
+          "STR": 1,
+          "joy": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_adult_1",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 9,
+    "text": "Nghi lễ trưởng thành hoàn tất với một hình xăm chiến binh trên ngực. Bạn gầm vang, kiêu hãnh bước vào hàng ngũ những người gánh vác bộ tộc.",
+    "effects": {
+      "STR": 1,
+      "health": 5,
+      "joy": 10
+    }
+  },
+  {
+    "id": "beastman_adult_2",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "once": false,
+    "weight": 6,
+    "text": "Mùa giao phối đến, máu nóng sục sôi. Bạn đánh gục hai kẻ thách thức để giành quyền tán tỉnh một Thú nhân khác giới dũng mãnh nhất thảo nguyên.",
+    "effects": {
+      "STR": 1,
+      "joy": 15,
+      "health": -5
+    }
+  },
+  {
+    "id": "beastman_adult_3",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 8,
+    "text": "Bị Thánh Vệ Quân bắt lính, bạn bị ép ném vào tuyến đầu. Cầm vũ khí bằng cả hai tay, bạn đồ sát kẻ thù không chớp mắt vì sinh mạng của chính mình.",
+    "effects": {
+      "STR": 2,
+      "health": -15,
+      "joy": -15,
+      "flags": [
+        "war_veteran"
+      ]
+    }
+  },
+  {
+    "id": "beastman_adult_4",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 7,
+    "text": "Một thương gia Sanctus thuê bạn làm hộ vệ băng qua Đầm Lầy Tử Khí. Mùi chướng khí quen thuộc không cản được bạn kiếm một vố đậm.",
+    "effects": {
+      "wealth": 30,
+      "health": -5,
+      "INT": 1
+    }
+  },
+  {
+    "id": "beastman_adult_5",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "once": false,
+    "weight": 6,
+    "text": "Bạn cùng bạn đời xây dựng một căn lều vòm vững chãi bằng da ma thú, chuẩn bị tổ ấm cho những thế hệ Thú nhân tiếp theo nảy nở.",
+    "effects": {
+      "joy": 20,
+      "wealth": -10
+    }
+  },
+  {
+    "id": "beastman_adult_6",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 8,
+    "require": {
+      "flags": [
+        "war_veteran"
+      ]
+    },
+    "text": "Quen với chết chóc từ thời chiến, bạn trở thành thủ lĩnh một nhóm lính đánh thuê tàn nhẫn, bất chấp mọi thủ đoạn cướp đoạt để tồn tại qua Kỷ Nguyên Tăm Tối.",
+    "effects": {
+      "wealth": 25,
+      "joy": -10,
+      "STR": 1
+    }
+  },
+  {
+    "id": "beastman_adult_7",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 7,
+    "text": "Gia nhập Bình Minh Hội với tư cách mạo hiểm giả. Lần đầu treo tấm thẻ đồng lên ngực, bạn cảm thấy chân trời Aethelgard rộng mở rực rỡ.",
+    "effects": {
+      "LUCK": 1,
+      "joy": 10,
+      "flags": [
+        "adventurer_guild"
+      ]
+    }
+  },
+  {
+    "id": "beastman_adult_8",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "eras": [
+      "demon_lord"
+    ],
+    "weight": 9,
+    "text": "Làng mạc bị thiêu rụi bởi Ma Vương. Tiếng gào khóc của đồng bào nhóm lên một ngọn lửa báo thù điên cuồng trong mắt bạn.",
+    "effects": {
+      "STR": 2,
+      "joy": -25,
+      "health": -10,
+      "flags": [
+        "avenger"
+      ]
+    }
+  },
+  {
+    "id": "beastman_adult_9",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 8,
+    "require": {
+      "STR": 6
+    },
+    "text": "Thử thách đi săn rồng đất thành công mĩ mãn. Bạn xẻ thịt rồng chia cho cả làng, tiếng hò reo tôn vinh bạn như một người hùng thực thụ.",
+    "effects": {
+      "STR": 1,
+      "joy": 20,
+      "wealth": 15
+    }
+  },
+  {
+    "id": "beastman_adult_10",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 6,
+    "text": "Vô tình vấp phải một cạm bẫy gấu đã rỉ sét. Chân đau nhức nhiều ngày nhưng sự kiên cường hoang dã giúp bạn mau chóng hồi phục.",
+    "effects": {
+      "health": -10,
+      "AGI": -1,
+      "LUCK": 1
+    }
+  },
+  {
+    "id": "beastman_adult_11",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "once": false,
+    "weight": 5,
+    "text": "Tổ chức tiệc nướng hoành tráng ăn mừng vụ mùa săn bắn bội thu. Tiếng đàn T'rưng nứa vang vọng Thảo Nguyên Gió Hú dưới ánh trăng thanh.",
+    "effects": {
+      "joy": 15,
+      "health": 5
+    }
+  },
+  {
+    "id": "beastman_adult_12",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 7,
+    "text": "Chướng khí Đầm Lầy bốc lên che lấp mặt trời. Bạn phải dùng rễ cây đắng giã nát làm thuốc đắp để cứu bạn đời khỏi cơn sốt mê sảng.",
+    "effects": {
+      "INT": 1,
+      "health": -5,
+      "joy": -5
+    }
+  },
+  {
+    "id": "beastman_adult_13",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 7,
+    "require": {
+      "flags": [
+        "gladiator"
+      ]
+    },
+    "text": "Trở thành tay giác đấu đáng gờm nhất Đấu Trường Huyết Sa. Những quý tộc đội mũ miện đều phải rùng mình kính nể gã Thú nhân khát máu là bạn.",
+    "effects": {
+      "STR": 1,
+      "wealth": 20,
+      "joy": 10
+    }
+  },
+  {
+    "id": "beastman_adult_14",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 8,
+    "text": "Vinh quang trên chiến trường đem về cho bạn một huy chương sắt từ Giáo hội Thánh Quang. Dẫu ghét bọn đội mũ miện, phần thưởng này cũng đáng giá mâm thịt cừu.",
+    "effects": {
+      "wealth": 20,
+      "joy": 5,
+      "STR": 1
+    }
+  },
+  {
+    "id": "beastman_adult_15",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 7,
+    "text": "Thức trắng đêm canh gác cho bầy đàn. Sương đêm thấm lạnh vai nhưng ánh sáng ấm áp phát ra từ tàn lửa trại lại sưởi ấm tâm hồn bạn.",
+    "effects": {
+      "health": -3,
+      "joy": 8,
+      "INT": 1
+    }
+  },
+  {
+    "id": "beastman_adult_16",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 8,
+    "text": "Bạn gia nhập một tiểu đội đột kích, luồn lách qua phòng tuyến địch như một bóng ma. Lưỡi dao rạch nát màn đêm, máu tanh tưới đẫm Thảo Nguyên Gió Hú.",
+    "effects": {
+      "AGI": 1,
+      "health": -10,
+      "joy": -5
+    }
+  },
+  {
+    "id": "beastman_adult_17",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "once": false,
+    "weight": 6,
+    "text": "Nằm ườn trên phiến đá nướng nắng, bạn ân cần dùng lưỡi và móng vuốt chải chuốt bộ lông cho bạn đời. Bình yên len lỏi qua từng kẽ lá.",
+    "effects": {
+      "health": 5,
+      "joy": 10
+    }
+  },
+  {
+    "id": "beastman_adult_18",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 8,
+    "text": "Đất đai nứt nẻ, con mồi cạn kiệt. Bạn gầy rộc đi, đôi mắt rực lên tia đói khát nguyên thủy lùng sục từng gốc cây ngọn cỏ để bấu víu sự sống.",
+    "effects": {
+      "health": -15,
+      "STR": -1,
+      "joy": -15
+    }
+  },
+  {
+    "id": "beastman_adult_19",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "eras": [
+      "demon_lord"
+    ],
+    "weight": 8,
+    "text": "Một toán tiểu quỷ của Ma Vương tập kích. Cơn thịnh nộ bùng nổ, bạn bẻ gãy sừng một con quỷ bằng tay không dẫu gãy mất hai móng vuốt.",
+    "effects": {
+      "STR": 1,
+      "health": -10,
+      "joy": -10
+    }
+  },
+  {
+    "id": "beastman_adult_20",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 7,
+    "require": {
+      "INT": 5
+    },
+    "text": "Tự mình thương thuyết với tay buôn lõi đời từ Sanctus. Không chỉ không bị lừa, bạn còn ép hắn nhả thêm ba Đồng Cẩm Thạch cho mớ da thú nham nhở.",
+    "effects": {
+      "INT": 1,
+      "wealth": 15,
+      "joy": 5
+    }
+  },
+  {
+    "id": "beastman_adult_21",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 7,
+    "text": "Đuổi theo một con quái điểu trên mỏm Núi Răng Cưa, bạn xém chút trượt chân ngã. Vết sẹo dài trên ngực trở thành chiến tích kiêu hãnh của một tay săn sành sỏi.",
+    "effects": {
+      "AGI": 1,
+      "health": -8,
+      "joy": 5
+    }
+  },
+  {
+    "id": "beastman_adult_22",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "once": false,
+    "weight": 5,
+    "text": "Giữa đêm đông lạnh giá sương giăng, bạn ngồi trong lều kể lại những truyền thuyết cổ xưa cho bầy con nheo nhóc. Ngọn lửa truyền thừa không bao giờ tắt.",
+    "effects": {
+      "joy": 10,
+      "INT": 1
+    }
+  },
+  {
+    "id": "beastman_adult_23",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 8,
+    "require": {
+      "flags": [
+        "war_veteran"
+      ]
+    },
+    "text": "Đi lột đồ từ xác chết trên bãi chiến trường vương vãi khí giới. Trái tim dạn dĩ của bạn trở nên chai sạn trước sự tàn bạo của nhân loại.",
+    "effects": {
+      "wealth": 20,
+      "joy": -10,
+      "INT": 1
+    }
+  },
+  {
+    "id": "beastman_adult_24",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 7,
+    "require": {
+      "LUCK": 6
+    },
+    "text": "May mắn đào được một củ nhân sâm tinh linh dưới rễ phụ của Yggdrasil. Nhai nuốt thứ thảo dược ngàn năm này làm khí huyết cuộn trào sung mãn.",
+    "effects": {
+      "health": 30,
+      "STR": 1,
+      "LUCK": -1
+    }
+  },
+  {
+    "id": "beastman_adult_25",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 8,
+    "text": "Bọn tu sĩ cuồng tín vây ráp nhằm biến bạn thành vật tế. Bằng sự cuồng bạo của dã thú bị dồn vào chân tường, bạn xé xác ba tên mở đường máu.",
+    "effects": {
+      "STR": 2,
+      "health": -15,
+      "joy": -15,
+      "flags": [
+        "cult_enemy"
+      ]
+    }
+  },
+  {
+    "id": "beastman_adult_26",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "eras": [
+      "demon_lord"
+    ],
+    "weight": 9,
+    "text": "Bầu trời rách toạc tuôn trào mưa thiên thạch ác ma. Bạn vác già làng trên vai, nghiến răng vắt kiệt sức bình sinh chạy thoát khỏi biển lửa.",
+    "effects": {
+      "AGI": 1,
+      "STR": 1,
+      "health": -10,
+      "joy": -15
+    }
+  },
+  {
+    "id": "beastman_adult_27",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 6,
+    "require": {
+      "STR": 7
+    },
+    "text": "Thách đấu vật tay với gã thợ rèn người lùn đô con nhất tửu quán. Bạn đập rầm tay gã xuống bàn, ôm trọn túi tiền thưởng giữa tiếng hò reo vang dội.",
+    "effects": {
+      "wealth": 25,
+      "joy": 10
+    }
+  },
+  {
+    "id": "beastman_adult_28",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "once": false,
+    "weight": 5,
+    "text": "Nhảy rầm xuống dòng sông cuộn sóng dữ, bạn bơi ngược dòng bắt những con cá hồi béo ngậy. Sức mạnh cơ bắp hòa nhịp với sức mạnh thiên nhiên.",
+    "effects": {
+      "STR": 1,
+      "health": 5
+    }
+  },
+  {
+    "id": "beastman_adult_29",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "weight": 7,
+    "text": "Giúp đỡ các Druid của Tự Nhiên Giáo trồng lại mảng rừng bị cháy. Ánh sáng lục bảo xoa dịu những nhọc nhằn, gột rửa tâm hồn bạn thanh khiết.",
+    "effects": {
+      "joy": 15,
+      "LUCK": 1
+    }
+  },
+  {
+    "id": "beastman_adult_30",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 7,
+    "text": "Bị một con bọ cạp độc khổng lồ cắn vào bắp chân. Bằng sự quyết đoán tàn nhẫn, bạn tự dùng đao găm khoét thịt nặn mọc máu đen ra ngoài.",
+    "effects": {
+      "health": -20,
+      "STR": 1,
+      "joy": -10
+    }
+  },
+  {
+    "id": "beastman_adult_31",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 6,
+    "require": {
+      "below": {
+        "health": 30
+      }
+    },
+    "text": "Những vết thương cũ trong những cuộc đi săn sinh tử bỗng tái phát nhức nhối khi trái gió trở trời. Độ tuổi sung mãn có lẽ đang dần qua đi.",
+    "effects": {
+      "health": -5,
+      "joy": -5
+    }
+  },
+  {
+    "id": "beastman_adult_choice_1",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 9,
+    "text": "Một con Ma Sói khổng lồ bị ám hắc ám đang tàn sát bầy cừu và đe dọa sinh mạng cả làng. Bạn là chiến binh giỏi nhất hiện tại.",
+    "choices": [
+      {
+        "label": "Tuyên chiến, săn lùng ác thú",
+        "check": {
+          "stat": "STR",
+          "target": 8
+        },
+        "success": {
+          "text": "Một trận chiến long trời lở đất xé nát cánh rừng. Bằng sự điên cuồng vĩ đại, bạn bóp nát yết hầu nó, đem đầu Ma Sói về tế lễ.",
+          "effects": {
+            "STR": 2,
+            "joy": 20,
+            "flags": [
+              "wolf_slayer"
+            ]
+          },
+          "moment": "Chém đầu Ma Sói hắc ám"
+        },
+        "fail": {
+          "text": "Sức mạnh của nó vượt quá giới hạn của bạn. Nó cắn nát vai bạn rồi quật ngã xuống bùn, chuẩn bị tung đòn kết liễu.",
+          "death": "Hàm răng sắc nhọn nghiền nát hộp sọ bạn. Bạn ra đi đầy bi tráng bảo vệ làng mạc ở tuổi {age}."
+        }
+      },
+      {
+        "label": "Lập bẫy và chờ tiếp viện",
+        "text": "Sự thận trọng cứu bạn một mạng. Cả làng cùng hùn sức lùa con quái thú vào bẫy hầm đầy chông nhọn rồi phóng lao tiêu diệt nó.",
+        "effects": {
+          "INT": 1,
+          "joy": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_adult_choice_2",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 8,
+    "text": "Trên đường săn mồi, bạn thấy một cỗ xe hàng của Thương Đoàn Sói Bạc bị bọn sơn tặc mai phục chém giết ven Vực Thẳm Phân Tầng.",
+    "choices": [
+      {
+        "label": "Nhảy ra tập kích bọn cướp",
+        "check": {
+          "stat": "AGI",
+          "target": 7
+        },
+        "success": {
+          "text": "Như một bóng ma chết chóc, bạn thoắt ẩn thoắt hiện cưa cổ tên tướng cướp bằng móng vuốt. Đoàn buôn hàm ơn tặng bạn một Lõi Mana rực rỡ.",
+          "effects": {
+            "wealth": 30,
+            "AGI": 1,
+            "joy": 10
+          },
+          "moment": "Giải cứu Thương Đoàn Sói Bạc"
+        },
+        "fail": {
+          "text": "Bọn cướp quá đông và có cung thủ. Bạn trúng ba mũi tên vào mạng sườn, đành phải nhảy xuống dòng thác chảy xiết để thoát thân.",
+          "effects": {
+            "health": -25,
+            "joy": -10,
+            "wealth": -10
+          }
+        }
+      },
+      {
+        "label": "Lẩn khuất, hôi của sau lưng",
+        "text": "Chờ đến khi hai bên tàn sát vãn hồi, bạn lặng lẽ thó đi một túi Tinh Bạc rơi vãi rồi chuồn mất tăm.",
+        "effects": {
+          "wealth": 15,
+          "INT": 1,
+          "joy": -5
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_adult_choice_3",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "eras": [
+      "peace",
+      "holy_war"
+    ],
+    "weight": 9,
+    "text": "Nhà đương kim vô địch Đấu Trường Huyết Sa — một gã Orc khổng lồ tàn bạo — đưa ra lời thách đấu sinh tử với bất kỳ ai dám bước lên cát.",
+    "choices": [
+      {
+        "label": "Lên sàn huyết chiến",
+        "check": {
+          "stat": "STR",
+          "target": 8
+        },
+        "success": {
+          "text": "Né được nhát búa ngàn cân, bạn lao tới cắn xé gân kheo gã Orc khiến hắn sụp đổ. Bạn đứng trên đỉnh vinh quang nhuốm máu, giàu sang tột bậc.",
+          "effects": {
+            "STR": 2,
+            "wealth": 50,
+            "joy": 20,
+            "flags": [
+              "arena_champion"
+            ]
+          },
+          "moment": "Vô địch Đấu Trường Huyết Sa"
+        },
+        "fail": {
+          "text": "Búa tạ của gã Orc đập nát lồng ngực bạn. Bạn văng ra khỏi võ đài, thoi thóp thở hắt ra những bọt máu rỉ rả.",
+          "effects": {
+            "health": -35,
+            "STR": -1,
+            "joy": -25
+          }
+        }
+      },
+      {
+        "label": "Đứng xem, cá cược",
+        "text": "Bạn hiểu rõ giới hạn bản thân, quyết định đặt cược vài đồng vào gã Orc. Trí khôn thực dụng mang lại chút tiền còm dắt túi.",
+        "effects": {
+          "wealth": 10,
+          "INT": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_adult_choice_4",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 8,
+    "text": "Trong một lần thâm nhập tàn tích ma pháp dưới Đảo Tro Tàn, bạn đứng trước một kết giới cổ xưa chứa đựng luồng sinh khí khổng lồ.",
+    "choices": [
+      {
+        "label": "Tìm cách giải mã kết giới",
+        "check": {
+          "stat": "INT",
+          "target": 6
+        },
+        "success": {
+          "text": "Vận dụng trí nhớ về quy luật các nguyên tố từng nghe, bạn xếp đúng các khối đá. Ánh sáng hồi sinh tẩy rửa mọi vết thương trên cơ thể bạn.",
+          "effects": {
+            "INT": 2,
+            "health": 40,
+            "joy": 15
+          },
+          "moment": "Khám phá tàn tích Đảo Tro Tàn"
+        },
+        "fail": {
+          "text": "Phép thuật cổ đại kích hoạt bẫy phòng ngự. Một tia sét giật văng bạn ra xa, cháy xém mảng lông lớn và tổn thương lục phủ ngũ tạng.",
+          "effects": {
+            "health": -20,
+            "STR": -1,
+            "joy": -10
+          }
+        }
+      },
+      {
+        "label": "Đập phá bằng sức mạnh",
+        "text": "Kết giới quá rắn chắc bật ngược sức mạnh lại khiến bạn tê dại đôi tay. Bực dọc, bạn đành bỏ đi tay không.",
+        "effects": {
+          "health": -5,
+          "joy": -5
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_adult_choice_5",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "eras": [
+      "dark_age",
+      "demon_lord"
+    ],
+    "weight": 9,
+    "text": "Một tu sĩ bị tha hóa của Tự Nhiên Giáo dụ dỗ bạn hiến tế sinh lực cho Yggdrasil Hắc Ám để đổi lấy trường sinh bất tử.",
+    "choices": [
+      {
+        "label": "Đâm mũi thương vào hắn",
+        "check": {
+          "stat": "LUCK",
+          "target": 7
+        },
+        "success": {
+          "text": "Mũi thương của bạn xuyên thủng tim hắn trước khi hắn kịp niệm chú. Bạn tìm thấy một cuộn bí pháp quý giá trên cái xác tà ác.",
+          "effects": {
+            "STR": 1,
+            "wealth": 20,
+            "flags": [
+              "heretic_slayer"
+            ]
+          },
+          "moment": "Thanh trừng dị giáo đồ"
+        },
+        "fail": {
+          "text": "Hắn giơ tay, rễ cây đẫm máu từ dưới lòng đất đâm xuyên qua người bạn, hút cạn sinh lực để nuôi dưỡng cây ma.",
+          "death": "Bạn trở thành phân bón cho ác mộc, khô héo tột cùng và lìa đời ở tuổi {age} trong tiếng cười man rợ của tà giáo."
+        }
+      },
+      {
+        "label": "Nhổ toẹt nước bọt, quay lưng",
+        "text": "Bạn vứt bỏ sự cám dỗ rẻ tiền và cảnh giác lùi lại. Hắn gầm gừ nhưng không dám tấn công một Thú nhân lực lưỡng ở thế phòng ngự.",
+        "effects": {
+          "INT": 1,
+          "joy": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_adult_choice_6",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 8,
+    "text": "Bạn bắt gặp một đoàn tị nạn mang theo mầm bệnh tả đang kiệt sức bên rìa làng Thú nhân. Bầy đàn yêu cầu bạn ném đá xua đuổi họ.",
+    "choices": [
+      {
+        "label": "Lén lút chỉ cho họ hang đá lánh nạn",
+        "check": {
+          "stat": "INT",
+          "target": 6
+        },
+        "success": {
+          "text": "Bạn tài tình qua mặt lính canh bầy, đưa thuốc thảo dược và dẫn người tị nạn đến nơi an toàn. Họ thề sẽ khắc ghi ân tình của bạn.",
+          "effects": {
+            "LUCK": 2,
+            "joy": 15,
+            "flags": [
+              "savior_of_refugees"
+            ]
+          },
+          "moment": "Cứu mang những kẻ tị nạn nhiễm bệnh"
+        },
+        "fail": {
+          "text": "Lính canh phát hiện và bắt phạt bạn roi da vì tội chống đối bầy đàn. Tồi tệ hơn, bạn còn lây nhiễm luôn chứng bệnh tiêu chảy.",
+          "effects": {
+            "health": -20,
+            "joy": -15,
+            "wealth": -5
+          }
+        }
+      },
+      {
+        "label": "Đứng nhìn người khác xua đuổi",
+        "text": "Bảo vệ đồng loại là trên hết. Bạn trơ mắt nhìn những con người khốn khổ bị đuổi đi, cõi lòng dội lên một chút chua xót.",
+        "effects": {
+          "joy": -10,
+          "health": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_adult_choice_7",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 8,
+    "text": "Một tộc Thú nhân láng giềng ngang ngược lấn chiếm vùng săn hươu của gia đình bạn. Xung đột bùng nổ, hai bên cầm sẵn giáo mác gầm gừ.",
+    "choices": [
+      {
+        "label": "Gầm vang, một mình xông lên khiêu chiến",
+        "check": {
+          "stat": "STR",
+          "target": 6
+        },
+        "success": {
+          "text": "Sự dũng mãnh của bạn áp đảo thủ lĩnh phe kia. Bạn quật ngã hắn chỉ sau ba hiệp, ép cả tộc đối phương phải cúi đầu rút lui.",
+          "effects": {
+            "STR": 1,
+            "joy": 15,
+            "flags": [
+              "clan_hero"
+            ]
+          },
+          "moment": "Bảo vệ lãnh thổ săn bắn"
+        },
+        "fail": {
+          "text": "Bạn bị đánh hội đồng nhừ tử. Xương sườn rạn nứt, bạn ôm hận mất mặt nhìn kẻ thù cướp đi quyền săn bắn.",
+          "effects": {
+            "health": -15,
+            "joy": -20,
+            "wealth": -10
+          }
+        }
+      },
+      {
+        "label": "Nhịn nhục đàm phán chia sẻ lãnh thổ",
+        "text": "Bằng sự điềm tĩnh ít thấy, bạn đề xuất chia đôi đàn hươu. Tránh được đổ máu, nhưng bạn bị các trưởng lão chê là thiếu nhuệ khí.",
+        "effects": {
+          "INT": 1,
+          "joy": -5,
+          "STR": -1
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_adult_choice_8",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 8,
+    "text": "Vô tình lạc vào một sới bạc ngầm ở thủ đô Sanctus. Những đồng tiền vàng lấp lánh ném xoong xoảng trên bàn cược đang khơi gợi lòng tham.",
+    "choices": [
+      {
+        "label": "Ném hết tiền vào cửa lớn",
+        "check": {
+          "stat": "LUCK",
+          "target": 8
+        },
+        "success": {
+          "text": "Bánh xe quay định mệnh dừng đúng ô bạn chọn! Đám quý tộc há hốc mồm khi gã Thú nhân vơ vét cả núi tiền vàng ném vào bao tải.",
+          "effects": {
+            "LUCK": 1,
+            "wealth": 50,
+            "joy": 20
+          },
+          "moment": "Đánh sập sòng bạc Sanctus"
+        },
+        "fail": {
+          "text": "Vận may ngoảnh mặt. Bạn thua sạch sành sanh đến chiếc khố trên người cũng bị chủ sòng lột mất để gán nợ.",
+          "effects": {
+            "wealth": -40,
+            "joy": -25
+          }
+        }
+      },
+      {
+        "label": "Dè dặt, chỉ đứng ngoài quan sát",
+        "text": "Biết thân biết phận, bạn nuốt nước bọt đứng xem đám người đốt tiền rồi âm thầm bước ra khỏi cửa trước khi bị lòng tham nuốt chửng.",
+        "effects": {
+          "INT": 1,
+          "joy": -5
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_middle_1",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 8,
+    "text": "Sợi lông bạc đầu tiên xuất hiện trên đỉnh đầu. Những cú vọt lềnh bềnh thuở thanh xuân giờ nhường chỗ cho những bước đi trầm tĩnh và vững chãi hơn.",
+    "effects": {
+      "STR": -1,
+      "INT": 1,
+      "health": -5
+    }
+  },
+  {
+    "id": "beastman_middle_2",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "once": false,
+    "weight": 6,
+    "text": "Bạn dành buổi chiều chỉ dạy bọn trẻ cách phân biệt nấm độc và nấm ăn được. Nhìn những đôi mắt tròn xoe ngưỡng mộ, bạn cảm thấy thanh thản lạ kỳ.",
+    "effects": {
+      "INT": 1,
+      "joy": 10
+    }
+  },
+  {
+    "id": "beastman_middle_3",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 7,
+    "text": "Giáo hội Thánh Quang tăng thuế chiến tranh. Bạn phải giao nộp một nửa số da thú tích cóp được mùa đông qua để đổi lấy sự yên ổn cho gia đình.",
+    "effects": {
+      "wealth": -20,
+      "joy": -10
+    }
+  },
+  {
+    "id": "beastman_middle_4",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "weight": 7,
+    "text": "Với kinh nghiệm dày dạn, bạn được mời vào hội đồng bầy đàn. Tiếng nói của bạn giờ đây có trọng lượng quyết định hướng đi của cả tộc.",
+    "effects": {
+      "INT": 1,
+      "joy": 15,
+      "flags": [
+        "elder_council"
+      ]
+    }
+  },
+  {
+    "id": "beastman_middle_5",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 8,
+    "text": "Một mùa đông khắc nghiệt chưa từng có ập tới. Bạn cắn răng nhịn phần ăn của mình, chia thịt cho những con non để chúng có cơ hội sống sót.",
+    "effects": {
+      "health": -15,
+      "STR": -1,
+      "joy": 10
+    }
+  },
+  {
+    "id": "beastman_middle_6",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "eras": [
+      "demon_lord"
+    ],
+    "weight": 8,
+    "require": {
+      "INT": 5
+    },
+    "text": "Thay vì lao lên cắn xé quái vật như thời trẻ, bạn điềm tĩnh chỉ huy lính canh đặt bẫy lửa, thiêu rụi toán tiên phong của Quân Đoàn Hủy Diệt.",
+    "effects": {
+      "INT": 1,
+      "joy": 10,
+      "flags": [
+        "tactician"
+      ]
+    }
+  },
+  {
+    "id": "beastman_middle_7",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 7,
+    "text": "Vết thương ở lưng do một con Báo Gai cào thuở thiếu niên bỗng đau nhói mỗi khi gió bão về. Tuổi tác là kẻ thù không thể đánh bại bằng cơ bắp.",
+    "effects": {
+      "health": -5,
+      "AGI": -1,
+      "joy": -5
+    }
+  },
+  {
+    "id": "beastman_middle_8",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 6,
+    "text": "Gặp lại một cựu mạo hiểm giả lùn tại tửu quán ven rừng. Cả hai nâng ly bia lúa mạch nhạt thếch, ôn lại những ngày tháng dọc ngang Aethelgard.",
+    "effects": {
+      "joy": 15,
+      "wealth": -5
+    }
+  },
+  {
+    "id": "beastman_middle_9",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "once": false,
+    "weight": 5,
+    "text": "Bạn thuần thục thuộc da một con rồng đất và bán được giá cao cho Thương Đoàn Sói Bạc. Tiền bạc giờ đây mang ý nghĩa bảo bọc hơn là phung phí.",
+    "effects": {
+      "wealth": 25,
+      "INT": 1
+    }
+  },
+  {
+    "id": "beastman_middle_10",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "weight": 6,
+    "text": "Đứng lặng dưới gốc Cây Thế Giới Yggdrasil, bạn nhắm mắt cầu nguyện cho những sinh linh Thú nhân đời tiếp theo được hưởng vạt nắng bình yên.",
+    "effects": {
+      "joy": 10,
+      "LUCK": 1
+    }
+  },
+  {
+    "id": "beastman_middle_11",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 7,
+    "require": {
+      "flags": [
+        "war_veteran"
+      ]
+    },
+    "text": "Những tân binh Thú nhân sắp ra trận đến xin bạn lời khuyên. Nhìn những gương mặt ngây thơ ấy, bạn chỉ biết thở dài dặn dò chúng cách giả chết.",
+    "effects": {
+      "INT": 1,
+      "joy": -10
+    }
+  },
+  {
+    "id": "beastman_middle_12",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 8,
+    "text": "Một người bạn săn lâu năm không thể qua khỏi đợt dịch tả. Bạn tự tay đào mộ chôn cất và gầm vang khúc ca tiễn biệt buồn bã nhất.",
+    "effects": {
+      "joy": -20,
+      "health": -5
+    }
+  },
+  {
+    "id": "beastman_middle_13",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 6,
+    "text": "Một ngày thảnh thơi hiếm hoi, bạn ngồi vót những mũi lao gỗ thật sắc nhọn. Công việc lặp đi lặp lại giúp xoa dịu tâm trí đang lo toan bộn bề.",
+    "effects": {
+      "STR": 1,
+      "joy": 5
+    }
+  },
+  {
+    "id": "beastman_middle_14",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "eras": [
+      "demon_lord"
+    ],
+    "weight": 8,
+    "text": "Trời giáng sấm chớp đỏ rực từ Vực Thẳm Phân Tầng. Bạn lùa gia đình vào sâu trong hang đá, tay lăm lăm vũ khí thức trắng đêm canh gác.",
+    "effects": {
+      "health": -8,
+      "joy": -5,
+      "STR": 1
+    }
+  },
+  {
+    "id": "beastman_middle_15",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 7,
+    "text": "Đem một khoản tiền lớn đến Lò Rèn Vĩnh Cửu để đúc một bộ giáp ngực bằng Huyết Kim. Tuổi này không thể liều mạng trần truồng hứng chịu đòn thù được nữa.",
+    "effects": {
+      "wealth": -35,
+      "health": 20,
+      "STR": 1
+    }
+  },
+  {
+    "id": "beastman_middle_16",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "once": false,
+    "weight": 5,
+    "text": "Thức dậy với một cơn ho húng hắng và xương khớp rã rời. Bạn càu nhàu tự nấu cho mình một bát canh rễ thảo dược đắng ngắt để giữ giọng.",
+    "effects": {
+      "health": 5,
+      "joy": -2
+    }
+  },
+  {
+    "id": "beastman_middle_17",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 6,
+    "text": "Trao lại chiếc nanh ma thú — chiến lợi phẩm tự hào thời trẻ — cho đứa con lớn đang chuẩn bị Lễ Trưởng Thành. Dòng thời gian của Thú nhân trôi qua thật nhanh.",
+    "effects": {
+      "joy": 15,
+      "wealth": -5
+    }
+  },
+  {
+    "id": "beastman_middle_choice_1",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 9,
+    "text": "Một chiến binh Thú nhân trẻ tuổi, kiêu ngạo bước ra thách đấu bạn hòng chiếm lấy vị trí thủ lĩnh săn bắn của bầy.",
+    "choices": [
+      {
+        "label": "Dạy cho hắn một bài học",
+        "check": {
+          "stat": "STR",
+          "target": 8
+        },
+        "success": {
+          "text": "Tuy thể lực giảm sút, nhưng kinh nghiệm thực chiến giúp bạn gạt chân và khóa cổ hắn xuống đất trong nháy mắt. Hắn ngoan ngoãn quy phục.",
+          "effects": {
+            "INT": 1,
+            "joy": 15,
+            "flags": [
+              "undefeated_leader"
+            ]
+          },
+          "moment": "Khuất phục kẻ thách thức trẻ tuổi"
+        },
+        "fail": {
+          "text": "Sức trẻ của hắn quá trâu bò. Bạn kiệt sức và dính một cú móc hàm trời giáng, văng xuống bùn. Kỷ nguyên của bạn đành khép lại.",
+          "effects": {
+            "health": -20,
+            "STR": -1,
+            "joy": -25
+          }
+        }
+      },
+      {
+        "label": "Nhường lại vị trí trong hòa bình",
+        "text": "Bạn mỉm cười xoa đầu gã trẻ tuổi, tuyên bố rút lui để nhường sân khấu cho thế hệ mới. Nhiều người tiếc nuối nhưng tôn trọng bạn.",
+        "effects": {
+          "INT": 1,
+          "joy": -5,
+          "STR": -1
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_middle_choice_2",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "eras": [
+      "demon_lord"
+    ],
+    "weight": 8,
+    "text": "Một tiểu đoàn quỷ dữ đang tràn về làng. Già làng lệnh di tản, nhưng vẫn cần một nhóm tử thủ cản bước tiến của địch.",
+    "choices": [
+      {
+        "label": "Đứng lại cản đường",
+        "check": {
+          "stat": "STR",
+          "target": 9
+        },
+        "success": {
+          "text": "Bằng sự cuồng bạo cuối cùng của tuổi trung niên, bạn chém rụng đầu viên tướng quỷ, khiến lũ tiểu yêu hoảng loạn bỏ chạy. Bầy đàn được cứu.",
+          "effects": {
+            "STR": 2,
+            "health": -20,
+            "joy": 25,
+            "flags": [
+              "legendary_defender"
+            ]
+          },
+          "moment": "Tử thủ bảo vệ làng khỏi quỷ dữ"
+        },
+        "fail": {
+          "text": "Vũ khí gãy nát, bọn quỷ xúm lại xâu xé thân hình tàn tạ của bạn.",
+          "death": "Dùng tấm lưng rộng lớn chắn ngang cổng làng, bạn gục ngã anh dũng ở tuổi {age} để đồng bào được sống."
+        }
+      },
+      {
+        "label": "Dẫn dắt đoàn di tản",
+        "text": "Sự sống sót của giống nòi là quan trọng nhất. Bạn đi đầu bảo vệ phụ nữ và trẻ em chạy an toàn qua Dãy Núi Răng Cưa tị nạn.",
+        "effects": {
+          "INT": 1,
+          "joy": -10,
+          "LUCK": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_middle_choice_3",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 9,
+    "text": "Một tay buôn lậu trùm đầu kín mít tiếp cận gia đình bạn đang chết đói, ngã giá một xe lương thực lớn đổi lấy Lõi Mana được cấy trong ngực con trai bạn.",
+    "choices": [
+      {
+        "label": "Chém chết gã buôn lậu",
+        "check": {
+          "stat": "AGI",
+          "target": 7
+        },
+        "success": {
+          "text": "Thân thủ của bạn vẫn sắc bén. Lưỡi dao rạch đứt cổ họng gã trước khi gã kịp rút vũ khí. Bạn cướp cả xe lương thực, cứu sống cả nhà.",
+          "effects": {
+            "wealth": 30,
+            "health": 20,
+            "joy": 10,
+            "flags": [
+              "ruthless_survivor"
+            ]
+          },
+          "moment": "Giết kẻ buôn lậu cướp lương thực"
+        },
+        "fail": {
+          "text": "Gã ta là một pháp sư lẩn trốn. Hắn vẩy tay phóng một luồng ám khí đốt cháy ngực bạn, rồi ung dung bỏ đi để mặc nhà bạn kêu gào.",
+          "effects": {
+            "health": -30,
+            "STR": -1,
+            "joy": -20
+          }
+        }
+      },
+      {
+        "label": "Kiên quyết từ chối",
+        "text": "Gia đình Thú nhân có thể chết đói nhưng không bán máu mủ. Bạn gầm lên đuổi cổ gã đi, đành phải chia nhau cắn rễ cây qua ngày.",
+        "effects": {
+          "health": -15,
+          "joy": 5,
+          "INT": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_middle_choice_4",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 8,
+    "text": "Bạn phát hiện dấu vết của 'Kỳ Lân Bóng Đêm', một huyễn thú huyền thoại mà bạn từng đuổi hụt cách đây hai chục năm. Nó đang quay lại khu rừng.",
+    "choices": [
+      {
+        "label": "Một mình truy lùng để giải hận",
+        "check": {
+          "stat": "INT",
+          "target": 8
+        },
+        "success": {
+          "text": "Lần này bạn dùng cái đầu lạnh và đặt bẫy thay vì xông lên. Mũi tên độc ghim đúng yết hầu. Bạn mang sừng nó về trong ánh mắt kính sợ của toàn tộc.",
+          "effects": {
+            "INT": 2,
+            "wealth": 40,
+            "joy": 30,
+            "flags": [
+              "mythical_hunter"
+            ]
+          },
+          "moment": "Hạ gục Kỳ Lân Bóng Đêm huyền thoại"
+        },
+        "fail": {
+          "text": "Huyễn thú đánh hơi được bạn từ xa. Nó quay lại phóng một tia sét đen đánh gãy chân bạn. Giấc mơ săn bắn huyền thoại hoàn toàn tan vỡ.",
+          "effects": {
+            "health": -25,
+            "AGI": -2,
+            "joy": -30
+          }
+        }
+      },
+      {
+        "label": "Báo cho thợ săn trẻ đi bắt",
+        "text": "Thừa nhận thời hoàng kim đã qua, bạn truyền lại bản đồ và thói quen của con thú cho lứa trẻ. Chúng thành công và biếu bạn một phần thưởng hậu hĩnh.",
+        "effects": {
+          "wealth": 20,
+          "joy": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_middle_choice_5",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 8,
+    "text": "Quan bắt lính của Giáo hội xông vào làng đòi mang đi những thanh niên ưu tú nhất. Nhóm trẻ tuổi bừng bừng sát khí định phản kháng bằng bạo lực.",
+    "choices": [
+      {
+        "label": "Ngăn cản bằng lý lẽ và đút lót",
+        "check": {
+          "stat": "INT",
+          "target": 7
+        },
+        "success": {
+          "text": "Kinh nghiệm lõi đời giúp bạn nói chuyện phải trái và dúi cho viên quan một túi Huyết Kim lớn. Hắn nhắm mắt bỏ qua cho những thợ săn giỏi nhất.",
+          "effects": {
+            "wealth": -40,
+            "INT": 1,
+            "joy": 15
+          },
+          "moment": "Dùng tiền tài chuộc mạng lứa trẻ"
+        },
+        "fail": {
+          "text": "Tên quan tham lam nhưng không nhân nhượng. Hắn hất tay bạn ra, tịch thu luôn số tiền và đánh bạn một trận tơi bời vì tội cản trở quân vụ.",
+          "effects": {
+            "wealth": -40,
+            "health": -15,
+            "joy": -20
+          }
+        }
+      },
+      {
+        "label": "Cùng bầy đàn rút vào rừng sâu",
+        "text": "Bạn quyết định thà bỏ làng còn hơn mất con cháu. Cả tộc dắt díu nhau vào tị nạn trong Đại Ngàn Lục Bảo, sống cảnh kham khổ một thời gian.",
+        "effects": {
+          "health": -10,
+          "wealth": -10,
+          "joy": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_middle_choice_6",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 7,
+    "text": "Hai gia đình có thế lực trong bầy xảy ra tranh chấp đẫm máu vì quyền khai thác một mỏ tinh thể sát Vực Thẳm. Hội đồng bầy đàn nhờ bạn phân xử.",
+    "choices": [
+      {
+        "label": "Dùng sức mạnh áp chế cả hai bên",
+        "check": {
+          "stat": "STR",
+          "target": 7
+        },
+        "success": {
+          "text": "Bạn vác thanh chùy đá tảng ra giữa sân, đập nát bệ đá tế thần và gầm lên thị uy. Áp lực của một cựu binh khiến cả hai bên tái mặt đình chiến.",
+          "effects": {
+            "STR": 1,
+            "joy": 15,
+            "wealth": 10
+          },
+          "moment": "Áp chế bạo loạn bằng uy dũng"
+        },
+        "fail": {
+          "text": "Cơn giận của đám đông hăng máu hất văng sự uy nghiêm của bạn. Một viên đá lạc bay trúng đầu khiến bạn bất tỉnh nhân sự.",
+          "effects": {
+            "health": -15,
+            "joy": -15,
+            "INT": -1
+          }
+        }
+      },
+      {
+        "label": "Đề xuất hợp tác khai thác",
+        "text": "Bằng những lập luận mềm mỏng và tính toán phân chia lợi nhuận hợp lý, bạn xoa dịu được mâu thuẫn. Bạn được trả công hậu hĩnh.",
+        "effects": {
+          "INT": 1,
+          "wealth": 20,
+          "joy": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_middle_choice_7",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 8,
+    "text": "Trong một chuyến đi săn đơn độc, bạn lạc vào một ngôi đền cổ của Nữ thần Lumina bị chôn vùi dưới cỏ tranh. Trên bệ thờ có một viên Tinh Bạc phát sáng rực rỡ.",
+    "choices": [
+      {
+        "label": "Liều lĩnh cuỗm viên Tinh Bạc",
+        "check": {
+          "stat": "LUCK",
+          "target": 7
+        },
+        "success": {
+          "text": "Không có bẫy sập nào! Viên Tinh Bạc không chỉ bán được giá trên trời mà còn thanh tẩy một phần độc tố tích tụ trong cơ thể bạn bấy lâu nay.",
+          "effects": {
+            "LUCK": 1,
+            "wealth": 40,
+            "health": 15
+          },
+          "moment": "Trộm bảo vật đền Lumina"
+        },
+        "fail": {
+          "text": "Ánh sáng Thánh Quang dội ngược lại, thiêu đốt bàn tay đầy sát khí hoang dã của bạn. Bạn phải cắn răng chịu đau tháo chạy tay không.",
+          "effects": {
+            "health": -20,
+            "STR": -1,
+            "joy": -10
+          }
+        }
+      },
+      {
+        "label": "Chắp tay cúi chào rồi lui bước",
+        "text": "Thế giới tâm linh là thứ không nên mạo phạm. Bạn thể hiện sự tôn trọng với tôn giáo của loài người và an toàn rời đi.",
+        "effects": {
+          "INT": 1,
+          "joy": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_middle_18",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 7,
+    "text": "Gặp lại một cựu binh loài người từng ở phe địch nay cũng đã già yếu. Không có chém giết, cả hai chỉ lặng lẽ gật đầu chào nhau rồi lướt qua.",
+    "effects": {
+      "INT": 1,
+      "joy": 10
+    }
+  },
+  {
+    "id": "beastman_middle_19",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 8,
+    "text": "Đứa con út của bạn lần đầu tiên tự tay hạ gục được một con sói lửa. Bạn kiêu hãnh vỗ vai nó, lấp ló thấy hình bóng oai hùng của mình năm xưa.",
+    "effects": {
+      "joy": 15,
+      "wealth": 10
+    }
+  },
+  {
+    "id": "beastman_middle_20",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 8,
+    "text": "Đôi tai từng nhạy bén nghe được cả tiếng lá rơi giờ đây thường xuyên ù đi trong gió lộng. Sự lão hóa bắt đầu đòi lại những gì tự nhiên đã ban cho.",
+    "effects": {
+      "health": -5,
+      "AGI": -1,
+      "joy": -5
+    }
+  },
+  {
+    "id": "beastman_middle_21",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "weight": 6,
+    "text": "Dẫn bầy con lên thủ đô Sanctus để trao đổi hàng hóa. Sự phồn hoa ồn ào của loài người chỉ khiến một Thú nhân luống tuổi như bạn thêm đau đầu.",
+    "effects": {
+      "wealth": -15,
+      "INT": 1,
+      "joy": -5
+    }
+  },
+  {
+    "id": "beastman_middle_22",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "once": false,
+    "weight": 5,
+    "text": "Vác những súc gỗ lớn để gia cố lều trại trước thềm mùa Săn Bão. Cơ bắp vẫn còn cuồn cuộn sức lực, dẫu mồ hôi có đổ ra nhiều hơn thời trai trẻ.",
+    "effects": {
+      "STR": 1,
+      "health": -3
+    }
+  },
+  {
+    "id": "beastman_middle_23",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 8,
+    "text": "Một dị giáo đồ điên loạn truyền rắc tin đồn ngày tận thế. Bằng sự uy nghi của bậc cha chú, bạn quát tháo trấn an bầy đàn không được phép hoảng loạn.",
+    "effects": {
+      "INT": 1,
+      "joy": 10,
+      "flags": [
+        "calm_leader"
+      ]
+    }
+  },
+  {
+    "id": "beastman_middle_24",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "eras": [
+      "demon_lord"
+    ],
+    "weight": 8,
+    "text": "Nọc độc từ một vết cào của quỷ dữ sưng tấy nhiều tuần liền. Trị liệu bằng ma thuật tiêu tốn một khoản tiền lớn nhưng cứu được cánh tay của bạn.",
+    "effects": {
+      "wealth": -25,
+      "health": -10,
+      "LUCK": 1
+    }
+  },
+  {
+    "id": "beastman_middle_25",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 7,
+    "text": "Được mời làm trọng tài cho Lễ Trưởng Thành của tộc. Đôi mắt sắc lẹm và quyền uy của bạn khiến đám thanh niên bồng bột không dám giở trò gian lận.",
+    "effects": {
+      "joy": 10,
+      "INT": 1
+    }
+  },
+  {
+    "id": "beastman_middle_26",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 7,
+    "require": {
+      "flags": [
+        "arena_champion"
+      ]
+    },
+    "text": "Quây quần bên đống lửa, bạn vén áo khoe những vết sẹo chằng chịt từ Đấu Trường Huyết Sa. Bọn trẻ trố mắt kinh ngạc trước huyền thoại sống là bạn.",
+    "effects": {
+      "joy": 15,
+      "STR": 1
+    }
+  },
+  {
+    "id": "beastman_middle_27",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 8,
+    "text": "Đi săn trượt một con hươu thọt chân vì vồ hụt. Bạn cay đắng nhận ra sự già cỗi đang âm thầm gặm nhấm những phản xạ nhạy bén nhất của Thú nhân.",
+    "effects": {
+      "AGI": -1,
+      "joy": -15
+    }
+  },
+  {
+    "id": "beastman_middle_28",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "once": false,
+    "weight": 5,
+    "text": "Ngồi thầm lặng chùi rửa những vết mẻ trên thanh đao cũ dưới ánh trăng. Tâm trí bạn miên man trôi về những ngày tháng thanh xuân cuồng bạo.",
+    "effects": {
+      "INT": 1,
+      "joy": 5
+    }
+  },
+  {
+    "id": "beastman_middle_29",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 7,
+    "require": {
+      "wealth": 50
+    },
+    "text": "Nhờ của cải tích cóp dồi dào, bạn vung tiền mua hẳn một xe mật ong lớn từ thương nhân lùn để thiết đãi cả làng một bữa ngọt lịm linh đình.",
+    "effects": {
+      "wealth": -35,
+      "joy": 25
+    }
+  },
+  {
+    "id": "beastman_middle_30",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 8,
+    "text": "Chiến tranh loạn lạc làm đứt gãy tuyến đường buôn muối. Thiếu muối trầm trọng khiến cơ bắp của bạn và cả gia đình uể oải rã rời suốt nhiều tháng.",
+    "effects": {
+      "health": -10,
+      "STR": -1,
+      "joy": -10
+    }
+  },
+  {
+    "id": "beastman_middle_31",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "weight": 7,
+    "text": "Thành tâm cầu nguyện trong lễ hội Nảy Mầm, bạn nhận được sự ban phước từ tinh linh cây cối. Đau nhức xương khớp thâm niên bỗng thuyên giảm hẳn.",
+    "effects": {
+      "health": 20,
+      "LUCK": 1,
+      "joy": 10
+    }
+  },
+  {
+    "id": "beastman_middle_32",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 8,
+    "text": "Bạn đời của bạn trút hơi thở cuối cùng sau một cơn bạo bệnh. Sự cô độc bao trùm lấy nửa đời còn lại như màn sương lạnh giá nhất Thảo Nguyên.",
+    "effects": {
+      "joy": -35,
+      "health": -10,
+      "flags": [
+        "widowed"
+      ]
+    }
+  },
+  {
+    "id": "beastman_middle_33",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 8,
+    "text": "Một con báo sư tử lao ra tập kích khi bạn đang lấy nước. Bằng kinh nghiệm dày dặn, bạn lật ngược tình thế và bóp chết nó dẫu bị cào rách tay.",
+    "effects": {
+      "STR": 1,
+      "health": -10,
+      "joy": 5
+    }
+  },
+  {
+    "id": "beastman_middle_34",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "once": false,
+    "weight": 5,
+    "text": "Lên tận đỉnh Dãy Núi Răng Cưa để mót quặng sắt thừa. Hơi lạnh cắt da cắt thịt làm buốt giá đôi bàn chân trần dạn dày phong sương của bạn.",
+    "effects": {
+      "wealth": 15,
+      "health": -5
+    }
+  },
+  {
+    "id": "beastman_middle_35",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 8,
+    "text": "Dịch tả cướp đi sinh mạng của không ít đồng loại. Sự điềm tĩnh và vững chãi của độ tuổi trung niên giúp bạn đứng thẳng làm trụ cột tinh thần cho bầy đàn.",
+    "effects": {
+      "INT": 2,
+      "joy": -15
+    }
+  },
+  {
+    "id": "beastman_middle_36",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 6,
+    "text": "Bới được một thanh cự kiếm rỉ sét vô chủ ven Đầm Lầy. Thay vì đem nung lại, bạn dùng nó làm cọc chống lều, vươn lên sừng sững giữa gió bão.",
+    "effects": {
+      "wealth": 10,
+      "LUCK": 1
+    }
+  },
+  {
+    "id": "beastman_middle_37",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "eras": [
+      "demon_lord"
+    ],
+    "weight": 8,
+    "text": "Bầu trời đen kịt tro tàn của quỷ dữ. Bằng trí nhớ tuyệt vời, bạn hướng dẫn cả tộc di tản an toàn xuống hệ thống hang động ngầm tổ tiên từng dùng.",
+    "effects": {
+      "INT": 2,
+      "joy": 10,
+      "flags": [
+        "saved_clan"
+      ]
+    }
+  },
+  {
+    "id": "beastman_middle_choice_8",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "eras": [
+      "holy_war",
+      "dark_age"
+    ],
+    "weight": 9,
+    "text": "Bạn phát hiện một toán gián điệp của Hắc Nguyệt Hội đang lén lút chôn những viên đá hắc ám nhằm nguyền rủa nguồn nước ngầm của bầy.",
+    "choices": [
+      {
+        "label": "Gầm vang, lao ra triệt hạ chúng",
+        "check": {
+          "stat": "AGI",
+          "target": 7
+        },
+        "success": {
+          "text": "Bạn di chuyển sắc lẹm như một tia chớp, bẻ cổ gã cầm đầu và dọn sạch toán gián điệp. Những viên ngọc đen bị thu giữ đem bán được một khoản khá.",
+          "effects": {
+            "STR": 1,
+            "wealth": 25,
+            "joy": 15
+          },
+          "moment": "Triệt phá gián điệp Hắc Nguyệt Hội"
+        },
+        "fail": {
+          "text": "Thân thủ không còn nhanh nhẹn như xưa. Bạn trúng một phi tiêu tẩm độc tê liệt và phải nằm bất động nhìn chúng hoàn thành nghi lễ rồi bỏ đi.",
+          "effects": {
+            "health": -25,
+            "AGI": -1,
+            "joy": -20
+          }
+        }
+      },
+      {
+        "label": "Đợi chúng đi rồi lén dỡ bỏ bẫy",
+        "text": "Thận trọng và thông minh hơn, bạn kiên nhẫn nằm bẹp trong cỏ lau. Khi chúng rút lui, bạn vô hiệu hóa trận pháp và ném đá hắc ám xuống vực sâu.",
+        "effects": {
+          "INT": 1,
+          "LUCK": 1,
+          "joy": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_middle_choice_9",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 9,
+    "text": "Một trưởng đoàn xiếc bóng bẩy từ thủ đô Sanctus đến gặp bạn, ngã giá một túi Huyết Kim lớn để mua đứt một đứa con của bạn về làm trò mua vui.",
+    "choices": [
+      {
+        "label": "Đấm thẳng vào mặt gã",
+        "check": {
+          "stat": "STR",
+          "target": 7
+        },
+        "success": {
+          "text": "Một cú đấm trời giáng làm gã rụng cả hàm răng. Bọn tùy tùng bỏ chạy tán loạn, để lại túi tiền rớt trên đất mà bạn không ngần ngại nhặt lấy.",
+          "effects": {
+            "STR": 1,
+            "wealth": 30,
+            "joy": 15
+          },
+          "moment": "Đấm gãy răng gã buôn nô lệ"
+        },
+        "fail": {
+          "text": "Bọn lính đánh thuê đi theo gã rút kiếm ra đánh trả. Bạn bị chém tơi bời và phải bồi thường tiền thuốc men để chúng không tàn sát gia đình.",
+          "effects": {
+            "health": -20,
+            "wealth": -25,
+            "joy": -15
+          }
+        }
+      },
+      {
+        "label": "Quát tháo đuổi cổ chúng đi",
+        "text": "Gìn giữ phẩm giá, bạn nhe nanh gầm gừ khiến đám người sợ hãi lùi bước. Bạn không để tiền bạc bôi bẩn tình máu mủ của loài Thú nhân.",
+        "effects": {
+          "INT": 1,
+          "joy": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_middle_choice_10",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 8,
+    "text": "Khám phá dọc Vực Thẳm Phân Tầng, bạn tìm thấy một kẽ nứt lộ ra mỏ tinh thể Lõi Mana tuyệt đẹp, nhưng cấu trúc vách đá đang rạn nứt chực sụp đổ.",
+    "choices": [
+      {
+        "label": "Liều mình chui vào khai thác",
+        "check": {
+          "stat": "LUCK",
+          "target": 8
+        },
+        "success": {
+          "text": "Vận may mỉm cười! Bạn dùng sự khéo léo bóc tách được một bao tải lớn tinh thể rồi nhảy vọt ra ngoài ngay trước khi vách đá ụp xuống.",
+          "effects": {
+            "wealth": 50,
+            "joy": 25,
+            "AGI": 1
+          },
+          "moment": "Trúng đậm mỏ tinh thể Lõi Mana"
+        },
+        "fail": {
+          "text": "Vách đá đổ sập bất ngờ. Một tảng đá đè nát một nửa bả vai và chân trái của bạn. Bạn được người qua đường cứu sống nhưng tàn phế vĩnh viễn.",
+          "effects": {
+            "health": -35,
+            "STR": -2,
+            "AGI": -2,
+            "joy": -30
+          }
+        }
+      },
+      {
+        "label": "Giao thông tin cho Thương Đoàn",
+        "text": "Bạn tỉnh táo hiểu rằng tài nguyên này nằm ngoài khả năng của mình. Đổi thông tin cho bọn thợ mỏ chuyên nghiệp mang lại cho bạn hoa hồng hậu hĩnh.",
+        "effects": {
+          "wealth": 25,
+          "INT": 2,
+          "joy": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_elder_1",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 10,
+    "text": "Bước qua sườn dốc sinh mệnh ngắn ngủi, bộ lông rực lửa ngày nào giờ ngả màu tro tàn. Ánh mắt bạn nhạt đi sự cuồng nộ nhưng đong đầy sự thông tuệ.",
+    "effects": {
+      "health": -10,
+      "INT": 2,
+      "STR": -1
+    }
+  },
+  {
+    "id": "beastman_elder_2",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "once": false,
+    "weight": 6,
+    "text": "Ngồi tựa lưng vào phiến đá rêu phong, bạn nhàn nhã ngắm nhìn mặt trời lặn nhuộm đỏ Thảo Nguyên Gió Hú. Thời gian giờ trôi qua thật bình yên nhẹ bẫng.",
+    "effects": {
+      "joy": 10,
+      "health": 5
+    }
+  },
+  {
+    "id": "beastman_elder_3",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "once": false,
+    "weight": 5,
+    "text": "Bạn ngồi chễm chệ trên mô đất cao, kể cho đám Thú nhân non nớt nghe về những trận săn rồng đất thuở trước. Tiếng ồ lên thán phục của chúng như liều thuốc tiên xoa dịu tuổi già.",
+    "effects": {
+      "INT": 1,
+      "joy": 10
+    }
+  },
+  {
+    "id": "beastman_elder_4",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 7,
+    "text": "Nhìn những hàng dài người tị nạn lê lết lánh nạn qua Thảo Nguyên Gió Hú, bạn thầm tạ ơn Tự Nhiên vì đã che chở cho bầy đàn suốt bao thập kỷ khói lửa.",
+    "effects": {
+      "joy": 5,
+      "INT": 1
+    }
+  },
+  {
+    "id": "beastman_elder_5",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 8,
+    "text": "Dịch bệnh hắc ám cướp đi nhiều sinh mạng cường tráng, nhưng cơ thể già cỗi ngậm đầy thảo dược của bạn lại trơ như đá tảng. Tuổi thọ của bạn trở thành một điều kỳ diệu.",
+    "effects": {
+      "health": 15,
+      "joy": -5,
+      "STR": -1
+    }
+  },
+  {
+    "id": "beastman_elder_6",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "eras": [
+      "demon_lord"
+    ],
+    "weight": 8,
+    "text": "Mỗi lần Quân Đoàn Hủy Diệt kéo đến, chướng khí lại làm những vết sẹo cũ rỉ máu đau buốt. Bạn nghiến răng chịu đựng, không để tiếng rên rỉ làm lung lay nhuệ khí lứa trẻ.",
+    "effects": {
+      "health": -10,
+      "joy": -10,
+      "STR": -1
+    }
+  },
+  {
+    "id": "beastman_elder_7",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "once": false,
+    "weight": 5,
+    "text": "Đích thân vót mũi tên gỗ cho một chiến binh trẻ. Đôi tay nhăn nheo nhưng chuẩn xác rèn ra những vũ khí mang theo linh hồn của gió.",
+    "effects": {
+      "INT": 1,
+      "joy": 5
+    }
+  },
+  {
+    "id": "beastman_elder_8",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 8,
+    "text": "Thủ lĩnh mới của bầy cung kính đem dâng cho bạn phần thịt sườn ngon nhất sau buổi đi săn. Sự tôn trọng của bầy đàn là huân chương chói lọi nhất đời bạn.",
+    "effects": {
+      "health": 10,
+      "joy": 15
+    }
+  },
+  {
+    "id": "beastman_elder_9",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 7,
+    "text": "Bạn thực hiện chuyến hành hương cuối cùng đến Cây Thế Giới Yggdrasil. Chạm tay vào lớp vỏ sần sùi ngàn năm, bạn cảm thấy linh hồn mình sắp hòa quyện vào Đại Ngàn.",
+    "effects": {
+      "joy": 20,
+      "INT": 1,
+      "LUCK": 1
+    }
+  },
+  {
+    "id": "beastman_elder_10",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 7,
+    "text": "Một học giả loài người lặn lội từ Tháp Ngà đến để ghi chép lại sử thi truyền miệng của tộc Thú nhân. Bạn hãnh diện kể về thời đại hoàng kim của mình.",
+    "effects": {
+      "INT": 2,
+      "joy": 10,
+      "wealth": 5
+    }
+  },
+  {
+    "id": "beastman_elder_11",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 8,
+    "text": "Cắn phải một miếng thịt sấy quá cứng, chiếc răng nanh từng cắn đứt yết hầu kẻ thù lỏng lẻo rồi rụng mất. Thời gian quả là lưỡi đao tàn nhẫn nhất.",
+    "effects": {
+      "health": -5,
+      "STR": -1,
+      "joy": -10
+    }
+  },
+  {
+    "id": "beastman_elder_12",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "weight": 7,
+    "text": "Lễ hội Lửa Trại vinh danh các Trưởng lão. Nhấp ngụm rượu cần nồng ấm, bạn mỉm cười nhìn dòng máu của mình nảy nở mạnh mẽ trên thảo nguyên.",
+    "effects": {
+      "joy": 25,
+      "health": 5
+    }
+  },
+  {
+    "id": "beastman_elder_13",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 8,
+    "text": "Giấu bớt phần củ rừng héo hon của mình để san sẻ cho đứa cháu nội đang khóc vì đói. Người già như chiếc lá rụng, hy sinh để làm phân bón cho chồi non.",
+    "effects": {
+      "health": -15,
+      "joy": 15,
+      "INT": 1
+    }
+  },
+  {
+    "id": "beastman_elder_14",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 7,
+    "require": {
+      "flags": [
+        "gladiator"
+      ]
+    },
+    "text": "Tìm lại tấm khiên đồng rỉ sét từ thời lăn lộn ở Đấu Trường Huyết Sa. Những tiếng hò reo cuồng loạn ngày ấy vọng về như một giấc mộng đẫm máu vừa tan.",
+    "effects": {
+      "joy": -5,
+      "INT": 1
+    }
+  },
+  {
+    "id": "beastman_elder_15",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 7,
+    "text": "Giáo hội Thánh Quang cử giáo sĩ đến thuyết phục bạn rửa tội trước khi nhắm mắt. Bạn khạc nhổ vào đống kinh thánh mớ ba mớ bảy ấy, một mực trung thành với Tự Nhiên.",
+    "effects": {
+      "INT": 1,
+      "joy": 5
+    }
+  },
+  {
+    "id": "beastman_elder_16",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 8,
+    "text": "Đào lại cái hố bí mật chôn giấu tài sản thời thanh xuân vẫy vùng. Lôi ra được vài Đồng Cẩm Thạch xỉn màu, bạn cười khà khà vứt cho bọn trẻ mua kẹo.",
+    "effects": {
+      "wealth": 10,
+      "joy": 10
+    }
+  },
+  {
+    "id": "beastman_elder_17",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "once": false,
+    "weight": 5,
+    "text": "Nhìn đôi Thú nhân trẻ âu yếm cọ mũi vào nhau bên bờ suối, bạn thở dài nhớ về người bạn đời đã khuất. Cô đơn ở tuổi xế bóng tĩnh lặng như đáy Vực Thẳm.",
+    "effects": {
+      "joy": -10,
+      "INT": 1
+    }
+  },
+  {
+    "id": "beastman_elder_18",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "eras": [
+      "demon_lord"
+    ],
+    "weight": 8,
+    "text": "Tiếng gầm rú của Ma Vương xé nát bầu trời đêm. Trái với lũ trẻ hoảng loạn, bạn bình thản lấy vạt áo lau sáng lại mũi giáo gỗ, chờ đợi trận chiến cuối cùng.",
+    "effects": {
+      "INT": 2,
+      "joy": 5,
+      "flags": [
+        "fearless_elder"
+      ]
+    }
+  },
+  {
+    "id": "beastman_elder_19",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 8,
+    "text": "Trúng gió lạnh trong mùa Săn Bão. Cơn ho rũ rượi kéo dài hàng tuần vắt kiệt sinh lực mong manh cuối cùng trong cỗ máy nhục thể cằn cỗi.",
+    "effects": {
+      "health": -20,
+      "STR": -1,
+      "AGI": -1
+    }
+  },
+  {
+    "id": "beastman_elder_20",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "once": false,
+    "weight": 6,
+    "text": "Ngồi lúi húi đẽo gọt một con rồng đất bằng gỗ tặng đứa chắt vừa chào đời. Hạnh phúc của loài Thú nhân đến tuổi này đơn giản đến thế là cùng.",
+    "effects": {
+      "joy": 15,
+      "INT": 1
+    }
+  },
+  {
+    "id": "beastman_elder_21",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 7,
+    "text": "Nghe tin gã tộc trưởng hàng xóm — kỳ phùng địch thủ một thời — vừa trút hơi thở cuối cùng. Bạn lẳng lặng rót một bát rượu vẩy xuống đất tiễn đưa cố nhân.",
+    "effects": {
+      "joy": -10,
+      "INT": 1
+    }
+  },
+  {
+    "id": "beastman_elder_22",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 7,
+    "text": "Cố sức cõng một bó củi lớn nhưng đi được nửa đường thì khụyu gối. Bạn thở dốc, chua xót thừa nhận giới hạn bạo chúa của sự lão hóa.",
+    "effects": {
+      "STR": -2,
+      "health": -10,
+      "joy": -15
+    }
+  },
+  {
+    "id": "beastman_elder_23",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 8,
+    "text": "Lương thực cạn kiệt, bầy đàn tranh cãi xem có nên bỏ lại những người già yếu. Bạn đứng dậy, dõng dạc nói rằng mình sẽ tự đi vào rừng chờ cái chết để bớt gánh nặng.",
+    "effects": {
+      "joy": -25,
+      "INT": 1,
+      "flags": [
+        "martyr_mindset"
+      ]
+    }
+  },
+  {
+    "id": "beastman_elder_24",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 7,
+    "text": "Những giấc mộng chập chờn thường xuyên đưa bạn về vùng ánh sáng bạc, nơi linh hồn các dã thú tổ tiên đang cất tiếng tru gọi tên bạn về với Vô Cực.",
+    "effects": {
+      "LUCK": 1,
+      "joy": 5
+    }
+  },
+  {
+    "id": "beastman_elder_25",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 8,
+    "text": "Bạn quyết định phân phát nốt số Tinh Bạc và Lõi Mana tích cóp cả đời cho thế hệ sau. Rũ bỏ vướng bận trần tục, linh hồn bạn nhẹ như lông vũ.",
+    "effects": {
+      "wealth": -50,
+      "joy": 25,
+      "INT": 1
+    }
+  },
+  {
+    "id": "beastman_elder_26",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 8,
+    "text": "Cố gắng gầm lên để thị uy một con lửng mật lảng vảng, nhưng âm thanh phát ra chỉ là một chuỗi khò khè ho khan. Con thú nhỏ lườm bạn rồi đủng đỉnh bỏ đi.",
+    "effects": {
+      "STR": -1,
+      "joy": -10
+    }
+  },
+  {
+    "id": "beastman_elder_27",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 7,
+    "text": "Bắt gặp một lính Thánh Vệ Quân bị thương nặng đang hấp hối cạnh bụi cây râm bụt. Không còn thù hận, bạn đưa cho hắn một bầu nước cạn trước khi nhắm mắt.",
+    "effects": {
+      "INT": 2,
+      "joy": 5
+    }
+  },
+  {
+    "id": "beastman_elder_28",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "once": false,
+    "weight": 6,
+    "text": "Ngước nhìn bầu trời sao chi chít trên Thảo Nguyên Gió Hú. Những ngôi sao rụng mang theo hơi thở của tổ tiên dường như đang vẫy gọi bạn về với Vô Cực.",
+    "effects": {
+      "joy": 10,
+      "INT": 1
+    }
+  },
+  {
+    "id": "beastman_elder_29",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 8,
+    "text": "Đoàn Thánh Vệ Quân diễu hành đằng xa ngoài bìa rừng. Bạn thở dài nhắm mắt, bánh xe chiến tranh của loài người đã nghiền nát hết thế hệ này đến thế hệ khác.",
+    "effects": {
+      "joy": -5,
+      "INT": 1
+    }
+  },
+  {
+    "id": "beastman_elder_30",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 8,
+    "text": "Đích thân dạy lũ trẻ cách lột vỏ thông trắng để nhai cầm hơi. Kinh nghiệm đẫm nước mắt của thế hệ trước trở thành phao cứu sinh cho chồi non.",
+    "effects": {
+      "health": 5,
+      "joy": -5
+    }
+  },
+  {
+    "id": "beastman_elder_31",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "eras": [
+      "demon_lord"
+    ],
+    "weight": 8,
+    "text": "Bầu trời nứt nẻ tuôn trào chướng khí tím rịm. Ngay cả sinh khí của Tự Nhiên cũng đang thoi thóp, kéo theo nhịp đập yếu ớt nơi lồng ngực cằn cỗi của bạn.",
+    "effects": {
+      "health": -10,
+      "joy": -10
+    }
+  },
+  {
+    "id": "beastman_elder_32",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 6,
+    "text": "Một ngày rảnh rỗi, bạn chống gậy đến thăm nấm mồ của người bạn đời thân thiết nhất. Xương cốt dẫu hóa cát bụi, tình yêu hoang dã vẫn nồng nàn như gió thảo nguyên.",
+    "effects": {
+      "joy": 10,
+      "INT": 1
+    }
+  },
+  {
+    "id": "beastman_elder_33",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 7,
+    "require": {
+      "INT": 5
+    },
+    "text": "Nhờ sự thông thái nức tiếng, bạn được mời làm chủ tế Lễ Đặt Tên cho một lứa sinh linh Thú nhân mới. Mỗi cái tên là một lời chúc phúc vĩnh hằng.",
+    "effects": {
+      "joy": 15,
+      "LUCK": 1
+    }
+  },
+  {
+    "id": "beastman_elder_34",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 7,
+    "text": "Bạn thèm một miếng thịt nướng nhưng tỳ vị phản chủ, nôn thốc nôn tháo. Nhục thể già nua đang dần từ chối nguồn sống để sửa soạn trở về với cát bụi.",
+    "effects": {
+      "health": -10,
+      "STR": -1,
+      "joy": -5
+    }
+  },
+  {
+    "id": "beastman_elder_35",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "once": false,
+    "weight": 5,
+    "text": "Dùng rễ cây khô và lông chim ưng rụng tết thành những chiếc bùa hộ mệnh. Sự điềm tĩnh nhẹ nhàng bao phủ lều trại của bạn lúc xế chiều.",
+    "effects": {
+      "joy": 10,
+      "INT": 1
+    }
+  },
+  {
+    "id": "beastman_elder_36",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 8,
+    "text": "Nhiều lần giật mình tỉnh giấc lúc nửa đêm vì ảo giác tiếng kèn săn bắn vọng lại. Tâm trí đôi lúc đi lạc khỏi thực tại, bay về quá khứ vàng son rực lửa.",
+    "effects": {
+      "joy": 5,
+      "health": -5
+    }
+  },
+  {
+    "id": "beastman_elder_37",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 7,
+    "text": "Bỏ ngoài tai định kiến, bạn ném vài củ khoai nướng cho đám tù binh loài người đang bị áp giải ngang qua. Đứng trước lưỡi hái tử thần, vạn vật đều đáng thương.",
+    "effects": {
+      "joy": 10,
+      "LUCK": 1
+    }
+  },
+  {
+    "id": "beastman_elder_38",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 7,
+    "require": {
+      "wealth": 20
+    },
+    "text": "Dốc cạn tiền túi cuối cùng để mua một vò rượu lùn ủ ngàn hoa. Uống một ngụm, bao cay đắng ngọt bùi của một đời anh hùng trôi tuột xuống cổ họng.",
+    "effects": {
+      "wealth": -20,
+      "joy": 25
+    }
+  },
+  {
+    "id": "beastman_elder_39",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 7,
+    "text": "Cúm mùa ác tính quét qua. Kháng thể dạn dày của bạn vẫn vững như bàn thạch, nhưng bạn lại phải xót xa chứng kiến vài chồi non của tộc gục ngã.",
+    "effects": {
+      "health": 10,
+      "joy": -15
+    }
+  },
+  {
+    "id": "beastman_elder_40",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "eras": [
+      "demon_lord"
+    ],
+    "weight": 8,
+    "text": "Một con tiểu quỷ thối tha mò vào lều của bạn cắn trộm thức ăn. Không tốn một giọt mồ hôi, bạn giật dây bẫy lưới tóm gọn nó rồi ném ra ngoài bãi rác.",
+    "effects": {
+      "INT": 1,
+      "joy": 5
+    }
+  },
+  {
+    "id": "beastman_elder_41",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 8,
+    "text": "Ánh nắng ban mai xuyên qua kẽ lá rọi ấm đôi bàn tay nhăn nheo gầy guộc. Cảm nhận rõ từng nhịp đập chậm dần trong ngực, bạn thanh thản mỉm cười đón nhận thiên mệnh.",
+    "effects": {
+      "joy": 10,
+      "INT": 1
+    }
+  },
+  {
+    "id": "beastman_elder_choice_1",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 9,
+    "text": "Trưởng tộc trẻ tuổi đem lễ vật đến xin bạn lời khuyên: Thương Đoàn Sói Bạc muốn ngã giá mua đứt một vùng đồng cỏ thiêng để xây dựng thương điếm.",
+    "choices": [
+      {
+        "label": "Gợi ý ký khế ước cho thuê",
+        "check": {
+          "stat": "INT",
+          "target": 7
+        },
+        "success": {
+          "text": "Trí tuệ minh mẫn của bạn chỉ ra lỗ hổng trong luật của Sanctus. Bạn xúi trưởng tộc cho thuê đất thu phí hàng năm, vơ vét được kho lương thực lớn mà đất vẫn thuộc về bầy.",
+          "effects": {
+            "INT": 1,
+            "wealth": 30,
+            "joy": 20,
+            "flags": [
+              "wise_elder"
+            ]
+          },
+          "moment": "Hiến kế sắc sảo cho bầy đàn"
+        },
+        "fail": {
+          "text": "Bạn nhầm lẫn các điều khoản do đã lâu không giao thương. Đám thương nhân lừa ký khế ước gài bẫy, cuỗm mất vùng đất thiêng với cái giá bèo bọt.",
+          "effects": {
+            "wealth": 10,
+            "joy": -25,
+            "health": -10
+          }
+        }
+      },
+      {
+        "label": "Gõ gậy quát tháo, kiên quyết từ chối",
+        "text": "Bạn nhắc nhở vị thủ lĩnh trẻ rằng máu của tổ tiên tưới trên mảnh đất này không thể quy ra bằng Tinh Bạc hay Huyết Kim. Tộc giữ lại được sự tôn nghiêm.",
+        "effects": {
+          "INT": 1,
+          "joy": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_elder_choice_2",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 8,
+    "text": "Một kỵ sĩ Thánh Vệ Quân bị thương nặng lạc vào bìa rừng cạnh túp lều của bạn. Hắn nằm thoi thóp, lảm nhảm gọi tên Nữ thần Lumina trong cơn mê sảng.",
+    "choices": [
+      {
+        "label": "Cứu rỗi bằng y thuật hoang dã",
+        "check": {
+          "stat": "LUCK",
+          "target": 7
+        },
+        "success": {
+          "text": "Số mạng hắn chưa tận. Hắn tỉnh dậy, lặng người đi khi biết một Thú nhân đã cứu mình. Hắn bái lạy bạn và để lại thanh kiếm nạm Huyết Kim làm tạ lễ.",
+          "effects": {
+            "wealth": 25,
+            "joy": 15,
+            "LUCK": 1
+          },
+          "moment": "Cứu sống kỵ sĩ Thánh Vệ Quân"
+        },
+        "fail": {
+          "text": "Hắn hoảng loạn khi thấy Thú nhân tiếp cận, rút dao găm đâm sượt qua sườn bạn rồi lết đi. Làm ơn mắc oán, bạn phải tự cầm máu cho mình.",
+          "effects": {
+            "health": -20,
+            "joy": -15
+          }
+        }
+      },
+      {
+        "label": "Bỏ mặc kẻ thù chầu trời",
+        "text": "Dòng máu con người đã đổ quá nhiều trên quê hương bạn. Bạn lạnh lùng đứng nhìn hắn trút hơi thở cuối cùng, rồi tháo lấy tấm áo choàng lông cừu đắp cho đỡ lạnh.",
+        "effects": {
+          "wealth": 5,
+          "health": 5,
+          "joy": -5
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_elder_choice_3",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 9,
+    "text": "Một thầy lang hắc ám gõ cửa, chìa ra một viên đan dược ngào ngạt mùi ma thuật. Hắn hứa nó sẽ hồi quang phản chiếu sinh lực bạn trong một năm trước khi tim ngừng đập.",
+    "choices": [
+      {
+        "label": "Nuốt đan dược đổi lấy thanh xuân ngắn ngủi",
+        "check": {
+          "stat": "STR",
+          "target": 6
+        },
+        "success": {
+          "text": "Cơ bắp khô héo bỗng cuồn cuộn trỗi dậy! Bạn xé toạc áo, cầm binh khí lao ra thảo nguyên gầm vang. Trận săn cuối cùng của bạn khắc sâu vào sử thi vĩnh hằng.",
+          "effects": {
+            "STR": 3,
+            "health": -15,
+            "joy": 30,
+            "flags": [
+              "final_glory"
+            ]
+          },
+          "moment": "Cháy rực một lần cuối rồi tàn phai"
+        },
+        "fail": {
+          "text": "Thể xác tàn tạ không thể chứa chấp thứ ma lực cuồng bạo. Trái tim già nua của bạn đập loạn nhịp rồi vỡ tung lồng ngực.",
+          "death": "Nhục thể khô cằn vỡ vụn dưới sức mạnh cưỡng ép, bạn chết vì đột quỵ ở tuổi {age} mang theo nuối tiếc thanh xuân vĩnh viễn chưa trọn vẹn."
+        }
+      },
+      {
+        "label": "Nhạt nhẽo hất viên đan dược đi",
+        "text": "Sinh lão bệnh tử là vòng lặp tất yếu của Tự Nhiên. Bạn mỉm cười khinh bỉ những kẻ cố cãi lại thiên mệnh và thanh thản bước qua cám dỗ.",
+        "effects": {
+          "INT": 2,
+          "joy": 15
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_elder_choice_4",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "eras": [
+      "dark_age",
+      "demon_lord"
+    ],
+    "weight": 8,
+    "text": "Dịch sởi quỷ ám khiến bầy trẻ con lịm dần. Thuốc giải duy nhất là Tuyết Liên Hoa trên đỉnh vách đá Dãy Núi Răng Cưa, nơi đám thợ săn trẻ không biết đường lên.",
+    "choices": [
+      {
+        "label": "Đích thân leo vách hái thuốc",
+        "check": {
+          "stat": "AGI",
+          "target": 8
+        },
+        "success": {
+          "text": "Bằng ý chí sắt đá vượt qua thể lực cạn kiệt, bạn lách qua tử thần nhổ được gốc liên hoa. Lũ trẻ được cứu, bạn trở thành vị thánh sống được toàn tộc quỳ lạy.",
+          "effects": {
+            "joy": 30,
+            "health": -15,
+            "LUCK": 2,
+            "flags": [
+              "saint_of_the_clan"
+            ]
+          },
+          "moment": "Lên núi thiêng tìm thuốc cứu bầy"
+        },
+        "fail": {
+          "text": "Tay chân lẩy bẩy, móng vuốt đã cùn không thể găm vào vách đá, bạn trượt chân rơi thẳng xuống từ độ cao ngót nghét năm mươi thước.",
+          "death": "Cơ thể gầy guộc đập vào vách đá vỡ vụn. Bạn hi sinh lẫm liệt để tìm đường sống cho thế hệ sau ở tuổi {age}, tên bạn thành truyền thuyết bất tử."
+        }
+      },
+      {
+        "label": "Vẽ bản đồ, để thế hệ trẻ tự đi",
+        "text": "Truyền đạt lại đường đi và kinh nghiệm là việc duy nhất người già làm được. Dẫu chậm trễ khiến vài đứa trẻ mất mạng, nhưng phần lớn vẫn được cứu sống.",
+        "effects": {
+          "INT": 1,
+          "joy": -5,
+          "health": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "beastman_elder_choice_5",
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 10,
+    "text": "Một linh hồn tinh linh sói trắng — sứ giả của Tự Nhiên — xuất hiện bên gối bạn trong một đêm rằm. Nó báo hiệu chuyến đi săn cuối cùng đã điểm.",
+    "choices": [
+      {
+        "label": "Chống gậy đứng lên đi theo tinh linh",
+        "check": {
+          "stat": "LUCK",
+          "target": 5
+        },
+        "success": {
+          "text": "Để lại tấm áo khoác và cây trượng ở cửa lều, bạn bước vào màn sương bạc. Linh hồn bạn thanh thản hòa vào Đại Ngàn, bỏ lại xác phàm nhẹ tênh trên cỏ vắng.",
+          "effects": {
+            "joy": 35,
+            "INT": 2,
+            "flags": [
+              "peaceful_ascension"
+            ]
+          },
+          "moment": "Thăng hoa linh hồn cùng tinh linh sói"
+        },
+        "fail": {
+          "text": "Bạn cố vươn tay theo, nhưng đôi chân bại liệt phản bội ý chí. Bạn gục ngã ngay ngưỡng cửa, thoi thóp thở hắt ra trong tiếc nuối tột cùng.",
+          "effects": {
+            "health": -30,
+            "joy": -25
+          }
+        }
+      },
+      {
+        "label": "Luyến tiếc ở lại ngắm nhìn con cháu",
+        "text": "Bạn vái lạy từ chối tinh linh, cố dùng phần sức tàn lụi cuối cùng nán lại dương gian thêm một chặng nữa chỉ vì không nỡ rời xa máu mủ.",
+        "effects": {
+          "health": -10,
+          "STR": -1,
+          "joy": 10
+        }
+      }
+    ]
+  }
+]

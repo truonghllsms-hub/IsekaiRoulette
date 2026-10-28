@@ -1,0 +1,44 @@
+[
+  { "id": "im_wings", "races": ["imp"], "stages": ["infant"], "weight": 10,
+    "text": "Bạn vỗ đôi cánh dơi nhỏ xíu lần đầu tiên và bay lên được một gang tay. Rồi một con Chó Địa Ngục ngoạm lấy đuôi bạn kéo xuống.", "effects": { "AGI": 1, "health": -3 } },
+  { "id": "im_prank", "races": ["imp"], "stages": ["child"], "weight": 8,
+    "text": "Bạn giấu chiếc mũ sắt của một lính gác quỷ vào vạc dầu sôi. Cả Ma giới cười ầm lên, trừ gã lính gác và cái đít của bạn sau đó.", "effects": { "joy": 8, "health": -5 } },
+  { "id": "im_summoned", "races": ["imp"], "stages": ["teen"], "weight": 10, "require": { "notFlags": ["familiar_pet"] },
+    "text": "Một vòng tròn ma thuật bùng sáng dưới chân, kéo bạn lên nhân giới. Một Pháp sư loài người nhìn bạn bằng ánh mắt của kẻ vừa mua được cây chổi mới.", "effects": { "INT": 1, "flags": ["familiar_pet"] }, "moment": "Bị triệu hồi lên nhân giới" },
+  { "id": "im_ms_master_dead", "races": ["imp"], "stages": ["teen", "adult"], "weight": 10, "require": { "flags": ["familiar_pet"] },
+    "text": "Giữa đêm khuya, một lưỡi dao găm cắm phập vào lưng chủ nhân của bạn. Lão Pháp sư ngã gục, khế ước giữa hai người run rẩy như sợi chỉ sắp đứt.",
+    "choices": [
+      { "label": "Cướp của rồi chuồn", "text": "Bạn vơ vét mọi đồng vàng trong tháp rồi bay qua cửa sổ. Tự do, và giàu có.", "effects": { "wealth": 25, "unflags": ["familiar_pet"] } },
+      { "label": "Cướp linh hồn lão", "check": { "stat": "INT", "target": 6 },
+        "success": { "text": "Bạn há miệng hút lấy linh hồn đang rời khỏi xác lão. Khế ước vỡ tan, và ma lực của lão giờ là của bạn.", "effects": { "INT": 2, "flags": ["soul_thief"], "unflags": ["familiar_pet"] }, "moment": "Nuốt linh hồn chủ nhân" },
+        "fail": { "text": "Khế ước phản phệ, xé toạc một bên cánh của bạn.", "effects": { "health": -40, "unflags": ["familiar_pet"] } } },
+      { "label": "Cứu mạng lão", "text": "Bạn đốt lửa cầm máu cho lão suốt đêm. Lão sống sót, và lần đầu tiên gọi bạn bằng tên. Ma giới sẽ khinh bỉ bạn mãi mãi.", "effects": { "joy": 15, "flags": ["kindhearted"] }, "moment": "Cứu mạng chủ nhân" }
+    ] },
+  { "id": "im_ms_demon_slave", "races": ["imp"], "stages": ["child", "teen"], "weight": 9,
+    "text": "Một High Demon túm lấy cổ bạn và tuyên bố từ nay bạn là tay sai của hắn.",
+    "choices": [
+      { "label": "Luồn cúi nịnh bợ", "text": "Bạn gãi lưng cho hắn mỗi sáng và khen sừng hắn mỗi tối. Bạn sống, và sống khá an toàn.", "effects": { "health": 5, "joy": -5 } },
+      { "label": "Trộm báu vật rồi trốn", "check": { "stat": "AGI", "target": 9 },
+        "success": { "text": "Bạn đánh cắp viên hồng ngọc yêu thích của hắn và biến mất vào hư không. Cả Ma giới dán chân dung bạn khắp nơi.", "effects": { "wealth": 40, "flags": ["wanted"] }, "moment": "Trộm báu vật của một High Demon" },
+        "fail": { "text": "Hắn bắt được bạn khi bạn chỉ còn cách cửa một sải cánh.", "death": "High Demon bóp nát bạn như bóp một con ruồi, ở tuổi {age}." } },
+      { "label": "Đào ngũ lên mặt đất", "text": "Bạn trốn qua một khe nứt và chui lên mặt đất. Từ nay, bạn là kẻ bị cả Ma giới truy nã.", "effects": { "joy": 5, "flags": ["wanted"] } }
+    ] },
+  { "id": "im_ms_contract", "races": ["imp"], "stages": ["adult", "middle"], "weight": 9,
+    "text": "Một kẻ tuyệt vọng quỳ trước mặt bạn trong nghĩa địa, hai tay dâng lên giọt máu của chính mình. Hắn muốn một khế ước.",
+    "choices": [
+      { "label": "Lừa lấy linh hồn", "text": "Bạn trao cho hắn một điều ước rỗng tuếch và lấy đi linh hồn thật. Thêm một viên ngọc trong bộ sưu tập.", "effects": { "INT": 2, "wealth": 10 } },
+      { "label": "Trao sức mạnh thật", "text": "Bạn ban cho hắn sức mạnh thực sự. Mười năm sau, hắn trở thành bạo chúa của cả một vương quốc.", "effects": { "joy": 5, "flags": ["tyrant_maker"] }, "moment": "Tạo ra một Bạo chúa" },
+      { "label": "Cười nhạo rồi bay đi", "text": "Bạn cười sằng sặc và bay vút vào màn đêm. Trêu người vẫn là thú vui lớn nhất đời bạn.", "effects": { "joy": 8 } }
+    ] },
+  { "id": "im_ms_seal", "races": ["imp"], "stages": ["middle", "elder"], "weight": 7,
+    "text": "Trong một phế tích bị lãng quên, bạn phát hiện một phong ấn cổ đại đang rạn nứt. Thứ gì đó bên dưới đang thở.",
+    "choices": [
+      { "label": "Phá phong ấn", "check": { "stat": "LUCK", "target": 6 },
+        "success": { "text": "Phong ấn vỡ tan, thứ bên dưới thoát ra và gieo rắc hỗn loạn khắp vùng. Nó cảm ơn bạn bằng một rương vàng.", "effects": { "wealth": 20, "flags": ["chaos_bringer"] }, "moment": "Giải phóng quái vật bị phong ấn" },
+        "fail": { "text": "Thứ bên dưới đói, và bạn ở gần nhất.", "effects": { "health": -40 } } },
+      { "label": "Hấp thụ năng lượng đen", "text": "Bạn hút lấy dòng năng lượng rò rỉ. Đầu óc bạn sáng bừng, dù thân thể đau như bị thiêu đốt.", "effects": { "INT": 3, "health": -10 } },
+      { "label": "Bán tin cho Giáo hội", "text": "Giáo hội trả bạn một túi vàng. Ma giới gọi bạn là Kẻ chỉ điểm.", "effects": { "wealth": 30, "flags": ["informant"] } }
+    ] },
+  { "id": "im_old", "races": ["imp"], "stages": ["elder"], "weight": 8,
+    "text": "Cánh bạn trụi lông, đuôi gãy một khúc. Nhưng dưới gầm giường, đống vàng ăn cắp cả đời vẫn lấp lánh như thuở nào.", "effects": { "joy": 8 } }
+]

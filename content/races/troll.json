@@ -1,0 +1,248 @@
+{
+  "id": "troll",
+  "name": "Khổng Lồ Ngốc (Troll)",
+  "lifespan": 80,
+  "spawn_rate_percentage": 0.8,
+  "context": "Kỷ Nguyên Khai Hoang Hầm Ngục – Tai họa của những khu rừng rậm, cầu đá và hẻm núi. Có khả năng tự tái tạo vết thương đứt lìa cực nhanh nhưng trí tuệ lại vô cùng thấp kém.",
+  "desc": "Sinh vật hình người khổng lồ, cao 3-4 mét, hôi hám, da sần sùi bám đầy rêu hoặc nấm mốc. Trí tuệ của Troll chỉ ngang một đứa trẻ chập chững, thích làm theo bản năng: ăn mọi thứ chuyển động, đánh rắm, ngủ ngáy to. Nỗi kinh hoàng của chúng đến từ khả năng hồi phục sinh học gần như bất tử nếu không bị đốt cháy.",
+  "society": "Lang thang đơn độc hoặc thành từng cặp. Rất thích xây dựng (thực chất là đắp bùn) các trạm thu phí vô tri tại các cây cầu hoặc hẻm núi hẹp để đe dọa người qua đường đòi tiền mãi lộ (dù bản thân không biết đếm hay tiêu tiền).",
+  "stages": [
+    {
+      "id": "infant",
+      "name": "Bục thịt nhão",
+      "start": 0,
+      "themes": [
+        "Lăn lóc trong bùn, bốc đất ăn cho no bụng",
+        "Nhai nhầm đá gãy răng",
+        "Bị thú dữ cắn đứt tay rồi ngơ ngác nhìn tay tự mọc lại"
+      ]
+    },
+    {
+      "id": "child",
+      "name": "Troll nhí ném đá",
+      "start": 8,
+      "themes": [
+        "Chơi ném tảng đá vào chim chóc",
+        "Nhổ bật gốc cây to làm gậy chống",
+        "Bắt ếch nhái nhai sống",
+        "Tập gào thét hù dọa Mạo hiểm giả"
+      ]
+    },
+    {
+      "id": "teen",
+      "name": "Kẻ đòi nợ cầu đường",
+      "start": 16,
+      "themes": [
+        "Trú ngụ dưới gầm cầu, chặn xe ngựa đòi mãi lộ",
+        "Nhai luôn cả xe lẫn ngựa nếu không được trả tiền",
+        "Gãi rận rụng rêu"
+      ]
+    },
+    {
+      "id": "adult",
+      "name": "Tai họa rừng sâu",
+      "start": 26,
+      "themes": [
+        "Càn quét tiều phu",
+        "Dùng thân mình cản giáo mác của Kỵ sĩ",
+        "Bị Pháp sư đốt xém da",
+        "Vật lộn đánh nhau với Gấu Owlbear để tranh hang ngủ"
+      ]
+    },
+    {
+      "id": "middle",
+      "name": "Troll đá tảng",
+      "start": 40,
+      "themes": [
+        "Lớp da cứng lại thành vỏ đá rêu phong",
+        "Phản ứng chập chạp hơn nhưng sức mạnh đấm vỡ thành trì",
+        "Trở thành ác mộng khu vực"
+      ]
+    },
+    {
+      "id": "elder",
+      "name": "Hóa thạch",
+      "start": 60,
+      "themes": [
+        "Quá lười vận động, ngủ liền tù tì hàng chục năm",
+        "Rễ cây bám chặt vào người",
+        "Dần dần hóa đá thành một ngọn đồi nhỏ"
+      ]
+    }
+  ],
+  "origins": [
+    {
+      "id": "origin_bridge",
+      "name": "Dưới gầm cầu đá",
+      "weight": 50,
+      "text": "Khởi đầu truyền thống, bạn sinh ra trong mùi ẩm mốc dưới gầm một cây cầu lớn, kế thừa 'doanh nghiệp' thu phí cầu đường của gia đình.",
+      "effects": {
+        "STR": 2,
+        "INT": -2,
+        "flags": [
+          "bridge_troll"
+        ]
+      }
+    },
+    {
+      "id": "origin_swamp",
+      "name": "Đầm lầy hôi thối",
+      "weight": 30,
+      "text": "Bạn chui ra từ lớp bùn đặc quánh, da dẻ trơn tuột và hôi rình. Đồ ăn yêu thích đầu đời là xác thối.",
+      "effects": {
+        "STR": 1,
+        "AGI": -1,
+        "flags": [
+          "swamp_troll"
+        ]
+      }
+    },
+    {
+      "id": "origin_ice",
+      "name": "Đỉnh núi tuyết",
+      "weight": 20,
+      "text": "Bạn là một Troll Tuyết hiếm hoi với lớp lông trắng muốt. Bạn kháng được cái lạnh cắt da cắt thịt nhưng lại cực kỳ sợ hãi ngọn lửa.",
+      "effects": {
+        "STR": 1,
+        "LUCK": -1,
+        "flags": [
+          "ice_troll"
+        ]
+      }
+    },
+    {
+      "id": "troll_origin_cave",
+      "name": "Hang động ẩm mốc",
+      "weight": 20,
+      "text": "Bạn lọt lòng trong một hang động mù mịt tại Dãy Núi Răng Cưa, không gian sặc sụa mùi nấm mốc. Bánh xe định mệnh khẽ xoay, đón chào một sinh linh vô tri nhưng bất diệt bước vào cõi trần thế.",
+      "effects": {
+        "STR": 1,
+        "INT": -1,
+        "flags": [
+          "cave_troll"
+        ]
+      }
+    },
+    {
+      "id": "troll_origin_abyss",
+      "name": "Rìa Vực Thẳm",
+      "weight": 20,
+      "text": "Từ Vực Thẳm Phân Tầng, bạn ngoi lên mặt đất với làn da bám đầy bùn đen hôi thối. Một hành trình bạo lực và đẫm mùi bản năng trên lục địa Aethelgard linh thiêng chính thức bắt đầu.",
+      "effects": {
+        "health": 15,
+        "AGI": -1,
+        "flags": [
+          "scarred"
+        ]
+      }
+    },
+    {
+      "id": "troll_origin_forest",
+      "name": "Rừng sâu tĩnh lặng",
+      "weight": 20,
+      "text": "Dưới bóng râm của Đại Ngàn Lục Bảo, bạn rơi cái uỵch xuống đống lá mục xốp mềm. Linh hồn bạn đã cập bến vùng đất ma pháp dưới hình hài của một sinh vật phàm tục và hoang dã nhất.",
+      "effects": {
+        "STR": 1,
+        "joy": 5,
+        "flags": [
+          "magic_resist"
+        ]
+      }
+    }
+  ],
+  "signature": [
+    "Tái tạo sinh học: Hồi máu cực nhanh. Nếu bị chặt đứt tay chân, chi mới sẽ tự mọc lại sau vài giờ.",
+    "Sức mạnh vô tri: Nâng tảng đá hàng tấn hoặc ném bay một chiếc xe ngựa chỉ bằng một tay.",
+    "Da rêu phong: Kháng các đòn sát thương vật lý nhẹ (tên bắn, dao găm chém như gãi ngứa).",
+    "Nỗi sợ Hỏa công: Lửa và Axit là nhược điểm chí mạng duy nhất làm vô hiệu hóa khả năng tái tạo. Khi bị đốt, Troll sẽ hoảng loạn cực độ."
+  ],
+  "milestones": [
+    {
+      "id": "ms_knight",
+      "name": "Kỵ sĩ hoàng gia qua cầu không chịu trả phí",
+      "choices": [
+        "Vung cây đập bẹp hắn cùng ngựa (Nhận tiền thưởng rơi ra)",
+        "Bị hắn lừa bằng tiền giả - một cục đá sơn vàng (Cầm ngắm nghía vui vẻ rồi cho qua)",
+        "Bị thanh gươm tẩm lửa của hắn chém đứt cánh tay"
+      ]
+    },
+    {
+      "id": "ms_ring",
+      "name": "Nhặt được Nhẫn ma thuật rơi vãi",
+      "choices": [
+        "Bỏ vào miệng nhai nuốt rôm rốp cho đỡ đói (Tăng ma lực kháng phép)",
+        "Cố đeo vào ngón tay khổng lồ làm kẹt mạch máu (Gây đau đớn)",
+        "Vui vẻ cho một con Goblin đi ngang qua"
+      ]
+    },
+    {
+      "id": "ms_fire",
+      "name": "Tổ đội Mạo hiểm giả dùng hỏa công",
+      "choices": [
+        "Hoảng loạn khóc lóc nhảy vội xuống dòng sông chảy xiết (Giữ mạng)",
+        "Nổi điên chịu bỏng đập nát toàn bộ chúng (Thương tật vĩnh viễn)",
+        "Quỳ gối ôm đầu van xin"
+      ]
+    }
+  ],
+  "deaths": [
+    {
+      "id": "death_fire",
+      "kind": "violent",
+      "text": "Tuổi {age}, một tổ đội Pháp sư đã đốt rụi bạn thành tro bụi bằng ngọn lửa ma thuật, cách duy nhất để ngăn bạn hồi phục sinh lực."
+    },
+    {
+      "id": "death_choke",
+      "kind": "health",
+      "text": "Đang nhai ngấu nghiến một cỗ xe ngựa ở tuổi {age}, bạn vô tình cắn trúng lưỡi mình, nuốt bánh xe khiến bạn nghẹn thở đến chết."
+    },
+    {
+      "id": "death_sunlight",
+      "kind": "health",
+      "text": "Lỡ bước ra ngoài lúc bình minh ở tuổi {age}, ánh sáng mặt trời gay gắt ngay lập tức biến bạn thành một bức tượng đá vĩnh cửu."
+    },
+    {
+      "id": "death_old",
+      "kind": "old",
+      "text": "Bạn chìm vào giấc ngủ dài ở tuổi {age}. Cỏ cây rêu phong phủ kín cơ thể khổng lồ của bạn, biến bạn thành một ngọn đồi xanh mướt mãi mãi."
+    },
+    {
+      "id": "troll_death_fire",
+      "kind": "violent",
+      "text": "Một quả cầu lửa rực sáng của pháp sư thiêu rụi hoàn toàn lớp da rêu phong, bạn vĩnh viễn hóa thành tro bụi ở tuổi {age}."
+    },
+    {
+      "id": "troll_death_starve",
+      "kind": "violent",
+      "text": "Bị mắc kẹt giữa hẻm núi chật hẹp vì cơ thể quá khổ, bạn kiệt sức và chết đói một cách tức tưởi ở tuổi {age}."
+    }
+  ],
+  "names": {
+    "male": [
+      "Ugg",
+      "Grog",
+      "Thrum",
+      "Mungo",
+      "Bork"
+    ],
+    "female": [
+      "Chomp",
+      "Ymir",
+      "Grubba",
+      "Grak",
+      "Slarg"
+    ],
+    "family": [
+      "Kẻ Ngáy To",
+      "Hôi Hám",
+      "Chặn Cầu",
+      "Ngu Ngốc",
+      "Đập Phá"
+    ]
+  },
+  "flags": [
+    "bridge_troll",
+    "swamp_troll",
+    "ice_troll"
+  ]
+}

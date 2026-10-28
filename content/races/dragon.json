@@ -1,0 +1,251 @@
+{
+  "id": "dragon",
+  "name": "Rồng (Dragon)",
+  "lifespan": 10000,
+  "spawn_rate_percentage": 0.1,
+  "context": "Kỷ Nguyên Khai Hoang Hầm Ngục – Những sinh vật thần thoại thống trị bầu trời và Đảo Tro Tàn. Đứng trên đỉnh cao nhất của chuỗi thức ăn, coi mọi sinh vật khác chỉ là sâu bọ.",
+  "desc": "Thực thể khổng lồ mang sức mạnh của các nguyên tố nguyên thủy, có thể dài đến hàng trăm mét và sải cánh che khuất cả mặt trời. Rồng mang trong mình sự kiêu ngạo tột đỉnh, lớp vảy của chúng miễn nhiễm với hầu hết phép thuật, và hơi thở có sức mạnh xóa sổ cả một quốc gia trong nháy mắt.",
+  "society": "Sống độc lập và cực kỳ chú trọng bảo vệ lãnh thổ cá nhân. Rồng không có xã hội tập thể, chúng chỉ gặp nhau để giao phối rồi đường ai nấy đi. Chúng cực kỳ ham muốn của cải, thường dành hàng thế kỷ để vơ vét và ngủ trên những núi vàng, ngọc quý hoặc rương báu cướp được từ nhân loại.",
+  "stages": [
+    {
+      "id": "infant",
+      "name": "Trứng rồng",
+      "start": 0,
+      "themes": [
+        "Hấp thụ ma lực từ môi trường (dung nham, sông băng)",
+        "Hình thành nhận thức thai nhi",
+        "Kết nối ngoại cảm với mẹ",
+        "Vỏ trứng cứng hơn kim cương"
+      ]
+    },
+    {
+      "id": "child",
+      "name": "Ấu long",
+      "start": 100,
+      "themes": [
+        "Vừa nở ra đã mạnh ngang ngửa Boss hầm ngục",
+        "Tập bay",
+        "Khạc những luồng hơi thở đầu tiên",
+        "Săn bắt rồng đất hoặc quái vật khổng lồ để ăn"
+      ]
+    },
+    {
+      "id": "teen",
+      "name": "Phi long",
+      "start": 500,
+      "themes": [
+        "Sải cánh rộng hàng chục mét",
+        "Tàn phá các vương quốc loài người để lập tổ",
+        "Bắt đầu tích trữ kho báu",
+        "Học được cách hóa hình thành nhân loại"
+      ]
+    },
+    {
+      "id": "adult",
+      "name": "Cự long",
+      "start": 2000,
+      "themes": [
+        "Trở thành tai ương của lục địa",
+        "Giấc ngủ kéo dài hàng trăm năm",
+        "Tiếng gầm tạo ra bão táp",
+        "Mọi phép thuật dưới cấp 8 đều bị vô hiệu hóa khi chạm vào vảy"
+      ]
+    },
+    {
+      "id": "middle",
+      "name": "Cổ long",
+      "start": 5000,
+      "themes": [
+        "Kích thước khổng lồ đến mức khi nằm ngủ trông như một ngọn núi",
+        "Bắt đầu hấp thụ quy luật của thế giới",
+        "Không màng thế sự",
+        "Có thể nói chuyện trực tiếp với Thần linh"
+      ]
+    },
+    {
+      "id": "elder",
+      "name": "Thủy tổ long",
+      "start": 9000,
+      "themes": [
+        "Trở thành một phần của tự nhiên",
+        "Hơi thở tạo ra hệ sinh thái mới",
+        "Thường tự nhốt mình vào các chiều không gian biệt lập để chờ đợi ngày tận thế"
+      ]
+    }
+  ],
+  "origins": [
+    {
+      "id": "origin_pure",
+      "name": "Đỉnh Hỏa Ngục",
+      "weight": 50,
+      "text": "Bạn nằm trong quả trứng được ấp bởi dung nham của Đảo Tro Tàn, dưới sự canh gác của Rồng Mẹ. Bạn sinh ra mang dòng máu thuần chủng và sự kiêu ngạo tuyệt đối.",
+      "effects": {
+        "STR": 3,
+        "INT": 3,
+        "AGI": 3,
+        "flags": [
+          "pure_dragon"
+        ]
+      }
+    },
+    {
+      "id": "origin_stolen",
+      "name": "Bị đánh cắp",
+      "weight": 30,
+      "text": "Quả trứng của bạn bị một tổ đội Anh hùng đánh cắp, lén lút ấp bằng lò rèn nhân tạo. Bạn nở ra giữa bầy loài người hèn mọn, bị chúng xích lại nhằm biến thành vũ khí chiến tranh.",
+      "effects": {
+        "STR": 2,
+        "LUCK": -2,
+        "flags": [
+          "stolen_egg"
+        ]
+      }
+    },
+    {
+      "id": "origin_half",
+      "name": "Trứng rồng lai",
+      "weight": 20,
+      "text": "Sinh ra từ sự lai tạp giữa Rồng và quái thú. Bạn không có đôi cánh hoàn chỉnh mà chỉ là Rồng Đất (Wyrm), sức mạnh kém hơn nhưng lại mang bản tính hoang dại đẫm máu.",
+      "effects": {
+        "INT": -1,
+        "AGI": 2,
+        "flags": [
+          "half_dragon"
+        ]
+      }
+    },
+    {
+      "id": "dragon_origin_abyss",
+      "name": "Trứng Rồng Vực Thẳm",
+      "weight": 50,
+      "text": "Bánh xe định mệnh khẽ xoay, linh hồn bạn vượt qua cõi Hư Vô để giáng xuống một bệ đá cổ xưa sâu trong Vực Thẳm Phân Tầng. Quả trứng của bạn rực sáng ma lực, báo hiệu sự ra đời của một thực thể mang sức mạnh nguyên thủy vô song.",
+      "effects": {
+        "STR": 2,
+        "INT": 1,
+        "flags": [
+          "pure_dragon",
+          "proud"
+        ]
+      }
+    },
+    {
+      "id": "dragon_origin_yggdrasil",
+      "name": "Hơi Thở Đại Ngàn",
+      "weight": 50,
+      "text": "Giữa những rễ cây khổng lồ của Đại Ngàn Lục Bảo, vòm trời sấm sét rền vang đón chào sinh mệnh bạn hội tụ trong quả trứng cổ đại. Định mệnh đã xướng tên một bạo chúa kiêu hãnh chuẩn bị thống trị bầu trời Aethelgard.",
+      "effects": {
+        "health": 20,
+        "LUCK": 2,
+        "wealth": 5,
+        "flags": [
+          "pure_dragon"
+        ]
+      }
+    }
+  ],
+  "signature": [
+    "Hơi thở nguyên thủy: Tùy thuộc vào nguyên tố (Lửa/Băng/Sét), hơi thở của rồng bỏ qua mọi kháng phép và đốt cháy/đóng băng mọi thứ trong tầm ngắm.",
+    "Vảy rồng tuyệt đối: Phản lại mọi đòn tấn công vật lý và phép thuật dưới cấp 8.",
+    "Sự kiêu ngạo của rồng: Miễn nhiễm hoàn toàn với các hiệu ứng khống chế (Choáng, Ngủ, Sợ hãi, Cám dỗ). Tự động từ chối mệnh lệnh 'Bỏ chạy'.",
+    "Hóa hình nhân loại: Khi đạt cấp Phi long (500 tuổi), có thể biến thành hình dáng con người để dễ dàng thâm nhập vào các vương quốc loài người chơi đùa hoặc lừa gạt."
+  ],
+  "milestones": [
+    {
+      "id": "ms_hero_invade",
+      "name": "Một tổ đội Anh hùng huyền thoại đột nhập vào tổ",
+      "choices": [
+        "Tức giận thiêu rụi toàn bộ và biến áo giáp của chúng thành đồ trang trí (Cần Sức mạnh)",
+        "Hóa thành người đùa giỡn với chúng rồi ăn thịt (Cần Trí tuệ)",
+        "Đang ngủ say không biết gì, bị chúng trộm mất một rương vàng (Mất của)"
+      ]
+    },
+    {
+      "id": "ms_demon_lord",
+      "name": "Ma vương gửi lời mời liên minh hủy diệt nhân loại",
+      "choices": [
+        "Khinh bỉ từ chối và thổi bay sứ giả quỷ (Giữ vững lòng kiêu hãnh)",
+        "Nhận lời làm một trong các Tai Ương để đổi lấy hàng ngàn tấn vàng cống nạp (Mang cờ Tà ác)",
+        "Ép Ma vương phải quỳ lạy mình mới đồng ý"
+      ]
+    },
+    {
+      "id": "ms_territory_war",
+      "name": "Đụng độ một con rồng cổ đại khác để tranh giành lãnh thổ",
+      "choices": [
+        "Lao vào trận không chiến xé xác nhau khiến thời tiết biến đổi (Sống còn)",
+        "Chấp nhận nhượng bộ bay đi tìm hòn đảo khác (Mất mặt nhưng an toàn)",
+        "Bị nó đánh gãy một cánh, rớt xuống biển sâu"
+      ]
+    }
+  ],
+  "deaths": [
+    {
+      "id": "death_epic",
+      "kind": "violent",
+      "text": "Tuổi {age}, sau một trận chiến rung chuyển đất trời với Dũng giả vĩ đại nhất nhân loại, bạn gục ngã với thanh Thánh kiếm cắm xuyên tim. Sự sụp đổ của bạn báo hiệu một kỷ nguyên mới."
+    },
+    {
+      "id": "death_poison",
+      "kind": "health",
+      "text": "Cả cuộc đời vĩ đại lại kết thúc vô duyên ở tuổi {age}, khi một tên đạo chích lén bỏ kịch độc vào kho báu vàng của bạn hàng trăm năm ròng rã, khiến bạn chết trong giấc ngủ."
+    },
+    {
+      "id": "death_dragon",
+      "kind": "violent",
+      "text": "Trong cuộc chiến tranh giành lãnh thổ ở tuổi {age}, bạn bị một con Hắc Long to lớn hơn xé toạc cổ họng và nhai nuốt lõi ma lực."
+    },
+    {
+      "id": "death_mountain",
+      "kind": "old",
+      "text": "Đạt đến đỉnh cao của tuổi {age}, bạn mất đi hứng thú với thế giới. Bạn nhắm mắt ngủ một giấc dài vĩnh viễn, cơ thể khổng lồ dần hóa đá và rêu phong tạo thành một dãy núi hùng vĩ cho thế hệ sau."
+    },
+    {
+      "id": "dragon_death_slayed",
+      "kind": "violent",
+      "text": "Năm {age} tuổi, sinh mệnh kiêu hãnh của bạn vụt tắt dưới lưỡi gươm của một đội anh hùng huyền thoại, thân xác khổng lồ gục ngã trên đống kho báu."
+    },
+    {
+      "id": "dragon_death_fade",
+      "kind": "old",
+      "text": "Ở tuổi {age}, linh hồn cổ đại của bạn tự nguyện tan biến vào các chiều không gian, trả lại nguồn ma lực nguyên thủy vô tận cho lục địa."
+    }
+  ],
+  "names": {
+    "male": [
+      "Ignis",
+      "Fafnir",
+      "Nidhogg",
+      "Bahamut",
+      "Vyrmax",
+      "Kharzul",
+      "Pyrethos",
+      "Aurvandil",
+      "Skaldrak",
+      "Morvath"
+    ],
+    "female": [
+      "Tiamat",
+      "Ignira",
+      "Sylvaris",
+      "Nyxara",
+      "Vaelith",
+      "Pyrra",
+      "Ysolde",
+      "Kaelira",
+      "Zephyrine",
+      "Aurelith"
+    ],
+    "family": [
+      "Kẻ Tàn Phá",
+      "Cánh Của Sự Tuyệt Vọng",
+      "Tai Ương Lửa Đỏ",
+      "Kẻ Ngủ Trên Vàng",
+      "Đế Vương Bầu Trời"
+    ]
+  },
+  "flags": [
+    "pure_dragon",
+    "stolen_egg",
+    "half_dragon"
+  ]
+}

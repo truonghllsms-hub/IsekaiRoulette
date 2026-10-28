@@ -1,0 +1,277 @@
+{
+  "id": "minotaur",
+  "name": "Ngưu Đầu Nhân (Minotaur)",
+  "lifespan": 70,
+  "spawn_rate_percentage": 1.5,
+  "context": "Kỷ Nguyên Khai Hoang Hầm Ngục – Ác thú khổng lồ án ngữ tại các mê cung sâu thẳm. Sở hữu sức chịu đựng kinh hoàng nhưng lại mù màu và cực kỳ dễ mất kiểm soát.",
+  "desc": "Quái vật có cơ thể vạm vỡ của một đấu sĩ khổng lồ và chiếc đầu của một con bò tót hung tợn. Chúng đi bằng hai chân, cao gấp đôi con người, mang cặp sừng sắc lẹm và hơi thở sực mùi máu thịt. Dù có sức mạnh thể chất áp đảo, Minotaur lại có nhược điểm chí mạng là sự mù màu và trí tuệ có phần hạn chế khi lên cơn cuồng nộ.",
+  "society": "Minotaur hiếm khi sống bầy đàn do bản tính độc chiếm lãnh thổ cao. Chúng thường sống đơn độc hoặc theo nhóm rất nhỏ trong trung tâm các mê cung tự nhiên hoặc Đấu trường ngầm dưới Vực Thẳm. Minotaur tôn sùng bạo lực tuyệt đối và coi việc bảo vệ lối đi/rương báu là một tín ngưỡng không thể lay chuyển.",
+  "stages": [
+    {
+      "id": "infant",
+      "name": "Bê con cuồng nộ",
+      "start": 0,
+      "themes": [
+        "Gào thét đòi ăn thịt sống",
+        "Húc vỡ những tảng đá nhỏ để mài sừng",
+        "Bị xỏ khuyên mũi để đánh dấu lãnh thổ",
+        "Học cách nhai xương kẻ thù"
+      ]
+    },
+    {
+      "id": "child",
+      "name": "Kẻ lạc lối",
+      "start": 7,
+      "themes": [
+        "Bắt đầu tập đi quanh các góc cua của mê cung",
+        "Cầm những khúc gỗ lớn làm vũ khí",
+        "Đánh hơi người sống trong bóng tối",
+        "Săn bầy Goblin đi lạc"
+      ]
+    },
+    {
+      "id": "teen",
+      "name": "Đấu sĩ sừng nhọn",
+      "start": 14,
+      "themes": [
+        "Rèn cây rìu chiến hai lưỡi khổng lồ đầu tiên",
+        "Hạ gục những Mạo hiểm giả tập sự",
+        "Ăn thịt và giữ lại hộp sọ của chúng để trang trí quanh tường",
+        "Tham gia vào các trận giác đấu mua vui"
+      ]
+    },
+    {
+      "id": "adult",
+      "name": "Ác thú gác cổng",
+      "start": 23,
+      "themes": [
+        "Trở thành Boss của một tầng mê cung độc lập",
+        "Phát triển kỹ năng dậm đất gây địa chấn",
+        "Nổi điên khi thấy ảo ảnh màu đỏ",
+        "Đánh bại các tổ đội Mạo hiểm giả hạng Trung"
+      ]
+    },
+    {
+      "id": "middle",
+      "name": "Bạo chúa Mê cung",
+      "start": 35,
+      "themes": [
+        "Khắc đầy sẹo trên lớp da dày",
+        "Sừng mạ vàng (do cướp từ Thánh tích)",
+        "Húc đổ cả các công trình kiến trúc cổ đại",
+        "Khiến hàng ngàn Mạo hiểm giả khiếp sợ không dám đặt chân xuống Vực"
+      ]
+    },
+    {
+      "id": "elder",
+      "name": "Lão ngưu mù lòa",
+      "start": 53,
+      "themes": [
+        "Mắt mờ đục hoàn toàn",
+        "Trí nhớ suy giảm dẫn đến tự lạc trong chính mê cung của mình",
+        "Rụng sừng",
+        "Dựa vào thính giác để giáng đòn cuối cùng trước lúc chết"
+      ]
+    }
+  ],
+  "origins": [
+    {
+      "id": "origin_maze",
+      "name": "Tâm điểm Mê cung",
+      "weight": 60,
+      "text": "Bạn ra đời tại căn phòng trung tâm của một mê cung cổ đại. Lời nguyền hầm ngục ngay lập tức đóng ấn lên bạn: bản năng thôi thúc bạn phải bảo vệ căn phòng này cho đến hơi thở cuối cùng.",
+      "effects": {
+        "STR": 2,
+        "flags": [
+          "maze_guardian"
+        ]
+      }
+    },
+    {
+      "id": "origin_torture",
+      "name": "Phòng tra tấn",
+      "weight": 20,
+      "text": "Mở mắt ra trong gông cùm của bọn Ma Tộc Thượng Đẳng. Chúng xỏ một chiếc vòng sắt đẫm máu qua mũi bạn để dễ bề điều khiển bạn như một cỗ máy chém.",
+      "effects": {
+        "STR": 2,
+        "LUCK": -2,
+        "flags": [
+          "enslaved"
+        ]
+      }
+    },
+    {
+      "id": "origin_gladiator",
+      "name": "Đấu trường sinh tử",
+      "weight": 15,
+      "text": "Bạn lọt lòng ngay trên nền cát nhuốm máu của Đấu Trường Huyết Sa. Xung quanh là tiếng hò reo khát máu của con người đang chờ bạn lớn lên để làm bia tập chém.",
+      "effects": {
+        "STR": 1,
+        "AGI": 1,
+        "flags": [
+          "gladiator_bull"
+        ]
+      }
+    },
+    {
+      "id": "origin_cult",
+      "name": "Tế đàn dị giáo",
+      "weight": 5,
+      "text": "Làn khói nhang mờ ảo bao phủ ngày bạn ra đời. Một nhóm cuồng tín thuộc Hắc Nguyệt Hội quỳ rạp dưới chân bạn, tôn vinh bạn là hiện thân của Bạo lực thiêng liêng.",
+      "effects": {
+        "INT": 1,
+        "wealth": 5,
+        "flags": [
+          "cult_god"
+        ]
+      }
+    },
+    {
+      "id": "day_vuc_tham",
+      "name": "Đáy Vực Thẳm",
+      "weight": 20,
+      "text": "Bạn vỡ ối sinh ra giữa bùn lầy và xương trắng dưới tầng sâu nhất của Vực Thẳm Phân Tầng. Vận mệnh lập tức ban cho bạn dòng máu cuồng nộ để gác cổng bóng tối.",
+      "effects": {
+        "STR": 2,
+        "wealth": -10,
+        "flags": [
+          "maze_guardian"
+        ]
+      }
+    },
+    {
+      "id": "tan_tich_co",
+      "name": "Tàn tích đền thờ cổ",
+      "weight": 15,
+      "text": "Tiếng gầm chào đời của bạn vang vọng giữa những bức tượng thần thánh đã sụp đổ rêu phong. Một sinh mệnh dị giáo được nuôi dưỡng bằng hận thù, định sẵn sẽ nhuốm máu đại ngàn.",
+      "effects": {
+        "STR": 1,
+        "health": 10,
+        "flags": [
+          "cult_god"
+        ]
+      }
+    }
+  ],
+  "signature": [
+    "Húc ngã địa chấn: Khom người lao tới với tốc độ kinh hoàng, đập nát mọi chướng ngại vật và hất văng mọi thứ trên đường đi.",
+    "Khứu giác bóng tối: Dù thị lực kém và mù màu, bạn có thể ngửi thấy mùi sợ hãi, mùi mồ hôi và máu của con mồi trong mê cung tối đen như mực.",
+    "Bậc thầy rìu chiến: Vung cây rìu khổng lồ dài 3 mét bằng một tay với sức công phá đủ để chẻ đôi một Kỵ sĩ bọc thép.",
+    "Miễn nhiễm ảo giác: Trí tuệ đơn giản cộng với sự bảo vệ của mê cung giúp bạn hoàn toàn không bị ảnh hưởng bởi các bùa chú ru ngủ hay tạo ảo ảnh của Pháp sư.",
+    "Cơn điên màu máu: Khi bị khiêu khích bởi cờ hiệu hoặc áo choàng (dù mù màu nhưng bạn có thể cảm nhận được ma lực khiêu khích từ chúng), bạn mất hoàn toàn lý trí và được cộng dồn sát thương bạo kích."
+  ],
+  "milestones": [
+    {
+      "id": "ms_heroes",
+      "name": "Tổ đội Anh hùng xông vào phòng Boss",
+      "choices": [
+        "Rống lên và tử chiến chặn cửa (Cần Sức mạnh tuyệt đối)",
+        "Bị chúng lừa kẹt sừng vào vách đá (Mất sừng, tẩu thoát)",
+        "Thỏa hiệp để chúng lấy bớt vàng rồi đi qua (Cần Trí tuệ, vi phạm tín ngưỡng)"
+      ]
+    },
+    {
+      "id": "ms_lost",
+      "name": "Lạc đường trong mê cung",
+      "choices": [
+        "Đập nát các bức tường để tạo đường mới (Cần Thể lực)",
+        "Lắng nghe tiếng gió khe khẽ dội lại để tìm lối ra (Cần Khéo léo)",
+        "Đứng yên gầm thét chờ con mồi tự tìm đến"
+      ]
+    },
+    {
+      "id": "ms_rage",
+      "name": "Cơn điên mù lòa",
+      "choices": [
+        "Lao vào húc chết hắn bất chấp cạm bẫy phía trước (Chịu sát thương nặng)",
+        "Cố kìm nén cơn điên để ném búa từ xa (Cần Khéo léo)",
+        "Hất đồng loại lên đỡ đạn rồi tấn công"
+      ]
+    },
+    {
+      "id": "ms_mercenary",
+      "name": "Được một Thương đoàn tà ác mời làm lính đánh thuê",
+      "choices": [
+        "Từ chối và ăn thịt luôn sứ giả (Giữ nguyên lãnh thổ)",
+        "Đồng ý để được ăn thịt tươi mỗi ngày (Rời mê cung, đi theo Thương đoàn)",
+        "Bắt chúng cống nạp vũ khí xịn mới cho đi qua"
+      ]
+    }
+  ],
+  "deaths": [
+    {
+      "id": "death_guard",
+      "kind": "violent",
+      "text": "Ở tuổi {age}, bạn đứng chết trân với hàng chục thanh kiếm ghim trên người. Bạn đã không lùi một bước nào khỏi cánh cửa phòng báu vật."
+    },
+    {
+      "id": "death_horn",
+      "kind": "violent",
+      "text": "Năm {age} tuổi, một gã Dũng giả xảo quyệt đã lợi dụng điểm mù để chặt đứt cặp sừng kiêu hãnh của bạn, khiến bạn chảy máu đến chết trong đau đớn."
+    },
+    {
+      "id": "death_lost",
+      "kind": "health",
+      "text": "Trí nhớ suy giảm ở tuổi {age}, bạn tự đi lạc vào một khu vực mê cung chưa từng biết tới, kiệt sức và chết khát giữa bốn bức tường vô hình."
+    },
+    {
+      "id": "death_arena",
+      "kind": "violent",
+      "text": "Tuổi {age}, bạn gục ngã dưới chân hàng vạn khán giả vô cảm sau khi kiệt sức vì phải giết hàng trăm nô lệ liên tiếp."
+    },
+    {
+      "id": "death_old",
+      "kind": "old",
+      "text": "Bạn nhắm mắt xuôi tay trên đống xương khô của những kẻ thách thức ở tuổi {age}. Mê cung rơi vào tĩnh lặng chờ một Minotaur mới ra đời."
+    },
+    {
+      "id": "minotaur_die_battle",
+      "kind": "violent",
+      "text": "Năm {age} tuổi, thân xác vạm vỡ của bạn đổ gục dưới hàng vạn mũi giáo, khép lại bản anh hùng ca đẫm máu của một quái thú kiêu hãnh."
+    },
+    {
+      "id": "minotaur_die_starvation",
+      "kind": "health",
+      "text": "Năm {age} tuổi, bạn chết mòn trong góc tối của mê cung vắng lặng, cơn đói gặm nhấm đi chút kiêu hãnh cuối cùng của loài ác thú."
+    }
+  ],
+  "names": {
+    "male": [
+      "Asterion",
+      "Baphomet",
+      "Taurus",
+      "Gore",
+      "Hornak",
+      "Bul'gath",
+      "Rungar",
+      "Kargoth",
+      "Vorn",
+      "Thorum"
+    ],
+    "female": [
+      "Asteria",
+      "Bapha",
+      "Tauri",
+      "Gori",
+      "Horni",
+      "Bul'gi",
+      "Rungi",
+      "Karga",
+      "Vorni",
+      "Thori"
+    ],
+    "family": [
+      "Móng Sắt",
+      "Sừng Rạn",
+      "Kẻ Nghiền Xương",
+      "Kẻ Gác Cửa",
+      "Mắt Đỏ"
+    ]
+  },
+  "flags": [
+    "maze_guardian",
+    "enslaved",
+    "gladiator_bull",
+    "cult_god"
+  ]
+}

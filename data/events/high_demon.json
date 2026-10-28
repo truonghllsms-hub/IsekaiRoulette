@@ -1,0 +1,40 @@
+[
+  { "id": "hd_siblings", "races": ["high_demon"], "stages": ["infant"], "weight": 10,
+    "text": "Trong cung điện tăm tối, chỉ một hậu duệ được phép kế vị. Khi bạn mở mắt lần đầu, hai người anh em đã nằm bất động bên cạnh.", "effects": { "STR": 1, "INT": 1 } },
+  { "id": "hd_blood_pact", "races": ["high_demon"], "stages": ["infant", "child"], "weight": 8,
+    "text": "Bạn lập khế ước máu đầu tiên với một con quái vật hầm ngục. Nó quỳ xuống, và bạn hiểu rằng mọi sinh linh rồi cũng sẽ quỳ như thế.", "effects": { "INT": 2 }, "moment": "Khế ước máu đầu tiên" },
+  { "id": "hd_cult", "races": ["high_demon"], "stages": ["child"], "weight": 8,
+    "text": "Bạn gieo những lời thì thầm vào giấc mơ của loài người. Không lâu sau, Hắc Nguyệt Hội ra đời và tôn thờ bạn như một vị thần.", "effects": { "INT": 1, "wealth": 20, "flags": ["cult_lord"] }, "moment": "Khai sinh Hắc Nguyệt Hội" },
+  { "id": "hd_ms_holy_war", "races": ["high_demon"], "stages": ["teen", "adult"], "weight": 10,
+    "text": "Tham vọng của bạn đã chạm tới đỉnh điểm. Toàn bộ Ma giới nín thở chờ quyết định: có phát động Thánh Chiến hay không.",
+    "choices": [
+      { "label": "Tự mình dẫn quân", "check": { "stat": "STR", "target": 12 },
+        "success": { "text": "Bạn xé rách không gian và dẫn đầu quân đoàn tràn lên mặt đất. Ba vương quốc sụp đổ trước khi mùa đông kịp đến.", "effects": { "wealth": 40, "flags": ["conqueror"] }, "moment": "Phát động Thánh Chiến" },
+        "fail": { "text": "Kết giới của Giáo hội cứng rắn hơn bạn tưởng. Bạn rút về Vực Thẳm với những vết bỏng Thánh Quang.", "effects": { "health": -40 } } },
+      { "label": "Giật dây từ bóng tối", "check": { "stat": "INT", "target": 12 },
+        "success": { "text": "Dịch bệnh lan tràn, các vị vua quay sang nghi kỵ lẫn nhau. Nhân loại tự hủy diệt mà không hề biết tên bạn.", "effects": { "INT": 2, "wealth": 30, "flags": ["puppeteer"] }, "moment": "Thao túng các vương triều loài người" },
+        "fail": { "text": "Một nhà tiên tri nhìn thấu âm mưu của bạn và cảnh báo cả lục địa.", "effects": { "joy": -15 } } },
+      { "label": "Ngủ vùi chờ thời", "text": "Bạn khép mắt trên ngai xương trắng. Vài thế kỷ nữa cũng chẳng là gì.", "effects": { "health": 20, "joy": -5 } }
+    ] },
+  { "id": "hd_ms_hero_sword", "races": ["high_demon"], "stages": ["adult", "middle"], "weight": 10,
+    "text": "Một Dũng giả mang Thánh Kiếm đã giáng thế. Ánh sáng từ lưỡi kiếm của hắn chiếu thấu tới tận đáy Vực Thẳm.",
+    "choices": [
+      { "label": "Cử Tướng quỷ tiêu hao", "check": { "stat": "INT", "target": 10 },
+        "success": { "text": "Từng Tướng quỷ ngã xuống, nhưng Dũng giả cũng kiệt sức dần. Khi hắn đến được ngai vàng, bạn chỉ cần một đòn.", "effects": { "wealth": 20, "joy": 10 }, "moment": "Đánh bại Dũng giả mang Thánh Kiếm" },
+        "fail": { "text": "Mỗi trận chiến chỉ khiến hắn mạnh hơn. Hắn đến ngai vàng của bạn ở thời điểm sung sức nhất.", "effects": { "health": -45 } } },
+      { "label": "Dụ Dũng giả sa ngã", "check": { "stat": "INT", "target": 13 },
+        "success": { "text": "Bạn hóa thân thành một hiền triết và thì thầm vào tai hắn suốt nhiều năm. Cuối cùng, Thánh Kiếm nhuốm màu đen.", "effects": { "joy": 15, "flags": ["fallen_hero"] }, "moment": "Dụ dỗ Dũng giả sa ngã" },
+        "fail": { "text": "Ý chí của hắn vững hơn bạn tưởng, và hắn nhận ra bạn.", "effects": { "health": -30 } } },
+      { "label": "Ngồi chờ quyết đấu", "check": { "stat": "STR", "target": 13 },
+        "success": { "text": "Trận đấu kéo dài ba ngày ba đêm. Khi Thánh Kiếm gãy đôi, cả thế giới biết rằng bóng tối đã chiến thắng.", "effects": { "STR": 2, "joy": 15 }, "moment": "Bẻ gãy Thánh Kiếm" },
+        "fail": { "text": "Ánh sáng Thánh Kiếm đâm xuyên lồng ngực bạn.", "death": "Bạn ngã xuống trên ngai xương trắng ở tuổi {age}, và đế chế bóng tối tan vỡ theo bạn." } }
+    ] },
+  { "id": "hd_ms_betrayal", "races": ["high_demon"], "stages": ["adult", "middle"], "weight": 8,
+    "text": "Ma tướng thân tín nhất của bạn đang âm thầm tập hợp lực lượng. Lưỡi dao phản bội đã kề sát sau lưng.",
+    "choices": [
+      { "label": "Moi tim phản đồ", "text": "Bạn moi trái tim còn đập của hắn và treo xác hắn trước cổng thành. Không ai dám thì thầm thêm một lời nào nữa.", "effects": { "STR": 1, "joy": 5, "flags": ["tyrant"] } },
+      { "label": "Lừa vào bẫy dung nham", "check": { "stat": "INT", "target": 10 },
+        "success": { "text": "Bạn giả vờ suy yếu, dụ hắn vào đại sảnh dung nham. Tiếng gào của hắn vang vọng suốt một tuần.", "effects": { "INT": 1, "joy": 10 }, "moment": "Nghiền nát cuộc phản loạn" },
+        "fail": { "text": "Hắn nhìn thấu cái bẫy. Cuộc ám sát thất bại, nhưng bạn mất đi một nửa ma lực.", "effects": { "health": -35, "STR": -1 } } }
+    ] }
+]

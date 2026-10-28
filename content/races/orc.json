@@ -1,0 +1,267 @@
+{
+  "id": "orc",
+  "name": "Chằn Tinh (Orc)",
+  "lifespan": 45,
+  "spawn_rate_percentage": 2,
+  "context": "Kỷ Nguyên Khai Hoang Hầm Ngục – Những kẻ thống trị vùng hoang dã và các tàn tích cổ đại trên mặt đất. Sinh ra để chiến đấu, lấy sẹo làm niềm tự hào và luôn tìm kiếm một cái chết vinh quang trên chiến trường.",
+  "desc": "Thân hình to lớn vượt trội so với con người, cơ bắp cuồn cuộn với làn da xanh thẫm, xám hoặc đỏ rực cùng cặp nanh lòi ra đầy đe dọa. Orc bạo lực, cục cằn nhưng lại rất thẳng thắn. Chúng cực kỳ trọng danh dự chiến binh, tuyệt đối khinh bỉ pháp thuật, những trò đánh lén và sự hèn nhát.",
+  "society": "Sống theo các bộ lạc du mục lớn hoặc chiếm đóng các phế tích bỏ hoang ngoài Rừng Tân Thủ. Xã hội Orc vận hành theo nguyên tắc vàng: Kẻ mạnh nhất có tất cả. Quyền lực tuyệt đối thuộc về Tù Trưởng (Warchief). Bất cứ ai cũng có quyền thách đấu Tù Trưởng để giành ngôi, nhưng cái giá của sự thất bại thường là cái chết hoặc bị lưu đày vĩnh viễn.",
+  "stages": [
+    {
+      "id": "infant",
+      "name": "Orc non nớt",
+      "start": 0,
+      "themes": [
+        "Được nuôi lớn bằng máu thú và thịt sống",
+        "Vật lộn cắn xé anh em cùng lứa để tranh ăn",
+        "Nhận vết sẹo đầu đời",
+        "Lắng nghe nhịp trống trận thôi thúc trong huyết quản"
+      ]
+    },
+    {
+      "id": "child",
+      "name": "Tân binh bộ lạc",
+      "start": 4,
+      "themes": [
+        "Học vác những cây rìu nặng bằng người trưởng thành",
+        "Đi săn lợn rừng khổng lồ",
+        "Bị chiến binh lớn tuổi đánh bầm dập để rèn luyện",
+        "Giao chiến đẫm máu với bầy Goblin"
+      ]
+    },
+    {
+      "id": "teen",
+      "name": "Chiến binh máu nóng",
+      "start": 10,
+      "themes": [
+        "Xăm mình đẫm máu",
+        "Ra trận lần đầu, cướp bóc các làng mạc biên giới",
+        "Thuần phục Sói tuyết hoặc Gấu sẹo hoang dã",
+        "Quyết đấu lấy danh dự"
+      ]
+    },
+    {
+      "id": "adult",
+      "name": "Huyết Kỵ Sĩ",
+      "start": 16,
+      "themes": [
+        "Dẫn đầu đội tiên phong càn quét",
+        "Dùng búa tạ đập nát khiên của Kỵ sĩ loài người",
+        "Tàn sát Tinh linh",
+        "Gia nhập Huyết Hội, thách thức quyền lực thủ lĩnh"
+      ]
+    },
+    {
+      "id": "middle",
+      "name": "Tướng lĩnh chiến trường",
+      "start": 26,
+      "themes": [
+        "Dẫn dắt bộ lạc, thống nhất các thế lực hoang dã",
+        "Vác rìu đối đầu với Ma Tộc Thượng Đẳng",
+        "Bị ám sát hụt",
+        "Trực tiếp chỉ huy công thành Vương Quốc Thánh Quang"
+      ]
+    },
+    {
+      "id": "elder",
+      "name": "Tù trưởng già cỗi",
+      "start": 36,
+      "themes": [
+        "Các vết thương cũ tái phát, cơ bắp teo tóp lại",
+        "Từ chối việc bị phế truất",
+        "Tuyệt vọng đi tìm một cái chết vinh quang trên chiến trường",
+        "Bị tuổi già nuốt chửng"
+      ]
+    }
+  ],
+  "origins": [
+    {
+      "id": "origin_warborn",
+      "name": "Sinh ra trong khói lửa",
+      "weight": 40,
+      "text": "Bạn cất tiếng khóc chào đời giữa một chiến trường đẫm máu, dưới chân là xác của Mạo hiểm giả. Mùi sắt gỉ và nhịp trống tử chiến định hình nên tâm hồn bạo lực của bạn.",
+      "effects": {
+        "STR": 3,
+        "INT": -1,
+        "flags": [
+          "warborn"
+        ]
+      }
+    },
+    {
+      "id": "origin_royal",
+      "name": "Dòng máu Tù trưởng",
+      "weight": 30,
+      "text": "Là con của Warchief đương nhiệm, bạn được nhồi nhét tư tưởng thống trị ngay từ khi lọt lòng. Với bạn, mọi kẻ yếu hơn đều là rác rưởi.",
+      "effects": {
+        "STR": 2,
+        "wealth": 10,
+        "flags": [
+          "royal_blood"
+        ]
+      }
+    },
+    {
+      "id": "origin_gladiator",
+      "name": "Nô lệ giác đấu",
+      "weight": 20,
+      "text": "Mở mắt trong cũi sắt lạnh lẽo của Đấu trường Huyết Sa. Con người ném thịt sống vỗ béo bạn chỉ để xem bạn xé xác đồng loại mua vui cho giới quý tộc.",
+      "effects": {
+        "AGI": 2,
+        "STR": 1,
+        "LUCK": -2,
+        "flags": [
+          "gladiator"
+        ]
+      }
+    },
+    {
+      "id": "origin_blessed",
+      "name": "Đứa con của Tà Thần",
+      "weight": 10,
+      "text": "Bạn sinh ra với làn da đỏ rực kỳ dị thay vì màu xanh truyền thống. Lão Pháp sư (Shaman) của bộ lạc quỳ gối tuyên bố bạn là sứ giả mang cơn thịnh nộ của Chiến thần.",
+      "effects": {
+        "STR": 2,
+        "INT": 1,
+        "flags": [
+          "blessed_orc"
+        ]
+      }
+    },
+    {
+      "id": "lone_survivor",
+      "name": "Mầm Mống Tàn Lụi",
+      "weight": 20,
+      "text": "Bộ lạc của bạn bị tàn sát trong một đêm tuyết lạnh, chỉ còn bạn thoi thóp dưới xác mẹ nơi Rừng Tân Thủ. Huyết mạch hoang dã bùng cháy, buộc bạn phải sống sót để đối mặt với định mệnh vĩ đại chờ đợi phía trước.",
+      "effects": {
+        "STR": 2,
+        "wealth": -10,
+        "flags": [
+          "orphan_orc"
+        ]
+      }
+    }
+  ],
+  "signature": [
+    "Cơn điên bạo kích (Berserk): Càng mất nhiều máu, sát thương vật lý, tốc độ đánh và khả năng chịu đựng càng tăng vọt.",
+    "Da sắt xương đồng: Kháng sát thương vật lý bẩm sinh, miễn nhiễm với cảm giác đau đớn.",
+    "Tiếng gầm uy phong: Tiếng gầm thét khát máu khiến những kẻ thù yếu bóng vía (như Goblin, Con người cấp thấp) bị choáng váng hoặc bỏ chạy.",
+    "Bậc thầy vũ khí nặng: Sử dụng rìu tạ, búa khổng lồ, hay những tảng đá lớn dễ dàng như cầm một cành cây.",
+    "Không lùi bước: Tự động khóa hoặc nhận hình phạt chí mạng (Trừ Đạo đức/Danh dự) với mọi sự kiện yêu cầu hành động 'Bỏ chạy' hay 'Đầu hàng'.",
+    "Thuần phục dã thú: Khả năng dùng nắm đấm khuất phục Sói tuyết ác điểu hoặc Gấu sẹo làm thú cưỡi mặt đất."
+  ],
+  "milestones": [
+    {
+      "id": "ms_makgora",
+      "name": "Cuộc quyết đấu tranh quyền Tù Trưởng (Huyết Đấu)",
+      "choices": [
+        "Bổ đôi đầu đối thủ bằng một nhát rìu (Lên ngôi Tù trưởng)",
+        "Đánh bại nhưng tha mạng (Thu phục lòng người, mang cờ 'honorable')",
+        "Thất bại thảm hại (Bị tước vũ khí và lưu đày khỏi bộ lạc)"
+      ]
+    },
+    {
+      "id": "ms_human_attack",
+      "name": "Quân đội Loài người đem kỵ binh công phạt",
+      "choices": [
+        "Cầm cự tử thủ bảo vệ những kẻ yếu trong bộ lạc (Cần Sức mạnh, nguy cơ tử vong cao)",
+        "Rút lui phục kích trong rừng sâu (Cần Khéo léo, bị coi là hèn nhát)",
+        "Đơn độc lao vào giữa ngàn quân lính vung rìu (Tử chiến)"
+      ]
+    },
+    {
+      "id": "ms_demon_alliance",
+      "name": "Ma vương phái sứ giả mời liên minh",
+      "choices": [
+        "Gia nhập Quân đoàn quỷ (Được uống máu quỷ, cường hóa sức mạnh, hóa thành Ác thú bạo tàn)",
+        "Chém đứt đầu sứ giả (Tuyên chiến với Ma giới, bảo vệ tự do)",
+        "Đòi hỏi cống nạp vũ khí để suy nghĩ (Cần Trí tuệ)"
+      ]
+    },
+    {
+      "id": "ms_arena_final",
+      "name": "Trận chung kết sinh tử tại Đấu trường",
+      "choices": [
+        "Nghiền nát nhà vô địch loài người (Vinh quang tột đỉnh, được trả tự do)",
+        "Kích động toàn bộ nô lệ nổi loạn phá sập đấu trường (Trở thành Lãnh tụ bạo loạn)",
+        "Cố tình buông vũ khí tử trận vinh quang để không phải làm trò tiêu khiển"
+      ]
+    },
+    {
+      "id": "ms_shaman_conflict",
+      "name": "Xung đột với Pháp sư (Shaman) bộ lạc",
+      "choices": [
+        "Đập nát hộp sọ lão vì khinh bỉ tà thuật (Củng cố uy quyền vật lý)",
+        "Lắng nghe lão hiến tế tù binh (Đi theo con đường Tà thần đẫm máu)",
+        "Thách thức quyền lực công khai trước toàn bộ lạc"
+      ]
+    }
+  ],
+  "deaths": [
+    {
+      "id": "death_glory",
+      "kind": "violent",
+      "text": "Năm {age} tuổi, bạn gục ngã sau khi vung nhát rìu cuối cùng, thân thể ghim hàng chục mũi tên và giáo mác của kỵ binh. Bộ lạc sẽ hát vang tên bạn muôn đời."
+    },
+    {
+      "id": "death_duel",
+      "kind": "violent",
+      "text": "Trong một cuộc quyết đấu giành quyền lực ở tuổi {age}, bạn bị một chiến binh trẻ tuổi và khát máu hơn chặt đứt đầu. Ngai vàng luôn đổi chủ."
+    },
+    {
+      "id": "death_magic",
+      "kind": "violent",
+      "text": "Khinh thường ma thuật mỏng manh, bạn lao thẳng vào cơn bão lửa của một Kỵ sĩ ma pháp ở tuổi {age} và hóa thành tro bụi."
+    },
+    {
+      "id": "death_poison",
+      "kind": "health",
+      "text": "Năm {age} tuổi, bạn thổ huyết gục ngã vì bị hạ độc vào bình rượu thịt. Đây là một cái chết đớn hèn, nhục nhã nhất mà bạn từng căm ghét."
+    },
+    {
+      "id": "death_old_shame",
+      "kind": "old",
+      "text": "Sống dai dẳng đến {age} tuổi là một vết nhơ với bất kỳ Orc nào. Bạn chết già một cách yếu ớt trên giường, không có lấy một vinh quang hay tiếng gươm đao đưa tiễn."
+    }
+  ],
+  "names": {
+    "male": [
+      "Thrak",
+      "Morg",
+      "Krug",
+      "Gul",
+      "Urzag",
+      "Dravok",
+      "Brakka",
+      "Throk",
+      "Gorvash",
+      "Murzul"
+    ],
+    "female": [
+      "Thraka",
+      "Morgi",
+      "Kruga",
+      "Gula",
+      "Urza",
+      "Drava",
+      "Brakki",
+      "Throki",
+      "Gorva",
+      "Murza"
+    ],
+    "family": [
+      "Huyết Rìu",
+      "Nanh Sắt",
+      "Phá Lọ",
+      "Chùy Gỗ",
+      "Da Đỏ"
+    ]
+  },
+  "flags": [
+    "warborn",
+    "royal_blood",
+    "gladiator",
+    "blessed_orc",
+    "honorable"
+  ]
+}

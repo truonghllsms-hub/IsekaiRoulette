@@ -1,0 +1,245 @@
+{
+  "id": "vampire",
+  "name": "Huyết Tộc (Vampire)",
+  "lifespan": 3000,
+  "spawn_rate_percentage": 1,
+  "context": "Kỷ Nguyên Khai Hoang Hầm Ngục – Quý tộc của bóng đêm, những kẻ thao túng sắc đẹp và máu, cư ngụ tại các lâu đài ngầm dưới Vực Thẳm hoặc lẩn khuất trong giới thượng lưu của nhân loại.",
+  "desc": "Khác với Ngạ Quỷ (Ghoul) vô tri, Huyết Tộc là những tử linh có ý thức cực cao, vô cùng kiêu ngạo và duy mỹ. Chúng duy trì sự bất tử và nhan sắc ma mị, trẻ mãi không già bằng cách hút máu tươi. Mang trong mình sức mạnh vượt trội, tốc độ kinh hoàng và ma thuật quyến rũ, nhưng chúng lại bị nguyền rủa bởi ánh sáng mặt trời và Thánh quang.",
+  "society": "Xã hội Huyết Tộc phân giai cấp vô cùng tàn nhẫn dựa trên độ thuần chủng của dòng máu: Chân Tổ (Thuần chủng) > Quý tộc (Biến đổi bằng nghi thức) > Kẻ lây nhiễm (Bị cắn và bỏ mặc). Chúng thích sống trong nhung lụa tại các lâu đài cổ kính, xem con người chỉ là 'bò sữa' hoặc những tay sai bị thôi miên (Familiar) để dọn dẹp và bảo vệ chúng vào ban ngày.",
+  "stages": [
+    {
+      "id": "infant",
+      "name": "Tân huyết",
+      "start": 0,
+      "themes": [
+        "Vật lộn với cơn khát máu điên cuồng",
+        "Không kiểm soát được nanh vuốt",
+        "Sợ hãi ánh sáng tuyệt đối",
+        "Dễ dàng bị Thợ săn giết chết"
+      ]
+    },
+    {
+      "id": "child",
+      "name": "Huyết đệ",
+      "start": 51,
+      "themes": [
+        "Học cách che giấu thân phận giữa loài người",
+        "Tập tành đi đêm",
+        "Quyến rũ con mồi bằng ánh mắt",
+        "Nắm bắt ma thuật máu cơ bản"
+      ]
+    },
+    {
+      "id": "teen",
+      "name": "Bá tước bóng đêm",
+      "start": 201,
+      "themes": [
+        "Xây dựng lãnh địa riêng",
+        "Thao túng giới quý tộc con người",
+        "Biến đổi kẻ khác thành tay sai trung thành",
+        "Bắt đầu miễn nhiễm với vũ khí bạc cấp thấp"
+      ]
+    },
+    {
+      "id": "adult",
+      "name": "Chân tổ",
+      "start": 801,
+      "themes": [
+        "Hoàn toàn làm chủ Huyết thuật cấm kị",
+        "Sức mạnh thể chất vượt giới hạn",
+        "Có thể đi lại dưới ánh nắng nhẹ nếu khoác áo choàng đen",
+        "Ngủ đông hàng thập kỷ"
+      ]
+    },
+    {
+      "id": "middle",
+      "name": "Huyết Vương",
+      "start": 2001,
+      "themes": [
+        "Đạt đến đỉnh cao quyền lực",
+        "Dám thách thức cả Giáo hội Thánh Quang",
+        "Có thể điều khiển hàng vạn dơi quỷ và sói đêm chỉ bằng một ý niệm"
+      ]
+    },
+    {
+      "id": "elder",
+      "name": "Tro tàn bất tử",
+      "start": 2900,
+      "themes": [
+        "Mệt mỏi với sự vĩnh hằng nhàm chán",
+        "Cơ thể lạnh lẽo như pho tượng cẩm thạch trắng bệch",
+        "Chìm vào giấc ngủ ngàn năm trong cỗ quan tài máu"
+      ]
+    }
+  ],
+  "origins": [
+    {
+      "id": "origin_pure",
+      "name": "Lâu đài Chân Tổ",
+      "weight": 40,
+      "text": "Bạn được sinh ra từ 'Nghi thức Huyết ấn' của một Huyết Vương. Bạn mang dòng máu thuần khiết, ngậm thìa bạc và nhìn mọi sinh vật khác bằng nửa con mắt.",
+      "effects": {
+        "INT": 2,
+        "AGI": 2,
+        "flags": [
+          "pure_blood"
+        ]
+      }
+    },
+    {
+      "id": "origin_infected",
+      "name": "Vết cắn trong ngõ hẻm",
+      "weight": 30,
+      "text": "Từng là con người, bạn bị một Vampire hạ cấp cắn rách cổ rồi bỏ mặc. Bạn thức tỉnh trong bùn nhơ, vật lộn với cơn khát máu và sự kinh tởm chính mình.",
+      "effects": {
+        "STR": 2,
+        "LUCK": -2,
+        "flags": [
+          "infected_vampire"
+        ]
+      }
+    },
+    {
+      "id": "origin_pact",
+      "name": "Giao kèo quý tộc",
+      "weight": 20,
+      "text": "Bạn tự nguyện hiến dâng linh hồn và thể xác cho bóng tối để thoát khỏi bệnh tật tuổi già. Bạn có tài sản của con người nhưng bị đồng loại khinh bỉ.",
+      "effects": {
+        "STR": -2,
+        "wealth": 10,
+        "flags": [
+          "noble_pact"
+        ]
+      }
+    },
+    {
+      "id": "origin_cult",
+      "name": "Tế đàn Hắc Nguyệt",
+      "weight": 10,
+      "text": "Bạn là vật thí nghiệm của giáo phái cuồng tín. Máu của bạn hòa lẫn với quỷ khí, cho phép bạn kháng lại một phần Thánh quang nhưng cơ thể bị biến dạng nhẹ.",
+      "effects": {
+        "INT": 1,
+        "LUCK": 1,
+        "flags": [
+          "cult_vampire"
+        ]
+      }
+    },
+    {
+      "id": "vampire_origin_ivory_crypt",
+      "name": "Hầm Mộ Bạch Ngà",
+      "weight": 20,
+      "text": "Tỉnh giấc trong một cỗ quan tài cẩm thạch dưới lòng Tháp Ma Pháp Bạch Ngà, bạn là một biến số cổ xưa vừa được giải trừ phong ấn. Bánh xe định mệnh khẽ xoay, huyết mạch kiêu hãnh cất tiếng gọi linh hồn bạn trỗi dậy từ cõi chết.",
+      "effects": {
+        "STR": 1,
+        "INT": 1,
+        "wealth": 15,
+        "flags": [
+          "pure_blood"
+        ]
+      }
+    }
+  ],
+  "signature": [
+    "Hút máu phục hồi: Rút cạn sinh lực kẻ thù qua vết cắn để tự chữa lành mọi vết thương, kể cả đứt lìa chi.",
+    "Mị hoặc tâm trí (Charm): Dùng ánh mắt thao túng tâm trí con mồi, khiến chúng tự nguyện dâng hiến máu hoặc trở thành lá chắn thịt sống cho bạn.",
+    "Hóa sương mù/Dơi quỷ: Biến thành một đàn dơi hoặc làn sương mù để né tránh các đòn tấn công vật lý chí mạng hoặc tẩu thoát.",
+    "Kháng bệnh tật vô đối: Miễn nhiễm hoàn toàn với mọi loại độc dược, khí độc và bệnh tật trần gian.",
+    "Nhược điểm tử linh: Sát thương x10 khi bị tấn công bởi Thánh quang, vũ khí làm từ Bạc nguyên chất, hoặc bị cọc gỗ đâm xuyên tim."
+  ],
+  "milestones": [
+    {
+      "id": "ms_blood_thirst",
+      "name": "Cơn khát máu bùng phát giữa thành phố",
+      "choices": [
+        "Cắn xé bừa bãi kẻ qua đường (Hóa điên, bị Giáo hội săn lùng gắt gao)",
+        "Rút vào bóng tối cắn cổ một con chuột cống (Kìm nén, giữ lại nhân tính)",
+        "Dùng nhan sắc quyến rũ một tiểu thư/thiếu gia tò mò (Biến họ thành nguồn máu dự trữ an toàn)"
+      ]
+    },
+    {
+      "id": "ms_knight_raid",
+      "name": "Kỵ sĩ Thánh Quang đột kích lâu đài lúc ban ngày",
+      "choices": [
+        "Hóa thành sương mù luồn ra sau bẻ cổ hắn (Cần Sức mạnh và Khéo léo)",
+        "Gọi bầy dơi cản bước rồi bỏ lại cơ ngơi tẩu thoát (Mất Tài sản và lãnh địa)",
+        "Cố gắng dùng Huyết thuật cấm kị phản công (Đánh bại Kỵ sĩ nhưng bị bỏng nặng nề)"
+      ]
+    },
+    {
+      "id": "ms_beastman_war",
+      "name": "Giao tranh tranh địa bàn với Người Sói (Beastman)",
+      "choices": [
+        "Kiêu ngạo đấu tay đôi vật lý với chúng (Rủi ro tử vong rất cao)",
+        "Giăng bẫy dây thừng nạm Bạc để khắc chế (Cần Trí tuệ, chiến thắng dễ dàng)",
+        "Xuất hiện đàm phán phân chia bãi săn trong hòa bình"
+      ]
+    }
+  ],
+  "deaths": [
+    {
+      "id": "death_sun",
+      "kind": "violent",
+      "text": "Do bất cẩn tính sai thời gian đi săn hoặc bị kẻ thù giam giữ đến bình minh, bạn gào thét khi da thịt hóa thành tro bụi dưới ánh nắng ở tuổi {age}."
+    },
+    {
+      "id": "death_stake",
+      "kind": "violent",
+      "text": "Năm {age} tuổi, trong lúc đang ngủ ngày say giấc, một Thợ săn ma cà rồng đã lẻn vào cắm phập chiếc cọc gỗ tẩm nước thánh xuyên qua tim bạn."
+    },
+    {
+      "id": "death_starve",
+      "kind": "health",
+      "text": "Bị giam cầm trong hầm ngục phong ấn pháp thuật, không có giọt máu tươi nào trong hàng chục năm. Ở tuổi {age}, bạn khô héo đi và hóa thành một xác ướp."
+    },
+    {
+      "id": "death_purify",
+      "kind": "violent",
+      "text": "Dám thách thức Giáo hoàng, tuổi {age}, linh hồn dơ bẩn của bạn bị ánh sáng Thánh Quang tinh khiết bốc hơi hoàn toàn, không thể luân hồi."
+    },
+    {
+      "id": "death_old",
+      "kind": "old",
+      "text": "Ở tuổi {age}, sống quá lâu khiến bạn đánh mất mọi khao khát. Bạn nhắm mắt lại trong cỗ quan tài êm ái phủ rèm nhung đỏ, quyết định vĩnh viễn không tỉnh dậy."
+    }
+  ],
+  "names": {
+    "male": [
+      "Vlad",
+      "Dracula",
+      "Nosferatu",
+      "Dorian",
+      "Viktor",
+      "Vincent",
+      "Klaus",
+      "Lucien",
+      "Valerian",
+      "Corvin"
+    ],
+    "female": [
+      "Carmilla",
+      "Selene",
+      "Victoria",
+      "Elvira",
+      "Elizabeth",
+      "Lenore",
+      "Juliet",
+      "Drusilla",
+      "Morwen",
+      "Isolde"
+    ],
+    "family": [
+      "Tepes",
+      "Bathory",
+      "Huyết Nguyệt",
+      "Bóng Đêm",
+      "Tội Lỗi"
+    ]
+  },
+  "flags": [
+    "pure_blood",
+    "infected_vampire",
+    "noble_pact",
+    "cult_vampire"
+  ]
+}

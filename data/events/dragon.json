@@ -1,0 +1,42 @@
+[
+  { "id": "dr_egg_heartbeat", "races": ["dragon"], "stages": ["infant"], "weight": 10,
+    "text": "Trong lớp vỏ cứng hơn kim cương, bạn nghe thấy nhịp tim của Rồng Mẹ vọng lại qua dòng dung nham. Mỗi nhịp đập là một thế kỷ chờ đợi.", "effects": { "INT": 1 } },
+  { "id": "dr_egg_mana", "races": ["dragon"], "stages": ["infant"], "weight": 8,
+    "text": "Ma lực từ lòng núi lửa thấm vào quả trứng, từng chút một. Những người thợ săn trứng rồng đi ngang qua đều cảm thấy một cơn ớn lạnh khó tả.", "effects": { "STR": 1, "health": 5 } },
+  { "id": "dr_first_breath", "races": ["dragon"], "stages": ["child"], "weight": 10,
+    "text": "Lần đầu tiên, một luồng lửa bùng ra từ cổ họng bạn. Cả một khu rừng hóa tro, và bạn hiểu rằng thế giới này được tạo ra để quỳ dưới chân mình.", "effects": { "STR": 2 }, "moment": "Hơi thở rồng đầu tiên" },
+  { "id": "dr_hoard", "races": ["dragon"], "stages": ["teen", "adult"], "weight": 8,
+    "text": "Bạn san phẳng một tòa thành và mang về hang ổ cả kho báu của nó. Đêm ấy, bạn ngủ trên một núi vàng.", "effects": { "wealth": 40, "joy": 10 }, "moment": "Bắt đầu tích trữ kho báu" },
+  { "id": "dr_human_form", "races": ["dragon"], "stages": ["teen"], "weight": 8, "require": { "INT": 8 },
+    "text": "Bạn học được cách khoác lên mình hình hài nhân loại. Giữa phiên chợ của loài người, không ai biết kẻ đang mỉm cười kia có thể thiêu rụi cả thành phố.", "effects": { "INT": 2, "flags": ["shapeshifter"] }, "moment": "Hóa hình thành người" },
+  { "id": "dr_ms_heroes", "races": ["dragon"], "stages": ["teen", "adult", "middle"], "weight": 10,
+    "text": "Một tổ đội Anh hùng huyền thoại lẻn vào hang ổ của bạn, đôi mắt chúng sáng rực khi nhìn thấy núi vàng.",
+    "choices": [
+      { "label": "Thiêu rụi tất cả", "check": { "stat": "STR", "target": 12 },
+        "success": { "text": "Ngọn lửa của bạn nuốt chửng cả tổ đội. Bộ giáp nóng chảy của chúng trở thành vật trang trí mới trên vách hang.", "effects": { "wealth": 30, "joy": 10 }, "moment": "Thiêu rụi một tổ đội Anh hùng" },
+        "fail": { "text": "Một mũi tên phá giáp găm sâu vào cánh bạn. Chúng chạy thoát cùng một phần kho báu.", "effects": { "health": -40, "wealth": -20 } } },
+      { "label": "Hóa người lừa chúng", "check": { "stat": "INT", "target": 10 },
+        "success": { "text": "Bạn hóa thành một ông lão dẫn đường, dẫn chúng đi vòng quanh hang suốt ba ngày rồi mới hiện nguyên hình. Đó là ba ngày thú vị nhất thế kỷ.", "effects": { "INT": 1, "joy": 15 }, "moment": "Đùa giỡn với các Anh hùng" },
+        "fail": { "text": "Gã Pháp sư nhìn thấu lớp ngụy trang của bạn ngay từ đầu.", "effects": { "health": -25 } } },
+      { "label": "Tiếp tục ngủ", "text": "Bạn ngủ say không hay biết. Khi tỉnh dậy, một rương vàng đã biến mất, và cơn thịnh nộ của bạn thiêu rụi ba ngôi làng vô tội.", "effects": { "wealth": -30, "joy": -5 } }
+    ] },
+  { "id": "dr_ms_demon_lord", "races": ["dragon"], "stages": ["adult", "middle"], "weight": 8,
+    "text": "Một sứ giả quỷ quỳ rạp trước hang ổ của bạn. Ma Vương muốn bạn trở thành một trong các Tai Ương, cùng hắn nhấn chìm nhân loại.",
+    "choices": [
+      { "label": "Khinh bỉ từ chối", "text": "Bạn thổi một hơi, và sứ giả hóa thành tro. Rồng không phục vụ bất kỳ ai.", "effects": { "joy": 5, "flags": ["proud"] } },
+      { "label": "Nhận lời làm Tai Ương", "text": "Hàng ngàn tấn vàng được cống nạp. Bầu trời phía trên các vương quốc loài người nhuộm một màu đỏ lửa.", "effects": { "wealth": 50, "flags": ["calamity"] }, "moment": "Trở thành một Tai Ương của Ma Vương" },
+      { "label": "Bắt Ma Vương quỳ lạy", "check": { "stat": "STR", "target": 13 },
+        "success": { "text": "Ma Vương đích thân đến, và cúi đầu trước bạn. Cả Vực Thẳm chấn động.", "effects": { "wealth": 30, "joy": 15 }, "moment": "Bắt Ma Vương phải quỳ lạy" },
+        "fail": { "text": "Ma Vương không quen quỳ lạy. Trận chiến khiến bạn mất một mảng vảy lớn.", "effects": { "health": -40 } } }
+    ] },
+  { "id": "dr_ms_territory", "races": ["dragon"], "stages": ["adult", "middle", "elder"], "weight": 8,
+    "text": "Một con Cổ Long khác đáp xuống Đảo Tro Tàn, bóng cánh của nó che khuất mặt trời. Lãnh thổ này chỉ có chỗ cho một kẻ.",
+    "choices": [
+      { "label": "Không chiến sinh tử", "check": { "stat": "STR", "target": 12 },
+        "success": { "text": "Hai con rồng xé xác nhau trên tầng mây suốt bảy ngày đêm, khiến thời tiết khắp lục địa đảo lộn. Kẻ còn bay được cuối cùng là bạn.", "effects": { "STR": 2, "joy": 10 }, "moment": "Đánh bại một Cổ Long khác" },
+        "fail": { "text": "Nó bẻ gãy một bên cánh của bạn, và bạn rơi xuống biển sâu.", "death": "Bạn chìm xuống đáy đại dương ở tuổi {age}, và biển cả sôi sục suốt một năm." } },
+      { "label": "Bay đi nơi khác", "text": "Bạn nhượng bộ và bay đi tìm một hòn đảo khác. An toàn, nhưng lòng kiêu hãnh của bạn rỉ máu.", "effects": { "joy": -10 } }
+    ] },
+  { "id": "dr_ancient_talk", "races": ["dragon"], "stages": ["middle", "elder"], "weight": 6,
+    "text": "Bạn đã già đến mức các vị Thần lắng nghe khi bạn cất tiếng. Những quy luật của thế giới hiện ra trước mắt bạn như những sợi chỉ vàng.", "effects": { "INT": 3 }, "moment": "Trò chuyện với Thần linh" }
+]

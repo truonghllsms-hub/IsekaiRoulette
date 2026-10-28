@@ -1,0 +1,72 @@
+[
+  { "id": "human", "name": "Con người", "weight": 33, "lifespan": [70, 80], "hazard": 0.003,
+    "mult": { "STR": 1.0, "INT": 1.0, "AGI": 1.0, "LUCK": 1.2 }, "tags": ["civil", "humanoid"] },
+  { "id": "beastman", "name": "Thú nhân", "weight": 18, "lifespan": [50, 60], "hazard": 0.006,
+    "mult": { "STR": 1.3, "INT": 0.8, "AGI": 1.3, "LUCK": 1.0 }, "tags": ["civil", "humanoid"] },
+  { "id": "dwarf", "name": "Người lùn", "weight": 12, "lifespan": [150, 200], "hazard": 0.003,
+    "mult": { "STR": 1.4, "INT": 1.0, "AGI": 0.7, "LUCK": 0.9 }, "tags": ["civil", "humanoid"] },
+  { "id": "demon", "name": "Ma tộc", "weight": 7, "lifespan": [300, 500], "hazard": 0.0012,
+    "mult": { "STR": 1.3, "INT": 1.2, "AGI": 1.0, "LUCK": 0.8 }, "tags": ["monster", "humanoid"] },
+  { "id": "elf", "name": "Tiên tộc", "weight": 7, "lifespan": [1000, 2000], "hazard": 0.0004,
+    "mult": { "STR": 0.7, "INT": 1.4, "AGI": 1.3, "LUCK": 1.0 }, "tags": ["civil", "humanoid"] },
+  { "id": "goblin", "name": "Yêu tinh xanh", "weight": 4, "lifespan": [15, 20], "hazard": 0.04,
+    "mult": { "STR": 0.7, "INT": 0.7, "AGI": 1.3, "LUCK": 1.2 }, "tags": ["monster", "humanoid"] },
+  { "id": "slime", "name": "Slime", "weight": 3, "lifespan": null, "hazard": 0.003, "lastStep": 50, "genderless": true,
+    "mult": { "STR": 0.5, "INT": 0.6, "AGI": 0.8, "LUCK": 1.6 }, "tags": ["monster", "immortal"],
+    "stages": [
+      { "id": "infant", "name": "Giọt nhầy", "start": 0 },
+      { "id": "child", "name": "Bé nhầy", "start": 1 },
+      { "id": "teen", "name": "Đang lớn", "start": 3 },
+      { "id": "adult", "name": "Trưởng thành", "start": 10 },
+      { "id": "ancient", "name": "Cổ xưa", "start": 200 }
+    ] },
+  { "id": "kobold", "name": "Cẩu đầu nhân", "weight": 3, "lifespan": [20, 25], "hazard": 0.03,
+    "mult": { "STR": 0.8, "INT": 0.8, "AGI": 1.2, "LUCK": 1.1 }, "tags": ["monster", "humanoid"] },
+  { "id": "lizardman", "name": "Thằn lằn nhân", "weight": 3, "lifespan": [40, 50], "hazard": 0.01,
+    "mult": { "STR": 1.2, "INT": 0.8, "AGI": 1.1, "LUCK": 0.9 }, "tags": ["monster", "humanoid"] },
+  { "id": "vampire", "name": "Ma cà rồng", "weight": 2.5, "lifespan": null, "hazard": 0.001, "lastStep": 100,
+    "mult": { "STR": 1.3, "INT": 1.3, "AGI": 1.4, "LUCK": 0.6 }, "tags": ["civil", "humanoid", "undead", "immortal"],
+    "stages": [
+      { "id": "infant", "name": "Sơ sinh", "start": 0 },
+      { "id": "child", "name": "Thơ ấu", "start": 4 },
+      { "id": "teen", "name": "Thiếu niên", "start": 12 },
+      { "id": "adult", "name": "Trưởng thành", "start": 18 },
+      { "id": "ancient", "name": "Cổ huyết", "start": 300 }
+    ] },
+  { "id": "imp", "name": "Tiểu quỷ", "weight": 2, "lifespan": [30, 40], "hazard": 0.015,
+    "mult": { "STR": 0.6, "INT": 1.1, "AGI": 1.4, "LUCK": 1.0 }, "tags": ["monster", "humanoid"] },
+  { "id": "orc", "name": "Chằn tinh", "weight": 2, "lifespan": [40, 45], "hazard": 0.012,
+    "mult": { "STR": 1.5, "INT": 0.6, "AGI": 0.9, "LUCK": 0.9 }, "tags": ["monster", "humanoid"] },
+  { "id": "minotaur", "name": "Ngưu đầu nhân", "weight": 1.5, "lifespan": [60, 70], "hazard": 0.006,
+    "mult": { "STR": 1.7, "INT": 0.6, "AGI": 0.8, "LUCK": 0.9 }, "tags": ["monster", "humanoid"] },
+  { "id": "troll", "name": "Khổng lồ ngốc", "weight": 0.8, "lifespan": [60, 80], "hazard": 0.005,
+    "mult": { "STR": 1.8, "INT": 0.4, "AGI": 0.6, "LUCK": 1.0 }, "tags": ["monster", "humanoid"] },
+  { "id": "ghoul", "name": "Ngạ quỷ", "weight": 0.5, "lifespan": null, "hazard": 0.002, "lastStep": 100, "genderless": true,
+    "mult": { "STR": 1.2, "INT": 0.6, "AGI": 1.0, "LUCK": 0.7 }, "tags": ["monster", "humanoid", "undead", "immortal"],
+    "stages": [
+      { "id": "infant", "name": "Vừa trỗi dậy", "start": 0 },
+      { "id": "child", "name": "Đói khát", "start": 1 },
+      { "id": "adult", "name": "Ngạ quỷ", "start": 5 },
+      { "id": "ancient", "name": "Cổ thi", "start": 100 }
+    ] },
+  { "id": "dragon", "name": "Rồng", "weight": 0.5, "lifespan": [15000, 30000], "hazard": 0.00004,
+    "mult": { "STR": 2.0, "INT": 1.6, "AGI": 1.1, "LUCK": 0.7 }, "tags": ["monster", "legend"],
+    "stages": [
+      { "id": "infant", "name": "Rồng non", "start": 0 },
+      { "id": "child", "name": "Ấu long", "start": 20 },
+      { "id": "teen", "name": "Thiếu long", "start": 100 },
+      { "id": "adult", "name": "Trưởng thành", "start": 500 },
+      { "id": "middle", "name": "Cổ long", "start": 3000 },
+      { "id": "elder", "name": "Ngủ đông", "start": 10000 }
+    ] },
+  { "id": "high_demon", "name": "Ma tộc thượng đẳng", "weight": 0.2, "lifespan": [20000, 50000], "hazard": 0.00003,
+    "mult": { "STR": 1.8, "INT": 1.8, "AGI": 1.4, "LUCK": 0.6 }, "tags": ["monster", "humanoid", "legend"],
+    "stages": [
+      { "id": "infant", "name": "Sơ sinh", "start": 0 },
+      { "id": "child", "name": "Thơ ấu", "start": 10 },
+      { "id": "teen", "name": "Thiếu niên", "start": 50 },
+      { "id": "adult", "name": "Trưởng thành", "start": 200 },
+      { "id": "middle", "name": "Đại quỷ", "start": 3000 },
+      { "id": "elder", "name": "Cổ ma", "start": 15000 }
+    ] }
+]

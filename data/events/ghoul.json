@@ -1,0 +1,39 @@
+[
+  { "id": "gh_rise", "races": ["ghoul"], "stages": ["infant"], "weight": 10,
+    "text": "Bàn tay khô héo của bạn xé toạc lớp đất mộ. Ánh trăng lạnh lẽo chào đón một sinh mệnh đáng lẽ đã phải kết thúc.", "effects": { "STR": 1 } },
+  { "id": "gh_claws", "races": ["ghoul"], "stages": ["child"], "weight": 8,
+    "text": "Móng vuốt của bạn dài ra, đen sì và mang theo mầm hoại tử. Mọi sinh vật bạn cào trúng đều thối rữa từ bên trong.", "effects": { "STR": 1, "AGI": 1 } },
+  { "id": "gh_ms_master", "races": ["ghoul"], "stages": ["child", "teen"], "weight": 14, "require": { "flags": ["necromancer_puppet"] },
+    "text": "Tử linh sư điên loạn mất kiểm soát ma thuật. Sợi xích vô hình trói buộc linh hồn bạn rung lên, mỏng manh như sợi chỉ.",
+    "choices": [
+      { "label": "Xé xác hắn", "check": { "stat": "STR", "target": 6 },
+        "success": { "text": "Bạn vồ lấy kẻ đã đánh thức mình và xé hắn ra từng mảnh. Lần đầu tiên, bạn đi theo ý muốn của riêng mình.", "effects": { "joy": 15, "flags": ["free_will"], "unflags": ["necromancer_puppet"] }, "moment": "Xé xác chủ nhân, giành lại tự do" },
+        "fail": { "text": "Hắn kịp niệm một câu chú cuối cùng, đốt cháy nửa thân thể bạn.", "effects": { "health": -30 } } },
+      { "label": "Kế thừa tà lực", "check": { "stat": "INT", "target": 4 },
+        "success": { "text": "Bạn há miệng nuốt trọn luồng ma lực đen đang rò rỉ. Trong hốc mắt trống rỗng, một tia sáng tím le lói thắp lên.", "effects": { "INT": 3, "flags": ["dark_power"], "unflags": ["necromancer_puppet"] }, "moment": "Hấp thụ tà lực của Tử linh sư" },
+        "fail": { "text": "Ma lực đen quá mạnh đối với thân xác mục rữa.", "death": "Bạn nổ tung thành tro bụi cùng chủ nhân của mình, sau {age} năm tồn tại." } },
+      { "label": "Cam chịu", "text": "Bạn đứng yên giữa tâm vụ nổ ma lực.", "death": "Bạn tan biến cùng chủ nhân của mình, sau {age} năm tồn tại." }
+    ] },
+  { "id": "gh_ms_maiden", "races": ["ghoul"], "stages": ["teen", "adult"], "weight": 9,
+    "text": "Giữa màn sương mù dày đặc, bạn đánh hơi thấy một mùi hương thuần khiết đến nhức nhối. Một Thánh nữ đi lạc đang cất lời cầu nguyện.",
+    "choices": [
+      { "label": "Lao vào cắn xé", "text": "Cơn đói che mờ lý trí. Vầng hào quang của nàng bùng lên, thiêu cháy nửa thân thể bạn trước khi bạn kịp chạm tới.", "effects": { "health": -40 } },
+      { "label": "Rình rập trong bụi", "check": { "stat": "AGI", "target": 6 },
+        "success": { "text": "Bạn nằm im trong bụi rậm cho đến khi sương tan. Lần đầu tiên, bạn đã thắng được cơn đói của chính mình.", "effects": { "INT": 1, "joy": 5 }, "moment": "Lần đầu kìm nén được cơn đói" },
+        "fail": { "text": "Nàng cảm nhận được bạn, và một tia Thánh Quang xuyên qua bụi rậm.", "effects": { "health": -30 } } },
+      { "label": "Quay đầu bỏ chạy", "text": "Bạn lết đi thật xa. Mùi hương ấy ám ảnh bạn suốt nhiều thập kỷ.", "effects": { "joy": -3 } }
+    ] },
+  { "id": "gh_ms_winter", "races": ["ghoul"], "weight": 5,
+    "text": "Mùa Săn Bão ập đến với cái lạnh âm độ. Lớp thịt thối của bạn bắt đầu đông cứng.",
+    "choices": [
+      { "label": "Đứng chờ mùa xuân", "text": "Bạn đứng bất động suốt mùa đông như một pho tượng. Khi băng tan, bạn lại tiếp tục bước đi.", "effects": { "joy": -5 } },
+      { "label": "Đào đất ngủ đông", "text": "Bạn đào sâu xuống lòng đất và nằm yên trong bóng tối ấm áp quen thuộc.", "effects": { "health": 10 } },
+      { "label": "Ăn thịt gấu ngủ đông", "check": { "stat": "STR", "target": 7 },
+        "success": { "text": "Bạn lết vào hang và xé xác con gấu đang say ngủ. Máu thịt nóng hổi phục hồi thân thể bạn.", "effects": { "health": 25, "STR": 1 } },
+        "fail": { "text": "Con gấu tỉnh dậy.", "effects": { "health": -35 } } }
+    ] },
+  { "id": "gh_command", "races": ["ghoul"], "stages": ["adult", "middle"], "weight": 8,
+    "text": "Tiếng gào của bạn vang khắp nghĩa trang, và những xác chết thấp kém hơn lần lượt đứng dậy tuân lệnh.", "effects": { "STR": 1, "INT": 1 }, "moment": "Chỉ huy đạo quân xác sống" },
+  { "id": "gh_bones", "races": ["ghoul"], "stages": ["elder"], "weight": 8,
+    "text": "Thịt rữa đã rơi hết, chỉ còn bộ khung xương đen nhánh. Oán khí quanh bạn dày đặc đến mức cỏ cây không thể mọc.", "effects": { "STR": 2 }, "moment": "Hóa thành Khô cốt" }
+]

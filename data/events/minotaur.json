@@ -1,0 +1,48 @@
+[
+  { "id": "mn_horns", "races": ["minotaur"], "stages": ["infant"], "weight": 10,
+    "text": "Đôi sừng non nhú lên trên vầng trán bạn. Bạn húc vỡ tảng đá đầu tiên trong đời, và mê cung đáp lại bằng một tiếng vọng trầm đục.", "effects": { "STR": 1 } },
+  { "id": "mn_first_axe", "races": ["minotaur"], "stages": ["teen"], "weight": 10,
+    "text": "Từ sắt vụn của những kẻ xâm nhập, bạn rèn nên chiếc rìu chiến hai lưỡi đầu tiên. Nó nặng như một cỗ xe, và vừa vặn trong tay bạn.", "effects": { "STR": 2 }, "moment": "Rèn chiếc rìu chiến đầu tiên" },
+  { "id": "mn_ms_lost", "races": ["minotaur"], "stages": ["child", "teen"], "weight": 8,
+    "text": "Mê cung lặng lẽ đổi hình. Những hành lang quen thuộc biến mất, và lần đầu tiên bạn không biết đường về.",
+    "choices": [
+      { "label": "Đập tường mở lối", "check": { "stat": "STR", "target": 7 },
+        "success": { "text": "Bạn húc xuyên ba bức tường đá liền. Mê cung không giam được bạn, nó chỉ có thể nhường đường.", "effects": { "STR": 1 } },
+        "fail": { "text": "Bức tường cổ không hề suy suyển. Đầu bạn ong ong suốt nhiều ngày.", "effects": { "health": -15 } } },
+      { "label": "Lắng nghe tiếng gió", "check": { "stat": "AGI", "target": 5 },
+        "success": { "text": "Bạn khép mắt, lắng nghe hơi thở khe khẽ của mê cung, và tìm thấy lối về.", "effects": { "AGI": 1, "INT": 1 } },
+        "fail": { "text": "Bạn lang thang bảy ngày trong bóng tối trước khi tình cờ tìm thấy căn phòng của mình.", "effects": { "health": -10, "joy": -10 } } },
+      { "label": "Gầm thét chờ con mồi", "text": "Bạn đứng yên và gầm lên. Một con Goblin xui xẻo lạc vào, và bạn có bữa tối.", "effects": { "STR": 1, "health": 5 } }
+    ] },
+  { "id": "mn_ms_rage", "races": ["minotaur"], "stages": ["teen", "adult"], "weight": 8,
+    "text": "Một kẻ xâm nhập phất chiếc áo choàng tẩm ma lực khiêu khích. Dù đôi mắt mù màu, bạn vẫn cảm thấy nó cháy rực như máu tươi.",
+    "choices": [
+      { "label": "Lao vào húc chết", "text": "Bạn xuyên qua ba lớp bẫy chông để nghiền nát hắn. Chiến thắng, nhưng thân thể bạn đầy những vết thương.", "effects": { "health": -25, "STR": 1, "flags": ["berserker"] } },
+      { "label": "Kìm nén, ném búa", "check": { "stat": "AGI", "target": 5 },
+        "success": { "text": "Bạn nghiến răng kìm lại cơn điên và ném chiếc búa. Kẻ khiêu khích gục ngã trước khi kịp chạm vào bẫy của hắn.", "effects": { "INT": 1, "joy": 5 }, "moment": "Làm chủ cơn điên màu máu" },
+        "fail": { "text": "Chiếc búa trượt mục tiêu, và cơn điên vẫn chiếm lấy bạn.", "effects": { "health": -15 } } },
+      { "label": "Hất đồng loại ra đỡ", "text": "Bạn hất một Minotaur non lên đỡ đòn rồi tấn công. Kẻ địch chết, và đồng loại kia cũng vậy.", "effects": { "joy": -10, "flags": ["ruthless"] } }
+    ] },
+  { "id": "mn_ms_heroes", "races": ["minotaur"], "stages": ["adult", "middle"], "weight": 10,
+    "text": "Cánh cửa đá phòng Boss rung lên. Một tổ đội Anh hùng giáp trụ sáng loáng bước vào, thanh kiếm của kẻ dẫn đầu rực ánh Thánh Quang.",
+    "choices": [
+      { "label": "Tử chiến chặn cửa", "check": { "stat": "STR", "target": 10 },
+        "success": { "text": "Rìu chiến của bạn quét ngang như cơn lốc. Khi bụi lắng xuống, bộ giáp của các Anh hùng nằm la liệt quanh ngai đá của bạn.", "effects": { "wealth": 30, "STR": 1, "flags": ["boss_legend"] }, "moment": "Đánh bại một tổ đội Anh hùng" },
+        "fail": { "text": "Thánh kiếm xuyên qua lồng ngực bạn.", "death": "Bạn chết đứng trước cửa phòng báu vật ở tuổi {age}, chưa lùi một bước." } },
+      { "label": "Đuổi theo bóng ảo", "text": "Bạn lao theo cái bóng ảo của gã Pháp sư, cặp sừng cắm sâu vào vách đá. Để thoát thân, bạn phải bẻ gãy chính chiếc sừng kiêu hãnh của mình.", "effects": { "STR": -2, "health": -20, "flags": ["hornless"] } },
+      { "label": "Nhường vàng cho qua", "check": { "stat": "INT", "target": 6 },
+        "success": { "text": "Bạn bước sang một bên, để chúng lấy đi một phần kho báu. Bạn còn sống, nhưng tín ngưỡng hộ vệ trong bạn đã rạn nứt.", "effects": { "wealth": -15, "joy": -10, "flags": ["oathbreaker"] } },
+        "fail": { "text": "Chúng nhận vàng, rồi vẫn đâm lén bạn sau lưng.", "effects": { "health": -30, "wealth": -15 } } }
+    ] },
+  { "id": "mn_ms_mercenary", "races": ["minotaur"], "stages": ["adult", "middle"], "weight": 7,
+    "text": "Một sứ giả của thương đoàn tà ác quỳ trước bạn, hứa hẹn thịt tươi mỗi ngày nếu bạn chịu làm lính đánh thuê cho chúng.",
+    "choices": [
+      { "label": "Ăn thịt sứ giả", "text": "Bạn từ chối theo cách của Minotaur. Mê cung vẫn là của bạn.", "effects": { "STR": 1, "health": 5 } },
+      { "label": "Theo Thương đoàn", "text": "Lần đầu tiên, bạn bước ra khỏi mê cung và nhìn thấy bầu trời.", "effects": { "wealth": 25, "joy": 10, "flags": ["mercenary"], "unflags": ["maze_guardian"] }, "moment": "Rời mê cung theo Thương đoàn" },
+      { "label": "Bắt cống nạp vũ khí", "check": { "stat": "INT", "target": 4 },
+        "success": { "text": "Chúng run rẩy dâng lên một cây rìu thép đen. Bạn cho chúng đi qua.", "effects": { "wealth": 15, "STR": 1 } },
+        "fail": { "text": "Chúng giả vờ đồng ý, rồi tẩm độc vào thịt.", "effects": { "health": -25 } } }
+    ] },
+  { "id": "mn_blind", "races": ["minotaur"], "stages": ["elder"], "weight": 8,
+    "text": "Đôi mắt bạn mờ đục hoàn toàn. Nhưng chỉ cần một tiếng bước chân, chiếc rìu già nua vẫn vung lên chính xác như thuở nào.", "effects": { "AGI": 1, "joy": 3 }, "moment": "Lão ngưu mù vẫn giữ cửa" }
+]

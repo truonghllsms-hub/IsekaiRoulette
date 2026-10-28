@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Luân Hồi Dị Giới</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;1,400&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app">
+    <!-- Start -->
+    <section id="screen-start" class="screen">
+      <p class="eyebrow">Một linh hồn vừa rời khỏi thế giới cũ</p>
+      <h1>Luân Hồi Dị Giới</h1>
+      <p class="lede">Bạn không được chọn mình sẽ là ai. Bạn chỉ được chọn mình sẽ sống thế nào.</p>
+      <button id="btn-start" class="btn primary">Đầu thai</button>
+      <details class="odds">
+        <summary>Tỉ lệ đầu thai</summary>
+        <ul id="odds-list"></ul>
+      </details>
+      <div id="past-lives"></div>
+    </section>
+
+    <!-- Reveal -->
+    <section id="screen-reveal" class="screen" hidden>
+      <p class="eyebrow">Bạn được sinh ra là</p>
+      <h1 id="reveal-race"></h1>
+      <p id="reveal-odds" class="lede"></p>
+      <p id="reveal-origin" class="origin"></p>
+      <p id="reveal-desc" class="lede"></p>
+      <button id="btn-begin" class="btn primary">Bắt đầu cuộc đời</button>
+    </section>
+
+    <!-- Life -->
+    <section id="screen-life" class="screen" hidden>
+      <header class="hud">
+        <div class="who">
+          <span id="hud-name" class="name"></span>
+          <span id="hud-meta" class="meta"></span>
+        </div>
+        <div class="age">
+          <span id="hud-age" class="age-num"></span>
+          <span id="hud-stage" class="meta"></span>
+        </div>
+      </header>
+      <div class="bars" id="hud-bars"></div>
+      <div class="stats" id="hud-stats"></div>
+      <ol id="log" class="log" aria-live="polite"></ol>
+      <div id="choices" class="choices"></div>
+      <footer class="actions">
+        <button id="btn-next" class="btn primary wide"></button>
+      </footer>
+    </section>
+
+    <!-- Death -->
+    <section id="screen-death" class="screen" hidden>
+      <p class="eyebrow">Cuộc đời kết thúc</p>
+      <h1 id="death-name"></h1>
+      <p id="death-meta" class="meta center"></p>
+      <p id="death-cause" class="cause"></p>
+      <blockquote id="death-epitaph" class="epitaph"></blockquote>
+      <h2 class="small-head">Những khoảnh khắc</h2>
+      <ul id="death-moments" class="moments"></ul>
+      <div class="row">
+        <button id="btn-again" class="btn primary">Đầu thai lần nữa</button>
+        <button id="btn-review" class="btn">Xem lại cuộc đời</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="engine.js"></script>
+  <script src="data.js"></script>
+  <script src="ui.js"></script>
+</body>
+</html>

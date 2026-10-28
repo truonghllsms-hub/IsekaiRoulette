@@ -1,0 +1,275 @@
+[
+  {
+    "id": "dragon_infant_telepathy",
+    "races": [
+      "dragon"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "weight": 6,
+    "text": "Dù chưa phá vỏ, nhận thức thai nhi của bạn đã hình thành, tạo ra một sợi dây liên kết ngoại cảm quyền năng với rồng mẹ. Một cảm giác kiêu ngạo tột đỉnh truyền vào tâm trí, khẳng định bạn là sinh vật đứng trên vạn vật.",
+    "effects": {
+      "INT": 2,
+      "joy": 10
+    }
+  },
+  {
+    "id": "dragon_infant_diamond_shell",
+    "races": [
+      "dragon"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 5,
+    "text": "Kỷ Nguyên Tăm Tối bao trùm, ma vật tràn lan cố gắng gặm nhấm quả trứng của bạn nhưng đành bất lực trước lớp vỏ cứng hơn kim cương. Ánh sáng định mệnh tỏa ra từ phôi thai, đẩy lùi mọi tà khí dám vấy bẩn huyết mạch cao quý.",
+    "effects": {
+      "health": 15,
+      "STR": 1
+    }
+  },
+  {
+    "id": "dragon_child_drake_hunt",
+    "races": [
+      "dragon"
+    ],
+    "stages": [
+      "child"
+    ],
+    "weight": 7,
+    "require": {
+      "STR": 4
+    },
+    "text": "Chỉ vừa mới phá vỏ không lâu, sức mạnh bẩm sinh của bạn đã ngang ngửa một con quái vật hầm ngục, dễ dàng cắn xé và nuốt chửng những con rồng đất hạ đẳng để nạp năng lượng. Máu của kẻ yếu bồi đắp thêm sự tàn bạo trong bản năng nguyên thủy của bạn.",
+    "effects": {
+      "health": 20,
+      "STR": 2,
+      "flags": [
+        "calamity"
+      ]
+    }
+  },
+  {
+    "id": "dragon_child_fly",
+    "races": [
+      "dragon"
+    ],
+    "stages": [
+      "child"
+    ],
+    "weight": 6,
+    "text": "Bạn vươn đôi cánh khổng lồ thực hiện chuyến bay đầu tiên, sải cánh rộng lớn che khuất cả một góc Thảo Nguyên Gió Hú. Tiếng gầm xé gió của bạn khiến muôn thú bên dưới phải rạp mình run rẩy trước một vị vua mới.",
+    "effects": {
+      "AGI": 3,
+      "joy": 15
+    }
+  },
+  {
+    "id": "dragon_teen_domain",
+    "races": [
+      "dragon"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 6,
+    "text": "Với sải cánh giờ đây rộng hàng chục mét, bạn độc chiếm một đỉnh núi tại Dãy Núi Răng Cưa làm lãnh thổ cá nhân tuyệt đối. Bất cứ sinh vật nào dám bước vào ranh giới đều bị thiêu rụi không thương tiếc, khẳng định uy quyền tối thượng.",
+    "effects": {
+      "health": 10,
+      "wealth": 15,
+      "flags": [
+        "proud"
+      ]
+    }
+  },
+  {
+    "id": "dragon_teen_war_draft",
+    "races": [
+      "dragon"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "eras": [
+      "demon_lord"
+    ],
+    "weight": 5,
+    "require": {
+      "flags": [
+        "calamity"
+      ]
+    },
+    "text": "Một tướng lĩnh của Quân Đoàn Hủy Diệt mang theo cống phẩm ngọc ngà, hứa hẹn nhượng lại một nửa lục địa nếu bạn chịu phục vụ Ma Vương. Bạn lạnh lùng vung đuôi đập nát hắn, cướp lấy kho báu bởi loài rồng không bao giờ cúi đầu trước bất kỳ ai.",
+    "effects": {
+      "wealth": 35,
+      "joy": 5
+    },
+    "moment": "Khước từ Ma Vương, khẳng định uy quyền tuyệt đối của rồng."
+  },
+  {
+    "id": "dragon_teen_kingdom_raid",
+    "races": [
+      "dragon"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 9,
+    "text": "Bay ngang qua Đồng Bằng Thánh Quang, mắt bạn ánh lên lòng tham tột độ khi nhìn thấy thủ đô Sanctus rực rỡ vàng son. Khao khát mãnh liệt muốn vơ vét mọi của cải của nhân loại để xây dựng hang ổ đầu tiên bùng cháy trong huyết quản.",
+    "choices": [
+      {
+        "label": "Trực tiếp tàn phá, san phẳng thành trì",
+        "check": {
+          "stat": "STR",
+          "target": 6
+        },
+        "success": {
+          "text": "Hơi thở nguyên thủy của bạn xóa sổ các bức tường thành, đội Thánh Vệ Quân hoàn toàn bất lực. Bạn cắp theo hàng tấn vàng bạc và ngọc quý trở về, đánh dấu sự ra đời của một tai ương mới trên lục địa.",
+          "effects": {
+            "wealth": 40,
+            "flags": [
+              "calamity"
+            ]
+          },
+          "moment": "San phẳng một vương quốc chỉ để lấy vàng lót ổ."
+        },
+        "fail": {
+          "text": "Sự kiêu ngạo làm bạn khinh suất trước cạm bẫy ma pháp cấp cao của Giáo hội Thánh Quang, vô số mũi giáo xuyên thủng đôi cánh khiến bạn gục ngã.",
+          "death": "Năm {age} tuổi, thi thể khổng lồ của bạn trở thành chiến lợi phẩm vĩ đại nhất của nhân loại, chấm dứt một truyền kỳ chưa kịp nở rộ."
+        }
+      },
+      {
+        "label": "Đậu trên tháp cao, ép chúng triều cống",
+        "text": "Bóng đen khổng lồ của bạn phủ kín thành phố, tiếng gầm rung chuyển đất trời đủ khiến nhà vua khiếp đảm dâng lên vô số rương báu để đổi lấy sự bình yên.",
+        "effects": {
+          "wealth": 25,
+          "joy": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "dragon_adult_magic_null",
+    "races": [
+      "dragon"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 7,
+    "text": "Một liên minh mạo hiểm giả tinh nhuệ vây ráp tổ của bạn, phóng ra hàng loạt ma pháp hủy diệt rực sáng cả bầu trời. Nhưng ngay khi chạm vào lớp vảy rồng tuyệt đối, mọi phép thuật dưới cấp 8 đều vỡ vụn thành bọt khí, để lại cho chúng ánh mắt tuyệt vọng.",
+    "effects": {
+      "health": 20,
+      "INT": 2
+    }
+  },
+  {
+    "id": "dragon_adult_slumber",
+    "races": [
+      "dragon"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "once": false,
+    "weight": 8,
+    "text": "Quá mệt mỏi với sự ồn ào của thế giới, bạn cuộn mình trên núi vàng cao ngất ngưởng và chìm vào một giấc ngủ sâu. Hàng trăm năm trôi qua, thời đại xoay vần, nhưng bạn vẫn tĩnh lặng như một bức tượng thần bất diệt.",
+    "effects": {
+      "health": 30,
+      "joy": -5
+    }
+  },
+  {
+    "id": "dragon_middle_mountain_sleep",
+    "races": [
+      "dragon"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 6,
+    "text": "Kích thước của bạn đã khổng lồ đến mức khi nằm ngủ trông như một ngọn núi đá sừng sững, rêu phong và cây cổ thụ thậm chí bắt đầu mọc lên trên lớp vảy. Sinh vật nhỏ bé vô tình sinh sống trên lưng bạn mà không hay biết chúng đang nương tựa vào một vị thần.",
+    "effects": {
+      "STR": 2,
+      "health": 25,
+      "AGI": -2
+    }
+  },
+  {
+    "id": "dragon_middle_god_whisper",
+    "races": [
+      "dragon"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 5,
+    "require": {
+      "INT": 6
+    },
+    "text": "Không còn màng đến thế sự hay của cải phàm trần, ý thức của bạn bắt đầu cộng hưởng và hấp thụ trực tiếp các quy luật của thế giới. Thỉnh thoảng, trong cõi mơ, bạn nghe thấy tiếng thì thầm kính trọng từ những Thần linh của Aethelgard.",
+    "effects": {
+      "INT": 4,
+      "LUCK": 2
+    },
+    "moment": "Đạt tới cảnh giới giao hòa cùng Thần linh."
+  },
+  {
+    "id": "dragon_elder_ecosystem",
+    "races": [
+      "dragon"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 7,
+    "text": "Bạn thở ra một luồng hơi nguyên thủy không mang tính hủy diệt, mà chứa đựng ma lực phồn sinh mạnh mẽ vô song. Nơi luồng khí đi qua trên Đảo Tro Tàn khô cằn bỗng chốc nở rộ thành một hệ sinh thái rực rỡ, biến bạn thành một phần của tự nhiên sáng thế.",
+    "effects": {
+      "joy": 25,
+      "LUCK": 3
+    }
+  },
+  {
+    "id": "dragon_elder_peace_ignore",
+    "races": [
+      "dragon"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "once": false,
+    "weight": 5,
+    "text": "Kỷ nguyên hòa bình lặp lại, các đế chế của nhân loại rầm rộ ăn mừng, trỗi dậy rồi lại lụi tàn trong dòng chảy vô tình của thời gian. Bạn chỉ hé nửa con mắt khổng lồ nhìn xuống nhân thế, lạnh lùng quan sát vạn vật như một hòn đá vĩnh hằng.",
+    "effects": {
+      "INT": 1,
+      "joy": -5
+    }
+  },
+  {
+    "id": "dragon_elder_dimension_lock",
+    "races": [
+      "dragon"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 6,
+    "text": "Cảm nhận được thế giới vật lý không còn chịu nổi áp lực từ sự hiện diện của mình, bạn xé rách không gian, tự nhốt bản thân vào một chiều không gian biệt lập. Tại đây, Thủy Tổ Long chìm vào cõi vĩnh hằng, lặng lẽ chờ đợi ngày tận thế để thức tỉnh lần cuối.",
+    "effects": {
+      "health": 40,
+      "STR": 2,
+      "INT": 2
+    },
+    "moment": "Rời bỏ thế giới trần tục, ẩn mình chờ đợi Tận Thế."
+  }
+]

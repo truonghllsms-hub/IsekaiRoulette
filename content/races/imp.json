@@ -1,0 +1,260 @@
+{
+  "id": "imp",
+  "name": "Tiểu Quỷ (Imp)",
+  "lifespan": 40,
+  "spawn_rate_percentage": 2,
+  "context": "Kỷ Nguyên Khai Hoang Hầm Ngục – Những tay sai mạt hạng của Ma giới, mang bản tính ranh mãnh và hay châm chọc. Rất dễ bị triệu hồi lên trần gian qua các khế ước máu.",
+  "desc": "Sinh vật nhỏ bé có làn da đỏ hoặc xám, sở hữu đôi cánh dơi, sừng ngắn và chiếc đuôi nhọn hoắt. Imp không có sức mạnh vật lý nổi trội, nhưng nổi tiếng với trí tuệ ranh ma, thích chơi khăm và khả năng luồn lách để sinh tồn giữa những kẻ mạnh hơn.",
+  "society": "Bị coi là đáy xã hội tại Ma giới, Imp thường xuyên phải chịu cảnh sai vặt, đánh đập từ lũ Ngưu Đầu Nhân (Minotaur) hay Ma Tộc Thượng Đẳng (High Demon). Chúng không có tính bầy đàn mạnh, mà thường tìm cách 'bám đuôi' một cá nhân quyền lực, hoặc bị ép buộc phục vụ cho các Pháp sư loài người.",
+  "stages": [
+    {
+      "id": "infant",
+      "name": "Quỷ đỏ nhí",
+      "start": 0,
+      "themes": [
+        "Bị ném vào vạc dầu đun sôi",
+        "Tập vỗ cánh dơi",
+        "Cố bấu víu vạt áo của một High Demon",
+        "Lén ăn cắp những vụn linh hồn rơi vãi",
+        "Bị đám Hellhound dọa nạt"
+      ]
+    },
+    {
+      "id": "child",
+      "name": "Tiểu yêu chọc phá",
+      "start": 5,
+      "themes": [
+        "Giấu đồ của quỷ khác để mua vui",
+        "Bị đá đít văng vào tường",
+        "Hút khói lưu huỳnh để giải trí",
+        "Trêu chọc lính gác",
+        "Học thuộc vài bùa chú vặt vãnh"
+      ]
+    },
+    {
+      "id": "teen",
+      "name": "Tay sai khế ước",
+      "start": 10,
+      "themes": [
+        "Bị Pháp sư loài người triệu hồi",
+        "Lau chùi tháp ma pháp thay cho chổi",
+        "Lén nếm thử độc dược",
+        "Làm gián điệp nghe lén",
+        "Ký khế ước máu trói buộc linh hồn"
+      ]
+    },
+    {
+      "id": "adult",
+      "name": "Quỷ đưa tin",
+      "start": 18,
+      "themes": [
+        "Lừa gạt thu thập linh hồn kẻ yếu",
+        "Tìm cách phản bội chủ nhân",
+        "Đánh cắp bí mật quân sự",
+        "Thực hiện giao dịch ngầm",
+        "Ấp ủ âm mưu trốn thoát về Ma giới"
+      ]
+    },
+    {
+      "id": "middle",
+      "name": "Tiểu quỷ xảo quyệt",
+      "start": 25,
+      "themes": [
+        "Thao túng tâm lý một Hiệp sĩ sa ngã",
+        "Tích trữ vàng bạc dưới gầm giường",
+        "Nâng cấp khả năng sử dụng ma thuật lửa",
+        "Thu nhận đệ tử (thường là Goblin)",
+        "Làm môi giới chợ đen"
+      ]
+    },
+    {
+      "id": "elder",
+      "name": "Lão quỷ trụi cánh",
+      "start": 33,
+      "themes": [
+        "Đứt đuôi do tai nạn",
+        "Phá vỡ thành công khế ước cũ",
+        "Trở thành cố vấn tà ác cho lãnh chúa",
+        "Bị Giáo hội phong ấn vào đá",
+        "Chết cháy do ngọn lửa địa ngục cạn kiệt"
+      ]
+    }
+  ],
+  "origins": [
+    {
+      "id": "origin_hellborn",
+      "name": "Vạc Dầu Sôi Ma Giới",
+      "weight": 40,
+      "text": "Bạn trồi lên từ một vạc dầu sùng sục dưới đáy Ma giới. Kẻ chào đón bạn là cái đạp như trời giáng của một tên canh ngục khổng lồ.",
+      "effects": {
+        "STR": 1,
+        "AGI": 1,
+        "flags": [
+          "hellborn"
+        ]
+      }
+    },
+    {
+      "id": "origin_summon",
+      "name": "Vòng Tròn Triệu Hồi",
+      "weight": 40,
+      "text": "Vừa mở mắt, bạn đã thấy mình đứng giữa một vòng tròn ma thuật rực sáng trên nhân giới. Một tên Pháp sư già khú đang nhìn bạn với nụ cười đắc ý.",
+      "effects": {
+        "INT": 1,
+        "LUCK": -1,
+        "flags": [
+          "familiar_pet"
+        ]
+      }
+    },
+    {
+      "id": "origin_unbound",
+      "name": "Tro tàn Khế ước",
+      "weight": 20,
+      "text": "Bạn sinh ra từ tàn tro của một khế ước bị đốt cháy do chủ nhân cũ đột tử. Bạn mang trong mình sự ranh mãnh và hoàn toàn tự do, không chịu khuất phục ai.",
+      "effects": {
+        "INT": 1,
+        "AGI": 1,
+        "flags": [
+          "unbound_imp"
+        ]
+      }
+    },
+    {
+      "id": "under_demon_table",
+      "name": "Gầm Bàn Ác Quỷ",
+      "weight": 15,
+      "text": "Ngay khi mở mắt, bạn đã thấy mình cuộn tròn dưới gầm chiếc bàn đá nhuốm máu của một Đại Ác Quỷ. Sinh mệnh bé nhỏ của bạn bắt đầu giữa những tiếng gầm thét rung chuyển Vực Thẳm Phân Tầng.",
+      "effects": {
+        "STR": -1,
+        "AGI": 2,
+        "flags": [
+          "hellborn"
+        ]
+      }
+    },
+    {
+      "id": "mage_glass_jar",
+      "name": "Bình Ngâm Tháp Ngà",
+      "weight": 15,
+      "text": "Linh hồn bạn bị cưỡng ép giáng xuống bên trong một bình thủy tinh ngâm dung dịch lục nhạt tại Tháp Ngà. Bánh xe định mệnh trớ trêu đã trói buộc sinh linh bóng tối vào sự tò mò tàn nhẫn của loài người.",
+      "effects": {
+        "INT": 2,
+        "STR": -2,
+        "flags": [
+          "familiar_pet"
+        ]
+      }
+    }
+  ],
+  "signature": [
+    "Tàng hình chớp nhoáng: Có khả năng biến mất vào hư không trong 3 giây khi bị hoảng sợ tột độ.",
+    "Cầu lửa vặt: Khạc ra ngọn lửa nhỏ từ miệng, chỉ đủ sát thương để đốt cháy tài liệu hoặc râu tóc của kẻ địch.",
+    "Ngôn ngữ ác quỷ: Bẩm sinh hiểu và giải mã được mọi loại ngôn ngữ tà thuật trên thế giới.",
+    "Luồn lách khế ước: Trí tuệ cho phép tìm ra kẽ hở trong mọi lời hứa hoặc mệnh lệnh để phản bội chủ nhân một cách hợp pháp.",
+    "Bay lượn tầm thấp: Đôi cánh dơi giúp bạn né tránh hoàn toàn các loại bẫy sập hoặc chông gai dưới mặt đất."
+  ],
+  "milestones": [
+    {
+      "id": "ms_master_dead",
+      "name": "Chủ nhân (Pháp sư) bị ám sát",
+      "choices": [
+        "Lục lọi cướp tài sản rồi chuồn êm (Tăng Tài sản)",
+        "Giết luôn ông ta để cướp linh hồn (Trở nên tàn ác, phá vỡ khế ước)",
+        "Cứu mạng ông ta (Nhận được điểm Thiện hiếm hoi, bị Ma giới khinh bỉ)"
+      ]
+    },
+    {
+      "id": "ms_demon_slave",
+      "name": "Bị High Demon ép làm tay sai",
+      "choices": [
+        "Luồn cúi nịnh bợ gãi lưng cho hắn (Sống an toàn)",
+        "Lén lút ăn cắp báu vật của hắn rồi bỏ trốn (Cần Khéo léo cực cao)",
+        "Đào ngũ trốn lên mặt đất (Bị truy nã toàn Ma giới)"
+      ]
+    },
+    {
+      "id": "ms_contract_offer",
+      "name": "Gặp kẻ tuyệt vọng xin khế ước",
+      "choices": [
+        "Lừa lấy linh hồn hắn để đổi lấy điều ước giả (Tăng mạnh Ma lực)",
+        "Trao sức mạnh thực sự biến hắn thành Bạo chúa (Gây bạo loạn thế giới)",
+        "Trêu chọc cười nhạo rồi bay đi"
+      ]
+    },
+    {
+      "id": "ms_seal_break",
+      "name": "Phát hiện phong ấn cổ đại rạn nứt",
+      "choices": [
+        "Phá bỏ phong ấn thả quái vật ra ngoài (Gây hỗn loạn)",
+        "Hấp thụ năng lượng đen rò rỉ (Tăng mạnh Trí tuệ)",
+        "Đem thông tin đi bán cho Giáo hội (Nhận thưởng, mang tiếng Kẻ chỉ điểm)"
+      ]
+    }
+  ],
+  "deaths": [
+    {
+      "id": "death_contract_break",
+      "kind": "violent",
+      "text": "Ở tuổi {age}, chủ nhân bị ám sát khiến khế ước trói buộc vỡ vụn, kéo theo linh hồn bạn bị xé nát thành ngàn mảnh nhỏ."
+    },
+    {
+      "id": "death_crushed",
+      "kind": "violent",
+      "text": "Năm {age} tuổi, bạn mải bay lượn trêu chọc và bị một tên Khổng lồ vung tay đập nát bét như đập một con ruồi."
+    },
+    {
+      "id": "death_fire_fade",
+      "kind": "health",
+      "text": "Lửa địa ngục trong huyết quản bạn cạn kiệt do sống quá lâu ở nhân giới. Tuổi {age}, cơ thể bạn hóa thành một nắm tro tàn lạnh lẽo."
+    },
+    {
+      "id": "death_purified",
+      "kind": "violent",
+      "text": "Năm {age} tuổi, trong lúc lẻn vào nhà thờ ăn cắp, bạn lỡ tay chạm vào Thánh giá. Ánh sáng Lumina lập tức bốc hơi bạn."
+    },
+    {
+      "id": "death_old_rich",
+      "kind": "old",
+      "text": "Sống thọ đến {age} tuổi, bạn rụng hết cánh và sừng. Bạn chìm vào giấc ngủ vĩnh hằng êm ái trên đống tiền vàng ăn cắp được cả đời."
+    }
+  ],
+  "names": {
+    "male": [
+      "Zix",
+      "Vex",
+      "Kip",
+      "Nib",
+      "Fiz",
+      "Rix",
+      "Pip",
+      "Gix",
+      "Snip",
+      "Jib"
+    ],
+    "female": [
+      "Zixa",
+      "Vexi",
+      "Kipi",
+      "Niba",
+      "Fiza",
+      "Rixa",
+      "Pipa",
+      "Gixa",
+      "Snipi",
+      "Jiba"
+    ],
+    "family": [
+      "Lừa Lọc",
+      "Đuôi Độc",
+      "Răng Nhọn",
+      "Lén Lút",
+      "Xảo Quyệt"
+    ]
+  },
+  "flags": [
+    "hellborn",
+    "familiar_pet",
+    "unbound_imp"
+  ]
+}

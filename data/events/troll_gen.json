@@ -1,0 +1,351 @@
+[
+  {
+    "id": "troll_infant_eat_dirt",
+    "races": [
+      "troll"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "once": false,
+    "weight": 6,
+    "text": "Lăn lóc trong đống bùn nhão, bạn bốc từng nắm đất tẩm ma lực ăn ngấu nghiến. Dạ dày vô đáy của bạn sớm hấp thụ sức mạnh thô sơ của đại địa.",
+    "effects": {
+      "STR": 1,
+      "health": 5
+    }
+  },
+  {
+    "id": "troll_infant_rock_chew",
+    "races": [
+      "troll"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 5,
+    "text": "Đói cồn cào giữa thời đại điêu tàn, bạn nhai nhầm tảng quặng Huyết Kim khiến răng gãy rụng lả tả. Nhưng chỉ qua một đêm, hàm răng sắc nhọn đã mọc lại từ nướu thịt như một phép màu xác thịt.",
+    "effects": {
+      "STR": 1,
+      "joy": -3
+    }
+  },
+  {
+    "id": "troll_infant_play_corpse",
+    "races": [
+      "troll"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "eras": [
+      "holy_war"
+    ],
+    "weight": 6,
+    "text": "Giữa khói lửa chiến tranh, bạn bới được thanh kiếm gãy của Thánh Vệ Quân làm đồ chơi gặm nhấm. Tiếng khanh khách ngô nghê của bạn vang vọng giữa mùi tử khí bốc lên ngùn ngụt.",
+    "effects": {
+      "health": 10,
+      "joy": 5
+    }
+  },
+  {
+    "id": "troll_child_frog_snack",
+    "races": [
+      "troll"
+    ],
+    "stages": [
+      "child"
+    ],
+    "weight": 6,
+    "require": {
+      "flags": [
+        "swamp_troll"
+      ]
+    },
+    "text": "Dạo bước nơi đầm lầy, bạn vồ lấy những con nhái gai độc và nhai sống chúng một cách ngon lành. Chất độc hòa vào máu, khiến làn da rêu của sinh vật bị nguyền rủa này thêm phần chết chóc.",
+    "effects": {
+      "health": 15,
+      "STR": 1
+    }
+  },
+  {
+    "id": "troll_child_roar_practice",
+    "races": [
+      "troll"
+    ],
+    "stages": [
+      "child"
+    ],
+    "once": false,
+    "weight": 6,
+    "text": "Đứng trên một mỏm đá nhô cao, bạn gõ tay vào ngực thùm thụp và gào thét hù dọa bầy quạ đen. Định mệnh đã định sẵn {name} sẽ là nỗi kinh hoàng của những sinh linh mỏng manh trên lục địa này.",
+    "effects": {
+      "STR": 1,
+      "joy": 5
+    }
+  },
+  {
+    "id": "troll_teen_build_toll",
+    "races": [
+      "troll"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "eras": [
+      "peace"
+    ],
+    "weight": 7,
+    "text": "Lợi dụng thời kỳ giao thương tấp nập, bạn đắp bùn làm một rào chắn vô tri ngang qua con đường mòn. Truyền thuyết về kẻ đòi tiền mãi lộ ngu ngốc nhưng đáng sợ chính thức bắt đầu.",
+    "effects": {
+      "wealth": 10,
+      "flags": [
+        "bridge_troll",
+        "fool_gold"
+      ]
+    }
+  },
+  {
+    "id": "troll_teen_eat_wagon",
+    "races": [
+      "troll"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 6,
+    "require": {
+      "flags": [
+        "bridge_troll"
+      ]
+    },
+    "text": "Một thương nhân kiêu ngạo từ chối nộp tiền qua cầu. Bị chọc giận, bạn vươn tay nhai nát cả xe kéo lẫn đống hàng hóa trong ánh mắt kinh hoàng tột độ của hắn.",
+    "effects": {
+      "wealth": 15,
+      "health": 10
+    }
+  },
+  {
+    "id": "troll_teen_lice_scratch",
+    "races": [
+      "troll"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "once": false,
+    "weight": 5,
+    "text": "Bạn lười biếng ngồi gãi những con rận ma thuật trên lưng, khiến từng tảng rêu phong rụng lả tả. Dấu vết khổng lồ bạn để lại đủ khiến đội Tuần Lâm Trọng Vệ phải rùng mình e ngại.",
+    "effects": {
+      "joy": 5,
+      "AGI": -1
+    }
+  },
+  {
+    "id": "troll_teen_toll_choice",
+    "races": [
+      "troll"
+    ],
+    "stages": [
+      "teen"
+    ],
+    "weight": 8,
+    "text": "Một đội mạo hiểm giả thuộc Bình Minh Hội bước tới trạm thu phí bùn đất của bạn. Bọn chúng khinh khỉnh ném cho bạn một Đồng Cẩm Thạch rồi toan rút kiếm bước qua.",
+    "choices": [
+      {
+        "label": "Gầm lên đòi thêm tiền!",
+        "check": {
+          "stat": "STR",
+          "target": 6
+        },
+        "success": {
+          "text": "Bạn đấm vỡ nát tảng đá lớn bên cạnh, áp đảo hoàn toàn ý chí chiến đấu của lũ người yếu ớt khiến chúng ngoan ngoãn giao nộp tài sản.",
+          "effects": {
+            "wealth": 20,
+            "joy": 10
+          },
+          "moment": "Cướp sạch mạo hiểm giả"
+        },
+        "fail": {
+          "text": "Sức mạnh của bạn không đủ dọa dẫm, Pháp sư trong đội tức giận tung quả cầu lửa thiêu rụi bạn thành đống tro tàn ngập mùi khét lẹt.",
+          "death": "Bị mạo hiểm giả thiêu chết vì tham lam ở tuổi {age}."
+        }
+      },
+      {
+        "label": "Cầm tiền và lạch bạch nhường đường.",
+        "text": "Không hiểu giá trị của đồng tiền nhỏ bé, bạn nhặt lấy, nhét vào khố bùn rồi nhe hàm răng khấp khểnh cười ngốc nghếch nhường đường.",
+        "effects": {
+          "wealth": 2,
+          "joy": -2
+        }
+      }
+    ]
+  },
+  {
+    "id": "troll_adult_owlbear_wrestle",
+    "races": [
+      "troll"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "weight": 7,
+    "require": {
+      "STR": 6
+    },
+    "text": "Bạn lao vào cuộc vật lộn đẫm máu với Gấu Owlbear khổng lồ để tranh giành hang ngủ mùa đông. Sức mạnh bạo tàn của bạn đè bẹp đối thủ, dẫu trên người hằn thêm những vết sẹo vĩnh cửu.",
+    "effects": {
+      "health": 20,
+      "joy": 10,
+      "flags": [
+        "scarred"
+      ]
+    }
+  },
+  {
+    "id": "troll_adult_knight_spear",
+    "races": [
+      "troll"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "eras": [
+      "demon_lord"
+    ],
+    "weight": 7,
+    "text": "Kỵ binh Quân Đoàn Hủy Diệt cắm ngập ngọn giáo hắc ám vào ngực bạn, nhưng bạn chỉ thản nhiên rút nó ra xỉa răng. Khả năng phục hồi phi lý khiến lũ ác quỷ hung hăng nhất cũng phải lạnh sống lưng.",
+    "effects": {
+      "health": -10,
+      "LUCK": 2,
+      "flags": [
+        "magic_resist"
+      ]
+    }
+  },
+  {
+    "id": "troll_adult_lumberjack_terror",
+    "races": [
+      "troll"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "once": false,
+    "weight": 5,
+    "text": "Tiếng ngáy sấm sét của bạn vang vọng khắp Đại Ngàn Lục Bảo, thổi bay lán trại của nhóm tiều phu. Bạn vươn vai thức dậy, hoàn toàn không hay biết mình vừa gây ra một cơn bạo bệnh cho cánh rừng.",
+    "effects": {
+      "joy": 5,
+      "health": 5
+    }
+  },
+  {
+    "id": "troll_middle_stone_skin",
+    "races": [
+      "troll"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 7,
+    "text": "Lớp da rêu phong của bạn theo năm tháng đã cứng lại thành một vỏ bọc đá tảng rắn chắc. Dẫu những bước chân đã chập chạp, giờ đây mỗi cú vung tay của bạn đều mang uy lực nghiền nát thành trì.",
+    "effects": {
+      "STR": 2,
+      "AGI": -2
+    }
+  },
+  {
+    "id": "troll_middle_boss_summon",
+    "races": [
+      "troll"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "eras": [
+      "demon_lord"
+    ],
+    "weight": 6,
+    "require": {
+      "flags": [
+        "scarred"
+      ]
+    },
+    "text": "Sứ giả của Ma Vương tìm đến chiêu mộ bạn làm tiên phong phá thành. Vì không hiểu tiếng người, bạn vô tư bắt gã phái viên gầy gò bỏ vào mồm nhai rào rạo, vô tình đắc tội với thế lực hắc ám.",
+    "effects": {
+      "health": 15,
+      "LUCK": -2
+    }
+  },
+  {
+    "id": "troll_middle_yggdrasil_roots",
+    "races": [
+      "troll"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "weight": 6,
+    "require": {
+      "below": {
+        "health": 50
+      }
+    },
+    "text": "Lê lết thân hình đầy thương tích đến gần Cây Thế Giới Yggdrasil, rễ cây cổ đại tỏa ra ma lực chữa lành tận xương tủy cho bạn. Ân trạch của Tự Nhiên Giáo dung dưỡng ngay cả những sinh linh tăm tối nhất.",
+    "effects": {
+      "health": 30,
+      "joy": 10
+    }
+  },
+  {
+    "id": "troll_elder_long_sleep",
+    "races": [
+      "troll"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 7,
+    "text": "Sự mệt mỏi của cõi trần thế ập đến, bạn cuộn mình ngủ liền tù tì hàng chục năm mặc cho tuế nguyệt thoi đưa. Hơi thở đều đặn của bạn dần hòa làm một với nhịp đập của lục địa Aethelgard.",
+    "effects": {
+      "health": 20,
+      "AGI": -2
+    }
+  },
+  {
+    "id": "troll_elder_petrify_start",
+    "races": [
+      "troll"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 7,
+    "text": "Các khớp xương khô khốc cọ vào nhau tạo ra tiếng đá nghiến chói tai mỗi khi bạn cựa mình. Quy luật nghiệt ngã của thời gian đang dần biến sinh thể phàm phu này thành một bức tượng bất động.",
+    "effects": {
+      "STR": -1,
+      "AGI": -2
+    }
+  },
+  {
+    "id": "troll_elder_cult_worship",
+    "races": [
+      "troll"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "weight": 6,
+    "text": "Đoàn tín đồ Hắc Nguyệt Hội đi ngang qua, lầm tưởng bạn là vị tà thần thái cổ say ngủ nên đã phủ phục dâng hiến tế phẩm. Sự ngốc nghếch của bạn lại được suy tôn như một đấng tối cao cõi trần.",
+    "effects": {
+      "wealth": 20,
+      "health": 20
+    }
+  }
+]
