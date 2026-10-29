@@ -1,4 +1,4 @@
-# Prompt Gemini: kịch bản đời người — NGƯỜI LÙN (dwarf)
+# Prompt Gemini: kịch bản đời người — DWARF (dwarf)
 
 Tỉ lệ đầu thai **12%** · nhóm **văn minh (đủ nghề, Hội, tổ đội)** · hệ số nội dung **×1.7**
 Khoảng **184** mục nội dung, chia thành **14 phần**.
@@ -15,16 +15,16 @@ Khoảng **184** mục nội dung, chia thành **14 phần**.
 ## KHỐI CHUNG (dán đầu tiên)
 
 ```
-Bạn là biên kịch cho một web game chữ tiếng Việt tên "Luân Hồi Dị Giới": người chơi đầu thai vào thế giới
+Bạn là biên kịch cho một web game chữ tiếng Việt, văn phong isekai manga/light novel dịch, tên "Luân Hồi Dị Giới": người chơi đầu thai vào thế giới
 giả tưởng Aethelgard và sống trọn một kiếp, từ lúc sinh đến lúc chết, qua từng năm.
-Lần này bạn viết kịch bản cho tộc NGƯỜI LÙN. Chỉ 12% linh hồn được đầu thai vào tộc này.
+Lần này bạn viết kịch bản cho chủng tộc DWARF (tộc thợ rèn lùn và vạm vỡ, sống trong lòng núi). Chỉ 12% linh hồn được đầu thai vào tộc này.
 
-=== NGƯỜI LÙN LÀ AI ===
+=== DWARF LÀ AI ===
 Từ tro bụi của lò rèn nguyên thủy và vách đá lạnh lẽo nơi Dãy Núi Răng Cưa, nòi giống người lùn trỗi dậy với sức mạnh bạt sơn và đôi tay kiệt tác. Bạn là một khối quặng thô đang chờ ngọn lửa định mệnh tôi luyện thành huyền thoại vĩ đại.
 
 Không khí riêng: Cứng cỏi, bướng bỉnh, trọng lời thề và nghề tổ truyền. Hài hước thô ráp như đá núi.
 Chủ đề nên khai thác: Mối thù truyền kiếp với Kobold, sổ hận thù của gia tộc, mỏ sâu đánh thức thứ không nên đánh thức, bia và lễ hội, lời thề không thể phá.
-Cách ra đời: Sinh ra từ cha mẹ Người lùn trong lòng núi. Gia tộc (clan) quan trọng hơn cá nhân; mỗi gia tộc có nghề tổ truyền.
+Cách ra đời: Sinh ra từ cha mẹ Dwarf trong lòng núi. Gia tộc (clan) quan trọng hơn cá nhân; mỗi gia tộc có nghề tổ truyền.
 
 === GIAI ĐOẠN ĐỜI ===
 tuổi thọ 150–200 năm
@@ -36,7 +36,7 @@ Những giai đoạn trẻ và sung sức là lúc nhiều biến cố nhất: v
   Việc chính quyết định loại sự kiện xảy ra và chỉ số nào tăng.
 - 4 chỉ số: Sức mạnh, Trí tuệ, Nhanh nhẹn, May mắn (thường 1–15). 3 thanh: Sức khỏe, Hạnh phúc, Tài sản (0–100). Thêm Danh vọng.
 - NGHỀ: chọn từ cuối tuổi thiếu niên. Mỗi nghề 5 bậc, thăng bậc bằng thử thách dựa vào chỉ số chính. Có thể mất nghề, đổi nghề.
-- BÌNH MINH HỘI (VÀ HỘI RÈN LÒ VĨNH CỬU CHO THỢ THỦ CÔNG): F → E → D → C → B → A → S. Nhận nhiệm vụ gồm 1–5 CẢNH nối tiếp, mỗi cảnh 2–3 lựa chọn.
+- GUILD BÌNH MINH (VÀ HỘI RÈN LÒ VĨNH CỬU CHO THỢ THỦ CÔNG): F → E → D → C → B → A → S. Nhận nhiệm vụ gồm 1–5 CẢNH nối tiếp, mỗi cảnh 2–3 lựa chọn.
 - TỔ ĐỘI: tối đa 3 đồng đội có tên, nghề, tính cách và độ thân thiết; có thể bị thương, chết, bỏ đi, phản bội, thành bạn đời.
 - GIA ĐÌNH: cha mẹ (có thể sống, mất, bỏ đi), tỏ tình → hôn nhân → con cái.
 - DẤU ẤN: lựa chọn để lại dấu ấn; nhiều năm sau, sự kiện khác chỉ xảy ra nếu có dấu ấn đó.
@@ -45,15 +45,30 @@ Những giai đoạn trẻ và sung sức là lúc nhiều biến cố nhất: v
 
 === THẾ GIỚI AETHELGARD ===
 Lịch Kỷ Nguyên Khai Hoang. Tiền: Đồng Cẩm Thạch → Tinh Bạc → Huyết Kim → Lõi Mana.
-Vùng đất: Đồng Bằng Thánh Quang (thủ đô Sanctus, Tháp Ngà Ma Pháp; Con người, Người lùn),
-Thảo Nguyên Gió Hú (Thú nhân, Con người, Orc), Đại Ngàn Lục Bảo (Tiên tộc, Cây Thế Giới Yggdrasil),
-Dãy Núi Răng Cưa (Người lùn, Kobold; Lò Rèn Vĩnh Cửu), Đầm Lầy Tử Khí (Lizardman, Slime, Goblin),
+Vùng đất: Đồng Bằng Thánh Quang (thủ đô Sanctus, Học viện Ma pháp Tháp Ngà; Con người, Dwarf),
+Thảo Nguyên Gió Hú (Beastman, Con người, Orc), Đại Ngàn Lục Bảo (Elf, Cây Thế Giới Yggdrasil),
+Dãy Núi Răng Cưa (Dwarf, Kobold; Lò Rèn Vĩnh Cửu), Đầm Lầy Tử Khí (Lizardman, Slime, Goblin),
 Vực Thẳm Phân Tầng (Ma tộc, Imp, Vampire, Ghoul, Troll; Cửa Ngục Than Khóc), Đảo Tro Tàn (Rồng, Minotaur; Đỉnh Hỏa Ngục).
 Tôn giáo: Giáo hội Thánh Quang (Nữ thần Lumina, căm ghét ma vật), Tự Nhiên Giáo (trung lập),
 Hắc Nguyệt Hội (tà giáo thờ Vực Thẳm Cổ Thần, hiến tế).
-Tổ chức: Bình Minh Hội (mạo hiểm giả), Tháp Ngà Ma Pháp, Thánh Vệ Quân, Quân Đoàn Hủy Diệt (của Ma Vương),
-Thương Đoàn Sói Bạc, Hội Bóng Đêm, Đấu Trường Huyết Sa, Tuần Lâm Trọng Vệ.
+Tổ chức: Guild Bình Minh (mạo hiểm giả), Học viện Ma pháp Tháp Ngà, Thánh Kỵ Sĩ Đoàn, Quân đoàn Ma Vương (của Ma Vương),
+Thương hội Sói Bạc, Guild Sát thủ Umbra, Đấu trường Huyết Sa, Đội Ranger Đại Ngàn.
 4 thời đại: Thời Bình · Chiến Tranh Tuyến Đầu · Kỷ Nguyên Tăm Tối (dịch bệnh, đói) · Ma Vương Giáng Thế.
+
+=== PHONG CÁCH TÊN GỌI: KIỂU MANGA / LIGHT NOVEL DỊCH (BẮT BUỘC) ===
+- Tên chủng tộc GIỮ NGUYÊN tiếng Anh: Human, Beastman, Dwarf, Elf, Demon, Goblin, Slime, Kobold, Lizardman,
+  Vampire, Imp, Orc, Minotaur, Troll, Ghoul, Dragon, High Demon. Beastman ghi kèm dạng thú: "Beastman tộc Mèo".
+  KHÔNG dịch thuần Việt kiểu "Yêu tinh xanh", "Người lùn", "Tiên tộc", "Chằn tinh", "Khổng lồ ngốc".
+  Khi một tộc xuất hiện lần đầu trong đoạn mở đầu, kèm giải thích ngắn trong ngoặc, ví dụ:
+  "Bạn là Gruum, thuộc chủng tộc Goblin (tiểu yêu da xanh sống theo bầy, yếu ớt nhưng ranh mãnh)."
+- Nghề, chức vụ, cấp bậc, danh hiệu theo lối truyện isekai dịch:
+  Hán Việt đã thành chuẩn: Kiếm Thánh, Hiền Giả, Dũng Giả, Ma Vương, Thánh Nữ, Đại Ma pháp sư, Mạo hiểm giả hạng S;
+  hoặc tên class tiếng Anh: Assassin, Priest, Ranger, Berserker, Tamer, Necromancer, Dark Knight.
+  Biến thể và tiến hóa của ma vật luôn bằng tiếng Anh: Hobgoblin, Goblin Lord, High Orc, Slime King, Ancient Dragon, Lich.
+- Hệ thống gọi như manga: Guild, hạng F→S, Skill, tiến hóa, triệu hồi, Dungeon (hầm ngục).
+- Tên tổ chức: Guild Bình Minh (Hội Mạo hiểm giả), Học viện Ma pháp Tháp Ngà, Thánh Kỵ Sĩ Đoàn, Quân đoàn Ma Vương,
+  Thương hội Sói Bạc, Guild Sát thủ Umbra, Đấu trường Huyết Sa, Đội Ranger Đại Ngàn.
+- Văn kể vẫn là tiếng Việt Epic RPG, ngôi thứ hai. Chỉ tên riêng và thuật ngữ mang màu manga.
 
 === GIỌNG VĂN: EPIC RPG ===
 Sử thi, trang trọng, tự sự cổ điển, ngôi thứ hai ("bạn"). Mỗi đoạn 1–2 câu. Câu sau là một hình ảnh
@@ -105,13 +120,13 @@ Hãy trả lời "Đã hiểu" và chờ tôi gửi từng phần.
 PHẦN 1: Xuất thân và cha mẹ
 
 Viết lại xuất thân, lần này kèm đầy đủ thông tin CHA MẸ.
-Cách ra đời của tộc này: Sinh ra từ cha mẹ Người lùn trong lòng núi. Gia tộc (clan) quan trọng hơn cá nhân; mỗi gia tộc có nghề tổ truyền.
+Cách ra đời của tộc này: Sinh ra từ cha mẹ Dwarf trong lòng núi. Gia tộc (clan) quan trọng hơn cá nhân; mỗi gia tộc có nghề tổ truyền.
 
 a) 8 xuất thân ĐÃ CÓ bên dưới: giữ tên và ý chính, bổ sung cha mẹ, anh chị em, gia cảnh.
    - Hậu duệ Lò Rèn Vĩnh Cửu (dấu ấn: huyet_mach_tho_ren)
    - Kẻ lưu vong Đầm Lầy Tử Khí (dấu ấn: con_cua_ke_luu_vong)
-   - Mầm non Thương Đoàn Sói Bạc (dấu ấn: nhay_ben_thuong_mai)
-   - Cô nhi Đấu Trường Huyết Sa (dấu ấn: chien_binh_nhi)
+   - Mầm non Thương hội Sói Bạc (dấu ấn: nhay_ben_thuong_mai)
+   - Cô nhi Đấu trường Huyết Sa (dấu ấn: chien_binh_nhi)
    - Con nhà thợ mỏ Răng Cưa
    - Đứa trẻ được Thánh Quang cưu mang (dấu ấn: an_dien_thanh_quang)
    - Tù binh Hắc Nguyệt Hội (dấu ấn: dau_an_hac_am)
@@ -142,7 +157,7 @@ c) 10 SỰ KIỆN VỀ CHA MẸ trải khắp cuộc đời, theo mẫu sự ki�
 PHẦN 2: Nghề (đợt 1/3)
 
 Tộc này có 9 nghề. Gợi ý (được đổi tên, gộp, thay hoặc thêm nếu bạn có ý hay hơn, miễn đủ 9):
-Thợ rèn rune (Sức mạnh và Trí tuệ) · Thợ mỏ (Sức mạnh) · Chiến binh khiên (Sức mạnh) · Thợ nấu bia (May mắn) · Kỹ sư cơ khí (Trí tuệ) · Thợ khắc đá (Trí tuệ) · Thương nhân đá quý (Trí tuệ) · Lính gác cổng núi (Sức mạnh) · Mạo hiểm giả săn kho báu (Nhanh nhẹn)
+Rune Smith (Sức mạnh và Trí tuệ) · Miner / Thợ mỏ (Sức mạnh) · Shield Warrior (Sức mạnh) · Brewmaster / Thợ nấu bia (May mắn) · Engineer / Kỹ sư cơ khí (Trí tuệ) · Thợ khắc đá (Trí tuệ) · Thương nhân đá quý (Trí tuệ) · Lính gác cổng núi (Sức mạnh) · Treasure Hunter (Nhanh nhẹn)
 
 Trước tiên, liệt kê đủ 9 nghề bạn chọn (tên + chỉ số chính + 1 câu mô tả), đánh số 1 → 9.
 Sau đó viết chi tiết nghề số 1 → 4.
@@ -197,12 +212,12 @@ Với MỖI nghề, viết:
 
 ---
 
-## PHẦN 5 — Tổ chức: Bình Minh Hội (và Hội Rèn Lò Vĩnh Cửu cho thợ thủ công)
+## PHẦN 5 — Tổ chức: Guild Bình Minh (và Hội Rèn Lò Vĩnh Cửu cho thợ thủ công)
 
 ```
-PHẦN 5: Tổ chức: Bình Minh Hội (và Hội Rèn Lò Vĩnh Cửu cho thợ thủ công)
+PHẦN 5: Tổ chức: Guild Bình Minh (và Hội Rèn Lò Vĩnh Cửu cho thợ thủ công)
 
-Ngoài nghề, tộc này có tổ chức riêng: Bình Minh Hội (và Hội Rèn Lò Vĩnh Cửu cho thợ thủ công), với F → E → D → C → B → A → S.
+Ngoài nghề, tộc này có tổ chức riêng: Guild Bình Minh (và Hội Rèn Lò Vĩnh Cửu cho thợ thủ công), với F → E → D → C → B → A → S.
 Đặt tên các bậc (nếu chưa có), mỗi bậc 1 câu khi được thăng lên. Viết 1 sự kiện gia nhập có lựa chọn và 1 sự kiện rời bỏ hoặc phản bội tổ chức.
 ```
 
@@ -253,7 +268,7 @@ trải đều các giai đoạn đời mà việc đó có thể diễn ra, cộ
 ```
 PHẦN 9: Nhiệm vụ nhỏ
 
-Nhiệm vụ của Bình Minh Hội (và Hội Rèn Lò Vĩnh Cửu cho thợ thủ công). Mỗi cái gồm: tên, hạng tối thiểu (F..S),
+Nhiệm vụ của Guild Bình Minh (và Hội Rèn Lò Vĩnh Cửu cho thợ thủ công). Mỗi cái gồm: tên, hạng tối thiểu (F..S),
 một gợi ý ngắn hiện trên bảng (ví dụ "Vừa. Hay có bẫy"), đoạn mở đầu, các CẢNH (mỗi cảnh viết theo mẫu sự kiện),
 đoạn kết khi thành công, phần thưởng (Tài sản, Danh vọng, điểm thăng bậc) và khoảnh khắc.
 Ghi rõ lựa chọn nào khiến THẤT BẠI NGAY, THẮNG NGAY, hoặc gây CHẾT.

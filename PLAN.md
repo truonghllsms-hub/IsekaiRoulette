@@ -40,6 +40,12 @@ Mở `index.html` hoặc chạy `node tools/serve.js` rồi vào http://localhos
 - [ ] Chỉnh hệ số và nguy cơ theo kết quả `simulate`
 - [ ] Bạn chơi thử, góp ý; đăng bản web để chia sẻ
 
+## Khi nhận kịch bản Gemini (prompts/v2) — việc Claude phải làm
+- [ ] Rà và sửa toàn bộ tên gọi theo `docs/NAMING.md` (tên tộc tiếng Anh kèm giải thích, nghề/chức vụ kiểu manga dịch).
+- [ ] Nối các hệ thống mới vào engine: cha mẹ ({father} {mother} {maker}), dạng thú của Beastman,
+      vai trò / thứ bậc / cướp phá / băng nhóm / tiến hóa cho ma vật.
+- [ ] Chuyển kịch bản đã duyệt thành JSON, chạy `npm test`, chơi thử.
+
 ## Vấn đề đã biết
 - Rồng chưa có cảnh lựa chọn nào, vì các cảnh chung chỉ dành cho tộc hình người.
 - 14 tộc chưa có nội dung riêng, nên chỉ gặp sự kiện chung và hay lặp lại.

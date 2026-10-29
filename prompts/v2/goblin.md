@@ -1,4 +1,4 @@
-# Prompt Gemini: kịch bản đời người — YÊU TINH XANH (goblin)
+# Prompt Gemini: kịch bản đời người — GOBLIN (goblin)
 
 Tỉ lệ đầu thai **4%** · nhóm **ma vật / dị tộc** · hệ số nội dung **×1**
 Khoảng **110** mục nội dung, chia thành **10 phần**.
@@ -17,11 +17,11 @@ Khoảng **110** mục nội dung, chia thành **10 phần**.
 ## KHỐI CHUNG (dán đầu tiên)
 
 ```
-Bạn là biên kịch cho một web game chữ tiếng Việt tên "Luân Hồi Dị Giới": người chơi đầu thai vào thế giới
+Bạn là biên kịch cho một web game chữ tiếng Việt, văn phong isekai manga/light novel dịch, tên "Luân Hồi Dị Giới": người chơi đầu thai vào thế giới
 giả tưởng Aethelgard và sống trọn một kiếp, từ lúc sinh đến lúc chết, qua từng năm.
-Lần này bạn viết kịch bản cho tộc YÊU TINH XANH. Chỉ 4% linh hồn được đầu thai vào tộc này.
+Lần này bạn viết kịch bản cho chủng tộc GOBLIN (tiểu yêu da xanh sống theo bầy, yếu ớt nhưng ranh mãnh). Chỉ 4% linh hồn được đầu thai vào tộc này.
 
-=== YÊU TINH XANH LÀ AI ===
+=== GOBLIN LÀ AI ===
 Những sinh vật da xanh thấp bé sống chui lủi dưới những tầng ngục nông hoặc bìa rừng, mang bản tính ranh mãnh, hèn nhát và tàn nhẫn. Bị khinh miệt bởi mọi chủng tộc, Goblin lấy số lượng bầy đàn và khả năng sinh tồn khắc nghiệt để bù đắp cho sự yếu ớt bẩm sinh.
 Xã hội: Sống thành bầy đàn đông đúc trong các hang động ngập ngụa rác thải hoặc bụi rậm. Con non bị vứt bỏ tự sinh tự diệt từ lúc lọt lòng; kẻ nào sống sót qua cơn đói sẽ được bầy chấp nhận làm lực lượng đi nhặt thức ăn. Kẻ đứng đầu là Tù Trưởng (cá thể to khỏe và bạo lực nhất) hoặc Pháp Sư (cá thể vô tình hấp thụ được chút ma lực rò rỉ).
 Không khí riêng: Sử thi trang trọng đặt vào thân phận hèn mọn. Hài hước đen, bẩn thỉu, tàn nhẫn.
@@ -37,26 +37,41 @@ Những giai đoạn trẻ và sung sức là lúc nhiều biến cố nhất: v
 - Mỗi năm người chơi chọn một VIỆC CHÍNH: Bới rác (tuổi nhỏ) · Học lỏm (theo lão Pháp sư) · Khổ luyện · Phục dịch bộ lạc · Đi cướp · Tranh quyền · Trốn ngủ.
 - 4 chỉ số: Sức mạnh, Trí tuệ, Nhanh nhẹn, May mắn (thường 1–15). 3 thanh: Sức khỏe, Hạnh phúc, Tài sản (với ma vật là chiến lợi phẩm, của cải). Thêm Danh vọng (tiếng tăm trong đồng loại).
 - VAI TRÒ (thay cho nghề): mỗi vai trò 5 bậc, thăng bậc bằng thử thách dựa vào chỉ số chính.
-- THỨ BẬC trong Bộ lạc: 7 bậc từ Rác rưởi lên Tù trưởng (bạn đặt tên).
+- THỨ BẬC trong Bộ lạc: 7 bậc từ Rác rưởi lên Goblin Chief, đỉnh cao là Goblin King (bạn đặt tên).
 - CUỘC CƯỚP PHÁ (thay cho nhiệm vụ của mạo hiểm giả): 1–4 CẢNH nối tiếp, mỗi cảnh 2–3 lựa chọn.
 - BĂNG NHÓM (thay cho tổ đội): tối đa 3 kẻ đồng hành có tên và tính cách.
 - GIÀNH BẠN TÌNH (thay cho hôn nhân) và con cháu.
-- TIẾN HÓA: Hobgoblin · Goblin Pháp Sư Lớn · Vua Goblin (cực hiếm).
+- TIẾN HÓA: Hobgoblin · Goblin Shaman Lord · Goblin King (cực hiếm).
 - DẤU ẤN: lựa chọn để lại dấu ấn; nhiều năm sau, sự kiện khác chỉ xảy ra nếu có dấu ấn đó.
 - Game đã có sẵn 48 sự kiện cũ cho tộc này (đời thường, ngẫu nhiên). Lần này bạn viết LỚP MỚI gắn với
   việc chính, vai trò, cuộc cướp phá, băng nhóm, gia đình. Tránh lặp lại những ý quá quen.
 
 === THẾ GIỚI AETHELGARD ===
 Lịch Kỷ Nguyên Khai Hoang. Tiền: Đồng Cẩm Thạch → Tinh Bạc → Huyết Kim → Lõi Mana.
-Vùng đất: Đồng Bằng Thánh Quang (thủ đô Sanctus, Tháp Ngà Ma Pháp; Con người, Người lùn),
-Thảo Nguyên Gió Hú (Thú nhân, Con người, Orc), Đại Ngàn Lục Bảo (Tiên tộc, Cây Thế Giới Yggdrasil),
-Dãy Núi Răng Cưa (Người lùn, Kobold; Lò Rèn Vĩnh Cửu), Đầm Lầy Tử Khí (Lizardman, Slime, Goblin),
+Vùng đất: Đồng Bằng Thánh Quang (thủ đô Sanctus, Học viện Ma pháp Tháp Ngà; Con người, Dwarf),
+Thảo Nguyên Gió Hú (Beastman, Con người, Orc), Đại Ngàn Lục Bảo (Elf, Cây Thế Giới Yggdrasil),
+Dãy Núi Răng Cưa (Dwarf, Kobold; Lò Rèn Vĩnh Cửu), Đầm Lầy Tử Khí (Lizardman, Slime, Goblin),
 Vực Thẳm Phân Tầng (Ma tộc, Imp, Vampire, Ghoul, Troll; Cửa Ngục Than Khóc), Đảo Tro Tàn (Rồng, Minotaur; Đỉnh Hỏa Ngục).
 Tôn giáo: Giáo hội Thánh Quang (Nữ thần Lumina, căm ghét ma vật), Tự Nhiên Giáo (trung lập),
 Hắc Nguyệt Hội (tà giáo thờ Vực Thẳm Cổ Thần, hiến tế).
-Tổ chức: Bình Minh Hội (mạo hiểm giả), Tháp Ngà Ma Pháp, Thánh Vệ Quân, Quân Đoàn Hủy Diệt (của Ma Vương),
-Thương Đoàn Sói Bạc, Hội Bóng Đêm, Đấu Trường Huyết Sa, Tuần Lâm Trọng Vệ.
+Tổ chức: Guild Bình Minh (mạo hiểm giả), Học viện Ma pháp Tháp Ngà, Thánh Kỵ Sĩ Đoàn, Quân đoàn Ma Vương (của Ma Vương),
+Thương hội Sói Bạc, Guild Sát thủ Umbra, Đấu trường Huyết Sa, Đội Ranger Đại Ngàn.
 4 thời đại: Thời Bình · Chiến Tranh Tuyến Đầu · Kỷ Nguyên Tăm Tối (dịch bệnh, đói) · Ma Vương Giáng Thế.
+
+=== PHONG CÁCH TÊN GỌI: KIỂU MANGA / LIGHT NOVEL DỊCH (BẮT BUỘC) ===
+- Tên chủng tộc GIỮ NGUYÊN tiếng Anh: Human, Beastman, Dwarf, Elf, Demon, Goblin, Slime, Kobold, Lizardman,
+  Vampire, Imp, Orc, Minotaur, Troll, Ghoul, Dragon, High Demon. Beastman ghi kèm dạng thú: "Beastman tộc Mèo".
+  KHÔNG dịch thuần Việt kiểu "Yêu tinh xanh", "Người lùn", "Tiên tộc", "Chằn tinh", "Khổng lồ ngốc".
+  Khi một tộc xuất hiện lần đầu trong đoạn mở đầu, kèm giải thích ngắn trong ngoặc, ví dụ:
+  "Bạn là Gruum, thuộc chủng tộc Goblin (tiểu yêu da xanh sống theo bầy, yếu ớt nhưng ranh mãnh)."
+- Nghề, chức vụ, cấp bậc, danh hiệu theo lối truyện isekai dịch:
+  Hán Việt đã thành chuẩn: Kiếm Thánh, Hiền Giả, Dũng Giả, Ma Vương, Thánh Nữ, Đại Ma pháp sư, Mạo hiểm giả hạng S;
+  hoặc tên class tiếng Anh: Assassin, Priest, Ranger, Berserker, Tamer, Necromancer, Dark Knight.
+  Biến thể và tiến hóa của ma vật luôn bằng tiếng Anh: Hobgoblin, Goblin Lord, High Orc, Slime King, Ancient Dragon, Lich.
+- Hệ thống gọi như manga: Guild, hạng F→S, Skill, tiến hóa, triệu hồi, Dungeon (hầm ngục).
+- Tên tổ chức: Guild Bình Minh (Hội Mạo hiểm giả), Học viện Ma pháp Tháp Ngà, Thánh Kỵ Sĩ Đoàn, Quân đoàn Ma Vương,
+  Thương hội Sói Bạc, Guild Sát thủ Umbra, Đấu trường Huyết Sa, Đội Ranger Đại Ngàn.
+- Văn kể vẫn là tiếng Việt Epic RPG, ngôi thứ hai. Chỉ tên riêng và thuật ngữ mang màu manga.
 
 === GIỌNG VĂN: EPIC RPG ===
 Sử thi, trang trọng, tự sự cổ điển, ngôi thứ hai ("bạn"). Mỗi đoạn 1–2 câu. Câu sau là một hình ảnh
@@ -143,7 +158,7 @@ c) 4 SỰ KIỆN VỀ CHA MẸ trải khắp cuộc đời, theo mẫu sự ki�
 PHẦN 2: Vai trò
 
 Tộc này có 5 vai trò. Gợi ý (được đổi tên, gộp, thay hoặc thêm nếu bạn có ý hay hơn, miễn đủ 5):
-Chiến binh xung kích (Sức mạnh) · Trinh sát kiêm thợ bẫy (Nhanh nhẹn) · Học đồ Pháp sư (Trí tuệ) · Kẻ cắp (Nhanh nhẹn) · Thợ chế phế liệu (Trí tuệ) · Kỵ sĩ cưỡi sói (Nhanh nhẹn và Sức mạnh) · Kẻ hầu hạ Tù trưởng (không cần gì)
+Goblin Warrior (Sức mạnh) · Goblin Scout kiêm thợ bẫy (Nhanh nhẹn) · Goblin Shaman tập sự (Trí tuệ) · Goblin Thief (Nhanh nhẹn) · Goblin Tinker / thợ chế phế liệu (Trí tuệ) · Goblin Rider cưỡi sói (Nhanh nhẹn và Sức mạnh) · Tạp dịch của Goblin Chief (không cần gì)
 
 Trước tiên, liệt kê đủ 5 vai trò bạn chọn (tên + chỉ số chính + 1 câu mô tả), đánh số 1 → 5.
 Sau đó viết chi tiết vai trò số 1 → 5.
@@ -164,7 +179,7 @@ Với MỖI vai trò, viết:
 ```
 PHẦN 3: Thứ bậc: Bộ lạc
 
-Đặt tên 7 bậc của Bộ lạc (7 bậc từ Rác rưởi lên Tù trưởng (bạn đặt tên)). Mỗi bậc viết 1 câu khi được thăng lên bậc đó.
+Đặt tên 7 bậc của Bộ lạc (7 bậc từ Rác rưởi lên Goblin Chief, đỉnh cao là Goblin King (bạn đặt tên)). Mỗi bậc viết 1 câu khi được thăng lên bậc đó.
 Viết thêm 1 sự kiện đặc biệt để leo lên bậc cao nhất (thách đấu, lật đổ, được thừa nhận...), có 3 lựa chọn dựa vào 3 chỉ số khác nhau.
 ```
 
@@ -249,7 +264,7 @@ PHẦN 9: Giành bạn tình, tiến hóa, tuổi già
 
 a) 3 cảnh về giành bạn tình, mỗi cảnh có kết quả thành công và thất bại.
 b) 5 sự kiện về con cháu {child}.
-c) TIẾN HÓA, 3 nhánh: Hobgoblin, Goblin Pháp Sư Lớn, Vua Goblin (cực hiếm). Mỗi nhánh viết: điều kiện (chỉ số, dấu ấn, tuổi),
+c) TIẾN HÓA, 3 nhánh: Hobgoblin, Goblin Shaman Lord, Goblin King (cực hiếm). Mỗi nhánh viết: điều kiện (chỉ số, dấu ấn, tuổi),
    1 sự kiện báo hiệu, 1 sự kiện tiến hóa có lựa chọn (thành công thì tăng mạnh chỉ số và đổi hình dạng,
    thất bại có thể chết), và 2 sự kiện chỉ xảy ra SAU khi đã tiến hóa.
 d) 4 sự kiện cuối đời.

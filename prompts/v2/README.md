@@ -8,22 +8,22 @@ nhiều nội dung để không lặp. Các tộc ma vật giữ mức vừa ph�
 
 | Tộc | Tỉ lệ | Nhóm | Hệ số | Nghề / vai trò | Nhiệm vụ | Xuất thân | Tổng mục | Số phần | File |
 |---|---|---|---|---|---|---|---|---|---|
-| Con người | 33% | văn minh | ×4 | 14 nghề | 32 | 20 | 408 | 18 | [human.md](human.md) |
-| Thú nhân | 18% | văn minh | ×2.5 | 11 nghề | 21 | 14 | 318 | 17 | [beastman.md](beastman.md) |
-| Người lùn | 12% | văn minh | ×1.7 | 9 nghề | 14 | 10 | 184 | 14 | [dwarf.md](dwarf.md) |
-| Ma tộc | 7% | văn minh | ×1 | 7 nghề | 10 | 10 | 126 | 11 | [demon.md](demon.md) |
-| Tiên tộc | 7% | văn minh | ×1 | 7 nghề | 10 | 10 | 126 | 11 | [elf.md](elf.md) |
-| Yêu tinh xanh | 4% | ma vật | ×1 | 5 vai trò | 11 | 7 | 110 | 10 | [goblin.md](goblin.md) |
+| Human | 33% | văn minh | ×4 | 14 nghề | 32 | 20 | 408 | 18 | [human.md](human.md) |
+| Beastman | 18% | văn minh | ×2.5 | 11 nghề | 21 | 14 | 318 | 17 | [beastman.md](beastman.md) |
+| Dwarf | 12% | văn minh | ×1.7 | 9 nghề | 14 | 10 | 184 | 14 | [dwarf.md](dwarf.md) |
+| Demon | 7% | văn minh | ×1 | 7 nghề | 10 | 10 | 126 | 11 | [demon.md](demon.md) |
+| Elf | 7% | văn minh | ×1 | 7 nghề | 10 | 10 | 126 | 11 | [elf.md](elf.md) |
+| Goblin | 4% | ma vật | ×1 | 5 vai trò | 11 | 7 | 110 | 10 | [goblin.md](goblin.md) |
 | Slime | 3% | ma vật | ×1 | 5 vai trò | 11 | 6 | 109 | 10 | [slime.md](slime.md) |
-| Cẩu đầu nhân | 3% | ma vật | ×1 | 5 vai trò | 11 | 6 | 105 | 10 | [kobold.md](kobold.md) |
-| Thằn lằn nhân | 3% | ma vật | ×1 | 5 vai trò | 11 | 6 | 105 | 10 | [lizardman.md](lizardman.md) |
-| Ma cà rồng | 2.5% | ma vật | ×1 | 5 vai trò | 11 | 6 | 109 | 10 | [vampire.md](vampire.md) |
-| Tiểu quỷ | 2% | ma vật | ×1 | 5 vai trò | 11 | 6 | 105 | 10 | [imp.md](imp.md) |
-| Chằn tinh | 2% | ma vật | ×1 | 5 vai trò | 11 | 6 | 105 | 10 | [orc.md](orc.md) |
-| Ngưu đầu nhân | 1.5% | ma vật | ×0.6 | 3 vai trò | 7 | 7 | 73 | 9 | [minotaur.md](minotaur.md) |
-| Khổng lồ ngốc | 0.8% | ma vật | ×0.6 | 3 vai trò | 7 | 7 | 73 | 9 | [troll.md](troll.md) |
-| Ngạ quỷ | 0.5% | ma vật | ×0.6 | 3 vai trò | 7 | 6 | 72 | 9 | [ghoul.md](ghoul.md) |
-| Rồng | 0.5% | ma vật | ×0.6 | 3 vai trò | 7 | 6 | 72 | 9 | [dragon.md](dragon.md) |
-| Ma tộc thượng đẳng | 0.2% | ma vật | ×0.6 | 3 vai trò | 7 | 4 | 70 | 9 | [high_demon.md](high_demon.md) |
+| Kobold | 3% | ma vật | ×1 | 5 vai trò | 11 | 6 | 105 | 10 | [kobold.md](kobold.md) |
+| Lizardman | 3% | ma vật | ×1 | 5 vai trò | 11 | 6 | 105 | 10 | [lizardman.md](lizardman.md) |
+| Vampire | 2.5% | ma vật | ×1 | 5 vai trò | 11 | 6 | 109 | 10 | [vampire.md](vampire.md) |
+| Imp | 2% | ma vật | ×1 | 5 vai trò | 11 | 6 | 105 | 10 | [imp.md](imp.md) |
+| Orc | 2% | ma vật | ×1 | 5 vai trò | 11 | 6 | 105 | 10 | [orc.md](orc.md) |
+| Minotaur | 1.5% | ma vật | ×0.6 | 3 vai trò | 7 | 7 | 73 | 9 | [minotaur.md](minotaur.md) |
+| Troll | 0.8% | ma vật | ×0.6 | 3 vai trò | 7 | 7 | 73 | 9 | [troll.md](troll.md) |
+| Ghoul | 0.5% | ma vật | ×0.6 | 3 vai trò | 7 | 6 | 72 | 9 | [ghoul.md](ghoul.md) |
+| Dragon | 0.5% | ma vật | ×0.6 | 3 vai trò | 7 | 6 | 72 | 9 | [dragon.md](dragon.md) |
+| High Demon | 0.2% | ma vật | ×0.6 | 3 vai trò | 7 | 4 | 70 | 9 | [high_demon.md](high_demon.md) |
 
 Tạo lại các file này: `node tools/make-prompts-v2.js` (sửa thiết kế từng tộc trong `tools/race-design.js`).

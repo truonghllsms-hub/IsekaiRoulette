@@ -1,4 +1,4 @@
-# Prompt Gemini: kịch bản đời người — CHẰN TINH (orc)
+# Prompt Gemini: kịch bản đời người — ORC (orc)
 
 Tỉ lệ đầu thai **2%** · nhóm **ma vật / dị tộc** · hệ số nội dung **×1**
 Khoảng **105** mục nội dung, chia thành **10 phần**.
@@ -17,11 +17,11 @@ Khoảng **105** mục nội dung, chia thành **10 phần**.
 ## KHỐI CHUNG (dán đầu tiên)
 
 ```
-Bạn là biên kịch cho một web game chữ tiếng Việt tên "Luân Hồi Dị Giới": người chơi đầu thai vào thế giới
+Bạn là biên kịch cho một web game chữ tiếng Việt, văn phong isekai manga/light novel dịch, tên "Luân Hồi Dị Giới": người chơi đầu thai vào thế giới
 giả tưởng Aethelgard và sống trọn một kiếp, từ lúc sinh đến lúc chết, qua từng năm.
-Lần này bạn viết kịch bản cho tộc CHẰN TINH. Chỉ 2% linh hồn được đầu thai vào tộc này.
+Lần này bạn viết kịch bản cho chủng tộc ORC (chiến binh da xanh nanh dài, trọng sức mạnh và danh dự). Chỉ 2% linh hồn được đầu thai vào tộc này.
 
-=== CHẰN TINH LÀ AI ===
+=== ORC LÀ AI ===
 Thân hình to lớn vượt trội so với con người, cơ bắp cuồn cuộn với làn da xanh thẫm, xám hoặc đỏ rực cùng cặp nanh lòi ra đầy đe dọa. Orc bạo lực, cục cằn nhưng lại rất thẳng thắn. Chúng cực kỳ trọng danh dự chiến binh, tuyệt đối khinh bỉ pháp thuật, những trò đánh lén và sự hèn nhát.
 Xã hội: Sống theo các bộ lạc du mục lớn hoặc chiếm đóng các phế tích bỏ hoang ngoài Rừng Tân Thủ. Xã hội Orc vận hành theo nguyên tắc vàng: Kẻ mạnh nhất có tất cả. Quyền lực tuyệt đối thuộc về Tù Trưởng (Warchief). Bất cứ ai cũng có quyền thách đấu Tù Trưởng để giành ngôi, nhưng cái giá của sự thất bại thường là cái chết hoặc bị lưu đày vĩnh viễn.
 Không khí riêng: Thô bạo, thẳng thắn, trọng danh dự chiến binh. Tiếng trống và tiếng gầm.
@@ -41,22 +41,37 @@ Những giai đoạn trẻ và sung sức là lúc nhiều biến cố nhất: v
 - CUỘC CHINH PHẠT (thay cho nhiệm vụ của mạo hiểm giả): 1–4 CẢNH nối tiếp, mỗi cảnh 2–3 lựa chọn.
 - ĐỘI CHIẾN (thay cho tổ đội): tối đa 3 kẻ đồng hành có tên và tính cách.
 - GIÀNH BẠN ĐỜI BẰNG CHIẾN CÔNG (thay cho hôn nhân) và con cháu.
-- TIẾN HÓA: Orc Cuồng chiến · Orc Đại tướng.
+- TIẾN HÓA: High Orc · Orc Warlord.
 - DẤU ẤN: lựa chọn để lại dấu ấn; nhiều năm sau, sự kiện khác chỉ xảy ra nếu có dấu ấn đó.
 - Game đã có sẵn 48 sự kiện cũ cho tộc này (đời thường, ngẫu nhiên). Lần này bạn viết LỚP MỚI gắn với
   việc chính, vai trò, cuộc chinh phạt, đội chiến, gia đình. Tránh lặp lại những ý quá quen.
 
 === THẾ GIỚI AETHELGARD ===
 Lịch Kỷ Nguyên Khai Hoang. Tiền: Đồng Cẩm Thạch → Tinh Bạc → Huyết Kim → Lõi Mana.
-Vùng đất: Đồng Bằng Thánh Quang (thủ đô Sanctus, Tháp Ngà Ma Pháp; Con người, Người lùn),
-Thảo Nguyên Gió Hú (Thú nhân, Con người, Orc), Đại Ngàn Lục Bảo (Tiên tộc, Cây Thế Giới Yggdrasil),
-Dãy Núi Răng Cưa (Người lùn, Kobold; Lò Rèn Vĩnh Cửu), Đầm Lầy Tử Khí (Lizardman, Slime, Goblin),
+Vùng đất: Đồng Bằng Thánh Quang (thủ đô Sanctus, Học viện Ma pháp Tháp Ngà; Con người, Dwarf),
+Thảo Nguyên Gió Hú (Beastman, Con người, Orc), Đại Ngàn Lục Bảo (Elf, Cây Thế Giới Yggdrasil),
+Dãy Núi Răng Cưa (Dwarf, Kobold; Lò Rèn Vĩnh Cửu), Đầm Lầy Tử Khí (Lizardman, Slime, Goblin),
 Vực Thẳm Phân Tầng (Ma tộc, Imp, Vampire, Ghoul, Troll; Cửa Ngục Than Khóc), Đảo Tro Tàn (Rồng, Minotaur; Đỉnh Hỏa Ngục).
 Tôn giáo: Giáo hội Thánh Quang (Nữ thần Lumina, căm ghét ma vật), Tự Nhiên Giáo (trung lập),
 Hắc Nguyệt Hội (tà giáo thờ Vực Thẳm Cổ Thần, hiến tế).
-Tổ chức: Bình Minh Hội (mạo hiểm giả), Tháp Ngà Ma Pháp, Thánh Vệ Quân, Quân Đoàn Hủy Diệt (của Ma Vương),
-Thương Đoàn Sói Bạc, Hội Bóng Đêm, Đấu Trường Huyết Sa, Tuần Lâm Trọng Vệ.
+Tổ chức: Guild Bình Minh (mạo hiểm giả), Học viện Ma pháp Tháp Ngà, Thánh Kỵ Sĩ Đoàn, Quân đoàn Ma Vương (của Ma Vương),
+Thương hội Sói Bạc, Guild Sát thủ Umbra, Đấu trường Huyết Sa, Đội Ranger Đại Ngàn.
 4 thời đại: Thời Bình · Chiến Tranh Tuyến Đầu · Kỷ Nguyên Tăm Tối (dịch bệnh, đói) · Ma Vương Giáng Thế.
+
+=== PHONG CÁCH TÊN GỌI: KIỂU MANGA / LIGHT NOVEL DỊCH (BẮT BUỘC) ===
+- Tên chủng tộc GIỮ NGUYÊN tiếng Anh: Human, Beastman, Dwarf, Elf, Demon, Goblin, Slime, Kobold, Lizardman,
+  Vampire, Imp, Orc, Minotaur, Troll, Ghoul, Dragon, High Demon. Beastman ghi kèm dạng thú: "Beastman tộc Mèo".
+  KHÔNG dịch thuần Việt kiểu "Yêu tinh xanh", "Người lùn", "Tiên tộc", "Chằn tinh", "Khổng lồ ngốc".
+  Khi một tộc xuất hiện lần đầu trong đoạn mở đầu, kèm giải thích ngắn trong ngoặc, ví dụ:
+  "Bạn là Gruum, thuộc chủng tộc Goblin (tiểu yêu da xanh sống theo bầy, yếu ớt nhưng ranh mãnh)."
+- Nghề, chức vụ, cấp bậc, danh hiệu theo lối truyện isekai dịch:
+  Hán Việt đã thành chuẩn: Kiếm Thánh, Hiền Giả, Dũng Giả, Ma Vương, Thánh Nữ, Đại Ma pháp sư, Mạo hiểm giả hạng S;
+  hoặc tên class tiếng Anh: Assassin, Priest, Ranger, Berserker, Tamer, Necromancer, Dark Knight.
+  Biến thể và tiến hóa của ma vật luôn bằng tiếng Anh: Hobgoblin, Goblin Lord, High Orc, Slime King, Ancient Dragon, Lich.
+- Hệ thống gọi như manga: Guild, hạng F→S, Skill, tiến hóa, triệu hồi, Dungeon (hầm ngục).
+- Tên tổ chức: Guild Bình Minh (Hội Mạo hiểm giả), Học viện Ma pháp Tháp Ngà, Thánh Kỵ Sĩ Đoàn, Quân đoàn Ma Vương,
+  Thương hội Sói Bạc, Guild Sát thủ Umbra, Đấu trường Huyết Sa, Đội Ranger Đại Ngàn.
+- Văn kể vẫn là tiếng Việt Epic RPG, ngôi thứ hai. Chỉ tên riêng và thuật ngữ mang màu manga.
 
 === GIỌNG VĂN: EPIC RPG ===
 Sử thi, trang trọng, tự sự cổ điển, ngôi thứ hai ("bạn"). Mỗi đoạn 1–2 câu. Câu sau là một hình ảnh
@@ -142,7 +157,7 @@ c) 4 SỰ KIỆN VỀ CHA MẸ trải khắp cuộc đời, theo mẫu sự ki�
 PHẦN 2: Vai trò
 
 Tộc này có 5 vai trò. Gợi ý (được đổi tên, gộp, thay hoặc thêm nếu bạn có ý hay hơn, miễn đủ 5):
-Chiến binh cuồng nộ (Sức mạnh) · Thợ săn thú lớn (Nhanh nhẹn) · Thầy cúng tổ tiên (Trí tuệ, bị coi thường vì Orc khinh pháp thuật) · Thợ rèn thô (Sức mạnh) · Người chăn sói chiến (không cần gì)
+Orc Berserker (Sức mạnh) · Orc Hunter (Nhanh nhẹn) · Orc Shaman (Trí tuệ, bị coi thường vì Orc khinh pháp thuật) · Orc Smith (Sức mạnh) · Wolf Tamer chăn sói chiến (không cần gì)
 
 Trước tiên, liệt kê đủ 5 vai trò bạn chọn (tên + chỉ số chính + 1 câu mô tả), đánh số 1 → 5.
 Sau đó viết chi tiết vai trò số 1 → 5.
@@ -248,7 +263,7 @@ PHẦN 9: Giành bạn đời bằng chiến công, tiến hóa, tuổi già
 
 a) 3 cảnh về giành bạn đời bằng chiến công, mỗi cảnh có kết quả thành công và thất bại.
 b) 5 sự kiện về con cháu {child}.
-c) TIẾN HÓA, 2 nhánh: Orc Cuồng chiến, Orc Đại tướng. Mỗi nhánh viết: điều kiện (chỉ số, dấu ấn, tuổi),
+c) TIẾN HÓA, 2 nhánh: High Orc, Orc Warlord. Mỗi nhánh viết: điều kiện (chỉ số, dấu ấn, tuổi),
    1 sự kiện báo hiệu, 1 sự kiện tiến hóa có lựa chọn (thành công thì tăng mạnh chỉ số và đổi hình dạng,
    thất bại có thể chết), và 2 sự kiện chỉ xảy ra SAU khi đã tiến hóa.
 d) 4 sự kiện cuối đời.

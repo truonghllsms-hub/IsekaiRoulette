@@ -65,7 +65,9 @@
   function startLife() {
     c = E.createCharacter(D);
     rendered = 0;
+    $("reveal-name").textContent = c.name;
     $("reveal-race").textContent = c.race.name;
+    $("reveal-gloss").textContent = c.race.gloss ? `(${c.race.gloss})` : "";
     $("reveal-odds").textContent = `Chỉ ${pctOf(c.race)}% linh hồn được đầu thai làm ${c.race.name}.`;
     $("reveal-origin").textContent = c.origin.name + (c.era ? ` · ${c.era.name}` : "");
     $("reveal-desc").textContent = c.race.desc || "";

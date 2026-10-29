@@ -20,7 +20,7 @@
   {
     "id": "c_herbs", "name": "Hái Nguyệt Quang Thảo", "minRank": "F", "maxRank": "C", "repeat": true, "weight": 5,
     "hint": "Dễ. Cần tinh mắt",
-    "intro": "Tháp Ngà Ma Pháp cần Nguyệt Quang Thảo, loài cỏ chỉ nở dưới trăng tròn ở rìa Đại Ngàn Lục Bảo.",
+    "intro": "Học viện Ma pháp Tháp Ngà cần Nguyệt Quang Thảo, loài cỏ chỉ nở dưới trăng tròn ở rìa Đại Ngàn Lục Bảo.",
     "steps": [
       { "text": "Đêm trăng tròn, rừng sâu sáng lên những đốm bạc. Nhưng thứ gì đó cũng đang rình rập trong bụi rậm.",
         "choices": [
@@ -38,7 +38,7 @@
   {
     "id": "c_escort", "name": "Hộ tống đoàn buôn", "minRank": "E", "repeat": true, "weight": 5,
     "hint": "Vừa. Thưởng khá",
-    "intro": "Thương Đoàn Sói Bạc cần người hộ tống ba xe hàng qua con đèo khét tiếng có cướp.",
+    "intro": "Thương hội Sói Bạc cần người hộ tống ba xe hàng qua con đèo khét tiếng có cướp.",
     "steps": [
       { "text": "Ngày thứ ba, xe hàng dừng giữa đèo. Một thân cây đổ chắn ngang đường, quá ngay ngắn để là tự nhiên.",
         "choices": [
@@ -53,7 +53,7 @@
             "fail": { "text": "Bọn cướp cười vào mặt bạn rồi rút dao. Bạn phải chiến đấu trong thế bất lợi.", "effects": { "health": -20 } } }
         ] }
     ],
-    "complete": "Thương Đoàn Sói Bạc trả công sòng phẳng, và nhắn rằng lần sau sẽ hỏi đích danh bạn.",
+    "complete": "Thương hội Sói Bạc trả công sòng phẳng, và nhắn rằng lần sau sẽ hỏi đích danh bạn.",
     "reward": { "wealth": 8, "guildPts": 2 }
   },
   {
@@ -192,7 +192,7 @@
             "fail": { "text": "Bạn chạy, nhưng chiếc đầu đã nhìn thấy mặt bạn. Lời nguyền bám theo bạn suốt đời.", "effects": { "health": -20, "LUCK": -2, "flags": ["cursed_king"] }, "end": "fail" } }
         ] }
     ],
-    "complete": "Bạn bước ra ánh mặt trời với kho báu ngàn năm. Bình Minh Hội ghi tên bạn vào biên niên sử.",
+    "complete": "Bạn bước ra ánh mặt trời với kho báu ngàn năm. Guild Bình Minh ghi tên bạn vào biên niên sử.",
     "reward": { "wealth": 30, "guildPts": 5, "fame": 6 },
     "moment": "Chinh phục Lăng mộ Vua Không Đầu"
   },
@@ -235,9 +235,9 @@
     "moment": "Hạ gục phi long trên Đỉnh Hỏa Ngục"
   },
   {
-    "id": "s_legion", "name": "Tiền đồn của Quân Đoàn Hủy Diệt", "minRank": "C", "repeat": false, "weight": 6, "eras": ["demon_lord", "holy_war"],
+    "id": "s_legion", "name": "Tiền đồn của Quân đoàn Ma Vương", "minRank": "C", "repeat": false, "weight": 6, "eras": ["demon_lord", "holy_war"],
     "hint": "Chỉ có trong thời loạn. 3 cảnh",
-    "intro": "Quân Đoàn Hủy Diệt dựng một tiền đồn ở biên giới. Thánh Vệ Quân cần những mạo hiểm giả gan dạ để phá hủy nó trước khi đại quân kéo đến.",
+    "intro": "Quân đoàn Ma Vương dựng một tiền đồn ở biên giới. Thánh Kỵ Sĩ Đoàn cần những mạo hiểm giả gan dạ để phá hủy nó trước khi đại quân kéo đến.",
     "steps": [
       { "text": "Tiền đồn bao quanh bởi hào lửa đen. Lính canh là những con quỷ có sừng, đổi gác mỗi giờ.",
         "choices": [
@@ -261,14 +261,14 @@
         "choices": [
           { "label": "Chiến đấu mở đường máu", "check": { "stat": "STR", "target": 8 },
             "success": { "text": "Bạn hạ hắn bằng một nhát chém cuối cùng. Chiếc sừng của hắn sẽ là bằng chứng chiến công.", "effects": { "fame": 5 } },
-            "fail": { "text": "Thanh đại đao của hắn bổ xuống.", "death": "Bạn ngã xuống giữa tiền đồn đang cháy, nhưng cánh cổng địa ngục đã tắt. Thánh Vệ Quân khắc tên bạn lên đài tưởng niệm." } },
+            "fail": { "text": "Thanh đại đao của hắn bổ xuống.", "death": "Bạn ngã xuống giữa tiền đồn đang cháy, nhưng cánh cổng địa ngục đã tắt. Thánh Kỵ Sĩ Đoàn khắc tên bạn lên đài tưởng niệm." } },
           { "label": "Chạy theo ống thoát nước", "check": { "stat": "AGI", "target": 7 },
             "success": { "text": "Bạn biến mất vào lòng đất khi tiền đồn sụp đổ phía sau.", "effects": {} },
             "fail": { "text": "Ống thoát nước bị chặn. Bạn phải quay lại và chiến đấu trong tuyệt vọng.", "effects": { "health": -35 }, "end": "fail" } }
         ] }
     ],
-    "complete": "Thánh Vệ Quân trao cho bạn huân chương Ngôi Sao Bạc. Đại quân của Ma Vương phải lùi lại thêm một mùa.",
+    "complete": "Thánh Kỵ Sĩ Đoàn trao cho bạn huân chương Ngôi Sao Bạc. Đại quân của Ma Vương phải lùi lại thêm một mùa.",
     "reward": { "wealth": 25, "guildPts": 6, "fame": 10, "flags": ["legion_breaker"] },
-    "moment": "Phá hủy tiền đồn Quân Đoàn Hủy Diệt"
+    "moment": "Phá hủy tiền đồn Quân đoàn Ma Vương"
   }
 ]

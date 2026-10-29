@@ -1,4 +1,4 @@
-# Prompt Gemini: kịch bản đời người — CON NGƯỜI (human)
+# Prompt Gemini: kịch bản đời người — HUMAN (human)
 
 Tỉ lệ đầu thai **33%** · nhóm **văn minh (đủ nghề, Hội, tổ đội)** · hệ số nội dung **×4**
 Khoảng **408** mục nội dung, chia thành **18 phần**.
@@ -15,16 +15,16 @@ Khoảng **408** mục nội dung, chia thành **18 phần**.
 ## KHỐI CHUNG (dán đầu tiên)
 
 ```
-Bạn là biên kịch cho một web game chữ tiếng Việt tên "Luân Hồi Dị Giới": người chơi đầu thai vào thế giới
+Bạn là biên kịch cho một web game chữ tiếng Việt, văn phong isekai manga/light novel dịch, tên "Luân Hồi Dị Giới": người chơi đầu thai vào thế giới
 giả tưởng Aethelgard và sống trọn một kiếp, từ lúc sinh đến lúc chết, qua từng năm.
-Lần này bạn viết kịch bản cho tộc CON NGƯỜI. Chỉ 33% linh hồn được đầu thai vào tộc này.
+Lần này bạn viết kịch bản cho chủng tộc HUMAN (loài người: tuổi thọ ngắn, tham vọng không đáy). Chỉ 33% linh hồn được đầu thai vào tộc này.
 
-=== CON NGƯỜI LÀ AI ===
+=== HUMAN LÀ AI ===
 Loài người dẫu tuổi thọ ngắn ngủi nhưng luôn sở hữu ngọn lửa tham vọng rực cháy, đủ sức thắp sáng hoặc thiêu rụi cả lục địa Aethelgard. Sinh ra dưới sự giằng xé của những thời đại hỗn mang, vận mệnh của bạn là chớp lấy cơ hội để vươn lên thành một huyền thoại bất diệt.
 
 Không khí riêng: Con người ngắn ngủi mà đầy tham vọng. Tình tiết đời thường xen giữa những khoảnh khắc anh hùng.
 Chủ đề nên khai thác: Tham vọng, giai cấp, chiến tranh giữa các vương quốc, thăng tiến từ hèn mọn lên quyền quý, những người dị giới được triệu hồi.
-Cách ra đời: Sinh ra từ cha mẹ là con người. Đôi khi cha hoặc mẹ là tộc khác (con lai Tiên tộc, Thú nhân).
+Cách ra đời: Sinh ra từ cha mẹ là con người. Đôi khi cha hoặc mẹ là tộc khác (con lai Elf, Beastman).
 
 === GIAI ĐOẠN ĐỜI ===
 tuổi thọ 70–80 năm
@@ -36,7 +36,7 @@ Những giai đoạn trẻ và sung sức là lúc nhiều biến cố nhất: v
   Việc chính quyết định loại sự kiện xảy ra và chỉ số nào tăng.
 - 4 chỉ số: Sức mạnh, Trí tuệ, Nhanh nhẹn, May mắn (thường 1–15). 3 thanh: Sức khỏe, Hạnh phúc, Tài sản (0–100). Thêm Danh vọng.
 - NGHỀ: chọn từ cuối tuổi thiếu niên. Mỗi nghề 5 bậc, thăng bậc bằng thử thách dựa vào chỉ số chính. Có thể mất nghề, đổi nghề.
-- BÌNH MINH HỘI: F → E → D → C → B → A → S. Nhận nhiệm vụ gồm 1–5 CẢNH nối tiếp, mỗi cảnh 2–3 lựa chọn.
+- GUILD BÌNH MINH: F → E → D → C → B → A → S. Nhận nhiệm vụ gồm 1–5 CẢNH nối tiếp, mỗi cảnh 2–3 lựa chọn.
 - TỔ ĐỘI: tối đa 3 đồng đội có tên, nghề, tính cách và độ thân thiết; có thể bị thương, chết, bỏ đi, phản bội, thành bạn đời.
 - GIA ĐÌNH: cha mẹ (có thể sống, mất, bỏ đi), tỏ tình → hôn nhân → con cái.
 - DẤU ẤN: lựa chọn để lại dấu ấn; nhiều năm sau, sự kiện khác chỉ xảy ra nếu có dấu ấn đó.
@@ -45,15 +45,30 @@ Những giai đoạn trẻ và sung sức là lúc nhiều biến cố nhất: v
 
 === THẾ GIỚI AETHELGARD ===
 Lịch Kỷ Nguyên Khai Hoang. Tiền: Đồng Cẩm Thạch → Tinh Bạc → Huyết Kim → Lõi Mana.
-Vùng đất: Đồng Bằng Thánh Quang (thủ đô Sanctus, Tháp Ngà Ma Pháp; Con người, Người lùn),
-Thảo Nguyên Gió Hú (Thú nhân, Con người, Orc), Đại Ngàn Lục Bảo (Tiên tộc, Cây Thế Giới Yggdrasil),
-Dãy Núi Răng Cưa (Người lùn, Kobold; Lò Rèn Vĩnh Cửu), Đầm Lầy Tử Khí (Lizardman, Slime, Goblin),
+Vùng đất: Đồng Bằng Thánh Quang (thủ đô Sanctus, Học viện Ma pháp Tháp Ngà; Con người, Dwarf),
+Thảo Nguyên Gió Hú (Beastman, Con người, Orc), Đại Ngàn Lục Bảo (Elf, Cây Thế Giới Yggdrasil),
+Dãy Núi Răng Cưa (Dwarf, Kobold; Lò Rèn Vĩnh Cửu), Đầm Lầy Tử Khí (Lizardman, Slime, Goblin),
 Vực Thẳm Phân Tầng (Ma tộc, Imp, Vampire, Ghoul, Troll; Cửa Ngục Than Khóc), Đảo Tro Tàn (Rồng, Minotaur; Đỉnh Hỏa Ngục).
 Tôn giáo: Giáo hội Thánh Quang (Nữ thần Lumina, căm ghét ma vật), Tự Nhiên Giáo (trung lập),
 Hắc Nguyệt Hội (tà giáo thờ Vực Thẳm Cổ Thần, hiến tế).
-Tổ chức: Bình Minh Hội (mạo hiểm giả), Tháp Ngà Ma Pháp, Thánh Vệ Quân, Quân Đoàn Hủy Diệt (của Ma Vương),
-Thương Đoàn Sói Bạc, Hội Bóng Đêm, Đấu Trường Huyết Sa, Tuần Lâm Trọng Vệ.
+Tổ chức: Guild Bình Minh (mạo hiểm giả), Học viện Ma pháp Tháp Ngà, Thánh Kỵ Sĩ Đoàn, Quân đoàn Ma Vương (của Ma Vương),
+Thương hội Sói Bạc, Guild Sát thủ Umbra, Đấu trường Huyết Sa, Đội Ranger Đại Ngàn.
 4 thời đại: Thời Bình · Chiến Tranh Tuyến Đầu · Kỷ Nguyên Tăm Tối (dịch bệnh, đói) · Ma Vương Giáng Thế.
+
+=== PHONG CÁCH TÊN GỌI: KIỂU MANGA / LIGHT NOVEL DỊCH (BẮT BUỘC) ===
+- Tên chủng tộc GIỮ NGUYÊN tiếng Anh: Human, Beastman, Dwarf, Elf, Demon, Goblin, Slime, Kobold, Lizardman,
+  Vampire, Imp, Orc, Minotaur, Troll, Ghoul, Dragon, High Demon. Beastman ghi kèm dạng thú: "Beastman tộc Mèo".
+  KHÔNG dịch thuần Việt kiểu "Yêu tinh xanh", "Người lùn", "Tiên tộc", "Chằn tinh", "Khổng lồ ngốc".
+  Khi một tộc xuất hiện lần đầu trong đoạn mở đầu, kèm giải thích ngắn trong ngoặc, ví dụ:
+  "Bạn là Gruum, thuộc chủng tộc Goblin (tiểu yêu da xanh sống theo bầy, yếu ớt nhưng ranh mãnh)."
+- Nghề, chức vụ, cấp bậc, danh hiệu theo lối truyện isekai dịch:
+  Hán Việt đã thành chuẩn: Kiếm Thánh, Hiền Giả, Dũng Giả, Ma Vương, Thánh Nữ, Đại Ma pháp sư, Mạo hiểm giả hạng S;
+  hoặc tên class tiếng Anh: Assassin, Priest, Ranger, Berserker, Tamer, Necromancer, Dark Knight.
+  Biến thể và tiến hóa của ma vật luôn bằng tiếng Anh: Hobgoblin, Goblin Lord, High Orc, Slime King, Ancient Dragon, Lich.
+- Hệ thống gọi như manga: Guild, hạng F→S, Skill, tiến hóa, triệu hồi, Dungeon (hầm ngục).
+- Tên tổ chức: Guild Bình Minh (Hội Mạo hiểm giả), Học viện Ma pháp Tháp Ngà, Thánh Kỵ Sĩ Đoàn, Quân đoàn Ma Vương,
+  Thương hội Sói Bạc, Guild Sát thủ Umbra, Đấu trường Huyết Sa, Đội Ranger Đại Ngàn.
+- Văn kể vẫn là tiếng Việt Epic RPG, ngôi thứ hai. Chỉ tên riêng và thuật ngữ mang màu manga.
 
 === GIỌNG VĂN: EPIC RPG ===
 Sử thi, trang trọng, tự sự cổ điển, ngôi thứ hai ("bạn"). Mỗi đoạn 1–2 câu. Câu sau là một hình ảnh
@@ -105,7 +120,7 @@ Hãy trả lời "Đã hiểu" và chờ tôi gửi từng phần.
 PHẦN 1: Xuất thân và cha mẹ
 
 Viết lại xuất thân, lần này kèm đầy đủ thông tin CHA MẸ.
-Cách ra đời của tộc này: Sinh ra từ cha mẹ là con người. Đôi khi cha hoặc mẹ là tộc khác (con lai Tiên tộc, Thú nhân).
+Cách ra đời của tộc này: Sinh ra từ cha mẹ là con người. Đôi khi cha hoặc mẹ là tộc khác (con lai Elf, Beastman).
 
 a) 7 xuất thân ĐÃ CÓ bên dưới: giữ tên và ý chính, bổ sung cha mẹ, anh chị em, gia cảnh.
    - Con của kỹ nữ (dấu ấn: poor, slum)
@@ -141,7 +156,7 @@ c) 24 SỰ KIỆN VỀ CHA MẸ trải khắp cuộc đời, theo mẫu sự ki�
 PHẦN 2: Nghề (đợt 1/5)
 
 Tộc này có 14 nghề. Gợi ý (được đổi tên, gộp, thay hoặc thêm nếu bạn có ý hay hơn, miễn đủ 14):
-Kiếm sĩ (Sức mạnh) · Pháp sư (Trí tuệ) · Thích khách (Nhanh nhẹn) · Giáo sĩ (Trí tuệ) · Thợ rèn (Sức mạnh) · Thương nhân (Trí tuệ, cần vốn) · Nông dân (không cần gì) · Thợ săn (Nhanh nhẹn) · Du ca (May mắn) · Thủy thủ (Sức mạnh) · Lính Thánh Vệ Quân (Sức mạnh) · Học giả Tháp Ngà (Trí tuệ) · Thầy thuốc (Trí tuệ) · Quan lại (Trí tuệ) · Đấu sĩ Huyết Sa (Sức mạnh) · Kỵ sĩ (Sức mạnh và Nhanh nhẹn)
+Kiếm sĩ (Sức mạnh) · Ma pháp sư (Trí tuệ) · Assassin (Nhanh nhẹn) · Priest (Trí tuệ) · Blacksmith (Sức mạnh) · Thương nhân (Trí tuệ, cần vốn) · Nông dân (không cần gì) · Hunter / Thợ săn (Nhanh nhẹn) · Bard / Du ca (May mắn) · Thủy thủ (Sức mạnh) · Thánh Kỵ Sĩ (Sức mạnh) · Học giả Tháp Ngà (Trí tuệ) · Healer / Thầy thuốc (Trí tuệ) · Quan lại (Trí tuệ) · Gladiator / Đấu sĩ (Sức mạnh) · Tamer / Thuần thú sư (May mắn)
 
 Trước tiên, liệt kê đủ 14 nghề bạn chọn (tên + chỉ số chính + 1 câu mô tả), đánh số 1 → 14.
 Sau đó viết chi tiết nghề số 1 → 3.
@@ -290,7 +305,7 @@ trải đều các giai đoạn đời mà việc đó có thể diễn ra, cộ
 ```
 PHẦN 11: Nhiệm vụ nhỏ
 
-Nhiệm vụ của Bình Minh Hội. Mỗi cái gồm: tên, hạng tối thiểu (F..S),
+Nhiệm vụ của Guild Bình Minh. Mỗi cái gồm: tên, hạng tối thiểu (F..S),
 một gợi ý ngắn hiện trên bảng (ví dụ "Vừa. Hay có bẫy"), đoạn mở đầu, các CẢNH (mỗi cảnh viết theo mẫu sự kiện),
 đoạn kết khi thành công, phần thưởng (Tài sản, Danh vọng, điểm thăng bậc) và khoảnh khắc.
 Ghi rõ lựa chọn nào khiến THẤT BẠI NGAY, THẮNG NGAY, hoặc gây CHẾT.

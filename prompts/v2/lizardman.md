@@ -1,4 +1,4 @@
-# Prompt Gemini: kịch bản đời người — THẰN LẰN NHÂN (lizardman)
+# Prompt Gemini: kịch bản đời người — LIZARDMAN (lizardman)
 
 Tỉ lệ đầu thai **3%** · nhóm **ma vật / dị tộc** · hệ số nội dung **×1**
 Khoảng **105** mục nội dung, chia thành **10 phần**.
@@ -17,11 +17,11 @@ Khoảng **105** mục nội dung, chia thành **10 phần**.
 ## KHỐI CHUNG (dán đầu tiên)
 
 ```
-Bạn là biên kịch cho một web game chữ tiếng Việt tên "Luân Hồi Dị Giới": người chơi đầu thai vào thế giới
+Bạn là biên kịch cho một web game chữ tiếng Việt, văn phong isekai manga/light novel dịch, tên "Luân Hồi Dị Giới": người chơi đầu thai vào thế giới
 giả tưởng Aethelgard và sống trọn một kiếp, từ lúc sinh đến lúc chết, qua từng năm.
-Lần này bạn viết kịch bản cho tộc THẰN LẰN NHÂN. Chỉ 3% linh hồn được đầu thai vào tộc này.
+Lần này bạn viết kịch bản cho chủng tộc LIZARDMAN (người thằn lằn của đầm lầy, khoác vảy như giáp). Chỉ 3% linh hồn được đầu thai vào tộc này.
 
-=== THẰN LẰN NHÂN LÀ AI ===
+=== LIZARDMAN LÀ AI ===
 Sinh vật nửa người nửa thằn lằn, khoác lớp vảy cứng cáp như áo giáp. Chúng có khả năng bơi lội siêu phàm, di chuyển không phát ra tiếng động dưới nước. Lizardman tàn nhẫn, bài ngoại, có tính phòng thủ lãnh thổ cực cao và miễn nhiễm với hầu hết các loại độc dược tự nhiên.
 Xã hội: Sống bầy đàn thành các bộ lạc khép kín sâu trong đầm lầy. Xã hội được dẫn dắt bởi một Tư tế (Shaman) hoặc Chiến binh mạnh nhất. Lizardman tôn thờ Tà thần Rắn hoặc Rồng Đầm Lầy, thường xuyên tổ chức các nghi lễ bắt Mạo hiểm giả hoặc tộc người khác về để hiến tế máu.
 Không khí riêng: Lạnh lùng, nguyên thủy, thiêng liêng theo kiểu tà thần. Đầm lầy vừa là nhà vừa là bàn thờ.
@@ -41,22 +41,37 @@ Những giai đoạn trẻ và sung sức là lúc nhiều biến cố nhất: v
 - CUỘC SĂN TẾ PHẨM (thay cho nhiệm vụ của mạo hiểm giả): 1–4 CẢNH nối tiếp, mỗi cảnh 2–3 lựa chọn.
 - ĐỘI SĂN (thay cho tổ đội): tối đa 3 kẻ đồng hành có tên và tính cách.
 - NGHI LỄ GIAO PHỐI (thay cho hôn nhân) và con cháu.
-- TIẾN HÓA: Lizardman Rồng Đầm Lầy · Tư tế Rắn tối cao.
+- TIẾN HÓA: Swamp Dragonewt · High Serpent Priest.
 - DẤU ẤN: lựa chọn để lại dấu ấn; nhiều năm sau, sự kiện khác chỉ xảy ra nếu có dấu ấn đó.
 - Game đã có sẵn 48 sự kiện cũ cho tộc này (đời thường, ngẫu nhiên). Lần này bạn viết LỚP MỚI gắn với
   việc chính, vai trò, cuộc săn tế phẩm, đội săn, gia đình. Tránh lặp lại những ý quá quen.
 
 === THẾ GIỚI AETHELGARD ===
 Lịch Kỷ Nguyên Khai Hoang. Tiền: Đồng Cẩm Thạch → Tinh Bạc → Huyết Kim → Lõi Mana.
-Vùng đất: Đồng Bằng Thánh Quang (thủ đô Sanctus, Tháp Ngà Ma Pháp; Con người, Người lùn),
-Thảo Nguyên Gió Hú (Thú nhân, Con người, Orc), Đại Ngàn Lục Bảo (Tiên tộc, Cây Thế Giới Yggdrasil),
-Dãy Núi Răng Cưa (Người lùn, Kobold; Lò Rèn Vĩnh Cửu), Đầm Lầy Tử Khí (Lizardman, Slime, Goblin),
+Vùng đất: Đồng Bằng Thánh Quang (thủ đô Sanctus, Học viện Ma pháp Tháp Ngà; Con người, Dwarf),
+Thảo Nguyên Gió Hú (Beastman, Con người, Orc), Đại Ngàn Lục Bảo (Elf, Cây Thế Giới Yggdrasil),
+Dãy Núi Răng Cưa (Dwarf, Kobold; Lò Rèn Vĩnh Cửu), Đầm Lầy Tử Khí (Lizardman, Slime, Goblin),
 Vực Thẳm Phân Tầng (Ma tộc, Imp, Vampire, Ghoul, Troll; Cửa Ngục Than Khóc), Đảo Tro Tàn (Rồng, Minotaur; Đỉnh Hỏa Ngục).
 Tôn giáo: Giáo hội Thánh Quang (Nữ thần Lumina, căm ghét ma vật), Tự Nhiên Giáo (trung lập),
 Hắc Nguyệt Hội (tà giáo thờ Vực Thẳm Cổ Thần, hiến tế).
-Tổ chức: Bình Minh Hội (mạo hiểm giả), Tháp Ngà Ma Pháp, Thánh Vệ Quân, Quân Đoàn Hủy Diệt (của Ma Vương),
-Thương Đoàn Sói Bạc, Hội Bóng Đêm, Đấu Trường Huyết Sa, Tuần Lâm Trọng Vệ.
+Tổ chức: Guild Bình Minh (mạo hiểm giả), Học viện Ma pháp Tháp Ngà, Thánh Kỵ Sĩ Đoàn, Quân đoàn Ma Vương (của Ma Vương),
+Thương hội Sói Bạc, Guild Sát thủ Umbra, Đấu trường Huyết Sa, Đội Ranger Đại Ngàn.
 4 thời đại: Thời Bình · Chiến Tranh Tuyến Đầu · Kỷ Nguyên Tăm Tối (dịch bệnh, đói) · Ma Vương Giáng Thế.
+
+=== PHONG CÁCH TÊN GỌI: KIỂU MANGA / LIGHT NOVEL DỊCH (BẮT BUỘC) ===
+- Tên chủng tộc GIỮ NGUYÊN tiếng Anh: Human, Beastman, Dwarf, Elf, Demon, Goblin, Slime, Kobold, Lizardman,
+  Vampire, Imp, Orc, Minotaur, Troll, Ghoul, Dragon, High Demon. Beastman ghi kèm dạng thú: "Beastman tộc Mèo".
+  KHÔNG dịch thuần Việt kiểu "Yêu tinh xanh", "Người lùn", "Tiên tộc", "Chằn tinh", "Khổng lồ ngốc".
+  Khi một tộc xuất hiện lần đầu trong đoạn mở đầu, kèm giải thích ngắn trong ngoặc, ví dụ:
+  "Bạn là Gruum, thuộc chủng tộc Goblin (tiểu yêu da xanh sống theo bầy, yếu ớt nhưng ranh mãnh)."
+- Nghề, chức vụ, cấp bậc, danh hiệu theo lối truyện isekai dịch:
+  Hán Việt đã thành chuẩn: Kiếm Thánh, Hiền Giả, Dũng Giả, Ma Vương, Thánh Nữ, Đại Ma pháp sư, Mạo hiểm giả hạng S;
+  hoặc tên class tiếng Anh: Assassin, Priest, Ranger, Berserker, Tamer, Necromancer, Dark Knight.
+  Biến thể và tiến hóa của ma vật luôn bằng tiếng Anh: Hobgoblin, Goblin Lord, High Orc, Slime King, Ancient Dragon, Lich.
+- Hệ thống gọi như manga: Guild, hạng F→S, Skill, tiến hóa, triệu hồi, Dungeon (hầm ngục).
+- Tên tổ chức: Guild Bình Minh (Hội Mạo hiểm giả), Học viện Ma pháp Tháp Ngà, Thánh Kỵ Sĩ Đoàn, Quân đoàn Ma Vương,
+  Thương hội Sói Bạc, Guild Sát thủ Umbra, Đấu trường Huyết Sa, Đội Ranger Đại Ngàn.
+- Văn kể vẫn là tiếng Việt Epic RPG, ngôi thứ hai. Chỉ tên riêng và thuật ngữ mang màu manga.
 
 === GIỌNG VĂN: EPIC RPG ===
 Sử thi, trang trọng, tự sự cổ điển, ngôi thứ hai ("bạn"). Mỗi đoạn 1–2 câu. Câu sau là một hình ảnh
@@ -142,7 +157,7 @@ c) 4 SỰ KIỆN VỀ CHA MẸ trải khắp cuộc đời, theo mẫu sự ki�
 PHẦN 2: Vai trò
 
 Tộc này có 5 vai trò. Gợi ý (được đổi tên, gộp, thay hoặc thêm nếu bạn có ý hay hơn, miễn đủ 5):
-Chiến binh vảy (Sức mạnh) · Thợ săn dưới nước (Nhanh nhẹn) · Tư tế Rắn (Trí tuệ) · Thợ làm độc (Trí tuệ) · Người canh trứng (không cần gì)
+Lizardman Warrior (Sức mạnh) · Lizardman Hunter dưới nước (Nhanh nhẹn) · Serpent Priest / Tư tế Rắn (Trí tuệ) · Poison Maker (Trí tuệ) · Người canh trứng (không cần gì)
 
 Trước tiên, liệt kê đủ 5 vai trò bạn chọn (tên + chỉ số chính + 1 câu mô tả), đánh số 1 → 5.
 Sau đó viết chi tiết vai trò số 1 → 5.
@@ -248,7 +263,7 @@ PHẦN 9: Nghi lễ giao phối, tiến hóa, tuổi già
 
 a) 3 cảnh về nghi lễ giao phối, mỗi cảnh có kết quả thành công và thất bại.
 b) 5 sự kiện về con cháu {child}.
-c) TIẾN HÓA, 2 nhánh: Lizardman Rồng Đầm Lầy, Tư tế Rắn tối cao. Mỗi nhánh viết: điều kiện (chỉ số, dấu ấn, tuổi),
+c) TIẾN HÓA, 2 nhánh: Swamp Dragonewt, High Serpent Priest. Mỗi nhánh viết: điều kiện (chỉ số, dấu ấn, tuổi),
    1 sự kiện báo hiệu, 1 sự kiện tiến hóa có lựa chọn (thành công thì tăng mạnh chỉ số và đổi hình dạng,
    thất bại có thể chết), và 2 sự kiện chỉ xảy ra SAU khi đã tiến hóa.
 d) 4 sự kiện cuối đời.

@@ -1,4 +1,4 @@
-# Prompt Gemini: kịch bản đời người — TIÊN TỘC (elf)
+# Prompt Gemini: kịch bản đời người — ELF (elf)
 
 Tỉ lệ đầu thai **7%** · nhóm **văn minh (đủ nghề, Hội, tổ đội)** · hệ số nội dung **×1**
 Khoảng **126** mục nội dung, chia thành **11 phần**.
@@ -15,16 +15,16 @@ Khoảng **126** mục nội dung, chia thành **11 phần**.
 ## KHỐI CHUNG (dán đầu tiên)
 
 ```
-Bạn là biên kịch cho một web game chữ tiếng Việt tên "Luân Hồi Dị Giới": người chơi đầu thai vào thế giới
+Bạn là biên kịch cho một web game chữ tiếng Việt, văn phong isekai manga/light novel dịch, tên "Luân Hồi Dị Giới": người chơi đầu thai vào thế giới
 giả tưởng Aethelgard và sống trọn một kiếp, từ lúc sinh đến lúc chết, qua từng năm.
-Lần này bạn viết kịch bản cho tộc TIÊN TỘC. Chỉ 7% linh hồn được đầu thai vào tộc này.
+Lần này bạn viết kịch bản cho chủng tộc ELF (tộc tai nhọn của rừng thiêng, sống cả nghìn năm). Chỉ 7% linh hồn được đầu thai vào tộc này.
 
-=== TIÊN TỘC LÀ AI ===
-Tiên tộc mang trong mình huyết mạch tinh thuần từ thuở khai thiên, thọ mệnh dài đằng đẵng sánh ngang cội nguồn núi non. Bánh xe định mệnh đưa bạn đến Đại Ngàn Lục Bảo, nơi những đứa con của Yggdrasil gánh vác sứ mệnh bảo vệ sự cân bằng vĩnh hằng.
+=== ELF LÀ AI ===
+Elf mang trong mình huyết mạch tinh thuần từ thuở khai thiên, thọ mệnh dài đằng đẵng sánh ngang cội nguồn núi non. Bánh xe định mệnh đưa bạn đến Đại Ngàn Lục Bảo, nơi những đứa con của Yggdrasil gánh vác sứ mệnh bảo vệ sự cân bằng vĩnh hằng.
 
 Không khí riêng: Thanh tao, u hoài, nhìn thế gian qua hàng thế kỷ. Bi kịch nằm ở chỗ những người bạn phàm trần lần lượt già đi và chết.
 Chủ đề nên khai thác: Thời gian dài đằng đẵng (một sự kiện có thể kéo dài 50 năm), chứng kiến bạn bè phàm trần chết, bảo vệ Đại Ngàn khỏi con người khai thác, kiêu ngạo chủng tộc.
-Cách ra đời: Sinh ra từ cha mẹ Tiên tộc. Tiên tộc sinh con rất hiếm; một đứa trẻ là sự kiện của cả cộng đồng. Cha mẹ sống hàng nghìn năm nên có thể đồng hành cả đời bạn, hoặc rời đi vì lý do riêng. Con lai với Con người (Bán tiên) bị cả hai bên xa lánh.
+Cách ra đời: Sinh ra từ cha mẹ Elf. Elf sinh con rất hiếm; một đứa trẻ là sự kiện của cả cộng đồng. Cha mẹ sống hàng nghìn năm nên có thể đồng hành cả đời bạn, hoặc rời đi vì lý do riêng. Con lai với Con người (Half-Elf) bị cả hai bên xa lánh.
 
 === GIAI ĐOẠN ĐỜI ===
 tuổi thọ 1.000–2.000 năm
@@ -37,7 +37,7 @@ Với tộc sống lâu, một sự kiện có thể kéo dài hàng chục năm
   Việc chính quyết định loại sự kiện xảy ra và chỉ số nào tăng.
 - 4 chỉ số: Sức mạnh, Trí tuệ, Nhanh nhẹn, May mắn (thường 1–15). 3 thanh: Sức khỏe, Hạnh phúc, Tài sản (0–100). Thêm Danh vọng.
 - NGHỀ: chọn từ cuối tuổi thiếu niên. Mỗi nghề 5 bậc, thăng bậc bằng thử thách dựa vào chỉ số chính. Có thể mất nghề, đổi nghề.
-- BÌNH MINH HỘI (VÀ TUẦN LÂM TRỌNG VỆ): F → E → D → C → B → A → S. Nhận nhiệm vụ gồm 1–5 CẢNH nối tiếp, mỗi cảnh 2–3 lựa chọn.
+- GUILD BÌNH MINH (VÀ ĐỘI RANGER ĐẠI NGÀN): F → E → D → C → B → A → S. Nhận nhiệm vụ gồm 1–5 CẢNH nối tiếp, mỗi cảnh 2–3 lựa chọn.
 - TỔ ĐỘI: tối đa 3 đồng đội có tên, nghề, tính cách và độ thân thiết; có thể bị thương, chết, bỏ đi, phản bội, thành bạn đời.
 - GIA ĐÌNH: cha mẹ (có thể sống, mất, bỏ đi), tỏ tình → hôn nhân → con cái.
 - DẤU ẤN: lựa chọn để lại dấu ấn; nhiều năm sau, sự kiện khác chỉ xảy ra nếu có dấu ấn đó.
@@ -46,15 +46,30 @@ Với tộc sống lâu, một sự kiện có thể kéo dài hàng chục năm
 
 === THẾ GIỚI AETHELGARD ===
 Lịch Kỷ Nguyên Khai Hoang. Tiền: Đồng Cẩm Thạch → Tinh Bạc → Huyết Kim → Lõi Mana.
-Vùng đất: Đồng Bằng Thánh Quang (thủ đô Sanctus, Tháp Ngà Ma Pháp; Con người, Người lùn),
-Thảo Nguyên Gió Hú (Thú nhân, Con người, Orc), Đại Ngàn Lục Bảo (Tiên tộc, Cây Thế Giới Yggdrasil),
-Dãy Núi Răng Cưa (Người lùn, Kobold; Lò Rèn Vĩnh Cửu), Đầm Lầy Tử Khí (Lizardman, Slime, Goblin),
+Vùng đất: Đồng Bằng Thánh Quang (thủ đô Sanctus, Học viện Ma pháp Tháp Ngà; Con người, Dwarf),
+Thảo Nguyên Gió Hú (Beastman, Con người, Orc), Đại Ngàn Lục Bảo (Elf, Cây Thế Giới Yggdrasil),
+Dãy Núi Răng Cưa (Dwarf, Kobold; Lò Rèn Vĩnh Cửu), Đầm Lầy Tử Khí (Lizardman, Slime, Goblin),
 Vực Thẳm Phân Tầng (Ma tộc, Imp, Vampire, Ghoul, Troll; Cửa Ngục Than Khóc), Đảo Tro Tàn (Rồng, Minotaur; Đỉnh Hỏa Ngục).
 Tôn giáo: Giáo hội Thánh Quang (Nữ thần Lumina, căm ghét ma vật), Tự Nhiên Giáo (trung lập),
 Hắc Nguyệt Hội (tà giáo thờ Vực Thẳm Cổ Thần, hiến tế).
-Tổ chức: Bình Minh Hội (mạo hiểm giả), Tháp Ngà Ma Pháp, Thánh Vệ Quân, Quân Đoàn Hủy Diệt (của Ma Vương),
-Thương Đoàn Sói Bạc, Hội Bóng Đêm, Đấu Trường Huyết Sa, Tuần Lâm Trọng Vệ.
+Tổ chức: Guild Bình Minh (mạo hiểm giả), Học viện Ma pháp Tháp Ngà, Thánh Kỵ Sĩ Đoàn, Quân đoàn Ma Vương (của Ma Vương),
+Thương hội Sói Bạc, Guild Sát thủ Umbra, Đấu trường Huyết Sa, Đội Ranger Đại Ngàn.
 4 thời đại: Thời Bình · Chiến Tranh Tuyến Đầu · Kỷ Nguyên Tăm Tối (dịch bệnh, đói) · Ma Vương Giáng Thế.
+
+=== PHONG CÁCH TÊN GỌI: KIỂU MANGA / LIGHT NOVEL DỊCH (BẮT BUỘC) ===
+- Tên chủng tộc GIỮ NGUYÊN tiếng Anh: Human, Beastman, Dwarf, Elf, Demon, Goblin, Slime, Kobold, Lizardman,
+  Vampire, Imp, Orc, Minotaur, Troll, Ghoul, Dragon, High Demon. Beastman ghi kèm dạng thú: "Beastman tộc Mèo".
+  KHÔNG dịch thuần Việt kiểu "Yêu tinh xanh", "Người lùn", "Tiên tộc", "Chằn tinh", "Khổng lồ ngốc".
+  Khi một tộc xuất hiện lần đầu trong đoạn mở đầu, kèm giải thích ngắn trong ngoặc, ví dụ:
+  "Bạn là Gruum, thuộc chủng tộc Goblin (tiểu yêu da xanh sống theo bầy, yếu ớt nhưng ranh mãnh)."
+- Nghề, chức vụ, cấp bậc, danh hiệu theo lối truyện isekai dịch:
+  Hán Việt đã thành chuẩn: Kiếm Thánh, Hiền Giả, Dũng Giả, Ma Vương, Thánh Nữ, Đại Ma pháp sư, Mạo hiểm giả hạng S;
+  hoặc tên class tiếng Anh: Assassin, Priest, Ranger, Berserker, Tamer, Necromancer, Dark Knight.
+  Biến thể và tiến hóa của ma vật luôn bằng tiếng Anh: Hobgoblin, Goblin Lord, High Orc, Slime King, Ancient Dragon, Lich.
+- Hệ thống gọi như manga: Guild, hạng F→S, Skill, tiến hóa, triệu hồi, Dungeon (hầm ngục).
+- Tên tổ chức: Guild Bình Minh (Hội Mạo hiểm giả), Học viện Ma pháp Tháp Ngà, Thánh Kỵ Sĩ Đoàn, Quân đoàn Ma Vương,
+  Thương hội Sói Bạc, Guild Sát thủ Umbra, Đấu trường Huyết Sa, Đội Ranger Đại Ngàn.
+- Văn kể vẫn là tiếng Việt Epic RPG, ngôi thứ hai. Chỉ tên riêng và thuật ngữ mang màu manga.
 
 === GIỌNG VĂN: EPIC RPG ===
 Sử thi, trang trọng, tự sự cổ điển, ngôi thứ hai ("bạn"). Mỗi đoạn 1–2 câu. Câu sau là một hình ảnh
@@ -106,7 +121,7 @@ Hãy trả lời "Đã hiểu" và chờ tôi gửi từng phần.
 PHẦN 1: Xuất thân và cha mẹ
 
 Viết lại xuất thân, lần này kèm đầy đủ thông tin CHA MẸ.
-Cách ra đời của tộc này: Sinh ra từ cha mẹ Tiên tộc. Tiên tộc sinh con rất hiếm; một đứa trẻ là sự kiện của cả cộng đồng. Cha mẹ sống hàng nghìn năm nên có thể đồng hành cả đời bạn, hoặc rời đi vì lý do riêng. Con lai với Con người (Bán tiên) bị cả hai bên xa lánh.
+Cách ra đời của tộc này: Sinh ra từ cha mẹ Elf. Elf sinh con rất hiếm; một đứa trẻ là sự kiện của cả cộng đồng. Cha mẹ sống hàng nghìn năm nên có thể đồng hành cả đời bạn, hoặc rời đi vì lý do riêng. Con lai với Con người (Half-Elf) bị cả hai bên xa lánh.
 
 a) 8 xuất thân ĐÃ CÓ bên dưới: giữ tên và ý chính, bổ sung cha mẹ, anh chị em, gia cảnh.
    - Nụ Hoa Hoàng Tộc (dấu ấn: royal_blood)
@@ -143,7 +158,7 @@ c) 6 SỰ KIỆN VỀ CHA MẸ trải khắp cuộc đời, theo mẫu sự ki�
 PHẦN 2: Nghề (đợt 1/2)
 
 Tộc này có 7 nghề. Gợi ý (được đổi tên, gộp, thay hoặc thêm nếu bạn có ý hay hơn, miễn đủ 7):
-Cung thủ Tuần Lâm (Nhanh nhẹn) · Tinh linh sư (Trí tuệ) · Thảo dược sư (Trí tuệ) · Thi nhân (May mắn) · Thủ hộ Yggdrasil (Sức mạnh và Trí tuệ) · Thợ mộc Thánh Thụ (Nhanh nhẹn) · Sứ giả ngoại giao (Trí tuệ)
+Ranger / Cung thủ (Nhanh nhẹn) · Tinh linh sư / Spirit Caller (Trí tuệ) · Thảo dược sư (Trí tuệ) · Bard / Thi nhân (May mắn) · Hộ vệ Yggdrasil (Sức mạnh và Trí tuệ) · Thợ mộc Thánh Thụ (Nhanh nhẹn) · Sứ giả (Trí tuệ)
 
 Trước tiên, liệt kê đủ 7 nghề bạn chọn (tên + chỉ số chính + 1 câu mô tả), đánh số 1 → 7.
 Sau đó viết chi tiết nghề số 1 → 5.
@@ -179,12 +194,12 @@ Với MỖI nghề, viết:
 
 ---
 
-## PHẦN 4 — Tổ chức: Bình Minh Hội (và Tuần Lâm Trọng Vệ)
+## PHẦN 4 — Tổ chức: Guild Bình Minh (và Đội Ranger Đại Ngàn)
 
 ```
-PHẦN 4: Tổ chức: Bình Minh Hội (và Tuần Lâm Trọng Vệ)
+PHẦN 4: Tổ chức: Guild Bình Minh (và Đội Ranger Đại Ngàn)
 
-Ngoài nghề, tộc này có tổ chức riêng: Bình Minh Hội (và Tuần Lâm Trọng Vệ), với F → E → D → C → B → A → S.
+Ngoài nghề, tộc này có tổ chức riêng: Guild Bình Minh (và Đội Ranger Đại Ngàn), với F → E → D → C → B → A → S.
 Đặt tên các bậc (nếu chưa có), mỗi bậc 1 câu khi được thăng lên. Viết 1 sự kiện gia nhập có lựa chọn và 1 sự kiện rời bỏ hoặc phản bội tổ chức.
 ```
 
@@ -224,7 +239,7 @@ trải đều các giai đoạn đời mà việc đó có thể diễn ra, cộ
 ```
 PHẦN 7: Nhiệm vụ nhỏ
 
-Nhiệm vụ của Bình Minh Hội (và Tuần Lâm Trọng Vệ). Mỗi cái gồm: tên, hạng tối thiểu (F..S),
+Nhiệm vụ của Guild Bình Minh (và Đội Ranger Đại Ngàn). Mỗi cái gồm: tên, hạng tối thiểu (F..S),
 một gợi ý ngắn hiện trên bảng (ví dụ "Vừa. Hay có bẫy"), đoạn mở đầu, các CẢNH (mỗi cảnh viết theo mẫu sự kiện),
 đoạn kết khi thành công, phần thưởng (Tài sản, Danh vọng, điểm thăng bậc) và khoảnh khắc.
 Ghi rõ lựa chọn nào khiến THẤT BẠI NGAY, THẮNG NGAY, hoặc gây CHẾT.

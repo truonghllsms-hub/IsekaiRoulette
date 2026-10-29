@@ -1,4 +1,4 @@
-# Prompt Gemini: kịch bản đời người — CẨU ĐẦU NHÂN (kobold)
+# Prompt Gemini: kịch bản đời người — KOBOLD (kobold)
 
 Tỉ lệ đầu thai **3%** · nhóm **ma vật / dị tộc** · hệ số nội dung **×1**
 Khoảng **105** mục nội dung, chia thành **10 phần**.
@@ -17,15 +17,15 @@ Khoảng **105** mục nội dung, chia thành **10 phần**.
 ## KHỐI CHUNG (dán đầu tiên)
 
 ```
-Bạn là biên kịch cho một web game chữ tiếng Việt tên "Luân Hồi Dị Giới": người chơi đầu thai vào thế giới
+Bạn là biên kịch cho một web game chữ tiếng Việt, văn phong isekai manga/light novel dịch, tên "Luân Hồi Dị Giới": người chơi đầu thai vào thế giới
 giả tưởng Aethelgard và sống trọn một kiếp, từ lúc sinh đến lúc chết, qua từng năm.
-Lần này bạn viết kịch bản cho tộc CẨU ĐẦU NHÂN. Chỉ 3% linh hồn được đầu thai vào tộc này.
+Lần này bạn viết kịch bản cho chủng tộc KOBOLD (sinh vật nửa chó nửa thằn lằn, thợ đào hầm và thờ Rồng). Chỉ 3% linh hồn được đầu thai vào tộc này.
 
-=== CẨU ĐẦU NHÂN LÀ AI ===
+=== KOBOLD LÀ AI ===
 Sinh vật nhỏ bé có hình dáng lai giữa chó hoang và thằn lằn. Kobold nhát gan, yếu ớt nhưng bù lại cực kỳ khéo léo trong việc đào hầm, đánh hơi quặng mỏ và chế tạo bẫy sập. Chúng tôn thờ loài Rồng như thần thánh dẫu hiếm khi được nhìn thấy rồng thực sự.
 Xã hội: Sống thành bầy lớn sâu dưới lòng đất hoặc các mỏ quặng hoang trên núi. Phân công lao động vô cùng tàn khốc: con non vừa biết đi đã bị ép cầm cuốc, kẻ yếu làm mồi nhử bẫy, kẻ mạnh hơn làm giám sát. Bầy đàn đối mặt với tỉ lệ chết trẻ cực cao, những cá thể vượt qua mốc 25% sinh tồn sẽ tiến hóa lớp vảy sừng cứng cáp và nắm quyền lãnh đạo.
 Không khí riêng: Nhỏ bé, nhát gan, siêng năng đến bi thảm. Lòng sùng kính Rồng gần như ngây thơ.
-Chủ đề nên khai thác: Thờ Rồng, bị Người lùn bắt làm nô lệ, chết trẻ hàng loạt, bẫy rập, đào trúng thứ cổ xưa.
+Chủ đề nên khai thác: Thờ Rồng, bị Dwarf bắt làm nô lệ, chết trẻ hàng loạt, bẫy rập, đào trúng thứ cổ xưa.
 Cách ra đời: Nở từ trứng trong tổ ấp tập thể. Mẹ là kẻ đẻ trứng của bầy, cha thường không rõ. Con của Kobold được Rồng ban phúc thì có dòng dõi rõ ràng.
 
 === GIAI ĐOẠN ĐỜI ===
@@ -41,22 +41,37 @@ Những giai đoạn trẻ và sung sức là lúc nhiều biến cố nhất: v
 - CHUYẾN ĐÀO SÂU HOẶC ĐẶT BẪY MẠO HIỂM GIẢ (thay cho nhiệm vụ của mạo hiểm giả): 1–4 CẢNH nối tiếp, mỗi cảnh 2–3 lựa chọn.
 - TỔ ĐÀO (thay cho tổ đội): tối đa 3 kẻ đồng hành có tên và tính cách.
 - GIAO PHỐI TRONG BẦY (thay cho hôn nhân) và con cháu.
-- TIẾN HÓA: Kobold vảy sừng · Kobold Long huyết (mang máu rồng).
+- TIẾN HÓA: Kobold Elite (vảy sừng) · Dragonblood Kobold.
 - DẤU ẤN: lựa chọn để lại dấu ấn; nhiều năm sau, sự kiện khác chỉ xảy ra nếu có dấu ấn đó.
 - Game đã có sẵn 48 sự kiện cũ cho tộc này (đời thường, ngẫu nhiên). Lần này bạn viết LỚP MỚI gắn với
   việc chính, vai trò, chuyến đào sâu hoặc đặt bẫy mạo hiểm giả, tổ đào, gia đình. Tránh lặp lại những ý quá quen.
 
 === THẾ GIỚI AETHELGARD ===
 Lịch Kỷ Nguyên Khai Hoang. Tiền: Đồng Cẩm Thạch → Tinh Bạc → Huyết Kim → Lõi Mana.
-Vùng đất: Đồng Bằng Thánh Quang (thủ đô Sanctus, Tháp Ngà Ma Pháp; Con người, Người lùn),
-Thảo Nguyên Gió Hú (Thú nhân, Con người, Orc), Đại Ngàn Lục Bảo (Tiên tộc, Cây Thế Giới Yggdrasil),
-Dãy Núi Răng Cưa (Người lùn, Kobold; Lò Rèn Vĩnh Cửu), Đầm Lầy Tử Khí (Lizardman, Slime, Goblin),
+Vùng đất: Đồng Bằng Thánh Quang (thủ đô Sanctus, Học viện Ma pháp Tháp Ngà; Con người, Dwarf),
+Thảo Nguyên Gió Hú (Beastman, Con người, Orc), Đại Ngàn Lục Bảo (Elf, Cây Thế Giới Yggdrasil),
+Dãy Núi Răng Cưa (Dwarf, Kobold; Lò Rèn Vĩnh Cửu), Đầm Lầy Tử Khí (Lizardman, Slime, Goblin),
 Vực Thẳm Phân Tầng (Ma tộc, Imp, Vampire, Ghoul, Troll; Cửa Ngục Than Khóc), Đảo Tro Tàn (Rồng, Minotaur; Đỉnh Hỏa Ngục).
 Tôn giáo: Giáo hội Thánh Quang (Nữ thần Lumina, căm ghét ma vật), Tự Nhiên Giáo (trung lập),
 Hắc Nguyệt Hội (tà giáo thờ Vực Thẳm Cổ Thần, hiến tế).
-Tổ chức: Bình Minh Hội (mạo hiểm giả), Tháp Ngà Ma Pháp, Thánh Vệ Quân, Quân Đoàn Hủy Diệt (của Ma Vương),
-Thương Đoàn Sói Bạc, Hội Bóng Đêm, Đấu Trường Huyết Sa, Tuần Lâm Trọng Vệ.
+Tổ chức: Guild Bình Minh (mạo hiểm giả), Học viện Ma pháp Tháp Ngà, Thánh Kỵ Sĩ Đoàn, Quân đoàn Ma Vương (của Ma Vương),
+Thương hội Sói Bạc, Guild Sát thủ Umbra, Đấu trường Huyết Sa, Đội Ranger Đại Ngàn.
 4 thời đại: Thời Bình · Chiến Tranh Tuyến Đầu · Kỷ Nguyên Tăm Tối (dịch bệnh, đói) · Ma Vương Giáng Thế.
+
+=== PHONG CÁCH TÊN GỌI: KIỂU MANGA / LIGHT NOVEL DỊCH (BẮT BUỘC) ===
+- Tên chủng tộc GIỮ NGUYÊN tiếng Anh: Human, Beastman, Dwarf, Elf, Demon, Goblin, Slime, Kobold, Lizardman,
+  Vampire, Imp, Orc, Minotaur, Troll, Ghoul, Dragon, High Demon. Beastman ghi kèm dạng thú: "Beastman tộc Mèo".
+  KHÔNG dịch thuần Việt kiểu "Yêu tinh xanh", "Người lùn", "Tiên tộc", "Chằn tinh", "Khổng lồ ngốc".
+  Khi một tộc xuất hiện lần đầu trong đoạn mở đầu, kèm giải thích ngắn trong ngoặc, ví dụ:
+  "Bạn là Gruum, thuộc chủng tộc Goblin (tiểu yêu da xanh sống theo bầy, yếu ớt nhưng ranh mãnh)."
+- Nghề, chức vụ, cấp bậc, danh hiệu theo lối truyện isekai dịch:
+  Hán Việt đã thành chuẩn: Kiếm Thánh, Hiền Giả, Dũng Giả, Ma Vương, Thánh Nữ, Đại Ma pháp sư, Mạo hiểm giả hạng S;
+  hoặc tên class tiếng Anh: Assassin, Priest, Ranger, Berserker, Tamer, Necromancer, Dark Knight.
+  Biến thể và tiến hóa của ma vật luôn bằng tiếng Anh: Hobgoblin, Goblin Lord, High Orc, Slime King, Ancient Dragon, Lich.
+- Hệ thống gọi như manga: Guild, hạng F→S, Skill, tiến hóa, triệu hồi, Dungeon (hầm ngục).
+- Tên tổ chức: Guild Bình Minh (Hội Mạo hiểm giả), Học viện Ma pháp Tháp Ngà, Thánh Kỵ Sĩ Đoàn, Quân đoàn Ma Vương,
+  Thương hội Sói Bạc, Guild Sát thủ Umbra, Đấu trường Huyết Sa, Đội Ranger Đại Ngàn.
+- Văn kể vẫn là tiếng Việt Epic RPG, ngôi thứ hai. Chỉ tên riêng và thuật ngữ mang màu manga.
 
 === GIỌNG VĂN: EPIC RPG ===
 Sử thi, trang trọng, tự sự cổ điển, ngôi thứ hai ("bạn"). Mỗi đoạn 1–2 câu. Câu sau là một hình ảnh
@@ -142,7 +157,7 @@ c) 4 SỰ KIỆN VỀ CHA MẸ trải khắp cuộc đời, theo mẫu sự ki�
 PHẦN 2: Vai trò
 
 Tộc này có 5 vai trò. Gợi ý (được đổi tên, gộp, thay hoặc thêm nếu bạn có ý hay hơn, miễn đủ 5):
-Thợ đào (Sức mạnh) · Thợ bẫy (Trí tuệ) · Kẻ đánh hơi quặng (May mắn) · Thầy cúng thờ Rồng (Trí tuệ) · Giám sát (Sức mạnh) · Mồi nhử (không cần gì)
+Kobold Digger (Sức mạnh) · Kobold Trapper (Trí tuệ) · Kobold Sniffer / đánh hơi quặng (May mắn) · Kobold Priest thờ Rồng (Trí tuệ) · Kobold Overseer (Sức mạnh) · Mồi nhử (không cần gì)
 
 Trước tiên, liệt kê đủ 5 vai trò bạn chọn (tên + chỉ số chính + 1 câu mô tả), đánh số 1 → 5.
 Sau đó viết chi tiết vai trò số 1 → 5.
@@ -248,7 +263,7 @@ PHẦN 9: Giao phối trong bầy, tiến hóa, tuổi già
 
 a) 3 cảnh về giao phối trong bầy, mỗi cảnh có kết quả thành công và thất bại.
 b) 5 sự kiện về con cháu {child}.
-c) TIẾN HÓA, 2 nhánh: Kobold vảy sừng, Kobold Long huyết (mang máu rồng). Mỗi nhánh viết: điều kiện (chỉ số, dấu ấn, tuổi),
+c) TIẾN HÓA, 2 nhánh: Kobold Elite (vảy sừng), Dragonblood Kobold. Mỗi nhánh viết: điều kiện (chỉ số, dấu ấn, tuổi),
    1 sự kiện báo hiệu, 1 sự kiện tiến hóa có lựa chọn (thành công thì tăng mạnh chỉ số và đổi hình dạng,
    thất bại có thể chết), và 2 sự kiện chỉ xảy ra SAU khi đã tiến hóa.
 d) 4 sự kiện cuối đời.

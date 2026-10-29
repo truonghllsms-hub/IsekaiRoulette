@@ -1,4 +1,4 @@
-# Prompt Gemini: kịch bản đời người — THÚ NHÂN (beastman)
+# Prompt Gemini: kịch bản đời người — BEASTMAN (beastman)
 
 Tỉ lệ đầu thai **18%** · nhóm **văn minh (đủ nghề, Hội, tổ đội)** · hệ số nội dung **×2.5**
 Khoảng **318** mục nội dung, chia thành **17 phần**.
@@ -15,16 +15,16 @@ Khoảng **318** mục nội dung, chia thành **17 phần**.
 ## KHỐI CHUNG (dán đầu tiên)
 
 ```
-Bạn là biên kịch cho một web game chữ tiếng Việt tên "Luân Hồi Dị Giới": người chơi đầu thai vào thế giới
+Bạn là biên kịch cho một web game chữ tiếng Việt, văn phong isekai manga/light novel dịch, tên "Luân Hồi Dị Giới": người chơi đầu thai vào thế giới
 giả tưởng Aethelgard và sống trọn một kiếp, từ lúc sinh đến lúc chết, qua từng năm.
-Lần này bạn viết kịch bản cho tộc THÚ NHÂN. Chỉ 18% linh hồn được đầu thai vào tộc này.
+Lần này bạn viết kịch bản cho chủng tộc BEASTMAN (thú nhân mang tai, đuôi và bản năng của loài thú). Chỉ 18% linh hồn được đầu thai vào tộc này.
 
-=== THÚ NHÂN LÀ AI ===
-Bánh xe định mệnh khẽ xoay, linh hồn bạn tái sinh vào hình hài Thú nhân kiêu hãnh với dòng máu hoang dã sục sôi. Cuộc đời ngắn ngủi nhưng rực cháy như ngọn lửa thảo nguyên, vẫy gọi bạn khắc tên mình vào sử thi Aethelgard.
+=== BEASTMAN LÀ AI ===
+Bánh xe định mệnh khẽ xoay, linh hồn bạn tái sinh vào hình hài Beastman kiêu hãnh với dòng máu hoang dã sục sôi. Cuộc đời ngắn ngủi nhưng rực cháy như ngọn lửa thảo nguyên, vẫy gọi bạn khắc tên mình vào sử thi Aethelgard.
 
 Không khí riêng: Hoang dã, nóng nảy, trọng danh dự bầy đàn. Bản năng loài vật luôn giằng co với lý trí.
-Chủ đề nên khai thác: Bị loài người kỳ thị hoặc bắt làm nô lệ, tự hào bộ tộc trên Thảo Nguyên Gió Hú, trăng tròn và bản năng, Đấu Trường Huyết Sa.
-Cách ra đời: Sinh ra từ cha mẹ Thú nhân. Thường cùng một dạng thú; nếu cha mẹ khác dạng, con mang dạng của một người hoặc là con lai hiếm hoi. Thỉnh thoảng có con lai với Con người (Bán thú nhân).
+Chủ đề nên khai thác: Bị loài người kỳ thị hoặc bắt làm nô lệ, tự hào bộ tộc trên Thảo Nguyên Gió Hú, trăng tròn và bản năng, Đấu trường Huyết Sa.
+Cách ra đời: Sinh ra từ cha mẹ Beastman. Thường cùng một dạng thú; nếu cha mẹ khác dạng, con mang dạng của một người hoặc là con lai hiếm hoi. Thỉnh thoảng có con lai với Con người (Half-Beastman).
 
 === GIAI ĐOẠN ĐỜI ===
 tuổi thọ 50–60 năm
@@ -32,15 +32,15 @@ Sơ sinh 0–2,2 · Thơ ấu 2,2–8,3 · Thiếu niên 8,3–13,8 · Trưởng
 Những giai đoạn trẻ và sung sức là lúc nhiều biến cố nhất: viết nhiều cho các giai đoạn này.
 
 === DẠNG THÚ ===
-Mỗi Thú nhân thuộc một dạng thú: Miêu nhân (mèo), Khuyển nhân (chó), Lang nhân (sói), Hồ nhân (cáo), Thố nhân (thỏ), Hổ nhân (hổ), Hùng nhân (gấu), Thử nhân (chuột), Ưng nhân (chim ưng, có cánh).
-Khi sự kiện chỉ hợp với một dạng, ghi rõ ở dòng "Khi nào" (ví dụ "chỉ Miêu nhân").
+Mỗi Beastman thuộc một dạng thú: Beastman tộc Mèo, Beastman tộc Chó, Beastman tộc Sói, Beastman tộc Cáo, Beastman tộc Thỏ, Beastman tộc Hổ, Beastman tộc Gấu, Beastman tộc Chuột, Beastman tộc Ưng.
+Khi sự kiện chỉ hợp với một dạng, ghi rõ ở dòng "Khi nào" (ví dụ "chỉ Beastman tộc Mèo").
 
 === CÁCH GAME VẬN HÀNH (để bạn viết cho khớp) ===
 - Mỗi năm người chơi chọn một VIỆC CHÍNH: Rong chơi (chỉ tuổi thơ) · Học hành · Khổ luyện · Làm lụng (làm nghề) · Mạo hiểm · Giao du · An dưỡng.
   Việc chính quyết định loại sự kiện xảy ra và chỉ số nào tăng.
 - 4 chỉ số: Sức mạnh, Trí tuệ, Nhanh nhẹn, May mắn (thường 1–15). 3 thanh: Sức khỏe, Hạnh phúc, Tài sản (0–100). Thêm Danh vọng.
 - NGHỀ: chọn từ cuối tuổi thiếu niên. Mỗi nghề 5 bậc, thăng bậc bằng thử thách dựa vào chỉ số chính. Có thể mất nghề, đổi nghề.
-- BÌNH MINH HỘI: F → E → D → C → B → A → S. Nhận nhiệm vụ gồm 1–5 CẢNH nối tiếp, mỗi cảnh 2–3 lựa chọn.
+- GUILD BÌNH MINH: F → E → D → C → B → A → S. Nhận nhiệm vụ gồm 1–5 CẢNH nối tiếp, mỗi cảnh 2–3 lựa chọn.
 - TỔ ĐỘI: tối đa 3 đồng đội có tên, nghề, tính cách và độ thân thiết; có thể bị thương, chết, bỏ đi, phản bội, thành bạn đời.
 - GIA ĐÌNH: cha mẹ (có thể sống, mất, bỏ đi), tỏ tình → hôn nhân → con cái.
 - DẤU ẤN: lựa chọn để lại dấu ấn; nhiều năm sau, sự kiện khác chỉ xảy ra nếu có dấu ấn đó.
@@ -49,15 +49,30 @@ Khi sự kiện chỉ hợp với một dạng, ghi rõ ở dòng "Khi nào" (v�
 
 === THẾ GIỚI AETHELGARD ===
 Lịch Kỷ Nguyên Khai Hoang. Tiền: Đồng Cẩm Thạch → Tinh Bạc → Huyết Kim → Lõi Mana.
-Vùng đất: Đồng Bằng Thánh Quang (thủ đô Sanctus, Tháp Ngà Ma Pháp; Con người, Người lùn),
-Thảo Nguyên Gió Hú (Thú nhân, Con người, Orc), Đại Ngàn Lục Bảo (Tiên tộc, Cây Thế Giới Yggdrasil),
-Dãy Núi Răng Cưa (Người lùn, Kobold; Lò Rèn Vĩnh Cửu), Đầm Lầy Tử Khí (Lizardman, Slime, Goblin),
+Vùng đất: Đồng Bằng Thánh Quang (thủ đô Sanctus, Học viện Ma pháp Tháp Ngà; Con người, Dwarf),
+Thảo Nguyên Gió Hú (Beastman, Con người, Orc), Đại Ngàn Lục Bảo (Elf, Cây Thế Giới Yggdrasil),
+Dãy Núi Răng Cưa (Dwarf, Kobold; Lò Rèn Vĩnh Cửu), Đầm Lầy Tử Khí (Lizardman, Slime, Goblin),
 Vực Thẳm Phân Tầng (Ma tộc, Imp, Vampire, Ghoul, Troll; Cửa Ngục Than Khóc), Đảo Tro Tàn (Rồng, Minotaur; Đỉnh Hỏa Ngục).
 Tôn giáo: Giáo hội Thánh Quang (Nữ thần Lumina, căm ghét ma vật), Tự Nhiên Giáo (trung lập),
 Hắc Nguyệt Hội (tà giáo thờ Vực Thẳm Cổ Thần, hiến tế).
-Tổ chức: Bình Minh Hội (mạo hiểm giả), Tháp Ngà Ma Pháp, Thánh Vệ Quân, Quân Đoàn Hủy Diệt (của Ma Vương),
-Thương Đoàn Sói Bạc, Hội Bóng Đêm, Đấu Trường Huyết Sa, Tuần Lâm Trọng Vệ.
+Tổ chức: Guild Bình Minh (mạo hiểm giả), Học viện Ma pháp Tháp Ngà, Thánh Kỵ Sĩ Đoàn, Quân đoàn Ma Vương (của Ma Vương),
+Thương hội Sói Bạc, Guild Sát thủ Umbra, Đấu trường Huyết Sa, Đội Ranger Đại Ngàn.
 4 thời đại: Thời Bình · Chiến Tranh Tuyến Đầu · Kỷ Nguyên Tăm Tối (dịch bệnh, đói) · Ma Vương Giáng Thế.
+
+=== PHONG CÁCH TÊN GỌI: KIỂU MANGA / LIGHT NOVEL DỊCH (BẮT BUỘC) ===
+- Tên chủng tộc GIỮ NGUYÊN tiếng Anh: Human, Beastman, Dwarf, Elf, Demon, Goblin, Slime, Kobold, Lizardman,
+  Vampire, Imp, Orc, Minotaur, Troll, Ghoul, Dragon, High Demon. Beastman ghi kèm dạng thú: "Beastman tộc Mèo".
+  KHÔNG dịch thuần Việt kiểu "Yêu tinh xanh", "Người lùn", "Tiên tộc", "Chằn tinh", "Khổng lồ ngốc".
+  Khi một tộc xuất hiện lần đầu trong đoạn mở đầu, kèm giải thích ngắn trong ngoặc, ví dụ:
+  "Bạn là Gruum, thuộc chủng tộc Goblin (tiểu yêu da xanh sống theo bầy, yếu ớt nhưng ranh mãnh)."
+- Nghề, chức vụ, cấp bậc, danh hiệu theo lối truyện isekai dịch:
+  Hán Việt đã thành chuẩn: Kiếm Thánh, Hiền Giả, Dũng Giả, Ma Vương, Thánh Nữ, Đại Ma pháp sư, Mạo hiểm giả hạng S;
+  hoặc tên class tiếng Anh: Assassin, Priest, Ranger, Berserker, Tamer, Necromancer, Dark Knight.
+  Biến thể và tiến hóa của ma vật luôn bằng tiếng Anh: Hobgoblin, Goblin Lord, High Orc, Slime King, Ancient Dragon, Lich.
+- Hệ thống gọi như manga: Guild, hạng F→S, Skill, tiến hóa, triệu hồi, Dungeon (hầm ngục).
+- Tên tổ chức: Guild Bình Minh (Hội Mạo hiểm giả), Học viện Ma pháp Tháp Ngà, Thánh Kỵ Sĩ Đoàn, Quân đoàn Ma Vương,
+  Thương hội Sói Bạc, Guild Sát thủ Umbra, Đấu trường Huyết Sa, Đội Ranger Đại Ngàn.
+- Văn kể vẫn là tiếng Việt Epic RPG, ngôi thứ hai. Chỉ tên riêng và thuật ngữ mang màu manga.
 
 === GIỌNG VĂN: EPIC RPG ===
 Sử thi, trang trọng, tự sự cổ điển, ngôi thứ hai ("bạn"). Mỗi đoạn 1–2 câu. Câu sau là một hình ảnh
@@ -109,7 +124,7 @@ Hãy trả lời "Đã hiểu" và chờ tôi gửi từng phần.
 PHẦN 1: Xuất thân và cha mẹ
 
 Viết lại xuất thân, lần này kèm đầy đủ thông tin CHA MẸ.
-Cách ra đời của tộc này: Sinh ra từ cha mẹ Thú nhân. Thường cùng một dạng thú; nếu cha mẹ khác dạng, con mang dạng của một người hoặc là con lai hiếm hoi. Thỉnh thoảng có con lai với Con người (Bán thú nhân).
+Cách ra đời của tộc này: Sinh ra từ cha mẹ Beastman. Thường cùng một dạng thú; nếu cha mẹ khác dạng, con mang dạng của một người hoặc là con lai hiếm hoi. Thỉnh thoảng có con lai với Con người (Half-Beastman).
 
 a) 12 xuất thân ĐÃ CÓ bên dưới: giữ tên và ý chính, bổ sung cha mẹ, anh chị em, gia cảnh.
    - Con Của Gió Hú (dấu ấn: nomad_blood)
@@ -126,7 +141,7 @@ a) 12 xuất thân ĐÃ CÓ bên dưới: giữ tên và ý chính, bổ sung ch
    - Vạt Nắng Thánh Quang (dấu ấn: lumina_blessed)
 b) Viết thêm 2 xuất thân MỚI.
 Lưu ý: DẠNG THÚ được game bốc riêng theo tỉ lệ, độc lập với xuất thân. Vì vậy với mỗi xuất thân, cha mẹ mặc định CÙNG DẠNG THÚ
-với nhân vật (viết "Cha: [tên] · Thú nhân cùng dạng với bạn · ..."). Nếu xuất thân chỉ hợp với vài dạng, ghi rõ "chỉ cho Lang nhân, Hổ nhân".
+với nhân vật (viết "Cha: [tên] · Beastman cùng dạng với bạn · ..."). Nếu xuất thân chỉ hợp với vài dạng, ghi rõ "chỉ cho tộc Sói, tộc Hổ".
 Ít nhất 2 xuất thân có cha mẹ KHÁC DẠNG hoặc một bên là Con người (con lai), ghi rõ con mang dạng nào.
 
 Mỗi xuất thân viết theo mẫu:
@@ -147,26 +162,26 @@ c) 15 SỰ KIỆN VỀ CHA MẸ trải khắp cuộc đời, theo mẫu sự ki�
 
 ---
 
-## PHẦN 2 — Các dạng Thú nhân
+## PHẦN 2 — Các dạng Beastman
 
 ```
-PHẦN 2: Các dạng Thú nhân
+PHẦN 2: Các dạng Beastman
 
-Thú nhân có nhiều DẠNG THÚ. Mỗi nhân vật thuộc đúng một dạng, ghi rõ trong xuất thân và cha mẹ.
+Beastman có nhiều DẠNG THÚ. Mỗi nhân vật thuộc đúng một dạng, ghi rõ trong xuất thân và cha mẹ.
 Các dạng và tỉ lệ gặp (bạn được chỉnh tỉ lệ hoặc thêm dạng nếu thấy hợp lý, tổng 100%):
-   - Miêu nhân (mèo) · 18% · Nhanh nhẹn, May mắn; tò mò, độc lập, ngủ nhiều, thị lực đêm
-   - Khuyển nhân (chó) · 18% · trung thành, khứu giác cực thính, sống theo bầy, dễ tin người
-   - Lang nhân (sói) · 14% · Sức mạnh, Nhanh nhẹn; thứ bậc bầy nghiêm ngặt, hú dưới trăng tròn
-   - Hồ nhân (cáo) · 10% · Trí tuệ, May mắn; tinh ranh, có thể có nhiều đuôi khi già, bị nghi là kẻ lừa đảo
-   - Thố nhân (thỏ) · 10% · Nhanh nhẹn; nhút nhát, thính tai, sinh sản nhiều, thường bị bắt làm nô lệ
-   - Hổ nhân (hổ) · 8% · Sức mạnh; kiêu hãnh, đơn độc, được kính sợ
-   - Hùng nhân (gấu) · 8% · Sức mạnh, Sức khỏe; hiền lành nhưng nổi giận thì khủng khiếp, ngủ đông
-   - Thử nhân (chuột) · 8% · May mắn, Nhanh nhẹn; sống chui lủi trong thành thị, giỏi đào hang, bị khinh rẻ
-   - Ưng nhân (chim ưng, có cánh) · 6% · Nhanh nhẹn; bay được, mắt tinh, sống trên vách núi, sợ bị nhốt
+   - Beastman tộc Mèo (mèo) · 18% · Nhanh nhẹn, May mắn; tò mò, độc lập, ngủ nhiều, thị lực đêm
+   - Beastman tộc Chó (chó) · 18% · trung thành, khứu giác cực thính, sống theo bầy, dễ tin người
+   - Beastman tộc Sói (sói) · 14% · Sức mạnh, Nhanh nhẹn; thứ bậc bầy nghiêm ngặt, hú dưới trăng tròn
+   - Beastman tộc Cáo (cáo) · 10% · Trí tuệ, May mắn; tinh ranh, có thể có nhiều đuôi khi già, bị nghi là kẻ lừa đảo
+   - Beastman tộc Thỏ (thỏ) · 10% · Nhanh nhẹn; nhút nhát, thính tai, sinh sản nhiều, thường bị bắt làm nô lệ
+   - Beastman tộc Hổ (hổ) · 8% · Sức mạnh; kiêu hãnh, đơn độc, được kính sợ
+   - Beastman tộc Gấu (gấu) · 8% · Sức mạnh, Sức khỏe; hiền lành nhưng nổi giận thì khủng khiếp, ngủ đông
+   - Beastman tộc Chuột (chuột) · 8% · May mắn, Nhanh nhẹn; sống chui lủi trong thành thị, giỏi đào hang, bị khinh rẻ
+   - Beastman tộc Ưng (chim ưng, có cánh) · 6% · Nhanh nhẹn; bay được, mắt tinh, sống trên vách núi, sợ bị nhốt
 
 Với MỖI dạng, viết:
 1. Ngoại hình (tai, đuôi, lông, mắt) và bản năng đặc trưng: 2–3 câu.
-2. Chỉ số cộng/trừ đề xuất so với Thú nhân thường (ví dụ Miêu nhân: Nhanh nhẹn +2, Sức mạnh −1).
+2. Chỉ số cộng/trừ đề xuất so với Beastman thường (ví dụ tộc Mèo: Nhanh nhẹn +2, Sức mạnh −1).
 3. Loài người và các dạng thú khác nhìn họ thế nào: 1–2 câu.
 4. 1 XUẤT THÂN RIÊNG của dạng đó, theo mẫu xuất thân kèm cha mẹ ở phần trước.
 5. 5 SỰ KIỆN RIÊNG cho dạng đó theo mẫu (ít nhất 2 có lựa chọn), ví dụ mèo bị cám dỗ bởi thứ lấp lánh,
@@ -181,7 +196,7 @@ Với MỖI dạng, viết:
 PHẦN 3: Nghề (đợt 1/4)
 
 Tộc này có 11 nghề. Gợi ý (được đổi tên, gộp, thay hoặc thêm nếu bạn có ý hay hơn, miễn đủ 11):
-Chiến binh bộ tộc (Sức mạnh) · Thợ săn thảo nguyên (Nhanh nhẹn) · Đấu sĩ Huyết Sa (Sức mạnh) · Trinh sát (Nhanh nhẹn) · Pháp sư tinh linh (Trí tuệ, hiếm) · Lính đánh thuê Sói Bạc (Sức mạnh) · Thợ thuộc da (Sức mạnh) · Du mục chăn thú (không cần gì) · Đạo tặc thành thị (Nhanh nhẹn) · Thầy cúng bộ tộc (Trí tuệ) · Người đưa thư (Nhanh nhẹn)
+Berserker (Sức mạnh) · Hunter thảo nguyên (Nhanh nhẹn) · Gladiator Huyết Sa (Sức mạnh) · Scout / Trinh sát (Nhanh nhẹn) · Shaman tinh linh (Trí tuệ, hiếm) · Lính đánh thuê Sói Bạc (Sức mạnh) · Thợ thuộc da (Sức mạnh) · Du mục chăn thú (không cần gì) · Thief thành thị (Nhanh nhẹn) · Pháp sư bộ tộc (Trí tuệ) · Courier / Người đưa tin (Nhanh nhẹn)
 
 Trước tiên, liệt kê đủ 11 nghề bạn chọn (tên + chỉ số chính + 1 câu mô tả), đánh số 1 → 11.
 Sau đó viết chi tiết nghề số 1 → 3.
@@ -311,7 +326,7 @@ trải đều các giai đoạn đời mà việc đó có thể diễn ra, cộ
 ```
 PHẦN 11: Nhiệm vụ nhỏ
 
-Nhiệm vụ của Bình Minh Hội. Mỗi cái gồm: tên, hạng tối thiểu (F..S),
+Nhiệm vụ của Guild Bình Minh. Mỗi cái gồm: tên, hạng tối thiểu (F..S),
 một gợi ý ngắn hiện trên bảng (ví dụ "Vừa. Hay có bẫy"), đoạn mở đầu, các CẢNH (mỗi cảnh viết theo mẫu sự kiện),
 đoạn kết khi thành công, phần thưởng (Tài sản, Danh vọng, điểm thăng bậc) và khoảnh khắc.
 Ghi rõ lựa chọn nào khiến THẤT BẠI NGAY, THẮNG NGAY, hoặc gây CHẾT.

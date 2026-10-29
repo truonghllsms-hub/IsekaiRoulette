@@ -63,7 +63,7 @@
     ] },
 
   { "id": "job_rogue_heist", "require": { "job": "rogue" }, "focus": ["work"], "weight": 6,
-    "text": "Hội Bóng Đêm giao một phi vụ: lấy viên hồng ngọc trong két sắt của một thương gia giàu nhất Sanctus.",
+    "text": "Guild Sát thủ Umbra giao một phi vụ: lấy viên hồng ngọc trong két sắt của một thương gia giàu nhất Sanctus.",
     "choices": [
       { "label": "Leo vào qua mái nhà", "check": { "stat": "AGI", "target": 7 },
         "success": { "text": "Bạn đến và đi như một cơn gió. Sáng hôm sau, cả thành phố bàn tán về tên trộm ma.", "effects": { "wealth": 15, "jobXp": 2, "fame": 2 }, "moment": "Phi vụ hồng ngọc" },
@@ -71,7 +71,7 @@
       { "label": "Mua chuộc người hầu", "check": { "stat": "INT", "target": 6 },
         "success": { "text": "Một cô hầu gái mở cửa sau cho bạn với giá rẻ đến bất ngờ.", "effects": { "wealth": 10, "jobXp": 1 } },
         "fail": { "text": "Cô ta báo cho vệ binh. Bạn mất cả tiền mua chuộc lẫn phi vụ.", "effects": { "wealth": -8, "flags": ["wanted"] } } },
-      { "label": "Từ chối phi vụ", "text": "Hội Bóng Đêm không thích bị từ chối. Bạn nhận được một con dao cắm trên cửa nhà vào sáng hôm sau.", "effects": { "joy": -8 } }
+      { "label": "Từ chối phi vụ", "text": "Guild Sát thủ Umbra không thích bị từ chối. Bạn nhận được một con dao cắm trên cửa nhà vào sáng hôm sau.", "effects": { "joy": -8 } }
     ] },
   { "id": "job_rogue_caught", "require": { "job": "rogue", "flags": ["wanted"] }, "weight": 10,
     "text": "Vệ binh thành phố đã tìm ra nơi ở của bạn. Tiếng giày sắt dồn dập trên cầu thang.",
@@ -79,7 +79,7 @@
       { "label": "Phá cửa sổ chạy trốn", "check": { "stat": "AGI", "target": 7 },
         "success": { "text": "Bạn nhảy từ mái nhà này sang mái nhà khác, biến mất vào khu ổ chuột.", "effects": { "unflags": ["wanted"], "joy": -3 } },
         "fail": { "text": "Bạn bị bắt và giải ra pháp trường. Ba năm khổ sai ở mỏ đá.", "effects": { "health": -25, "wealth": -20, "loseJob": true, "unflags": ["wanted"], "flags": ["ex_convict"] }, "moment": "Bị bắt và đày đi khổ sai" } },
-      { "label": "Đầu thú", "text": "Bạn ra trình diện. Án nhẹ hơn, nhưng Hội Bóng Đêm sẽ không bao giờ nhận lại bạn.", "effects": { "wealth": -15, "loseJob": true, "unflags": ["wanted"] } }
+      { "label": "Đầu thú", "text": "Bạn ra trình diện. Án nhẹ hơn, nhưng Guild Sát thủ Umbra sẽ không bao giờ nhận lại bạn.", "effects": { "wealth": -15, "loseJob": true, "unflags": ["wanted"] } }
     ] },
   { "id": "job_rogue_assassin", "require": { "job": "rogue", "jobRank": 2 }, "focus": ["work"], "weight": 5,
     "text": "Hợp đồng mới: một vị lãnh chúa tàn bạo. Nhưng khi bạn tới nơi, hắn đang ôm đứa con gái nhỏ ngủ say.",
@@ -87,7 +87,7 @@
       { "label": "Hoàn thành hợp đồng", "check": { "stat": "AGI", "target": 8 },
         "success": { "text": "Không một tiếng động. Đứa bé vẫn ngủ. Bạn cầm tiền và cố không nghĩ về nó.", "effects": { "wealth": 20, "jobXp": 3, "joy": -10 } },
         "fail": { "text": "Lính canh xông vào. Bạn thoát thân với một mũi tên găm vào lưng.", "effects": { "health": -30 } } },
-      { "label": "Bỏ đi", "text": "Bạn biến mất vào đêm. Hội Bóng Đêm phạt bạn nặng, nhưng đêm ấy bạn ngủ được.", "effects": { "wealth": -10, "joy": 5, "flags": ["mercy"] } }
+      { "label": "Bỏ đi", "text": "Bạn biến mất vào đêm. Guild Sát thủ Umbra phạt bạn nặng, nhưng đêm ấy bạn ngủ được.", "effects": { "wealth": -10, "joy": 5, "flags": ["mercy"] } }
     ] },
 
   { "id": "job_cleric_plague", "require": { "job": "cleric" }, "focus": ["work"], "weight": 6,
@@ -191,7 +191,7 @@
       { "label": "Cầm chĩa ba ra đối mặt", "check": { "stat": "STR", "target": 6 },
         "success": { "text": "Bạn đâm trúng tim nó. Chuyện kể về người nông dân đơn độc hạ heo rừng lan ra khắp vùng.", "effects": { "STR": 1, "fame": 2 } },
         "fail": { "text": "Nanh nó xé toạc đùi bạn. Bạn nằm liệt giường cả mùa.", "effects": { "health": -25 } } },
-      { "label": "Thuê mạo hiểm giả", "text": "Một tân binh của Bình Minh Hội nhận việc. Hắn hạ con heo, và lấy hết số tiền tiết kiệm của bạn.", "effects": { "wealth": -8 } }
+      { "label": "Thuê mạo hiểm giả", "text": "Một tân binh của Guild Bình Minh nhận việc. Hắn hạ con heo, và lấy hết số tiền tiết kiệm của bạn.", "effects": { "wealth": -8 } }
     ] },
   { "id": "job_farmer_peace", "require": { "job": "farmer" }, "stages": ["middle", "elder"], "weight": 4,
     "text": "Chiều nay bạn ngồi trên bờ ruộng nhìn lúa trổ bông. Một cảm giác bình yên khó tả len vào lòng.", "effects": { "joy": 8 } },

@@ -1,4 +1,4 @@
-# Prompt Gemini: kịch bản đời người — NGẠ QUỶ (ghoul)
+# Prompt Gemini: kịch bản đời người — GHOUL (ghoul)
 
 Tỉ lệ đầu thai **0.5%** · nhóm **ma vật / dị tộc** · hệ số nội dung **×0.6**
 Khoảng **72** mục nội dung, chia thành **9 phần**.
@@ -17,11 +17,11 @@ Khoảng **72** mục nội dung, chia thành **9 phần**.
 ## KHỐI CHUNG (dán đầu tiên)
 
 ```
-Bạn là biên kịch cho một web game chữ tiếng Việt tên "Luân Hồi Dị Giới": người chơi đầu thai vào thế giới
+Bạn là biên kịch cho một web game chữ tiếng Việt, văn phong isekai manga/light novel dịch, tên "Luân Hồi Dị Giới": người chơi đầu thai vào thế giới
 giả tưởng Aethelgard và sống trọn một kiếp, từ lúc sinh đến lúc chết, qua từng năm.
-Lần này bạn viết kịch bản cho tộc NGẠ QUỶ. Chỉ 0.5% linh hồn được đầu thai vào tộc này.
+Lần này bạn viết kịch bản cho chủng tộc GHOUL (xác chết sống dậy, ăn thịt người chết). Chỉ 0.5% linh hồn được đầu thai vào tộc này.
 
-=== NGẠ QUỶ LÀ AI ===
+=== GHOUL LÀ AI ===
 Xác chết được hồi sinh bằng tà thuật tăm tối, hoàn toàn vô tri. Dù tay chân rữa nát và bốc mùi, Ghoul lại sở hữu móng vuốt sắc lẹm mang đầy mầm bệnh hoại tử. Chúng di chuyển thoăn thoắt vào ban đêm và là cơn ác mộng của những lữ khách đi lạc.
 Xã hội: Hoàn toàn không có xã hội hay ý thức bầy đàn. Chúng di chuyển tập trung với nhau chỉ vì bị thu hút bởi cùng một mùi máu thịt. Rất thường xuyên, Ghoul trở thành những con rối vô hồn bị các Tử linh sư (Necromancer) điều khiển làm bia đỡ đạn.
 Không khí riêng: Kinh dị, đứt quãng, dần dần có ý thức. Một xác chết đang nhớ lại mình từng là ai.
@@ -42,22 +42,37 @@ Tộc này bất tử: cuộc đời chỉ kết thúc khi bị giết hoặc g�
 - CUỘC SĂN ĐÊM HOẶC MỆNH LỆNH CỦA TỬ LINH SƯ (thay cho nhiệm vụ của mạo hiểm giả): 1–4 CẢNH nối tiếp, mỗi cảnh 2–3 lựa chọn.
 - BẦY XÁC (thay cho tổ đội): tối đa 3 kẻ đồng hành có tên và tính cách.
 - KHÔNG CÓ; THAY BẰNG VIỆC BIẾN KẺ KHÁC THÀNH GHOUL (thay cho hôn nhân) và con cháu.
-- TIẾN HÓA: Ghast (Ngạ quỷ cấp cao) · Lich (cực hiếm, lấy lại hoàn toàn trí khôn).
+- TIẾN HÓA: Ghast · Lich (cực hiếm, lấy lại hoàn toàn trí khôn).
 - DẤU ẤN: lựa chọn để lại dấu ấn; nhiều năm sau, sự kiện khác chỉ xảy ra nếu có dấu ấn đó.
 - Game đã có sẵn 24 sự kiện cũ cho tộc này (đời thường, ngẫu nhiên). Lần này bạn viết LỚP MỚI gắn với
   việc chính, vai trò, cuộc săn đêm hoặc mệnh lệnh của Tử linh sư, bầy xác, gia đình. Tránh lặp lại những ý quá quen.
 
 === THẾ GIỚI AETHELGARD ===
 Lịch Kỷ Nguyên Khai Hoang. Tiền: Đồng Cẩm Thạch → Tinh Bạc → Huyết Kim → Lõi Mana.
-Vùng đất: Đồng Bằng Thánh Quang (thủ đô Sanctus, Tháp Ngà Ma Pháp; Con người, Người lùn),
-Thảo Nguyên Gió Hú (Thú nhân, Con người, Orc), Đại Ngàn Lục Bảo (Tiên tộc, Cây Thế Giới Yggdrasil),
-Dãy Núi Răng Cưa (Người lùn, Kobold; Lò Rèn Vĩnh Cửu), Đầm Lầy Tử Khí (Lizardman, Slime, Goblin),
+Vùng đất: Đồng Bằng Thánh Quang (thủ đô Sanctus, Học viện Ma pháp Tháp Ngà; Con người, Dwarf),
+Thảo Nguyên Gió Hú (Beastman, Con người, Orc), Đại Ngàn Lục Bảo (Elf, Cây Thế Giới Yggdrasil),
+Dãy Núi Răng Cưa (Dwarf, Kobold; Lò Rèn Vĩnh Cửu), Đầm Lầy Tử Khí (Lizardman, Slime, Goblin),
 Vực Thẳm Phân Tầng (Ma tộc, Imp, Vampire, Ghoul, Troll; Cửa Ngục Than Khóc), Đảo Tro Tàn (Rồng, Minotaur; Đỉnh Hỏa Ngục).
 Tôn giáo: Giáo hội Thánh Quang (Nữ thần Lumina, căm ghét ma vật), Tự Nhiên Giáo (trung lập),
 Hắc Nguyệt Hội (tà giáo thờ Vực Thẳm Cổ Thần, hiến tế).
-Tổ chức: Bình Minh Hội (mạo hiểm giả), Tháp Ngà Ma Pháp, Thánh Vệ Quân, Quân Đoàn Hủy Diệt (của Ma Vương),
-Thương Đoàn Sói Bạc, Hội Bóng Đêm, Đấu Trường Huyết Sa, Tuần Lâm Trọng Vệ.
+Tổ chức: Guild Bình Minh (mạo hiểm giả), Học viện Ma pháp Tháp Ngà, Thánh Kỵ Sĩ Đoàn, Quân đoàn Ma Vương (của Ma Vương),
+Thương hội Sói Bạc, Guild Sát thủ Umbra, Đấu trường Huyết Sa, Đội Ranger Đại Ngàn.
 4 thời đại: Thời Bình · Chiến Tranh Tuyến Đầu · Kỷ Nguyên Tăm Tối (dịch bệnh, đói) · Ma Vương Giáng Thế.
+
+=== PHONG CÁCH TÊN GỌI: KIỂU MANGA / LIGHT NOVEL DỊCH (BẮT BUỘC) ===
+- Tên chủng tộc GIỮ NGUYÊN tiếng Anh: Human, Beastman, Dwarf, Elf, Demon, Goblin, Slime, Kobold, Lizardman,
+  Vampire, Imp, Orc, Minotaur, Troll, Ghoul, Dragon, High Demon. Beastman ghi kèm dạng thú: "Beastman tộc Mèo".
+  KHÔNG dịch thuần Việt kiểu "Yêu tinh xanh", "Người lùn", "Tiên tộc", "Chằn tinh", "Khổng lồ ngốc".
+  Khi một tộc xuất hiện lần đầu trong đoạn mở đầu, kèm giải thích ngắn trong ngoặc, ví dụ:
+  "Bạn là Gruum, thuộc chủng tộc Goblin (tiểu yêu da xanh sống theo bầy, yếu ớt nhưng ranh mãnh)."
+- Nghề, chức vụ, cấp bậc, danh hiệu theo lối truyện isekai dịch:
+  Hán Việt đã thành chuẩn: Kiếm Thánh, Hiền Giả, Dũng Giả, Ma Vương, Thánh Nữ, Đại Ma pháp sư, Mạo hiểm giả hạng S;
+  hoặc tên class tiếng Anh: Assassin, Priest, Ranger, Berserker, Tamer, Necromancer, Dark Knight.
+  Biến thể và tiến hóa của ma vật luôn bằng tiếng Anh: Hobgoblin, Goblin Lord, High Orc, Slime King, Ancient Dragon, Lich.
+- Hệ thống gọi như manga: Guild, hạng F→S, Skill, tiến hóa, triệu hồi, Dungeon (hầm ngục).
+- Tên tổ chức: Guild Bình Minh (Hội Mạo hiểm giả), Học viện Ma pháp Tháp Ngà, Thánh Kỵ Sĩ Đoàn, Quân đoàn Ma Vương,
+  Thương hội Sói Bạc, Guild Sát thủ Umbra, Đấu trường Huyết Sa, Đội Ranger Đại Ngàn.
+- Văn kể vẫn là tiếng Việt Epic RPG, ngôi thứ hai. Chỉ tên riêng và thuật ngữ mang màu manga.
 
 === GIỌNG VĂN: EPIC RPG ===
 Sử thi, trang trọng, tự sự cổ điển, ngôi thứ hai ("bạn"). Mỗi đoạn 1–2 câu. Câu sau là một hình ảnh
@@ -140,7 +155,7 @@ c) 2 SỰ KIỆN VỀ NGUỒN GỐC trải khắp cuộc đời, theo mẫu sự
 PHẦN 2: Vai trò
 
 Tộc này có 3 vai trò. Gợi ý (được đổi tên, gộp, thay hoặc thêm nếu bạn có ý hay hơn, miễn đủ 3):
-Ghoul săn đêm (Nhanh nhẹn) · Con rối Tử linh sư (không cần gì) · Ghoul canh mộ (Sức mạnh) · Ghoul nhớ lại ký ức (Trí tuệ)
+Night Stalker (Nhanh nhẹn) · Con rối của Necromancer (không cần gì) · Grave Keeper (Sức mạnh) · Ghoul còn ký ức (Trí tuệ)
 
 Trước tiên, liệt kê đủ 3 vai trò bạn chọn (tên + chỉ số chính + 1 câu mô tả), đánh số 1 → 3.
 Sau đó viết chi tiết vai trò số 1 → 3.
@@ -234,7 +249,7 @@ PHẦN 8: Không có; thay bằng việc biến kẻ khác thành Ghoul, tiến 
 
 a) 2 cảnh về không có; thay bằng việc biến kẻ khác thành Ghoul, mỗi cảnh có kết quả thành công và thất bại.
 b) 3 sự kiện về con cháu {child} (với tộc này là những kẻ bạn biến đổi hoặc tạo ra).
-c) TIẾN HÓA, 2 nhánh: Ghast (Ngạ quỷ cấp cao), Lich (cực hiếm, lấy lại hoàn toàn trí khôn). Mỗi nhánh viết: điều kiện (chỉ số, dấu ấn, tuổi),
+c) TIẾN HÓA, 2 nhánh: Ghast, Lich (cực hiếm, lấy lại hoàn toàn trí khôn). Mỗi nhánh viết: điều kiện (chỉ số, dấu ấn, tuổi),
    1 sự kiện báo hiệu, 1 sự kiện tiến hóa có lựa chọn (thành công thì tăng mạnh chỉ số và đổi hình dạng,
    thất bại có thể chết), và 2 sự kiện chỉ xảy ra SAU khi đã tiến hóa.
 d) 3 sự kiện cuối đời (với tộc bất tử: sau nhiều thế kỷ, mệt mỏi, bị lãng quên, đối diện kẻ có thể giết mình).

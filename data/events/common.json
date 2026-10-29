@@ -89,8 +89,8 @@
     "choices": [
       { "label": "Gia nhập Hắc Nguyệt Hội", "text": "Bạn nhỏ máu lên vầng trăng đen khắc trên tế đàn. Những bí mật của Vực Thẳm Cổ Thần dần hé mở trước mắt bạn.", "effects": { "INT": 2, "joy": -5, "flags": ["cultist"] }, "moment": "Gia nhập Hắc Nguyệt Hội" },
       { "label": "Tố giác hắn", "check": { "stat": "LUCK", "target": 5 },
-        "success": { "text": "Thánh Vệ Quân bắt gọn cả giáo đoàn nhờ lời khai của bạn. Bạn nhận được một túi bạc và ánh mắt căm hờn từ bóng tối.", "effects": { "wealth": 15 } },
-        "fail": { "text": "Giáo đoàn biết bạn là kẻ tố giác trước cả Thánh Vệ Quân.", "effects": { "health": -25 } } }
+        "success": { "text": "Thánh Kỵ Sĩ Đoàn bắt gọn cả giáo đoàn nhờ lời khai của bạn. Bạn nhận được một túi bạc và ánh mắt căm hờn từ bóng tối.", "effects": { "wealth": 15 } },
+        "fail": { "text": "Giáo đoàn biết bạn là kẻ tố giác trước cả Thánh Kỵ Sĩ Đoàn.", "effects": { "health": -25 } } }
     ] },
   { "id": "era_demon_lord_heroes", "eras": ["demon_lord"], "tags": ["civil"], "stages": ["teen", "adult"], "weight": 10,
     "text": "Chuông nhà thờ vang lên khắp lục địa. Giáo hội Thánh Quang hiệu triệu mọi chiến binh tập kết dưới ngọn cờ Anh hùng để chống lại Ma Vương.",
@@ -101,11 +101,11 @@
       { "label": "Ở lại bảo vệ quê nhà", "text": "Bạn ở lại, dựng hàng rào gỗ quanh làng và canh gác mỗi đêm. Ngôi làng của bạn là một trong số ít nơi còn đứng vững.", "effects": { "health": -10, "joy": 5 } }
     ] },
   { "id": "era_demon_lord_legion", "eras": ["demon_lord"], "tags": ["monster"], "stages": ["teen", "adult", "middle"], "weight": 10,
-    "text": "Tiếng tù và của Ma Vương vang vọng từ Cửa Ngục Than Khóc. Quân Đoàn Hủy Diệt đang chiêu mộ mọi ma vật để tràn lên mặt đất.",
+    "text": "Tiếng tù và của Ma Vương vang vọng từ Cửa Ngục Than Khóc. Quân đoàn Ma Vương đang chiêu mộ mọi ma vật để tràn lên mặt đất.",
     "choices": [
       { "label": "Gia nhập Quân Đoàn", "check": { "stat": "STR", "target": 7 },
-        "success": { "text": "Bạn hành quân dưới lá cờ đen, tàn sát những thành trì loài người từng khinh miệt giống loài của bạn.", "effects": { "wealth": 25, "STR": 1, "flags": ["demon_army"] }, "moment": "Gia nhập Quân Đoàn Hủy Diệt" },
-        "fail": { "text": "Bạn bị đẩy lên tuyến đầu làm bia đỡ đạn.", "death": "Bạn chết trong đợt xung phong đầu tiên của Quân Đoàn Hủy Diệt, ở tuổi {age}." } },
+        "success": { "text": "Bạn hành quân dưới lá cờ đen, tàn sát những thành trì loài người từng khinh miệt giống loài của bạn.", "effects": { "wealth": 25, "STR": 1, "flags": ["demon_army"] }, "moment": "Gia nhập Quân đoàn Ma Vương" },
+        "fail": { "text": "Bạn bị đẩy lên tuyến đầu làm bia đỡ đạn.", "death": "Bạn chết trong đợt xung phong đầu tiên của Quân đoàn Ma Vương, ở tuổi {age}." } },
       { "label": "Lẩn trốn", "check": { "stat": "AGI", "target": 5 },
         "success": { "text": "Bạn trốn sâu trong lòng đất cho đến khi tiếng tù và tắt hẳn.", "effects": { "joy": -5 } },
         "fail": { "text": "Lũ đốc binh quỷ lôi bạn ra và đánh đập vì tội đào ngũ.", "effects": { "health": -30 } } }

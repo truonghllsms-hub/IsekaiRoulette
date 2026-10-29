@@ -72,15 +72,30 @@ function totalItems(c, d) {
 // ---------- shared blocks ----------
 const WORLD = `=== THẾ GIỚI AETHELGARD ===
 Lịch Kỷ Nguyên Khai Hoang. Tiền: Đồng Cẩm Thạch → Tinh Bạc → Huyết Kim → Lõi Mana.
-Vùng đất: Đồng Bằng Thánh Quang (thủ đô Sanctus, Tháp Ngà Ma Pháp; Con người, Người lùn),
-Thảo Nguyên Gió Hú (Thú nhân, Con người, Orc), Đại Ngàn Lục Bảo (Tiên tộc, Cây Thế Giới Yggdrasil),
-Dãy Núi Răng Cưa (Người lùn, Kobold; Lò Rèn Vĩnh Cửu), Đầm Lầy Tử Khí (Lizardman, Slime, Goblin),
+Vùng đất: Đồng Bằng Thánh Quang (thủ đô Sanctus, Học viện Ma pháp Tháp Ngà; Con người, Dwarf),
+Thảo Nguyên Gió Hú (Beastman, Con người, Orc), Đại Ngàn Lục Bảo (Elf, Cây Thế Giới Yggdrasil),
+Dãy Núi Răng Cưa (Dwarf, Kobold; Lò Rèn Vĩnh Cửu), Đầm Lầy Tử Khí (Lizardman, Slime, Goblin),
 Vực Thẳm Phân Tầng (Ma tộc, Imp, Vampire, Ghoul, Troll; Cửa Ngục Than Khóc), Đảo Tro Tàn (Rồng, Minotaur; Đỉnh Hỏa Ngục).
 Tôn giáo: Giáo hội Thánh Quang (Nữ thần Lumina, căm ghét ma vật), Tự Nhiên Giáo (trung lập),
 Hắc Nguyệt Hội (tà giáo thờ Vực Thẳm Cổ Thần, hiến tế).
-Tổ chức: Bình Minh Hội (mạo hiểm giả), Tháp Ngà Ma Pháp, Thánh Vệ Quân, Quân Đoàn Hủy Diệt (của Ma Vương),
-Thương Đoàn Sói Bạc, Hội Bóng Đêm, Đấu Trường Huyết Sa, Tuần Lâm Trọng Vệ.
+Tổ chức: Guild Bình Minh (mạo hiểm giả), Học viện Ma pháp Tháp Ngà, Thánh Kỵ Sĩ Đoàn, Quân đoàn Ma Vương (của Ma Vương),
+Thương hội Sói Bạc, Guild Sát thủ Umbra, Đấu trường Huyết Sa, Đội Ranger Đại Ngàn.
 4 thời đại: Thời Bình · Chiến Tranh Tuyến Đầu · Kỷ Nguyên Tăm Tối (dịch bệnh, đói) · Ma Vương Giáng Thế.`;
+
+const NAMING = `=== PHONG CÁCH TÊN GỌI: KIỂU MANGA / LIGHT NOVEL DỊCH (BẮT BUỘC) ===
+- Tên chủng tộc GIỮ NGUYÊN tiếng Anh: Human, Beastman, Dwarf, Elf, Demon, Goblin, Slime, Kobold, Lizardman,
+  Vampire, Imp, Orc, Minotaur, Troll, Ghoul, Dragon, High Demon. Beastman ghi kèm dạng thú: "Beastman tộc Mèo".
+  KHÔNG dịch thuần Việt kiểu "Yêu tinh xanh", "Người lùn", "Tiên tộc", "Chằn tinh", "Khổng lồ ngốc".
+  Khi một tộc xuất hiện lần đầu trong đoạn mở đầu, kèm giải thích ngắn trong ngoặc, ví dụ:
+  "Bạn là Gruum, thuộc chủng tộc Goblin (tiểu yêu da xanh sống theo bầy, yếu ớt nhưng ranh mãnh)."
+- Nghề, chức vụ, cấp bậc, danh hiệu theo lối truyện isekai dịch:
+  Hán Việt đã thành chuẩn: Kiếm Thánh, Hiền Giả, Dũng Giả, Ma Vương, Thánh Nữ, Đại Ma pháp sư, Mạo hiểm giả hạng S;
+  hoặc tên class tiếng Anh: Assassin, Priest, Ranger, Berserker, Tamer, Necromancer, Dark Knight.
+  Biến thể và tiến hóa của ma vật luôn bằng tiếng Anh: Hobgoblin, Goblin Lord, High Orc, Slime King, Ancient Dragon, Lich.
+- Hệ thống gọi như manga: Guild, hạng F→S, Skill, tiến hóa, triệu hồi, Dungeon (hầm ngục).
+- Tên tổ chức: Guild Bình Minh (Hội Mạo hiểm giả), Học viện Ma pháp Tháp Ngà, Thánh Kỵ Sĩ Đoàn, Quân đoàn Ma Vương,
+  Thương hội Sói Bạc, Guild Sát thủ Umbra, Đấu trường Huyết Sa, Đội Ranger Đại Ngàn.
+- Văn kể vẫn là tiếng Việt Epic RPG, ngôi thứ hai. Chỉ tên riêng và thuật ngữ mang màu manga.`;
 
 const VOICE = `=== GIỌNG VĂN: EPIC RPG ===
 Sử thi, trang trọng, tự sự cổ điển, ngôi thứ hai ("bạn"). Mỗi đoạn 1–2 câu. Câu sau là một hình ảnh
@@ -194,7 +209,7 @@ ${ownList}
 b) Viết thêm ${c.origins - c.oldOrigins} xuất thân MỚI.${
         d.subtypes
           ? `\nLưu ý: DẠNG THÚ được game bốc riêng theo tỉ lệ, độc lập với xuất thân. Vì vậy với mỗi xuất thân, cha mẹ mặc định CÙNG DẠNG THÚ
-với nhân vật (viết "Cha: [tên] · Thú nhân cùng dạng với bạn · ..."). Nếu xuất thân chỉ hợp với vài dạng, ghi rõ "chỉ cho Lang nhân, Hổ nhân".
+với nhân vật (viết "Cha: [tên] · Beastman cùng dạng với bạn · ..."). Nếu xuất thân chỉ hợp với vài dạng, ghi rõ "chỉ cho tộc Sói, tộc Hổ".
 Ít nhất 2 xuất thân có cha mẹ KHÁC DẠNG hoặc một bên là Con người (con lai), ghi rõ con mang dạng nào.`
           : ""
       }
@@ -213,16 +228,16 @@ c) ${c.parentEvents} SỰ KIỆN VỀ CHA MẸ trải khắp cuộc đời, theo
   }
 
   if (d.subtypes) {
-    const rows = d.subtypes.map(([name, animal, pct, note]) => `   - ${name} (${animal}) · ${pct}% · ${note}`).join("\n");
+    const rows = d.subtypes.map(([name, animal, pct, note]) => `   - Beastman ${name} (${animal}) · ${pct}% · ${note}`).join("\n");
     add(
-      "Các dạng Thú nhân",
-      `Thú nhân có nhiều DẠNG THÚ. Mỗi nhân vật thuộc đúng một dạng, ghi rõ trong xuất thân và cha mẹ.
+      "Các dạng Beastman",
+      `Beastman có nhiều DẠNG THÚ. Mỗi nhân vật thuộc đúng một dạng, ghi rõ trong xuất thân và cha mẹ.
 Các dạng và tỉ lệ gặp (bạn được chỉnh tỉ lệ hoặc thêm dạng nếu thấy hợp lý, tổng 100%):
 ${rows}
 
 Với MỖI dạng, viết:
 1. Ngoại hình (tai, đuôi, lông, mắt) và bản năng đặc trưng: 2–3 câu.
-2. Chỉ số cộng/trừ đề xuất so với Thú nhân thường (ví dụ Miêu nhân: Nhanh nhẹn +2, Sức mạnh −1).
+2. Chỉ số cộng/trừ đề xuất so với Beastman thường (ví dụ tộc Mèo: Nhanh nhẹn +2, Sức mạnh −1).
 3. Loài người và các dạng thú khác nhìn họ thế nào: 1–2 câu.
 4. 1 XUẤT THÂN RIÊNG của dạng đó, theo mẫu xuất thân kèm cha mẹ ở phần trước.
 5. ${c.perSubtype} SỰ KIỆN RIÊNG cho dạng đó theo mẫu (ít nhất 2 có lựa chọn), ví dụ mèo bị cám dỗ bởi thứ lấp lánh,
@@ -272,7 +287,7 @@ Sau đó viết chi tiết ${jobWord} số ${from} → ${to}.`
       `Đặt tên 7 bậc của ${org.name} (${org.ranks}). Mỗi bậc viết 1 câu khi được thăng lên bậc đó.
 Viết thêm 1 sự kiện đặc biệt để leo lên bậc cao nhất (thách đấu, lật đổ, được thừa nhận...), có 3 lựa chọn dựa vào 3 chỉ số khác nhau.`
     );
-  } else if (org.name !== "Bình Minh Hội") {
+  } else if (org.name !== "Guild Bình Minh") {
     add(
       `Tổ chức: ${org.name}`,
       `Ngoài nghề, tộc này có tổ chức riêng: ${org.name}, với ${org.ranks}.
@@ -403,7 +418,7 @@ function build(race) {
 - DẤU ẤN: lựa chọn để lại dấu ấn; nhiều năm sau, sự kiện khác chỉ xảy ra nếu có dấu ấn đó.`;
 
   const subtypeNote = d.subtypes
-    ? `\n=== DẠNG THÚ ===\nMỗi Thú nhân thuộc một dạng thú: ${d.subtypes.map((s) => `${s[0]} (${s[1]})`).join(", ")}.\nKhi sự kiện chỉ hợp với một dạng, ghi rõ ở dòng "Khi nào" (ví dụ "chỉ Miêu nhân").\n`
+    ? `\n=== DẠNG THÚ ===\nMỗi Beastman thuộc một dạng thú: ${d.subtypes.map((s) => `Beastman ${s[0]}`).join(", ")}.\nKhi sự kiện chỉ hợp với một dạng, ghi rõ ở dòng "Khi nào" (ví dụ "chỉ Beastman tộc Mèo").\n`
     : "";
 
   const header = `# Prompt Gemini: kịch bản đời người — ${race.name.toUpperCase()} (${race.id})
@@ -423,9 +438,9 @@ ${civil ? "" : "\n> Tộc này dùng các hệ thống riêng của ma vật (va
 ## KHỐI CHUNG (dán đầu tiên)
 
 \`\`\`
-Bạn là biên kịch cho một web game chữ tiếng Việt tên "Luân Hồi Dị Giới": người chơi đầu thai vào thế giới
+Bạn là biên kịch cho một web game chữ tiếng Việt, văn phong isekai manga/light novel dịch, tên "Luân Hồi Dị Giới": người chơi đầu thai vào thế giới
 giả tưởng Aethelgard và sống trọn một kiếp, từ lúc sinh đến lúc chết, qua từng năm.
-Lần này bạn viết kịch bản cho tộc ${race.name.toUpperCase()}. Chỉ ${pct}% linh hồn được đầu thai vào tộc này.
+Lần này bạn viết kịch bản cho chủng tộc ${race.name.toUpperCase()} (${race.gloss}). Chỉ ${pct}% linh hồn được đầu thai vào tộc này.
 
 === ${race.name.toUpperCase()} LÀ AI ===
 ${p.desc || ""}
@@ -446,6 +461,8 @@ ${mech}
   việc chính, ${civil ? "nghề" : "vai trò"}, ${d.org.mission}, ${d.org.band}, gia đình. Tránh lặp lại những ý quá quen.
 
 ${WORLD}
+
+${NAMING}
 
 ${VOICE}
 Riêng tộc này: ${d.tone}

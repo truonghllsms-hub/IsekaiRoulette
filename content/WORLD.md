@@ -30,8 +30,8 @@ Tiền tệ: Đồng Cẩm Thạch → Tinh Bạc → Huyết Kim → Lõi Mana.
 - Hắc Nguyệt Hội (Vực Thẳm Cổ Thần): tôn sùng ma vật, hiến tế.
 
 ## Tổ chức
-Bình Minh Hội (mạo hiểm giả) · Tháp Ngà Ma Pháp · Thánh Vệ Quân · Quân Đoàn Hủy Diệt (Ma Vương) ·
-Thương Đoàn Sói Bạc · Hội Bóng Đêm (The Umbra) · Đấu Trường Huyết Sa · Tuần Lâm Trọng Vệ.
+Guild Bình Minh (mạo hiểm giả) · Học viện Ma pháp Tháp Ngà · Thánh Kỵ Sĩ Đoàn · Quân đoàn Ma Vương (Ma Vương) ·
+Thương hội Sói Bạc · Guild Sát thủ Umbra (The Umbra) · Đấu trường Huyết Sa · Đội Ranger Đại Ngàn.
 
 ## Biến cố lớn
-Chiến Tranh Chủng Tộc · Đại Dịch Miasma · Ma Vương Trỗi Dậy · Anh Hùng Được Triệu Hồi · Kỷ Nguyên Nạn Đói.
+Chiến Tranh Chủng Tộc · Đại Dịch Miasma · Ma Vương Trỗi Dậy · Dũng Giả Được Triệu Hồi · Kỷ Nguyên Nạn Đói.

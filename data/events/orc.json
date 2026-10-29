@@ -6,13 +6,13 @@
   { "id": "oc_tattoo", "races": ["orc"], "stages": ["teen"], "weight": 8,
     "text": "Lão Pháp sư xăm lên ngực bạn những hoa văn bằng máu và tro. Mỗi đường mực là một lời thề với Chiến thần.", "effects": { "STR": 1, "health": -5 } },
   { "id": "oc_ms_arena", "races": ["orc"], "stages": ["teen", "adult"], "weight": 14, "require": { "flags": ["gladiator"] },
-    "text": "Trận chung kết sinh tử tại Đấu Trường Huyết Sa. Hàng vạn quý tộc gào thét trên khán đài, đối diện bạn là nhà vô địch loài người.",
+    "text": "Trận chung kết sinh tử tại Đấu trường Huyết Sa. Hàng vạn quý tộc gào thét trên khán đài, đối diện bạn là nhà vô địch loài người.",
     "choices": [
       { "label": "Nghiền nát nhà vô địch", "check": { "stat": "STR", "target": 10 },
-        "success": { "text": "Rìu của bạn bổ đôi khiên của hắn, rồi bổ đôi hắn. Theo luật đấu trường, bạn được trả tự do.", "effects": { "joy": 20, "flags": ["freed"], "unflags": ["gladiator"] }, "moment": "Giành tự do trên Đấu Trường Huyết Sa" },
+        "success": { "text": "Rìu của bạn bổ đôi khiên của hắn, rồi bổ đôi hắn. Theo luật đấu trường, bạn được trả tự do.", "effects": { "joy": 20, "flags": ["freed"], "unflags": ["gladiator"] }, "moment": "Giành tự do trên Đấu trường Huyết Sa" },
         "fail": { "text": "Lưỡi giáo của nhà vô địch tìm được khe hở trên ngực bạn.", "death": "Bạn ngã xuống nền cát đẫm máu ở tuổi {age}, giữa tiếng reo hò vô cảm." } },
       { "label": "Kích động nổi loạn", "check": { "stat": "INT", "target": 5 },
-        "success": { "text": "Bạn hướng rìu lên khán đài và gầm lên. Hàng trăm nô lệ phá xích, và Đấu Trường Huyết Sa chìm trong biển lửa.", "effects": { "joy": 15, "flags": ["rebel"], "unflags": ["gladiator"] }, "moment": "Lãnh đạo cuộc nổi loạn nô lệ" },
+        "success": { "text": "Bạn hướng rìu lên khán đài và gầm lên. Hàng trăm nô lệ phá xích, và Đấu trường Huyết Sa chìm trong biển lửa.", "effects": { "joy": 15, "flags": ["rebel"], "unflags": ["gladiator"] }, "moment": "Lãnh đạo cuộc nổi loạn nô lệ" },
         "fail": { "text": "Lính canh dập tắt cuộc nổi loạn trước khi nó kịp bùng lên.", "effects": { "health": -40 } } },
       { "label": "Buông vũ khí", "text": "Bạn buông rìu và ngẩng mặt nhìn trời.", "death": "Bạn chọn cái chết vinh quang thay vì làm trò tiêu khiển, ở tuổi {age}." }
     ] },
@@ -42,7 +42,7 @@
   { "id": "oc_ms_demon_alliance", "races": ["orc"], "stages": ["adult", "middle"], "weight": 7,
     "text": "Sứ giả của Ma Vương đặt trước mặt bạn một chén máu quỷ đen sánh. Uống nó, bạn sẽ có sức mạnh vô song, và một chủ nhân mới.",
     "choices": [
-      { "label": "Uống máu quỷ", "text": "Máu quỷ thiêu đốt huyết quản bạn. Khi cơn đau qua đi, bạn đã trở thành một Ác thú bạo tàn của Quân Đoàn Hủy Diệt.", "effects": { "STR": 3, "INT": -1, "flags": ["demon_army"] }, "moment": "Gia nhập Quân Đoàn Hủy Diệt" },
+      { "label": "Uống máu quỷ", "text": "Máu quỷ thiêu đốt huyết quản bạn. Khi cơn đau qua đi, bạn đã trở thành một Ác thú bạo tàn của Quân đoàn Ma Vương.", "effects": { "STR": 3, "INT": -1, "flags": ["demon_army"] }, "moment": "Gia nhập Quân đoàn Ma Vương" },
       { "label": "Chém đầu sứ giả", "text": "Bạn hất đổ chén máu và chém phăng đầu sứ giả. Orc không quỳ trước ai.", "effects": { "joy": 10, "flags": ["free_orc"] } },
       { "label": "Đòi cống nạp vũ khí", "check": { "stat": "INT", "target": 5 },
         "success": { "text": "Ma Vương gửi tới một xe rìu thép đen để mua lòng trung thành của bạn. Bạn nhận rìu, và vẫn chưa trả lời.", "effects": { "wealth": 25 } },

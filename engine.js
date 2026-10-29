@@ -107,9 +107,13 @@
   function jobDef(c, data) {
     return c.job ? (data.jobs || []).find((j) => j.id === c.job.id) : null;
   }
+  // Ranks can have a female form (Priest → Thánh Nữ).
+  function rankNames(c, j) {
+    return c.gender === "female" && j.ranksF ? j.ranksF : j.ranks;
+  }
   function jobTitle(c, data) {
     const j = jobDef(c, data);
-    return j ? `${j.name} · ${j.ranks[c.job.rank]}` : "";
+    return j ? `${j.name} · ${rankNames(c, j)[c.job.rank]}` : "";
   }
   function aliveParty(c) {
     return c.party.filter((m) => m.alive);
@@ -130,7 +134,7 @@
         partner: ctx.partner ? ctx.partner.name : "",
         child: ctx.child || "",
         job: j ? j.name : "kẻ lang bạt",
-        rank: j ? j.ranks[c.job.rank] : "",
+        rank: j ? rankNames(c, j)[c.job.rank] : "",
         guild: c.guild ? GUILD_RANKS[c.guild.rank] : "",
         spouse: c.spouse ? c.spouse.name : "",
         quest: ctx.quest ? ctx.quest.name : "",
@@ -204,8 +208,13 @@
     };
     applyEffects(c, origin.effects, data, rng);
     if (era) pushLog(c, "era", era.text);
+    pushLog(c, "intro", introLine(c));
     pushLog(c, "birth", fmt(origin.text, c, null, data));
     return c;
+  }
+
+  function introLine(c) {
+    return `Bạn là ${c.name}, thuộc chủng tộc ${c.race.name}` + (c.race.gloss ? ` — ${c.race.gloss}.` : ".");
   }
 
   function pushLog(c, kind, text, ageFrom) {
@@ -343,7 +352,7 @@
     c.guild = { rank: 0, pts: 0, since: c.age };
     const s = data.systems;
     pushLog(c, "milestone", fmt(pick(Math.random, s.guildJoin), c, null, data));
-    addMoment(c, "Ghi danh tại Bình Minh Hội, nhận thẻ hạng F", data);
+    addMoment(c, "Ghi danh tại Guild Bình Minh, nhận thẻ hạng F", data);
   }
 
   function addGuildPoints(c, data, pts) {
@@ -540,7 +549,7 @@
     const j = jobDef(c, data);
     const r = c.job.rank;
     const s = data.systems.promotion;
-    const next = j.ranks[r + 1];
+    const next = rankNames(c, j)[r + 1];
     scene(c, "promotion", fmt(j.promo[r], c, { next }, data), [
       {
         label: s.try,
@@ -994,6 +1003,7 @@
     focusOptions,
     setFocus,
     jobTitle,
+    introLine,
     aliveParty,
     summary,
     eligible,
