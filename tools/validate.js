@@ -2,10 +2,12 @@
 // Run: node tools/validate.js   (exit code 1 when anything is wrong)
 const STATS = ["STR", "INT", "AGI", "LUCK"];
 const BARS = ["health", "joy", "wealth"];
-const EFFECT_KEYS = new Set([...STATS, ...BARS, "flags", "unflags"]);
-const REQ_KEYS = new Set([...STATS, ...BARS, "below", "flags", "notFlags", "gender"]);
-const EVENT_KEYS = new Set(["_file", "id", "races", "excludeRaces", "tags", "stages", "eras", "minAge", "maxAge", "once", "weight", "require", "text", "effects", "choices", "moment", "death"]);
-const PLACEHOLDERS = new Set(["name", "race", "age", "origin", "stage", "pct", "cause"]);
+const EFFECT_KEYS = new Set([...STATS, ...BARS, "flags", "unflags", "fame", "jobXp", "guildPts", "bond", "partyBond", "allyHurt", "allyDie", "allyLeave", "loseJob", "setJob", "joinGuild", "focus"]);
+const BOOL_EFFECTS = new Set(["allyHurt", "allyDie", "allyLeave", "loseJob", "joinGuild"]);
+const STR_EFFECTS = new Set(["setJob", "focus"]);
+const REQ_KEYS = new Set([...STATS, ...BARS, "fame", "below", "flags", "anyFlags", "notFlags", "flagHint", "gender", "job", "jobRank", "guild", "guildRank", "party", "allyTrait", "spouse", "children", "focus", "hint"]);
+const EVENT_KEYS = new Set(["_file", "id", "races", "excludeRaces", "tags", "stages", "eras", "minAge", "maxAge", "once", "weight", "require", "text", "effects", "choices", "moment", "death", "focus"]);
+const PLACEHOLDERS = new Set(["name", "race", "age", "origin", "stage", "pct", "cause", "ally", "allyJob", "partner", "child", "job", "rank", "guild", "spouse", "quest", "next"]);
 
 function validate(data) {
   const errors = [];
@@ -59,6 +61,8 @@ function validate(data) {
     for (const k of Object.keys(eff)) {
       if (!EFFECT_KEYS.has(k)) err(where, `effect lạ "${k}"`);
       else if (k === "flags" || k === "unflags") { if (!Array.isArray(eff[k])) err(where, `${k} phải là mảng`); }
+      else if (BOOL_EFFECTS.has(k)) { if (eff[k] !== true) err(where, `${k} phải là true`); }
+      else if (STR_EFFECTS.has(k)) { if (typeof eff[k] !== "string") err(where, `${k} phải là chuỗi`); }
       else if (typeof eff[k] !== "number" || Math.abs(eff[k]) > 60) err(where, `${k} phải là số trong khoảng -60..60`);
     }
   };
@@ -115,6 +119,61 @@ function validate(data) {
       });
       if (e.effects) err(w, "sự kiện có lựa chọn không dùng effects; đặt effects trong từng lựa chọn");
     }
+  }
+
+  const focusIds = new Set((data.focus || []).map((f) => f.id));
+  const jobIds = new Set((data.jobs || []).map((j) => j.id));
+  for (const e of data.events) {
+    const w = `events/${e._file} [${e.id}]`;
+    for (const f of e.focus || []) if (!focusIds.has(f)) err(w, `focus không tồn tại "${f}"`);
+    const rj = e.require && e.require.job;
+    for (const j of rj == null ? [] : [].concat(rj)) if (!jobIds.has(j) && j !== "any" && j !== "none") err(w, `nghề không tồn tại "${j}"`);
+  }
+  for (const f of data.focus || []) {
+    const w = `focus.json [${f.id}]`;
+    for (const k of Object.keys(f.gains || {})) if (!STATS.includes(k)) err(w, `gains lạ "${k}"`);
+    for (const k of Object.keys(f.bars || {})) if (!BARS.includes(k)) err(w, `bars lạ "${k}"`);
+    for (const list of Object.values(f.quiet || {})) for (const t of list) checkText(w, t);
+  }
+  for (const j of data.jobs || []) {
+    const w = `jobs.json [${j.id}]`;
+    if (!STATS.includes(j.stat)) err(w, "stat phải là STR/INT/AGI/LUCK");
+    if (!(j.ranks && j.ranks.length === 5)) err(w, "cần đúng 5 bậc (ranks)");
+    for (const k of ["income"]) if (!(j[k] && j[k].length === 5)) err(w, `${k} cần 5 giá trị`);
+    for (const k of ["promoXp", "promoTarget", "promo"]) if (!(j[k] && j[k].length === 4)) err(w, `${k} cần 4 giá trị`);
+    checkReq(w, j.require);
+    checkReq(w, j.alt);
+    checkText(w, j.start);
+    for (const t of j.promo || []) checkText(w, t);
+    for (const t of j.quiet || []) checkText(w, t);
+  }
+  const RANKS = ["F", "E", "D", "C", "B", "A", "S"];
+  const qids = new Set();
+  for (const q of data.quests || []) {
+    const w = `quests.json [${q.id}]`;
+    if (qids.has(q.id)) err(w, "trùng id");
+    qids.add(q.id);
+    if (q.minRank && !RANKS.includes(q.minRank)) err(w, "minRank phải là F..S");
+    if (q.maxRank && !RANKS.includes(q.maxRank)) err(w, "maxRank phải là F..S");
+    for (const x of q.eras || []) if (!eraIds.has(x)) err(w, `thời đại không tồn tại "${x}"`);
+    checkText(w, q.intro);
+    checkText(w, q.complete);
+    if (!(q.steps && q.steps.length)) err(w, "cần ít nhất 1 cảnh (steps)");
+    (q.steps || []).forEach((st, si) => {
+      const sw = `${w} cảnh ${si + 1}`;
+      checkText(sw, st.text);
+      if (!(st.choices && st.choices.length >= 2 && st.choices.length <= 4)) err(sw, "cần 2–4 lựa chọn");
+      (st.choices || []).forEach((ch, i) => {
+        const cw = `${sw} lựa chọn ${i + 1}`;
+        if (!ch.label) err(cw, "thiếu label");
+        checkReq(cw, ch.require);
+        for (const o of ch.check ? [ch.success, ch.fail] : [ch]) {
+          if (o && o.end && !["fail", "win"].includes(o.end)) err(cw, "end phải là fail hoặc win");
+        }
+        if (ch.check) { checkOutcome(cw + " success", ch.success); checkOutcome(cw + " fail", ch.fail); }
+        else checkOutcome(cw, ch);
+      });
+    });
   }
 
   for (const o of data.origins) {

@@ -1,0 +1,112 @@
+[
+  { "id": "foc_play_river", "focus": ["play"], "stages": ["child"], "weight": 6,
+    "text": "Lũ trẻ trong làng thách nhau bơi qua khúc sông có xoáy nước.",
+    "choices": [
+      { "label": "Nhận lời thách", "check": { "stat": "AGI", "target": 4 },
+        "success": { "text": "Bạn bơi qua trước tiếng reo hò. Từ hôm đó, bạn là thủ lĩnh của lũ trẻ.", "effects": { "AGI": 1, "joy": 8, "flags": ["kid_leader"] } },
+        "fail": { "text": "Dòng xoáy kéo bạn xuống. Một người đánh cá lôi bạn lên kịp lúc.", "effects": { "health": -15, "joy": -5 } } },
+      { "label": "Đứng trên bờ cổ vũ", "text": "Bạn hò hét đến khản cổ. Không ai nhớ ai thắng, nhưng ai cũng nhớ tiếng bạn.", "effects": { "joy": 3 } }
+    ] },
+  { "id": "foc_play_ruins", "focus": ["play"], "stages": ["child"], "weight": 5,
+    "text": "Trong lúc chơi trốn tìm, bạn lạc vào một phế tích cổ. Một cánh cửa đá khép hờ dẫn xuống lòng đất.",
+    "choices": [
+      { "label": "Lén chui vào", "check": { "stat": "LUCK", "target": 5 },
+        "success": { "text": "Bạn tìm thấy một chiếc nhẫn bạc khắc hình mặt trăng. Nó vừa khít ngón tay bạn.", "effects": { "LUCK": 1, "flags": ["moon_ring"] }, "moment": "Nhặt được chiếc nhẫn mặt trăng" },
+        "fail": { "text": "Cầu thang đá sụp. Bạn bị kẹt hai ngày trước khi người làng tìm thấy.", "effects": { "health": -12, "joy": -6 } } },
+      { "label": "Chạy về gọi người lớn", "text": "Người lớn mắng bạn một trận, rồi lấp cửa đá lại. Đêm đó bạn mơ thấy nó mở ra.", "effects": { "INT": 1 } }
+    ] },
+  { "id": "foc_play_friend", "focus": ["play"], "stages": ["child"], "weight": 5,
+    "text": "Bạn kết thân với một đứa trẻ mới chuyển đến làng. Hai đứa thề làm anh em kết nghĩa dưới gốc sồi.", "effects": { "joy": 8, "flags": ["childhood_friend"] }, "moment": "Kết nghĩa dưới gốc sồi" },
+
+  { "id": "foc_study_teacher", "focus": ["study"], "stages": ["child", "teen"], "weight": 6,
+    "text": "Vị thầy già trong làng nhận ra trí thông minh của bạn và đề nghị dạy riêng.",
+    "choices": [
+      { "label": "Theo thầy học", "text": "Mỗi tối bạn đến căn nhà nhỏ đầy sách. Thầy dạy bạn đọc cả những chữ cổ.", "effects": { "INT": 2, "flags": ["educated"] }, "moment": "Được thầy già dạy riêng" },
+      { "label": "Ngại, từ chối", "text": "Bạn sợ những đứa trẻ khác chê cười. Thầy chỉ thở dài.", "effects": {} }
+    ] },
+  { "id": "foc_study_exam", "focus": ["study"], "stages": ["teen"], "weight": 7,
+    "text": "Tháp Ngà Ma Pháp mở kỳ thi tuyển học bổng. Chỉ ba người trong cả vùng được chọn.",
+    "choices": [
+      { "label": "Dự thi", "check": { "stat": "INT", "target": 7 },
+        "success": { "text": "Tên bạn đứng thứ hai trên bảng vàng. Cánh cửa Tháp Ngà mở rộng.", "effects": { "INT": 2, "fame": 2, "flags": ["educated", "tower_scholar"] }, "moment": "Đỗ học bổng Tháp Ngà" },
+        "fail": { "text": "Bạn trượt chỉ vì một câu hỏi. Năm sau, có lẽ.", "effects": { "joy": -8, "INT": 1 } } },
+      { "label": "Không đủ tự tin", "text": "Bạn đứng nhìn những người khác bước vào phòng thi.", "effects": { "joy": -2 } }
+    ] },
+  { "id": "foc_study_library", "focus": ["study"], "stages": ["adult", "middle", "elder"], "weight": 5,
+    "text": "Thư viện Sanctus cần người chép lại những cuốn sách đang mục nát. Công việc chậm rãi, nhưng được đọc tất cả.",
+    "choices": [
+      { "label": "Nhận việc", "text": "Bạn chép mười năm trời. Trí nhớ bạn chứa cả một thư viện nhỏ.", "effects": { "INT": 2, "wealth": 3 } },
+      { "label": "Chỉ đọc những gì mình thích", "text": "Bạn đọc ngấu nghiến về lịch sử các vương triều đã mất.", "effects": { "INT": 1, "joy": 4 } }
+    ] },
+  { "id": "foc_study_star", "focus": ["study"], "weight": 3,
+    "text": "Đêm khuya, bạn tính toán quỹ đạo các vì sao và phát hiện một ngôi sao lạ không có trong bất kỳ bản đồ nào.", "effects": { "INT": 1, "flags": ["found_star"] }, "moment": "Phát hiện một ngôi sao lạ" },
+
+  { "id": "foc_train_master", "focus": ["train"], "stages": ["teen", "adult"], "weight": 6,
+    "text": "Một kiếm khách già ngồi uống rượu ở góc sân tập, nhìn bạn luyện kiếm rồi bật cười.",
+    "choices": [
+      { "label": "Xin ông chỉ giáo", "check": { "stat": "LUCK", "target": 5 },
+        "success": { "text": "Ông dạy bạn ba chiêu kiếm, mỗi chiêu bằng mười năm khổ luyện. Rồi ông biến mất như chưa từng đến.", "effects": { "STR": 2, "AGI": 2 }, "moment": "Được kiếm khách vô danh truyền ba chiêu" },
+        "fail": { "text": "Ông chỉ nói: \"Ngươi cầm kiếm như cầm chổi\", rồi bỏ đi.", "effects": { "joy": -4 } } },
+      { "label": "Thách đấu ông", "check": { "stat": "STR", "target": 8 },
+        "success": { "text": "Ông đỡ đòn của bạn bằng một cành cây, nhưng ánh mắt thì đầy tán thưởng.", "effects": { "STR": 1, "fame": 1 } },
+        "fail": { "text": "Bạn nằm úp mặt trên đất trước khi kịp hiểu chuyện gì xảy ra.", "effects": { "health": -8, "AGI": 1 } } }
+    ] },
+  { "id": "foc_train_injury", "focus": ["train"], "weight": 4,
+    "text": "Bạn tập quá sức. Một tiếng rắc khô khốc vang lên ở cổ tay.", "effects": { "health": -15, "STR": -1 } },
+  { "id": "foc_train_tournament", "focus": ["train"], "stages": ["teen", "adult"], "weight": 5,
+    "text": "Lễ hội mùa thu tổ chức giải đấu võ cho thanh niên. Phần thưởng là một con ngựa chiến.",
+    "choices": [
+      { "label": "Tham gia bằng sức mạnh", "check": { "stat": "STR", "target": 6 },
+        "success": { "text": "Bạn hạ năm đối thủ liên tiếp. Con ngựa chiến hí vang khi bạn nắm dây cương.", "effects": { "fame": 3, "wealth": 10, "joy": 8 }, "moment": "Vô địch giải đấu mùa thu" },
+        "fail": { "text": "Bạn bị loại ở vòng hai bởi một gã to như con gấu.", "effects": { "health": -8 } } },
+      { "label": "Tham gia bằng tốc độ", "check": { "stat": "AGI", "target": 6 },
+        "success": { "text": "Không ai chạm được vào bạn. Khán giả gọi bạn là Cơn Gió.", "effects": { "fame": 3, "wealth": 10, "joy": 8 }, "moment": "Vô địch giải đấu mùa thu" },
+        "fail": { "text": "Bạn né được mọi đòn trừ đòn cuối.", "effects": { "health": -8 } } },
+      { "label": "Đứng xem", "text": "Bạn ghi nhớ từng thế đánh của nhà vô địch.", "effects": { "INT": 1 } }
+    ] },
+
+  { "id": "foc_social_tavern", "focus": ["social"], "weight": 5,
+    "text": "Ở quán rượu, một du ca hát về một kho báu chôn dưới tượng đá ở Thảo Nguyên Gió Hú.",
+    "choices": [
+      { "label": "Mời hắn chén rượu để nghe thêm", "check": { "stat": "LUCK", "target": 5 },
+        "success": { "text": "Ba chén rượu sau, hắn vẽ cho bạn tấm bản đồ. Hai tháng sau, bạn đào được một rương Tinh Bạc.", "effects": { "wealth": 20, "joy": 6 }, "moment": "Đào được kho báu dưới tượng đá" },
+        "fail": { "text": "Hắn uống hết rượu của bạn rồi ngủ gục. Sáng ra hắn chẳng nhớ gì.", "effects": { "wealth": -3 } } },
+      { "label": "Cười trừ", "text": "Đời bạn đã nghe cả trăm câu chuyện kho báu.", "effects": {} }
+    ] },
+  { "id": "foc_social_noble", "focus": ["social"], "stages": ["adult", "middle"], "weight": 4,
+    "text": "Bạn được mời đến dạ tiệc của một nữ bá tước. Giữa những chiếc mặt nạ, ai cũng đang toan tính điều gì đó.",
+    "choices": [
+      { "label": "Kết giao với giới quý tộc", "check": { "stat": "INT", "target": 6 },
+        "success": { "text": "Bạn nói đúng lời, cười đúng lúc. Ba gia tộc gửi thư mời bạn đến dùng bữa.", "effects": { "fame": 3, "flags": ["noble_friends"] } },
+        "fail": { "text": "Bạn dùng nhầm dĩa ăn cá. Cả bàn tiệc nín cười.", "effects": { "joy": -6 } } },
+      { "label": "Lặng lẽ quan sát", "text": "Bạn phát hiện bá tước phu nhân đang ngoại tình với viên đội trưởng cận vệ. Một bí mật đáng giá.", "effects": { "INT": 1, "flags": ["knows_secret"] } }
+    ] },
+  { "id": "foc_social_friend_lost", "focus": ["social"], "require": { "flags": ["childhood_friend"] }, "stages": ["adult", "middle"], "weight": 6,
+    "text": "Người anh em kết nghĩa thuở nhỏ tìm đến, gầy gò và nợ nần. Họ xin bạn giúp một khoản lớn.",
+    "choices": [
+      { "label": "Cho mượn", "require": { "wealth": 25 }, "showLocked": true, "text": "Bạn đưa tiền mà không hỏi gì. Có những món nợ không cần đòi.", "effects": { "wealth": -20, "joy": 6, "flags": ["kept_oath"] }, "moment": "Giữ trọn lời thề dưới gốc sồi" },
+      { "label": "Từ chối", "text": "Họ quay đi không nói lời nào. Bạn không bao giờ gặp lại họ.", "effects": { "joy": -12, "unflags": ["childhood_friend"] } }
+    ] },
+  { "id": "foc_social_festival", "focus": ["social"], "weight": 4,
+    "text": "Lễ hội Mùa Lửa Trại. Bạn nhảy múa đến sáng, và lần đầu tiên sau nhiều năm thấy mình thực sự trẻ lại.", "effects": { "joy": 10 } },
+
+  { "id": "foc_rest_garden", "focus": ["rest"], "weight": 5,
+    "text": "Khu vườn bạn trồng ra một loại thảo dược quý hiếm. Một dược sĩ đến hỏi mua với giá cao.",
+    "choices": [
+      { "label": "Bán", "text": "Túi tiền đầy lên. Khu vườn vẫn còn đó cho mùa sau.", "effects": { "wealth": 10 } },
+      { "label": "Tự sắc thuốc uống", "text": "Thân thể bạn nhẹ bẫng như trẻ lại mười tuổi.", "effects": { "health": 15 } }
+    ] },
+  { "id": "foc_rest_memoir", "focus": ["rest", "study"], "stages": ["middle", "elder"], "weight": 4,
+    "text": "Bạn bắt đầu viết hồi ký. Ngòi bút dừng lại lâu ở những trang về những người đã khuất.", "effects": { "joy": 4, "INT": 1, "flags": ["memoir"] }, "moment": "Viết hồi ký" },
+
+  { "id": "foc_adv_lone", "focus": ["adventure"], "require": { "party": 0 }, "weight": 3,
+    "text": "Bạn cắm trại một mình giữa rừng thông. Tiếng sói tru xa xa. Có lẽ đã đến lúc tìm người đồng hành.", "effects": { "joy": -3 } },
+  { "id": "foc_adv_relic", "focus": ["adventure"], "require": { "guild": true }, "weight": 4,
+    "text": "Trên đường về sau một nhiệm vụ, bạn vấp phải một mảnh giáp cổ nhô lên từ bùn đất.",
+    "choices": [
+      { "label": "Mang về Hội giám định", "check": { "stat": "LUCK", "target": 5 },
+        "success": { "text": "Đó là giáp của một anh hùng thời Chiến Tranh Chủng Tộc. Hội mua lại với giá hời.", "effects": { "wealth": 15, "guildPts": 1 } },
+        "fail": { "text": "Chỉ là sắt vụn. Ông giám định nhìn bạn đầy thương hại.", "effects": {} } },
+      { "label": "Giữ lại dùng", "text": "Mảnh giáp vừa vặn như được rèn cho bạn. Nó đỡ cho bạn không ít đòn.", "effects": { "health": 10, "flags": ["ancient_armor"] } }
+    ] }
+]

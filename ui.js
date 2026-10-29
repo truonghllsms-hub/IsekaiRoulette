@@ -84,6 +84,41 @@
       (k) => `<div class="bar">${BAR_LABEL[k]}<div class="track"><div class="fill" style="width:${c.bars[k]}%;background:${BAR_COLOR[k]}"></div></div></div>`
     ).join("");
     $("hud-stats").innerHTML = E.STAT_KEYS.map((k) => `<span class="stat">${STAT_LABEL[k]} <b>${c.stats[k]}</b></span>`).join("");
+    $("hud-profile").innerHTML = profileHtml();
+  }
+
+  const esc = (t) => String(t).replace(/[&<>"]/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
+
+  function profileHtml() {
+    const out = [];
+    if (c.job) out.push(`<span>Nghề <b>${esc(E.jobTitle(c, D))}</b></span>`);
+    if (c.guild) out.push(`<span>Hội <b>hạng ${E.GUILD_RANKS[c.guild.rank]}</b></span>`);
+    if (c.fame) out.push(`<span>Danh vọng <b>${c.fame}</b></span>`);
+    if (c.party.length)
+      out.push(`<span>Tổ đội ${c.party.filter((m) => !m.left).map((m) => `<b class="${m.alive ? "" : "dead"}" title="${esc(m.race + ", " + m.jobName)}">${esc(m.name)}</b>`).join(", ")}</span>`);
+    if (c.spouse) out.push(`<span>Bạn đời <b>${esc(c.spouse.name)}</b>${c.children.length ? ` · ${c.children.length} con` : ""}</span>`);
+    return out.join("");
+  }
+
+  function renderFocus() {
+    const bar = $("focus-bar");
+    bar.innerHTML = "";
+    if (!c.alive || c.pending) return;
+    const opts = E.focusOptions(c, D);
+    if (opts.length < 2) return;
+    bar.appendChild(document.createTextNode("Việc chính:"));
+    for (const f of opts) {
+      const b = document.createElement("button");
+      b.className = "chip";
+      b.textContent = f.name;
+      b.title = f.desc;
+      b.setAttribute("aria-pressed", String(c.focus === f.id));
+      b.onclick = () => {
+        E.setFocus(c, D, f.id);
+        render();
+      };
+      bar.appendChild(b);
+    }
   }
 
   function renderLog() {
@@ -101,8 +136,15 @@
       }
       const li = document.createElement("li");
       li.className = "entry kind-" + e.kind;
-      li.innerHTML = `<div class="when"><b>${fmtAge(e.age)}</b>${e.stage}</div><div class="text"><p></p></div>`;
+      const when = e.ageFrom != null ? `${fmtAge(e.ageFrom)}–${fmtAge(e.age)}` : fmtAge(e.age);
+      li.innerHTML = `<div class="when"><b>${when}</b>${e.stage}</div><div class="text"><p></p></div>`;
       li.querySelector(".text p").textContent = e.text;
+      if (e.gains) {
+        const g = document.createElement("p");
+        g.className = "gains";
+        g.textContent = e.gains;
+        li.querySelector(".text").appendChild(g);
+      }
       log.appendChild(li);
     }
   }
@@ -115,10 +157,19 @@
       const b = document.createElement("button");
       b.className = "btn choice";
       b.textContent = ch.label;
-      if (ch.check) {
+      const note = (text, cls) => {
         const s = document.createElement("small");
-        s.textContent = `Dựa vào ${STAT_LABEL[ch.check.stat] || ch.check.stat} · khoảng ${Math.round(E.successChance(c, ch.check) * 100)}% thành công`;
+        s.textContent = text;
+        if (cls) s.className = cls;
         b.appendChild(s);
+      };
+      if (ch.hint) note(ch.hint);
+      if (ch.disabled) {
+        b.disabled = true;
+        note(ch.reason || "Chưa đủ điều kiện", "locked");
+      } else if (ch.check) {
+        const pb = Math.round(E.partyBonus(c, ch.check) * 100);
+        note(`Dựa vào ${E.STAT_LABEL[ch.check.stat] || ch.check.stat} · khoảng ${Math.round(E.successChance(c, ch.check) * 100)}% thành công` + (pb ? ` (đồng đội +${pb}%)` : ""));
       }
       b.onclick = () => {
         E.choose(c, D, i);
@@ -132,6 +183,7 @@
     renderHud();
     renderLog();
     renderChoices();
+    renderFocus();
     const btn = $("btn-next");
     if (!c.alive) {
       btn.textContent = "Xem tổng kết";
@@ -140,8 +192,7 @@
       btn.textContent = "Hãy đưa ra lựa chọn";
       btn.disabled = true;
     } else {
-      const y = E.stepYears(c);
-      btn.textContent = y === 1 ? "Sống tiếp 1 năm" : `Sống tiếp ${fmtAge(y)} năm`;
+      btn.textContent = c.quest ? "Tiếp tục nhiệm vụ" : "Sống tiếp";
       btn.disabled = false;
     }
     requestAnimationFrame(() => window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" }));
@@ -167,6 +218,13 @@
     $("death-meta").textContent = `${c.race.name} · ${fmtAge(c.age)} tuổi · ${c.origin.name}`;
     $("death-cause").textContent = c.cause;
     $("death-epitaph").textContent = s.epitaph;
+    const prof = $("death-profile");
+    prof.innerHTML = "";
+    for (const line of s.profile) {
+      const li = document.createElement("li");
+      li.textContent = line;
+      prof.appendChild(li);
+    }
     const ul = $("death-moments");
     ul.innerHTML = "";
     const moments = s.moments.length ? s.moments : [{ age: c.age, text: "Một cuộc đời lặng lẽ." }];

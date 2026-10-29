@@ -103,18 +103,33 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 7vw, 48
 .stat { font-size: 12px; border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; color: var(--muted); font-variant-numeric: tabular-nums; }
 .stat b { color: var(--ink); font-weight: 600; }
 
+.profile { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: var(--muted); }
+.profile:empty { display: none; }
+.profile b { color: var(--ink); font-weight: 600; }
+.profile .dead { text-decoration: line-through; opacity: .6; }
+
+.focus-bar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 10px; font-size: 13px; color: var(--muted); }
+.focus-bar:empty { display: none; }
+.chip { font: inherit; font-size: 13px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 4px 12px; cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+
 /* Log */
 .log { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-direction: column; gap: 14px; }
 .entry { display: grid; grid-template-columns: 64px 1fr; gap: 12px; animation: rise .35s ease both; }
 .entry .when { font-size: 12px; color: var(--muted); text-align: right; padding-top: 3px; font-variant-numeric: tabular-nums; }
-.entry .when b { display: block; color: var(--ink); font-size: 15px; font-family: var(--serif); }
+.entry .when b { display: block; color: var(--ink); font-size: 15px; font-family: var(--serif); white-space: nowrap; }
 .entry .text { font-family: var(--serif); font-size: 17px; }
 .entry .text p { margin: 0 0 4px; }
 .entry .picked { font-family: var(--sans); font-size: 13px; color: var(--accent); }
 .entry .picked::before { content: "→ "; }
 .entry.kind-death .text { color: var(--bad); }
 .entry.kind-birth .text { font-style: italic; }
-.entry.kind-filler .text { color: var(--muted); }
+.entry.kind-filler .text, .entry.kind-quiet .text { color: var(--muted); }
+.entry .gains { font-family: var(--sans); font-size: 12px; color: var(--good); }
+.entry.kind-stage .text { font-style: italic; color: var(--accent); }
+.entry.kind-milestone .text { font-weight: 600; }
+.entry.kind-quest .text { border-left: 3px solid var(--warn); padding-left: 10px; }
+.entry.kind-loss .text { color: var(--bad); }
 .entry.kind-era .text { color: var(--accent); font-style: italic; }
 .entry.kind-choice .text > p:first-child { font-weight: 600; }
 @keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
@@ -123,6 +138,9 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 7vw, 48
 .choices:empty { display: none; }
 .choice { text-align: left; background: var(--choice); border-color: transparent; }
 .choice small { display: block; color: var(--muted); font-size: 12px; }
+.choice small.locked { color: var(--bad); }
+.death-profile { list-style: none; padding: 0; margin: 0; font-size: 14px; color: var(--muted); }
+.death-profile:empty { display: none; }
 
 .actions { position: sticky; bottom: 0; background: linear-gradient(transparent, var(--bg) 30%); padding: 24px 0 calc(16px + env(safe-area-inset-bottom, 0px)); }
 

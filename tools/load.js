@@ -58,6 +58,10 @@ function loadData() {
     deaths: one("deaths"),
     epitaphs: one("epitaphs"),
     fillers: one("fillers"),
+    jobs: one("jobs"),
+    focus: one("focus"),
+    quests: one("quests"),
+    systems: one("systems"),
     events,
   };
   for (const f of jsonFiles(PROFILE_DIR)) mergeProfile(data, readJson(path.join(PROFILE_DIR, f)), f);

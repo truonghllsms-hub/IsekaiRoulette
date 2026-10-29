@@ -1,0 +1,274 @@
+[
+  {
+    "id": "c_rats", "name": "Diệt chuột cống khổng lồ", "minRank": "F", "maxRank": "D", "repeat": true, "weight": 6,
+    "hint": "Dễ. Thưởng ít",
+    "intro": "Hầm rượu của một quán trọ ở Sanctus bị lũ chuột to bằng con chó chiếm đóng. Chủ quán trả công bằng tiền và rượu.",
+    "steps": [
+      { "text": "Trong bóng tối hôi hám của hầm rượu, hàng chục cặp mắt đỏ lòm đồng loạt quay về phía bạn.",
+        "choices": [
+          { "label": "Xông vào giữa bầy", "check": { "stat": "STR", "target": 4 },
+            "success": { "text": "Bạn quét sạch lũ chuột trong một trận chiến bẩn thỉu nhưng ngắn ngủi.", "effects": { "STR": 1 } },
+            "fail": { "text": "Lũ chuột tràn lên như sóng. Bạn rút lui với chân tay đầy vết cắn.", "effects": { "health": -15 }, "end": "fail" } },
+          { "label": "Hun khói lối thoát", "check": { "stat": "INT", "target": 4 },
+            "success": { "text": "Khói lùa lũ chuột ra đúng cái bẫy bạn giăng sẵn. Không một vết xước.", "effects": { "INT": 1 } },
+            "fail": { "text": "Khói lan ngược lên quán trọ. Chủ quán trừ nửa tiền công.", "effects": { "joy": -5, "wealth": -3 }, "end": "win" } }
+        ] }
+    ],
+    "complete": "Chủ quán trả công kèm một vò rượu. Việc nhỏ, nhưng tên bạn được ghi thêm một dòng trong sổ của Hội.",
+    "reward": { "wealth": 4, "guildPts": 1 }
+  },
+  {
+    "id": "c_herbs", "name": "Hái Nguyệt Quang Thảo", "minRank": "F", "maxRank": "C", "repeat": true, "weight": 5,
+    "hint": "Dễ. Cần tinh mắt",
+    "intro": "Tháp Ngà Ma Pháp cần Nguyệt Quang Thảo, loài cỏ chỉ nở dưới trăng tròn ở rìa Đại Ngàn Lục Bảo.",
+    "steps": [
+      { "text": "Đêm trăng tròn, rừng sâu sáng lên những đốm bạc. Nhưng thứ gì đó cũng đang rình rập trong bụi rậm.",
+        "choices": [
+          { "label": "Lặng lẽ hái thật nhanh", "check": { "stat": "AGI", "target": 4 },
+            "success": { "text": "Bạn hái đầy giỏ rồi biến mất trước khi kẻ rình rập kịp nhận ra.", "effects": { "AGI": 1 } },
+            "fail": { "text": "Một con sói bóng đêm lao ra. Bạn bỏ chạy, giỏ cỏ vơi mất một nửa.", "effects": { "health": -12 } } },
+          { "label": "Phân biệt cỏ thật cỏ giả", "check": { "stat": "INT", "target": 5 },
+            "success": { "text": "Bạn chỉ chọn những bông có gân bạc thật. Các pháp sư trả thêm tiền cho độ tinh khiết.", "effects": { "INT": 1, "wealth": 3 } },
+            "fail": { "text": "Một nửa số cỏ bạn hái là cỏ độc giả dạng. Tháp Ngà nhíu mày.", "effects": { "joy": -5 } } }
+        ] }
+    ],
+    "complete": "Giỏ Nguyệt Quang Thảo được giao đến Tháp Ngà. Một học đồ nhìn bạn đầy ngưỡng mộ.",
+    "reward": { "wealth": 4, "guildPts": 1 }
+  },
+  {
+    "id": "c_escort", "name": "Hộ tống đoàn buôn", "minRank": "E", "repeat": true, "weight": 5,
+    "hint": "Vừa. Thưởng khá",
+    "intro": "Thương Đoàn Sói Bạc cần người hộ tống ba xe hàng qua con đèo khét tiếng có cướp.",
+    "steps": [
+      { "text": "Ngày thứ ba, xe hàng dừng giữa đèo. Một thân cây đổ chắn ngang đường, quá ngay ngắn để là tự nhiên.",
+        "choices": [
+          { "label": "Đánh tan bọn phục kích", "check": { "stat": "STR", "target": 5 },
+            "success": { "text": "Bọn cướp không ngờ gặp phải bạn. Chúng tháo chạy, bỏ lại cả vũ khí.", "effects": { "fame": 1 } },
+            "fail": { "text": "Bọn cướp đông hơn bạn tưởng. Một xe hàng bị cướp mất.", "effects": { "health": -15 } } },
+          { "label": "Vòng đường rừng tránh mặt", "check": { "stat": "AGI", "target": 5 },
+            "success": { "text": "Bạn dẫn đoàn xe theo lối mòn của thợ săn. Bọn cướp chờ mãi ở chỗ phục kích.", "effects": { "AGI": 1 } },
+            "fail": { "text": "Một bánh xe gãy giữa rừng. Đoàn đến nơi trễ hai ngày, hàng hư một nửa.", "effects": { "joy": -5 } } },
+          { "label": "Thương lượng mãi lộ", "check": { "stat": "INT", "target": 6 },
+            "success": { "text": "Vài lời khéo léo và một túi muối nhỏ. Bọn cướp nhường đường, còn chỉ cả lối tắt.", "effects": { "INT": 1 } },
+            "fail": { "text": "Bọn cướp cười vào mặt bạn rồi rút dao. Bạn phải chiến đấu trong thế bất lợi.", "effects": { "health": -20 } } }
+        ] }
+    ],
+    "complete": "Thương Đoàn Sói Bạc trả công sòng phẳng, và nhắn rằng lần sau sẽ hỏi đích danh bạn.",
+    "reward": { "wealth": 8, "guildPts": 2 }
+  },
+  {
+    "id": "c_goblins", "name": "Quét sạch ổ yêu tinh", "minRank": "E", "repeat": true, "weight": 5,
+    "hint": "Vừa. Hay có bẫy",
+    "intro": "Một ổ yêu tinh xanh trong hang đá đã cướp gia súc của ba làng. Trưởng làng góp tiền treo thưởng.",
+    "steps": [
+      { "text": "Cửa hang tối om, sặc mùi khói và xương thối. Trên lối đi rải rác những sợi dây gai nhỏ.",
+        "choices": [
+          { "label": "Dò và gỡ bẫy", "check": { "stat": "AGI", "target": 5 },
+            "success": { "text": "Bạn gỡ từng cái bẫy, rồi dùng chính chúng chặn đường thoát của lũ yêu tinh.", "effects": { "AGI": 1 } },
+            "fail": { "text": "Một mũi tên tẩm độc bật ra từ vách đá, cắm vào vai bạn.", "effects": { "health": -18 } } },
+          { "label": "Đốt lửa ép chúng ra ngoài", "check": { "stat": "INT", "target": 5 },
+            "success": { "text": "Lũ yêu tinh ho sặc sụa ùa ra cửa hang, đúng chỗ bạn đứng chờ.", "effects": { "INT": 1 } },
+            "fail": { "text": "Gió đổi chiều. Khói phả ngược vào bạn, và lũ yêu tinh tấn công từ lối sau.", "effects": { "health": -12 } } }
+        ] },
+      { "text": "Sâu trong hang, tên thủ lĩnh yêu tinh to gấp đôi đồng loại đứng dậy, vung cây chùy cắm đầy đinh.",
+        "choices": [
+          { "label": "Đấu tay đôi với thủ lĩnh", "check": { "stat": "STR", "target": 6 },
+            "success": { "text": "Cây chùy rơi xuống trước. Rồi đến tên thủ lĩnh. Lũ yêu tinh còn lại bỏ chạy tán loạn.", "effects": { "STR": 1, "fame": 2 } },
+            "fail": { "text": "Một cú chùy hất bạn văng vào vách đá. Bạn phải lết ra khỏi hang.", "effects": { "health": -25 }, "end": "fail" } },
+          { "label": "Tìm sơ hở mà đánh", "check": { "stat": "AGI", "target": 6 },
+            "success": { "text": "Bạn lách qua đòn đánh và cắt đứt gân chân hắn. Trận đấu kết thúc chỉ sau một hơi thở.", "effects": { "AGI": 1, "fame": 2 } },
+            "fail": { "text": "Hắn nhanh hơn vẻ ngoài. Bạn rút lui với ba xương sườn gãy.", "effects": { "health": -22 }, "end": "fail" } }
+        ] }
+    ],
+    "complete": "Ba làng mở tiệc ăn mừng. Người ta khắc tên bạn lên chiếc cột gỗ ở cổng làng.",
+    "reward": { "wealth": 10, "guildPts": 2, "fame": 2 }
+  },
+  {
+    "id": "c_bounty", "name": "Truy nã tên cướp đầu sỏ", "minRank": "C", "repeat": true, "weight": 4,
+    "hint": "Khó. Thưởng lớn",
+    "intro": "Tờ truy nã vẽ một khuôn mặt có vết sẹo chạy dọc. Tên cướp này đã giết cả một đội mạo hiểm giả hạng D.",
+    "steps": [
+      { "text": "Dấu vết dẫn bạn đến một trang trại bỏ hoang. Ánh lửa leo lét sau khung cửa sổ.",
+        "choices": [
+          { "label": "Ập vào bất ngờ", "check": { "stat": "STR", "target": 6 },
+            "success": { "text": "Cánh cửa vỡ tung. Đám đàn em chưa kịp với lấy vũ khí đã nằm la liệt.", "effects": { "fame": 2 } },
+            "fail": { "text": "Chúng đã chờ sẵn. Bạn lãnh một nhát dao trước khi kịp phản ứng.", "effects": { "health": -22 } } },
+          { "label": "Rình đến lúc chúng ngủ", "check": { "stat": "AGI", "target": 6 },
+            "success": { "text": "Bạn lẻn vào khi lửa tàn, trói gọn từng tên trong giấc ngủ.", "effects": { "AGI": 1 } },
+            "fail": { "text": "Một con chó canh sủa vang. Cuộc truy đuổi kéo dài suốt đêm trong rừng.", "effects": { "health": -12 } } }
+        ] },
+      { "text": "Tên đầu sỏ rút ra hai lưỡi dao cong, cười khẩy: \"Lại một kẻ muốn treo đầu ta lên tường.\"",
+        "choices": [
+          { "label": "Quyết đấu đến cùng", "check": { "stat": "STR", "target": 7 },
+            "success": { "text": "Thép chạm thép giữa đêm khuya. Khi bình minh lên, chỉ một người còn đứng, và đó là bạn.", "effects": { "fame": 4 } },
+            "fail": { "text": "Lưỡi dao cong rạch một đường sâu từ vai xuống ngực bạn. Hắn biến mất vào bóng tối.", "effects": { "health": -35 }, "end": "fail" } },
+          { "label": "Lừa hắn vào bẫy", "check": { "stat": "INT", "target": 7 },
+            "success": { "text": "Hắn đuổi theo bạn ra bìa rừng, đúng chỗ tấm lưới đã giăng sẵn.", "effects": { "INT": 1, "fame": 3 } },
+            "fail": { "text": "Hắn nhìn thấu cái bẫy và đổi hướng. Bạn mất dấu hắn mãi mãi.", "effects": { "joy": -10 }, "end": "fail" } }
+        ] }
+    ],
+    "complete": "Bạn kéo tên đầu sỏ về Hội trong tiếng hò reo. Phần thưởng nặng trĩu, và tiếng tăm còn nặng hơn.",
+    "reward": { "wealth": 18, "guildPts": 3, "fame": 3 }
+  },
+  {
+    "id": "s_wolves", "name": "Hang Sói Xám", "minRank": "F", "repeat": false, "weight": 4,
+    "hint": "Nhiệm vụ cốt truyện. 3 cảnh",
+    "intro": "Đêm nào làng Ashford cũng vang tiếng tru. Một bầy sói xám, dẫn đầu bởi con đầu đàn có mắt màu hổ phách, đã bắt đi ba đứa trẻ.",
+    "steps": [
+      { "text": "Dấu chân sói dẫn vào khu rừng sương mù. Có hai lối: đường mòn ven suối và vách đá dựng đứng.",
+        "choices": [
+          { "label": "Theo đường suối", "check": { "stat": "AGI", "target": 4 },
+            "success": { "text": "Tiếng suối che đi bước chân bạn. Bạn tiếp cận hang sói mà không bị phát hiện.", "effects": { "AGI": 1 } },
+            "fail": { "text": "Bạn trượt chân trên đá rêu. Tiếng động đánh thức cả khu rừng.", "effects": { "health": -8 } } },
+          { "label": "Leo vách đá", "check": { "stat": "STR", "target": 5 },
+            "success": { "text": "Từ trên cao, bạn nhìn thấy toàn bộ hang sói và cả lối thoát phía sau.", "effects": { "STR": 1 } },
+            "fail": { "text": "Mỏm đá vỡ dưới tay bạn. Bạn rơi xuống, may mà vướng vào bụi cây.", "effects": { "health": -15 } } }
+        ] },
+      { "text": "Trong hang, ba đứa trẻ co ro sau đống xương. Bầy sói đang ngủ, nhưng con đầu đàn đã mở mắt.",
+        "choices": [
+          { "label": "Cõng lũ trẻ chạy ra", "check": { "stat": "AGI", "target": 5 },
+            "success": { "text": "Bạn đưa cả ba đứa ra khỏi hang trước khi bầy sói kịp đứng dậy.", "effects": { "joy": 10 } },
+            "fail": { "text": "Một con sói ngoạm vào chân bạn. Bạn vẫn kéo được lũ trẻ ra, nhưng máu nhuộm đỏ tuyết.", "effects": { "health": -20 } } },
+          { "label": "Chắn trước lũ trẻ mà chiến đấu", "check": { "stat": "STR", "target": 6 },
+            "success": { "text": "Bạn đứng chắn cửa hang, hạ từng con sói lao tới. Lũ trẻ không bị một vết xước.", "effects": { "STR": 1, "fame": 2 } },
+            "fail": { "text": "Bầy sói quá đông. Bạn gục xuống, chỉ kịp đẩy lũ trẻ ra khỏi hang.", "effects": { "health": -30 } } }
+        ] },
+      { "text": "Con sói đầu đàn chặn ở cửa hang dưới ánh trăng. Đôi mắt hổ phách nhìn thẳng vào bạn, không chút sợ hãi.",
+        "choices": [
+          { "label": "Quyết chiến", "check": { "stat": "STR", "target": 6 },
+            "success": { "text": "Cuộc chiến dài như cả đêm. Cuối cùng, con sói đầu đàn nằm xuống, và bầy sói tan đàn.", "effects": { "fame": 3 } },
+            "fail": { "text": "Răng nanh nó cắm sâu vào vai bạn. Bạn chỉ kịp thoát thân cùng lũ trẻ.", "effects": { "health": -25 }, "end": "win" } },
+          { "label": "Nhìn thẳng vào mắt nó, không lùi bước", "check": { "stat": "LUCK", "target": 6 },
+            "success": { "text": "Một khoảnh khắc dài vô tận. Rồi con sói quay lưng, dẫn bầy rời khỏi vùng đất này mãi mãi.", "effects": { "LUCK": 1, "flags": ["wolf_spared"] }, "moment": "Đối mặt và tha mạng cho Sói Đầu Đàn" },
+            "fail": { "text": "Con sói lao tới. Bạn bị hất ngã, mất máu nhiều trước khi kịp đâm nó bỏ chạy.", "effects": { "health": -28 }, "end": "win" } }
+        ] }
+    ],
+    "complete": "Làng Ashford đón ba đứa trẻ trở về trong nước mắt. Đêm ấy không còn tiếng tru nào nữa.",
+    "reward": { "wealth": 8, "guildPts": 3, "fame": 4, "joy": 10 },
+    "moment": "Cứu ba đứa trẻ khỏi Hang Sói Xám"
+  },
+  {
+    "id": "s_tomb", "name": "Lăng mộ Vua Không Đầu", "minRank": "D", "repeat": false, "weight": 4,
+    "hint": "Nhiệm vụ cốt truyện. 4 cảnh, nhiều cạm bẫy",
+    "intro": "Một trận động đất làm lộ ra lối vào lăng mộ của vị vua bị chém đầu từ ngàn năm trước. Người ta đồn kho báu của ông vẫn còn nguyên, và ông vẫn canh giữ nó.",
+    "steps": [
+      { "text": "Hành lang đầu tiên lát đá khắc chữ cổ. Một nửa số phiến đá trông lún hơn những phiến còn lại.",
+        "choices": [
+          { "label": "Giải mã chữ cổ", "check": { "stat": "INT", "target": 6 },
+            "success": { "text": "Dòng chữ là lời nguyền, nhưng cũng là bản đồ. Bạn bước đúng từng phiến đá an toàn.", "effects": { "INT": 1 } },
+            "fail": { "text": "Bạn đọc sai một ký tự. Phiến đá sụp xuống, và mũi giáo đâm lên từ bóng tối.", "effects": { "health": -20 } } },
+          { "label": "Nhảy qua những phiến đá lún", "check": { "stat": "AGI", "target": 6 },
+            "success": { "text": "Bạn băng qua hành lang như một con mèo. Phía sau, cạm bẫy sập xuống vô ích.", "effects": { "AGI": 1 } },
+            "fail": { "text": "Gót chân bạn chạm phải phiến đá cuối. Lưỡi rìu từ trần nhà sượt qua lưng bạn.", "effects": { "health": -18 } } }
+        ] },
+      { "text": "Gian phòng thứ hai đầy những bộ xương mặc giáp. Khi bạn bước vào, chúng đồng loạt đứng dậy.",
+        "choices": [
+          { "label": "Phá vòng vây", "check": { "stat": "STR", "target": 7 },
+            "success": { "text": "Xương vỡ vụn dưới những đòn đánh của bạn. Gian phòng trở lại im lặng chết chóc.", "effects": { "STR": 1 } },
+            "fail": { "text": "Chúng quá đông. Bạn phải lùi vào góc, chống đỡ đến khi lũ xương mất đà.", "effects": { "health": -22 } } },
+          { "label": "Tìm phù chú điều khiển chúng", "check": { "stat": "INT", "target": 7 },
+            "success": { "text": "Một viên ngọc đen trên trần phát sáng. Bạn đập vỡ nó, và lũ xương đổ sụp như rơm.", "effects": { "INT": 1 } },
+            "fail": { "text": "Bạn tìm thấy viên ngọc quá muộn, khi lưng đã đầy vết chém.", "effects": { "health": -18 } } }
+        ] },
+      { "text": "Trước cửa mộ thất là một hố sâu không đáy. Cây cầu đá đã sập, chỉ còn sợi xích sắt rỉ sét bắc ngang.",
+        "choices": [
+          { "label": "Đu qua sợi xích", "check": { "stat": "STR", "target": 6 },
+            "success": { "text": "Từng mắt xích rên rỉ dưới sức nặng của bạn, nhưng nó chịu được.", "effects": {} },
+            "fail": { "text": "Sợi xích đứt ở mắt cuối cùng. Bạn bám được mép vực bằng mấy đầu ngón tay.", "effects": { "health": -15 } } },
+          { "label": "Thả dây vòng qua vách", "check": { "stat": "AGI", "target": 6 },
+            "success": { "text": "Bạn men theo vách đá như một con thằn lằn. Chậm, nhưng chắc chắn.", "effects": {} },
+            "fail": { "text": "Đá vỡ vụn dưới chân. Bạn mất cả buổi mới leo lên được, người đầy trầy xước.", "effects": { "health": -12 } } }
+        ] },
+      { "text": "Vua Không Đầu ngồi trên ngai đá. Ông đứng dậy, cầm chiếc đầu của chính mình bên hông, và chiếc đầu ấy mở mắt nhìn bạn.",
+        "choices": [
+          { "label": "Chém vào ngai vàng, nguồn sức mạnh của ông", "check": { "stat": "STR", "target": 8 },
+            "success": { "text": "Ngai đá vỡ đôi. Vị vua thét lên một tiếng dài ngàn năm, rồi tan thành bụi.", "effects": { "fame": 5 } },
+            "fail": { "text": "Thanh kiếm cổ của nhà vua chém xuyên giáp bạn. Bạn bò ra khỏi lăng mộ, bỏ lại tất cả.", "effects": { "health": -40 }, "end": "fail" } },
+          { "label": "Trả lại chiếc đầu về vị trí", "check": { "stat": "INT", "target": 8 },
+            "success": { "text": "Bạn hiểu ra lời nguyền. Khi chiếc đầu trở về cổ, nhà vua cúi chào bạn rồi nhắm mắt ngủ yên.", "effects": { "INT": 1, "fame": 5, "flags": ["kings_blessing"] }, "moment": "Giải lời nguyền cho Vua Không Đầu" },
+            "fail": { "text": "Chiếc đầu cắn vào tay bạn. Nọc nguyền rủa lan theo mạch máu.", "effects": { "health": -30, "LUCK": -1 }, "end": "fail" } },
+          { "label": "Vơ vội kho báu rồi chạy", "check": { "stat": "AGI", "target": 7 },
+            "success": { "text": "Bạn ôm đầy hai túi vàng, lao ra khi lăng mộ sụp đổ sau lưng.", "effects": { "wealth": 25, "flags": ["tomb_robber"] }, "end": "win" },
+            "fail": { "text": "Bạn chạy, nhưng chiếc đầu đã nhìn thấy mặt bạn. Lời nguyền bám theo bạn suốt đời.", "effects": { "health": -20, "LUCK": -2, "flags": ["cursed_king"] }, "end": "fail" } }
+        ] }
+    ],
+    "complete": "Bạn bước ra ánh mặt trời với kho báu ngàn năm. Bình Minh Hội ghi tên bạn vào biên niên sử.",
+    "reward": { "wealth": 30, "guildPts": 5, "fame": 6 },
+    "moment": "Chinh phục Lăng mộ Vua Không Đầu"
+  },
+  {
+    "id": "s_wyvern", "name": "Phi long trên Đỉnh Hỏa Ngục", "minRank": "B", "repeat": false, "weight": 4,
+    "hint": "Nhiệm vụ cốt truyện. 3 cảnh, cực kỳ nguy hiểm",
+    "intro": "Một con phi long đã thiêu rụi ba thị trấn ven Đảo Tro Tàn. Vương quốc treo thưởng một rương Huyết Kim cho cái đầu của nó.",
+    "steps": [
+      { "text": "Con thuyền đưa bạn qua eo biển sôi sục. Trên bờ, tro bụi phủ dày như tuyết, và mặt đất nóng rực dưới chân.",
+        "choices": [
+          { "label": "Băng qua đồng tro trong một ngày", "check": { "stat": "STR", "target": 8 },
+            "success": { "text": "Bạn đến chân núi lửa khi mặt trời lặn, đôi giày cháy sém nhưng người vẹn nguyên.", "effects": { "STR": 1 } },
+            "fail": { "text": "Khí độc từ khe nứt làm bạn ngất đi. Khi tỉnh dậy, phổi bạn bỏng rát.", "effects": { "health": -20 } } },
+          { "label": "Đi theo lối của người Minotaur", "check": { "stat": "INT", "target": 8 },
+            "success": { "text": "Bạn đọc được những dấu khắc của tộc Minotaur trên đá, tìm ra con đường mát mẻ dưới lòng đất.", "effects": { "INT": 1 } },
+            "fail": { "text": "Lối đi dẫn bạn thẳng vào lãnh địa của một bầy Minotaur. Bạn phải chiến đấu để thoát ra.", "effects": { "health": -25 } } }
+        ] },
+      { "text": "Trên đỉnh núi, phi long ngủ trên đống vàng chảy nhão. Mỗi hơi thở của nó làm đá nóng chảy.",
+        "choices": [
+          { "label": "Đánh lén vào mắt nó", "check": { "stat": "AGI", "target": 9 },
+            "success": { "text": "Mũi tên của bạn cắm vào mắt trái con quái. Nó gầm lên, nửa mù và điên loạn.", "effects": { "fame": 3 } },
+            "fail": { "text": "Một mảnh đá lăn dưới chân bạn. Con phi long mở mắt, và bầu trời bùng cháy.", "effects": { "health": -30 } } },
+          { "label": "Dựng kết giới chống lửa", "check": { "stat": "INT", "target": 9 },
+            "success": { "text": "Kết giới của bạn hứng trọn hơi thở lửa đầu tiên. Bạn có được vài nhịp thở quý giá.", "effects": { "INT": 1 } },
+            "fail": { "text": "Kết giới vỡ tan như thủy tinh. Lửa liếm qua người bạn.", "effects": { "health": -35 } } }
+        ] },
+      { "text": "Phi long lao xuống, móng vuốt dài như lưỡi hái. Đây là khoảnh khắc quyết định.",
+        "choices": [
+          { "label": "Đứng vững và đâm lên", "check": { "stat": "STR", "target": 10 },
+            "success": { "text": "Lưỡi kiếm của bạn xuyên qua lớp vảy dưới cổ. Con phi long rơi xuống miệng núi lửa, và ngọn núi im lặng.", "effects": { "fame": 10 } },
+            "fail": { "text": "Móng vuốt xé toạc lồng ngực bạn.", "death": "Bạn ngã xuống trên Đỉnh Hỏa Ngục, chỉ cách cái đầu phi long một sải tay. Tro bụi phủ lên bạn như một tấm vải liệm." } },
+          { "label": "Né đòn rồi chém vào cánh", "check": { "stat": "AGI", "target": 10 },
+            "success": { "text": "Bạn lăn qua dưới bụng nó và cắt đứt gân cánh. Không bay được nữa, con quái chỉ còn là một con thằn lằn lớn.", "effects": { "fame": 10 } },
+            "fail": { "text": "Cái đuôi gai quất ngang người bạn. Bạn văng xuống sườn núi, gãy nát.", "effects": { "health": -50 }, "end": "fail" } },
+          { "label": "Rút lui, giữ lấy mạng sống", "text": "Bạn lùi lại trong khói lửa. Không có vinh quang nào đáng giá bằng hơi thở.", "end": "fail" }
+        ] }
+    ],
+    "complete": "Bạn trở về với cái đầu phi long. Cả vương quốc đổ ra đường. Từ nay, người ta gọi bạn là Kẻ Diệt Rồng.",
+    "reward": { "wealth": 50, "guildPts": 8, "fame": 15, "flags": ["dragon_slayer"] },
+    "moment": "Hạ gục phi long trên Đỉnh Hỏa Ngục"
+  },
+  {
+    "id": "s_legion", "name": "Tiền đồn của Quân Đoàn Hủy Diệt", "minRank": "C", "repeat": false, "weight": 6, "eras": ["demon_lord", "holy_war"],
+    "hint": "Chỉ có trong thời loạn. 3 cảnh",
+    "intro": "Quân Đoàn Hủy Diệt dựng một tiền đồn ở biên giới. Thánh Vệ Quân cần những mạo hiểm giả gan dạ để phá hủy nó trước khi đại quân kéo đến.",
+    "steps": [
+      { "text": "Tiền đồn bao quanh bởi hào lửa đen. Lính canh là những con quỷ có sừng, đổi gác mỗi giờ.",
+        "choices": [
+          { "label": "Lẻn vào lúc đổi gác", "check": { "stat": "AGI", "target": 7 },
+            "success": { "text": "Bạn trượt qua hào lửa trong khoảnh khắc lính canh quay lưng.", "effects": { "AGI": 1 } },
+            "fail": { "text": "Một con quỷ đánh hơi thấy bạn. Bạn phải giết nó trong im lặng, nhưng không kịp tránh móng vuốt.", "effects": { "health": -20 } } },
+          { "label": "Giả làm tù binh", "check": { "stat": "LUCK", "target": 7 },
+            "success": { "text": "Bọn quỷ lôi bạn thẳng vào trung tâm tiền đồn, đúng nơi bạn muốn đến.", "effects": { "LUCK": 1 } },
+            "fail": { "text": "Chúng tra tấn bạn suốt một ngày trước khi bạn tìm được cách thoát xích.", "effects": { "health": -28, "joy": -10 } } }
+        ] },
+      { "text": "Giữa tiền đồn là một cổng dịch chuyển đỏ rực, nối thẳng về Cửa Ngục Than Khóc.",
+        "choices": [
+          { "label": "Phá cổng bằng sức mạnh", "check": { "stat": "STR", "target": 8 },
+            "success": { "text": "Những cột đá chống cổng gãy đổ dưới tay bạn. Cánh cổng chao đảo, rồi tắt lịm.", "effects": { "fame": 3 } },
+            "fail": { "text": "Năng lượng hỗn loạn từ cánh cổng hất bạn bay xa. Da bạn bỏng rộp.", "effects": { "health": -30 } } },
+          { "label": "Đảo ngược ma trận cổng", "check": { "stat": "INT", "target": 8 },
+            "success": { "text": "Bạn viết lại một ký tự trong ma trận. Cánh cổng nuốt chính tiền đồn vào bụng nó.", "effects": { "INT": 1, "fame": 5 } },
+            "fail": { "text": "Ma trận phản phệ. Một phần linh hồn bạn bị kéo vào cổng, để lại khoảng trống lạnh lẽo.", "effects": { "health": -25, "INT": -1 } } }
+        ] },
+      { "text": "Viên chỉ huy quỷ, một Ma tộc cao lớn khoác giáp xương, chặn đường rút lui của bạn.",
+        "choices": [
+          { "label": "Chiến đấu mở đường máu", "check": { "stat": "STR", "target": 8 },
+            "success": { "text": "Bạn hạ hắn bằng một nhát chém cuối cùng. Chiếc sừng của hắn sẽ là bằng chứng chiến công.", "effects": { "fame": 5 } },
+            "fail": { "text": "Thanh đại đao của hắn bổ xuống.", "death": "Bạn ngã xuống giữa tiền đồn đang cháy, nhưng cánh cổng địa ngục đã tắt. Thánh Vệ Quân khắc tên bạn lên đài tưởng niệm." } },
+          { "label": "Chạy theo ống thoát nước", "check": { "stat": "AGI", "target": 7 },
+            "success": { "text": "Bạn biến mất vào lòng đất khi tiền đồn sụp đổ phía sau.", "effects": {} },
+            "fail": { "text": "Ống thoát nước bị chặn. Bạn phải quay lại và chiến đấu trong tuyệt vọng.", "effects": { "health": -35 }, "end": "fail" } }
+        ] }
+    ],
+    "complete": "Thánh Vệ Quân trao cho bạn huân chương Ngôi Sao Bạc. Đại quân của Ma Vương phải lùi lại thêm một mùa.",
+    "reward": { "wealth": 25, "guildPts": 6, "fame": 10, "flags": ["legion_breaker"] },
+    "moment": "Phá hủy tiền đồn Quân Đoàn Hủy Diệt"
+  }
+]

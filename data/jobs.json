@@ -1,0 +1,155 @@
+[
+  {
+    "id": "warrior", "name": "Kiếm sĩ", "stat": "STR", "combat": true, "tags": ["civil"],
+    "desc": "Dựa vào Sức mạnh. Thu nhập khá, nguy hiểm cao",
+    "require": { "STR": 6 },
+    "alt": { "STR": 4, "anyFlags": ["mercenary_camp", "chien_binh_nhi", "arena_born", "warborn", "gladiator", "hunter_blood"], "hint": "Sức mạnh 4 và lớn lên giữa binh đao" },
+    "ranks": ["Tân binh", "Kiếm sĩ", "Hiệp sĩ", "Kiếm sư", "Thánh Kiếm"],
+    "income": [1.5, 2.2, 3.2, 4.5, 6],
+    "promoXp": [3, 5, 8, 12], "promoTarget": [6, 8, 10, 13],
+    "hazard": 2.0, "gains": { "STR": 0.3, "AGI": 0.1 },
+    "start": "Bạn nhận thanh kiếm sắt đầu tiên từ tay viên đội trưởng. Nó nặng hơn bạn tưởng, và lạnh như lời thề.",
+    "promo": [
+      "Viên đội trưởng gọi bạn ra giữa sân tập: \"Đánh ngã ta, và ngươi sẽ không còn là tân binh.\"",
+      "Một hiệp sĩ già để ý đến đường kiếm của bạn. Ông đề nghị một thử thách: giữ cổng thành một mình suốt đêm trăng máu.",
+      "Đấu Trường Huyết Sa mở giải đấu tuyển Kiếm sư. Chỉ người cuối cùng còn đứng mới được ghi danh.",
+      "Giáo hội Thánh Quang loan báo: thanh Thánh Kiếm trong đền cổ đang chờ một bàn tay xứng đáng rút nó khỏi đá."
+    ],
+    "quiet": [
+      "Những năm ấy bạn đứng gác, tuần tra và vung kiếm. Mỗi vết sẹo mới là một bài học.",
+      "Bạn theo đoàn quân qua nhiều thành trì. Thanh kiếm của bạn đã mẻ, rồi được rèn lại, mấy lần.",
+      "Tiếng kim loại va nhau trong sân tập trở thành bài hát quen thuộc nhất đời bạn."
+    ]
+  },
+  {
+    "id": "mage", "name": "Pháp sư", "stat": "INT", "combat": true, "tags": ["civil"],
+    "desc": "Dựa vào Trí tuệ. Khởi đầu nghèo, về sau quyền lực",
+    "require": { "INT": 8 },
+    "alt": { "INT": 5, "anyFlags": ["educated", "mana_anomaly", "magic_slime"], "hint": "Trí tuệ 5 và từng được học hành" },
+    "ranks": ["Học đồ", "Pháp sư", "Ma đạo sư", "Đại pháp sư", "Hiền giả"],
+    "income": [0.6, 1.8, 3.2, 5, 7],
+    "promoXp": [4, 6, 9, 14], "promoTarget": [7, 9, 11, 14],
+    "hazard": 1.3, "gains": { "INT": 0.35 },
+    "start": "Cánh cổng Tháp Ngà Ma Pháp khép lại sau lưng bạn. Từ hôm nay, mực và mana sẽ là máu thịt của bạn.",
+    "promo": [
+      "Vị giáo sư già trao cho bạn một quả cầu thủy tinh trống rỗng: \"Thắp sáng nó bằng ý chí của ngươi.\"",
+      "Hội đồng Tháp Ngà yêu cầu bạn trình bày một phép thuật do chính mình sáng tạo trước toàn thể pháp sư.",
+      "Một cuốn ma thư cổ bị phong ấn từ thời Đại Dịch Miasma được giao cho bạn giải mã. Kẻ thất bại thường mất trí.",
+      "Các Hiền giả triệu bạn lên đỉnh tháp. Thử thách cuối cùng: đối diện với chính linh hồn mình trong Gương Hư Vô."
+    ],
+    "quiet": [
+      "Những năm ấy trôi qua giữa giá sách và vòng tròn ma pháp. Ngón tay bạn nhuộm màu mực vĩnh viễn.",
+      "Bạn thử nghiệm, thất bại, rồi thử nghiệm tiếp. Trần phòng thí nghiệm đã cháy đen ba lần.",
+      "Mana chảy trong bạn mỗi năm một thuần thục hơn, như dòng suối tìm được lòng sông."
+    ]
+  },
+  {
+    "id": "rogue", "name": "Thích khách", "stat": "AGI", "combat": true, "tags": ["civil"],
+    "desc": "Dựa vào Nhanh nhẹn. Kiếm nhiều, sống ngoài vòng pháp luật",
+    "require": { "AGI": 7 },
+    "alt": { "AGI": 4, "anyFlags": ["slum", "slum_rat", "poor", "orphan", "tre_mo_coi", "war_orphan"], "hint": "Nhanh nhẹn 4 và lớn lên nơi đầu đường xó chợ" },
+    "ranks": ["Đạo chích", "Thích khách", "Bóng Đêm", "Sát thủ bậc thầy", "Chúa tể Hội Bóng Đêm"],
+    "income": [1.8, 2.8, 4, 5.5, 7],
+    "promoXp": [3, 5, 8, 12], "promoTarget": [6, 8, 10, 13],
+    "hazard": 2.2, "gains": { "AGI": 0.3, "LUCK": 0.05 },
+    "start": "Một bàn tay đeo găng đen đặt lên vai bạn trong con hẻm tối. Hội Bóng Đêm đã để mắt đến bạn từ lâu.",
+    "promo": [
+      "Hội Bóng Đêm giao bài kiểm tra đầu tiên: lấy chiếc nhẫn khỏi ngón tay một quan thu thuế khi hắn còn đang ngủ.",
+      "Một hợp đồng nặng ký được thả xuống bàn bạn: một tên buôn nô lệ được canh giữ bởi mười vệ binh.",
+      "Để được gọi là Sát thủ bậc thầy, bạn phải đột nhập vào lâu đài của một bá tước và để lại lá bài đen trên gối hắn.",
+      "Chúa tể Hội Bóng Đêm đã già. Hắn để lại một câu đố: kẻ nào tìm ra hắn trước bình minh sẽ thừa kế chiếc ghế."
+    ],
+    "quiet": [
+      "Những năm ấy bạn sống về đêm. Mái nhà Sanctus là con đường, và bóng tối là tấm áo choàng.",
+      "Túi tiền bạn nặng dần, nhưng giấc ngủ thì nhẹ như lá. Bạn luôn ngồi quay lưng vào tường.",
+      "Bạn học cách bước không thành tiếng, thở không thành hơi, và quên đi những khuôn mặt."
+    ]
+  },
+  {
+    "id": "cleric", "name": "Giáo sĩ", "stat": "INT", "combat": true, "tags": ["civil"],
+    "desc": "Dựa vào Trí tuệ. An toàn, được kính trọng, có thể cứu đồng đội",
+    "require": { "INT": 6, "notFlags": ["dark_aura", "cultist_kin", "demon_tainted", "dau_an_hac_am", "dark_mark"] },
+    "alt": { "INT": 3, "anyFlags": ["lumina_blessed", "an_dien_thanh_quang"], "notFlags": ["dark_aura", "cultist_kin"], "hint": "được Thánh Quang ban phúc từ lúc sinh" },
+    "excludeRaces": ["vampire"],
+    "ranks": ["Tu sinh", "Tư tế", "Linh mục", "Giám mục", "Thánh nhân"],
+    "income": [0.8, 1.3, 2, 3, 4],
+    "promoXp": [3, 6, 9, 14], "promoTarget": [6, 8, 10, 13],
+    "hazard": 0.8, "gains": { "INT": 0.2, "LUCK": 0.1 },
+    "start": "Bạn quỳ trước tượng Nữ thần Lumina, khoác lên mình tấm áo trắng của Giáo hội Thánh Quang.",
+    "promo": [
+      "Một trận dịch nhỏ bùng phát ở làng bên. Giáo hội cử bạn đến: chữa được, bạn sẽ được phong Tư tế.",
+      "Một linh hồn quỷ ám đứa con gái của trưởng làng. Bạn được giao làm lễ trừ tà, lần đầu tiên một mình.",
+      "Hội đồng Giám mục mở cuộc biện luận thần học. Bạn phải bảo vệ đức tin của mình trước những bộ óc sắc sảo nhất.",
+      "Thánh tích trong đền Sanctus chỉ phát sáng trước người được Nữ thần chọn. Đêm nay, đến lượt bạn chạm vào nó."
+    ],
+    "quiet": [
+      "Những năm ấy bạn rửa vết thương, ban phép lành và nghe những lời xưng tội nặng trĩu.",
+      "Chuông nhà thờ điểm giờ cho từng ngày của bạn. Đức tin như ngọn nến, cần được che chở trước gió.",
+      "Bạn đi khắp các làng mạc chữa bệnh. Người ta gọi bạn bằng cái tên trìu mến của riêng họ."
+    ]
+  },
+  {
+    "id": "smith", "name": "Thợ rèn", "stat": "STR", "combat": false, "tags": ["civil"],
+    "desc": "Dựa vào Sức mạnh. Thu nhập ổn định, ít nguy hiểm",
+    "require": { "STR": 5 },
+    "alt": { "STR": 2, "anyFlags": ["forge_adopted", "huyet_mach_tho_ren"], "hint": "dòng máu thợ rèn" },
+    "ranks": ["Thợ phụ", "Thợ rèn", "Thợ cả", "Bậc thầy lò rèn", "Huyền thoại Lò Rèn Vĩnh Cửu"],
+    "income": [1.2, 2, 2.8, 4, 5.5],
+    "promoXp": [4, 6, 9, 13], "promoTarget": [5, 7, 9, 12],
+    "hazard": 0.9, "gains": { "STR": 0.3 },
+    "start": "Lò rèn phả hơi nóng vào mặt bạn. Người thợ cả ném cho bạn chiếc búa: \"Đập. Đến khi nào tay ngươi biết nghe lời.\"",
+    "promo": [
+      "Thợ cả giao bạn rèn một con dao đi săn từ đầu đến cuối, không ai giúp. Lưỡi dao phải cắt được sợi tóc.",
+      "Một kỵ sĩ đặt bộ giáp ngực. Nếu nó đỡ được nhát rìu thử, tên bạn sẽ được khắc lên tường xưởng.",
+      "Người lùn ở Dãy Núi Răng Cưa thách bạn cùng rèn trong một cuộc thi. Chưa người ngoại tộc nào thắng họ.",
+      "Một khối Tinh Thiết từ trời rơi xuống. Nhà vua muốn một thanh kiếm từ nó, và chỉ một người được thử."
+    ],
+    "quiet": [
+      "Tiếng búa của bạn vang lên mỗi sớm mai. Năm tháng trôi qua trong lửa đỏ và tro đen.",
+      "Bạn rèn lưỡi cày cho nông dân, móng ngựa cho lính, và đôi khi, một thanh kiếm đẹp đến nao lòng.",
+      "Hai cánh tay bạn rắn như sắt. Khách hàng đến từ những vùng ngày càng xa."
+    ]
+  },
+  {
+    "id": "merchant", "name": "Thương nhân", "stat": "INT", "combat": false, "tags": ["civil"],
+    "desc": "Dựa vào Trí tuệ, cần vốn. Giàu nhanh nhất nếu gặp thời",
+    "require": { "INT": 5, "wealth": 35 },
+    "alt": { "INT": 3, "anyFlags": ["merchant_kin", "merchant_born", "nhay_ben_thuong_mai", "merchant_guard"], "hint": "sinh ra trong nhà buôn" },
+    "ranks": ["Người bán rong", "Chủ sạp", "Thương gia", "Đại thương gia", "Thương vương"],
+    "income": [1.2, 2.5, 4, 6, 8.5],
+    "promoXp": [3, 5, 8, 12], "promoTarget": [6, 8, 10, 13],
+    "hazard": 1.0, "gains": { "INT": 0.15, "LUCK": 0.15 },
+    "start": "Bạn đẩy chiếc xe hàng đầu tiên ra chợ. Mấy cuộn vải, ít muối, và một giấc mộng rất lớn.",
+    "promo": [
+      "Một lô hàng gia vị từ phương xa cập bến. Nếu bạn dám dốc hết vốn, có thể bạn sẽ có một sạp hàng riêng.",
+      "Thương Đoàn Sói Bạc mời bạn tham gia một chuyến hàng xuyên Thảo Nguyên Gió Hú. Lời gấp mười, rủi ro cũng vậy.",
+      "Hội đồng thương nhân Sanctus mở đấu giá độc quyền muối cho cả vùng. Những con cáo già nhất đều có mặt.",
+      "Nhà vua cần một khoản vay để nuôi quân. Ai cho vay sẽ có quyền kiểm soát thương lộ của cả vương quốc."
+    ],
+    "quiet": [
+      "Những năm ấy bạn mua rẻ bán đắt, đếm tiền dưới ánh nến và mặc cả với cả thế giới.",
+      "Đoàn xe hàng của bạn lăn bánh qua nhiều mùa. Có năm lãi to, có năm suýt trắng tay.",
+      "Bạn học được rằng mọi thứ đều có giá. Có những thứ cái giá ấy làm bạn mất ngủ."
+    ]
+  },
+  {
+    "id": "farmer", "name": "Nông dân", "stat": "STR", "combat": false, "tags": ["civil"],
+    "desc": "Không cần điều kiện. Bình yên, nghèo nhưng đủ sống",
+    "ranks": ["Tá điền", "Nông dân", "Chủ trại", "Địa chủ", "Hào phú"],
+    "income": [1, 1.4, 2, 3, 4.2],
+    "promoXp": [4, 7, 10, 15], "promoTarget": [4, 6, 8, 10],
+    "hazard": 0.7, "gains": { "STR": 0.2 },
+    "start": "Bạn nhận một mảnh ruộng nhỏ ở rìa làng. Đất đen, ẩm và thơm, như đang chờ bạn.",
+    "promo": [
+      "Mùa màng năm ấy bội thu. Nếu bạn khéo tính, số thóc dư đủ để mua lại mảnh ruộng mình đang thuê.",
+      "Một cơn hạn hán quét qua vùng. Nếu bạn đào được con kênh dẫn nước kịp mùa, ruộng nhà bạn sẽ thành trang trại lớn nhất làng.",
+      "Lãnh chúa rao bán vùng đất hoang phía đông. Biến nó thành ruộng tốt là việc của mười năm, hoặc cả đời.",
+      "Cả vùng mất mùa, chỉ kho của bạn còn đầy. Một quyết định đúng đắn, và tên bạn sẽ được nhớ đến hàng trăm năm."
+    ],
+    "quiet": [
+      "Mùa gieo, mùa gặt, rồi lại mùa gieo. Đời bạn gắn với nhịp thở của đất.",
+      "Những năm ấy bình lặng như mặt ao. Bạn cày ruộng, chăm bò, và ngủ ngon mỗi tối.",
+      "Đất không biết nói dối. Bạn đổ bao nhiêu mồ hôi, nó trả lại bấy nhiêu hạt thóc."
+    ]
+  }
+]
