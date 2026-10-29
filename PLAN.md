@@ -46,6 +46,14 @@ Mở `index.html` hoặc chạy `node tools/serve.js` rồi vào http://localhos
       vai trò / thứ bậc / cướp phá / băng nhóm / tiến hóa cho ma vật.
 - [ ] Chuyển kịch bản đã duyệt thành JSON, chạy `npm test`, chơi thử.
 
+## Ảnh pixel nhân vật (làm SAU khi kịch bản hoàn thiện)
+Đã chốt: vẽ bằng **Gemini miễn phí**, Claude viết script làm sạch ảnh (thu về lưới pixel, ép bảng màu cố định, xóa nền).
+- [ ] Đếm số ảnh cần vẽ dựa trên kịch bản cuối: tộc × giai đoạn đời, dạng thú Beastman, nghề / vai trò,
+      nhánh tiến hóa, đồng đội, nhân vật quan trọng (Ma Vương, Dũng Giả...). Chia theo lớp (thân, trang phục, phụ kiện) để giảm số ảnh.
+- [ ] Chốt quy cách: kích thước (dự kiến chân dung 64×64), bảng màu (Lospec, ví dụ Endesga 32), góc nhìn, nền trong suốt.
+- [ ] Viết bộ prompt vẽ cho Gemini: một mô tả phong cách chung và prompt riêng cho từng ảnh, kèm cách dùng ảnh tham chiếu để giữ đồng nhất.
+- [ ] Script làm sạch ảnh (`tools/pixelize.js`) và khung chân dung trong game (màn đầu thai, HUD, màn tổng kết).
+
 ## Vấn đề đã biết
 - Rồng chưa có cảnh lựa chọn nào, vì các cảnh chung chỉ dành cho tộc hình người.
 - 14 tộc chưa có nội dung riêng, nên chỉ gặp sự kiện chung và hay lặp lại.
