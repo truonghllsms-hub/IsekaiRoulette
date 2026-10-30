@@ -391,6 +391,9 @@ function build(raceId, opts) {
         ev.once = false;
       }
       if (ev._ascend && ev.choices.length >= 2) ev.once = false;
+      // low-tier monsters (little intelligence) find the ritual itself harder: checks one or two steps up
+      const bump = { low: [2, 10], mid: [1, 5] }[meta.tier];
+      if (ev._ascend && bump) for (const ch of ev.choices) if (ch.check) ch.check.target += STAT_KEYS.includes(ch.check.stat) ? bump[0] : bump[1];
       if (ev.choices.length < 2) {
         const only = ev.choices[0];
         delete ev.choices;
@@ -491,7 +494,7 @@ function build(raceId, opts) {
 
   const pack = { race: raceId, stageNames: meta.stageNames, forms, origins, jobs, orgs: [org], quests, events, deaths, focus, systems };
   if (meta.useScriptStages) pack.stages = stages;
-  for (const k of ["tags", "lifespan", "hazard", "yearScale", "noChildhood"]) if (meta[k] !== undefined) pack[k] = meta[k];
+  for (const k of ["tags", "lifespan", "hazard", "yearScale", "noChildhood", "tier", "pace"]) if (meta[k] !== undefined) pack[k] = meta[k];
   fs.writeFileSync(path.join(ROOT, "data", "packs", raceId + ".json"), JSON.stringify(pack, null, 1), "utf8");
   console.log(`Đã tạo data/packs/${raceId}.json: ${origins.length} xuất thân, ${jobs.length} vai trò, ${events.length} sự kiện, ${quests.length} ${org.missionWord || "nhiệm vụ"}, ${deaths.length} cái chết riêng.`);
   if (opts.report) console.log(report.join("\n"));

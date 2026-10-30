@@ -5,8 +5,11 @@ module.exports = {
 
   // The script's timeline: Khối bùn trượt 5+, Slime trưởng thành 15+, Quái vật dẻo 50+, Slime khổng lồ 200+, Vua Bùn Nhão 500+.
   useScriptStages: true,
-  lifespan: [650, 950],
-  hazard: 0.0012,
+  // Low-tier monster with little intelligence: short life, few reach old age, evolution is rare and hard.
+  tier: "low",
+  // a common Slime lives a few decades; the script's later stages (200+, 500+) are for evolved ones
+  lifespan: [60, 100],
+  hazard: 0.018,
 
   rename: [
     ["Slime Hình Người", "Humanoid Slime"],
@@ -70,9 +73,9 @@ module.exports = {
   decline: { label: "Ổn định cơ thể, chờ dịp khác", text: "Bạn ép khối nhầy đang sôi sục lắng xuống. Lõi vẫn còn nguyên. Cơ hội này sẽ quay lại." },
 
   evos: [
-    { key: "king", name: "Slime King", match: ["slime king"], life: 300, minAge: 100, require: { STR: 7, anyFlags: ["usurper_slime", "royal_slime"] } },
-    { key: "elemental", name: "Elemental Slime", match: ["elemental"], life: 200, minAge: 50, require: { INT: 8, any: [{ flags: ["magic_slime"] }, { job: "slime_magic" }] } },
-    { key: "humanoid", name: "Humanoid Slime", match: ["hình người", "humanoid"], life: 200, minAge: 50, require: { LUCK: 10, flags: ["taste_of_adventurer"], job: "slime_mimic" } },
+    { key: "king", name: "Slime King", match: ["slime king"], life: 400, minAge: 40, require: { STR: 10, anyFlags: ["usurper_slime", "royal_slime"] } },
+    { key: "elemental", name: "Elemental Slime", match: ["elemental"], life: 250, minAge: 30, require: { INT: 7, any: [{ flags: ["magic_slime"] }, { job: "slime_magic", jobRank: 1 }] } },
+    { key: "humanoid", name: "Humanoid Slime", match: ["hình người", "humanoid"], life: 150, minAge: 40, require: { LUCK: 16, flags: ["taste_of_adventurer"], job: "slime_mimic" } },
   ],
 
   systems: {

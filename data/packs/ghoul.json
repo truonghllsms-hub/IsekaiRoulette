@@ -11,11 +11,11 @@
  "forms": {
   "Ghast": {
    "name": "Ghast",
-   "life": 200
+   "life": 300
   },
   "Lich": {
    "name": "Lich",
-   "life": 2000
+   "life": 1500
   }
  },
  "origins": [
@@ -3208,11 +3208,11 @@
   {
    "id": "ghoul_evo_ghast_sign",
    "text": "Dạ dày bạn đau đớn như bị hàng vạn con kiến cắn xé. Ăn bao nhiêu xác chết cũng không đủ. Những mấu xương nhọn hoắt bắt đầu đâm xuyên qua lớp da lưng của bạn, biến thành một lớp giáp gai gớm ghiếc.",
-   "minAge": 151,
+   "minAge": 120,
    "weight": 10,
    "require": {
-    "STR": 9,
-    "AGI": 7,
+    "STR": 14,
+    "AGI": 10,
     "form": "none",
     "notFlags": [
      "evo_sign_ghast"
@@ -3241,7 +3241,7 @@
      "label": "Gồng cơ bắp xé toạc kén",
      "check": {
       "stat": "STR",
-      "target": 9
+      "target": 11
      },
      "success": {
       "text": "Tiếng gầm xé rách màn đêm. Bạn đạp tung cái kén bằng đôi chân cơ bắp khổng lồ, vươn vai với bộ vuốt dài cả thước. Bạn đã tiến hóa thành Ghast, ác quỷ tốc độ của cõi chết.",
@@ -3265,7 +3265,7 @@
      "label": "Hấp thụ mọi tinh hoa trong kén",
      "check": {
       "stat": "AGI",
-      "target": 7
+      "target": 9
      },
      "success": {
       "text": "Bạn di chuyển với tốc độ chóng mặt ngay bên trong không gian chật hẹp, cắn xé và hấp thụ toàn bộ tinh huyết của kén, từ từ hòa tan lớp vỏ bằng axit từ cơ thể.",
@@ -3309,10 +3309,10 @@
   {
    "id": "ghoul_evo_lich_sign",
    "text": "Bạn không còn cảm thấy đói khát máu thịt nữa. Từng tảng thịt cuối cùng trên cánh tay bạn khô lại và rụng xuống, để lộ bộ xương đen tuyền đang lấp lánh các luồng mana cổ đại. Tâm trí bạn sáng sủa chưa từng có.",
-   "minAge": 301,
+   "minAge": 150,
    "weight": 10,
    "require": {
-    "INT": 10,
+    "INT": 9,
     "anyFlags": [
      "dark_magic_adept",
      "black_bone_evolution"
@@ -3345,7 +3345,7 @@
      "label": "Khắc họa pháp trận bằng linh hồn",
      "check": {
       "stat": "INT",
-      "target": 9
+      "target": 11
      },
      "success": {
       "text": "Bạn tụng niệm ma ngữ bằng giọng nói băng giá. Trái tim tử linh nứt ra, bay lơ lửng và kết tinh vào một viên ngọc ma thuật. Xác thịt tan biến, bạn khoác lên mình tấm áo choàng của ma pháp sư tối cao. Bạn đã là một Lich bất tử!",
@@ -3369,7 +3369,7 @@
      "label": "Ép hàng vạn oán linh rèn Lõi",
      "check": {
       "stat": "LUCK",
-      "target": 9
+      "target": 11
      },
      "success": {
       "text": "Lợi dụng lúc thiên thực, bạn hút hàng vạn linh hồn oán than vào Lõi của mình để thay thế quá trình tính toán. Một vụ nổ ma lực đen nuốt chửng bạn, khi khói tan, một bộ xương ngọc bích lơ lửng giữa không trung.",
@@ -4158,9 +4158,10 @@
   }
  ],
  "lifespan": [
-  1150,
-  1400
+  150,
+  250
  ],
- "hazard": 0.0004,
- "noChildhood": true
+ "hazard": 0.005,
+ "noChildhood": true,
+ "tier": "low"
 }

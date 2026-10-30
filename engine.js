@@ -937,6 +937,7 @@
   // Things that must happen when their time comes, before random events get a say.
   // Short-lived races live more per year: a Goblin year counts about three times.
   function lifePace(race) {
+    if (race.pace) return race.pace;
     return Math.max(1, Math.min(3, Math.round(19 / adultStart(race))));
   }
 

@@ -3,6 +3,10 @@ module.exports = {
   race: "troll",
   script: "content/scripts/troll.txt",
   useScriptStages: true,
+  // Low-tier monster with little intelligence: short life, few reach old age, evolution is rare and hard.
+  tier: "low",
+  lifespan: [55, 75],
+  hazard: 0.015,
 
   rename: [
     ["Troll Đá Tảng (Stone Troll)", "Stone Troll"],
@@ -64,8 +68,8 @@ module.exports = {
   decline: { label: "Ngủ thêm, để sau", text: "Bạn gãi đầu, quên mất mình định làm gì. Cơ hội này sẽ quay lại, nếu bạn còn nhớ." },
 
   evos: [
-    { key: "stone", name: "Stone Troll", match: ["stone troll", "đá tảng"], life: 20, minAge: 40, require: { STR: 22, health: 70 } },
-    { key: "ice", name: "Ancient Ice Troll", match: ["ice troll", "băng"], life: 25, minAge: 40, require: { health: 60, flags: ["ice_troll"] } },
+    { key: "stone", name: "Stone Troll", match: ["stone troll", "đá tảng"], life: 20, minAge: 40, require: { STR: 24, health: 70, fame: 15 } },
+    { key: "ice", name: "Ancient Ice Troll", match: ["ice troll", "băng"], life: 25, minAge: 40, require: { STR: 18, health: 60, flags: ["ice_troll"] } },
   ],
 
   systems: {
