@@ -11,15 +11,15 @@
  "forms": {
   "Slime King": {
    "name": "Slime King",
-   "life": 400
+   "life": 300
   },
   "Elemental Slime": {
    "name": "Elemental Slime",
-   "life": 250
+   "life": 200
   },
   "Humanoid Slime": {
    "name": "Humanoid Slime",
-   "life": 150
+   "life": 200
   }
  },
  "origins": [
@@ -4476,10 +4476,10 @@
   {
    "id": "slime_evo_king_signal",
    "text": "Bất chợt, hàng trăm con Slime cấp thấp từ khắp hầm ngục tự động bò về phía bạn, vây quanh ngai vàng bùn đất. Chúng đang chờ một vị Vua ra đời.",
-   "minAge": 40,
+   "minAge": 100,
    "weight": 10,
    "require": {
-    "STR": 10,
+    "STR": 7,
     "anyFlags": [
      "usurper_slime",
      "royal_slime"
@@ -4512,7 +4512,7 @@
      "label": "Gồng mình mở rộng thể tích tối đa",
      "check": {
       "stat": "STR",
-      "target": 11
+      "target": 9
      },
      "success": {
       "text": "Cơ thể bạn bùng nổ, hóa thành một ngọn núi nhầy nhụa khổng lồ với chiếc vương miện kết tinh từ ma lực nổi trên đỉnh. Bạn đã tiến hóa thành Slime King!",
@@ -4561,10 +4561,10 @@
   {
    "id": "slime_evo_elemental_signal",
    "text": "Cơ thể bạn bắt đầu tự chuyển đổi màu sắc không kiểm soát: đỏ rực như dung nham, rồi lại xanh buốt như tảng băng trôi. Lượng mana xung quanh đang hội tụ.",
-   "minAge": 30,
+   "minAge": 50,
    "weight": 10,
    "require": {
-    "INT": 7,
+    "INT": 8,
     "any": [
      {
       "flags": [
@@ -4572,8 +4572,7 @@
       ]
      },
      {
-      "job": "slime_magic",
-      "jobRank": 1
+      "job": "slime_magic"
      }
     ],
     "form": "none",
@@ -4604,7 +4603,7 @@
      "label": "Dùng ý chí điều hòa ba luồng sức mạnh",
      "check": {
       "stat": "INT",
-      "target": 11
+      "target": 9
      },
      "success": {
       "text": "Bạn cân bằng hoàn hảo các nguyên tố. Cơ thể trong suốt của bạn giờ đây chứa đựng một dải ngân hà bão tố. Bạn tiến hóa thành Elemental Slime!",
@@ -4653,10 +4652,10 @@
   {
    "id": "slime_evo_humanoid_signal",
    "text": "Trong lúc rình rập, bạn vô thức nặn ra thanh quản bằng bùn đất và bật ra một từ tiếng người hoàn hảo: \"Khát...\". Đám lính gác nghe thấy liền hoảng hốt rút gươm.",
-   "minAge": 40,
+   "minAge": 50,
    "weight": 10,
    "require": {
-    "LUCK": 16,
+    "LUCK": 10,
     "flags": [
      "taste_of_adventurer"
     ],
@@ -4689,7 +4688,7 @@
      "label": "Cắn răng chịu đựng cơn đau tái tạo",
      "check": {
       "stat": "AGI",
-      "target": 11
+      "target": 9
      },
      "success": {
       "text": "Lớp da bùn rút lại, lộ ra một hình hài thiếu nam/thiếu nữ tuyệt mỹ với ánh mắt trống rỗng của vực thẳm. Bạn tiến hóa thành Humanoid Slime!",
@@ -5608,9 +5607,8 @@
   }
  ],
  "lifespan": [
-  60,
-  100
+  650,
+  950
  ],
- "hazard": 0.018,
- "tier": "low"
+ "hazard": 0.0012
 }

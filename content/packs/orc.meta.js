@@ -2,8 +2,6 @@
 module.exports = {
   race: "orc",
   script: "content/scripts/orc.txt",
-  // Mid-tier monster (packs and tribes, little learning): evolution harder than for races that choose trades.
-  tier: "mid",
   useScriptStages: true,
 
   rename: [

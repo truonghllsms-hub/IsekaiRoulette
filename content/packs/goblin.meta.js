@@ -3,9 +3,6 @@
 module.exports = {
   race: "goblin",
   script: "content/scripts/goblin.txt",
-  // Low-tier monster with little intelligence: short life, few reach old age, evolution is rare and hard.
-  tier: "low",
-  hazard: 0.05,
 
   // Manga-style naming (docs/NAMING.md), applied to every text of the script.
   rename: [
@@ -94,8 +91,8 @@ module.exports = {
 
   // Evolution branches, in the order the script lists them.
   evos: [
-    { key: "hob", name: "Hobgoblin", life: 6, minAge: 6, require: { any: [{ STR: 10, fame: 10 }, { flags: ["hobgoblin_blood"], STR: 8 }, { job: "goblin_warrior", jobRank: 3 }] } },
-    { key: "shaman", name: "Goblin Shaman Lord", life: 8, minAge: 8, require: { any: [{ INT: 11, fame: 10 }, { job: "goblin_shaman", jobRank: 3 }, { flags: ["dark_pact"], INT: 8 }] } },
+    { key: "hob", name: "Hobgoblin", life: 6, minAge: 6, require: { any: [{ STR: 7, health: 50 }, { flags: ["hobgoblin_blood"], STR: 5 }, { job: "goblin_warrior", jobRank: 2 }] } },
+    { key: "shaman", name: "Goblin Shaman Lord", life: 8, minAge: 8, require: { any: [{ INT: 8 }, { job: "goblin_shaman", jobRank: 2 }, { flags: ["dark_pact"] }] } },
     { key: "king", name: "Goblin King", life: 10, minAge: 13, require: { fame: 40, wealth: 70, guildRank: 5 } },
   ],
 

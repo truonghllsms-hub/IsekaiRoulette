@@ -2,8 +2,6 @@
 module.exports = {
   race: "imp",
   script: "content/scripts/imp.txt",
-  // Mid-tier monster (packs and tribes, little learning): evolution harder than for races that choose trades.
-  tier: "mid",
 
   rename: [
     ["{maker} của bạn", "{maker}"],

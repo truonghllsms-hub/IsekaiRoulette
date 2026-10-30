@@ -6,11 +6,8 @@ module.exports = {
   // The script's timeline: Ác quỷ thèm thịt 11+, Thợ săn đêm 51+, Tai ương nghĩa trang 151+, Ghoul chúa 301+, Khô cốt 1.000+.
   useScriptStages: true,
   noChildhood: true,
-  // Low-tier monster with little intelligence: short life, few reach old age, evolution is rare and hard.
-  tier: "low",
-  // a common Ghoul rots away within two centuries; Ghast and Lich live far longer
-  lifespan: [150, 250],
-  hazard: 0.005,
+  hazard: 0.0004,
+  lifespan: [1150, 1400],
 
   rename: [
     ["Tử linh sư", "Necromancer"],
@@ -78,8 +75,8 @@ module.exports = {
   decline: { label: "Kìm nén lại, chờ dịp khác", text: "Bạn nghiến chặt hàm răng mục, ép cơn biến đổi lắng xuống. Thân xác này còn chịu được thêm vài năm. Cơ hội sẽ quay lại." },
 
   evos: [
-    { key: "ghast", name: "Ghast", match: ["ghast"], life: 300, minAge: 120, require: { STR: 14, AGI: 10 } },
-    { key: "lich", name: "Lich", match: ["lich"], life: 1500, minAge: 150, require: { INT: 9, anyFlags: ["dark_magic_adept", "black_bone_evolution"] } },
+    { key: "ghast", name: "Ghast", match: ["ghast"], life: 200, minAge: 151, require: { STR: 9, AGI: 7 } },
+    { key: "lich", name: "Lich", match: ["lich"], life: 2000, minAge: 301, require: { INT: 10, anyFlags: ["dark_magic_adept", "black_bone_evolution"] } },
   ],
 
   systems: {

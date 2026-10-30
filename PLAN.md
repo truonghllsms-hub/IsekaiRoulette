@@ -54,9 +54,7 @@ Mở `index.html` hoặc chạy `node tools/serve.js` rồi vào http://localhos
 - [x] Troll: 7 xuất thân, 3 vai trò, Lãnh thổ 7 bậc, 56 sự kiện, 7 chuyến đòi nợ, 2 nhánh (Stone Troll, Ancient Ice Troll).
 - [x] Orc: 6 xuất thân, 5 vai trò, Bộ lạc 7 bậc, 84 sự kiện, 11 cuộc chinh phạt, 2 nhánh (High Orc, Orc Warlord).
 - [x] Slime: 6 xuất thân, 5 vai trò, Lãnh địa 7 bậc, 85 sự kiện, 11 cuộc săn mồi, 3 nhánh (Slime King, Elemental Slime,
-      Humanoid Slime).
-- [x] Phân tầng ma vật (docs/PACKS.md): cấp thấp (Slime, Goblin, Kobold, Ghoul, Troll) sống ngắn, tiến hóa ~1%;
-      cấp trung (Orc, Minotaur, Imp, Lizardman) ~2–5%; tộc có trí tuệ giữ nguyên. Kobold, Lizardman áp dụng khi có kịch bản.
+      Humanoid Slime). Mốc tuổi theo kịch bản, sống ~650–950 năm.
 
 ## Khi nhận kịch bản Gemini (prompts/v2) — việc Claude phải làm
 - [ ] Rà và sửa toàn bộ tên gọi theo `docs/NAMING.md` (tên tộc tiếng Anh kèm giải thích, nghề/chức vụ kiểu manga dịch).
