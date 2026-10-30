@@ -1,0 +1,6560 @@
+{
+ "race": "kobold",
+ "stageNames": {
+  "infant": "Cún Thằn Lằn",
+  "child": "Thợ Đào Nhí",
+  "teen": "Kỹ Sư Bẫy Rập",
+  "adult": "Chiến Binh Sừng Vảy",
+  "middle": "Giám Sát Mỏ",
+  "elder": "Trưởng Lão Vuốt Cùn"
+ },
+ "forms": {
+  "Kobold Elite": {
+   "name": "Kobold Elite",
+   "life": 8
+  },
+  "Dragonblood Kobold": {
+   "name": "Dragonblood Kobold",
+   "life": 15
+  }
+ },
+ "origins": [
+  {
+   "id": "kobold_bg_mountain",
+   "name": "Mỏ hoang Sườn Núi",
+   "weight": 30,
+   "text": "Bạn nứt vỏ chui ra giữa một ổ rơm nồng nặc mùi bùn đất và quặng sắt gỉ. Chút ánh sáng mặt trời hiếm hoi từ cửa hầm lóe lên, soi rõ hàng trăm quả trứng đang tranh nhau vỡ nát.",
+   "siblings": "42 anh chị em cùng lứa, một nửa đã bị hầm sập đè chết ngay trong tuần đầu tiên.",
+   "home": "Nghèo đói bần cùng, bầy đàn đông đúc tranh nhau từng vốc rêu đá để lót dạ.",
+   "effects": {
+    "STR": 2,
+    "LUCK": -1,
+    "flags": [
+     "overworld_kobold"
+    ]
+   },
+   "father": {
+    "name": null,
+    "race": "Kobold",
+    "role": "Thợ đào hầm",
+    "trait": "Vô danh và mờ nhạt",
+    "status": "dead",
+    "note": "Không rõ là ai, có thể đã chết vì sập hầm tuần trước."
+   },
+   "mother": {
+    "name": null,
+    "race": "Kobold",
+    "role": "Kẻ đẻ trứng bầy Sườn Núi",
+    "trait": "Mệt mỏi, cam chịu nhưng cắn xé rất tợn để bảo vệ tổ ấp",
+    "status": "alive",
+    "note": "Còn sống."
+   }
+  },
+  {
+   "id": "kobold_bg_abyss",
+   "name": "Đáy mỏ tăm tối Vực Thẳm",
+   "weight": 25,
+   "text": "Xung quanh bạn là màn đêm đen kịt của Cửa Ngục Than Khóc, nơi tiếng thét của Imp và Ghoul vọng lại từ tầng dưới. Lớp vỏ trứng của bạn nhầy nhụa thứ rêu phát quang ma quái.",
+   "siblings": "60 anh chị em, đa số mù lòa hoặc mọc vảy dị dạng vì ma khí của Dungeon.",
+   "home": "Bị bóc lột khắc nghiệt, sống trong sợ hãi tột độ trước các ma vật cấp cao.",
+   "effects": {
+    "AGI": 2,
+    "joy": -2,
+    "flags": [
+     "dungeon_miner"
+    ]
+   },
+   "father": {
+    "name": null,
+    "race": "Kobold",
+    "role": "Mồi nhử bẫy",
+    "trait": "Hèn mọn, run rẩy",
+    "status": "unknown",
+    "note": "Không rõ là ai."
+   },
+   "mother": {
+    "name": null,
+    "race": "Kobold",
+    "role": "Kẻ đẻ trứng bầy Vực Thẳm",
+    "trait": "Bị bóng tối làm cho điên loạn, liên tục lầm bầm những lời kinh cầu nguyện Rồng",
+    "status": "alive",
+    "note": "Còn sống."
+   }
+  },
+  {
+   "id": "kobold_bg_slave",
+   "name": "Cũi sắt Dwarf",
+   "weight": 20,
+   "text": "Bạn ra đời trong một chiếc lồng sắt han gỉ ngột ngạt nhiệt độ của Lò Rèn Vĩnh Cửu. Một bàn tay hộ pháp đầy râu ria xách ngược đuôi bạn lên, cạch một tiếng, tai bạn bị xỏ một chiếc khuyên đồng đánh số.",
+   "siblings": "12 anh chị em, tất cả đều bị xỏ khuyên sắt đánh số và nhốt vào lồng quay guồng ròng rọc.",
+   "home": "Chẳng có khái niệm gia đình, chỉ có đòn roi và những khẩu phần quặng thừa.",
+   "effects": {
+    "STR": 3,
+    "joy": -5,
+    "flags": [
+     "dwarf_slave"
+    ]
+   },
+   "father": {
+    "name": null,
+    "race": "Kobold",
+    "role": "Kẻ nhồi thuốc nổ",
+    "trait": "Thù hằn Dwarf sâu sắc, liều lĩnh",
+    "status": "dead",
+    "note": "Đã chết vì nổ mìn do bị ép làm việc quá sức trước khi bạn nở."
+   },
+   "mother": {
+    "name": null,
+    "race": "Kobold",
+    "role": "Nô lệ hầm lò",
+    "trait": "Câm lặng, chai sạn, ánh mắt trống rỗng",
+    "status": "alive",
+    "note": "Còn sống."
+   }
+  },
+  {
+   "id": "kobold_bg_dragon",
+   "name": "Gần hang Rồng Cổ Đại",
+   "weight": 5,
+   "text": "Bạn phá vỡ lớp vỏ trứng nóng rực như dung nham và hít thở bầu không khí tràn ngập ma lực tinh khiết của Đảo Tro Tàn. Tiếng gầm của Ancient Dragon trên đỉnh núi khiến dòng máu trong huyết quản bạn sục sôi.",
+   "siblings": "Chỉ có 3 anh chị em, sở hữu lớp vảy đỏ chói lọi, lớn lên trong sự ngạo mạn.",
+   "home": "Được coi trọng nhất bầy, dòng dõi cao quý, ăn no ngủ ấm bên cạnh kho báu của thần linh.",
+   "effects": {
+    "STR": 1,
+    "INT": 2,
+    "flags": [
+     "dragon_blessed"
+    ]
+   },
+   "father": {
+    "name": null,
+    "race": "Dragonblood Kobold",
+    "role": "Cận vệ hang Rồng",
+    "trait": "Nghiêm nghị, trung thành tuyệt đối, tự hào về dòng máu",
+    "status": "alive",
+    "note": "Còn sống."
+   },
+   "mother": {
+    "name": null,
+    "race": "Kobold Elite",
+    "role": "Trưởng tế thờ Rồng",
+    "trait": "Kiêu hãnh, cuồng tín, khoác áo choàng dệt từ tơ nhện lửa",
+    "status": "alive",
+    "note": "Còn sống."
+   }
+  },
+  {
+   "id": "kobold_bg_sulfur",
+   "name": "Tổ ấp Quặng Lưu Huỳnh",
+   "weight": 10,
+   "text": "Trứng của bạn được vùi dưới đống tro nóng hổi sực nức mùi diêm sinh của một mạch nước ngầm. Khi bạn vừa nứt vỏ chui ra, móng vuốt đã vô thức cào bới tìm kiếm đá lửa.",
+   "siblings": "20 anh chị em, đứa nào cũng sực nức mùi lưu huỳnh và hay hắt hơi ra những tia lửa nhỏ.",
+   "home": "Ấm áp nhưng độc hại, phổi của cả gia đình đều rệu rã dần theo năm tháng.",
+   "effects": {
+    "INT": 1,
+    "AGI": 1,
+    "flags": [
+     "dungeon_miner"
+    ]
+   },
+   "father": {
+    "name": null,
+    "race": "Kobold",
+    "role": "Thợ đánh hơi quặng",
+    "trait": "Lanh lẹ, mũi thính",
+    "status": "unknown",
+    "note": "Không rõ là ai."
+   },
+   "mother": {
+    "name": null,
+    "race": "Kobold",
+    "role": "Kẻ ấp trứng nhiệt độ cao",
+    "trait": "Ho khan liên tục, lớp vảy tàn tạ bong tróc",
+    "status": "alive",
+    "note": "Còn sống."
+   }
+  },
+  {
+   "id": "kobold_bg_sacrificial",
+   "name": "Tế đàn Hắc Nguyệt",
+   "weight": 10,
+   "text": "Bạn không nở trong ổ rơm, mà trên một phiến đá rỉ máu ở Đầm Lầy Tử Khí. Bạn vừa mở mắt đã thấy những tu sĩ Human mặc áo choàng đen của Hắc Nguyệt Hội đang niệm chú hiến tế.",
+   "siblings": "10 anh chị em cùng lứa nứt vỏ sớm hơn, đã trở thành thức ăn cho bầy Slime quỷ dị.",
+   "home": "Bị cả bầy bán đứng cho tà giáo đổi lấy vài thùng lương thực mốc, bạn chỉ sống sót nhờ bản năng giả chết thảm hại.",
+   "effects": {
+    "LUCK": 3,
+    "joy": -10,
+    "flags": [
+     "abyssal_sacrificial"
+    ]
+   },
+   "father": {
+    "name": null,
+    "race": "Kobold",
+    "role": "Kẻ đào mộ",
+    "trait": "Lầm lì, yếu ớt",
+    "status": "unknown",
+    "note": "Không rõ là ai."
+   },
+   "mother": {
+    "name": null,
+    "race": "Kobold",
+    "role": "Mồi nhử bẫy",
+    "trait": "Tuyệt vọng, khóc lóc ỉ ôi",
+    "status": "alive",
+    "note": "Đã bị cắt cổ hiến tế cho Vực Thẳm Cổ Thần lúc bạn vừa nứt vỏ."
+   }
+  }
+ ],
+ "jobs": [
+  {
+   "id": "kobold_miner",
+   "name": "Kobold Miner",
+   "stat": "STR",
+   "combat": false,
+   "desc": "Sức mạnh. Thợ đào hầm",
+   "require": {
+    "STR": 4
+   },
+   "alt": {
+    "anyFlags": [
+     "overworld_kobold",
+     "dwarf_slave"
+    ],
+    "hint": "xuất thân Mỏ hoang Sườn Núi hoặc Cũi sắt Người Lùn"
+   },
+   "ranks": [
+    "Apprentice Digger",
+    "Rusty Pickaxe",
+    "Rock Breaker",
+    "Tunnel Piercer",
+    "Master Miner"
+   ],
+   "income": [
+    0.7,
+    1.1,
+    1.7,
+    2.4,
+    3.2
+   ],
+   "hazard": 1.5,
+   "gains": {
+    "STR": 0.3
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    3,
+    5,
+    7,
+    9
+   ],
+   "promoStat": [
+    "STR",
+    "STR",
+    "STR",
+    "STR"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: đào liên tục 3 ngày 3 đêm không ngủ.",
+    "Thử thách để trở thành {next}: mở một đường hầm qua vách đá granite rắn như thép.",
+    "Thử thách để trở thành {next}: dùng lưng chống đỡ vách hầm đang rạn nứt để bảo vệ mẻ quặng.",
+    "Thử thách để trở thành {next}: khai phá một mạch quặng Huyết Kim ở độ sâu chưa từng có."
+   ],
+   "start": "Bạn nhặt lấy chiếc cuốc nặng trịch, chính thức trở thành một bánh răng nhỏ bé vắt kiệt sức lực trong cỗ máy khai thác khổng lồ của bầy.",
+   "quiet": [
+    "Tiếng cuốc đập vào đá vang vọng đều đặn, bụi quặng dần phủ kín hai buồng phổi bạn.",
+    "Cả tổ đào thay phiên nhau ngủ gật trong giờ nghỉ, mồ hôi chua loét ướt đẫm lớp vảy.",
+    "Bạn tìm được một nhánh rễ cây Yggdrasil đâm xuyên lòng đất, gặm nhấm thứ nhựa chát xít để cầm hơi."
+   ]
+  },
+  {
+   "id": "kobold_trapper",
+   "name": "Kobold Trapper",
+   "stat": "INT",
+   "combat": true,
+   "desc": "Trí tuệ. Kỹ sư bẫy rập",
+   "require": {
+    "INT": 4
+   },
+   "alt": {
+    "anyFlags": [
+     "trapset_talent"
+    ],
+    "hint": "có năng khiếu đặt bẫy"
+   },
+   "ranks": [
+    "Bait",
+    "Rope Tier",
+    "Spike Setter",
+    "Trap Engineer",
+    "Death Artisan"
+   ],
+   "income": [
+    0.7,
+    1.1,
+    1.7,
+    2.5,
+    3.3
+   ],
+   "hazard": 1.4,
+   "gains": {
+    "INT": 0.3
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    3,
+    5,
+    7,
+    9
+   ],
+   "promoStat": [
+    "INT",
+    "INT",
+    "INT",
+    "INT"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: buộc một bẫy đá lăn cơ bản bằng dây leo khô.",
+    "Thử thách để trở thành {next}: tháo gỡ một bẫy tên độc của Human mà không mất mạng.",
+    "Thử thách để trở thành {next}: thiết kế chuỗi bẫy liên hoàn bắt sống sinh vật khổng lồ như Troll.",
+    "Thử thách để trở thành {next}: phục dựng thành công một bẫy ma pháp cổ đại của Dungeon."
+   ],
+   "start": "Bạn chọn ở lại trong bóng tối tĩnh lặng, dùng trí óc non nớt biến những đoạn hầm ngục thành những cái bẫy hoàn hảo chết người.",
+   "quiet": [
+    "Tiếng sập bẫy vang lên từ đằng xa báo hiệu bạn lại có thêm một bữa ăn mặn mòi.",
+    "Bạn cặm cụi mài giũa những chiếc chông gỗ tẩm nọc độc đến mức bén ngót.",
+    "Mùi máu khô thoang thoảng trong ngách hầm bí mật khiến bạn cảm thấy an toàn kỳ lạ."
+   ]
+  },
+  {
+   "id": "kobold_sniffer",
+   "name": "Kobold Sniffer",
+   "stat": "LUCK",
+   "combat": false,
+   "desc": "May mắn. Đánh hơi mạch quặng và nguy hiểm",
+   "require": {
+    "LUCK": 4
+   },
+   "alt": {
+    "anyFlags": [
+     "dungeon_miner"
+    ],
+    "hint": "xuất thân Tổ ấp Quặng Lưu Huỳnh hoặc Đáy mỏ Vực Thẳm"
+   },
+   "ranks": [
+    "Dust Sniffer",
+    "Keen Nose",
+    "Vein Seeker",
+    "Geomancer",
+    "Dragon's Eye Below"
+   ],
+   "income": [
+    0.8,
+    1.3,
+    2,
+    2.8,
+    3.8
+   ],
+   "hazard": 1.2,
+   "gains": {
+    "LUCK": 0.25
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    3,
+    5,
+    7,
+    9
+   ],
+   "promoStat": [
+    "LUCK",
+    "LUCK",
+    "LUCK",
+    "LUCK"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: tìm thấy mạch nước ngầm tinh khiết để giải khát cho bầy.",
+    "Thử thách để trở thành {next}: dẫn đường né tránh an toàn một hang ổ của Slime axit.",
+    "Thử thách để trở thành {next}: đánh hơi xuyên qua vách đá để tìm kho tàng bị chôn vùi của Dwarf.",
+    "Thử thách để trở thành {next}: định vị chính xác một Lõi Mana nguyên thủy ẩn giữa vô vàn lớp đá giả."
+   ],
+   "start": "Bạn nhắm mắt lại, dỏng tai lên và hít một hơi sâu cái không khí nồng mùi ẩm mốc, sẵn sàng đánh cược mạng sống vào linh cảm thiên phú của mình.",
+   "quiet": [
+    "Bạn hắt hơi liên tục vì hít phải bụi độc, nhưng lại tình cờ mò được một thỏi Tinh Bạc vụn.",
+    "Chóp mũi bạn đóng vảy sừng sần sùi vì nhiệt độ thay đổi liên tục qua các tầng mỏ.",
+    "Linh cảm tuyệt vời giúp bạn tránh được một trận lở đá ngầm trong gang tấc."
+   ]
+  },
+  {
+   "id": "kobold_priest",
+   "name": "Kobold Priest",
+   "stat": "INT",
+   "combat": false,
+   "desc": "Trí tuệ. Thầy tế thờ Rồng",
+   "require": {
+    "INT": 5
+   },
+   "alt": {
+    "anyFlags": [
+     "dragon_blessed"
+    ],
+    "hint": "sinh ra gần hang Rồng Cổ Đại"
+   },
+   "ranks": [
+    "Temple Sweeper",
+    "Novice Acolyte",
+    "Chanter",
+    "High Priest",
+    "Voice of the Dragon"
+   ],
+   "income": [
+    0.6,
+    1,
+    1.6,
+    2.5,
+    3.5
+   ],
+   "hazard": 1,
+   "gains": {
+    "INT": 0.3
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    3,
+    5,
+    7,
+    9
+   ],
+   "promoStat": [
+    "INT",
+    "INT",
+    "INT",
+    "INT"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: học thuộc 100 bài kinh cầu nguyện vô nghĩa bằng tiếng Rồng cổ.",
+    "Thử thách để trở thành {next}: hoàn thành nghi thức hiến tế trong cái nóng ngột ngạt của hầm dung nham.",
+    "Thử thách để trở thành {next}: dùng ma pháp sơ cấp chữa lành vết thương chí mạng cho thủ lĩnh.",
+    "Thử thách để trở thành {next}: triệu hồi được một đốm phẫn nộ của Rồng (Dragon's Breath) để xua đuổi kẻ thù."
+   ],
+   "start": "Bạn khoác lên mình mảnh áo choàng xơ xác dệt từ mạng nhện, quỳ gối trước bức tượng Rồng đá tạc thô kệch, thề sẽ giữ vững đức tin ngây thơ của bầy.",
+   "quiet": [
+    "Tiếng lầm bầm kinh kệ của bạn vang vọng u ám qua các ngõ ngách trong tổ ấp.",
+    "Bạn nhặt những chiếc vảy thằn lằn rụng để làm bùa hộ mệnh rẻ tiền cho lũ con non.",
+    "Ánh sáng đỏ rực từ bàn thờ sưởi ấm đôi tay đầy sẹo và lạnh cóng của bạn."
+   ]
+  },
+  {
+   "id": "kobold_overseer",
+   "name": "Kobold Overseer",
+   "stat": "STR",
+   "combat": true,
+   "desc": "Sức mạnh hoặc Nhanh nhẹn. Giám sát mỏ cầm roi",
+   "require": {
+    "any": [
+     {
+      "STR": 6
+     },
+     {
+      "AGI": 5
+     }
+    ]
+   },
+   "ranks": [
+    "Mine Guard",
+    "Whip Holder",
+    "Warden",
+    "Foreman",
+    "Mine Lord"
+   ],
+   "income": [
+    0.8,
+    1.3,
+    2,
+    2.8,
+    3.8
+   ],
+   "hazard": 1.3,
+   "gains": {
+    "STR": 0.2,
+    "AGI": 0.15
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    3,
+    5,
+    7,
+    9
+   ],
+   "promoStat": [
+    "STR",
+    "STR",
+    "STR",
+    "STR"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: đánh đập dã man một kẻ chống đối để lập uy trước bầy.",
+    "Thử thách để trở thành {next}: trấn áp đẫm máu cuộc bạo động của đám Thợ đào nhí đang chết đói.",
+    "Thử thách để trở thành {next}: tiêu diệt con quái thú ngầm đang cản trở tiến độ khai thác quặng.",
+    "Thử thách để trở thành {next}: đánh bại thủ lĩnh bầy hiện tại trong trận tử chiến đẫm máu."
+   ],
+   "start": "Bạn giật lấy cây roi da dính máu thịt, lạnh lùng dẫm lên một kẻ yếu đuối đang rên rỉ; từ nay, luật lệ của hầm mỏ nằm trong tay bạn.",
+   "quiet": [
+    "Cây roi trong tay bạn quất vút vút, đẩy tiến độ khai quặng lên cực hạn dẫu bao kẻ gục ngã.",
+    "Bạn thưởng thức phần thịt chuột béo ngậy nhất, trong khi bầy đàn gặm rễ cây.",
+    "Lớp vảy sừng trên lưng bạn ngày càng dày dặn, thể hiện uy quyền bạo chúa tuyệt đối."
+   ]
+  }
+ ],
+ "orgs": [
+  {
+   "id": "kobold_mine",
+   "name": "Mỏ",
+   "auto": true,
+   "ranks": [
+    "Trap Bait",
+    "Scrap Picker",
+    "Hardscale",
+    "Dig-crew Boss",
+    "Tunnel Master",
+    "Mine Steward",
+    "Kobold Lord"
+   ],
+   "points": [
+    0,
+    2,
+    4,
+    7,
+    11,
+    16,
+    null
+   ],
+   "missionWord": "chuyến đào sâu",
+   "fameToPts": 0.25,
+   "board": {
+    "text": [
+     "Tiếng chuông đồng rè rè vang khắp đường hầm. Đốc công đang gọi kẻ nào muốn kiếm thêm khẩu phần.",
+     "Một tấm da chuột đóng đinh trên vách hầm, vẽ nguệch ngoạc một nhiệm vụ mới."
+    ],
+    "skip": "Chui vào ngách, giả vờ ngủ",
+    "skipText": "Bạn cuộn tròn trong một ngách tối. Không ai để ý thêm một Kobold vắng mặt."
+   },
+   "failText": "Bạn bò về hang với cái đuôi cụt một khúc. Đốc công vụt cho bạn một roi rồi bỏ đi.",
+   "rankAliases": [
+    "mồi nhử bẫy",
+    "kẻ nhặt vụn",
+    "kẻ mang vảy cứng",
+    "đầu lĩnh tổ đào",
+    "chủ ngách mỏ",
+    "tổng quản mỏ",
+    "chúa mỏ"
+   ],
+   "rankUp": {
+    "0": "Bạn đứng ở đáy cùng của xã hội Kobold, mạng sống rẻ rúng hơn cả một túm rêu mốc.",
+    "1": "Được phép nhặt nhạnh những mẩu quặng thừa, bạn thôi không còn bị ép đi trước dò đường cho các bẫy sập.",
+    "2": "Lớp vảy trên lưng đã đủ dày để chịu đòn roi, bạn chính thức giành được một chỗ ngủ không ngập nước trong ổ tập thể.",
+    "3": "Bạn bắt đầu có quyền thét lác và vung roi vào những kẻ yếu đuối hơn, dẫu trên đầu vẫn còn vô số lưỡi dao chĩa xuống.",
+    "4": "Bạn độc chiếm hẳn một mạng lưới hầm ngục nhỏ, nhởn nhơ thu thuế bằng máu và quặng từ đám thợ đào dưới quyền.",
+    "5": "Nắm giữ chiếc chìa khóa hang chứa lương thực của cả bầy, bạn giờ đây chỉ đứng dưới một kẻ nhưng dẫm đạp lên hàng vạn kẻ.",
+    "6": "Ngồi lên chiếc ngai vàng cọc cạch ghép từ vô số cuốc chim gỉ sét, tiếng gầm của bạn giờ đây là luật lệ tuyệt đối của màn đêm."
+   },
+   "join": []
+  }
+ ],
+ "quests": [
+  {
+   "id": "kobold_quest_centipede",
+   "org": "kobold_mine",
+   "name": "Dọn dẹp ngách hầm rết độc",
+   "minRank": 0,
+   "hint": "Dễ. Cẩn thận nọc độc và những cái chân sắc nhọn.",
+   "intro": "Lũ Giant Centipede (Rết khổng lồ) vừa càn quét qua ngách hầm số 4. Cả đoạn hầm vương vãi chất nhầy hôi thối và vài thỏi Tinh Bạc bị bỏ lại. Bầy đàn đùn đẩy nhau, và kẻ thấp kém như bạn bị đạp ra phía trước.",
+   "steps": [
+    {
+     "text": "Đang cặm cụi nhặt quặng, bạn rùng mình phát hiện một con rết con to bằng bắp chân đang cuộn tròn ngủ ngay dưới tảng đá chứa viên Tinh Bạc to nhất.",
+     "choices": [
+      {
+       "label": "Giương cuốc chim băm nát nó",
+       "check": {
+        "stat": "STR",
+        "target": 3
+       },
+       "success": {
+        "text": "Nhát cuốc bổ đôi con rết. Chất dịch xanh lục bắn ra tung tóe nhưng bạn đã an toàn vơ vét toàn bộ quặng.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Cuốc trượt, con rết tỉnh giấc cắn phập vào tay bạn. Bạn phải lăn lộn bỏ chạy.",
+        "effects": {
+         "health": -15
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Dùng kẹp sắt rón rén gắp viên quặng ra",
+       "check": {
+        "stat": "AGI",
+        "target": 5
+       },
+       "success": {
+        "text": "Đôi tay khéo léo của bạn thó viên quặng êm ru mà con rết vẫn ngáy khò khò.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Kẹp sắt cọ vào vách đá kêu chói tai. Bạn giật mình lùi lại và bỏ lỡ cơ hội.",
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Vứt giỏ, ù té chạy về",
+       "text": "KHÔNG CẦN CHỈ SỐ"
+      }
+     ]
+    }
+   ],
+   "complete": "Kéo chiếc giỏ nặng trịch về điểm tập kết, bạn thở phào vuốt thứ dịch nhầy nồng nặc mùi tanh khỏi mõm.",
+   "reward": {
+    "wealth": 10,
+    "fame": 5,
+    "guildPts": 1
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Ngày bạn nhận ra mùi hôi thối đôi khi là cái giá của sự giàu có."
+  },
+  {
+   "id": "kobold_quest_dwarf_scrap",
+   "org": "kobold_mine",
+   "name": "Lẻn vào trại phế liệu Dwarf",
+   "minRank": 1,
+   "hint": "Vừa. Cần khéo léo, cẩn thận chó máy.",
+   "intro": "Một đồn điền tiền tiêu của Dwarf ở tầng trên vừa dọn đi. Bạn dẫn một nhóm nhỏ lén lút mò lên đó để bới rác, tìm kiếm sắt vụn và đinh ốc ma pháp để mang về cho hội thợ bẫy.",
+   "steps": [
+    {
+     "text": "Cánh cổng dẫn vào bãi phế liệu bị khóa hờ bằng một sợi xích sắt, nhưng trên xích có treo lủng lẳng một chùm chuông báo động gió.",
+     "choices": [
+      {
+       "label": "Cẩn thận bọc vải tẩm dầu gỡ từng cái chuông",
+       "check": {
+        "stat": "INT",
+        "target": 5
+       },
+       "success": {
+        "text": "Chuông được gỡ xuống êm ái, cánh cổng hé mở chào đón bạn.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Dầu trơn làm bạn trượt tay, chuông kêu loảng xoảng. Bạn hoảng hồn bỏ chạy thục mạng.",
+        "effects": {
+         "joy": -5
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Dùng kìm cộng lực cắt đứt bản lề cổng",
+       "check": {
+        "stat": "STR",
+        "target": 7
+       },
+       "success": {
+        "text": "Bản lề gãy vụn rơi phịch xuống đất bùn không gây tiếng ồn, mở ra lối vào thênh thang.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Tiếng kìm kẹp sắt rít lên chói tai, một bẫy tên tự động bắn sượt đuôi bạn. Đành rút lui.",
+        "effects": {
+         "health": -10
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Bạn đang hốt đinh ốc thì một con chó máy bốn chân của Dwarf đột ngột khởi động vì đạp trúng bẫy trọng lượng. Nó gầm gừ, đôi mắt ma pháp lóe sáng đỏ lừ.",
+     "choices": [
+      {
+       "label": "Ném mẩu quặng để đánh lạc hướng cảm biến của nó",
+       "check": {
+        "stat": "LUCK",
+        "target": 5
+       },
+       "success": {
+        "text": "Con chó máy ngốc nghếch lao theo mẩu quặng kêu leng keng, bạn vơ vét túi rác rồi vọt lẹ.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Cảm biến của nó khóa chặt vào bạn. Nó há mõm thép cắn đứt một nửa cẳng chân của bạn.",
+        "effects": {
+         "health": -25
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Phóng dao găm kẹt vào bánh răng cổ nó",
+       "check": {
+        "stat": "AGI",
+        "target": 7
+       },
+       "success": {
+        "text": "Dao găm bay chuẩn xác. Con chó máy tóe lửa xịt khói rồi đổ gục sùi bọt nhớt ma pháp. Bạn tha hồ hốt đồ.",
+        "effects": {
+         "wealth": 10
+        },
+        "end": "win"
+       },
+       "fail": {
+        "text": "Đứng chôn chân tại chỗ vì sợ hãi, hàm răng thép nghiền nát hộp sọ của bạn.",
+        "death": "\"Phế liệu của Dwarf cũng đủ sức làm mồ chôn Kobold.\""
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Bạn vác một bao tải đầy lò xo và bánh răng tinh xảo về. Kẻ chế bẫy của bầy nhìn bạn với ánh mắt nể trọng.",
+   "reward": {
+    "wealth": 20,
+    "fame": 10,
+    "guildPts": 2
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Mắt sáng rực khi nhìn những phát minh vĩ đại rỉ sét dần trong móng vuốt của mình."
+  },
+  {
+   "id": "kobold_quest_carrion_bird",
+   "org": "kobold_mine",
+   "name": "Bẫy quái điểu ăn xác",
+   "minRank": 2,
+   "hint": "Vừa. Đòi hỏi mồi nhử tốt và phản xạ nhanh. Phần thưởng nhiều thịt.",
+   "intro": "Một con quái điểu Carrion Crow từ mặt đất lọt xuống qua kẽ nứt thông gió. Nó liên tục sà xuống bắt trộm cún thằn lằn của bầy. Bạn xách theo chiếc lưới thép gai, quyết tâm biến nó thành bữa tối.",
+   "steps": [
+    {
+     "text": "Con quái điểu đang lượn lờ cất tiếng kêu đinh tai trên nóc hang. Bạn cần thứ gì đó để lôi kéo sự chú ý của nó xuống đất.",
+     "choices": [
+      {
+       "label": "Bóp chết một con chuột đá ném ra giữa bãi trống",
+       "check": {
+        "stat": "LUCK",
+        "target": 5
+       },
+       "success": {
+        "text": "Mùi máu chuột tươi rói bốc lên, con chim nghiêng đầu thèm thuồng.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Gió thổi tạt mùi máu đi hướng khác, con chim chán nản bay mất hút.",
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Giả giọng tiếng con non gào thét thảm thiết",
+       "check": {
+        "stat": "INT",
+        "target": 5
+       },
+       "success": {
+        "text": "Thanh quản bạn bắt chước hoàn hảo âm thanh thảm thương, kích thích bản năng săn mồi của con quái điểu. Nó lao xuống.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Tiếng của bạn nghe giống như tiếng ếch ộp, con chim khinh bỉ ỉa một bãi phân lên đầu bạn rồi bay đi.",
+        "effects": {
+         "joy": -10
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Con chim lao vút xuống như một mũi tên đen, móng vuốt nhọn hoắt hướng thẳng vào chỗ bạn nấp. Gió từ đôi cánh nó thổi tốc cả sỏi đá.",
+     "choices": [
+      {
+       "label": "Tung lưới thép trùm kín nó ngay khi chạm đất",
+       "check": {
+        "stat": "AGI",
+        "target": 7
+       },
+       "success": {
+        "text": "Lưới giăng chuẩn xác, đè nghiến con chim xuống đất. Nó giãy giụa trong tuyệt vọng khi gai thép đâm phập vào thịt.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bạn chậm nửa nhịp. Con chim giật đứt lưới và cắp bạn bay lên không trung rồi thả xuống vực sâu.",
+        "death": "\"Bạn đã trở thành mồi nhử hoàn hảo nhất.\""
+       }
+      },
+      {
+       "label": "Dùng khiên đá đỡ đòn rồi ném dây thòng lọng",
+       "check": {
+        "stat": "STR",
+        "target": 5
+       },
+       "success": {
+        "text": "Cú va chạm làm nứt khiên nhưng bạn trụ vững, giật dây tròng vào cổ nó lôi xệch xuống đất.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Lực va chạm quá mạnh hất bạn văng vào tường đá, đứt gãy xương sườn. Con chim cắp mồi bay đi.",
+        "effects": {
+         "health": -25
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Cái xác chim khổng lồ đầy thịt dai nhách bị lôi về bầy đàn giữa tiếng reo hò ầm ĩ. Tối nay sẽ có lửa trại xèo xèo mỡ.",
+   "reward": {
+    "joy": 15,
+    "wealth": 15,
+    "fame": 15,
+    "guildPts": 2
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Cắn phập vào miếng đùi chim dai nhách, bạn cảm nhận được vị tanh của bầu trời."
+  },
+  {
+   "id": "kobold_quest_flooded_vein",
+   "org": "kobold_mine",
+   "name": "Mạch Huyết Kim ngập nước",
+   "minRank": 3,
+   "hint": "Khó. Nguy cơ ngạt thở và quái vật dưới nước.",
+   "intro": "Lính trinh sát báo cáo về một vỉa Huyết Kim phát sáng dưới ngách hang ngập nước lợ lạnh lẽo. Bạn dẫn tổ đào cởi bỏ lớp giáp vướng víu, ngậm ống sậy và nhảy ùm xuống làn nước đen ngòm.",
+   "steps": [
+    {
+     "text": "Quãng đường lặn dài hơn dự kiến. Không khí trong phổi cạn dần, bạn phải lách qua một khe đá ngầm lởm chởm nhũ đá nhọn.",
+     "choices": [
+      {
+       "label": "Uốn lượn cơ thể mềm dẻo luồn lách qua",
+       "check": {
+        "stat": "AGI",
+        "target": 7
+       },
+       "success": {
+        "text": "Như một con lươn nước hôi hám, bạn lọt qua khe đá an toàn không một vết xước.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Bạn bị kẹt lớp vảy lưng, vùng vẫy đến ngạt nước và bọt mép sủi lên ùng ục.",
+        "effects": {
+         "health": -20
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Dùng cuốc đục nhanh một vách đá yếu để chui lọt",
+       "check": {
+        "stat": "INT",
+        "target": 5
+       },
+       "success": {
+        "text": "Nhận ra cấu trúc đá vôi xốp, bạn gõ bể một mảng và chui qua vừa kịp lúc sắp hết hơi.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Gõ nhầm đá cứng, dội lại làm rơi luôn ống sậy. Bạn ngoi lên mặt nước vội vã.",
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Đang dùng búa cạy những thỏi Huyết Kim óng ánh, bạn thấy mặt nước rung động. Vài con Đỉa khổng lồ bằng con lợn đang đánh hơi mùi máu để bơi lại.",
+     "choices": [
+      {
+       "label": "Cào vách đất bùn làm đục ngầu làn nước rồi mò quặng",
+       "check": {
+        "stat": "LUCK",
+        "target": 5
+       },
+       "success": {
+        "text": "Đám đỉa mất phương hướng lượn lờ vòng quanh. Bạn vơ một nắm Huyết Kim rồi đạp nước chuồn thẳng.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bùn làm bạn cũng mù nốt. Bạn chộp nhầm con đỉa và bị nó cắn một ngụm đau điếng.",
+        "effects": {
+         "health": -25
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Chém nát con đỉa đi đầu để uy hiếp",
+       "check": {
+        "stat": "STR",
+        "target": 7
+       },
+       "success": {
+        "text": "Nhát cuốc chim phạt đứt đôi con quái nước. Máu xanh loang lổ khiến cả bầy đỉa khác xúm vào ăn xác đồng loại, để bạn thoải mái thu thập.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Quờ quạng dưới nước làm nhát chém yếu xìu. Hàng tá con đỉa bu lấy bạn hút cạn kiệt máu.",
+        "death": "\"Một cái xác khô nhợt nhạt nổi lềnh bềnh trong mạch nước đen.\""
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Trồi lên khỏi mặt nước, bạn ho sặc sụa tống nước lợ ra ngoài. Trong tay là những thỏi Huyết Kim lấp lánh thứ ánh sáng đầy mê hoặc.",
+   "reward": {
+    "wealth": 40,
+    "fame": 20,
+    "guildPts": 3
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Cảm giác ớn lạnh của dòng nước lợ và sức nặng của thứ kim loại đỏ ối trong tay."
+  },
+  {
+   "id": "kobold_quest_blackmarket",
+   "org": "kobold_mine",
+   "name": "Giao dịch ngã ba Vực Thẳm",
+   "minRank": 3,
+   "hint": "Khó. Giao thương với Imp đòi hỏi sự ranh ma và dũng khí.",
+   "intro": "Chúa mỏ cử bạn làm đại diện ôm một hòm Tinh Bạc nguyên chất đi đổi vũ khí giáp trụ từ đám Imp lừa lọc ở ngã ba Cửa Ngục Than Khóc. Ánh sáng ma trơi xanh lè soi rọi những bóng ma quái dị đang chờ sẵn.",
+   "steps": [
+    {
+     "text": "Đám Imp cười khùng khục, xô ra một chiếc xe đẩy đầy giáp trụ phủ vải bạt. Chúng chìa tay đòi hòm bạc của bạn và đe dọa không cho lật bạt kiểm tra hàng.",
+     "choices": [
+      {
+       "label": "Rút dao găm, nhe nanh gầm gừ đe dọa",
+       "check": {
+        "stat": "STR",
+        "target": 5
+       },
+       "success": {
+        "text": "Sự hung hãn bất ngờ của một con Kobold khiến bầy Imp chùn bước. Chúng miễn cưỡng lật bạt lên.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Đám Imp hất hàm, một con High Imp to lớn bước ra ném bạn văng vào tường và cướp luôn hòm quặng.",
+        "effects": {
+         "health": -20,
+         "wealth": -30
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Sử dụng kính lúp ma pháp soi cấu trúc bên ngoài",
+       "check": {
+        "stat": "INT",
+        "target": 5
+       },
+       "success": {
+        "text": "Bạn tinh ý nhìn thấy mép áo giáp rỉ sét được sơn phết lại. Bạn vạch trần trò bịp, ép chúng lôi hàng thật ra.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Kính lúp bị một con Imp ném đá vỡ vụn. Bạn chẳng có cớ gì để hoạnh họe đành ôm đống rác về.",
+        "effects": {
+         "fame": -20
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Bị ép giao hàng xịn, tên thủ lĩnh Imp tức giận lật lọng. Hắn rút ra một thanh hỏa kiếm và hô đàn em siết vòng vây, định giết người cướp của.",
+     "choices": [
+      {
+       "label": "Tung tin đồn giả về Thánh Kỵ Sĩ Đoàn đang tuần tra",
+       "check": {
+        "stat": "INT",
+        "target": 7
+       },
+       "success": {
+        "text": "Bạn huýt sáo một tiếng y hệt kèn lệnh của Giáo hội. Đám Imp sợ vỡ mật vứt lại xe hàng nhảy tọt xuống Vực Thẳm. Bạn lấy được hàng mà không mất tiền.",
+        "effects": {
+         "wealth": 30
+        },
+        "end": "win"
+       },
+       "fail": {
+        "text": "Giọng bạn chói tai nghe như một con cóc rên. Bọn Imp cười ré lên rồi lao vào chém bạn tơi tả.",
+        "effects": {
+         "health": -30
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Ôm chặt hòm bạc, đánh đu qua dây xích thả vực",
+       "check": {
+        "stat": "AGI",
+        "target": 7
+       },
+       "success": {
+        "text": "Bạn như con thằn lằn bay, chộp lấy dây xích đu sang phía bên kia rãnh vực. Đám Imp tức lộn ruột vì mất mồi nhừ. Dù không đổi được hàng nhưng bạn giữ được tiền.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Dây xích đứt do quá cũ. Bạn ôm khư khư hòm Tinh Bạc rơi tõm vào cõi hư vô tối tăm.",
+        "death": "\"Lòng trung thành với tài sản đã kéo bạn xuống địa ngục.\""
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Kéo chiếc xe đẩy trĩu nặng vũ khí lạnh lặn về lãnh địa, bạn nhếch mép cười. Đám ác quỷ kiêu ngạo dưới vực cũng ngu ngốc không kém gì bầy đàn trên này.",
+   "reward": {
+    "joy": 10,
+    "wealth": 30,
+    "fame": 30,
+    "guildPts": 3
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Chuyến đi khắc sâu vào xương tủy bạn một bài học: trong bóng tối, ngôn ngữ duy nhất là sự dối trá."
+  },
+  {
+   "id": "kobold_story_door",
+   "org": "kobold_mine",
+   "name": "Cánh cửa rêu phong",
+   "minRank": 1,
+   "hint": "Vừa. Bắt đầu hành trình khám phá bí mật sâu thẳm của ngọn núi.",
+   "intro": "Trong lúc cạo rêu mốc ở khu vực hầm bỏ hoang, móng vuốt của bạn cào trúng một bề mặt nhẵn thín. Lớp đất lở ra, lộ ra một cánh cửa đá khổng lồ chạm khắc hình thù Rồng uốn lượn, thứ mà bầy đàn chưa từng biết tới.",
+   "steps": [
+    {
+     "text": "Cánh cửa không có ổ khóa, chỉ có một rãnh trượt khổng lồ bám đầy thạch nhũ ngàn năm.",
+     "choices": [
+      {
+       "label": "Dùng xà beng và sức mạnh bẩy tung nó lên",
+       "check": {
+        "stat": "STR",
+        "target": 5
+       },
+       "success": {
+        "text": "Cơ bắp bạn căng cứng, thạch nhũ vỡ vụn và cánh cửa nhích lên một khe nhỏ đủ để chui lọt.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Xà beng gãy làm đôi, dội vào mặt khiến bạn hộc máu mũi. Cánh cửa vẫn im lìm.",
+        "effects": {
+         "health": -10
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Pha axit từ rêu độc để ăn mòn lớp thạch nhũ",
+       "check": {
+        "stat": "INT",
+        "target": 5
+       },
+       "success": {
+        "text": "Tiếng xèo xèo vang lên, lớp đá vôi tan chảy. Bạn nhẹ nhàng đẩy nhẹ là cửa mở ra.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Axit pha sai tỷ lệ, nổ bục vào mặt làm mù tạm thời hai mắt của bạn.",
+        "effects": {
+         "health": -15
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Bước vào trong, thứ ánh sáng lam ngọc từ các viên tinh thể khiến tâm trí bạn chao đảo. Những cái bóng trên tường bắt đầu vặn vẹo như muốn lao ra nuốt chửng bạn.",
+     "choices": [
+      {
+       "label": "Nhắm tịt mắt, bò bằng bốn chân dựa vào linh cảm",
+       "check": {
+        "stat": "LUCK",
+        "target": 5
+       },
+       "success": {
+        "text": "Bạn bò loằng ngoằng nhưng thần kỳ thay lại không đập đầu vào vách, vượt qua đoạn ảo ảnh an toàn.",
+        "next": 2
+       },
+       "fail": {
+        "text": "Bạn bò thẳng xuống một hố bẫy ngầm chứa đầy chông rỉ sét.",
+        "effects": {
+         "health": -20
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Chạy nước rút qua hành lang trước khi ảo giác phát tác",
+       "check": {
+        "stat": "AGI",
+        "target": 7
+       },
+       "success": {
+        "text": "Nhanh như một tia chớp gầy gò, bạn vọt qua hành lang bỏ lại những bóng ma gào thét phía sau.",
+        "next": 2
+       },
+       "fail": {
+        "text": "Ảo giác làm bạn vấp ngã đập đầu vào cột đá tảng, lăn ra bất tỉnh.",
+        "effects": {
+         "joy": -10
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Cuối hành lang là một bệ đá nhỏ. Bên trên đặt một vật phẩm duy nhất: một chiếc răng nanh rồng được chạm khắc thành chìa khóa, phát ra tiếng ngân nga nhè nhẹ.",
+     "choices": [
+      {
+       "label": "Bọc móng vuốt bằng vải vụn rồi rón rén lấy nó",
+       "check": {
+        "stat": "AGI",
+        "target": 5
+       },
+       "success": {
+        "text": "Bạn nhấc chiếc chìa khóa lên mà không kích hoạt bẫy sập dưới bệ đá.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Vải tuột, tay bạn chạm vào bệ. Một luồng sét đánh cháy đen lớp vảy của bạn.",
+        "effects": {
+         "health": -20
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Quỳ lạy dập đầu xin phép thần linh trước khi cầm",
+       "text": "Sự sùng kính ngây thơ đôi khi lại hữu dụng. Bệ đá nhận diện huyết mạch Kobold, tự động vô hiệu hóa bẫy.",
+       "end": "win"
+      }
+     ]
+    }
+   ],
+   "complete": "Bạn lẩn vào bóng tối với chiếc nanh rồng giấu trong bọc vải tồi tàn, nhận ra rằng ngọn núi này cất giấu những bí mật vượt xa trí tưởng tượng của bầy đàn.",
+   "reward": {
+    "INT": 1,
+    "wealth": 30,
+    "fame": 20,
+    "guildPts": 3
+   },
+   "weight": 4,
+   "moment": "Cảm giác mát lạnh của chiếc răng nanh rồng viễn cổ nằm gọn trong chiếc túi rách nát của bạn."
+  },
+  {
+   "id": "kobold_story_map",
+   "org": "kobold_mine",
+   "name": "Bản đồ da Rồng",
+   "minRank": 3,
+   "hint": "Khó. Nguy hiểm từ tàn tích của Dwarf.",
+   "intro": "Chiếc chìa khóa nanh rồng luôn rung lên khi bạn đến gần ngách mỏ số 7. Bạn dẫn theo vài thuộc hạ trung thành đào thủng lớp vách, phát hiện một phòng chứa bí mật được gia cố bằng thép Tinh Bạc của tộc Dwarf.",
+   "steps": [
+    {
+     "text": "Chiếc hòm thép giữa phòng có một khe cắm vừa khít chiếc chìa khóa nanh rồng, nhưng xung quanh nó là một bàn phím cổ ngữ Dwarf phức tạp.",
+     "choices": [
+      {
+       "label": "Dùng tai áp sát để nghe tiếng bánh răng xoay",
+       "check": {
+        "stat": "LUCK",
+        "target": 7
+       },
+       "success": {
+        "text": "May mắn khó tin, bạn vặn bừa mà các chốt khóa thi nhau kêu \"cạch cạch\" mở ra.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Bạn vặn sai bét. Ổ khóa bắn ra một cây kim tẩm độc găm thẳng vào trán bạn.",
+        "effects": {
+         "health": -25
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Giải mã dựa trên những lần học lỏm cổ ngữ",
+       "check": {
+        "stat": "INT",
+        "target": 5
+       },
+       "success": {
+        "text": "Trí nhớ vá víu của bạn hoạt động xuất thần, ráp đúng mật mã \"Lò Rèn Vĩnh Cửu\". Hòm thép bật mở.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Cổ ngữ Dwarf quá rắc rối. Cả hòm thép khóa chết vĩnh viễn, bạn xôi hỏng bỏng không.",
+        "effects": {
+         "joy": -15
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Hòm mở ra, bên trong là một cuộn da khổng lồ. Nhưng vừa chạm vào, một làn khói màu tím phụt ra từ đáy hòm, thứ khí ăn mòn nội tạng của Dwarf.",
+     "choices": [
+      {
+       "label": "Đẩy thuộc hạ lên đỡ đạn rồi ôm cuộn da bỏ chạy",
+       "check": {
+        "stat": "AGI",
+        "target": 5
+       },
+       "success": {
+        "text": "Sự tàn nhẫn của bạn đổi lấy mạng sống. Thuộc hạ chết sùi bọt mép, còn bạn an toàn đem báu vật ra ngoài.",
+        "effects": {
+         "fame": -10
+        },
+        "next": 2
+       },
+       "fail": {
+        "text": "Làn khói lan quá nhanh. Cả bạn và thuộc hạ đều hít phải, ho ra máu tơi bời.",
+        "effects": {
+         "health": -30
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Hút sâu một hơi, nín thở gỡ bẫy thông gió",
+       "check": {
+        "stat": "STR",
+        "target": 7
+       },
+       "success": {
+        "text": "Phổi bạn căng như bong bóng. Bạn đấm vỡ ống thông hơi trên trần, hút sạch khí độc ra ngoài cứu cả tổ.",
+        "next": 2
+       },
+       "fail": {
+        "text": "Bạn không nín thở nổi, hít trọn luồng khí. Phổi bạn như bị lấp đầy bởi thủy tinh vỡ.",
+        "death": "\"Khí độc của Dwarf đã kết liễu một sinh mạng tò mò.\""
+       }
+      }
+     ]
+    },
+    {
+     "text": "Đem cuộn da về hầm bí mật, bạn trải nó ra. Đó là một tấm bản đồ làm từ da Rồng, vẽ chi tiết mạng lưới hầm ngục toàn bộ Dãy Núi Răng Cưa, nối thẳng đến tận lõi của Đảo Tro Tàn.",
+     "choices": [
+      {
+       "label": "Dấu nhẹm làm bảo bối riêng",
+       "text": "Kiến thức là sức mạnh. Bạn không chia sẻ nó cho bất kỳ ai, tự chuẩn bị cho một kế hoạch kinh thiên động địa.",
+       "effects": {
+        "flags": [
+         "dragon_map"
+        ]
+       },
+       "end": "win"
+      },
+      {
+       "label": "Trình lên cho Chúa Mỏ để đổi lấy bổng lộc",
+       "text": "Bạn đem dâng bản đồ. Chúa Mỏ thưởng cho bạn một đống Huyết Kim nhưng tước đi cơ hội nắm giữ định mệnh.",
+       "effects": {
+        "wealth": 100
+       },
+       "end": "win"
+      }
+     ]
+    }
+   ],
+   "complete": "Tấm bản đồ da rồng mang mùi hương của lửa và tro tàn, mở ra con đường mà chưa có thế hệ Kobold nào dám nghĩ tới.",
+   "reward": {
+    "INT": 3,
+    "wealth": 20,
+    "guildPts": 5
+   },
+   "weight": 4,
+   "moment": "Giây phút bạn đưa ngón tay vuốt dọc theo đường hầm đỏ rực trên tấm bản đồ da Rồng."
+  },
+  {
+   "id": "kobold_story_core",
+   "org": "kobold_mine",
+   "name": "Lõi dung nham cuộn chảy",
+   "minRank": 4,
+   "hint": "Rất Khó. Cần dấu ấn \"dragon_map\". Hành trình vào vùng chết.",
+   "intro": "Nhờ tấm bản đồ da Rồng, bạn phát hiện một lối đi ngầm chưa từng ai biết, đâm thẳng xuống tầng sâu nhất của ngọn núi, nơi giáp ranh với Đảo Tro Tàn. Hàng chục tinh anh của bầy đi theo tiếng gọi của bạn.",
+   "steps": [
+    {
+     "text": "Lối đi bị chặn bởi một rặng thạch nhũ đang nhỏ giọt dung nham. Bất cứ ai bước sai một nhịp đều sẽ biến thành ngọn đuốc sống.",
+     "choices": [
+      {
+       "label": "Tính toán chu kỳ nhỏ giọt để căn nhịp chạy",
+       "check": {
+        "stat": "INT",
+        "target": 5
+       },
+       "success": {
+        "text": "Bạn đếm nhịp \"một, hai, ba... chạy!\" hoàn hảo. Cả đội vượt qua mà không cháy một mảng vảy.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Đếm sai nhịp. Một giọt dung nham rơi trúng đuôi bạn, cháy xèo xèo đau thấu xương.",
+        "effects": {
+         "health": -25
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Phi thân bám vào vách đá phía trên để tránh vùng rớt",
+       "check": {
+        "stat": "AGI",
+        "target": 7
+       },
+       "success": {
+        "text": "Như những con thằn lằn bay, bạn và đội ngũ trèo léo lắt qua vùng nguy hiểm một cách ngoạn mục.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Đá vách quá nóng làm tay bạn tuột. Bạn rơi xuống nệm tro nhưng vẫn phỏng nặng.",
+        "effects": {
+         "health": -20
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Tại cửa vào lõi núi, một con Golem cấu tạo từ đá dung nham thức giấc. Hơi nóng từ nó làm bốc hơi mọi nỗ lực đánh cận chiến.",
+     "choices": [
+      {
+       "label": "Giăng lưới xích sắt tẩm nước lạnh quật nó vỡ vụn",
+       "check": {
+        "stat": "STR",
+        "target": 7
+       },
+       "success": {
+        "text": "Sự chênh lệch nhiệt độ làm đá nứt toác. Bạn gầm lên giật đứt đầu con Golem.",
+        "next": 2
+       },
+       "fail": {
+        "text": "Golem gạt phăng lưới xích, đấm bạn bay bẹp vào vách đá nôn ra cả vốc máu.",
+        "effects": {
+         "health": -30
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Gài bẫy thuốc nổ Dwarf dưới chân nó",
+       "check": {
+        "stat": "LUCK",
+        "target": 5
+       },
+       "success": {
+        "text": "Bụi mù mịt! Con Golem đạp phải mìn, nổ tung thành hàng ngàn mảnh sỏi vụn.",
+        "next": 2
+       },
+       "fail": {
+        "text": "Thuốc nổ bị nhiệt độ kích nổ sớm. Bạn lĩnh trọn mảnh đạn găm đầy người.",
+        "effects": {
+         "health": -25,
+         "joy": -10
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Trước mặt bạn là một biển dung nham đặc quánh. Ở giữa nổi lên một bệ đá chứa một viên Tinh thể Hỏa Long khổng lồ. Không có đường ra bệ đá ngoài việc nhảy qua những cột đá chông chênh đang từ từ chìm xuống.",
+     "choices": [
+      {
+       "label": "Phóng mình qua các cột đá bằng phản xạ cực hạn",
+       "check": {
+        "stat": "AGI",
+        "target": 9
+       },
+       "success": {
+        "text": "Chân vừa chạm đá đã mượn lực nhảy tiếp. Bạn đáp xuống bệ giữa biển lửa một cách thần sầu.",
+        "next": 3
+       },
+       "fail": {
+        "text": "Một cột đá gãy sập, bạn rơi tọt xuống biển dung nham sôi sục.",
+        "death": "\"Bạn đã hòa mình vào ngọn lửa vĩnh cửu của núi rừng.\""
+       }
+      }
+     ]
+    },
+    {
+     "text": "Viên tinh thể nóng rực như mặt trời thu nhỏ, tỏa ra uy áp khủng khiếp khiến mọi con Kobold đều muốn quỳ lạy.",
+     "choices": [
+      {
+       "label": "Bọc bằng bản đồ da Rồng rồi vác lên lưng",
+       "check": {
+        "stat": "STR",
+        "target": 7
+       },
+       "success": {
+        "text": "Lớp da Rồng cách nhiệt hoàn hảo. Bạn oằn lưng gánh thứ bảo vật này, uy dũng bước về như một vị thần.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Tinh thể quá nặng, đè gãy lưng bạn khiến bạn không thể mang nó ra khỏi biển lửa.",
+        "effects": {
+         "health": -20
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Cả ngọn núi như rung chuyển khi viên tinh thể bị dời đi. Bạn đem nó về đặt giữa trung tâm tổ ấp, biến ngách mỏ của bạn thành thánh địa rực sáng nhất bầy đàn.",
+   "reward": {
+    "STR": 2,
+    "INT": 2,
+    "wealth": 100,
+    "fame": 50,
+    "guildPts": 5
+   },
+   "weight": 4,
+   "moment": "Giây phút bạn đặt viên Tinh thể Hỏa Long xuống, thứ ánh sáng đỏ rực đã thiêu rụi sự tăm tối của cả một đời Kobold."
+  },
+  {
+   "id": "kobold_story_dragon",
+   "org": "kobold_mine",
+   "name": "Diện kiến Cổ Long",
+   "minRank": 6,
+   "hint": "Huyền Thoại. Đánh cược số phận cả bầy đàn. Yêu cầu chỉ số cực cao.",
+   "intro": "Được tiếp năng lượng từ viên Tinh thể, tấm bản đồ da Rồng tự bốc cháy, để lại tro tàn xếp thành dòng chữ cổ dẫn đến sào huyệt thực sự của một Ancient Dragon trên Đỉnh Hỏa Ngục. Bạn, Chúa Mỏ đương nhiệm, tập hợp toàn bộ vạn quân Kobold bắt đầu cuộc đại di cư cuối cùng.",
+   "steps": [
+    {
+     "text": "Để đến Đỉnh Hỏa Ngục, bầy Kobold phải băng qua một cây cầu đá tự nhiên bắc ngang Vực Thẳm. Đám High Demon trấn giữ ở đó cười nhạo đám thằn lằn hôi hám.",
+     "choices": [
+      {
+       "label": "Ra lệnh tổng tấn công lấy thịt đè người",
+       "check": {
+        "stat": "fame",
+        "target": 70
+       },
+       "success": {
+        "text": "Sự cuồng tín của vạn quân Kobold đè bẹp ma pháp của lũ quỷ. Bạn băng qua biển xác đồng loại, vươn tới bờ bên kia.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Đám quỷ vung lưỡi hái tử thần đồ sát hàng ngàn Kobold, ép bầy đàn phải cuống cuồng rút lui.",
+        "effects": {
+         "fame": -30
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Khéo léo cài bẫy nổ đánh sập hầm trú ẩn của lũ quỷ",
+       "check": {
+        "stat": "INT",
+        "target": 9
+       },
+       "success": {
+        "text": "Một tiếng nổ rung chuyển đất trời, đám quỷ bị chôn vùi trong chớp mắt. Cây cầu đá mở rộng thênh thang.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Bẫy xịt. Lũ quỷ phát hiện và phóng cầu lửa thiêu trụi một nửa bầy đàn của bạn.",
+        "effects": {
+         "health": -20,
+         "fame": -20
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Tại chân núi Đảo Tro Tàn, một bức tường lửa ngút trời chắn ngang. Tiếng gầm của Rồng từ trên đỉnh núi dội xuống, thử thách ý chí của kẻ hành hương.",
+     "choices": [
+      {
+       "label": "Dẫn đầu bước xuyên qua bức tường lửa",
+       "check": {
+        "stat": "STR",
+        "target": 9
+       },
+       "success": {
+        "text": "Lớp vảy sừng của bạn đỏ rực lên, chịu đựng sự thiêu đốt tột độ. Bạn xé toạc ngọn lửa, mở đường cho bầy đàn.",
+        "next": 2
+       },
+       "fail": {
+        "text": "Lửa quá nóng thiêu rụi da thịt. Bạn phải lăn lộn lùi lại, cơ thể bỏng nặng tàn phế.",
+        "effects": {
+         "health": -40
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Quỳ xuống đọc kinh cầu nguyện bằng tiếng Rồng cổ",
+       "check": {
+        "stat": "INT",
+        "target": 7
+       },
+       "success": {
+        "text": "Cổ ngữ vang lên rành rọt. Bức tường lửa từ từ rẽ sang hai bên, chấp nhận sự sùng kính của bạn.",
+        "next": 2
+       },
+       "fail": {
+        "text": "Phát âm sai lệch khiến ngọn lửa bùng lên dữ dội hơn, thổi bay bạn văng xuống vách đá.",
+        "effects": {
+         "joy": -20
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Bạn bước vào vòm hang vĩ đại. Nằm cuộn mình trên đống vàng bạc cao như ngọn núi là Ignis, một Ancient Dragon khổng lồ. Con rồng hé một con mắt rực lửa nhìn bạn.",
+     "choices": [
+      {
+       "label": "Dâng lên toàn bộ kho báu Huyết Kim của bầy đàn",
+       "check": {
+        "stat": "wealth",
+        "target": 55
+       },
+       "success": {
+        "text": "Núi của cải khiến con Rồng hài lòng khẽ gầm gừ một tiếng tán thưởng, cho phép bạn được tiến lên thềm đá.",
+        "next": 3
+       },
+       "fail": {
+        "text": "Con rồng khinh bỉ đống rác rưởi của bạn, phẩy đuôi tạo bão táp quất bạn ngã nhào.",
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Đứng thẳng kiêu hãnh, xưng danh Chúa Mỏ",
+       "check": {
+        "stat": "LUCK",
+        "target": 9
+       },
+       "success": {
+        "text": "Cổ Long ngạc nhiên trước sự kiêu ngạo hiếm thấy của một sinh vật hạ đẳng, phá lên cười rung chuyển hang động và chấp nhận bạn.",
+        "next": 3
+       },
+       "fail": {
+        "text": "Xấc xược! Một luồng hỏa huyễn phụt ra biến bạn thành bãi tro tàn ngay lập tức.",
+        "death": "\"Kiêu ngạo trước thần linh là đặc quyền của kẻ mạnh, không phải của Kobold.\""
+       }
+      }
+     ]
+    },
+    {
+     "text": "Con Rồng cất giọng trầm vang dội tâm trí bạn, hỏi bạn muốn mượn sức mạnh để làm gì.",
+     "choices": [
+      {
+       "label": "Trở thành tay sai vĩ đại nhất, chinh phạt mặt đất",
+       "text": "Cổ Long ban cho bạn một giọt máu tinh huyết rực lửa. Toàn bầy Kobold tiến hóa, sẵn sàng nhấn chìm cả Đồng Bằng Thánh Quang.",
+       "effects": {
+        "flags": [
+         "dragon_vanguard"
+        ]
+       },
+       "end": "win"
+      },
+      {
+       "label": "Bảo vệ ngọn núi, lập nên vương quốc dưới lòng đất vĩnh cửu",
+       "text": "Rồng ban phúc bằng vảy rồng kiên cố bao bọc toàn bộ hệ thống hầm ngục. Bầy Kobold vĩnh viễn không còn sợ kẻ nào xâm phạm.",
+       "effects": {
+        "flags": [
+         "dragon_sanctuary"
+        ]
+       },
+       "end": "win"
+      }
+     ]
+    }
+   ],
+   "complete": "Tiếng gầm đồng thanh của hàng vạn con Kobold vang vọng từ lòng Đảo Tro Tàn. Một giống loài sinh ra từ bùn lầy, hèn mọn và yếu ớt, cuối cùng đã được thần linh công nhận.",
+   "reward": {
+    "joy": 100
+   },
+   "weight": 4,
+   "moment": "Đứng dưới cái bóng khổng lồ của Cổ Long, bạn đã tạc tên mình vào lịch sử Aethelgard."
+  },
+  {
+   "id": "kobold_era_demon",
+   "org": "kobold_mine",
+   "name": "Giao kèo máu",
+   "minRank": 2,
+   "hint": "Sự kiện thời đại. Giữa hai làn đạn, thằn lằn phải chọn phe.",
+   "intro": "Quân đoàn Ma Vương tràn ngập Dãy Núi Răng Cưa. Một toán High Demon xông vào ngách mỏ của bạn, quăng xuống một túi Lõi Mana đen ngòm. Chúng muốn thuê bầy Kobold đào một hầm ngầm xuyên thủng hàng rào phòng ngự của Đồng Bằng Thánh Quang.",
+   "steps": [
+    {
+     "text": "Gã High Demon nhe nanh ép bạn phải ký hiệp ước máu, hoặc chết ngay tại chỗ.",
+     "choices": [
+      {
+       "label": "Ký giao kèo, nhận tiền và làm việc cho Ma Vương",
+       "check": {
+        "stat": "STR",
+        "target": 5
+       },
+       "success": {
+        "text": "Bạn gồng mình chịu đựng ma khí từ Lõi Mana đen, bắt tay với quỷ dữ để bảo toàn mạng sống cả bầy.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Ma khí quá mạnh làm tay bạn hoại tử rụng lả tả.",
+        "effects": {
+         "health": -30
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Gài bẫy sập đoạn hầm, chôn sống toán quỷ rồi bỏ trốn",
+       "check": {
+        "stat": "AGI",
+        "target": 7
+       },
+       "success": {
+        "text": "Đá tảng rơi ầm ầm đè nát lũ quỷ. Bạn dẫn bầy chuồn xuống tầng sâu hơn trốn tránh cuộc chiến.",
+        "effects": {
+         "fame": 20
+        },
+        "end": "win"
+       },
+       "fail": {
+        "text": "Tên quỷ chém vỡ đá tảng, nắm đầu bạn nhấc bổng lên và bóp nát.",
+        "death": "\"Không có chỗ cho sự phản kháng yếu ớt thời Ma Vương.\""
+       }
+      }
+     ]
+    },
+    {
+     "text": "Bầy của bạn dốc sức đào đêm ngày. Nhưng khi mũi cuốc gần đục thủng lớp phòng ngự, ma pháp trận của Nữ thần Lumina phát nổ lóa mắt.",
+     "choices": [
+      {
+       "label": "Dùng xác lũ Goblin chắn vụ nổ, bảo vệ tổ đào",
+       "check": {
+        "stat": "INT",
+        "target": 5
+       },
+       "success": {
+        "text": "Nhờ sự tàn nhẫn mưu mô, bạn giữ mạng được lực lượng nòng cốt. Đường hầm hoàn thành, lũ quỷ tràn lên. Bạn nhận đủ tiền cống nạp.",
+        "effects": {
+         "wealth": 50
+        },
+        "end": "win"
+       },
+       "fail": {
+        "text": "Vụ nổ thánh quang thiêu rụi toàn bộ hàng trước, bạn bị mù lòa hai mắt.",
+        "effects": {
+         "health": -25
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Ngồi đếm những viên Lõi Mana đen ngòm, bạn mặc kệ tiếng la hét của đám Human trên mặt đất. Thời đại hỗn mang, sinh tồn là đạo lý duy nhất.",
+   "reward": {
+    "joy": -10,
+    "wealth": 50,
+    "fame": -10
+   },
+   "weight": 4,
+   "eras": [
+    "demon_lord"
+   ],
+   "moment": "Mùi máu tươi của Nhân loại hòa cùng mùi bụi quặng trên tay bạn."
+  },
+  {
+   "id": "kobold_era_darkness",
+   "org": "kobold_mine",
+   "name": "Nấm mồ nấm độc (Kỷ Nguyên Tăm Tối)",
+   "minRank": 1,
+   "hint": "Sự kiện thời đại. Nạn đói tàn phá, cái giá của thức ăn là sinh mạng.",
+   "intro": "Dịch bệnh và nạn đói hoành hành khắp Aethelgard. Bầy Kobold đã phải ăn thịt chính đồng loại chết đói. Bạn đánh hơi thấy một hang động phát sáng xanh lè dưới vực sâu, đầy rẫy những cây Nấm Tử Thần khổng lồ.",
+   "steps": [
+    {
+     "text": "Rừng nấm phun bào tử độc dày đặc. Mỗi hơi thở đều đốt cháy phổi.",
+     "choices": [
+      {
+       "label": "Nhai rễ cây ngậm trong miệng để lọc khí độc",
+       "check": {
+        "stat": "INT",
+        "target": 5
+       },
+       "success": {
+        "text": "Rễ cây đắng ngắt nhưng cứu mạng bạn. Bạn an toàn đi sâu vào trung tâm rừng nấm.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Bạn chọn nhầm rễ cây độc, nôn mửa xanh mặt phải lết về tay không.",
+        "effects": {
+         "health": -20
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Nín thở và chạy nước rút gom nấm",
+       "check": {
+        "stat": "AGI",
+        "target": 7
+       },
+       "success": {
+        "text": "Tốc độ của bạn xé gió, hái được đầy một giỏ nấm to đùng trước khi phải hít thở.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Đứt hơi giữa chừng, bạn hít một ngụm lớn bào tử. Bạn ngã quỵ ho ra máu đen.",
+        "effects": {
+         "health": -30
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Đem nấm về, cả bầy đói khát chằm chằm nhìn bạn. Bạn phải chế biến thứ nấm cực độc này thành thức ăn cứu mạng, nếu không chính bạn sẽ bị làm thịt.",
+     "choices": [
+      {
+       "label": "Luộc qua ba lần nước bùn khoáng để triệt độc",
+       "check": {
+        "stat": "LUCK",
+        "target": 5
+       },
+       "success": {
+        "text": "Nồi súp sủi bọt chuyển từ màu tím sang màu nâu nhạt. Cả bầy húp lấy húp để, dù tiêu chảy nhưng sống sót qua nạn đói.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Độc chưa hết. Hàng tá Kobold lăn ra chết sùi bọt mép, đám còn lại phẫn nộ xé xác bạn.",
+        "death": "\"Bạn chết đi không phải vì đói, mà vì sự ngu dốt của mình.\""
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Bụng réo ọc ọc đau quặn, nhưng bạn vẫn còn thở. Trong Kỷ Nguyên Tăm Tối, no bụng là phép màu duy nhất.",
+   "reward": {
+    "health": 15,
+    "joy": 10,
+    "fame": 20
+   },
+   "weight": 4,
+   "eras": [
+    "dark_age"
+   ],
+   "moment": "Húp ngụm súp đắng nghét vị nấm tử thần, nước mắt bạn trào ra vì thỏa mãn."
+  }
+ ],
+ "events": [
+  {
+   "id": "kobold_parent_teaching",
+   "text": "Bầy Kobold gào thét đòi con non phải xuống mỏ phụ việc. {mother} đẩy một chiếc cuốc gỉ sét to hơn cả người bạn vào tay bạn, đôi mắt mệt mỏi ánh lên sự nghiêm khắc.",
+   "stages": [
+    "infant",
+    "child"
+   ],
+   "require": {
+    "motherAlive": true
+   },
+   "choices": [
+    {
+     "label": "Nghiến răng vác cuốc lên vai",
+     "check": {
+      "stat": "STR",
+      "target": 3
+     },
+     "success": {
+      "text": "Bạn lảo đảo vác cuốc đi theo mẹ, học được cách đào mỏ mà không làm sập vách đá.",
+      "effects": {
+       "STR": 1,
+       "health": -2,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Chiếc cuốc quá nặng, cán gỗ đập vào đầu khiến bạn ngất xỉu giữa tiếng cười nhạo của cả bầy.",
+      "effects": {
+       "health": -5,
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Rúc vào đuôi mẹ, khóc lóc ăn vạ",
+     "text": "(Hèn nhát nhưng an toàn) Bạn bám chặt lấy mẹ không buông, bà đành thở dài cõng bạn xuống hầm che chở thêm một năm.",
+     "effects": {
+      "joy": 5,
+      "fame": -5
+     }
+    },
+    {
+     "label": "Lắp ráp lại chiếc cuốc thành bẫy chông",
+     "require": {
+      "INT": 6
+     },
+     "showLocked": true,
+     "text": "Bạn dùng trí óc non nớt tháo đầu cuốc làm bẫy chuột, mẹ bạn há hốc mồm ngạc nhiên.",
+     "effects": {
+      "INT": 2,
+      "wealth": 5,
+      "flags": [
+       "trapset_talent"
+      ]
+     }
+    }
+   ],
+   "moment": "Ngày bạn cầm chiếc cuốc to hơn cả mạng sống của mình, bước vào lòng đất tối tăm."
+  },
+  {
+   "id": "kobold_parent_sacrifice",
+   "text": "Bầy cần thăm dò một ngách hang đầy bẫy ma pháp của Dungeon. Tên Giám sát mỏ to xác tàn nhẫn chỉ tay vào {mother} của bạn, kẻ đã quá già yếu không đẻ được nữa, bắt bà làm mồi nhử đạp bẫy.",
+   "stages": [
+    "child",
+    "teen"
+   ],
+   "require": {
+    "anyFlags": [
+     "dungeon_miner",
+     "dwarf_slave"
+    ],
+    "motherAlive": true
+   },
+   "choices": [
+    {
+     "label": "Tính toán quỹ đạo gỡ bẫy ma pháp",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn dùng đá tảng và dây thừng kích nổ bẫy từ xa, cứu mẹ một mạng trong tiếng hò reo của đồng loại.",
+      "effects": {
+       "joy": 7,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Bạn cắt nhầm dây, bẫy nổ hất văng cả hai mẹ con vào vách đá.",
+      "effects": {
+       "health": -15,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Liều mạng lao ra đạp bẫy thay mẹ",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Với tốc độ chớp nhoáng, bạn lăn qua phiến đá trước khi hố chông sập xuống, để lại một cái bóng mờ ảo.",
+      "effects": {
+       "AGI": 2,
+       "fame": 15,
+       "flags": [
+        "death_dodger"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Một mũi tên tẩm độc sượt qua đùi, bạn ngã gục, mẹ bạn gào khóc kéo bạn về.",
+      "effects": {
+       "health": -25,
+       "joy": -15,
+       "flags": [
+        "poison_scar"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Cúi đầu câm lặng nhìn mẹ bị giải đi",
+     "text": "(Hèn nhát) Bạn nhắm nghiền mắt lại. Vài phút sau, một tiếng nổ lớn vang lên từ sâu trong hầm ngục. Bạn không bao giờ gặp lại mẹ nữa.",
+     "effects": {
+      "joy": -20,
+      "parentDie": "mother"
+     }
+    },
+    {
+     "label": "Cắn nát cổ họng tên Giám sát mỏ",
+     "require": {
+      "STR": 10
+     },
+     "showLocked": true,
+     "text": "Bằng sức mạnh phi thường, bạn đồ sát tên giám sát. Bầy đàn kinh hãi tôn bạn lên làm thủ lĩnh nhánh hầm mới.",
+     "effects": {
+      "STR": 2,
+      "wealth": 30,
+      "fame": 20
+     }
+    }
+   ],
+   "moment": "Giây phút bạn đứng giữa tính mạng của người mẹ già và sự phán xét tàn nhẫn của bầy đàn."
+  },
+  {
+   "id": "kobold_parent_reunion",
+   "text": "Trong lúc đào trúng hầm mỏ của một Thương hội Sói Bạc, bạn vô tình nhận ra {father} đang bị xích cổ vào một cỗ xe bò, lưng chằng chịt sẹo roi. Ông ấy vẫn còn sống, nhưng ánh mắt đã đục ngầu.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "require": {
+    "flags": [
+     "dwarf_slave"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Dùng kìm cộng lực cắn đứt xích sắt",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Xích đứt phăng. Cha bạn ngỡ ngàng nhìn đứa con đã trưởng thành, nước mắt lã chã rơi trên mõm.",
+      "effects": {
+       "joy": 30
+      }
+     },
+     "fail": {
+      "text": "Kìm gãy nát, bọn lính canh Human phát hiện và đánh đuổi bạn chạy thục mạng.",
+      "effects": {
+       "health": -10,
+       "wealth": -10
+      }
+     }
+    },
+    {
+     "label": "Len lỏi trộm chìa khóa từ tên gác ngục",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn như một cái bóng mờ, giật chìa khóa và mở khóa êm ru, dắt cha trốn thoát vào hầm sâu.",
+      "effects": {
+       "AGI": 1,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Chùm chìa khóa kêu loảng xoảng, lính canh rút kiếm chém đứt một nửa đuôi của bạn.",
+      "effects": {
+       "health": -20,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Trốn vào bóng tối, coi như không quen biết",
+     "text": "(An toàn) Đưa rước kẻ tàn tật này về bầy chỉ tốn thêm khẩu phần rêu đá. Bạn quay mặt bỏ đi, để lại một nửa trái tim vỡ vụn.",
+     "effects": {
+      "joy": -15
+     }
+    },
+    {
+     "label": "Mua lại cha bằng Huyết Kim",
+     "require": {
+      "wealth": 100
+     },
+     "showLocked": true,
+     "text": "Bạn kiêu hãnh ném túi tiền nặng trịch vào mặt gã thương nhân, đường hoàng dắt cha về bầy.",
+     "effects": {
+      "joy": 30,
+      "wealth": -100,
+      "fame": 30
+     }
+    }
+   ],
+   "moment": "Lần đầu tiên sau nhiều năm, bạn chạm vào lớp vảy nhám lạnh lẽo của người cha."
+  },
+  {
+   "id": "kobold_parent_death_legacy",
+   "text": "Bầy vừa ném xác {mother} vào hầm dung nham theo nghi thức. Trước lúc nhắm mắt, bà dúi vào tay bạn một viên đá xù xì bọc trong vải rách, trăng trối rằng đây là vảy của Dragon mà bà nhặt được thuở nhỏ.",
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "choices": [
+    {
+     "label": "Bán viên đá cho lũ thợ rèn Dwarf",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Thật bất ngờ, bên trong là lõi Tinh Bạc hiếm. Bạn đổi được một khoản kết xù.",
+      "effects": {
+       "wealth": 50,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Bọn Dwarf cười ré lên, ném viên sỏi gỉ sét vào mặt bạn và đuổi thẳng cổ.",
+      "effects": {
+       "health": -2,
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Nuốt viên đá để cầu xin thần lực Rồng",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Dạ dày bạn quặn thắt dữ dội, nhưng lớp vảy ngoài bỗng ánh lên sắc đỏ. Huyết mạch của bạn được cường hóa mãnh liệt.",
+      "effects": {
+       "STR": 3,
+       "health": 30
+      }
+     },
+     "fail": {
+      "text": "Viên đá nghẹn cứng ở cổ, sắc cạnh rạch nát thực quản. Bạn sùi bọt mép gục xuống chết ngay bên cạnh mép hầm dung nham.",
+      "death": "\"Lòng sùng kính mù quáng đã chấm dứt sinh mạng mỏng manh của bạn.\""
+     }
+    },
+    {
+     "label": "Giữ làm bùa hộ mệnh bên mình",
+     "text": "(An toàn) Món đồ kỷ niệm nhỏ bé này nhắc bạn nhớ về sự siêng năng bi thảm của mẹ.",
+     "effects": {
+      "INT": 1,
+      "joy": 10
+     }
+    },
+    {
+     "label": "Đặt lên bệ thờ ở Tháp Ngà",
+     "require": {
+      "flags": [
+       "dragon_blessed"
+      ]
+     },
+     "showLocked": true,
+     "text": "Thánh quang phản ứng dữ dội, viên vảy cổ đại ban cho bạn một phép thuật kỳ diệu từ tổ tiên.",
+     "effects": {
+      "STR": 2,
+      "INT": 3,
+      "fame": 20
+     }
+    }
+   ],
+   "moment": "Cầm hòn đá lạnh lẽo, bạn thấu hiểu thế nào là đức tin ngây thơ của tộc Kobold."
+  },
+  {
+   "id": "kobold_miner_collapse",
+   "text": "Một tiếng rắc chói tai vang lên từ trần hầm. Đá tảng ầm ầm sụp xuống, đè nát những kẻ xấu số chạy chậm nhất, chặn đứng lối ra của bạn.",
+   "require": {
+    "job": "kobold_miner"
+   },
+   "choices": [
+    {
+     "label": "Dùng cuốc chim đào khoét điên cuồng",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Cơ bắp vỡ vụn, ngón tay ứa máu nhưng bạn đã đục được một lỗ hổng chui ra ngoài.",
+      "effects": {
+       "STR": 1,
+       "health": -10
+      }
+     },
+     "fail": {
+      "text": "Chiếc cuốc gãy đôi. Không khí cạn dần, bạn ngạt thở trong nấm mồ tăm tối.",
+      "death": "\"Một cái chết im lìm, quen thuộc của tộc Kobold.\""
+     }
+    },
+    {
+     "label": "Len lỏi qua khe nứt hẹp của vách đá",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn ép mỏng cơ thể, uốn lượn như loài thằn lằn và thành công thoát thân.",
+      "effects": {
+       "AGI": 1,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Đuôi bạn bị kẹt lại dưới tảng đá lớn. Bạn buộc phải cắn đứt nó để sống sót.",
+      "effects": {
+       "health": -20,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Hét gọi {ally} tới cứu",
+     "text": "(An toàn nếu có đồng đội) {ally} liều mạng đào bới từ bên ngoài, kéo bạn lên từ cõi chết.",
+     "effects": {
+      "joy": 5,
+      "bond": 10
+     }
+    }
+   ],
+   "moment": "Ngày bạn học được rằng lòng đất vừa là nhà, vừa là mồ mả."
+  },
+  {
+   "id": "kobold_miner_goblin",
+   "text": "Tổ đào của bạn đụng độ một toán Goblin Lord từ Đầm Lầy Tử Khí cũng đang nhòm ngó vỉa Tinh Bạc. Chúng nhe nanh múa kiếm hăm dọa.",
+   "require": {
+    "jobRank": 1,
+    "job": "kobold_miner"
+   },
+   "choices": [
+    {
+     "label": "Cầm cuốc lao lên sống mái",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn giáng một nhát cuốc vỡ sọ tên Goblin Lord, đám tay sai hoảng sợ bỏ chạy.",
+      "effects": {
+       "STR": 2,
+       "wealth": 20,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Bạn bị chém tơi tả, phải lăn lộn bỏ chạy bỏ lại cả vỉa quặng quý.",
+      "effects": {
+       "health": -15,
+       "wealth": -10
+      }
+     }
+    },
+    {
+     "label": "Sắp xếp bẫy sập lừa chúng vào trong",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bọn Goblin ngu ngốc đạp phải đá tảng rỗng, rơi thẳng xuống hầm chông.",
+      "effects": {
+       "INT": 1,
+       "wealth": 15
+      }
+     },
+     "fail": {
+      "text": "Bọn chúng tinh ranh nhận ra, lao tới đánh đập cả tổ đào bầm dập.",
+      "effects": {
+       "health": -10,
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Hối lộ chúng bằng nửa số quặng",
+     "text": "(Hèn nhát) Bạn quỳ mọp xuống, dâng nửa số Tinh Bạc. Cả tổ bảo toàn tính mạng nhưng bầy đàn căm phẫn sỉ nhục bạn.",
+     "effects": {
+      "joy": -10,
+      "wealth": -15,
+      "fame": -15
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_miner_disease",
+   "text": "Việc hít bụi quặng độc quá lâu khiến bạn ho ra máu đen. Lão thầy cúng của bầy nói bạn phải nhúng mình vào hố dung nham nhỏ để thanh tẩy phổi, hoặc tự chịu đựng.",
+   "require": {
+    "job": "kobold_miner"
+   },
+   "choices": [
+    {
+     "label": "Cắn răng nhảy vào hố dung nham trị liệu",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Vảy bạn cháy đen nhưng chất độc bị bức ra hết. Thể chất bạn trở nên cứng cáp lạ thường.",
+      "effects": {
+       "STR": 2,
+       "health": 15,
+       "joy": -5
+      }
+     },
+     "fail": {
+      "text": "Bạn bị bỏng nặng, la hét trườn lên bờ với thân hình tàn phế.",
+      "effects": {
+       "health": -25,
+       "joy": -20,
+       "demote": true
+      }
+     }
+    },
+    {
+     "label": "Mua thuốc giải độc của thương nhân Human",
+     "require": {
+      "wealth": 30
+     },
+     "showLocked": true,
+     "text": "Loại thảo dược đắt đỏ từ Đồng Bằng Thánh Quang giúp phổi bạn hồi phục hoàn toàn.",
+     "effects": {
+      "health": 20,
+      "wealth": -30
+     }
+    },
+    {
+     "label": "Chịu đựng và làm việc tiếp",
+     "text": "(Cam chịu) Bạn ho sù sụ từng cơn, sức lực bào mòn từng ngày, vĩnh viễn mang mầm bệnh.",
+     "effects": {
+      "health": -15,
+      "joy": -5,
+      "flags": [
+       "lung_disease"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_miner_relic",
+   "text": "Nhát cuốc của bạn chạm phải một vật cứng. Bạn bới đất và phát hiện một cỗ máy đào hầm bằng ma pháp của Dwarf từ Kỷ Nguyên Khai Hoang, lõi vẫn còn phát sáng mờ.",
+   "require": {
+    "job": "kobold_miner"
+   },
+   "choices": [
+    {
+     "label": "Kích hoạt bằng bản năng",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Cỗ máy gầm lên, khoan xuyên núi tạo thành một đại lộ hoàn hảo. Bầy tôn vinh bạn như huyền thoại.",
+      "effects": {
+       "LUCK": 2,
+       "wealth": 50,
+       "fame": 30,
+       "flags": [
+        "dwarf_machine"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Cỗ máy phát nổ, thổi bay nửa ngọn núi và nướng chín lớp vảy của bạn.",
+      "effects": {
+       "health": -30,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Gỡ lõi Mana đem bán",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn tháo rời linh kiện an toàn, đổi được bộn tiền ở Thương hội Sói Bạc.",
+      "effects": {
+       "INT": 1,
+       "wealth": 40
+      }
+     },
+     "fail": {
+      "text": "Lõi ma pháp rò rỉ, làm tay bạn tê liệt suốt một năm.",
+      "effects": {
+       "INT": -1,
+       "health": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_trapper_friendly_fire",
+   "text": "Chiếc bẫy lưới tẩm axit do bạn thiết kế bị kích hoạt. Bàng hoàng thay, nạn nhân không phải thú rừng mà là {father} (hoặc một Kobold cao cấp nếu mồ côi), đang gào thét thảm thiết.",
+   "require": {
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "job": "kobold_trapper"
+   },
+   "choices": [
+    {
+     "label": "Lao vào tháo gỡ bẫy phức tạp của chính mình",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn cắt đứt các sợi dây cốt lõi, cứu được nạn nhân dẫu vảy họ đã cháy sém.",
+      "effects": {
+       "INT": 1,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Cơ chế an toàn thứ hai khởi động, phun axit vào cả bạn lẫn nạn nhân.",
+      "effects": {
+       "health": -15,
+       "fame": -20
+      }
+     }
+    },
+    {
+     "label": "Phi thân cắt đứt dây dù đang quăng tới",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Nhanh như chớp, con dao găm của bạn phạt đứt tấm lưới trước khi nó siết chặt.",
+      "effects": {
+       "AGI": 2,
+       "joy": 5
+      }
+     },
+     "fail": {
+      "text": "Lưới đổ sập xuống. Cả bầy vây lại kết tội bạn mưu sát. Bạn bị tước hết chức vị và đuổi khỏi mỏ.",
+      "effects": {
+       "joy": -20,
+       "fame": -30,
+       "demote": true
+      }
+     }
+    },
+    {
+     "label": "Bịt tai quay đi, vờ như chưa thấy gì",
+     "text": "(Hèn nhát) Tiếng gào tắt lịm. Bầy đàn không biết ai làm, nhưng bạn vĩnh viễn bị ám ảnh bởi tội ác này.",
+     "effects": {
+      "joy": -20
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_trapper_hunter",
+   "text": "Một toán Ranger Đại Ngàn đi ngang qua địa bàn của bạn. Bọn Human bất cẩn đánh rơi một túi da chứa bản vẽ thiết kế bẫy cung tự động cực kỳ tinh vi.",
+   "require": {
+    "job": "kobold_trapper"
+   },
+   "choices": [
+    {
+     "label": "Bám theo trộm bản vẽ",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn vọt qua bụi rậm, nẫng tay trên chiếc túi rớt lại mà toán thợ săn không hề hay biết.",
+      "effects": {
+       "INT": 2,
+       "AGI": 1,
+       "wealth": 10
+      }
+     },
+     "fail": {
+      "text": "Một gã Ranger phát hiện, vung mũi tên bắn đứt một nhúm vảy trên đầu bạn.",
+      "effects": {
+       "health": -15,
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Đứng từ xa nhìn lén ghi nhớ",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Trí nhớ tuyệt đỉnh giúp bạn thuộc làu cơ chế dây cót, mang về áp dụng cho bầy.",
+      "effects": {
+       "INT": 1,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Bạn chỉ nhớ được một nửa, ráp bẫy tự bắn vào chân mình.",
+      "effects": {
+       "health": -10
+      }
+     }
+    },
+    {
+     "label": "Đợi chúng đi khuất rồi lục lọi đống rác chúng để lại",
+     "text": "(An toàn) Dù không lấy được bản đồ, bạn vớt vát được vài mũi tên sắc bén.",
+     "effects": {
+      "LUCK": 1,
+      "wealth": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_trapper_beast",
+   "text": "Một con Minotaur điên loạn từ Đảo Tro Tàn lạc vào hầm mỏ, phá nát các vách đá. Nó đang lao thẳng về phía tổ ấp con non. Bẫy của bạn là chốt chặn cuối cùng.",
+   "require": {
+    "jobRank": 2,
+    "job": "kobold_trapper"
+   },
+   "choices": [
+    {
+     "label": "Dùng bẫy dây thừng ngáng chân nó",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Con quái vật vấp ngã đập đầu vào vách đá ngất xỉu. Bầy tung hô bạn như người hùng.",
+      "effects": {
+       "wealth": 15,
+       "fame": 20
+      }
+     },
+     "fail": {
+      "text": "Sức lực của Minotaur giật tung dây, quăng bạn đập vào vách đá nôn ra máu.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Đích thân dụ nó vào hố chông",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn chạy lắt léo sát miệng hố. Con bò tót mù quáng lao theo và rớt thẳng xuống bàn chông nhọn hoắt.",
+      "effects": {
+       "AGI": 2,
+       "wealth": 30,
+       "fame": 25
+      }
+     },
+     "fail": {
+      "text": "Nó nhanh hơn bạn tưởng, một cú húc hất văng bạn gãy mấy cái xương sườn.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Bấm nút sập cả đoạn hầm",
+     "require": {
+      "STR": 8
+     },
+     "showLocked": true,
+     "text": "Bạn đập gãy cột chống, chôn vùi con quái vật lẫn toàn bộ công cụ của mình. Con non an toàn nhưng bạn mất trắng gia tài.",
+     "effects": {
+      "INT": 1,
+      "wealth": -20,
+      "fame": 10
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_trapper_mana",
+   "text": "Bạn vừa đào được một viên Lõi Mana rực sáng. Thay vì đem nộp, bạn nảy ra ý tưởng nhét nó vào hệ thống bẫy liên hoàn của bầy.",
+   "stages": [
+    "teen"
+   ],
+   "require": {
+    "job": "kobold_trapper"
+   },
+   "choices": [
+    {
+     "label": "Kết nối lõi ma pháp với mạng lưới chông",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Lưới bẫy giật điện chết bất kỳ kẻ xâm nhập nào, đưa nghệ thuật bẫy rập của bạn lên tầm ma pháp.",
+      "effects": {
+       "INT": 3,
+       "fame": 30,
+       "flags": [
+        "mana_trapper"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Lõi ma pháp quá tải, nổ tung khiến đôi mắt bạn vĩnh viễn mất đi ánh sáng.",
+      "death": "\"Trí tuệ của bạn đã không bắt kịp tham vọng.\""
+     }
+    },
+    {
+     "label": "Bán lõi ma pháp lấy Huyết Kim",
+     "text": "(An toàn) Một thợ rèn Dwarf trả giá rất hời cho viên đá. Tiền bạc lấp đầy kho của bạn.",
+     "effects": {
+      "wealth": 50
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_sniffer_demon",
+   "text": "Đang dò mạch sâu dưới lòng đất, chóp mũi bạn giật liên hồi khi ngửi thấy mùi máu hôi thối và ngọn lửa lưu huỳnh. Một High Demon từ Vực Thẳm đang yên giấc ngay phía sau lớp đá mỏng.",
+   "require": {
+    "job": "kobold_sniffer"
+   },
+   "choices": [
+    {
+     "label": "Bịt mũi, nhẹ nhàng rút lui",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn rón rén bước lùi không phát ra một tiếng động, giữ lại mạng nhỏ của cả tổ đào.",
+      "effects": {
+       "AGI": 1,
+       "LUCK": 1
+      }
+     },
+     "fail": {
+      "text": "Bạn dẫm phải cành cây khô, con quỷ cựa mình gầm gừ khiến vách hầm rạn nứt sụp xuống.",
+      "effects": {
+       "health": -20,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Cố moi móc chút quặng dính trên vảy nó",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Vận may thần thánh che chở, bạn lấy được vài viên quặng tẩm ma khí mà con quỷ không hề hay biết.",
+      "effects": {
+       "LUCK": 2,
+       "wealth": 30
+      }
+     },
+     "fail": {
+      "text": "Con quỷ mở mắt. Bằng một tiếng gầm thấu xương, nó thiêu rụi cả nhánh hầm.",
+      "death": "\"Lòng tham đã nướng chín bạn thành tro bụi.\""
+     }
+    },
+    {
+     "label": "Hét lớn báo động để tổ đào chạy trước",
+     "require": {
+      "STR": 5
+     },
+     "showLocked": true,
+     "text": "Bạn dũng cảm cầm chân con ác quỷ vài giây đủ để đồng bọn thoát thân, dù bạn bị đánh văng thê thảm.",
+     "effects": {
+      "health": -25,
+      "fame": 25,
+      "flags": [
+       "demon_survivor"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_sniffer_illusion",
+   "text": "Chiếc mũi của bạn dẫn cả bầy lớn đào hì hục suốt tuần về hướng một vỉa Huyết Kim khổng lồ. Nhưng khi phá vỡ lớp đá cuối, đó chỉ là ảo ảnh do một Dungeon tạo ra, bên trong đầy Slime độc.",
+   "require": {
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "job": "kobold_sniffer"
+   },
+   "choices": [
+    {
+     "label": "Dùng tài ăn nói đổ lỗi cho thần linh",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn mồm mép viện cớ đó là thử thách của Rồng thần, bầy tạm tin và tha cho mạng bạn.",
+      "effects": {
+       "INT": 1,
+       "fame": -5
+      }
+     },
+     "fail": {
+      "text": "Bọn giám sát gầm lên phẫn nộ. Chúng đánh đập bạn thừa sống thiếu chết, lột sạch tài sản và lôi bạn xuống làm mồi nhử bẫy.",
+      "effects": {
+       "health": -20,
+       "fame": -30,
+       "demote": true
+      }
+     }
+    },
+    {
+     "label": "Đào tẩu qua hố thông hơi",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn luồn lách chuồn êm trước khi đám đông cuồng nộ kịp túm lấy đuôi bạn.",
+      "effects": {
+       "AGI": 2,
+       "joy": 5
+      }
+     },
+     "fail": {
+      "text": "Bạn bị kẹt lại, lĩnh trọn cơn thịnh nộ của hàng chục cái cuốc chim.",
+      "effects": {
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Cúi đầu nhận đòn trừng phạt",
+     "text": "(Cam chịu) Bạn co cụm chịu bạo hành, chấp nhận kiếp hèn mọn. Dù giữ được chức vụ, thân thể bạn chằng chịt sẹo.",
+     "effects": {
+      "health": -20,
+      "joy": -15
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_sniffer_guide",
+   "text": "Toán Mạo hiểm giả hạng B của Guild Bình Minh chặn đường bạn, vứt ra một túi vàng và yêu cầu bạn dẫn đường đến hang động của Beastman để đánh úp.",
+   "require": {
+    "jobRank": 2,
+    "job": "kobold_sniffer"
+   },
+   "choices": [
+    {
+     "label": "Dắt chúng vào ổ phục kích của bầy Kobold",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Đám Human kiêu ngạo rơi vào bẫy, bầy của bạn tịch thu được vũ khí xịn.",
+      "effects": {
+       "INT": 1,
+       "wealth": 25,
+       "fame": 20
+      }
+     },
+     "fail": {
+      "text": "Bọn chúng nhận ra mưu đồ, rút kiếm chém lính gác của bầy và đánh bạn trọng thương.",
+      "effects": {
+       "health": -25,
+       "fame": -15
+      }
+     }
+    },
+    {
+     "label": "Dẫn đường trung thực lấy tiền thưởng",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn an toàn rời đi với túi vàng nặng trịch, không màng đến sự diệt vong của bọn Beastman.",
+      "effects": {
+       "LUCK": 1,
+       "wealth": 40
+      }
+     },
+     "fail": {
+      "text": "Xong việc, bọn Mạo hiểm giả lật lọng tước luôn tiền của bạn rồi ném xuống rãnh nước.",
+      "effects": {
+       "joy": -10,
+       "wealth": -20
+      }
+     }
+    },
+    {
+     "label": "Lẻn trốn vào mạng lưới cống ngầm",
+     "text": "(An toàn) Đừng bao giờ tin Human. Bạn trượt xuống đường cống tối tăm và mất hút.",
+     "effects": {
+      "AGI": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_sniffer_shroom",
+   "text": "Bụng đói cồn cào, bạn đánh hơi thấy một cây nấm ngũ sắc mọc trên vách đá ướt. Mùi của nó hấp dẫn một cách chết chóc.",
+   "require": {
+    "job": "kobold_sniffer"
+   },
+   "choices": [
+    {
+     "label": "Ăn ngấu nghiến không suy nghĩ",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Đó là linh dược ngàn năm hiếm có! Khí lực tuôn chảy rần rần trong huyết quản bạn.",
+      "effects": {
+       "INT": 2,
+       "LUCK": 3,
+       "health": 30
+      }
+     },
+     "fail": {
+      "text": "Nấm độc! Bạn co giật, sùi bọt mép và ôm bụng quằn quại suốt mấy tháng ròng.",
+      "effects": {
+       "LUCK": -2,
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Thử băm nhỏ cho con thằn lằn ăn trước",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Con thằn lằn phát nổ. Bạn toát mồ hôi hột nhận ra mình vừa thoát chết, ném cây nấm đi.",
+      "effects": {
+       "INT": 1,
+       "joy": 5
+      }
+     },
+     "fail": {
+      "text": "Con thằn lằn chớp mắt ngon lành. Bạn an tâm ăn nấm, ngờ đâu độc tính chỉ phát tác ở tộc Kobold.",
+      "effects": {
+       "health": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_priest_cult",
+   "text": "Một sứ giả mặc áo choàng đen của Hắc Nguyệt Hội mò vào đền thờ ngầm. Hắn hứa hẹn sẽ ban cho bầy quyền năng vô hạn của Vực Thẳm Cổ Thần, miễn là vứt bỏ bức tượng Rồng.",
+   "require": {
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "job": "kobold_priest"
+   },
+   "choices": [
+    {
+     "label": "Dùng phép thuật đuổi cổ hắn đi",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn phóng một quả cầu lửa sượt qua mặt gã sứ giả, ép hắn phải tháo chạy. Sự trung thành của bạn củng cố uy quyền.",
+      "effects": {
+       "INT": 2,
+       "joy": 5,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Phép thuật xịt lốp. Hắn cười khẩy gieo một lời nguyền suy nhược vào đầu bạn.",
+      "effects": {
+       "health": -15,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Giao nộp hắn cho Lãnh chúa mỏ",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn túm cổ gã Human tà giáo vứt cho bầy lính gác xé xác. Tiền thưởng rơi đầy túi.",
+      "effects": {
+       "wealth": 25,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Gã sứ giả dùng chú khói đen chạy thoát, để lại vết dao găm trên bụng bạn.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Bí mật nhận tài trợ, lập bàn thờ kép",
+     "require": {
+      "INT": 8
+     },
+     "showLocked": true,
+     "text": "Bạn ranh ma che giấu tà giáo, lấy tiền của chúng nâng cấp đền thờ Rồng.",
+     "effects": {
+      "INT": 2,
+      "wealth": 40,
+      "flags": [
+       "dual_faith"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_priest_riot",
+   "text": "Bệnh dịch và nạn đói hoành hành. Bầy Kobold phẫn nộ xông vào đền, gào thét rằng Rồng thần đã bỏ rơi chúng và đòi tế sống bạn cho hầm dung nham.",
+   "require": {
+    "job": "kobold_priest"
+   },
+   "choices": [
+    {
+     "label": "Hùng biện thuyết phục đám đông cuồng loạn",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bằng chất giọng đanh thép và ánh mắt rực lửa, bạn thao túng tâm lý cả bầy, biến sự tuyệt vọng thành lòng cuồng tín tột độ.",
+      "effects": {
+       "INT": 2,
+       "fame": 30
+      }
+     },
+     "fail": {
+      "text": "Không ai nghe bạn. Lũ Kobold cấu xé áo choàng, ném bạn xuống hố dung nham bốc cháy phừng phực.",
+      "death": "\"Đức tin đã không cứu được bạn khỏi dạ dày của bầy đàn.\""
+     }
+    },
+    {
+     "label": "Chia sẻ kho báu của đền thờ để mua chuộc",
+     "text": "(Hèn nhát) Bạn run rẩy đổ hết của cải cá nhân ra bố thí. Bọn chúng lấy tiền bỏ đi, bạn giữ được mạng nhưng mất sạch uy nghiêm.",
+     "effects": {
+      "fame": -30,
+      "demote": true
+     }
+    },
+    {
+     "label": "Dùng ma pháp thị uy làm chúng khiếp sợ",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Đòn ma pháp nổ chát chúa hất văng mấy tên cầm đầu, buộc cả bầy phải quỳ rạp.",
+      "effects": {
+       "STR": 1,
+       "joy": -5,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Ma lực cạn kiệt, bạn bị đè nghiến xuống đất và ăn một trận đòn chí mạng.",
+      "effects": {
+       "health": -30
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_priest_dragon",
+   "text": "Một ngày nọ, khi bạn đang ngước nhìn khe nứt trên đỉnh hang, một con Ancient Dragon khổng lồ từ Đảo Tro Tàn thực sự bay ngang qua, che khuất mặt trời.",
+   "require": {
+    "job": "kobold_priest"
+   },
+   "choices": [
+    {
+     "label": "Gào thét cầu nguyện để ngài chú ý",
+     "check": {
+      "stat": "LUCK",
+      "target": 9
+     },
+     "success": {
+      "text": "Một tia sáng vảy rồng rơi xuống ngay trước mặt bạn, chứa đựng chân lý của ma pháp nguyên thủy. Dòng máu bạn sôi sục thăng hoa!",
+      "effects": {
+       "INT": 4,
+       "LUCK": 2,
+       "wealth": 50,
+       "evolve": "Dragonblood Kobold"
+      }
+     },
+     "fail": {
+      "text": "Giọng bạn quá lắt nhắt, tiếng gầm của Rồng làm rung chuyển khe núi khiến sỏi đá rơi lỗ chỗ vào đầu bạn.",
+      "effects": {
+       "health": -10,
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Quỳ gối câm lặng tận hưởng phép màu",
+     "text": "(An toàn) Bạn khóc trong sự mãn nguyện tột độ, cõi lòng thanh thản vì biết thần linh có thật.",
+     "effects": {
+      "joy": 30
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_priest_paladin",
+   "text": "Một Thánh Kỵ Sĩ Đoàn của Giáo hội Thánh Quang xông vào đập phá hầm ngục tàn sát ma vật. Tên đội trưởng chĩa thanh kiếm tỏa ánh sáng chói lòa vào tượng Rồng của bạn.",
+   "require": {
+    "jobRank": 2,
+    "job": "kobold_priest"
+   },
+   "choices": [
+    {
+     "label": "Bảo vệ tượng Rồng đến hơi thở cuối cùng",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn luồn lách qua những nhát chém, cắm phập con dao găm độc vào khe giáp của hắn, đuổi đội hiệp sĩ lùi bước.",
+      "effects": {
+       "AGI": 2,
+       "wealth": 20,
+       "fame": 30
+      }
+     },
+     "fail": {
+      "text": "Thánh quang thiêu đốt da thịt bạn. Bạn ngã gục, trơ mắt nhìn đức tin bị đập nát.",
+      "effects": {
+       "health": -30,
+       "joy": -20
+      }
+     }
+    },
+    {
+     "label": "Giả chết dưới chân bệ thờ",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bọn Human khinh bỉ phớt lờ bạn, để lại đống đổ nát nhưng bạn vẫn giữ được mạng sống.",
+      "effects": {
+       "INT": 1,
+       "fame": -10
+      }
+     },
+     "fail": {
+      "text": "Tên hiệp sĩ tiện tay chém bồi một nhát để đảm bảo.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Kích hoạt bẫy sập bệ thờ chôn vùi tất cả",
+     "require": {
+      "flags": [
+       "trapset_talent"
+      ]
+     },
+     "showLocked": true,
+     "text": "Tượng Rồng đổ sập, đè bẹp bọn Kỵ sĩ. Đền thờ hoang tàn nhưng bạn thu được cả đống trang bị quý.",
+     "effects": {
+      "INT": 2,
+      "wealth": 40,
+      "fame": 10
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_overseer_rebellion",
+   "text": "Bọn thợ đào kiệt sức không chịu nổi sự bóc lột, chúng ùa lên cầm cuốc chim và đá tảng bao vây hòng đập nát sọ bạn.",
+   "require": {
+    "job": "kobold_overseer"
+   },
+   "choices": [
+    {
+     "label": "Quất roi thị uy áp đảo",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn vụt toác đầu tên cầm đầu, gầm lên một tiếng rợn người khiến cả đám vứt cuốc quỳ mọp run rẩy.",
+      "effects": {
+       "STR": 2,
+       "fame": 20
+      }
+     },
+     "fail": {
+      "text": "Đám đông lao vào xé xác bạn. Bạn mất mạng dưới lưỡi cuốc gỉ sét của chính những kẻ từng phục dịch mình.",
+      "death": "\"Kẻ bạo chúa ngã xuống trong vũng bùn máu.\""
+     }
+    },
+    {
+     "label": "Dùng mưu chia rẽ nội bộ",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn hứa cho một nửa số thợ đào được tăng khẩu phần ăn, lập tức chúng quay ra cắn xé lẫn nhau. Bạn nhếch mép đứng nhìn.",
+      "effects": {
+       "INT": 2,
+       "joy": 5,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Bọn chúng tinh ranh không mắc lừa, ném đá vỡ đầu bạn khiến bạn phải lẩn trốn.",
+      "effects": {
+       "health": -20,
+       "fame": -15
+      }
+     }
+    },
+    {
+     "label": "Vứt roi bỏ chạy thục mạng",
+     "text": "(Hèn nhát) Bạn leo tọt lên ngách hang an toàn, sống sót nhưng bị tước hết chức vị, trở thành thứ cặn bã nhất trong tổ ấp.",
+     "effects": {
+      "joy": -20,
+      "fame": -40,
+      "demote": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_overseer_demonlord",
+   "text": "Quân đoàn Ma Vương sai một Imp đại diện đến đòi cống nạp hàng tấn quặng ma pháp. Nếu không giao đủ, chúng sẽ san bằng ngọn núi.",
+   "require": {
+    "jobRank": 2,
+    "job": "kobold_overseer"
+   },
+   "choices": [
+    {
+     "label": "Ép bầy làm việc thâu đêm suốt sáng để gom đủ",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Hàng chục con Kobold gục ngã vì kiệt sức, nhưng bạn giao đủ quặng, giữ yên cái ghế của mình.",
+      "effects": {
+       "joy": -10,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Tiến độ không kịp. Gã Imp phóng lửa thiêu cháy dinh thự ngầm của bạn để trừng phạt.",
+      "effects": {
+       "health": -15,
+       "wealth": -30
+      }
+     }
+    },
+    {
+     "label": "Thương lượng hối lộ gã Imp bằng vàng riêng",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Lời đường mật và túi vàng giúp bạn gạt được gã Imp, hắn ký giấy xác nhận đủ số lượng. Bầy nể phục trí tuệ của bạn.",
+      "effects": {
+       "INT": 2,
+       "wealth": -20,
+       "fame": 25
+      }
+     },
+     "fail": {
+      "text": "Hắn lấy tiền rồi lật lọng tẩn bạn một trận nhừ tử.",
+      "effects": {
+       "health": -20,
+       "wealth": -40
+      }
+     }
+    },
+    {
+     "label": "Cống nạp những kẻ vô dụng nhất làm nô lệ cho Ma Vương",
+     "require": {
+      "fame": 30
+     },
+     "showLocked": true,
+     "text": "Bạn lạnh lùng bán đi những Kobold tàn tật. Cả bầy sợ hãi căm phẫn, nhưng ngọn núi an toàn.",
+     "effects": {
+      "STR": 1,
+      "wealth": 20,
+      "fame": -20
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_overseer_deserter",
+   "text": "Kẻ đào tẩu mang theo bản đồ mạch quặng bí mật của bạn sắp trốn thoát sang Đồng Bằng Thánh Quang.",
+   "require": {
+    "job": "kobold_overseer"
+   },
+   "choices": [
+    {
+     "label": "Dẫn chó săn rượt đuổi đến cùng",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn túm cổ hắn nơi cửa hầm, lôi xềnh xệch về chặt một ngón chân làm gương.",
+      "effects": {
+       "AGI": 1,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Bạn trượt ngã xuống sườn dốc đá sắc lẹm, tên đào tẩu cười nhạo mất hút.",
+      "effects": {
+       "health": -15,
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Phóng dao găm tẩm độc hạ gục từ xa",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Lưỡi dao cắm phập vào đùi hắn ở khoảng cách cực xa. Bản đồ trở về tay bạn nguyên vẹn.",
+      "effects": {
+       "LUCK": 2,
+       "wealth": 15
+      }
+     },
+     "fail": {
+      "text": "Phóng trượt. Hắn tẩu thoát, tin tức bị lộ khiến đám Mạo hiểm giả liên tục đến quấy phá hầm mỏ.",
+      "effects": {
+       "wealth": -20,
+       "fame": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_overseer_curse",
+   "text": "Bọn thợ đào báo cáo tìm thấy một lăng mộ Ghoul đang rỉ ra chướng khí làm thối rữa công cụ. Chúng từ chối tiến vào tiếp.",
+   "require": {
+    "job": "kobold_overseer"
+   },
+   "choices": [
+    {
+     "label": "Đích thân cầm roi đi phong ấn lăng mộ",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Sức mạnh bạo chúa của bạn đập nát bộ xương nguyền rủa, thu về một chiếc vòng tay hắc ám đầy uy lực.",
+      "effects": {
+       "STR": 2,
+       "wealth": 40,
+       "fame": 30
+      }
+     },
+     "fail": {
+      "text": "Chướng khí ăn mòn lớp vảy của bạn, khiến bạn ốm yếu liệt giường nhiều tháng.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Ép lũ tù binh Goblin dọn dẹp",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Lũ Goblin chết sạch nhưng mộ đã được dọn quang. Không một Kobold nào phải đổ máu.",
+      "effects": {
+       "INT": 1,
+       "joy": 10
+      }
+     },
+     "fail": {
+      "text": "Lũ tù binh biến thành Ghoul quay lại cắn chết một nửa đội vệ binh của bạn.",
+      "effects": {
+       "health": -10,
+       "fame": -20
+      }
+     }
+    },
+    {
+     "label": "Lấp đá bịt kín ngách hầm này",
+     "text": "(An toàn) Đừng đùa với ma quỷ. Bạn chặn cửa vĩnh viễn, hy sinh một ngách quặng để bảo toàn tính mạng.",
+     "effects": {
+      "joy": 5,
+      "wealth": -10
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_rank_lord",
+   "text": "Tên Chúa Mỏ đương nhiệm đã già nua tàn bạo, luôn ôm khư khư viên Lõi Mana cội nguồn để duy trì quyền lực. Hàng vạn con mắt đỏ ngầu trong bóng tối đang thèm khát một sự lật đổ, và bạn là kẻ duy nhất đủ tư cách đứng lên thách thức.",
+   "require": {
+    "guildRank": 5
+   },
+   "choices": [
+    {
+     "label": "Gầm thét thách đấu tử chiến trước sự chứng kiến của cả bầy",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn tay không bẻ gãy cổ gã bạo chúa già, giật lấy viên Lõi Mana rực sáng. Cả bầy phủ phục run rẩy dưới gót chân bạn.",
+      "effects": {
+       "STR": 3,
+       "wealth": 100,
+       "fame": 50,
+       "orgRank": 6
+      }
+     },
+     "fail": {
+      "text": "Lão già nanh nọc cắn xé nát một bên vai của bạn, ném bạn xuống vũng bùn đen nhơ nhuốc.",
+      "effects": {
+       "health": -40,
+       "fame": -20
+      }
+     }
+    },
+    {
+     "label": "Bỏ nọc độc Slime vào khẩu phần rêu đá của gã",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Gã sùi bọt mép chết nghẹn trong đêm tối. Dù biết rõ thủ phạm, bầy đàn quá khiếp sợ sự tàn độc mưu mô của bạn nên vội vã nhường ngai vàng.",
+      "effects": {
+       "INT": 2,
+       "wealth": 100,
+       "fame": 30,
+       "orgRank": 6
+      }
+     },
+     "fail": {
+      "text": "Tên Chúa mỏ đa nghi thử độc bằng một con thợ nhí, phát hiện ra và ép bạn phải nuốt phần ăn còn lại.",
+      "effects": {
+       "health": -35,
+       "joy": -20
+      }
+     }
+    },
+    {
+     "label": "Lướt qua như một cái bóng, trộm lấy Lõi Mana",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Nhanh như chớp, bạn giật lấy viên Lõi ngay trên ngai vàng. Mất đi sức mạnh bảo hộ, lão bạo chúa già lập tức bị bầy đàn cuồng nộ xé xác, còn bạn chễm chệ ngồi vào chỗ của lão.",
+      "effects": {
+       "AGI": 3,
+       "wealth": 100,
+       "fame": 40,
+       "orgRank": 6
+      }
+     },
+     "fail": {
+      "text": "Lưới chuông ma pháp vang lên. Bạn bị lính gác băm bổ vây hãm và chém đứt gân một bên chân.",
+      "effects": {
+       "AGI": -2,
+       "health": -30
+      }
+     }
+    }
+   ],
+   "moment": "Đêm mà bạn tắm mình trong máu của kẻ đi trước, đoạt lấy vương miện đẫm bụi quặng."
+  },
+  {
+   "id": "kobold_mine_gas",
+   "text": "Nhát cuốc của bạn đục thủng một lỗ nhỏ trên vách hầm, một luồng khí độc màu xanh lục xì ra rít lên như rắn, bốc mùi hôi thối thấu xương.",
+   "stages": [
+    "child",
+    "adult"
+   ],
+   "focus": [
+    "play"
+   ],
+   "choices": [
+    {
+     "label": "Bốc bùn nhão trát kín lỗ hổng ngay lập tức",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Tay bạn thoăn thoắt chèn đá và bùn vào khe nứt trước khi khí độc kịp tràn ra, cứu sống cả tổ đào.",
+      "effects": {
+       "AGI": 1,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Luồng khí phụt thẳng vào mặt. Bạn ho sặc sụa và ngất xỉu, bị bỏ lại nằm co quắp trên sàn đá ẩm.",
+      "effects": {
+       "health": -20,
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Vác tảng đá lớn lấp kín đoạn hầm",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Cơ bắp cuồn cuộn nổi lên, bạn đẩy một tảng đá khổng lồ chèn ngang ngách hầm, hy sinh vỉa quặng để bảo toàn tính mạng bầy.",
+      "effects": {
+       "STR": 2,
+       "wealth": -5,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Tảng đá trượt khỏi tay đè nát một ngón chân của bạn, luồng khí vẫn tiếp tục xì ra mịt mù.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Vứt cuốc, cắm đầu chạy thục mạng",
+     "text": "(Hèn nhát) Bạn vọt lẹ lên tầng trên cùng, bỏ mặc những kẻ chạy chậm hơn nghẹt thở nôn mửa đằng sau.",
+     "effects": {
+      "joy": -10,
+      "fame": -15
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_mine_fossil",
+   "text": "Sau một trận lở đất, bạn phát hiện một khúc xương khổng lồ sáng lấp lánh kẹt giữa lớp đá trầm tích. Nó tỏa ra một luồng ma lực tinh thuần của Ancient Dragon.",
+   "focus": [
+    "play"
+   ],
+   "choices": [
+    {
+     "label": "Cào lấy lớp bột xương rắc lên vết thương",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Thứ bột thần kỳ thấm vào da thịt, cường hóa huyết mạch và chữa lành những căn bệnh thâm căn cố đế của bạn.",
+      "effects": {
+       "LUCK": 2,
+       "health": 25
+      }
+     },
+     "fail": {
+      "text": "Bột xương chứa tàn dư ma lực bùng nổ, đốt cháy một mảng vảy của bạn thành than.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Gọt thành bùa hộ mệnh bán cho Thương hội",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn khéo léo đẽo gọt để che giấu nguồn gốc ma vật, bán được giá cao ngất ngưởng ở chợ đen Đồng Bằng Thánh Quang.",
+      "effects": {
+       "INT": 1,
+       "wealth": 40
+      }
+     },
+     "fail": {
+      "text": "Khúc xương quá cứng khiến lưỡi dao găm vỡ nát văng vào mắt bạn.",
+      "effects": {
+       "health": -10,
+       "wealth": -10
+      }
+     }
+    },
+    {
+     "label": "Nuốt trọn để ép tiến hóa",
+     "require": {
+      "STR": 10
+     },
+     "showLocked": true,
+     "text": "Bạn nghiền nát mẩu xương rồi nuốt chửng. Dạ dày bạn như bị nung chảy, nhưng sáng hôm sau vảy của bạn đã ánh lên sắc đỏ huy hoàng.",
+     "effects": {
+      "STR": 3,
+      "health": -20,
+      "evolve": "Dragonblood Kobold"
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_mine_cavein",
+   "text": "Một trận động đất ngầm ập đến không báo trước. Hầm sập, bạn và {ally} bị nhốt lại trong một ngách nhỏ tăm tối suốt hai tuần ròng. Cả hai chỉ sống sót nhờ gặm rêu vắt nước tiểu chờ người tới cứu.",
+   "stages": [
+    "middle"
+   ],
+   "focus": [
+    "play"
+   ],
+   "require": {
+    "party": 1
+   },
+   "result": "Thân thiết với {ally} +20, Sức khỏe -15, Hạnh phúc -10, Danh vọng +5. Khoảnh khắc: \"Giây phút bạn và {ally} chia nhau mẩu nấm mốc cuối cùng trong hầm sập.\""
+  },
+  {
+   "id": "kobold_learn_priest",
+   "text": "Bạn đang nằm sấp dưới kẽ hở ván gỗ của đền thờ, cố ghi nhớ cách vẽ ma trận triệu hồi. Bỗng nhiên, gã Trưởng tế giậm mạnh chân, dùng đuôi túm ngược bạn kéo lên không trung.",
+   "stages": [
+    "infant",
+    "child"
+   ],
+   "focus": [
+    "study"
+   ],
+   "choices": [
+    {
+     "label": "Rống lên một đoạn kinh cầu nguyện hoàn hảo",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Lão già nheo mắt kinh ngạc trước phát âm rành rọt tiếng Rồng cổ của bạn, ném bạn xuống đất nhưng cho phép phụ việc.",
+      "effects": {
+       "INT": 2,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Bạn lắp bắp cắn vào lưỡi, lão phẫn nộ tát bạn gãy vài chiếc răng.",
+      "effects": {
+       "health": -10,
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Uốn éo tuột khỏi lớp vảy để trốn",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Như một con giun đất trơn tuột, bạn lột xác bỏ lại lớp vảy ngoài cùng và chạy biến vào bóng tối.",
+      "effects": {
+       "AGI": 2,
+       "health": -5
+      }
+     },
+     "fail": {
+      "text": "Lão bóp chặt cổ họng bạn, phạt bạn phải dọn phân thằn lằn suốt ba tháng.",
+      "effects": {
+       "joy": -15,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Giả vờ ngốc nghếch chỉ đang tìm bọ chét",
+     "text": "(An toàn) Bạn khua khoắng chân tay giả vờ bắt rận. Lão Trưởng tế khinh bỉ ném bạn văng ra ngoài cửa đền.",
+     "effects": {
+      "joy": -5
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_learn_dwarf",
+   "text": "Bạn len lỏi lên gần một tiền đồn của tộc Dwarf ở Dãy Núi Răng Cưa. Một thợ rèn đang say mèm ngáy o o, trên đe lò rèn là một bản vẽ thiết kế nỏ liên thanh.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "study"
+   ],
+   "require": {
+    "flags": [
+     "dwarf_slave"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Trộm luôn bản vẽ rồi chuồn",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Cuộn giấy thuộc về bạn. Cơ chế lò xo tinh xảo của Dwarf sẽ giúp bẫy rập của bầy thăng cấp.",
+      "effects": {
+       "INT": 1,
+       "AGI": 1,
+       "wealth": 15
+      }
+     },
+     "fail": {
+      "text": "Tờ giấy sột soạt làm gã Dwarf tỉnh giấc, ném chiếc búa đe sượt mảng da đầu của bạn.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Cầm phấn lén lút vẽ sao chép lại",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn có được kiến thức mà không để lại bất kỳ dấu vết nào. Lão thợ rèn vẫn ngáy rung trời.",
+      "effects": {
+       "INT": 2,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Chữ của bạn loằng ngoằng không thể đọc nổi. Bạn ra về tay trắng trong sự bực bội.",
+      "effects": {
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Lục lọi đống phế liệu nhặt vũ khí hỏng",
+     "text": "(An toàn) Đừng đùa với bản vẽ, thứ đó quá sức. Bạn lượm được vài mũi nỏ thép gỉ sét và lặng lẽ rút lui.",
+     "effects": {
+      "LUCK": 1,
+      "wealth": 10
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_learn_scroll",
+   "text": "Bầy kiếm được một cuộn giấy ma pháp nham nhở từ xác một Mage Human. Trong khi mọi kẻ khác định đem đi lót ổ, bạn lén giấu nó đi để ngâm cứu vào ban đêm.",
+   "focus": [
+    "study"
+   ],
+   "choices": [
+    {
+     "label": "Kích hoạt bằng bản năng",
+     "check": {
+      "stat": "LUCK",
+      "target": 9
+     },
+     "success": {
+      "text": "Ma lực bùng nổ, một Skill \"Cầu lửa cỡ nhỏ\" khắc thẳng vào tâm trí bạn. Cả bầy phải nhìn bạn bằng con mắt khác.",
+      "effects": {
+       "INT": 2,
+       "LUCK": 2,
+       "fame": 20
+      }
+     },
+     "fail": {
+      "text": "Cuộn giấy tự thiêu rụi, phớt vào mặt bạn ngọn lửa đỏ rực. Bạn bị bỏng nặng và mù tạm thời.",
+      "effects": {
+       "INT": -1,
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Chỉ chép lại phần ký tự để nghiên cứu dần",
+     "text": "(An toàn) Tiến độ chậm chạp nhưng chắc chắn, bạn dần hiểu được cấu trúc của ma lực nguyên thủy.",
+     "effects": {
+      "INT": 2,
+      "joy": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_train_centipede",
+   "text": "Để tôi luyện bản thân, bạn đi xuống khu vực hầm bỏ hoang và đối mặt với một con Giant Centipede (Rết khổng lồ). Cặp càng tiêm độc của nó gõ cạch cạch trong bóng tối.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "train"
+   ],
+   "choices": [
+    {
+     "label": "Dùng cuốc chim chặn đầu phanh thây nó",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bằng sức mạnh bộc phát, bạn bổ nát lớp vỏ cứng, tắm mình trong máu độc của nó. Cơ thể bạn sản sinh kháng thể mạnh mẽ.",
+      "effects": {
+       "STR": 2,
+       "health": 10,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Cuốc văng đi, nó cắn phập vào đùi bạn. Bạn lết về bầy với cái chân sưng vù tím ngắt.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Lách người cưỡi lên lưng nó đâm dao",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn nhảy múa giữa vô số chiếc chân sắc nhọn, găm dao găm vào hạch thần kinh của quái vật.",
+      "effects": {
+       "AGI": 2,
+       "wealth": 15
+      }
+     },
+     "fail": {
+      "text": "Bạn trượt chân té đập mặt xuống sỏi đá, phải giả chết để nó bỏ đi.",
+      "effects": {
+       "health": -15,
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Dụ nó chạy vào một khe đá hẹp để kẹt lại",
+     "require": {
+      "INT": 6
+     },
+     "showLocked": true,
+     "text": "Lợi dụng địa hình, bạn khiến con rết tự trói mình trong khe nứt và thoải mái vặt từng cái chân của nó.",
+     "effects": {
+      "INT": 1,
+      "joy": 5,
+      "wealth": 20
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_train_darksword",
+   "text": "Bạn tình cờ mổ bụng một con Slime khổng lồ và nhặt được tàn tích của một Dark Knight: một thanh Huyết Kiếm lởm chởm đang thì thầm đòi uống máu.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "focus": [
+    "train"
+   ],
+   "choices": [
+    {
+     "label": "Nắm lấy chuôi kiếm, áp chế ác linh",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Sức mạnh ý chí của bạn ép thanh kiếm phải phục tùng. Bạn cầm nó múa một đường, xẻ đôi tảng đá lớn.",
+      "effects": {
+       "STR": 4,
+       "fame": 30,
+       "flags": [
+        "blood_sword"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Ác linh xâm nhập, điều khiển cánh tay bạn tự chém vào chính mình. Bạn phải nghiến răng vứt kiếm bỏ chạy.",
+      "effects": {
+       "health": -30,
+       "joy": -15
+      }
+     }
+    },
+    {
+     "label": "Đem bán cho Hắc Nguyệt Hội",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn gặp đúng một tu sĩ tà giáo đang dạo bước quanh Đầm Lầy Tử Khí. Gã trả một cái giá béo bở bằng Huyết Kim.",
+      "effects": {
+       "LUCK": 1,
+       "wealth": 50
+      }
+     },
+     "fail": {
+      "text": "Bọn tà giáo cướp trắng thanh kiếm và ném bạn xuống sình lầy dập dìu đỉa đói.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Vùi sâu dưới đống xỉ than",
+     "text": "(An toàn) Đồ vật của ma quỷ không hợp với một thợ đào. Bạn lờ đi tiếng thì thầm và giữ cho tâm trí thanh thản.",
+     "effects": {
+      "INT": 1,
+      "joy": 10
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_train_injury",
+   "text": "Do tập luyện điên cuồng vác đá tảng vượt quá giới hạn thể chất của tộc Kobold nhỏ bé, bạn bị gãy gập cột sống. Cả bầy tưởng bạn đã phế, nhưng khi xương liền lại, nó cứng như Tinh Bạc.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "train"
+   ],
+   "result": "Sức mạnh +2, Sức khỏe -20, Danh vọng -5, Hạnh phúc +5. Khoảnh khắc: \"Những tháng ngày nằm liệt giường nhai rêu đắng để chờ xương cốt liền lại.\""
+  },
+  {
+   "id": "kobold_serve_egg",
+   "text": "Một đợt nấm mốc kỳ lạ bùng phát trong tổ ấp, khiến hàng tá trứng con non bị thối rữa và bốc mùi tanh tưởi. Bạn được lệnh xử lý dứt điểm chuyện này.",
+   "stages": [
+    "infant",
+    "child"
+   ],
+   "focus": [
+    "work"
+   ],
+   "choices": [
+    {
+     "label": "Bào chế thảo dược giải độc đắp lên",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Hỗn hợp rêu phát quang và đá muối của bạn tiệt trùng thành công, cứu vãn được một nửa số trứng. Mẹ bầy xoa đầu bạn.",
+      "effects": {
+       "INT": 2,
+       "joy": 10,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Độc tính tăng vọt, mấy quả trứng bục vỡ tung tóe thứ chất lỏng màu tím lên mặt bạn.",
+      "effects": {
+       "health": -20,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Tự tay bê ném những quả lây nhiễm vào dung nham",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bỏ ngoài tai tiếng rạn nứt đau xót, bạn dứt khoát tiêu hủy nguồn bệnh bằng sức mạnh thể chất, ngăn chặn lây lan.",
+      "effects": {
+       "STR": 1,
+       "joy": -15,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Bạn trượt chân, quả trứng độc vỡ vụn trên tay khiến bạn bị bỏng hóa học diện rộng.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Lùi lại cầu nguyện Rồng thần che chở",
+     "text": "(Hèn nhát) Bạn chắp tay lầm bầm, mặc kệ bệnh dịch tàn phá tổ ấp. Một phần tư bầy con non chết yểu, nhưng bạn không phải động tay.",
+     "effects": {
+      "joy": -10,
+      "fame": -20
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_serve_slime",
+   "text": "Bầy bắt được một con Acid Slime khổng lồ, nuôi dưới hố để làm hầm tiêu hủy rác. Hôm nay đến lượt bạn cho nó ăn, nhưng cái lồng sắt đã mục nát và nó đang rướn bọt lên định nuốt chửng bạn.",
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "focus": [
+    "work"
+   ],
+   "choices": [
+    {
+     "label": "Dùng thòng lọng ma pháp trói gắt nó lại",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn phóng dây chun siết chặt khối nhầy, đá nó lộn nhào trở lại đáy hố gọn gàng.",
+      "effects": {
+       "AGI": 1,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Dây thòng lọng đứt phựt. Cánh tay nó quất vào bạn bỏng rát một mảng da.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Ném nhét một đống quặng nổ vào cốt lõi nó",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn ném cục đá lửa đúng vào nhân hạt của Slime. Nó chấn động xì khói rồi xẹp lép, nhả ra vài món đồ trang sức của kẻ xấu số trước đó.",
+      "effects": {
+       "LUCK": 2,
+       "wealth": 20
+      }
+     },
+     "fail": {
+      "text": "Khối Slime phình to thêm, phun dịch axit thẳng vào mặt bạn.",
+      "effects": {
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Nhét hết rác rồi cong đuôi chạy",
+     "text": "(An toàn) Miễn là cho nó ăn no rác, nó lười biếng trượt xuống hố nghỉ ngơi. Việc sửa lồng để thằng khác lo.",
+     "effects": {
+      "joy": 5,
+      "fame": -5
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_serve_tribute",
+   "text": "Bạn đi trong đoàn hộ tống đẩy những xe quặng Tinh Bạc khổng lồ làm cống phẩm cho bộ lạc Orc tại Thảo Nguyên Gió Hú. Sự nặng nhọc vắt kiệt thể lực cả đội.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "work"
+   ],
+   "choices": [
+    {
+     "label": "Giấu nhẹm vài thỏi bạc vào khố",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Lợi dụng lúc nghỉ ngơi, bạn đánh tráo số liệu và ẵm riêng một khoản kếch xù. Bọn Orc ngốc nghếch không hề nhận ra.",
+      "effects": {
+       "INT": 1,
+       "joy": 10,
+       "wealth": 30
+      }
+     },
+     "fail": {
+      "text": "Gã Đốc công Orc phát hiện, vung chiếc chùy gai đập gãy ba cái xương sườn của bạn làm gương.",
+      "effects": {
+       "health": -30,
+       "wealth": -10
+      }
+     }
+    },
+    {
+     "label": "Dùng sức mạnh vực dậy cỗ xe lún lầy",
+     "require": {
+      "STR": 8
+     },
+     "showLocked": true,
+     "text": "Bùn lầy nuốt chửng bánh xe. Bằng gân cốt kinh người, bạn đẩy cỗ xe lên dốc cứu vãn tiến độ cống nạp.",
+     "effects": {
+      "STR": 2,
+      "fame": 20
+     }
+    },
+    {
+     "label": "Cắm cúi đẩy xe câm lặng đến cùng",
+     "text": "(Cam chịu) Chuyến đi bào mòn thể chất bạn, nhưng bạn an toàn về nhà với cái lưng gù đi một chút.",
+     "effects": {
+      "health": -15,
+      "joy": -5
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_trap_troll",
+   "text": "Bạn kiểm tra bẫy lồng gỗ gai và thấy một con Troll sơ sinh bị giam bên trong. Dù là con non, kích thước nó đã bằng ba lần bạn. Mùi hôi thối của nó xộc thẳng vào mũi.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "choices": [
+    {
+     "label": "Dùng dây thòng lọng thuần phục nó",
+     "check": {
+      "stat": "AGI",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn khéo léo né những cú vung tay man rợ, luồn dây xích quấn quanh cổ nó. Bầy nể phục bạn tột cùng vì đã có một con thú cưỡi cày hầm bách chiến bách thắng.",
+      "effects": {
+       "AGI": 3,
+       "wealth": 20,
+       "fame": 40,
+       "flags": [
+        "troll_tamer"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Con Troll non xé toạc lồng, giáng một cú đấm ngàn cân hất bạn bay thẳng vào vách đá.",
+      "effects": {
+       "health": -40
+      }
+     }
+    },
+    {
+     "label": "Giết nó lấy thịt ngay tắp lự",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Cây giáo của bạn đâm xuyên qua hộp sọ nó trước khi khả năng hồi phục của Troll kích hoạt. Cả bầy no nê suốt một tháng.",
+      "effects": {
+       "STR": 1,
+       "joy": 10,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Lưỡi giáo gãy nát trên da thịt dai nhách của nó, con quái vọt lẹ ra ngoài biến mất vào rừng.",
+      "effects": {
+       "joy": -5,
+       "wealth": -10
+      }
+     }
+    },
+    {
+     "label": "Run rẩy mở khóa thả nó đi",
+     "text": "(Hèn nhát) Nhìn cặp mắt hung hãn đó, bạn khiếp sợ thả nó. Bầy phát hiện ra cái lồng trống rỗng và giáng chức bạn vì tội phá hoại thức ăn.",
+     "effects": {
+      "joy": -15,
+      "fame": -20
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_trap_goblinthief",
+   "text": "Bẫy thòng lọng của bạn siết được một con Nai sừng tấm khổng lồ. Nhưng khi bạn mò đến, một toán Goblin đang hí hửng xả thịt con mồi của bạn.",
+   "stages": [
+    "teen",
+    "middle"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "choices": [
+    {
+     "label": "Giăng thêm bẫy nổ vòng ngoài bao vây chúng",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Một chuỗi tiếng nổ đinh tai vang lên, đám Goblin bay lả tả trong không trung. Bạn thong thả thu hồi chiến lợi phẩm lẫn vũ khí của bọn trộm.",
+      "effects": {
+       "INT": 2,
+       "wealth": 30,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Một tên Goblin xảo quyệt phát hiện, phóng phi tiêu độc vào tay bạn khiến bạn buông dây mìn.",
+      "effects": {
+       "health": -20,
+       "wealth": -15
+      }
+     }
+    },
+    {
+     "label": "Bắn nỏ tẩm độc hạ gục tên cầm đầu",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Mũi tên găm đúng giữa trán tên Hobgoblin. Đám tay sai hoảng loạn bỏ chạy tán loạn, để lại con mồi nguyên vẹn.",
+      "effects": {
+       "LUCK": 1,
+       "wealth": 10,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Gió lớn thổi chệch mũi tên, đám Goblin gầm thét vác đao rượt bạn chạy té khói qua ba cánh rừng.",
+      "effects": {
+       "health": -15,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Chờ chúng lấy phần ngon nhất rồi lượm đồ thừa",
+     "text": "(An toàn) Kẻ thức thời mới sống thọ. Bọn chúng no nê bỏ đi, bạn lầm lũi gom bộ khung xương và chút thịt vụn đem về ninh súp.",
+     "effects": {
+      "joy": 5,
+      "fame": -5
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_trap_human",
+   "text": "Đang dò dẫm trong cỏ cao, bạn dẫm đánh \"phập\" một tiếng. Một chiếc bẫy gấu bằng thép của Mạo hiểm giả Human nghiền nát bắp chân bạn. Bạn phải tự cầm đá đập nát cái gông sắt để lết về nhà giữa vũng máu.",
+   "focus": [
+    "adventure"
+   ],
+   "result": "Sức khỏe -25, Hạnh phúc -15, Nhanh nhẹn -1, Danh vọng -5. Khoảnh khắc: \"Cái chân khập khiễng vĩnh viễn nhắc nhở bạn rằng trên thế giới này, có những kẻ còn ranh ma hơn cả Kobold.\""
+  },
+  {
+   "id": "kobold_power_poison",
+   "text": "Tên Đầu lĩnh tổ đào béo mập luôn bóc lột bạn vừa quay mặt đi để chửi bới lũ tù binh Goblin. Bát súp nấm pha thịt chuột của hắn đang phơi bầy sơ hở.",
+   "stages": [
+    "child",
+    "teen"
+   ],
+   "focus": [
+    "social"
+   ],
+   "choices": [
+    {
+     "label": "Bốc một vốc nấm độc thả vào bát súp",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Nhanh như chớp, bạn thả độc và lùi lại. Gã ăn xong liền sùi bọt mép co giật đến chết. Bạn hiên ngang bước lên tiếp quản vị trí của gã.",
+      "effects": {
+       "AGI": 1,
+       "fame": 20,
+       "orgRankName": "trong Bầy mỏ"
+      }
+     },
+     "fail": {
+      "text": "Gã tinh mắt bắt được quả tang, ấn đầu bạn vào nồi súp đang sôi sùng sục.",
+      "effects": {
+       "health": -25,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Thừa cơ đập vỡ sọ hắn bằng cuốc chim",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Một nhát ân oán phân minh! Óc văng tung tóe, đám tay sai khiếp vía vội vã phủ phục suy tôn bạn làm tân thủ lĩnh.",
+      "effects": {
+       "STR": 2,
+       "wealth": 10,
+       "fame": 25
+      }
+     },
+     "fail": {
+      "text": "Chiếc cuốc chim bị gã gạt phăng đi. Gã rút roi da quất bạn tróc da hở thịt, ném xuống hố phân.",
+      "effects": {
+       "health": -20,
+       "fame": -20
+      }
+     }
+    },
+    {
+     "label": "Nuốt hận vào trong, chờ cơ hội khác",
+     "text": "(Hèn nhát) Bạn lầm lì cúi gầm mặt, tiếp tục chịu đựng sự đày đọa. Không có đổ máu, nhưng bạn thấy mình thật thảm hại.",
+     "effects": {
+      "joy": -15
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_power_challenger",
+   "text": "Một gã Kobold Elite lớp vảy đen bóng, to con hơn bạn gấp rưỡi vừa chặn đường bạn giữa ngã ba hầm. Hắn thách thức tử chiến để đoạt lấy quyền kiểm soát ngách mỏ của bạn.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "focus": [
+    "social"
+   ],
+   "choices": [
+    {
+     "label": "Nghênh chiến bằng sức mạnh thuần túy",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn cắn đứt cổ họng hắn trong một trận vật lộn kinh hoàng kéo dài ba giờ đồng hồ. Cái xác to lớn của hắn trở thành chiến tích lẫy lừng của bạn.",
+      "effects": {
+       "STR": 3,
+       "wealth": 20,
+       "fame": 30
+      }
+     },
+     "fail": {
+      "text": "Hắn dẫm gãy cánh tay bạn, xé toạc lớp vảy sừng và ném bạn xuống vực. Bạn may mắn vướng vào mạng nhện sống sót nhưng mất hết quyền lực.",
+      "effects": {
+       "health": -35,
+       "fame": -30,
+       "demote": true
+      }
+     }
+    },
+    {
+     "label": "Dụ hắn bước vào ngách hầm đã gài bẫy sập",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Hắn cuồng nộ lao tới, đạp nhầm phiến đá rỗng và bị chông sắt xiên thấu ngực. Kẻ dùng não luôn sống lâu hơn kẻ dùng cơ bắp.",
+      "effects": {
+       "INT": 2,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Hắn quá nhanh nhẹn né được hố chông, lao tới đấm bạn hộc máu mồm.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Gầm lên uy áp của huyết mạch Rồng",
+     "text": "Chỉ một tiếng gầm rực lửa của bạn đã khiến huyết mạch hèn mọn của hắn đóng băng. Hắn quỳ rạp xuống xin thề trung thành.",
+     "effects": {
+      "fame": 40
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_power_faction",
+   "text": "Bầy mỏ phân liệt thành hai phe phái. Phe đối lập do một lão Trưởng tế xúi giục đang vác vũ khí kéo đến khu vực của bạn, hô hào đòi thiêu sống bạn để hiến tế cho hầm dung nham.",
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "focus": [
+    "social"
+   ],
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Kích động phe của mình xông lên chém giết",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bài diễn văn của bạn biến đám tay sai thành những con thú khát máu. Phe của bạn đồ sát phe địch không chừa một mống, nhuộm đỏ cả ngách mỏ.",
+      "effects": {
+       "INT": 2,
+       "wealth": 40,
+       "fame": 30
+      }
+     },
+     "fail": {
+      "text": "Đám lính dưới quyền hoảng sợ vứt vũ khí bỏ chạy. Bạn và {ally} bị dồn vào chân tường và lĩnh một trận đòn sinh tử.",
+      "effects": {
+       "health": -30,
+       "fame": -20
+      }
+     }
+    },
+    {
+     "label": "Dùng tiền mua chuộc vệ binh của lão",
+     "require": {
+      "wealth": 60
+     },
+     "showLocked": true,
+     "text": "Những đồng Huyết Kim lấp lánh làm bọn vệ binh phản trắc. Lão Trưởng tế bị chính tay sai trói gô ném vào vạc dầu.",
+     "effects": {
+      "LUCK": 1,
+      "wealth": -60,
+      "fame": 25
+     }
+    },
+    {
+     "label": "Vứt bỏ lãnh địa, dẫn {ally} đào tẩu",
+     "text": "(An toàn) Nắm đấm không đọ lại số đông. Bạn và đồng bọn lủi qua đường cống ngầm, mất sạch thế lực nhưng giữ được mạng sống.",
+     "effects": {
+      "joy": -10,
+      "fame": -40
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_nosleep_stash",
+   "text": "Trong lúc lẩn trốn giờ điểm danh đi ngủ, bạn đi lạc vào một hố chôn tập thể. Giữa đống xương xẩu, bạn thấy một chiếc rương sắt bọc da bị vùi lấp của một Mạo hiểm giả xui xẻo.",
+   "stages": [
+    "infant",
+    "child"
+   ],
+   "focus": [
+    "rest"
+   ],
+   "choices": [
+    {
+     "label": "Bẻ cong móng vuốt để cạy khóa",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Tiếng lách cách khẽ vang, nắp rương mở ra phô bày vài viên Tinh Bạc và một cuộn băng gạc còn tốt.",
+      "effects": {
+       "AGI": 1,
+       "health": 5,
+       "wealth": 25
+      }
+     },
+     "fail": {
+      "text": "Khóa cài ma pháp giật điện tung người bạn, làm bạn tê liệt nửa thân và trầy xước khắp mình mẩy.",
+      "effects": {
+       "health": -15,
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Dùng đá tảng đập nát ổ khóa",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Khóa bung ra, nhưng tiếng ồn khiến bạn phải vơ vét thật nhanh rồi chuồn lẹ trước khi lính gác tới.",
+      "effects": {
+       "STR": 2,
+       "wealth": 15
+      }
+     },
+     "fail": {
+      "text": "Tiếng đập chát chúa đánh thức cả bầy. Bạn bị lôi xềnh xệch về ổ ấp và bị đánh đòn nhừ tử vì tội phá rối giấc ngủ.",
+      "effects": {
+       "health": -20,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Ngả lưng ngủ luôn trên chiếc rương",
+     "text": "(An toàn) Kệ xác của cải, chỗ này êm ái và vắng vẻ. Bạn có một giấc mơ đẹp về bầu trời chưa từng thấy.",
+     "effects": {
+      "health": 10,
+      "joy": 10
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_nosleep_secret",
+   "text": "Đôi mắt thao láo đưa bạn đến ngách mỏ cấm. Ở đó, bạn sững sờ thấy gã Tổng quản mỏ uy quyền đang lén lút dâng quặng Tinh Bạc cho một con Vampire lai Imp của Quân đoàn Ma Vương.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "focus": [
+    "rest"
+   ],
+   "choices": [
+    {
+     "label": "Trốn vào kẽ đá, ghi nhớ đặc điểm con ma vật",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn nắm được toàn bộ quy luật giao dịch bí mật này, trở thành tay hòm chìa khóa nắm thóp gã Tổng quản. Hắn buộc phải thăng chức cho bạn để bịt miệng.",
+      "effects": {
+       "INT": 2,
+       "fame": 20,
+       "orgRankName": "trong Bầy mỏ"
+      }
+     },
+     "fail": {
+      "text": "Bạn thở quá mạnh, con Vampire nhe nanh lao vút tới tát bạn bay đập mặt vào tường đá, thủng màng nhĩ.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Nhặt hòn đá ném đi hướng khác để đánh lạc hướng",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Viên đá lăn lóc tạo tiếng vang giả, bạn thừa cơ lủi vào bóng tối chuồn mất hút như một con chuột chũi.",
+      "effects": {
+       "AGI": 1,
+       "joy": 5
+      }
+     },
+     "fail": {
+      "text": "Bạn ném trượt, hòn đá rớt ngay dưới chân con Vampire. Nó trừng mắt khiến bạn tè dầm ra quần rồi ngất xỉu.",
+      "effects": {
+       "health": -10,
+       "joy": -15
+      }
+     }
+    },
+    {
+     "label": "Nhắm mắt giả vờ mộng du đi ngang qua",
+     "text": "(May rủi) Dáng đi lờ đờ trơ trẽn của bạn khiến hai kẻ kia bối rối, vội vàng tản ra không thèm chấp nhặt một tên điên.",
+     "effects": {
+      "LUCK": 1,
+      "fame": -5
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_nosleep_shrine",
+   "text": "Mất ngủ vì những cơn đau nhức xương khớp, bạn lang thang đến đền thờ Rồng đã bỏ hoang. Ngọn lửa trên bệ đá bỗng nhiên xanh rực lên, và một giọng nói trầm mặc vang vọng trong tâm trí bạn.",
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "focus": [
+    "rest"
+   ],
+   "choices": [
+    {
+     "label": "Đưa tay vào ngọn lửa để chứng minh lòng thành",
+     "check": {
+      "stat": "LUCK",
+      "target": 9
+     },
+     "success": {
+      "text": "Ngọn lửa không hề thiêu rụi da thịt mà thanh tẩy mọi vết thương tích tụ cả đời của bạn. Một dòng ma lực cổ đại ấm áp chảy tràn trong huyết quản.",
+      "effects": {
+       "INT": 2,
+       "LUCK": 3,
+       "health": 40
+      }
+     },
+     "fail": {
+      "text": "Đó chỉ là lửa lưu huỳnh kịch độc rò rỉ. Bàn tay bạn cháy đen thui, đau đớn tột cùng đánh thức cả hầm mỏ.",
+      "effects": {
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Ngồi xếp bằng lắng nghe những lời cổ ngữ",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Dẫu không hiểu hết, bạn chắt lọc được kỹ năng chế tạo nhang hương giúp an thần. Những đêm mất ngủ của bạn chấm dứt từ đây.",
+      "effects": {
+       "INT": 2,
+       "joy": 20
+      }
+     },
+     "fail": {
+      "text": "Âm thanh ma quái quá nhức óc khiến bạn đau đầu như búa bổ, thần kinh suy nhược ròng rã nửa năm.",
+      "effects": {
+       "INT": -1,
+       "joy": -15
+      }
+     }
+    },
+    {
+     "label": "Lấy nước đái dập tắt ngọn lửa quái quỷ",
+     "require": {
+      "STR": 12
+     },
+     "showLocked": true,
+     "text": "Quá tự phụ vào sức mạnh bản thân, bạn phỉ báng ảo ảnh thần linh. Lửa tắt ngấm, nhưng tâm hồn bạn vĩnh viễn chai sạn với đức tin.",
+     "effects": {
+      "STR": 1,
+      "joy": -10
+     }
+    }
+   ],
+   "moment": "Đêm trường cô độc nơi bạn đối mặt với nỗi sợ hãi và tham vọng của chính mình dưới ánh lửa xanh."
+  },
+  {
+   "id": "kobold_ally_brave",
+   "text": "Một con Troll lạc bước vào ngách hầm, giơ chiếc chùy gỗ đe dọa bầy con non. Trong khi cả tổ đào co rúm lại, {ally} gầm lên một tiếng không tương xứng với vóc dáng, cầm ngọn giáo rỉ sét lao thẳng vào con quái vật.",
+   "require": {
+    "party": 1,
+    "allyTrait": "brave"
+   },
+   "choices": [
+    {
+     "label": "Hét lớn xông lên đánh kẹp sườn",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Nhờ bạn thu hút sự chú ý, {ally} đâm xuyên mắt con Troll. Cả hai vã mồ hôi đứng trên xác quái vật.",
+      "effects": {
+       "STR": 2,
+       "fame": 20,
+       "bond": 15
+      }
+     },
+     "fail": {
+      "text": "Chùy của Troll quật bay cả hai. Bạn vỡ xương sườn, {ally} gãy nát ngọn giáo.",
+      "effects": {
+       "health": -25,
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Quăng cuốc chim nhắm vào chân con quái",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Cú ném chuẩn xác làm con Troll quỵ gối, {ally} thừa cơ hạ sát nó ngoạn mục.",
+      "effects": {
+       "AGI": 1,
+       "fame": 10,
+       "bond": 10
+      }
+     },
+     "fail": {
+      "text": "Cuốc chim trượt ra ngoài, con Troll đạp nát một tay của {ally} trước khi bầy vệ binh kéo tới.",
+      "effects": {
+       "health": -10,
+       "allyHurt": true
+      }
+     }
+    },
+    {
+     "label": "Lùi lại núp bóng, để mặc kẻ dũng cảm thể hiện",
+     "text": "(An toàn) Kẻ yểu mệnh thường chết sớm vì máu anh hùng. Con Troll bị hạ nhưng {ally} trọng thương, quay lại nhìn bạn bằng ánh mắt khinh bỉ.",
+     "effects": {
+      "joy": -5,
+      "bond": -20
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_ally_loyal",
+   "text": "Bạn lỡ tay làm vỡ một viên Tinh Bạc hiếm khiến tên Đốc công nổi trận lôi đình vung roi gai. Không chút do dự, {ally} nhào tới che chắn cho bạn.",
+   "require": {
+    "party": 1,
+    "allyTrait": "loyal"
+   },
+   "choices": [
+    {
+     "label": "Đứng dậy giành lại tội lỗi về mình",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn gồng mình chịu năm roi gai tứa máu. Đốc công hả giận bỏ đi, {ally} khóc nấc ôm lấy chân bạn.",
+      "effects": {
+       "health": -15,
+       "fame": 5,
+       "bond": 30
+      }
+     },
+     "fail": {
+      "text": "Bạn yếu ớt ngã quỵ ngay roi đầu tiên, tên Đốc công điên máu quất cả hai nhừ tử.",
+      "effects": {
+       "health": -25,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Dùng mồm mép đổ lỗi cho chất lượng quặng",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn thao thao bất tuyệt rằng viên quặng vốn đã nứt do ma khí ngầm, khiến Đốc công tin sái cổ và tha cho cả hai.",
+      "effects": {
+       "INT": 2,
+       "bond": 15
+      }
+     },
+     "fail": {
+      "text": "Tên Đốc công không ưa nói nhiều, đạp bạn văng vào tường rồi tiếp tục đánh {ally}.",
+      "effects": {
+       "health": -15,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Nhắm mắt giả mù, để {ally} chịu đòn thay",
+     "text": "(Hèn nhát) Lòng trung thành của {ally} là tấm khiên tuyệt vời. Bạn thoát nạn không một vết xước nhưng trái tim quặn thắt tội lỗi.",
+     "effects": {
+      "joy": -20,
+      "allyHurt": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_ally_greedy",
+   "text": "Đào trúng một ngách mộ cổ, {ally} tìm thấy một viên ngọc Huyết Sa. Lòng tham trỗi dậy, {ally} nuốt luôn viên ngọc vào bụng để giấu, nhưng viên ngọc mang lời nguyền khiến thực quản {ally} bỏng rát và co giật bọt mép.",
+   "focus": [
+    "play"
+   ],
+   "require": {
+    "party": 1,
+    "allyTrait": "greedy"
+   },
+   "choices": [
+    {
+     "label": "Dùng tay không bóp cổ ép nôn ra",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Lực siết mạnh khiến {ally} ọc ra viên ngọc nhớp nháp cùng bãi nôn. Cái mạng nhỏ được giữ lại.",
+      "effects": {
+       "STR": 1,
+       "wealth": 20,
+       "bond": 5
+      }
+     },
+     "fail": {
+      "text": "Bạn bóp quá mạnh làm {ally} nghẹt thở xỉu lịm đi, viên ngọc kẹt sâu hơn phải chờ tự bài tiết.",
+      "effects": {
+       "fame": -10,
+       "bond": -10
+      }
+     }
+    },
+    {
+     "label": "Đánh tráo cho uống thảo dược tẩy xổ",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Thuốc phát huy tác dụng chớp nhoáng. {ally} ôm bụng chạy thục mạng ra bụi rêu rặn ra viên ngọc, bạn đi theo hốt đồ.",
+      "effects": {
+       "LUCK": 1,
+       "wealth": 15
+      }
+     },
+     "fail": {
+      "text": "Thuốc quá liều, {ally} lả đi vì tiêu chảy mất nước, viên ngọc rơi mất vào kẽ nứt đá.",
+      "effects": {
+       "health": -5
+      }
+     }
+    },
+    {
+     "label": "Mổ bụng lấy ngọc",
+     "require": {
+      "fame": 20
+     },
+     "showLocked": true,
+     "text": "Tại sao phải cứu một kẻ tham lam? Bạn vung dao găm rạch bụng {ally}, đoạt lấy viên ngọc. Máu lạnh nhưng giàu có.",
+     "effects": {
+      "joy": -20,
+      "wealth": 50,
+      "allyDie": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_ally_timid",
+   "text": "Ngọn đuốc mỡ chuột đột ngột tắt ngúm. Trong bóng tối đen đặc, một tiếng động là lạ vang lên. {ally} hoảng loạn há to mõm chuẩn bị hét lên, điều này chắc chắn sẽ đánh thức đàn Bat ác quỷ trên trần hang.",
+   "focus": [
+    "adventure"
+   ],
+   "require": {
+    "party": 1,
+    "allyTrait": "timid"
+   },
+   "choices": [
+    {
+     "label": "Lao tới bịt chặt mõm {ally}",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Tay bạn túm gọn mõm {ally} kịp lúc. Cả hai nín thở chờ đàn dơi bay qua rồi mới thắp lại đuốc.",
+      "effects": {
+       "AGI": 1,
+       "bond": 10
+      }
+     },
+     "fail": {
+      "text": "Bạn trượt chân ngã vào vũng bùn, {ally} rú lên thất thanh. Đàn dơi ập xuống cắn xé cả hai.",
+      "effects": {
+       "health": -25,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Bắt chước tiếng ếch đá kêu để lấp liếm",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Tiếng ếch \"ộp ộp\" vang lên hòa lẫn tiếng thở dốc của {ally}, đánh lừa thính giác bọn dơi. Mọi thứ trở lại yên bình.",
+      "effects": {
+       "INT": 2,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Giọng bạn the thé rùng rợn, đàn dơi nổi điên lao xuống tấn công.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Đá {ally} ngã ra xa làm mồi nhử rồi bỏ chạy",
+     "text": "(Độc ác) Bạn đẩy người đồng đội nhát gan ra giữa hang, tiếng hét của {ally} thu hút toàn bộ đàn dơi, tạo đường cho bạn lủi thoát.",
+     "effects": {
+      "joy": -15,
+      "fame": -20,
+      "bond": -50
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_ally_funny",
+   "text": "Giữa giờ nghỉ giải lao ảm đạm, {ally} tấu hài bằng cách tung hứng ba quả nấm nổ bốc khói để chọc cười cả tổ. Trớ trêu thay, đuôi {ally} vấp phải cuốc chim khiến một quả nấm văng thẳng về phía bạn.",
+   "require": {
+    "party": 1,
+    "allyTrait": "cheerful"
+   },
+   "choices": [
+    {
+     "label": "Bay người chụp lấy quả nấm trước khi nó chạm đất",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn chộp gọn quả nấm như một thủ môn, nở nụ cười ngầu lòi khiến cả tổ vỗ tay rào rào. Trò đùa thành công mỹ mãn.",
+      "effects": {
+       "AGI": 2,
+       "fame": 15,
+       "bond": 20
+      }
+     },
+     "fail": {
+      "text": "Quả nấm trượt qua ngón tay, nổ tung ngay dưới háng bạn. Cả tổ cười lăn lộn còn bạn thì cháy sém.",
+      "effects": {
+       "health": -20,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Sút mạnh quả nấm văng vào hố tiêu hủy",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Một cú đá thần sầu đưa quả nấm đi hình vòng cung rơi thẳng xuống hố rác và phát nổ vô hại.",
+      "effects": {
+       "STR": 1,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Bạn đá trượt, quả nấm nổ tung chân bạn. Bạn lết về với đôi nạng gỗ.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Kéo {ally} ra làm bia đỡ đạn",
+     "text": "(Ích kỷ) Kẻ bày trò phải gánh nghiệp. Bạn núp sau lưng {ally}, quả nấm nổ thổi bay một mảng vảy của kẻ tấu hài. {ally} cụp đuôi xin lỗi.",
+     "effects": {
+      "joy": 5,
+      "bond": -10
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_ally_cold",
+   "text": "Một trận lở đá nhỏ vùi lấp nửa thân dưới của một con thợ đào non nớt. Trong khi nó gào khóc xin cứu, {ally} khoanh tay nhìn, lạnh nhạt nói: \"Cột sống nó gãy rồi, cứu ra chỉ tốn thêm khẩu phần rêu đá. Bỏ đi.\"",
+   "focus": [
+    "play"
+   ],
+   "require": {
+    "party": 1,
+    "allyTrait": "cold"
+   },
+   "choices": [
+    {
+     "label": "Tức giận xô {ally} ra, tự mình nâng đá cứu người",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Gân xanh nổi lên, bạn đẩy tảng đá ra kéo con non lên. Ánh mắt nể phục của tổ đào dành cho bạn khiến {ally} phải hừ lạnh quay đi.",
+      "effects": {
+       "STR": 2,
+       "joy": 10,
+       "fame": 20
+      }
+     },
+     "fail": {
+      "text": "Đá quá nặng lăn trượt đè nát tay bạn. Kẻ mắc kẹt tắt thở, {ally} lắc đầu chê bai sự yếu kém của bạn.",
+      "effects": {
+       "health": -20,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Thuyết phục {ally} rằng cứu nó sẽ được lợi về sau",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn lập luận rằng con non này thuộc dòng dõi của tên Giám sát, cứu nó sẽ được thưởng Huyết Kim. {ally} nhướng mày đồng ý phụ một tay.",
+      "effects": {
+       "INT": 1,
+       "wealth": 15,
+       "bond": 10
+      }
+     },
+     "fail": {
+      "text": "Lời nói không lọt tai. {ally} bỏ đi thẳng, bạn không đủ sức tự làm một mình đành bỏ mặc nạn nhân.",
+      "effects": {
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Đồng ý với {ally}, lạnh lùng quay lưng bước đi",
+     "text": "(Tàn nhẫn) Lời nói lạnh nhạt đó là chân lý sinh tồn nơi hầm tối. Cả hai bỏ lại tiếng rên rỉ yếu ớt trôi vào thinh không.",
+     "effects": {
+      "joy": -15,
+      "fame": -10,
+      "bond": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_team_loot",
+   "text": "Trong lúc đào bới, nhát cuốc của tổ vô tình đập vỡ một phiến đá tảng, lộ ra một viên Tinh Bạc lõi to bằng đầu người. Ánh sáng lấp lánh của nó phản chiếu sự thèm khát trong mắt mọi kẻ. Cuộc cãi vã xem ai được nộp lên lập công bắt đầu nổ ra gay gắt.",
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Dùng nắm đấm để chứng minh quyền sở hữu",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn tung hai cú đấm lật hàm những kẻ to mồm nhất, ôm trọn viên quặng bằng uy lực bạo chúa.",
+      "effects": {
+       "STR": 1,
+       "wealth": 30,
+       "bond": -10
+      }
+     },
+     "fail": {
+      "text": "Cả tổ xúm lại hội đồng bạn tơi bời, cướp viên quặng nộp lên lĩnh thưởng, để bạn nằm bẹp dưới sàn.",
+      "effects": {
+       "health": -25,
+       "fame": -15
+      }
+     }
+    },
+    {
+     "label": "Hòa giải và chia đều vinh quang cho cả tổ",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Những lời lẽ khôn khéo của bạn dập tắt sự tham lam. Cả tổ nộp chung, uy tín của bạn trong tư cách thủ lĩnh tăng vọt.",
+      "effects": {
+       "INT": 1,
+       "fame": 20,
+       "bond": 15
+      }
+     },
+     "fail": {
+      "text": "Bọn chúng cho rằng bạn đạo đức giả, lừa gạt đẩy bạn ngã rồi nẫng tay trên.",
+      "effects": {
+       "joy": -10,
+       "wealth": -5
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_team_rescue",
+   "text": "Một tiếng nổ ngầm khiến ngách mỏ sụp đổ, nước lợ dâng lên ngập ngang bụng. Chân của {ally} bị một thanh dầm gỗ đè chặt không thể rút ra, trong khi mực nước nhơ nhớp đang dâng lên tận cổ.",
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Lặn xuống nước dùng xà beng bẩy thanh dầm",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn nhịn thở tuyệt vời, đục ngoáy chính xác vào kẽ hở giải thoát cái chân trước khi {ally} chết đuối.",
+      "effects": {
+       "AGI": 2,
+       "fame": 10,
+       "bond": 40
+      }
+     },
+     "fail": {
+      "text": "Xà beng tuột tay chìm nghỉm, nước ngập quá đầu khiến bạn sặc sụa phải trồi lên, trơ mắt nhìn {ally} chìm nghỉm.",
+      "effects": {
+       "joy": -30,
+       "allyDie": true
+      }
+     }
+    },
+    {
+     "label": "Cắt đứt cái chân kẹt để cứu mạng sống",
+     "require": {
+      "STR": 8
+     },
+     "showLocked": true,
+     "text": "Nhanh gọn và đẫm máu. Nhát rìu phạt đứt phần kẹt lại, bạn vác {ally} tàn phế bơi ra khỏi hầm. Mất một chân còn hơn mất mạng.",
+     "effects": {
+      "STR": 1,
+      "fame": 5,
+      "bond": 10
+     }
+    },
+    {
+     "label": "Vứt lại giỏ quặng cho nhẹ rồi bỏ chạy một mình",
+     "text": "(Hèn nhát) Trọng lượng của sinh mạng không bằng sự an toàn bản thân. Tiếng kêu cứu nghẹn ngào chìm dưới mặt nước.",
+     "effects": {
+      "joy": -25,
+      "fame": -30,
+      "allyDie": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_team_leave",
+   "text": "{ally} nhìn chằm chằm vào một kẽ nứt thông gió trên vách hang, nơi le lói chút ánh sáng xanh của bầu trời. Giọng run rẩy, {ally} nói muốn trốn khỏi bầy đàn, trốn khỏi bóng tối tàn nhẫn này để lên mặt đất làm kẻ lưu vong.",
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Động viên và vẽ bản đồ đường cống ngầm cho {ally}",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn lén phác họa lộ trình an toàn nhất. {ally} ôm chầm lấy bạn rồi biến mất vào màn đêm. Bạn mất một đồng đội, nhưng giữ được một tia hy vọng.",
+      "effects": {
+       "INT": 1,
+       "joy": 20,
+       "allyLeave": true
+      }
+     },
+     "fail": {
+      "text": "Lộ trình sai bét, {ally} bị lính gác tóm được và treo cổ làm gương. Bạn ám ảnh vì đã chỉ đường tử thần.",
+      "effects": {
+       "joy": -30,
+       "allyDie": true
+      }
+     }
+    },
+    {
+     "label": "Đánh {ally} một trận nhừ tử để tỉnh mộng",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn tát {ally} nổ đom đóm mắt, mắng chửi sự ngu ngốc mộng mơ đó. Nhờ cái tát phũ phàng, {ally} từ bỏ ý định tự sát kia và ở lại hầu hạ bạn.",
+      "effects": {
+       "fame": 10,
+       "bond": -10
+      }
+     },
+     "fail": {
+      "text": "{ally} uất ức đánh trả, đẩy ngã bạn rồi bỏ chạy thẳng lên hầm trên, bị cung tên Human bắn chết không thấy xác.",
+      "effects": {
+       "health": -15,
+       "allyDie": true
+      }
+     }
+    },
+    {
+     "label": "Cáo giác với Chúa mỏ để lấy thưởng",
+     "text": "(Phản bội) Trái tim lạnh lùng lên tiếng. {ally} bị lính gác kéo đi trong sự bàng hoàng, còn bạn nhận lấy túi tiền béo bở.",
+     "effects": {
+      "joy": -20,
+      "wealth": 40,
+      "fame": -20,
+      "allyDie": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_team_secret",
+   "text": "Trong lúc tắm rửa bằng vũng bùn, lớp vảy bẩn thỉu của {ally} bong ra, để lộ một vòng thép nung găm chặt vào cổ. Đó là ấn ký nô lệ phát nổ của tộc Dwarf. {ally} tái mặt van xin bạn đừng báo cho bầy biết quá khứ đáng xấu hổ này.",
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Dùng dao găm tỉ mẩn khoét bỏ ấn ký",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bàn tay phẫu thuật viên thiên tài. Bạn móc vòng thép ra mà không kích nổ ma pháp. {ally} thề trung thành vĩnh viễn với bạn.",
+      "effects": {
+       "AGI": 2,
+       "bond": 50
+      }
+     },
+     "fail": {
+      "text": "Lưỡi dao chạm nhầm lõi ma pháp. Một tia sét giật tung cả hai, vòng thép không đứt nhưng cả hai bỏng nặng.",
+      "effects": {
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Tống tiền {ally} bằng nửa số khẩu phần quặng mỗi tháng",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn nắm được thóp, {ally} đành ngậm đắng nuốt cay cống nạp cho bạn để giữ cái đầu trên cổ.",
+      "effects": {
+       "INT": 1,
+       "wealth": 30,
+       "bond": -30
+      }
+     },
+     "fail": {
+      "text": "Sự dồn ép khiến {ally} nổi điên, tự kích nổ ấn ký chết chùm khiến bạn trọng thương.",
+      "effects": {
+       "health": -40,
+       "allyDie": true
+      }
+     }
+    },
+    {
+     "label": "Giữ im lặng coi như không thấy gì",
+     "text": "(An toàn) Bí mật của ai người nấy giữ. Bạn ném lại mảnh vải cho {ally} che đi vết tích, nhận được sự biết ơn sâu sắc.",
+     "effects": {
+      "joy": 10,
+      "bond": 15
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_mate_brawl",
+   "text": "Mùa sinh sản đến, ổ ấp tập thể sực nức mùi kích dục tàn bạo. Bạn để mắt đến {spouse}, một cá thể khỏe mạnh rụng trứng mùa này, nhưng một gã Kobold to xác khác cũng đang nhe nanh đe dọa bạn để giành quyền giao phối.",
+   "stages": [
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "require": {
+    "spouse": false
+   },
+   "choices": [
+    {
+     "label": "Lao vào cắn xé bằng bản năng nguyên thủy",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn cắn đứt một nửa mang tai của gã, ghim gã xuống bùn. {spouse} ré lên thích thú và trườn tới bên bạn.",
+      "effects": {
+       "STR": 1,
+       "joy": 20,
+       "fame": 10,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Gã to con hất văng bạn đập lưng vào vách đá, ngang nhiên ân ái với {spouse} trước đôi mắt hằn học của bạn.",
+      "effects": {
+       "health": -15,
+       "joy": -20
+      }
+     }
+    },
+    {
+     "label": "Tung nắm bột rêu độc vào mắt gã rồi đánh lén",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Gã ôm mặt gào thét mù lòa, bạn nhẹ nhàng dắt {spouse} về góc tối của mình trong sự nể sợ của bầy.",
+      "effects": {
+       "AGI": 1,
+       "joy": 15,
+       "fame": 5,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Bột rêu bay ngược chiều gió vào mắt bạn. Gã đạp bạn lăn cù xuống rãnh nước và ôm phần thắng.",
+      "effects": {
+       "health": -10,
+       "joy": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_mate_gift",
+   "text": "Thay vì dùng bạo lực, bạn quyết định dụ dỗ {spouse} bằng một món quà lấp lánh lấy từ kho tàng cá nhân. Ở tầng đáy xã hội, vật chất đôi khi đánh bại cả cơ bắp.",
+   "require": {
+    "spouse": false
+   },
+   "choices": [
+    {
+     "label": "Dâng lên thỏi Tinh Bạc nguyên chất nhất",
+     "check": {
+      "stat": "wealth",
+      "target": 55
+     },
+     "success": {
+      "text": "Ánh bạc làm {spouse} lóa mắt. Kẻ đó lập tức cọ cọ chiếc mõm nhám vào cổ bạn, đồng ý đẻ cho bạn một lứa trứng.",
+      "effects": {
+       "joy": 25,
+       "wealth": -20,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Cầm thỏi bạc mỏng dính trên tay, {spouse} khinh bỉ ném nó đi và quay sang âu yếm tên Giám sát mỏ giàu có hơn.",
+      "effects": {
+       "joy": -20,
+       "wealth": -10
+      }
+     }
+    },
+    {
+     "label": "Tự tay đẽo gọt một chiếc vòng xương tinh xảo",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Món trang sức độc nhất vô nhị chạm đến thứ cảm xúc nguyên thủy của {spouse}. Bạn giành được bạn tình mà không tốn một đồng.",
+      "effects": {
+       "INT": 1,
+       "joy": 20,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Chiếc vòng vỡ vụn khi bạn vừa tròng vào cổ {spouse}. Bạn bị chê cười là kẻ nghèo hèn vụng về.",
+      "effects": {
+       "joy": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_mate_sneak",
+   "text": "Luật của bầy không cho phép giao phối ngoài mùa rụng trứng để tiết kiệm năng lượng. Đêm nay, sự khao khát trỗi dậy, bạn rón rén kéo {spouse} vào ngách hầm bỏ hoang.",
+   "choices": [
+    {
+     "label": "Hành sự nhanh gọn trong sự cảnh giác cao độ",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bóng tối che chở cho khoái cảm vụng trộm. Hai kẻ hèn mọn tìm thấy chút ấm áp chân thật trong thế giới ngầm lạnh giá.",
+      "effects": {
+       "AGI": 1,
+       "joy": 25,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Một viên đá lăn lóc tố cáo hai người. Tên lính gác bắt quả tang và phạt roi cả hai.",
+      "effects": {
+       "health": -15,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Mua chuộc lính gác để canh cửa",
+     "require": {
+      "wealth": 15
+     },
+     "showLocked": true,
+     "text": "Những đồng bạc nhét vội vào tay kẻ gác đêm mua lấy cho bạn một canh giờ nồng nhiệt không âu lo.",
+     "effects": {
+      "joy": 37,
+      "wealth": -15
+     }
+    }
+   ],
+   "require": {
+    "spouse": false
+   }
+  },
+  {
+   "id": "kobold_child_hatch",
+   "text": "Quả trứng của {spouse} nứt ra, {child} chui lọt với thân hình bé tẹo, tiếng kêu yếu ớt như dế. Ở tộc Kobold, con non yếu ớt thường bị bầy đem ném vào hố dung nham.",
+   "require": {
+    "children": 1
+   },
+   "choices": [
+    {
+     "label": "Giấu nhẹm {child} vào túi da rách tự nuôi",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn qua mặt được kẻ kiểm kê, dùng chính máu và rêu vụn của mình nhai mớm cho {child} lớn lên.",
+      "effects": {
+       "health": -10,
+       "joy": 25
+      }
+     },
+     "fail": {
+      "text": "Đứa bé kêu rên phát lộ. Kẻ kiểm kê giật lấy {child} ném xuống vực, để lại bạn gào khóc trong bất lực.",
+      "effects": {
+       "joy": -30,
+       "loseChild": true
+      }
+     }
+    },
+    {
+     "label": "Tuồn cho nó uống loại thuốc cường hóa cắp được",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Ma dược có tác dụng! {child} co giật rồi vảy cứng cáp hẳn lên, gầm một tiếng vang dội qua vòng kiểm duyệt.",
+      "effects": {
+       "LUCK": 2,
+       "joy": 7,
+       "wealth": -10
+      }
+     },
+     "fail": {
+      "text": "Cơ thể con non không chịu nổi ma dược, {child} thổ huyết chết trên tay bạn.",
+      "effects": {
+       "joy": -40,
+       "loseChild": true
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_child_teach",
+   "text": "Đã đến lúc {child} phải cầm cuốc chim. Bàn tay nhỏ xíu của nó run rẩy trước vách đá granite cứng ngắc, một tên Đốc công đang nhịp roi da đứng sau lưng.",
+   "require": {
+    "children": 1
+   },
+   "choices": [
+    {
+     "label": "Cầm tay {child} dạy cách vung cuốc theo thớ đá",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Nhát cuốc bổ đúng kẽ nứt, tảng đá vỡ vụn nhẹ nhàng. Đứa trẻ nhìn bạn bằng ánh mắt sùng bái.",
+      "effects": {
+       "INT": 1,
+       "joy": 7,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Cả hai đào sai kỹ thuật làm cuốc gãy đôi. Tên Đốc công quất roi trút giận lên đầu {child}.",
+      "effects": {
+       "health": -10,
+       "joy": -3
+      }
+     }
+    },
+    {
+     "label": "Hất {child} ra, tự mình đào bù phần của nó",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bằng sức mạnh bộc phát, bạn san phẳng cả vách đá trước sự ngỡ ngàng của Đốc công, che chở cho đôi tay non nớt của con.",
+      "effects": {
+       "STR": 2,
+       "health": -15,
+       "joy": 5
+      }
+     },
+     "fail": {
+      "text": "Bạn kiệt sức gục ngã, tên Đốc công cười nhạt đạp lên lưng bạn rồi tóm lấy {child} bắt làm mồi nhử bẫy.",
+      "effects": {
+       "health": -20,
+       "joy": -20
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_child_bait",
+   "text": "Bầy đụng độ một hầm ngục Human. Chúa Mỏ ra lệnh bắt {child} của bạn chạy lên trước mặt đất để đạp bẫy mìn. Bạn đứng cắn răng nhìn con mình run rẩy khóc lóc.",
+   "require": {
+    "children": 1
+   },
+   "choices": [
+    {
+     "label": "Dùng thân mình lao ra đạp bẫy thay con",
+     "check": {
+      "stat": "AGI",
+      "target": 9
+     },
+     "success": {
+      "text": "Tốc độ xé gió của bạn kích hoạt mìn mà vẫn kịp lộn nhào thoát thân. Bạn ôm {child} vào lòng giữa đám bụi mù mịt.",
+      "effects": {
+       "AGI": 2,
+       "health": -20,
+       "joy": 13,
+       "fame": 20
+      }
+     },
+     "fail": {
+      "text": "Quả mìn thổi bay một chân của bạn. Bạn tàn phế gục ngã, nhưng {child} được sống.",
+      "effects": {
+       "health": -40,
+       "joy": 10,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Lén ném đá làm nổ mìn trước khi {child} tới",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Tính toán quỹ đạo chuẩn xác, hòn đá kích nổ bẫy an toàn. Không ai biết là bạn làm, {child} nhặt lại được cái mạng.",
+      "effects": {
+       "INT": 2,
+       "LUCK": 1
+      }
+     },
+     "fail": {
+      "text": "Hòn đá trượt mục tiêu. {child} dẫm phải mìn và tan xác thành sương máu.",
+      "effects": {
+       "joy": -50,
+       "loseChild": true
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_child_talent",
+   "text": "{child} vác về một cái đầu của con Goblin Lord, ném bịch xuống đất. Đứa con bé bỏng ngày nào giờ cao lớn, bạo lực và đang nhòm ngó vị trí của bạn trong tổ đào.",
+   "require": {
+    "children": 1
+   },
+   "choices": [
+    {
+     "label": "Thách đấu để dạy cho con một bài học",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn tung một cú đấm uy lực vật ngã {child}, chứng minh \"gừng càng già càng cay\". Đứa con ngoan ngoãn phục tùng.",
+      "effects": {
+       "STR": 1,
+       "joy": 3,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "{child} đấm gãy quai hàm bạn, nhếch mép tước đoạt toàn bộ tài sản và quyền lực của bạn.",
+      "effects": {
+       "health": -25,
+       "fame": -20
+      }
+     }
+    },
+    {
+     "label": "Tự hào nhường lại quyền lực và lui về làm cố vấn",
+     "text": "(An toàn) Đã đến lúc nghỉ ngơi. Nhìn {child} vươn lên tàn nhẫn và mạnh mẽ, bạn mỉm cười cay đắng lùi bước.",
+     "effects": {
+      "joy": 17,
+      "fame": -10
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_child_outrank",
+   "text": "{child} được Chúa Mỏ thăng làm Đốc công. Ngày nhậm chức, nó liếc nhìn bạn — một kẻ già nua rách rưới — và ra lệnh tước đi khẩu phần ăn của bạn vì \"kẻ vô dụng không đáng được sống\".",
+   "require": {
+    "children": 1
+   },
+   "choices": [
+    {
+     "label": "Dùng mưu vạch trần sai phạm của nó trước Chúa mỏ",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Những bằng chứng tham ô bạn lén thu thập khiến {child} bị giáng chức tơi bời. Bạn đoạt lại được miếng ăn của mình.",
+      "effects": {
+       "INT": 2,
+       "joy": -7
+      }
+     },
+     "fail": {
+      "text": "Chúa Mỏ chán ghét nghe bọn tép riu cãi nhau. Cả bạn và {child} đều bị đánh phạt.",
+      "effects": {
+       "health": -20,
+       "fame": -15
+      }
+     }
+    },
+    {
+     "label": "Ngậm đắng nuốt cay lượm rác sống qua ngày",
+     "text": "(Cam chịu) Sinh ra từ tổ ấp tàn nhẫn, chúng ta chết đi trong sự tàn nhẫn. Sự hi sinh của cha mẹ chẳng có nghĩa lý gì ở thế giới ngầm.",
+     "effects": {
+      "health": -10,
+      "joy": -20
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_evo_elite_sign",
+   "text": "Vài tháng nay, lớp vảy ngoài của bạn khô khốc, ngứa ngáy đến tận tủy tạng. Bạn cứ liên tục cọ lưng vào vách đá đến bật máu, cảm nhận một luồng sức mạnh cơ bắp đang cựa quậy bên trong.",
+   "minAge": 10,
+   "weight": 10,
+   "require": {
+    "STR": 10,
+    "AGI": 8,
+    "form": "none",
+    "notFlags": [
+     "evo_sign_elite"
+    ]
+   },
+   "result": "Sức khỏe -10, Sức mạnh +1. Khoảnh khắc: \"Những đêm cào xé vách hang vương vãi máu xanh, chờ đợi một cuộc lột xác.\"",
+   "effects": {
+    "flags": [
+     "evo_sign_elite"
+    ]
+   }
+  },
+  {
+   "id": "kobold_evo_elite_process",
+   "text": "Cơn đau đạt đỉnh điểm. Toàn bộ lớp vảy cũ rạn nứt nổ lách tách. Bạn nằm quằn quại trong hang tối, móng vuốt cắm phập vào nền đá, bắt buộc phải tự lột đi lớp da cũ nát này.",
+   "weight": 12,
+   "require": {
+    "form": "none",
+    "flags": [
+     "evo_sign_elite"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Nghiến răng dùng dao găm rạch mảng vảy lưng",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn gầm lên xé toạc lớp da cũ. Một thân hình cơ bắp cuồn cuộn với lớp vảy đen bóng cứng như thép Tinh Bạc trồi ra. Bạn là tinh anh!",
+      "effects": {
+       "STR": 5,
+       "AGI": 3,
+       "fame": 30,
+       "evolve": "Kobold Elite"
+      }
+     },
+     "fail": {
+      "text": "Đau đớn quá sức chịu đựng, bạn ngất lịm đi. Lớp da nửa vời hoại tử khiến bạn ốm liệt giường.",
+      "effects": {
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Nhờ {ally} lấy búa gõ nứt những vảy cứng nhất",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "{ally} gõ khéo léo, lớp giáp non của bạn được giải phóng hoàn hảo. Sức bật kinh hồn xuất hiện ở đôi chân.",
+      "effects": {
+       "AGI": 5,
+       "LUCK": 2,
+       "health": 30,
+       "evolve": "Kobold Elite"
+      }
+     },
+     "fail": {
+      "text": "Lực gõ quá mạnh làm dập nội tạng. Bạn ộc máu tươi vỡ vụn hy vọng tiến hóa.",
+      "effects": {
+       "health": -40,
+       "joy": -20
+      }
+     }
+    }
+   ],
+   "once": false
+  },
+  {
+   "id": "kobold_evo_elite_bully",
+   "text": "Đi dạo ngang qua tổ đào cũ, bọn Kobold hạ đẳng sợ hãi nép dạt sang hai bên. Một tên Đốc công từng đánh bạn xun xoe bước tới dâng lên một giỏ Tinh Bạc.",
+   "require": {
+    "form": "Kobold Elite"
+   },
+   "choices": [
+    {
+     "label": "Giật lấy giỏ bạc và đá bay hắn vào tường",
+     "check": {
+      "stat": "STR",
+      "target": 3
+     },
+     "success": {
+      "text": "Sức mạnh chênh lệch hoàn toàn. Tên Đốc công gãy vụn xương sườn, đám đông quỳ rạp dưới uy bạo chúa của bạn.",
+      "effects": {
+       "joy": 10,
+       "wealth": 30,
+       "fame": 20
+      }
+     },
+     "fail": {
+      "text": "Bạn trượt chân do chưa quen thân hình mới, đá hụt làm bẽ mặt đôi chút.",
+      "effects": {
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Kìm nén lại, chờ dịp khác",
+     "text": "Bạn ép cơn nóng rực dưới lớp vảy lắng xuống. Cơ hội này sẽ quay lại."
+    }
+   ],
+   "once": false
+  },
+  {
+   "id": "kobold_evo_elite_knight",
+   "text": "Một gã Mạo hiểm giả Human mặc giáp sắt chém thanh đại kiếm vào lưng bạn. Thay vì bị chẻ đôi như Kobold thường, thanh kiếm bật ngược trở lại và sứt mẻ.",
+   "require": {
+    "form": "Kobold Elite"
+   },
+   "choices": [
+    {
+     "label": "Dùng móng vuốt bóp nát yết hầu hắn",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Tốc độ của bạn tàng hình trong mắt hắn. Bàn tay vảy đen siết gãy cổ gã Human trước khi hắn kịp thốt lên kinh hãi.",
+      "effects": {
+       "AGI": 2,
+       "wealth": 25,
+       "fame": 30
+      }
+     },
+     "fail": {
+      "text": "Hắn vứt kiếm rút súng lục ma pháp bắn sượt vai bạn. Bạn phải tung cước đá hắn lùi lại.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Kìm nén lại, chờ dịp khác",
+     "text": "Bạn ép cơn nóng rực dưới lớp vảy lắng xuống. Cơ hội này sẽ quay lại."
+    }
+   ],
+   "once": false
+  },
+  {
+   "id": "kobold_evo_dragon_sign",
+   "text": "Máu trong huyết quản bạn bắt đầu sôi sục như dung nham. Bạn sốt cao liên miên, và mỗi khi ho, những cụm khói đen hăng hắc lại phun ra từ kẽ răng nhọn.",
+   "minAge": 12,
+   "weight": 10,
+   "require": {
+    "INT": 10,
+    "anyFlags": [
+     "dragon_blessed",
+     "blood_sword",
+     "dragon_scale"
+    ],
+    "form": "none",
+    "notFlags": [
+     "evo_sign_dragon"
+    ]
+   },
+   "result": "Sức khỏe -15, Trí tuệ +1. Khoảnh khắc: \"Hơi thở của bạn không còn hơi ẩm của bùn đất, mà mang vị đắng nghét của núi lửa.\"",
+   "effects": {
+    "flags": [
+     "evo_sign_dragon"
+    ]
+   }
+  },
+  {
+   "id": "kobold_evo_dragon_process",
+   "text": "Huyết mạch viễn cổ bùng nổ! Tâm trí bạn gầm rú tiếng của Cổ Long. Cơ thể bạn bốc cháy phừng phực giữa hang động, một ngọn lửa không sinh ra từ củi mà từ chính sinh mệnh bạn.",
+   "weight": 12,
+   "require": {
+    "form": "none",
+    "flags": [
+     "evo_sign_dragon"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hấp thụ ma lực lửa, giữ vững linh hồn",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Ngọn lửa lụi tàn. Bạn đứng dậy, cao lớn lạ thường, vảy ánh lên sắc đỏ rực rỡ và cặp mắt mang khe dọc của dã thú thượng cổ. Dòng máu rồng đã thức tỉnh!",
+      "effects": {
+       "STR": 4,
+       "INT": 5,
+       "fame": 50,
+       "evolve": "Dragonblood Kobold"
+      }
+     },
+     "fail": {
+      "text": "Trí óc bạn tan chảy. Bạn điên loạn gào thét và bị chính ngọn lửa thiêu rụi thành một đống tro đen mờ nhạt.",
+      "death": "\"Chén rượu của thần linh quá chát với cái mõm hèn mọn của Kobold.\""
+     }
+    },
+    {
+     "label": "Nuốt thêm quặng ma pháp để cộng hưởng bạo lực",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Quặng ma pháp hòa vào máu. Không chỉ tiến hóa vảy đỏ, mà sau lưng bạn còn nhô ra hai bọc thịt nhỏ — tàn tích của đôi cánh rồng kiêu hãnh.",
+      "effects": {
+       "LUCK": 3,
+       "health": 50,
+       "fame": 40,
+       "evolve": "Dragonblood Kobold"
+      }
+     },
+     "fail": {
+      "text": "Lõi ma pháp xung đột với huyết mạch. Bạn tự phát nổ nát bét cả một phần ba tổ ấp.",
+      "death": "Lõi ma pháp xung đột với huyết mạch. Bạn tự phát nổ nát bét cả một phần ba tổ ấp."
+     }
+    }
+   ],
+   "once": false
+  },
+  {
+   "id": "kobold_evo_dragon_breath",
+   "text": "Bầy Minotaur từ Đảo Tro Tàn tràn xuống định cướp mỏ quặng. Thay vì chạy trốn, bạn dang rộng hai tay, hít một hơi thật sâu làm lồng ngực phình to đỏ rực.",
+   "require": {
+    "form": "Dragonblood Kobold"
+   },
+   "choices": [
+    {
+     "label": "Phun một biển lửa Fire Breath quét sạch chúng",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Hỏa ngục giáng thế! Biển lửa thiêu rụi lông lá xương thịt lũ quái vật khổng lồ. Bầy đàn Kobold tôn thờ bạn như một vị thần sống.",
+      "effects": {
+       "STR": 2,
+       "wealth": 40,
+       "fame": 30
+      }
+     },
+     "fail": {
+      "text": "Bạn sặc khói, ngọn lửa chỉ phun ra bằng cái bật lửa mồi. Lũ Minotaur cười ồ lên lao tới.",
+      "effects": {
+       "health": -20,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Kìm nén lại, chờ dịp khác",
+     "text": "Bạn ép cơn nóng rực dưới lớp vảy lắng xuống. Cơ hội này sẽ quay lại."
+    }
+   ],
+   "once": false
+  },
+  {
+   "id": "kobold_evo_dragon_worship",
+   "text": "Một con Drake (Rồng đất) bay ngang qua. Nhận ra khí tức uy nghiêm của bạn, nó đáp xuống và phủ phục, dâng cho bạn một viên hồng ngọc khổng lồ làm lễ ra mắt.",
+   "require": {
+    "form": "Dragonblood Kobold"
+   },
+   "result": "Trí tuệ +2, Tài sản +50, Hạnh phúc +20, Danh vọng +30. Khoảnh khắc: \"Ngày mà kẻ thuộc hạ của thần linh cũng phải quỳ gối trước huyết mạch Rồng trong bạn.\""
+  },
+  {
+   "id": "kobold_old_teeth",
+   "text": "Khi đang cố cắn một mẩu rêu đá khô, một tiếng rắc vang lên. Ba chiếc răng nanh rụng lả tả xuống tay bạn. Ở thế giới ngầm, kẻ không cắn được thức ăn cứng đồng nghĩa với cái chết đang kề cổ.",
+   "stages": [
+    "elder"
+   ],
+   "choices": [
+    {
+     "label": "Nghiền nát đá mềm hòa với nước đục để húp",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Món súp nhão này chát ngắt nhưng giữ được mạng già của bạn thêm vài năm.",
+      "effects": {
+       "INT": 1,
+       "health": -10,
+       "joy": -5
+      }
+     },
+     "fail": {
+      "text": "Đá ghim vào ruột làm bạn tiêu ra máu, cơn đau quặn thắt giày vò từng đêm.",
+      "effects": {
+       "health": -20,
+       "joy": -15
+      }
+     }
+    },
+    {
+     "label": "Bắt lũ hậu bối nhai nhuyễn thịt rồi mớm cho bạn",
+     "require": {
+      "fame": 30
+     },
+     "showLocked": true,
+     "text": "Uy quyền của bạn đủ lớn để đám trẻ phải phục dịch, dẫu ánh mắt chúng đầy sự khinh bỉ chờ bạn nhắm mắt.",
+     "effects": {
+      "health": 5,
+      "joy": -10,
+      "fame": -10
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_old_usurp",
+   "text": "Bạn già nua lẩy bẩy, cầm cuốc không vững. Một thằng Kobold trẻ tuổi sừng sỏ nhìn bạn chằm chằm, tay lăm lăm dao găm định kết liễu bạn để giảm bớt miệng ăn cho bầy.",
+   "stages": [
+    "elder"
+   ],
+   "choices": [
+    {
+     "label": "Dùng mưu ma chước quỷ gài bẫy sập chết nó",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Gừng càng già càng cay. Thằng oắt con chưa kịp rút dao đã bị phiến đá rơi đè bẹp ruột. Bạn lụm luôn vũ khí của nó.",
+      "effects": {
+       "INT": 2,
+       "health": -5,
+       "wealth": 15
+      }
+     },
+     "fail": {
+      "text": "Đôi tay bạn quá chậm chạp, nó chém một nhát vào đùi bạn khiến bạn phải quỳ mọp xin tha.",
+      "effects": {
+       "health": -25,
+       "fame": -20
+      }
+     }
+    },
+    {
+     "label": "Phô trương thanh thế dọa dẫm",
+     "check": {
+      "stat": "fame",
+      "target": 55
+     },
+     "success": {
+      "text": "Nhìn những vết sẹo dọc ngang trên người bạn, nó khiếp sợ rụt tay lại và bỏ đi.",
+      "effects": {
+       "joy": 5,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Nó nhận ra bạn chỉ là một lão già hết đát, tát bạn gãy răng và đoạt lấy chỗ ngủ của bạn.",
+      "effects": {
+       "health": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_old_memory",
+   "text": "Bạn lê bước qua ổ ấp tập thể, nhìn những quả trứng mới nở nứt vỏ. Một con non đỏ hỏn rơi ra, đôi mắt nó ngơ ngác nhìn quanh. Ai đó nhét ngay vào tay nó một mảnh đá sắc nhọn làm cuốc.",
+   "stages": [
+    "elder"
+   ],
+   "result": "Trí tuệ +1, Hạnh phúc -10, Sức khỏe -5. Khoảnh khắc: \"Bạn nhìn thấy chính cuộc đời bi thảm của mình lặp lại qua ánh mắt con non mới nở.\""
+  },
+  {
+   "id": "kobold_chain_parent_1",
+   "text": "{father} đã già yếu, ho lao sù sụ và làm chậm tiến độ của cả tổ đào. Tên Đốc công tức giận ra lệnh ném ông xuống vực sâu để bớt đi một miệng ăn vô dụng.",
+   "require": {
+    "fatherAlive": true
+   },
+   "choices": [
+    {
+     "label": "Cầm cuốc chim đứng ra bảo vệ cha",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn gầm lên, bổ vỡ tảng đá trước mặt tên Đốc công để thị uy. Hắn chùn bước, hậm hực bỏ đi.",
+      "effects": {
+       "STR": 1,
+       "joy": 7,
+       "fame": 10,
+       "flags": [
+        "saved_father"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Đốc công quất roi tới tấp, đánh gục bạn và đá {father} rơi xuống vực thẳm.",
+      "effects": {
+       "health": -20,
+       "joy": -20,
+       "parentDie": "father"
+      }
+     }
+    },
+    {
+     "label": "Cống nạp Huyết Kim để mua mạng cha",
+     "check": {
+      "stat": "wealth",
+      "target": 55
+     },
+     "success": {
+      "text": "Bạn dúi một nắm tiền vào tay Đốc công. Hắn nhếch mép cười, tha mạng cho {father} nhưng bắt ông làm việc cật lực hơn.",
+      "effects": {
+       "joy": 5,
+       "wealth": -20,
+       "flags": [
+        "saved_father"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Hắn chê ít, lấy tiền rồi vẫn ném {father} xuống vực. Bạn mất cả chì lẫn chài.",
+      "effects": {
+       "joy": -20,
+       "wealth": -10,
+       "parentDie": "father"
+      }
+     }
+    },
+    {
+     "label": "Quay mặt đi, để luật lệ hầm mỏ phán xét",
+     "text": "(Hèn nhát) {father} gào tên bạn trong tuyệt vọng khi bị ném xuống bóng tối. Bạn sống tiếp, mang theo sự lạnh lẽo vĩnh cửu trong tim.",
+     "effects": {
+      "joy": -30,
+      "fame": -10,
+      "flags": [
+       "abandoned_father"
+      ],
+      "parentDie": "father"
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_chain_parent_2",
+   "text": "Trận động đất ngầm chôn vùi bạn dưới hàng tấn đất đá. Dưỡng khí cạn dần, bạn nằm thoi thóp chờ chết trong tuyệt vọng.",
+   "focus": [
+    "play"
+   ],
+   "require": {
+    "anyFlags": [
+     "saved_father",
+     "abandoned_father"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Nắm lấy bàn tay đầy sẹo đang đào bới",
+     "require": {
+      "flags": [
+       "saved_father"
+      ]
+     },
+     "showLocked": true,
+     "text": "(Không tung xúc xắc)"
+    },
+    {
+     "label": "Tự bẻ gãy cánh tay bị kẹt để trườn ra",
+     "require": {
+      "flags": [
+       "abandoned_father"
+      ]
+     },
+     "showLocked": true,
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Không có ai đến cứu kẻ đã bỏ rơi cha mình. Bạn tự bẻ nát khớp vai, trườn ra ngoài như một con giun đứt lìa.",
+      "effects": {
+       "STR": 2,
+       "health": -30,
+       "joy": -10
+      }
+     },
+     "fail": {
+      "text": "Bạn không đủ sức trườn ra, ngạt thở và hóa thành một bộ xương khô khốc vô danh.",
+      "death": "\"Sự cô độc là nấm mồ tàn nhẫn nhất.\""
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_chain_map_1",
+   "text": "Một Mage Human sa ngã từ Học viện Ma pháp Tháp Ngà bí mật tìm đến bạn. Hắn ngửi thấy mùi da Rồng và đề nghị đổi một rương Huyết Kim cùng ma dược để lấy tấm bản đồ.",
+   "require": {
+    "flags": [
+     "dragon_map"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Bán tấm bản đồ lấy vinh hoa phú quý",
+     "check": {
+      "stat": "wealth",
+      "target": 55
+     },
+     "success": {
+      "text": "Hắn trả tiền sòng phẳng. Bạn trở thành con Kobold giàu nhất ngọn núi, nhưng mất đi bí mật ngàn năm của bầy.",
+      "effects": {
+       "joy": 10,
+       "wealth": 80,
+       "fame": -10,
+       "flags": [
+        "sold_map"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Hắn lật lọng tung bùa ngủ. Bạn mất cảnh giác, bị cướp mất bản đồ và tỉnh dậy với cái đầu đau như búa bổ.",
+      "effects": {
+       "health": -15,
+       "flags": [
+        "stolen_map"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Từ chối và phóng dao găm thủ tiêu hắn",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Lưỡi dao tẩm độc găm trúng cổ họng tên Mage. Bạn giấu xác hắn vào hố phân, giữ vững bí mật.",
+      "effects": {
+       "AGI": 2,
+       "wealth": 20,
+       "flags": [
+        "kept_map"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Ma khiên của hắn hất văng dao găm. Hắn cười nhạt, ném một quả cầu lửa làm bạn phỏng nặng rồi độn thổ chuồn mất.",
+      "effects": {
+       "health": -25,
+       "flags": [
+        "stolen_map"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_chain_map_2",
+   "text": "Dungeon đột ngột chuyển dịch cấu trúc. Những con đường cũ sụp đổ, nhốt hàng ngàn Kobold trong vòng vây của bầy Slime axit. Sự tồn vong của tổ ấp tính bằng phút.",
+   "require": {
+    "anyFlags": [
+     "sold_map",
+     "kept_map"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Mở bản đồ da Rồng tìm con đường máu",
+     "require": {
+      "flags": [
+       "kept_map"
+      ]
+     },
+     "showLocked": true,
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đọc vanh vách một ngách hầm cổ chưa từng sụp lở, dẫn dắt cả bầy thoát chết trong gang tấc. Bạn trở thành đấng cứu thế.",
+      "effects": {
+       "INT": 2,
+       "fame": 40
+      }
+     },
+     "fail": {
+      "text": "Đọc sai ký hiệu, bạn dẫn bầy đi đường vòng khiến một nửa con non chết ngạt trước khi thoát ra.",
+      "effects": {
+       "joy": -20,
+       "fame": -20
+      }
+     }
+    },
+    {
+     "label": "Dùng tiền thuê Mạo hiểm giả Human tới giải cứu",
+     "require": {
+      "flags": [
+       "sold_map"
+      ]
+     },
+     "showLocked": true,
+     "check": {
+      "stat": "wealth",
+      "target": 70
+     },
+     "success": {
+      "text": "Đống Huyết Kim bạn có được rải ra như nước, mua được mạng của toàn bầy. Nhưng bầy đàn căm ghét vì biết bạn đã bán báu vật để đổi lấy số tiền đó.",
+      "effects": {
+       "wealth": -60,
+       "fame": -30
+      }
+     },
+     "fail": {
+      "text": "Human cầm tiền rồi lặn mất tăm. Bạn bất lực nhìn bầy đàn bị Slime nuốt chửng, vĩnh viễn mang tội đồ.",
+      "death": "Human cầm tiền rồi lặn mất tăm. Bạn bất lực nhìn bầy đàn bị Slime nuốt chửng, vĩnh viễn mang tội đồ."
+     }
+    },
+    {
+     "label": "Lăn xả mở đường máu trong tuyệt vọng",
+     "require": {
+      "flags": [
+       "stolen_map"
+      ]
+     },
+     "showLocked": true,
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Mất bản đồ, bạn chỉ còn cơ bắp. Bạn điên cuồng vung cuốc chim tạo ra một lối thoát, toàn thân bỏng axit trầm trọng nhưng sống sót.",
+      "effects": {
+       "STR": 2,
+       "health": -40,
+       "fame": 20
+      }
+     },
+     "fail": {
+      "text": "Thiếu bản đồ, bạn đập vỡ nhầm vạch đá chứa mạch nước ngầm. Cả hang ngập lụt, xóa sổ toàn bộ tổ ấp.",
+      "death": "Thiếu bản đồ, bạn đập vỡ nhầm vạch đá chứa mạch nước ngầm. Cả hang ngập lụt, xóa sổ toàn bộ tổ ấp."
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_chain_dragon_1",
+   "text": "Cuộc chiến toàn diện nổ ra. Thánh Kỵ Sĩ Đoàn rầm rập tiến lên núi để tiêu diệt dị giáo, trong khi đó, quân đoàn của Ma Vương cũng phá vỡ hầm ngầm hòng chiếm lõi núi. Bầy Kobold đứng giữa tâm bão.",
+   "require": {
+    "anyFlags": [
+     "dragon_vanguard",
+     "dragon_sanctuary"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Mở cổng pháo đài Vảy Rồng phòng thủ tuyệt đối",
+     "require": {
+      "flags": [
+       "dragon_sanctuary"
+      ]
+     },
+     "showLocked": true,
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Hàng ngàn lớp vảy rồng kiên cố hạ xuống. Cả ma pháp ánh sáng lẫn ngọn lửa địa ngục đều dội ngược lại. Vương quốc dưới lòng đất của bạn trở thành pháo đài bất khả xâm phạm.",
+      "effects": {
+       "INT": 3,
+       "fame": 50
+      }
+     },
+     "fail": {
+      "text": "Hệ thống phòng thủ bị kẹt do thiếu bảo trì. Một mảng vảy rạn nứt, kẻ địch tràn vào tàn sát ngoại vi.",
+      "effects": {
+       "health": -30,
+       "fame": -20
+      }
+     }
+    },
+    {
+     "label": "Dẫn đầu hỏa quân tiên phong tàn sát cả hai phe",
+     "require": {
+      "flags": [
+       "dragon_vanguard"
+      ]
+     },
+     "showLocked": true,
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bằng sức mạnh Cổ Long ban cho, bạn hóa thành một con quái vật rực lửa khổng lồ, thiêu rụi cả Kỵ sĩ Human lẫn đám High Demon. Mặt đất nhuộm máu, Kobold vươn lên thành chủng tộc thượng đẳng!",
+      "effects": {
+       "STR": 5,
+       "fame": 100
+      }
+     },
+     "fail": {
+      "text": "Lực lượng hai bên quá mạnh, đòn ma pháp kết hợp của chúng xuyên thủng hỏa giáp, đóng đinh bạn trên đỉnh núi.",
+      "death": "\"Huyền thoại của bạn kết thúc trong ngọn lửa bi tráng.\""
+     }
+    },
+    {
+     "label": "Lùi sâu vào kẽ nứt, bảo toàn huyết mạch",
+     "text": "(An toàn) Bất chấp sức mạnh có được, bản năng thằn lằn vẫn tồn tại. Bạn ra lệnh bầy đàn lủi rúc vào tâm trái đất, nhường lại mặt đất cho sự điên rồ của các phe phái.",
+     "effects": {
+      "joy": 10,
+      "fame": -30
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_chain_dwarf_1",
+   "text": "Bẫy lưới gai của bạn bắt được một thanh niên Dwarf đi lạc. Hắn bị thương nặng ở chân, trên cổ lấp lánh sợi dây chuyền đính kim cương của Lò Rèn Vĩnh Cửu. Hắn thề sẽ ban thưởng nếu bạn thả hắn.",
+   "stages": [
+    "teen",
+    "middle"
+   ],
+   "choices": [
+    {
+     "label": "Trộm sợi dây chuyền rồi cứa cổ hắn",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn hành quyết gọn gàng, vứt xác xuống hầm dung nham và ẵm trọn món trang sức quý giá.",
+      "effects": {
+       "AGI": 1,
+       "wealth": 30,
+       "flags": [
+        "dwarf_killer"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Hắn phản kháng giật đứt một nhúm vảy của bạn, ghi nhớ mùi máu của bạn trước khi gục chết.",
+      "effects": {
+       "health": -10,
+       "wealth": 10,
+       "flags": [
+        "dwarf_killer"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Tháo lưới và lén lút chỉ đường máu cho hắn ra ngoài",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn tránh được tầm mắt của lính gác bầy, dìu tên Dwarf lên mặt đất. Hắn để lại sợi dây chuyền làm tín vật tri ân.",
+      "effects": {
+       "INT": 1,
+       "wealth": 10,
+       "fame": -5,
+       "flags": [
+        "dwarf_friend"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Lính gác phát hiện, đánh bạn nhừ tử vì tội thả mồi. Tên Dwarf vẫn kịp tẩu thoát.",
+      "effects": {
+       "health": -20,
+       "fame": -15,
+       "flags": [
+        "dwarf_friend"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "kobold_chain_dwarf_2",
+   "text": "Một tiểu đoàn Thiết Giáp của Dwarf phá thủng ngách mỏ của bạn. Dẫn đầu là một vị Đội trưởng Dwarf râu bạc, tay cầm chiếc la bàn ma pháp đang phát sáng chỉ thẳng vào bạn.",
+   "require": {
+    "anyFlags": [
+     "dwarf_killer",
+     "dwarf_friend"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Giơ cao sợi dây chuyền tín vật xin hòa bình",
+     "require": {
+      "flags": [
+       "dwarf_friend"
+      ]
+     },
+     "showLocked": true,
+     "text": "(Không tung xúc xắc)"
+    },
+    {
+     "label": "Kích hoạt hầm chông bom nổ chống trả",
+     "require": {
+      "flags": [
+       "dwarf_killer"
+      ]
+     },
+     "showLocked": true,
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "La bàn chỉ điểm đã bán đứng bạn, nhưng những cái bẫy thiên tài của bạn đã chôn vùi hàng tá lính Dwarf. Vị Đội trưởng tử trận, bỏ lại bộ giáp Tinh Bạc tuyệt đẹp.",
+      "effects": {
+       "INT": 2,
+       "wealth": 50,
+       "fame": 30
+      }
+     },
+     "fail": {
+      "text": "Bọn Dwarf bọc giáp quá dày, đạp bằng mọi bẫy rập. Chúng tóm được bạn, xẻo vảy và treo cổ bạn lên để đền mạng.",
+      "death": "\"Mùi máu tàn nhẫn vĩnh viễn không rửa sạch được.\""
+     }
+    }
+   ]
+  }
+ ],
+ "deaths": [
+  {
+   "id": "kobold_old_death",
+   "kind": "old",
+   "text": "Bạn ho khan ra bụi lưu huỳnh đen đặc. Đôi chân không còn đứng vững, bạn tự lê mình tới rìa của hố xỉ than, nơi vứt bỏ hàng vạn cái xác đồng loại. Không cần ai đẩy, bạn nhắm mắt và để cơ thể cằn cỗi rơi tự do xuống hố sâu vô tận."
+  }
+ ],
+ "focus": {
+  "play": {
+   "name": "Đào hầm",
+   "desc": "Sức mạnh, May mắn; đào bới tìm quặng",
+   "stages": [
+    "infant",
+    "child",
+    "teen",
+    "adult",
+    "middle"
+   ],
+   "gains": {
+    "STR": 0.2,
+    "LUCK": 0.15
+   },
+   "bars": {
+    "wealth": 0.5
+   },
+   "quiet": {
+    "default": [
+     "Nhát cuốc của bạn bổ xuống vách đá nhịp nhàng đến mức tẻ nhạt, văng ra vài mảnh Tinh Bạc vụn.",
+     "Bạn ho sù sụ từng cơn vì bụi lưu huỳnh, lớp vảy trên lưng dần dày lên những mảng chai sần đục ngầu.",
+     "Tổ đào của bạn chật vật nhích từng mét sâu vào lòng đất, bữa ăn chỉ là món rêu ẩm vắt cạn nước."
+    ]
+   }
+  },
+  "study": {
+   "name": "Học lỏm",
+   "desc": "Trí tuệ; nghe trộm thầy tế và tù binh Dwarf",
+   "stages": [
+    "child",
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "quiet": {
+    "default": [
+     "Bạn rình rập sau một tảng đá, lẩm nhẩm nhại lại câu thần chú của lũ Dwarf đến mức trẹo cả quai hàm.",
+     "Bằng một trí nhớ vụn vặt, bạn khắc hàng tá cổ ngữ vô nghĩa lên vách hang bằng móng vuốt.",
+     "Bị phát hiện đang nhìn lén, bạn phải trả giá bằng một chổi chà quất thẳng vào mặt từ tên Trưởng tế."
+    ]
+   }
+  },
+  "train": {
+   "name": "Khổ luyện",
+   "desc": "Sức mạnh, Nhanh nhẹn; tập vuốt và giáo",
+   "stages": [
+    "child",
+    "teen",
+    "adult",
+    "middle"
+   ],
+   "quiet": {
+    "default": [
+     "Cơ bắp bạn nhức mỏi tột độ sau hàng ngàn lần vung chiếc cuốc chim vào khoảng không tĩnh lặng.",
+     "Bạn bị bầy nhện đất đuổi đánh thừa sống thiếu chết, nhưng đổi lại đôi chân đã nhanh hơn gió.",
+     "Vác trên lưng những tảng quặng lớn gấp ba lần cơ thể, vảy của bạn rạn nứt rồi lành lại cứng cáp hơn."
+    ]
+   }
+  },
+  "work": {
+   "name": "Phục dịch bầy",
+   "desc": "Làm vai trò của mình, tích kinh nghiệm thăng bậc",
+   "stages": [
+    "child",
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "quiet": {
+    "default": [
+     "Bạn tất tả khuân những giỏ phân thằn lằn hôi thối đổ ra khỏi hầm, mồ hôi nhễ nhại.",
+     "Hàng giờ liền mài vuốt cho lũ lính gác, lưng bạn đau buốt và ngón tay rướm máu.",
+     "Bạn nhường khẩu phần thịt dơi ít ỏi của mình cho lũ cún thằn lằn đang gào khóc trong ổ ấp."
+    ]
+   }
+  },
+  "adventure": {
+   "name": "Đi đặt bẫy",
+   "desc": "Nhận việc của bầy, leo thứ bậc trong mỏ",
+   "stages": [
+    "teen",
+    "adult",
+    "middle"
+   ],
+   "tags": null,
+   "quiet": {
+    "default": [
+     "Bạn ngồi bó gối trong góc tối suốt đêm, lắng nghe tiếng bước chân kẻ thù rập rình trên lá khô.",
+     "Nọc độc cóc rừng sặc sụa khiến bạn hắt hơi, nhưng số chông độc đã được tẩm ướp hoàn hảo.",
+     "Đàn chuột đồng dính lưới đem lại cho bầy một bữa tiệc thịt nướng hiếm hoi ra trò."
+    ]
+   }
+  },
+  "social": {
+   "name": "Tranh quyền",
+   "desc": "Kết bè, đầu độc, giành ngách mỏ và bạn đời",
+   "stages": [
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "quiet": {
+    "default": [
+     "Bạn mài sắc con dao găm bằng xương, cắn răng chịu đựng những cú đá của kẻ bề trên và chằm chằm chờ đợi thời cơ.",
+     "Một tên đầu sỏ gục ngã vì kiệt sức, bạn lập tức thu nhận đám tay sai bơ vơ của hắn để mở rộng thế lực.",
+     "Những lời xì xầm to nhỏ vang lên khắp tổ ấp khi bạn bí mật chia chác khẩu phần ăn của mình để mua chuộc lòng trung thành."
+    ]
+   }
+  },
+  "rest": {
+   "name": "Trốn ngủ",
+   "desc": "Lén lút ban đêm; hồi sức và giấu của",
+   "stages": [
+    "infant",
+    "child",
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "bars": {
+    "health": 2,
+    "joy": 1
+   },
+   "quiet": {
+    "default": [
+     "Trong khi cả bầy ngáy vang rền rĩ, bạn len lỏi qua những cái bóng để tự do hít thở bầu không khí tĩnh lặng hiếm hoi.",
+     "Đôi mắt bạn thâm quầng và đỏ ngầu vì thiếu ngủ, nhưng kho tàng bí mật giấu dưới gầm đá lại nhiều thêm một chút.",
+     "Bạn mò mẫm được một ngách hang khuất gió, cuộn tròn đánh một giấc dài ngon lành mặc kệ ca làm việc cật lực đang vẫy gọi."
+    ]
+   }
+  }
+ },
+ "systems": {
+  "bandName": "tổ đào",
+  "romance": false,
+  "autoChildren": false,
+  "companions": [
+   {
+    "race": "Kobold",
+    "names": "kobold",
+    "job": "Kobold Trapper",
+    "stat": "INT",
+    "weight": 3
+   },
+   {
+    "race": "Kobold",
+    "names": "kobold",
+    "job": "Kobold Miner",
+    "stat": "STR",
+    "weight": 3
+   },
+   {
+    "race": "Kobold",
+    "names": "kobold",
+    "job": "Kobold Sniffer",
+    "stat": "LUCK",
+    "weight": 2
+   },
+   {
+    "race": "Goblin",
+    "names": "goblin",
+    "job": "Goblin Scout",
+    "stat": "AGI",
+    "weight": 1
+   }
+  ],
+  "recruit": {
+   "text": [
+    "Một Kobold gầy gò lẽo đẽo theo bạn suốt ba ca đào, chìa ra một cục quặng sáng: \"Cho em theo với.\"",
+    "Sau vụ sập hầm, một kẻ sống sót bò lại gần bạn. Nó cần một cái đuôi để bám theo."
+   ],
+   "join": [
+    "{ally} vẫy đuôi lia lịa. Từ nay hai đứa chung một ngách ngủ.",
+    "{ally} chia cho bạn nửa con chuột nướng. Ở Kobold, thế là kết nghĩa."
+   ],
+   "decline": "Đuổi đi, khẩu phần không đủ chia",
+   "declineText": "Bạn gầm gừ đuổi nó đi. Khẩu phần đã ít, chia thêm thì đói."
+  },
+  "jobSelect": {
+   "teen": [
+    "Đốc công lùa lũ Kobold nhỏ ra giữa hầm, chia việc bằng roi da. Bạn phải chọn chỗ đứng trước khi bị chọn thay."
+   ],
+   "adult": [
+    "Không có việc, bạn chỉ là một miệng ăn trong mỏ. Đã đến lúc chọn."
+   ],
+   "later": "Trốn vào ngách thêm ít lâu",
+   "laterText": "Bạn chui vào ngách tối. Không ai đi tìm một Kobold vô dụng."
+  },
+  "promotion": {
+   "try": "Liều một phen để leo lên",
+   "wait": "Chưa dám, chờ thời",
+   "waitText": "Bạn rụt cổ lại. Trong mỏ, kẻ ngẩng đầu sớm hay bị đá rơi trúng.",
+   "success": "Cả tổ đào nhìn bạn khác hẳn. Từ hôm nay, bạn là {next}.",
+   "fail": [
+    "Bạn thất bại trước tiếng cười khành khạch của cả tổ.",
+    "Mọi thứ đổ bể. Bạn liếm vết thương và chờ cơ hội khác."
+   ]
+  },
+  "crossroads": {
+   "child": "Bạn đã đủ lớn để cầm cuốc. Những năm tới, bạn sẽ làm gì?",
+   "teen": "Lũ Kobold choai choai bắt đầu tranh chỗ trong mỏ. Bạn sẽ dồn sức vào đâu?",
+   "adult": "Bạn đã là một chiến binh sừng vảy. Bạn sẽ làm gì với những năm tới?",
+   "middle": "Ít Kobold nào sống đến tuổi này. Bạn sẽ dùng những năm hiếm hoi ấy ra sao?",
+   "elder": "Vuốt bạn đã cùn, mắt đã mờ. Những ngày cuối, bạn muốn làm gì?",
+   "default": "Bạn sẽ dồn sức vào đâu?"
+  },
+  "stageEnter": {
+   "child": "Bạn sống sót qua những năm đầu trong lò ấp. Bạn đã biết cầm cuốc.",
+   "teen": "Bạn đã đủ khéo để buộc dây bẫy. Đốc công bắt đầu để mắt đến bạn.",
+   "adult": "Lớp vảy sừng đã cứng. Bạn là một chiến binh của tổ đào.",
+   "middle": "Bạn đã sống lâu hơn một nửa số Kobold cùng lứa.",
+   "elder": "Vuốt bạn cùn, đuôi bạn nặng. Lũ Kobold trẻ gọi bạn là trưởng lão.",
+   "default": "Một chương mới của cuộc đời Kobold mở ra."
+  },
+  "parentDeath": [
+   "{who} đã chết trong một vụ sập hầm. Bạn đào suốt hai ngày mới tìm thấy cái đuôi.",
+   "Tin {who} chết đến tai bạn giữa ca đào. Bạn cúi đầu, rồi tiếp tục cuốc."
+  ],
+  "allyDie": [
+   "Tiếng vỡ vụn của lớp vảy sừng vang lên; {ally} gục xuống vũng bùn đen, nhạt nhòa như một túm rêu ẩm bị ai đó dẫm nát.",
+   "Không có khúc ca bi tráng nào cất lên, bầy đàn chỉ ném xác {ally} vào hố xỉ than rồi lầm lũi quay lại với những nhát cuốc chim.",
+   "Ánh sáng trong đôi mắt thằn lằn của {ally} vụt tắt, mang theo những ước mơ cỏn con vĩnh viễn chôn vùi dưới lớp thạch nhũ ngàn năm."
+  ],
+  "allyHurt": [
+   "{ally} nghiến chặt hàm răng nhọn hoắt, cắn nát một khúc rễ cây để cố nhịn tiếng thét khi dòng máu xanh thẫm ứa ra từ lớp vảy nứt toác.",
+   "Mùi tanh tưởi của vết thương rỉ máu hòa lẫn vào bụi lưu huỳnh, {ally} lết từng bước khập khiễng trên nền sỏi đá lạnh lẽo.",
+   "Đôi tay gầy gò của {ally} run rẩy ôm lấy mảng da thịt cháy sém, ánh mắt cam chịu một kiếp sinh tồn bi thảm dưới lòng đất."
+  ],
+  "allyLeave": [
+   "Bỏ lại chiếc cuốc chim gỉ sét, bóng lưng {ally} tan vào bóng tối của đường hầm, để lại trong bạn một khoảng không lạnh buốt.",
+   "Mùi hương phản trắc hăng hắc bốc lên; {ally} đã bán đứng bạn cho những kẻ có quyền, chọn lấy vinh hoa bằng cách dẫm lên huyết mạch đồng loại.",
+   "Không một lời từ biệt, chỗ ngủ của {ally} chỉ còn lại nắm rơm lạnh lẽo, kẻ mang giấc mộng mặt trời đã vĩnh viễn quay lưng với bóng đêm."
+  ]
+ },
+ "stages": [
+  {
+   "id": "infant",
+   "start": 0,
+   "name": "Cún Thằn Lằn"
+  },
+  {
+   "id": "child",
+   "start": 3,
+   "name": "Thợ Đào Nhí"
+  },
+  {
+   "id": "teen",
+   "start": 6,
+   "name": "Kỹ Sư Bẫy Rập"
+  },
+  {
+   "id": "adult",
+   "start": 10,
+   "name": "Chiến Binh Sừng Vảy"
+  },
+  {
+   "id": "middle",
+   "start": 15,
+   "name": "Giám Sát Mỏ"
+  },
+  {
+   "id": "elder",
+   "start": 20,
+   "name": "Trưởng Lão Vuốt Cùn"
+  }
+ ]
+}

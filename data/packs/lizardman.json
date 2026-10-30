@@ -1,0 +1,6740 @@
+{
+ "race": "lizardman",
+ "stageNames": {
+  "infant": "Nòng Nọc Vảy Sừng",
+  "child": "Thợ Săn Đầm Lầy",
+  "teen": "Chiến Binh Gai Độc",
+  "adult": "Thủ Lĩnh Bộ Lạc",
+  "middle": "Tư Tế Tà Thần",
+  "elder": "Cổ Thằn Lằn"
+ },
+ "forms": {
+  "Swamp Dragonewt": {
+   "name": "Swamp Dragonewt",
+   "life": 25
+  },
+  "High Serpent Priest": {
+   "name": "High Serpent Priest",
+   "life": 20
+  }
+ },
+ "origins": [
+  {
+   "id": "lizard_origin_pool",
+   "name": "Bãi đẻ trứng ngập nước",
+   "weight": 30,
+   "text": "Bạn chui khỏi lớp vỏ sừng đục ngầu giữa làn nước ấm ngập ngụa bùn non của Đầm Lầy Tử Khí. {mother} cẩn thận dùng mõm gạt lớp rêu mục để đón đứa con đầu đàn, trong khi {father} đứng gầm gừ cảnh giác vòng ngoài.",
+   "siblings": "3 anh em khác cùng ổ trứng; một đứa quá yếu đã bị bỏ lại cho cá sấu đầm lầy ăn thịt ngay ngày đầu tiên.",
+   "home": "Nghèo khó, sinh tồn bấp bênh nhưng nằm trong vùng an toàn của bãi đẻ bộ lạc.",
+   "effects": {
+    "STR": 1,
+    "AGI": 1,
+    "flags": [
+     "swamp_born"
+    ]
+   },
+   "father": {
+    "name": null,
+    "race": "Lizardman",
+    "role": "Chiến binh hạng ba của bộ lạc",
+    "trait": "Cứng nhắc, sùng đạo",
+    "status": "alive",
+    "note": "Còn sống"
+   },
+   "mother": {
+    "name": null,
+    "race": "Lizardman",
+    "role": "Thợ săn đầm lầy",
+    "trait": "Kiên nhẫn, bảo vệ con cực đoan",
+    "status": "alive",
+    "note": "Còn sống"
+   }
+  },
+  {
+   "id": "lizard_origin_slave",
+   "name": "Nô lệ trốn chạy",
+   "weight": 15,
+   "text": "Bạn sinh ra trong gông xiềng lạnh lẽo của hầm ngục thuộc Đấu trường Huyết Sa, nơi tiếng roi giất hòa lẫn tiếng rên xiết của các giống loài khác. {mother} đã giấu bạn trong đống rơm bẩn thỉu trước khi ngã gục vì kiệt sức.",
+   "siblings": "Không có",
+   "home": "Cực kỳ khốn cùng, sống trong đói khát và sợ hãi sự hành hạ của cai ngục.",
+   "effects": {
+    "AGI": 2,
+    "LUCK": 1,
+    "flags": [
+     "escaped_slave"
+    ]
+   },
+   "father": {
+    "name": null,
+    "race": "Lizardman",
+    "role": "Chiến binh bị bắt làm nô lệ",
+    "trait": "Bất khuất, căm phẫn",
+    "status": "dead",
+    "note": "Đã mất"
+   },
+   "mother": {
+    "name": null,
+    "race": "Lizardman",
+    "role": "Tù binh chiến tranh",
+    "trait": "Kiên cường, hy sinh vì con",
+    "status": "dead",
+    "note": "Đã mất"
+   }
+  },
+  {
+   "id": "lizard_origin_poison",
+   "name": "Hồ nước độc",
+   "weight": 15,
+   "text": "Quả trứng của bạn chìm sâu dưới đáy hồ nước sủi bọt axit bốc khói xanh ngắt ở vùng rìa Đầm Lầy Tử Khí. Lớp vỏ sừng của bạn đã phải hấp thụ trực tiếp độc tố để cứng cáp từ trong trứng.",
+   "siblings": "2 người anh trai đã chết vì thử nọc độc quá sớm khi mới nở.",
+   "home": "Đủ ăn nhờ chiến lợi phẩm từ những kẻ lỡ bước ngộ độc, nhưng lạnh lẽo không tình người.",
+   "effects": {
+    "STR": 1,
+    "health": 10,
+    "flags": [
+     "poison_blood"
+    ]
+   },
+   "father": {
+    "name": null,
+    "race": "Lizardman",
+    "role": "Kẻ bào chế độc dược",
+    "trait": "Lạnh lùng, dị biệt",
+    "status": "dead",
+    "note": "Đã mất"
+   },
+   "mother": {
+    "name": null,
+    "race": "Lizardman",
+    "role": "Vệ binh hồ độc",
+    "trait": "Độc ác, ít nói",
+    "status": "alive",
+    "note": "Còn sống"
+   }
+  },
+  {
+   "id": "lizard_origin_snake",
+   "name": "Tế đàn Rắn",
+   "weight": 20,
+   "text": "Bạn cất tiếng kêu khàn đợt đầu tiên ngay trên bệ đá đẫm máu của Tế đàn Tà thần Rắn, dưới ánh nến mỡ người leo lét. Sự ra đời của bạn được xem là điềm báo tử cho một cuộc hiến tế sắp tới.",
+   "siblings": "Không có",
+   "home": "Được bộ lạc cung phụng kính sợ nhưng thiếu thốn tình thương gia đình ruột thịt.",
+   "effects": {
+    "INT": 2,
+    "fame": 3,
+    "flags": [
+     "snake_blessed"
+    ]
+   },
+   "father": {
+    "name": null,
+    "race": "Lizardman",
+    "role": "Chiến binh hiến tế được chọn",
+    "trait": "Mê tín, cuồng tín",
+    "status": "alive",
+    "note": "Không rõ là ai"
+   },
+   "mother": {
+    "name": null,
+    "race": "Lizardman",
+    "role": "Nữ tu tà giáo",
+    "trait": "Thần bí, sùng bái tà thần",
+    "status": "alive",
+    "note": "Còn sống"
+   }
+  },
+  {
+   "id": "lizard_origin_blood_mud",
+   "name": "Hố Bùn Huyết Lục",
+   "weight": 10,
+   "text": "Bạn trồi lên từ vũng bùn trộn lẫn máu của hàng chục chiến binh hy sinh sau trận đại hồng thủy. Hơi thở đầu tiên của bạn đượm mùi tanh của xác thối và sự tái sinh nguyên thủy.",
+   "siblings": "4 người, đều là những chiến binh hung hãn tranh giành từng miếng mồi trong vũng bùn.",
+   "home": "Sống trong nhung lúa của chiến lợi phẩm cướp được, nhưng bị bao vây bởi thù hận bộ lạc.",
+   "effects": {
+    "STR": 2,
+    "health": 10,
+    "flags": [
+     "swamp_born"
+    ]
+   },
+   "father": {
+    "name": null,
+    "race": "Lizardman",
+    "role": "Đội trưởng đội săn",
+    "trait": "Tàn nhẫn, thực tế",
+    "status": "dead",
+    "note": "Đã mất"
+   },
+   "mother": {
+    "name": null,
+    "race": "Lizardman",
+    "role": "Thợ săn ưu tú",
+    "trait": "Gan góc, lì lợm",
+    "status": "dead",
+    "note": "Đã mất"
+   }
+  },
+  {
+   "id": "lizard_origin_outcast",
+   "name": "Bộ lạc lưu vong",
+   "weight": 10,
+   "text": "Bạn chào đời bên đống lửa tàn của một nhóm Lizardman bị trục xuất, khi mẹ bạn vừa chạy trốn khỏi cuộc thanh trừng nội bộ. Tiếng gió hú qua rặng cây mang theo tiếng gầm của kẻ thù sát nút.",
+   "siblings": "1 người em gái sinh đôi yếu ớt đang hấp hối.",
+   "home": "",
+   "effects": {
+    "AGI": 2,
+    "LUCK": 1,
+    "flags": [
+     "escaped_slave"
+    ]
+   },
+   "father": {
+    "name": null,
+    "race": "Lizardman",
+    "role": "Tù trưởng sa thải",
+    "trait": "Kiêu hãnh, bướng bỉnh",
+    "status": "dead",
+    "note": "Đã mất"
+   },
+   "mother": {
+    "name": null,
+    "race": "Lizardman",
+    "role": "Kẻ phản bội bộ lạc",
+    "trait": "Cô độc, kiên cường",
+    "status": "alive",
+    "note": "Còn sống"
+   }
+  }
+ ],
+ "jobs": [
+  {
+   "id": "lizard_warrior",
+   "name": "Lizardman Warrior",
+   "stat": "STR",
+   "combat": true,
+   "desc": "Sức mạnh. Chiến binh giáo vảy sừng",
+   "require": {
+    "STR": 5
+   },
+   "alt": {
+    "anyFlags": [
+     "swamp_born",
+     "escaped_slave"
+    ],
+    "hint": "sinh ra ở đầm lầy hoặc từng là nô lệ trốn chạy"
+   },
+   "ranks": [
+    "Mud Grunt",
+    "Scale Fighter",
+    "Blood Warrior",
+    "Swamp Champion",
+    "Warlord"
+   ],
+   "income": [
+    0.8,
+    1.2,
+    1.8,
+    2.6,
+    3.4
+   ],
+   "hazard": 2,
+   "gains": {
+    "STR": 0.35
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    4,
+    6,
+    8,
+    10
+   ],
+   "promoStat": [
+    "STR",
+    "STR",
+    "STR",
+    "STR"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: đâm thủng lớp màng nhầy nhụa của một con Slime đầm lầy đang cản đường, sống sót bước qua vũng axit.",
+    "Thử thách để trở thành {next}: tay không quật ngã và bẻ gãy hàm một con cá sấu khổng lồ bạo chúa.",
+    "Thử thách để trở thành {next}: dẫn đầu đội tiên phong càn quét một ổ Goblin Lord giáp sắt, mang thủ cấp chúng về cắm trước Tế đàn.",
+    "Thử thách để trở thành {next}: đánh bại Warlord đương nhiệm trong trận huyết chiến tay đôi trước sự chứng kiến của toàn bộ lạc."
+   ],
+   "start": "Bạn nhận lấy ngọn giáo gỉ sét từ đống xương khô của kẻ đi trước, gầm lên một tiếng xé toạc màn sương mù báo hiệu một chiến binh mới đã ra đời.",
+   "quiet": [
+    "Bạn mài nhọn ngọn giáo của mình trên những tảng đá rêu phong, gột rửa vết máu khô của kẻ thù.",
+    "Lớp vảy sừng của bạn bong tróc rồi mọc lại dày hơn sau vô số trận giao tranh lẻ tẻ ở vùng ven Đầm Lầy Tử Khí.",
+    "Những vết sẹo chằng chịt trên ngực trở thành tấm huân chương nguyên thủy khiến đồng loại phải cúi đầu nể sợ."
+   ]
+  },
+  {
+   "id": "lizard_hunter",
+   "name": "Swamp Hunter",
+   "stat": "AGI",
+   "combat": true,
+   "desc": "Nhanh nhẹn. Thợ săn rình mồi dưới bùn",
+   "require": {
+    "AGI": 5
+   },
+   "alt": {
+    "anyFlags": [
+     "escaped_slave"
+    ],
+    "hint": "từng là nô lệ trốn chạy"
+   },
+   "ranks": [
+    "Tadpole Scout",
+    "Mud Lurker",
+    "Toxic Tracker",
+    "Silent Predator",
+    "Night Stalker"
+   ],
+   "income": [
+    0.8,
+    1.2,
+    1.8,
+    2.5,
+    3.2
+   ],
+   "hazard": 1.6,
+   "gains": {
+    "AGI": 0.35
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    4,
+    6,
+    8,
+    10
+   ],
+   "promoStat": [
+    "AGI",
+    "AGI",
+    "AGI",
+    "AGI"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: lén lút luồn qua bầy quạ tử thi, trộm thành công một quả trứng của chim ưng khổng lồ.",
+    "Thử thách để trở thành {next}: săn được một con báo ma không để lại dấu vết máu nào trên lớp rêu bùn.",
+    "Thử thách để trở thành {next}: đột nhập vào trại của một toán lính tuần tra con người, cắt cổ tên gác đêm rồi biến mất như sương mờ.",
+    "Thử thách để trở thành {next}: ám sát thành công một con quái vật cấp cao tại Vực Thẳm Phân Tầng, mang lõi ma lực về làm chứng nhận."
+   ],
+   "start": "Bạn trượt nhẹ xuống mặt nước tối tăm không một tiếng động, đôi mắt lạnh lẽo khóa chặt vào yết hầu con mồi đang ngây thơ uống nước trên bờ.",
+   "quiet": [
+    "Bạn kiên nhẫn nằm bất động dưới lớp bùn rêu suốt ba ngày chỉ để chờ một con mồi béo bở đi qua.",
+    "Việc bện những sợi dây leo tẩm độc thành lưới bắt chim trở thành thú vui duy nhất trong mùa khô hạn.",
+    "Dấu chân của bạn trên đất nhão dần trở nên vô hình, như thể bạn đã hòa làm một với linh hồn của đầm lầy."
+   ]
+  },
+  {
+   "id": "lizard_priest",
+   "name": "Serpent Priest",
+   "stat": "INT",
+   "combat": false,
+   "desc": "Trí tuệ. Tư tế thờ Tà thần Rắn",
+   "require": {
+    "INT": 6
+   },
+   "alt": {
+    "anyFlags": [
+     "snake_blessed"
+    ],
+    "hint": "được Tà thần Rắn ban phước"
+   },
+   "ranks": [
+    "Acolyte of Scales",
+    "Blood Chanter",
+    "Venom Oracle",
+    "High Cultist",
+    "Serpent Prophet"
+   ],
+   "income": [
+    0.6,
+    1.1,
+    1.8,
+    2.7,
+    3.7
+   ],
+   "hazard": 1.1,
+   "gains": {
+    "INT": 0.35
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    4,
+    6,
+    8,
+    10
+   ],
+   "promoStat": [
+    "INT",
+    "INT",
+    "INT",
+    "INT"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: ghi nhớ và ngâm xướng trọn vẹn bài thánh ca tử máu bằng ngôn ngữ cổ mà không cắn đứt lưỡi chính mình.",
+    "Thử thách để trở thành {next}: mổ bụng một Mạo hiểm giả hèn nhát, bói toán cát hung của bộ lạc từ hình dạng lá lách của hắn.",
+    "Thử thách để trở thành {next}: chịu đựng cú cắn trực diện của một con Rắn Quỷ hai đầu mà không dùng thảo dược giải độc.",
+    "Thử thách để trở thành {next}: chủ trì đại lễ Huyết Nguyệt, hiến tế hàng chục mạng sống để mở cổng không gian gọi ma lực từ Vực Thẳm."
+   ],
+   "start": "Nọc độc của nghi lễ mở mắt chảy tràn vào đồng tử, bạn gào thét khi thấy ảo ảnh của Tà thần Rắn cuộn mình chực nuốt chửng thế giới dưới đáy đầm sâu.",
+   "quiet": [
+    "Bạn ngồi trên đống xương sọ rêu phong, tĩnh lặng lắng nghe lời thì thầm của gió độc thổi qua các khe đá.",
+    "Những ký tự tà giáo được vẽ bằng huyết bọ hung quanh lều của bạn tỏa sáng leo lét mỗi độ trăng lên.",
+    "Không một con quái vật nào dám bước qua lằn ranh tro cốt mà bạn đã rải quanh bãi cầu nguyện."
+   ]
+  },
+  {
+   "id": "lizard_venom",
+   "name": "Venom Master",
+   "stat": "INT",
+   "combat": true,
+   "desc": "Trí tuệ và Sức khỏe. Pha chế kịch độc",
+   "require": {
+    "INT": 4,
+    "health": 40
+   },
+   "alt": {
+    "anyFlags": [
+     "poison_blood"
+    ],
+    "hint": "sinh ra ở Hồ nước độc"
+   },
+   "ranks": [
+    "Toxic Mixer",
+    "Poison Brewer",
+    "Acid Alchemist",
+    "Plague Bringer",
+    "Venom Lord"
+   ],
+   "income": [
+    0.7,
+    1.2,
+    1.9,
+    2.7,
+    3.6
+   ],
+   "hazard": 1.5,
+   "gains": {
+    "INT": 0.25,
+    "STR": 0.1
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    4,
+    6,
+    8,
+    10
+   ],
+   "promoStat": [
+    "INT",
+    "INT",
+    "INT",
+    "INT"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: lọc được phần trong suốt không màu từ nọc nấm tím mà không làm hỏng độc tính cốt lõi.",
+    "Thử thách để trở thành {next}: sống sót qua một liều cắn thử nghiệm của rết quỷ hầm ngục và tự bào chế thuốc giải trong 3 phút.",
+    "Thử thách để trở thành {next}: chế tạo thành công \"Lệ Trích Huyết\", loại axit có thể ăn mòn Tinh Bạc chỉ trong một cái chớp mắt.",
+    "Thử thách để trở thành {next}: giải phóng một trận mưa tử khí xóa sổ hoàn toàn cứ điểm của quân đoàn Goblin xâm lăng mà không ảnh hưởng đồng loại."
+   ],
+   "start": "Hương vị ngọt ngào của tử khí bốc lên từ vạc đun rêu mục, bạn mỉm cười xé toạc hàm một con nhện độc để vắt cạn dòng nhựa sống chết chóc của nó.",
+   "quiet": [
+    "Lớp vảy trên ngón tay bạn đã chuyển sang màu xanh lục ngọc vì tiếp xúc với dược liệu độc hại quá lâu.",
+    "Tiếng sùi bọt sôi sục từ vạc thuốc trở thành âm thanh êm dịu đưa bạn vào giấc ngủ không mộng mị.",
+    "Bạn cặm cụi ghi chép công thức giết người lên những mảnh xương sọ phơi khô."
+   ]
+  },
+  {
+   "id": "lizard_egg",
+   "name": "Egg Watcher",
+   "stat": "LUCK",
+   "combat": false,
+   "desc": "Không cần chỉ số. Canh giữ bãi trứng của bộ lạc",
+   "require": {},
+   "ranks": [
+    "Mud Sitter",
+    "Nest Guard",
+    "Brood Defender",
+    "Scale Matriarch/Patriarch",
+    "Warden of Generation"
+   ],
+   "income": [
+    0.5,
+    0.9,
+    1.4,
+    2.1,
+    3
+   ],
+   "hazard": 0.9,
+   "gains": {
+    "LUCK": 0.15,
+    "STR": 0.1
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    4,
+    6,
+    8,
+    10
+   ],
+   "promoStat": [
+    "LUCK",
+    "LUCK",
+    "LUCK",
+    "LUCK"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: thức trắng suốt ba đêm liền để xua đuổi bầy quạ rỉa xác đang lảng vảng trên cành cây mục.",
+    "Thử thách để trở thành {next}: dùng cơ thể ủ ấm kịp thời cho một ổ trứng bị giá rét trong đêm đông khắc nghiệt.",
+    "Thử thách để trở thành {next}: đâm chết một con trăn nước khổng lồ toan nuốt chửng nguyên cả cụm trứng trung tâm.",
+    "Thử thách để trở thành {next}: lãnh đạo đội gác trứng đánh bật một toán cướp Imp nhãi nhép, bảo vệ vẹn toàn thế hệ mai sau."
+   ],
+   "start": "Ngồi phịch xuống lớp bùn xám lạnh lẽo cạnh những quả trứng nhầy nhụa, bạn nhận ra sinh mạng của tương lai bộ lạc giờ phụ thuộc vào đôi mắt không biết mỏi của mình.",
+   "quiet": [
+    "Bạn đếm từng tiếng vỏ sừng răng rắc nứt nẻ, tận hưởng niềm vui nguyên thủy nhất khi sự sống trào dâng.",
+    "Lớp rêu phủ kín lưng bạn vì phải ngồi bất động quá lâu ngụy trang che mắt thú săn mồi.",
+    "Bạn thu nhặt xương cá vụn để bón cho những con non vừa mở mắt."
+   ]
+  }
+ ],
+ "orgs": [
+  {
+   "id": "lizard_tribe",
+   "name": "Bộ lạc",
+   "auto": true,
+   "points": [
+    0,
+    2,
+    4,
+    7,
+    11,
+    16,
+    null
+   ],
+   "missionWord": "cuộc săn",
+   "fameToPts": 0.2,
+   "board": {
+    "text": [
+     "Tiếng trống da cá sấu vang khắp đầm lầy. Tộc trưởng chỉ ngọn giáo về phía con mồi mới.",
+     "Đàn quạ đen bay lên từ phía bìa rừng: có kẻ lạ đã bước vào lãnh thổ của bộ lạc."
+    ],
+    "skip": "Lặn xuống bùn, mặc kệ",
+    "skipText": "Bạn lặn sâu xuống bùn ấm và nằm im. Cuộc săn diễn ra mà không có bạn."
+   },
+   "failText": "Bạn trở về bãi đẻ với vảy rách và tay không. Tư tế lắc đầu, lẩm bẩm điều gì đó về ý Tà thần.",
+   "ranks": [
+    "Mud Hatchling",
+    "Swamp Crawler",
+    "Blood Scale",
+    "Tribe Fang",
+    "Swamp Commander",
+    "High Chieftain",
+    "Grand Warchief"
+   ],
+   "rankAliases": [
+    "mud hatchling",
+    "swamp crawler",
+    "blood scale",
+    "tribe fang",
+    "swamp commander",
+    "high chieftain",
+    "grand warchief"
+   ],
+   "rankUp": {
+    "0": "Lớp vỏ trứng vỡ vụn, bạn trườn xuống vũng bùn đen ngòm, bắt đầu chuỗi ngày tranh giành từng mẩu rác rưởi để sinh tồn.",
+    "1": "Những cái vảy non rốt cuộc cũng cứng lại thành giáp, bạn đủ sức bò ra khỏi bãi đẻ để đối mặt với sự tàn khốc ở vùng ven Tử Khí.",
+    "2": "Máu của kẻ thù đầu tiên nhuộm thẫm lớp vảy sừng, đánh dấu sự công nhận của bộ lạc dành cho một cá thể đã biết cắn xé.",
+    "3": "Chiếc nanh ma thú được xỏ lỗ đeo lên cổ, bạn vươn lên thành nòng cốt tàn nhẫn trong các đội săn của bầy đàn.",
+    "4": "Tiếng gầm của bạn giờ đây mang theo sát khí áp chế, đủ để ra lệnh cho hàng chục Lizardman dưới quyền xông vào chỗ chết.",
+    "5": "Ngự trị trên chiếc ngai kết từ xương cá sấu, bạn nắm quyền sinh sát toàn bộ bầy đàn trong vùng lãnh địa của mình.",
+    "6": "Tà thần Rắn cũng phải gầm lên chứng giám khi bạn vấy máu thống nhất toàn bộ các bộ lạc tản mác, trở thành bá chủ vĩ đại nhất lịch sử đầm lầy."
+   },
+   "join": []
+  }
+ ],
+ "quests": [
+  {
+   "id": "lizardman_q_cuoc_san_moi_da_xanh_bat_goblin_lac_dan",
+   "org": "lizard_tribe",
+   "name": "CUỘC SĂN MỒI DA XANH (BẮT GOBLIN LẠC ĐÀN)",
+   "minRank": 0,
+   "hint": "Dễ. Mục tiêu hèn nhát nhưng chạy rất nhanh. Hợp cho lính mới.",
+   "intro": "Một nhóm Goblin tàn tạ từ rìa Đầm Lầy Tử Khí lang thang gần khu vực bãi đẻ. Sinh vật yếu ớt này là tế phẩm bẩn thỉu, nhưng máu của chúng đủ để làm dịu cơn khát của Tà thần Rắn trong những ngày giáp hạt.",
+   "steps": [
+    {
+     "text": "Tên Goblin phát hiện ra bạn, hắn vứt cả vũ khí ré lên bỏ chạy thục mạng qua bãi bùn lún.",
+     "choices": [
+      {
+       "label": "Nhanh tay phóng lao xuyên qua kẽ lá",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Mũi lao cắm phập vào bắp chân con mồi. Hắn ngã sấp mặt xuống vũng bùn đen.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Lao cắm vào thân cây, tên Goblin lẩn mất vào làn sương mù dày đặc.",
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Dùng sức ném một tảng đá rêu chặn đường",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Tảng đá rơi rầm xuống rễ cây, tên tiểu yêu giật mình vấp ngã vỡ trán. Bạn từ từ bước tới.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bạn trượt tay, tảng đá rơi trúng chân mình khiến bạn ôm chân đau đớn để xổng mồi.",
+        "effects": {
+         "health": -5
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Rượt đuổi đến cùng vào tận hang ổ của chúng",
+       "text": "Hàng chục mũi tên rỉ sét bay ra từ hang tống cổ bạn về.",
+       "effects": {
+        "health": -15
+       },
+       "end": "fail"
+      }
+     ]
+    }
+   ],
+   "complete": "Bạn trở về, hoàn thành \"CUỘC SĂN MỒI DA XANH (BẮT GOBLIN LẠC ĐÀN)\".",
+   "reward": {
+    "wealth": 5,
+    "fame": 5,
+    "guildPts": 1
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Tiếng thét của giống loài yếu ớt luôn là bản nhạc mở màn hoàn hảo cho mọi cuộc đi săn."
+  },
+  {
+   "id": "lizardman_q_phuc_kich_xe_tho_mo_san_dwarf",
+   "org": "lizard_tribe",
+   "name": "PHỤC KÍCH XE THỢ MỎ (SĂN DWARF)",
+   "minRank": 2,
+   "hint": "Vừa. Giáp trụ của Dwarf cực cứng, ưu tiên dùng độc và phá hoại từ xa.",
+   "intro": "Một cỗ xe chở quặng của tộc Dwarf lún bánh ở vùng ven Dãy Núi Răng Cưa. Lớp mỡ dày và tính cố chấp của giống loài này khiến Tà thần Rắn cực kỳ khoái khẩu.",
+   "steps": [
+    {
+     "text": "Tên Dwarf béo lùn vung chiếc búa tạ nặng trịch, toàn thân bọc trong bộ giáp thép kiên cố khó có thể xuyên thủng bằng vuốt thường.",
+     "choices": [
+      {
+       "label": "Tưới nọc độc axit ăn mòn chốt giáp",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Axit chảy vào các khớp nối khiến bộ giáp rít lên, kẹt cứng. Tên Dwarf không thể vung búa."
+       },
+       "fail": {
+        "text": "Bạn tạt nhầm hướng gió, axit bay ngược vào mắt làm mù lòa tạm thời.",
+        "effects": {
+         "health": -10
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Gồng mình đập vỡ khiên thép của hắn",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Cú đập kinh hồn bằng chùy gai làm móp méo chiếc khiên, chấn động đánh ngất luôn gã thợ mỏ.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Búa của Dwarf quật gãy vũ khí của bạn và ném bạn văng xuống đầm lầy.",
+        "effects": {
+         "health": -15
+        }
+       }
+      },
+      {
+       "label": "Nhào tới ôm chặt lấy hắn mà không suy nghĩ",
+       "text": "Cỗ máy thịt và thép lăn vòng, hắn rút dao găm đâm liên tiếp vào sườn bạn.",
+       "effects": {
+        "health": -25
+       },
+       "end": "fail"
+      }
+     ]
+    },
+    {
+     "text": "Gã Dwarf dù giáp đã kẹt nhưng vẫn ngoan cố dùng đôi tay trần siết chặt lấy cổ bạn như cái kìm sắt.",
+     "choices": [
+      {
+       "label": "Trườn lỏng cơ thể nhờ lớp chất nhầy đầm lầy",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Bạn trơn tuột khỏi vòng tay hắn, vặn ngược khớp vai kẻ địch xuống đất.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Hắn siết nát thanh quản của bạn. CHẾT (Đầu bạn bị đập nát bằng búa thợ mỏ)."
+       }
+      },
+      {
+       "label": "Chờ đợi cỗ xe chở quặng sụp lún thêm đè trúng chân hắn",
+       "check": {
+        "stat": "LUCK",
+        "target": 8
+       },
+       "success": {
+        "text": "Mặt bùn nứt toác, thùng xe đổ ụp xuống ghim chặt gã Dwarf tại chỗ vô phương kháng cự.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Xe lún đè trúng đuôi bạn khiến bạn kẹt lại, đành phải tự cắn đứt đuôi bỏ chạy thục mạng.",
+        "effects": {
+         "health": -20
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Bạn trở về, hoàn thành \"PHỤC KÍCH XE THỢ MỎ (SĂN DWARF)\".",
+   "reward": {
+    "wealth": 20,
+    "fame": 10,
+    "guildPts": 1
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Cứ đập vỡ lớp vỏ cứng, phần ruột bên trong luôn mềm mại và đầy máu."
+  },
+  {
+   "id": "lizardman_q_danh_chim_xuong_tuan_tra_san_mao_hiem_gi",
+   "org": "lizard_tribe",
+   "name": "ĐÁNH CHÌM XUỒNG TUẦN TRA (SĂN MẠO HIỂM GIẢ)",
+   "minRank": 2,
+   "hint": "Vừa. Bắt Mạo hiểm giả hạng E. Cần kỹ năng lặn lội tốt. Đừng tham lam nhặt đồ sớm.",
+   "intro": "Guild Bình Minh cử một toán lính mới đi xuồng gỗ vào rập bản đồ Đầm Lầy Tử Khí. Nước là lãnh địa tuyệt đối của Lizardman, và bọn con người này vừa mạo phạm thánh địa.",
+   "steps": [
+    {
+     "text": "Chiếc xuồng lướt chậm trên mặt nước mù sương. Trên đó là hai tên Mạo hiểm giả cầm nỏ chĩa tứ phía. Bạn lặn ngay bên dưới đáy thuyền.",
+     "choices": [
+      {
+       "label": "Quẫy đuôi tạo xoáy nước cực mạnh",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Chiếc thuyền xoay mòng mòng rồi lật úp, hất tung cả hai tên xuống bùn lầy sâu thẳm."
+       },
+       "fail": {
+        "text": "Lực quẫy không đủ, chúng phát hiện bóng đen dưới nước và xả loạt nỏ găm vào vây lưng bạn.",
+        "effects": {
+         "health": -15
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Dùng sừng húc lủng đáy thuyền gỗ",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Gỗ vỡ vụn, nước tràn vào ồ ạt khiến con thuyền chìm nghỉm trong hoảng loạn."
+       },
+       "fail": {
+        "text": "Gỗ lim bọc Tinh Bạc quá cứng, bạn đập vỡ đầu mình và phải trôi đi xoa dịu cơn đau.",
+        "effects": {
+         "health": -10
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Đu bám mạn thuyền và nhặt trộm túi Huyết Kim rồi lặn mất",
+       "text": "Bạn tham tiền hơn làm nhiệm vụ hiến tế. Tiền đầy túi nhưng cuộc đi săn kết thúc hèn mạt.",
+       "effects": {
+        "wealth": 30,
+        "fame": -10
+       },
+       "end": "fail"
+      }
+     ]
+    },
+    {
+     "text": "Bọn Mạo hiểm giả rơi xuống nước, hoảng loạn vung kiếm chém loạn xạ dưới bùn đen nghẹt thở.",
+     "choices": [
+      {
+       "label": "Nín thở lặn sâu rồi tóm chân kéo tuột chúng xuống",
+       "check": {
+        "stat": "health",
+        "target": 70
+       },
+       "success": {
+        "text": "Bạn dìm chúng đến khi những bọt khí giãy giụa cuối cùng tan biến. Bắt sống trong tình trạng ngất xỉu vì sặc.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bọn chúng đạp trúng mặt bạn thoát ra, bơi ngửa được vào bờ và chạy thoát.",
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Né những đường kiếm loạn nhịp rồi điểm huyệt bằng nọc độc",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Nọc độc từ gai ngón tay khiến chúng co giật rồi tê liệt hoàn toàn trên mặt nước.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Một đường kiếm vô tình chẻ đôi bả vai bạn dưới nước. Bạn hoảng loạn bơi bỏ trốn, để lại dải máu dài.",
+        "effects": {
+         "health": -25
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Bạn trở về, hoàn thành \"ĐÁNH CHÌM XUỒNG TUẦN TRA (SĂN MẠO HIỂM GIẢ)\".",
+   "reward": {
+    "wealth": 25,
+    "fame": 15,
+    "guildPts": 1
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Dưới mặt nước đầm lầy, ngay cả Dũng Giả cũng có thể chết sặc như một con nhái bén."
+  },
+  {
+   "id": "lizardman_q_vet_sang_trong_dem_bat_coc_tu_si",
+   "org": "lizard_tribe",
+   "name": "VỆT SÁNG TRONG ĐÊM (BẮT CÓC TU SĨ)",
+   "minRank": 3,
+   "hint": "Khó. Ma pháp ánh sáng khắc hệ cực mạnh. Tuyệt đối không đánh du kích, phải chớp nhoáng.",
+   "intro": "Một Tu sĩ Thánh Quang tập sự lọt vào đầm lầy để hái Thảo dược Huyết Long. Ánh sáng phát ra từ trượng của hắn làm da vảy bạn bỏng rát, nhưng đây chính là tế phẩm thượng hạng mà Tế đàn Huyết Nguyệt khao khát nhất.",
+   "steps": [
+    {
+     "text": "Gã Tu sĩ phát hiện tiếng sột soạt, hắn ngay lập tức tụng chú dựng lên một lớp \"Thánh Thuẫn\" sáng chói, sẵn sàng dùng ma pháp thiêu đốt bạn.",
+     "choices": [
+      {
+       "label": "Ném một nắm bùn nhão hôi thối vào mặt để ngắt niệm chú",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Bùn tạt thẳng vào miệng và mắt hắn, lớp khiên vỡ vụn do mất tập trung, mở toang hàng phòng ngự.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Lớp khiên chặn lại, hắn phản đòn bằng một tia Thánh Quang xuyên thủng bụng bạn.",
+        "effects": {
+         "health": -30
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Cắn răng chịu bỏng lao thẳng qua lớp khiên",
+       "check": {
+        "stat": "health",
+        "target": 70
+       },
+       "success": {
+        "text": "Ánh sáng thiêu xém vảy nhưng bạn gầm lên xé rách lớp khiên, húc văng hắn vỡ mũi.",
+        "effects": {
+         "health": -15
+        }
+       },
+       "fail": {
+        "text": "Cường độ ánh sáng quá mạnh, nướng chín bạn từ trong ra ngoài trước khi chạm được vào hắn. CHẾT (Bạn hóa thành tro bụi)."
+       }
+      },
+      {
+       "label": "Chần chừ không dứt điểm mà rình rập thêm",
+       "text": "Hắn kịp bắn pháo sáng chói lòa lên không trung gọi Thánh Kỵ Sĩ Đoàn tới. Bạn buộc phải rút lui.",
+       "end": "fail"
+      }
+     ]
+    },
+    {
+     "text": "Gã Tu sĩ lùi lại, run rẩy rút ra một con dao găm bạc cầu nguyện Nữ thần Lumina che chở.",
+     "choices": [
+      {
+       "label": "Dùng roi rễ cây tẩm ma túy trói quặp lấy hắn",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Cú quất roi chuẩn xác khóa chặt cổ và tay, độc tính ngấm qua da khiến hắn lịm đi.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Dao găm bạc cắt đứt dây rễ, chém một nhát sâu vào ngực bạn khiến bạn choáng váng ngã gục.",
+        "effects": {
+         "health": -20
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Đạp văng con dao rồi bẻ gãy cổ tay hắn",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Một tiếng \"rắc\" giòn giã vang lên, gã Tu sĩ gào thét đau đớn rồi hoàn toàn khuất phục.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bạn trượt chân đạp hụt, hắn đâm phập con dao bạc vào sườn bạn. Độc tính của bạc xé nát gân cốt.",
+        "effects": {
+         "health": -30
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Bạn trở về, hoàn thành \"VỆT SÁNG TRONG ĐÊM (BẮT CÓC TU SĨ)\".",
+   "reward": {
+    "wealth": 15,
+    "fame": 30,
+    "guildPts": 2
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Thần linh của chúng không có mắt ở vùng bùn lầy tăm tối này."
+  },
+  {
+   "id": "lizardman_q_san_ke_phan_trac_trung_phat_lizardman_lu",
+   "org": "lizard_tribe",
+   "name": "SĂN KẺ PHẢN TRẮC (TRỪNG PHẠT LIZARDMAN LƯU VONG)",
+   "minRank": 3,
+   "hint": "Khó. Mục tiêu cùng loài, rành địa hình và bẫy rập. Dễ chết nếu liều lĩnh.",
+   "intro": "Một tên Lizardman từng thuộc bộ lạc đã phản bội, mang theo mật đồ dâng cho Thương hội Sói Bạc. Tộc trưởng ra lệnh bạn phải mang sống gã về để lột vảy công khai nhằm răn đe.",
+   "steps": [
+    {
+     "text": "Kẻ phản bội đã giăng sẵn một loạt hố chông độc và bẫy dây mây ở lối mòn mà hắn thừa biết đội săn sẽ đi qua.",
+     "choices": [
+      {
+       "label": "Đọc thấu tư duy của đồng loại và chọn đi đường vòng qua vách lún",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Bạn lách qua các góc khuất an toàn, bọc hậu xuất hiện ngay sau lưng kẻ phản bội khiến hắn kinh hãi."
+       },
+       "fail": {
+        "text": "Bạn đoán sai bẫy, đạp trúng một quả nổ bào tử nấm độc khiến lục phủ ngũ tạng quặn thắt.",
+        "effects": {
+         "health": -20
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Nhún mình nhảy vọt qua hàng loạt cạm bẫy bằng kỹ năng",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Những bước nhảy không trọng lượng đưa bạn vượt qua chuỗi bẫy hoàn hảo, bám sát gót kẻ địch."
+       },
+       "fail": {
+        "text": "Cành cây khô gãy gập, bạn rơi thẳng xuống hố chông tẩm phân độc, chịu đau đớn tột cùng.",
+        "effects": {
+         "health": -30
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Thả lũ nô lệ đi trước để dò mìn",
+       "text": "Lũ nô lệ kích hoạt hết bẫy nhưng tiếng ồn khiến kẻ phản bội có thừa thời gian bỏ trốn không để lại dấu vết.",
+       "effects": {
+        "fame": -10
+       },
+       "end": "fail"
+      }
+     ]
+    },
+    {
+     "text": "Bị dồn vào chân tường đá, kẻ phản bội rút ra cặp dao găm xương xẻ thịt tẩm kịch độc, sẵn sàng liều mạng khô máu.",
+     "choices": [
+      {
+       "label": "Dùng sức mạnh áp đảo bẻ gãy cả hai tay hắn",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Sự cuồng bạo nguyên thủy giáng xuống, bạn đánh bật cặp dao găm và vật ngã hắn gãy cả hai khớp vai.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Hắn luồn qua háng bạn, rạch một đường dài từ đùi lên bụng. Ruột gan bạn chực trào ra.",
+        "effects": {
+         "health": -40
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Cố tình đưa bả vai ra đỡ dao để có cơ hội cắn yết hầu hắn",
+       "check": {
+        "stat": "health",
+        "target": 70
+       },
+       "success": {
+        "text": "Mặc kệ chất độc bào mòn, bạn chịu đòn để đổi lấy cú cắn chí mạng khóa chặt cổ họng kẻ phản trắc. Hắn ngất vì thiếu dưỡng khí.",
+        "effects": {
+         "health": -15
+        },
+        "end": "win"
+       },
+       "fail": {
+        "text": "Độc tính mạnh hơn bạn tưởng, làm bạn tê liệt tức khắc. Hắn cười gằn cắt cổ bạn kết liễu. CHẾT (Xác bạn bị thả trôi cho cá sấu)."
+       }
+      },
+      {
+       "label": "Thuyết phục hắn đầu hàng hứa sẽ xin Tộc trưởng tha mạng",
+       "text": "Hắn giả vờ bỏ dao xuống rồi thình lình rút gai ẩn găm thẳng vào tim bạn. CHẾT (Lòng tốt ở đầm lầy luôn là tự sát)."
+      }
+     ]
+    }
+   ],
+   "complete": "Bạn trở về, hoàn thành \"SĂN KẺ PHẢN TRẮC (TRỪNG PHẠT LIZARDMAN LƯU VONG)\".",
+   "reward": {
+    "wealth": 30,
+    "fame": 35,
+    "guildPts": 2
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Máu của kẻ phản bội luôn lạnh và đắng hơn bất cứ sinh vật ngoại lai nào."
+  },
+  {
+   "id": "lizardman_q_hunt_story_1",
+   "org": "lizard_tribe",
+   "name": "Đứa Con Của Rừng Thẳm",
+   "minRank": 2,
+   "hint": "Khó so với bậc thấp. Cần sự cẩn trọng, không được đánh động vệ sĩ.",
+   "intro": "Một cỗ xe ngựa được trang hoàng lộng lẫy bằng lá rụng mạ vàng của tộc Elf đi lạc vào vùng ven đầm lầy. Trong xe là một tinh linh hoàng tộc nhỏ tuổi. Tà thần Rắn cực kỳ khao khát dòng máu thanh khiết ngạo mạn này.",
+   "steps": [
+    {
+     "text": "Bốn tên Ranger tộc Elf gác quanh cỗ xe, chúng giăng những sợi tơ nhện mỏng tang mang ma thuật báo động ra khắp các thân cây.",
+     "choices": [
+      {
+       "label": "Cẩn thận luồn lách qua từng kẽ hở của lưới tơ",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Bạn như một dòng nước trượt qua những sợi tơ vô hình, tiếp cận cỗ xe mà không ai hay biết."
+       },
+       "fail": {
+        "text": "Đuôi bạn vô tình gạt trúng một sợi, tiếng chuông báo động ré lên xé tai. Bạn dính trọn một cơn mưa tên tẩm độc.",
+        "effects": {
+         "health": -25
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Dùng bùn và rêu đắp lên tơ để vô hiệu hóa ma pháp",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Ma pháp của Elf bị bùn lầy tử khí làm cho mù quáng. Mạng lưới phòng thủ sụp đổ trong im lặng."
+       },
+       "fail": {
+        "text": "Bùn lầy làm tơ rung bần bật, các Elf ngay lập tức rút gươm xông tới chém bạn tơi tả.",
+        "effects": {
+         "health": -20
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Lên tiếng thách thức từ xa hòng dụ chúng rời xe",
+       "require": {
+        "STR": 6
+       },
+       "showLocked": true,
+       "text": "Kế hoạch ngu ngốc. Chúng không rời vị trí mà giương cung bắn mù một mắt bạn.",
+       "effects": {
+        "INT": -1,
+        "health": -30
+       },
+       "end": "fail"
+      }
+     ]
+    },
+    {
+     "text": "Tên Đội trưởng Ranger phát giác ra tiếng động, hắn rút thanh kiếm cong nhọn hoắt bước thẳng về phía bụi rậm bạn đang núp.",
+     "choices": [
+      {
+       "label": "Bật dậy đâm xuyên họng hắn bằng một đòn chớp nhoáng",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Lưỡi giáo xương xuyên thẳng yết hầu, hắn gục xuống không phát ra nổi một tiếng kêu."
+       },
+       "fail": {
+        "text": "Hắn gạt phăng mũi giáo, chém đứt ba ngón tay của bạn rồi hét lớn gọi hội.",
+        "effects": {
+         "health": -20
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Gồng vảy chịu một kiếm rồi quật ngã hắn bằng sức mạnh",
+       "check": {
+        "stat": "health",
+        "target": 70
+       },
+       "success": {
+        "text": "Kiếm chém vào bả vai bạn nảy tia lửa, bạn cắn răng lao tới ôm chầm lấy hắn và vặn gãy cổ.",
+        "effects": {
+         "health": -10
+        }
+       },
+       "fail": {
+        "text": "Lưỡi kiếm ma thuật chém xuyên vảy, cưa đứt nửa bên sườn khiến bạn gục ngã hoàn toàn.",
+        "effects": {
+         "health": -35
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Kéo tấm rèm lá sồi ra, bạn đối mặt với một tinh linh nhỏ tuổi đang cầm dao găm rơm rớm nước mắt vì sợ hãi.",
+     "choices": [
+      {
+       "label": "Tỏa sát khí đè bẹp ý chí phản kháng của con mồi",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Đứa trẻ buông dao, quỳ sụp xuống run rẩy tột độ. Bạn tóm lấy gáy nó như xách một con thỏ.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Đứa trẻ liều chết đâm dao vỡ mắt cá chân bạn trước khi bạn kịp phản ứng.",
+        "effects": {
+         "health": -10
+        },
+        "end": "win"
+       }
+      },
+      {
+       "label": "Tạt bột nấm độc vào mặt cho ngất xỉu",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Lớp bụi độc phả ra, đứa trẻ lịm đi. Bạn nhẹ nhàng đóng gói tế phẩm gọn gàng.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bột nấm bay ngược gió vì luồng phép bảo vệ của Elf, bạn hít phải và ho rũ rượi, buộc phải bắt tay không.",
+        "effects": {
+         "health": -5
+        },
+        "end": "win"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Bạn trở về, hoàn thành \"Đứa Con Của Rừng Thẳm\".",
+   "reward": {
+    "wealth": 30,
+    "fame": 20,
+    "guildPts": 2
+   },
+   "weight": 4,
+   "moment": "Máu thanh khiết của giống loài tự xưng là \"con của rừng\" cũng chỉ để nhuộm đỏ nanh vuốt kẻ săn mồi."
+  },
+  {
+   "id": "lizardman_q_hunt_story_2",
+   "org": "lizard_tribe",
+   "name": "Kẻ Trộm Tế Đàn",
+   "minRank": 3,
+   "hint": "Rất Khó. Mục tiêu là Mạo hiểm giả hạng A cực kỳ nguy hiểm. Phải dùng độc.",
+   "intro": "Một tên Thief (Đạo tặc) lén lút cuỗm mất viên Huyết Ngọc Tà Thần ngay trên bệ đá thiêng rồi chạy trốn. Tộc trưởng điên tiết phát lệnh săn lùng. Đây là cơ hội để bạn ghi tên vào lịch sử bộ lạc.",
+   "steps": [
+    {
+     "text": "Tên Đạo tặc mang giày ma pháp \"Phong Bộ\", hắn chạy lướt trên mặt bùn không để lại dấu vết rõ ràng, tốc độ cực nhanh hướng về Thảo Nguyên Gió Hú.",
+     "choices": [
+      {
+       "label": "Quan sát các vệt sương mù bị khuấy động",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Con mắt tinh tường của đầm lầy nhận ra luồng không khí bất thường. Bạn cắt rừng đi đường tắt đón đầu hắn."
+       },
+       "fail": {
+        "text": "Bạn chạy theo bóng ma, cuối cùng lạc vào ổ của bọn Nhện Khổng Lồ và phải bỏ chạy trối chết.",
+        "effects": {
+         "health": -25
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Hít thở sâu, truy tìm mùi của viên Huyết Ngọc",
+       "check": {
+        "stat": "LUCK",
+        "target": 8
+       },
+       "success": {
+        "text": "Mùi tử khí quen thuộc dẫn đường, bạn bắt kịp hắn đang nghỉ chân bên một gốc cây mục."
+       },
+       "fail": {
+        "text": "Mùi bùn thối lấn át mọi thứ, bạn đánh mất dấu vết vĩnh viễn và bị Tộc trưởng phạt vạ.",
+        "effects": {
+         "fame": -20
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Bạn vừa tiếp cận thì tên Đạo tặc bất ngờ tàng hình, không khí lạnh buốt sát khí từ phía sau lưng bạn bùng nổ.",
+     "choices": [
+      {
+       "label": "Gồng người quay lại giáng chùy mù quáng",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Chùy quật trúng lớp không khí, đập gãy cánh tay cầm dao của hắn, ép hắn hiện hình gào thét."
+       },
+       "fail": {
+        "text": "Nhát dao găm đâm ngập lưng bạn, sát thủ rạch một đường dài khiến máu chảy lênh láng.",
+        "effects": {
+         "health": -35
+        }
+       }
+      },
+      {
+       "label": "Nhào lộn xuống bùn theo phản xạ",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Lưỡi dao sượt qua một mảnh vảy, bạn an toàn lăn ra xa và rút giáo vào thế thủ."
+       },
+       "fail": {
+        "text": "Động tác chần chừ khiến hắn găm dao trúng sườn bạn. Độc từ dao sát thủ ngấm vào máu.",
+        "effects": {
+         "AGI": -1,
+         "health": -25
+        }
+       }
+      }
+     ]
+    },
+    {
+     "text": "Gã Đạo tặc nhận ra không thể trốn, hắn ném viên ngọc xuống bùn rồi tung ra một đống bùa nổ hòng dọn đường máu chạy trối chết.",
+     "choices": [
+      {
+       "label": "Phóng lao kết liễu hắn ngay trong làn khói nổ",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Mũi lao cắm phập vào gáy tên Đạo tặc, ghim xác hắn xuống bùn lạnh. Viên ngọc được an toàn.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Lao trượt mục tiêu. Bùa nổ thổi bay bạn, hắn lượm lại viên ngọc rồi biến mất vào không trung.",
+        "effects": {
+         "health": -30
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Mặc kệ hắn, lao vào lấy thân mình che chở viên Huyết Ngọc",
+       "check": {
+        "stat": "health",
+        "target": 70
+       },
+       "success": {
+        "text": "Vảy lưng bạn nát tươm vì sức ép vụn nổ, nhưng ngọc thiêng không sứt mẻ. Hắn chạy thoát nhưng bạn đã hoàn thành nhiệm vụ bảo vệ thánh tích.",
+        "effects": {
+         "health": -20
+        },
+        "end": "win"
+       },
+       "fail": {
+        "text": "Khối thuốc nổ hất văng cả bạn lẫn viên ngọc xuống đáy vực. Ngọc mất, bạn mang thân tàn phế.",
+        "effects": {
+         "health": -40,
+         "fame": -40
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Bạn trở về, hoàn thành \"Kẻ Trộm Tế Đàn\".",
+   "reward": {
+    "INT": 2,
+    "wealth": 40,
+    "fame": 40,
+    "flags": [
+     "sacred_retriever"
+    ]
+   },
+   "weight": 4,
+   "moment": "Đồ của Tà thần thì vĩnh viễn là của Tà thần, kẻ phàm trần lấy đi sẽ trả giá bằng máu."
+  },
+  {
+   "id": "lizardman_q_hunt_story_3",
+   "org": "lizard_tribe",
+   "name": "Sự Ngạo Mạn Của Dũng Giả",
+   "minRank": 4,
+   "hint": "Cực Khó. Đối đầu với một Dũng Giả (Hero) trẻ tuổi. Ma pháp cực mạnh, nhưng thiếu kinh nghiệm thực chiến đầm lầy.",
+   "intro": "Một Dũng Giả mang thanh Thánh Kiếm phát sáng hùng hổ dẫn tổ đội tiến vào Đầm Lầy Tử Khí với tuyên bố sẽ thanh tẩy mọi dị giáo. Giết Dũng Giả là vinh quang tối thượng, nhưng mang sống Dũng Giả về tế thần lại là một bản hùng ca bất diệt.",
+   "steps": [
+    {
+     "text": "Dũng Giả cắm kiếm xuống đất, phóng ra một vòng tròn ma pháp ánh sáng thiêu rụi lớp bùn và rễ cây độc trên diện rộng để dọn đường.",
+     "choices": [
+      {
+       "label": "Dẫn đội săn lặn sâu xuống tầng bùn cổ đại để né tránh",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Ánh sáng quét qua mặt nước sôi sục, nhưng đội của bạn an toàn dưới lớp bùn dày. Bạn lặng lẽ bơi bọc hậu."
+       },
+       "fail": {
+        "text": "Lặn chậm một nhịp, ánh sáng xuyên thấu nướng chín hai tên thuộc hạ, bạn cũng bị phỏng nặng.",
+        "effects": {
+         "health": -25,
+         "fame": -10
+        }
+       }
+      },
+      {
+       "label": "Đẩy bầy ma thú đầm lầy ra làm bia đỡ đạn",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Bầy cá sấu và Slime hứng trọn đòn tấn công, ma pháp của Dũng Giả yếu đi rõ rệt."
+       },
+       "fail": {
+        "text": "Ma thú hoảng loạn quay lại giẫm đạp lên chính đội hình của bạn.",
+        "effects": {
+         "health": -20
+        }
+       }
+      }
+     ]
+    },
+    {
+     "text": "Sau đòn diện rộng, Dũng Giả bắt đầu thở dốc. Bạn nhảy khỏi mặt nước, nhắm thẳng vào tổ đội hỗ trợ của hắn (một Tu sĩ và một Pháp sư).",
+     "choices": [
+      {
+       "label": "Cầm giáo đâm xuyên ngực tên Pháp sư áo vải",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Tên Pháp sư gục ngã trước khi kịp niệm chú, tổ đội của Dũng Giả mất hỏa lực tuyến sau."
+       },
+       "fail": {
+        "text": "Lớp khiên mana chặn đứng giáo của bạn, Pháp sư đáp trả bằng một quả cầu lửa thiêu cháy ngực bạn.",
+        "effects": {
+         "health": -30
+        }
+       }
+      },
+      {
+       "label": "Phóng phi tiêu tẩm độc vào Tu sĩ hồi máu",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Phi tiêu găm vào cổ họng, Tu sĩ sùi bọt mép gục xuống. Dũng Giả gầm lên phẫn nộ trong tuyệt vọng."
+       },
+       "fail": {
+        "text": "Dũng Giả kịp thời vung kiếm chém đứt phi tiêu, phán xét bạn bằng một đường kiếm rạch mặt.",
+        "effects": {
+         "health": -20,
+         "fame": -5
+        }
+       }
+      }
+     ]
+    },
+    {
+     "text": "Mất đi đồng đội, Dũng Giả phát điên. Hắn giương cao Thánh Kiếm, chuẩn bị tung đòn chém dốc toàn lực có thể bổ đôi một con rồng.",
+     "choices": [
+      {
+       "label": "Dùng khiên xương Cổ thằn lằn chặn đứng đòn chém",
+       "check": {
+        "stat": "health",
+        "target": 70
+       },
+       "success": {
+        "text": "Khiên nứt toác, xương sườn bạn rạn nứt nhưng bạn cản được đòn tất sát. Ánh sáng của Thánh Kiếm tắt lịm."
+       },
+       "fail": {
+        "text": "Đòn chém bổ đôi khiên, chặt đứt lìa một cánh tay của bạn.",
+        "effects": {
+         "health": -45,
+         "joy": -20
+        }
+       }
+      },
+      {
+       "label": "Nhường bước, ném {ally} ra cản mũi kiếm",
+       "text": "Ác mộc vô tình. Thánh Kiếm chém {ally} thành hai nửa. Dũng Giả kiệt sức đổ gục gối."
+      }
+     ]
+    },
+    {
+     "text": "Dũng Giả tay run rẩy, đứng không vững trên lớp bùn. Đây là khoảnh khắc quyết định để bắt sống hắn.",
+     "choices": [
+      {
+       "label": "Đá văng Thánh Kiếm rồi đập gãy hai cẳng chân hắn",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Hai tiếng \"rắc\" vang lên, người hùng kiêu ngạo đổ gục xuống bùn, gào thét trong bất lực.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Hắn gom chút sức tàn chém một nhát sượt qua cổ bạn, suýt chút nữa lấy mạng bạn trước khi gục ngã.",
+        "effects": {
+         "health": -20
+        },
+        "end": "win"
+       }
+      },
+      {
+       "label": "Xiết cổ hắn bằng rễ cây tẩm nọc mê",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Độc tính len lỏi vào huyết quản, hắn trợn ngược mắt lịm đi. Cuộc săn hoàn mỹ không đổ thêm máu.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Hắn kháng độc tốt hơn bạn nghĩ, bật dậy tung một cú đấm vào mõm bạn vỡ răng rồi tự sát để không bị bắt.",
+        "effects": {
+         "health": -10
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Bạn trở về, hoàn thành \"Sự Ngạo Mạn Của Dũng Giả\".",
+   "reward": {
+    "STR": 2,
+    "wealth": 50,
+    "fame": 50,
+    "guildPts": 3
+   },
+   "weight": 4,
+   "moment": "Không có cái gọi là ánh sáng chính nghĩa, chỉ có sức mạnh của kẻ cắn phập vào yết hầu đối phương trước."
+  },
+  {
+   "id": "lizardman_q_hunt_story_4",
+   "org": "lizard_tribe",
+   "name": "Nhật Thực Huyết Lục (Huyền Thoại)",
+   "minRank": 6,
+   "hint": "Huyền Thoại. Mục tiêu là Thánh Nữ Tối Cao của Giáo hội Thánh Quang. Ma pháp ánh sáng tối thượng, Kỵ sĩ bảo vệ trùng trùng.",
+   "intro": "Hàng trăm năm qua, chưa một sinh vật hắc ám nào dám đụng đến cỗ xe hành hương của Thánh Nữ Tối Cao - hiện thân của Nữ thần Lumina. Nhưng với tư cách là Grand Warchief vĩ đại nhất, bạn quyết định xé rách bầu trời của Sanctus bằng cuộc săn đẫm máu chưa từng có trong lịch sử để hiến tế nàng cho Tà thần Rắn.",
+   "steps": [
+    {
+     "text": "Đoàn xe của Thánh Nữ đi qua ranh giới Đồng Bằng Thánh Quang. Hàng rào phòng thủ ma pháp tỏa sáng rực rỡ chặn mọi sinh vật tử khí.",
+     "choices": [
+      {
+       "label": "Dùng máu của chính mình tế lên vũ khí để phá vỡ kết giới",
+       "check": {
+        "stat": "health",
+        "target": 70
+       },
+       "success": {
+        "text": "Bạn hiến tế sinh lực, ngọn giáo tỏa ra sắc đen tuyệt vọng đâm thủng màn chắn ánh sáng vỡ vụn như pha lê.",
+        "effects": {
+         "health": -20
+        }
+       },
+       "fail": {
+        "text": "Ánh sáng thiêu đốt nội tạng bạn từ bên trong, gục ngã thổ huyết. Cuộc phản công của lính gác bắt đầu.",
+        "effects": {
+         "health": -40
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Dẫn đường vòng qua hệ thống cống ngầm của Sanctus",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Đội quân bùn lầy chui lên từ hầm ngục, đánh úp đoàn hộ tống từ bên trong mà không chạm vào kết giới."
+       },
+       "fail": {
+        "text": "Cống ngầm bị ngập nước thánh, da thịt bạn bị luộc chín trong thứ nước ánh sáng đó.",
+        "effects": {
+         "health": -35
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Bảy tên Paladin cấp cao mặc giáp mạ vàng lập đội hình Tường Khiên Ánh Sáng chặn đường tới cỗ xe thiêng.",
+     "choices": [
+      {
+       "label": "Hóa cuồng nộ nguyên thủy, nghiền nát khiên giáp bằng bạo lực",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Cánh tay khổng lồ của bạn quật nát tấm khiên đầu tiên, đấm vỡ lồng ngực tên Paladin, tạo lỗ hổng cho bộ lạc tràn vào."
+       },
+       "fail": {
+        "text": "Bảy lưỡi thương ánh sáng đâm thủng vảy bạn cùng lúc, đóng đinh bạn xuống mặt đường đá.",
+        "effects": {
+         "health": -50
+        }
+       }
+      },
+      {
+       "label": "Dùng bão độc che mắt và tàn sát trong sương",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Làn khói xanh ăn mòn đôi mắt kẻ địch, bạn lướt qua như bóng ma cắt đứt từng cuống họng của bọn Kỵ Sĩ."
+       },
+       "fail": {
+        "text": "Phép thanh tẩy thổi bay làn khói, bạn đứng trơ trọi giữa vòng vây gươm giáo chói lòa.",
+        "effects": {
+         "health": -30
+        }
+       }
+      }
+     ]
+    },
+    {
+     "text": "Khi bạn vung tay xé toạc rèm xe, một luồng ánh sáng kinh hoàng từ Thánh Nữ phát nổ, hất văng mọi tội lỗi ra xa mười trượng.",
+     "choices": [
+      {
+       "label": "Cắm giáo xuống đất, gồng mình chịu đựng sức ép",
+       "check": {
+        "stat": "health",
+        "target": 70
+       },
+       "success": {
+        "text": "Vảy sừng nứt nẻ rỉ máu toàn thân, nhưng bóng dáng vĩ đại của bạn không lùi nửa bước, từ từ tiến lại gần ánh sáng.",
+        "effects": {
+         "health": -25
+        }
+       },
+       "fail": {
+        "text": "Luồng sáng thổi bay bạn đập vào vách núi, mọi đốt sống lưng vỡ vụn.",
+        "death": "Luồng sáng thổi bay bạn đập vào vách núi, mọi đốt sống lưng vỡ vụn."
+       }
+      },
+      {
+       "label": "Kêu gọi ảo ảnh Tà thần Rắn từ trong tâm trí chống lại",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Ma lực hắc ám bọc lấy bạn, trung hòa phép thanh tẩy thành những đốm lửa tàn. Bạn an toàn bước tới.",
+        "effects": {
+         "INT": 2
+        }
+       },
+       "fail": {
+        "text": "Tâm trí bạn sụp đổ trước thần uy của Lumina, trở nên phát điên mà tự cào cấu bản thân.",
+        "effects": {
+         "INT": -2,
+         "health": -30
+        }
+       }
+      }
+     ]
+    },
+    {
+     "text": "Thánh Nữ chắp tay cầu nguyện, đôi mắt đẫm lệ nhìn bạn. Nàng không có vũ khí, nhưng hào quang của nàng có thể biến ác quỷ thành tro.",
+     "choices": [
+      {
+       "label": "Nhẫn tâm tóm lấy mái tóc vàng rực rỡ và đập ngất nàng",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Cú đập tàn bạo dập tắt hào quang. Thánh Nữ lịm đi trong bàn tay khổng lồ dính máu của bạn."
+       },
+       "fail": {
+        "text": "Tay bạn bị phỏng nặng khi chạm vào tóc nàng, hào quang nổ tung hất văng bạn vỡ sọ.",
+        "death": "Tay bạn bị phỏng nặng khi chạm vào tóc nàng, hào quang nổ tung hất văng bạn vỡ sọ."
+       }
+      },
+      {
+       "label": "Dùng phong ấn Hắc Nguyệt khóa chặt ma mạch của nàng",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Dòng chú hắc ám trói buộc cơ thể nàng, hào quang thiêng liêng tắt lịm, nàng rơi vào giấc ngủ tà giáo."
+       },
+       "fail": {
+        "text": "Phong ấn bị bật ngược lại, khóa chặt toàn bộ ma lực và cơ bắp của chính bạn.",
+        "effects": {
+         "health": -40
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Bắt được Thánh Nữ, nhưng toàn bộ quân đội Thánh Quang đang điên cuồng đuổi theo bạn phía sau. Bạn phải về đích.",
+     "choices": [
+      {
+       "label": "Ở lại cản hậu, để đồng loại vác Thánh Nữ về Tế đàn",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Bạn như một vị quỷ thần chặn đứng khe núi, đẫm máu hàng ngàn lính gác cho đến khi Tế lễ hoàn thành. Bầu trời chuyển sang màu đỏ máu.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bị dìm chết trong biển người Thánh Quang. Dù Thánh Nữ bị bắt, bạn không còn sống để hưởng vinh quang. CHẾT (Hiến thân cho tà đạo)."
+       }
+      },
+      {
+       "label": "Vác Thánh Nữ trên vai, nhảy xuống dòng thác nước xiết trốn thoát",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Bạn cùng con mồi lao thẳng xuống dòng thác bọt trắng xóa, trốn thoát ngoạn mục về tận hang sâu của Tế đàn.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Đá ngầm đánh vỡ xương sống bạn trên đường rơi. Lính Thánh Quang bám theo cứu được Thánh Nữ.",
+        "effects": {
+         "health": -50
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Bạn trở về, hoàn thành \"Nhật Thực Huyết Lục (Huyền Thoại)\".",
+   "reward": {
+    "STR": 5,
+    "INT": 5,
+    "fame": 100,
+    "flags": [
+     "saintess_captor"
+    ]
+   },
+   "weight": 4,
+   "moment": "Ngay cả thánh thần cũng có thể chảy máu, và máu của chúng ngọt hơn mọi sinh linh bẩn thỉu trên cõi đời này."
+  },
+  {
+   "id": "lizardman_q_hunt_era_war",
+   "org": "lizard_tribe",
+   "name": "Tàn Dư Của Trận Huyết Chiến",
+   "minRank": 3,
+   "hint": "Dễ hốt bạc. Tận dụng cơ hội chiến tranh giữa các phe phái để thu thập mẻ lưới lớn.",
+   "intro": "Cuộc chiến giữa Thánh Kỵ Sĩ Đoàn và Quân đoàn Ma Vương nổ ra sát rìa Đầm Lầy Tử Khí. Cả hai bên đều tổn thất nặng nề, những kẻ đào ngũ và thương binh đang thoi thóp tháo chạy vào lãnh địa của bạn.",
+   "steps": [
+    {
+     "text": "Một gã Kỵ sĩ Nhân loại gãy tay và một tên Orc chặt cụt chân đang dìu nhau lết qua bãi bùn lún, tạm thời quên đi thù hận vì kiệt sức.",
+     "choices": [
+      {
+       "label": "Trực diện lao ra đánh gục cả hai cùng lúc",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Chùy gai vung lên đập choáng tên Orc rồi hất tung gã Kỵ sĩ. Bạn trói gộp cả hai làm một nải tế phẩm.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Sự phản kháng sinh tồn khiến tên Orc húc đầu vào ngực bạn, gã Kỵ sĩ cầm dao đâm sượt cổ.",
+        "effects": {
+         "health": -20
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Bắn tên tẩm độc tê liệt từ xa để tránh rủi ro",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Hai mũi tên găm phập vào đùi, chúng lảo đảo vài bước rồi gục úp mặt xuống bùn, lịm đi.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bạn bắn trượt. Chúng nhận ra có mai phục, bèn tự sát luôn để không rơi vào tay dị giáo.",
+        "effects": {
+         "fame": -10
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Bạn trở về, hoàn thành \"Tàn Dư Của Trận Huyết Chiến (Thời đại: Chiến Tranh Tuyến Đầu)\".",
+   "reward": {
+    "wealth": 30,
+    "fame": 15,
+    "guildPts": 1
+   },
+   "weight": 4,
+   "eras": [
+    "holy_war"
+   ],
+   "moment": "Kẻ nhặt nhạnh chiến trường luôn là người chiến thắng cuối cùng của mọi cuộc chiến."
+  },
+  {
+   "id": "lizardman_q_hunt_era_demon",
+   "org": "lizard_tribe",
+   "name": "Kẻ Bề Trên Xấc Xược",
+   "minRank": 4,
+   "hint": "Rất Khó. Đối đầu với quỷ cấp cao có ma thuật hắc ám vượt trội.",
+   "intro": "Quân đoàn Ma Vương ép các bộ lạc ma vật nhỏ phải quy phục. Một tên High Demon (Ác Ma Cấp Cao) mặc áo choàng đỏ kiêu ngạo lướt qua mặt bùn, đòi bộ lạc của bạn giao nộp toàn bộ trứng chưa nở làm lương thực. Hắn đã phạm vào điều cấm kỵ cốt lõi của đầm lầy.",
+   "steps": [
+    {
+     "text": "Tên High Demon phóng ra những quả cầu Hắc Viêm (Lửa đen) thiêu rụi bãi rêu, cười gằn miệt thị sự bẩn thỉu của Lizardman.",
+     "choices": [
+      {
+       "label": "Kháng cự bằng lớp giáp vảy đầm lầy để áp sát",
+       "check": {
+        "stat": "health",
+        "target": 70
+       },
+       "success": {
+        "text": "Hắc Viêm đốt cháy da nhưng bạn gầm lên, xông thẳng qua bức tường lửa và tóm lấy cổ áo hắn vứt xuống bùn."
+       },
+       "fail": {
+        "text": "Ngọn lửa địa ngục nuốt chửng bạn. CHẾT (Trở thành tro bụi dưới chân lũ quỷ)."
+       }
+      },
+      {
+       "label": "Lặn xuống hồ nước, kéo hắn xuống trận chiến thủy cung",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Hắn trượt chân ngã xuống nước, Hắc Viêm bị dập tắt, hắn mất đi lợi thế bay lượn và hoảng loạn chống đỡ."
+       },
+       "fail": {
+        "text": "Hắn đập cánh bay lên cao kịp lúc, gọi sấm sét hắc ám nã xuống hồ giật tung xác bạn.",
+        "effects": {
+         "health": -40
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Dưới lớp bùn sâu, tên High Demon giãy giụa cào cấu. Đôi cánh dơi của hắn bị kẹt cứng trong rễ cây đầm lầy.",
+     "choices": [
+      {
+       "label": "Dùng vuốt móc thủng lá phổi của hắn",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Máu quỷ đen ngòm tuôn ra nhuộm đen cả một vùng nước. Hắn lịm dần trong sự ngạt thở và đau đớn.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Hắn phóng ma lực bật ngược bạn ra, móng vuốt quỷ xuyên qua bụng bạn kéo theo đoạn ruột đẫm máu.",
+        "effects": {
+         "health": -35
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Trói chặt đôi cánh bằng dây mây độc rồi lôi lên bờ",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Bị khóa chặt đôi cánh và ngấm độc làm tê liệt ma lực, tên quỷ hùng mạnh gào thét bất lực khi bị lôi xềnh xệch.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Hắn niệm chú nổ tung dây trói, giáng một cú đạp nát ngực bạn rồi bay vút lên không trung trốn thoát.",
+        "effects": {
+         "health": -25
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Bạn trở về, hoàn thành \"Kẻ Bề Trên Xấc Xược (Thời đại: Ma Vương Giáng Thế)\".",
+   "reward": {
+    "STR": 2,
+    "INT": 1,
+    "wealth": 40,
+    "fame": 50,
+    "guildPts": 2
+   },
+   "weight": 4,
+   "eras": [
+    "demon_lord"
+   ],
+   "moment": "Đầm lầy không quan tâm ngươi là phàm nhân hay ác quỷ, ở đây, chìm xuống bùn là cách duy nhất để sinh tồn."
+  }
+ ],
+ "events": [
+  {
+   "id": "lizard_parent_1",
+   "text": "{father} kéo bạn xuống vùng nước xiết ngập bùn, ép bạn tự dùng vây sừng để né đòn tấn công của một con cá sấu đầm lầy non.",
+   "stages": [
+    "infant"
+   ],
+   "focus": [
+    "play"
+   ],
+   "require": {
+    "fatherAlive": true
+   },
+   "choices": [
+    {
+     "label": "Phản kháng điên cuồng bằng móng vuốt",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn cào rách mí mắt con mồi, khiến {father} gật đầu gừ lên hài lòng.",
+      "effects": {
+       "STR": 1,
+       "joy": 2
+      }
+     },
+     "fail": {
+      "text": "Bạn bị quật văng vào rễ cây ngập nước, nuốt trọn ngụm bùn đắng ngắt.",
+      "effects": {
+       "health": -5,
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Nằm im giả chết theo bản năng ẩn nấp",
+     "text": "Bạn thu mình hoàn toàn dưới lớp bùn đen cho đến khi con cá sấu bơi qua.",
+     "effects": {
+      "AGI": 1,
+      "fame": 1
+     }
+    },
+    {
+     "label": "Cầu cứu sự bảo vệ của {father}",
+     "require": {
+      "INT": 5
+     },
+     "showLocked": true,
+     "text": "Bạn cất tiếng kêu é é cầu cứu, nhưng chỉ nhận lại cái nhìn khinh bỉ từ {father}.",
+     "effects": {
+      "joy": -13
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_parent_2",
+   "text": "{mother} nhiễm loại nấm độc tử khí toàn thân, cơ thể đóng vảy trắng và bắt đầu lở loét.",
+   "stages": [
+    "teen"
+   ],
+   "require": {
+    "motherAlive": true
+   },
+   "choices": [
+    {
+     "label": "Lặn sâu tìm Thảo dược Huyết Long dưới vực sâu",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn né được bầy đỉa khổng lồ để mang về cành thảo dược cứu mạng {mother}.",
+      "effects": {
+       "health": 5,
+       "joy": 7,
+       "flags": [
+        "swamp_born"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn bị đỉa hút máu suýt chết, tay không lê lết bò về bộ lạc.",
+      "effects": {
+       "health": -20,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Dùng nọc độc của chính mình để lọc máu cho mẹ",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Độc tính trung hòa giúp {mother} qua cơn nguy kịch nhưng để lại di chứng.",
+      "effects": {
+       "INT": 1,
+       "wealth": -5
+      }
+     },
+     "fail": {
+      "text": "Sai lầm nhỏ khiến độc phát tác nhanh hơn, đẩy {mother} đến bờ vực cái chết.",
+      "effects": {
+       "joy": -20
+      }
+     }
+    },
+    {
+     "label": "Bỏ mặc tự nhiên theo luật sinh tử của loài",
+     "text": "Bạn lạnh lùng quay lưng rời khỏi lều theo đúng quy luật tàn nhẫn của đầm lầy.",
+     "effects": {
+      "joy": -32,
+      "fame": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_parent_3",
+   "text": "Trong nghi lễ chọn phối ngẫu, {father} ra lệnh cho bạn phải nhường chiến lợi phẩm và bạn đời cho một chiến binh trẻ hơn được Tư tế sủng ái.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "social"
+   ],
+   "require": {
+    "fatherAlive": true
+   },
+   "choices": [
+    {
+     "label": "Thách đấu trực diện {father} để bảo vệ người thương",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn quật ngã người sinh thành dưới lớp bùn, khẳng định vị thế độc tôn của thủ lĩnh mới.",
+      "effects": {
+       "STR": 2,
+       "joy": -33,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Sức già của {father} vẫn đủ đè bẹp sự ngạo mạn của bạn trước toàn bộ bộ lạc.",
+      "effects": {
+       "health": -25,
+       "joy": -15,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Cắn răng nhẫn nhịn, tuân theo lệnh {father}",
+     "text": "Bạn cúi đầu khuất phục trước uy quyền lâu năm của người đứng đầu gia tộc.",
+     "effects": {
+      "joy": -20,
+      "wealth": 10,
+      "fame": -10
+     }
+    },
+    {
+     "label": "Lén lút đưa bạn đời trốn khỏi đầm lầy vào đêm tối",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Cả hai vượt qua vòng vây truy sát, bắt đầu cuộc sống lưu vong ngoài đầm lầy.",
+      "effects": {
+       "AGI": 2,
+       "wealth": -15,
+       "flags": [
+        "escaped_slave"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bị phát hiện, bạn bị trừng phạt bằng những nhát roi gai độc thấu xương.",
+      "effects": {
+       "health": -30,
+       "joy": -25
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_parent_4",
+   "text": "Hơi thở của {mother} cuối cùng cũng tắt bên vũng nước lầy quen thuộc. Bạn phải tiến hành nghi lễ hiến tế cuối cùng cho thi hài họ theo phong tục tà giáo.",
+   "stages": [
+    "middle"
+   ],
+   "focus": [
+    "rest"
+   ],
+   "require": {
+    "any": [
+     {
+      "fatherAlive": false
+     },
+     {
+      "motherAlive": false
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Tổ chức nghi lễ hiến tế tà thần long trọng nhất",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Tà thần Rắn chấp nhận linh hồn người đã khuất, ban cho bạn phúc lành hắc ám.",
+      "effects": {
+       "INT": 2,
+       "wealth": -20,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Nghi lễ phạm thượng khiến bầy ma vật quấy phá đầm lầy suốt mùa khô.",
+      "effects": {
+       "health": -10,
+       "joy": -15
+      }
+     }
+    },
+    {
+     "label": "Tự tay ăn phần thịt thi hài theo truyền thống bộ lạc",
+     "text": "Bạn nuốt trọn sự đau thương để hấp thụ sức mạnh nguyên thủy từ người sinh thành.",
+     "effects": {
+      "STR": 2,
+      "health": 10,
+      "fame": 5
+     }
+    },
+    {
+     "label": "Lén chôn cất thi hài trái với luật đầm lầy",
+     "require": {
+      "INT": 6
+     },
+     "showLocked": true,
+     "text": "Bạn mang thi hài giấu vào hang đá bí mật, vấp phải sự nguyền rủa từ các Tư tế khác.",
+     "effects": {
+      "joy": -10,
+      "wealth": -10,
+      "fame": -20
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_war_1",
+   "text": "Một toán Beastman tộc Trâu nước hung hãn đi lạc vào bãi săn của bộ lạc, phá nát các cạm bẫy.",
+   "stages": [
+    "teen"
+   ],
+   "require": {
+    "job": "lizard_warrior"
+   },
+   "choices": [
+    {
+     "label": "Trực tiếp lao ra khô máu",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Ngọn giáo của bạn xuyên thủng lớp da dày của gã thủ lĩnh, khiến những tên còn lại hoảng loạn tháo chạy.",
+      "effects": {
+       "STR": 1,
+       "wealth": 5,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Cú húc sừng như trời giáng hất văng bạn vào gốc cây cổ thụ, gãy nát ba dẻ sườn.",
+      "effects": {
+       "health": -20,
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Dụ chúng lún vào hố bùn sâu",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bọn Beastman ngu ngốc sa lầy, trở thành bia tập phóng lao tuyệt vời cho đội săn.",
+      "effects": {
+       "INT": 1,
+       "wealth": 10
+      }
+     },
+     "fail": {
+      "text": "Chúng nhận ra cạm bẫy vào phút chót và quay sang nghiền nát đội của bạn.",
+      "effects": {
+       "health": -15,
+       "fame": -2
+      }
+     }
+    },
+    {
+     "label": "Lẩn trốn nhường công cho kẻ khác",
+     "text": "Bạn lùi lại vào bóng tối, để mặc đội trưởng lĩnh trọn cơn thịnh nộ của bầy thú.",
+     "effects": {
+      "fame": -5
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_war_2",
+   "text": "Trong một thi hài Mạo hiểm giả đang phân hủy, {ally} nhặt được một chiếc khiên đúc từ Tinh Bạc và muốn giữ làm của riêng.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "require": {
+    "party": 1,
+    "job": "lizard_warrior"
+   },
+   "choices": [
+    {
+     "label": "Cướp lấy bằng bạo lực",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đè bẹp {ally} dưới lớp bùn lầy, đoạt lấy tấm khiên sáng bóng làm chiến lợi phẩm.",
+      "effects": {
+       "STR": 1,
+       "wealth": 20,
+       "bond": -50
+      }
+     },
+     "fail": {
+      "text": "{ally} dùng chính chiếc khiên đó đập vỡ mõm bạn, để lại một vết sẹo đáng xấu hổ.",
+      "effects": {
+       "health": -15,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Dùng luật đầm lầy để ép giao nộp cho thủ lĩnh",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn nhanh tay giật lấy chiếc khiên dâng lên cho Warlord, được hắn trọng thưởng.",
+      "effects": {
+       "wealth": 5,
+       "fame": 10,
+       "bond": -20
+      }
+     },
+     "fail": {
+      "text": "{ally} kịp thời giấu nó đi, và bạn bị mắng mỏ vì tội vu khống.",
+      "effects": {
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Thỏa thuận chia chác bí mật",
+     "require": {
+      "INT": 6
+     },
+     "showLocked": true,
+     "text": "Bạn đề nghị đem khiên đổi lấy máu thịt từ Thương hội Sói Bạc, cả hai cùng chia lợi.",
+     "effects": {
+      "INT": 1,
+      "wealth": 30,
+      "bond": 10
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_war_3",
+   "text": "Serpent Priest chỉ định bạn phải đi săn một con quái vật thuộc họ Rồng ở Đảo Tro Tàn để lấy máu hiến tế.",
+   "stages": [
+    "adult"
+   ],
+   "require": {
+    "job": "lizard_warrior"
+   },
+   "choices": [
+    {
+     "label": "Săn lùng Fire Drake (Rồng lửa)",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn tắm trong máu rồng sôi sục, cắm đầu nó lên mũi giáo trở về trong tiếng tung hô tột đỉnh.",
+      "effects": {
+       "STR": 3,
+       "fame": 30,
+       "flags": [
+        "dragon_slayer"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Ngọn lửa địa ngục thiêu rụi lớp vảy của bạn, biến bạn thành ngọn đuốc sống lăn lộn dưới bùn.",
+      "effects": {
+       "health": -40,
+       "fame": -15
+      }
+     }
+    },
+    {
+     "label": "Bắt cóc một Dragonewt non làm vật thế mạng",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Cuộc đột kích chớp nhoáng mang về tế phẩm đủ chất lượng, dù hèn mạt nhưng hoàn thành nhiệm vụ.",
+      "effects": {
+       "AGI": 1,
+       "wealth": 10,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Mẹ của con quái vật phát hiện, truy sát bạn chạy trối chết về tận đầm lầy.",
+      "effects": {
+       "health": -30,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Từ chối mệnh lệnh của Tư tế",
+     "text": "Bạn nhổ toẹt ngụm bùn vào mặt tên tu sĩ, chấp nhận hình phạt đánh roi công khai.",
+     "effects": {
+      "health": -20,
+      "joy": -10,
+      "fame": 10
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_war_4",
+   "text": "Một đội tuần tra của Thánh Kỵ Sĩ Đoàn từ Giáo hội Thánh Quang phát hiện hang ổ của bạn và phát động cuộc thanh trừng dị giáo.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "require": {
+    "job": "lizard_warrior"
+   },
+   "choices": [
+    {
+     "label": "Trực diện phá vòng vây",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Lưỡi giáo của bạn gãy nát, nhưng bạn vặn gãy cổ tên đội trưởng mặc giáp bạc, mở đường máu thoát thân.",
+      "effects": {
+       "STR": 2,
+       "wealth": 15,
+       "fame": 20
+      }
+     },
+     "fail": {
+      "text": "Ánh sáng thanh tẩy thiêu đốt linh hồn bạn. CHẾT (Đầu bạn bị treo trước cổng thành Sanctus)."
+     }
+    },
+    {
+     "label": "Luồn lách dưới nước đánh úp từ phía sau",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn lôi tuột hai tên Kỵ sĩ xuống đáy đầm lầy, dìm chết chúng trong lớp bùn nghẹt thở.",
+      "effects": {
+       "AGI": 2,
+       "wealth": 20
+      }
+     },
+     "fail": {
+      "text": "Ma pháp ánh sáng làm nước bốc hơi, luộc chín bạn dưới lớp bùn lầy. CHẾT (Trở thành bữa ăn cho cá sấu)."
+     }
+    },
+    {
+     "label": "Đầu hàng và cam phận nô lệ",
+     "text": "Bạn quỳ xuống, buông vũ khí và bị xiềng xích đưa đến Đấu trường Huyết Sa.",
+     "effects": {
+      "health": -30,
+      "joy": -40,
+      "fame": -50,
+      "flags": [
+       "arena_slave"
+      ],
+      "demote": true
+     }
+    }
+   ],
+   "moment": "Máu lạnh của loài bò sát sôi lên khi đối đầu với những kẻ tự xưng là thần thánh."
+  },
+  {
+   "id": "lizard_hunt_1",
+   "text": "Bạn phát hiện một Mạo hiểm giả loài Elf đang bất tỉnh trên rễ cây ngập nước, trên cổ đeo một viên Lõi Mana phát sáng.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "require": {
+    "job": "lizard_hunter"
+   },
+   "choices": [
+    {
+     "label": "Ra tay dứt điểm và cướp đoạt",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Lưỡi dao xương găm ngập họng mục tiêu, viên Lõi Mana giờ thuộc về bạn.",
+      "effects": {
+       "AGI": 1,
+       "wealth": 30
+      }
+     },
+     "fail": {
+      "text": "Elf tỉnh giấc vào phút chót, bắn một mũi tên ma thuật xuyên thủng vai bạn trước khi tẩu thoát.",
+      "effects": {
+       "health": -15,
+       "wealth": -5
+      }
+     }
+    },
+    {
+     "label": "Lột đồ trong yên lặng rồi bỏ đi",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Kẻ thù vẫn say ngủ, bạn rút êm với chiếc túi chứa đầy Tinh Bạc.",
+      "effects": {
+       "LUCK": 1,
+       "wealth": 20
+      }
+     },
+     "fail": {
+      "text": "Bạn dẫm phải cành cây khô, buộc phải nhảy tống xuống nước trốn chạy tay không.",
+      "effects": {
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Trói lại mang về làm tế phẩm",
+     "require": {
+      "STR": 6
+     },
+     "showLocked": true,
+     "text": "Bạn đánh ngất kẻ thù, vác cái xác sống về Tế đàn Rắn lĩnh thưởng.",
+     "effects": {
+      "wealth": 15,
+      "fame": 10,
+      "bond": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_hunt_2",
+   "text": "Khi đang rình mồi, bạn bị kẹp chặt chân vào một chiếc bẫy gấu bằng thép đính ma pháp của Đội Ranger Đại Ngàn.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "require": {
+    "job": "lizard_hunter"
+   },
+   "choices": [
+    {
+     "label": "Tự bẻ gãy khớp chân để thoát thân",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Cơn đau thấu xương không làm bạn rơi lệ, bạn rút cái chân bê bết máu ra và lẩn trốn an toàn.",
+      "effects": {
+       "AGI": 1,
+       "health": -15,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Độc tính ma pháp xâm nhập quá nhanh khiến chân bạn bị hoại tử, tàn phế vĩnh viễn.",
+      "effects": {
+       "AGI": -3,
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Nằm im gỡ bẫy bằng kỹ thuật",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn dùng đá mài và nọc độc axit ăn mòn chốt khóa ma pháp, giải phóng bản thân nguyên vẹn.",
+      "effects": {
+       "INT": 2,
+       "AGI": 1
+      }
+     },
+     "fail": {
+      "text": "Chốt khóa nổ tung, găm hàng chục mảnh thép vụn vào vảy thịt bạn.",
+      "effects": {
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Chấp nhận chặt đứt cẳng chân",
+     "text": "Dao xả xuống một nhát dứt khoát, bạn khập khiễng bò về với cái giá của sự hèn mạt nhưng chắc ăn.",
+     "effects": {
+      "AGI": -2,
+      "health": -30,
+      "joy": -10
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_hunt_3",
+   "text": "Một con Nhện Đầm Lầy sáu mắt chặn đường bạn, nọc độc của nó có thể làm tan chảy áo giáp thép.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "require": {
+    "job": "lizard_hunter"
+   },
+   "choices": [
+    {
+     "label": "Phóng lao xuyên họng từ khoảng cách xa",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Mũi lao cắm phập vào mắt chính xác tuyệt đối, bạn thu hoạch được túi nọc độc giá trị liên thành.",
+      "effects": {
+       "AGI": 2,
+       "wealth": 40
+      }
+     },
+     "fail": {
+      "text": "Mũi lao đi chệch, bạn lãnh trọn một tia nọc axit vào ngực.",
+      "effects": {
+       "health": -25,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Dụ nó vào ổ của cá sấu quỷ",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "\"Ngư ông đắc lợi\", bạn nhặt nhạnh xác của kẻ thua cuộc sau trận chiến kinh hoàng giữa hai quái vật.",
+      "effects": {
+       "INT": 1,
+       "LUCK": 1,
+       "wealth": 20
+      }
+     },
+     "fail": {
+      "text": "Cả hai con quái vật quay sang hợp lực truy sát kẻ đứng xúi bẩy là bạn.",
+      "effects": {
+       "AGI": -1,
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Dùng bùn lạnh ngụy trang và bò qua kẽ hở",
+     "text": "Bạn hóa thân thành tảng đá rong rêu, nín thở mặc cho con nhện bò ngang qua người.",
+     "effects": {
+      "AGI": 1,
+      "fame": -2
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_hunt_4",
+   "text": "Trong một đêm săn bão táp, bạn vô tình bơi vào ngay hàm của một con Hắc Long (Black Dragon) ngủ say dưới đáy đầm.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "require": {
+    "job": "lizard_hunter"
+   },
+   "choices": [
+    {
+     "label": "Bơi ngược dòng nước xiết tẩu thoát",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn như mũi tên đen xé nước lao đi, bỏ lại con ác long đang ngáp ngủ mà không hay biết.",
+      "effects": {
+       "AGI": 3,
+       "LUCK": 2
+      }
+     },
+     "fail": {
+      "text": "Hơi thở axit của nó cuốn trôi bạn. CHẾT (Bộ xương của bạn bị ăn mòn hoàn toàn)."
+     }
+    },
+    {
+     "label": "Liều lĩnh đâm mù mắt con rồng rồi bỏ chạy",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Lưỡi dao găm chọc thủng nhãn cầu khổng lồ, tiếng gầm của rồng xé nát trời đêm còn bạn thì tẩu thoát mang danh huyền thoại.",
+      "effects": {
+       "LUCK": 3,
+       "fame": 50,
+       "flags": [
+        "dragon_blinder"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Răng nanh của nó nghiền nát bạn ngay trên không trung. CHẾT (Chỉ còn lại vết bọt máu nổi lềnh bềnh)."
+     }
+    },
+    {
+     "label": "Đông cứng cơ thể, trôi lờ đờ như xác chết",
+     "text": "Rồng lật bạn bằng mũi rồi ghét bỏ nhổ ra vì tưởng là khúc rác khô.",
+     "effects": {
+      "LUCK": 1,
+      "joy": -10,
+      "fame": -10
+     }
+    }
+   ],
+   "moment": "Bóng đêm ôm lấy bạn, che giấu sự nhỏ bé của thợ săn trước kẻ đứng đầu chuỗi thức ăn."
+  },
+  {
+   "id": "lizard_priest_1",
+   "text": "Lớp sương mù tím dị thường bao phủ bãi đẻ trứng. Tộc trưởng yêu cầu bạn diễn dịch điềm báo này ngay lập tức.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "require": {
+    "job": "lizard_priest"
+   },
+   "choices": [
+    {
+     "label": "Cầu viện tà thần qua ma túy nấm độc",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Ảo giác đưa bạn đến câu trả lời: sương mù báo hiệu lũ quét. Bộ lạc sơ tán kịp thời.",
+      "effects": {
+       "INT": 1,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Độc tính áp đảo khiến bạn sùi bọt mép, nói lảm nhảm những lời vô nghĩa.",
+      "effects": {
+       "health": -15,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Nói dối để củng cố quyền lực",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn phán rằng đây là phúc lành, trùng hợp thay sương tan đi mà không có thiên tai nào ập đến.",
+      "effects": {
+       "wealth": 10,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Sương mù mang theo độc khí diệt vong, khiến hàng chục con non bỏ mạng vì lời dối trá của bạn.",
+      "effects": {
+       "joy": -20,
+       "fame": -30
+      }
+     }
+    },
+    {
+     "label": "Thừa nhận sự dốt nát của bản thân",
+     "text": "Bạn thú nhận mình không thể nghe thấy lời thần, bị Tộc trưởng tát văng khỏi bục đứng.",
+     "effects": {
+      "joy": -10,
+      "fame": -15
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_priest_2",
+   "text": "Một nữ kỵ sĩ Thánh Quang trẻ tuổi sắp lên bàn tế bỗng dưng bẻ gãy gông cùm, khống chế bạn làm con tin.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "require": {
+    "job": "lizard_priest"
+   },
+   "choices": [
+    {
+     "label": "Trì chú lừa gạt tâm trí cô ta",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Lời tà thuật bằng ngôn ngữ cổ bóp nghẹt tâm trí kỵ sĩ, khiến cô ta tự buông kiếm quỳ lạy tà thần.",
+      "effects": {
+       "INT": 2,
+       "fame": 20
+      }
+     },
+     "fail": {
+      "text": "Lưỡi kiếm rạch một đường dài trên cổ bạn trước khi cô ta bị bầy Lizardman đè bẹp.",
+      "effects": {
+       "AGI": -1,
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Dùng giáp vảy tự nhiên đỡ kiếm rớt",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Gồng cứng vảy, thanh kiếm bạc gãy vụn, bạn gầm lên đoạt lại thế thượng phong.",
+      "effects": {
+       "STR": 1,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Kiếm xuyên qua kẽ vảy, đâm thủng vai trái khiến bạn phế một tay suốt mùa đông.",
+      "effects": {
+       "health": -20,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Thỏa hiệp thả cô ta để đổi lấy mạng sống",
+     "text": "Bạn bí mật chỉ lối thoát, nhưng bù lại tống tiền cô ta toàn bộ trang bị Tinh Bạc.",
+     "effects": {
+      "wealth": 40,
+      "fame": -15,
+      "flags": [
+       "traitor_priest"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_priest_3",
+   "text": "Một gã High Cultist già nua thách thức vị trí của bạn, cho rằng bạn đã làm ô uế dòng máu thánh của bộ lạc.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "require": {
+    "job": "lizard_priest"
+   },
+   "choices": [
+    {
+     "label": "Thách đấu pháp thuật tà đạo",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Nguyền chú của bạn ăn mòn từ bên trong cơ thể lão già, khiến lão nôn ra máu đen rồi gục ngã.",
+      "effects": {
+       "INT": 2,
+       "wealth": 20,
+       "fame": 25
+      }
+     },
+     "fail": {
+      "text": "Tà thuật của đối thủ mạnh hơn, phong ấn một phần linh hồn bạn.",
+      "effects": {
+       "INT": -2,
+       "health": -20,
+       "fame": -15
+      }
+     }
+    },
+    {
+     "label": "Đâm lén lão bằng chủy thủ độc trước buổi lễ",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Cái chết thầm lặng của lão già được đổ lỗi cho \"sự trừng phạt của tà thần\".",
+      "effects": {
+       "AGI": 1,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Bạn bị bắt quả tang, chịu phạt roi đinh phơi xác ba ngày trên cọc gỗ.",
+      "effects": {
+       "health": -30,
+       "fame": -20
+      }
+     }
+    },
+    {
+     "label": "Chủ động thoái lui bảo toàn tính mạng",
+     "text": "Bạn cúi đầu nhường lại vị trí, rút vào góc khuất hèn mọn của đền thờ.",
+     "effects": {
+      "joy": -20,
+      "fame": -20,
+      "demote": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_priest_4",
+   "text": "Bạn đã vô tình dâng lên tà thần một trái tim mang ấn chú Ánh Sáng. Không gian nứt vỡ, một xúc tu khổng lồ trồi lên trừng phạt.",
+   "stages": [
+    "middle"
+   ],
+   "require": {
+    "job": "lizard_priest"
+   },
+   "choices": [
+    {
+     "label": "Hiến tế linh hồn {ally} để tạ tội",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Tà thần nuốt chửng {ally} thay vì bạn, ban lại sự tĩnh lặng chết chóc.",
+      "effects": {
+       "INT": 2,
+       "joy": -20,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Thần không chấp nhận vật hiến tế thay thế. CHẾT (Linh hồn bạn bị xé nát vĩnh viễn trong Vực Thẳm)."
+     }
+    },
+    {
+     "label": "Đứng hiên ngang chịu đựng cơn phẫn nộ",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Xúc tu quật vỡ phân nửa xương sườn nhưng ý chí tà đạo của bạn khiến nó lùi bước. Bạn sống sót như một truyền thuyết sống.",
+      "effects": {
+       "health": -40,
+       "fame": 50,
+       "flags": [
+        "abyss_survivor"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Cơ thể bạn vỡ vụn thành sương máu dưới sức ép ma lực tột đỉnh. CHẾT (Bộ lạc lập bia nguyền rủa bạn ngàn đời)."
+     }
+    },
+    {
+     "label": "Bỏ chạy thục mạng khỏi bàn thờ",
+     "text": "Bạn từ bỏ mọi chức vị, tháo chạy ra khỏi đầm lầy, sống vất vưởng như loài bò sát hạ đẳng.",
+     "effects": {
+      "flags": [
+       "exiled_priest"
+      ],
+      "demote": true
+     }
+    }
+   ],
+   "moment": "Mắt đối mắt với cội nguồn hắc ám, bạn nhận ra quyền lực tâm linh có giá đắt đến nhường nào."
+  },
+  {
+   "id": "lizard_venom_1",
+   "text": "Một thương nhân lén lút thuộc Thương hội Sói Bạc tìm đến, trả giá cao cho loại độc dược vô sắc vô vị để ám sát quý tộc.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "require": {
+    "job": "lizard_venom"
+   },
+   "choices": [
+    {
+     "label": "Giao loại kịch độc xịn nhất",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Độc dược của bạn hoàn thành nhiệm vụ xuất sắc, mang về túi tiền đầy Huyết Kim.",
+      "effects": {
+       "INT": 1,
+       "wealth": 30
+      }
+     },
+     "fail": {
+      "text": "Độc bị pha sai tỷ lệ, đổi màu khi bỏ vào rượu, gã thương nhân quay lại đòi bồi thường.",
+      "effects": {
+       "wealth": -15,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Pha loãng độc bằng nước đầm lầy để lừa gạt",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Tên thương nhân ngu ngốc không nhận ra, bạn kiếm bộn tiền từ thứ nước bùn rẻ mạt.",
+      "effects": {
+       "LUCK": 1,
+       "wealth": 25
+      }
+     },
+     "fail": {
+      "text": "Bị lật tẩy ngay tại chỗ, hắn thả bầy chó săn ma thuật tấn công bạn.",
+      "effects": {
+       "health": -20,
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Giết gã thương nhân để cướp tiền",
+     "require": {
+      "STR": 5
+     },
+     "showLocked": true,
+     "text": "Chẳng cần chế thuốc, mũi giáo tẩm độc có sẵn của bạn kết liễu hắn nhanh gọn.",
+     "effects": {
+      "wealth": 40,
+      "fame": -10,
+      "flags": [
+       "wanted_murderer"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_venom_2",
+   "text": "Bạn vừa chế ra một loại khí độc mới và cần kiểm chứng, ngay lúc có một tên nô lệ Kobold ốm yếu bị trói ngoài lều.",
+   "stages": [
+    "adult"
+   ],
+   "require": {
+    "job": "lizard_venom"
+   },
+   "choices": [
+    {
+     "label": "Bơm trực tiếp vào phổi tên Kobold",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Khí độc phá hủy nội tạng trong 3 giây. Công thức hoàn hảo, bạn ghi danh vào sổ tay tử khí của Tế đàn.",
+      "effects": {
+       "INT": 2,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Khí độc quá mạnh gây nổ tung xác con mồi, bắn bọt axit làm mù một mắt của bạn.",
+      "effects": {
+       "INT": 1,
+       "health": -25,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Thả nọc vào hồ nước uống của động vật",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Dòng nước chuyển đen, hàng loạt cá sấu phơi bụng, kiểm chứng thành công mà không gây ồn ào.",
+      "effects": {
+       "AGI": 1,
+       "wealth": 10
+      }
+     },
+     "fail": {
+      "text": "Dòng chảy thay đổi, đầu độc nhầm một phần nguồn nước của bộ lạc, bạn bị Tộc trưởng mắng chửi.",
+      "effects": {
+       "joy": -10,
+       "fame": -15
+      }
+     }
+    },
+    {
+     "label": "Tự cắt vảy và thử trên chính cơ thể mình",
+     "text": "Cơn đau xé rách tâm trí, nhưng bạn hiểu thấu đáo dược tính sinh diệt của nó.",
+     "effects": {
+      "INT": 3,
+      "health": -30,
+      "fame": 15
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_venom_3",
+   "text": "Do {ally} bất cẩn làm đổ rễ cây bọc ma túy vào vạc lưu huỳnh đầm lầy, một phản ứng nổ sắp sửa diễn ra.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "require": {
+    "job": "lizard_venom"
+   },
+   "choices": [
+    {
+     "label": "Ném vạc thuốc ra khỏi lều ngay lập tức",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Vạc nổ tung ngoài bãi bùn, tạo nên cơn mưa axit đẹp mắt nhưng lều của bạn an toàn.",
+      "effects": {
+       "AGI": 2,
+       "LUCK": 1
+      }
+     },
+     "fail": {
+      "text": "Bạn chậm một nhịp, vạc nổ ngay trên tay thiêu rụi toàn bộ gia tài chế dược.",
+      "effects": {
+       "health": -20,
+       "wealth": -40
+      }
+     }
+    },
+    {
+     "label": "Bắt {ally} lấy thân mình che vạc thuốc",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn ép {ally} chặn đứng vụ nổ bằng xác thịt. Bạn an toàn, nhưng quan hệ đổ vỡ.",
+      "effects": {
+       "fame": -5,
+       "bond": -80
+      }
+     },
+     "fail": {
+      "text": "{ally} phản kháng tát bạn ngã nhào, cả hai cùng hứng trọn cơn nổ độc khí.",
+      "effects": {
+       "health": -30,
+       "joy": -20
+      }
+     }
+    },
+    {
+     "label": "Mặc kệ mà nằm bẹp xuống đào hố chui xuống bùn",
+     "text": "Lều trại nổ banh xác, đồ đạc mất hết, bạn trồi lên từ lớp bùn hôi hám với tiếng thở dài.",
+     "effects": {
+      "joy": -15,
+      "wealth": -30
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_venom_4",
+   "text": "Kỷ Nguyên Tăm Tối ập đến. Loài nấm độc bạn cấy ghép lây lan không kiểm soát, ăn mòn vảy của cả đồng loại, Tộc trưởng ra lệnh xử tử bạn.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "require": {
+    "job": "lizard_venom"
+   },
+   "choices": [
+    {
+     "label": "Bào chế thần tốc thuốc giải từ vảy của mình",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn rút cạn sinh lực để pha chế, cứu sống hàng trăm mạng Lizardman và được phong làm huyền thoại.",
+      "effects": {
+       "INT": 3,
+       "health": -30,
+       "wealth": 30,
+       "fame": 50
+      }
+     },
+     "fail": {
+      "text": "Thuốc giải thất bại, bạn bị lôi ra Tế đàn băm vằm thành trăm mảnh. CHẾT (Dòng máu độc của bạn vẫn thấm đẫm hận thù)."
+     }
+    },
+    {
+     "label": "Trốn chạy vào rừng sâu mang theo mầm bệnh",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn thoát khỏi cuộc truy lùng, trở thành một ác nhân lưu vong lây rắc dịch bệnh khắp vùng ven đầm lầy.",
+      "effects": {
+       "AGI": 2,
+       "fame": -50,
+       "flags": [
+        "plague_fugitive"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Mũi tên độc của chính học trò cũ kết liễu bạn khi vừa đặt chân khỏi ranh giới. CHẾT (Xác bị đốt thành tro dập dịch)."
+     }
+    },
+    {
+     "label": "Đứng ra nhận án tử, xin dùng mạng đền tội",
+     "text": "Dao găm đâm xuyên tim, bạn nhắm mắt chấp nhận cái kết cho sự ngông cuồng vô độ.",
+     "effects": {
+      "fame": 10,
+      "demote": true
+     }
+    }
+   ],
+   "moment": "Kẻ đùa giỡn với tử thần cuối cùng cũng phải trả giá bằng chính sinh mệnh của mình."
+  },
+  {
+   "id": "lizard_egg_1",
+   "text": "Một gã Mạo hiểm giả tập sự lén lút ôm hai quả trứng thằn lằn vào lòng định chuồn đi để bán vào viện ma pháp.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "require": {
+    "job": "lizard_egg"
+   },
+   "choices": [
+    {
+     "label": "Phóng đinh nọc độc vào lưng hắn",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Gã ngã vật ra, bạn nhặt lại hai quả trứng an toàn không một vết xước.",
+      "effects": {
+       "AGI": 1,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Đinh trượt, gã giật mình đánh rơi trứng vỡ nát rồi cong đuôi chạy mất.",
+      "effects": {
+       "joy": -15,
+       "wealth": -10
+      }
+     }
+    },
+    {
+     "label": "Gầm lớn để gọi viện binh Warrior",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Tiếng gầm vang dội khiến gã tê liệt vì sợ, bị lính canh bắt sống ngay tại trận.",
+      "effects": {
+       "INT": 1,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Tiếng kêu khò khè của bạn bị tiếng sấm át đi, gã chuồn lọt lưới.",
+      "effects": {
+       "joy": -10,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Đâm chém loạn xạ bằng vũ khí cùn",
+     "require": {
+      "STR": 4
+     },
+     "showLocked": true,
+     "text": "Chày gỗ đập nát sọ kẻ thù, dẫu thô bạo nhưng hiệu quả bảo vệ trứng tuyệt đối.",
+     "effects": {
+      "STR": 1,
+      "wealth": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_egg_2",
+   "text": "Bạn phát hiện một quả trứng nở ra con non có vảy màu hoàng kim thay vì xanh bùn, tỏa ra một lượng ma lực bất ổn định.",
+   "stages": [
+    "teen",
+    "adult",
+    "middle"
+   ],
+   "require": {
+    "job": "lizard_egg"
+   },
+   "choices": [
+    {
+     "label": "Báo cáo ngay cho Serpent Priest",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Tư tế nhận định đây là điềm lành, thưởng cho bạn sự trung thành.",
+      "effects": {
+       "INT": 1,
+       "wealth": 10,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Tư tế cuồng tín phán rằng nó là ác quỷ, bắt bạn tự tay dìm chết con non hoàng kim.",
+      "effects": {
+       "joy": -25,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Bí mật giấu đi nuôi dưỡng riêng",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Con non hoàng kim lớn lên nhanh chóng, trở thành một đột biến Swamp Dragonewt nhận bạn làm cha/mẹ nuôi.",
+      "effects": {
+       "LUCK": 2,
+       "joy": 20,
+       "flags": [
+        "dragonewt_parent"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Sự thèm khát máu của con non khiến nó cắn xé bạn rồi trốn vào rừng sâu.",
+      "effects": {
+       "health": -20,
+       "joy": -15
+      }
+     }
+    },
+    {
+     "label": "Ném thẳng nó xuống hồ nước độc để khử trừ rủi ro",
+     "text": "Trái tim bạn lạnh lẽo tước đi sinh mạng ngoại lai để bảo toàn sự tĩnh lặng.",
+     "effects": {
+      "joy": -10,
+      "fame": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_egg_3",
+   "text": "Nước từ Dãy Núi Răng Cưa bất ngờ đổ ập xuống Đầm Lầy, cuốn phăng mọi thứ rác rưởi và nhắm thẳng vào bãi đẻ trứng.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "require": {
+    "job": "lizard_egg"
+   },
+   "choices": [
+    {
+     "label": "Dùng thân mình làm đê chắn lũ bảo vệ ổ chính",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Dòng nước xiết đập nát vảy nhưng bạn bám chặt rễ cây, cứu được hang ổ quan trọng nhất.",
+      "effects": {
+       "health": -15,
+       "joy": 3,
+       "fame": 25
+      }
+     },
+     "fail": {
+      "text": "Dòng lũ đánh bật bạn ra xa, một phần ba số trứng trôi dạt vô phương cứu chữa.",
+      "effects": {
+       "health": -30,
+       "fame": -15
+      }
+     }
+    },
+    {
+     "label": "Xúc trứng bỏ vào vác lướt đi trên mặt nước",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn như một nghệ sĩ nhào lộn, giải cứu toàn bộ trứng mang lên gờ đá cao an toàn.",
+      "effects": {
+       "AGI": 2,
+       "wealth": 15
+      }
+     },
+     "fail": {
+      "text": "Vác trứng lủng đáy, bạn đánh rơi vỡ nát quá nửa số sinh mạng.",
+      "effects": {
+       "joy": -30,
+       "fame": -20
+      }
+     }
+    },
+    {
+     "label": "Bỏ mặc trứng để tự thân bơi thoát thân",
+     "text": "Bản năng sinh tồn chiến thắng. Bạn sống sót vô sự nhưng bị ánh mắt khinh miệt đâm thấu xương.",
+     "effects": {
+      "joy": -20,
+      "fame": -30
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_egg_4",
+   "text": "Bệnh dịch nấm trắng lan từ xác chết Goblin xâm nhập bãi ấp. Tộc trưởng ra thời hạn một ngày phải thanh tẩy dứt điểm, nếu không sẽ thiêu rụi cả bãi và đuổi cổ bạn.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "require": {
+    "job": "lizard_egg"
+   },
+   "choices": [
+    {
+     "label": "Dùng độc tính từ vạc bùn của Venom Master để diệt nấm",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Pha chế chuẩn xác, lượng nấm bị ăn mòn mà lớp vỏ sừng của trứng vẫn nguyên vẹn. Trí tuệ của bạn tỏa sáng.",
+      "effects": {
+       "INT": 2,
+       "fame": 20
+      }
+     },
+     "fail": {
+      "text": "Dung dịch phá hủy cả nấm lẫn trứng. Tộc trưởng nổi điên ném bạn ra khỏi ranh giới bộ lạc.",
+      "effects": {
+       "wealth": -20,
+       "flags": [
+        "exiled_watcher"
+       ],
+       "demote": true
+      }
+     }
+    },
+    {
+     "label": "Tự tay cào bóc từng mảng nấm trong vô vọng",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Hai mươi mài giờ lao động không chớp mắt, mười đầu ngón tay rướm máu nhưng bãi ấp sạch sẽ.",
+      "effects": {
+       "health": -20,
+       "joy": 10,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Bạn ngất đi vì kiệt sức khi chưa làm xong một nửa. Lửa đỏ rực thiêu rụi tất cả.",
+      "effects": {
+       "health": -30,
+       "joy": -40,
+       "demote": true
+      }
+     }
+    },
+    {
+     "label": "Bí mật đổ tội cho kẻ khác lơ là canh gác",
+     "text": "Bạn tìm ra một con non bị bệnh làm dê tế thần. Dù bãi ấp vẫn bị đốt một phần, bạn giữ được mạng chui rúc ở đầm lầy.",
+     "effects": {
+      "joy": -10,
+      "wealth": -5,
+      "fame": -15
+     }
+    }
+   ],
+   "moment": "Sinh mạng mong manh dưới vỏ trứng rốt cuộc cũng vỡ nát trước thiên nhiên nghiệt ngã."
+  },
+  {
+   "id": "lizard_rank_warchief",
+   "text": "Kẻ thống trị tối cao của Đầm Lầy Tử Khí vừa gục ngã vì tuổi tác. Bạn bước xuống Hố Bùn Huyết Lục, đối mặt với ba gã Tộc trưởng của các bầy đàn khác để tranh đoạt danh hiệu Grand Warchief.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "focus": [
+    "social"
+   ],
+   "require": {
+    "fame": 40,
+    "guildRank": 5
+   },
+   "choices": [
+    {
+     "label": "Dùng sức mạnh nguyên thủy nghiền nát tất cả",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Ngọn giáo của bạn đâm xuyên hai kẻ địch cùng lúc, gã cuối cùng bị bạn tay không bẻ gãy cổ. Toàn đầm lầy quỳ rạp dưới chân bạn.",
+      "effects": {
+       "STR": 3,
+       "wealth": 50,
+       "fame": 50,
+       "flags": [
+        "grand_warchief"
+       ],
+       "orgRank": 6
+      }
+     },
+     "fail": {
+      "text": "Đòn vây hăm của ba gã quái thú khổng lồ xé toạc ngực bạn, ném văng bạn lên bờ như một phế nhân.",
+      "effects": {
+       "health": -40,
+       "fame": -20
+      }
+     }
+    },
+    {
+     "label": "Gài sẵn kịch độc bốc hơi dưới lớp bùn",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Hơi độc bốc lên làm tê liệt hệ thần kinh của các đối thủ, bạn chỉ việc chậm rãi bước đến và rạch cổ từng tên một cách thanh lịch.",
+      "effects": {
+       "INT": 2,
+       "wealth": 30,
+       "fame": 40,
+       "flags": [
+        "grand_warchief"
+       ],
+       "orgRank": 6
+      }
+     },
+     "fail": {
+      "text": "Gió đầm lầy đổi hướng đột ngột, bạn tự hít phải độc của chính mình và ngã quỵ trước khi kịp ra đòn.",
+      "effects": {
+       "health": -30,
+       "fame": -30
+      }
+     }
+    },
+    {
+     "label": "Ám sát chớp nhoáng trong sương mù",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn di chuyển như một bóng ma giật mình, ba tiếng \"phập\" vang lên gọn ghẽ, và ba cái đầu Tộc trưởng lăn lông lốc xuống bùn.",
+      "effects": {
+       "AGI": 3,
+       "wealth": 40,
+       "fame": 45,
+       "flags": [
+        "grand_warchief"
+       ],
+       "orgRank": 6
+      }
+     },
+     "fail": {
+      "text": "Bạn trượt chân trên lớp rêu trơn tuột, hở sườn và lãnh trọn một nhát chùy gai vỡ nát bả vai.",
+      "effects": {
+       "AGI": -2,
+       "health": -35
+      }
+     }
+    }
+   ],
+   "moment": "Máu của những kẻ xưng hùng chảy hòa vào vũng bùn đen, dệt nên tấm thảm đỏ tàn khốc đón chào vị vua mới của đầm lầy."
+  },
+  {
+   "id": "lizard_swim_1",
+   "text": "Bụng trướng to của một con cá trê quỷ bị bạn mổ phanh dưới đáy hồ vô tình làm rơi ra một thứ lấp lánh. Bạn nhặt lên và nhận ra đó là một đồng Huyết Kim còn dính máu người.",
+   "stages": [
+    "infant",
+    "child"
+   ],
+   "focus": [
+    "play"
+   ],
+   "result": "Trí tuệ +1, Tài sản +20, Danh vọng +2"
+  },
+  {
+   "id": "lizard_swim_2",
+   "text": "Trong lúc bơi đuổi theo bầy cá tăm, bạn bơi nhầm vào khu vực săn mồi của một bầy Slime đầm lầy có khả năng tiết axit hòa tan vảy.",
+   "stages": [
+    "child",
+    "teen"
+   ],
+   "focus": [
+    "play"
+   ],
+   "choices": [
+    {
+     "label": "Trồi lên bờ và dùng đuôi quất văng chúng",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Cú quất đuôi xé gió đánh tan bọn Slime thành từng mảnh vụn, bạn nhặt được vài viên lõi nhầy giá trị.",
+      "effects": {
+       "STR": 1,
+       "wealth": 10
+      }
+     },
+     "fail": {
+      "text": "Bạn quất trượt, lớp axit bám chặt vào đuôi làm cháy sém cả mảng thịt.",
+      "effects": {
+       "health": -15,
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Luồn lách dưới nước qua những kẽ hở hẹp",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn trượt đi như một cái bóng mờ ảo, để lại bầy Slime ngu ngốc lơ lửng bám vào rễ cây.",
+      "effects": {
+       "AGI": 2
+      }
+     },
+     "fail": {
+      "text": "Lớp màng nhầy dính chặt vào vây lưng bạn, từ từ ăn mòn cho đến khi bạn thoát được.",
+      "effects": {
+       "AGI": -1,
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Dùng bùn lạnh bọc người để trung hòa axit",
+     "text": "Bạn lặn sâu xuống đáy nhào lộn trong bùn, trở thành một cục rác đen ngòm lẩn trốn trong nhục nhã.",
+     "effects": {
+      "INT": 1,
+      "joy": -10
+     }
+    }
+   ],
+   "moment": "Đầm lầy không chỉ có kẻ thù mang răng nanh, mà có cả những cái bẫy mềm nhũn chết người."
+  },
+  {
+   "id": "lizard_swim_3",
+   "text": "Dưới đáy vực xoáy, bạn phát hiện một phiến đá tạc hình Tà thần Rắn đang phát ra thứ ánh sáng đỏ quạch từ kỷ nguyên cũ.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "focus": [
+    "play"
+   ],
+   "choices": [
+    {
+     "label": "Dùng vảy tay cào lớp bùn để giải mã cổ ngữ",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Cổ ngữ truyền thẳng vào tâm trí bạn một tri thức tà đạo bị lãng quên, mở ra giác quan nhạy bén.",
+      "effects": {
+       "INT": 2,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Cổ ngữ chứa lời nguyền phòng thủ, giật một luồng điện ma lực khiến bạn co giật dưới đáy nước.",
+      "effects": {
+       "INT": -1,
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Húc đầu phá vỡ phiến đá tìm kho báu",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Tảng đá vỡ vụn, để lộ một nắm Tinh Bạc được chôn cất từ thời Chiến Tranh Tuyến Đầu.",
+      "effects": {
+       "STR": 1,
+       "wealth": 25
+      }
+     },
+     "fail": {
+      "text": "Tảng đá cứng hơn bạn tưởng, sừng của bạn gãy gập và máu nhuộm đỏ cả một vùng nước.",
+      "effects": {
+       "health": -20,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Ngậm lấy viên đá phát sáng lấp lánh rồi bơi đi",
+     "require": {
+      "LUCK": 6
+     },
+     "showLocked": true,
+     "text": "Trực giác mách bảo bạn nhổ toẹt viên ngọc quý ra khỏi bùn mà không chạm tay vào, né được bẫy độc.",
+     "effects": {
+      "LUCK": 1,
+      "wealth": 30
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_prophecy_1",
+   "text": "Để nghe được lời thì thầm của Vực Thẳm Cổ Thần, Tư tế bắt bạn hít trọn một lư hương nén toàn bột nấm tử thi.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "focus": [
+    "study"
+   ],
+   "choices": [
+    {
+     "label": "Thả lỏng cơ thể, dùng ý chí vượt qua cơn mê",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Ảo giác tan biến, bạn nhìn thấu hình dáng của Tà thần Rắn trong làn khói và lĩnh ngộ một lời nguyền.",
+      "effects": {
+       "INT": 2,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Tiếng gào thét của các oan hồn xé nát tâm lý bạn, khiến bạn phát điên cào rách ngực mình.",
+      "effects": {
+       "health": -20,
+       "joy": -15
+      }
+     }
+    },
+    {
+     "label": "Ép nhịp tim đập chậm lại để ít hít phải khói",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Chút khói đi vào phổi không đủ làm bạn mất tỉnh táo, bạn diễn sâu giả vờ thành công qua mắt Tư tế.",
+      "effects": {
+       "INT": 1,
+       "health": 1,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Bạn nghẹt thở do nín thở sai nhịp, hít vào một ngụm lớn và nôn mửa liên tục ra máu.",
+      "effects": {
+       "health": -25,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Bí mật ngậm thảo dược giải độc trước khi hít",
+     "text": "Bạn gian lận bài kiểm tra thiêng liêng, hoàn toàn tỉnh táo nhưng không lĩnh ngộ được phép thuật nào.",
+     "effects": {
+      "joy": 5,
+      "wealth": -5
+     }
+    }
+   ],
+   "moment": "Giữa làn khói độc, ranh giới giữa một kẻ thông thái và một xác chết điên loạn mong manh như tờ giấy."
+  },
+  {
+   "id": "lizard_prophecy_2",
+   "text": "Bạn được giao canh giữ một cuộn giấy da người cổ đại của Hắc Nguyệt Hội. Cuộn giấy bất ngờ tỏa sát khí và tự mở ra.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "focus": [
+    "study"
+   ],
+   "choices": [
+    {
+     "label": "Cố gắng ghi nhớ các ấn chú bị cấm",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Kiến thức về hắc ma pháp tràn vào não bộ, bạn vô tình học được cách bòn rút sinh mệnh kẻ khác.",
+      "effects": {
+       "INT": 3,
+       "fame": 20,
+       "flags": [
+        "dark_magic_reader"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Chữ máu nhảy múa ăn mòn thị lực của bạn, làm mù lòa một bên mắt vĩnh viễn.",
+      "effects": {
+       "INT": -1,
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Nhanh tay cuộn chặt nó lại và phong ấn",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Lớp phong ấn được đóng sập ngay trước khi cổ thuật thoát ra, bạn cứu lấy lều tà đạo khỏi vụ nổ.",
+      "effects": {
+       "AGI": 1,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Cuộn giấy tự bốc cháy, ngọn lửa xanh đen táp vào tay bạn bỏng rát thấu xương.",
+      "effects": {
+       "health": -20,
+       "wealth": -10
+      }
+     }
+    },
+    {
+     "label": "Đem hiến tế cho Tà thần Rắn để cầu xin sự che chở",
+     "require": {
+      "wealth": 20
+     },
+     "showLocked": true,
+     "text": "Bạn rắc Huyết Kim lên mâm tế, gọi ma lực nuốt chửng cuộn giấy và nhận lại phước lành thuần khiết.",
+     "effects": {
+      "LUCK": 2,
+      "joy": 15,
+      "wealth": -20
+     }
+    }
+   ],
+   "moment": "Tri thức của thế giới này luôn đòi hỏi máu như một loại học phí."
+  },
+  {
+   "id": "lizard_prophecy_3",
+   "text": "Giữa đêm giao thừa của đầm lầy, mặt hồ bỗng phẳng lặng như gương. Bạn nhìn xuống và thấy dưới đáy không phải đáy bùn, mà là một con mắt khổng lồ đỏ ngầu đang chằm chằm nhìn lại.",
+   "stages": [
+    "middle"
+   ],
+   "focus": [
+    "study"
+   ],
+   "result": "Dấu ấn abyss_watcher. Bạn lĩnh ngộ chân lý kinh hoàng về vị trí nhỏ bé của bộ lạc trong thế giới Aethelgard. Trí tuệ +3, Hạnh phúc -20, Danh vọng +10."
+  },
+  {
+   "id": "lizard_train_1",
+   "text": "Khi bạn đang tập luyện trên bãi bồi, một tên Hobgoblin cậy sức trâu bò xông tới khiêu khích, hòng cướp bãi tập của bạn.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "focus": [
+    "train"
+   ],
+   "choices": [
+    {
+     "label": "Lao vào vật lộn tay đôi xem ai khỏe hơn",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn nhấc bổng tên khổng lồ da xanh rồi quật cắm đầu hắn xuống bùn, khẳng định sức mạnh tuyệt đối.",
+      "effects": {
+       "STR": 2,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Cú đấm như búa tạ của hắn làm móp lồng ngực bạn, đẩy bạn ngã ngửa ra sau ho ra máu.",
+      "effects": {
+       "health": -20,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Dùng tốc độ luồn ra sau và cắt gân kheo",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Một đường dao mượt mà gọt đứt gân chân, gã Hobgoblin quỳ gục xuống rống lên đau đớn.",
+      "effects": {
+       "AGI": 1,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Gã xoay người tóm chặt lấy cổ chân bạn, quăng quật bạn vào phiến đá tế.",
+      "effects": {
+       "AGI": -1,
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Đứng im chịu đòn để luyện độ cứng của vảy",
+     "require": {
+      "health": 10
+     },
+     "showLocked": true,
+     "text": "Hắn đập chùy vào lưng bạn đến gãy cán nhưng bạn vẫn không nhúc nhích, khiến hắn kinh hãi bỏ chạy.",
+     "effects": {
+      "health": 3,
+      "joy": 5,
+      "fame": 15
+     }
+    }
+   ],
+   "moment": "Mọi kẻ ngoại lai cản bước tiến của bạn đều chỉ là những viên đá mài gươm hoàn hảo."
+  },
+  {
+   "id": "lizard_train_2",
+   "text": "Bùn sụt lún, để lộ thi hài hóa thạch của một chiến binh Lizardman thời đại Khai Hoang. Trong hốc mắt nó kẹt lại một viên Huyết Thạch rực sáng nhịp đập của tim.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "train"
+   ],
+   "choices": [
+    {
+     "label": "Nuốt chửng Huyết Thạch để ép cơ thể tiến hóa",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Máu bạn sôi lên như nham thạch, sức mạnh cổ đại lan tỏa khắp gân cốt tạo nên một đột phá kinh hoàng.",
+      "effects": {
+       "STR": 2,
+       "health": 15,
+       "flags": [
+        "ancient_blood"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Năng lượng cổ đại quá tải làm vỡ mạch máu, bạn nôn ra dòng huyết lục và yếu đi hẳn.",
+      "effects": {
+       "STR": -2,
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Quan sát và mô phỏng tư thế chiến đấu của bộ xương",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn lĩnh ngộ được \"Vũ điệu Săn mồi\", một bộ kỹ năng thất truyền giúp di chuyển không tiếng động.",
+      "effects": {
+       "INT": 1,
+       "AGI": 2,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Tư thế quá vặn vẹo khiến bạn trật khớp vai nặng, phải bó thuốc suốt tháng.",
+      "effects": {
+       "AGI": -1,
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Cạy viên ngọc đem bán lấy tiền mua vũ khí Tinh Bạc",
+     "text": "Bạn từ chối sự kỳ bí để chọn lấy giá trị thực dụng của thương cảng bẩn thỉu.",
+     "effects": {
+      "STR": 1,
+      "wealth": 40,
+      "fame": -5
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_train_3",
+   "text": "Cơ thể bạn bắt đầu đau nhức mỗi khi trời trở lạnh, lớp vảy sừng rụng dần không mọc lại kịp. Tuổi tác đang bào mòn nỗ lực khổ luyện.",
+   "stages": [
+    "middle"
+   ],
+   "focus": [
+    "train"
+   ],
+   "require": {
+    "below": {
+     "health": 10
+    }
+   },
+   "result": "Dấu ấn aging_scale. Bạn nhận ra cái giá của sinh lực rớt nhịp. Bạn cắn răng chịu đựng, bớt luyện tập hùng hục để bảo tồn tính mạng. Sức khỏe -10, Sức mạnh -1, Trí tuệ +2 (rút ra kinh nghiệm tiết kiệm sức)."
+  },
+  {
+   "id": "lizard_serve_1",
+   "text": "Một gã Warlord say xỉn đi ngang qua, đạp đổ đống rêu khô bạn vừa thu thập và lớn tiếng đòi bạn giao nộp vật phẩm Tinh Bạc đắt giá nhất.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "focus": [
+    "work"
+   ],
+   "choices": [
+    {
+     "label": "Trực tiếp chống trả sự bất công",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Cú đấm trực diện bằng bả vai của bạn hất văng gã bạo chúa xuống vũng bùn, khiến những kẻ xung quanh ồ lên tán thưởng.",
+      "effects": {
+       "STR": 2,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Gã Warlord vung cán giáo đập gãy răng bạn, dẫm mặt bạn xuống vũng bùn ô nhục.",
+      "effects": {
+       "health": -25,
+       "joy": -15,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Dẻo miệng ton hót và dâng lên thứ ít giá trị hơn",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bằng vài lời nịnh bợ, bạn khiến gã thỏa mãn với một cái nanh thú lấp lánh nhưng rẻ tiền.",
+      "effects": {
+       "INT": 1,
+       "joy": 5,
+       "wealth": -5
+      }
+     },
+     "fail": {
+      "text": "Gã nhận ra bị lừa, lột sạch mọi thứ bạn có trên người bằng vũ lực.",
+      "effects": {
+       "health": -10,
+       "wealth": -30
+      }
+     }
+    },
+    {
+     "label": "Lẳng lặng cắn răng giao nộp toàn bộ",
+     "text": "Cúi gầm mặt, bạn đưa túi đồ cho hắn, giữ lấy cái mạng hèn mọn để chờ ngày phục thù.",
+     "effects": {
+      "joy": -20,
+      "wealth": -40
+     }
+    }
+   ],
+   "moment": "Trong xã hội bầy đàn tàn nhẫn, kẻ yếu chỉ có quyền thở chứ không có quyền sở hữu."
+  },
+  {
+   "id": "lizard_serve_2",
+   "text": "Dịch bệnh thối vảy lây lan từ lũ Goblin tràn vào bãi đẻ trứng. Tộc trưởng ra lệnh bạn phải thanh tẩy khu vực này bằng mọi giá.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "work"
+   ],
+   "choices": [
+    {
+     "label": "Băng rừng tìm lá cỏ thiêng của Elf để chữa trị",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Vượt qua bẫy rập của Đội Ranger Đại Ngàn, bạn mang thuốc về cứu sống hàng chục Con non.",
+      "effects": {
+       "AGI": 2,
+       "joy": 10,
+       "fame": 25
+      }
+     },
+     "fail": {
+      "text": "Mũi tên Elf xuyên thủng đùi bạn, bạn bò lết về tay trắng khi dịch bệnh đã bùng phát mạnh.",
+      "effects": {
+       "health": -30,
+       "fame": -15
+      }
+     }
+    },
+    {
+     "label": "Dùng lửa thêu rụi toàn bộ lều trại nhiễm bệnh",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Phương pháp tàn nhẫn nhưng cách ly triệt để dịch bệnh, Tộc trưởng khen ngợi sự quyết đoán máu lạnh của bạn.",
+      "effects": {
+       "INT": 1,
+       "joy": -10,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Lửa mất kiểm soát, thiêu cháy cả kho lương thực dự trữ của bộ lạc trong mùa đông.",
+      "effects": {
+       "wealth": -20,
+       "fame": -20
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_serve_3",
+   "text": "Trong một trận bão lớn đầu Kỷ Nguyên Tăm Tối, Tế đàn Rắn bằng bùn đất bị sụt lún nghiêm trọng. Bạn được cử dẫn đầu nhóm nô lệ Kobold gia cố lại móng.",
+   "stages": [
+    "middle"
+   ],
+   "focus": [
+    "work"
+   ],
+   "result": "Dù làm việc quần quật, tuổi tác khiến bạn kiệt sức. Một tảng đá rơi trúng lưng để lại di chứng vĩnh viễn, nhưng Tế đàn được cứu vãn. Sự hy sinh thầm lặng khắc tên bạn vào lời ca của Tư tế. Sức khỏe -15, Danh vọng +20, Hạnh phúc +5."
+  },
+  {
+   "id": "lizard_manhunt_1",
+   "text": "Dưới ánh trăng mờ, đội săn của bạn bám đuôi một cỗ xe buôn lậu lọt rãnh lầy, chở đầy quặng Tinh Bạc và lính đánh thuê hộ tống.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "choices": [
+    {
+     "label": "Phóng lao hạ gục lũ ngựa để chặn đường",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Ngựa gục ngã, cỗ xe lật nhào, đội săn tràn lên tàn sát gọn ghẽ những kẻ mắc kẹt.",
+      "effects": {
+       "AGI": 1,
+       "wealth": 30,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Lính đánh thuê phát hiện tiếng động, bắn loạt nỏ xé gió găm đầy ngực bạn.",
+      "effects": {
+       "health": -25,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Dàn xếp ổ phục kích bằng dây mây tẩm độc",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Đoàn xe tự đâm vào bẫy, toàn bộ lính đánh thuê sùi bọt mép bất tỉnh mà bạn chẳng tốn một giọt mồ hôi.",
+      "effects": {
+       "INT": 2,
+       "wealth": 40,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Xe ngựa thiết giáp nghiền nát bẫy, lính đánh thuê xông lên tóm gọn ba thành viên đội săn, bạn phải bỏ chạy nhục nhã.",
+      "effects": {
+       "wealth": -10,
+       "fame": -20
+      }
+     }
+    },
+    {
+     "label": "Đánh lén tên thương nhân từ phía sau lưng vác chạy",
+     "require": {
+      "STR": 6
+     },
+     "showLocked": true,
+     "text": "Bạn bỏ qua bọn lính, một mình bắt thóp lão mập giật lấy túi Huyết Kim rồi tẩu thoát thành công.",
+     "effects": {
+      "STR": 1,
+      "wealth": 50,
+      "fame": -5
+     }
+    }
+   ],
+   "moment": "Mùi máu tươi trộn lẫn mùi tiền bạc, thứ hỗn hợp kích thích nhất thế gian."
+  },
+  {
+   "id": "lizard_manhunt_2",
+   "text": "Mục tiêu của bạn hôm nay không phải là kẻ yếu đuối, mà là một Thánh Kỵ Sĩ mặc giáp toàn thân đang đi lạc, tỏa ra ma lực ánh sáng chói lòa.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "choices": [
+    {
+     "label": "Lặn xuống bùn, tóm chân kéo ngã đối thủ",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bộ giáp nặng nề trở thành quan tài sắt khi hắn chìm vào vũng lầy, bạn tước đoạt thanh gươm quý làm chiến lợi phẩm vĩ đại.",
+      "effects": {
+       "STR": 3,
+       "wealth": 25,
+       "fame": 30,
+       "flags": [
+        "knight_slayer"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Thanh kiếm cắm phập xuống bùn, ghim gãy một đoạn đuôi của bạn trước khi bạn kịp tẩu thoát.",
+      "effects": {
+       "health": -35,
+       "fame": -15
+      }
+     }
+    },
+    {
+     "label": "Thả bầy rắn độc để luồn vào khe hở của giáp",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Ánh sáng ma pháp không ngăn nổi lũ rắn nhỏ xíu, tên Kỵ sĩ gục ngã vì độc tính ngấm vào mạch máu.",
+      "effects": {
+       "LUCK": 2,
+       "wealth": 20,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Hắn gầm lên phóng Thập Tự Quang dọn sạch bầy rắn, ánh sáng đốt mù mắt bạn trong thoáng chốc.",
+      "effects": {
+       "health": -20,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Rút lui không đối đầu kẻ địch khắc hệ",
+     "text": "Đôi khi, biết sợ hãi là kỹ năng sinh tồn xuất sắc nhất của một thợ săn.",
+     "effects": {
+      "INT": 1,
+      "fame": -10
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_manhunt_3",
+   "text": "Một tinh linh Elf thuộc Đại Ngàn Lục Bảo bị trúng bẫy sập, kêu la đau đớn. Đây là tế phẩm hạng nhất Tà thần Rắn cực kỳ thèm khát.",
+   "stages": [
+    "middle"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "require": {
+    "party": 1
+   },
+   "result": "Bạn và {ally} không nói một lời, lạnh lùng đập gãy hai chân mục tiêu để tránh tẩu thoát, rồi vác khối thịt đang gào thét về Tế đàn Huyết Nguyệt. Danh vọng +25, Thân thiết với {ally} +10, Tài sản +15, Hạnh phúc +10. Tà thần mỉm cười với bộ lạc của bạn."
+  },
+  {
+   "id": "lizard_power_1",
+   "text": "Tên Swamp Commander trực tiếp quản lý khu vực bãi đẻ của bạn đang ho ra máu đen vì tuổi già. Đây là cơ hội hoàn hảo để soán ngôi.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "social"
+   ],
+   "choices": [
+    {
+     "label": "Trực tiếp thách đấu tay đôi theo luật đầm lầy",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Ngọn giáo của bạn đâm xuyên yết hầu gã chỉ huy già, bạn gầm lên đạp xác hắn xuống bùn để bước lên ngôi vị mới.",
+      "effects": {
+       "STR": 2,
+       "wealth": 20,
+       "fame": 25
+      }
+     },
+     "fail": {
+      "text": "Dù già yếu, kinh nghiệm chiến đấu của hắn vẫn thừa sức đánh gãy ba dẻ sườn của bạn.",
+      "effects": {
+       "health": -25,
+       "joy": -10,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Bí mật hòa nọc độc vào nguồn nước uống của hắn",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Gã gục chết trong đêm một cách \"tự nhiên\", bạn đường hoàng tiếp quản thuộc hạ của hắn mà không tốn một giọt mồ hôi.",
+      "effects": {
+       "INT": 1,
+       "wealth": 15,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Độc tính phát tác chậm, hắn kịp nhận ra và gọi thuộc hạ lôi bạn ra đánh đập tàn nhẫn.",
+      "effects": {
+       "health": -30,
+       "fame": -20
+      }
+     }
+    },
+    {
+     "label": "Lặng lẽ chờ đợi thêm một mùa mưa nữa cho hắn tự gục ngã",
+     "require": {
+      "LUCK": 5
+     },
+     "showLocked": true,
+     "text": "Sự nhẫn nại được đền đáp, hắn nhắm mắt xuôi tay và bạn nghiễm nhiên kế thừa vị trí vì là kẻ sống dai nhất.",
+     "effects": {
+      "LUCK": 1,
+      "fame": 15
+     }
+    }
+   ],
+   "moment": "Trong trò chơi vương quyền của đầm lầy, cái chết của kẻ này là nấc thang của kẻ khác."
+  },
+  {
+   "id": "lizard_power_2",
+   "text": "Một toán nô lệ Goblin và Kobold cướp được vũ khí rỉ sét, chúng nổi loạn định lật đổ trật tự tại hầm giam của bộ lạc.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "focus": [
+    "social"
+   ],
+   "choices": [
+    {
+     "label": "Một mình cầm vũ khí lao vào giữa bầy nô lệ",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Lưỡi đao xương băm vằm đám nô lệ hạ đẳng thành từng khúc thịt, bạn đè bẹp cuộc nổi loạn bằng sự khủng bố tột đỉnh.",
+      "effects": {
+       "STR": 2,
+       "joy": 10,
+       "fame": 20
+      }
+     },
+     "fail": {
+      "text": "Bầy Kiến đông cắn chết voi, hàng chục vết dao chém loạn xạ khiến bạn gục ngã mất máu trước khi viện binh tới.",
+      "effects": {
+       "health": -30,
+       "fame": -15
+      }
+     }
+    },
+    {
+     "label": "Dụ chúng đuổi theo vào khu vực đầm lầy lún",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn nhảy múa trên những rễ cây thoăn thoắt, bỏ mặc đám nô lệ chìm dần trong vũng bùn tử thần.",
+      "effects": {
+       "INT": 1,
+       "AGI": 1,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Sương mù cản tầm nhìn, bạn tự dẫm phải hố lún do chính mình tạo ra, suýt chết đuối.",
+      "effects": {
+       "AGI": -1,
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Đẩy {ally} lên tuyến đầu làm bia đỡ đạn",
+     "text": "Bạn đứng an toàn phía sau, mặc kệ {ally} lãnh trọn cơn thịnh nộ của bầy thú khát máu.",
+     "effects": {
+      "fame": -10,
+      "bond": -50
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_power_3",
+   "text": "Bạn phát hiện {ally} đang lén lút dâng Huyết Kim cho phe Tộc trưởng đối nghịch hòng gạt bạn ra khỏi quyền chia chác chiến lợi phẩm.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "focus": [
+    "social"
+   ],
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Tương kế tựu kế, tung tin đồn giả để phe kia tự diệt {ally}",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Phe đối nghịch tưởng {ally} là mồi nhử của bạn, chúng tức giận xử tử {ally} rồi quay sang xoa dịu bạn bằng quà cáp.",
+      "effects": {
+       "INT": 2,
+       "wealth": 30,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Kế hoạch bị lật tẩy, cả {ally} lẫn phe kia hợp lực tước đoạt toàn bộ chức tước của bạn.",
+      "effects": {
+       "wealth": -40,
+       "fame": -30,
+       "demote": true
+      }
+     }
+    },
+    {
+     "label": "Chặn đường {ally} và ép phải giao nộp số Huyết Kim đó cho bạn",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Đứng trước nanh vuốt của bạn, {ally} run rẩy giao lại túi tiền và quỳ gối thề trung thành.",
+      "effects": {
+       "STR": 1,
+       "wealth": 40,
+       "bond": -20
+      }
+     },
+     "fail": {
+      "text": "{ally} rút dao găm độc chống trả điên cuồng, bạn bị chém một nhát vào bụng để vuột mất kẻ thù.",
+      "effects": {
+       "health": -20,
+       "joy": -15
+      }
+     }
+    },
+    {
+     "label": "Gọi bầy đàn đến phán xét và trục xuất kẻ phản trắc",
+     "require": {
+      "fame": 30
+     },
+     "showLocked": true,
+     "text": "Uy tín của bạn đủ sức ép Tế đàn ban lệnh đuổi {ally} khỏi đầm lầy mãi mãi mà không cần dùng bạo lực.",
+     "effects": {
+      "joy": 5,
+      "fame": 10
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_sun_1",
+   "text": "Đang say sưa hấp thụ nhiệt trên bãi cát ven lầy, bạn thấy một cái bóng khổng lồ ập xuống. Một con Griffin (Điểu Sư) đi lạc đang nhắm thẳng vào bạn.",
+   "stages": [
+    "child",
+    "teen",
+    "adult"
+   ],
+   "focus": [
+    "rest"
+   ],
+   "choices": [
+    {
+     "label": "Lăn mình xuống nước vào tích tắc cuối cùng",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Móng vuốt sắc lẹm chỉ xẹt qua không khí, bạn chìm vào làn nước đục ngầu, an toàn dưới đáy.",
+      "effects": {
+       "AGI": 2,
+       "LUCK": 1
+      }
+     },
+     "fail": {
+      "text": "Dù đã né, móng vuốt của nó vẫn cào rách một mảng lưng, nhấc bổng bạn lên một đoạn trước khi bạn giãy giụa rớt xuống.",
+      "effects": {
+       "health": -25,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Dựng đứng mũi giáo đâm ngược lên bầu trời",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Con Griffin tự đâm yết hầu mình vào mũi giáo của bạn, xác nó rơi sầm xuống bùn mang lại một bữa đại tiệc.",
+      "effects": {
+       "STR": 3,
+       "wealth": 30,
+       "fame": 20
+      }
+     },
+     "fail": {
+      "text": "Cán giáo gãy nát dưới lực va chạm, bạn bị ép chặt xuống bùn, gãy hàng loạt xương sườn.",
+      "effects": {
+       "health": -35,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Đứng bất động giả chết, ép nhịp tim xuống mức không",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Con quái vật ngửi thấy mùi bùn lạnh ngắt tưởng bạn là khúc gỗ, nó vỗ cánh bay đi tìm mồi khác.",
+      "effects": {
+       "INT": 1
+      }
+     },
+     "fail": {
+      "text": "Bản năng của nó vẫn nhận ra bạn, nó quắp lấy bạn định tha đi nhưng bạn may mắn tụt khỏi móng nó.",
+      "effects": {
+       "health": -20,
+       "joy": -15
+      }
+     }
+    }
+   ],
+   "moment": "Kẻ đứng yên trên bờ luôn là con mồi hoàn hảo cho những ác điểu thống trị bầu trời."
+  },
+  {
+   "id": "lizard_sun_2",
+   "text": "Trong cơn mê man dưới ánh nắng gắt mùa khô, ý thức bạn lọt vào một không gian rực lửa. Bạn thấy ảo ảnh của Cổ Long (Ancient Dragon) đang ngủ say, hơi thở nó phả ra những luồng ma lực tinh khiết.",
+   "stages": [
+    "middle"
+   ],
+   "focus": [
+    "rest"
+   ],
+   "choices": [
+    {
+     "label": "Ngồi thiền hòa nhịp thở cùng Cổ Long để hấp thu ma lực",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Cơ thể vật lý của bạn tự động biến đổi, vảy ánh lên sắc đỏ rực rỡ, bạn thức dậy mang theo dư vị của loài rồng.",
+      "effects": {
+       "INT": 2,
+       "health": 15,
+       "fame": 20,
+       "flags": [
+        "dragon_dreamer"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Áp lực tâm linh từ rồng đè nát tinh thần, bạn bật tỉnh với đôi mắt trào máu và chứng đau đầu kinh niên.",
+      "effects": {
+       "INT": -1,
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Lân la đến gần nhổ trộm đóa hoa Huyết Long mọc cạnh mũi nó",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Khi tỉnh dậy, bạn bàng hoàng nhận ra tay mình đang nắm chặt một nụ hoa ma thuật hiếm có từ ảo ảnh mang ra đời thực.",
+      "effects": {
+       "LUCK": 2,
+       "wealth": 40
+      }
+     },
+     "fail": {
+      "text": "Rồng trở mình hắt hơi, cơn bão lửa tâm linh thiêu đốt linh hồn bạn, khiến vảy bạn bong tróc mảng lớn ngoài đời thực.",
+      "effects": {
+       "health": -30,
+       "joy": -15
+      }
+     }
+    },
+    {
+     "label": "Cưỡng ép bản thân cắt đứt ảo ảnh, tỉnh dậy ngay lập tức",
+     "require": {
+      "INT": 6
+     },
+     "showLocked": true,
+     "text": "Trực giác sinh tồn chiến thắng lòng tham, bạn bừng tỉnh, mồ hôi lạnh toát ướt sũng lớp rêu bùn.",
+     "effects": {
+      "INT": 1,
+      "joy": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_sun_3",
+   "text": "Một luồng sáng vàng rực rỡ kỳ lạ xuyên qua màn sương mù vĩnh cửu của Đầm Lầy Tử Khí, phủ lên thân hình già nua của bạn. Mọi đau nhức tuổi tác bất chợt biến mất, cơ thể trở nên nhẹ bẫng lạ thường.",
+   "stages": [
+    "elder"
+   ],
+   "focus": [
+    "rest"
+   ],
+   "result": "Dấu ấn terminal_rest. Bạn thấu hiểu sinh mệnh đã đi đến chương cuối. Không chống cự, không sợ hãi, bạn nhắm mắt tận hưởng những tia ấm áp hiếm hoi nhất của cuộc đời nguyên thủy. Sức khỏe -15 (sinh lực cạn dần), Trí tuệ +3, Hạnh phúc +20."
+  },
+  {
+   "id": "lizard_ally_brave",
+   "text": "Bất chấp chênh lệch hình thể, {ally} gầm lên lao thẳng vào hàm một con Rồng Đất (Earth Dragon) đang ngái ngủ chỉ để bảo vệ bạn khỏi luồng hơi độc.",
+   "require": {
+    "allyTrait": "brave",
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Cầm giáo lao theo yểm trợ đồng đội",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Hai mũi giáo cùng lúc xuyên thủng mắt và vòm họng rồng. Các bạn mang về một chiến tích vô tiền khoáng hậu.",
+      "effects": {
+       "STR": 2,
+       "fame": 25,
+       "bond": 30
+      }
+     },
+     "fail": {
+      "text": "Đuôi rồng quật văng cả hai lên không trung, rớt xuống vũng bùn vỡ nát xương sườn.",
+      "effects": {
+       "health": -30,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Nhân cơ hội {ally} làm mồi nhử, lẩn ra sau chém đứt gân chân rồng",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Rồng ngã gục, {ally} sống sót trong gang tấc. Cuộc săn thành công nhờ sự máu lạnh chiến thuật của bạn.",
+      "effects": {
+       "AGI": 2,
+       "wealth": 30
+      }
+     },
+     "fail": {
+      "text": "Rồng phát hiện, quay lại thổi một luồng axit thiêu rụi nửa thân bạn.",
+      "effects": {
+       "health": -35,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Lợi dụng thời gian đó để bỏ chạy",
+     "text": "Bạn giữ được mạng, nhưng {ally} bị nhai nuốt không còn một mảnh vảy.",
+     "effects": {
+      "fame": -20
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_ally_loyal",
+   "text": "Tộc trưởng phát hiện có kẻ ăn bớt chiến lợi phẩm Huyết Kim. Dù người làm là bạn, {ally} lặng lẽ bước lên quỳ xuống nhận mọi hình phạt.",
+   "require": {
+    "allyTrait": "loyal",
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Đứng ra nhận tội thay, không để đồng đội chịu oan",
+     "check": {
+      "stat": "fame",
+      "target": 70
+     },
+     "success": {
+      "text": "Tộc trưởng nể trọng uy tín của bạn nên chỉ phạt nhẹ rồi cho qua, {ally} nhìn bạn với ánh mắt sùng bái.",
+      "effects": {
+       "wealth": -20,
+       "fame": 10,
+       "bond": 40
+      }
+     },
+     "fail": {
+      "text": "Cả hai đều bị trói vào cột đinh đánh đập dã man rách nát vảy lưng.",
+      "effects": {
+       "health": -25,
+       "joy": -15
+      }
+     }
+    },
+    {
+     "label": "Đẩy tội cho một nô lệ Kobold xui xẻo gần đó",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bằng cái lưỡi xảo quyệt, bạn khiến gã Kobold phải đền mạng thay, giữ vẹn toàn cả bạn và {ally}.",
+      "effects": {
+       "INT": 2,
+       "joy": 10
+      }
+     },
+     "fail": {
+      "text": "Tộc trưởng nhìn thấu lời dối trá, chặt đứt một ngón tay của bạn làm gương.",
+      "effects": {
+       "health": -20,
+       "fame": -20
+      }
+     }
+    },
+    {
+     "label": "Lặng im để mặc {ally} lĩnh trọn đòn roi",
+     "text": "Bạn an toàn giữ được tiền, nhưng tiếng rên la của {ally} đánh dấu một khoảng cách không thể lấp đầy.",
+     "effects": {
+      "joy": -10,
+      "bond": -30
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_ally_greedy",
+   "text": "Giữa vòng vây của bọn Goblin, {ally} vô kỷ luật phá vỡ đội hình phòng thủ chỉ để với tay nhặt chiếc nhẫn Tinh Bạc rớt dưới hố phân.",
+   "require": {
+    "allyTrait": "greedy",
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Quất đuôi đá văng {ally} về lại vị trí",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Cú quất đuôi đánh tỉnh cơn thèm tiền, {ally} gượng dậy thủ thế cản được đợt tấn công nguy hiểm.",
+      "effects": {
+       "STR": 1,
+       "bond": -5
+      }
+     },
+     "fail": {
+      "text": "Bạn quất trượt, bọn Goblin xé toạc phòng tuyến và chém bạn thương tích đầy mình.",
+      "effects": {
+       "health": -20,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Nhanh tay phóng tới cướp chiếc nhẫn trước mũi {ally}",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn cuỗm gọn món đồ giá trị rồi lùi về an toàn, để mặc {ally} chưng hửng ăn vài nhát chùy.",
+      "effects": {
+       "AGI": 1,
+       "wealth": 25,
+       "bond": -15
+      }
+     },
+     "fail": {
+      "text": "Cả hai tranh nhau, tạo sơ hở cho mũi tên độc của Goblin xuyên thủng bắp chân bạn.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Rút lui bỏ mặc {ally} chết chìm trong lòng tham",
+     "require": {
+      "fame": 15
+     },
+     "showLocked": true,
+     "text": "Bạn lạnh lùng dẫn đội hình lùi lại. {ally} bị bọn yêu tinh xé xác, nhưng đổi lại bạn giữ được lực lượng cốt lõi.",
+     "effects": {
+      "INT": 1,
+      "fame": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_ally_timid",
+   "text": "Một tiếng rống của ác ma vang vọng từ Vực Thẳm Phân Tầng. {ally} đánh rơi vũ khí, rúc vào rễ cây mục run lẩy bẩy làm kinh động bầy thú xung quanh.",
+   "require": {
+    "allyTrait": "timid",
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Tát mạnh để đánh thức bản năng sinh tồn",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Cú tát tóe máu mồm khiến {ally} bừng tỉnh, lập cập nhặt vũ khí lên tiếp tục hành quân.",
+      "effects": {
+       "STR": 1,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Bạn đánh quá tay khiến {ally} bất tỉnh luôn, trở thành gánh nặng vác trên lưng.",
+      "effects": {
+       "health": -10,
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Phân tích tiếng vang chứng minh đó chỉ là ảo ảnh của sương mù",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Sự điềm tĩnh của bạn trấn an tinh thần cả đội. {ally} ngoan ngoãn bò ra tiếp tục đi săn.",
+      "effects": {
+       "INT": 1,
+       "bond": 10
+      }
+     },
+     "fail": {
+      "text": "Giọng bạn cũng run rẩy, sự hoảng loạn lây lan khiến cả đội vứt đồ tháo chạy.",
+      "effects": {
+       "wealth": -15,
+       "fame": -15
+      }
+     }
+    },
+    {
+     "label": "Lấy mạng {ally} để làm tế phẩm xoa dịu ác ma",
+     "text": "Dao găm cắt đứt tiếng rên rỉ ồn ào. Một sự hy sinh tàn nhẫn nhưng mang lại tĩnh lặng tuyệt đối.",
+     "effects": {
+      "wealth": 5,
+      "fame": -10
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_ally_joker",
+   "text": "Đang rình mò áp sát doanh trại Nhân loại, {ally} đột nhiên xì hơi trúng bọt khí dưới bùn, tạo ra một tiếng động cực kỳ buồn cười nhưng làm lộ vị trí.",
+   "require": {
+    "allyTrait": "cheerful",
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Nhanh chóng kéo lặn {ally} chìm sâu xuống đáy đầm",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Cả hai lặn mất tăm ngay trước khi mũi tên của lính canh cắm phập xuống chỗ bùn vừa sủi bọt.",
+      "effects": {
+       "AGI": 2,
+       "bond": 5
+      }
+     },
+     "fail": {
+      "text": "Lặn chậm, một ngọn giáo sắt găm thẳng vào vai {ally}, báo hại bạn phải vác đồng đội lết về.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Gầm gừ nhái tiếng ếch quỷ giao phối để lấp liếm",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Lính canh tưởng là động vật hoang dã nên bỏ qua. Trí khôn của bạn cứu cả đội khỏi án tử.",
+      "effects": {
+       "INT": 2,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Tiếng giả giọng quá giả trân, bọn lính xả hỏa tiễn thiêu rụi cả bụi rậm.",
+      "effects": {
+       "health": -25,
+       "wealth": -10
+      }
+     }
+    },
+    {
+     "label": "Đạp {ally} văng ra khỏi bụi rậm làm mồi nhử",
+     "text": "Kẻ làm hỏng chuyện phải trả giá. Bạn trốn thoát an toàn trong lúc bọn lính xúm lại băm vằm đồng đội bạn.",
+     "effects": {
+      "fame": -5
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_ally_cold",
+   "text": "Bắt được một thương nhân Nhân loại, {ally} lạnh nhạt đề nghị xẻo thịt hắn tại chỗ để ăn lót dạ thay vì mang nguyên vẹn về hiến tế Tà thần như luật định.",
+   "require": {
+    "allyTrait": "cold",
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Gầm lên bác bỏ để bảo toàn Tế phẩm",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đè cổ {ally} xuống bùn, khẳng định quyền lực của kẻ đứng đầu đội săn. Tế phẩm được giữ nguyên.",
+      "effects": {
+       "STR": 1,
+       "fame": 10,
+       "bond": -10
+      }
+     },
+     "fail": {
+      "text": "{ally} né được và đá gục bạn, thản nhiên cắt cổ con mồi. Đội săn mất đi một vật hiến tế quan trọng.",
+      "effects": {
+       "wealth": -20,
+       "fame": -15
+      }
+     }
+    },
+    {
+     "label": "Đồng tình và cùng thực hiện để thách thức luật lệ",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bữa ăn máu thịt mang lại sinh lực tràn trề, đồng thời sự tàn nhẫn gắn kết hai kẻ máu lạnh lại với nhau.",
+      "effects": {
+       "INT": 1,
+       "health": 15,
+       "bond": 20
+      }
+     },
+     "fail": {
+      "text": "Bạn ăn trúng phần tụ nọc độc của vũ khí trước đó, đau bụng quằn quại nôn mửa suốt đêm.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Trói luôn {ally} chung với con mồi vì tội báng bổ Tế đàn",
+     "require": {
+      "fame": 25
+     },
+     "showLocked": true,
+     "text": "Trực giác cực đoan mách bảo bạn thanh trừng kẻ không tôn trọng thánh thần. Bạn mang hai cái xác về lĩnh thưởng kép.",
+     "effects": {
+      "wealth": 20,
+      "fame": 30
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_squad_loot",
+   "text": "Cả đội vừa tiêu diệt một quái vật Slime King và rơi ra một Lõi Mana tinh khiết. Không ai chịu nhường ai, các mũi giáo đang lăm le chĩa vào nhau.",
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Dùng bạo lực áp chế tất cả phải quỳ xuống",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn gào thét đập nát khiên của kẻ lớn tiếng nhất, cuỗm trọn viên Lõi Mana với tư cách là thủ lĩnh tuyệt đối.",
+      "effects": {
+       "STR": 2,
+       "wealth": 40,
+       "bond": -30
+      }
+     },
+     "fail": {
+      "text": "Bạn bị cả đội quây lại đánh bầm dập, ném xuống bùn và mất luôn phần chia chác.",
+      "effects": {
+       "health": -30,
+       "fame": -20
+      }
+     }
+    },
+    {
+     "label": "Dàn xếp bán cho Thương hội Sói Bạc rồi chia đều tiền",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Sự công bằng mua chuộc được lòng người, cả đội hoan hỉ ăn chia những đồng Huyết Kim.",
+      "effects": {
+       "INT": 1,
+       "wealth": 20,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Bọn thương nhân lật lọng ép giá rẻ bèo, cả đội quay sang đổ lỗi cho bạn.",
+      "effects": {
+       "joy": -15,
+       "wealth": 5
+      }
+     }
+    },
+    {
+     "label": "Lén lút đánh tráo bằng một hòn đá phát quang",
+     "require": {
+      "AGI": 6
+     },
+     "showLocked": true,
+     "text": "Bạn ảo thuật tráo đồ, cả đội ném hòn đá giả vào Tế đàn trong khi viên lõi xịn nằm gọn trong túi bạn.",
+     "effects": {
+      "AGI": 2,
+      "wealth": 50,
+      "flags": [
+       "cunning_thief"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_squad_save",
+   "text": "{ally} lỡ đạp trúng một bẫy sập ma thuật của quân đội Nhân loại, bùn lún sủi bọt đang nuốt chửng đồng đội tới ngang cổ.",
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Lao tới dùng sức mạnh cơ bắp nhấc bổng {ally} lên",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Gân xanh nổi đầy tay, bạn giật đứt rễ cây ma thuật, kéo đồng đội lên từ cõi chết.",
+      "effects": {
+       "STR": 2,
+       "fame": 15,
+       "bond": 50
+      }
+     },
+     "fail": {
+      "text": "Bùn lún quá mạnh, lôi tuột bạn xuống theo, cả hai suýt chết đuối phải vứt hết đồ đạc mới trườn lên được.",
+      "effects": {
+       "health": -25,
+       "wealth": -30
+      }
+     }
+    },
+    {
+     "label": "Đào rãnh thoát bùn xung quanh để phân tán trọng lực",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Lớp bùn nhão khô lại đủ để {ally} tự trườn ra. Trí tuệ của bạn đánh bại cái bẫy xảo quyệt.",
+      "effects": {
+       "INT": 2,
+       "joy": 5
+      }
+     },
+     "fail": {
+      "text": "Bạn đào nhầm vào mạch nước ngầm, bùn sụp nhanh hơn khiến {ally} uống no nước bẩn.",
+      "effects": {
+       "health": -10,
+       "bond": -10
+      }
+     }
+    },
+    {
+     "label": "Lột sạch trang bị của {ally} rồi quay lưng bước đi",
+     "text": "Trong tiếng gào khóc tuyệt vọng, bạn bình thản lấy đi túi tiền và vũ khí, để mặc đồng đội bị đầm lầy nuốt chửng.",
+     "effects": {
+      "wealth": 25,
+      "fame": -15
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_squad_secret",
+   "text": "Trong lúc say rượu nấm, lớp vảy của {ally} bong ra, để lộ hình xăm nô lệ của Đấu trường Huyết Sa—chứng tỏ {ally} là một kẻ phản bội từng bán đứng đồng loại cho con người.",
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Tống tiền {ally} để giữ im lặng vĩnh viễn",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "{ally} xanh mặt giao toàn bộ tài sản tích cóp để giữ mạng, trở thành cái bóng phục tùng bạn.",
+      "effects": {
+       "INT": 1,
+       "wealth": 30,
+       "bond": -40
+      }
+     },
+     "fail": {
+      "text": "Bị dồn vào đường cùng, {ally} lao vào đâm bạn một nhát dao găm tẩm độc rồi bỏ trốn.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Trói nghiến lại mang nộp cho Tộc trưởng lĩnh thưởng",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Cuộc thanh trừng nội bộ chớp nhoáng. {ally} bị băm nát trên Tế đàn, còn bạn được vinh danh vì lòng trung thành.",
+      "effects": {
+       "STR": 1,
+       "wealth": 15,
+       "fame": 30
+      }
+     },
+     "fail": {
+      "text": "{ally} chống cự mãnh liệt và lẩn vào sương mù. Từ nay bạn có một kẻ thù giấu mặt luôn rình rập.",
+      "effects": {
+       "health": -15,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Lặng lẽ che lại và giữ kín coi như một ân huệ mạng sống",
+     "text": "Bạn mua được lòng trung thành tuyệt đối bằng sự dung túng. Một quân bài tẩy có thể lật ngược thế cờ sau này.",
+     "effects": {
+      "joy": 10,
+      "bond": 40,
+      "flags": [
+       "secret_keeper"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_squad_leave",
+   "text": "Chán ngán những cuộc săn thất bại và những vết sẹo rỉ máu không có tiền thưởng, {ally} nhổ bọt xuống bùn, gói gém đồ đạc tuyên bố rời đội.",
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Đánh gãy một chân để {ally} không thể tự đi",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Tiếng xương vỡ giòn giã vang lên, {ally} gục xuống rên rỉ, buộc phải bò lết theo bạn như một con chó. Sự tàn nhẫn duy trì đội hình.",
+      "effects": {
+       "STR": 2,
+       "fame": 10,
+       "bond": -80
+      }
+     },
+     "fail": {
+      "text": "{ally} chặn được đòn, đâm ngược một mũi giáo xỏ xuyên bắp đùi bạn rồi nhổ bọt bỏ đi kiêu hãnh.",
+      "effects": {
+       "health": -30,
+       "fame": -20
+      }
+     }
+    },
+    {
+     "label": "Dùng lời đường mật hứa hẹn về một chuyến săn đổi đời",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Viễn cảnh về đống Tinh Bạc khổng lồ làm lóa mắt {ally}, đồng đội quyết định nán lại thêm một mùa nữa.",
+      "effects": {
+       "INT": 1,
+       "bond": 10
+      }
+     },
+     "fail": {
+      "text": "Những lời sáo rỗng không lừa được kẻ đã quá hiểu đầm lầy. {ally} quay gót, đội hình tan rã.",
+      "effects": {
+       "joy": -15,
+       "wealth": -10
+      }
+     }
+    },
+    {
+     "label": "Cho phép rời đi nhưng tước đoạt toàn bộ trang bị",
+     "text": "\"Muốn đi thì để lại vảy sừng\". Bạn lột sạch từ vũ khí đến túi tiền, đẩy một kẻ tay không vào tử địa.",
+     "effects": {
+      "wealth": 25,
+      "fame": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_mate_1",
+   "text": "Ba tên Lizardman khổng lồ gầm gừ chặn đường bạn, chúng cũng nhắm đến {spouse} và sẵn sàng xé xác bất cứ kẻ cản đường nào.",
+   "choices": [
+    {
+     "label": "Gồng mình lao vào nghiền nát cả ba",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Vuốt của bạn móc tung yết hầu kẻ đầu đàn, hai tên còn lại khiếp sợ bỏ chạy. Bạn oai vệ bước lên bục bùn.",
+      "effects": {
+       "STR": 1,
+       "fame": 10,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Chúng hội đồng bạn dập nát vảy lưng, ném bạn ra khỏi bãi chiến huyết một cách nhục nhã.",
+      "effects": {
+       "health": -20,
+       "joy": -15
+      }
+     }
+    },
+    {
+     "label": "Luồn lách và rạch gót chân chúng hòng triệt hạ tốc độ",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Những đường dao găm tẩm độc gọt đứt gân chân kẻ địch, chúng gục ngã gào thét mà không chạm được vào bạn.",
+      "effects": {
+       "AGI": 1,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Một tên chộp được đuôi bạn và quật bạn vào phiến đá, khiến bạn choáng váng thổ huyết.",
+      "effects": {
+       "health": -15
+      }
+     }
+    }
+   ],
+   "require": {
+    "spouse": false
+   }
+  },
+  {
+   "id": "lizard_mate_2",
+   "text": "Bờm vảy của {spouse} dựng đứng, chờ đợi bạn dâng lên một chiến lợi phẩm xứng đáng để chứng minh khả năng nuôi dưỡng nòng nọc.",
+   "choices": [
+    {
+     "label": "Ném ra một nắm Tinh Bạc cướp được từ Mạo hiểm giả",
+     "check": {
+      "stat": "wealth",
+      "target": 70
+     },
+     "success": {
+      "text": "Sự lấp lánh của kim loại và mùi máu khô khiến {spouse} gừ lên hài lòng, háu đói nuốt lấy lễ vật.",
+      "effects": {
+       "wealth": -20,
+       "fame": 5,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Bạn tiếc tiền nên đưa ra loại quặng vụn vặt, {spouse} khinh bỉ hất văng chúng xuống nước.",
+      "effects": {
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Dâng lên cái đầu của một con quái thú do tự tay bạn săn",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn tinh tế móc mắt con quái vật để chứng tỏ nó bị hạ gục bằng độc dược hoàn hảo. {spouse} rung động trước trí khôn tàn độc của bạn.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Cái đầu thối rữa quá nhanh, mùi hôi thối dập tắt hoàn toàn dục vọng của bạn tình.",
+      "effects": {
+       "fame": -5
+      }
+     }
+    }
+   ],
+   "require": {
+    "spouse": false
+   }
+  },
+  {
+   "id": "lizard_mate_3",
+   "text": "Nghi lễ giao phối của loài bò sát là một trận cuồng phong bạo lực. {spouse} lao vào bạn, cắm phập nanh nhọn vào cổ bạn để kiểm tra sức chịu đựng cuối cùng.",
+   "choices": [
+    {
+     "label": "Vận gân cốt chịu đựng hàm răng sắc nhọn",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Dù máu tuôn xối xả, bạn vẫn đứng vững như một ngọn núi rêu phong, ôm ghì lấy {spouse} để hoàn thành nghi lễ tạo ra mầm sống.",
+      "effects": {
+       "health": -15,
+       "joy": 30,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Cơn đau vượt quá sức chịu đựng, bạn ngất lịm đi. {spouse} nhổ bọt coi thường và bỏ mặc bạn chảy máu đến sáng.",
+      "effects": {
+       "health": -30,
+       "joy": -20
+      }
+     }
+    },
+    {
+     "label": "Kìm nén lại, chờ dịp khác",
+     "text": "Bạn rít lên, ép luồng sức mạnh dưới vảy lắng xuống. Cơ hội này sẽ quay lại."
+    }
+   ],
+   "once": false,
+   "moment": "Tình yêu của đầm lầy không có hoa và nhạc, nó được dệt bằng những vết sẹo rỉ máu không bao giờ phai.",
+   "require": {
+    "spouse": false
+   }
+  },
+  {
+   "id": "lizard_child_1",
+   "text": "Trong ổ trứng của {spouse}, {child} nở ra cuối cùng, gầy gò và thiếu lớp vảy bảo vệ. Tộc trưởng ra lệnh ném nó cho cá sấu ăn.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "require": {
+    "children": 1
+   },
+   "choices": [
+    {
+     "label": "Trực diện gầm lên thách thức bất cứ kẻ nào đụng vào con mình",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Đôi mắt đỏ ngầu của bạn khiến Tộc trưởng chùn bước. Bạn giành được quyền nuôi dưỡng sinh mệnh bé nhỏ này.",
+      "effects": {
+       "STR": 1,
+       "joy": 7,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Tộc trưởng tát bạn ngã nhào, tự tay vứt {child} xuống hồ sâu. Bạn đau đớn gầm gào trong tuyệt vọng.",
+      "effects": {
+       "health": -15,
+       "joy": -30,
+       "loseChild": true
+      }
+     }
+    },
+    {
+     "label": "Đem toàn bộ tài sản đút lót cho Tộc trưởng để mua mạng",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Tham lam chiến thắng luật lệ. Tộc trưởng nhận Huyết Kim và làm ngơ cho bạn giấu {child} đi.",
+      "effects": {
+       "INT": 1,
+       "joy": 3,
+       "wealth": -30
+      }
+     },
+     "fail": {
+      "text": "Tộc trưởng nuốt trọn tiền rồi vẫn ra lệnh giết {child}, để lại cho bạn một bài học đắt giá.",
+      "effects": {
+       "joy": -25,
+       "wealth": -30,
+       "loseChild": true
+      }
+     }
+    },
+    {
+     "label": "Lạnh lùng quay lưng tuân theo luật đào thải của tự nhiên",
+     "text": "Bạn đứng nhìn con mình bị xé xác mà không chớp mắt. Bộ lạc vinh danh sự máu lạnh của bạn.",
+     "effects": {
+      "joy": -15,
+      "fame": 15,
+      "flags": [
+       "cold_blooded"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_child_2",
+   "text": "Lần đầu đi săn thực tế, {child} chần chừ không dám đâm mũi giáo tẩm độc vào một nữ tu sĩ bị trói, đôi mắt ánh lên sự yếu đuối của con người.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "require": {
+    "children": 1
+   },
+   "choices": [
+    {
+     "label": "Nắm lấy tay {child} và ép đâm xuống",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Máu nóng bắn lên mặt, {child} rùng mình rồi nhếch mép cười, bản năng tàn nhẫn được đánh thức vĩnh viễn.",
+      "effects": {
+       "STR": 1,
+       "joy": 10
+      }
+     },
+     "fail": {
+      "text": "{child} chống cự mãnh liệt, làm gãy mũi giáo đâm vào tay bạn rồi khóc lóc bỏ chạy.",
+      "effects": {
+       "health": -10,
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Kể về quá khứ từng bị loài người thảm sát để khơi gợi thù hận",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Lời lẽ kích động khiến mắt {child} vằn tia máu, nó giật lấy giáo và tự tay băm nát con mồi.",
+      "effects": {
+       "INT": 1,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Câu chuyện kể quá dài dòng, con mồi cắn lưỡi tự sát trước, làm hỏng cả buổi thực hành.",
+      "effects": {
+       "joy": -5,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Đuổi {child} về bãi đẻ vì cho rằng nó là đồ bỏ đi",
+     "text": "Sự sỉ nhục công khai khiến {child} ôm hận bạn suốt đời, nhưng đổi lại nó trở nên lầm lì và độc lập hơn.",
+     "effects": {
+      "joy": -10,
+      "fame": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_child_3",
+   "text": "Mùa khô khắc nghiệt, {child} giờ đã là một chiến binh vạm vỡ. Nó giương giáo chỉ thẳng vào mặt bạn giữa Tế đàn, thách thức chức vị của bạn.",
+   "stages": [
+    "middle"
+   ],
+   "require": {
+    "children": 1
+   },
+   "choices": [
+    {
+     "label": "Dùng kinh nghiệm chiến đấu quật ngã nó mà không tước mạng",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn gạt phăng mũi giáo, đá gập gối {child} xuống bùn. Sự độ lượng của kẻ mạnh khiến nó tâm phục khẩu phục.",
+      "effects": {
+       "AGI": 2,
+       "joy": 10,
+       "fame": 20
+      }
+     },
+     "fail": {
+      "text": "Tuổi tác làm bạn chậm nhịp, {child} đập vỡ xương quai xanh của bạn và cướp lấy chức vị.",
+      "effects": {
+       "health": -25,
+       "fame": -30,
+       "demote": true
+      }
+     }
+    },
+    {
+     "label": "Dốc toàn lực tiêu diệt mối đe dọa bất kể tình máu mủ",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn nghiền nát lồng ngực con mình bằng chiếc chùy đá rêu. Bầy đàn kinh hãi tột độ trước sự tàn bạo của bạn.",
+      "effects": {
+       "STR": 1,
+       "joy": -20,
+       "fame": 30,
+       "loseChild": true
+      }
+     },
+     "fail": {
+      "text": "Sự nhân nhượng phút chót khiến bạn lĩnh trọn một cú đâm xuyên bụng. Bạn gục ngã dưới chân đứa con máu lạnh.",
+      "effects": {
+       "health": -40,
+       "joy": -30
+      }
+     }
+    },
+    {
+     "label": "Chủ động thoái vị nhường ngôi cho thế hệ mới",
+     "text": "Bạn mỉm cười ném vũ khí xuống, lui về hậu phương ngắm nhìn dòng máu của mình ngự trị đầm lầy.",
+     "effects": {
+      "joy": 20,
+      "wealth": -10,
+      "fame": -15
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_child_4",
+   "text": "Một đội Mạo hiểm giả hạng S đột kích đầm lầy. {child} liều mạng cản hậu cho bộ lạc rút lui, cuối cùng bị Thánh Kiếm của Dũng Giả găm chặt xuống đất.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "require": {
+    "children": 1
+   },
+   "choices": [
+    {
+     "label": "Khởi động bẫy độc tử khí để cứu con dù phải bỏ mảng phòng thủ",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Làn sương axit nổ tung buộc Dũng Giả lùi bước. Bạn kéo được xác {child} đang hấp hối về chữa trị kịp thời.",
+      "effects": {
+       "INT": 2,
+       "joy": 17,
+       "wealth": -30
+      }
+     },
+     "fail": {
+      "text": "Gió đổi chiều thổi ngược độc vào bầy đàn, Dũng Giả nhân cơ hội chém bay đầu {child} rồi tẩu thoát.",
+      "effects": {
+       "health": -20,
+       "fame": -40,
+       "loseChild": true
+      }
+     }
+    },
+    {
+     "label": "Lao ra tự lấy thân mình che chắn nhát chém kết liễu",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Thánh Kiếm chém vỡ lớp khiên sừng của bạn nhưng kẹt lại ở xương. {child} nhân cơ hội kéo bạn chạy trốn.",
+      "effects": {
+       "health": -35,
+       "joy": 15,
+       "fame": 25
+      }
+     },
+     "fail": {
+      "text": "Kiếm ánh sáng cắt đứt thân thể bạn làm đôi. CHẾT (Bạn hy sinh oanh liệt để bảo vệ giọt máu cuối cùng)."
+     }
+    },
+    {
+     "label": "Quay mặt đi, chấp nhận hy sinh {child} để bộ lạc bảo toàn",
+     "text": "Bạn ra lệnh rút quân, bỏ mặc tiếng gào thét của con mình lịm dần dưới ánh sáng chính nghĩa.",
+     "effects": {
+      "joy": -40,
+      "fame": 10,
+      "loseChild": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_child_5",
+   "text": "{child} mang về chiếc đầu của một Thánh Kỵ Sĩ, được Serpent Priest chọn làm kẻ sẽ hấp thụ tinh hoa Huyết Nguyệt - một nghi lễ sẽ biến nó thành quái vật mất trí nhớ.",
+   "require": {
+    "children": 1
+   },
+   "choices": [
+    {
+     "label": "Gây bạo loạn cướp {child} khỏi tay Tư tế",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đập nát bệ đá, đánh văng lũ cuồng tín và dẫn {child} trốn khỏi bộ lạc, bắt đầu cuộc sống lưu vong tự do.",
+      "effects": {
+       "STR": 2,
+       "flags": [
+        "exiled_family"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Ma thuật tà đạo trói nghiến bạn lại. Tư tế bắt bạn trừng mắt nhìn con mình bị tẩy não thành cỗ máy giết người.",
+      "effects": {
+       "health": -30,
+       "joy": -50
+      }
+     }
+    },
+    {
+     "label": "Dùng cổ ngữ tà đạo thao túng nghi lễ để giữ lại tâm trí cho con",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn ngầm chỉnh sửa trận pháp. {child} hấp thụ sức mạnh nhưng vẫn nhận ra bạn, hai cha/mẹ con trở thành thế lực ngầm của bộ lạc.",
+      "effects": {
+       "INT": 3,
+       "wealth": 20,
+       "fame": 30
+      }
+     },
+     "fail": {
+      "text": "Nghi lễ phản vệ, ma lực đen thiêu rụi {child} thành tro ngay trên bàn thờ.",
+      "effects": {
+       "INT": -1,
+       "joy": -50
+      }
+     }
+    },
+    {
+     "label": "Quỳ xuống bệ đá tung hô sự tiến hóa của {child}",
+     "text": "Bạn chôn vùi tình cảm, để {child} trở thành một con ác thú vô hồn phục vụ Tà thần, đổi lấy cuộc sống sung túc cho mình.",
+     "effects": {
+      "joy": -20,
+      "wealth": 50,
+      "fame": 20
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_evo_dragon_1",
+   "text": "Trong một đêm trăng khuyết, lớp vảy cũ của bạn đồng loạt nứt nẻ và rụng xuống, để lộ lớp vảy mới thẫm màu đỏ đen cứng như thép Tinh Bạc. Cổ họng bạn thiêu đốt như ngậm than hồng.",
+   "minAge": 30,
+   "weight": 10,
+   "require": {
+    "STR": 12,
+    "health": 60,
+    "anyFlags": [
+     "ancient_blood",
+     "dragon_slayer",
+     "dragon_dreamer"
+    ],
+    "form": "none",
+    "notFlags": [
+     "evo_sign_dragon"
+    ]
+   },
+   "result": "Dấu ấn dragon_seed. Bạn nhận ra dòng máu rồng cổ đại đang thức tỉnh trong huyết quản bò sát của mình. Sức mạnh +1, Sức khỏe +1.",
+   "effects": {
+    "flags": [
+     "evo_sign_dragon"
+    ]
+   }
+  },
+  {
+   "id": "lizard_evo_dragon_2",
+   "text": "Sinh lực sôi sục đẩy bạn đến vùng ven Đảo Tro Tàn. Trước mặt là một hồ dung nham nóng chảy. Tiếng gọi của Cổ Long ép bạn phải ngâm mình xuống đó để tái sinh.",
+   "weight": 12,
+   "require": {
+    "form": "none",
+    "flags": [
+     "evo_sign_dragon"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Gầm lên và gieo mình thẳng xuống hồ nham thạch",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Dung nham không thiêu rụi bạn mà dung hợp vào da thịt. Khớp xương biến đổi, đuôi mọc gai nhọn, sừng rồng đâm thủng da đầu. Bạn vỗ màng cánh rách nát bay vút lên bầu trời.",
+      "effects": {
+       "health": 5,
+       "fame": 50,
+       "evolve": "Swamp Dragonewt"
+      }
+     },
+     "fail": {
+      "text": "Ý chí không đủ áp chế nhiệt độ, bạn gào thét khi mỡ và xương chảy rữa thành tro bụi. CHẾT (Trở thành một phần của hỏa ngục)."
+     }
+    },
+    {
+     "label": "Bắt một con Fire Drake, uống cạn máu tim nó để dung hòa nhiệt độ",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Máu rồng bọc lấy cơ thể, bạn từ từ lội xuống hồ và hấp thụ nham thạch trong sự đau đớn được kiểm soát. Bạn bước lên bờ với hình hài Bán Long rực lửa.",
+      "effects": {
+       "health": 3,
+       "wealth": 20,
+       "evolve": "Swamp Dragonewt"
+      }
+     },
+     "fail": {
+      "text": "Con Drake vùng vẫy phun lửa thiêu mù hai mắt bạn, hất bạn văng xuống vách núi nham thạch.",
+      "death": "Con Drake vùng vẫy phun lửa thiêu mù hai mắt bạn, hất bạn văng xuống vách núi nham thạch."
+     }
+    },
+    {
+     "label": "Sợ hãi quay bước từ bỏ tiếng gọi cổ đại",
+     "text": "Bạn không dám đánh cược mạng sống, chấp nhận sống cả đời với tư cách một Lizardman dị hợm có vảy rụng lở loét.",
+     "effects": {
+      "joy": -20,
+      "fame": -20
+     }
+    }
+   ],
+   "once": false
+  },
+  {
+   "id": "lizard_evo_dragon_3",
+   "text": "Quân đội Vương Quốc Con Người mang theo đại pháo Tinh Bạc định san phẳng Đầm Lầy Tử Khí. Bạn bay lượn trên không trung, phồng mang chuẩn bị giáng đòn phán xét.",
+   "require": {
+    "form": "Swamp Dragonewt"
+   },
+   "result": "Bạn phun ra một luồng Hơi Thở Axit Lửa Xanh. Đội hình hàng ngàn binh lính Nhân loại và xe pháo tan chảy thành vũng nước nhầy nhụa trong tiếng gào thét thấu trời. Tên tuổi của bạn vang dội khắp Aethelgard. Danh vọng +30, Sức mạnh +2."
+  },
+  {
+   "id": "lizard_evo_dragon_4",
+   "text": "Một Sứ giả Minotaur từ Đảo Tro Tàn bay đến, mang theo lời mời của Hỏa Long Vương, đề nghị bạn rời bỏ đầm lầy hạ đẳng để tham gia quân đoàn Rồng thực thụ.",
+   "require": {
+    "form": "Swamp Dragonewt"
+   },
+   "result": "Dù từ chối để ở lại bảo vệ bầy đàn đầm lầy hay đồng ý rời đi để chinh phạt bầu trời, bạn đã không còn là một sinh vật phàm tục nữa. Sự hiện diện của bạn làm run rẩy cả các Tộc trưởng. Danh vọng +20, Hạnh phúc +10, Tài sản +30."
+  },
+  {
+   "id": "lizard_evo_priest_1",
+   "text": "Bất chợt trong lúc tụng niệm, đồng tử của bạn xé rách thành hình khe dọc màu vàng óng. Bạn bắt đầu nghe thấy rõ mồn một từng lời thì thầm của Vực Thẳm Cổ Thần vang vọng từ dưới đáy bùn.",
+   "minAge": 35,
+   "weight": 10,
+   "require": {
+    "INT": 12,
+    "fame": 40,
+    "anyFlags": [
+     "snake_blessed",
+     "abyss_watcher"
+    ],
+    "form": "none",
+    "notFlags": [
+     "evo_sign_priest"
+    ]
+   },
+   "result": "Dấu ấn abyss_speaker. Trí tuệ vượt qua giới hạn phàm nhân, bạn có thể nhìn thấu cái chết của những kẻ xung quanh. Trí tuệ +2, Hạnh phúc -10.",
+   "effects": {
+    "flags": [
+     "evo_sign_priest"
+    ]
+   }
+  },
+  {
+   "id": "lizard_evo_priest_2",
+   "text": "Nhật thực che khuất mặt trời. Để chạm tới thần mang, bạn phải tự tay rạch bụng mình trên Tế đàn, hiến tế phần \"nhân\" để phần \"thần\" trỗi dậy.",
+   "weight": 12,
+   "require": {
+    "form": "none",
+    "flags": [
+     "evo_sign_priest"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Dùng dao găm tế thần rạch nát nội tạng trong sự tỉnh táo tuyệt đối",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn gục xuống nhưng linh hồn hắc ám khâu liền vết thương. Nửa thân dưới của bạn hóa thành đuôi rắn khổng lồ, ma lực tỏa ra nồng nặc mùi tử khí.",
+      "effects": {
+       "fame": 60,
+       "evolve": "High Serpent Priest"
+      }
+     },
+     "fail": {
+      "text": "Nỗi đau thể xác làm đứt gãy kết nối tâm linh, bạn chết vì mất máu như một kẻ cuồng tín ngu ngốc. CHẾT (Cái xác bị bầy đàn tranh nhau ăn thịt)."
+     }
+    },
+    {
+     "label": "Bắt 99 Mạo hiểm giả hiến tế cùng lúc để mượn sinh lực chuyển hóa",
+     "check": {
+      "stat": "wealth",
+      "target": 70
+     },
+     "success": {
+      "text": "Suối máu từ 99 cái xác chảy vào trận pháp, đẩy bạn lên trạng thái bán thần mà không phải chịu đau đớn thể xác. Đuôi rắn của bạn quấn quanh Tế đàn.",
+      "effects": {
+       "wealth": -50,
+       "fame": 40,
+       "evolve": "High Serpent Priest"
+      }
+     },
+     "fail": {
+      "text": "Lượng ma lực quá lớn gây nổ tung trận pháp, xé nát linh hồn bạn thành muôn mảnh lơ lửng trong Vực Thẳm.",
+      "death": "Lượng ma lực quá lớn gây nổ tung trận pháp, xé nát linh hồn bạn thành muôn mảnh lơ lửng trong Vực Thẳm."
+     }
+    },
+    {
+     "label": "Sụp đổ ý chí, không dám vung dao kết liễu nhân tính",
+     "text": "Nhật thực qua đi, Tà thần tước đoạt ma lực của kẻ hèn nhát. Bạn trở thành một gã tu sĩ già mù lòa nhảm nhí.",
+     "effects": {
+      "INT": -5,
+      "fame": -30,
+      "evolve": "High Serpent Priest"
+     }
+    }
+   ],
+   "once": false
+  },
+  {
+   "id": "lizard_evo_priest_3",
+   "text": "Thánh Kỵ Sĩ Đoàn tập hợp ở rìa đầm lầy, tụng xướng ma pháp ánh sáng thanh tẩy diện rộng. Bạn bò lên mỏm đá cao nhất, vung trượng sọ rồng mỉm cười.",
+   "require": {
+    "form": "High Serpent Priest"
+   },
+   "result": "Bằng một từ ngữ cấm kỵ, bạn triệu hồi cơn mưa máu xanh lục. Giáp vàng của Kỵ sĩ rỉ sét, da thịt họ lở loét và tan chảy ngay tại chỗ. Đầm Lầy Tử Khí mở rộng bờ cõi nhờ ma lực vô biên của bạn. Trí tuệ +3, Danh vọng +25."
+  },
+  {
+   "id": "lizard_evo_priest_4",
+   "text": "Hào quang chói lòa giáng xuống, ảnh ảo của Nữ thần Lumina xuất hiện để phán xét bạn. Trái với những kẻ phàm tục phải quỳ gối, bạn thẳng lưng dùng bóng tối của Vực Thẳm đối trọng lại ánh sáng.",
+   "require": {
+    "form": "High Serpent Priest"
+   },
+   "result": "Bầu trời nứt làm đôi, một nửa rực rỡ, một nửa đen đặc. Lời nguyền của bạn đánh bật ý chí của thần linh, giáng một đòn chí mạng vào niềm tin của Giáo hội Thánh Quang, khắc tên bạn thành Đại Ác Nhân của kỷ nguyên. Trí tuệ +2, Danh vọng +50, Hạnh phúc +20."
+  },
+  {
+   "id": "lizard_old_1",
+   "text": "Đang xé thịt một con thú hoang, chiếc nanh nanh vuốt sắc nhọn nhất từng giúp bạn cắn đứt yết hầu kẻ thù bỗng gãy rắc, rụng xuống vũng bùn hòa lẫn cùng máu lợi.",
+   "stages": [
+    "elder"
+   ],
+   "result": "Bạn lượm chiếc nanh lên, xỏ dây đeo vào cổ. Dấu ấn thời gian tàn khốc nhắc nhở rằng thời oanh liệt nhất của cỗ máy giết người đầm lầy đã qua. Sức mạnh -2, Sức khỏe -10, Danh vọng +5."
+  },
+  {
+   "id": "lizard_old_2",
+   "text": "Các đội săn trẻ tuổi bắt đầu chia phần thịt thối rữa đầy giòi cho bạn, thay vì những tảng mỡ máu vinh quang như trước kia. Luật đầm lầy tàn nhẫn không chừa một ai.",
+   "stages": [
+    "elder"
+   ],
+   "choices": [
+    {
+     "label": "Gầm lên và đánh gục gã chia thịt để lấy lại uy phong",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Dù già nua, cú đấm của bạn vẫn đủ lực bẻ gãy sừng hắn. Bầy đàn cúi đầu sợ hãi nhường lại phần ngon nhất.",
+      "effects": {
+       "STR": -1,
+       "health": 5,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Đám trẻ dễ dàng đè bẹp bạn, giẫm đạp lên lớp vảy bong tróc rồi tống bạn ra khỏi vòng lửa trại.",
+      "effects": {
+       "health": -20,
+       "joy": -20,
+       "fame": -15
+      }
+     }
+    },
+    {
+     "label": "Dùng thủ đoạn bỏ độc vào phần ăn của chúng",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Sáng hôm sau, những kẻ hỗn xược đều sùi bọt mép. Bạn chậm rãi lấy lại những gì thuộc về mình.",
+      "effects": {
+       "INT": 1,
+       "wealth": 10,
+       "fame": -5
+      }
+     },
+     "fail": {
+      "text": "Độc tính bị phát hiện, chúng ném bạn vào chuồng nô lệ cùng lũ Goblin.",
+      "effects": {
+       "health": -25,
+       "joy": -30
+      }
+     }
+    },
+    {
+     "label": "Lặng lẽ nhai nuốt miếng thịt thối trong góc tối",
+     "text": "Cắn răng nhẫn nhục, bạn giữ gìn chút sinh lực cuối cùng để không gục ngã trước mùa đông.",
+     "effects": {
+      "health": -5,
+      "joy": -10,
+      "fame": -10
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_old_3",
+   "text": "Đôi chân bạn không còn đứng vững. Vào một đêm sương mù dày đặc, bạn dường như thấy bóng ma của {father}, {mother} và những chiến binh cũ đang vẫy gọi dưới mặt hồ phẳng lặng.",
+   "stages": [
+    "elder"
+   ],
+   "result": "Dấu ấn swamp_caller. Bạn lang thang ra rìa Tế đàn, đầu óc lú lẫn nhưng thanh thản đến lạ thường. Mọi Huyết Kim hay chức tước giờ chỉ là thứ cát bụi vô nghĩa. Trí tuệ -2, Sức khỏe -15, Hạnh phúc +20."
+  },
+  {
+   "id": "lizard_chain_1a",
+   "text": "Kẻ bị bạn hạ gục năm xưa để đoạt lại Huyết Ngọc hóa ra là con trai Hội trưởng Guild Sát thủ Umbra. Đêm nay, hai tên sát thủ mang mặt nạ quỷ đã lọt qua lưới canh gác, đứng ngay trên đầu giường bạn.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "require": {
+    "flags": [
+     "sacred_retriever"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Vờ ngủ rồi bất ngờ tung chăn tẩm nọc độc vào mặt chúng",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Đám khói tử khí bùng lên làm mù mắt sát thủ, bạn thong thả cầm giáo đâm thủng yết hầu từng tên một.",
+      "effects": {
+       "INT": 1,
+       "wealth": 20,
+       "fame": 10,
+       "flags": [
+        "umbra_slayer"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Chúng nín thở lùi lại, phi đao găm phập vào đùi bạn trước khi lẩn mất vào bóng tối.",
+      "effects": {
+       "health": -25,
+       "fame": -5,
+       "flags": [
+        "umbra_hunted"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Dùng sức mạnh nguyên thủy đập gãy cột lều đè bẹp tất cả",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Lều sập xuống như một cái bẫy khổng lồ, bạn vùng lên từ đống rêu nát và giẫm nát sọ kẻ thù.",
+      "effects": {
+       "STR": 2,
+       "wealth": 10,
+       "fame": 15,
+       "flags": [
+        "umbra_slayer"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Cột gỗ đập trúng đầu bạn gây choáng, sát thủ bồi thêm một dao tẩm độc vào bả vai.",
+      "effects": {
+       "health": -20,
+       "joy": -10,
+       "flags": [
+        "umbra_hunted"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Lặn thẳng xuống hố nước dưới gầm giường tẩu thoát",
+     "text": "Bạn giữ được mạng nhưng lều trại bị chúng đốt trụi, để lại nỗi nhục nhã ê chề trước bầy đàn.",
+     "effects": {
+      "wealth": -30,
+      "fame": -20,
+      "flags": [
+       "umbra_hunted"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_chain_1b",
+   "text": "Viên Huyết Ngọc trên Tế đàn đột nhiên cộng hưởng với dòng máu của bạn. Tà thần Rắn thức tỉnh, ghi nhận sự hy sinh của bạn trong việc bảo vệ thánh tích trước con người.",
+   "stages": [
+    "elder"
+   ],
+   "require": {
+    "anyFlags": [
+     "umbra_slayer",
+     "umbra_hunted"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Đón nhận sức mạnh diệt thần",
+     "text": "Bạn đã chứng minh bản lĩnh diệt sát thủ, Tà thần ban cho bạn \"Nhãn Lực Bóng Tối\", nhìn thấu mọi điểm yếu của sinh mệnh.",
+     "effects": {
+      "STR": 2,
+      "INT": 3,
+      "fame": 30
+     }
+    },
+    {
+     "label": "Cầu xin chữa lành những vết thương năm tháng",
+     "text": "Những vết sẹo tàn độc do Guild Sát thủ Umbra để lại bỗng bong vảy, sinh lực dồi dào chảy tràn như thời trai tráng.",
+     "effects": {
+      "health": 30,
+      "joy": 20,
+      "fame": 10
+     }
+    }
+   ],
+   "moment": "Thần linh luôn biết cách trả công, miễn là bạn sống sót đủ lâu để nhận nó."
+  },
+  {
+   "id": "lizard_chain_2a",
+   "text": "Thánh Nữ Tối Cao năm xưa giờ đã hoàn toàn đọa đày trong tà giáo. Nàng mang đến trước mặt bạn một đứa bé dị dạng, tỏa ra ma lực ánh sáng lốm đốm hắc ám, và gọi bạn là \"Người giám hộ\".",
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "require": {
+    "flags": [
+     "saintess_captor"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Nhận lấy đứa bé và nuôi dạy nó thành vũ khí",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bằng cách áp chế dòng máu ánh sáng bằng nấm độc, bạn biến đứa trẻ thành một cỗ máy phép thuật cuồng tín phục tùng tuyệt đối.",
+      "effects": {
+       "INT": 2,
+       "wealth": 20,
+       "fame": 25,
+       "flags": [
+        "dark_heir"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Đứa bé bộc phát ma lực thanh tẩy, đốt cháy một cánh tay của bạn trước khi bị Thánh Nữ phong ấn lại.",
+      "effects": {
+       "health": -25,
+       "joy": -10,
+       "flags": [
+        "dark_heir"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đòi ném đứa bé xuống đầm lầy để trừ hậu họa",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn giật lấy đứa trẻ ném xuống bùn lún mặc cho Thánh Nữ gào khóc, triệt tiêu mọi rủi ro tiềm tàng từ ánh sáng.",
+      "effects": {
+       "STR": 1,
+       "fame": 10,
+       "flags": [
+        "rejected_heir"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Thánh Nữ nổi điên dùng bão hắc ám thổi bay bạn, ôm đứa con bỏ trốn vào sâu trong Đầm Lầy Tử Khí.",
+      "effects": {
+       "health": -20,
+       "fame": -15,
+       "flags": [
+        "rejected_heir"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_chain_2b",
+   "text": "Giáo hoàng đích thân dẫn binh đoàn tinh nhuệ nhất tới Đầm Lầy hòng thanh tẩy \"sự ô nhục vĩ đại\" mà bạn đã gây ra cho Giáo hội.",
+   "stages": [
+    "elder"
+   ],
+   "require": {
+    "anyFlags": [
+     "dark_heir",
+     "rejected_heir"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Giải phóng vũ khí Hắc Quang",
+     "text": "Đứa con lai nay đã trưởng thành, bay lên không trung giáng xuống cơn bão hắc viêm xen lẫn thánh quang, tàn sát sạch sẽ Thánh Kỵ Sĩ Đoàn mà bạn không tốn giọt mồ hôi.",
+     "effects": {
+      "STR": 5,
+      "wealth": 50,
+      "fame": 50
+     }
+    },
+    {
+     "label": "Một mình đối đầu với Giáo hoàng",
+     "text": "Bạn gầm lên lao vào tử chiến. Dù xé xác được Giáo hoàng, nhưng Thánh Kiếm của lão cũng găm chặt vào tim bạn.",
+     "effects": {
+      "fame": 100
+     }
+    }
+   ],
+   "moment": "Ánh sáng và bóng tối cuối cùng cũng phải giải quyết ân oán bằng máu."
+  },
+  {
+   "id": "lizard_chain_3a",
+   "text": "Khi dọn dẹp góc lều cũ của người sinh thành, bạn tìm thấy một hòm nhỏ giấu kín chứa đầy Huyết Kim và ấn tín của Thương hội Sói Bạc. Họ từng là kẻ trộm tài sản của Tộc trưởng.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "require": {
+    "any": [
+     {
+      "fatherAlive": false
+     },
+     {
+      "motherAlive": false
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Nuốt trọn số tiền và giấu nhẹm mọi thứ",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn nhanh tay chôn lại ấn tín, bỏ túi số tiền lớn làm vốn liếng trang bị vũ khí xịn.",
+      "effects": {
+       "AGI": 1,
+       "wealth": 40,
+       "flags": [
+        "father_accomplice"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn đào hố lấp ấn tín quá ồn, bị lính gác đi ngang qua nghi ngờ và thu tịch quá nửa số tiền.",
+      "effects": {
+       "joy": -10,
+       "wealth": 10,
+       "flags": [
+        "father_accomplice"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đem toàn bộ nộp cho Tộc trưởng để chứng minh lòng trung thành",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Sự phơi bày tội lỗi của cha mẹ khiến Tộc trưởng nể trọng sự máu lạnh công tư phân minh của bạn.",
+      "effects": {
+       "INT": 1,
+       "fame": 25,
+       "flags": [
+        "father_cleared"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Tộc trưởng cho rằng bạn nộp để che giấu số tiền lớn hơn, bắt bạn chịu phạt đòn oan uổng.",
+      "effects": {
+       "health": -15,
+       "fame": -10,
+       "flags": [
+        "father_cleared"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_chain_3b",
+   "text": "Một gã sát thủ đánh thuê của Thương hội Sói Bạc tìm đến, đưa ra bản khế ước nợ nần đẫm máu mà người sinh thành của bạn chưa thanh toán.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "require": {
+    "anyFlags": [
+     "father_accomplice",
+     "father_cleared"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Từ chối trả tiền và tàn sát gã thu nợ",
+     "text": "Bằng vũ khí đắt tiền mua từ chính số Huyết Kim ăn trộm, bạn dễ dàng đâm thủng cổ họng gã sát thủ, xóa sổ hoàn toàn mọi chứng cứ.",
+     "effects": {
+      "STR": 2,
+      "wealth": 15,
+      "fame": 10
+     }
+    },
+    {
+     "label": "Dùng uy quyền cấm cửa Thương hội",
+     "text": "Nhờ lòng tin của Tộc trưởng, bạn điều động vệ binh đầm lầy ném gã sát thủ ra khỏi ranh giới lãnh địa, không tốn một đồng.",
+     "effects": {
+      "joy": 10,
+      "fame": 15
+     }
+    }
+   ],
+   "moment": "Tội lỗi của thế hệ trước luôn tìm cách vươn nanh vuốt tóm lấy gót chân thế hệ sau."
+  },
+  {
+   "id": "lizard_chain_4a",
+   "text": "Một tên lính trẻ của Quân đoàn Nhân loại bị ngã xuống vũng lún sủi bọt, hắn tuyệt vọng chìa ra thanh kiếm thép xịn nhất của mình cầu xin bạn cứu mạng.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "choices": [
+    {
+     "label": "Ném dây leo kéo hắn lên rồi cướp thanh kiếm",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Hắn thoát chết, bò lết trốn chạy trong khi bạn huýt sáo mân mê món vũ khí mới mẻ sắc bén.",
+      "effects": {
+       "STR": 1,
+       "wealth": 25,
+       "flags": [
+        "spared_soldier"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Lực kéo quá mạnh làm hắn trật khớp vai gào thét, bạn phải vội vàng lấy kiếm rồi chuồn đi trước khi đồng đội hắn tới.",
+      "effects": {
+       "joy": -5,
+       "wealth": 20,
+       "flags": [
+        "spared_soldier"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Lấy kiếm và dìm đầu hắn xuống bùn vĩnh viễn",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Bong bóng khí ngưng sủi, thanh kiếm thuộc về bạn và bí mật nằm yên dưới đáy đầm.",
+      "effects": {
+       "health": 1,
+       "wealth": 30,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Hắn vùng vẫy đâm xước tay bạn trước khi chìm.",
+      "effects": {
+       "health": -10,
+       "wealth": 30
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "lizard_chain_4b",
+   "text": "Tên lính năm xưa giờ đã trở thành Tướng quân. Thay vì báo ân, hắn lợi dụng việc nhớ rõ địa hình khu vực bạn thả hắn để dẫn một đạo quân đánh úp thẳng vào lều trại của bạn lúc rạng sáng.",
+   "stages": [
+    "middle"
+   ],
+   "require": {
+    "flags": [
+     "spared_soldier"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Phục kích ngược bằng bẫy nổ tử khí",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Sự chuẩn bị xa xôi đã phát huy tác dụng. Cả đạo quân ngã gục, bạn bước tới bẻ gãy cổ gã Tướng quân vô ơn.",
+      "effects": {
+       "INT": 2,
+       "wealth": 40,
+       "fame": 35
+      }
+     },
+     "fail": {
+      "text": "Đạo quân quá đông, bạn bị thương nặng và phải đốt lều bỏ chạy vào đầm lầy sâu. Trả giá đắt cho lòng nhân từ bẩn thỉu.",
+      "effects": {
+       "health": -40,
+       "joy": -30,
+       "wealth": -50
+      }
+     }
+    },
+    {
+     "label": "Bắt một lính gác làm con tin ép hắn lui binh",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Hắn chùn bước trước sự điên cuồng của bạn và ra lệnh rút lui, nhưng bạn biết chúng sẽ còn quay lại.",
+      "effects": {
+       "AGI": 1,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Hắn cười lạnh lùng ra lệnh bắn tên giết cả con tin lẫn bạn, buộc bạn phải nhảy xuống vực nước xiết.",
+      "effects": {
+       "health": -30,
+       "fame": -15
+      }
+     }
+    }
+   ],
+   "moment": "Trong một thế giới giả tưởng tàn khốc, \"làm ơn mắc oán\" không phải là ngoại lệ, mà là quy luật vật lý."
+  }
+ ],
+ "deaths": [
+  {
+   "id": "lizard_old_4",
+   "kind": "old",
+   "text": "Hơi thở khò khè như bễ lò rèn hỏng. Bạn biết ngày hôm nay, vầng thái dương ảm đạm của Đầm Lầy Tử Khí sẽ là thứ cuối cùng bạn nhìn thấy."
+  }
+ ],
+ "focus": {
+  "play": {
+   "name": "Bơi lặn và săn cá",
+   "desc": "Nhanh nhẹn, Sức mạnh; lặn sâu dưới đầm lầy",
+   "stages": [
+    "infant",
+    "child",
+    "teen",
+    "adult"
+   ],
+   "gains": {
+    "AGI": 0.25,
+    "STR": 0.1
+   },
+   "bars": {
+    "joy": 1
+   },
+   "quiet": {
+    "default": [
+     "Bạn lặn sâu xuống đáy bùn, quẫy đuôi đuổi theo một đàn cá mù rực sáng trong làn nước lạnh lẽo.",
+     "Vây lưng của bạn xé toạc mặt nước tĩnh lặng, ngoạm trọn một con ếch sừng khổng lồ đang ngái ngủ trên lá sen.",
+     "Bạn ngâm mình trong hồ nước đục, lặng lẽ rỉa sạch phần thịt thối từ bộ xương của một con quái ngư chết trôi."
+    ]
+   }
+  },
+  "study": {
+   "name": "Học lời tiên tri của Tư tế",
+   "desc": "Trí tuệ; nghe lời Tà thần qua miệng Tư tế",
+   "stages": [
+    "child",
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "quiet": {
+    "default": [
+     "Tiếng xướng ngôn tà đạo lặp đi lặp lại trong đầu khiến bạn ứa máu tai, nhưng con mắt thứ ba trong tâm trí lại dần hé mở.",
+     "Bạn dùng móng vuốt cạo những lớp rêu cổ đại để đọc các ký tự Hắc Nguyệt Hội bị thời gian vùi lấp.",
+     "Khói từ rễ nấm độc hơ trên lửa đỏ đưa tâm trí bạn chìm vào một cõi mộng chứa đầy hình ảnh rồng và xúc tu."
+    ]
+   }
+  },
+  "train": {
+   "name": "Khổ luyện",
+   "desc": "Sức mạnh, Nhanh nhẹn; giáo, đuôi và nanh vuốt",
+   "stages": [
+    "child",
+    "teen",
+    "adult",
+    "middle"
+   ],
+   "quiet": {
+    "default": [
+     "Bạn liên tục đâm mũi giáo vào thân cây gai, phớt lờ máu rỉ ra từ kẽ vảy.",
+     "Vác trên lưng khối đá tảng đẫm sương, bạn lê bước quanh bãi đẻ để ép cơ thể vượt qua giới hạn mệt mỏi.",
+     "Những vết sẹo mới đè lên vết sẹo cũ sau chuỗi ngày tự giao chiến sinh tử với những con thú hoang bắt được."
+    ]
+   }
+  },
+  "work": {
+   "name": "Phục dịch bộ lạc",
+   "desc": "Làm vai trò của mình, tích kinh nghiệm thăng bậc",
+   "stages": [
+    "child",
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "quiet": {
+    "default": [
+     "Bạn còng lưng khiêng những bó củi mục nát từ rìa đầm lầy về để duy trì ngọn lửa thiêng ở Tế đàn Rắn.",
+     "Đắp lại những lớp bùn lở quanh bãi ấp trứng là công việc vô vị nhưng giữ cho bộ lạc sống sót qua mùa mưa.",
+     "Bạn thái nhỏ những tảng thịt thừa ôi thiu từ cuộc đi săn để chia cho lũ Con non đang gào thét đói khát."
+    ]
+   }
+  },
+  "adventure": {
+   "name": "Đi săn người",
+   "desc": "Theo bộ lạc đi săn, leo thứ bậc",
+   "stages": [
+    "teen",
+    "adult",
+    "middle"
+   ],
+   "tags": null,
+   "quiet": {
+    "default": [
+     "Lưỡi dao xương của bạn nếm trọn dòng máu nóng hổi của một gã thương nhân tham lam đi lạc vào vùng rìa tử địa.",
+     "Tiếng gào thét của bọn Mạo hiểm giả hạng F vang vọng giữa đầm lầy ban đêm mang lại cho bạn niềm vui sướng tột độ.",
+     "Bạn kiên nhẫn bôi bùn lên người, hóa thân thành một khúc gỗ trôi lờ đờ chờ đợi toán tuần tra lọt vào ổ phục kích."
+    ]
+   }
+  },
+  "social": {
+   "name": "Tranh quyền",
+   "desc": "Thách đấu, kết bè, giành bạn đời",
+   "stages": [
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "quiet": {
+    "default": [
+     "Bạn gầm gừ nhe chiếc nanh sắc lẻm uy hiếp một kẻ đồng trang lứa, ép hắn nhường lại tảng thịt mỡ màng nhất trong vữa ăn chung.",
+     "Những cái vảy gãy rụng trong các cuộc thanh trừng nội bộ đẫm máu dần mọc lại, cứng cáp và thẫm màu hơn như những tấm huân chương của quyền lực.",
+     "Bạn dùng máu của kẻ vừa thách thức mình vẽ lên ngực những hoa văn tà đạo, củng cố vị thế bất khả xâm phạm trước ánh mắt nể sợ của bầy đàn."
+    ]
+   }
+  },
+  "rest": {
+   "name": "Phơi nắng nghỉ ngơi",
+   "desc": "Hồi sức trên tảng đá ấm",
+   "stages": [
+    "infant",
+    "child",
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "bars": {
+    "health": 2,
+    "joy": 1
+   },
+   "quiet": {
+    "default": [
+     "Bạn nằm ườn trên phiến đá rêu rợp bóng cây, lười biếng nhai một con nhện nước xui xẻo vướng vào vây.",
+     "Ánh nắng hiếm hoi của bầu trời xám xịt sưởi ấm dòng máu lạnh, giúp những vết chém sâu hoắm trên ngực bạn dần khép miệng.",
+     "Bạn nhắm nghiền mắt trên mỏm đá cao nhất bãi ấp, để mặc cho những vảy sừng già cỗi nứt nẻ và rơi rụng theo từng cơn gió hanh khô."
+    ]
+   }
+  }
+ },
+ "systems": {
+  "bandName": "bầy săn",
+  "romance": false,
+  "autoChildren": false,
+  "companions": [
+   {
+    "race": "Lizardman",
+    "names": "lizardman",
+    "job": "Lizardman Warrior",
+    "stat": "STR",
+    "weight": 3
+   },
+   {
+    "race": "Lizardman",
+    "names": "lizardman",
+    "job": "Swamp Hunter",
+    "stat": "AGI",
+    "weight": 3
+   },
+   {
+    "race": "Lizardman",
+    "names": "lizardman",
+    "job": "Serpent Priest",
+    "stat": "INT",
+    "weight": 1
+   },
+   {
+    "race": "Kobold",
+    "names": "kobold",
+    "job": "Kobold Trapper",
+    "stat": "INT",
+    "weight": 1
+   }
+  ],
+  "recruit": {
+   "text": [
+    "Một Lizardman trẻ trườn ra từ bãi lau sậy, thè lưỡi đánh hơi bạn rồi cúi đầu: \"Cho ta săn cùng.\"",
+    "Sau cuộc săn, một kẻ trong bầy chia cho bạn phần gan con mồi. Ở đầm lầy, đó là lời đề nghị kết bầy."
+   ],
+   "join": [
+    "{ally} quẫy đuôi đập nhẹ vào đuôi bạn. Từ nay hai kẻ chung một bầy săn.",
+    "{ally} rạch một vảy trên cổ tay, nhỏ máu xuống bùn. Huyết thệ đã thành."
+   ],
+   "decline": "Rít lên đuổi đi",
+   "declineText": "Bạn nhe nanh rít lên. Kẻ kia lặn mất xuống bùn."
+  },
+  "jobSelect": {
+   "teen": [
+    "Tộc trưởng gọi lũ trẻ vừa lột vảy lần đầu ra bãi đá. Mỗi kẻ phải chọn con đường: giáo, bẫy, độc, Tà thần hay bãi trứng."
+   ],
+   "adult": [
+    "Một Lizardman trưởng thành mà chưa có chỗ đứng là gánh nặng của bộ lạc. Đã đến lúc chọn."
+   ],
+   "later": "Phơi nắng thêm vài năm",
+   "laterText": "Bạn nằm dài trên tảng đá ấm. Con đường có thể chờ."
+  },
+  "promotion": {
+   "try": "Lao vào chứng minh bản thân",
+   "wait": "Chưa, chờ thời",
+   "waitText": "Bạn nằm im dưới bùn chờ thời. Thợ săn giỏi biết kiên nhẫn.",
+   "success": "Cả bộ lạc rít lên tán thưởng. Từ nay, bạn là {next}.",
+   "fail": [
+    "Bạn thất bại, lớp vảy rách tả tơi.",
+    "Bạn bị hạ gục trước ánh mắt khinh bỉ của cả bộ lạc."
+   ]
+  },
+  "crossroads": {
+   "child": "Bạn đã biết bơi và săn. Những năm tới, bạn sẽ dồn sức vào đâu?",
+   "teen": "Lớp vảy gai đã cứng. Bạn sẽ dùng nó vào việc gì?",
+   "adult": "Bạn đã là một Lizardman trưởng thành. Bạn sẽ làm gì với những năm tới?",
+   "middle": "Tà thần bắt đầu thì thầm trong giấc mơ của bạn. Bạn sẽ dùng những năm này ra sao?",
+   "elder": "Vảy bạn đã bạc màu. Những năm cuối, bạn muốn làm gì?",
+   "default": "Bạn sẽ dồn sức vào đâu?"
+  },
+  "stageEnter": {
+   "child": "Đuôi bạn đã đủ khỏe để quẫy ngược dòng. Bạn là một Thợ săn đầm lầy nhỏ.",
+   "teen": "Bạn lột vảy lần đầu. Lớp vảy mới mọc lên đầy gai độc.",
+   "adult": "Bạn đã trưởng thành. Cả bầy bắt đầu nghe theo tiếng rít của bạn.",
+   "middle": "Đôi mắt bạn nhìn thấy những điều Tà thần muốn bạn thấy.",
+   "elder": "Vảy bạn bạc màu như đá cũ. Lũ trẻ trong bộ lạc gọi bạn là Cổ thằn lằn.",
+   "default": "Một chương mới của cuộc đời Lizardman mở ra."
+  },
+  "parentDeath": [
+   "{who} đã chết. Bộ lạc thả xác xuống đầm lầy sâu nhất để Tà thần đón về.",
+   "Tin {who} chết đến tai bạn. Bạn lặn xuống bùn suốt một ngày đêm không trồi lên."
+  ],
+  "allyDie": [
+   "Cơ thể của {ally} từ từ chìm nghỉm dưới lớp bùn sủi bọt, không một khúc xương nào còn sót lại cho Tế đàn.",
+   "Máu lạnh của {ally} loang lổ trên lớp rêu xanh, một cái kết nhạt nhẽo cho một sinh mạng nguyên thủy.",
+   "Bạn thản nhiên bước qua thi hài không còn hơi ấm của {ally}, lấy mũi giáo gảy chiếc nanh thú kỷ niệm cất vào túi mình."
+  ],
+  "allyHurt": [
+   "Lớp vảy sừng của {ally} bong tróc từng mảng lớn, mủ xanh từ nọc độc rỉ ra hôi thối nồng nặc.",
+   "Tiếng xương gãy vụn dưới lớp da của {ally} nghe rõ mồn một mỗi khi lê lết qua vũng lầy lún.",
+   "{ally} ôm lấy vết chém sâu hoắm bằng bàn tay run rẩy, đôi mắt loài bò sát vằn lên tia máu thù hận kẻ địch."
+  ],
+  "allyLeave": [
+   "Cái bóng của {ally} trượt dài rồi biến mất vào màn sương mù vĩnh cửu, bỏ lại sau lưng mọi lời thề máu.",
+   "Tiếng sột soạt lùi xa dần phản chiếu trái tim tàn độc của {ally}, kẻ đã chọn vàng bạc thay vì bầy đàn.",
+   "Lời nói dối rít lên qua kẽ răng, {ally} cuốn gói toàn bộ chiến lợi phẩm lẩn trốn, để lại cho bạn một cục tức nghẹn họng."
+  ]
+ },
+ "stages": [
+  {
+   "id": "infant",
+   "start": 0,
+   "name": "Nòng Nọc Vảy Sừng"
+  },
+  {
+   "id": "child",
+   "start": 5,
+   "name": "Thợ Săn Đầm Lầy"
+  },
+  {
+   "id": "teen",
+   "start": 12,
+   "name": "Chiến Binh Gai Độc"
+  },
+  {
+   "id": "adult",
+   "start": 20,
+   "name": "Thủ Lĩnh Bộ Lạc"
+  },
+  {
+   "id": "middle",
+   "start": 35,
+   "name": "Tư Tế Tà Thần"
+  },
+  {
+   "id": "elder",
+   "start": 45,
+   "name": "Cổ Thằn Lằn"
+  }
+ ],
+ "lifespan": [
+  55,
+  65
+ ]
+}

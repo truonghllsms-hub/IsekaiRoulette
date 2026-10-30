@@ -207,6 +207,9 @@ function parse(text) {
       /^tiến hóa$/i.test(pre.trim()) ? `[${id}] ${rest}` : `${pre.trim()} - [${id}]: ${rest}`);
     let line = strip(raw);
     if (!line) continue;
+    // number words at the start of list titles ("Năm bậc:", "Bốn thử thách…", "Ba câu năm yên ả") and "(Bậc 1 lên 2): …"
+    line = line.replace(/^(năm|bốn|ba|bảy|hai)\s+(bậc|thử thách|câu|cấp)/i, (m, w, rest) => ({ "năm": 5, "bốn": 4, "ba": 3, "bảy": 7, "hai": 2 }[w.toLowerCase()] + " " + rest))
+      .replace(/^\((bậc \d+ lên \d+)\)\s*:/i, "$1:");
     const prevLine = lastLine;
     lastLine = line;
     const low = line.toLowerCase();
@@ -253,6 +256,8 @@ function parse(text) {
       const listing = /\(bậc tối thiểu/i.test(rest) || /^\d+\.\s*$/.test(idm[1].trim()) && /—/.test(rest) && /\(bậc \d+\)/i.test(rest);
       if (listing) continue; // a summary list of quests, the real ones follow
       opt = null;
+      // "2. [kobold_quest_x] Title" starts the next quest, it is not a scene of the open one
+      if (quest && /^\d+\.\s*$/.test(idm[1].trim()) && /quest|story|era|raid|hunt|battle/.test(id)) questDone = true;
       // Scenes of an open quest.
       if (quest && !questDone) {
         const sm = rest.match(/^cảnh\s*(\d+)(?:\/\d+)?\s*[:.]\s*(.*)$/i);
@@ -347,8 +352,8 @@ function parse(text) {
       if (/^thời đại( yêu cầu)?$/.test(key)) { if (quest && !questDone) quest.era = val; else pendingEra = val; continue; }
       if (quest && /^(mở đầu|đoạn mở đầu)$/.test(key) && !scene) { quest.intro = val; continue; }
       if (quest && !scene && key === "khi nào") { if (/thời đại/i.test(val)) quest.era = val; continue; }
-      if (quest && /^(đoạn kết|kết thúc thành công|kết thúc)/.test(key)) { quest.complete = val; questDone = true; scene = null; opt = null; continue; }
-      if (quest && /^phần thưởng/.test(key)) { quest.reward = parseEffects(val); questDone = true; scene = null; continue; }
+      if (quest && /^(đoạn kết|kết thúc thành công|kết thúc|kết)$/.test(key)) { quest.complete = val; questDone = true; scene = null; opt = null; continue; }
+      if (quest && /^(phần thưởng|thưởng)/.test(key)) { quest.reward = parseEffects(val); questDone = true; scene = null; continue; }
       if (quest && questDone && /^khoảnh khắc/.test(key)) { quest.moment = val; continue; }
       if (quest && scene) {
         if (key === "tình huống") { scene.text = val; continue; }

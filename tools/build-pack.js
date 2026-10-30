@@ -108,9 +108,11 @@ function build(raceId, opts) {
   function outcome(o, ctx) {
     if (!o) return null;
     const r = { text: ren(o.text) };
+    // "… vỡ sọ. CHẾT." written without the arrow: a death all the same
+    if (/\sCHẾT\.?$/.test(r.text)) { r.text = r.text.replace(/\s*CHẾT\.?$/, ""); if (!o.eff.death) o.eff.death = "Bạn chết."; }
     const eff = effects(o.eff, ctx);
     if (Object.keys(eff).length) r.effects = eff;
-    if (o.eff.death) r.death = deathText(o.eff.death, o.text);
+    if (o.eff.death) r.death = deathText(o.eff.death, r.text);
     if (o.eff.end) r.end = o.eff.end;
     if (o.eff.next != null) r.next = o.eff.next;
     return r;
@@ -171,7 +173,12 @@ function build(raceId, opts) {
     const ranges = [];
     for (const m of text.matchAll(/(\d[\d.]*)\s*[–-]\s*(\d[\d.]*)/g)) ranges.push([num(m[1]), num(m[2])]);
     for (const m of text.matchAll(/(\d[\d.]*)\s*\+/g)) ranges.push([num(m[1]), Infinity]);
-    for (const m of text.matchAll(/(?:tuổi|trên)\s*(\d[\d.]*)(?![\d.])(?!\s*[–-]\s*\d)\s*(?:tuổi)?\s*(?:trở lên)?/gi)) if (!/\+/.test(m[0])) ranges.push([num(m[1]), Infinity]);
+    for (const m of text.matchAll(/(tuổi|trên)\s*(\d[\d.]*)(?![\d.])(?!\s*[–-]\s*\d)(\s*(?:tuổi)?\s*(?:trở lên)?)/gi)) {
+      if (/\+/.test(m[0])) continue;
+      // "tuổi 25" alone is that age; "trên 40", "tuổi 40 trở lên" are open-ended
+      if (/^tuổi$/i.test(m[1]) && !/trở lên/i.test(m[3]) && !/^\s*\+/.test(text.slice(m.index + m[0].length))) ranges.push([num(m[2]), num(m[2]) + 0.5]);
+      else ranges.push([num(m[2]), Infinity]);
+    }
     for (const [a, b] of ranges) {
       stages.forEach((s, i) => {
         const end = stages[i + 1] ? stages[i + 1].start : Infinity;
@@ -296,8 +303,8 @@ function build(raceId, opts) {
   for (const e of parsed.events) {
     const o = (meta.overrides || {})[e.id] || {};
     if (o.skip) continue;
-    const deathLike = o.asDeath || (!o.keep && (/tử vong|cái chết tự nhiên|chết già/i.test(e.title || "") && !e.choices.length) || /đạt tuổi thọ tối đa|trước khi qua đời do hết tuổi|hết tuổi thọ/i.test(e.when || "") ? "old" : null);
-    if (deathLike) { deaths.push({ id: e.id, kind: deathLike, text: [ren(e.text), ren(e.auto ? e.auto.text : "")].filter(Boolean).join(" ") }); continue; }
+    const deathLike = o.asDeath || (!o.keep && (/tử vong|cái chết tự nhiên|chết già/i.test(e.title || "") && !e.choices.length) || /đạt tuổi thọ tối đa|trước khi qua đời do hết tuổi|hết tuổi thọ|tuổi thọ đạt giới hạn/i.test(e.when || "") ? "old" : null);
+    if (deathLike) { deaths.push({ id: e.id, kind: deathLike, text: [ren(e.text), ren(e.auto ? e.auto.text : "")].filter(Boolean).join(" ").replace(/\s*(→\s*)?CHẾT\.?\s*$/, "") }); continue; }
     const rid = roleOf(e);
     const ctx = { role: !!rid, rank: !!e.rank };
     const w = when(e.when, ctx);
@@ -309,7 +316,7 @@ function build(raceId, opts) {
     const req = Object.assign({}, w.require);
     if (rid) req.job = rid;
     // companion events always need a companion
-    if (/_ally_|_team_/.test(e.id) && !req.party) req.party = 1;
+    if (/_ally_|_team_|_squad_/.test(e.id) && !req.party) req.party = 1;
 
     // evolutions: sign → ascension → after
     // scripts without "NHÁNH" headers: the branch is named in the id (troll_evo_stone_sign → key "stone")
@@ -318,8 +325,10 @@ function build(raceId, opts) {
     if (evoIdx != null && evoDefs[evoIdx] && (/evo|post|tien_hoa|_sign|signal|foreshadow/.test(e.id) || /đã tiến hóa/i.test(e.when || ""))) {
       const d = evoDefs[evoIdx];
       const flag = "evo_sign_" + d.key;
-      if (/sign|foreshadow|bao_hieu|signal/.test(e.id)) { Object.assign(req, d.require || {}, { form: "none", notFlags: [flag] }); if (d.minAge) ev.minAge = d.minAge; ev.weight = 10; ev._addFlags = [flag]; }
-      else if (/post/.test(e.id) || /đã tiến hóa/i.test(e.when || "")) req.form = d.name;
+      const t = e.title || "";
+      const isPost = /sau khi tiến hóa/i.test(t);
+      if (!isPost && (/sign|foreshadow|bao_hieu|signal/.test(e.id) || /báo hiệu/i.test(t))) { Object.assign(req, d.require || {}, { form: "none", notFlags: [flag] }); if (d.minAge) ev.minAge = d.minAge; ev.weight = 10; ev._addFlags = [flag]; }
+      else if (isPost || /post/.test(e.id) || /đã tiến hóa/i.test(e.when || "")) req.form = d.name;
       else { req.form = "none"; req.flags = [flag]; ev.weight = 12; ev._ascend = d; }
       delete ev.stages;
     }
@@ -333,7 +342,7 @@ function build(raceId, opts) {
       if (prev && prev.auto) for (const f of prev.auto.eff.flags || []) given.add(f);
       if (given.size) req.anyFlags = [...given];
     }
-    if (/cha\/mẹ vừa qua đời|cha mẹ vừa qua đời/i.test(e.when || "")) req.any = [{ fatherAlive: false }, { motherAlive: false }];
+    if (/cha\/mẹ (vừa|đã) qua đời|cha mẹ (vừa|đã) qua đời|\{father\} hoặc \{mother\} (vừa |đã )?(qua đời|chết)/i.test(e.when || "")) req.any = [{ fatherAlive: false }, { motherAlive: false }];
     if (o.require && (o.require.any || o.require.flags || o.require.anyFlags)) { delete req.flags; delete req.anyFlags; }
     if (o.require && o.require.any) { delete req.fame; delete req.wealth; }
     Object.assign(req, o.require || {});
@@ -414,6 +423,7 @@ function build(raceId, opts) {
     delete ev._ascend;
     if (o.effects) ev.effects = Object.assign(ev.effects || {}, o.effects);
     if (e.moment) ev.moment = ren(e.moment);
+    if (JSON.stringify(ev.choices || ev.effects || {}).includes('"marry":true') && !(ev.require && "spouse" in ev.require)) ev.require = Object.assign(ev.require || {}, { spouse: false });
     if (!ev.text) { report.push(`  ! bỏ qua ${e.id}: không có nội dung`); continue; }
     events.push(ev);
     report.push(`${e.id.padEnd(34)} ${(ev.stages || ["*"]).join(",").padEnd(22)} ${(ev.focus || ["-"]).join(",").padEnd(9)} ${JSON.stringify(ev.require || {})}${ev.eras ? " eras=" + ev.eras : ""}${ev.choices ? "" : " [không lựa chọn]"}`);
