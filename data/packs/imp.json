@@ -1,0 +1,5817 @@
+{
+ "race": "imp",
+ "stageNames": {
+  "infant": "Imp sơ sinh",
+  "child": "Imp nhãi ranh",
+  "teen": "Imp tay sai",
+  "adult": "Imp đưa tin",
+  "middle": "Imp xảo quyệt",
+  "elder": "Imp trụi cánh"
+ },
+ "forms": {
+  "Greater Demon": {
+   "name": "Greater Demon",
+   "life": 10
+  },
+  "Free Imp": {
+   "name": "Free Imp",
+   "life": 5
+  }
+ },
+ "origins": [
+  {
+   "id": "imp_origin_cauldron",
+   "name": "Vạc Dầu Sôi Ma giới",
+   "weight": 25,
+   "text": "Bạn trồi lên từ vạc dầu sôi ùng ục tại tầng thứ ba của Vực Thẳm Phân Tầng, mang theo lớp da đỏ au và mùi lưu huỳnh nồng nặc. Chưa kịp hít thở không khí vẩn đục, một cú đá trời giáng đã hất văng bạn xuống mặt đất lạnh lẽo để nhường chỗ cho lứa sau.",
+   "siblings": "12 đứa. Quá nửa đã bị bắt làm mồi nhử cho bầy thú hoang hoặc bán đi để trả nợ.",
+   "home": "Nghèo đói tột cùng và tàn nhẫn; cha mẹ chỉ coi bạn như một khối thịt biết đi có thể quy ra Đồng Cẩm Thạch.",
+   "effects": {
+    "INT": -1,
+    "health": 2,
+    "flags": [
+     "hellborn"
+    ]
+   },
+   "father": {
+    "name": "Grug",
+    "race": "Imp",
+    "role": "Tạp dịch dọn hố xỉ",
+    "trait": "Lười biếng, nát rượu nấm, hèn nhát",
+    "status": "alive",
+    "note": "Còn sống."
+   },
+   "mother": {
+    "name": "Kraz",
+    "race": "Imp",
+    "role": "Nhặt rác chiến trường",
+    "trait": "Chua ngoa, ích kỷ, sẵn sàng bán con lấy tiền",
+    "status": "alive",
+    "note": "Còn sống."
+   }
+  },
+  {
+   "id": "imp_origin_summon",
+   "name": "Vòng Tròn Triệu Hồi",
+   "weight": 25,
+   "text": "Một tia chớp tím rách toạc hư không, lôi tuột bạn khỏi giấc ngủ và ném thẳng xuống nền đá lạnh lẽo giữa vòng tròn ma pháp. Một gã loài người mặc áo choàng nhìn xuống bạn với ánh mắt pha lẫn sự tò mò và thất vọng tột độ.",
+   "siblings": "Không có, nhưng bạn phải chia sẻ lồng sắt chung với vài con Slime nhớp nháp.",
+   "home": "Tù túng và đầy áp bức; bạn thường xuyên ăn đòn thay cơm, dù thỉnh thoảng được nếm vụn ma thạch thừa.",
+   "effects": {
+    "STR": -1,
+    "INT": 2,
+    "flags": [
+     "familiar_pet"
+    ]
+   },
+   "maker": {
+    "name": "Aldric",
+    "race": "Human",
+    "role": "Pháp sư tập sự tại Học viện Ma pháp Tháp Ngà",
+    "trait": "Tham vọng mù quáng, bất tài, hay trút giận lên ma vật",
+    "status": "alive",
+    "note": "Còn sống."
+   },
+   "noParents": true
+  },
+  {
+   "id": "imp_origin_ashes",
+   "name": "Tro Tàn Khế Ước",
+   "weight": 10,
+   "text": "Bạn vừa hiện hình giữa thế giới phàm trần thì kẻ triệu hồi đã lãnh trọn một quả cầu lửa vào giữa mặt. Sợi xích ma thuật trói buộc linh hồn bạn vừa lóe sáng đã vỡ nát thành tro bụi, để lại bạn bơ vơ giữa một chiến trường rực lửa.",
+   "siblings": "Không có.",
+   "home": "Hoàn toàn tự do nhưng cực kỳ nguy hiểm; một con Imp lẻ loi giữa thế giới căm ghét ma vật.",
+   "effects": {
+    "AGI": 1,
+    "LUCK": 2,
+    "wealth": 5,
+    "fame": -2,
+    "flags": [
+     "unbound_imp"
+    ]
+   },
+   "maker": {
+    "name": "Elara",
+    "race": "Human",
+    "role": "Pháp sư lang bạt",
+    "trait": "Liều lĩnh, đoản mệnh",
+    "status": "dead",
+    "note": "Vừa chết ngay khi bạn ra đời."
+   },
+   "noParents": true
+  },
+  {
+   "id": "imp_origin_table",
+   "name": "Gầm Bàn Ác Quỷ",
+   "weight": 15,
+   "text": "Bạn nở ra từ một quả trứng dai nhách nằm kẹt dưới gầm bàn ăn khổng lồ của một tên High Demon. Bữa ăn đầu đời của bạn là một khúc xương đầy tủy bị những gã khổng lồ say xỉn bên trên ném vứt xuống thảm.",
+   "siblings": "3 đứa, suốt ngày thi nhau cắn xé để tranh giành từng mẩu thịt thừa.",
+   "home": "Sống chui lủi như rệp, luôn nơm nớp lo sợ bị giẫm bẹp nhưng lại được vỗ béo bằng đồ ăn thượng hạng của giới quý tộc Ma giới.",
+   "effects": {
+    "AGI": 2,
+    "health": 1,
+    "wealth": 2,
+    "flags": [
+     "hellborn"
+    ]
+   },
+   "father": {
+    "name": null,
+    "race": "",
+    "role": "",
+    "trait": "",
+    "status": "unknown",
+    "note": ""
+   },
+   "mother": {
+    "name": "Vex",
+    "race": "Imp",
+    "role": "Tỳ nữ dọn bàn tiệc",
+    "trait": "Nhút nhát, khôn lỏi, hay luồn cúi",
+    "status": "alive",
+    "note": "Còn sống."
+   }
+  },
+  {
+   "id": "imp_origin_jar",
+   "name": "Bình Ngâm Tháp Ngà",
+   "weight": 15,
+   "text": "Thay vì đứng trong vòng tròn ma pháp, linh hồn bạn bị hút thẳng vào một chiếc bình thủy tinh dập dềnh dung dịch bảo quản màu xanh lục. Bạn đập tay loạn xạ vào thành bình trong khi một lão học giả thản nhiên ghi chép sự giãy giụa thảm hại đó.",
+   "siblings": "Xung quanh bạn là hàng tá bình ngâm chứa các bộ phận thối rữa của Goblin và Kobold.",
+   "home": "Tù nhân thí nghiệm; bạn phải sống trong hoảng loạn tột độ và thường xuyên bị rút máu để bào chế ma dược.",
+   "effects": {
+    "STR": -2,
+    "INT": 3,
+    "health": -2,
+    "flags": [
+     "familiar_pet",
+     "trauma_jar"
+    ]
+   },
+   "maker": {
+    "name": "Giáo sư Morzan",
+    "race": "Human",
+    "role": "Học giả lập dị của Học viện Ma pháp Tháp Ngà",
+    "trait": "Vô cảm, bị ám ảnh bởi giải phẫu ma vật",
+    "status": "alive",
+    "note": "Còn sống."
+   },
+   "noParents": true
+  },
+  {
+   "id": "imp_origin_cult",
+   "name": "Tế Đàn Lừa Lọc",
+   "weight": 10,
+   "text": "Hắc Nguyệt Hội dốc sức triệu hồi một Archdemon hủy diệt, nhưng do đọc sai phát âm tiếng Vực Thẳm, bạn lại phịch xuống giữa vũng máu hiến tế. Đám tín đồ đang hô hào bỗng im bặt, ngơ ngác nhìn sinh vật bé bằng cái kẹo mút mang đôi cánh dơi đang ho sặc sụa.",
+   "siblings": "Không có, chỉ có mấy cái xác hiến tế nằm ngổn ngang làm bạn.",
+   "home": "Bị ép mặc áo choàng đen, giả làm \"Sứ Giả Vực Thẳm\" để Kaelen lừa gạt moi tiền đám tín đồ ngốc nghếch.",
+   "effects": {
+    "INT": 2,
+    "AGI": 1,
+    "LUCK": -1,
+    "wealth": 10,
+    "flags": [
+     "familiar_pet",
+     "fake_abyssal_lord"
+    ]
+   },
+   "maker": {
+    "name": "Kaelen",
+    "race": "Human",
+    "role": "Tế tư Hắc Nguyệt Hội",
+    "trait": "Cuồng tín, dốt ngoại ngữ, sĩ diện hão",
+    "status": "alive",
+    "note": "Còn sống."
+   },
+   "noParents": true
+  }
+ ],
+ "jobs": [
+  {
+   "id": "imp_custodian",
+   "name": "Hell Drudge",
+   "stat": "STR",
+   "combat": false,
+   "desc": "Sức khỏe. Dọn dẹp, bốc vác ở Ma giới",
+   "require": {
+    "health": 50
+   },
+   "alt": {
+    "anyFlags": [
+     "hellborn",
+     "mine_slave"
+    ],
+    "hint": "sinh ra ở Ma giới hoặc từng làm nô lệ mỏ"
+   },
+   "ranks": [
+    "Dung Sweeper",
+    "Cauldron Scrubber",
+    "Hell Porter",
+    "Drudge Foreman",
+    "Baggage Guard"
+   ],
+   "income": [
+    0.6,
+    1,
+    1.5,
+    2.2,
+    3
+   ],
+   "hazard": 1.4,
+   "gains": {
+    "STR": 0.3
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    35,
+    55,
+    7,
+    9
+   ],
+   "promoStat": [
+    "health",
+    "health",
+    "STR",
+    "STR"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: tránh bị lũ Minotaur giẫm bẹp khi lúi húi dọn chuồng thú.",
+    "Thử thách để trở thành {next}: chịu đựng nhiệt độ của Vạc Dầu Sôi khi cọ rửa mà không bị rụng trụi lông cánh.",
+    "Thử thách để trở thành {next}: vác một tảng quặng Huyết Kim nặng gấp mười lần cơ thể mang đến Lò Rèn Vĩnh Cửu.",
+    "Thử thách để trở thành {next}: đánh lộn tay bo với bầy Ghoul đói khát để giành quyền phân phát thức ăn thừa của High Demon."
+   ],
+   "start": "Bạn khoác lên mình chiếc giẻ rách bốc mùi lưu huỳnh, chính thức gia nhập tầng lớp mạt hạng nhất của Vực Thẳm Phân Tầng.",
+   "quiet": [
+    "Một năm hít khói lưu huỳnh và nhai rễ cây đắng ngắt trôi qua trong vô vọng.",
+    "Bạn chợp mắt dưới gầm cầu thang tăm tối, mơ về một ngày được ăn thịt nướng đàng hoàng.",
+    "Bị ăn vài cú đá nảy đom đóm của lũ cai ngục Goblin, nhưng bạn đã quá quen với điều đó."
+   ]
+  },
+  {
+   "id": "imp_messenger",
+   "name": "Imp Messenger",
+   "stat": "AGI",
+   "combat": false,
+   "desc": "Nhanh nhẹn. Bay đưa thư qua chiến tuyến",
+   "require": {
+    "AGI": 5
+   },
+   "alt": {
+    "anyFlags": [
+     "merchant_scum"
+    ],
+    "hint": "từng buôn lậu với thương nhân"
+   },
+   "ranks": [
+    "Errand Imp",
+    "Dark Pigeon",
+    "Dungeon Courier",
+    "Hellfire Envoy",
+    "Wings of the Demon King"
+   ],
+   "income": [
+    0.7,
+    1.2,
+    1.8,
+    2.6,
+    3.4
+   ],
+   "hazard": 1.6,
+   "gains": {
+    "AGI": 0.35
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    3,
+    5,
+    7,
+    9
+   ],
+   "promoStat": [
+    "AGI",
+    "AGI",
+    "AGI",
+    "LUCK"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: bay là là mặt nước qua Đầm Lầy Tử Khí mà không bị lũ ếch quỷ khổng lồ đớp trúng.",
+    "Thử thách để trở thành {next}: lạng lách và cắt đuôi một con Griffin do kỵ sĩ Giáo hội Thánh Quang cưỡi đang ráo riết truy đuổi.",
+    "Thử thách để trở thành {next}: lách qua làn mưa hỏa lực của một trận chiến Tuyến Đầu để giao thư khẩn cho chỉ huy.",
+    "Thử thách để trở thành {next}: giao một lá thư tống tiền cho một con Ancient Dragon đang ngái ngủ trên Đỉnh Hỏa Ngục."
+   ],
+   "start": "Bạn nhét bức thư phong ấn bằng máu vào chiếc túi da tồi tàn, đập cánh bay vào màn đêm đầy rẫy hiểm nguy của Aethelgard.",
+   "quiet": [
+    "Gió rít qua Thảo Nguyên Gió Hú làm mỏi nhừ đôi cánh dơi bé nhỏ của bạn.",
+    "Bạn ngủ gật trên một cành cây khô, hai tay ôm chặt cái túi thư hơn cả mạng sống.",
+    "Vài lá thư vặt vãnh được giao trót lọt, mang về cho bạn những tiếng leng keng vui tai của Đồng Cẩm Thạch."
+   ]
+  },
+  {
+   "id": "imp_secretary",
+   "name": "Dark Scribe",
+   "stat": "INT",
+   "combat": false,
+   "desc": "Trí tuệ. Chép khế ước, lách luật",
+   "require": {
+    "INT": 6
+   },
+   "alt": {
+    "anyFlags": [
+     "fake_abyssal_lord"
+    ],
+    "hint": "từng giả danh Chúa Tể Vực Thẳm"
+   },
+   "ranks": [
+    "Ink Grinder",
+    "Penalty Scribe",
+    "Demon-tongue Translator",
+    "Loophole Advisor",
+    "Shadow Contractor"
+   ],
+   "income": [
+    0.6,
+    1.1,
+    1.8,
+    2.8,
+    3.8
+   ],
+   "hazard": 1,
+   "gains": {
+    "INT": 0.35
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    3,
+    5,
+    7,
+    9
+   ],
+   "promoStat": [
+    "INT",
+    "INT",
+    "INT",
+    "INT"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: dịch một đoạn văn bản cổ rách nát mà không đọc nhầm thành thần chú tự hủy.",
+    "Thử thách để trở thành {next}: tìm ra kẽ hở chí mạng trong khế ước của một tên thương nhân lừa lọc thuộc Thương hội Sói Bạc.",
+    "Thử thách để trở thành {next}: lập một khế ước bóc lột sức lao động của đám thợ mỏ Kobold mà chúng cứ ngỡ là được tăng lương.",
+    "Thử thách để trở thành {next}: sửa lỗi chính tả trong hiệp ước đình chiến giữa hai High Demon mà không châm ngòi cho một cuộc huyết chiến mới."
+   ],
+   "start": "Đẩy gọng kính nứt nẻ lên mũi, bạn cầm cây bút lông quạ nhúng vào bực máu, sẵn sàng vặn vẹo mọi câu chữ.",
+   "quiet": [
+    "Bạn mờ cả mắt vì phải phân loại hàng đống giấy tờ giao dịch ngập ngụa mùi máu.",
+    "Việc tính toán Lõi Mana cho chủ nhân khiến đầu bạn đau như búa bổ.",
+    "Một năm êm ả trôi qua dưới đống sổ sách ngập ngụa bụi bặm trong thư viện Tháp Ngà."
+   ]
+  },
+  {
+   "id": "imp_familiar",
+   "name": "Familiar",
+   "stat": "LUCK",
+   "combat": true,
+   "desc": "May mắn. Làm thú triệu hồi cho pháp sư",
+   "require": {
+    "LUCK": 5
+   },
+   "alt": {
+    "anyFlags": [
+     "familiar_pet",
+     "unbound_imp"
+    ],
+    "hint": "từng bị triệu hồi hoặc là Imp vô chủ"
+   },
+   "ranks": [
+    "Meat Shield",
+    "Mana Battery",
+    "Pet Familiar",
+    "Arcane Assistant",
+    "Contract Fiend"
+   ],
+   "income": [
+    0.5,
+    1,
+    1.6,
+    2.4,
+    3.2
+   ],
+   "hazard": 1.8,
+   "gains": {
+    "LUCK": 0.2,
+    "INT": 0.15
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    3,
+    55,
+    7,
+    9
+   ],
+   "promoStat": [
+    "LUCK",
+    "health",
+    "LUCK",
+    "LUCK"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: hứng trọn một quả cầu lửa đi lạc của chủ nhân trong lúc thực hành mà vẫn ngọ nguậy sống sót.",
+    "Thử thách để trở thành {next}: hút cạn độc tố từ cánh tay chủ nhân bị rắn cắn rồi nôn ra góc phòng mà không chết.",
+    "Thử thách để trở thành {next}: đóng vai vật hiến tế giả trong một nghi lễ gọi hồn cực kỳ nguy hiểm.",
+    "Thử thách để trở thành {next}: lao ra lấy thân mình chặn một đòn dao găm tẩm độc từ sát thủ Umbra định kết liễu chủ nhân."
+   ],
+   "start": "Bạn đeo lên cổ chiếc vòng khế ước lạnh lẽo, ngoan ngoãn thu cánh lại và làm một con vật nuôi béo mầm cho đám pháp sư.",
+   "quiet": [
+    "Ăn ngủ trong lồng sắt và thi thoảng bị lôi ra làm bia ngắm phép thuật cơ bản.",
+    "Được chủ nhân cao hứng ném cho miếng thịt ma thú thừa, một ngày no nê hiếm hoi.",
+    "Chẳng làm gì ngoài việc ngồi vắt vẻo trên vai chủ, nhe răng đe dọa lũ chuột con."
+   ]
+  },
+  {
+   "id": "imp_trickster",
+   "name": "Imp Trickster",
+   "stat": "INT",
+   "combat": true,
+   "desc": "Trí tuệ và Nhanh nhẹn. Lừa đảo, giăng bẫy",
+   "require": {
+    "INT": 4,
+    "AGI": 4
+   },
+   "ranks": [
+    "Prankster",
+    "Pickpocket",
+    "Swindler",
+    "Trap Master",
+    "King of Lies"
+   ],
+   "income": [
+    0.8,
+    1.3,
+    2,
+    2.8,
+    3.6
+   ],
+   "hazard": 1.5,
+   "gains": {
+    "INT": 0.2,
+    "AGI": 0.2
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    3,
+    5,
+    7,
+    9
+   ],
+   "promoStat": [
+    "AGI",
+    "INT",
+    "INT",
+    "AGI"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: móc thành công một túi Đồng Cẩm Thạch của tên lính gác say xỉn đang ngủ gật.",
+    "Thử thách để trở thành {next}: bán một lọ \"ma dược trường sinh\" (chỉ là nước lã pha bùn) cho một nhóm mạo hiểm giả lính mới.",
+    "Thử thách để trở thành {next}: dùng tiếng vọng giả để lừa một bầy Orc nhảy xuống vực thẳm bằng cách bảo dưới đó có vàng.",
+    "Thử thách để trở thành {next}: ăn trộm chùm chìa khóa kho bạc của Giáo hội Thánh Quang ngay giữa ban ngày ban mặt."
+   ],
+   "start": "Nở một nụ cười răng cưa xảo trá, bạn vỗ cánh lao vào bóng tối hầm ngục, quyết định rằng thế giới này quá ngây thơ và nhiệm vụ của bạn là bòn rút chúng.",
+   "quiet": [
+    "Bạn cười khúc khích trong góc tối ẩm thấp, sung sướng đếm số tiền xu vừa nẫng được.",
+    "Nằm ườn sưởi ấm bên đống lửa, bạn cười khẩy nhớ lại vẻ mặt ngu ngốc của nạn nhân ngày hôm qua.",
+    "Phải lẩn trốn chui rúc suốt vài tháng vì trót chọc ngoáy nhầm một tên Berserker cục súc."
+   ]
+  }
+ ],
+ "orgs": [
+  {
+   "id": "imp_hell",
+   "name": "Ma giới",
+   "auto": true,
+   "ranks": [
+    "Abyss Drudge",
+    "Branded Errand-Imp",
+    "Gate Imp",
+    "Dark Servant",
+    "Fiend Overseer",
+    "Furnace Steward",
+    "Baelgor's Imp Guard"
+   ],
+   "points": [
+    0,
+    2,
+    5,
+    9,
+    14,
+    20,
+    null
+   ],
+   "missionWord": "việc vặt",
+   "fameToPts": 0.25,
+   "board": {
+    "text": [
+     "Một tờ giấy da người bay phần phật trước mặt bạn, chữ viết bằng máu còn ấm: một việc vặt mới từ Ma giới.",
+     "Đốc công quất roi lửa xuống sàn. \"Lũ Imp vô dụng! Có việc cho đứa nào còn muốn giữ đôi cánh!\""
+    ],
+    "skip": "Giả vờ gãy cánh, trốn vào kẽ đá",
+    "skipText": "Bạn kéo lê đôi cánh rũ rượi, rên như sắp chết. Đốc công phẩy tay chọn đứa khác."
+   },
+   "failText": "Bạn bay về Ma giới, tay trắng và cháy xém đuôi. Đốc công cười khẩy, ghi thêm một vạch vào sổ phạt.",
+   "rankAliases": [
+    "abyss drudge",
+    "branded errand-imp",
+    "gate imp",
+    "dark servant",
+    "fiend overseer",
+    "furnace steward",
+    "baelgor's imp guard"
+   ],
+   "rankUp": {
+    "0": "Bạn nhận được một cái giẻ lau đẫm mùi thiu và quyền nhặt đồ thừa, chính thức gia nhập tầng lớp bị giẫm đạp nhiều nhất Ma giới.",
+    "1": "Dấu ấn nô lệ trên trán bạn sáng lên, chứng minh bạn đã đủ tư cách để bị sai đi lách qua những khe hẹp và chết thay cho kẻ khác.",
+    "2": "Bạn được phát một cây chĩa ba rỉ sét và quyền thét vào mặt những con Imp yếu hơn trước khi bị lính canh sút bay.",
+    "3": "Một chiếc vòng cổ Tinh Bạc được tròng vào cổ bạn, đánh dấu bạn là món tài sản có giá trị không dễ dàng vứt bỏ.",
+    "4": "Cầm ngọn roi da trên tay, bạn cười xảo trá quất xuống lưng bầy Goblin, tận hưởng cảm giác đè đầu cưỡi cổ kẻ yếu.",
+    "5": "Bạn được vểnh râu ngồi trên đống xương khô, chỉ huy hàng trăm ma vật cấp thấp dưới trướng các Archdemon.",
+    "6": "Khoác lên mình bộ giáp Huyết Kim nhỏ xíu, bạn kiêu hãnh đứng trên vai Lord of Ashes Baelgor, nhìn cả Vực Thẳm quỳ rạp dưới chân."
+   },
+   "join": []
+  }
+ ],
+ "quests": [
+  {
+   "id": "imp_q_1_viec_vat_vet_to_nhen_quy",
+   "org": "imp_hell",
+   "name": "Vét tổ Nhện Quỷ",
+   "minRank": 0,
+   "hint": "Vừa. Chỉ cần nhanh nhẹn, chần chừ là làm mồi cho nhện.",
+   "intro": "Tên quản đốc cần một lượng lớn tơ Nhện Quỷ ở tầng hai Vực Thẳm Phân Tầng để khâu áo giáp. Hắn ném cho bạn một cái bao tải rách và tống bạn vào một khe nứt tối om, mùi hôi thối bốc lên nồng nặc.",
+   "steps": [
+    {
+     "text": "Trăng Vực Thẳm hắt chút ánh sáng mờ ảo vào hang, để lộ ra những mảng tơ dính dấp và một con Nhện Quỷ to bằng cái vạc đang say ngủ.",
+     "choices": [
+      {
+       "label": "Hun khói ru ngủ",
+       "check": {
+        "stat": "INT",
+        "target": 5
+       },
+       "success": {
+        "text": "Bạn dùng nấm ẩm đốt lên một làn khói xám, khiến con nhện chìm sâu vào giấc ngủ. Cào sạch mảng tơ và chuồn êm.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bạn đốt nhầm nấm nổ. Một tiếng \"bụp\" vang lên, con nhện thức giấc gầm rú điên cuồng. Bạn vội vã bỏ chạy thục mạng.",
+        "effects": {
+         "health": -15
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Phi thân giật tơ",
+       "check": {
+        "stat": "AGI",
+        "target": 7
+       },
+       "success": {
+        "text": "Nhanh như chớp, bạn lao tới giật đứt mảng tơ lớn nhất rồi đập cánh bay ngược ra ngoài trước khi con quái vật kịp chớp mắt.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Đuôi bạn bị dính vào một sợi tơ vô hình. Bạn phải tự cắn đứt một chóp sừng để thoát thân.",
+        "effects": {
+         "health": -20
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Đập vỡ sọ nhện mẹ",
+       "require": {
+        "STR": 6
+       },
+       "showLocked": true,
+       "text": "Bạn dùng tảng đá nhọn đập nát đầu con quái vật lúc nó đang ngủ. Vét sạch tơ và thu thêm cái nanh nhện.",
+       "effects": {
+        "wealth": 5
+       },
+       "end": "win"
+      }
+     ]
+    }
+   ],
+   "complete": "Giao nộp bọc tơ dính dấp, bạn thở phào vì chưa trở thành bữa ăn nhẹ cho lũ tám chân.",
+   "reward": {
+    "wealth": 10,
+    "fame": 1,
+    "guildPts": 1
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Chui vào hang Nhện Quỷ vét tơ và toàn mạng trở ra."
+  },
+  {
+   "id": "imp_q_2_viec_vat_doi_no_goblin_lord",
+   "org": "imp_hell",
+   "name": "Đòi nợ Goblin Lord",
+   "minRank": 1,
+   "hint": "Khó. Kẻ thù đông và hung hãn, nên dùng mưu mẹo.",
+   "intro": "Thương hội Sói Bạc giao cho bạn đi đòi nợ một tên Goblin Lord đang cắm trại dưới Đầm Lầy Tử Khí. Hắn mua chịu một lô vũ khí phế liệu nhưng lật lọng không trả tiền.",
+   "steps": [
+    {
+     "text": "Bạn đứng trước lều trại của tên Goblin Lord to xác. Đám đàn em Goblin tay lăm lăm giáo mác gỉ sét đang lườm bạn đầy sát khí.",
+     "choices": [
+      {
+       "label": "Phóng đại hợp đồng hù dọa",
+       "check": {
+        "stat": "INT",
+        "target": 7
+       },
+       "success": {
+        "text": "Bằng chất giọng the thé đáng sợ, bạn dọa rằng khế ước có ếm bùa nổ ruột, nếu không trả sẽ lập tức kích hoạt. Tên Goblin Lord xanh mặt, vội vã ném túi tiền ra.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Goblin vốn mù chữ, hắn nhai luôn tờ khế ước và ra lệnh cho bầy đàn đập bạn nhừ tử.",
+        "effects": {
+         "health": -25
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Cắt túi tiền rồi bay",
+       "check": {
+        "stat": "AGI",
+        "target": 5
+       },
+       "success": {
+        "text": "Lợi dụng lúc hắn nhe răng cười nhạo, bạn vồ lấy chiếc túi bên hông, cắt đứt dây chằng rồi phóng vút lên không trung.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Dao cùn cắt không đứt dây. Tên Goblin Lord giáng một chùy đập bạn lún xuống bùn lầy.",
+        "effects": {
+         "health": -30
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Đánh tay bo xiết nợ",
+       "require": {
+        "STR": 8
+       },
+       "showLocked": true,
+       "text": "Bạn đấm thẳng vào mõm tên Goblin Lord, bẻ gãy tay hắn và xách túi tiền về. Đám đàn em khiếp sợ dạt ra hai bên.",
+       "effects": {
+        "fame": 3
+       },
+       "end": "win"
+      }
+     ]
+    }
+   ],
+   "complete": "Khệnh khạng vác túi tiền sặc mùi bùn đất về trình diện, bạn được chia một phần hoa hồng xứng đáng.",
+   "reward": {
+    "wealth": 25,
+    "fame": 2,
+    "guildPts": 1
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Đơn độc xiết nợ một tên Goblin Lord to xác hơn mình gấp ba."
+  },
+  {
+   "id": "imp_q_3_viec_vat_hai_doa_nam_mo_coi",
+   "org": "imp_hell",
+   "name": "Hái đóa nấm mồ côi",
+   "minRank": 0,
+   "hint": "Vừa. Trải qua 2 ải, tránh bùn lầy và né độc.",
+   "intro": "Chủ nhân đang điều chế một loại ma dược cường hóa, yêu cầu bạn phải hái được Nấm Lục Bảo mọc sâu trong Đầm Lầy Tử Khí trước khi trời sáng.",
+   "steps": [
+    {
+     "text": "Để tiếp cận cây nấm phát sáng ở giữa đầm lầy, bạn phải bay là là sát mặt nước. Tuy nhiên, những bong bóng khí độc liên tục nổ tung, phả ra lớp sương mù chết chóc.",
+     "choices": [
+      {
+       "label": "Luồn lách qua sương độc",
+       "check": {
+        "stat": "AGI",
+        "target": 5
+       },
+       "success": {
+        "text": "Đôi cánh dơi của bạn uốn lượn tuyệt hảo, lách qua từng chùm sương độc và tiến tới mô đất giữa đầm.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Hít phải một hơi khí độc, mắt bạn hoa lên, rớt tóm xuống bùn và phải bò lết quay về tay trắng.",
+        "effects": {
+         "health": -15
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Ngay khi ngón tay bạn vừa chạm vào cuống nấm, một khối bùn khổng lồ trồi lên. Một con Slime King kịch độc gầm gừ, thân hình nó đang lao ập xuống định nuốt trọn cả bạn lẫn cây nấm.",
+     "choices": [
+      {
+       "label": "Hái nấm rồi chui tọt xuống bùn",
+       "check": {
+        "stat": "INT",
+        "target": 7
+       },
+       "success": {
+        "text": "Thay vì bay lên, bạn lặn xuống lớp bùn loãng, né được cú ụp của Slime King, bứt gốc nấm và đào tẩu qua mạch nước ngầm.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bạn chậm một nhịp. Con Slime nuốt gọn bạn vào trong bụng đầy a-xít. Cơ thể bạn bị tiêu hủy thành nước tàn tạ.",
+        "death": ". Cơ thể nhỏ bé bị tan chảy không còn một mảnh xương"
+       }
+      },
+      {
+       "label": "Hứng chịu đòn đánh để bảo vệ nấm",
+       "text": "Bạn lấy lưng đỡ cú va đập của Slime, cắn răng chịu lớp da bị ăn mòn rát buốt, nhưng đôi tay vẫn ôm trọn bảo vật tẩu thoát.",
+       "effects": {
+        "health": -20
+       },
+       "end": "win"
+      }
+     ]
+    }
+   ],
+   "complete": "Trao lại cây nấm Lục Bảo không suy suyển, bạn được chủ nhân ném cho vài đồng bạc lẻ kèm một ánh nhìn hiếm hoi không có sự khinh miệt.",
+   "reward": {
+    "joy": 3,
+    "wealth": 15,
+    "guildPts": 1
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Mạo hiểm mạng sống để hái một cây nấm Lục Bảo giữa bầy Slime."
+  },
+  {
+   "id": "imp_q_4_viec_vat_trom_chia_khoa_lo_ren_vinh_cu",
+   "org": "imp_hell",
+   "name": "Trộm chìa khóa Lò Rèn Vĩnh Cửu",
+   "minRank": 2,
+   "hint": "Rất Khó. Cực kỳ mạo hiểm, chỉ dành cho kẻ khéo tay và xảo quyệt.",
+   "intro": "Quân đoàn Ma Vương đang dòm ngó công nghệ đúc vũ khí của Dãy Núi Răng Cưa. Lệnh cấp trên giao cho bạn lẻn vào, đánh cắp xâu chìa khóa kho vũ khí từ tay gã thợ rèn Dwarf say xỉn.",
+   "steps": [
+    {
+     "text": "Tên thợ rèn Dwarf đang ngáy vang rền trên bàn gỗ, cạnh đó là vò cồn bốc mùi cay xè. Xâu chìa khóa Tinh Bạc nặng trịch lủng lẳng ở thắt lưng, sát ngay cạnh chiếc búa chiến khổng lồ.",
+     "choices": [
+      {
+       "label": "Nhón chân gỡ từng vòng móc",
+       "check": {
+        "stat": "AGI",
+        "target": 9
+       },
+       "success": {
+        "text": "Đôi tay bạn vững như tượng, lách qua chùm râu rậm rạp và tháo xâu chìa khóa ra mà không phát ra tiếng động nhỏ nào. Lỉnh đi an toàn.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Một chiếc chìa khóa va vào búa kêu leng keng. Gã Dwarf bừng tỉnh, quai một búa đập nát bét đôi cánh của bạn. Cướp thất bại thảm hại.",
+        "effects": {
+         "health": -35
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Chuốc thêm rượu cồn cho hắn gục hẳn",
+       "check": {
+        "stat": "INT",
+        "target": 7
+       },
+       "success": {
+        "text": "Bạn rón rén nghiêng vò rượu, đổ thẳng một dòng rượu mạnh vào mồm hắn. Hắn chép miệng uống ực rồi lăn quay ra bất tỉnh nhân sự, tha hồ cho bạn lột đồ.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Rượu sặc vào mũi khiến hắn hắt hơi tỉnh ngủ. Trông thấy bạn, hắn ném thẳng vò rượu vào đầu bạn.",
+        "effects": {
+         "health": -20
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Đem xâu chìa khóa về, tên chỉ huy vỗ vào vai bạn mạnh đến mức suýt sái khớp, nhưng món tiền thưởng đi kèm làm bạn mờ cả mắt.",
+   "reward": {
+    "wealth": 40,
+    "fame": 4,
+    "guildPts": 2
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Nẫng chìa khóa ngay dưới mũi một thợ rèn Dwarf say xỉn."
+  },
+  {
+   "id": "imp_q_5_viec_vat_buc_mat_thu_tong_tien",
+   "org": "imp_hell",
+   "name": "Bức mật thư tống tiền",
+   "minRank": 1,
+   "hint": "Vừa. Đòi hỏi khả năng xử lý tình huống liên tục trên đường bay.",
+   "intro": "Bạn phải giao một bức thư tống tiền đầy sát khí đến lãnh địa của một Vampire Lord. Bức thư bọc ma thuật hắc ám tỏa mùi nồng nặc, cực kỳ dễ thu hút đám quái thú trên đường.",
+   "steps": [
+    {
+     "text": "Đang bay qua Thảo Nguyên Gió Hú, bạn bị một bầy Sói Sừng Sẹo, bị kích thích bởi mùi ma thuật hắc ám của bức thư, đang nhảy chồm lên ngấu nghiến gót chân bạn.",
+     "choices": [
+      {
+       "label": "Bay lượn cắt đuôi qua khe đá",
+       "check": {
+        "stat": "AGI",
+        "target": 7
+       },
+       "success": {
+        "text": "Bằng những cú bẻ lái điệu nghệ, bạn lách qua Hẻm Núi Đứt Gãy, bỏ bầy sói đâm đầu vào vách đá phía sau.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Lực bay yếu dần, một con sói vồ trúng chiếc túi da của bạn, giật rách túi và cắn nát lá thư. Bạn phải trốn chạy trong ô nhục.",
+        "effects": {
+         "wealth": -10
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Bôi phân thú để giấu mùi",
+       "text": "Chịu nhục nhã một chút, bạn trát phân rồng đất lên túi thư để lấn át mùi hắc ám. Bầy sói mất dấu và tản đi.",
+       "next": 1
+      }
+     ]
+    },
+    {
+     "text": "Bạn đến được lâu đài của Vampire Lord, nhưng một đám dơi canh gác mắt đỏ rực đang lượn lờ cản đường bay. Chỉ cần phát hiện kẻ xâm nhập, chúng sẽ hút cạn máu bạn.",
+     "choices": [
+      {
+       "label": "Bắt chước tiếng gọi bầy",
+       "check": {
+        "stat": "INT",
+        "target": 7
+       },
+       "success": {
+        "text": "Dùng kỹ năng học lỏm ma ngữ, bạn kêu lên tiếng dơi chúa giả mạo, đánh lừa bầy dơi dạt ra một bên nhường đường. Bạn ném thư qua cửa sổ rồi vút đi.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Phát âm sai bét, tiếng kêu của bạn bị coi là lời tuyên chiến. Hàng trăm con dơi nhào xuống hút cạn máu bạn.",
+        "death": ". Thân xác quỷ đỏ rơi rụng như một chiếc lá khô"
+       }
+      },
+      {
+       "label": "Ném thư từ xa rồi chuồn",
+       "check": {
+        "stat": "LUCK",
+        "target": 9
+       },
+       "success": {
+        "text": "Bạn vo tròn lá thư, lấy đà ném mạnh như một mũi tên. Lá thư lọt qua khe cửa sổ hẹp một cách thần kỳ. Bạn đập cánh quay đầu ngay lập tức.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Gió đổi chiều, lá thư bay ngược vào bụi gai vỡ nát. Nhiệm vụ thất bại hoàn toàn.",
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Xong việc vặt, bạn lĩnh trọn một khoản thù lao kha khá và mừng thầm vì mình không phải là kẻ ở lại đối mặt với cơn thịnh nộ của tên Vampire.",
+   "reward": {
+    "wealth": 30,
+    "fame": 2,
+    "guildPts": 1
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Giao thành công bức mật thư tống tiền tới tận sào huyệt Vampire Lord."
+  },
+  {
+   "id": "imp_story_griffin",
+   "org": "imp_hell",
+   "name": "Vụ Trộm Trứng Griffin",
+   "minRank": 0,
+   "hint": "Dễ. Bắt đầu sự nghiệp của kẻ cắp. Lén lút là sống, chậm chân là làm mồi cho chim.",
+   "intro": "Tên chỉ huy của bạn đột nhiên thèm khát món trứng ốp la xa xỉ từ trứng Griffin. Hắn ném cho bạn một cái giỏ mây, chỉ tay lên vách núi cao vút và ra lệnh: \"Lấy một quả trứng về đây, hoặc ngươi sẽ lên thớt thay nó.\"",
+   "steps": [
+    {
+     "text": "Để lên tới tổ, bạn phải leo hoặc bay dọc theo Vách Núi Than Khóc, nơi những cơn gió lốc có thể xé rách đôi cánh dơi yếu ớt bất cứ lúc nào.",
+     "choices": [
+      {
+       "label": "Len lỏi qua các khe hẹp",
+       "check": {
+        "stat": "AGI",
+        "target": 3
+       },
+       "success": {
+        "text": "Bạn bò lết qua các khe đá nứt, tránh hoàn toàn sức gió và an toàn đến được mép tổ.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Một cơn gió tạt ngang khiến bạn tuột tay, rớt lộn nhào xuống một bụi gai.",
+        "effects": {
+         "health": -20
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Bay nấp sau lưng bầy chim di cư",
+       "text": "Bạn may mắn đu bám theo một đàn quạ đen khổng lồ bay ngang qua, mượn sức gió của chúng lướt thẳng vào tổ an toàn.",
+       "next": 1
+      }
+     ]
+    },
+    {
+     "text": "Tổ Griffin được lót bằng xương người, bên trong là ba quả trứng to bằng cái chum. Bạn phải chọn một quả mang đi.",
+     "choices": [
+      {
+       "label": "Gõ để chọn quả nhẹ nhất",
+       "check": {
+        "stat": "INT",
+        "target": 7
+       },
+       "success": {
+        "text": "Áp tai vào vỏ, bạn tìm được quả chưa kịp phát triển phôi thai, nhẹ nhất để ôm đi. Bỏ vào giỏ mây vừa khít.",
+        "next": 2
+       },
+       "fail": {
+        "text": "Gõ mạnh quá làm vỏ trứng nứt một đường. Một luồng khí từ tổ báo động phát ra.",
+        "effects": {
+         "health": -5,
+         "fame": -2
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Bê đại quả to nhất",
+       "check": {
+        "stat": "STR",
+        "target": 5
+       },
+       "success": {
+        "text": "Bạn gồng mình ôm quả trứng nặng trịch, mồ hôi vã ra như tắm nhưng vẫn nhấc lên được.",
+        "next": 2
+       },
+       "fail": {
+        "text": "Trứng quá nặng, bạn loạng choạng trượt ngã đè vỡ nát nó. Lòng đỏ dính bết khắp người.",
+        "effects": {
+         "health": -10
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Bạn vừa nhấc quả trứng lên thì bóng đen khổng lồ phủ xuống. Griffin mẹ với bộ móng vuốt sắc lẹm vút tới từ bầu trời.",
+     "choices": [
+      {
+       "label": "Bổ nhào rơi tự do",
+       "check": {
+        "stat": "AGI",
+        "target": 7
+       },
+       "success": {
+        "text": "Bạn cụp cánh, cắm đầu rơi tự do dọc theo vách đá. Griffin mẹ vồ hụt. Khi gần chạm đất, bạn bung cánh thoát hiểm ngoạn mục.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Tốc độ rơi quá nhanh khiến bạn vấp phải cành cây. Giỏ trứng vỡ nát, bạn văng xuống vũng bùn bất tỉnh.",
+        "effects": {
+         "health": -30
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Ném đá vào mắt chim mẹ",
+       "require": {
+        "AGI": 6
+       },
+       "showLocked": true,
+       "text": "Bạn nhanh tay chọi hòn đá nhọn vào mắt nó, khiến con thú ré lên chệch hướng bay. Bạn ôm giỏ trứng chuồn êm.",
+       "end": "win"
+      }
+     ]
+    }
+   ],
+   "complete": "Tên chỉ huy nhìn quả trứng khổng lồ với con mắt thèm thuồng, ném cho bạn một vốc bạc vụn và cười ha hả. Lần đầu tiên bạn nếm mùi vị vinh quang của một siêu trộm.",
+   "reward": {
+    "wealth": 25,
+    "fame": 3,
+    "guildPts": 1,
+    "flags": [
+     "griffin_thief"
+    ]
+   },
+   "weight": 4,
+   "moment": "Ăn trộm trót lọt trứng Griffin ngay dưới mũi con chim mẹ khổng lồ."
+  },
+  {
+   "id": "imp_story_ivory",
+   "org": "imp_hell",
+   "name": "Giao Dịch Hắc Ám Tại Tháp Ngà",
+   "minRank": 2,
+   "hint": "Vừa. Đòi hỏi đầu óc và sự mồm mép để sống sót giữa đám Pháp sư kiêu ngạo.",
+   "intro": "Thương hội Sói Bạc giao cho bạn một vali chứa Ma thạch Cấm. Điểm đến: Phòng nghiên cứu 404, Học viện Ma pháp Tháp Ngà. Khách hàng: Một tên giáo sư tha hóa đang cần hàng lậu.",
+   "steps": [
+    {
+     "text": "Cổng phụ của Tháp Ngà được canh giữ bởi một con Golem Đá nhạy cảm với luồng mana hắc ám phát ra từ vali của bạn.",
+     "choices": [
+      {
+       "label": "Bọc vali bằng chì ma thuật",
+       "check": {
+        "stat": "INT",
+        "target": 5
+       },
+       "success": {
+        "text": "Bạn lấy giấy chì gói bọc kỹ vali, cắt đứt hoàn toàn bức xạ mana. Tên Golem ngoan ngoãn mở cửa cho bạn.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Giấy chì bị rách một góc. Golem phát hiện, vung đấm hất văng bạn vỡ mồm.",
+        "effects": {
+         "health": -25
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Đu bám gầm xe kéo",
+       "text": "Đu người lên gầm chiếc xe chở nguyên liệu đang đi qua cổng, bạn lọt vào trót lọt không dính bụi.",
+       "next": 1
+      }
+     ]
+    },
+    {
+     "text": "Vừa lách vào hành lang, bạn đụng ngay một toán Giám thị đang tuần tra. Bóng dáng đỏ lòm của một con Imp giữa Tháp Ngà là bản án tử hình.",
+     "choices": [
+      {
+       "label": "Giả làm bệ để chân",
+       "check": {
+        "stat": "LUCK",
+        "target": 5
+       },
+       "success": {
+        "text": "Bạn úp vali xuống, phủ áo choàng lên rồi nằm im giả làm một cái bệ đỡ đồ bằng nhung. Bọn chúng đi ngang qua không mảy may để ý.",
+        "next": 2
+       },
+       "fail": {
+        "text": "Tên giám thị vấp phải đuôi bạn. Hắn giật áo choàng ra, hô hoán gọi lính canh. Bạn phải ôm vali tháo chạy.",
+        "effects": {
+         "health": -20
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Đẩy cửa vào phòng 404, tên giáo sư nhận vali nhưng rút đũa phép ra, định giết người diệt khẩu để quỵt tiền.",
+     "choices": [
+      {
+       "label": "Dùng luật Vực Thẳm đe dọa",
+       "check": {
+        "stat": "INT",
+        "target": 7
+       },
+       "success": {
+        "text": "Bạn dõng dạc đọc điều khoản tử hình của khế ước máu, chỉ ra rằng nếu giết bạn, trái tim hắn sẽ nổ tung. Hắn tái mặt, ngoan ngoãn ném túi tiền vàng ra.",
+        "next": 3
+       },
+       "fail": {
+        "text": "Hắn cười nhạt, gạt phăng lý lẽ của bạn. Một tia sét giật bạn văng vào tường, cháy sém một mảng cánh.",
+        "effects": {
+         "health": -35
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Phun nọc độc vào mắt hắn",
+       "require": {
+        "health": 6
+       },
+       "showLocked": true,
+       "text": "Trữ sẵn một ngụm a-xít, bạn nhổ toẹt vào mắt kính hắn. Trong lúc hắn la hét, bạn cuỗm túi tiền trên bàn bỏ chạy.",
+       "next": 3
+      }
+     ]
+    },
+    {
+     "text": "Còi báo động rú vang. Phòng nghiên cứu bị phong tỏa. Cửa sổ là lối thoát duy nhất nhưng bị kết giới bằng kính chắn lại.",
+     "choices": [
+      {
+       "label": "Phi thân dùng sừng phá kính",
+       "check": {
+        "stat": "STR",
+        "target": 9
+       },
+       "success": {
+        "text": "Cắm đầu nhào tới với tốc độ cực đại, cái sừng nhọn hoắt của bạn đâm vỡ kết giới như phá pha lê. Bạn lao vút ra bầu trời tự do.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Sừng bạn đập trúng kết giới kêu cái \"boong\". Bạn nảy ngược lại, rớt xuống sàn, bị lính gác gông cổ.",
+        "effects": {
+         "health": -20
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Đu bám chổi bay của học viên",
+       "text": "Thấy một học viên bay ngang cửa sổ, bạn lách qua khe hẹp chộp lấy cán chổi đi ké, thoát ra khỏi thành phố lơ lửng.",
+       "end": "win"
+      }
+     ]
+    }
+   ],
+   "complete": "Đứng trước Thương hội Sói Bạc, ném túi tiền leng keng xuống bàn, bạn chính thức được công nhận là kẻ buôn lậu ưu tú của ma giới.",
+   "reward": {
+    "wealth": 50,
+    "fame": 5,
+    "guildPts": 2,
+    "flags": [
+     "ivory_smuggler"
+    ]
+   },
+   "weight": 4,
+   "moment": "Đem lậu Ma thạch Cấm vào và thoát ra khỏi Học viện Tháp Ngà."
+  },
+  {
+   "id": "imp_story_forge",
+   "org": "imp_hell",
+   "name": "Phá Hoại Lò Rèn Vĩnh Cửu",
+   "minRank": 4,
+   "hint": "Khó. Đối đầu trực diện với tộc Dwarf. Nhiệt độ cực cao, cần thể lực và sự khôn khéo tột độ.",
+   "intro": "Tướng quân Orc tức điên vì áo giáp Thánh Quang của tộc Dwarf quá cứng. Hắn túm cổ bạn, bắt bạn phải chui vào Dãy Núi Răng Cưa và phá vỡ lõi năng lượng của Lò Rèn Vĩnh Cửu.",
+   "steps": [
+    {
+     "text": "Bạn phải chui vào bằng đường ống thông gió bốc hơi ngùn ngụt, nơi sức nóng có thể nướng chín một con lợn lòi.",
+     "choices": [
+      {
+       "label": "Cắn răng chịu đựng",
+       "check": {
+        "stat": "health",
+        "target": 55
+       },
+       "success": {
+        "text": "Da thịt bạn đỏ rực lên phồng rộp, nhưng bản chất ác quỷ giúp bạn trườn qua thành công.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Hơi nóng làm bạn ngất xỉu giữa chừng, trượt tuột ra ngoài ngã đập đầu.",
+        "effects": {
+         "health": -30
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Tính toán chu kỳ xả hơi",
+       "text": "Bạn đếm nhịp cánh quạt quay và trườn qua đúng lúc nó nghỉ. Một đường đi không tốn giọt mồ hôi nào.",
+       "next": 1
+      }
+     ]
+    },
+    {
+     "text": "Dưới đáy Lò rèn, hai tên lính gác Dwarf mặc giáp kín mít đang đứng gác trước van xả của Lõi năng lượng.",
+     "choices": [
+      {
+       "label": "Bắt chước giọng chỉ huy đổi ca",
+       "check": {
+        "stat": "INT",
+        "target": 5
+       },
+       "success": {
+        "text": "Bạn hét lớn the thé giả giọng còi báo động nghỉ trưa. Hai gã khờ gật gù vác búa đi ăn, bỏ lại cánh cửa không người gác.",
+        "next": 2
+       },
+       "fail": {
+        "text": "Bọn chúng nhận ra giọng của ma vật. Một cú vung búa đập bạn bay ngược vào vách đá.",
+        "effects": {
+         "health": -25
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Thả kẹo nổ xuống sàn",
+       "require": {
+        "AGI": 8
+       },
+       "showLocked": true,
+       "text": "Ném liên hoàn những viên kẹo nổ vào góc kẹt, tạo âm thanh sập hầm giả. Chúng hoảng loạn bỏ chạy kiểm tra, dọn đường cho bạn.",
+       "next": 2
+      }
+     ]
+    },
+    {
+     "text": "Quả cầu Lõi Huyết Kim sáng chói lòa đang xoay tít. Bạn phải phá vỡ cơ cấu vận hành của nó bằng một cái mỏ lết ma thuật.",
+     "choices": [
+      {
+       "label": "Đọc sơ đồ máy móc",
+       "check": {
+        "stat": "INT",
+        "target": 9
+       },
+       "success": {
+        "text": "Bằng trí tuệ ma vật, bạn vặn ngược 3 van áp suất đúng thứ tự. Máy móc rít lên từng hồi và bắt đầu quá tải.",
+        "next": 3
+       },
+       "fail": {
+        "text": "Vặn nhầm van xả khí. Hơi nước phụt ra phỏng toàn bộ mặt mũi bạn, khiến bạn bỏ chạy khóc thét.",
+        "effects": {
+         "health": -35
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Cầm búa đập nát bảng điều khiển",
+       "text": "Vận toàn lực, bạn nện nát bét hệ thống bánh răng. Lò rèn khựng lại ngay lập tức.",
+       "next": 3
+      }
+     ]
+    },
+    {
+     "text": "Lõi năng lượng mất kiểm soát và chuẩn bị nổ tung. Dung nham phun trào khắp nơi.",
+     "choices": [
+      {
+       "label": "Lướt trên sóng nhiệt bay ra ngoài",
+       "check": {
+        "stat": "AGI",
+        "target": 7
+       },
+       "success": {
+        "text": "Bạn dang cánh, cưỡi trên luồng sóng chấn động vọt thẳng lên miệng núi lửa, thoát ra ngoài với một màn pháo hoa hoành tráng.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Luồng nhiệt quá mạnh xé rách một bên cánh. Bạn ngã xuống nhưng lết kịp ra cửa hầm, bỏng nặng toàn thân.",
+        "effects": {
+         "health": -40,
+         "flags": [
+          "burn_scar"
+         ]
+        },
+        "end": "win"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Tiếng nổ long trời lở đất đánh dấu sự suy yếu của quân thù. Tướng quân Orc vỗ tay cười ầm ĩ, bổ nhiệm bạn làm cố vấn trực tiếp của hắn.",
+   "reward": {
+    "wealth": 60,
+    "fame": 6,
+    "guildPts": 3
+   },
+   "weight": 4,
+   "moment": "Đích thân phá hủy Lõi Huyết Kim, khiến Lò Rèn Vĩnh Cửu của tộc Dwarf ngừng hoạt động."
+  },
+  {
+   "id": "imp_story_judgement",
+   "org": "imp_hell",
+   "name": "Khế Ước Của Tà Thần (Đánh Cắp Hắc Thư Phán Xét)",
+   "minRank": 6,
+   "hint": "Rất Khó. Tầm vóc huyền thoại. Đòi hỏi mọi kỹ năng tối thượng. Sai một ly đi một dặm.",
+   "intro": "Archdemon Baelgor đặt bàn tay lửa lên đầu bạn. Ngài giao cho bạn một nhiệm vụ bất khả thi: Đột nhập vào Điện Thờ Ánh Sáng tại thủ đô Sanctus, trộm lại Hắc Thư Phán Xét – cội nguồn quyền lực của Ma giới đang bị phong ấn.",
+   "steps": [
+    {
+     "text": "Kết giới Thánh Quang bao phủ tổng bộ có thể nướng chín ma vật trong nửa giây.",
+     "choices": [
+      {
+       "label": "Đảo ngược thuộc tính mana",
+       "check": {
+        "stat": "INT",
+        "target": 9
+       },
+       "success": {
+        "text": "Bạn dùng ma thạch hắc ám trung hòa cục bộ kết giới, mở ra một khe nứt nhỏ bằng ngón tay và biến thành một làn khói chui lọt qua.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Khe nứt đóng lại quá nhanh, kẹp đứt đuôi của bạn và kích hoạt chuông báo động.",
+        "effects": {
+         "health": -50
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Hành lang tĩnh lặng bỗng vang tiếng đá ma sát. Hai pho tượng Thiên Thần khổng lồ vung những thanh kiếm ánh sáng chém tới tấp vào bạn.",
+     "choices": [
+      {
+       "label": "Bay lượn múa lửa",
+       "check": {
+        "stat": "AGI",
+        "target": 9
+       },
+       "success": {
+        "text": "Đỉnh cao của nghệ thuật lẩn trốn, bạn luồn lách qua những nét chém chéo hình chữ X, để hai bức tượng tự chém nát nhau vì nhầm mục tiêu.",
+        "next": 2
+       },
+       "fail": {
+        "text": "Một thanh kiếm xẹt qua chém bay nửa mảng cánh. Bạn lết người chạy trốn bằng đôi chân rướm máu.",
+        "effects": {
+         "health": -45
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Lối vào căn hầm chứa sách là một lưới tia la-de thánh quang đan chéo chi chít. Không có quy luật nào, chỉ có thần giao cách cảm.",
+     "choices": [
+      {
+       "label": "Nhắm mắt bay bằng bản năng",
+       "check": {
+        "stat": "LUCK",
+        "target": 7
+       },
+       "success": {
+        "text": "Bạn phó mặc cho tiếng thì thầm của Hắc Thư đang gọi bạn. Từng cái nhón chân, từng nhịp đập cánh hoàn hảo lướt qua màng lưới.",
+        "next": 3
+       },
+       "fail": {
+        "text": "Chạm trúng tia la-de. Báo động rú vang, cánh cửa sập xuống. Bạn bị kẹt cứng phải cắn răng đào đất trốn thoát.",
+        "effects": {
+         "health": -30
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Hắc Thư Phán Xét đặt trên bệ đá, bị xích bằng xiềng xích của Nữ thần Lumina.",
+     "choices": [
+      {
+       "label": "Máu quỷ giải ấn",
+       "check": {
+        "stat": "health",
+        "target": 70
+       },
+       "success": {
+        "text": "Bạn rạch tay, nhỏ máu ác quỷ đậm đặc lấn át lớp thánh thủy. Xiềng xích vỡ vụn. Cuốn sách bay vào tay bạn.",
+        "next": 4
+       },
+       "fail": {
+        "text": "Lực lượng phản phệ của xích đánh bật bạn văng xa chục mét, đập đầu vào cột đá ngất xỉu.",
+        "effects": {
+         "health": -40
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Hát ma ca Vực Thẳm",
+       "require": {
+        "INT": 10
+       },
+       "showLocked": true,
+       "text": "Bạn tụng vang bài ca cổ nhất của Ma giới, cộng hưởng với tiếng gầm của Hắc Thư, phá nát xích phong ấn thành cát bụi.",
+       "next": 4
+      }
+     ]
+    },
+    {
+     "text": "Cầm cuốn sách trên tay, bạn quay lại thì Giáo Hoàng Sanctus đã đứng ngay cửa, quyền trượng tỏa ra vầng thái dương chói lòa muốn hủy diệt bạn.",
+     "choices": [
+      {
+       "label": "Dùng Hắc Thư phản đòn",
+       "check": {
+        "stat": "INT",
+        "target": 9
+       },
+       "success": {
+        "text": "Bạn mở Hắc Thư, truyền mana kích hoạt lá chắn Phán Xét. Lực lượng của Vực Thẳm và Ánh sáng va chạm tạo ra vụ nổ xé toạc mái vòm. Bạn mượn lực nổ thoát thân vào bầu trời đêm.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Ánh sáng của Giáo Hoàng đè bẹp bạn. Toàn thân cháy thành tro, không còn hy vọng đầu thai.",
+        "death": ". Cơ thể tan vào hư vô trong ánh sáng thánh"
+       }
+      },
+      {
+       "label": "Dùng tốc độ phá vòng vây",
+       "require": {
+        "AGI": 12
+       },
+       "showLocked": true,
+       "text": "Trước khi ánh sáng kịp tỏa ra, bạn hóa thành tia chớp đen, lao qua khe hẹp dưới nách Giáo Hoàng, xé rách không gian trốn thoát.",
+       "end": "win"
+      }
+     ]
+    }
+   ],
+   "complete": "Trở về ngai vàng của Baelgor, bạn dâng cuốn Hắc Thư lên bằng cả hai tay. Ngài mỉm cười, ban cho bạn danh xưng của một vị Thần Yếu Hèn – kẻ đã làm được điều mà cả quân đoàn Ma Vương không làm được.",
+   "reward": {
+    "wealth": 100,
+    "fame": 15,
+    "flags": [
+     "abyssal_champion"
+    ]
+   },
+   "weight": 4,
+   "moment": "Đánh cắp thành công Hắc Thư Phán Xét ngay dưới mũi Giáo Hoàng, ghi tên mình vào thần thoại Ma giới."
+  },
+  {
+   "id": "imp_era_frontline",
+   "org": "imp_hell",
+   "name": "Chuyển Phát Nhanh Giữa Làn Tên",
+   "minRank": 1,
+   "hint": "Khó. Bay lượn giữa chiến trường khốc liệt. Kỹ năng né tránh quyết định sự sống còn.",
+   "intro": "Chiến tranh nổ ra. Ma Vương cần một kẻ nhỏ bé đưa mật lệnh đình chiến tạm thời tới cho chỉ huy bầy Orc, ngay giữa lúc hai phe Elf và Orc đang bắn nhau tơi bời.",
+   "steps": [
+    {
+     "text": "Bầu trời rợp bóng hàng vạn mũi tên ma thuật của cung thủ Elf bắn xuống liên miên như mưa đá.",
+     "choices": [
+      {
+       "label": "Bay lượn hình zích-zắc",
+       "check": {
+        "stat": "AGI",
+        "target": 7
+       },
+       "success": {
+        "text": "Bạn như chiếc lá khô quay cuồng trong gió, lọt qua hoàn hảo hàng vạn mũi tên sắc bén.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Một mũi tên ghim trúng cánh bạn. Bạn rơi cắm đầu xuống đống xác chết hôi thối.",
+        "effects": {
+         "health": -25
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Vừa lách qua làn mưa tên, một con Bằng Trâu (Griffin lai) phe loài người lao ra ngậm lấy bạn.",
+     "choices": [
+      {
+       "label": "Nghẹn cổ quái thú",
+       "check": {
+        "stat": "health",
+        "target": 55
+       },
+       "success": {
+        "text": "Bạn dang rộng hai cánh, mắc kẹt trong cổ họng con thú. Nó ngạt thở khạc bạn ra kèm theo đống dãi nhớt. Bạn vọt đi thoát nạn.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Nó nuốt chửng bạn thẳng vào dạ dày. Bạn phải dùng dao găm mổ bụng nó chui ra, mất sạch mật lệnh.",
+        "effects": {
+         "health": -35
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Ném cuộn giấy da nhàu nát vào mặt tên tướng Orc, bạn lăn ra thở dốc và chửi thề, hoàn thành sứ mệnh chuyển phát khó khăn nhất đời mình.",
+   "reward": {
+    "wealth": 30,
+    "fame": 4,
+    "guildPts": 2
+   },
+   "weight": 4,
+   "eras": [
+    "holy_war"
+   ],
+   "moment": "Giao thư thành công ngay giữa làn mưa tên tàn khốc của Chiến Tranh Tuyến Đầu."
+  },
+  {
+   "id": "imp_era_demonking",
+   "org": "imp_hell",
+   "name": "Tiên Phong Gọi Cửa",
+   "minRank": 4,
+   "hint": "Rất Khó. Cống hiến cho Ma Vương, hoặc trở thành tro bụi. Nhiệm vụ cảm tử.",
+   "intro": "Kỷ Nguyên Ma Vương Giáng Thế bắt đầu. Đội tiên phong cần một con Imp vô danh lẻn vào lòng thủ đô Sanctus, cắm viên Ngọc Triệu Hồi Hỏa Ngục ngay tại quảng trường đài phun nước.",
+   "steps": [
+    {
+     "text": "Bầu trời Sanctus dày đặc kết giới. Bạn phải đi qua đường cống ngầm, nơi có bầy Slime Độc canh gác.",
+     "choices": [
+      {
+       "label": "Bôi bùn hôi thối ngụy trang",
+       "check": {
+        "stat": "INT",
+        "target": 5
+       },
+       "success": {
+        "text": "Che đậy mùi quỷ bằng bùn lầy rác thải, bạn lọt qua bầy Slime dễ dàng, nhô lên từ nắp cống giữa lòng thủ đô.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Slime Độc phát hiện ra bạn. Bạn bị cuốn vào dòng a-xít bỏng rộp và phải lết ngược về Ma giới.",
+        "effects": {
+         "health": -30
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Hàng chục Thánh Kỵ Sĩ đang rảo bước tuần tra quanh đài phun nước trung tâm.",
+     "choices": [
+      {
+       "label": "Ném đồng xu đánh lạc hướng",
+       "check": {
+        "stat": "LUCK",
+        "target": 7
+       },
+       "success": {
+        "text": "Tiếng leng keng vang lên ở hẻm đối diện làm bọn chúng quay đầu. Bạn vụt ra cắm viên ngọc vào bệ đá.",
+        "next": 2
+       },
+       "fail": {
+        "text": "Ném đồng xu lại rớt trúng nón sắt của tên kỵ sĩ. Bọn chúng rút kiếm chém bạn xé xác.",
+        "death": ". Lưỡi kiếm rực sáng thiêu rụi phần hồn của bạn"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Viên ngọc cần truyền một lượng mana lớn đến mức có thể vắt kiệt sinh mệnh của ma vật thấp kém.",
+     "choices": [
+      {
+       "label": "Hiến tế đôi cánh dơi",
+       "check": {
+        "stat": "health",
+        "target": 85
+       },
+       "success": {
+        "text": "Bạn truyền máu và năng lượng từ đôi cánh, cắn răng chịu nỗi đau bị xé toạc. Viên ngọc nổ tung ánh sáng đỏ rực, Cổng Hỏa Ngục mở toang! Bạn tàn phế nhưng sống sót.",
+        "effects": {
+         "AGI": -3
+        },
+        "end": "win"
+       },
+       "fail": {
+        "text": "Quá tải mana. Bạn nổ tung thành một quả pháo bông đầy máu thịt ngay trước khi Cổng kịp mở.",
+        "death": ". Hy sinh thầm lặng vì đại cục của Ma giới"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Nằm bẹp dưới mặt đất, bạn cười sằng sặc khi nhìn Ma Vương và hàng vạn Ác ma bước ra từ cánh cổng, chà đạp lên thủ đô Sanctus phồn hoa.",
+   "reward": {
+    "fame": 20,
+    "flags": [
+     "vanguard_of_doom"
+    ]
+   },
+   "weight": 4,
+   "eras": [
+    "demon_lord"
+   ],
+   "moment": "Là kẻ kích hoạt Cổng Hỏa Ngục mở đường cho Ma Vương giáng thế, mất đi đôi cánh nhưng sống mãi trong sử sách."
+  }
+ ],
+ "events": [
+  {
+   "id": "imp_parent_sell",
+   "text": "Mùa đông ở Vực Thẳm thật khắc nghiệt, {father} và {mother} không chút do dự trói quặt cánh bạn lại để đổi lấy một vò rượu nấm từ gã Minotaur buôn nô lệ. Bàn tay lông lá tởm lợm của gã khổng lồ đang túm lấy sừng bạn nhấc bổng lên.",
+   "stages": [
+    "infant"
+   ],
+   "require": {
+    "flags": [
+     "hellborn"
+    ],
+    "fatherAlive": true,
+    "motherAlive": true
+   },
+   "choices": [
+    {
+     "label": "Cắn đứt dây thừng",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn uốn éo luồn lách, cắn đứt dây trói và lao vụt vào bóng tối. Trốn thoát an toàn.",
+      "effects": {
+       "AGI": 1,
+       "health": -5
+      }
+     },
+     "fail": {
+      "text": "Gã Minotaur tát bạn một cú nổ đom đóm mắt trước khi tống vào bao tải.",
+      "effects": {
+       "health": -20,
+       "fame": -1,
+       "flags": [
+        "slave_brand"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Chỉ điểm kẻ ngon hơn",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn liến thoắng bằng ngôn ngữ ác quỷ, thuyết phục gã rằng đứa anh trai đang nấp sau đống rác béo tốt và nhiều thịt hơn. Gã đổi ý tóm lấy anh bạn.",
+      "effects": {
+       "INT": 1,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Gã Minotaur không hiểu tiếng lóng, túm luôn cả bạn lẫn anh trai cho vào chung một rọ.",
+      "effects": {
+       "health": -15,
+       "wealth": -5
+      }
+     }
+    },
+    {
+     "label": "Cắn tay gã khổng lồ",
+     "require": {
+      "STR": 5
+     },
+     "showLocked": true,
+     "text": "Bạn cắm phập nanh vào tay lão ác thú đến bật máu, chứng minh mình đủ hung hãn để làm mồi nhử sống.",
+     "effects": {
+      "STR": 1,
+      "health": -10,
+      "flags": [
+       "arena_meat"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_maker_ritual",
+   "text": "{maker} đang thực hiện một nghi thức cấm kỵ để giành suất thăng bậc tại Tháp Ngà. Trận pháp bỗng dưng bùng nổ quá tải; {maker} hoảng loạn túm lấy đuôi bạn, định ném bạn vào tâm bão mana để gánh chịu thiệt hại thay mình.",
+   "stages": [
+    "teen"
+   ],
+   "require": {
+    "flags": [
+     "familiar_pet"
+    ],
+    "makerAlive": true
+   },
+   "choices": [
+    {
+     "label": "Giả chết tức tưởi",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn trợn trắng mắt, sùi bọt mép và xì hơi gục xuống. {maker} bĩu môi tưởng bạn đã cạn năng lượng bèn ném văng ra góc phòng.",
+      "effects": {
+       "LUCK": 1,
+       "health": -5
+      }
+     },
+     "fail": {
+      "text": "Trận pháp hút luôn cả cái cơ thể đang giả chết của bạn vào trong. Bạn bị điện giật cháy đen thui.",
+      "effects": {
+       "INT": -1,
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Đu bám lên mặt chủ",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn tung mình bám chặt lấy mặt {maker}. Vụ nổ hất văng cả hai, {maker} gãy tay nhưng bạn lấy ông ta làm đệm thịt nên bình an vô sự.",
+      "effects": {
+       "AGI": 1,
+       "joy": -7
+      }
+     },
+     "fail": {
+      "text": "Bị túm lại giữa không trung và quăng thẳng vào tâm nổ.",
+      "effects": {
+       "health": -30,
+       "flags": [
+        "mana_scar"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Chịu trận làm khiên thịt",
+     "text": ". Bạn nhắm mắt gánh chịu luồng mana hoang dại xé rách da thịt. Sống sót, {maker} thưởng cho bạn một vật phẩm đáng giá vì sự trung thành ngu ngốc.",
+     "effects": {
+      "health": -35,
+      "joy": 10,
+      "wealth": 20
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_parent_reunion",
+   "text": "Trong lúc lúi húi chui rúc trộm đồ dưới khán đài Đấu trường Huyết Sa, bạn giáp mặt {father} đang bị xích chân, chuẩn bị bị ném vào chuồng Troll làm thức ăn. Lão già nhận ra bạn, thảm thiết van xin bạn mở khóa để cùng bỏ trốn.",
+   "stages": [
+    "middle"
+   ],
+   "require": {
+    "flags": [
+     "hellborn"
+    ],
+    "fatherAlive": true
+   },
+   "choices": [
+    {
+     "label": "Trộm chìa khóa lính canh",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn dùng mưu lừa lính canh rời mắt và tháo xích thành công. {father} mang ơn và chia cho bạn một nửa số bạc vụn lão giấu bấy lâu.",
+      "effects": {
+       "INT": 1,
+       "wealth": 15
+      }
+     },
+     "fail": {
+      "text": "Lính canh tóm cổ bạn. Bạn phải nôn sạch tiền túi ra hối lộ mới thoát khỏi việc bị ném vào cùng lão.",
+      "effects": {
+       "health": -10,
+       "wealth": -30
+      }
+     }
+    },
+    {
+     "label": "Mặc kệ lão già",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn lơ đi, giả vờ tai điếc. Lão già gào thét phẫn nộ trước khi bị nhai đầu, bí mật gia đình chôn vùi vĩnh viễn.",
+      "effects": {
+       "fame": -2
+      }
+     },
+     "fail": {
+      "text": "Lão già gào tên bạn quá to làm bọn lính canh chú ý và ném giáo về phía bạn.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Bán đứng lấy tiền thưởng",
+     "require": {
+      "flags": [
+       "patricide"
+      ]
+     },
+     "showLocked": true,
+     "text": ". Bạn chạy thẳng đến báo với quản ngục rằng tên nô lệ kia đang cố mở khóa. Bạn nhận được phần thưởng nhỏ, còn {father} lãnh một kết cục thảm khốc.",
+     "effects": {
+      "wealth": 10,
+      "fame": -3,
+      "flags": [
+       "patricide"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_maker_legacy",
+   "text": "{maker} vừa hộc máu chết vì thí nghiệm độc dược. Thi thể chưa kịp lạnh thì bọn đòi nợ của Thương hội Sói Bạc đã đạp cửa xông vào. Tên trưởng nhóm nhếch mép, tuyên bố tịch thu toàn bộ tài sản, bao gồm cả một sinh vật béo mầm là bạn.",
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "require": {
+    "flags": [
+     "familiar_pet"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Cãi lý bằng luật ma giới",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn xổ một tràng ngôn từ cao siêu phức tạp về bộ luật Vực Thẳm, lừa bọn chúng tin rằng giam giữ bạn sẽ dính lời nguyền mục nát. Bọn chúng xanh mặt rút lui.",
+      "effects": {
+       "INT": 2,
+       "wealth": 20,
+       "fame": 3
+      }
+     },
+     "fail": {
+      "text": "Bọn đòi nợ không quan tâm tiếng ác quỷ. Chúng tóm cổ và ném bạn vào hầm mỏ khai thác quặng sập.",
+      "effects": {
+       "health": -25,
+       "wealth": -100,
+       "flags": [
+        "mine_slave"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Vơ vét rồi chuồn",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn nhanh tay vồ lấy chiếc túi chứa Lõi Mana của {maker} và phi thân lọt qua khe cửa sổ vỡ. Tự do cuối cùng cũng đến!",
+      "effects": {
+       "AGI": 1,
+       "wealth": 30,
+       "flags": [
+        "unbound_imp"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Vấp ngã cái rầm. Bọn chúng lột sạch đồ và đá bạn văng ra ngoài đường mương. Kể từ giờ bạn là quỷ lang thang vô sản.",
+      "effects": {
+       "health": -15,
+       "wealth": -100,
+       "flags": [
+        "unbound_imp"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Ứng cử làm tay sai",
+     "require": {
+      "INT": 8
+     },
+     "showLocked": true,
+     "text": "Bạn cúi gập người, trưng ra nụ cười gian xảo nhất, xin gia nhập Thương hội Sói Bạc làm người đưa tin chuyên nghiệp. Bọn chúng đồng ý.",
+     "effects": {
+      "wealth": 10,
+      "fame": 2,
+      "flags": [
+       "merchant_scum"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_job_custodian_1",
+   "text": "Trong lúc dọn dẹp bãi chiến trường ở tầng hai Vực Thẳm, bạn phát hiện một bàn tay đứt lìa của ma tộc quý tộc, trên ngón tay vẫn đeo một chiếc nhẫn Tinh Bạc nạm ngọc.",
+   "require": {
+    "job": "imp_custodian"
+   },
+   "choices": [
+    {
+     "label": "Giấu nhẹm đi",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn nhanh tay nuốt chiếc nhẫn vào bụng trước khi tên cai ngục quay lại. Vài ngày sau bạn \"đi nặng\" ra nó và bán được ốm tiền.",
+      "effects": {
+       "AGI": 1,
+       "health": -5,
+       "wealth": 25
+      }
+     },
+     "fail": {
+      "text": "Bạn vừa nhặt lên thì tên cai ngục quay lại, nện bạn một trận nhừ tử và nẫng mất chiếc nhẫn.",
+      "effects": {
+       "health": -15,
+       "wealth": -5
+      }
+     }
+    },
+    {
+     "label": "Nộp cho quản ngục",
+     "text": ". Bạn trưng nụ cười nịnh bợ, hai tay dâng chiếc nhẫn cho tên quản ngục Orc. Hắn hừ lạnh, ném cho bạn vài đồng bạc cắc.",
+     "effects": {
+      "wealth": 3,
+      "fame": 1
+     }
+    },
+    {
+     "label": "Lừa bán cho đứa khác",
+     "require": {
+      "INT": 6
+     },
+     "showLocked": true,
+     "text": "Bạn nhanh chóng tút chiếc nhẫn, bán rẻ lại cho một tên Imp ngốc nghếch khác ngay trước khi lính canh đi khám xét.",
+     "effects": {
+      "INT": 1,
+      "wealth": 15
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_job_custodian_2",
+   "text": "Một con Minotaur đang hừng hực kỳ động dục bất ngờ giật đứt xích, gầm rống điên cuồng và lao thẳng về phía đám tạp dịch đang cọ sàn.",
+   "require": {
+    "jobRank": 0,
+    "jobRankMax": 1,
+    "job": "imp_custodian"
+   },
+   "choices": [
+    {
+     "label": "Len qua khe hẹp",
+     "check": {
+      "stat": "AGI",
+      "target": 3
+     },
+     "success": {
+      "text": "Bạn trượt một đường hoàn hảo qua khe cửa cống thoát nước bẩn, thoát nạn trong gang tấc.",
+      "effects": {
+       "AGI": 1
+      }
+     },
+     "fail": {
+      "text": "Đuôi bạn bị kẹt lại. Cơn chấn động từ bước chân khổng lồ làm sập gạch, đè nát một mảng cánh của bạn.",
+      "effects": {
+       "health": -20,
+       "flags": [
+        "broken_wing"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Túm lấy đồng loại làm khiên",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đẩy ngã một tên Imp béo ú ra phía trước. Minotaur vấp phải hắn, tạo thời gian cho bạn co giò chạy trốn.",
+      "effects": {
+       "STR": 1,
+       "fame": -3
+      }
+     },
+     "fail": {
+      "text": "Tên Imp béo khỏe hơn bạn tưởng. Hắn xô ngược lại, khiến bạn lãnh trọn cú húc của bò tót.",
+      "effects": {
+       "health": -30
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_job_custodian_3",
+   "text": "Đói meo râu, bạn tìm thấy một cụm nấm phát sáng kỳ dị mọc trên xác một con Slime chết khô. Bụng bạn đang sôi ùng ục.",
+   "require": {
+    "below": {
+     "health": 10
+    },
+    "job": "imp_custodian"
+   },
+   "choices": [
+    {
+     "label": "Ăn ngấu nghiến",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Cụm nấm có vị như thịt bò thiu nhưng lại chứa lượng mana khổng lồ. Cơ bắp bạn cuồn cuộn lên một chút.",
+      "effects": {
+       "STR": 2,
+       "health": 15
+      }
+     },
+     "fail": {
+      "text": "Nấm độc! Bạn miệng nôn trôn tháo suốt một tuần lễ, gầy rộc đi như một bộ xương khô mang cánh.",
+      "effects": {
+       "STR": -1,
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Chỉ ăn phần cuống",
+     "text": ". Cẩn tắc vô áy náy, bạn chỉ gặm phần rễ cứng ngắc. Không ngon lành gì nhưng cũng lót dạ được qua ngày.",
+     "effects": {
+      "health": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_job_custodian_4",
+   "text": "Trong lúc lơ đãng, bạn làm rơi một tảng Huyết Kim, đập vỡ nứt chiếc vạc dầu yêu thích của tên High Demon quản đốc. Hắn đang bước tới với ngọn roi lửa trên tay, sát khí đùng đùng.",
+   "require": {
+    "jobRank": 2,
+    "job": "imp_custodian"
+   },
+   "choices": [
+    {
+     "label": "Vu oan cho kẻ khác",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Với cái lưỡi không xương, bạn bịa ra câu chuyện lũ Kobold phá hoại đã lẻn vào làm nứt vạc từ trước. Hắn tin lời bạn và đi trút giận lên đám chó mõm nhọn.",
+      "effects": {
+       "INT": 2,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Lời nói dối vụng về bị bóc mẽ ngay lập tức. Ngọn roi lửa quất xuống không thương tiếc. Bạn bị lột chức và ném lại chuồng phân.",
+      "effects": {
+       "health": -25,
+       "jobRankSet": 0
+      }
+     }
+    },
+    {
+     "label": "Bỏ chạy thục mạng",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đập cánh bay mất dạng vào những hầm ngục tối tăm, bỏ lại công việc tạp dịch phía sau.",
+      "effects": {
+       "AGI": 1,
+       "flags": [
+        "fugitive"
+       ],
+       "loseJob": true
+      }
+     },
+     "fail": {
+      "text": "Hắn vung tay phóng một ngọn giáo lửa ghim chặt bạn vào tường. Một cái chết tức tưởi và hèn mọn.",
+      "death": ". Cơ thể bạn biến thành mồi cho lũ nhặng quỷ"
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_job_messenger_1",
+   "text": "Bưu phẩm bạn đang mang bốc mùi ma thuật Hắc ám và bắt đầu phát ra những tiếng bíp bíp chết chóc. Nó sắp nổ.",
+   "require": {
+    "job": "imp_messenger"
+   },
+   "choices": [
+    {
+     "label": "Vứt đi rồi bỏ chạy",
+     "check": {
+      "stat": "AGI",
+      "target": 3
+     },
+     "success": {
+      "text": "Bạn ném cái hộp xuống vực và bay đi. Một tiếng nổ lớn vang lên, bạn an toàn nhưng mất tiền công.",
+      "effects": {
+       "wealth": -10,
+       "fame": -1
+      }
+     },
+     "fail": {
+      "text": "Vừa vung tay định ném thì nó nổ bùm ngay trước mặt. Bụi ma thuật làm bạn cháy đen thui.",
+      "effects": {
+       "AGI": -1,
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Cố gắng tháo ngòi nổ",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Ký ức về những trò chơi khăm giúp bạn khéo léo cắt đứt dòng mana hội tụ. Bưu phẩm được giữ nguyên.",
+      "effects": {
+       "INT": 1,
+       "wealth": 20
+      }
+     },
+     "fail": {
+      "text": "Cắt nhầm dây. Vụ nổ hất tung bạn lên không trung, rớt lả tả vài chiếc răng sứt mẻ.",
+      "effects": {
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Quăng vào trại Goblin",
+     "require": {
+      "STR": 5
+     },
+     "showLocked": true,
+     "text": "Bạn vận sức ném nó văng tít vào giữa bầy Goblin đang ngủ. Tiếng nổ kèm theo tiếng kêu la thảm thiết làm bạn vô cùng hả hê.",
+     "effects": {
+      "fame": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_job_messenger_2",
+   "text": "Một tiếng xé gió rít lên. Đội Ranger Elf đã phát hiện ra sinh vật hắc ám là bạn và phóng một mũi tên tẩm thánh thủy chói lòa.",
+   "require": {
+    "job": "imp_messenger"
+   },
+   "choices": [
+    {
+     "label": "Bổ nhào cắt đuôi",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn cụp cánh rơi tự do theo hình xoắn ốc, mũi tên sượt qua đỉnh sừng. Bạn chuồn êm vào tán cây rậm rạp.",
+      "effects": {
+       "AGI": 1
+      }
+     },
+     "fail": {
+      "text": "Động tác chệch nhịp, mũi tên ghim trúng đùi bạn. Cơn rát buốt của thánh thủy ăn mòn da thịt thật kinh khủng.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Giơ túi thư ra đỡ",
+     "text": ". Bạn hi sinh kiện hàng quý giá. Mũi tên cắm phập vào bọc da, cứu mạng bạn nhưng khiến khách hàng lôi bạn ra chửi bới thậm tệ.",
+     "effects": {
+      "health": -5,
+      "wealth": -20,
+      "fame": -2
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_job_messenger_3",
+   "text": "Bạn nhận giao một phong thư màu hồng sặc sụa, bốc mùi sình lầy từ một gã Troll núi tới nàng Slime ở Đầm Lầy. Tò mò, bạn thấy dấu niêm phong bị hở.",
+   "require": {
+    "jobRank": 1,
+    "job": "imp_messenger"
+   },
+   "choices": [
+    {
+     "label": "Mở ra đọc trộm",
+     "check": {
+      "stat": "LUCK",
+      "target": 3
+     },
+     "success": {
+      "text": "Bên trong là những vần thơ ngô nghê và một viên trân châu nhỏ. Bạn nẫng luôn viên trân châu và dán lại như cũ.",
+      "effects": {
+       "wealth": 15
+      }
+     },
+     "fail": {
+      "text": "Phong thư có gài bẫy gai độc xịt thẳng vào mắt bạn. Mắt bạn sưng vù đau nhức mấy ngày liền.",
+      "effects": {
+       "INT": -1,
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Sửa lại thơ cho hay",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bằng tài văn chương ác quỷ, bạn sửa lại bức thư thành một áng tình ca rớt nước mắt. Gã Troll cưa đổ nàng Slime và thưởng lớn cho bạn.",
+      "effects": {
+       "INT": 1,
+       "wealth": 30,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Văn chương lệch pha, nàng Slime tưởng bị chửi mắng nên khước từ. Gã Troll đổ lỗi và lùng sục đòi đánh bạn.",
+      "effects": {
+       "health": -20,
+       "wealth": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_job_messenger_4",
+   "text": "Mải mê chơi ném đá vào bầy cừu, bạn nhận ra mình đã giao trễ tài liệu mật cho một Archdemon thuộc Quân đoàn Ma Vương. Hắn đang đợi bạn với vẻ mặt đằng đằng sát khí.",
+   "require": {
+    "jobRank": 2,
+    "job": "imp_messenger"
+   },
+   "choices": [
+    {
+     "label": "Bịa cớ bị Thánh Kỵ Sĩ phục kích",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn xé rách áo, tự cào vào mặt rớm máu và khóc lóc bịa ra một trận chiến oai hùng. Hắn bĩu môi nhưng tha mạng và quẳng cho bạn vài đồng tiền lẻ vì tội nghiệp.",
+      "effects": {
+       "INT": 2,
+       "health": -10
+      }
+     },
+     "fail": {
+      "text": "Hắn vươn tay tóm lấy cổ bạn, bóp chặt đến nghẹt thở vì tội nói dối vụng về. Bạn bị đuổi cổ khỏi ngành đưa tin.",
+      "effects": {
+       "health": -25,
+       "loseJob": true
+      }
+     }
+    },
+    {
+     "label": "Bỏ trốn biệt xứ",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn vứt luôn túi thư, lẩn vào bóng tối của hầm ngục và làm một kẻ không quê hương.",
+      "effects": {
+       "flags": [
+        "fugitive"
+       ],
+       "loseJob": true
+      }
+     },
+     "fail": {
+      "text": "Lưới ma thuật của hắn giăng ra quá nhanh. Cơ thể bạn bị cắt thành hàng trăm mảnh nhỏ.",
+      "death": ". Đôi cánh dơi của bạn bị treo lên làm cờ hiệu"
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_job_secretary_1",
+   "text": "Lão ma pháp sư già bạn đang phục vụ vừa đột tử. Bọn con cháu xúm lại đòi chia gia tài, nhưng bản di chúc gốc lại nằm ngay trong tay bạn.",
+   "require": {
+    "jobRank": 1,
+    "job": "imp_secretary"
+   },
+   "choices": [
+    {
+     "label": "Giả mạo di chúc chiếm đoạt",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Với nét chữ bắt chước hoàn hảo, bạn thêm tên mình vào danh sách kế thừa một rương Tinh Bạc. Không ai nghi ngờ một con quỷ nhỏ mọn.",
+      "effects": {
+       "INT": 1,
+       "wealth": 50
+      }
+     },
+     "fail": {
+      "text": "Nét mực mới bị bóc mẽ. Bọn con cháu phẫn nộ xúm lại đánh hội đồng bạn tơi tả rồi ném ra đường.",
+      "effects": {
+       "health": -30,
+       "wealth": -100,
+       "loseJob": true
+      }
+     }
+    },
+    {
+     "label": "Bán di chúc cho kẻ trả cao nhất",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn thì thầm vào tai đứa con út, đổi tấm da dê lấy một khoản thù lao béo bở. Cuộc chiến gia tộc nổ ra, còn bạn ôm tiền đi nhậu.",
+      "effects": {
+       "wealth": 35,
+       "fame": 1
+      }
+     },
+     "fail": {
+      "text": "Đứa con cả phát hiện ra trò mèo của bạn, tịch thu luôn di chúc và nhốt bạn vào rương rỗng.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Công bố minh bạch",
+     "text": ". Bạn ho hắng, dõng dạc đọc di chúc một cách trung thực nhất. Chẳng ai cảm ơn bạn, nhưng ít ra bạn không bị ăn đòn.",
+     "effects": {
+      "fame": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_job_secretary_2",
+   "text": "Trong lúc sắp xếp kho lưu trữ, tay bạn vô tình chạm phải Hắc Thư Necronomicon. Cuốn sách bật mở, một lời nguyền hắc ám chui tọt vào não bạn.",
+   "require": {
+    "job": "imp_secretary"
+   },
+   "choices": [
+    {
+     "label": "Giải nguyền bằng tri thức",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn vận dụng hiểu biết về ma ngữ để phản nguyền, nhốt con ác linh ngược vào trang sách. Bạn cảm thấy đầu óc mở mang.",
+      "effects": {
+       "INT": 2,
+       "health": -5
+      }
+     },
+     "fail": {
+      "text": "Lời nguyền ăn mòn ký ức của bạn. Bạn đau đầu vật vã và quên sạch một vài kỹ năng cơ bản.",
+      "effects": {
+       "INT": -2,
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Bán cuốn sách ra chợ đen",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Kệ xác lời nguyền râm ran trong đầu, bạn gói cuốn sách lại và chuồn ra chợ đen bán được giá cao, lấy tiền mua thuốc giải.",
+      "effects": {
+       "AGI": 1,
+       "wealth": 40
+      }
+     },
+     "fail": {
+      "text": "Đám hắc ám ở chợ đen lột sạch tiền của bạn và tước luôn cuốn sách. Lời nguyền hành hạ bạn đến gầy gò.",
+      "effects": {
+       "health": -25,
+       "wealth": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_job_secretary_3",
+   "text": "Một tên Orc lính đánh thuê đạp cửa xông vào. Hắn phát hiện ra khế ước bạn viết có điều khoản \"miễn trừ bồi thường tai nạn\" bằng phông chữ bé tí, khiến hắn không nhận được tiền chữa thương.",
+   "require": {
+    "jobRank": 2,
+    "job": "imp_secretary"
+   },
+   "choices": [
+    {
+     "label": "Cãi lý bằng luật rừng",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Lời lẽ sắc bén và dẫn chứng bộ luật vòng vèo của bạn khiến não tên Orc quá tải. Hắn ậm ừ chấp nhận và bực bội bỏ đi.",
+      "effects": {
+       "INT": 1,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Orc không thích nghe giảng đạo. Hắn đấm thẳng vào mặt bạn, đập nát chiếc bàn làm việc.",
+      "effects": {
+       "health": -25,
+       "fame": -1
+      }
+     }
+    },
+    {
+     "label": "Đổ lỗi cho pháp thuật",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn rưng rưng nước mắt nói rằng giấy da bị nhiễm nguyền nên mực tự động co lại. Sự đáng thương giả tạo cứu bạn một bàn thua.",
+      "effects": {
+       "LUCK": 1
+      }
+     },
+     "fail": {
+      "text": "Hắn hừ lạnh không tin, xách tai bạn lên đe dọa trước khi cướp đi chiếc đồng hồ bỏ túi của bạn.",
+      "effects": {
+       "health": -10,
+       "wealth": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_job_secretary_4",
+   "text": "Bạn làm mất tờ biên lai quan trọng chứng minh chủ nhân đã nộp khoản thuế máu cho Giáo hội. Cục Thuế Dị Giáo đang trên đường tới kiểm tra.",
+   "require": {
+    "INT": 8,
+    "job": "imp_secretary"
+   },
+   "choices": [
+    {
+     "label": "Làm giả tinh vi",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Dùng máu chuột và ma thuật mờ ảo, bạn vẽ ra một tờ biên lai giả giống thật đến 99%. Qua mặt thành công đoàn thanh tra, bạn thở phào nhẹ nhõm.",
+      "effects": {
+       "INT": 2,
+       "fame": 3
+      }
+     },
+     "fail": {
+      "text": "Vết mực giả bốc cháy khi thanh tra dùng phép thử. Chủ nhân nổi điên tống cổ bạn ra đường.",
+      "effects": {
+       "health": -10,
+       "loseJob": true
+      }
+     }
+    },
+    {
+     "label": "Tự thú nhận tội",
+     "text": ". Bạn quỳ gối cúi đầu xin lỗi. Chủ nhân tức giận giáng chức bạn về làm kẻ mài mực, trừ lương ba tháng, nhưng ít nhất không lấy mạng bạn.",
+     "effects": {
+      "wealth": -30,
+      "jobRankSet": 0
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_job_familiar_1",
+   "text": "Chủ nhân ấn vào tay bạn một lọ thuốc sủi bọt màu tím lịm, nhếch mép ra lệnh: \"Uống thử đi, con quỷ nhỏ\".",
+   "require": {
+    "makerAlive": true,
+    "job": "imp_familiar"
+   },
+   "choices": [
+    {
+     "label": "Nhắm mắt uống ực",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Thuốc tuy rát cổ nhưng lại kích thích tiềm năng ma thuật chôn vùi trong bạn. Cơ thể bạn sáng rực lên.",
+      "effects": {
+       "INT": 1,
+       "LUCK": 1
+      }
+     },
+     "fail": {
+      "text": "Dạ dày bạn như bị nhét than hồng. Bạn sùi bọt mép và rụng sạch cánh, biến thành một con thằn lằn trụi lủi trong vài tháng.",
+      "effects": {
+       "AGI": -1,
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Lén đánh tráo bằng nước lã",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Khéo léo như một ảo thuật gia, bạn tráo lọ thuốc và giả vờ sặc sụa. Chủ nhân ghi chép sai kết quả mà không hề hay biết.",
+      "effects": {
+       "AGI": 1
+      }
+     },
+     "fail": {
+      "text": "Bị bắt quả tang. Chủ nhân túm cổ bạn bóp mỏ, đổ thẳng cả lọ vào họng như hình phạt.",
+      "effects": {
+       "health": -25
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_job_familiar_2",
+   "text": "Trong lúc chủ nhân vắng mặt tại Tháp Ngà, một pháp sư tập sự khác lấy cây đũa phép chọc liên tục vào rốn bạn, cười hô hố sỉ nhục ma vật.",
+   "require": {
+    "jobRank": 0,
+    "jobRankMax": 1,
+    "job": "imp_familiar"
+   },
+   "choices": [
+    {
+     "label": "Cắn đứt ngón tay hắn",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Nhanh như chớp, bạn đớp gọn ngón trỏ của hắn. Hắn thét lên bỏ chạy. Chủ nhân bạn về thấy vậy chỉ cười khoái trá.",
+      "effects": {
+       "AGI": 1,
+       "fame": 1
+      }
+     },
+     "fail": {
+      "text": "Hắn phản xạ kịp, vung đũa phóng một tia sét giật tung người bạn đập vào tường.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Nhẫn nhịn rơi nước mắt cá sấu",
+     "check": {
+      "stat": "INT",
+      "target": 3
+     },
+     "success": {
+      "text": "Bạn rống lên khóc thảm thiết, làm bộ dạng đáng thương tột độ khiến vài nữ pháp sư đi ngang qua thấy thương xót, mắng tên kia một trận.",
+      "effects": {
+       "LUCK": 1,
+       "wealth": 5
+      }
+     },
+     "fail": {
+      "text": "Tiếng khóc của bạn the thé quá khó nghe. Hắn bực mình búng mũi bạn sưng vù rồi bỏ đi.",
+      "effects": {
+       "health": -5
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_job_familiar_3",
+   "text": "Một vụ nổ thí nghiệm lớn khiến kho dự trữ thức ăn và Lõi Mana của chủ nhân bốc cháy. Hắn hoảng loạn bắt bạn lao vào đám cháy vớt vát đồ đạc.",
+   "require": {
+    "below": {
+     "health": 10
+    },
+    "job": "imp_familiar"
+   },
+   "choices": [
+    {
+     "label": "Lao vào cứu đồ",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Lăn lộn giữa biển lửa, bạn lôi ra được hòm Lõi Mana quý giá. Chủ nhân xúc động thưởng lớn và vỗ béo bạn phục hồi.",
+      "effects": {
+       "LUCK": 1,
+       "joy": 7,
+       "wealth": 30
+      }
+     },
+     "fail": {
+      "text": "Lửa sém đen thui bộ lông và cánh, bạn vừa ôm được rương ra thì gục ngã vì sặc khói. Đồ thì cứu được mà mạng bạn thì thoi thóp.",
+      "effects": {
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Giả vờ ngất xỉu",
+     "text": ". Bạn nhắm tịt mắt, xụi lơ giả chết ngay ngưỡng cửa. Chủ nhân đành tự mình xông vào và chửi thề om sòm.",
+     "effects": {
+      "health": -5,
+      "joy": -7
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_job_familiar_4",
+   "text": "Chủ nhân thua sạch tiền tại Đấu trường Huyết Sa. Hắn đưa mắt nhìn bạn, bàn tay vuốt ve chiếc lồng xách tay chuẩn bị gán nợ bạn cho lũ buôn nô lệ Minotaur.",
+   "require": {
+    "jobRank": 2,
+    "job": "imp_familiar"
+   },
+   "choices": [
+    {
+     "label": "Thể hiện giá trị không thể thay thế",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn lấy giấy bút, giải cái rụp phương trình ma pháp mà hắn đang bế tắc cả tháng nay. Hắn trố mắt kinh ngạc, quyết định thà bán thận chứ không bán bạn.",
+      "effects": {
+       "INT": 2,
+       "joy": 10
+      }
+     },
+     "fail": {
+      "text": "Bạn liều mình chứng minh, nhưng vô tình làm vỡ thêm cái ly thủy tinh. Hắn đá văng bạn vào lồng không thương tiếc.",
+      "effects": {
+       "health": -15,
+       "flags": [
+        "slave_brand"
+       ],
+       "loseJob": true
+      }
+     }
+    },
+    {
+     "label": "Bẻ khóa chuồng bỏ trốn",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Nhổ một chiếc lông cứng từ cánh dơi, bạn phá khóa lồng trong chớp mắt và bay vút ra cửa sổ, trở thành ma vật tự do.",
+      "effects": {
+       "AGI": 1,
+       "flags": [
+        "unbound_imp"
+       ],
+       "loseJob": true
+      }
+     },
+     "fail": {
+      "text": "Bị tóm cổ ngay khi vừa hé cửa. Hắn tức giận bóp nát cuống họng bạn để bán xác làm nguyên liệu độc dược.",
+      "death": "Bị tóm cổ ngay khi vừa hé cửa. Hắn tức giận bóp nát cuống họng bạn để bán xác làm nguyên liệu độc dược."
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_job_trickster_1",
+   "text": "Một tên quý tộc mặc giáp vàng chóe rực rỡ, lạc đường trong Cửa Ngục Than Khóc. Quanh hông hắn lủng lẳng một túi đầy Lõi Mana.",
+   "require": {
+    "job": "imp_trickster"
+   },
+   "choices": [
+    {
+     "label": "Giăng bẫy dây thừng",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Chăng sợi dây ngầm hoàn hảo. Tên quý tộc vấp ngã đập mặt xuống đá, ngất xỉu. Bạn vơ vét sạch sành sanh và chuồn êm.",
+      "effects": {
+       "AGI": 1,
+       "wealth": 40
+      }
+     },
+     "fail": {
+      "text": "Sợi dây bị đứt. Hắn giật mình quay lại, vung kiếm chém sượt qua cánh bạn một đường rớm máu.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Dẫn đường lừa đảo",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Giả dạng thành tinh linh hầm ngục thân thiện, bạn dẫn hắn vào thẳng ổ nhện khổng lồ. Hắn vứt tiền chạy lấy người, còn bạn rung đùi nhặt chiến lợi phẩm.",
+      "effects": {
+       "INT": 1,
+       "wealth": 35,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Hắn có đeo nhẫn phát hiện dối trá. Lộ tẩy, hắn túm cổ áo bạn tát cho lật mặt rồi ném vào tường.",
+      "effects": {
+       "health": -25,
+       "wealth": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_job_trickster_2",
+   "text": "Sau một mẻ lừa lớn, đồng bọn Kobold lật lọng, chĩa dao găm vào cổ bạn đòi chiếm bảy phần chiến lợi phẩm.",
+   "require": {
+    "jobRank": 1,
+    "job": "imp_trickster"
+   },
+   "choices": [
+    {
+     "label": "Phun nọc độc mù mắt",
+     "check": {
+      "stat": "health",
+      "target": 55
+     },
+     "success": {
+      "text": "Bạn nhổ toẹt ngụm a-xít tiêu hóa tởm lợm thẳng vào mắt hắn. Hắn gào lên ôm mặt, bạn cướp tiền tẩu thoát.",
+      "effects": {
+       "health": 1,
+       "wealth": 20
+      }
+     },
+     "fail": {
+      "text": "Hắn né được và đâm dao phập vào vai bạn. Bạn phải cắn răng bỏ của chạy lấy người.",
+      "effects": {
+       "health": -25,
+       "wealth": -20
+      }
+     }
+    },
+    {
+     "label": "Hạ mình năn nỉ chờ cơ hội",
+     "text": ". Bạn quỳ lạy, khóc lóc giao nộp phần lớn số tiền. Chờ hắn quay đi ngủ, bạn lén tháo giày của hắn quăng xuống vực cho bõ tức.",
+     "effects": {
+      "wealth": -25,
+      "fame": -2
+     }
+    },
+    {
+     "label": "Kích động bầy dơi hút máu",
+     "require": {
+      "INT": 6
+     },
+     "showLocked": true,
+     "text": "Bạn dùng siêu âm gọi một bầy dơi hầm ngục nhào tới. Trong lúc tên Kobold hoảng loạn chống đỡ, bạn ôm trọn tiền lẻn mất.",
+     "effects": {
+      "INT": 1,
+      "wealth": 30
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_job_trickster_3",
+   "text": "Tài luồn lách của bạn lọt vào mắt xanh một gã mặc áo choàng xám. Hắn ném xuống một đồng Huyết Kim, thách bạn trộm chiếc ấn tín của phó bang hội Guild Bình Minh trong vòng một đêm để được kết nạp vào Guild Sát thủ Umbra.",
+   "require": {
+    "jobRank": 2,
+    "anyFlags": [
+     "merchant_scum",
+     "fugitive"
+    ],
+    "job": "imp_trickster"
+   },
+   "choices": [
+    {
+     "label": "Chấp nhận thử thách",
+     "check": {
+      "stat": "AGI",
+      "target": 9
+     },
+     "success": {
+      "text": "Bằng sự dẻo dai khó tin, bạn lọt qua ống khói, lấy cắp chiếc ấn tín ngay dưới gối của phó bang chủ. Hội Umbra gật gù khen ngợi.",
+      "effects": {
+       "AGI": 2,
+       "wealth": 50,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Bị chó săn ma thuật phát hiện. Bạn bị cắn tơi tả và phải nhảy cửa sổ ở tầng ba xuống để giữ mạng.",
+      "effects": {
+       "health": -35
+      }
+     }
+    },
+    {
+     "label": "Cầm tiền bỏ trốn",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn nẫng luôn đồng Huyết Kim của gã sát thủ rồi lặn mất tăm. Dù bị truy nã gắt gao, số tiền khổng lồ bù đắp tất cả.",
+      "effects": {
+       "LUCK": 1,
+       "wealth": 40
+      }
+     },
+     "fail": {
+      "text": "Sát thủ của Umbra không dễ xơi. Hắn gạt chân bạn ngã sấp mặt, thu lại tiền và để lại một vết sẹo dài trên má bạn như lời cảnh cáo.",
+      "effects": {
+       "health": -15,
+       "flags": [
+        "umbra_mark"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_job_trickster_4",
+   "text": "Bạn ngứa tay tráo lọ nước thánh của một Thánh Kỵ Sĩ thành lọ nước tiểu Goblin. Ngay giữa thánh lễ, hắn phát hiện ra, quay phắt lại rút thanh đại kiếm tỏa ánh sáng chói lòa chỉ thẳng vào ngực bạn.",
+   "require": {
+    "jobRank": 3,
+    "job": "imp_trickster"
+   },
+   "choices": [
+    {
+     "label": "Mở miệng giải thích vòng vèo",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Lưỡi xẻ đôi lợi hại, bạn thuyết phục hắn rằng đó là một \"phép thử đức tin\" của Nữ thần Lumina. Hắn đắn đo rồi từ từ cất kiếm. Mồ hôi bạn ướt sũng.",
+      "effects": {
+       "INT": 1,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Chẳng Kỵ Sĩ nào tin một con Imp. Thanh đại kiếm chém một nhát cháy rực, chia đôi cơ thể nhỏ bé của bạn.",
+      "death": "Chẳng Kỵ Sĩ nào tin một con Imp. Thanh đại kiếm chém một nhát cháy rực, chia đôi cơ thể nhỏ bé của bạn."
+     }
+    },
+    {
+     "label": "Thả bom khói bẩn chạy trốn",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Xì một hơi thật thối tạo sương mù vẩn đục, bạn vụt bay qua kẽ hở trần nhà. Trốn thoát nhưng cái nghề lừa đảo ở đây coi như bỏ.",
+      "effects": {
+       "AGI": 1,
+       "flags": [
+        "fugitive"
+       ],
+       "loseJob": true
+      }
+     },
+     "fail": {
+      "text": "Ánh sáng thánh quang xua tan khói bẩn. Hắn tóm gọn bạn ném vào ngục tối của Giáo hội chờ ngày hỏa thiêu.",
+      "effects": {
+       "health": -30,
+       "loseJob": true
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_rank_baelgor",
+   "text": "Archdemon Baelgor đang tìm kiếm một Imp cận vệ mới sau khi kẻ tiền nhiệm vô tình hắt hơi vào ly rượu máu của ngài và bị nướng thành than. Ngài ném một con dao găm tẩm độc xuống giữa sảnh, thách thức đám ứng viên Imp chứng minh giá trị của mình để tranh đoạt vị trí độc tôn.",
+   "require": {
+    "guildRank": 5
+   },
+   "choices": [
+    {
+     "label": "Cướp dao và kết liễu đối thủ",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Nhanh như một tia chớp đỏ, bạn chộp lấy con dao và cắt đứt cổ họng tên Imp cơ bắp bên cạnh trước khi hắn kịp chớp mắt. Baelgor gật gù tán thưởng sự tàn nhẫn máu lạnh đó.",
+      "effects": {
+       "fame": 3,
+       "orgRank": 6
+      }
+     },
+     "fail": {
+      "text": "Vừa tung cánh bay lên, bạn đã bị đối thủ tóm được đuôi và quật văng dính dấp vào vách đá. Baelgor cười nhạo hắt hủi kẻ chậm chạp.",
+      "effects": {
+       "health": -25,
+       "orgRank": 4
+      }
+     }
+    },
+    {
+     "label": "Dâng lên mưu kế bóc lột",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bỏ qua con dao bạo lực, bạn quỳ lạy dâng lên một bản kế hoạch hoàn hảo để lách luật tăng thuế linh hồn đối với tộc Dwarf. Baelgor cười rống lên thích thú trước trí tuệ xảo quyệt của bạn.",
+      "effects": {
+       "wealth": 20,
+       "orgRank": 6
+      }
+     },
+     "fail": {
+      "text": "Kế toán sai bét, con số bạn đưa ra làm thất thoát quỹ ma thạch. Baelgor nhíu mày, ném bạn thẳng vào vạc dầu vì tội làm lãng phí thời gian của ngài.",
+      "effects": {
+       "health": -35,
+       "orgRank": 4
+      }
+     }
+    },
+    {
+     "label": "Trượt chân định mệnh",
+     "check": {
+      "stat": "LUCK",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn lóng ngóng vấp ngã lộn nhào, vô tình vung chân đá văng con dao cắm phập vào mắt một sát thủ Umbra đang tàng hình trên trần nhà định ám sát ngài. Baelgor coi đó là lòng trung thành xả thân bảo vệ chủ.",
+      "effects": {
+       "fame": 5,
+       "orgRank": 6
+      }
+     },
+     "fail": {
+      "text": "Bạn ngã đập mặt xuống sàn đá, gãy luôn hai cái răng cửa và trở thành trò hề mua vui cho cả sảnh đường hỏa ngục.",
+      "effects": {
+       "health": -15,
+       "fame": -2
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_act_prank_1",
+   "text": "Tên Minotaur đầu bếp đang lúi húi khuấy nồi vạc khổng lồ. Kế bên hắn là hũ muối biển, mục tiêu hoàn hảo để bạn tráo đổi bằng bột nổ Hỏa Ngục hôi rình.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "play"
+   ],
+   "choices": [
+    {
+     "label": "Lẻn vào tráo đổi",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Nhanh như một cái bóng, bạn hoán đổi hai hũ rồi đu lên xà nhà. Nồi vạc nổ tung, tên Minotaur bị hất văng với khuôn mặt đen thui đầy nhọ bồi nồi. Bạn ôm bụng cười ngặt nghẽo.",
+      "effects": {
+       "AGI": 1,
+       "joy": 20
+      }
+     },
+     "fail": {
+      "text": "Đuôi bạn quét trúng cái môi múc canh. Tên đầu bếp quay ngoắt lại, túm cổ bạn và ném thẳng vào đống củi đang cháy.",
+      "effects": {
+       "health": -25,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Ném từ xa",
+     "check": {
+      "stat": "LUCK",
+      "target": 3
+     },
+     "success": {
+      "text": "Bạn vo tròn gói thuốc nổ ném tõm vào nồi rồi ù té chạy. Tiếng nổ vọng lại từ xa như bản nhạc êm tai nhất.",
+      "effects": {
+       "joy": 10
+      }
+     },
+     "fail": {
+      "text": "Gói thuốc nổ bay trúng vách đá dội ngược lại ngay dưới chân bạn. Bạn chạy thục mạng với phần mông bốc cháy phừng phừng.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Lấy chảo gõ đầu",
+     "require": {
+      "STR": 4
+     },
+     "showLocked": true,
+     "text": "Thay vì dùng mưu, bạn bê chiếc chảo gang quật thẳng vào gáy tên khổng lồ rồi co giò chạy trốn.",
+     "effects": {
+      "STR": 1,
+      "joy": 15,
+      "fame": 1
+     }
+    }
+   ],
+   "moment": "Một vụ nổ trong nhà bếp khiến tên Minotaur đầu bếp mất đi hàng lông mày."
+  },
+  {
+   "id": "imp_act_prank_2",
+   "text": "Một tên High Demon quyền quý đang ngủ say sưa trên sô-pha, bản khế ước nô lệ của hắn vô tình rơi ra khỏi túi áo.",
+   "stages": [
+    "infant"
+   ],
+   "focus": [
+    "play"
+   ],
+   "choices": [
+    {
+     "label": "Sửa lại khế ước",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn lấy bút lông quạ, khéo léo gạch bỏ tên chủ nợ và điền tên mình vào. Sáng hôm sau, một đám ma vật đột nhiên phải mang cống nạp đến cho bạn.",
+      "effects": {
+       "INT": 2,
+       "wealth": 30,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Bạn làm đổ lọ mực đỏ lòm lên tờ giấy. Hắn tỉnh giấc, gầm lên thịnh nộ và quất bạn một trận đòn chí tử.",
+      "effects": {
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Vẽ râu lên mặt",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Vài đường nét nguệch ngoạc và tên quý tộc giờ trông như một con bọ hung dị hợm. Bạn lẻn mất dạng trước khi hắn tỉnh.",
+      "effects": {
+       "AGI": 1,
+       "joy": 15
+      }
+     },
+     "fail": {
+      "text": "Tiếng cười khùng khục của bạn đánh thức hắn. Hắn tóm lấy sừng bạn, treo ngược lên trần nhà suốt một tuần liền.",
+      "effects": {
+       "health": -15,
+       "joy": -20
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_act_prank_3",
+   "text": "Bạn kẹp một xô dung dịch Slime dính nhớp nháp trên mép cửa. Nạn nhân bước vào không phải là bạn bè, mà là một Vampire Lord khát máu đang đến thị sát. Cái xô úp ụp lên chiếc đầu chải chuốt của ngài.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "play"
+   ],
+   "result": "Dù bạn chạy trốn thành công, nhưng lệnh truy nã nụ cười răng cưa của bạn bị dán khắp Vực Thẳm.",
+   "effects": {
+    "joy": 5,
+    "fame": 6
+   }
+  },
+  {
+   "id": "imp_act_eavesdrop_1",
+   "text": "Trốn sau bức rèm nhung, bạn há hốc mồm xem {maker} (hoặc một tên High Demon) đang đọc tụng một câu thần chú Triệu hồi Hỏa ngục Cấp cao từ cuốn cổ thư hắc ám.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "study"
+   ],
+   "choices": [
+    {
+     "label": "Ghi nhớ từng âm tiết",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Não bộ ma vật của bạn vận động hết công suất. Bạn chép thành công chuỗi ma ngữ rắc rối vào sâu trong tiềm thức, mở khóa một phép thuật chết người.",
+      "effects": {
+       "INT": 2,
+       "health": -5
+      }
+     },
+     "fail": {
+      "text": "Chú ngữ quá sức chịu đựng. Đầu bạn đau như búa bổ, máu mũi chảy ròng ròng ngất lịm đi.",
+      "effects": {
+       "INT": -1,
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Bắt chước thủ ấn",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Không hiểu từ nào nhưng bạn vung vẩy tay y hệt. Một ngọn lửa nhỏ bật lên ở đầu ngón tay dơi của bạn.",
+      "effects": {
+       "STR": 1,
+       "LUCK": 1
+      }
+     },
+     "fail": {
+      "text": "Vung vẩy thế nào lại tự thắt nút hai ngón tay cái vào nhau, kêu răng rắc.",
+      "effects": {
+       "health": -10
+      }
+     }
+    },
+    {
+     "label": "Ăn cắp luôn cuốn sách",
+     "require": {
+      "AGI": 6
+     },
+     "showLocked": true,
+     "text": "Lợi dụng lúc hắn nhắm mắt tập trung, bạn đu dây lướt qua cuỗm luôn cuốn sách giấu vào bụng.",
+     "effects": {
+      "AGI": 1,
+      "wealth": 40,
+      "flags": [
+       "stolen_grimoire"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_act_eavesdrop_2",
+   "text": "Nấp trên một tán cây Cổ thụ, bạn say mê theo dõi một Ranger Elf đang dùng tiếng sáo đặc biệt để thuần phục bầy Sói Sừng sẹo.",
+   "focus": [
+    "study"
+   ],
+   "choices": [
+    {
+     "label": "Thử uốn lưỡi thổi theo",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Dù môi bạn nứt nẻ, nhưng âm điệu the thé phát ra lại khiến một con thằn lằn bay gần đó ngoan ngoãn đậu lên vai bạn. Bạn đã học được thuật thuần thú cơ bản.",
+      "effects": {
+       "INT": 1,
+       "recruit": true
+      }
+     },
+     "fail": {
+      "text": "Âm thanh the thé chói tai như quạ cãi nhau. Tên Elf phát hiện ra và bắn một mũi tên sượt qua đỉnh sừng bạn.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Ghi nhớ điệu nhảy khinh công",
+     "check": {
+      "stat": "AGI",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn chú tâm vào bước chân đạp gió của tên Elf. Cơ thể bạn nhẹ bẫng đi, tốc độ bay lượn linh hoạt gấp bội.",
+      "effects": {
+       "AGI": 2,
+       "joy": 10
+      }
+     },
+     "fail": {
+      "text": "Thử nhảy theo nhưng trượt chân ngã lộn nhào từ ngọn cây xuống đống gai vỡ mặt.",
+      "effects": {
+       "health": -25
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_act_eavesdrop_3",
+   "text": "Chắp vá phép Hỏa Cầu của Human và Huyết Thuật của Vampire, bạn thử kết hợp chúng. Một tiếng nổ lép bép vang lên, bạn ợ ra một quả cầu lửa rực sáng, thiêu trụi một nửa mảng cánh của chính mình.",
+   "stages": [
+    "middle"
+   ],
+   "focus": [
+    "study"
+   ],
+   "result": "Dù đau đớn, bạn nhận ra ranh giới nguy hiểm của ma thuật lai tạp. Một bài học nhớ đời.",
+   "effects": {
+    "INT": 1,
+    "health": -20,
+    "flags": [
+     "burn_scar"
+    ]
+   },
+   "moment": "Tự thiêu cánh mình vì học đòi kết hợp phép thuật không trúng sách vở."
+  },
+  {
+   "id": "imp_act_train_1",
+   "text": "Để cường hóa làn da chống lại ngọn lửa của ma pháp sư, bạn quyết định ngâm mình xuống rìa một dòng sông dung nham cuồn cuộn đỏ rực.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "train"
+   ],
+   "choices": [
+    {
+     "label": "Trầm mình xuống đáy",
+     "check": {
+      "stat": "health",
+      "target": 85
+     },
+     "success": {
+      "text": "Đau đớn tột cùng nhưng lớp da bạn hấp thụ hỏa linh khí, biến thành màu đỏ sẫm óng ánh như giáp sắt. Lửa phàm giờ vô hại với bạn.",
+      "effects": {
+       "STR": 2,
+       "health": 30,
+       "flags": [
+        "lava_skin"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Nhiệt độ quá sức tưởng tượng. Bạn gào thét nhảy lên bờ, da thịt bỏng rộp bong tróc từng mảng.",
+      "effects": {
+       "health": -35
+      }
+     }
+    },
+    {
+     "label": "Tắm ở vũng nước bùn sục sôi",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn khôn ngoan chọn chỗ nước bùn nóng gần đó. Đủ để kích thích cơ bắp mà không làm chín thịt mình.",
+      "effects": {
+       "STR": 1,
+       "health": 10
+      }
+     },
+     "fail": {
+      "text": "Vũng bùn là tổ của loài Đỉa lửa quái ác. Chúng xúm lại hút máu khiến bạn kiệt quệ.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Đánh nhau với Fire Slime",
+     "require": {
+      "STR": 7
+     },
+     "showLocked": true,
+     "text": "Bạn vật lộn tay bo với một con Slime Lửa để hấp thụ nhiệt lượng từ nó.",
+     "effects": {
+      "STR": 2,
+      "health": -10
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_act_train_2",
+   "text": "Bạn muốn biến chiếc đuôi nhọn hoắt của mình thành một thứ vũ khí đoạt mạng. Bạn dành hàng tháng trời để tập vung đuôi đâm xuyên qua vách đá cứng.",
+   "stages": [
+    "middle"
+   ],
+   "focus": [
+    "train"
+   ],
+   "choices": [
+    {
+     "label": "Luyện lực đâm xuyên",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Chiếc đuôi phóng ra mạnh như một ngọn giáo, cắm ngập vào đá tảng. Giờ đây bạn có thể đâm xuyên giáp của kỵ sĩ.",
+      "effects": {
+       "STR": 2
+      }
+     },
+     "fail": {
+      "text": "Đâm sai góc, chiếc đuôi kêu rắc một tiếng rồi gãy gập. Bạn rớt nước mắt bó nẹp suốt nửa năm.",
+      "effects": {
+       "STR": -1,
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Luyện tốc độ quất đuôi",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Đuôi bạn vút trong không khí tạo ra những tiếng xé gió sắc lẹm, chém đứt ngọt những nhũ đá mỏng manh.",
+      "effects": {
+       "AGI": 1
+      }
+     },
+     "fail": {
+      "text": "Quất nhanh quá tự quấn chặt vào chân mình, ngã lăn quay đập đầu vào đá sưng vù.",
+      "effects": {
+       "health": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_act_train_3",
+   "text": "Ép bản thân đeo tạ đá bay qua bão lốc tại Thảo Nguyên Gió Hú, cơ cánh mỏng manh của bạn nghe một tiếng \"roạc\" đáng sợ. Cơ bắp bị xé rách do vận động quá tải.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "train"
+   ],
+   "result": "Bạn rơi tự do xuống thảm cỏ, phải lê lết giấu mình suốt mùa đông để cơ cánh tự chữa lành. Công sức luyện tập đổ sông đổ biển.",
+   "effects": {
+    "AGI": -1,
+    "health": -25
+   }
+  },
+  {
+   "id": "imp_act_serve_1",
+   "text": "Tại bữa tiệc của Hội Ma pháp, {maker} ném cho bạn ánh mắt sắc lạnh, ép bạn uống thử chén rượu vang Huyết Lệ nghi có pha độc của gã đối thủ.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "work"
+   ],
+   "require": {
+    "makerAlive": true
+   },
+   "choices": [
+    {
+     "label": "Nhắm mắt uống thay chủ",
+     "check": {
+      "stat": "health",
+      "target": 85
+     },
+     "success": {
+      "text": "Độc tính mạnh xé nát lục phủ ngũ tạng, nhưng thể chất quỷ dữ giúp bạn nôn ra máu đen rồi gượng dậy được. Chủ nhân được cứu một mạng và thưởng cho bạn rất hậu hĩnh.",
+      "effects": {
+       "health": -20,
+       "joy": 13,
+       "wealth": 50
+      }
+     },
+     "fail": {
+      "text": "Ruột gan bạn cuộn lên từng cơn bỏng rát. Bạn sùi bọt mép, chết tức tưởi trên bàn tiệc vương giả.",
+      "death": "Ruột gan bạn cuộn lên từng cơn bỏng rát. Bạn sùi bọt mép, chết tức tưởi trên bàn tiệc vương giả."
+     }
+    },
+    {
+     "label": "Ngửi mùi và tráo ly",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Dùng khứu giác nhạy bén, bạn nhận ra mùi thạch tín. Lợi dụng lúc gót giày chủ nhân lấp ló, bạn tráo ly rượu với ly của kẻ địch. Kẻ bỏ độc tự gánh hậu quả.",
+      "effects": {
+       "INT": 2,
+       "joy": 7,
+       "fame": 3
+      }
+     },
+     "fail": {
+      "text": "Bạn lóng ngóng tráo nhầm. Chủ nhân vẫn uống phải, tức giận lôi cổ bạn ra làm khiên chắn phép thuật.",
+      "effects": {
+       "health": -35
+      }
+     }
+    },
+    {
+     "label": "Giả vờ vấp ngã",
+     "require": {
+      "LUCK": 6
+     },
+     "showLocked": true,
+     "text": "Bạn làm bộ vấp chân, đánh đổ toẹt ly rượu quý giá xuống thảm lông cừu. Bị chửi mắng, nhưng cứu được mạng cả hai.",
+     "effects": {
+      "joy": -7
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_act_serve_2",
+   "text": "Chủ nhân trúng phải lời nguyền ngủ say của Lich King. Phái đoàn của Thương hội sắp đến đòi nợ, nếu hắn không tỉnh dậy ký giấy, cả hai sẽ bị bán làm nô lệ.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "work"
+   ],
+   "choices": [
+    {
+     "label": "Tát lật mặt để gọi dậy",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn lấy đà quật chiếc đuôi gai vút vào má hắn. Cơn đau thấu trời xé toạc mộng mị, hắn choàng tỉnh chửi thề nhưng may mắn ký kịp giấy tờ.",
+      "effects": {
+       "STR": 1,
+       "health": -5
+      }
+     },
+     "fail": {
+      "text": "Tát nhẹ quá hắn tưởng gãi ngứa. Phái đoàn ập vào, xích cổ cả chủ lẫn tớ.",
+      "effects": {
+       "wealth": -100,
+       "flags": [
+        "slave_brand"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Dùng phép châm chích",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Tập trung luồng điện nhỏ xíu, bạn giật thẳng vào ngón chân cái của hắn. Hắn nảy lên như đỉa phải vôi. Việc nợ nần được giải quyết êm thấm.",
+      "effects": {
+       "INT": 1,
+       "wealth": 20
+      }
+     },
+     "fail": {
+      "text": "Luồng điện đi chệch, giật cháy khét đám râu ria của hắn. Hắn vẫn bất tỉnh. Bạn đành phải khăn gói bỏ trốn.",
+      "effects": {
+       "fame": -2,
+       "flags": [
+        "fugitive"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_act_serve_3",
+   "text": "Bạn vừa bưng ra đĩa tim Rồng nướng tái chín vừa độ, rắc gia vị hoàn hảo, đồng thời vắt kiệt sức lực đấm bóp vai cho {maker}. Gã bạo chúa nhắm mắt thư thái, khẽ nhếch mép cười và tung cho bạn một túi nhỏ Tinh Bạc.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "work"
+   ],
+   "result": "Bạn nhận ra kể cả trái tim tàn độc nhất cũng có lúc mềm yếu nếu dạ dày được thỏa mãn.",
+   "effects": {
+    "joy": 25,
+    "wealth": 30
+   }
+  },
+  {
+   "id": "imp_act_havoc_1",
+   "text": "Bạn chui qua lỗ hổng trên mái vòm của Giáo hội Thánh Quang. Phía dưới, một tên giám mục béo mập đang chuẩn bị vẩy nước thánh ban phước cho đám con chiên ngoan đạo.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "choices": [
+    {
+     "label": "Trút nước tiểu dơi vào bồn",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Đu người ngược trên trần nhà, bạn rót ệch thứ chất lỏng bốc mùi vào bồn nước thánh. Đám con chiên ngơ ngác ngửi thấy mùi thum thủm lan tỏa. Bạn ôm bụng cười không ra tiếng.",
+      "effects": {
+       "joy": 25,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Trượt tay, bạn rớt tuột cái bình gốm xuống gạch vỡ nát. Đám Thánh Kỵ Sĩ phát hiện, phóng lao đuổi bạn chạy trối chết.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Thả chuột bự vào áo choàng",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Một con chuột cống thả chuẩn xác rớt vào cổ áo tên giám mục. Hắn la hét ngoáy mông nhảy dựng lên phá hỏng cả buổi lễ trang nghiêm.",
+      "effects": {
+       "LUCK": 1,
+       "joy": 20
+      }
+     },
+     "fail": {
+      "text": "Chuột cắn vào tay bạn thay vì chịu rơi. Bạn đau điếng buông tay rơi thẳng xuống bàn thờ Chúa.",
+      "effects": {
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Hô chú ngữ giả ma",
+     "require": {
+      "INT": 5
+     },
+     "showLocked": true,
+     "text": "Bạn lầm bầm những câu ma ngữ the thé từ trên trần. Đám đông hoảng loạn dẫm đạp lên nhau chạy trốn tưởng Ma Vương tấn công.",
+     "effects": {
+      "INT": 1,
+      "fame": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_act_havoc_2",
+   "text": "Một gánh xiếc rong loài người đang dựng rạp ở ngoại ô. Bạn lẻn vào khu vực lồng nhốt thú, định bụng \"cải thiện\" tiết mục biểu diễn tối nay của bọn họ một chút.",
+   "stages": [
+    "middle"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "choices": [
+    {
+     "label": "Mở khóa lồng dã thú",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn khéo léo bẻ khóa chuồng của con Hổ Răng Kiếm. Đêm đó, khán giả được một phen chạy toán loạn, còn bạn thoải mái cuỗm hòm tiền bán vé.",
+      "effects": {
+       "INT": 1,
+       "wealth": 40,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Con Hổ ngửi thấy mùi quỷ, vồ lấy cánh tay bạn cắn phập một nhát trước khi bạn kịp mở khóa.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Cắt dây thăng bằng",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Đúng lúc tên diễn viên leo lên điểm cao nhất, sợi dây đứt phựt. Hắn rớt cắm đầu vào thùng nước bẩn. Bạn thỏa mãn bay vút đi.",
+      "effects": {
+       "AGI": 1,
+       "joy": 15
+      }
+     },
+     "fail": {
+      "text": "Đang mải mê cắt, tên bảo vệ gánh xiếc phát hiện dùng súng cao su bắn đá sưng u đầu bạn.",
+      "effects": {
+       "health": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_act_havoc_3",
+   "text": "Trông thấy một xâu xúc xích ngon lành treo trước cửa tiệm đồ tể, bạn sà xuống chộp lấy. Nào ngờ, con chó chăn cừu lông lá khổng lồ của gia đình lao ra, đuổi bạn chạy bán sống bán chết suốt ba dặm đường.",
+   "focus": [
+    "adventure"
+   ],
+   "result": "Dù giữ được xâu xúc xích, nhưng bạn kiệt sức, bộ dạng tơi tả, bùn lầy bê bết khắp cánh. Một trải nghiệm tồi tệ để ghi nhớ rằng chó trên mặt đất không đùa được đâu.",
+   "effects": {
+    "health": -5,
+    "joy": -10,
+    "wealth": 5
+   },
+   "moment": "Ôm xâu xúc xích chạy ba dặm vì bị một con chó chăn cừu đòi mạng."
+  },
+  {
+   "id": "imp_act_flatter_1",
+   "text": "Tên High Demon mà bạn đang bám gót đột nhiên nổi hứng ngâm một bài thơ ca ngợi vẻ đẹp của máu thịt nhầy nhụa. Lời thơ ngang phè, vần điệu thảm họa khiến chim chóc xung quanh rụng lả tả. Hắn liếc mắt xuống hỏi ý kiến bạn.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "social"
+   ],
+   "choices": [
+    {
+     "label": "Dùng từ ngữ hàn lâm tâng bốc",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn trích dẫn đủ loại sách cổ Vực Thẳm, phân tích bài thơ thành một \"kiệt tác siêu thực phá vỡ mọi quy chuẩn\". Hắn vô cùng đắc ý, ném cho bạn một vốc Lõi Mana.",
+      "effects": {
+       "INT": 1,
+       "wealth": 25,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Bạn dùng nhầm một từ có nghĩa là \"phân rồng\". Hắn xám mặt, đá bạn lọt thỏm vào thùng rác.",
+      "effects": {
+       "health": -15,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Vỗ tay khóc lóc thảm thiết",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn nặn ra những giọt nước mắt cá sấu, quỳ rạp xuống tỏ vẻ cảm động đến không nói nên lời. Hắn thích thú xoa đầu bạn, gãy luôn một chiếc sừng.",
+      "effects": {
+       "LUCK": 1,
+       "health": -5,
+       "wealth": 10
+      }
+     },
+     "fail": {
+      "text": "Đang giả vờ khóc thì bạn hắt xì văng cả nước mũi vào ủng của hắn. Một cú đá trời giáng tiễn bạn bay qua cửa sổ.",
+      "effects": {
+       "health": -25
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_act_flatter_2",
+   "text": "Bị một Archdemon cấp cao hơn bắt lỗi làm mất cuốn sổ địa ngục, tên sếp trực tiếp của bạn run rẩy. Hắn đảo mắt, chỉ thẳng cánh tay to bè vào mặt bạn, vu oan rằng con Imp này mới là thủ phạm.",
+   "stages": [
+    "middle"
+   ],
+   "focus": [
+    "social"
+   ],
+   "choices": [
+    {
+     "label": "Nhận tội thay sếp",
+     "check": {
+      "stat": "health",
+      "target": 55
+     },
+     "success": {
+      "text": "Cắn răng chịu một đòn sét giật cháy đen người từ Archdemon. Bạn sống sót thoi thóp. Tên sếp biết ơn, lén lút thăng chức và thưởng tiền cho lòng trung thành ngu xuẩn của bạn.",
+      "effects": {
+       "health": -30,
+       "wealth": 40,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Lực giật quá mạnh, bạn nôn ra một búng máu và suýt chầu diêm vương. Tiền thưởng cũng chẳng bù đắp nổi.",
+      "effects": {
+       "health": -40
+      }
+     }
+    },
+    {
+     "label": "Bẻ lái đổ lỗi cho kẻ khác",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Với cái lưỡi không xương, bạn vẽ ra một thuyết âm mưu rằng quân gián điệp của Giáo hội Thánh Quang đã cuỗm nó đi. Cả hai vị chúa tể đều tin sái cổ và đi lùng sục quân loài người.",
+      "effects": {
+       "INT": 2,
+       "joy": 10,
+       "fame": 3
+      }
+     },
+     "fail": {
+      "text": "Archdemon gầm lên tức giận vì trò nói dối vụng về, ném cả bạn lẫn sếp vào hầm dung nham.",
+      "effects": {
+       "health": -35
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_act_flatter_3",
+   "text": "Thấy một gã mặc áo choàng đen với luồng sát khí ngút trời bước vào quán rượu ngầm, bạn lăng xăng chạy đến nịnh hót, rót rượu và dâng toàn bộ số tiền lẻ trong ngày để xin hắn thu nạp. Hắn gật gù cầm tiền rồi... tan chảy thành một con Slime nhầy nhụa biến mất qua khe nứt.",
+   "focus": [
+    "social"
+   ],
+   "result": "Bạn vừa bị một con Slime hạ cấp lừa sạch tiền. Tiếng cười nhạo của lũ Goblin xung quanh khiến bạn nhục nhã muốn độn thổ.",
+   "effects": {
+    "joy": -15,
+    "wealth": -20,
+    "fame": -2
+   },
+   "moment": "Quỳ lạy dâng tiền cho một con Slime vì nhầm nó với Ác Ma bạo chúa."
+  },
+  {
+   "id": "imp_act_slack_1",
+   "text": "Bỏ mặc đống chén đĩa chưa rửa, bạn lẻn vào hầm rượu của {maker} tìm chỗ ngủ. Đập vào mắt bạn là một thùng rượu Vang Huyết Nho lâu năm rỉ từng giọt đỏ rực đầy cám dỗ.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "rest"
+   ],
+   "choices": [
+    {
+     "label": "Lén nếm thử vài ngụm",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Rượu cực phẩm giúp luân chuyển mana trong cơ thể nhỏ bé của bạn. Bạn ngủ một giấc say sưa mà không ai phát hiện, tỉnh dậy thấy người tràn trề sinh lực.",
+      "effects": {
+       "LUCK": 1,
+       "health": 10,
+       "joy": 15
+      }
+     },
+     "fail": {
+      "text": "Rượu quá nặng. Bạn say xỉn, lảo đảo bước ra ngoài và nôn ọe ngay trên đôi ủng ma thuật của {maker}.",
+      "effects": {
+       "health": -10,
+       "joy": -20
+      }
+     }
+    },
+    {
+     "label": "Hút trộm bán lấy tiền",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Chiết khéo léo vào những cái lọ nhỏ, bạn bán được một mớ tiền ở chợ đen dưới lòng đất.",
+      "effects": {
+       "AGI": 1,
+       "wealth": 35
+      }
+     },
+     "fail": {
+      "text": "Lóng ngóng làm đổ vỡ cả thùng rượu. Sợ hãi sự trừng phạt, bạn phải dốc cạn túi tiền đền bù nếu không muốn bị lột da.",
+      "effects": {
+       "wealth": -30,
+       "flags": [
+        "debtor"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_act_slack_2",
+   "text": "Đang nằm dài ngáy o o sau đống phế liệu, bạn giật bắn mình vì tiếng bước chân nện uỳnh uỵch của tên Orc quản đốc. Hắn đang đi kiểm tra tiến độ và đã lờ mờ thấy bóng dáng đỏ lòm của bạn.",
+   "stages": [
+    "middle"
+   ],
+   "focus": [
+    "rest"
+   ],
+   "choices": [
+    {
+     "label": "Giả vờ đang lau dọn hăng say",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn vồ lấy cái giẻ, chà xát điên cuồng vào một tảng đá vô hình, miệng lầm bầm phàn nàn về vết bẩn. Tên Orc gật gù khen ngợi sự chăm chỉ kỳ quặc của bạn.",
+      "effects": {
+       "INT": 1,
+       "fame": 1
+      }
+     },
+     "fail": {
+      "text": "Bạn chộp nhầm con chuột cắn dở thay vì cái giẻ. Tên Orc nổi điên quất roi lửa xé rách da lưng bạn.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Chui rúc vào ống khói",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Lách qua khe hẹp chật chội, bạn trốn thoát nhưng toàn thân dính đầy nhọ bồi nồi đen thui suốt mấy tháng. Trốn việc thành công!",
+      "effects": {
+       "AGI": 1,
+       "joy": 5
+      }
+     },
+     "fail": {
+      "text": "Kẹt lại ở nửa thân dưới. Tên Orc nắm lấy đuôi bạn giật mạnh ra, làm gãy một đốt xương.",
+      "effects": {
+       "health": -25
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_act_slack_3",
+   "text": "Một toán Thánh Kỵ Sĩ bất ngờ kích hoạt trận pháp thanh tẩy, đột kích thẳng vào căn cứ hắc ám nơi bạn làm việc. Trong khi bầy đàn đang gào thét xung phong, bạn quyết định đây là lúc tuyệt vời nhất để... trốn.",
+   "focus": [
+    "rest"
+   ],
+   "choices": [
+    {
+     "label": "Giả chết dưới đống xác",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Bôi một vệt máu quỷ lính lên mặt, bạn nín thở nằm im re. Toán Kỵ Sĩ đi qua không thèm chú ý đến một cái xác lính lác bé xíu. Sống sót qua màn thanh trừng.",
+      "effects": {
+       "LUCK": 1,
+       "fame": -2
+      }
+     },
+     "fail": {
+      "text": "Một Thánh Kỵ Sĩ giẫm đôi giày giáp nặng trịch lên ngực bạn, bẻ gãy mấy cái xương sườn dù không cố ý.",
+      "effects": {
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Hôi của rồi tẩu thoát",
+     "check": {
+      "stat": "AGI",
+      "target": 9
+     },
+     "success": {
+      "text": "Tranh thủ lúc chiến sự hỗn loạn, bạn lách qua các xác chết, tháo nhẫn, giật dây chuyền của cả phe ta lẫn địch rồi sải cánh bay lọt qua lỗ hổng trên trần. Một mẻ trúng đậm!",
+      "effects": {
+       "AGI": 2,
+       "wealth": 60,
+       "flags": [
+        "coward_thief"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Lóa mắt vì đồng tiền, bạn vướng vào một vụ nổ phép thuật lan tỏa, bị thương nặng và rơi mất sạch tài sản tích cóp bấy lâu.",
+      "effects": {
+       "health": -40,
+       "wealth": -100
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_ally_brave",
+   "text": "Bị một toán lính đánh thuê Orc phát hiện, thay vì lỉnh đi như một con Imp chuẩn mực, {ally} hét lớn và nhặt một khúc xương nhọn lao thẳng vào chân gã Orc to nhất để cản đường.",
+   "require": {
+    "party": 1,
+    "allyTrait": "brave"
+   },
+   "choices": [
+    {
+     "label": "Quay lại hỗ trợ",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn bay vút qua, dùng móng vuốt cào rách mắt tên Orc. {ally} chớp thời cơ rút lui cùng bạn. Lòng tin giữa cả hai càng thêm bền chặt.",
+      "effects": {
+       "AGI": 1,
+       "bond": 20
+      }
+     },
+     "fail": {
+      "text": "Bạn bị gã Orc tóm được sừng và quẳng đập vỡ vách đá. Cả hai phải ôm đầu máu lết vào khe hẹp tẩu thoát.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Bỏ chạy lấy mạng",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Nhờ {ally} làm mồi nhử, bạn chuồn trót lọt không sứt mẻ một cái vảy. Lương tâm quỷ dữ của bạn hoàn toàn thanh thản.",
+      "effects": {
+       "fame": -2,
+       "bond": -30
+      }
+     },
+     "fail": {
+      "text": "Gã Orc đạp văng {ally} rồi ném phập cây rìu sạt qua đuôi bạn, phạt đứt một chỏm đuôi.",
+      "effects": {
+       "health": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_ally_loyal",
+   "text": "Bạn vô tình giẫm phải một phiến đá gài bẫy ma thuật dưới hầm ngục. Một quả cầu lửa phun ra chớp nhoáng, nhưng {ally} đã lấy thân mình lao ra che chắn cho bạn.",
+   "require": {
+    "party": 1,
+    "allyTrait": "loyal"
+   },
+   "choices": [
+    {
+     "label": "Dốc tiền mua ma dược cứu bạn",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn nhanh trí dùng nấm mốc và thảo dược nhặt được pha chế thành thuốc trị phỏng rịt lên vết thương. {ally} qua khỏi cơn nguy kịch.",
+      "effects": {
+       "INT": 1,
+       "wealth": -15,
+       "bond": 30
+      }
+     },
+     "fail": {
+      "text": "Đưa nhầm lọ độc dược hạng nhẹ khiến {ally} nôn mửa dữ dội, dù không chết nhưng tình cảm rạn nứt vì sự hậu đậu của bạn.",
+      "effects": {
+       "bond": -10,
+       "allyHurt": true
+      }
+     }
+    },
+    {
+     "label": "Bỏ mặc tự sinh tự diệt",
+     "text": ". Bạn chép miệng thở dài, lột nốt túi Lõi Mana của {ally} rồi bỏ đi. Dù sao thì Imp cũng không có truyền thống chăm sóc kẻ ốm.",
+     "effects": {
+      "wealth": 20,
+      "fame": -3,
+      "allyDie": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_ally_greedy",
+   "text": "Trong lúc lẩn trốn, {ally} táy máy cậy viên hồng ngọc đính trên chuôi kiếm của một Thánh Kỵ Sĩ đang ngủ gật. Viên ngọc kẹt cứng và gã hiệp sĩ bắt đầu cựa quậy.",
+   "require": {
+    "party": 1,
+    "allyTrait": "greedy"
+   },
+   "choices": [
+    {
+     "label": "Giúp một tay bẩy viên ngọc",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Hai con Imp hợp lực dùng dao găm nạy tung viên ngọc chỉ trong chớp mắt. Cả hai chuồn êm và chia nhau một khoản tiền khổng lồ.",
+      "effects": {
+       "AGI": 1,
+       "wealth": 40
+      }
+     },
+     "fail": {
+      "text": "Dao găm trượt tay đâm trúng giáp tạo ra tiếng xoảng. Tên Thánh Kỵ Sĩ tỉnh giấc, vung thanh đại kiếm đuổi hai đứa chạy rớt cả cánh.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Cướp luôn viên ngọc bỏ chạy",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn đẩy ngã {ally}, giật lấy viên ngọc đã cậy hở và bay vút đi, bỏ mặc đồng đội chịu trận.",
+      "effects": {
+       "STR": 1,
+       "wealth": 50,
+       "allyDie": true
+      }
+     },
+     "fail": {
+      "text": "{ally} níu chặt chân bạn gào ầm lên. Tên Thánh Kỵ Sĩ thức dậy tóm cổ cả hai ném vào ngục tối.",
+      "effects": {
+       "health": -20,
+       "wealth": -100
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_ally_timid",
+   "text": "Đi dạo ở Đỉnh Hỏa Ngục, hai bạn chạm trán một con Hellhound (Chó Săn Địa Ngục) đang nhe nanh. {ally} cứng đờ người vì sợ, hai hàm răng đánh bò cạp không nhấc nổi bước chân.",
+   "require": {
+    "party": 1,
+    "allyTrait": "timid"
+   },
+   "choices": [
+    {
+     "label": "Hét lớn gọi hồn đồng đội",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn lôi tên một Archdemon ra dọa mắng. {ally} giật mình tỉnh mộng, lấy lại phản xạ và cùng bạn chui tọt vào hang hẹp.",
+      "effects": {
+       "INT": 1,
+       "bond": 10
+      }
+     },
+     "fail": {
+      "text": "Tiếng hét của bạn chỉ làm con Hellhound chú ý. Nó lao đến táp một nhát rách bươm đùi bạn.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Đạp đồng đội ngã ra làm mồi",
+     "require": {
+      "STR": 5
+     },
+     "showLocked": true,
+     "text": "Bạn vung chân đá gót vào kheo chân {ally}. Con chó săn lao vào vồ lấy mồi, còn bạn đập cánh chuồn êm.",
+     "effects": {
+      "fame": -1,
+      "allyDie": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_ally_funny",
+   "text": "Bị gọi lên xếp hàng điểm danh trước một High Demon cau có, {ally} ngứa ngáy điệu bộ bắt chước dáng đi cà thọt của hắn, khiến lũ Imp xung quanh bịt miệng cười rúc rích. Hắn phát hiện ra và trừng mắt nhìn xuống.",
+   "require": {
+    "party": 1,
+    "allyTrait": "cheerful"
+   },
+   "choices": [
+    {
+     "label": "Bịa chuyện chống chế",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn liến thoắng giải thích rằng {ally} đang bị trúng nguyền rủa từ một con Slime nên cơ bắp co giật. Tên High Demon tin thật, đá văng {ally} ra ngoài tự chữa trị thay vì giết chết.",
+      "effects": {
+       "INT": 2,
+       "bond": 20
+      }
+     },
+     "fail": {
+      "text": "Hắn không nghe giải thích, vung roi lửa quất cả bạn lẫn {ally} xé rách da thịt vì tội xấc xược.",
+      "effects": {
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Hùa theo cười nhạo",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Tiếng cười the thé của bạn lây lan, đến mức tên High Demon tưởng đó là điệu múa cống hiến truyền thống nên bỏ qua. Sự may mắn thần kỳ của loài quỷ!",
+      "effects": {
+       "LUCK": 1,
+       "joy": 20
+      }
+     },
+     "fail": {
+      "text": "Hắn nắm lấy cổ bạn, treo lủng lẳng trên vạc dầu sôi như một lời cảnh cáo cho cả bầy.",
+      "effects": {
+       "health": -25
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_ally_cold",
+   "text": "Đang bị thương nặng sau đợt truy quét của Giáo hội, hai bạn nhặt được một con Goblin mù lòa đang ôm rương thuốc quý. {ally} rút dao găm ra, ánh mắt vô hồn đề nghị giết con Goblin để lấy toàn bộ thuốc phục hồi.",
+   "require": {
+    "party": 1,
+    "allyTrait": "cold"
+   },
+   "choices": [
+    {
+     "label": "Đồng tình hạ thủ",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn nhanh gọn dùng đuôi siết cổ con Goblin. Cả hai chia nhau rương thuốc, hồi phục sinh lực nhưng đôi tay vấy máu kẻ vô tội.",
+      "effects": {
+       "AGI": 1,
+       "health": 30,
+       "fame": -3
+      }
+     },
+     "fail": {
+      "text": "Con Goblin mù giãy giụa, đâm loạn xạ bằng dao găm rỉ sét rạch trúng cánh bạn trước khi ngã xuống.",
+      "effects": {
+       "health": 10
+      }
+     }
+    },
+    {
+     "label": "Từ chối và cướp thuốc đi một mình",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn hất tay {ally}, ném một quả mù sương rồi ôm rương thuốc chuồn mất, không muốn chia sẻ với kẻ sát nhân lật lọng.",
+      "effects": {
+       "wealth": 25,
+       "allyDie": true
+      }
+     },
+     "fail": {
+      "text": "{ally} đoán trước ý định, lao vào đâm lén sau lưng bạn. Cả hai đánh nhau sức đầu mẻ trán, rương thuốc vỡ nát.",
+      "effects": {
+       "health": -20,
+       "bond": -40
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_ally_loot",
+   "text": "Dưới đáy hầm ngục đổ nát, hai bạn cùng lúc túm lấy một viên Lõi Mana Huyết Kim lấp lánh rực rỡ. Ánh mắt hai con Imp chạm nhau, không ai chịu buông tay.",
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Cò cưa đàm phán",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bằng cái miệng dẻo kẹo, bạn thuyết phục {ally} nhường viên ngọc đổi lấy ba tháng cọ vạc dầu thay. Bạn ẵm trọn viên ngọc giá trị.",
+      "effects": {
+       "INT": 1,
+       "wealth": 30
+      }
+     },
+     "fail": {
+      "text": "{ally} không nghe, giật mạnh khiến viên ngọc rơi xuống khe nứt dung nham, biến mất vĩnh viễn. Cả hai gào thét tiếc nuối.",
+      "effects": {
+       "joy": -15
+      }
+     }
+    },
+    {
+     "label": "Tung đồng xu quyết định",
+     "check": {
+      "stat": "LUCK",
+      "target": 3
+     },
+     "success": {
+      "text": "Bạn cược mặt sấp. Đồng xu quay tít rồi rơi xuống mặt sấp. {ally} chép miệng bỏ cuộc đúng luật ma giới.",
+      "effects": {
+       "LUCK": 1,
+       "wealth": 30,
+       "bond": 5
+      }
+     },
+     "fail": {
+      "text": "Bạn thua cược. Ngậm ngùi nhìn {ally} cất viên ngọc vào túi, bụng sôi ùng ục vì ghen tị.",
+      "effects": {
+       "joy": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_ally_argue",
+   "text": "Nhiệm vụ phá hoại tháp canh thất bại thảm hại, hai bạn trốn chui rúc trong một cái thùng phuy rỗng. {ally} tức giận thì thào chỉ trích do bạn vấp ngã nên mới đổ bể.",
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Cãi lại bằng lý lẽ",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn xổ một tràng vạch trần việc {ally} hắt hơi trước mới làm lính canh chú ý. {ally} đuối lý, ấm ức im lặng xin lỗi.",
+      "effects": {
+       "INT": 1,
+       "bond": 10
+      }
+     },
+     "fail": {
+      "text": "Cãi nhau quá hăng, tiếng the thé vang ra ngoài. Bọn lính canh thọc giáo vào thùng phuy đâm cả hai chảy máu.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Nện nhau giải tỏa",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn vung nắm đấm đập cho {ally} một trận sưng mắt. Xong xuôi, cả hai thở phì phò rồi cười hề hề hòa giải kiểu ma vật.",
+      "effects": {
+       "STR": 1,
+       "health": -5,
+       "bond": 15
+      }
+     },
+     "fail": {
+      "text": "{ally} khỏe hơn bạn tưởng, đấm rụng của bạn một chiếc răng hàm.",
+      "effects": {
+       "health": -15,
+       "bond": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_ally_save",
+   "text": "{ally} đang bị dính chặt vào mạng nhện của một con Nhện Quái Khổng Lồ, nước mắt ràn rụa gào thét xin bạn cứu giúp khi con quái vật tám chân đang bò tới.",
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Quăng đuốc lửa cắt lưới",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn phóng ngọn đuốc cực chuẩn xác đốt đứt gốc mạng nhện. {ally} rơi phịch xuống đất và cả hai cùng đào tẩu.",
+      "effects": {
+       "AGI": 1,
+       "bond": 40
+      }
+     },
+     "fail": {
+      "text": "Đuốc rơi trúng người {ally}, làm đồng đội cháy khét một mảng lông tơ trước khi kịp dập lửa bỏ chạy.",
+      "effects": {
+       "bond": -10,
+       "allyHurt": true
+      }
+     }
+    },
+    {
+     "label": "Mặc kệ bỏ chạy",
+     "text": ". Bạn nhún vai, thầm nhủ \"tự làm tự chịu\" rồi cắm cổ bay mất. Tiếng hét của {ally} tắt lịm sau lưng bạn.",
+     "effects": {
+      "fame": -2,
+      "allyDie": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_ally_secret",
+   "text": "Bám theo {ally} vào ngõ hẻm tối, bạn giật mình phát hiện đồng đội đang bán thông tin về kho Lõi Mana của bạn cho lũ lính đánh thuê Guild Bình Minh để gạt nợ.",
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Bắt quả tang tống tiền ngược",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn nhảy bổ ra, ghi âm bằng ngọc lưu ảnh và ép {ally} nộp cho bạn một nửa số tiền mãi lộ hàng tháng nếu không muốn bị đưa ra hội đồng Ma giới.",
+      "effects": {
+       "INT": 1,
+       "wealth": 40,
+       "bond": -50
+      }
+     },
+     "fail": {
+      "text": "Đám lính đánh thuê nhào tới bắt luôn bạn. Bạn mất trắng kho tàng và bị đập một trận nhừ tử.",
+      "effects": {
+       "health": -30,
+       "wealth": -100
+      }
+     }
+    },
+    {
+     "label": "Phóng dao găm từ trong tối",
+     "check": {
+      "stat": "AGI",
+      "target": 9
+     },
+     "success": {
+      "text": "Lưỡi dao găm tẩm độc phóng phập vào cổ {ally}. Kẻ phản bội ngã gục, đám lính sợ hãi rút lui. Bạn giải quyết êm thấm kẻ hai mặt.",
+      "effects": {
+       "AGI": 2,
+       "fame": 3,
+       "allyDie": true
+      }
+     },
+     "fail": {
+      "text": "Phi trượt. Bạn bại lộ vị trí và bị cả {ally} lẫn đám lính lùng sục truy sát cả đêm.",
+      "effects": {
+       "health": -25
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_mating_1",
+   "text": "Tại lễ hội Trăng Máu của Ma giới, bạn để mắt tới một Imp khác giới đang nhai nhồm nhoàm khúc xương sụn. Để thu hút sự chú ý, bạn quyết định thực hiện điệu nhảy vỗ cánh gọi bạn tình truyền thống của loài quỷ.",
+   "stages": [
+    "middle"
+   ],
+   "require": {
+    "spouse": false
+   },
+   "choices": [
+    {
+     "label": "Nhảy điệu khoe khoang của cải",
+     "check": {
+      "stat": "wealth",
+      "target": 70
+     },
+     "success": {
+      "text": "Bạn tung hứng vài đồng Tinh Bạc mạ vàng, ánh sáng lấp lánh khiến đối phương sáng mắt lên. Hai bạn nhanh chóng lao vào nhau.",
+      "effects": {
+       "joy": 20,
+       "wealth": -10,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Đang múa may thì bạn tuột tay rớt mất tiền vào rãnh nước. Đối phương bĩu môi khinh bỉ rồi bỏ đi với một gã Imp béo tốt hơn.",
+      "effects": {
+       "joy": -10,
+       "wealth": -5
+      }
+     }
+    },
+    {
+     "label": "Hát tình ca the thé",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Vận dụng ma ngữ mượt mà, bạn rống lên một bản tình ca ngợi ca máu và lửa. {spouse} cảm động đến mức rụng một chiếc sừng và đồng ý theo bạn.",
+      "effects": {
+       "joy": 15,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Giọng bạn the thé như dơi kẹt cửa, khiến một con Troll đang ngủ gần đó nổi điên ném đá tảng vào bạn.",
+      "effects": {
+       "health": -20
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_mating_2",
+   "text": "{maker} bắt ép bạn lai giống với một con Imp cưng của gã pháp sư hàng xóm nhằm tạo ra lứa tay sai mới ưu tú hơn. Đối tượng là một kẻ khó chiều, kênh kiệu vì được ăn ngon mặc đẹp.",
+   "stages": [
+    "adult"
+   ],
+   "require": {
+    "flags": [
+     "familiar_pet"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Giả vờ quý tộc để tán tỉnh",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bằng cách bắt chước điệu bộ đi đứng của loài người, bạn lừa được đối phương tin rằng mình là một \"Imp thượng lưu\". Hai bạn ký khế ước linh hồn.",
+      "effects": {
+       "joy": 3,
+       "fame": 2,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Bạn cúi chào vướng cánh ngã lộn cổ. Bị chê cười, bạn còn bị {maker} quất roi vì làm mất mặt chủ.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Bắt nạt để khuất phục",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đè bẹp sự kiêu ngạo của đối phương bằng bạo lực thuần túy. Đối phương sợ hãi ngoan ngoãn phục tùng và trở thành {spouse} của bạn.",
+      "effects": {
+       "STR": 1,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Đối phương biết phép thuật hắc ám cơ bản, nhổ một bãi a-xít làm bỏng mặt bạn. Hôn sự tan tành.",
+      "effects": {
+       "health": -20,
+       "joy": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_mating_3",
+   "text": "Đang lẩn trốn sự truy đuổi, bạn đụng độ một Imp lang bạt khác. Người này hứa sẽ chỉ cho bạn hầm trú ẩn an toàn nếu bạn chịu kết đôi và chia sẻ chiến lợi phẩm.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "choices": [
+    {
+     "label": "Sử dụng lưỡi không xương đàm phán",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn chớp thời cơ kết đôi ngay lập tức, vừa có chỗ trốn vừa có người nâng khăn sửa túi, mà tiền thì bạn giấu nhẹm đi.",
+      "effects": {
+       "joy": 10,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Lời nói dối bị lật tẩy. Đối phương hét lên gọi lính canh đến tóm cổ bạn rồi chuồn êm.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Thật thà chia chác",
+     "text": ". Chấp nhận mất một nửa tài sản, bạn có một {spouse} đồng cam cộng khổ sống qua ngày tháng khó khăn.",
+     "effects": {
+      "joy": 20,
+      "marry": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_child_1",
+   "text": "{spouse} của bạn ấp nở ra {child}, một đứa quỷ đỏ nhí nhưng lại có đôi mắt màu xanh lục của ma pháp sư thay vì màu vàng lưu huỳnh. Làng xóm Imp bắt đầu xì xầm bàn tán.",
+   "require": {
+    "spouse": true
+   },
+   "result": "Dù nghi ngờ, bạn vẫn quyết định nuôi nấng {child}. Trí thông minh đột biến của nó thỉnh thoảng giúp bạn lừa được vài vố đậm.",
+   "effects": {
+    "INT": 1,
+    "fame": -2,
+    "child": true
+   },
+   "moment": "Đón nhận một đứa con lai tạp có đôi mắt xanh lục đáng ngờ."
+  },
+  {
+   "id": "imp_child_2",
+   "text": "Đám buôn nô lệ Minotaur gõ cửa đòi nợ. Không có Lõi Mana để trả, chúng chĩa vũ khí vào {child} đang run rẩy giấu sau đuôi bạn.",
+   "require": {
+    "children": 1,
+    "below": {
+     "wealth": 10
+    }
+   },
+   "choices": [
+    {
+     "label": "Giao nộp {child} trừ nợ",
+     "check": {
+      "stat": "LUCK",
+      "target": 3
+     },
+     "success": {
+      "text": "Bạn nhắm mắt làm ngơ, đẩy {child} ra phía trước. Món nợ được xóa bỏ, nhưng mỗi đêm bạn đều nghe tiếng khóc văng vẳng bên tai.",
+      "effects": {
+       "joy": -30,
+       "loseChild": true
+      }
+     },
+     "fail": {
+      "text": "Đám Minotaur chê {child} quá gầy gò, bắt luôn cả bạn đi làm phu mỏ.",
+      "effects": {
+       "health": -25,
+       "flags": [
+        "mine_slave"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Cầm dao găm liều mạng bảo vệ",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn điên cuồng lao tới đâm nát mắt một gã khổng lồ. Sự hung hãn của một bậc cha mẹ khiến bọn chúng ngần ngại rút lui. {child} nhìn bạn bằng ánh mắt ngưỡng mộ tột độ.",
+      "effects": {
+       "STR": 2,
+       "health": -20,
+       "joy": 20
+      }
+     },
+     "fail": {
+      "text": "Một cú đá giáng xuống sườn. Bạn gục ngã, bất lực nhìn {child} bị nhét vào bao tải mang đi.",
+      "effects": {
+       "health": -40,
+       "joy": -100,
+       "loseChild": true
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_child_3",
+   "text": "Bạn quyết định truyền thụ bí kíp sinh tồn của loài Imp cho {child}. Bạn dẫn nó tới một khu chợ ngầm và chỉ tay vào túi tiền của một gã say rượu.",
+   "require": {
+    "children": 1
+   },
+   "choices": [
+    {
+     "label": "Dạy cách móc túi",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Dưới sự hướng dẫn của bạn, {child} trượt qua khe chân gã say và lấy trót lọt túi tiền. Bạn mỉm cười tự hào về thế hệ tương lai.",
+      "effects": {
+       "AGI": 1,
+       "wealth": 15
+      }
+     },
+     "fail": {
+      "text": "{child} lóng ngóng làm rơi dao. Gã say tỉnh dậy, bạn phải lao ra đỡ đòn thay con.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Dạy cách nịnh hót",
+     "text": "Bạn bảo {child} chạy ra nhảy múa làm trò. Gã say thích thú ném cho một đồng Tinh Bạc. Cơm no áo ấm mà không sợ bị đánh.",
+     "effects": {
+      "INT": 1,
+      "wealth": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_child_4",
+   "text": "Về đến hang, bạn phát hiện {child} đã ăn cắp hòm Tinh Bạc dự phòng của bạn để nướng vào Đấu trường Huyết Sa, và thua sạch.",
+   "require": {
+    "children": 1
+   },
+   "choices": [
+    {
+     "label": "Quất roi dạy dỗ",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Dùng bạo lực kiểu ma giới, bạn đánh {child} một trận nhừ tử để nó nhớ đời. Nó hậm hực phục tùng.",
+      "effects": {
+       "STR": 1,
+       "joy": -10,
+       "wealth": -20
+      }
+     },
+     "fail": {
+      "text": "{child} đã đủ lông đủ cánh, nó đánh trả bạn một cú sưng mắt rồi bỏ nhà đi bụi.",
+      "effects": {
+       "health": -10,
+       "wealth": -20,
+       "loseChild": true
+      }
+     }
+    },
+    {
+     "label": "Dùng mưu dạy lại bài học",
+     "require": {
+      "INT": 8
+     },
+     "showLocked": true,
+     "text": "Bạn lừa {child} ký một khế ước máu, ép nó phải dọn vạc phân Minotaur suốt ba năm để trả nợ cho bạn. Một thủ đoạn xứng danh ác quỷ.",
+     "effects": {
+      "INT": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_child_5",
+   "text": "{child} quấn hành trang vào chiếc lá tồi tàn, kiêu hãnh tuyên bố sẽ không sống bám víu đớn hèn như bạn. Nó muốn tham gia Quân đoàn Ma Vương để trở thành Archdemon.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "require": {
+    "children": 1
+   },
+   "result": "Dù chua chát cãi vã, bạn vẫn nhét vào tay {child} đồng Lõi Mana cuối cùng của mình. Một con Imp đỏ bé nhỏ vút bay vào chân trời bão táp, mang theo hi vọng của bạn.",
+   "effects": {
+    "joy": 10,
+    "wealth": -10,
+    "flags": [
+     "proud_parent"
+    ],
+    "loseChild": true
+   },
+   "moment": "Tiễn con lên đường gia nhập Quân đoàn Ma Vương với một trái tim quặn thắt."
+  },
+  {
+   "id": "imp_evo_demon_foreshadow",
+   "text": "Bạn cảm thấy một cơn đói ma thuật cồn cào cắn xé ruột gan. Lớp da đỏ của bạn bắt đầu nứt nẻ, rỉ ra những tia sáng dung nham, và đôi cánh dơi rụng lông tả tơi để chuẩn bị mọc ra màng cánh mới.",
+   "minAge": 25,
+   "weight": 10,
+   "require": {
+    "any": [
+     {
+      "STR": 8,
+      "health": 40
+     },
+     {
+      "anyFlags": [
+       "lava_skin",
+       "abyssal_champion"
+      ]
+     }
+    ],
+    "form": "none",
+    "notFlags": [
+     "evo_sign_demon"
+    ]
+   },
+   "effects": {
+    "flags": [
+     "evo_sign_demon"
+    ]
+   }
+  },
+  {
+   "id": "imp_evo_demon_ritual",
+   "text": "Cơn cuồng nộ lên đến đỉnh điểm. Trước mặt bạn là Vạc Máu Tiến Hóa sôi sục tại trung tâm Đỉnh Hỏa Ngục. Nhảy vào đó là cách duy nhất để lột xác, nhưng tỷ lệ sống sót chỉ dành cho kẻ mạnh nhất.",
+   "weight": 12,
+   "require": {
+    "form": "none",
+    "flags": [
+     "evo_sign_demon"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Gồng mình nhảy vào vạc sôi",
+     "check": {
+      "stat": "health",
+      "target": 85
+     },
+     "success": {
+      "text": "Đau đớn như bị xé làm vạn mảnh, nhưng cơ bắp bạn cuồn cuộn phồng lên, vươn cao quá đầu người. Cặp sừng dài cong vút mọc ra, ngọn lửa địa ngục bùng cháy trên hai tay. BẠN ĐÃ TIẾN HÓA!",
+      "effects": {
+       "STR": 10,
+       "health": 30,
+       "fame": 10,
+       "evolve": "Greater Demon"
+      }
+     },
+     "fail": {
+      "text": "Thể xác bé nhỏ không chịu nổi huyết mạch Ác Ma. Bạn tan chảy hoàn toàn trong vạc máu, linh hồn bị hòa tan vào hỏa ngục.",
+      "death": "Thể xác bé nhỏ không chịu nổi huyết mạch Ác Ma. Bạn tan chảy hoàn toàn trong vạc máu, linh hồn bị hòa tan vào hỏa ngục."
+     }
+    },
+    {
+     "label": "Uống máu nhỏ giọt từ từ",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Lựa chọn an toàn hơn nhưng đau đớn kéo dài. Bạn hấp thụ hỏa lực từng chút một. Cuối cùng, cơ thể lột xác thành công nhưng kích thước chỉ to bằng một gã Orc. BẠN ĐÃ TIẾN HÓA!",
+      "effects": {
+       "STR": 5,
+       "health": 15,
+       "evolve": "Greater Demon"
+      }
+     },
+     "fail": {
+      "text": "Đang uống dở thì Vạc Máu cạn kiệt năng lượng. Bạn kẹt ở hình dạng nửa vời quái dị, bị đồng loại kinh tởm xua đuổi.",
+      "effects": {
+       "health": -20,
+       "fame": -5
+      }
+     }
+    }
+   ],
+   "once": false
+  },
+  {
+   "id": "imp_post_demon_1",
+   "text": "Một bầy Goblin và Imp thấp kém quỳ rạp dưới chân, dâng lên bạn đống châu báu cướp được để xin làm tay sai. Bạn tận hưởng cảm giác của kẻ đè đầu cưỡi cổ vĩ đại.",
+   "require": {
+    "form": "Greater Demon"
+   },
+   "effects": {
+    "wealth": 50,
+    "fame": 5
+   }
+  },
+  {
+   "id": "imp_post_demon_2",
+   "text": "Gặp lại tên High Demon từng quất roi bạn năm xưa. Bạn vung tay tát hắn gãy cằm văng vào vách đá, trả sòng phẳng mối nhục ngày nào.",
+   "require": {
+    "form": "Greater Demon"
+   },
+   "effects": {
+    "joy": 30,
+    "fame": 3
+   }
+  },
+  {
+   "id": "imp_evo_free_foreshadow",
+   "text": "Bạn chợt nhận ra sợi xích ma thuật trói buộc linh hồn mình ở cổ đang mờ dần. Ma pháp của kẻ thù không còn làm bạn run sợ, mà trở thành những bài toán bạn có thể giải mã.",
+   "minAge": 18,
+   "weight": 10,
+   "require": {
+    "INT": 8,
+    "AGI": 8,
+    "anyFlags": [
+     "familiar_pet",
+     "merchant_scum"
+    ],
+    "form": "none",
+    "notFlags": [
+     "evo_sign_free"
+    ]
+   },
+   "effects": {
+    "flags": [
+     "evo_sign_free"
+    ]
+   }
+  },
+  {
+   "id": "imp_evo_free_ritual",
+   "text": "Nửa đêm, khi {maker} đang ngủ say, bạn lẻn vào vòng tròn ma pháp chính. Dùng máu của chính mình, bạn vẽ chồng một trận pháp Nghịch Đảo để xé nát bản khế ước định mệnh.",
+   "weight": 12,
+   "require": {
+    "form": "none",
+    "flags": [
+     "evo_sign_free"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Tập trung giải mã ma pháp",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Một tiếng vỡ giòn giã vang lên trong tâm trí. Chiếc vòng cổ Tinh Bạc nổ tung. Cơ thể bạn nhỏ lại nhưng tỏa ra luồng khí chất quỷ dị, đôi cánh mọc thêm hoa văn ma thuật hắc ám. BẠN ĐÃ TIẾN HÓA!",
+      "effects": {
+       "INT": 10,
+       "AGI": 10,
+       "joy": 100,
+       "evolve": "Free Imp"
+      }
+     },
+     "fail": {
+      "text": "Trận pháp đảo lộn, ma thuật cắn trả thiêu rụi toàn bộ nơ-ron thần kinh của bạn. Bạn chết ngay tại chỗ, chỉ còn lại một đống tro tàn hình cánh dơi.",
+      "death": "Trận pháp đảo lộn, ma thuật cắn trả thiêu rụi toàn bộ nơ-ron thần kinh của bạn. Bạn chết ngay tại chỗ, chỉ còn lại một đống tro tàn hình cánh dơi."
+     }
+    },
+    {
+     "label": "Dùng dao găm tẩm độc cắt đứt xích",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Kết hợp tốc độ và thuật giả kim, bạn vô hiệu hóa liên kết vật lý. Dù phải gánh chịu cơn đau thấu trời, bạn lột được chiếc vòng ra khỏi cổ và vút qua cửa sổ. BẠN ĐÃ TIẾN HÓA!",
+      "effects": {
+       "AGI": 8,
+       "health": -10,
+       "evolve": "Free Imp"
+      }
+     },
+     "fail": {
+      "text": "Dao găm trượt đi, lưỡi dao tẩm độc cứa đứt cổ họng bạn thay vì sợi xích.",
+      "death": ". Chết tức tưởi dưới tay chính mình"
+     }
+    }
+   ],
+   "once": false
+  },
+  {
+   "id": "imp_post_free_1",
+   "text": "Lệnh truy nã bạn được dán khắp Tháp Ngà. Bọn Thánh Kỵ Sĩ liên tục săn lùng, nhưng với sự ranh mãnh và tốc độ tuyệt đỉnh, bạn luôn đi trước chúng một bước, để lại những cái bẫy mìn nổ tung.",
+   "require": {
+    "form": "Free Imp"
+   },
+   "effects": {
+    "AGI": 2,
+    "fame": 10
+   }
+  },
+  {
+   "id": "imp_post_free_2",
+   "text": "Bạn tự mình lập ra mạng lưới buôn lậu chợ đen xuyên qua lục địa Aethelgard, kiếm tiền bằng cách bán thông tin của Ma Vương cho loài người và ngược lại.",
+   "require": {
+    "form": "Free Imp"
+   },
+   "effects": {
+    "INT": 2,
+    "wealth": 100
+   }
+  },
+  {
+   "id": "imp_oldage_1",
+   "text": "Đang gặm một khúc xương khô rẻ mạt, bạn nghe tiếng \"rắc\". Chiếc nanh cưa cuối cùng, niềm tự hào vĩ đại nhất của một con Imp, đã rụng xuống.",
+   "stages": [
+    "elder"
+   ],
+   "require": {
+    "below": {
+     "health": 30
+    }
+   },
+   "result": "Bạn ngậm ngùi cất chiếc răng vào túi vải, nhận ra mồm mép của mình giờ chỉ còn là những tiếng móm mém thảm hại. Bạn đành phải ăn cháo nấm qua ngày.",
+   "effects": {
+    "health": -5,
+    "joy": -15
+   },
+   "moment": "Rụng chiếc nanh quỷ cuối cùng, đánh dấu sự tàn tạ của tuổi già."
+  },
+  {
+   "id": "imp_oldage_2",
+   "text": "Bạn từng chôn một hũ đầy Lõi Mana dưới chân Cây Cổ Thụ Đen ở Đầm Lầy. Nay bụng đói meo, bạn vác cuốc đi tìm nhưng bới tung cả khu rừng mà không nhớ nổi gốc cây nào.",
+   "stages": [
+    "elder"
+   ],
+   "require": {
+    "wealth": 50
+   },
+   "choices": [
+    {
+     "label": "Kiên nhẫn đào bới",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Cuối cùng cũng nhớ ra hình dáng hòn đá đánh dấu. Bạn tìm lại được kho báu, ôm lấy nó cười sằng sặc như một gã điên.",
+      "effects": {
+       "INT": 1,
+       "joy": 20
+      }
+     },
+     "fail": {
+      "text": "Đào trúng ổ nhện đất. Bạn lóp ngóp bỏ chạy, bỏ mặc gia tài của cả một đời tích cóp chìm vào quên lãng.",
+      "effects": {
+       "health": -15,
+       "wealth": -30
+      }
+     }
+    },
+    {
+     "label": "Kìm nén lại, chờ dịp khác",
+     "text": "Bạn nghiến răng ép luồng lửa trong người lắng xuống. Thân Imp nhỏ bé vẫn còn nguyên. Cơ hội này sẽ quay lại."
+    }
+   ],
+   "once": false
+  },
+  {
+   "id": "imp_oldage_3",
+   "text": "Bọn Imp trẻ tuổi thường xuyên tụ tập quanh bạn dưới gầm cầu thang, tròn xoe mắt nghe bạn kể lể những trận chơi khăm huy hoàng thời trai trẻ.",
+   "stages": [
+    "elder"
+   ],
+   "require": {
+    "fame": 10
+   },
+   "result": "Nhìn đám hậu bối ngây ngô, bạn cười khùng khục và tận tình chỉ dạy chúng cách giăng dây cạp chân đám Minotaur ngu ngốc, truyền lại ngọn lửa lừa lọc cho thế hệ sau.",
+   "effects": {
+    "joy": 30,
+    "fame": 2
+   }
+  },
+  {
+   "id": "imp_chain_griffin_2",
+   "text": "Bầu trời tối sầm lại. Con Griffin mẹ năm xưa cuối cùng cũng đánh hơi được mùi vỏ trứng còn vương trên vảy của bạn. Nó bổ nhào xuống từ những đám mây với móng vuốt giương rộng.",
+   "stages": [
+    "adult"
+   ],
+   "require": {
+    "flags": [
+     "griffin_thief"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Chui rúc vào hang cáo",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn cuộn tròn người, lách vừa vặn vào một hang cáo hẹp. Griffin mẹ cào nát cửa hang nhưng không thể chạm tới bạn. Tiếng rít phẫn nộ dần xa.",
+      "effects": {
+       "AGI": 1,
+       "flags": [
+        "griffin_survivor"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Hang quá nông. Móng vuốt của nó móc trúng cánh bạn, kéo xệch bạn ra ngoài và cào một đường tơi tả trước khi bạn lết được vào khe đá sâu hơn.",
+      "effects": {
+       "health": -30,
+       "flags": [
+        "griffin_survivor"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Dẫn dụ nó tấn công kẻ thù",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn bay là là mặt đất, dẫn con quái điểu lao thẳng vào khu trại của lũ lính đánh thuê Orc. Trong lúc chúng đánh nhau hỗn loạn, bạn chuồn êm.",
+      "effects": {
+       "INT": 2,
+       "fame": 3,
+       "flags": [
+        "griffin_survivor"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bọn Orc tản ra quá nhanh. Bạn lãnh trọn một mũi tên lạc và bị móng vuốt Griffin xé toạc một mảng da lưng.",
+      "effects": {
+       "health": -40,
+       "flags": [
+        "griffin_survivor"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_chain_griffin_3",
+   "text": "Quả trứng bạn trộm năm xưa nay đã nở thành một con Griffin chiến cường tráng của quân đoàn Orc. Gặp lại nhau trên chiến trường, con quái thú bỗng khịt mũi nhận ra kẻ từng ẵm mình lúc chưa nở.",
+   "stages": [
+    "middle"
+   ],
+   "require": {
+    "flags": [
+     "griffin_survivor"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Bắt chước tiếng chim mẹ",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Vận dụng trí nhớ ác quỷ, bạn rớt nước mắt kêu lên tiếng gọi bầy the thé. Con Griffin bối rối, hất văng tên kỵ sĩ Orc và cúi đầu cho bạn cưỡi. Bạn bỗng chốc có thú cưỡi huyền thoại.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "recruit": true
+      }
+     },
+     "fail": {
+      "text": "Giọng bạn đã ồm ồm vì hút khói Vực Thẳm. Nó không nhận ra, quất đuôi đánh bật bạn văng xa mười thước.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Uy hiếp gã kỵ sĩ Orc",
+     "text": ". Bạn hèn nhát chỉ điểm điểm yếu dưới vảy ức của con Griffin cho đối thủ của tên Orc. Quái thú bị hạ gục, bạn nhặt nhạnh chiến lợi phẩm từ cái xác của sinh vật bạn từng trộm về.",
+     "effects": {
+      "wealth": 30
+     }
+    }
+   ],
+   "moment": "Đối mặt với con Griffin trưởng thành nở ra từ quả trứng bạn từng ăn trộm."
+  },
+  {
+   "id": "imp_chain_ivory_2",
+   "text": "Tên giáo sư Tháp Ngà bị Cục Dị Giáo bắt giữ. Để giữ mạng, hắn khai ra \"con quỷ đỏ lùn tịt\" là kẻ cung cấp hàng lậu. Một toán Thánh Kỵ Sĩ đang đập cửa hầm trú ẩn của bạn.",
+   "stages": [
+    "middle"
+   ],
+   "require": {
+    "flags": [
+     "ivory_smuggler"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hối lộ bằng chính Ma thạch lậu",
+     "check": {
+      "stat": "wealth",
+      "target": 70
+     },
+     "success": {
+      "text": "Ngửi thấy mùi tiền, viên đội trưởng nhận hòm Lõi Mana và quay gót, tuyên bố hang động này hoàn toàn \"thanh sạch\". Bạn thoát nạn nhưng cháy túi.",
+      "effects": {
+       "wealth": -100,
+       "flags": [
+        "ivory_fugitive"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Đội trưởng là kẻ liêm khiết. Hắn đập nát hòm tiền và vung gươm chém đứt nửa chiếc đuôi của bạn. Bạn phải đào hầm chui rúc bỏ trốn.",
+      "effects": {
+       "health": -35,
+       "wealth": -20,
+       "flags": [
+        "ivory_fugitive"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Cải trang thành ma thú cưng",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Trói quặt cánh lại, bạn sủa gâu gâu và giả vờ làm một con chó ma hói đầu của một lão pháp sư già mù lòa gần đó. Bọn chúng khinh bỉ bỏ qua.",
+      "effects": {
+       "INT": 1,
+       "fame": -2,
+       "flags": [
+        "ivory_fugitive"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Điệu bộ sủa quá giả trân. Bọn chúng lôi cổ bạn ra giữa phố đánh một trận đòn chí tử để làm gương.",
+      "effects": {
+       "health": -40,
+       "flags": [
+        "ivory_fugitive"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_chain_ivory_3",
+   "text": "Tên giáo sư phản trắc cuối cùng cũng bị hỏa thiêu và đọa đày xuống Vực Thẳm, biến thành một con Ghoul gầy nhom. Hắn nhận ra bạn đang ngồi đếm tiền và lao tới gặm cổ chân bạn đòi chia chác.",
+   "stages": [
+    "elder"
+   ],
+   "require": {
+    "flags": [
+     "ivory_fugitive"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Sút bay tên phản bội",
+     "check": {
+      "stat": "STR",
+      "target": 3
+     },
+     "success": {
+      "text": "Đã quen với luật rừng ma giới, bạn tung một cú đá sút bay hàm răng thối rữa của hắn. Hắn rên rỉ bò đi, trả lại cho bạn sự yên tĩnh.",
+      "effects": {
+       "joy": 20,
+       "fame": 1
+      }
+     },
+     "fail": {
+      "text": "Tuổi già sức yếu, cú đá của bạn trật nhịp. Hắn cắn phập vào gót chân bạn truyền mầm bệnh Vực Thẳm.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Thu nạp làm tay sai",
+     "require": {
+      "INT": 8
+     },
+     "showLocked": true,
+     "text": "Thay vì đánh, bạn ném cho hắn một mẩu xương và bắt hắn ký khế ước linh hồn mới, biến kẻ từng sai vặt mình thành nô lệ trọn đời.",
+     "effects": {
+      "INT": 1,
+      "joy": 30,
+      "fame": 3
+     }
+    }
+   ],
+   "moment": "Biến lão giáo sư từng phản bội mình thành một con Ghoul nô lệ ngoan ngoãn."
+  },
+  {
+   "id": "imp_chain_parent_1",
+   "text": "{father} và {mother} vừa chôm được một viên Huyết Kim quý giá của quản đốc. Thấy quân canh đang tiến lại khám xét, chúng nhét tọt viên ngọc vào họng bạn, ép bạn nuốt chửng rồi chuồn thẳng.",
+   "stages": [
+    "infant"
+   ],
+   "require": {
+    "fatherAlive": true,
+    "motherAlive": true
+   },
+   "choices": [
+    {
+     "label": "Cố gắng nôn ra",
+     "check": {
+      "stat": "health",
+      "target": 55
+     },
+     "success": {
+      "text": "Bạn móc họng, ọe ra viên ngọc đầy nhớt ngay khi lính canh quay đi. Bạn lén giấu nó vào vách đá làm vốn liếng riêng.",
+      "effects": {
+       "health": -5,
+       "wealth": 20,
+       "flags": [
+        "hidden_gem"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Viên ngọc trôi tuột xuống dạ dày. Cổ họng bạn xước xát rỉ máu, ruột gan bắt đầu nóng ran như lửa đốt.",
+      "effects": {
+       "health": -15,
+       "flags": [
+        "stomach_gem"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Giả ngu cam chịu",
+     "text": ". Bạn ngậm miệng nuốt xuống, ngoan ngoãn che giấu tội lỗi cho cha mẹ. Bọn lính canh soát không thấy gì bèn bỏ đi.",
+     "effects": {
+      "health": -10,
+      "flags": [
+       "stomach_gem"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_chain_parent_2",
+   "text": "Viên Huyết Kim trong bụng bắt đầu bão hòa, tỏa ra luồng mana thiêu đốt lục phủ ngũ tạng. Bạn đau quằn quại và phải đưa ra quyết định ngay lập tức.",
+   "stages": [
+    "teen"
+   ],
+   "require": {
+    "flags": [
+     "stomach_gem"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hấp thụ bằng ma công",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Nhờ đọc trộm sách ma pháp, bạn tìm được cách điều tức để cơ thể từ từ đồng hóa viên ngọc. Máu bạn nóng rực, sức mạnh ma thuật tăng vọt.",
+      "effects": {
+       "STR": 2,
+       "INT": 2,
+       "flags": [
+        "gem_absorbed"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Năng lượng xung đột làm vỡ mạch máu. Bạn nôn ra một búng máu đen và ngất xỉu suốt ba ngày.",
+      "effects": {
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Tự rạch bụng lấy ra",
+     "check": {
+      "stat": "AGI",
+      "target": 9
+     },
+     "success": {
+      "text": "Chịu đựng nỗi đau tột cùng, bạn dùng móng vuốt rạch một đường nhỏ, móc viên ngọc ra rồi rịt thuốc cầm máu. Bạn giữ mạng và bán được ngọc.",
+      "effects": {
+       "health": -20,
+       "wealth": 40,
+       "flags": [
+        "gem_sold"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Rạch quá sâu, ruột lòi cả ra ngoài. Bạn suýt chết nếu không nhờ một con Goblin đi ngang qua băng bó giúp đổi lấy viên ngọc.",
+      "effects": {
+       "health": -40,
+       "wealth": -100
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_chain_parent_3",
+   "text": "{father} và {mother} già nua ốm yếu mò đến tìm bạn. Chúng gào khóc, đòi bạn nhè viên Huyết Kim năm xưa ra để phụng dưỡng tuổi già.",
+   "stages": [
+    "middle"
+   ],
+   "require": {
+    "anyFlags": [
+     "gem_absorbed",
+     "gem_sold"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Báo quan gắp lửa bỏ tay người",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn hét toáng lên gọi lính canh, tố cáo cha mẹ chính là kẻ ăn cắp viên ngọc của quản đốc năm xưa. Chúng bị gông cổ lôi đi, để lại bạn cười khẩy nhàn nhã.",
+      "effects": {
+       "INT": 1,
+       "joy": 10,
+       "fame": 3
+      }
+     },
+     "fail": {
+      "text": "Lính canh phạt cả ba đứa tội gây rối trật tự. Bạn phải nộp một khoản tiền phạt oan uổng.",
+      "effects": {
+       "wealth": -20
+      }
+     }
+    },
+    {
+     "label": "Kìm nén lại, chờ dịp khác",
+     "text": "Bạn nghiến răng ép luồng lửa trong người lắng xuống. Thân Imp nhỏ bé vẫn còn nguyên. Cơ hội này sẽ quay lại."
+    }
+   ],
+   "once": false,
+   "moment": "Đe dọa chính cha mẹ ruột bằng sức mạnh cướp được từ viên ngọc họ bắt bạn nuốt."
+  },
+  {
+   "id": "imp_chain_slime_1",
+   "text": "Bạn bắt gặp một con Slime béo ú đang ngậm một chiếc chìa khóa Vàng lấp lánh trong cơ thể trong suốt của nó.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "choices": [
+    {
+     "label": "Dùng cành cây khều lấy",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Rón rén như mèo, bạn gẩy thành công chiếc chìa khóa ra khỏi cơ thể nhầy nhụa của nó. Con Slime giật mình nhưng không đuổi kịp.",
+      "effects": {
+       "AGI": 1,
+       "wealth": 15,
+       "flags": [
+        "slime_thief"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Cành cây gãy. Con Slime phun một tia a-xít làm bỏng bả vai bạn.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Hút cạn sinh lực bằng muối",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn nhẫn tâm hắt cả nắm muối biển lên người nó. Con Slime co rúm lại đau đớn, nhả chìa khóa ra.",
+      "effects": {
+       "STR": 1,
+       "wealth": 15,
+       "fame": 3,
+       "flags": [
+        "slime_thief"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Nó phình to lên giận dữ, húc bạn văng lộn nhào xuống vũng bùn.",
+      "effects": {
+       "health": -20
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_chain_slime_2",
+   "text": "Con Slime năm xưa đã tiến hóa thành Slime Độc, trí tuệ mở mang. Bằng cách nào đó, nó lần theo dấu vết ma lực tàn dư trên chiếc chìa khóa và chặn đường bạn tại hẻm núi.",
+   "stages": [
+    "adult"
+   ],
+   "require": {
+    "flags": [
+     "slime_thief"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Trút lại chiếc chìa khóa trả nó",
+     "check": {
+      "stat": "LUCK",
+      "target": 3
+     },
+     "success": {
+      "text": "Tiếc đứt ruột nhưng bạn ném trả chiếc chìa khóa Vàng nay đã rỉ sét. Nó nuốt lấy rồi lặc lè bỏ đi. Mạng sống được bảo toàn.",
+      "effects": {
+       "wealth": -15,
+       "flags": [
+        "slime_forgiven"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Nó chê chìa khóa đã gỉ, phun nọc độc lót đường đuổi bạn chạy bán xới.",
+      "effects": {
+       "health": -25,
+       "flags": [
+        "slime_grudge"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Dùng bẫy lửa nướng khô nó",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn lừa nó trườn qua một mỏ khí gas tự nhiên rồi đánh lửa. Một vụ nổ nướng chín con Slime thành mảng keo khô khốc.",
+      "effects": {
+       "INT": 1,
+       "fame": 2,
+       "flags": [
+        "slime_slayer"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Lửa lan quá nhanh, bén cả vào đuôi bạn. Bạn phải lăn lộn dập lửa, để mặc con Slime nuốt mất túi tiền của mình.",
+      "effects": {
+       "health": -20,
+       "wealth": -20,
+       "flags": [
+        "slime_grudge"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "imp_chain_slime_3",
+   "text": "Bất kể bạn đã giết hay chạy trốn con Slime đó, cốt lõi của nó đã dung hợp với bùn lầy Đầm Tử Khí, tái sinh thành một con Slime King khổng lồ. Nó đang đập phá sào huyệt của bạn để trả thù.",
+   "stages": [
+    "middle"
+   ],
+   "require": {
+    "anyFlags": [
+     "slime_grudge",
+     "slime_slayer"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Đào tẩu qua đường cống ngầm",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Nhận ra không thể đánh bại cơn thịnh nộ tự nhiên, bạn vơ vét tài sản lặn qua cống xả thải, nhường lại sào huyệt cho nó.",
+      "effects": {
+       "AGI": 1
+      }
+     },
+     "fail": {
+      "text": "Cống bị nghẽn bùn. Bạn kẹt cứng và bị sóng Slime cuốn trôi, mất sạch của cải tích cóp.",
+      "effects": {
+       "health": -30,
+       "wealth": -100
+      }
+     }
+    },
+    {
+     "label": "Thương lượng đền bù thiệt hại",
+     "require": {
+      "INT": 10
+     },
+     "showLocked": true,
+     "text": "Bạn dùng ma ngữ cấp cao, giải thích sự tuần hoàn của tự nhiên và bồi thường bằng ba rương Lõi Mana. Vua Slime ậm ừ chấp nhận và rút lui.",
+     "effects": {
+      "INT": 1,
+      "wealth": -50,
+      "fame": 3
+     }
+    }
+   ],
+   "moment": "Mất trắng cơ ngơi chỉ vì một lần móc túi con Slime ngốc nghếch thuở nhỏ."
+  }
+ ],
+ "deaths": [
+  {
+   "id": "imp_oldage_4",
+   "kind": "old",
+   "text": "Đôi cánh dơi của bạn đã rụng trụi lủi, da dẻ nhăn nheo như quả táo khô. Hơi thở cuối cùng phì ra mùi lưu huỳnh nhàn nhạt. Bạn nằm nhắm mắt, nghe thấy tiếng Vạc Dầu Sôi từ hư không đang ùng ục réo gọi linh hồn mình trở về nơi nó sinh ra. Một kiếp sống chui lủi, ranh ma, chịu bao đòn roi nhưng cũng đầy trò hề xảo trá của bạn đã kết thúc. Bạn tan biến thành một làn khói đỏ, không để lại bất cứ di sản to tát nào cho cõi đời này ngoài vài tiếng chửi thề của những kẻ từng bị bạn lừa gạt."
+  }
+ ],
+ "focus": {
+  "play": {
+   "name": "Chơi khăm",
+   "desc": "Nhanh nhẹn, May mắn; trêu chọc kẻ khác",
+   "stages": [
+    "infant",
+    "child",
+    "teen"
+   ],
+   "gains": {
+    "AGI": 0.25,
+    "LUCK": 0.2
+   },
+   "bars": {
+    "joy": 1
+   },
+   "quiet": {
+    "default": [
+     "Một năm rình mò trút cả thùng rác bùn nhão vào bát súp của đám Goblin gai mắt.",
+     "Bạn cười khúc khích dưới gầm cầu thang khi thấy tên cai ngục trượt chân ngã sấp mặt vì vỏ chuối ma thuật bạn vứt lại.",
+     "Bị đánh sưng vù một bên mắt vì lỡ dại giấu đi chiếc chùy gai của một con Troll đang đói bụng."
+    ]
+   }
+  },
+  "study": {
+   "name": "Học lỏm",
+   "desc": "Trí tuệ; nghe trộm khế ước và bí mật",
+   "stages": [
+    "child",
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "quiet": {
+    "default": [
+     "Bạn nấp dưới gầm bàn, dỏng tai nghe lỏm từng câu chú ngữ tiếng Vực Thẳm sứt sẹo của lũ môn đồ.",
+     "Ghi chép lại những công thức ma dược bằng than vụn lên nền gạch ẩm ướt của ngục tối.",
+     "Một năm yên ả trôi qua trong thư viện Tháp Ngà, nơi bạn giả làm pho tượng đá gargoyle để đọc ké sách cổ."
+    ]
+   }
+  },
+  "train": {
+   "name": "Khổ luyện",
+   "desc": "Sức mạnh, Nhanh nhẹn; tập bay, tập phun lửa",
+   "stages": [
+    "teen",
+    "adult",
+    "middle"
+   ],
+   "quiet": {
+    "default": [
+     "Bạn vác những tảng Huyết Kim chạy lên dốc Đỉnh Hỏa Ngục cho đến khi cơ bắp rã rời.",
+     "Chịu đựng những cú quất roi của quản ngục chỉ để lớp da đỏ thêm phần chai sạn.",
+     "Luyện tập bay lượn luồn lách qua những hàng chông nhọn hoắt giăng đầy dưới đáy Vực Thẳm."
+    ]
+   }
+  },
+  "work": {
+   "name": "Hầu hạ chủ nhân",
+   "desc": "Làm vai trò của mình, tích kinh nghiệm thăng bậc",
+   "stages": [
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "quiet": {
+    "default": [
+     "Đấm bóp cho gã chủ nhân béo mập đến mỏi nhừ cả đôi tay bé xíu.",
+     "Bạn cần mẫn chùi rửa bộ sưu tập đũa phép đẫm máu của {maker} trong câm lặng.",
+     "Một năm bình yên đi nhặt bóng cho con chó ma khổng lồ mà chủ nhân vừa dắt về."
+    ]
+   }
+  },
+  "adventure": {
+   "name": "Lẻn lên mặt đất phá phách",
+   "desc": "Nhận việc vặt từ Ma giới, leo thứ bậc",
+   "stages": [
+    "teen",
+    "adult",
+    "middle"
+   ],
+   "tags": null,
+   "quiet": {
+    "default": [
+     "Trộm đồ lót của đám mạo hiểm giả đang tắm suối và treo lủng lẳng lên cành cây cao nhất.",
+     "Bạn lén đổi biển báo chỉ đường ở Thảo Nguyên Gió Hú, tiễn một đoàn thương nhân kiêu ngạo đi thẳng vào ổ bọ cạp khổng lồ.",
+     "Cả năm rình rập trên gác xép, dọa ma những nông dân loài người nhát cáy ở ngoại ô Đồng Bằng Thánh Quang."
+    ]
+   }
+  },
+  "social": {
+   "name": "Nịnh bợ kẻ mạnh",
+   "desc": "Bợ đỡ, kết bè, tìm chỗ dựa",
+   "stages": [
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "quiet": {
+    "default": [
+     "Bạn cười mỏi cả quai hàm để hùa theo những câu đùa nhạt nhẽo và tàn bạo của lũ Minotaur.",
+     "Một năm êm đềm trôi qua nhờ việc dùng đôi cánh dơi của mình để đánh bóng giày cho các High Demon.",
+     "Bạn ngoan ngoãn dâng những miếng thịt béo ngậy nhất cho kẻ chỉ huy và gặm nhấm đống xương khô vỡ vụn."
+    ]
+   }
+  },
+  "rest": {
+   "name": "Trốn việc",
+   "desc": "Hồi sức; ngủ trong kẽ đá nóng",
+   "stages": [
+    "child",
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "bars": {
+    "health": 2,
+    "joy": 1
+   },
+   "quiet": {
+    "default": [
+     "Bạn tìm được một cái thùng phuy rỗng hoàn hảo để ngủ ngày trong khi lũ đồng loại đang è cổ đẩy xe quặng.",
+     "Bôi nhọ nồi lên mặt giả vờ ốm nặng, bạn thành công trốn được ba tháng lao dịch dưới Hầm Ngục.",
+     "Một năm êm ả lẩn trốn trên xà nhà, nhấm nháp thịt sấy trộm được và nhìn những kẻ bận rộn chạy đôn chạy đáo."
+    ]
+   }
+  }
+ },
+ "systems": {
+  "bandName": "bè lũ",
+  "romance": false,
+  "autoChildren": false,
+  "companions": [
+   {
+    "race": "Imp",
+    "names": "imp",
+    "job": "Imp Trickster",
+    "stat": "AGI",
+    "weight": 4
+   },
+   {
+    "race": "Imp",
+    "names": "imp",
+    "job": "Familiar",
+    "stat": "LUCK",
+    "weight": 2
+   },
+   {
+    "race": "Goblin",
+    "names": "goblin",
+    "job": "Goblin Scout",
+    "stat": "AGI",
+    "weight": 2
+   },
+   {
+    "race": "Kobold",
+    "names": "kobold",
+    "job": "Kobold Trapper",
+    "stat": "INT",
+    "weight": 1
+   }
+  ],
+  "recruit": {
+   "text": [
+    "Một Imp sứt sừng bay vòng quanh bạn, cười khúc khích: \"Ê, mày định đi phá ai thế? Cho tao theo!\"",
+    "Trong lúc trốn đốc công, bạn đụng phải một kẻ cũng đang trốn việc. Hai ánh mắt gian xảo gặp nhau."
+   ],
+   "join": [
+    "{ally} quẹt mũi, bắt tay bạn bằng một cái móng còn dính mực. Từ nay hai đứa chung một ổ.",
+    "{ally} ký vào khế ước nhỏ xíu bạn vẽ trên đá. Chẳng ai trong hai đứa định giữ lời, nhưng cứ thế đã."
+   ],
+   "decline": "Xua đi, Imp thì không tin được ai",
+   "declineText": "Bạn phun một đốm lửa vào đuôi nó. Ở Ma giới, kẻ đi cùng hôm nay là kẻ bán đứng ngày mai."
+  },
+  "jobSelect": {
+   "teen": [
+    "Đốc công lôi lũ Imp mới lớn ra giữa sảnh, chia việc bằng roi lửa. Bạn phải chọn chỗ đứng trước khi bị chọn thay."
+   ],
+   "adult": [
+    "Không có vai trò, bạn chỉ là một miệng ăn thừa ở Ma giới. Đã đến lúc chọn việc của mình."
+   ],
+   "later": "Trốn vào kẽ đá thêm một thời gian",
+   "laterText": "Bạn chui vào kẽ đá nóng và giả vờ ngủ. Một Imp vô dụng chẳng ai buồn tìm."
+  },
+  "promotion": {
+   "try": "Liều một phen để leo lên",
+   "wait": "Chưa dám, cúi đầu chờ thời",
+   "waitText": "Bạn rụt cổ lại. Ở Ma giới, Imp nào ngẩng đầu sớm thường bị nướng sớm.",
+   "success": "Cả sảnh im lặng nhìn bạn. Từ hôm nay, bạn là {next}.",
+   "fail": [
+    "Bạn thất bại trước tiếng cười khả ố của lũ Imp khác.",
+    "Mọi thứ đổ bể. Bạn liếm vết bỏng và chờ cơ hội sau."
+   ]
+  },
+  "crossroads": {
+   "child": "Bạn đã đủ lớn để không bị giẫm bẹp. Những năm tới, bạn sẽ quậy phá thế nào?",
+   "teen": "Lũ Imp choai choai bắt đầu tranh nhau chỗ đứng. Bạn sẽ dồn sức vào đâu?",
+   "adult": "Đôi cánh đã cứng cáp. Bạn sẽ dùng chúng để làm gì?",
+   "middle": "Imp sống được đến tuổi này đều xảo quyệt cả. Bạn sẽ dùng những năm này ra sao?",
+   "elder": "Cánh bạn đã trụi lông, sừng đã mòn. Những ngày cuối, bạn muốn làm gì?",
+   "default": "Bạn sẽ dồn sức vào đâu?"
+  },
+  "stageEnter": {
+   "child": "Bạn sống sót qua những năm đầu đời trong khói lưu huỳnh. Đôi cánh dơi nhỏ đã biết vỗ.",
+   "teen": "Sừng bạn nhú dài, móng sắc lại. Ma giới bắt đầu coi bạn là một tay sai có ích.",
+   "adult": "Bạn đã là một Imp trưởng thành, bay được qua cả chiến tuyến.",
+   "middle": "Bạn đã sống đủ lâu để biết mọi lối tắt của Ma giới. Lũ Imp nhỏ bắt đầu sợ bạn.",
+   "elder": "Đôi cánh bạn trụi dần. Mỗi ngày còn sống là một khế ước ăn gian được.",
+   "default": "Một chương mới của cuộc đời Imp mở ra."
+  },
+  "parentDeath": [
+   "{who} đã chết. Ở Ma giới, chẳng ai làm tang lễ cho một Imp; bạn chỉ thấy một vệt tro trên sàn đá.",
+   "Tin {who} đã chết đến tai bạn qua một con quạ. Bạn gật đầu rồi quay lại với việc của mình."
+  ],
+  "allyDie": [
+   "{ally} nằm gục trên nền đá lạnh lẽo, máu ác quỷ đen ngòm dần khô lại, kết thúc cuộc đời nhạt nhòa của một sinh vật hạ đẳng.",
+   "Bạn hất lớp đất mỏng lên cái xác bé nhỏ của {ally}, không quên lột sạch túi tiền trên cái xác đang lạnh dần.",
+   "Đôi cánh của {ally} nát tươm, đôi mắt vô hồn nhìn trừng trừng vào khoảng không Vực Thẳm, để lại bạn đơn độc."
+  ],
+  "allyHurt": [
+   "Bạn quấn bừa mảnh vải rách tẩm rêu nhầy lên vết chém đang rỉ máu của {ally}, phớt lờ tiếng rên la thảm thiết.",
+   "Đôi cánh của {ally} gãy gập xuống, phải lết từng bước nặng nhọc phía sau lưng bạn như một cục nợ tàn phế.",
+   "Mùi máu trên người {ally} sặc sụa, bạn lo lắng nó sẽ gọi lũ quái thú hầm ngục đến xé xác cả hai."
+  ],
+  "allyLeave": [
+   "{ally} ném cho bạn một cái nhìn khinh miệt rồi vút bay vào bóng đêm, cắt đứt chút liên kết mỏng manh của bầy đàn.",
+   "Tỉnh dậy, bạn thấy túi Lõi Mana trống không và chỗ nằm của {ally} đã lạnh ngắt từ lâu; lại một bài học về lòng tin ở Ma giới.",
+   "Một nụ cười xảo quyệt nở trên môi {ally} trước khi rẽ sang ngã rẽ khác, bỏ mặc bạn làm mồi nhử cho bầy thú hoang."
+  ]
+ }
+}

@@ -52,6 +52,17 @@ function mergePack(data, p, file) {
   if (!race) throw new Error(`data/packs/${file}: tộc "${p.race}" không tồn tại`);
   if (p.stageNames && race.stages) race.stages.forEach((s) => { if (p.stageNames[s.id]) s.name = p.stageNames[s.id]; });
   if (p.forms) race.forms = p.forms;
+  // the script may define the race's life differently from the defaults (ages, tags, lifespan)
+  if (p.stages && p.stages.length) race.stages = p.stages;
+  if (p.tags) race.tags = p.tags;
+  if (p.lifespan !== undefined) race.lifespan = p.lifespan;
+  if (p.hazard != null) race.hazard = p.hazard;
+  if (p.yearScale) race.yearScale = p.yearScale;
+  // races that are not born as babies (a newly turned Vampire, a High Demon seed) skip shared childhood events
+  if (p.noChildhood)
+    for (const e of data.events)
+      if (!e.pack && !e.races && e.stages && e.stages.every((st) => st === "infant" || st === "child"))
+        e.excludeRaces = [...new Set([...(e.excludeRaces || []), p.race])];
   if (p.origins && p.origins.length) {
     data.origins = data.origins.filter((o) => !(o.races && o.races.length === 1 && o.races[0] === p.race));
     for (const o of p.origins) data.origins.push(Object.assign({ races: [p.race] }, o));

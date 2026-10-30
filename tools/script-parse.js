@@ -141,7 +141,8 @@ function parseHead(rest) {
   const r = rest.toLowerCase().replace(/[\[\]]/g, "");
   const out = {};
   let m;
-  if ((m = r.match(new RegExp(`dựa vào\\s+${STAT_RE}`)))) {
+  // "dựa vào Sức mạnh" or "dựa vào Uy áp (Sức mạnh)"
+  if ((m = r.match(new RegExp(`dựa vào\\s+(?:[^(—,]{1,25}\\(\\s*)?${STAT_RE}`)))) {
     const dm = r.match(/(rất khó|rất dễ|cực khó|khó|vừa|trung bình|dễ|huyền thoại)/);
     out.check = { stat: STAT[m[1]], diff: dm ? DIFF[dm[1]] : 3 };
   }
@@ -168,6 +169,7 @@ function parse(text) {
 
   let block = null; // event or origin
   let quest = null; // quest container
+  let pendingEra = null; // "Thời đại:" seen before the quest started
   let scene = null; // scene inside quest
   let opt = null;
   let role = null, focus = null, evo = null;
@@ -184,6 +186,7 @@ function parse(text) {
     if (q) { q.steps = []; } else { q = { id, name, steps: [] }; res.quests.push(q); }
     q.kind = /story|cot_truyen|chain/.test(id) ? "story" : /_era_|thoi_dai|era_/.test(id) ? "era" : questKind;
     quest = q; scene = null; opt = null; questDone = false;
+    if (pendingEra) { q.era = pendingEra; pendingEra = null; }
     return q;
   }
   function blockToQuest() {
@@ -199,7 +202,7 @@ function parse(text) {
     // "Báo hiệu (some_id): text" / "Tiến hóa (some_id): Title" → the usual [id] forms
     const raw = raw0.replace(/^\s*([^()\[\]:]{2,40}?)\s*\(([a-z][a-z0-9]*_[a-z0-9_]+)\)\s*:\s*(.*)$/i, (m, pre, id, rest) =>
       /^tiến hóa$/i.test(pre.trim()) ? `[${id}] ${rest}` : `${pre.trim()} - [${id}]: ${rest}`);
-    const line = strip(raw);
+    let line = strip(raw);
     if (!line) continue;
     const low = line.toLowerCase();
     let m;
@@ -264,6 +267,24 @@ function parse(text) {
       target().choices.push(opt);
       continue;
     }
+    // "Cần dấu ấn: "twin_core". Thành công: ..." — the option needs a mark
+    if (opt && (m = line.match(/^Cần dấu ấn\s*:?\s*["“]([a-z0-9_]+)["”]\.?\s*(.*)$/i))) {
+      opt.needFlags = [m[1]];
+      if (!m[2]) continue;
+      line = m[2];
+    }
+    // "Thành công (Nếu có "flag"): ..." — the outcome depends on a mark from an earlier event
+    if (opt && (m = line.match(/^(Thành công|Thất bại)\s*\(nếu có\s*["“]([a-z0-9_]+)["”]\)\s*:\s*(.+)/i))) {
+      const key = /thành/i.test(m[1]) ? "success" : "fail";
+      opt.variants = opt.variants || {};
+      (opt.variants[m[2]] = opt.variants[m[2]] || {})[key] = splitOutcome(m[3]);
+      if (!opt[key]) opt[key] = splitOutcome(m[3]);
+      continue;
+    }
+    if (block && !quest && (m = line.match(/^Hệ quả\s*\(nếu có\s*["“]([a-z0-9_]+)["”]\)\s*:\s*(.+)/i))) {
+      (block.variants = block.variants || []).push({ flag: m[1], auto: splitOutcome(m[2]) });
+      continue;
+    }
     if (opt && (m = line.match(/^Thành công\s*:\s*(.+)/i))) { opt.success = splitOutcome(m[1]); continue; }
     if (opt && (m = line.match(/^Thất bại\s*:\s*(.+)/i))) { opt.fail = splitOutcome(m[1]); continue; }
 
@@ -288,8 +309,9 @@ function parse(text) {
         continue;
       }
       if (quest && !scene && /^(gợi ý)$/.test(key)) { quest.hint = val.replace(/\*/g, ""); continue; }
-      if (quest && /^(thời đại)$/.test(key)) { quest.era = val; continue; }
+      if (/^thời đại( yêu cầu)?$/.test(key)) { if (quest && !questDone) quest.era = val; else pendingEra = val; continue; }
       if (quest && /^(mở đầu|đoạn mở đầu)$/.test(key) && !scene) { quest.intro = val; continue; }
+      if (quest && !scene && key === "khi nào") { if (/thời đại/i.test(val)) quest.era = quest.era || val; continue; }
       if (quest && /^đoạn kết/.test(key)) { quest.complete = val; questDone = true; scene = null; opt = null; continue; }
       if (quest && /^phần thưởng/.test(key)) { quest.reward = parseEffects(val); questDone = true; scene = null; continue; }
       if (quest && questDone && /^khoảnh khắc/.test(key)) { quest.moment = val; continue; }

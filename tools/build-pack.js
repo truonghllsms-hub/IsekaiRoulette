@@ -29,8 +29,8 @@ function mangaName(n) {
   n = (n || "").replace(/\.$/, "").trim();
   const m = n.match(/^(.*?)\s*\(([^)]+)\)\s*$/);
   if (!m) return n;
-  if (asciiShare(m[2]) > 0.9) return m[2].trim();
-  if (asciiShare(m[1]) > 0.9) return m[1].trim();
+  if (asciiShare(m[2]) > 0.999) return m[2].trim();
+  if (asciiShare(m[1]) > 0.999) return m[1].trim();
   return n;
 }
 
@@ -39,7 +39,7 @@ function build(raceId, opts) {
   const races = require(path.join(ROOT, "data", "races.json"));
   const race = races.find((r) => r.id === raceId);
   const profile = JSON.parse(fs.readFileSync(path.join(ROOT, "content", "races", raceId + ".json"), "utf8"));
-  const stages = (race.stages || profile.stages || []).map((s) => ({ id: s.id, start: s.start, name: (meta.stageNames && meta.stageNames[s.id]) || s.name }));
+  const stages = (profile.stages || race.stages || []).map((s) => ({ id: s.id, start: s.start, name: (meta.stageNames && meta.stageNames[s.id]) || s.name }));
   const parsed = parse(fs.readFileSync(path.join(ROOT, meta.script), "utf8"));
   const report = [];
   const renames = [...(meta.rename || []), ...GLOBAL_RENAME];
@@ -54,6 +54,24 @@ function build(raceId, opts) {
   };
   const evoDefs = meta.evos || [];
 
+  // "thăng bậc Ma Vương (Demon King)" → index of that rank, matching Vietnamese or English names
+  function rankIndex(name) {
+    const clean = (x) => ren(String(x || "")).toLowerCase().replace(/[.,]/g, "").trim();
+    const wants = [clean(name), clean(mangaName(ren(name))), clean(String(name).replace(/\s*\(.*\)\s*$/, ""))].filter(Boolean);
+    const lists = [
+      (meta.org && meta.org.ranks) || [],
+      parsed.hierarchy.map((h) => h.name.replace(/\s*\(.*\)\s*$/, "")),
+      parsed.hierarchy.map((h) => mangaName(h.name)),
+      meta.rankAliases || [],
+    ];
+    for (const list of lists)
+      for (const w of wants) {
+        const i = list.findIndex((r) => r && (clean(r) === w || w.startsWith(clean(r)) || clean(r).startsWith(w)));
+        if (i >= 0) return i;
+      }
+    return -1;
+  }
+
   // ---- effects ----
   function effects(e, ctx) {
     ctx = ctx || {};
@@ -66,7 +84,11 @@ function build(raceId, opts) {
     if (e.rankDelta) { if (ctx.role) out.demote = true; else out.orgRankUp = e.rankDelta; }
     if (e.setRank != null) { if (ctx.role && !ctx.rank) out.jobRankSet = e.setRank; else out.orgRank = e.setRank; }
     if (e.orgRankUp) out.orgRankUp = e.orgRankUp;
-    if (e.orgRankName) out.orgRankName = mangaName(ren(e.orgRankName));
+    if (e.orgRankName) {
+      const idx = rankIndex(e.orgRankName);
+      if (idx >= 0) out.orgRank = idx;
+      else out.orgRankName = mangaName(ren(e.orgRankName));
+    }
     if (e.era) out.era = e.era;
     if (e.evolve) {
       const want = e.evolve.toLowerCase();
@@ -103,8 +125,17 @@ function build(raceId, opts) {
   }
 
   function choice(c, ctx) {
+    // one choice per mark when the script gives different outcomes for different past marks
+    if (c.variants && Object.keys(c.variants).length > 1) {
+      return Object.entries(c.variants).map(([flag, v]) => {
+        const one = choice(Object.assign({}, c, { variants: null, success: v.success || c.success, fail: v.fail || c.fail }), ctx);
+        if (one) one.require = Object.assign({}, one.require || {}, { flags: [flag] });
+        return one;
+      });
+    }
     const ch = { label: ren(c.label) };
     if (c.lock) { const rq = lockReq(c.lock); if (rq) { ch.require = rq; ch.showLocked = true; } }
+    if (c.needFlags) { ch.require = Object.assign(ch.require || {}, { flags: c.needFlags }); ch.showLocked = true; }
     if (c.check && c.success && c.fail) {
       ch.check = { stat: c.check.stat, target: target(c.check.stat, c.check.diff) };
       ch.success = outcome(c.success, ctx);
@@ -123,12 +154,14 @@ function build(raceId, opts) {
     const set = new Set();
     // "bậc 1–2" is a rank, not an age
     text = text.replace(/bậc\s*\d+\s*(?:[–-]\s*\d+|hoặc\s*\d+|trở lên|\+)?/gi, "");
+    // "Danh vọng trên 10", "Sức khỏe dưới 20" are stat checks, not ages
+    text = text.replace(/(sức mạnh|trí tuệ|nhanh nhẹn|may mắn|sức khỏe|hạnh phúc|tài sản|danh vọng|thân thiết[^·.]*?)\s*(?:>|<|>=|từ|trên|dưới|lớn hơn|ít nhất)?\s*\d[\d.]*\s*(?:trở lên)?/gi, "");
     const low = text.toLowerCase();
     if (/bất (kỳ|cứ) lúc nào/.test(low) && !/trưởng thành|tuổi/.test(low)) return [];
     const ranges = [];
     for (const m of text.matchAll(/(\d[\d.]*)\s*[–-]\s*(\d[\d.]*)/g)) ranges.push([num(m[1]), num(m[2])]);
     for (const m of text.matchAll(/(\d[\d.]*)\s*\+/g)) ranges.push([num(m[1]), Infinity]);
-    for (const m of text.matchAll(/(?:tuổi|trên)\s*(\d[\d.]*)\s*(?:tuổi)?\s*(?:trở lên)?/gi)) if (!/\+/.test(m[0])) ranges.push([num(m[1]), Infinity]);
+    for (const m of text.matchAll(/(?:tuổi|trên)\s*(\d[\d.]*)(?![\d.])(?!\s*[–-]\s*\d)\s*(?:tuổi)?\s*(?:trở lên)?/gi)) if (!/\+/.test(m[0])) ranges.push([num(m[1]), Infinity]);
     for (const [a, b] of ranges) {
       stages.forEach((s, i) => {
         const end = stages[i + 1] ? stages[i + 1].start : Infinity;
@@ -153,6 +186,7 @@ function build(raceId, opts) {
     const st = stagesFor(text);
     if (st.length && st.length < stages.length) out.stages = st;
     for (const [fid, f] of Object.entries(meta.focus)) {
+      if (!f.name) continue;
       const n = f.name.toLowerCase();
       if (low.includes("việc chính: " + n) || low.includes("· " + n) || (n.length >= 5 && low.includes(n))) out.focus = [fid];
     }
@@ -163,7 +197,7 @@ function build(raceId, opts) {
     }
     if (ctx.rank && (m = low.match(/bậc (\d+)/))) out.require.guildRank = Number(m[1]) - 1;
     const fl = [...text.matchAll(/dấu ấn\s+["“]?([a-z][a-z0-9_]+)["”]?/gi)].map((x) => x[1]);
-    const more = [...text.matchAll(/hoặc\s+["“]([a-z0-9_]+)["”]/gi)].map((x) => x[1]);
+    const more = [...text.matchAll(/(?:hoặc|có)\s+["“]([a-z0-9_]+)["”]/gi)].map((x) => x[1]);
     const allFl = [...new Set([...fl, ...more])];
     if (allFl.length) { if (/hoặc/.test(low) && allFl.length > 1) out.require.anyFlags = allFl; else out.require.flags = allFl; }
     if (/cha và mẹ còn sống|cha mẹ còn sống/.test(low)) { out.require.fatherAlive = true; out.require.motherAlive = true; }
@@ -171,9 +205,9 @@ function build(raceId, opts) {
       if (/\{mother\} còn sống|mẹ còn sống/.test(low)) out.require.motherAlive = true;
       if (/\{father\} còn sống|cha còn sống/.test(low)) out.require.fatherAlive = true;
     }
-    if (/\{maker\}.{0,20}còn sống|chủ nhân còn sống/.test(low)) out.require.makerAlive = true;
-    if (/có (đồng đội )?\{ally\}|có đồng đội/.test(low)) out.require.party = 1;
-    for (const [w, t] of Object.entries(TRAITS)) if (low.includes("tính " + w) || low.includes("tính cách " + w)) out.require.allyTrait = t;
+    if (/\{maker\}.{0,20}còn sống|chủ nhân còn sống|có \{maker\}/.test(low)) out.require.makerAlive = true;
+    if (/có (đồng đội )?\{ally\}|có đồng đội|đi cùng \{ally\}/.test(low)) out.require.party = 1;
+    for (const [w, t] of Object.entries(TRAITS)) if (low.includes("tính " + w) || low.includes("tính cách " + w) || low.includes("{ally} " + w)) out.require.allyTrait = t;
     if (/chưa có (\{spouse\}|bạn đời|bạn tình)/.test(low)) out.require.spouse = false;
     else if (/(đã )?có \{spouse\}|đã có bạn đời/.test(low)) out.require.spouse = true;
     if (/chưa có \{child\}/.test(low)) out.require.noChildren = true;
@@ -204,6 +238,11 @@ function build(raceId, opts) {
     if (f) out.father = f;
     if (mo) out.mother = mo;
     if (mk) out.maker = mk;
+    // parents the script describes in prose instead of "name · race · role · status"
+    for (const [who, pv] of Object.entries((meta.parents || {})[o.id] || {})) {
+      if (pv === null) delete out[who];
+      else out[who] = Object.assign({ name: null, race: "", role: "", trait: "", status: "alive", note: "" }, pv);
+    }
     if (!f && !mo) out.noParents = true;
     if (o.past) out.past = ren(o.past);
     return out;
@@ -221,8 +260,8 @@ function build(raceId, opts) {
       promoXp: r.promoXp || meta.promoXp,
       promoTarget: promoSrc.map((p) => target(p.stat || r.stat, p.diff)),
       promoStat: promoSrc.map((p) => p.stat || r.stat),
-      promo: promoSrc.map((p) => "Thử thách để trở thành {next}: " + ren(p.text).replace(/^./, (x) => x.toLowerCase()).replace(/\.?$/, ".")),
-      start: ren(r.start || src.start || ""),
+      promo: promoSrc.map((p) => "Thử thách để trở thành {next}: " + ren(p.text).replace(/\s*\((?:sức mạnh|trí tuệ|nhanh nhẹn|may mắn)[^)]*\)/gi, "").replace(/^./, (x) => x.toLowerCase()).replace(/\.?$/, ".")),
+      start: ren(r.start || src.start || "").replace(/\s*Thử thách thăng bậc\s*:?\s*$/i, ""),
       quiet: (r.quiet || (src.quiet || []).map((q) => q.text || q)).map(ren),
     };
   });
@@ -243,7 +282,7 @@ function build(raceId, opts) {
   for (const e of parsed.events) {
     const o = (meta.overrides || {})[e.id] || {};
     if (o.skip) continue;
-    const deathLike = o.asDeath || (/tử vong|cái chết tự nhiên|chết già/i.test(e.title || "") || /đạt tuổi thọ tối đa|trước khi qua đời do hết tuổi|hết tuổi thọ/i.test(e.when || "") ? "old" : null);
+    const deathLike = o.asDeath || (!o.keep && (/tử vong|cái chết tự nhiên|chết già/i.test(e.title || "") && !e.choices.length) || /đạt tuổi thọ tối đa|trước khi qua đời do hết tuổi|hết tuổi thọ/i.test(e.when || "") ? "old" : null);
     if (deathLike) { deaths.push({ id: e.id, kind: deathLike, text: [ren(e.text), ren(e.auto ? e.auto.text : "")].filter(Boolean).join(" ") }); continue; }
     const rid = roleOf(e);
     const ctx = { role: !!rid, rank: !!e.rank };
@@ -255,6 +294,8 @@ function build(raceId, opts) {
     if (fo) ev.focus = [fo];
     const req = Object.assign({}, w.require);
     if (rid) req.job = rid;
+    // companion events always need a companion
+    if (/_ally_/.test(e.id) && !req.party) req.party = 1;
 
     // evolutions: sign → ascension → after
     if (e.evo != null && evoDefs[e.evo] && /evo|post|tien_hoa|_sign|signal|foreshadow/.test(e.id)) {
@@ -265,11 +306,22 @@ function build(raceId, opts) {
       else { req.form = "none"; req.flags = [flag]; ev.weight = 12; ev._ascend = d; }
       delete ev.stages;
     }
+    // "Thuộc chuỗi …": the second step of a chain needs one of the marks the step before it gives
+    if (/thuộc chuỗi/i.test(e.when || "") && !req.flags && !req.anyFlags) {
+      const prev = parsed.events[parsed.events.indexOf(e) - 1];
+      const given = new Set();
+      for (const ch of (prev && prev.choices) || []) for (const oc of [ch.success, ch.fail, ch.plain]) for (const f of (oc && oc.eff && oc.eff.flags) || []) given.add(f);
+      if (prev && prev.auto) for (const f of prev.auto.eff.flags || []) given.add(f);
+      if (given.size) req.anyFlags = [...given];
+    }
+    if (/cha\/mẹ vừa qua đời|cha mẹ vừa qua đời/i.test(e.when || "")) req.any = [{ fatherAlive: false }, { motherAlive: false }];
     if (o.require && (o.require.any || o.require.flags || o.require.anyFlags)) { delete req.flags; delete req.anyFlags; }
     if (o.require && o.require.any) { delete req.fame; delete req.wealth; }
     Object.assign(req, o.require || {});
     for (const k of Object.keys(o.unrequire || {})) delete req[k];
     if (Object.keys(req).length) ev.require = req;
+    // events the script gives no stage for skip stages where the race cannot act yet (a dragon egg)
+    if (!ev.stages && meta.defaultStages && !/_evo_|_post_/.test(e.id)) ev.stages = meta.defaultStages;
     if (o.stages) ev.stages = o.stages;
     if (o.focus) ev.focus = o.focus;
     if (o.eras) ev.eras = o.eras;
@@ -278,7 +330,7 @@ function build(raceId, opts) {
     if (!ev.text) ev.text = ren(e.title || "");
 
     if (e.choices.length) {
-      ev.choices = e.choices.map((c) => choice(c, ctx)).filter(Boolean);
+      ev.choices = e.choices.flatMap((c) => choice(c, ctx)).filter(Boolean);
       for (const [i, patch] of Object.entries(o.choiceEffects || {})) {
         const ch = ev.choices[i];
         if (!ch) continue;
@@ -286,6 +338,18 @@ function build(raceId, opts) {
           const tgt = key === "plain" ? ch : ch[key];
           if (tgt) tgt.effects = Object.assign(tgt.effects || {}, eff);
         }
+      }
+      // a won courtship means a mate, even when the script forgot to say so
+      if (/marriage|mating|_mate_|romance/.test(e.id) && !JSON.stringify(ev.choices).includes('"marry"')) {
+        for (const ch of ev.choices) {
+          const tgt = ch.check ? ch.success : (/\{spouse\}/.test(ch.text || "") ? ch : null);
+          if (tgt && !tgt.death) tgt.effects = Object.assign(tgt.effects || {}, { marry: true });
+        }
+      }
+      // replace or drop whole fields of a choice: { 2: { death: null } }
+      for (const [i, patch] of Object.entries(o.choicePatch || {})) {
+        const ch = ev.choices[i];
+        if (ch) for (const [k, v] of Object.entries(patch)) { if (v === null) delete ch[k]; else ch[k] = v; }
       }
       if (ev._ascend) {
         // a successful ascension must actually change the form
@@ -303,6 +367,10 @@ function build(raceId, opts) {
         delete ev.choices;
         if (only) { ev.result = only.text; if (only.effects) ev.effects = only.effects; if (only.death) ev.death = only.death; }
       }
+    } else if (e.variants && e.variants.length) {
+      // the result depends on a mark from an earlier event: only the matching path is shown
+      ev.choices = e.variants.map((v) => Object.assign({ label: (meta.continueLabel || "Đối mặt"), require: { flags: [v.flag] } }, outcome(v.auto, ctx)));
+      ev.once = true;
     } else if (e.auto) {
       if (ev.text && e.auto.text && ev.text !== ren(e.auto.text)) ev.result = ren(e.auto.text);
       else ev.text = ren(e.auto.text);
@@ -335,7 +403,7 @@ function build(raceId, opts) {
         if (a.end) st.auto.end = a.end;
         if (a.next != null) st.auto.next = a.next;
         if (a.death) st.auto.death = a.death;
-      } else st.choices = s.choices.map((c) => choice(c, ctx)).filter(Boolean);
+      } else st.choices = s.choices.flatMap((c) => choice(c, ctx)).filter(Boolean);
       return st;
     });
     const rew = q.reward ? effects(q.reward.eff, ctx) : {};
@@ -380,15 +448,20 @@ function build(raceId, opts) {
   });
 
   const systems = Object.assign({}, meta.systems);
-  if (parsed.allyLines.die.length) systems.allyDie = parsed.allyLines.die.map(ren);
-  if (parsed.allyLines.hurt.length) systems.allyHurt = parsed.allyLines.hurt.map(ren);
-  if (parsed.allyLines.leave.length) systems.allyLeave = parsed.allyLines.leave.map(ren);
+  // section headers ("a) GIAO ƯỚC MÁU (Bạn đời)") are not companion lines
+  const allyOk = (t) => !/^[a-zđ]\)\s/i.test(t) && !/^dưới đây là/i.test(t);
+  for (const [k, key] of [["die", "allyDie"], ["hurt", "allyHurt"], ["leave", "allyLeave"]]) {
+    const lines = parsed.allyLines[k].filter(allyOk).map(ren);
+    if (lines.length) systems[key] = lines;
+  }
 
   const forms = {};
   for (const d of evoDefs) forms[d.name] = { name: d.name, life: d.life || 0 };
   for (const f of Object.values(meta.forms || {})) forms[f.name] = f;
 
   const pack = { race: raceId, stageNames: meta.stageNames, forms, origins, jobs, orgs: [org], quests, events, deaths, focus, systems };
+  if (meta.useScriptStages) pack.stages = stages;
+  for (const k of ["tags", "lifespan", "hazard", "yearScale", "noChildhood"]) if (meta[k] !== undefined) pack[k] = meta[k];
   fs.writeFileSync(path.join(ROOT, "data", "packs", raceId + ".json"), JSON.stringify(pack, null, 1), "utf8");
   console.log(`Đã tạo data/packs/${raceId}.json: ${origins.length} xuất thân, ${jobs.length} vai trò, ${events.length} sự kiện, ${quests.length} ${org.missionWord || "nhiệm vụ"}, ${deaths.length} cái chết riêng.`);
   if (opts.report) console.log(report.join("\n"));

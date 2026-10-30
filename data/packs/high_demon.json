@@ -1,0 +1,4421 @@
+{
+ "race": "high_demon",
+ "stageNames": {
+  "infant": "Hạt Giống Tai Ương",
+  "child": "Ma Tướng Trẻ Tuổi",
+  "teen": "Kẻ Chinh Phạt",
+  "adult": "Bạo Chúa Vực Thẳm",
+  "middle": "Đại Ma",
+  "elder": "Thực Thể Tà Ác"
+ },
+ "forms": {
+  "Demon King": {
+   "name": "Demon King",
+   "life": 3000
+  },
+  "Demon God": {
+   "name": "Demon God",
+   "life": 10000
+  }
+ },
+ "origins": [
+  {
+   "id": "hd_origin_01",
+   "name": "Ngai vàng rỉ máu",
+   "weight": 40,
+   "text": "Bạn cất tiếng khóc chào đời trên chiếc nôi đúc từ xương rồng nham thạch, giữa những tiếng vỗ cánh màng của hàng bầy Imp hầu hạ. Huyết mạch của vương triều sục sôi trong bạn, báo hiệu một vị chúa tể tương lai của Ma giới.",
+   "siblings": "12 anh chị em, tất cả đều đang âm thầm mưu sát lẫn nhau để giành quyền kế vị duy nhất.",
+   "home": "Cực kỳ quyền lực và giàu có, nhưng bạn lớn lên trong những lời dối trá và chén rượu tẩm độc.",
+   "effects": {
+    "STR": 2,
+    "INT": 1,
+    "wealth": 50,
+    "flags": [
+     "royal_demon"
+    ]
+   },
+   "father": {
+    "name": null,
+    "race": "High Demon",
+    "role": "Ma Tước (Demon Marquis) cai trị Vực Lửa",
+    "trait": "Tàn nhẫn, đầy tham vọng chính trị",
+    "status": "alive",
+    "note": "Còn sống, ngày đêm toan tính mở rộng lãnh thổ."
+   },
+   "mother": {
+    "name": null,
+    "race": "High Demon",
+    "role": "Phu nhân Huyết Cung",
+    "trait": "Lạnh lùng, coi trọng quyền lực hơn tình thân",
+    "status": "alive",
+    "note": "Còn sống."
+   }
+  },
+  {
+   "id": "hd_origin_02",
+   "name": "Vực Thẳm Hư Vô",
+   "weight": 30,
+   "text": "Bạn không được sinh ra theo lẽ thường, mà ngưng tụ từ luồng oán khí đặc quánh nơi đáy Vực Thẳm Phân Tầng. Ý thức đầu tiên của bạn là cái nhìn xé toạc màn đêm của một Thực thể tà ác đã vớt bạn lên từ đầm lầy vật chất.",
+   "siblings": "Không có, bạn là dị biệt duy nhất trồi lên từ Vực Thẳm trong một thiên niên kỷ qua.",
+   "home": "Không có tài sản vật chất, chỉ có bóng tối vô tận bao bọc lấy bạn như một lớp áo giáp lạnh lẽo.",
+   "effects": {
+    "INT": 3,
+    "health": -1,
+    "flags": [
+     "void_born"
+    ]
+   },
+   "maker": {
+    "name": "Vô Danh",
+    "race": "Ancient Demon",
+    "role": "Kẻ Gác Cổng Vực Thẳm",
+    "trait": "Trầm mặc, coi vạn sinh linh như cỏ rác",
+    "status": "alive",
+    "note": "Còn sống, đứng nhìn bạn thành hình mà không nói một lời."
+   },
+   "noParents": true
+  },
+  {
+   "id": "hd_origin_03",
+   "name": "Trăng Máu Vực Thẳm",
+   "weight": 10,
+   "text": "Đêm bạn giáng sinh, bầu trời Ma giới nhuộm một màu đỏ rực của hiện tượng Trăng Máu ngàn năm có một. Bạn ra đời mang theo cả huyết mạch hoàng tộc cao quý lẫn sự chúc phúc dị giáo đầy cuồng loạn từ Vực Thẳm Cổ Thần.",
+   "siblings": "3 người anh trai đã bị chính {father} xử tử vì không mang theo điềm báo Trăng Máu.",
+   "home": "Nắm giữ quyền lực tối thượng nhưng sống trong sự e dè, kiêng kỵ của toàn bộ triều đình Ma giới.",
+   "effects": {
+    "INT": 2,
+    "LUCK": 3,
+    "health": -2,
+    "wealth": 30,
+    "flags": [
+     "void_born",
+     "royal_demon"
+    ]
+   },
+   "father": {
+    "name": null,
+    "race": "High Demon",
+    "role": "Đại Công Tước Ma Giới (Archduke)",
+    "trait": "Độc đoán, sùng bái sức mạnh tuyệt đối",
+    "status": "alive",
+    "note": "Còn sống."
+   },
+   "mother": {
+    "name": null,
+    "race": "High Demon",
+    "role": "Tư Tế tối cao của Hắc Nguyệt Hội",
+    "trait": "Bí ẩn, điên loạn vì cuồng tín",
+    "status": "alive",
+    "note": "Đã hiến tế bản thân làm vật dẫn ngay khi sinh bạn ra."
+   }
+  },
+  {
+   "id": "hd_origin_04",
+   "name": "Vương Miện Lưu Đày",
+   "weight": 20,
+   "text": "Bạn cất tiếng khóc trong một hang động ẩm ướt giáp ranh Đầm Lầy Tử Khí, tàn tích cuối cùng của một gia tộc vừa bị phế truất. Dấu ấn tội đồ hằn lên đôi cánh sừng của bạn ngay từ lúc lọt lòng, định sẵn một con đường đẫm máu để đoạt lại vinh quang.",
+   "siblings": "1 người chị gái, đã bị bán làm nô lệ chiến đấu tại Đấu trường Huyết Sa để đổi lấy ma thạch.",
+   "home": "Khốn cùng và nhục nhã, bị đồng loại săn đuổi, nung nấu ý chí phục thù cháy bỏng.",
+   "effects": {
+    "STR": 1,
+    "AGI": 2,
+    "wealth": 5,
+    "flags": [
+     "exiled_noble"
+    ]
+   },
+   "father": {
+    "name": null,
+    "race": "High Demon",
+    "role": "Cựu Ma Tước",
+    "trait": "Phẫn uất, hoang tưởng về quyền lực quá khứ",
+    "status": "alive",
+    "note": "Còn sống, bị chặt đứt đôi cánh sừng oai vệ để làm nhục."
+   },
+   "mother": {
+    "name": null,
+    "race": "High Demon",
+    "role": "Ma pháp sư hắc ám",
+    "trait": "U sầu, suy kiệt ma lực",
+    "status": "dead",
+    "note": "Đã mất vì bạo bệnh trên đường trốn chạy cuộc thanh trừng."
+   }
+  }
+ ],
+ "jobs": [
+  {
+   "id": "hd_general",
+   "name": "Legion General",
+   "stat": "STR",
+   "combat": true,
+   "desc": "Sức mạnh. Thống lĩnh quân đoàn ác quỷ",
+   "require": {
+    "STR": 6
+   },
+   "alt": {
+    "anyFlags": [
+     "royal_demon",
+     "exiled_noble"
+    ],
+    "hint": "xuất thân Ngai vàng rỉ máu hoặc Vương Miện Lưu Đày"
+   },
+   "ranks": [
+    "Vanguard",
+    "Siege Commander",
+    "Demon General",
+    "Legion Grand General",
+    "Abyssal Marshal"
+   ],
+   "income": [
+    1.5,
+    2.2,
+    3.2,
+    4.5,
+    6
+   ],
+   "hazard": 1.8,
+   "gains": {
+    "STR": 0.35
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    5,
+    8,
+    11,
+    14
+   ],
+   "promoStat": [
+    "STR",
+    "STR",
+    "STR",
+    "STR"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: trảm sát một tên Imp Lord dám nghi ngờ mệnh lệnh của bạn để lập uy trước toàn quân.",
+    "Thử thách để trở thành {next}: dẫn đầu đội tiên phong chọc thủng phòng tuyến của một bầy Rồng phương Bắc hung hãn tại Đảo Tro Tàn.",
+    "Thử thách để trở thành {next}: chế ngự một con Ancient Hellhound khổng lồ, bẻ gãy nanh vuốt và biến nó thành thú cưỡi của riêng bạn.",
+    "Thử thách để trở thành {next}: đơn thương độc mã chém bay đầu vị Thống Soái tiền nhiệm trong một trận quyết đấu sinh tử để cướp đoạt ấn tín."
+   ],
+   "start": "Bạn khoác lên mình bộ giáp hắc ám nhuốm máu, rút thanh trọng kiếm đen kịt và bước ra trước hàng vạn ác quỷ đang điên cuồng gầm thét tên bạn.",
+   "quiet": [
+    "Bạn dành cả năm để rèn luyện bầy Demon cấp thấp bằng nhục hình, thanh trừng những kẻ yếu đuối để thanh lọc đội ngũ.",
+    "Tiếng rèn vũ khí từ Lò Rèn Vĩnh Cửu vang vọng suốt ngày đêm, chuẩn bị cho một cuộc chinh phạt mặt đất không hẹn ngày tàn.",
+    "Bạn ngồi trên ngai vàng làm từ sọ của kẻ thù, lười biếng uống rượu vang pha máu tươi trong tiếng hò reo của ma binh."
+   ]
+  },
+  {
+   "id": "hd_archmage",
+   "name": "Dark Archmage",
+   "stat": "INT",
+   "combat": true,
+   "desc": "Trí tuệ. Hắc ma pháp và cấm thuật",
+   "require": {
+    "INT": 6
+   },
+   "alt": {
+    "anyFlags": [
+     "void_born"
+    ],
+    "hint": "xuất thân Vực Thẳm Hư Vô hoặc Trăng Máu Vực Thẳm"
+   },
+   "ranks": [
+    "Dark Apprentice",
+    "Curser",
+    "Warlock",
+    "Dark Archmage",
+    "Abyssal Sage"
+   ],
+   "income": [
+    1.2,
+    2,
+    3,
+    4.2,
+    5.5
+   ],
+   "hazard": 1.4,
+   "gains": {
+    "INT": 0.35
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    5,
+    8,
+    11,
+    14
+   ],
+   "promoStat": [
+    "INT",
+    "INT",
+    "INT",
+    "INT"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: giải mã thành công một cuộn giấy da cổ đại nhốt linh hồn của loài Kobold.",
+    "Thử thách để trở thành {next}: hút cạn sinh lực của một ngọn đồi tại Đầm Lầy Tử Khí để ngưng tụ thành thành công Lõi Mana bậc cao.",
+    "Thử thách để trở thành {next}: triệu hồi một con ma thú rết khổng lồ từ Vực Thẳm Hư Vô mà không bị nó cắn nuốt tâm trí.",
+    "Thử thách để trở thành {next}: mở ra một khe nứt không gian vĩnh viễn nối liền Vực Thẳm Phân Tầng với Đồng Bằng Thánh Quang."
+   ],
+   "start": "Bạn bước vào tháp ma pháp tối tăm, nơi những linh hồn bị giam cầm rên rỉ bất tận và những cuốn ma đạo thư rách nát thì thầm bằng thứ ngôn ngữ dị giáo.",
+   "quiet": [
+    "Bạn đắm chìm trong việc mổ xẻ cơ thể của những sinh vật kỳ lạ, tìm kiếm ranh giới mong manh giữa sự sống và cái chết.",
+    "Những thí nghiệm ma pháp phát nổ khiến một nửa tòa tháp sụp đổ, nhưng bạn lại hài lòng ghi chép lại một công thức bùa chú mới.",
+    "Bạn ngồi thiền trong bóng tối câm lặng, lắng nghe những lời thì thầm điên loạn của Vực Thẳm Cổ Thần truyền vào màng nhĩ."
+   ]
+  },
+  {
+   "id": "hd_lord",
+   "name": "Abyssal Lord",
+   "stat": "LUCK",
+   "combat": false,
+   "desc": "May mắn. Cai trị một vùng của Vực Thẳm",
+   "require": {
+    "LUCK": 6
+   },
+   "alt": {
+    "anyFlags": [
+     "royal_demon"
+    ],
+    "hint": "xuất thân Ngai vàng rỉ máu hoặc Trăng Máu Vực Thẳm"
+   },
+   "ranks": [
+    "Village Lord",
+    "Abyssal Count",
+    "Archduke",
+    "Layer King",
+    "Demon Lord"
+   ],
+   "income": [
+    2,
+    3,
+    4.5,
+    6,
+    8
+   ],
+   "hazard": 1.1,
+   "gains": {
+    "LUCK": 0.2,
+    "INT": 0.15
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    5,
+    8,
+    11,
+    14
+   ],
+   "promoStat": [
+    "LUCK",
+    "LUCK",
+    "LUCK",
+    "LUCK"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: nhặt được một mỏ Huyết Kim bị bỏ hoang trong lãnh địa, thu hút hàng đàn Imp tìm đến làm việc không công cho bạn.",
+    "Thử thách để trở thành {next}: một trận dịch bệnh bí ẩn bất ngờ quét qua đội quân của kẻ thù lân cận, giúp bạn chiếm trọn khu rừng mà không tốn một giọt máu.",
+    "Thử thách để trở thành {next}: thoát khỏi một cuộc đảo chính trong gang tấc khi mũi tên tẩm độc đi lạc tình cờ găm thẳng vào cuống họng kẻ thù.",
+    "Thử thách để trở thành {next}: sống sót kỳ diệu sau khi bị ba tên Layer King khác hợp sức vây quét, và đào được một Thánh Khí cổ đại dưới tàn tích để lật ngược thế cờ."
+   ],
+   "start": "Bạn ngồi lên chiếc ngai vàng chạm trổ từ băng lạnh lẽo, nhếch mép cười nhìn xuống những kẻ đang phủ phục run rẩy dưới chân mình, thề sẽ biến nơi này thành vương quốc phồn vinh và tàn bạo nhất.",
+   "quiet": [
+    "Bạn tổ chức một bữa tiệc xa hoa đẫm máu kéo dài hàng tháng trời, mặc kệ sự ghen tị và thù hằn của các quý tộc Ma giới khác.",
+    "Lãnh địa của bạn mở rộng thêm hàng dặm về phía Đông, mang về vô số cống phẩm kỳ dị từ các bộ lạc Goblin và Troll.",
+    "Bạn nhàn rỗi ngả lưng trên đệm nhung, nhấm nháp quả mọng và quan sát bầy thú cưng xé xác những kẻ trốn thuế trên đấu trường."
+   ]
+  }
+ ],
+ "orgs": [
+  {
+   "id": "hd_court",
+   "name": "Triều đình Ma giới",
+   "auto": true,
+   "ranks": [
+    "Ma Tước",
+    "Tử Tước Hắc Ám",
+    "Bá Tước Vực Thẳm",
+    "Huyết Hầu Tước",
+    "Đại Công Tước",
+    "Vua Tầng",
+    "Ma Vương"
+   ],
+   "points": [
+    0,
+    2,
+    4,
+    7,
+    11,
+    16,
+    null
+   ],
+   "missionWord": "cuộc chinh phạt",
+   "fameToPts": 0.1,
+   "board": {
+    "text": [
+     "Sứ giả của Ma Vương quỳ trước ngai bạn, dâng lên cuộn sắc lệnh viết bằng máu rồng: Triều đình có việc cần đến bạn.",
+     "Tiếng tù và vọng lên từ Vực Thẳm. Mặt đất phía trên lại có kẻ dám thách thức quyền uy của Ma giới."
+    ],
+    "skip": "Gạt sắc lệnh sang một bên",
+    "skipText": "Bạn đốt cuộn sắc lệnh thành tro. Triều đình có thể chờ; bạn thì không cần chúng."
+   },
+   "failText": "Bạn trở về Vực Thẳm trong im lặng. Các Đại Công Tước đã bắt đầu thì thầm sau lưng bạn.",
+   "rankAliases": [
+    "ma tước",
+    "tử tước hắc ám",
+    "bá tước vực thẳm",
+    "huyết hầu tước",
+    "đại công tước",
+    "vua tầng",
+    "ma vương"
+   ],
+   "rankUp": {
+    "0": "Bạn nhận lấy chiếc huy hiệu chạm khắc hình đầu lâu từ tay sứ giả, chính thức bước chân vào ván cờ chính trị tàn bạo của tầng lớp quý tộc.",
+    "1": "Tên của bạn được khắc lên Hắc Diện Thạch, hàng vạn ác quỷ cấp thấp giờ đây phải dập đầu gọi bạn là chủ nhân.",
+    "2": "Khoác lên mình tấm áo choàng dệt từ bóng tối, bạn nhếch mép nhìn những kẻ thù thất bại đang bị bầy Hellhound lôi đi xé xác.",
+    "3": "Chiếc nhẫn ngọc đỏ thẫm được lồng vào tay bạn, trao cho bạn quyền lực điều động hàng đoàn ma binh đi tàn sát nhân loại.",
+    "4": "Cả một vùng lãnh thổ rộng lớn của Ma giới rung chuyển dưới chân, đánh dấu khoảnh khắc bạn ngồi lên chiếc ngai vàng đúc từ xương rồng.",
+    "5": "Bầu trời của một tầng Vực Thẳm Phân Tầng nhuốm màu đỏ ối, vạn sinh linh đều run rẩy cảm nhận uy áp từ vị chúa tể mới của chúng.",
+    "6": "Chiếc vương miện quyền lực tối thượng hạ xuống đầu bạn, và từ khoảnh khắc này, lời nói của bạn chính là luật lệ duy nhất của toàn Ma giới."
+   },
+   "join": []
+  }
+ ],
+ "quests": [
+  {
+   "id": "high_demon_q_1_tran_lot_cong_pham_cua_lizardman",
+   "org": "hd_court",
+   "name": "Trấn lột cống phẩm của Lizardman",
+   "minRank": 0,
+   "hint": "Dễ. Thích hợp dùng sức mạnh hoặc mưu mẹo.",
+   "intro": "Bộ lạc Lizardman ở Đầm Lầy Tử Khí dạo này lơ là việc nộp thuế Huyết Kim cho triều đình. Đã đến lúc một High Demon vĩ đại như bạn phải dẫn quân xuống tận nơi, dạy cho những con thằn lằn đó biết ai mới là chủ nhân thực sự của đầm lầy.",
+   "steps": [
+    {
+     "text": "Bạn dẫn tiểu đội Imp tiến vào sào huyệt. Tuy nhiên, sương mù độc bắt đầu dày đặc ăn mòn da thịt thuộc hạ, và những mũi tên tẩm độc được bắn lén ra từ trong bóng tối.",
+     "choices": [
+      {
+       "label": "Vung kiếm tạo lốc xoáy xua tan sương độc",
+       "check": {
+        "stat": "STR",
+        "target": 5
+       },
+       "success": {
+        "text": "Luồng gió cuồng bạo thổi bay màn sương, phơi bày đám thằn lằn đang co rúm trong bùn lầy."
+       },
+       "fail": {
+        "text": "Gió quẩn thổi ngược độc tính vào mắt bạn, làm bạn mất đi thị lực tạm thời và buộc phải rút lui.",
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Bắt một con Slime ngậm độc để trung hòa sương mù",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Con Slime hút sạch chướng khí như một miếng bọt biển. Bạn hiên ngang bước vào lều của tên tộc trưởng."
+       },
+       "fail": {
+        "text": "Quá tải độc tính, con Slime nổ tung tạt axit khắp người bạn khiến bạn bỏng nặng.",
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Bạn đạp gãy chân tên tộc trưởng Lizardman, tịch thu gấp đôi số Huyết Kim và treo đầu những kẻ dám cầm cung bắn lén lên cọc gỗ dọc bờ đầm lầy.",
+   "reward": {
+    "wealth": 20,
+    "fame": 3,
+    "guildPts": 1
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Đầm lầy không thuộc về những sinh vật bùn đất, nó thuộc về kẻ tàn nhẫn nhất."
+  },
+  {
+   "id": "high_demon_q_2_tiec_tra_tai_huyet_cung",
+   "org": "hd_court",
+   "name": "Tiệc trà tại Huyết Cung",
+   "minRank": 1,
+   "hint": "Vừa. Cẩn thận với những lời đường mật và mỹ nhân.",
+   "intro": "Một vị Huyết Hầu Tước (Blood Marquis) mời bạn đến dinh thự tham dự một bữa yến tiệc kín. Trực giác High Demon nhắc nhở bạn đây là một cái bẫy nhằm thâu tóm binh quyền. Bạn phải sống sót bước ra, hoặc mang theo thủ cấp của kẻ chủ mưu.",
+   "steps": [
+    {
+     "text": "Một nữ Vampire kiều diễm lả lướt rót cho bạn ly vang pha máu tươi. Ánh mắt ả gợi tình, nhưng chiếc nhẫn trên tay ả đang rỉ ra những giọt kịch độc hắc ám rớt thẳng vào ly rượu.",
+     "choices": [
+      {
+       "label": "Tráo ly rượu với gã Tử tước béo ú kế bên",
+       "check": {
+        "stat": "AGI",
+        "target": 11
+       },
+       "success": {
+        "text": "Gã Tử tước nôn ra bọt máu và chết gục. Lợi dụng sự hoảng loạn, bạn lùi vào bóng tối, chuẩn bị tung đòn trừng phạt kẻ chủ mưu.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Ả Vampire tinh mắt phát hiện. Ả hét lên lật tẩy thủ đoạn của bạn, gọi lính canh bao vây ép bạn giao nộp ấn tín binh quyền.",
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Giả vờ say xỉn, hất đổ ly rượu lên váy ả",
+       "check": {
+        "stat": "LUCK",
+        "target": 8
+       },
+       "success": {
+        "text": "Ả hét lên tức giận, vội vã bỏ đi thay đồ. Lưới kìm kẹp đầu tiên được nới lỏng, bạn đã có khoảng trống để hành động.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Rượu đổ lên tay bạn, độc tính xuyên qua da khiến bạn co giật, gục ngã tức tưởi giữa sảnh tiệc.",
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Hội trường đang lộn xộn. Vị Huyết Hầu Tước đứng một mình ngoài ban công, nhếch mép quan sát. Đây là cơ hội hoàn hảo để đảo khách thành chủ.",
+     "choices": [
+      {
+       "label": "Lao ra vặn gãy cổ hắn rồi ném xác xuống lầu",
+       "check": {
+        "stat": "STR",
+        "target": 11
+       },
+       "success": {
+        "text": "Cái xác nát bét của chủ tiệc ném xuống giữa sảnh khiến mọi kẻ khác phải câm lặng quỳ gối. Bạn nghiễm nhiên thu tóm luôn Huyết Cung.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Hắn đã phòng bị. Hắn vung tà áo choàng đánh bật bạn khỏi ban công. Cơ thể bạn rơi tự do từ độ cao hàng trăm thước và dập nát trên nền đá.",
+        "death": "Hắn đã phòng bị. Hắn vung tà áo choàng đánh bật bạn khỏi ban công. Cơ thể bạn rơi tự do từ độ cao hàng trăm thước và dập nát trên nền đá."
+       }
+      },
+      {
+       "label": "Ra hiệu cho {ally} phóng hỏa dinh thự",
+       "text": "Dùng hỏa công để tẩu thoát."
+      }
+     ]
+    }
+   ],
+   "complete": "Bằng sự mưu mô và tàn nhẫn, bạn đã biến cái bẫy của kẻ thù thành bàn đạp vinh quang, đạp lên xác những kẻ yếu kém để củng cố ngai vàng của mình.",
+   "reward": {
+    "wealth": 40,
+    "fame": 10,
+    "guildPts": 2
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Bữa yến tiệc hoàn hảo nhất là khi máu của chủ tiệc được dùng làm món tráng miệng."
+  },
+  {
+   "id": "high_demon_q_3_cuop_boc_doan_xe_tho_ren_dwarf",
+   "org": "hd_court",
+   "name": "Cướp bóc đoàn xe thợ rèn Dwarf",
+   "minRank": 2,
+   "hint": "Vừa. Cần tốc độ để xử lý máy móc.",
+   "intro": "Mạng lưới tình báo báo tin một đoàn xe bọc thép của tộc Dwarf (Dwarf giỏi chế tác) đang băng qua Dãy Núi Răng Cưa, chở đầy vũ khí ma thuật hạng nặng. Bạn dẫn quân chặn đánh hẻm núi để cướp lô hàng béo bở này.",
+   "steps": [
+    {
+     "text": "Dãy núi Răng Cưa đầy rẫy mìn nổ được lũ Dwarf ngụy trang cẩn thận. Đoàn xe lầm lũi tiến bước, sẵn sàng nổ súng nát bấy bất cứ thứ gì cản đường.",
+     "choices": [
+      {
+       "label": "Dùng ảo ảnh ma pháp ép chúng bỏ xe",
+       "check": {
+        "stat": "INT",
+        "target": 11
+       },
+       "success": {
+        "text": "Hình ảnh một đội quân ma thú khổng lồ gầm thét khiến đám thợ rèn hèn nhát vỡ mật. Chúng bỏ xe chạy tháo thân, để lại nguyên vẹn số hàng hóa.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Ảo ảnh bị nhãn quang của lão pháp sư Dwarf nhìn thấu. Chúng khai hỏa đại bác ma thuật, thổi bay đội hình Imp của bạn ra bã.",
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Đi vòng qua vách đá chênh vênh để bọc hậu",
+       "check": {
+        "stat": "LUCK",
+        "target": 8
+       },
+       "success": {
+        "text": "Bước chân của đội quân vô tình tạo ra trận lở đá lấp mất đường lui của lũ Dwarf, ép chúng vào tử địa không lối thoát.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Đạp trúng một quả mìn nổ chậm, vụ nổ hất văng bạn xuống sườn đồi xước xát thê thảm. Quân Dwarf phát giác và lập tức rút lui an toàn.",
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Bị dồn vào chân tường, lũ Dwarf kích hoạt những bộ giáp chiến đấu chạy bằng hơi nước. Bọn chúng vung những cây búa rèn đỏ rực xông thẳng vào bạn.",
+     "choices": [
+      {
+       "label": "Dùng tay không bẻ nát áo giáp hơi nước",
+       "check": {
+        "stat": "STR",
+        "target": 11
+       },
+       "success": {
+        "text": "Lực tay của một High Demon xé toạc lớp giáp thép. Bạn lôi cổ tên chỉ huy ra và bóp nát, khiến những kẻ còn lại buông búa đầu hàng.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Áp suất hơi nước nóng rát phun ra làm chín bờ vai bạn. Nhát búa tạ giáng xuống đập nứt sọ bạn ngay tại trận.",
+        "death": "Áp suất hơi nước nóng rát phun ra làm chín bờ vai bạn. Nhát búa tạ giáng xuống đập nứt sọ bạn ngay tại trận."
+       }
+      },
+      {
+       "label": "Luồn lách cắt đứt ống dẫn áp suất",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Những đường chớp bóng tối lướt qua. Bạn chém đứt hệ thống dẫn động, biến lũ Dwarf thành những khối sắt bất động mặc bạn xử lý.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Một cỗ máy quay ngoắt lại, vung cánh tay sắt cán ngang qua lồng ngực làm bạn gãy vụn vài chiếc xương sườn. Bạn phải bỏ dở chiến dịch tháo chạy.",
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Bạn ngạo nghễ ngồi trên đỉnh đống vũ khí lấp lánh ánh sáng ma thuật, đếm số Lõi Mana cướp được và ném vài xác Dwarf xuống cho bầy ma lang cắn xé.",
+   "reward": {
+    "STR": 1,
+    "wealth": 35,
+    "guildPts": 1
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Tác phẩm nghệ thuật vĩ đại nhất của nhân loại và các tộc phàm nhân rốt cuộc chỉ là món đồ chơi rẻ tiền trong tay ma tộc."
+  },
+  {
+   "id": "high_demon_q_1_san_lung_chen_thanh_nguyen_rua",
+   "org": "hd_court",
+   "name": "Săn lùng Chén Thánh Nguyền Rủa",
+   "minRank": 1,
+   "hint": "Vừa. Đòi hỏi tốc độ để đột nhập và ma lực để phá vỡ phong ấn ánh sáng.",
+   "intro": "Mạng lưới quỷ dơi của bạn báo tin Giáo hội Thánh Quang đang bí mật hộ tống \"Chén Thánh Thanh Tẩy\" qua rìa Đại Ngàn Lục Bảo. Đây là một cơ hội tuyệt vời để cướp lấy thánh vật này, dùng hắc ma pháp vấy bẩn nó và biến nó thành một Thánh Khí của riêng Vực Thẳm.",
+   "steps": [
+    {
+     "text": "Đoàn hộ tống di chuyển rất cẩn trọng, được dẫn đường bởi một tiểu đội Ranger tộc Elf lừng danh với khả năng ẩn mình trong cây lá. Bọn chúng đã giăng sẵn lưới ma thuật để chặn bắt ma vật.",
+     "choices": [
+      {
+       "label": "Hóa thành sương mù luồn qua khe hở",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Cơ thể bạn tan ra thành luồng hắc khí, trườn qua những sợi dây bẫy nhạy cảm nhất mà không phát ra tiếng động, tiến sát cỗ xe chở Chén Thánh.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Sương mù bị gió thánh của lũ Elf thổi tan. Bại lộ tung tích, bạn lĩnh trọn một cơn mưa tên bọc ma lực ánh sáng.",
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Dùng uy áp buộc bầy rồng đất dưới hang trồi lên phá rối",
+       "check": {
+        "stat": "INT",
+        "target": 11
+       },
+       "success": {
+        "text": "Bạn thì thầm một ma chú cổ, đánh thức đàn thú ngủ say xông lên xới tung đội hình Ranger. Trong sự hoảng loạn, bạn ung dung bước tới.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Bạn truyền ma lực sai tần số. Đàn rồng đất nổi điên tấn công lẫn lộn cả quân Elf và quân Imp của bạn, khiến đội hình tan tác.",
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Đội trưởng Thánh Kỵ Sĩ (Paladin) phát hiện ra bạn. Hắn cắm thanh đại kiếm xuống đất, kích hoạt một màng chắn ánh sáng chói lòa bao bọc lấy cỗ xe, thề sẽ dùng mạng sống để bảo vệ Chén Thánh.",
+     "choices": [
+      {
+       "label": "Bọc hắc khí vào tay, đấm vỡ màng chắn",
+       "check": {
+        "stat": "STR",
+        "target": 11
+       },
+       "success": {
+        "text": "Cú đấm của một High Demon làm rạn nứt không gian. Màng chắn vỡ vụn như thủy tinh, bạn đâm xuyên tay qua lồng ngực gã Paladin, móc lấy trái tim hắn.",
+        "next": 2
+       },
+       "fail": {
+        "text": "Thánh quang dội ngược lại khiến cánh tay bạn cháy xém tận xương. Cơn đau buốt óc ép bạn phải tháo lui.",
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Lấy một tên Elf ra đỡ đòn rồi cướp báu vật",
+       "check": {
+        "stat": "LUCK",
+        "target": 8
+       },
+       "success": {
+        "text": "Mũi kiếm ánh sáng đâm trượt bạn nhưng lại xuyên qua tên Ranger nhọ nồi bị bạn kéo tới. Máu Elf làm ô uế thánh kiếm chốc lát, bạn thừa cơ chộp lấy Chén Thánh.",
+        "next": 2
+       },
+       "fail": {
+        "text": "Gã Paladin kịp rút kiếm lại. Một luồng ánh sáng hất văng bạn văng xa hàng chục thước.",
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Chén Thánh đã nằm trong tay bạn, nhưng nó phản kháng kịch liệt, tỏa ra sức nóng đủ để thiêu rụi linh hồn ma tộc. Bạn phải lập tức vấy bẩn nó trước khi nó đốt cháy chính bạn.",
+     "choices": [
+      {
+       "label": "Dùng máu tim của bản thân để áp chế",
+       "check": {
+        "stat": "STR",
+        "target": 11
+       },
+       "success": {
+        "text": "Bạn cắn nát ngón tay, nhỏ giọt máu vương giả của High Demon vào Chén Thánh. Màu vàng kim rực rỡ lập tức chuyển sang màu đỏ thẫm đặc quánh. Nó đã quy phục.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Chén Thánh phát nổ ngay trên tay bạn. Dù không chết, bạn vĩnh viễn mất đi ba ngón tay và một phần linh hồn.",
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Thao túng linh hồn gã Paladin vừa chết để hiến tế",
+       "check": {
+        "stat": "INT",
+        "target": 14
+       },
+       "success": {
+        "text": "Bạn rút linh hồn gã kỵ sĩ cuồng tín nhét vào Chén. Sự tuyệt vọng khi bị phản bội tín ngưỡng của hắn đã biến báu vật thành một cực phẩm tà đạo.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Linh hồn gã kỵ sĩ bốc cháy, thanh tẩy luôn mảng hắc ma pháp của bạn và đưa Chén Thánh bay thẳng về trời.",
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Bạn nhếch mép nâng cao Chén Thánh Nguyền Rủa giữa đống xác chết của bọn phàm nhân. Từ nay, mỗi giọt rượu vang rót vào đây đều mang theo ma lực cường hóa vĩnh cửu.",
+   "reward": {
+    "wealth": 50,
+    "fame": 10,
+    "guildPts": 2,
+    "flags": [
+     "cursed_grail"
+    ]
+   },
+   "weight": 4,
+   "moment": "Món đồ tuyệt đẹp nhất luôn là thứ vừa bị kéo tuột từ cõi sáng xuống vũng bùn lầy."
+  },
+  {
+   "id": "high_demon_q_2_huyet_yen_doat_vi",
+   "org": "hd_court",
+   "name": "Huyết Yến Đoạt Vị",
+   "minRank": 3,
+   "hint": "Khó. Âm mưu tầng tầng lớp lớp, đòi hỏi trí tuệ và sự chuẩn bị kỹ lưỡng.",
+   "intro": "Tên Đại Công Tước (Archduke) tàn bạo của Vực Lửa đang mở tiệc linh đình kỷ niệm ngàn năm cai trị. Lãnh địa của hắn quá màu mỡ, và chiếc ngai vàng hắn ngồi đã đến lúc đổi chủ. Bạn quyết định giăng một mẻ lưới lớn ngay trong đêm tiệc.",
+   "steps": [
+    {
+     "text": "Để đưa sát thủ vào dinh thự, bạn phải qua mặt con quái vật ba đầu Cerberus và tay Đội trưởng lính canh tinh ranh đang kiểm tra thiệp mời ở cổng chính.",
+     "choices": [
+      {
+       "label": "Cho con chó ăn thịt tẩm kịch độc",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Bạn khéo léo ném vướng miếng thịt vào mõm con quái. Nó nhai ngấu nghiến rồi gục xuống ngủ say, đám lính canh tưởng nó no bụng nên cho bạn qua.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Độc tính không đủ mạnh. Con Cerberus sùi bọt mép phát điên, gầm rống đánh động toàn bộ lính canh.",
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Nhét Huyết Kim đầy túi áo tên Đội trưởng",
+       "check": {
+        "stat": "LUCK",
+        "target": 5
+       },
+       "success": {
+        "text": "Kẻ hám tiền nháy mắt cho bạn và toán tùy tùng lọt qua cổng một cách êm ái.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Ngay lúc bạn đưa tiền, một tên Tướng quân đi ngang qua. Bạn bị vu khống tội mua chuộc quân đội và tống cổ ra ngoài.",
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Đại Công Tước rất cẩn thận, luôn để tên nếm rượu thử trước mọi đồ ăn. Bạn ngầm lẻn vào khu chuẩn bị tiệc, đối mặt với gã Bếp trưởng tộc Orc đang thái thịt.",
+     "choices": [
+      {
+       "label": "Cắt cổ gã Bếp trưởng bằng đao gió",
+       "check": {
+        "stat": "AGI",
+        "target": 11
+       },
+       "success": {
+        "text": "Nhanh như chớp, bạn cứa đứt cuống họng gã Orc không một tiếng động, giấu xác vào bao tải và đích thân tiêm độc vào bầu vang đỏ.",
+        "next": 2
+       },
+       "fail": {
+        "text": "Lớp da Orc quá dày, nhát cắt của bạn chỉ làm hắn xước da. Hắn gầm lên vung dao phay chém đứt vai bạn. Đêm ám sát kết thúc sớm.",
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Dùng huyễn thuật thôi miên tên nếm rượu",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Đôi mắt bạn lóe lên ánh sáng đỏ. Tên nếm rượu vô thức gật đầu tuân lệnh, sẽ bảo đảm rằng ly vang độc tột cùng là \"hoàn toàn an toàn\".",
+        "next": 2
+       },
+       "fail": {
+        "text": "Ánh mắt của bạn bị một hòn đá phản ma pháp trong bếp dội ngược. Bạn choáng váng ngã nhào, buộc phải chuồn mất trước khi lính gác tới.",
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Giữa sảnh chính, Đại Công Tước nốc cạn ly rượu. Tuy nhiên, thể chất của hắn quá kinh khủng, kịch độc chỉ làm hắn nôn ra máu đen chứ không chết. Hắn gầm lên, rút cây chùy rực lửa lao thẳng về phía bạn.",
+     "choices": [
+      {
+       "label": "Rút gươm đối đầu trực diện",
+       "check": {
+        "stat": "STR",
+        "target": 14
+       },
+       "success": {
+        "text": "Đỡ được cú đập ngàn cân, bạn lợi dụng lúc ma lực của hắn rối loạn, vung gươm chém đứt cánh tay cầm chùy của hắn.",
+        "next": 3
+       },
+       "fail": {
+        "text": "Sức mạnh của gã bạo chúa vượt xa tưởng tượng. Cây chùy nện nát ngực bạn, tống bạn bay xuyên qua ba bức tường đá.",
+        "death": "Sức mạnh của gã bạo chúa vượt xa tưởng tượng. Cây chùy nện nát ngực bạn, tống bạn bay xuyên qua ba bức tường đá."
+       }
+      },
+      {
+       "label": "Dịch chuyển tức thời, đợi chất độc phát tác hết",
+       "check": {
+        "stat": "AGI",
+        "target": 11
+       },
+       "success": {
+        "text": "Bạn nén đau đớn lướt qua những đòn đánh điên cuồng, để mặc hắn tự thiêu đốt chút sinh mệnh cuối cùng.",
+        "next": 3
+       },
+       "fail": {
+        "text": "Vòng chân ma pháp bị lửa khóa chặt. Bạn lãnh trọn một đòn quất thiêu rụi nửa đôi cánh sừng, phải bỏ lỡ thời cơ đoạt vị để tháo chạy.",
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Đại Công Tước gục xuống, thoi thóp thở. Bọn cận thần hèn nhát vây quanh nhưng không kẻ nào dám tiến lên. Hắn trừng mắt nhìn bạn, chuẩn bị kích nổ hạch ma lực để đồng quy vu tận.",
+     "choices": [
+      {
+       "label": "Giẫm nát hộp sọ hắn trước khi hắn tự bạo",
+       "check": {
+        "stat": "STR",
+        "target": 11
+       },
+       "success": {
+        "text": "Gót chân vương giả của bạn nát bét cái đầu của hắn. Vụ nổ bị dập tắt, bạn chính thức nhổ chiếc nhẫn quyền lực khỏi ngón tay cái xác.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Chậm một nhịp. Vụ nổ hạch ma lực hất văng bạn trọng thương, tuy giết được hắn nhưng bạn mất đi cơ hội kiểm soát tài sản vì bọn bề tôi đã hôi của sạch sẽ.",
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Đẩy {ally} vào phong ấn vụ nổ",
+       "text": "Thuộc hạ thân tín của bạn ôm chặt lấy gã, hút trọn vụ nổ vào cơ thể và tan xác. Bụi mù tan đi, bạn thong thả nhặt ấn tín trên nền nhà.",
+       "end": "win"
+      }
+     ]
+    }
+   ],
+   "complete": "Bạn ngồi phịch xuống ngai vàng còn vương hơi ấm và máu của kẻ tiền nhiệm. Những kẻ vừa nhấm nháp rượu ngon giờ đây đồng loạt run rẩy dập đầu hô to danh xưng Đại Công Tước mới của chúng.",
+   "reward": {
+    "wealth": 80,
+    "fame": 25,
+    "flags": [
+     "archduke_usurper"
+    ],
+    "orgRank": 4
+   },
+   "weight": 4,
+   "moment": "Mọi vương triều bền vững nhất đều được xây nên từ những bữa yến tiệc phản trắc nhất."
+  },
+  {
+   "id": "high_demon_q_3_hoang_hon_cua_thap_nga",
+   "org": "hd_court",
+   "name": "Hoàng Hôn Của Tháp Ngà",
+   "minRank": 5,
+   "hint": "Rất Khó. Tầm vóc huyền thoại. Đòi hỏi mọi chỉ số đạt ngưỡng vĩ đại để đối đầu trực diện với nhân loại.",
+   "intro": "Sự tồn tại của Học viện Ma pháp Tháp Ngà - cội nguồn sức mạnh của loài người - là cái gai trong mắt Ma giới ngàn năm qua. Với tư cách là Vua của một tầng Vực Thẳm, bạn xé toạc không gian, dẫn theo vạn dặm ma mây đen và ngàn vạn ác quỷ phủ bóng cái chết xuống thủ đô Sanctus.",
+   "steps": [
+    {
+     "text": "Tháp Ngà kích hoạt \"Khiên Chắn Bầu Trời\", một lớp rào phép thuật khổng lồ thiêu rụi bất cứ ma vật nào chạm vào. Quân đoàn Imp của bạn đang rụng lả tả như mưa ruồi.",
+     "choices": [
+      {
+       "label": "Ngưng tụ ngọn giáo Hư Vô ném thủng màng chắn",
+       "check": {
+        "stat": "INT",
+        "target": 14
+       },
+       "success": {
+        "text": "Bạn phóng ngọn giáo hắc ám từ cõi Vực Thẳm. Nó găm thẳng vào đỉnh khiên, tạo ra một vết nứt khổng lồ rồi vỡ vụn, mở đường cho quân đoàn tràn vào.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Khiên chắn quá vững chắc. Ngọn giáo dội ngược lại đâm xuyên qua bả vai bạn. Sĩ khí quân Ma giới giảm sút thê thảm, buộc phải hoãn binh.",
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Hóa khổng lồ, dùng sức mạnh vật lý xé rách lớp khiên",
+       "check": {
+        "stat": "STR",
+        "target": 14
+       },
+       "success": {
+        "text": "Thân thể bạn phình to như một trái núi che khuất mặt trời. Hai bàn tay gân guốc bấu vào lớp khiên và xé toạc nó ra trong tiếng vỡ nát đinh tai nhức óc.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Thánh quang từ khiên chắn bào mòn lớp da thịt khổng lồ của bạn. Tổn thương nguyên khí trầm trọng khiến bạn thu nhỏ lại, thất khiếu chảy máu.",
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Bạn hạ cánh xuống quảng trường trung tâm. Bốn vị Đại Ma pháp sư (Grand Mage) của Tháp Ngà lập trận pháp Nguyên tố để nhốt bạn vào không gian đa chiều, hòng nghiền nát linh hồn bạn.",
+     "choices": [
+      {
+       "label": "Dùng tốc độ áp sát cắt đứt đầu từng tên một",
+       "check": {
+        "stat": "AGI",
+        "target": 14
+       },
+       "success": {
+        "text": "Nhanh hơn cả tia chớp, bạn dịch chuyển ra sau lưng pháp sư hệ Phong, bóp nát sọ hắn. Trận pháp mất góc lập tức sụp đổ, ba tên còn lại sợ hãi quỳ sụp xuống.",
+        "next": 2
+       },
+       "fail": {
+        "text": "Lốc xoáy không gian cắn đứt đôi cánh sừng của bạn. Trọng lực nghìn cân đè bẹp bạn xuống nền đá, buộc bạn phải dùng phép huyết độn để trốn thoát.",
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Phóng thích sức mạnh Cổ Thần từ dấu ấn",
+       "require": {
+        "any": [
+         {
+          "flags": [
+           "cursed_grail"
+          ]
+         },
+         {
+          "flags": [
+           "archduke_usurper"
+          ]
+         }
+        ]
+       },
+       "showLocked": true,
+       "text": "Uy áp tà ác tối thượng cuộn trào từ cơ thể bạn. Bốn vị Đại Ma pháp sư chỉ kịp kêu lên một tiếng thảm thiết trước khi thân thể tan thành tro bụi hắc ám.",
+       "next": 2
+      }
+     ]
+    },
+    {
+     "text": "Khi bạn đang chuẩn bị giáng đòn hủy diệt tòa tháp chính, Dũng Giả đệ nhất của nhân loại xuất hiện. Anh ta cưỡi Bạch Long, tay cầm Kiếm Ánh Sáng được nữ thần chúc phúc, chém thẳng xuống đỉnh đầu bạn một nhát kết liễu.",
+     "choices": [
+      {
+       "label": "Tay không bắt lấy lưỡi kiếm thánh",
+       "check": {
+        "stat": "STR",
+        "target": 14
+       },
+       "success": {
+        "text": "Máu đen tuôn trào, nhưng bạn giữ chặt được lưỡi kiếm. Bằng một nụ cười tàn nhẫn, bạn bẻ gãy nó thành hai mảnh rồi đấm xuyên ngực Bạch Long. Dũng Giả gục ngã trong tuyệt vọng.",
+        "next": 3
+       },
+       "fail": {
+        "text": "Ánh sáng cắt đôi thân thể bạn. Sinh mệnh ngàn năm của một High Demon kết thúc dưới tay một kẻ phàm trần mới đôi mươi.",
+        "death": "Ánh sáng cắt đôi thân thể bạn. Sinh mệnh ngàn năm của một High Demon kết thúc dưới tay một kẻ phàm trần mới đôi mươi."
+       }
+      },
+      {
+       "label": "Dùng mưu kích động sự kiêu ngạo của hắn",
+       "check": {
+        "stat": "INT",
+        "target": 14
+       },
+       "success": {
+        "text": "Lời nhạo báng của bạn khiến nhát chém chệch hướng. Lợi dụng sơ hở, bạn tung chú ấn hắc ám khóa chặt kinh mạch của Dũng Giả, biến hắn thành một bức tượng đá.",
+        "next": 3
+       },
+       "fail": {
+        "text": "Dũng Giả tâm lặng như nước, chém một đường tuyệt mỹ gọt bay nửa khuôn mặt của bạn.",
+        "death": "Dũng Giả tâm lặng như nước, chém một đường tuyệt mỹ gọt bay nửa khuôn mặt của bạn."
+       }
+      }
+     ]
+    },
+    {
+     "text": "Tháp Ngà chỉ còn chờ sụp đổ, nhưng đúng lúc này, một Vua Tầng đối địch phe Ma giới lại bất ngờ xuất hiện sau lưng, đâm lén bạn hòng cướp công và đoạt luôn mạng bạn.",
+     "choices": [
+      {
+       "label": "Trở tay phản đòn bằng tốc độ âm thanh",
+       "check": {
+        "stat": "AGI",
+        "target": 14
+       },
+       "success": {
+        "text": "Lưỡi dao độc lướt qua sườn bạn. Bạn xoay người, tóm lấy yết hầu tên phản bội và quật hắn đập nát vào bức tường Tháp Ngà đang sụp đổ.",
+        "next": 4
+       },
+       "fail": {
+        "text": "Nhát đâm xuyên qua tim bạn. Bạn ngã gục, trừng mắt nhìn kẻ thù nẫng tay trên chiến thắng lịch sử của mình.",
+        "death": "Nhát đâm xuyên qua tim bạn. Bạn ngã gục, trừng mắt nhìn kẻ thù nẫng tay trên chiến thắng lịch sử của mình."
+       }
+      },
+      {
+       "label": "Bắt {ally} lấy thân mình đỡ đao",
+       "text": "Lưỡi dao độc xuyên qua ngực {ally}. Bạn không một chút thương xót, chém đứt đôi cả xác thuộc hạ lẫn kẻ đâm lén trong một nhát gươm không nhân nhượng.",
+       "next": 4
+      }
+     ]
+    },
+    {
+     "text": "Tháp Ngà sụp đổ thành đống gạch vụn. Từ bầu trời, một con mắt vàng khổng lồ của Thần Linh hé mở, giáng xuống một Đạo Kiếp quang mang hòng xóa sổ bạn khỏi thế giới vật chất vì dám can thiệp vào định mệnh.",
+     "choices": [
+      {
+       "label": "Hấp thụ toàn bộ sinh khí Sanctus để chống cự",
+       "check": {
+        "stat": "INT",
+        "target": 14
+       },
+       "success": {
+        "text": "Bạn hiến tế sinh mạng của hàng triệu cư dân thủ đô, tạo thành tấm màng chắn bằng máu đen đẩy lùi Đạo Kiếp. Con mắt chư thần nhắm lại trong bất lực.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Sinh khí nhân loại quá yếu ớt trước sức mạnh chư thần. Đạo Kiếp xuyên thấu linh hồn, tước bỏ mọi tu vi bạn có, đẩy bạn xuống vực thẳm làm một ác quỷ cấp thấp tàn phế vĩnh viễn.",
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Ngẩng cao đầu rống lên, vung gươm chẻ đôi Đạo Kiếp",
+       "check": {
+        "stat": "LUCK",
+        "target": 14
+       },
+       "success": {
+        "text": "Một sự trùng hợp kinh hoàng của vạn vật: nhát chém hắc ám của bạn chẻ đôi cột sáng ánh sáng trừng phạt. Bầu trời nổ tung, Thần Linh phải nhượng bộ. Huyền thoại về bạn chính thức khắc lên sao trời.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Đạo Kiếp biến bạn thành một vốc tro tàn trong khoảnh khắc.",
+        "death": "Đạo Kiếp biến bạn thành một vốc tro tàn trong khoảnh khắc."
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Trên phế tích đang bốc cháy của học viện ma pháp vĩ đại nhất nhân loại, bạn dẫm chân lên tàn dư của ánh sáng. Từ hôm nay, bầu trời của Aethelgard sẽ chỉ có màu đen, và tên của bạn sẽ được xướng lên bằng sự khiếp hãi trong hàng vạn năm nữa.",
+   "reward": {
+    "wealth": 100,
+    "fame": 100,
+    "flags": [
+     "ivory_destroyer"
+    ],
+    "orgRank": 6
+   },
+   "weight": 4,
+   "moment": "Ngày mà ngọn tháp cao nhất của nhân loại sụp đổ, Thần Linh đã phải cúi mặt làm ngơ trước sức mạnh tuyệt đối của Vực Thẳm."
+  },
+  {
+   "id": "high_demon_q_4_chien_dich_thoi_dai_me_luoi_tu_khi",
+   "org": "hd_court",
+   "name": "Mẻ Lưới Tử Khí",
+   "minRank": 2,
+   "hint": "Vừa. Lợi dụng sự tuyệt vọng của đói kém và bệnh tật.",
+   "intro": "Dịch bệnh Hắc Tinh đang càn quét khắp Aethelgard, thây chất đầy đường, các quốc gia phàm nhân đang hấp hối. Bạn nhận ra đây là thời cơ vàng để mở một mẻ lưới vĩ đại, thu gom hàng vạn nô lệ sống sót làm vật tế bào chế ma dược cho quân đoàn.",
+   "steps": [
+    {
+     "text": "Một trại tị nạn khổng lồ của tộc Beastman và Human đang co cụm ở Thảo Nguyên Gió Hú. Chúng quá yếu để chiến đấu, nhưng lại được bảo vệ bởi những pháp trận phòng dịch của Tự Nhiên Giáo.",
+     "choices": [
+      {
+       "label": "Xua bầy Hellhound cắn xé pháp trận",
+       "check": {
+        "stat": "STR",
+        "target": 5
+       },
+       "success": {
+        "text": "Móng vuốt rực lửa xé nát pháp trận yếu ớt. Bầy quỷ tràn vào bắt trói những kẻ sống sót đang gào thét tuyệt vọng.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Bầy Hellhound nhiễm phải khí độc từ pháp trận, lăn ra sùi bọt mép. Kế hoạch bị chững lại, bạn buộc phải dùng binh lực bù đắp.",
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Dùng mồi nhử lương thực dụ chúng ra ngoài",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Cơn đói chiến thắng lý trí. Hàng ngàn kẻ tị nạn bò ra khỏi pháp trận tranh giành thức ăn tẩm thuốc mê, dễ dàng bị bạn hốt gọn.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Một gã Orc già gầm lên ngăn cản đám đông, vạch trần âm mưu của bạn. Đám đông thà chết đói trong trận pháp chứ không nộp mạng.",
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Một Hiền Giả (Sage) của Giáo hội Thánh Quang bất ngờ xuất hiện. Thay vì chiến đấu, lão già run rẩy đưa ra lời đề nghị: giao lại cho bạn bí quyết chữa bệnh Hắc Tinh, đổi lấy việc bạn buông tha cho những kẻ tị nạn này.",
+     "choices": [
+      {
+       "label": "Giết lão và lột lấy cuộn giấy bí quyết",
+       "check": {
+        "stat": "AGI",
+        "target": 11
+       },
+       "success": {
+        "text": "Lưỡi dao của bạn cắt đứt cổ lão trước khi lão kịp đốt cháy cuộn giấy da. Bạn có cả nô lệ lẫn phương thuốc.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Lão già mỉm cười cay đắng, kích nổ cuộn giấy lẫn bản thân thành vũng máu. Bạn trắng tay không thu được ma thuật nào.",
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Đồng ý giao kèo rồi nuốt lời",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Bạn cầm lấy phương thuốc, mỉm cười cảm ơn rồi phẩy tay ra lệnh cho quân Imp tàn sát toàn bộ trại tị nạn ngay trước con mắt trừng trừng của lão Hiền Giả.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Lão già đã đặt lời nguyền huyết thệ lên cuộn giấy. Khi bạn xé bỏ giao kèo, phương thuốc tự động bốc cháy làm phỏng rát tay bạn.",
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Từng đoàn nô lệ rách rưới mang xiềng xích bị lôi tuột vào Cửa Ngục Than Khóc. Trong Kỷ Nguyên Tăm Tối, sự nhân từ chết đói bên đường, chỉ có sự tàn nhẫn của ma tộc mới là kẻ chiến thắng cuối cùng.",
+   "reward": {
+    "wealth": 60,
+    "fame": 10,
+    "guildPts": 1
+   },
+   "weight": 4,
+   "eras": [
+    "dark_age"
+   ],
+   "moment": "Cơn đói kém là một nghệ sĩ điêu khắc vĩ đại, nó gọt đẽo sự kiêu ngạo của phàm nhân thành sự quy phục hèn mạt nhất trước chân ác quỷ."
+  }
+ ],
+ "events": [
+  {
+   "id": "hd_parent_test",
+   "text": "Kẻ sinh thành ra bạn ném xuống thềm đá một con Hellhound đang điên cuồng gào thét. Ánh mắt lạnh lẽo của ông ta ép buộc bạn phải chứng minh tư cách tồn tại của một High Demon, hoặc bị vứt bỏ cho bầy Imp nhai xương.",
+   "stages": [
+    "infant"
+   ],
+   "focus": [
+    "train"
+   ],
+   "require": {
+    "any": [
+     {
+      "fatherAlive": true
+     },
+     {
+      "makerAlive": true
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Nghiền nát nó bằng bạo lực",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn tay không bẻ gãy cổ con ác thú trong tiếng gầm gừ tán thưởng của đám cận thần.",
+      "effects": {
+       "STR": 1,
+       "joy": 3,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Nanh vuốt ngọn lửa cắn nát cánh tay bạn, khiến {father} quay lưng đi trong sự thất vọng tràn trề.",
+      "effects": {
+       "health": -10,
+       "fame": -2
+      }
+     }
+    },
+    {
+     "label": "Tước đoạt linh hồn bằng Hắc Ma Pháp",
+     "check": {
+      "stat": "INT",
+      "target": 11
+     },
+     "success": {
+      "text": "Lời nguyền cổ xưa thì thầm từ miệng bạn hút cạn sinh khí, biến con quái vật thành một cái vỏ khô quắt.",
+      "effects": {
+       "INT": 2,
+       "fame": 5,
+       "flags": [
+        "ruthless_soul"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Pháp thuật phản phệ khiến bạn nôn ra máu đen, gục ngã thảm hại ngay giữa ma trận.",
+      "effects": {
+       "health": -15,
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Dùng uy áp của vương giả",
+     "require": {
+      "STR": 6
+     },
+     "showLocked": true,
+     "text": "Trừng mắt, phóng ra ma khí bức bách con thú phải quy phục."
+    }
+   ],
+   "moment": "Lần đầu tiên đôi tay bạn nhuốm máu tươi, đón nhận cái nhìn phán xét từ thế hệ đi trước."
+  },
+  {
+   "id": "hd_parent_legacy",
+   "text": "Sinh mệnh kéo dài vạn năm của kẻ vĩ đại trước bạn cuối cùng cũng lụi tàn. Giữa căn phòng nồng nặc mùi hắc ín, chiếc hộp phong ấn chứa đựng cội nguồn sức mạnh và quyền lực gia tộc đang chờ chủ nhân mới.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "social"
+   ],
+   "require": {
+    "anyFlags": [
+     "exiled_noble",
+     "royal_demon"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hấp thụ ma lực qua nghi thức hiến tế",
+     "check": {
+      "stat": "INT",
+      "target": 11
+     },
+     "success": {
+      "text": "Bạn nghiền nát tinh thể cốt tủy, để ma lực khổng lồ cuồn cuộn chảy vào từng huyết quản, cảm nhận quyền lực đang thăng hoa.",
+      "effects": {
+       "STR": 2,
+       "INT": 3,
+       "wealth": 50
+      }
+     },
+     "fail": {
+      "text": "Nguồn năng lượng cổ đại quá hung bạo làm nứt vỡ hạch ma lực của bạn, dẫu bạn vẫn lấy được tiền tài.",
+      "effects": {
+       "INT": 1,
+       "health": -20,
+       "wealth": 30
+      }
+     }
+    },
+    {
+     "label": "Chỉ lấy đi ấn tín gia tộc",
+     "text": "Từ chối sức mạnh cuồng loạn để giữ lại sự tỉnh táo cho bản thân."
+    },
+    {
+     "label": "Trảm sát kẻ phản đoạt",
+     "require": {
+      "AGI": 7
+     },
+     "showLocked": true,
+     "text": "Chém gục tên Tướng quân Demon định phỗng tay trên ngay khi {father} vừa tắt thở."
+    }
+   ],
+   "moment": "Bạn chính thức trở thành người nắm quyền, bước những bước chân đầu tiên giẫm lên tàn tích của thế hệ cũ."
+  },
+  {
+   "id": "hd_job_mutiny",
+   "text": "Bầy High Orc và Troll dưới trướng bất mãn vì thiếu thịt tươi, chúng gầm gừ vác chùy bao vây trướng của bạn giữa đêm khuya. Bọn chúng muốn phế truất bạn để tôn một thủ lĩnh mới.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "work"
+   ],
+   "require": {
+    "jobRank": 2,
+    "job": "hd_general"
+   },
+   "choices": [
+    {
+     "label": "Nhảy vào giữa vòng vây tàn sát",
+     "check": {
+      "stat": "STR",
+      "target": 11
+     },
+     "success": {
+      "text": "Lưỡi kiếm của bạn chẻ đôi tên cầm đầu bự xác nhất chỉ bằng một nhát, máu tanh tuôn xối xả khiến toàn quân khiếp hãi quỳ rạp.",
+      "effects": {
+       "STR": 2,
+       "wealth": 10,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Đám đông điên cuồng lao vào cắn xé. Bạn giết được vài chục tên nhưng chịu trọng thương, đánh mất đi quyền uy bấy lâu xây dựng.",
+      "effects": {
+       "health": -25,
+       "fame": -10,
+       "demote": true
+      }
+     }
+    },
+    {
+     "label": "Bắt thóp tâm lý kẻ bạo loạn",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn tung ra vài đồng Huyết Kim, hứa hẹn một cuộc thảm sát tại Đầm Lầy Tử Khí. Sự hám lợi làm lu mờ cơn đói, chúng ngoan ngoãn trở về hàng ngũ.",
+      "effects": {
+       "INT": 1,
+       "wealth": -20,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Lời nói dối của bạn bị vạch trần, chúng cười nhạo và tước đi toàn bộ của cải trong lều.",
+      "effects": {
+       "joy": -5,
+       "wealth": -40
+      }
+     }
+    },
+    {
+     "label": "Nhờ {ally} dập tắt bạo loạn",
+     "text": "Ra lệnh cho tay sai thân cận xử lý đám ngu ngốc."
+    }
+   ],
+   "moment": "Bạn nhuộm đỏ túp lều chỉ huy bằng máu của chính những kẻ từng quỳ gối xưng thần với bạn."
+  },
+  {
+   "id": "hd_job_ambush",
+   "text": "Đội trinh sát báo tin một tiểu đội Thánh Kỵ Sĩ Đoàn của Giáo hội Thánh Quang đang rước một báu vật qua hẻm núi Răng Cưa. Nguồn thánh quang tỏa ra làm bỏng rát mắt lũ Imp của bạn từ xa.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "require": {
+    "job": "hd_general"
+   },
+   "choices": [
+    {
+     "label": "Mai phục và tung đòn kết liễu nhanh gọn",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn lao xuống như một bóng ma, tung đòn phủ đầu cắt đứt yết hầu tên đội trưởng trước khi hắn kịp niệm chú phòng ngự.",
+      "effects": {
+       "AGI": 2,
+       "health": -5,
+       "wealth": 30
+      }
+     },
+     "fail": {
+      "text": "Tốc độ của bạn bị một bức tường ánh sáng chặn đứng, chúng phản công khiến đôi cánh sừng của bạn bị cháy xém.",
+      "effects": {
+       "health": -15,
+       "fame": -2
+      }
+     }
+    },
+    {
+     "label": "Cướp bóc trong sự hỗn loạn",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn kích nổ vách núi khiến đá tảng đè bẹp bọn kỵ sĩ, rồi thong thả nhặt lấy báu vật trong đống đổ nát.",
+      "effects": {
+       "LUCK": 1,
+       "wealth": 40,
+       "flags": [
+        "holy_relic"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Đá lăn chôn vùi luôn cả cỗ xe chở báu vật, bạn chẳng thu được gì ngoài xác những con ngựa chiến gãy cổ.",
+      "effects": {
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Nghênh chiến trực diện bằng bạo lực",
+     "text": "Bước ra chặn đường, dùng thân thể ma tộc thách thức ánh sáng."
+    }
+   ],
+   "moment": "Máu của những kỵ sĩ tôn thờ ánh sáng nay nhuộm đỏ bộ móng vuốt của một ác quỷ Vực Thẳm."
+  },
+  {
+   "id": "hd_job_demise",
+   "text": "Một gã High Demon vô danh, thân hình phủ đầy sẹo, phá nát cổng doanh trại và ném chiếc găng tay sắt vào mặt bạn. Hắn tuyên bố bạn đã quá già yếu và đòi tử chiến để cướp ghế chỉ huy.",
+   "focus": [
+    "train"
+   ],
+   "require": {
+    "job": "hd_general"
+   },
+   "choices": [
+    {
+     "label": "Nghiền nát sọ hắn trước mặt toàn quân",
+     "check": {
+      "stat": "STR",
+      "target": 14
+     },
+     "success": {
+      "text": "Hai luồng ma lực khổng lồ va chạm. Bằng một đòn hiểm hóc, bạn bẻ gãy cổ hắn và cắm thủ cấp lên ngọn giáo vương kỳ.",
+      "effects": {
+       "STR": 3,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Hắn quá nhanh, quá mạnh. Lưỡi rìu của hắn xẻ đôi lồng ngực bạn. Ý thức của bạn mờ dần trong tiếng reo hò đón chào vị tướng mới của bầy ma vật.",
+      "death": ". Cơ đồ vạn năm kết thúc bởi một kẻ vô danh"
+     }
+    },
+    {
+     "label": "Dùng kịch độc hạ sát ngầm",
+     "check": {
+      "stat": "INT",
+      "target": 11
+     },
+     "success": {
+      "text": "Trước giờ quyết đấu, chất độc tẩm trong không khí bộc phát. Hắn nôn ra máu đen và ngã gục ngay khi vừa vung vũ khí lên.",
+      "effects": {
+       "INT": 2,
+       "wealth": 10,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Hắn nhận ra mùi độc dược, lập tức phát điên lao vào băm vằm bạn. Bạn bị tước đi quyền lực và bị ném ra khỏi doanh trại như một con chó hoang.",
+      "effects": {
+       "health": -40,
+       "fame": -20,
+       "jobRankSet": 0
+      }
+     }
+    }
+   ],
+   "moment": "Trò chơi vương quyền ở Ma giới không có chỗ cho sự nhân từ; bạn chỉ là kẻ đi săn, hoặc biến thành con mồi."
+  },
+  {
+   "id": "hd_archmage_forbidden_tome",
+   "text": "Một thương nhân của Thương hội Sói Bạc bí mật dâng lên bạn một cuốn ma đạo thư bọc bằng da Elf. Những con chữ bằng máu bên trong không ngừng vặn vẹo, hứa hẹn ban cho bạn ma lực vô hạn nếu dám đánh đổi tâm trí.",
+   "stages": [
+    "infant"
+   ],
+   "focus": [
+    "study"
+   ],
+   "require": {
+    "jobRank": 1,
+    "job": "hd_archmage"
+   },
+   "choices": [
+    {
+     "label": "Kiểm soát ma lực bằng tri thức",
+     "check": {
+      "stat": "INT",
+      "target": 11
+     },
+     "success": {
+      "text": "Bạn đọc ngược thần chú, bẻ gãy ý chí của cuốn sách và ép nó nhả ra những bí mật cổ xưa.",
+      "effects": {
+       "STR": 1,
+       "INT": 3,
+       "flags": [
+        "forbidden_knowledge"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Lời nguyền trong sách phản phệ, nó hút cạn tinh lực của bạn và khiến bạn mất trí suốt một thập kỷ.",
+      "effects": {
+       "INT": -1,
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Ném nó vào lò lửa để hấp thụ khí xám",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Sự tình cờ may mắn khiến cuốn sách cháy rụi, để lại một viên Tinh Bạc ngậm đầy ma lực tinh khiết.",
+      "effects": {
+       "LUCK": 1,
+       "wealth": 25
+      }
+     },
+     "fail": {
+      "text": "Ngọn lửa bị dập tắt bởi ma khí, cuốn sách bay lên đánh thẳng vào mặt bạn một cú trời giáng rồi biến mất.",
+      "effects": {
+       "health": -10
+      }
+     }
+    },
+    {
+     "label": "Trao cuốn sách cho {ally} học",
+     "text": "Bạn đẩy rủi ro cho kẻ dưới quyền."
+    }
+   ],
+   "moment": "Tri thức của bóng tối không bao giờ miễn phí, nó luôn đòi hỏi sự đền bù bằng chính linh hồn kẻ khao khát nó."
+  },
+  {
+   "id": "hd_archmage_assassin",
+   "text": "Trong lúc bạn đang khắc họa một ma trận phức tạp, ngọn nến đột ngột tắt ngấm. Một lưỡi dao độc lạnh toát của Guild Sát thủ Umbra đã kề sát cổ bạn, kẻ thù chính trị nào đó đã vung tiền mua mạng bạn.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "social"
+   ],
+   "require": {
+    "jobRank": 2,
+    "job": "hd_archmage"
+   },
+   "choices": [
+    {
+     "label": "Né đòn và dịch chuyển tức thời",
+     "check": {
+      "stat": "AGI",
+      "target": 11
+     },
+     "success": {
+      "text": "Bạn tan thành một làn khói đen ngay khoảnh khắc lưỡi dao cứa xuống, xuất hiện sau lưng tên sát thủ và bóp nát tim hắn.",
+      "effects": {
+       "AGI": 2,
+       "health": -2,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Tốc độ của bạn không đủ nhanh. Lưỡi dao tẩm độc cắn sâu vào da thịt khiến ma lực của bạn rối loạn hoàn toàn.",
+      "effects": {
+       "health": -20,
+       "wealth": -10
+      }
+     }
+    },
+    {
+     "label": "Dùng màng chắn ma pháp hất văng hắn",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Một vụ nổ ma lực bộc phát từ cơ thể bạn hất văng tên sát thủ đập nát vào bức tường đá. Bạn từ từ bước tới kết liễu hắn.",
+      "effects": {
+       "STR": 1,
+       "INT": 1,
+       "fame": 3
+      }
+     },
+     "fail": {
+      "text": "Màng chắn vỡ nát. Bạn lĩnh trọn đòn tấn công và phải dùng phép cấm đốt cháy thọ mệnh để giữ mạng.",
+      "effects": {
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Từ bỏ tháp ma pháp chạy trốn",
+     "text": "Chạy thục mạng qua cửa hầm bí mật để bảo toàn tính mạng."
+    }
+   ],
+   "moment": "Bóng tối vừa là vũ khí che chở bạn, vừa là nơi ẩn náu lý tưởng cho những con dao găm hiểm độc nhất."
+  },
+  {
+   "id": "hd_archmage_experiment",
+   "text": "Thí nghiệm hợp nhất lõi rồng lửa với ma thạch sương giá của bạn vượt tầm kiểm soát. Quả cầu năng lượng phình to giữa phòng thí nghiệm, chớp giật liên hồi và chuẩn bị nổ tung, đe dọa thổi bay cả tòa tháp và sinh mạng bạn.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "study"
+   ],
+   "require": {
+    "job": "hd_archmage"
+   },
+   "choices": [
+    {
+     "label": "Dùng toán học ma pháp triệt tiêu năng lượng",
+     "check": {
+      "stat": "INT",
+      "target": 14
+     },
+     "success": {
+      "text": "Bạn điên cuồng tính toán, vẽ hàng ngàn rún ngữ (rune) trong chớp mắt. Quả cầu từ từ thu nhỏ lại thành một viên Lõi Mana hoàn mỹ.",
+      "effects": {
+       "INT": 4,
+       "wealth": 40
+      }
+     },
+     "fail": {
+      "text": "Tính toán sai một biến số. Vụ nổ xé toạc không gian, bạn bị nuốt chửng vào kẽ nứt và nghiền nát thành bột mịn dưới áp lực của hư không.",
+      "death": ". Ngôi sao tri thức của Vực Thẳm vụt tắt"
+     }
+    },
+    {
+     "label": "Hấp thụ trực tiếp vụ nổ vào cơ thể",
+     "check": {
+      "stat": "STR",
+      "target": 11
+     },
+     "success": {
+      "text": "Bạn cắn răng chịu đựng dòng ma lực xé rách kinh mạch, cưỡng ép thu nạp thứ năng lượng cuồng bạo này làm của riêng.",
+      "effects": {
+       "STR": 3,
+       "health": -20
+      }
+     },
+     "fail": {
+      "text": "Thân thể ma tộc của bạn không chịu nổi áp lực, bạn nôn ra hàng vũng máu đen và liệt nửa người, vĩnh viễn mất đi tư cách làm Archmage.",
+      "effects": {
+       "health": -40,
+       "jobRankSet": 0
+      }
+     }
+    }
+   ],
+   "moment": "Ranh giới giữa một thiên tài và một kẻ tự sát thường chỉ cách nhau một phép tính sai lầm."
+  },
+  {
+   "id": "hd_lord_intrigue",
+   "text": "Bạn được mời tham dự yến tiệc của một tên Đại Công Tước đối địch. Cô ả Vampire kiều diễm phục vụ rượu tiến đến, dâng cho bạn một ly vang sóng sánh màu đỏ thẫm. Trực giác mách bảo bạn có thứ gì đó không ổn trong chiếc ly này.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "social"
+   ],
+   "require": {
+    "jobRank": 2,
+    "job": "hd_lord"
+   },
+   "choices": [
+    {
+     "label": "Đảo tay đánh tráo ly rượu với kẻ kế bên",
+     "check": {
+      "stat": "AGI",
+      "target": 11
+     },
+     "success": {
+      "text": "Với kỹ thuật nhanh như chớp, bạn đổi ly của mình cho tên bá tước mập mạp ngồi cạnh. Hắn sùi bọt mép chết tức tưởi, còn bạn vô tội mỉm cười.",
+      "effects": {
+       "INT": 1,
+       "AGI": 2,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Động tác của bạn bị bắt bài. Bạn bị vạch mặt là kẻ hèn nhát chơi bẩn giữa chốn đông người, làm nhục lây cả gia tộc.",
+      "effects": {
+       "wealth": -20,
+       "fame": -15
+      }
+     }
+    },
+    {
+     "label": "Ngầm đổ rượu cho bầy chó dưới gầm bàn",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Không ai chú ý lúc bạn lén đổ ly rượu. Con chó cưng của chủ tiệc liếm phải và gục chết, khiến không khí bữa tiệc đóng băng hoàn toàn.",
+      "effects": {
+       "LUCK": 2,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Đang đổ thì bạn bị trượt tay, rượu dính vào da khiến bạn bị bỏng hóa học nhẹ.",
+      "effects": {
+       "health": -10,
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Ép {ally} uống thử trước",
+     "text": "Dùng quyền lực của chủ nhân để dò mìn."
+    }
+   ],
+   "moment": "Trong chính trường Ma giới, sự hiếu khách ngọt ngào nhất luôn mang theo mùi vị của asen và thạch tín."
+  },
+  {
+   "id": "hd_lord_rebellion",
+   "text": "Bọn quỷ cấp thấp Imp và Demon ở khu hầm mỏ số 4 đình công vì thuế máu quá cao. Chúng dựng chiến lũy, đốt phá quặng Huyết Kim và đòi yêu sách ngang hàng với High Demon.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "work"
+   ],
+   "require": {
+    "job": "hd_lord"
+   },
+   "choices": [
+    {
+     "label": "Đích thân vác trọng kiếm đi đồ sát",
+     "check": {
+      "stat": "STR",
+      "target": 11
+     },
+     "success": {
+      "text": "Bạn biến cuộc đình công thành biển máu, tự tay chặt đầu hàng trăm tên để răn đe. Những kẻ sống sót cắm mặt quay lại làm việc trong nỗi sợ hãi tột cùng.",
+      "effects": {
+       "STR": 2,
+       "wealth": 20,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Đám đông dồn ép bạn vào chân tường mỏ. Chịu nhiều vết chém, bạn buộc phải nhượng bộ và hứa giảm thuế để giữ mạng.",
+      "effects": {
+       "health": -20,
+       "wealth": -30,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Hứa hẹn hão huyền rồi ngầm chia rẽ",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn ban chức tước giả mạo cho vài tên cầm đầu. Chúng tự đâm chém nhau vì lòng tham, phong trào tan rã không kèn không trống.",
+      "effects": {
+       "INT": 2,
+       "wealth": 10
+      }
+     },
+     "fail": {
+      "text": "Bọn chúng nhìn thấu mưu đồ của bạn, tức giận nổ sập hầm mỏ, chôn vùi toàn bộ số quặng giá trị.",
+      "effects": {
+       "joy": -10,
+       "wealth": -50
+      }
+     }
+    },
+    {
+     "label": "Nhượng bộ và miễn thuế một năm",
+     "text": "Chọn cách ôn hòa hiếm hoi ở Ma giới."
+    }
+   ],
+   "moment": "Bạo chúa vĩ đại không chỉ biết giết chóc, mà còn phải biết lúc nào nên thắt chặt hay nới lỏng sợi dây xích bóp cổ kẻ hầu người hạ."
+  },
+  {
+   "id": "hd_lord_judgement",
+   "text": "Quyền lực của bạn chạm đến ngưỡng giới hạn, làm kinh động đến các Thần linh. Một vệt sáng chói lòa xé toạc bầu trời vẩn đục của Ma giới, mang theo Lưỡi Cưa Ánh Sáng của Giáo hội Thánh Quang giáng thẳng xuống ngai vàng của bạn.",
+   "stages": [
+    "middle"
+   ],
+   "require": {
+    "jobRank": 4,
+    "job": "hd_lord"
+   },
+   "choices": [
+    {
+     "label": "Giương cánh đón đỡ bằng sức mạnh vô song",
+     "check": {
+      "stat": "STR",
+      "target": 14
+     },
+     "success": {
+      "text": "Bầu trời rạn nứt. Bạn dùng hai tay tay không bẻ gãy đòn trừng phạt ánh sáng, ngửa mặt gầm lên thách thức cả chư thần.",
+      "effects": {
+       "STR": 4,
+       "fame": 20,
+       "flags": [
+        "god_defier"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Đòn trừng phạt là quá sức tưởng tượng. Ánh sáng bốc hơi toàn bộ xác thịt và linh hồn bạn trong nháy mắt. Ngai vàng của bạn tan thành tro bụi.",
+      "death": ". Huyền thoại khép lại dưới sự phẫn nộ của thần linh"
+     }
+    },
+    {
+     "label": "Dùng trận pháp dịch chuyển sát thương sang {ally}",
+     "check": {
+      "stat": "INT",
+      "target": 11
+     },
+     "success": {
+      "text": "Bạn thi triển ma thuật tà ác nhất, trói buộc sinh mệnh của thuộc hạ vào mình. {ally} gào thét tan biến thành ánh sáng, còn bạn bình an vô sự.",
+      "effects": {
+       "INT": 3
+      }
+     },
+     "fail": {
+      "text": "Pháp trận không kích hoạt kịp. Bạn mất đi một nửa thân thể, phải lẩn trốn trong hang sâu hàng thế kỷ, bị tước bỏ mọi quyền lực.",
+      "effects": {
+       "health": -50,
+       "wealth": -100,
+       "jobRankSet": 0
+      }
+     }
+    }
+   ],
+   "moment": "Trên đỉnh vinh quang luôn tồn tại một lưỡi gươm Damocles rực rỡ, sẵn sàng bổ xuống đầu kẻ dám nhìn thẳng vào mặt trời."
+  },
+  {
+   "id": "hd_rank_king",
+   "text": "Ma Vương đương nhiệm đã suy yếu sau một cuộc chiến với Thần linh và đang chìm vào giấc ngủ say để hồi phục. Hắn để lộ gáy, và đây là cơ hội ngàn năm có một để bạn đoạt lấy Vương miện Hắc ám, xưng bá toàn bộ Vực Thẳm.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "focus": [
+    "social"
+   ],
+   "require": {
+    "guildRank": 5
+   },
+   "choices": [
+    {
+     "label": "Đơn thương độc mã trảm sát bạo chúa",
+     "check": {
+      "stat": "STR",
+      "target": 14
+     },
+     "success": {
+      "text": "Bạn nghiền nát lồng ngực Ma Vương già cỗi, xé toạc trái tim hắn và giơ cao trước hàng vạn con mắt khiếp đảm của triều đình.",
+      "effects": {
+       "STR": 3,
+       "fame": 20,
+       "orgRank": 6
+      }
+     },
+     "fail": {
+      "text": "Hắn bừng tỉnh. Chỉ một cái phẩy tay của kẻ trị vì đã làm gãy nát toàn bộ xương sườn của bạn, bạn may mắn trốn thoát nhưng mang nỗi nhục muôn đời.",
+      "effects": {
+       "health": -40,
+       "fame": -20
+      }
+     }
+    },
+    {
+     "label": "Kích hoạt đại ma trận bòn rút sinh mệnh",
+     "check": {
+      "stat": "INT",
+      "target": 14
+     },
+     "success": {
+      "text": "Hàng vạn rún ngữ (rune) phát sáng trói buộc Ma Vương trên ngai, bòn rút cạn kiệt tu vi và sinh lực của hắn để truyền sang cơ thể bạn.",
+      "effects": {
+       "INT": 3,
+       "health": 10,
+       "orgRank": 6
+      }
+     },
+     "fail": {
+      "text": "Ma trận bị quá tải bởi nguồn năng lượng cổ đại quá lớn, nó nổ tung khiến bạn mù một mắt và tổn thương một phần linh hồn.",
+      "effects": {
+       "INT": -2,
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Hợp tung quần hùng, kích động phản loạn",
+     "check": {
+      "stat": "LUCK",
+      "target": 11
+     },
+     "success": {
+      "text": "Thật tình cờ, những kẻ bạn dùng Huyết Kim để hối lộ lại chính là cận vệ tâm phúc nhất của hắn. Chúng đồng loạt phản trắc, dâng thủ cấp Ma Vương lên cho bạn.",
+      "effects": {
+       "LUCK": 2,
+       "wealth": -50,
+       "orgRank": 6
+      }
+     },
+     "fail": {
+      "text": "Kế hoạch bị rò rỉ, những kẻ bạn mua chuộc đã quay ra bán đứng bạn. Bạn buộc phải cắt nhượng một nửa lãnh thổ để giữ lấy cái mạng quèn.",
+      "effects": {
+       "joy": -10,
+       "wealth": -80
+      }
+     }
+    }
+   ],
+   "moment": "Cuối cùng, ngai vàng đúc từ xương khô của ngàn vạn kẻ chiến bại cũng chính thức thuộc về bạn."
+  },
+  {
+   "id": "hd_magic_abyss",
+   "text": "Trong lúc thiền định để hấp thụ ma khí, ý thức của bạn vô tình kết nối với một rãnh nứt không gian đổ thẳng xuống Vực Thẳm Hư Vô. Một giọng nói sền sệt, cổ quái ngỏ ý muốn dạy bạn ngôn ngữ của Cổ Thần, đổi lấy một phần ký ức tươi đẹp hiếm hoi của bạn.",
+   "stages": [
+    "infant"
+   ],
+   "focus": [
+    "study"
+   ],
+   "choices": [
+    {
+     "label": "Chấp nhận giao dịch tà đạo",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Ngôn ngữ vặn vẹo tràn vào não bộ, mang theo tri thức cấm kỵ. Bạn dễ dàng khắc họa thành công một ma trận viễn cổ.",
+      "effects": {
+       "INT": 2,
+       "joy": -10,
+       "flags": [
+        "ancient_tongue"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Giọng nói đó lừa phỉnh, nó nuốt trọn những ký ức rực rỡ nhất rồi để lại cho bạn cơn đau đầu xé nát tâm can.",
+      "effects": {
+       "INT": -1,
+       "joy": -20
+      }
+     }
+    },
+    {
+     "label": "Dùng ý chí cắt đứt liên kết",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Bằng sự kiêu hãnh của dòng máu High Demon, bạn gầm lên đánh bật luồng tà niệm ra khỏi tâm trí.",
+      "effects": {
+       "STR": 1,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Luồng tà niệm quá nhớp nháp bám lấy bạn, bòn rút sinh khí trước khi bạn kịp phong ấn rãnh nứt.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Lừa bẫy nó để nuốt chửng năng lượng",
+     "require": {
+      "INT": 8
+     },
+     "showLocked": true,
+     "text": "Lập trận pháp phản phệ, cắn ngược lại thực thể vô hình kia."
+    }
+   ],
+   "moment": "Những thực thể sống trong hư không luôn tưởng mình là kẻ đi săn, cho đến khi chúng gặp phải một High Demon đầy mưu mô."
+  },
+  {
+   "id": "hd_magic_soul",
+   "text": "Bạn đang thí nghiệm trên tàn hồn của một Dũng Giả từng thề tiêu diệt Ma giới ngàn năm trước. Bất ngờ, linh hồn hắn hấp thụ sương mù hắc ám, biến dị thành một Wraith oán khí ngút trời, lao đến định xé xác bạn.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "study"
+   ],
+   "require": {
+    "flags": [
+     "ancient_tongue"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Dùng hỏa ngục thiêu rụi hắn lần nữa",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Ngọn lửa địa ngục từ lòng bàn tay bạn thổi bay tàn hồn đó, chỉ để lại một viên pha lê ngậm đầy ký ức chiến đấu của hắn.",
+      "effects": {
+       "STR": 2,
+       "wealth": 30
+      }
+     },
+     "fail": {
+      "text": "Hắn lướt qua ngọn lửa như một bóng ma, để lại một vết cào buốt giá cắt đứt kinh mạch trên ngực bạn.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Dùng ngôn ngữ Cổ Thần giam cầm hắn",
+     "check": {
+      "stat": "INT",
+      "target": 11
+     },
+     "success": {
+      "text": "Những rún ngữ cổ đại trói chặt hắn vào một thanh bảo kiếm hắc ám. Bạn vừa rèn thành công một món vũ khí ma đạo cấp cao.",
+      "effects": {
+       "STR": 1,
+       "INT": 2,
+       "wealth": 50
+      }
+     },
+     "fail": {
+      "text": "Phát âm sai một âm tiết khiến ma pháp dội ngược, bạn bị linh hồn oán hận cắn nuốt một phần sinh mệnh.",
+      "effects": {
+       "INT": -1,
+       "health": -30
+      }
+     }
+    }
+   ],
+   "moment": "Kẻ mang danh công lý khi bị vấy bẩn lại trở thành thứ ma vật tàn bạo nhất thế gian."
+  },
+  {
+   "id": "hd_politic_marriage",
+   "text": "Để lôi kéo sự ủng hộ của gia tộc cai trị Vực Lửa, triều đình sắp đặt cho bạn một liên minh hôn nhân với một High Demon nổi tiếng với thú vui tàn sát. Ngay đêm tân hôn, kẻ đó gác lưỡi hái lên cổ bạn thay cho lời chào.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "social"
+   ],
+   "choices": [
+    {
+     "label": "Bóp nát yết hầu để răn đe",
+     "check": {
+      "stat": "STR",
+      "target": 11
+     },
+     "success": {
+      "text": "Chuyển động chớp nhoáng, bạn vật ngã đối phương xuống giường và siết cổ đến khi ả/hắn nức nở chịu quy phục. Một tình yêu bệnh hoạn chớm nở.",
+      "effects": {
+       "STR": 2,
+       "joy": 7,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Lưỡi hái vạch một đường sâu hoắm trên cổ bạn. Bạn phải dùng ma lực vá lại vết thương, chịu nhục nhã sống dưới trướng kẻ đó.",
+      "effects": {
+       "health": -30,
+       "fame": -10,
+       "marry": true
+      }
+     }
+    },
+    {
+     "label": "Dùng ly rượu độc trên bàn đàm phán",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn bình tĩnh chỉ vào ly vang đã bị hạ độc tinh vi. Đối phương nhận ra sự mưu mô của bạn, bật cười lớn và đồng ý hợp tác bình đẳng.",
+      "effects": {
+       "INT": 2,
+       "fame": 5,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Kẻ đó hất đổ ly rượu, chế nhạo thủ đoạn rẻ tiền của bạn và chiếm đoạt toàn bộ của cải hồi môn.",
+      "effects": {
+       "joy": -10,
+       "wealth": -40
+      }
+     }
+    },
+    {
+     "label": "Từ chối và phế bỏ hôn ước ngay lập tức",
+     "text": "Đạp tung cửa bước ra khỏi phòng tân hôn."
+    }
+   ],
+   "moment": "Ở Ma giới, chiếc giường tân hôn và bàn mổ thường không có nhiều sự khác biệt."
+  },
+  {
+   "id": "hd_politic_assassination",
+   "text": "Bạn chi một khoản tiền khổng lồ thuê Guild Sát thủ Umbra thủ tiêu một tên Archduke đang cản đường. Tuy nhiên, gã thủ lĩnh Umbra lại lật lọng, uy hiếp đòi gấp ba số thù lao nếu không sẽ giao nộp bằng chứng cho phe địch.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "social"
+   ],
+   "choices": [
+    {
+     "label": "Ra tay tàn sát toàn bộ nhánh Umbra đó",
+     "check": {
+      "stat": "AGI",
+      "target": 14
+     },
+     "success": {
+      "text": "Như một cơn cuồng phong bóng tối, bạn đồ sát toàn bộ căn cứ của bọn chúng trong đêm, tự tay hủy đi mọi bằng chứng.",
+      "effects": {
+       "AGI": 3,
+       "wealth": 50,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Bọn sát thủ lẩn trốn quá giỏi. Bạn lĩnh vô số phi tiêu tẩm độc, mất một lượng lớn ma lực để đào tẩu. Bằng chứng bị phát tán khiến bạn lao đao.",
+      "effects": {
+       "health": -40,
+       "fame": -20
+      }
+     }
+    },
+    {
+     "label": "Trả tiền mặt và âm thầm cài chú ấn",
+     "check": {
+      "stat": "LUCK",
+      "target": 11
+     },
+     "success": {
+      "text": "Ngay khi gã chạm vào túi Huyết Kim, chú ấn phát nổ thiêu rụi não bộ của hắn thành tro. Bạn thảnh thơi lấy lại tiền.",
+      "effects": {
+       "INT": 1,
+       "LUCK": 2,
+       "wealth": 10
+      }
+     },
+     "fail": {
+      "text": "Gã tinh ranh dùng gậy gạt túi tiền. Chú ấn nổ tung vô hại, bạn đành cắn răng ném thêm tiền để bịt miệng.",
+      "effects": {
+       "joy": -15,
+       "wealth": -80
+      }
+     }
+    }
+   ],
+   "moment": "Một High Demon vĩ đại không bao giờ mặc cả với lũ đánh thuê, ngài chỉ dùng máu để thanh toán."
+  },
+  {
+   "id": "hd_train_beast",
+   "text": "Để kiểm tra giới hạn bản thân, bạn bước tay không vào Đấu trường Huyết Sa, đối mặt với một con Minotaur đột biến đang điên cuồng vì khát máu.",
+   "stages": [
+    "infant"
+   ],
+   "focus": [
+    "train"
+   ],
+   "choices": [
+    {
+     "label": "Quật ngã nó bằng sức mạnh thuần túy",
+     "check": {
+      "stat": "STR",
+      "target": 11
+     },
+     "success": {
+      "text": "Bạn túm lấy sừng nó, vặn mạnh một vòng rồi quật ngã sinh vật khổng lồ xuống mặt cát đẫm máu trong tiếng gầm rú của khán giả.",
+      "effects": {
+       "STR": 3,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Sức bật của con Minotaur húc tung bạn lên trời, chiếc sừng của nó xuyên qua đùi bạn tạo thành lỗ hổng lớn.",
+      "effects": {
+       "health": -25,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Di chuyển lắt léo bào mòn thể lực",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn luồn lách qua những cú đập nát bấy mặt sân, nhẹ nhàng tung những cú đấm chí tử vào tử huyệt cho đến khi nó gục ngã vì kiệt sức.",
+      "effects": {
+       "AGI": 2,
+       "health": -5
+      }
+     },
+     "fail": {
+      "text": "Bạn sẩy chân trượt trên vũng máu. Cây chùy gai nện trúng lưng, đập vỡ vài cái xương sườn của bạn.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Nhờ {ally} lao vào hỗ trợ",
+     "text": "Bạn ra lệnh cho kẻ đồng hành làm bia đỡ đạn."
+    }
+   ],
+   "moment": "Trên bãi cát Huyết Sa, máu của kẻ thù là thứ nước hoa đắt tiền nhất."
+  },
+  {
+   "id": "hd_train_mind",
+   "text": "Để nâng cao giới hạn linh hồn, bạn tự nhốt mình trong Hang Động Ảo Giác. Nơi đây tái hiện lại nỗi sợ hãi thẳm sâu nhất: hình ảnh bạn bị vặt trụi cánh sừng, quỳ gối xin tha mạng trước mặt bọn phàm nhân của Giáo hội Thánh Quang.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "train"
+   ],
+   "choices": [
+    {
+     "label": "Dùng sự ngạo mạn nghiền nát ảo ảnh",
+     "check": {
+      "stat": "INT",
+      "target": 14
+     },
+     "success": {
+      "text": "Bạn bật cười man dại, giải phóng luồng uy áp Hắc ám xé toạc màn sương mù ảo giác, khẳng định ý chí không thể lay chuyển.",
+      "effects": {
+       "STR": 1,
+       "INT": 3,
+       "joy": 10
+      }
+     },
+     "fail": {
+      "text": "Ảo giác quá chân thực khiến bạn mất kiểm soát, tự cào rách ngực mình vì hoảng loạn, để lại những di chứng tinh thần dai dẳng.",
+      "effects": {
+       "health": -30,
+       "joy": -20
+      }
+     }
+    },
+    {
+     "label": "Tập trung ngồi thiền chờ ảo giác qua đi",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "May thay, tâm trí bạn bất ngờ rơi vào trạng thái tĩnh lặng tuyệt đối. Màn sương tự động tan biến mà không gây hại gì.",
+      "effects": {
+       "INT": 1,
+       "LUCK": 2
+      }
+     },
+     "fail": {
+      "text": "Ảo giác kéo dài hàng tháng. Bạn bước ra khỏi hang với thân hình gầy rộc và tâm trí kiệt quệ mệt mỏi.",
+      "effects": {
+       "health": -15,
+       "joy": -10
+      }
+     }
+    }
+   ],
+   "moment": "Vũ khí đáng sợ nhất không nằm ở đôi tay, mà là một tâm trí từ chối biết đến hai từ \"sợ hãi\"."
+  },
+  {
+   "id": "hd_conquer_hero",
+   "text": "Quân đội của bạn bị chặn lại bởi một Dũng Giả (Hero) trẻ tuổi thuộc Guild Bình Minh. Mang theo thánh kiếm phát sáng rực rỡ, cậu ta dõng dạc tuyên bố sẽ dùng máu bạn để kết thúc Kỷ Nguyên Tăm Tối.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "choices": [
+    {
+     "label": "Nghiền nát cậu ta trong một chiêu",
+     "check": {
+      "stat": "STR",
+      "target": 14
+     },
+     "success": {
+      "text": "Lưỡi gươm hắc ám của bạn chém gãy đôi thanh thánh kiếm, cắt đôi luôn cả thân thể bọc giáp của Dũng Giả trong sự bàng hoàng của phe loài người.",
+      "effects": {
+       "STR": 4,
+       "wealth": 40,
+       "fame": 20
+      }
+     },
+     "fail": {
+      "text": "Thánh kiếm chọc thủng hàng phòng ngự của bạn, găm thẳng vào vai trái. Lần đầu tiên sau hàng ngàn năm, bạn nếm mùi thất bại và phải ra lệnh rút quân.",
+      "effects": {
+       "health": -40,
+       "fame": -20
+      }
+     }
+    },
+    {
+     "label": "Dùng mưu hèn hạ độc nguồn nước",
+     "check": {
+      "stat": "INT",
+      "target": 11
+     },
+     "success": {
+      "text": "Dũng Giả kiệt sức và thổ huyết ngay giữa trận mạc vì nguồn nước suối đã bị tẩm ma khí của bạn từ hôm trước. Bạn nhẹ nhàng lấy đầu cậu ta.",
+      "effects": {
+       "INT": 3,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Một Thánh Nữ (Priest) đã hóa giải độc tố. Bạn không những mất điểm yếu bất ngờ mà còn bị quân loài người tràn lên đánh bật rễ.",
+      "effects": {
+       "wealth": -30,
+       "fame": -15
+      }
+     }
+    },
+    {
+     "label": "Biến {child} thành mồi nhử",
+     "text": "Đẩy máu mủ của mình ra gánh đòn sát thủ."
+    }
+   ],
+   "moment": "Hào quang công lý thường rất rực rỡ, nhưng nó luôn tắt ngấm trong vũng bùn tanh hôi."
+  },
+  {
+   "id": "hd_conquer_siege",
+   "text": "Chiến dịch thiêu rụi Đại Ngàn Lục Bảo gặp trục trặc khi Đội Ranger Đại Ngàn dùng phép thuật của Cây Thế Giới Yggdrasil để tạo ra một bức tường gai ngọc bích khổng lồ chắn ngang đường tiến quân.",
+   "stages": [
+    "middle"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "choices": [
+    {
+     "label": "Triệu hồi Hỏa Ngục thiêu rụi tất cả",
+     "check": {
+      "stat": "INT",
+      "target": 11
+     },
+     "success": {
+      "text": "Một cơn mưa thiên thạch bọc lửa rớt xuống từ trời cao, nung chảy bức tường ngọc bích và biến một góc rừng thành biển lửa.",
+      "effects": {
+       "STR": 1,
+       "INT": 2,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Pháp thuật của Yggdrasil phản kháng mạnh mẽ, những rễ cây đâm xuyên qua cổng triệu hồi, siết chặt và làm gãy vài cái xương của bạn.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Tập trung hỏa lực chọc thủng một điểm",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Dẫn đầu đội tiên phong, bạn vung trọng kiếm chém liên hoàn hàng trăm nhát, khoét một lỗ hổng vĩ đại để quân đoàn ùa vào tàn sát bầy Elf.",
+      "effects": {
+       "STR": 2,
+       "wealth": 30
+      }
+     },
+     "fail": {
+      "text": "Lưỡi kiếm của bạn bị mắc kẹt giữa các dây leo cường hóa. Bầy Elf xả tên như mưa khiến toàn quân thiệt hại nặng nề.",
+      "effects": {
+       "health": -20,
+       "fame": -10
+      }
+     }
+    }
+   ],
+   "moment": "Mùi khét lẹt của cây cổ thụ ngàn năm cháy rụi là thứ hương liệu ngọt ngào nhất bạn từng ngửi."
+  },
+  {
+   "id": "hd_court_tribute",
+   "text": "Một bộ lạc Goblin đầm lầy dâng lên cống phẩm: một viên đá giống hệt con mắt người đang chớp nháy. Nhìn sâu vào đó, bạn cảm nhận được luồng khí tức điên loạn của Vực Thẳm Cổ Thần.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "work"
+   ],
+   "choices": [
+    {
+     "label": "Hấp thụ nó vào trán để có con mắt thứ ba",
+     "check": {
+      "stat": "INT",
+      "target": 14
+     },
+     "success": {
+      "text": "Đau đớn tột cùng khi viên đá cắm phập vào hộp sọ bạn, nhưng bù lại, bạn giờ đây nhìn thấu mọi lời nói dối và ma pháp tàng hình.",
+      "effects": {
+       "INT": 4,
+       "health": -10,
+       "flags": [
+        "third_eye"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Luồng khí tức điên loạn giội thẳng vào não khiến bạn hét lên thảm thiết. Bạn phải đập nát viên đá để giữ mạng, nhưng đôi mắt gạch chéo đỏ ngầu vẫn ám ảnh bạn.",
+      "effects": {
+       "health": -30,
+       "joy": -15
+      }
+     }
+    },
+    {
+     "label": "Gắn nó vào quyền trượng",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Viên đá kết dính hoàn hảo, tỏa ra ma lực gia tăng sức mạnh uy hiếp cho mỗi lời nói của bạn trước triều đình.",
+      "effects": {
+       "LUCK": 1,
+       "wealth": 20,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Viên đá nứt toác, chảy ra một vũng bùn thối hoắc làm hư hỏng quyền trượng đắt tiền của bạn.",
+      "effects": {
+       "wealth": -20
+      }
+     }
+    },
+    {
+     "label": "Ban thưởng viên đá cho {ally}",
+     "text": "Bạn ném thứ đồ chơi rủi ro này cho thuộc hạ."
+    }
+   ],
+   "moment": "Một món quà vĩ đại bao giờ cũng đi kèm với một cái giá mà không kẻ phàm tục nào dám trả."
+  },
+  {
+   "id": "hd_court_rebel",
+   "text": "Một tên Ma tước (Baron) kiêu ngạo bước lên thềm ngai vàng, chỉ trích công khai rằng bạn đang điều hành lãnh địa quá nhân nhượng và đòi được cắt đất xưng vương. Cả triều đình nín thở chờ phản ứng của bạn.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "work"
+   ],
+   "choices": [
+    {
+     "label": "Xé xác hắn ngay tại chỗ",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Chớp mắt một cái, bạn xuất hiện sau lưng và giật tung xương sống của hắn ra khỏi cơ thể. Máu tươi bắn tưới tung tóe lên những kẻ đang quỳ gối.",
+      "effects": {
+       "AGI": 2,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Hắn phản xạ đỡ được đòn của bạn và lùi lại an toàn, để lại tiếng xì xầm bàn tán về sự chậm chạp của vị chúa tể kiêu hùng.",
+      "effects": {
+       "joy": -5,
+       "fame": -15
+      }
+     }
+    },
+    {
+     "label": "Đấu khẩu và dùng luật lệ ép chết hắn",
+     "check": {
+      "stat": "INT",
+      "target": 11
+     },
+     "success": {
+      "text": "Lập luận sắc bén của bạn dồn hắn vào tội phản nghịch phản bội Vực Thẳm. Bạn quang minh chính đại ra lệnh băm vằm hắn trước triều.",
+      "effects": {
+       "INT": 2,
+       "wealth": 30,
+       "fame": 8
+      }
+     },
+     "fail": {
+      "text": "Hắn cãi lý điêu luyện, lôi kéo được một nửa số quý tộc trong điện đứng về phía mình, tạo ra một cuộc khủng hoảng quyền lực nghiêm trọng.",
+      "effects": {
+       "wealth": -30,
+       "fame": -20
+      }
+     }
+    }
+   ],
+   "moment": "Quyền lực tuyệt đối không dung thứ cho bất kỳ âm thanh lệch pha nào, dù là nhỏ nhất."
+  },
+  {
+   "id": "hd_seal_thief",
+   "text": "Giấc ngủ kéo dài ngàn năm của bạn bị phá bĩnh bởi tiếng cuốc xẻng lạch cạch. Một toán mạo hiểm giả loài người rách rưới đã tìm thấy lăng mộ của bạn và đang hí hửng cạy nắp quan tài để moi móc Huyết Kim.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "rest"
+   ],
+   "choices": [
+    {
+     "label": "Trừng mắt đoạt hồn",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn hé mắt. Uy áp hàng thiên niên kỷ tràn ra đè bẹp tâm trí bọn chúng, khiến chúng phát điên tự cắn xé lẫn nhau ngay trước nắp quan tài.",
+      "effects": {
+       "INT": 1,
+       "wealth": 10
+      }
+     },
+     "fail": {
+      "text": "Việc thức giấc đột ngột khiến bạn hoa mắt. Bọn chúng hoảng sợ giáng cuốc xẻng loạn xạ vào mặt bạn rồi vội vã bỏ chạy mang theo một ít châu báu.",
+      "effects": {
+       "health": -10,
+       "wealth": -20
+      }
+     }
+    },
+    {
+     "label": "Vươn tay bắt một tên làm con tin nạp mạng",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bàn tay đen kịt của bạn vọt ra chộp lấy cổ tên thủ lĩnh, hút cạn sinh khí của hắn để xoa dịu cơn đói ngàn năm. Những tên còn lại chết ngất vì sợ.",
+      "effects": {
+       "AGI": 2,
+       "health": 15
+      }
+     },
+     "fail": {
+      "text": "Khớp xương khô cứng khiến bạn vồ trượt. Bọn mạo hiểm giả kịp ném lại một quả lựu đạn ánh sáng khiến bạn mù lòa tạm thời.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Giả chết để {ally} bên ngoài xử lý",
+     "text": "Bạn lười biếng nhắm mắt lại."
+    }
+   ],
+   "moment": "Tuổi thọ của một con muỗi cũng có giới hạn, cớ sao lũ phàm nhân luôn thích lao đầu vào ngọn lửa vô tận?"
+  },
+  {
+   "id": "hd_seal_awaken",
+   "text": "Bầu trời trên mặt đất hiện ra hiện tượng Trăng Máu rực rỡ. Hắc Nguyệt Hội đã tổ chức một đại lễ hiến tế triệu sinh linh tại thủ đô Sanctus để cung cấp năng lượng, thỉnh cầu bạn phá vỡ xiềng xích để mang lại Kỷ Nguyên Tăm Tối.",
+   "stages": [
+    "elder"
+   ],
+   "focus": [
+    "rest"
+   ],
+   "choices": [
+    {
+     "label": "Cưỡng ép phá phong ấn bằng ma lực",
+     "check": {
+      "stat": "STR",
+      "target": 14
+     },
+     "success": {
+      "text": "Đôi cánh sừng vĩ đại của bạn tung rộng xé nát lớp tinh thể giam cầm. Trăng Máu soi rọi thân thể hoàn mỹ của bạn, báo hiệu sự diệt vong của nhân loại.",
+      "effects": {
+       "STR": 4,
+       "fame": 30
+      }
+     },
+     "fail": {
+      "text": "Lớp xiềng xích của chư thần quá dày. Bạn đập cánh gãy gục cả xương, nôn ra dòng máu đen và bất lực chìm lại vào giấc ngủ vĩnh hằng, mang theo nỗi hận thấu xương.",
+      "effects": {
+       "health": -50,
+       "joy": -30
+      }
+     }
+    },
+    {
+     "label": "Hút ngược toàn bộ sinh khí của Hắc Nguyệt Hội",
+     "check": {
+      "stat": "INT",
+      "target": 11
+     },
+     "success": {
+      "text": "Thay vì phá phong ấn thô bạo, bạn dùng thuật tà đạo rút cạn cả triệu sinh mệnh tế phẩm và mạng sống của lũ giáo đồ để bào mòn xích sắt. Cửa lăng mộ chầm chậm mở ra.",
+      "effects": {
+       "INT": 3,
+       "health": 20,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Khoảng cách không gian quá xa làm đứt đoạn thần chú. Nghi lễ thất bại thảm hại, Hắc Nguyệt Hội bị tiêu diệt còn bạn kẹt lại vĩnh viễn trong lăng mộ.",
+      "effects": {
+       "wealth": -50,
+       "fame": -40
+      }
+     }
+    }
+   ],
+   "moment": "Thần linh phong ấn bạn, nhưng phàm nhân lại luôn ngu xuẩn tìm cách giải phóng con quái vật kết liễu chính chúng."
+  },
+  {
+   "id": "hd_ally_brave",
+   "text": "Bị phục kích bởi một con Ancient Troll khổng lồ, {ally} không thèm đợi lệnh mà gầm lên lao thẳng vào háng con quái vật để bảo vệ bạn. Sự liều lĩnh này sắp biến kẻ đó thành bãi nhầy.",
+   "require": {
+    "party": 1,
+    "allyTrait": "brave"
+   },
+   "choices": [
+    {
+     "label": "Phóng ma giáo hỗ trợ từ xa",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Ngọn giáo hắc ám của bạn xuyên thủng mắt con Troll đúng lúc nó vung chùy. {ally} hãnh diện xẻ thịt con quái.",
+      "effects": {
+       "INT": 1,
+       "wealth": 20,
+       "bond": 10
+      }
+     },
+     "fail": {
+      "text": "Ngọn giáo chệch hướng. Con Troll đập dẹp lép {ally} xuống đất, bạn phải tự thân vận động giải quyết nốt.",
+      "effects": {
+       "health": -10,
+       "bond": -5
+      }
+     }
+    },
+    {
+     "label": "Tận dụng sơ hở tung đòn kết liễu",
+     "check": {
+      "stat": "AGI",
+      "target": 11
+     },
+     "success": {
+      "text": "Lướt qua cái xác đang giãy giụa của thuộc hạ, bạn cứa đứt yết hầu con Troll một cách hoàn mỹ.",
+      "effects": {
+       "AGI": 2,
+       "fame": 5,
+       "allyHurt": true
+      }
+     },
+     "fail": {
+      "text": "Máu của con Troll phun mù mịt làm bạn trượt chân. Bạn và thuộc hạ đều lĩnh một cước văng vào vách đá.",
+      "effects": {
+       "health": -20,
+       "allyHurt": true
+      }
+     }
+    }
+   ],
+   "moment": "Lòng dũng cảm của một con quỷ thấp kém thường chỉ là một ranh giới rất mỏng manh với sự tự sát."
+  },
+  {
+   "id": "hd_ally_loyal",
+   "text": "Bạn vừa giẫm chân lên một rún ngữ (rune) ám sát giấu dưới thảm đỏ. Không chút do dự, {ally} lao tới xô bạn ra và lĩnh trọn luồng ma lực ăn mòn tà ác đang lan dọc cánh tay.",
+   "focus": [
+    "social"
+   ],
+   "require": {
+    "party": 1,
+    "allyTrait": "loyal"
+   },
+   "choices": [
+    {
+     "label": "Chặt đứt cánh tay để cứu mạng kẻ đó",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Lưỡi dao chớp lóe, cánh tay nhiễm độc rơi rụng trước khi nó chạm đến tim. Một cái giá quá hời để giữ lại một thuộc hạ tận tụy.",
+      "effects": {
+       "AGI": 1,
+       "bond": 15
+      }
+     },
+     "fail": {
+      "text": "Động tác của bạn quá chậm, chất độc ngấm vào tâm mạch khiến {ally} thổ huyết liên tục và hấp hối.",
+      "effects": {
+       "joy": -5,
+       "allyHurt": true
+      }
+     }
+    },
+    {
+     "label": "Rút ngược ma lực độc xông vào cơ thể mình",
+     "check": {
+      "stat": "STR",
+      "target": 14
+     },
+     "success": {
+      "text": "Bằng thể chất cường hãn của High Demon, bạn ép chất độc chảy vào người mình rồi dùng ma hỏa thiêu rụi nó trong huyết quản. {ally} dập đầu khóc lóc quy phục.",
+      "effects": {
+       "STR": 3,
+       "health": -10,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Độc tính vượt ngưỡng chịu đựng. Cả bạn và thuộc hạ đều quằn quại trên mặt đất, tổn thương một phần linh hồn.",
+      "effects": {
+       "health": -30
+      }
+     }
+    }
+   ],
+   "moment": "Lòng trung thành tuyệt đối là thứ trang sức đắt giá nhất mà một chúa tể có thể đeo trên người."
+  },
+  {
+   "id": "hd_ally_greedy",
+   "text": "Trong tàn tích của một ngôi đền Elf, {ally} lén lút cạy một viên ngọc Lục Bảo khổng lồ trên bức tượng rêu phong. Hành động ngu ngốc đó kích hoạt hàng loạt mũi tên độc từ vách tường bắn ra như mưa.",
+   "focus": [
+    "adventure"
+   ],
+   "require": {
+    "party": 1,
+    "allyTrait": "greedy"
+   },
+   "choices": [
+    {
+     "label": "Quật ngã thuộc hạ và giương khiên ma pháp",
+     "check": {
+      "stat": "INT",
+      "target": 11
+     },
+     "success": {
+      "text": "Màng chắn bóng tối chặn đứng cơn mưa tên. Bạn tát văng viên ngọc khỏi tay kẻ đó, tiện tay tịch thu luôn vào túi mình.",
+      "effects": {
+       "INT": 2,
+       "wealth": 30,
+       "bond": -5
+      }
+     },
+     "fail": {
+      "text": "Ma lực không đủ mạnh, mũi tên xuyên qua khiên găm đầy lưng bạn. Kẻ hám tiền kia thì sợ hãi co rúm.",
+      "effects": {
+       "health": -25,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Túm cổ thuộc hạ làm bia đỡ đạn",
+     "text": "Hình phạt cho sự vô kỷ luật."
+    }
+   ],
+   "moment": "Một con quỷ hám lợi luôn chết vì những thứ lấp lánh không thuộc về nó."
+  },
+  {
+   "id": "hd_ally_timid",
+   "text": "Tiểu đội của bạn đụng độ một toán Priest (Tu sĩ) của Giáo hội Thánh Quang. Ánh sáng thanh tẩy chói lòa khiến {ally} ôm đầu gào thét, co rúm lại sau tà áo choàng của bạn và từ chối chiến đấu.",
+   "require": {
+    "party": 1,
+    "allyTrait": "timid"
+   },
+   "choices": [
+    {
+     "label": "Giáng một cước thức tỉnh sự hung bạo",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Cú đá trời giáng kèm ma khí của bạn khiến bản năng ác quỷ của kẻ đó lấn át nỗi sợ, xông lên cắn xé toán tu sĩ.",
+      "effects": {
+       "STR": 1,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Lực đá quá mạnh làm {ally} gãy sườn lăn quay ra ngất, bạn phải một mình dọn dẹp bọn phàm nhân rắc rối.",
+      "effects": {
+       "health": -10,
+       "bond": -5
+      }
+     }
+    },
+    {
+     "label": "Phóng ra uy áp ma vương đè bẹp ánh sáng",
+     "check": {
+      "stat": "LUCK",
+      "target": 11
+     },
+     "success": {
+      "text": "Bóng tối cuồn cuộn tỏa ra từ bạn nuốt chửng hoàn toàn ánh thánh quang. Bọn tu sĩ hoảng loạn bỏ chạy, thuộc hạ của bạn nhìn bạn với ánh mắt sùng bái tột độ.",
+      "effects": {
+       "LUCK": 2,
+       "fame": 5,
+       "bond": 15
+      }
+     },
+     "fail": {
+      "text": "Uy áp bị dội ngược. Ánh sáng chọc mù mắt bạn trong vài giây, đủ để một mũi lao bạc sượt qua hông bạn.",
+      "effects": {
+       "health": -20
+      }
+     }
+    }
+   ],
+   "moment": "Kẻ hèn nhát chỉ trở nên hữu dụng khi nỗi sợ chủ nhân của chúng lớn hơn nỗi sợ kẻ thù."
+  },
+  {
+   "id": "hd_ally_funny",
+   "text": "Trong lúc bạn đang đàm phán căng thẳng với một vị Đại Công Tước (Archduke) mặt lạnh như tiền, {ally} đột nhiên buông một câu chế nhạo bộ sừng lố bịch của lão. Bầu không khí trong phòng lập tức đóng băng.",
+   "focus": [
+    "work"
+   ],
+   "require": {
+    "party": 1,
+    "allyTrait": "cheerful"
+   },
+   "choices": [
+    {
+     "label": "Nhanh tay tát lật mặt thuộc hạ để xoa dịu",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Cái tát tóe lửa của bạn khiến thuộc hạ văng vào tường. Vị Đại Công Tước nguôi giận, đánh giá cao sự nghiêm minh của bạn và ký hiệp ước.",
+      "effects": {
+       "AGI": 1,
+       "wealth": 20,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Trượt tay. Thuộc hạ lách né được khiến bạn mất đà, lão Archduke nổi điên xé bỏ hiệp ước và rút gươm.",
+      "effects": {
+       "wealth": -30,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Cười lớn tán đồng và đe dọa lão ta",
+     "check": {
+      "stat": "INT",
+      "target": 11
+     },
+     "success": {
+      "text": "Bạn dùng lý lẽ sắc bén biến trò đùa thành một lời uy hiếp chính trị thâm thúy, ép lão ta phải nhượng bộ một mỏ Huyết Kim để cầu hòa.",
+      "effects": {
+       "INT": 2,
+       "wealth": 40,
+       "bond": 10
+      }
+     },
+     "fail": {
+      "text": "Lão Archduke không thèm đôi co, lập tức vung chùy táng thẳng vào bàn đàm phán, khơi mào một trận huyết chiến tại chỗ.",
+      "effects": {
+       "health": -20,
+       "fame": -5
+      }
+     }
+    }
+   ],
+   "moment": "Ở Ma giới, một câu nói đùa có thể được trả giá bằng vàng, hoặc bằng một cái đầu lìa khỏi cổ."
+  },
+  {
+   "id": "hd_ally_cold",
+   "text": "Bắt sống được một tên Sát thủ Umbra, {ally} không nói một lời, lẳng lặng rút ra bộ dao găm chuyên dụng lột da và quay sang nhìn bạn, chờ đợi cái gật đầu để bắt đầu bữa tiệc tra tấn.",
+   "require": {
+    "party": 1,
+    "allyTrait": "cold"
+   },
+   "choices": [
+    {
+     "label": "Cùng tham gia mổ xẻ để ép cung",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Hai thầy trò phối hợp nhịp nhàng tháo rời từng khớp xương của kẻ thù. Tên sát thủ khóc lóc khai ra vị trí một kho báu bí mật.",
+      "effects": {
+       "INT": 1,
+       "wealth": 30,
+       "bond": 10
+      }
+     },
+     "fail": {
+      "text": "Quá tay làm tên sát thủ sốc phản vệ chết trước khi kịp mở miệng. Cả hai tiếc nuối vứt xác hắn xuống rãnh nước.",
+      "effects": {
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Giao toàn quyền xử lý để rảnh tay",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Nửa ngày sau, {ally} dâng lên bạn một tờ giấy da viết bằng máu ghi rõ danh tính kẻ chủ mưu, cùng một chiếc nhẫn Huyết Kim lột từ tay nạn nhân.",
+      "effects": {
+       "LUCK": 1,
+       "wealth": 10,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Tên sát thủ giấu thuốc nổ trong răng. Một tiếng nổ lớn vang lên làm nát bét căn hầm, {ally} bước ra với thân thể cháy đen.",
+      "effects": {
+       "wealth": -10,
+       "allyHurt": true
+      }
+     }
+    }
+   ],
+   "moment": "Máu và sự đau đớn là thứ ngôn ngữ duy nhất mà một kẻ vô cảm có thể thấu hiểu trọn vẹn."
+  },
+  {
+   "id": "hd_ally_loot",
+   "text": "Phân chia chiến lợi phẩm sau khi tàn sát một hang động Kobold. {ally} quỳ gối xin bạn ban thưởng một viên Lõi Mana bóng tối, thứ vốn dĩ chỉ dành cho quý tộc High Demon. Sự im lặng bao trùm bầy ma vật.",
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Thử thách hắn bằng một đòn ma lực",
+     "check": {
+      "stat": "STR",
+      "target": 11
+     },
+     "success": {
+      "text": "Bạn giáng một đòn chí mạng. Khạc ra máu nhưng vẫn ôm chặt viên lõi không buông, ý chí của {ally} làm bạn hài lòng. Bạn cho phép kẻ đó giữ nó.",
+      "effects": {
+       "STR": 2,
+       "fame": 5,
+       "bond": 20
+      }
+     },
+     "fail": {
+      "text": "Đòn đánh làm vỡ nát viên Lõi Mana quý giá. Cả hai cùng trắng tay trong sự hậm hực ngấm ngầm.",
+      "effects": {
+       "joy": -5,
+       "wealth": -20
+      }
+     }
+    },
+    {
+     "label": "Từ chối thẳng thừng và sỉ nhục",
+     "text": "Khẳng định trật tự đẳng cấp."
+    }
+   ],
+   "moment": "Một cái xương thừa chỉ được ban cho chó săn khi chủ nhân của nó đã no bụng."
+  },
+  {
+   "id": "hd_ally_past",
+   "text": "Một gián điệp bị bắt giữ vạch trần bí mật động trời: {ally} từng là tay sai của Huyết Hầu Tước đối địch, kẻ đã tàn sát gia tộc bạn hàng thế kỷ trước. {ally} run rẩy dập đầu, thề rằng đã cắt đứt hoàn toàn quá khứ.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "social"
+   ],
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Dùng Thuật Đọc Hồn kiểm tra ký ức",
+     "check": {
+      "stat": "INT",
+      "target": 11
+     },
+     "success": {
+      "text": "Xé toạc hàng phòng ngự tinh thần, bạn thấy rõ sự hối hận chân thực và lòng trung thành tuyệt đối của thuộc hạ. Bạn giết tên gián điệp để bịt đầu mối.",
+      "effects": {
+       "INT": 2,
+       "fame": 5,
+       "bond": 20
+      }
+     },
+     "fail": {
+      "text": "Thuật ma pháp dội ngược làm bạn đau đầu như búa bổ. Trái tim đa nghi của bạn quyết định giam lỏng kẻ đó.",
+      "effects": {
+       "health": -15,
+       "bond": -20
+      }
+     }
+    },
+    {
+     "label": "Dùng dao găm ban cái chết ân huệ",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn không cần nghe giải thích. Lưỡi dao cứa ngọt qua cổ thuộc hạ. Thà giết nhầm vạn kẻ còn hơn để sót một mầm mống phản trắc.",
+      "effects": {
+       "AGI": 1,
+       "fame": 5,
+       "allyDie": true
+      }
+     },
+     "fail": {
+      "text": "{ally} né được và điên cuồng bỏ chạy khỏi doanh trại trong nước mắt, mang theo một lượng lớn Huyết Kim của bạn.",
+      "effects": {
+       "wealth": -30,
+       "fame": -10,
+       "allyLeave": true
+      }
+     }
+    }
+   ],
+   "moment": "Ở Ma giới, sự tha thứ là đặc quyền chỉ dành cho những kẻ đã chết."
+  },
+  {
+   "id": "hd_ally_save",
+   "text": "Trong một hầm ngục cổ đại, trần nhà sụp xuống. Một khối đá tảng khắc đầy rún ngữ ánh sáng đang rơi tự do, chuẩn bị đè nát bấy {ally}.",
+   "focus": [
+    "adventure"
+   ],
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Tung cước đá văng khối đá ngàn cân",
+     "check": {
+      "stat": "STR",
+      "target": 14
+     },
+     "success": {
+      "text": "Chân bạn vỡ nát lớp đá, cứu mạng thuộc hạ trong gang tấc. {ally} thề nguyện bán mạng cho bạn đến khi linh hồn tan biến.",
+      "effects": {
+       "STR": 3,
+       "fame": 5,
+       "bond": 30
+      }
+     },
+     "fail": {
+      "text": "Khối đá quá nặng đè bẹp một bên chân bạn, trong khi {ally} vẫn chết thảm. Bạn trả giá đắt cho một phút yếu lòng hiếm hoi.",
+      "effects": {
+       "health": -30,
+       "allyDie": true
+      }
+     }
+    },
+    {
+     "label": "Dùng xích bóng tối kéo mạnh thuộc hạ ra",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Dây xích quấn ngang eo kéo tuột kẻ đó ra ngay sát tích tắc khối đá đập xuống sàn vang trời.",
+      "effects": {
+       "AGI": 1,
+       "bond": 15
+      }
+     },
+     "fail": {
+      "text": "Xích phóng trượt. Bạn đành đứng nhìn thuộc hạ biến thành bãi thịt vụn đỏ hỏn dưới nền nhà.",
+      "effects": {
+       "joy": -10,
+       "allyDie": true
+      }
+     }
+    },
+    {
+     "label": "Lạnh lùng đứng nhìn",
+     "text": "Đồ hỏng thì vứt đi."
+    }
+   ],
+   "moment": "Kẻ vĩ đại không bao giờ khóc thương cho một công cụ bị hỏng."
+  },
+  {
+   "id": "hd_marriage_selection",
+   "text": "Gia tộc Vampire cổ xưa ngỏ ý muốn liên minh và cử đến ba ứng viên kiệt xuất nhất để bạn chọn làm bạn đời. Tuy nhiên, quy tắc của Vực Thẳm là chỉ kẻ sống sót cuối cùng mới có tư cách bước lên giường của High Demon.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "social"
+   ],
+   "require": {
+    "spouse": false
+   },
+   "choices": [
+    {
+     "label": "Quẳng một thanh gươm và ép chúng tự sát phạt",
+     "check": {
+      "stat": "STR",
+      "target": 11
+     },
+     "success": {
+      "text": "Khí tràng vương giả của bạn đè bẹp ý chí của chúng. Ba ứng viên điên cuồng lao vào xé xác nhau, kẻ mạnh nhất bò đến liếm gót chân bạn.",
+      "effects": {
+       "STR": 2,
+       "fame": 10,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Cả ba kẻ đồng loạt liên thủ tấn công bạn vì bị sỉ nhục. Bạn giết được chúng nhưng dính độc trầm trọng, liên minh tan vỡ hoàn toàn.",
+      "effects": {
+       "health": -25,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Dùng ảo ảnh ma pháp thử thách tâm trí",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn tạo ra một mê cung ảo giác. Kẻ duy nhất giữ được sự lạnh lùng và tàn nhẫn bước ra khỏi đó đã chứng minh được giá trị của mình.",
+      "effects": {
+       "INT": 1,
+       "wealth": 20,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Ảo giác của bạn bị một kẻ có tinh thần lực cao hơn bẻ gãy. Hắn chế nhạo bạn rồi bỏ đi, mang theo sự bẽ mặt của toàn triều đình.",
+      "effects": {
+       "joy": -5,
+       "fame": -15
+      }
+     }
+    },
+    {
+     "label": "Chọn kẻ yếu ớt nhất để dễ bề thao túng",
+     "text": "Từ chối sức mạnh để lấy sự an toàn."
+    }
+   ],
+   "moment": "Một liên minh bền vững ở Ma giới luôn bắt đầu bằng mùi máu tươi của những kẻ ruột thịt."
+  },
+  {
+   "id": "hd_marriage_betrayal",
+   "text": "Gia tộc của {spouse} muốn lật đổ bạn. Giữa đêm khuya, bạn lờ mờ cảm nhận được hàn khí từ lưỡi dao tẩm độc của {spouse} đang kề sát cuống họng mình.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "rest"
+   ],
+   "require": {
+    "spouse": true
+   },
+   "choices": [
+    {
+     "label": "Bắt lấy cổ tay và ép lập Huyết Thệ",
+     "check": {
+      "stat": "AGI",
+      "target": 14
+     },
+     "success": {
+      "text": "Nhanh như chớp, bạn bẻ gãy cổ tay {spouse}, dùng chính máu của ả/hắn vẽ rún ngữ nô lệ lên ngực. Từ nay, kẻ phản trắc trở thành con rối tuyệt đối của bạn.",
+      "effects": {
+       "INT": 1,
+       "AGI": 2,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Lưỡi dao cứa rách da cổ bạn, chất độc hắc ám lập tức phong bế ma lực. Bạn buộc phải đánh ngất {spouse} và gọi quân y trong sự nhục nhã.",
+      "effects": {
+       "health": -40,
+       "fame": -20
+      }
+     }
+    },
+    {
+     "label": "Giả vờ trúng độc để mẻ lưới bắt trọn gia tộc",
+     "check": {
+      "stat": "LUCK",
+      "target": 11
+     },
+     "success": {
+      "text": "Nhờ thể chất đặc dị, bạn miễn nhiễm kịch độc nhưng vẫn giả chết. Khi gia tộc của {spouse} hân hoan kéo đến tiếp quản, bạn vùng dậy tàn sát toàn bộ bọn chúng.",
+      "effects": {
+       "LUCK": 2,
+       "wealth": 50,
+       "fame": 15,
+       "loseSpouse": true,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Độc tính mạnh hơn bạn tưởng, làm kinh mạch bạn tổn thương thực sự. Bạn đành phải kích hoạt trận pháp bỏ trốn khỏi chính lâu đài của mình.",
+      "effects": {
+       "health": -30,
+       "wealth": -50,
+       "loseSpouse": true
+      }
+     }
+    }
+   ],
+   "moment": "Ngay cả khi nhắm mắt trên giường ngủ, một tay của High Demon vẫn luôn phải đặt trên chuôi kiếm."
+  },
+  {
+   "id": "hd_child_test",
+   "text": "Để kiểm tra huyết mạch, bạn xách cổ {child} ném xuống rìa Cửa Ngục Than Khóc. Đứa trẻ khóc thét cầu cứu giữa những ánh mắt thèm thuồng của bầy quái vật cấp thấp.",
+   "stages": [
+    "infant"
+   ],
+   "require": {
+    "children": 1
+   },
+   "choices": [
+    {
+     "label": "Tung ma khí che chở trong bóng tối",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn tinh tế bọc một lớp khiên ma pháp vô hình. Đứa trẻ an toàn bò lên vách đá, tuy sợ hãi nhưng kính sợ uy quyền của bạn.",
+      "effects": {
+       "INT": 1,
+       "joy": 2
+      }
+     },
+     "fail": {
+      "text": "Khiên ma pháp bị nhiễu loạn. {child} bị một con quỷ dơi cắn rách vai, phải dùng đến ma dược quý giá mới giữ được mạng.",
+      "effects": {
+       "joy": -3,
+       "wealth": -10
+      }
+     }
+    },
+    {
+     "label": "Đứng khoanh tay mặc kệ sinh tử",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Đứa trẻ bùng nổ bản năng sinh tồn, tự tay xé xác con quái vật đầu tiên và trèo lên với đôi mắt đỏ ngầu đẫm máu. Bạn đã có một người kế vị hoàn hảo.",
+      "effects": {
+       "LUCK": 2,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "{child} trượt chân rơi thẳng xuống đáy Vực Thẳm. Bạn lạnh lùng quay lưng đi, tự nhủ sẽ tạo ra một bản sao khác tốt hơn.",
+      "effects": {
+       "joy": -15,
+       "loseChild": true
+      }
+     }
+    }
+   ],
+   "moment": "Tình mẫu tử/phụ tử của ma tộc được đong đếm bằng lượng máu đứa trẻ đổ ra để sinh tồn."
+  },
+  {
+   "id": "hd_child_rebel",
+   "text": "{child} nay đã trưởng thành và trở thành một Tướng quân uy dũng. Sự kiêu ngạo làm lu mờ lý trí, nó dẫn bầy ma lang bao vây ngai vàng, dõng dạc đòi bạn nhường ngôi.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "social"
+   ],
+   "require": {
+    "children": 1
+   },
+   "choices": [
+    {
+     "label": "Đích thân vung gươm dạy dỗ kẻ phản nghịch",
+     "check": {
+      "stat": "STR",
+      "target": 11
+     },
+     "success": {
+      "text": "Bạn nghiền nát vũ khí của {child}, đánh gãy đôi cánh sừng của nó trước ba quân để khẳng định ai mới là kẻ thống trị thực sự.",
+      "effects": {
+       "STR": 2,
+       "joy": -17,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Tuổi trẻ của {child} áp đảo kinh nghiệm của bạn. Bạn lĩnh một nhát chém thấu xương, buộc phải cắt nhượng một nửa lãnh thổ để đình chiến.",
+      "effects": {
+       "health": -30,
+       "wealth": -40,
+       "fame": -20
+      }
+     }
+    },
+    {
+     "label": "Đầu độc bầy ma lang của nó từ trước",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bầy thú cưng của {child} đồng loạt nôn ra máu rồi quay sang cắn xé chính chủ nhân. Sự nổi loạn kết thúc như một trò hề thảm hại.",
+      "effects": {
+       "INT": 2,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Thuốc độc bị phát hiện. {child} vin vào cớ bạn đê hèn để danh chính ngôn thuận chiêu mộ thêm phiến quân.",
+      "effects": {
+       "wealth": -20,
+       "fame": -15
+      }
+     }
+    }
+   ],
+   "moment": "Đứa con ưu tú nhất cũng là kẻ thù nguy hiểm nhất trên con đường độc tài vĩnh cửu."
+  },
+  {
+   "id": "hd_child_gift",
+   "text": "Trong một cuộc chinh phạt Đảo Tro Tàn, bạn moi được trái tim vẫn còn đập của một con Rồng Ánh Sáng cổ đại. Bạn mang nó về tẩm cung, dự định dùng hắc ma pháp dung hợp nó vào cơ thể {child} để bồi dưỡng.",
+   "focus": [
+    "adventure"
+   ],
+   "require": {
+    "children": 1
+   },
+   "choices": [
+    {
+     "label": "Khắc họa ma trận chuyển hóa hắc ám",
+     "check": {
+      "stat": "INT",
+      "target": 11
+     },
+     "success": {
+      "text": "Pháp thuật của bạn tẩy rửa lớp thánh quang, biến trái tim rồng thành cội nguồn ma lực khổng lồ. {child} hấp thụ xong, thăng cấp lên hàng ngũ Đại Ác Quỷ.",
+      "effects": {
+       "INT": 2,
+       "joy": 7,
+       "wealth": -10
+      }
+     },
+     "fail": {
+      "text": "Thánh quang bộc phát dữ dội. Trái tim rồng nổ tung, phá hủy một nửa tẩm cung và làm bỏng nặng cơ thể đứa trẻ.",
+      "effects": {
+       "wealth": -30
+      }
+     }
+    },
+    {
+     "label": "Ép {child} tự cắn nuốt trái tim sống",
+     "text": "Thử thách ý chí bằng đau đớn tuyệt đối."
+    }
+   ],
+   "moment": "Món quà của sự vĩ đại bao giờ cũng được gói trong lớp vỏ của sự tra tấn tột cùng."
+  },
+  {
+   "id": "hd_evo_king_sign",
+   "text": "Bạn đang ngồi thiết triều thì bỗng nhiên, chiếc ngai vàng đúc từ hắc diện thạch ngàn năm dưới trướng bạn nứt toác. Cơ thể vật lý của High Demon đang gào thét, nó không còn chứa nổi nguồn ma lực cuồn cuộn như biển cả của bạn nữa.",
+   "minAge": 7000,
+   "weight": 10,
+   "require": {
+    "STR": 12,
+    "fame": 50,
+    "form": "none",
+    "notFlags": [
+     "evo_sign_king"
+    ]
+   },
+   "result": "Bầu không khí xung quanh bạn nặng nề đến mức lũ quỷ cấp thấp tự động nổ tung khi đến gần. Quá trình lột xác thành Ma Vương đã bắt đầu.",
+   "effects": {
+    "health": -10,
+    "flags": [
+     "evo_sign_king"
+    ]
+   }
+  },
+  {
+   "id": "hd_evo_king_ascend",
+   "text": "Bầu trời Vực Thẳm nứt ra một con mắt đỏ ngầu. Hàng vạn sinh linh Ma giới quỳ rạp xuống. Để chính thức trở thành Ma Vương, bạn phải bóp nát \"Lõi Vực Thẳm\" bằng tay không và dung hợp năng lượng nguyên thủy đó vào tim mình.",
+   "weight": 12,
+   "require": {
+    "form": "none",
+    "flags": [
+     "evo_sign_king"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Gầm lên và cưỡng ép hấp thụ Lõi Vực Thẳm",
+     "check": {
+      "stat": "STR",
+      "target": 14
+     },
+     "success": {
+      "text": "Từng thớ thịt của bạn nổ tung rồi tái tạo. Đôi cánh sừng khổng lồ bọc thép đâm chọc lên trời cao, cơ thể bạn toát ra uy áp khiến không gian vỡ vụn. Bạn chính thức trở thành Ma Vương tuyệt đối.",
+      "effects": {
+       "STR": 10,
+       "INT": 5,
+       "fame": 100,
+       "evolve": "Demon King"
+      }
+     },
+     "fail": {
+      "text": "Năng lượng nguyên thủy quá bạo liệt, nó xé nát cơ thể và thiêu rụi linh hồn bạn. Bạn gầm lên trong tuyệt vọng trước khi hóa thành một bức tượng tro tàn vĩnh cửu.",
+      "death": "Năng lượng nguyên thủy quá bạo liệt, nó xé nát cơ thể và thiêu rụi linh hồn bạn. Bạn gầm lên trong tuyệt vọng trước khi hóa thành một bức tượng tro tàn vĩnh cửu."
+     }
+    },
+    {
+     "label": "Dùng trận pháp tế sống hàng vạn thuộc hạ để làm đệm",
+     "check": {
+      "stat": "INT",
+      "target": 11
+     },
+     "success": {
+      "text": "Máu và linh hồn của thuộc hạ trung hòa bớt sức nóng của Lõi. Bạn hấp thụ thành công, tuy không đạt sức mạnh tuyệt đối nhưng đủ để đội lên Vương miện Hắc ám.",
+      "effects": {
+       "STR": 5,
+       "INT": 8,
+       "fame": 50,
+       "evolve": "Demon King"
+      }
+     },
+     "fail": {
+      "text": "Trận pháp quá tải và sụp đổ. Hàng vạn sinh linh chết vô ích, còn bạn bị phản phệ mất đi tu vi vạn năm, tàn phế gục ngã trên đài tế.",
+      "effects": {
+       "health": -80,
+       "fame": -100
+      }
+     }
+    }
+   ],
+   "once": false,
+   "moment": "Sự ra đời của một Ma Vương là bản án tử hình mà Vực Thẳm ký nhận cho cả thế giới."
+  },
+  {
+   "id": "hd_post_king_1",
+   "text": "Một con Ancient Dragon kiêu ngạo từ Đảo Tro Tàn bay đến cung điện của bạn. Thay vì phun lửa, nó thu lại đôi cánh vĩ đại, cúi gục cái đầu khổng lồ xuống nền đá tảng và dâng lên một kho báu ngập tràn Lõi Mana để cầu xin sự che chở.",
+   "focus": [
+    "work"
+   ],
+   "require": {
+    "form": "Demon King"
+   },
+   "result": "Bạn lạnh lùng gác chân lên sừng con rồng, biến loài sinh vật kiêu hãnh nhất Aethelgard thành thú cưỡi hoàng gia của riêng mình.",
+   "effects": {
+    "wealth": 100,
+    "fame": 20
+   }
+  },
+  {
+   "id": "hd_post_king_2",
+   "text": "Đội quân của bạn vừa tiến đến ranh giới Đồng Bằng Thánh Quang. Nhìn thấy cờ hiệu của Tân Ma Vương, hàng vạn Thánh Kỵ Sĩ đồng loạt đánh rơi vũ khí. Vị Giáo Hoàng đương nhiệm phải tự sát trên tế đàn để tạ tội với Nữ thần Lumina.",
+   "focus": [
+    "adventure"
+   ],
+   "require": {
+    "form": "Demon King"
+   },
+   "result": "Không cần tốn một giọt máu, một phần tư đại lục loài người giương cờ trắng đầu hàng, thề cống nạp nhân mạng cho Vực Thẳm mỗi năm.",
+   "effects": {
+    "joy": 20,
+    "wealth": 50
+   }
+  },
+  {
+   "id": "hd_evo_god_sign",
+   "text": "Những cuốn ma đạo thư xung quanh bạn tự động bốc cháy thành ngọn lửa xám. Bạn không còn nhìn thấy thế giới vật chất nữa, mà chỉ thấy những vĩ tuyến không gian vặn vẹo. Vực Thẳm Hư Vô đang gọi tên bạn, yêu cầu bạn vứt bỏ lớp vỏ nhục thể hèn mạt này.",
+   "minAge": 9000,
+   "weight": 10,
+   "require": {
+    "INT": 13,
+    "anyFlags": [
+     "void_born",
+     "god_defier"
+    ],
+    "form": "none",
+    "notFlags": [
+     "evo_sign_god"
+    ]
+   },
+   "result": "Khái niệm không gian và thời gian xung quanh bạn bắt đầu sụp đổ. Bất cứ kẻ nào nhìn thẳng vào mắt bạn đều phát điên.",
+   "effects": {
+    "joy": -20,
+    "flags": [
+     "evo_sign_god"
+    ]
+   }
+  },
+  {
+   "id": "hd_evo_god_ascend",
+   "text": "Lôi kiếp hủy diệt của chư thần trút xuống Ma giới, nhằm tiêu diệt mầm mống Ma Thần đang hình thành. Bạn phải bay ngược lên bầu trời, xé rách đạo kiếp và cắn nuốt tia thần tính nguyên thủy để ngưng tụ Thần Cách Hắc Ám.",
+   "weight": 12,
+   "require": {
+    "form": "none",
+    "flags": [
+     "evo_sign_god"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hòa tan nhục thể, dùng linh hồn cắn nuốt Lôi kiếp",
+     "check": {
+      "stat": "INT",
+      "target": 14
+     },
+     "success": {
+      "text": "Cơ thể High Demon của bạn tan biến, tái tạo thành một chòm sao tà ác hằng hữu trên bầu trời Aethelgard. Bạn đã vượt thoát sinh tử, trở thành khái niệm của bóng tối: Ma Thần.",
+      "effects": {
+       "INT": 15,
+       "LUCK": 5,
+       "fame": 100,
+       "evolve": "Demon God"
+      }
+     },
+     "fail": {
+      "text": "Linh hồn bạn không đủ sức chứa thần tính. Lôi kiếp thanh tẩy mọi dấu vết tồn tại của bạn khỏi dòng thời gian. Bạn biến mất như chưa từng sinh ra.",
+      "death": "Linh hồn bạn không đủ sức chứa thần tính. Lôi kiếp thanh tẩy mọi dấu vết tồn tại của bạn khỏi dòng thời gian. Bạn biến mất như chưa từng sinh ra."
+     }
+    },
+    {
+     "label": "Dùng sức mạnh bạo liệt xé toạc tầng không gian thứ chín",
+     "check": {
+      "stat": "STR",
+      "target": 14
+     },
+     "success": {
+      "text": "Bạn dùng tay không bẻ gãy lưỡi búa sấm sét của thần linh, giẫm nát tầng mây chư thiên. Nhục thể của bạn hóa thành vàng đen bất hoại. Bạn trở thành Ma Thần cai quản sự hủy diệt.",
+      "effects": {
+       "STR": 15,
+       "fame": 100,
+       "evolve": "Demon God"
+      }
+     },
+     "fail": {
+      "text": "Không gian đổ sập đè nát thể phách của bạn. Ý thức của bạn vỡ vụn thành hàng tỷ mảnh, vĩnh viễn lang thang vô định trong Hư Vô.",
+      "death": "Không gian đổ sập đè nát thể phách của bạn. Ý thức của bạn vỡ vụn thành hàng tỷ mảnh, vĩnh viễn lang thang vô định trong Hư Vô."
+     }
+    }
+   ],
+   "once": false,
+   "moment": "Phàm nhân ngước nhìn các vì sao để cầu nguyện; còn ngài lơ lửng giữa dải ngân hà để phán quyết xem ngôi sao nào sẽ phải tắt."
+  },
+  {
+   "id": "hd_post_god_1",
+   "text": "Ý thức của bạn bay vút khỏi Ma giới, tiến vào Thần Vực. Tại đây, Nữ thần Ánh sáng Lumina - kẻ thù ngàn năm của Ma giới - đang ngồi trước một bàn cờ tinh tú. Nàng thở dài, gật đầu thừa nhận bạn là đối thủ ngang hàng.",
+   "focus": [
+    "rest"
+   ],
+   "require": {
+    "form": "Demon God"
+   },
+   "result": "Bạn mỉm cười nhấc một ngôi sao lên làm quân cờ, bắt đầu ván đấu kéo dài hàng kỷ nguyên. Sự diệt vong hay phồn vinh của Aethelgard giờ chỉ là tàn cuộc của ván cờ này.",
+   "effects": {
+    "INT": 2,
+    "joy": 50
+   }
+  },
+  {
+   "id": "hd_post_god_2",
+   "text": "Cả Đại Ngàn Lục Bảo và Đồng Bằng Thánh Quang đồng loạt dựng lên những tế đàn khổng lồ mang biểu tượng của bạn. Những kẻ từng tự xưng là anh hùng nay phủ phục, dâng lên máu và đức tin điên loạn để mong bạn không giáng tai họa.",
+   "focus": [
+    "work"
+   ],
+   "require": {
+    "form": "Demon God"
+   },
+   "result": "Mọi chỉ số vật chất như của cải, binh lực đều trở nên vô nghĩa. Bạn nhắm mắt lại, tận hưởng thứ rượu ngọt ngào nhất thế gian: Sự tuyệt vọng và sùng bái tuyệt đối của toàn nhân loại.",
+   "effects": {
+    "wealth": 100,
+    "fame": 100
+   }
+  },
+  {
+   "id": "hd_end_decay",
+   "text": "Tuổi thọ vạn năm cuối cùng cũng đòi lại cái giá của nó. Dù ma lực vẫn dồi dào, nhưng lớp da vảy trên cánh sừng của bạn bắt đầu bong tróc, và sự nhàm chán vô tận gặm nhấm tâm hồn bạn sâu sắc hơn bất cứ loại kịch độc nào.",
+   "stages": [
+    "elder"
+   ],
+   "focus": [
+    "train"
+   ],
+   "choices": [
+    {
+     "label": "Hấp thụ cấm thuật để níu kéo nhục thể",
+     "check": {
+      "stat": "INT",
+      "target": 11
+     },
+     "success": {
+      "text": "Bạn chế ra một loại cao dán từ linh hồn thiếu nữ Elf, tạm thời vá lại những vết nứt thời gian trên nhục thể.",
+      "effects": {
+       "INT": 1,
+       "health": 10
+      }
+     },
+     "fail": {
+      "text": "Phép thuật phản tác dụng, đẩy nhanh quá trình lão hóa. Bạn ho ra một búng máu đen đặc quánh chứa đầy tro tàn.",
+      "effects": {
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Chấp nhận sự tàn lụi như một quy luật",
+     "text": "Chờ đợi hồi kết."
+    }
+   ],
+   "moment": "Đỉnh cao của sự sống vĩnh cửu chính là khao khát được chết đi một lần."
+  },
+  {
+   "id": "hd_end_visitor",
+   "text": "Một thanh niên loài người gầy gò, hậu duệ cuối cùng của dòng họ Dũng Giả mà bạn từng tiêu diệt ngàn năm trước, đã lách qua được tàn tích để đứng trước mặt bạn. Cậu ta run rẩy giơ thanh kiếm sắt han gỉ lên, ánh mắt đầy thù hận nhưng bất lực.",
+   "stages": [
+    "elder"
+   ],
+   "focus": [
+    "rest"
+   ],
+   "choices": [
+    {
+     "label": "Cho cậu ta một cơ hội đâm mình",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn buông bỏ phòng ngự. Mũi kiếm găm vào ngực bạn một tấc. Cảm giác đau đớn hiếm hoi khiến bạn bật cười sảng khoái, ban cho cậu ta một món châu báu rồi đuổi đi.",
+      "effects": {
+       "joy": 20,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Lưỡi kiếm chạm vào lớp vảy cứng và gãy nát. Thanh niên kia khóc nấc lên vì tuyệt vọng tự sát tại chỗ, để lại sự tĩnh lặng nhàm chán cho bạn.",
+      "effects": {
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Thổi bay cậu ta thành cát bụi bằng một cái thở dài",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Một cơn gió hắc ám quét qua. Mọi oán thù, mọi lịch sử dũng giả của nhân loại hoàn toàn bị xóa sổ không chừa một mảnh vụn.",
+      "effects": {
+       "STR": 1,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Hơi thở của bạn quá yếu, chỉ đẩy cậu ta ngã nhào. Cậu ta hoảng sợ bỏ chạy thục mạng, để lại bạn thở dốc vì kiệt sức.",
+      "effects": {
+       "health": -10
+      }
+     }
+    }
+   ],
+   "moment": "Khi không còn ai xứng đáng làm kẻ thù, ngai vàng trở thành một nấm mồ lạnh lẽo."
+  },
+  {
+   "id": "hd_chain1_thirst",
+   "text": "Chén Thánh Nguyền Rủa trên bệ đá trong tẩm cung bắt đầu rung bần bật và khô cạn. Nó đòi hỏi một lượng máu tươi khổng lồ để duy trì ma lực, nếu không sẽ nứt vỡ và giải phóng oán khí phản phệ.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "study"
+   ],
+   "require": {
+    "flags": [
+     "cursed_grail"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Rạch tay, lấy máu vương giả để nuôi dưỡng nó",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Huyết mạch High Demon của bạn cuồn cuộn chảy vào Chén. Nó chuyển sang màu đỏ rực như ruby, hoàn toàn đồng hóa với ma lực của bạn.",
+      "effects": {
+       "STR": 1,
+       "health": -20,
+       "flags": [
+        "grail_drinker"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn mất quá nhiều máu đến mức choáng váng ngất đi, nhưng Chén Thánh cũng tạm thời được xoa dịu.",
+      "effects": {
+       "health": -30,
+       "flags": [
+        "grail_drinker"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Ném nó vào hầm ngục để nó tự hút cạn bầy Imp",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn tàn nhẫn hy sinh hàng trăm thuộc hạ cấp thấp. Tiếng gào thét vang lên suốt đêm, sáng hôm sau Chén Thánh đã no nê nhưng tỏa ra luồng khí tức hoang dại.",
+      "effects": {
+       "INT": 1,
+       "fame": -5,
+       "flags": [
+        "grail_feeder"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Chén Thánh nuốt chửng bầy Imp nhưng vẫn chưa thỏa mãn, nó cắn trả làm tổn thương linh hồn bạn qua khế ước.",
+      "effects": {
+       "health": -10,
+       "flags": [
+        "grail_feeder"
+       ]
+      }
+     }
+    }
+   ],
+   "moment": "Nuôi dưỡng một món đồ tạo tác tà ác cũng giống như nuôi một con dã thú; nó luôn khao khát cắn đứt tay người cho ăn."
+  },
+  {
+   "id": "hd_chain1_rebound",
+   "text": "Năng lượng trong Chén Thánh đã đạt đến giới hạn bão hòa. Linh hồn của những kẻ bị nó nuốt chửng ngưng tụ lại thành một huyết nhân khổng lồ ngay giữa tẩm cung của bạn.",
+   "stages": [
+    "middle"
+   ],
+   "require": {
+    "anyFlags": [
+     "grail_drinker",
+     "grail_feeder"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hấp thụ lại sức mạnh đồng huyết",
+     "require": {
+      "flags": [
+       "grail_drinker"
+      ]
+     },
+     "showLocked": true,
+     "check": {
+      "stat": "STR",
+      "target": 11
+     },
+     "success": {
+      "text": "Vì huyết nhân được nuôi bằng máu của chính bạn, nó không thể phản kháng. Bạn há miệng nuốt trọn nó, cảm nhận ma lực ngàn năm cuộn trào trong huyết quản.",
+      "effects": {
+       "STR": 3,
+       "wealth": 30,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Quá trình dung hợp làm kinh mạch bạn bốc cháy đau đớn, nhưng cuối cùng bạn vẫn thu phục được sức mạnh.",
+      "effects": {
+       "STR": 1,
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Trảm sát con quái vật tạp nham",
+     "require": {
+      "flags": [
+       "grail_feeder"
+      ]
+     },
+     "showLocked": true,
+     "check": {
+      "stat": "AGI",
+      "target": 11
+     },
+     "success": {
+      "text": "Huyết nhân tạo từ oán khí của bầy Imp vô cùng hoang dại và thù hận. Nhờ tốc độ xé gió, bạn né được đòn phẫn nộ của nó và chém bay đầu nó, thu lại một viên huyết ngọc.",
+      "effects": {
+       "AGI": 2,
+       "wealth": 10
+      }
+     },
+     "fail": {
+      "text": "Oán khí của những kẻ nô lệ đè bẹp bạn. Nó đánh gãy tay bạn rồi phá vỡ tẩm cung trốn thoát, mang theo luôn cả Chén Thánh quý giá.",
+      "effects": {
+       "health": -40,
+       "wealth": -50
+      }
+     }
+    }
+   ],
+   "moment": "Mọi quyết định tàn nhẫn trong quá khứ đều sẽ quay lại gõ cửa vào một ngày bạn không ngờ tới nhất."
+  },
+  {
+   "id": "hd_chain2_seed",
+   "text": "Tình báo Umbra mang đến cho bạn một thiếu niên ma tộc đang bị trói chặt. Đó là đứa con rơi của vị Đại Công Tước Vực Lửa mà bạn từng tự tay chém đầu hàng thế kỷ trước. Trong đôi mắt nó rực lên ngọn lửa phục thù.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "social"
+   ],
+   "require": {
+    "flags": [
+     "archduke_usurper"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Cắt cổ nó ngay lập tức để trừ hậu họa",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Không một chút do dự, lưỡi gươm của bạn hất tung chiếc đầu của kẻ thù cuối cùng. Bạn gửi thủ cấp đó về Vực Lửa để răn đe.",
+      "effects": {
+       "fame": 5,
+       "flags": [
+        "killed_heir"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Lưỡi gươm chém xuống nhưng thiếu niên đó đã dùng một món ma pháp bảo mệnh để làm chệch hướng, tuy sống sót nhưng bị mù một mắt. Bạn ném nó xuống hầm ngục.",
+      "effects": {
+       "health": -5,
+       "flags": [
+        "killed_heir"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Tẩy não nó thành một con rối trung thành",
+     "check": {
+      "stat": "INT",
+      "target": 11
+     },
+     "success": {
+      "text": "Bằng hắc ma pháp thượng thừa, bạn xóa bỏ ký ức thù hận, khắc rún ngữ nô lệ lên trán nó. Thiếu niên giờ đây gọi bạn là \"Chủ nhân\" bằng ánh mắt vô hồn.",
+      "effects": {
+       "INT": 2,
+       "flags": [
+        "spared_heir"
+       ],
+       "recruit": true
+      }
+     },
+     "fail": {
+      "text": "Phản kháng tinh thần của huyết mạch Vực Lửa quá mạnh làm bạn nhức óc. Bạn đành phải nhốt nó vào lồng sắt để bẻ gãy ý chí từ từ.",
+      "effects": {
+       "health": -10,
+       "joy": -5,
+       "flags": [
+        "spared_heir"
+       ]
+      }
+     }
+    }
+   ],
+   "moment": "Nhổ cỏ phải nhổ tận gốc, nhưng đôi khi cỏ độc lại là thứ dược liệu quý giá nhất nếu biết cách sử dụng."
+  },
+  {
+   "id": "hd_chain2_fire",
+   "text": "Tàn dư của Vực Lửa đã bí mật hội quân. Hàng chục vạn ma binh mang giáp đỏ tràn đến bao vây lâu đài của bạn, quyết tử để đòi lại món nợ máu ngàn năm cho gia tộc chủ nhân.",
+   "stages": [
+    "middle"
+   ],
+   "focus": [
+    "work"
+   ],
+   "require": {
+    "anyFlags": [
+     "killed_heir",
+     "spared_heir"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Đắm mình trong biển máu tử chiến",
+     "require": {
+      "flags": [
+       "killed_heir"
+      ]
+     },
+     "showLocked": true,
+     "check": {
+      "stat": "STR",
+      "target": 11
+     },
+     "success": {
+      "text": "Bọn chúng chiến đấu bằng sự cuồng nộ không sợ chết. Bạn phải đích thân lao vào trận mạc, tàn sát suốt bảy ngày bảy đêm cho đến khi cái xác cuối cùng của quân phiến loạn ngã xuống.",
+      "effects": {
+       "STR": 3,
+       "wealth": -20,
+       "fame": 20
+      }
+     },
+     "fail": {
+      "text": "Làn sóng tự sát của quân thù bào mòn toàn bộ thể lực của bạn. Bạn lĩnh vô số vết thương và phải mở cổng không gian rút lui, để mất Vực Lửa vĩnh viễn.",
+      "effects": {
+       "health": -50,
+       "wealth": -100,
+       "fame": -30
+      }
+     }
+    },
+    {
+     "label": "Tung con rối ra lệnh giải tán",
+     "require": {
+      "flags": [
+       "spared_heir"
+      ]
+     },
+     "showLocked": true,
+     "check": {
+      "stat": "INT",
+      "target": 11
+     },
+     "success": {
+      "text": "Bạn đẩy người thừa kế hợp pháp của chúng—nay đã là con rối của bạn—bước ra ban công. Lời ra lệnh giải tán cất lên từ chính chủ nhân chúng khiến quân phiến loạn sụp đổ ý chí và buông vũ khí quy hàng.",
+      "effects": {
+       "INT": 2,
+       "wealth": 50,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Vài tên bướng bỉnh nhận ra sự tẩy não. Chúng gào thét bắn một trận mưa tên hỏa công lên ban công, bạn phải kéo con rối vào trong tránh đạn.",
+      "effects": {
+       "health": -15,
+       "wealth": -30
+      }
+     }
+    }
+   ],
+   "moment": "Mưu lược tối cao là không cần rút gươm mà vẫn khiến hàng vạn binh mã của kẻ thù phải quỳ gối."
+  },
+  {
+   "id": "hd_chain3_key",
+   "text": "Trên giường bệnh, {father} (hoặc {mother}) nắm chặt tay bạn, thoi thóp trao một chiếc chìa khóa tạc từ xương ma thần cổ đại. Lời trăng trối cuối cùng là lời cảnh báo đẫm máu: \"Tuyệt đối không bao giờ được mở Cánh Cửa Hư Vô dưới hầm mộ gia tộc\".",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "work"
+   ],
+   "require": {
+    "any": [
+     {
+      "fatherAlive": false
+     },
+     {
+      "motherAlive": false
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Tôn trọng lời nguyền, niêm phong chìa khóa",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn cất chiếc chìa khóa vào một chiếc hộp chì, niệm chú phong ấn nó bằng hắc ma pháp rồi giấu sâu dưới đáy vực thẳm. Lời hứa với người chết đã được giữ vững.",
+      "effects": {
+       "INT": 1,
+       "joy": 5,
+       "flags": [
+        "sealed_key"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn vô tình để lộ sát khí khi phong ấn, khiến chìa khóa cộng hưởng cắt đứt tay bạn. Cuối cùng nó vẫn bị niêm phong.",
+      "effects": {
+       "health": -10,
+       "flags": [
+        "sealed_key"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Bóp nát chìa khóa, khẳng định sự kiêu ngạo",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "\"Ta không sợ thứ gì trên đời này,\" bạn tuyên bố. Bàn tay bạn bóp nát chiếc chìa khóa thành bột mịn ngay trước khi đấng sinh thành tắt thở. Ông/bà trợn trừng mắt kinh hãi rồi ra đi.",
+      "effects": {
+       "STR": 2,
+       "fame": 5,
+       "flags": [
+        "broken_key"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Chìa khóa vô cùng cứng. Bạn phải dồn toàn bộ ma lực mới nghiền nát được nó, dẫn đến nội thương nhẹ, nhưng sự ngạo nghễ của bạn đã được chứng minh.",
+      "effects": {
+       "health": -15,
+       "flags": [
+        "broken_key"
+       ]
+      }
+     }
+    }
+   ],
+   "moment": "Mọi thế hệ High Demon đều cho rằng mình vĩ đại hơn thế hệ trước, cho đến khi họ phải tự mình đối mặt với hậu quả."
+  },
+  {
+   "id": "hd_chain3_vault",
+   "text": "Giấc ngủ của bạn bị quấy rầy bởi sự sụp lở của hầm mộ gia tộc. Một cánh cổng đen ngòm, điêu khắc những khuôn mặt gào thét hiện ra. Đó chính là Cánh Cửa Hư Vô mà {father} từng nhắc đến. Từ bên trong, một luồng ma lực viễn cổ đang rỉ ra.",
+   "stages": [
+    "elder"
+   ],
+   "focus": [
+    "rest"
+   ],
+   "require": {
+    "anyFlags": [
+     "sealed_key",
+     "broken_key"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Mở hộp chì, dùng chìa khóa mở cửa bình yên",
+     "require": {
+      "flags": [
+       "sealed_key"
+      ]
+     },
+     "showLocked": true,
+     "check": {
+      "stat": "INT",
+      "target": 11
+     },
+     "success": {
+      "text": "Ổ khóa xoay những tiếng lạch cạch cổ xưa. Cửa mở, bên trong không có quái vật, chỉ có \"Trái Tim Của Tổ Tiên\" — một món ma đạo cụ tích tụ ma lực của toàn bộ dòng họ. Bạn bình an kế thừa nó.",
+      "effects": {
+       "STR": 2,
+       "INT": 3,
+       "wealth": 50
+      }
+     },
+     "fail": {
+      "text": "Sự trì hoãn ngàn năm khiến ổ khóa kẹt cứng. Bạn phải tốn một lượng máu lớn để bôi trơn rún ngữ, nhưng cuối cùng cũng lấy được bảo vật.",
+      "effects": {
+       "health": -20,
+       "wealth": 30
+      }
+     }
+    },
+    {
+     "label": "Phá cửa bằng bạo lực vì chìa đã gãy",
+     "require": {
+      "flags": [
+       "broken_key"
+      ]
+     },
+     "showLocked": true,
+     "check": {
+      "stat": "STR",
+      "target": 11
+     },
+     "success": {
+      "text": "Vung gươm chém nát cánh cửa, bạn vô tình kích hoạt hệ thống tự hủy của hầm mộ. Một luồng Hỏa Ngục bùng lên đốt cháy bảo vật, nhưng bạn kịp thời hút lấy luồng năng lượng khổng lồ bốc ra từ ngọn lửa đó.",
+      "effects": {
+       "STR": 3,
+       "health": -15
+      }
+     },
+     "fail": {
+      "text": "Cánh cửa nổ tung. Lời nguyền cổ xưa mà {father} cố bảo vệ bạn nay giáng thẳng vào lồng ngực. Linh hồn tổ tiên cắn xé tâm trí bạn, tước đi một phần sức mạnh vĩnh viễn.",
+      "effects": {
+       "INT": -2,
+       "health": -40,
+       "joy": -20
+      }
+     }
+    }
+   ],
+   "moment": "Có những bí mật ngàn năm được giấu kín không phải vì chúng quý giá, mà vì chúng là cái bẫy hoàn hảo nhất dành cho lòng kiêu ngạo."
+  }
+ ],
+ "deaths": [
+  {
+   "id": "hd_end_slumber",
+   "kind": "old",
+   "text": "Lửa trong Lò Rèn Vĩnh Cửu đã tắt, bầy Imp đã tản đi tìm chủ mới. Bạn ngồi cô độc trên ngai vàng rạn nứt, lắng nghe tiếng gọi thân thương sền sệt của Vực Thẳm Hư Vô. Đã đến lúc trả lại mọi thứ cho cội nguồn bóng tối. Bạn từ từ khép lại đôi mắt đã chứng kiến hàng ngàn vương triều sụp đổ. Cơ thể vĩ đại của bạn hóa thành vô vàn hạt ánh sáng đen, chìm sâu vào lòng đất Ma giới. Thế giới Aethelgard trút được một hơi thở phào nhẹ nhõm, nhưng những truyền thuyết đẫm máu về bạn sẽ còn gieo rắc nỗi kinh hoàng cho phàm nhân vạn kỷ nguyên sau."
+  }
+ ],
+ "focus": {
+  "play": {
+   "hidden": true
+  },
+  "study": {
+   "name": "Học hắc ma pháp",
+   "desc": "Trí tuệ; cấm thuật Vực Thẳm",
+   "stages": [
+    "infant",
+    "child",
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "quiet": {
+    "default": [
+     "Bạn giam mình trong tháp ngà quỷ ám, nghiền ngẫm những cuộn giấy da người rỉ máu để tìm kiếm công thức bẻ cong sinh tử.",
+     "Một năm trôi qua trong mùi lưu huỳnh nồng nặc và tiếng xèo xèo của những lọ thuốc độc đang sôi sùng sục trên vạc lửa xương sọ.",
+     "Bạn lẩm nhẩm những câu thần chú cấm kỵ cổ đại, khiến những cái bóng trong phòng thí nghiệm tự do tách rời và nhảy múa trên tường."
+    ]
+   }
+  },
+  "social": {
+   "name": "Mưu đồ chính trị",
+   "desc": "Liên minh, ám sát, hôn nhân chính trị",
+   "stages": [
+    "child",
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "quiet": {
+    "default": [
+     "Những bức thư đóng dấu sáp máu liên tục được bầy quỷ dơi đưa đi trong đêm, dệt nên một mạng lưới dối trá khắp Ma giới.",
+     "Bạn mỉm cười tao nhã nâng ly vang cùng những kẻ thù không đội trời chung, đằng sau lưng là hàng chục con dao găm tẩm độc đã lên nòng.",
+     "Một năm trôi qua đầy toan tính, bạn âm thầm gạt bỏ từng quân cờ nhỏ bé để dọn sạch chướng ngại trên con đường bước tới ngai vàng."
+    ]
+   }
+  },
+  "train": {
+   "name": "Khổ luyện",
+   "desc": "Sức mạnh, Nhanh nhẹn; thuần ma thú, rèn ý chí",
+   "stages": [
+    "infant",
+    "child",
+    "teen",
+    "adult",
+    "middle"
+   ],
+   "quiet": {
+    "default": [
+     "Cơ bắp bạn cuồn cuộn lên sau hàng tháng trời vác những tảng đá nham thạch đập vào vách núi vỡ vụn để rèn luyện thể phách.",
+     "Bạn ngâm mình trong dòng thác ma lực buốt giá rớt xuống từ Vực Thẳm, mặc cho da thịt bong tróc rồi tái tạo lại hàng nghìn lần.",
+     "Tiếng gươm đao va chạm vang lên không ngớt suốt ngày đêm, bạn điên cuồng vung vũ khí chém rách cả không gian tĩnh lặng."
+    ]
+   }
+  },
+  "adventure": {
+   "name": "Chinh phạt mặt đất",
+   "desc": "Đem quân lên mặt đất, leo thứ bậc triều đình",
+   "stages": [
+    "child",
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "tags": null,
+   "quiet": {
+    "default": [
+     "Đội quân của bạn tràn qua Đồng Bằng Thánh Quang như một cơn sóng đen, bỏ lại phía sau những ngôi làng bốc cháy ngùn ngụt.",
+     "Cờ hiệu rỉ máu của Ma giới phấp phới cắm trên tàn tích của một thành trì loài người, đánh dấu một năm mở rộng bờ cõi hắc ám.",
+     "Tiếng kèn sừng rền vang xé toạc bầu trời, bạn dẫn đầu đoàn ma kỵ giẫm nát phòng tuyến tuyệt vọng của bọn Dwarf ngu ngốc."
+    ]
+   }
+  },
+  "work": {
+   "name": "Thiết triều",
+   "desc": "Làm vai trò của mình, cai trị thần dân",
+   "stages": [
+    "child",
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "quiet": {
+    "default": [
+     "Bạn lười biếng ngồi trên ngai vàng, lắng nghe bầy ma vật cấp thấp tranh giành nhau từng khúc xương mục nát.",
+     "Một năm bận rộn với việc phân xử những cuộc cắn xé của lũ cận thần, dùng đòn roi để duy trì trật tự sắt máu.",
+     "Tiếng gào thét thảm thiết của những kẻ trốn thuế dưới hầm ngục là bản nhạc nền hoàn hảo cho những buổi chiều thiết triều nhàn rỗi."
+    ]
+   }
+  },
+  "rest": {
+   "name": "Ngủ say trong phong ấn",
+   "desc": "Ngủ hàng thế kỷ; hồi sức, thời gian trôi nhanh",
+   "stages": [
+    "infant",
+    "child",
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "bars": {
+    "health": 2,
+    "joy": 0.5
+   },
+   "quiet": {
+    "default": [
+     "Thời gian trôi qua bên ngoài kén tinh thể như bóng câu qua cửa sổ, những vương triều phàm nhân sinh ra rồi lụi tàn trong khi bạn chìm vào bóng tối.",
+     "Trăm năm chỉ như một cái chớp mắt, nhịp tim của bạn đập chậm rãi hòa cùng nhịp đập của cội nguồn Vực Thẳm sền sệt.",
+     "Những sợi xích ma thuật mờ dần theo năm tháng, bạn chìm trong giấc mơ dài về ngày ngọn lửa báo thù sẽ thiêu rụi cả chư thần."
+    ]
+   }
+  }
+ },
+ "systems": {
+  "activeFrom": "child",
+  "jobFrom": "child",
+  "bandName": "đám thuộc hạ",
+  "romance": false,
+  "autoChildren": true,
+  "childStages": [
+   "child",
+   "teen",
+   "adult",
+   "middle"
+  ],
+  "childRate": 0.05,
+  "maxChildren": 3,
+  "child": [
+   "Một hạt giống tai ương mới nảy mầm trong Vực Thẳm: {child}, đứa con mang ma huyết của bạn.",
+   "{child} chào đời giữa tiếng sấm của Ma giới. Các Đại Công Tước gửi quà mừng, và thầm tính chuyện ám sát."
+  ],
+  "companions": [
+   {
+    "race": "Imp",
+    "names": "imp",
+    "job": "Imp Messenger",
+    "stat": "AGI",
+    "weight": 3
+   },
+   {
+    "race": "Demon",
+    "names": "demon",
+    "job": "Demon Knight",
+    "stat": "STR",
+    "weight": 3
+   },
+   {
+    "race": "Vampire",
+    "names": "vampire",
+    "job": "Blood Mage",
+    "stat": "INT",
+    "weight": 1
+   }
+  ],
+  "recruit": {
+   "text": [
+    "Một Demon Knight quỳ một gối trước ngai của bạn, dâng thanh kiếm đen: \"Xin cho thuộc hạ được phục vụ ngài.\"",
+    "Một Imp ranh mãnh lượn quanh bạn: \"Ngài cần kẻ đưa tin không? Tiểu nhân bay nhanh nhất Ma giới!\""
+   ],
+   "join": [
+    "{ally} cúi đầu nhận ấn của bạn. Từ nay kẻ đó sống chết vì bạn.",
+    "Bạn khắc một ma văn lên trán {ally}. Khế ước phục tùng đã thành."
+   ],
+   "decline": "Phẩy tay cho lui",
+   "declineText": "Bạn không cần thêm kẻ hầu. Kẻ kia lui ra, không dám ngẩng đầu."
+  },
+  "jobSelect": {
+   "teen": [
+    "Triều đình Ma giới triệu bạn đến. Một High Demon không có chức phận chỉ là hoàng tộc ăn bám. Đã đến lúc chọn con đường."
+   ],
+   "adult": [
+    "Hàng ngàn năm đã trôi qua mà bạn chưa có chỗ đứng trong Triều đình. Các Đại Công Tước bắt đầu cười cợt sau lưng bạn."
+   ],
+   "later": "Chưa vội, ngủ thêm vài thế kỷ",
+   "laterText": "Bạn khép mắt trên ngai đá. Triều đình có thể chờ."
+  },
+  "promotion": {
+   "try": "Ra tay để giành lấy vị trí",
+   "wait": "Kiên nhẫn chờ thêm vài thế kỷ",
+   "waitText": "Bạn nhếch mép chờ đợi. Kẻ vội vàng ở Ma giới thường chết sớm.",
+   "success": "Cả Triều đình cúi đầu. Từ nay, bạn là {next}.",
+   "fail": [
+    "Bạn thất bại trước ánh mắt chế giễu của cả Ma giới.",
+    "Kế hoạch đổ vỡ. Bạn lui về Vực Thẳm, chờ thời cơ khác."
+   ]
+  },
+  "crossroads": {
+   "child": "Năm trăm năm đầu đời đã qua. Bạn sẽ dành những thế kỷ tới cho điều gì?",
+   "teen": "Hai ngàn năm. Bạn đã đủ mạnh để đem quân lên mặt đất. Bạn sẽ dồn sức vào đâu?",
+   "adult": "Năm ngàn năm. Cả một tầng Vực Thẳm run sợ trước tên bạn. Bạn sẽ làm gì tiếp?",
+   "middle": "Bảy ngàn năm. Rất ít ác quỷ sống đến tuổi này. Bạn sẽ dùng nó ra sao?",
+   "elder": "Chín ngàn năm. Ma lực của bạn bắt đầu mục rữa. Những năm cuối, bạn muốn làm gì?",
+   "default": "Bạn sẽ dồn sức vào đâu?"
+  },
+  "stageEnter": {
+   "child": "Năm trăm năm. Bạn không còn là hạt giống tai ương nữa; bạn đã là một Ma tướng trẻ tuổi.",
+   "teen": "Hai ngàn năm. Bạn đã sẵn sàng chinh phạt.",
+   "adult": "Năm ngàn năm. Bạn đã là một Bạo chúa của Vực Thẳm.",
+   "middle": "Bảy ngàn năm. Ma lực trong bạn đủ để sánh với Ma Vương.",
+   "elder": "Chín ngàn năm. Bạn đã là một thực thể tà ác mà cả thần linh cũng phải dè chừng.",
+   "default": "Một thiên niên kỷ mới mở ra."
+  },
+  "parentDeath": [
+   "{who} đã ngã xuống. Ở Ma giới, cái chết của một High Demon được đánh dấu bằng một cuộc tranh giành di sản đẫm máu.",
+   "Tin {who} qua đời đến tai bạn. Bạn nâng ly rượu máu, rồi tiếp tục thiết triều."
+  ],
+  "allyDie": [
+   "Ngài lạnh lùng đá xác của {ally} sang một bên; ở Ma giới, những công cụ cùn mẻ không đáng để nhận một cái liếc nhìn.",
+   "Tiếng gào thét cuối cùng của {ally} tắt ngấm, ngài chậc lưỡi tiếc rẻ cho một con chó săn từng rất hữu dụng.",
+   "Kẻ đó nát bấy dưới chân kẻ thù, ngài mỉm cười tàn nhẫn và hứa sẽ dùng sọ của chúng để làm bia mộ cho thuộc hạ."
+  ],
+  "allyHurt": [
+   "Ngài dẫm lên vết thương đang chảy máu của {ally}, rít lên ép kẻ đó phải tự lết thân đứng dậy nếu không muốn làm mồi cho Hellhound.",
+   "Ném lọ ma dược rẻ tiền nhất vào mặt {ally}, ngài cảnh báo rằng một ác quỷ què quặt không có chỗ trong quân đoàn của ngài.",
+   "Nhìn {ally} quằn quại trong đau đớn, ngài tàn nhẫn để mặc kẻ đó tự sinh tự diệt để thử thách bản năng sinh tồn."
+  ],
+  "allyLeave": [
+   "Ánh mắt ngài lóe lên tia sáng đỏ rực; không một kẻ nào dám phản bội High Demon mà có thể giữ lại toàn thây.",
+   "Ngài nhếch mép phát lệnh truy nã hắc ám, hứa thưởng ngàn vạn Huyết Kim cho kẻ mang thủ cấp của {ally} về trình diện.",
+   "Tiếng cười man dại của ngài vang dội cả tòa tháp, ngài háo hức chờ ngày tự tay lột da kẻ phản trắc tồi tệ đó."
+  ]
+ },
+ "stages": [
+  {
+   "id": "infant",
+   "start": 0,
+   "name": "Hạt Giống Tai Ương"
+  },
+  {
+   "id": "child",
+   "start": 500,
+   "name": "Ma Tướng Trẻ Tuổi"
+  },
+  {
+   "id": "teen",
+   "start": 2000,
+   "name": "Kẻ Chinh Phạt"
+  },
+  {
+   "id": "adult",
+   "start": 5000,
+   "name": "Bạo Chúa Vực Thẳm"
+  },
+  {
+   "id": "middle",
+   "start": 7000,
+   "name": "Đại Ma"
+  },
+  {
+   "id": "elder",
+   "start": 9000,
+   "name": "Thực Thể Tà Ác"
+  }
+ ],
+ "lifespan": [
+  9600,
+  10400
+ ],
+ "yearScale": 100,
+ "noChildhood": true
+}

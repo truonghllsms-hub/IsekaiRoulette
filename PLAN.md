@@ -43,6 +43,12 @@ Mở `index.html` hoặc chạy `node tools/serve.js` rồi vào http://localhos
 ## Kịch bản đã nhận
 - [x] Goblin (`content/scripts/goblin.txt` → `data/packs/goblin.json`): 7 xuất thân kèm cha mẹ, 5 vai trò, bộ lạc 7 bậc,
       89 sự kiện, 11 cuộc cướp phá, 3 nhánh tiến hóa. Quy trình: `docs/PACKS.md`.
+- [x] Imp: 6 xuất thân, 5 vai trò, Ma giới 7 bậc, 85 sự kiện, 11 việc vặt, 2 nhánh tiến hóa (Greater Demon, Free Imp).
+- [x] Vampire: 6 xuất thân, 5 vai trò, Gia tộc Huyết Tộc 7 bậc, 84 sự kiện, 11 mệnh lệnh, 3 nhánh (Vampire Noble,
+      True Ancestor, Daywalker). Mốc tuổi theo kịch bản, sống ~3.000 năm, bỏ nhãn civil.
+- [x] Dragon: 6 xuất thân, 3 Đạo, Lãnh thổ 7 bậc, 54 sự kiện, 7 cuộc chinh phạt, 2 nhánh (Ancient Dragon, Dragon God).
+- [x] High Demon: 4 xuất thân, 3 vai trò, Triều đình Ma giới 7 bậc, 54 sự kiện, 7 cuộc chinh phạt, 2 nhánh (Demon King, Demon God).
+- [x] Ghoul: 6 xuất thân, 3 vai trò, Bầy xác sống 7 bậc, 55 sự kiện, 7 cuộc săn đêm, 2 nhánh (Ghast, Lich).
 
 ## Khi nhận kịch bản Gemini (prompts/v2) — việc Claude phải làm
 - [ ] Rà và sửa toàn bộ tên gọi theo `docs/NAMING.md` (tên tộc tiếng Anh kèm giải thích, nghề/chức vụ kiểu manga dịch).
@@ -59,5 +65,4 @@ Mở `index.html` hoặc chạy `node tools/serve.js` rồi vào http://localhos
 - [ ] Script làm sạch ảnh (`tools/pixelize.js`) và khung chân dung trong game (màn đầu thai, HUD, màn tổng kết).
 
 ## Vấn đề đã biết
-- Rồng chưa có cảnh lựa chọn nào, vì các cảnh chung chỉ dành cho tộc hình người.
-- 14 tộc chưa có nội dung riêng, nên chỉ gặp sự kiện chung và hay lặp lại.
+- 11 tộc chưa có nội dung riêng, nên chỉ gặp sự kiện chung và hay lặp lại.

@@ -113,7 +113,7 @@ function validate(data) {
         if (!ch.label) err(cw, "thiếu label");
         checkReq(cw, ch.require);
         if (ch.check) {
-          if (![...STATS, ...BARS].includes(ch.check.stat)) err(cw, `check.stat lạ "${ch.check.stat}"`);
+          if (![...STATS, ...BARS, "fame"].includes(ch.check.stat)) err(cw, `check.stat lạ "${ch.check.stat}"`);
           if (typeof ch.check.target !== "number") err(cw, "check.target phải là số");
           checkOutcome(cw + " success", ch.success);
           checkOutcome(cw + " fail", ch.fail);

@@ -87,6 +87,7 @@
   // How many real years equal one "human year" of living for this race. Used so a dragon does not
   // get promoted every tick: work experience, income and child births scale with it.
   function yearScale(race) {
+    if (race.yearScale) return race.yearScale;
     return Math.max(1, adultStart(race) / 19);
   }
 
@@ -112,8 +113,10 @@
     return r && r[key] !== undefined ? r[key] : data.systems[key];
   }
   function orgFor(c, data) {
-    return (data.orgs || []).find(
-      (o) => (o.races && o.races.includes(c.race.id)) || (!o.races && o.tags && (c.race.tags || []).some((t) => o.tags.includes(t)))
+    const orgs = data.orgs || [];
+    return (
+      orgs.find((o) => o.races && o.races.includes(c.race.id)) ||
+      orgs.find((o) => !o.races && o.tags && (c.race.tags || []).some((t) => o.tags.includes(t)))
     );
   }
   function orgDef(c, data) {
@@ -181,7 +184,12 @@
       },
       extra || {}
     );
-    return String(text).replace(/\{(\w+)\}/g, (m, k) => (k in vars ? vars[k] : m));
+    // a placeholder that starts a sentence ("kẻ đã tạo ra bạn ra lệnh…") gets a capital letter
+    return String(text).replace(/([.!?…:]\s+|["“]\s*|)\{(\w+)\}/g, (m, pre, k, at) => {
+      if (!(k in vars)) return m;
+      const v = String(vars[k]);
+      return pre || at === 0 ? pre + v.charAt(0).toUpperCase() + v.slice(1) : v;
+    });
   }
 
   function randomName(data, rng, raceId, gender) {
@@ -207,6 +215,13 @@
       const p = o[who];
       if (p) {
         out[who] = Object.assign({}, p, { alive: p.status === "alive", dieAt: p.status === "alive" ? lifeLeft() : null });
+        // the script left the name to the game ("{father} · Vampire · Bá tước"): give one from that parent's race
+        if (!p.name && p.status !== "unknown") {
+          const pr = (data.races || []).find((r) => p.race && (r.name.toLowerCase() === p.race.toLowerCase() || r.id === p.race.toLowerCase()));
+          const g = who === "father" ? "male" : who === "mother" ? "female" : null;
+          const first = randomName(data, rng, pr ? pr.id : c.race.id, g).split(" ")[0];
+          out[who].name = who !== "maker" && famName && (!pr || pr.id === c.race.id) ? `${first} ${famName}` : first;
+        }
       } else if (who !== "maker" && !o.noParents) {
         const orphan = c.flags.some((f) => /orphan|mo_coi/.test(f));
         const g = who === "father" ? "male" : "female";
@@ -364,7 +379,14 @@
       c.job.rank = clamp(eff.jobRankSet, 0, (j ? j.ranks.length : 5) - 1);
       c.job.xp = 0;
     }
-    if (eff.orgRankUp && c.guild) setOrgRank(c, data, c.guild.rank + eff.orgRankUp);
+    if (eff.orgRankUp && c.guild) {
+      // "rank up +N" never skips past the ranks that only a story event can give
+      const o = orgDef(c, data);
+      let cap = o.ranks.length - 1;
+      if (o.points) while (cap > 0 && o.points[cap] == null) cap--;
+      const to = c.guild.rank + eff.orgRankUp;
+      setOrgRank(c, data, eff.orgRankUp > 0 ? Math.max(c.guild.rank, Math.min(cap, to)) : to);
+    }
     if (eff.loseSpouse && c.spouse) {
       c.formerSpouses = (c.formerSpouses || []).concat(c.spouse.name);
       c.spouse = null;
@@ -766,7 +788,7 @@
     });
     choices.push({ label: s.later, text: s.laterText, act: { type: "jobLater" } });
     const st = currentStage(c).id;
-    scene(c, "job", fmt(pick(rng, st === "teen" ? s.teen : s.adult), c, null, data), choices);
+    scene(c, "job", fmt(pick(rng, ["infant", "child", "teen"].includes(st) ? s.teen : s.adult), c, null, data), choices);
   }
 
   function promotionScene(c, data, rng) {
@@ -927,7 +949,11 @@
 
     // Choosing a trade: late teens (apprenticeship) or any time as an adult without one.
     const teenLate = st === "teen" && st0[i + 1] && c.age >= st0[i].start + (st0[i + 1].start - st0[i].start) * 0.5;
-    if (jobs.length && !c.job && (teenLate || ["adult", "middle"].includes(st)) && c.age >= c.nextJobOffer) {
+    // some races take a role much earlier in life (systems.race[id].jobFrom = first stage)
+    const jobFrom = sys(c, data, "jobFrom");
+    const fromIdx = jobFrom ? st0.findIndex((s) => s.id === jobFrom) : -1;
+    const jobAge = fromIdx >= 0 ? i >= fromIdx && st !== "elder" : teenLate || ["adult", "middle"].includes(st);
+    if (jobs.length && !c.job && jobAge && c.age >= c.nextJobOffer) {
       jobScene(c, data, rng);
       return true;
     }
@@ -936,21 +962,27 @@
       promotionScene(c, data, rng);
       return true;
     }
-    if (c.guild && aliveParty(c).length < MAX_PARTY && ["adventure", "social"].includes(c.focus) && !["infant", "child"].includes(st)) {
+    // raids and companions start from the teens, or from systems.race[id].activeFrom
+    const activeFrom = st0.findIndex((s) => s.id === (sys(c, data, "activeFrom") || "teen"));
+    const active = activeFrom >= 0 ? i >= activeFrom : !["infant", "child"].includes(st);
+    if (c.guild && aliveParty(c).length < MAX_PARTY && ["adventure", "social"].includes(c.focus) && active) {
       const p = aliveParty(c).length === 0 ? 0.5 : 0.15;
       if (rng() < Math.min(0.9, p * Math.min(per, 2))) {
         recruitScene(c, data, rng);
         return true;
       }
     }
-    if (c.focus === "adventure" && c.guild && !["infant", "child"].includes(st) && rng() < Math.min(0.85, 0.4 * Math.min(per, 2))) {
+    if (c.focus === "adventure" && c.guild && active && rng() < Math.min(0.85, 0.4 * Math.min(per, 2))) {
       if (boardScene(c, data, rng)) return true;
     }
     if (sys(c, data, "romance") && !c.spouse && c.gender && ["adult", "middle"].includes(st) && rng() < (c.focus === "social" ? 0.25 : 0.04) * Math.min(per, 2)) {
       romanceScene(c, data, rng);
       return true;
     }
-    if (sys(c, data, "autoChildren") !== false && c.spouse && ["adult", "middle"].includes(st) && c.children.length < 5 && rng() < 0.12 * Math.min(per, 3)) {
+    const childStages = sys(c, data, "childStages") || ["adult", "middle"];
+    const childRate = sys(c, data, "childRate") || 0.12;
+    const maxChildren = sys(c, data, "maxChildren") || 5;
+    if (sys(c, data, "autoChildren") !== false && c.spouse && childStages.includes(st) && c.children.length < maxChildren && rng() < childRate * Math.min(per, 3)) {
       c.ctx = {};
       addChild(c, data, rng);
       pushLog(c, "milestone", fmt(pick(rng, sys(c, data, "child")), c, null, data));

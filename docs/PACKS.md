@@ -10,3 +10,25 @@
 
 Gói tộc mang theo: xuất thân kèm cha mẹ, vai trò (nghề), tổ chức với các bậc (Guild, bộ lạc...), nhiệm vụ / cướp phá
 nhiều cảnh có rẽ nhánh, sự kiện, cái chết riêng, tên và câu "năm yên ả" của việc chính, câu chữ cho đồng đội.
+
+## Tùy chọn trong `<tộc>.meta.js` (ngoài tên gọi, vai trò, tổ chức, tiến hóa)
+- `useScriptStages: true`: dùng mốc tuổi của kịch bản (hồ sơ `content/races/<tộc>.json`) thay cho mốc mặc định.
+- `lifespan`, `hazard`, `tags`, `yearScale`: tuổi thọ, rủi ro chết mỗi năm, nhãn tộc (bỏ `civil` để không lẫn nghề/Guild
+  của Human), số năm thật cho một "năm tiến bộ" (High Demon: 100).
+- `noChildhood: true`: tộc không sinh ra là em bé (Vampire vừa bị biến đổi, High Demon, Ghoul) — bỏ sự kiện tuổi thơ chung.
+- `defaultStages`: giai đoạn cho sự kiện kịch bản không ghi giai đoạn (Dragon: bỏ thời còn là trứng).
+- `parents: { <xuất thân>: { maker: {...} } }`: cha mẹ / kẻ tạo ra bạn khi kịch bản tả bằng văn xuôi.
+  `status: "none"` khi đó không phải người (tà khí, Lõi Mana hầm ngục).
+- `systems.jobFrom`, `systems.activeFrom`: giai đoạn bắt đầu chọn vai trò; bắt đầu nhận nhiệm vụ / tuyển đồng đội.
+- `systems.autoChildren`, `childStages`, `childRate`, `maxChildren`, `child`: con cái tự đến khi kịch bản có sự kiện về con
+  nhưng không có sự kiện sinh con.
+- `overrides.<id>`: `require`, `unrequire`, `stages`, `focus`, `asDeath`, `keep` (không coi là cái chết),
+  `choiceEffects` (thêm hiệu ứng), `choicePatch` (thay / xóa trường của lựa chọn).
+
+## Builder tự hiểu thêm
+- "Thành công (Nếu có "x")", "Hệ quả (Nếu có "x")": tách thành nhánh chỉ hiện khi có dấu ấn đó.
+- "Cần dấu ấn: "x"": lựa chọn bị khóa (vẫn hiện) khi chưa có dấu ấn.
+- "Thuộc chuỗi …": cần một trong các dấu ấn mà sự kiện ngay trước trao.
+- "thăng bậc Ma Vương (Demon King)": quy ra đúng bậc của tổ chức, khớp cả tên Việt lẫn tên Anh.
+- "Thăng bậc +N" không vượt qua bậc chỉ đạt được bằng sự kiện (Goblin King, Chân Tổ...).
+- Sự kiện cưới thành công tự cho bạn đời; sự kiện `_ally_` luôn cần có đồng đội.
