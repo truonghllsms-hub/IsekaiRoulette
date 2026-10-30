@@ -58,6 +58,7 @@ function mergePack(data, p, file) {
   if (p.lifespan !== undefined) race.lifespan = p.lifespan;
   if (p.hazard != null) race.hazard = p.hazard;
   if (p.yearScale) race.yearScale = p.yearScale;
+  if (p.subtypes) race.subtypes = p.subtypes;
   // races that are not born as babies (a newly turned Vampire, a High Demon seed) skip shared childhood events
   if (p.noChildhood)
     for (const e of data.events)

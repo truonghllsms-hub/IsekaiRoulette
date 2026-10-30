@@ -142,6 +142,13 @@ function parseHead(rest) {
   const r = rest.toLowerCase().replace(/[\[\]]/g, "");
   const out = {};
   let m;
+  // "dựa vào chỉ số cao nhất (hệ thống tự chọn)", "dựa vào chỉ số chính của nghề"
+  if (/chỉ số cao nhất|chỉ số chính/.test(r)) {
+    const dm = r.match(/(rất khó|rất dễ|cực khó|khó|vừa|trung bình|dễ|huyền thoại)/);
+    out.check = { stat: /cao nhất/.test(r) ? "best" : "jobstat", diff: dm ? DIFF[dm[1]] : 3 };
+    if (/khóa/.test(r)) out.lock = rest.replace(/.*?KHÓA\s*(nếu|:)?/i, "").split("—")[0].trim();
+    return out;
+  }
   // "dựa vào Sức mạnh" or "dựa vào Uy áp (Sức mạnh)"
   if ((m = r.match(new RegExp(`dựa vào\\s+(?:[^(—,]{1,25}\\(\\s*)?${STAT_RE}`))) || (m = r.match(new RegExp(`^\\s*${STAT_RE}(?:\\s*\\([^)]*\\))?\\s*[,–-]\\s*(?:rất khó|rất dễ|cực khó|khó|vừa|trung bình|dễ|huyền thoại)`)))) {
     const dm = r.match(/(rất khó|rất dễ|cực khó|khó|vừa|trung bình|dễ|huyền thoại)/);
@@ -211,7 +218,13 @@ function parse(text) {
     // number words at the start of list titles ("Năm bậc:", "Bốn thử thách…", "Ba câu năm yên ả") and "(Bậc 1 lên 2): …"
     line = line.replace(/^(năm|bốn|ba|bảy|hai)\s+(bậc|thử thách|câu|cấp)/i, (m, w, rest) => ({ "năm": 5, "bốn": 4, "ba": 3, "bảy": 7, "hai": 2 }[w.toLowerCase()] + " " + rest))
       .replace(/^\((bậc \d+ lên \d+)\)\s*:/i, "$1:")
-      .replace(/^\d\s*(?:→|->)\s*\d\s*:\s*/, ""); // "1→2: Vung kiếm… (Sức mạnh, DỄ)"
+      .replace(/^\d\s*(?:→|->)\s*\d\s*:\s*/, "") // "1→2: Vung kiếm… (Sức mạnh, DỄ)"
+      .replace(/^\[MÃ\]\s*/i, "") // "[MÃ] demon_quest_scavenge_1"
+      // "Thành công (THẮNG NGAY): …", "Thất bại (CHẾT): …": the note in brackets is an effect
+      .replace(/^(Thành công|Thất bại)\s*\((THẮNG NGAY|THẤT BẠI NGAY|CHẾT)\)\s*:\s*(.+)$/i, (m0, k, note, rest) => `${k}: ${rest}${/→/.test(rest) ? ", " : " → "}${note.toUpperCase()}`)
+      .replace(/^(Thành công|Thất bại)\s*\(dựa vào[^)]*\)\s*:/i, "$1:")
+      // a bare id at the start of a line ("demon_dk_sword", "demon_origin_abyss — 12%") is an [id] line
+      .replace(/^([a-z][a-z0-9]*(?:_[a-z0-9]+)+)(?=\s*$|\s+[—–-]\s|\s+[A-ZÀ-ỸĐ])/, "[$1]");
     const prevLine = lastLine;
     lastLine = line;
     const low = line.toLowerCase();
@@ -237,7 +250,7 @@ function parse(text) {
       continue;
     }
     // ---- quest headers: "CUỘC CHINH PHẠT NHỎ 1: Cướp bóc Làng Human", "TRẬN CHIẾN CỐT TRUYỆN 2: …" ----
-    const qh = line.match(/^((?:CUỘC|VIỆC|NHIỆM|MỆNH|TRẬN|CHIẾN)[^:]{2,50}?)\s*:\s*(.{3,90})$/);
+    const qh = line.match(/^((?:CUỘC|VIỆC|NHIỆM|MỆNH|TRẬN|CHIẾN|QUÂN LỆNH|HUYẾT LỆNH|CHUYẾN)[^:]{0,50}?)\s*:\s*(.{3,90})$/);
     if (qh && isCapsHeader(qh[1]) && !/^VIỆC CHÍNH/.test(qh[1]) && !/[.!?]$/.test(qh[2])) {
       closeContainers(); block = null; scene = null; opt = null; mode = null;
       const k = /CỐT TRUYỆN/.test(qh[1]) ? "story" : /THỜI ĐẠI/.test(qh[1]) ? "era" : "small";
@@ -273,7 +286,7 @@ function parse(text) {
       const hasPct = /—\s*\d+\s*%/.test(rest);
       if (hasPct || (/_origin_|_bg_|origin/.test(id) && !res.origins.some((o) => o.pct))) {
         const pm = rest.match(/^(.*?)\s*—\s*(\d+)\s*%/);
-        block = { type: "origin", id, pct: hasPct, name: (pm ? pm[1] : rest).replace(/\(mới\)/i, "").trim(), weight: pm ? Number(pm[2]) : 10 };
+        block = { type: "origin", id, pct: hasPct, name: (pm ? pm[1] : rest).replace(/\(mới\)/i, "").trim(), weight: pm ? Number(pm[2]) : 10, tail: pm ? rest.slice(pm[0].length).trim() : "" };
         res.origins.push(block);
         continue;
       }
@@ -348,7 +361,7 @@ function parse(text) {
         }
         const rm = val.match(/bậc\s*(\d+)/i) || val.match(/^(\d+)/);
         quest.minRank = rm ? Number(rm[1]) : null;
-        if (!rm) quest.minRankName = val.replace(/\s*\(.*$/, "").trim();
+        if (!rm) quest.minRankName = val.replace(/\s*\(.*$/, "").replace(/^hạng\s+/i, "").trim();
         closeContainers();
         continue;
       }
@@ -391,11 +404,11 @@ function parse(text) {
         else { role = { index: res.roles.length, title: lastHeader, require: val, ranks: [], promo: [], quiet: [] }; res.roles.push(role); focus = null; evo = null; mode = null; }
         continue;
       }
-      if (role && /5 bậc|năm bậc|tên 5 bậc|^thứ bậc$/.test(key) && val) {
+      if (role && /5 bậc|năm bậc|tên 5 bậc|^thứ bậc$|^bậc nghề$|^các bậc$/.test(key) && val) {
         role.ranks = val.split(/\s*(?:→|·|>|,|;)\s*/).map((x) => x.replace(/\(bậc \d+\)/i, "").replace(/\.$/, "").trim()).filter(Boolean);
         continue;
       }
-      if (role && /^(câu mở đầu|mở đầu)$/.test(key)) { role.start = val; mode = "promo"; continue; }
+      if (role && /^(câu mở đầu|mở đầu|vào nghề)$/.test(key)) { role.start = val; mode = "promo"; continue; }
       if (role && /thử thách/.test(key)) { mode = "promo"; if (val) role.promo.push(...promoLines(val)); continue; }
       if ((role || focus) && /năm yên ả/.test(key)) { mode = "quiet"; if (val) (role || focus).quiet.push(...quietSplit(val)); continue; }
       if (role && (m = line.match(/^bậc (\d+)(?: lên (\d+))?\s*(?:\(([^)]+)\))?\s*:\s*(.+)$/i))) { role.promo.push(promoOf(m[4], m[3])); mode = "promo"; continue; }
@@ -460,6 +473,16 @@ function parse(text) {
   }
   function promoLines(l) {
     let m;
+    // "Lùa bầy cừu … — dựa vào May mắn, KHÓ"
+    if ((m = l.match(/^(?:bậc \d+\s*(?:→|->|lên)\s*\d+\s*:\s*)?(.{15,}?)\s*[—–-]\s*dựa vào\s+(sức mạnh|trí tuệ|nhanh nhẹn|may mắn|sức khỏe)\s*[,(]\s*(rất khó|cực khó|khó|vừa|dễ)\)?\.?$/i))) return [promoOf(m[1], m[3], m[2])];
+    // "Lên bậc 2 (Dễ, Sức mạnh): …", "Bậc 1→2 (Sức mạnh - Khó): …"
+    if ((m = l.match(/^(?:lên bậc \d+|bậc \d+\s*(?:→|->|lên)\s*\d+)\s*\(([^)]+)\)\s*:\s*(.+)$/i)) ||
+        (m = l.match(/^(?:lên bậc \d+|bậc \d+\s*(?:→|->|lên)\s*\d+)\s*:\s*\(([^)]+)\)\s*[-–—]?\s*(.+)$/i))) {
+      const bits = m[1].toLowerCase();
+      const dw = (bits.match(/rất khó|cực khó|khó|vừa|dễ/) || [])[0];
+      const sw = (bits.match(/sức mạnh|trí tuệ|nhanh nhẹn|may mắn|sức khỏe/) || [])[0];
+      return [promoOf(m[2], dw, sw)];
+    }
     if ((m = l.match(/^\((rất khó|cực khó|khó|vừa|dễ)\s*[-–,]\s*([^)]+)\)\s*(.+)$/i))) return [promoOf(m[3], m[1], m[2])];
     if ((m = l.match(/^(?:\d+\.\s*)?(.+?)\s*\((rất khó|cực khó|khó|vừa|dễ)(?:\s*[,-–]\s*([^)]+))?\)\.?$/i))) return [promoOf(m[1], m[2], m[3])];
     if ((m = l.match(/^(?:\d+\.\s*)?(.+?)\s*\((sức mạnh|trí tuệ|nhanh nhẹn|may mắn|sức khỏe)\s*[,-–]\s*(rất khó|cực khó|khó|vừa|dễ)\)\.?$/i))) return [promoOf(m[1], m[3], m[2])];

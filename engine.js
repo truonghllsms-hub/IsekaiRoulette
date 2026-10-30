@@ -150,7 +150,8 @@
     return c.party.filter((m) => m.alive);
   }
   function raceTitle(c) {
-    return c.form ? `${c.race.name} → ${c.form}` : c.race.name;
+    const base = c.subtypeName ? `${c.race.name} ${c.subtypeName}` : c.race.name;
+    return c.form ? `${base} → ${c.form}` : base;
   }
   function parentName(c, who) {
     const p = c.parents && c.parents[who];
@@ -250,7 +251,9 @@
   function createCharacter(data, rng, raceId) {
     rng = rng || Math.random;
     const race = raceId ? data.races.find((r) => r.id === raceId) : weightedPick(data.races, rng);
-    const raceOrigins = data.origins.filter((o) => o.races && o.races.includes(race.id));
+    // some races come in several forms (Beastman: cat, dog, wolf…): pick one first, it decides origins and events
+    const subtype = race.subtypes && race.subtypes.length ? weightedPick(race.subtypes, rng) : null;
+    const raceOrigins = data.origins.filter((o) => o.races && o.races.includes(race.id) && (!o.subtype || (subtype && o.subtype === subtype.id)));
     const pool = raceOrigins.length ? raceOrigins : data.origins.filter((o) => !o.races || !o.races.length);
     const origin = weightedPick(pool, rng);
 
@@ -261,7 +264,7 @@
     const family = names.family && names.family.length ? " " + pick(rng, names.family) : "";
 
     const stats = {};
-    for (const k of STAT_KEYS) stats[k] = clamp(Math.round(randInt(rng, 1, 10) * (race.mult[k] || 1)), 0, 99);
+    for (const k of STAT_KEYS) stats[k] = clamp(Math.round(randInt(rng, 1, 10) * (race.mult[k] || 1)) + ((subtype && subtype.stats && subtype.stats[k]) || 0), 0, 99);
 
     const era = data.eras && data.eras.length ? weightedPick(data.eras, rng) : null;
 
@@ -275,7 +278,7 @@
       age: 0,
       maxAge: race.lifespan ? randInt(rng, race.lifespan[0], race.lifespan[1]) : null,
       stats,
-      bars: { health: randInt(rng, 75, 95), joy: 50, wealth: 20 },
+      bars: { health: clamp(randInt(rng, 75, 95) + ((subtype && subtype.health) || 0), 1, 100), joy: 50, wealth: 20 },
       fame: 0,
       flags: [],
       used: [],
@@ -286,6 +289,8 @@
       cause: null,
       // life profile
       form: null,
+      subtype: subtype ? subtype.id : null,
+      subtypeName: subtype ? subtype.name : null,
       parents: null,
       focus: null,
       job: null,
@@ -315,7 +320,7 @@
   }
 
   function introLine(c) {
-    return `Bạn là ${c.name}, thuộc chủng tộc ${c.race.name}` + (c.race.gloss ? ` — ${c.race.gloss}.` : ".");
+    return `Bạn là ${c.name}, thuộc chủng tộc ${c.race.name}` + (c.subtypeName ? ` ${c.subtypeName}` : "") + (c.race.gloss ? ` — ${c.race.gloss}.` : ".");
   }
 
   function pushLog(c, kind, text, ageFrom) {
@@ -433,12 +438,16 @@
 
   function statValue(c, k) {
     if (k in c.stats) return c.stats[k];
+    // "your best stat" / "your trade's main stat"
+    if (k === "best") return Math.max(...STAT_KEYS.map((s) => c.stats[s]));
+    if (k === "jobstat") return c.job && c.job.stat ? c.stats[c.job.stat] || 0 : Math.max(...STAT_KEYS.map((s) => c.stats[s]));
     if (k in c.bars) return c.bars[k];
     if (k === "fame") return c.fame;
     return 0;
   }
 
   function meets(c, req, data) {
+    if (req && req.subtype && c.subtype !== req.subtype) return false;
     if (!req) return true;
     if (req.any && !req.any.some((r) => meets(c, r, data))) return false;
     for (const k of STAT_KEYS) if (req[k] != null && c.stats[k] < req[k]) return false;
@@ -531,7 +540,7 @@
     const j = (data.jobs || []).find((x) => x.id === id);
     if (!j) return;
     if (c.job) c.pastJobs.push(c.job);
-    c.job = { id, rank: 0, xp: 0, since: c.age };
+    c.job = { id, rank: 0, xp: 0, since: c.age, stat: (data.jobs.find((x) => x.id === id) || {}).stat };
     if (c.focus !== "adventure" || !j.combat) c.focus = "work";
   }
 
@@ -651,7 +660,7 @@
   // Stats (about 1–15) move the odds 8% per point; bars and fame (0–100) about 1.5% per point.
   function successChance(c, check) {
     const v = statValue(c, check.stat);
-    const slope = STAT_KEYS.includes(check.stat) ? 0.08 : 0.015;
+    const slope = STAT_KEYS.includes(check.stat) || check.stat === "best" || check.stat === "jobstat" ? 0.08 : 0.015;
     const base = 0.5 + (v - check.target) * slope + (c.stats.LUCK - 5) * 0.02;
     return clamp(base + partyBonus(c, check), 0.05, 0.95);
   }

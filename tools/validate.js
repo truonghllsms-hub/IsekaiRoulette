@@ -5,7 +5,7 @@ const BARS = ["health", "joy", "wealth"];
 const EFFECT_KEYS = new Set([...STATS, ...BARS, "flags", "unflags", "fame", "jobXp", "guildPts", "bond", "partyBond", "allyHurt", "allyDie", "allyLeave", "loseJob", "setJob", "joinGuild", "focus", "recruit", "marry", "child", "loseChild", "demote", "orgRank", "orgRankName", "evolve", "era", "jobRankSet", "jobPromote", "orgRankUp", "loseSpouse", "parentDie"]);
 const BOOL_EFFECTS = new Set(["allyHurt", "allyDie", "allyLeave", "loseJob", "joinGuild", "recruit", "marry", "child", "loseChild", "demote", "jobPromote", "loseSpouse"]);
 const STR_EFFECTS = new Set(["setJob", "focus", "orgRankName", "evolve", "era", "parentDie"]);
-const REQ_KEYS = new Set([...STATS, ...BARS, "fame", "below", "flags", "anyFlags", "notFlags", "flagHint", "gender", "job", "jobRank", "jobRankMax", "guild", "guildRank", "guildRankMax", "party", "noParty", "allyTrait", "spouse", "children", "noChildren", "focus", "hint", "any", "fatherAlive", "motherAlive", "makerAlive", "form"]);
+const REQ_KEYS = new Set([...STATS, ...BARS, "fame", "below", "flags", "anyFlags", "notFlags", "flagHint", "gender", "job", "jobRank", "jobRankMax", "guild", "guildRank", "guildRankMax", "party", "noParty", "allyTrait", "spouse", "children", "noChildren", "focus", "hint", "any", "fatherAlive", "motherAlive", "makerAlive", "form", "subtype"]);
 const EVENT_KEYS = new Set(["_file", "id", "races", "excludeRaces", "tags", "stages", "eras", "minAge", "maxAge", "once", "weight", "require", "text", "effects", "choices", "moment", "death", "focus", "result", "pack"]);
 const PLACEHOLDERS = new Set(["name", "race", "age", "origin", "stage", "pct", "cause", "ally", "allyJob", "partner", "child", "job", "rank", "guild", "spouse", "quest", "next", "father", "mother", "maker", "who"]);
 
@@ -113,7 +113,7 @@ function validate(data) {
         if (!ch.label) err(cw, "thiếu label");
         checkReq(cw, ch.require);
         if (ch.check) {
-          if (![...STATS, ...BARS, "fame"].includes(ch.check.stat)) err(cw, `check.stat lạ "${ch.check.stat}"`);
+          if (![...STATS, ...BARS, "fame", "best", "jobstat"].includes(ch.check.stat)) err(cw, `check.stat lạ "${ch.check.stat}"`);
           if (typeof ch.check.target !== "number") err(cw, "check.target phải là số");
           checkOutcome(cw + " success", ch.success);
           checkOutcome(cw + " fail", ch.fail);
