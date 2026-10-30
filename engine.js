@@ -353,6 +353,24 @@
       c.job = null;
       c.nextJobOffer = c.age + tickYears(c) * 2;
     }
+    if (eff.jobPromote && c.job) {
+      const j = jobDef(c, data);
+      if (j && c.job.rank < j.ranks.length - 1) { c.job.rank++; c.job.xp = 0; }
+    }
+    if (eff.jobRankSet != null && c.job) {
+      const j = jobDef(c, data);
+      c.job.rank = clamp(eff.jobRankSet, 0, (j ? j.ranks.length : 5) - 1);
+      c.job.xp = 0;
+    }
+    if (eff.orgRankUp && c.guild) setOrgRank(c, data, c.guild.rank + eff.orgRankUp);
+    if (eff.loseSpouse && c.spouse) {
+      c.formerSpouses = (c.formerSpouses || []).concat(c.spouse.name);
+      c.spouse = null;
+    }
+    if (eff.parentDie && c.parents && c.parents[eff.parentDie] && c.parents[eff.parentDie].alive) {
+      c.parents[eff.parentDie].alive = false;
+      c.parents[eff.parentDie].status = "dead";
+    }
     if (eff.demote && c.job) {
       c.job.rank = 0;
       c.job.xp = 0;
@@ -433,6 +451,7 @@
     if (req.focus && !(c.focus && [].concat(req.focus).includes(c.focus))) return false;
     if (req.fatherAlive != null && !!(c.parents && c.parents.father && c.parents.father.alive) !== req.fatherAlive) return false;
     if (req.motherAlive != null && !!(c.parents && c.parents.mother && c.parents.mother.alive) !== req.motherAlive) return false;
+    if (req.makerAlive != null && !!(c.parents && c.parents.maker && c.parents.maker.alive) !== req.makerAlive) return false;
     if (req.form !== undefined) {
       if (req.form === "none" ? c.form : req.form === "any" ? !c.form : c.form !== req.form) return false;
     }

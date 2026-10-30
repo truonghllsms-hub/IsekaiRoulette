@@ -30,7 +30,8 @@ module.exports = {
   // Check targets for DỄ..RẤT KHÓ: Goblins are weak (stats about 2–8), so the scale is lower than Human's.
   diff: { stat: [2, 3, 5, 7, 9, 11], bar: [20, 35, 55, 70, 85, 95] },
 
-  focusMap: { "BỚI RÁC": "play", "HỌC LỎM": "study", "KHỔ LUYỆN": "train", "PHỤC DỊCH": "work", "ĐI CƯỚP": "adventure", "TRANH QUYỀN": "social", "TRỐN NGỦ": "rest" },
+  // Order of the "việc chính" sections in the script.
+  focusOrder: ["play", "study", "train", "work", "adventure", "social", "rest"],
   focus: {
     play: { name: "Bới rác", desc: "Nhanh nhẹn, May mắn; nhặt nhạnh của rơi", stages: ["child", "teen", "adult", "middle"], gains: { AGI: 0.25, LUCK: 0.2 }, bars: { wealth: 0.5 } },
     study: { name: "Học lỏm", desc: "Trí tuệ; theo dõi Goblin Shaman và kẻ thù", stages: ["child", "teen", "adult", "middle", "elder"] },
@@ -88,11 +89,12 @@ module.exports = {
   repeatRaids: ["goblin_raid_melon", "goblin_raid_cart", "goblin_raid_slime_pit", "goblin_raid_orc_beer", "goblin_raid_dwarf_goat"],
   eraWords: { "Kỷ Nguyên Tăm Tối": "dark_age", "Ma Vương": "demon_lord", "Chiến Tranh": "holy_war", "Thời Bình": "peace" },
 
-  forms: {
-    HOBGOBLIN: { name: "Hobgoblin", life: 6 },
-    "GOBLIN SHAMAN LORD": { name: "Goblin Shaman Lord", life: 8 },
-    "GOBLIN KING": { name: "Goblin King", life: 10 },
-  },
+  // Evolution branches, in the order the script lists them.
+  evos: [
+    { key: "hob", name: "Hobgoblin", life: 6, minAge: 6, require: { any: [{ STR: 7, health: 50 }, { flags: ["hobgoblin_blood"], STR: 5 }, { job: "goblin_warrior", jobRank: 2 }] } },
+    { key: "shaman", name: "Goblin Shaman Lord", life: 8, minAge: 8, require: { any: [{ INT: 8 }, { job: "goblin_shaman", jobRank: 2 }, { flags: ["dark_pact"] }] } },
+    { key: "king", name: "Goblin King", life: 10, minAge: 13, require: { fame: 40, wealth: 70, guildRank: 5 } },
+  ],
 
   systems: {
     bandName: "băng nhóm",
@@ -152,18 +154,7 @@ module.exports = {
     goblin_event_warrior_duel: { require: { job: "goblin_warrior", jobRank: 3, any: [{ flags: ["chief_son"] }, { fame: 15 }] } },
     goblin_event_scout_hunter: { require: { job: "goblin_scout", jobRank: 3 } },
     goblin_event_king_ascension: { stages: ["elder", "middle"], focus: ["social"], require: { guildRank: 5, fame: 30 } },
-    goblin_evo_hobgoblin_sign: { minAge: 6, weight: 10, require: { form: "none", notFlags: ["evo_hob_sign"], any: [{ STR: 7, health: 50 }, { flags: ["hobgoblin_blood"], STR: 5 }, { job: "goblin_warrior", jobRank: 2 }] }, addFlags: ["evo_hob_sign"] },
-    goblin_evo_hobgoblin_ascend: { require: { form: "none", flags: ["evo_hob_sign"] }, weight: 12 },
-    goblin_evo_hobgoblin_post1: { require: { form: "Hobgoblin" } },
-    goblin_evo_hobgoblin_post2: { require: { form: "Hobgoblin" } },
-    goblin_evo_shaman_sign: { minAge: 8, weight: 10, require: { form: "none", notFlags: ["evo_shaman_sign"], any: [{ INT: 8 }, { job: "goblin_shaman", jobRank: 2 }, { flags: ["dark_pact"] }] }, addFlags: ["evo_shaman_sign"] },
-    goblin_evo_shaman_ascend: { require: { form: "none", flags: ["evo_shaman_sign"] }, weight: 12 },
-    goblin_evo_shaman_post1: { require: { form: "Goblin Shaman Lord" } },
-    goblin_evo_shaman_post2: { require: { form: "Goblin Shaman Lord" } },
-    goblin_evo_king_sign: { minAge: 13, weight: 10, require: { notFlags: ["evo_king_sign"], fame: 40, wealth: 70, guildRank: 5 }, addFlags: ["evo_king_sign"] },
-    goblin_evo_king_ascend: { require: { flags: ["evo_king_sign"], form: "none" }, weight: 12, choiceEffects: { 0: { success: { orgRank: 6 } } } },
-    goblin_evo_king_post1: { require: { form: "Goblin King" } },
-    goblin_evo_king_post2: { require: { form: "Goblin King" } },
+    goblin_evo_king_ascend: { choiceEffects: { 0: { success: { orgRank: 6 } } } },
     goblin_old_teeth: { stages: ["elder"], require: { form: "none" } },
     goblin_old_cold: { stages: ["elder"] },
     goblin_old_usurped: { stages: ["elder"], require: { any: [{ guildRank: 3 }, { jobRank: 3 }] }, choiceEffects: { 1: { success: { orgRank: 0, demote: true, wealth: -100 } } } },

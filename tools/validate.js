@@ -2,10 +2,10 @@
 // Run: node tools/validate.js   (exit code 1 when anything is wrong)
 const STATS = ["STR", "INT", "AGI", "LUCK"];
 const BARS = ["health", "joy", "wealth"];
-const EFFECT_KEYS = new Set([...STATS, ...BARS, "flags", "unflags", "fame", "jobXp", "guildPts", "bond", "partyBond", "allyHurt", "allyDie", "allyLeave", "loseJob", "setJob", "joinGuild", "focus", "recruit", "marry", "child", "loseChild", "demote", "orgRank", "orgRankName", "evolve", "era"]);
-const BOOL_EFFECTS = new Set(["allyHurt", "allyDie", "allyLeave", "loseJob", "joinGuild", "recruit", "marry", "child", "loseChild", "demote"]);
-const STR_EFFECTS = new Set(["setJob", "focus", "orgRankName", "evolve", "era"]);
-const REQ_KEYS = new Set([...STATS, ...BARS, "fame", "below", "flags", "anyFlags", "notFlags", "flagHint", "gender", "job", "jobRank", "jobRankMax", "guild", "guildRank", "guildRankMax", "party", "noParty", "allyTrait", "spouse", "children", "noChildren", "focus", "hint", "any", "fatherAlive", "motherAlive", "form"]);
+const EFFECT_KEYS = new Set([...STATS, ...BARS, "flags", "unflags", "fame", "jobXp", "guildPts", "bond", "partyBond", "allyHurt", "allyDie", "allyLeave", "loseJob", "setJob", "joinGuild", "focus", "recruit", "marry", "child", "loseChild", "demote", "orgRank", "orgRankName", "evolve", "era", "jobRankSet", "jobPromote", "orgRankUp", "loseSpouse", "parentDie"]);
+const BOOL_EFFECTS = new Set(["allyHurt", "allyDie", "allyLeave", "loseJob", "joinGuild", "recruit", "marry", "child", "loseChild", "demote", "jobPromote", "loseSpouse"]);
+const STR_EFFECTS = new Set(["setJob", "focus", "orgRankName", "evolve", "era", "parentDie"]);
+const REQ_KEYS = new Set([...STATS, ...BARS, "fame", "below", "flags", "anyFlags", "notFlags", "flagHint", "gender", "job", "jobRank", "jobRankMax", "guild", "guildRank", "guildRankMax", "party", "noParty", "allyTrait", "spouse", "children", "noChildren", "focus", "hint", "any", "fatherAlive", "motherAlive", "makerAlive", "form"]);
 const EVENT_KEYS = new Set(["_file", "id", "races", "excludeRaces", "tags", "stages", "eras", "minAge", "maxAge", "once", "weight", "require", "text", "effects", "choices", "moment", "death", "focus", "result", "pack"]);
 const PLACEHOLDERS = new Set(["name", "race", "age", "origin", "stage", "pct", "cause", "ally", "allyJob", "partner", "child", "job", "rank", "guild", "spouse", "quest", "next", "father", "mother", "maker", "who"]);
 
@@ -63,7 +63,7 @@ function validate(data) {
       else if (k === "flags" || k === "unflags") { if (!Array.isArray(eff[k])) err(where, `${k} phải là mảng`); }
       else if (BOOL_EFFECTS.has(k)) { if (eff[k] !== true) err(where, `${k} phải là true`); }
       else if (STR_EFFECTS.has(k)) { if (typeof eff[k] !== "string") err(where, `${k} phải là chuỗi`); }
-      else if (k === "orgRank") { if (typeof eff[k] !== "number") err(where, "orgRank phải là số"); }
+      else if (["orgRank", "jobRankSet", "orgRankUp"].includes(k)) { if (typeof eff[k] !== "number") err(where, `${k} phải là số`); }
       else if (typeof eff[k] !== "number" || Math.abs(eff[k]) > 100) err(where, `${k} phải là số trong khoảng -100..100`);
     }
   };
