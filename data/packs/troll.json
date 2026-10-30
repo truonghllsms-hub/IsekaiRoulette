@@ -1,0 +1,4067 @@
+{
+ "race": "troll",
+ "stageNames": {
+  "infant": "Bục Thịt Nhão",
+  "child": "Troll Nhí Ném Đá",
+  "teen": "Kẻ Đòi Nợ Cầu Đường",
+  "adult": "Tai Họa Rừng Sâu",
+  "middle": "Troll Đá Tảng",
+  "elder": "Hóa Thạch"
+ },
+ "forms": {
+  "Stone Troll": {
+   "name": "Stone Troll",
+   "life": 20
+  },
+  "Ancient Ice Troll": {
+   "name": "Ancient Ice Troll",
+   "life": 25
+  }
+ },
+ "origins": [
+  {
+   "id": "troll_origin_bridge",
+   "name": "Dưới gầm cầu đá",
+   "weight": 20,
+   "text": "Bạn trồi lên từ một đống bùn nhão nhoét ngay dưới chân một cây cầu đá ọp ẹp. Cảnh tượng đầu tiên bạn thấy là hai gã khổng lồ đang cãi nhau xem ba hòn sỏi có nhiều hơn hai hòn sỏi hay không.",
+   "siblings": "Hai đứa khác. Một đứa lỡ bị cha dẫm xẹp lép, một đứa bị dòng nước cuốn trôi lúc đang cố bắt cá.",
+   "home": "Bị vứt lại từ sớm với một cục đá to đùng để tự sinh tồn và tiếp quản \"công việc\" thu phí vô tri.",
+   "effects": {
+    "STR": 2,
+    "INT": -1,
+    "wealth": 1,
+    "flags": [
+     "bridge_troll"
+    ]
+   },
+   "father": {
+    "name": "Bork",
+    "race": "Troll",
+    "role": "Kẻ đòi tiền mãi lộ",
+    "trait": "Cục súc và hay quên",
+    "status": "gone",
+    "note": "Bỏ đi khi bạn vừa mọc cái răng đầu tiên."
+   },
+   "mother": {
+    "name": "Ulag",
+    "race": "Troll",
+    "role": "Người đắp bùn",
+    "trait": "Lười biếng, chỉ thích gãi lưng vào mố cầu",
+    "status": "gone",
+    "note": "Bỏ đi cùng cha vì thấy bạn bắt đầu biết tranh ăn."
+   }
+  },
+  {
+   "id": "troll_origin_swamp",
+   "name": "Đầm lầy hôi thối",
+   "weight": 20,
+   "text": "Bạn chui ra từ một vũng lầy sủi bọt trong Đầm Lầy Tử Khí. Món ăn đầu tiên trong đời bạn là một con đỉa khổng lồ trôi ngang qua miệng.",
+   "siblings": "Không có. Cả bãi lầy rộng lớn chỉ có mình bạn độc chiếm.",
+   "home": "Ngập ngụa trong sự sung túc hôi hám, muốn ăn chỉ việc há miệng chờ ếch nhái nhảy vào.",
+   "effects": {
+    "STR": 1,
+    "AGI": -1,
+    "health": 3,
+    "wealth": 2,
+    "flags": [
+     "swamp_troll"
+    ]
+   },
+   "father": {
+    "name": "Grakk",
+    "race": "Troll",
+    "role": "Thợ săn cóc",
+    "trait": "Hay ợ chua ra khí độc",
+    "status": "gone",
+    "note": "Vẫn lang thang quanh quẩn đâu đó."
+   },
+   "mother": {
+    "name": "Snub",
+    "race": "Troll",
+    "role": "Kẻ nhai rêu",
+    "trait": "Yêu thương con cái (theo cách của Troll là nhổ nước bọt lên đầu con)",
+    "status": "alive",
+    "note": "Còn sống."
+   }
+  },
+  {
+   "id": "troll_origin_ice",
+   "name": "Đỉnh núi tuyết",
+   "weight": 10,
+   "text": "Bạn mở mắt trên một đỉnh gào thét của Dãy Núi Răng Cưa. Làn da xanh ngắt của bạn cứng đến mức có thể làm mẻ cả búa của tộc Dwarf.",
+   "siblings": "Một anh trai tên Gorm. Đã đi lạc vào cơn bão tuyết và không bao giờ thấy về.",
+   "home": "Lạnh lẽo, cô độc, đói khát trên những mỏm đá không có lấy một cọng rêu.",
+   "effects": {
+    "STR": 2,
+    "INT": -2,
+    "health": 5,
+    "flags": [
+     "ice_troll"
+    ]
+   },
+   "father": {
+    "name": "Throk",
+    "race": "Troll",
+    "role": "Kẻ đập băng",
+    "trait": "Lầm lì, hay nấc cụt",
+    "status": "alive",
+    "note": "Chết cóng do ngủ quên cạnh dòng nham thạch vừa tắt."
+   },
+   "mother": {
+    "name": "Urza",
+    "race": "Troll",
+    "role": "Ném tuyết",
+    "trait": "Bạo lực",
+    "status": "gone",
+    "note": "Đã bỏ đi xuống chân núi tìm tuần lộc."
+   }
+  },
+  {
+   "id": "troll_origin_cave",
+   "name": "Hang động ẩm mốc",
+   "weight": 20,
+   "text": "Bạn há miệng gào khóc trong một hang động tối tăm phủ đầy nấm phát sáng. Cha mẹ lập tức nhét một vốc đất mùn vào miệng để bạn nín bặt.",
+   "siblings": "Ba đứa nheo nhóc, suốt ngày cắn nhau để giành những mảng rêu trên vách đá.",
+   "home": "Chật chội và tăm tối, nhưng ít nhất không bao giờ lo chết đói vì nấm mọc khắp nơi.",
+   "effects": {
+    "STR": 1,
+    "INT": 1,
+    "AGI": -1,
+    "flags": [
+     "cave_troll"
+    ]
+   },
+   "father": {
+    "name": "Korg",
+    "race": "Troll",
+    "role": "Kẻ ngủ đông",
+    "trait": "Lười biếng đến mức mọc cả nấm trên đầu",
+    "status": "alive",
+    "note": "Còn sống (vì vẫn đang ngủ)."
+   },
+   "mother": {
+    "name": "Muka",
+    "race": "Troll",
+    "role": "Hái nấm độc",
+    "trait": "Đãng trí",
+    "status": "alive",
+    "note": "Chạy theo một con dơi dạ quang rồi mất tích."
+   }
+  },
+  {
+   "id": "troll_origin_abyss",
+   "name": "Rìa Vực Thẳm",
+   "weight": 10,
+   "text": "Bạn sinh ra ngay sát Cửa Ngục Than Khóc. Tiếng gào thét của bọn Demon bốc lửa chính là khúc hát ru của đời bạn.",
+   "siblings": "Không có. Những quả trứng trứng khác đều đã bị ma vật ăn vụng.",
+   "home": "Vô cùng khắc nghiệt, bạn phải tự đập bẹp những con rết khổng lồ để sống qua ngày từ lúc mới biết bò.",
+   "effects": {
+    "AGI": 2,
+    "LUCK": -2,
+    "health": 2,
+    "flags": [
+     "scarred"
+    ]
+   },
+   "father": {
+    "name": "Rukk",
+    "race": "Troll",
+    "role": "Kẻ nhặt xác thối",
+    "trait": "Cục cằn",
+    "status": "alive",
+    "note": "Bị bọn Imp ranh mãnh lừa nhảy xuống vực tìm thịt nướng."
+   },
+   "mother": {
+    "name": "Garm",
+    "race": "Troll",
+    "role": "Kẻ ném đá Imp",
+    "trait": "Táo bạo",
+    "status": "alive",
+    "note": "Bị một con quái vật từ Vực Thẳm vươn xúc tu kéo tuột xuống dưới."
+   }
+  },
+  {
+   "id": "troll_origin_forest",
+   "name": "Rừng sâu tĩnh lặng",
+   "weight": 10,
+   "text": "Bạn lọt lòng giữa Đại Ngàn Lục Bảo linh thiêng của tộc Elf. Bạn là một con Troll kỳ lạ: bạn thực sự thích ngửi mùi hoa, điều khiến cha mẹ bạn kinh tởm.",
+   "siblings": "Một em gái. Đã bị đội Ranger Đại Ngàn bắt đi làm tiêu bản thí nghiệm.",
+   "home": "Thanh bình một cách sai trái, bạn bị ruồng bỏ chỉ vì lỡ \"thơm tho\" hơn tiêu chuẩn của loài Troll.",
+   "effects": {
+    "STR": -1,
+    "INT": 2,
+    "LUCK": 1,
+    "flags": [
+     "magic_resist"
+    ]
+   },
+   "father": {
+    "name": "Mung",
+    "race": "Troll",
+    "role": "Kẻ lang thang",
+    "trait": "Rất ghét tiếng chim hót",
+    "status": "gone",
+    "note": "Bỏ đi ngay lập tức."
+   },
+   "mother": {
+    "name": "Vogg",
+    "race": "Troll",
+    "role": "Kẻ bẻ cây",
+    "trait": "Sợ nhện",
+    "status": "gone",
+    "note": "Bỏ đi cùng cha, để lại bạn giữa thảm hoa."
+   }
+  },
+  {
+   "id": "troll_origin_arena",
+   "name": "Hầm ngầm Đấu trường",
+   "weight": 10,
+   "text": "Bạn sinh ra trong hố phân dưới lòng Đấu trường Huyết Sa. Món đồ chơi đầu tiên của bạn là chiếc mũ sắt méo mó của một đấu sĩ xấu số.",
+   "siblings": "Không có.",
+   "home": "Lớn lên trong gông cùm, bị bầy Goblin chăn dắt hằng ngày dùng giáo chọc vào bụng để mua vui.",
+   "effects": {
+    "STR": 2,
+    "health": 2,
+    "fame": -2,
+    "flags": [
+     "gladiator_troll"
+    ]
+   },
+   "father": {
+    "name": "Krag",
+    "race": "Troll",
+    "role": "Tù binh kiêm Đấu sĩ Hạng F",
+    "trait": "Ngơ ngác",
+    "status": "alive",
+    "note": "Bị một con Minotaur húc chết trên sàn đấu."
+   },
+   "mother": {
+    "name": "Zog",
+    "race": "Troll",
+    "role": "Tù binh quét dọn",
+    "trait": "Cam chịu",
+    "status": "alive",
+    "note": "Bị thương hội bán đi làm bia tập bắn cho lính mới."
+   }
+  }
+ ],
+ "jobs": [
+  {
+   "id": "troll_bridge",
+   "name": "Bridge Troll",
+   "stat": "STR",
+   "combat": true,
+   "desc": "Sức mạnh. Kẻ gác cầu thu phí",
+   "require": {
+    "STR": 3
+   },
+   "alt": {
+    "anyFlags": [
+     "bridge_troll"
+    ],
+    "hint": "sinh ra Dưới gầm cầu đá"
+   },
+   "ranks": [
+    "Mud Blocker",
+    "Snack Extortioner",
+    "Big-Nose Tollmaster",
+    "Bridge Nightmare",
+    "Stone Bridge King"
+   ],
+   "income": [
+    0.6,
+    1,
+    1.6,
+    2.4,
+    3.2
+   ],
+   "hazard": 1.3,
+   "gains": {
+    "STR": 0.3
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    4,
+    6,
+    8,
+    10
+   ],
+   "promoStat": [
+    "STR",
+    "STR",
+    "STR",
+    "STR"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: dùng tay không bẻ gãy trục bánh xe của một cỗ xe ngựa để buộc chúng dừng lại.",
+    "Thử thách để trở thành {next}: nhai sống một tên lính gác của Giáo hội Thánh Quang dám đuổi bạn khỏi gầm cầu.",
+    "Thử thách để trở thành {next}: thu thập đủ 10 thứ sáng lấp lánh (vàng, bạc, kính vỡ) giấu dưới đệm rêu bẩn thỉu.",
+    "Thử thách để trở thành {next}: đánh bại một con Troll lang thang khác bằng chùy đá để bảo vệ độc quyền thu tiền mãi lộ."
+   ],
+   "start": "Bạn tìm thấy một cây cầu ọp ẹp bắc qua vực sâu, vội vàng đắp một ụ bùn bốc mùi và tự hào tuyên bố đây là \"Trạm thu phí\" của riêng mình.",
+   "quiet": [
+    "Bạn nằm ngáy khò khò dưới gầm cầu, mặc kệ những đoàn xe ngựa rón rén đi qua trên đầu.",
+    "Bạn cặm cụi lấy bùn đắp thêm vào cái trạm thu phí vô hình, thỉnh thoảng liếm thử xem bùn có vị gì.",
+    "Bạn giơ bàn tay lên đếm ngón tay từ một đến... một, rồi quên mất mình đang làm gì và lăn ra ngủ."
+   ]
+  },
+  {
+   "id": "troll_merc",
+   "name": "Mercenary Troll",
+   "stat": "STR",
+   "combat": true,
+   "desc": "Sức khỏe. Vệ sĩ đánh thuê, bia đỡ đòn biết đi",
+   "require": {
+    "health": 40
+   },
+   "alt": {
+    "anyFlags": [
+     "gladiator_troll",
+     "swamp_troll"
+    ],
+    "hint": "xuất thân Hầm ngầm Đấu trường hoặc Đầm lầy hôi thối"
+   },
+   "ranks": [
+    "Meat Shield",
+    "Smash Machine",
+    "Blind Mercenary",
+    "Dim-witted General",
+    "Mercenary Lord"
+   ],
+   "income": [
+    0.8,
+    1.3,
+    2,
+    2.8,
+    3.6
+   ],
+   "hazard": 1.9,
+   "gains": {
+    "STR": 0.25
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    4,
+    6,
+    8,
+    10
+   ],
+   "promoStat": [
+    "STR",
+    "STR",
+    "STR",
+    "STR"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: đứng yên làm lá chắn thịt, đỡ trọn một đòn ma pháp phong hệ cho kẻ thuê bạn.",
+    "Thử thách để trở thành {next}: nghiền nát đội hình phòng ngự của một đội tuần tra thuộc Giáo hội Thánh Quang.",
+    "Thử thách để trở thành {next}: xách ngược một tên thủ lĩnh Goblin lên để đòi nợ tiền thuê (thực chất là đòi thịt).",
+    "Thử thách để trở thành {next}: đập nát sọ tên High Orc chủ nhân cũ, tự mình lên nắm quyền dẫn dắt đội lính đánh thuê tạp nham."
+   ],
+   "start": "Một tên High Orc quẳng cho bạn cái đùi cừu mốc meo và ra lệnh đi theo hắn. Bạn nhai nát cả xương lẫn thịt rồi lạch bạch vác chùy đi đập phá vì nghĩ ngày nào cũng sẽ được ăn như thế.",
+   "quiet": [
+    "Bạn nhai ngấu nghiến những mảng giáp sắt móp méo trên bãi chiến trường để bổ sung sắt cho cơ thể.",
+    "Bạn ngồi thiền... hoặc thực ra là ngủ gục, để mặc bọn Goblin vẽ bậy những hình thù tục tĩu lên lưng mình.",
+    "Nhận tiền công bằng mấy viên Lõi Mana sáng lấp lánh, bạn cố gặm chúng nhưng mẻ cả răng."
+   ]
+  },
+  {
+   "id": "troll_scholar",
+   "name": "Scholar Troll",
+   "stat": "INT",
+   "combat": false,
+   "desc": "Trí tuệ. Troll giả danh trí thức",
+   "require": {
+    "INT": 6
+   },
+   "alt": {
+    "anyFlags": [
+     "magic_resist",
+     "cave_troll"
+    ],
+    "hint": "xuất thân Rừng sâu tĩnh lặng hoặc Hang động ẩm mốc"
+   },
+   "ranks": [
+    "Book Picker",
+    "Upside-down Reader",
+    "Rock-throwing Wizard",
+    "Self-proclaimed Archmage",
+    "Fool Sage"
+   ],
+   "income": [
+    0.5,
+    0.9,
+    1.5,
+    2.3,
+    3.2
+   ],
+   "hazard": 1,
+   "gains": {
+    "INT": 0.3
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    4,
+    6,
+    8,
+    10
+   ],
+   "promoStat": [
+    "INT",
+    "INT",
+    "INT",
+    "INT"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: phát minh ra \"Ma pháp Cục Đá\": Tự niệm \"Xì-tin-gam!\" rồi ném một cục đá tảng vào đầu thú rừng.",
+    "Thử thách để trở thành {next}: gầm gừ đe dọa làm một học viên thực tập của Học viện Ma pháp Tháp Ngà sợ tè ra quần và cướp đũa phép của hắn.",
+    "Thử thách để trở thành {next}: \"Đọc\" dõng dạc một cuộn ma thư cổ bằng cách... ợ hơi thành tiếng để kích hoạt phong ma pháp ngẫu nhiên.",
+    "Thử thách để trở thành {next}: dùng đầu húc vỡ tung cánh cửa phong ấn của một Dungeon mà không cần giải câu đố của cổ nhân."
+   ],
+   "start": "Nhặt được một cuốn ma đạo thư rách nát của vị pháp sư xấu số nào đó, bạn quấn nó lên đỉnh đầu, vớ lấy một cành cây khô sần sùi và quyết định mình sẽ trở thành người trí thức nhất loài Troll.",
+   "quiet": [
+    "Bạn dùng ngón tay thô kệch chấm bùn, vẽ những vòng tròn ma pháp vô nghĩa lên vách đá rồi tự gật gù tâm đắc.",
+    "Bạn lật ngược cuốn ma đạo thư, xé vài trang để nhai rộp rộp, tin rằng ăn chữ sẽ giúp mình khôn hơn.",
+    "Bạn lắp bắp những từ ngữ phức tạp nghe lỏm được như \"Tuyệt đối không gian\", nhưng thực ra ý bạn là \"Bụng đói quá\"."
+   ]
+  }
+ ],
+ "orgs": [
+  {
+   "id": "troll_territory",
+   "name": "Lãnh thổ",
+   "auto": true,
+   "ranks": [
+    "Mud Troll",
+    "Sneaky Rock Thrower",
+    "Moss Boss",
+    "Turf Bully",
+    "Bridgehead Lord",
+    "Terror of the Land",
+    "Troll King"
+   ],
+   "points": [
+    0,
+    2,
+    4,
+    7,
+    11,
+    16,
+    null
+   ],
+   "missionWord": "chuyến đòi nợ",
+   "fameToPts": 0.25,
+   "board": {
+    "text": [
+     "Bụng bạn sôi ùng ục. Phía bên kia khu rừng có mùi của thức ăn, và của những kẻ nợ bạn tiền.",
+     "Một con quạ đậu lên đầu bạn, kêu quác quác. Bạn chẳng hiểu gì, nhưng quyết định đi đâu đó đánh nhau."
+    ],
+    "skip": "Gãi bụng, ngủ tiếp",
+    "skipText": "Bạn ngáp một cái thật to rồi lăn ra ngủ. Mai tính."
+   },
+   "failText": "Bạn lết về gầm cầu, đầu u một cục, không nhớ nổi mình vừa đi đâu.",
+   "rankAliases": [
+    "troll bùn nhão",
+    "kẻ ném đá giấu tay",
+    "đại ca rêu xanh",
+    "ác bá lãnh thổ",
+    "chúa tể mố cầu",
+    "nỗi khiếp sợ vùng đất",
+    "troll king độc tôn"
+   ],
+   "rankUp": {
+    "0": "Bạn chỉ là một vũng thịt biết đi, thường xuyên bị bọn Troll lớn hơn đá lăn lông lốc xuống gầm cầu.",
+    "1": "Bạn đã biết giương nanh múa vuốt đe dọa những con lợn rừng đi lạc để giành lấy vùng lãnh thổ cỏn con.",
+    "2": "Những con Troll lọt lòng sau bắt đầu phải cống nạp những mảng rêu ngon nhất cho bạn để không bị ăn đấm.",
+    "3": "Cả một khúc sông hay một hang động tối tăm giờ đây nặc mùi hôi thối đặc trưng mang tên bạn.",
+    "4": "Không một Mạo hiểm giả hay bầy Goblin nào dám đi ngang qua mà không ném lại vài đồng tiền hoặc thịt khô để xin đường.",
+    "5": "Danh tiếng của bạn lan xa khiến Thương hội Sói Bạc phải gạch chéo khu vực này trên bản đồ giao thương.",
+    "6": "Bạn ngự trị trên ngai vàng đắp bằng bùn và xương thú, trở thành vị đại vương tối cao, ngu ngốc nhưng vô địch của vạn vật quanh đây."
+   },
+   "join": []
+  }
+ ],
+ "quests": [
+  {
+   "id": "troll_quest_goblin_toll",
+   "org": "troll_territory",
+   "name": "Cạnh Tranh Thương Mại Cùng Goblin",
+   "minRank": 0,
+   "hint": "Dễ. Đừng tin vào những ngón tay màu xanh lá.",
+   "intro": "Bạn đang ngáy khò khò thì phát hiện một bầy Goblin xấc xược dám dựng một trạm thu phí bằng cành cây ngay đầu cầu bên kia. Chúng đang giơ bảng gỗ đòi tiền người qua đường trên chính lãnh thổ của bạn!",
+   "steps": [
+    {
+     "text": "Tên thủ lĩnh Goblin láu cá vẫy tay, đề nghị chia cho bạn \"ba phần mười\" lợi nhuận nếu bạn chịu làm bảo kê cho chúng.",
+     "choices": [
+      {
+       "label": "Đập nát trạm thu phí!",
+       "check": {
+        "stat": "STR",
+        "target": 6
+       },
+       "success": {
+        "text": "Bạn vung chùy quét một vòng, hất tung đám Goblin cùng cái trạm gỗ xuống vực. Độc quyền mãi lộ lại là của bạn.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bạn vung chùy trượt, đập trúng chân mình ngã lăn quay. Bọn Goblin cười nhạo và ném đá vào đầu bạn trước khi chuồn mất.",
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Cố gắng tính toán cổ phần",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Bằng một phép màu não bộ, bạn nhận ra ba nhỏ hơn mười. Bạn tức giận túm cổ tên thủ lĩnh vắt kiệt túi tiền của hắn.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bạn xòe ngón tay ra đếm tới đếm lui đến mức rối não. Khi bạn tỉnh lại, bầy Goblin đã thu sạch tiền lẻ của người qua đường rồi dọn đi mất.",
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Nhổ cây làm tăm xỉa răng",
+       "text": "Bạn lững thững bước tới, nhổ toẹt cái cột thu phí của chúng để xỉa những dính thịt trong răng. Đám Goblin khiếp vía tự giải tán.",
+       "end": "win"
+      }
+     ]
+    }
+   ],
+   "complete": "Bạn vỗ ngực tự hào trên đống gỗ vụn, chứng minh cho cả Vực Thẳm thấy ai mới là chủ nhân duy nhất của con đường này.",
+   "reward": {
+    "wealth": 10,
+    "fame": 3,
+    "guildPts": 1
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Xóa sổ một doanh nghiệp khởi nghiệp của bầy Goblin."
+  },
+  {
+   "id": "troll_quest_dwarf_ale",
+   "org": "troll_territory",
+   "name": "Thùng Rượu Thuốc Nổ",
+   "minRank": 2,
+   "hint": "Vừa. Thử thách cho dạ dày của bạn.",
+   "intro": "Một tay thương nhân tộc Dwarf lái chiếc xe kéo ọp ẹp qua lãnh thổ của bạn. Hắn không có tiền, nhưng thề rằng thứ nước màu vàng sủi bọt trong thùng gỗ có giá trị hơn mọi đồng Cẩm Thạch trên đời.",
+   "steps": [
+    {
+     "text": "Tên Dwarf thấy bạn lững thững bước ra liền quất roi giục lừa chạy thục mạng để trốn vé.",
+     "choices": [
+      {
+       "label": "Nắm lấy đuôi lừa",
+       "check": {
+        "stat": "AGI",
+        "target": 6
+       },
+       "success": {
+        "text": "Bạn tóm dính đuôi con lừa, kéo ngược cỗ xe lại nhẹ như bỡn. Tên Dwarf ngã lăn lóc xuống bùn xin hàng.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Bạn vồ hụt, ngã sấp mặt vào bãi phân lừa. Cỗ xe chạy khuất dạng bỏ lại bạn ngập trong sự xấu hổ hôi thối.",
+        "effects": {
+         "fame": -2
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Ném đá đập nát xe",
+       "text": "Một tảng đá khổng lồ nghiền nát cỗ xe. Tên Dwarf chết kẹt bên trong, thùng rượu cũng vỡ nát ngấm hết xuống đất. Bạn chẳng thu được gì ngoài mấy mảnh gỗ vụn.",
+       "end": "fail"
+      }
+     ]
+    },
+    {
+     "text": "Hắn run rẩy dâng lên thùng \"Bia Thuốc Nổ Đen\" — đặc sản Lò Rèn Vĩnh Cửu, thứ có thể làm chảy cả áo giáp sắt.",
+     "choices": [
+      {
+       "label": "Uống một hơi cạn thùng",
+       "check": {
+        "stat": "health",
+        "target": 70
+       },
+       "success": {
+        "text": "Bụng bạn sôi lên sùng sục. Bạn ợ ra một luồng lửa thiêu trụi râu tên Dwarf. Dạ dày siêu phàm của bạn đã hấp thụ thứ cồn kịch độc này. Hắn kinh hãi móc hết tiền túi ra nộp.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Dạ dày bạn không chịu nổi. Bạn nôn thốc nôn tháo ra thứ chất lỏng bốc cháy, tự thiêu rụi nửa thân dưới của mình trong đau đớn tột cùng.",
+        "death": "Dạ dày bạn phát nổ thành từng mảnh thịt nướng"
+       }
+      },
+      {
+       "label": "Bóp cổ đòi tiền xu",
+       "text": "Trí khôn của bạn mách bảo nước thì uống dưới sông cũng được. Bạn xách ngược hắn lên lắc cho đến khi tiền rơi lả tả.",
+       "end": "win"
+      }
+     ]
+    }
+   ],
+   "complete": "Bạn gom những đồng tiền dính đầy bọt bia cất vào khố, để mặc tên Dwarf vừa khóc vừa bò về dãy núi.",
+   "reward": {
+    "wealth": 15,
+    "fame": 4,
+    "guildPts": 1
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Uống thứ bia có thể nung chảy sắt thép như uống nước suối."
+  },
+  {
+   "id": "troll_quest_fake_troll",
+   "org": "troll_territory",
+   "name": "Tên Khổng Lồ Sơn Xanh",
+   "minRank": 3,
+   "hint": "Vừa. Đòi hỏi cơ bắp hoặc một bài kiểm tra bản năng.",
+   "intro": "Bọn Imp đồn đại dạo này có một gã Troll khác to lớn, bạo lực hơn đang cướp khách thu phí ở đầu cầu phía Bắc. Khi đến nơi, bạn phát hiện gã đó thực chất là một tên High Orc bôi bùn xanh lá lên người để giả danh bạn.",
+   "steps": [
+    {
+     "text": "Tên High Orc gầm gừ, bắt chước tướng đi lạch bạch của bạn và vung một cây chùy sắt đe dọa, ép bạn phải nhường lại lãnh thổ kiếm ăn mập mạp này.",
+     "choices": [
+      {
+       "label": "Gầm lên và đấu sức",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Chùy sắt đụng chùy đá. Sức mạnh của quái vật nguyên thủy áp đảo hoàn toàn sức lực của loài Orc. Bạn đập gãy tay hắn và đá hắn lộn vòng xuống chân đồi.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Tên High Orc được rèn luyện kỹ năng chiến đấu bài bản. Hắn lách qua cú đập của bạn và vụt chùy sắt vào gối, khiến bạn gục ngã đau đớn phải nhượng bộ bỏ chạy.",
+        "effects": {
+         "fame": -5
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Thi nhai đá tảng",
+       "check": {
+        "stat": "INT",
+        "target": 6
+       },
+       "success": {
+        "text": "Bạn vớ lấy một tảng đá to bự nhai rộp rộp một cách ngon lành rồi ném một tảng khác cho hắn. Tên Orc ngu ngốc cắn thử, gãy toàn bộ hàm răng trước và ôm miệng khóc thét bỏ chạy.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bạn cắn nhầm phải hòn đá có quặng Huyết Kim siêu cứng. Răng bạn mẻ làm đôi, tên Orc cười hô hố lao vào tấn công lúc bạn đang ôm miệng kêu la.",
+        "effects": {
+         "joy": -10
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Hắt nước sông vào mặt hắn",
+       "require": {
+        "AGI": 6
+       },
+       "showLocked": true,
+       "text": "Bạn nhanh trí dùng chân đá tung nước sông lên. Lớp sơn xanh trôi tuột, để lộ bộ mặt High Orc da xám. Bầy ma vật xung quanh chế nhạo khiến hắn ngượng ngùng bỏ đi.",
+       "end": "win"
+      }
+     ]
+    }
+   ],
+   "complete": "Kẻ giả danh đã bị đuổi cổ. Bạn dùng móng tay cạo lớp bùn thừa của hắn đắp thêm vào trụ cầu của mình, củng cố uy quyền tuyệt đối.",
+   "reward": {
+    "wealth": 12,
+    "fame": 5,
+    "guildPts": 2
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Bảo vệ bản quyền thương hiệu \"Troll\" bằng một cuộc thi nhai đá."
+  },
+  {
+   "id": "troll_quest_story_holy",
+   "org": "troll_territory",
+   "name": "Đòi Nợ Kẻ Mặc Áo Choàng Trắng",
+   "minRank": 3,
+   "hint": "Khó. Đừng để thứ ánh sáng chói mắt đó đánh lừa.",
+   "intro": "Một đạo quân nhỏ của Thánh Kỵ Sĩ Đoàn, dẫn đầu bởi một Kỵ Sĩ Trưởng, đang hành quân gấp gáp qua cầu của bạn để tới Đầm Lầy Tử Khí. Chúng lờ đi cái bảng đắp bằng bùn và đâm nát đống rêu bạn tích trữ. Cơn đói và sự tức giận của loài Troll trỗi dậy.",
+   "steps": [
+    {
+     "text": "Bọn chúng xếp đội hình khiên giáo san sát, định dùng giáo đâm thủng bạn như một túi nước thối.",
+     "choices": [
+      {
+       "label": "Húc đầu vào đội hình kỵ binh",
+       "check": {
+        "stat": "STR",
+        "target": 6
+       },
+       "success": {
+        "text": "Bạn lao như một tảng đá lăn, dùng thân hình khổng lồ đâm sầm vào đội hình của chúng. Bọn lính ngã lăn lóc, gãy vụn vài cây giáo.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Lũ kỵ sĩ đâm giáo đồng loạt, xuyên thủng bụng bạn ghim chặt xuống đất. Bạn đau đớn gào thét và bị bỏ lại bẹp dúm.",
+        "effects": {
+         "fame": -5
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Bóc từng tảng đá ném từ xa",
+       "check": {
+        "stat": "LUCK",
+        "target": 6
+       },
+       "success": {
+        "text": "Bạn ném loạn xạ nhưng lại trúng ngay tên lính cầm cờ, làm lá cờ Thánh Quang gãy gập. Cả đội hình rối loạn.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Bạn ném trượt hết, lại còn lỡ tay ném trúng bọng ong khổng lồ trên cây làm chúng đốt bạn sưng vù cả mắt.",
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Kỵ Sĩ Trưởng bước lên, thanh gươm của hắn bùng cháy ngọn lửa Thánh Quang rực rỡ, tuyên bố sẽ thiêu rụi bạn về cát bụi.",
+     "choices": [
+      {
+       "label": "Nhổ bãi nước bọt cực lớn",
+       "check": {
+        "stat": "health",
+        "target": 70
+       },
+       "success": {
+        "text": "Bạn vận toàn bộ cơ lực dạ dày, khạc một bãi nước bọt nhớt nhát khổng lồ trúng ngay thanh gươm, xèo xèo dập tắt ngọn lửa thiêng. Hắn sững sờ.",
+        "next": 2
+       },
+       "fail": {
+        "text": "Ánh sáng thiêng liếm vào tay bạn, ăn mòn lớp da thịt không thể tái tạo. Bạn bỏ chạy thục mạng xuống lòng sông.",
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Cầm ván cầu làm khiên che mắt",
+       "text": "Bạn bứt vội ván cầu che trước mặt, mặc kệ ánh sáng thiêu cháy lớp gỗ. Kỵ Sĩ Trưởng thấy bạn ngoan cố nên quyết định nhượng bộ để không chậm trễ quân tình.",
+       "next": 2
+      }
+     ]
+    },
+    {
+     "text": "Kỵ Sĩ Trưởng tháo một chiếc găng tay bằng Tinh Bạc ném xuống đất như một khoản phí qua đường để được yên thân.",
+     "choices": [
+      {
+       "label": "Nhặt găng tay và bắt viết giấy nợ",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Bạn nhận găng tay, nhưng ép hắn phải dùng máu cạch lên một phiến đá một dấu chữ thập, ghi nhận rằng Giáo hội Thánh Quang nợ bạn một khoản phí. Hắn nhịn nhục làm theo.",
+        "effects": {
+         "flags": [
+          "holy_debt"
+         ]
+        },
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bạn bắt hắn viết nhưng lại lỡ tay bóp nát bét phiến đá và suýt bóp nát tay hắn. Hắn hoảng sợ thúc ngựa bỏ chạy vứt lại găng tay.",
+        "effects": {
+         "joy": -5
+        },
+        "end": "win"
+       }
+      },
+      {
+       "label": "Nhai luôn chiếc găng tay",
+       "require": {
+        "health": 6
+       },
+       "showLocked": true,
+       "text": "Bạn bỏ găng tay vào miệng nhai nát, vị kim loại cọ xát trong kẽ răng. Hắn kinh tởm dẫn quân đi qua.",
+       "effects": {
+        "wealth": 5
+       },
+       "end": "win"
+      }
+     ]
+    }
+   ],
+   "complete": "Bạn đã thành công thu tiền (và cả sự nhục nhã) của Thánh Kỵ Sĩ Đoàn, tự xưng là chủ nợ của cả Giáo hội Thánh Quang.",
+   "reward": {
+    "wealth": 20,
+    "fame": 10,
+    "guildPts": 3
+   },
+   "weight": 4,
+   "moment": "Bắt một Kỵ Sĩ Trưởng của Giáo hội Thánh Quang phải viết giấy nợ tiền mãi lộ."
+  },
+  {
+   "id": "troll_quest_story_worm",
+   "org": "troll_territory",
+   "name": "Trạm Thu Phí Dưới Lòng Đất",
+   "minRank": 4,
+   "hint": "Rất Khó. Bắt một sinh vật khổng lồ nộp phí.",
+   "intro": "Mặt đất quanh hang của bạn rung chuyển dữ dội. Một con Giun Đất Khổng Lồ (Sand Worm) to bằng tòa tháp đang đào xới lãnh thổ của bạn, nuốt trọn cả đống rêu quý giá và những cống phẩm bạn cất giấu.",
+   "steps": [
+    {
+     "text": "Con quái vật lao lên từ lòng đất, cái miệng lởm chởm răng của nó chực chờ nuốt chửng mọi thứ.",
+     "choices": [
+      {
+       "label": "Nhảy thẳng lên lưng nó",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Bạn đu người lên không trung, cưỡi cái phịch lên lớp vỏ trơn tuột của con Giun Khổng Lồ. Nó lồng lộn cố hất bạn ra.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Bạn trượt chân, bị nó húc tung lên trời và rơi xuống gãy toàn bộ xương mác. Con quái lặn xuống đất mất tăm.",
+        "effects": {
+         "fame": -5
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Cắm chùy chặn miệng nó",
+       "check": {
+        "stat": "STR",
+        "target": 10
+       },
+       "success": {
+        "text": "Bạn cắm phập cây chùy tảng đá của mình ngang miệng nó, chặn đứng cú cắn. Con giun rít lên đau đớn và đình trệ.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Lực húc quá mạnh. Cây chùy gãy làm đôi, con giun nuốt luôn cả nửa cây chùy và đụng trúng bạn khiến bạn ngất xỉu.",
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Con giun lặn sâu xuống đất mang theo cả bạn. Không khí loãng dần, bóng tối và đất đá chà xát vào người bạn.",
+     "choices": [
+      {
+       "label": "Cắn nát vỏ của nó",
+       "check": {
+        "stat": "health",
+        "target": 70
+       },
+       "success": {
+        "text": "Lớp da Troll của bạn chịu đựng được sự ma sát. Bạn há miệng cắn phập vào lớp vỏ mềm dưới mang của nó, tiết ra dịch độc nấm. Con quái đau đớn trồi lên mặt đất.",
+        "next": 2
+       },
+       "fail": {
+        "text": "Bạn ngạt thở vì nuốt phải quá nhiều đất cát, buộc phải buông tay để tự bò lên mặt đất.",
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Gõ nhịp vào đầu nó",
+       "text": "Bạn dùng tay gõ boong boong lên hộp sọ nó như gõ trống. Con quái hoang mang mất phương hướng, trồi lên lại ngay vị trí cũ.",
+       "next": 2
+      }
+     ]
+    },
+    {
+     "text": "Con giun nằm thoi thóp trên mặt đất. Nó nôn ra vô số quặng Huyết Kim và vũ khí của Mạo hiểm giả mà nó từng nuốt.",
+     "choices": [
+      {
+       "label": "Bắt nó làm thú cưỡi",
+       "check": {
+        "stat": "INT",
+        "target": 10
+       },
+       "success": {
+        "text": "Bạn dùng một sợi xích neo tàu khổng lồ trói ngang miệng nó, biến sinh vật kinh hoàng này thành phương tiện đi lại và công cụ đào đất của riêng bạn.",
+        "effects": {
+         "flags": [
+          "worm_rider"
+         ]
+        },
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bạn không biết buộc nút xích. Sợi xích tuột ra, con giun sợ hãi chui tọt xuống đất, để lại bạn cùng đống của cải nó nôn ra.",
+        "effects": {
+         "STR": 1
+        },
+        "end": "win"
+       }
+      },
+      {
+       "label": "Nuốt chửng cả đống Huyết Kim",
+       "require": {
+        "health": 8
+       },
+       "showLocked": true,
+       "text": "Bạn mặc kệ con giun, lao vào bốc đống quặng ném vào mồm nhai rôm rốp. Dạ dày bạn được tráng một lớp Huyết Kim siêu cứng.",
+       "effects": {
+        "wealth": 10
+       },
+       "end": "win"
+      }
+     ]
+    }
+   ],
+   "complete": "Bạn đã chứng minh rằng không một kẻ nào, kể cả quái vật khổng lồ dưới lòng đất, có thể đi qua lãnh thổ của bạn mà không nộp phí.",
+   "reward": {
+    "wealth": 30,
+    "fame": 15,
+    "guildPts": 4
+   },
+   "weight": 4,
+   "moment": "Ép một con Giun Khổng Lồ phải nôn tài sản ra nộp tiền mãi lộ."
+  },
+  {
+   "id": "troll_quest_story_dragon",
+   "org": "troll_territory",
+   "name": "Kẻ Chặn Đường Ác Long (Tầm vóc huyền thoại)",
+   "minRank": 6,
+   "hint": "Cực Khó. Đối đầu với hiện thân của cái chết.",
+   "intro": "Bầu trời nhuộm đỏ rực, một con Ancient Black Dragon (Hắc Long Thượng Cổ) - sinh vật huyền thoại của Đảo Tro Tàn - sà xuống ngọn núi thuộc lãnh thổ của bạn. Nó định san phẳng nơi này để làm ổ. Không một ai dám đứng ra, ngoại trừ vị vua ngốc nghếch là bạn.",
+   "steps": [
+    {
+     "text": "Hắc Long gầm lên, yêu cầu con sâu bọ hôi thối là bạn cút khỏi ngọn núi.",
+     "choices": [
+      {
+       "label": "Đứng im, xòe tay ra đòi tiền",
+       "check": {
+        "stat": "LUCK",
+        "target": 8
+       },
+       "success": {
+        "text": "Bằng sự lỳ lợm ngu ngốc, bạn vẫn chìa bàn tay đầy bùn ra. Sự ngạo mạn vô tri này khiến Hắc Long khựng lại một nhịp, cho bạn cơ hội tấn công trước.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Cơn thịnh nộ của rồng biến thành luồng Hắc Viêm thiêu rụi nửa cánh tay phải của bạn. Bạn đau đớn gục ngã.",
+        "effects": {
+         "fame": -10
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Nhặt tảng núi ném trả",
+       "check": {
+        "stat": "STR",
+        "target": 10
+       },
+       "success": {
+        "text": "Cơ bắp cuồn cuộn của Troll King nhấc bổng cả một vách đá tảng ném vào mặt rồng. Hắc Long choáng váng lùi lại.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Vách đá quá nặng, bạn tự đè nát bàn chân mình, không thể di chuyển trốn tránh đòn tiếp theo.",
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Con rồng tung cánh, trút xuống một ngọn lửa đen thiêu đốt linh hồn. Lửa là thiên địch lớn nhất của loài Troll.",
+     "choices": [
+      {
+       "label": "Lấy bùn Huyết Kim che thân",
+       "check": {
+        "stat": "INT",
+        "target": 10
+       },
+       "success": {
+        "text": "Bạn nhanh trí lăn vòng xuống vũng bùn có lẫn quặng Huyết Kim (nếu có dấu ấn worm_rider bạn còn trốn sau con giun). Lớp bùn thép bảo vệ bạn khỏi luồng nhiệt tử thần.",
+        "next": 2
+       },
+       "fail": {
+        "text": "Lớp bùn khô ran và nổ tung. Cơ thể bạn bốc cháy ngùn ngụt, ngã gục trong tuyệt vọng. CHẾT (Một vị vua cháy đen trên chính ngai vàng của mình)."
+       }
+      },
+      {
+       "label": "Hấp thụ lửa bằng dạ dày",
+       "require": {
+        "health": 12
+       },
+       "showLocked": true,
+       "text": "Bạn há to miệng, vận sức nuốt trọn một luồng Hắc Viêm vào bụng. Dạ dày bọc quặng của bạn sôi lên, ợ ra một cuộn khói đen ngòm. Hắc Long bàng hoàng.",
+       "next": 2
+      }
+     ]
+    },
+    {
+     "text": "Con rồng sà xuống vồ lấy bạn bằng bộ vuốt khổng lồ để xé xác.",
+     "choices": [
+      {
+       "label": "Vật ngã rồng thượng cổ!",
+       "check": {
+        "stat": "STR",
+        "target": 10
+       },
+       "success": {
+        "text": "Bạn ôm chặt lấy chân nó, gồng toàn bộ sinh lực của loài Troll kéo gã khổng lồ có cánh đập mặt xuống đất, dùng chùy giáng thẳng vào hộp sọ rồng. Hắc Long rống lên xin hàng.",
+        "effects": {
+         "fame": 50,
+         "flags": [
+          "dragon_slayer_king"
+         ]
+        },
+        "end": "win"
+       },
+       "fail": {
+        "text": "Vuốt rồng cắm phập vào ngực bạn, xé toạc sinh mệnh tàn tạ. CHẾT (Troll King ngã xuống, một huyền thoại kết thúc trong vinh quang ngu ngốc)."
+       }
+      },
+      {
+       "label": "Bám lấy cổ rồng cắn",
+       "text": "Bạn đu bám lên vảy rồng, cắn ngập răng vào yết hầu nó, tiêm vào đó chất độc hôi thối ngàn năm của Troll. Con rồng ngạt thở, nôn ra viên ngọc rồng và bỏ chạy.",
+       "effects": {
+        "wealth": 50
+       },
+       "end": "win"
+      }
+     ]
+    }
+   ],
+   "complete": "Bạn ngồi trên đống vảy rồng rơi vãi, nhai viên ngọc rồng tỏa sáng rực rỡ. Từ nay, ngay cả rồng thượng cổ cũng phải đi đường vòng tránh lãnh thổ của Troll King.",
+   "reward": {
+    "wealth": 100,
+    "fame": 50
+   },
+   "weight": 4,
+   "moment": "Đòi tiền mãi lộ thành công từ một con Rồng Thượng Cổ."
+  },
+  {
+   "id": "troll_quest_era_demon",
+   "org": "troll_territory",
+   "name": "Quân Đoàn Ma Vương Nộp Phí",
+   "minRank": 5,
+   "hint": "Rất Khó. Bọn quỷ dữ đông như kiến nhưng đầu óc bạn chỉ đếm được đến ba.",
+   "intro": "Quân đoàn Ma Vương gồm hàng ngàn con High Orc, Imp và Demon đang hành quân rầm rộ qua hẻm núi của bạn để chuẩn bị tấn công Đồng Bằng Thánh Quang. Một gã Đại tướng Quỷ giáp đen cưỡi ác thú tiến lên, ra lệnh cho bạn cút xéo.",
+   "steps": [
+    {
+     "text": "Gã Đại tướng Quỷ quất roi lửa, định hất văng cục thịt hôi thối cản đường.",
+     "choices": [
+      {
+       "label": "Giật roi lửa, quất lại",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Bất chấp tay bị bỏng, bạn chộp lấy ngọn roi giật mạnh, kéo gã Đại tướng văng khỏi yên ngựa rơi lộn cổ xuống đất bùn. Đạo quân chững lại.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Roi lửa quấn chặt lấy bạn, thiêu cháy da thịt. Hàng trăm con Orc xông tới chém bạn tơi bời, bạn chỉ kịp cuộn tròn chờ tái tạo.",
+        "effects": {
+         "fame": -10
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Ngồi ịch xuống giữa đường",
+       "text": "Với thân hình khổng lồ, bạn ngồi ịch xuống chắn hết lối đi hẹp. Bạn gãi bụng và ngoáy mũi rứt khoát không đi.",
+       "next": 1
+      }
+     ]
+    },
+    {
+     "text": "Gã Đại tướng tức điên, vung kiếm đe dọa sẽ băm vằm bạn. Nhưng Ma Vương giáng thế cần thời gian, chúng không muốn chậm trễ.",
+     "choices": [
+      {
+       "label": "Bắt đếm ngón tay để đi qua",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Bạn giơ 3 ngón tay lên, bắt hắn phải đưa đúng 3 cỗ xe lương thực. Gã Quỷ khinh bỉ ném lại 3 cỗ xe thịt tươi rồi hậm hực tiến quân.",
+        "effects": {
+         "wealth": 30
+        },
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bạn giơ ngón tay nhưng bị hắn chém cụt luôn hai ngón. Bạn gào lên ôm tay khóc lóc bỏ chạy vào rừng.",
+        "effects": {
+         "fame": -5
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Cướp luôn ác thú của hắn",
+       "text": "Bạn gầm gừ lao tới đấm gã Đại tướng bất tỉnh, xách con ác thú ma giới lên vai rồi bỏ chạy về hang làm bữa tối. Cả quân đoàn ngỡ ngàng không dám đuổi.",
+       "effects": {
+        "health": 15,
+        "fame": 20
+       },
+       "end": "win"
+      }
+     ]
+    }
+   ],
+   "complete": "Dù là Ma Vương hay Thần Thánh, hễ đi qua hẻm núi này là phải biết luật của Troll. Bạn no nê đánh chén giữa lúc thế giới đang loạn lạc.",
+   "reward": {
+    "wealth": 30,
+    "fame": 20
+   },
+   "weight": 4,
+   "eras": [
+    "demon_lord"
+   ],
+   "moment": "Cản bước tiến của Quân đoàn Ma Vương chỉ vì chúng không chịu đóng phí mãi lộ 3 cỗ xe thịt."
+  }
+ ],
+ "events": [
+  {
+   "id": "troll_event_parents_return",
+   "text": "Bạn vừa vất vả bắt được một con lợn lòi béo ngậy. Đột nhiên {father} (hoặc {mother}), người đã vứt bỏ bạn nhiều năm trước, lù lù xuất hiện vỗ bụng sùng sục và chỉ tay vào con mồi.",
+   "stages": [
+    "infant",
+    "child"
+   ],
+   "choices": [
+    {
+     "label": "Đập chùy xua đuổi",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn giáng một cú chùy rung chuyển mặt đất. Gã khổng lồ già cỗi hoảng hốt lùi lại và bỏ đi, lẩm bẩm khen bạn khỏe.",
+      "effects": {
+       "STR": 1,
+       "health": -5,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Bạn bị đấm cho văng vào vách đá. Họ ung dung nhai ngấu nghiến con lợn rồi bỏ đi lần nữa.",
+      "effects": {
+       "health": -15,
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Giấu lợn dưới bùn",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn nhanh tay nhận chìm con lợn xuống đống bùn hôi thối rồi ngơ ngác gãi đầu. Bọn họ bĩu môi chê chỗ này nghèo nàn rồi quay lưng.",
+      "effects": {
+       "INT": 1,
+       "wealth": 5
+      }
+     },
+     "fail": {
+      "text": "Lợn lòi rống lên giãy giụa. Họ cười khùng khục, xách cả lợn lẫn bùn nuốt chửng.",
+      "effects": {
+       "joy": -10,
+       "wealth": -5
+      }
+     }
+    },
+    {
+     "label": "Lễ phép dâng lên",
+     "text": "Bạn ngoan ngoãn dâng con mồi lên vì nghĩ rằng họ sẽ cho bạn ăn ké. Họ ăn sạch không chừa lại khúc xương nào, nấc cụt rồi bỏ đi.",
+     "effects": {
+      "health": -5,
+      "joy": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "troll_event_parents_legacy",
+   "text": "Một gã Mạo hiểm giả loài người rón rén đặt một cây chùy gãy và một mảnh khố đầy bùn trước mặt bạn. Hắn tự xưng là người đã kết liễu {father} (hoặc {mother}) và tới đây để trả lại di vật, mong bạn đừng báo thù.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "choices": [
+    {
+     "label": "Báo thù ném đá!",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn tóm lấy một tảng đá ném trúng đầu gã mạo hiểm giả trước khi hắn kịp rút kiếm. Bạn nhặt được một túi vàng rơi ra.",
+      "effects": {
+       "STR": 1,
+       "wealth": 10,
+       "fame": 3
+      }
+     },
+     "fail": {
+      "text": "Hắn lăn lộn né tránh và phóng ma pháp lửa vào mặt bạn rồi chuồn mất. Râu bạn bị cháy trụi.",
+      "effects": {
+       "health": -20,
+       "fame": -2
+      }
+     }
+    },
+    {
+     "label": "Gặm thử di vật",
+     "text": "Bạn cầm cây chùy gãy lên nhai thử, thấy cứng quá nên nhổ ra. Bạn mặc kệ tên loài người đang đứng hình vì bối rối.",
+     "effects": {
+      "health": -2,
+      "joy": 5
+     }
+    },
+    {
+     "label": "Thu tiền mãi lộ tưởng niệm",
+     "require": {
+      "INT": 5
+     },
+     "showLocked": true,
+     "text": "Bạn giơ 3 ngón tay lên, đòi hắn phải nộp tiền vì đã dám đứng trên mảnh đất của bạn để kể chuyện buồn.",
+     "effects": {
+      "INT": 1,
+      "wealth": 5
+     }
+    }
+   ],
+   "moment": "Nhận lại di vật của gia đình nhưng dùng nó để đập ruồi."
+  },
+  {
+   "id": "troll_role_bridge_merchant",
+   "text": "Thương hội Sói Bạc đi ngang qua cầu của bạn. Tên thương nhân khôn lỏi ném cho bạn một đồng Cẩm Thạch nhỏ xíu và bảo \"Thế là đủ rồi nhé, đồ ngốc\".",
+   "require": {
+    "job": "troll_bridge"
+   },
+   "choices": [
+    {
+     "label": "Đập nát xe hàng!",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn gầm lên vung chùy đập nát thùng xe. Hàng hóa văng tung tóe, bọn vệ sĩ bỏ chạy toán loạn để lại vô số mớ thịt khô và vũ khí hỏng.",
+      "effects": {
+       "STR": 1,
+       "wealth": 15,
+       "fame": 3
+      }
+     },
+     "fail": {
+      "text": "Một tên vệ sĩ dùng giáo đâm trúng ngón chân cái của bạn. Bạn đau đớn ôm chân nhảy lò cò rồi trượt ngã xuống sông.",
+      "effects": {
+       "health": -10,
+       "fame": -2
+      }
+     }
+    },
+    {
+     "label": "Nhặt đồng xu và ăn luôn",
+     "text": "Bạn nhặt đồng Cẩm Thạch lên nhai rôm rốp, gật gù khen ngon rồi vẫy tay cho đoàn xe đi qua.",
+     "effects": {
+      "health": -2,
+      "joy": 5,
+      "wealth": 1
+     }
+    },
+    {
+     "label": "Đòi thêm đồ lấp lánh",
+     "require": {
+      "INT": 4
+     },
+     "showLocked": true,
+     "text": "Bạn chặn đứng cây cầu, lắc đầu chỉ vào cái khuy áo bằng bạc của tên thương nhân, ép hắn phải tháo ra mới cho qua.",
+     "effects": {
+      "INT": 1,
+      "joy": 2,
+      "wealth": 10
+     }
+    }
+   ],
+   "moment": "Ăn một đồng tiền Cẩm Thạch vì tưởng đó là kẹo cứng."
+  },
+  {
+   "id": "troll_role_bridge_fire",
+   "text": "Một tổ đội Mạo hiểm giả hạng B nhận nhiệm vụ dọn dẹp cây cầu. Tên Ma pháp sư bắt đầu niệm chú, ngọn lửa đỏ rực bùng lên, thiêu rụi đống bùn và rêu của bạn.",
+   "require": {
+    "job": "troll_bridge"
+   },
+   "choices": [
+    {
+     "label": "Bỏ chạy xuống nước",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn phản xạ tuyệt vời, lăn tòm xuống dòng sông bên dưới, dập tắt ngọn lửa đang liếm vào mảng rêu trên mông. Trạm thu phí bị hủy nhưng bạn còn mạng.",
+      "effects": {
+       "health": -10,
+       "loseJob": true
+      }
+     },
+     "fail": {
+      "text": "Chân bạn vướng vào đống rác do chính mình xả ra. Ngọn lửa trùm kín lấy bạn. Khả năng tái tạo không thể chống lại ma pháp hỏa hệ. CHẾT (Bạn bị thiêu thành một đống tro khổng lồ bốc mùi hôi thối)."
+     }
+    },
+    {
+     "label": "Dùng đá ném Pháp sư",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn chịu đựng sức nóng, gồng mình ném một tảng đá to bằng con bò đè bẹp tên Ma pháp sư. Tổ đội khiếp vía bỏ chạy.",
+      "effects": {
+       "STR": 2,
+       "health": -20,
+       "fame": 5,
+       "flags": [
+        "fire_burns"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Tảng đá trượt mục tiêu. Ngọn lửa phệ hồn lao thẳng vào mặt bạn. CHẾT (Đầu bạn cháy rụi trước khi kịp hiểu ma pháp là gì)."
+     }
+    },
+    {
+     "label": "Khóc lóc van xin",
+     "text": "Bạn ngồi phịch xuống đất, ôm mặt khóc tu tu như một đứa trẻ. Bọn mạo hiểm giả bối rối, thương hại để lại bạn sống nhưng đuổi bạn đi.",
+     "effects": {
+      "joy": -20,
+      "fame": -5,
+      "loseJob": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "troll_role_bridge_goats",
+   "text": "Ba con dê (nhỏ, nhỡ, lớn) đi qua cầu. Con dê nhỏ bảo hãy đợi con lớn hơn phía sau, con dê nhỡ cũng bảo thế. Cuối cùng một con Dê Quỷ khổng lồ với cặp sừng rực lửa bước tới.",
+   "require": {
+    "flags": [
+     "bridge_troll"
+    ],
+    "job": "troll_bridge"
+   },
+   "choices": [
+    {
+     "label": "Vật ngã Dê Quỷ!",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Bạn chịu đựng sức nóng của cặp sừng, lấy thịt đè bẹp con Dê Quỷ, biến nó thành món thịt nướng ngon nhất cuộc đời Troll của bạn.",
+      "effects": {
+       "STR": 2,
+       "health": 5,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Con Dê Quỷ húc tung bạn lên trời. Bạn rơi tõm xuống vực, gãy mất vài cái xương sườn trước khi mọc lại.",
+      "effects": {
+       "health": -15,
+       "fame": -3
+      }
+     }
+    },
+    {
+     "label": "Bắt con dê nhỏ xơi luôn",
+     "text": "Trí tuệ hạn hẹp mách bảo bạn rằng \"có gì ăn nấy\". Bạn tóm lấy con dê nhỏ nhai ngấu nghiến, bỏ lỡ con Dê Quỷ nhưng được no bụng an toàn.",
+     "effects": {
+      "health": 2,
+      "joy": 5
+     }
+    }
+   ],
+   "moment": "Bị lừa bởi một đàn dê nhưng cuối cùng vẫn được ăn thịt nướng."
+  },
+  {
+   "id": "troll_role_merc_contract",
+   "text": "Một gã Vampire của Hắc Nguyệt Hội thuê bạn bảo vệ một nghi lễ. Hắn chìa ra một tờ khế ước viết bằng máu và bảo chỉ cần điểm chỉ, bạn sẽ có vô tận thịt bò.",
+   "require": {
+    "job": "troll_merc"
+   },
+   "choices": [
+    {
+     "label": "Không biết chữ nhưng không ngu!",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn ngửi thấy mùi ma thuật hắc ám và vung tay tát gã Vampire bay vào vách đá. Bạn cướp luôn số thịt bò dự trữ của hắn.",
+      "effects": {
+       "INT": 1,
+       "wealth": 10,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Bạn cố tát nhưng hắn hóa thành bầy dơi. Bạn bối rối lỡ tay ấn ngón tay dính bùn vào tờ giấy, bị nguyền rủa hút cạn sinh lực.",
+      "effects": {
+       "health": -20,
+       "joy": -10,
+       "flags": [
+        "cursed_blood"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Điểm chỉ bằng cả bàn tay",
+     "text": "Bạn vui vẻ đập cả bàn tay bẩn thỉu lên khế ước. Tờ giấy nổ tung vì sự ngu ngốc quá mức không thể ký kết khế ước linh hồn. Gã Vampire cạn lời.",
+     "effects": {
+      "LUCK": 1,
+      "joy": 5
+     }
+    },
+    {
+     "label": "Bắt gã Vampire làm đồ nhắm",
+     "require": {
+      "AGI": 6
+     },
+     "showLocked": true,
+     "text": "Bạn nhanh như chớp tóm cổ gã Vampire nhét vào miệng. Máu hắn có vị hơi tanh nhưng bạn thấy rất khỏe người.",
+     "effects": {
+      "STR": 2,
+      "health": 5,
+      "fame": 4
+     }
+    }
+   ],
+   "moment": "Phá hủy một khế ước linh hồn vì tay quá bẩn."
+  },
+  {
+   "id": "troll_role_merc_friendlyfire",
+   "text": "Trong một trận giáp lá cà kịch liệt tại Thảo Nguyên Gió Hú, bạn bị cát bay vào mắt. Vung chùy loạn xạ, bạn vô tình dẫm bẹp gí kẻ đang thuê mình (một tên Orc ốm yếu).",
+   "require": {
+    "job": "troll_merc"
+   },
+   "choices": [
+    {
+     "label": "Giấu xác đi",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn nhanh chân đá cái xác mỏng dính vào bụi rậm. Trận chiến kết thúc, mọi người tưởng thủ lĩnh đã tử trận anh dũng. Bạn được thăng chức.",
+      "effects": {
+       "wealth": 10,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Bọn Orc đàn em nhìn thấy tất cả. Chúng gầm rú lao vào chém bạn tơi tả vì tội phản trắc.",
+      "effects": {
+       "health": -15,
+       "fame": -5,
+       "loseJob": true
+      }
+     }
+    },
+    {
+     "label": "Bỏ chạy khỏi chiến trường",
+     "text": "Bạn sợ hãi bỏ chạy thục mạng, vứt lại cả vũ khí. Kể từ nay bọn ma vật gọi bạn là \"Kẻ Khổng Lồ Hèn Nhát\".",
+     "effects": {
+      "joy": -5,
+      "fame": -10,
+      "loseJob": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "troll_role_merc_crusade",
+   "text": "Đội lính đánh thuê của bạn bị Thánh Kỵ Sĩ Đoàn phục kích. Lưỡi kiếm rực sáng Thánh Quang của vị Đội trưởng chém đứt lìa cánh tay trái của bạn, ngăn chặn khả năng tái tạo.",
+   "require": {
+    "job": "troll_merc"
+   },
+   "choices": [
+    {
+     "label": "Dùng cánh tay đứt làm vũ khí!",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Gầm lên điên dại, bạn nhặt chính cánh tay khổng lồ của mình lên, quất bay vị Đội trưởng Thánh Kỵ Sĩ. Máu trào ra dập tắt ánh sáng thiêng.",
+      "effects": {
+       "STR": 3,
+       "health": -20,
+       "fame": 10,
+       "flags": [
+        "one_armed_terror"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Sức mạnh của Thánh Quang ăn mòn phần thân thể còn lại của bạn. Cơ thể bạn tan chảy thành một vũng bùn sôi sục. CHẾT"
+     }
+    },
+    {
+     "label": "Giả vờ chết",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn nhắm mắt, nín thở và cố tình xì hơi thật thối. Bọn Kỵ sĩ bịt mũi kinh tởm và bỏ qua cái xác \"đang phân hủy\" của bạn. Bạn giữ được mạng nhưng mất một tay.",
+      "effects": {
+       "INT": 1,
+       "health": -15,
+       "fame": -5
+      }
+     },
+     "fail": {
+      "text": "Vị Đội trưởng không mắc lừa, hắn đâm bồi thêm một nhát xuyên tim để chắc chắn bạn không thể hồi sinh. CHẾT (Trí khôn của Troll không qua mắt được con người)."
+     }
+    }
+   ]
+  },
+  {
+   "id": "troll_role_scholar_meeting",
+   "text": "Một Đại Ma pháp sư Mạo hiểm giả hạng S tìm thấy bạn đang lầm bầm đọc chú (bằng cách nhại tiếng ếch ộp). Hắn cười khẩy, giơ trượng lên chuẩn bị thi triển Bão Lửa để tiêu diệt \"thứ ma vật báng bổ\".",
+   "require": {
+    "job": "troll_scholar"
+   },
+   "choices": [
+    {
+     "label": "Hét to 'Tắt Lửa!'",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Thật kỳ diệu, nước bọt bạn văng ra vô tình vẽ thành một ấn chú Cấm Ma cực hiếm trong không khí. Phép của hắn tắt ngúm. Hắn hoảng sợ tưởng bạn là quái vật thượng cổ và bỏ chạy.",
+      "effects": {
+       "INT": 1,
+       "LUCK": 2,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Lời nói không có tác dụng với lửa. Bão Lửa ập tới. Khả năng tái tạo của bạn bốc hơi cùng với ước mơ làm học giả. CHẾT (Đỉnh cao học thuật của bạn kết thúc trong đống tro tàn)."
+     }
+    },
+    {
+     "label": "Thi triển Ma pháp Bùn Nhão",
+     "text": "Bạn thò tay vào quần, móc ra một vốc bùn cực thối (và một số thứ khác) rồi ném thẳng vào mặt hắn. Hắn nôn mửa và chạy trốn vì quá kinh tởm.",
+     "effects": {
+      "health": -2,
+      "joy": 5,
+      "fame": 3
+     }
+    },
+    {
+     "label": "Trưng ra cuốn ma đạo thư",
+     "require": {
+      "wealth": 5
+     },
+     "showLocked": true,
+     "text": "Bạn giơ cuốn sách quý giá mình nhặt được ra hối lộ. Hắn nhận sách, tha mạng cho bạn nhưng đá đít bạn một cái thật đau.",
+     "effects": {
+      "health": -5,
+      "wealth": -5,
+      "demote": true
+     }
+    }
+   ],
+   "moment": "Đánh bại một Đại Ma pháp sư bằng tuyệt kỹ ném bùn thối."
+  },
+  {
+   "id": "troll_role_scholar_core",
+   "text": "Bạn đang cố nghiên cứu một viên Lõi Mana sơ cấp. Trí tò mò quá lớn khiến bạn... cho viên đá phát sáng đó vào miệng nuốt ực để \"hấp thụ ma lực\". Dạ dày bạn bắt đầu phát sáng và sôi sùng sục.",
+   "require": {
+    "job": "troll_scholar"
+   },
+   "choices": [
+    {
+     "label": "Vận khí ép ma lực ra",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Dạ dày Troll của bạn chiến thắng! Bạn tiêu hóa thành công viên ma thạch, ợ ra một luồng khí ma thuật thuần khiết. Làn da bạn giờ đây lấp lánh ánh xanh bảo thạch.",
+      "effects": {
+       "INT": 2,
+       "health": 3,
+       "wealth": -5,
+       "flags": [
+        "mana_infused"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Dạ dày bạn không chịu nổi áp suất ma lực quá lớn. Bạn phát nổ từ bên trong, thịt văng khắp đầm lầy, không thể tái tạo lại được. CHẾT (Biến thành chùm pháo hoa xương thịt đẹp nhất lịch sử loài Troll)."
+     }
+    },
+    {
+     "label": "Móc họng nôn ra",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn thò nguyên cánh tay vào họng và lôi viên lõi đầy nhớt dãi ra ngoài ném đi ngay trước khi nó nổ tung. Bụng bạn đau điếng ngắt.",
+      "effects": {
+       "AGI": 1,
+       "health": -10,
+       "wealth": -5
+      }
+     },
+     "fail": {
+      "text": "Ngón tay bạn quá to, kẹt luôn trong họng. Viên đá nổ tung khiến bạn bay mất hàm răng dưới, phải húp cháo bùn nhiều tháng mới mọc lại được.",
+      "effects": {
+       "health": -20,
+       "joy": -10
+      }
+     }
+    }
+   ],
+   "moment": "Tự biến mình thành một quả lựu đạn ma lực sinh học."
+  },
+  {
+   "id": "troll_role_scholar_teaching",
+   "text": "Một bầy Goblin con tò mò kéo đến xem bạn múa may. Bạn quyết định mở một \"khóa thuyết giảng\" về nguồn gốc vũ trụ (dù bạn còn chưa biết mai ăn gì).",
+   "require": {
+    "job": "troll_scholar"
+   },
+   "choices": [
+    {
+     "label": "Kể chuyện bằng hình vẽ bùn",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn dùng ngón chân vẽ những hình thù méo mó lên mặt đất. Bầy Goblin há hốc mồm kinh ngạc và bắt đầu gọi bạn là Hiền Giả, tôn vinh bạn làm thủ lĩnh trí thức của chúng.",
+      "effects": {
+       "INT": 2,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Bạn vẽ xấu quá, bọn Goblin tưởng bạn đang vẽ đồ ăn. Chúng nhào lên liếm sạch vũng bùn và bỏ đi, chê bạn không có muối.",
+      "effects": {
+       "INT": -1,
+       "fame": -2
+      }
+     }
+    },
+    {
+     "label": "Thị uy bằng sức mạnh",
+     "text": "Bạn đập gãy một cái cây to để chứng minh \"kiến thức là sức mạnh\". Bọn Goblin sợ quá chạy mất dép.",
+     "effects": {
+      "STR": 1,
+      "joy": -2,
+      "fame": 2
+     }
+    },
+    {
+     "label": "Dạy chúng cách xì hơi ra nhạc",
+     "require": {
+      "health": 5
+     },
+     "showLocked": true,
+     "text": "Bạn vận khí thi triển tuyệt kỹ âm thanh. Bọn Goblin cười lăn lộn và nhanh chóng học theo, tạo thành dàn đồng ca bốc mùi nhất Vực Thẳm.",
+     "effects": {
+      "joy": 10,
+      "fame": 3
+     }
+    }
+   ],
+   "moment": "Truyền bá tri thức (và mùi thối) cho thế hệ tương lai."
+  },
+  {
+   "id": "troll_event_king_duel",
+   "text": "Tên Troll King tiền nhiệm, một gã khổng lồ phủ đầy sẹo và rêu phong, cắm chiếc chùy đá to bằng cỗ xe ngựa xuống đất để thách thức bạn. Xung quanh, hàng chục con Troll khác đang hò hét, gõ đá ầm ĩ chờ xem ai sẽ là kẻ thống trị mới.",
+   "require": {
+    "guildRank": 5
+   },
+   "choices": [
+    {
+     "label": "Gồng mình đấu vật sòng phẳng",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Bạn dùng sức mạnh nguyên thủy bẻ gãy đôi tay của gã Troll King, sau đó nhấc bổng hắn ném thẳng xuống dòng sông cuộn sóng. Ngai vàng bùn nhão chính thức thuộc về bạn.",
+      "effects": {
+       "STR": 2,
+       "fame": 10,
+       "orgRank": 6
+      }
+     },
+     "fail": {
+      "text": "Gã gầm lên và húc đầu vào ngực bạn, khiến bạn bay xa hàng chục mét và gãy vụn xương sườn. Bạn phải lết vội vào rừng sâu để chờ thịt mọc lại.",
+      "effects": {
+       "health": -20,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Luồn lách cắn vào gót chân",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Lợi dụng thân hình lạch bạch của hắn, bạn luồn qua háng và cắn một cú trời giáng vào gót chân kẻ địch. Hắn mất thăng bằng ngã đập đầu vào tảng đá bất tỉnh nhân sự.",
+      "effects": {
+       "AGI": 1,
+       "fame": 5,
+       "orgRank": 6
+      }
+     },
+     "fail": {
+      "text": "Bạn trượt chân dẫm phải bãi bùn trơn trượt của chính mình. Cây chùy khổng lồ giáng xuống biến bạn thành một cái bánh xèo thịt.",
+      "effects": {
+       "health": -15,
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Thách đố bằng toán học",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn giơ 4 ngón tay lên và đố hắn đây là mấy. Tên Troll King vắt óc suy nghĩ đến mức mắt nổ đom đóm, bọt mép trào ra và lăn đùng ra ngất xỉu vì kiệt sức trí não.",
+      "effects": {
+       "INT": 2,
+       "fame": 8,
+       "orgRank": 6
+      }
+     },
+     "fail": {
+      "text": "Hắn hoàn toàn không hiểu bạn đang làm gì, phẫn nộ vì cho rằng bạn đang làm phép sỉ nhục hắn nên đấm thẳng vào mặt bạn.",
+      "effects": {
+       "INT": -1,
+       "health": -10
+      }
+     }
+    }
+   ],
+   "moment": "Trở thành Troll King bằng cách làm nổ não vị vua tiền nhiệm bằng một câu đố đếm số."
+  },
+  {
+   "id": "troll_act_mud_slime",
+   "text": "Bạn đang bốc bùn cho vào miệng nhai thì vớ phải một con Slime dẻo quẹo. Con quái vật hoảng sợ biến dạng, cố chui sâu vào cổ họng bạn để làm ngạt thở.",
+   "stages": [
+    "infant"
+   ],
+   "focus": [
+    "play"
+   ],
+   "choices": [
+    {
+     "label": "Nhai thật mạnh",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Hàm răng cứng như đá của bạn nghiền nát con Slime thành thứ nước ép nhầy nhụa vị bạc hà. Bạn nuốt ực một cái ngon lành.",
+      "effects": {
+       "STR": 1,
+       "health": 5
+      }
+     },
+     "fail": {
+      "text": "Con Slime quá trơn, nó trượt khỏi răng bạn và chặn đứng cuống họng. Bạn ngất xỉu vì thiếu oxy trước khi khạc được nó ra.",
+      "effects": {
+       "health": -10,
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Móc họng lôi ra",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn nhanh tay chọc ba ngón tay vào cổ họng, tóm gọn con Slime ném cái vèo vào vách đá. Nó vỡ tan tành thành từng mảnh nhỏ.",
+      "effects": {
+       "AGI": 1,
+       "health": -2
+      }
+     },
+     "fail": {
+      "text": "Ngón tay bạn quá thô kệch làm rách cả vòm họng chính mình. Máu chảy ròng ròng hòa cùng dịch Slime chua loét.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Nuốt chửng dứt khoát",
+     "require": {
+      "health": 30
+     },
+     "showLocked": true,
+     "text": "Dạ dày siêu phàm của Troll tự động tiết axit tiêu hóa con Slime trong tíc tắc, để lại cho bạn cảm giác the mát sảng khoái.",
+     "effects": {
+      "LUCK": 1,
+      "joy": 5
+     }
+    }
+   ],
+   "moment": "Đánh răng bằng một con Slime kẹt trong họng."
+  },
+  {
+   "id": "troll_act_mud_golem",
+   "text": "Bạn đắp bùn lên một tảng đá kỳ lạ có khắc cổ ngữ. Đột nhiên, tảng đá rung chuyển, rũ sạch bùn và đứng dậy thành một con Mud Golem tức giận.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "play"
+   ],
+   "choices": [
+    {
+     "label": "Bỏ chạy thục mạng",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn co giò chạy bạt mạng qua ba ngọn đồi. Con Golem chậm chạp không thể đuổi kịp và đành quay về chỗ cũ ngủ tiếp.",
+      "effects": {
+       "AGI": 2,
+       "health": -5
+      }
+     },
+     "fail": {
+      "text": "Bạn vấp ngã đập mặt vào thân cây. Con Golem bước tới giẫm bẹp một cánh tay của bạn thành tương.",
+      "effects": {
+       "health": -20,
+       "fame": -2
+      }
+     }
+    },
+    {
+     "label": "Tưởng là đồng loại, lao vào ôm",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Bằng một phép màu ngu ngốc nào đó, con Golem nhận diện lớp bùn trên người bạn là dấu ấn phe phái. Nó vỗ đầu bạn rồi đứng im làm vệ sĩ.",
+      "effects": {
+       "LUCK": 2,
+       "wealth": 5
+      }
+     },
+     "fail": {
+      "text": "Golem không có cảm xúc, nó tung một cú đấm ngàn cân thổi bay bạn qua bên kia dòng suối.",
+      "effects": {
+       "health": -15,
+       "joy": -10
+      }
+     }
+    }
+   ],
+   "moment": "Suýt bị giết bởi tác phẩm nghệ thuật bằng bùn của chính mình."
+  },
+  {
+   "id": "troll_act_eat_shroom",
+   "text": "Bạn tìm thấy một cụm nấm khổng lồ màu tím phát sáng rực rỡ dưới Đầm Lầy Tử Khí và ăn sạch bách. Ngay sau đó, bạn thấy ảo giác Nữ thần Lumina giáng trần chửi rủa bạn.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "study"
+   ],
+   "choices": [
+    {
+     "label": "Cãi tay đôi với Nữ thần",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn dùng vốn từ vựng hạn hẹp gầm gừ cãi lại ảo ảnh. Khí thế của bạn mãnh liệt đến mức cơn ảo giác tự vỡ vụn, để lại ma lực tàn dư chảy trong máu.",
+      "effects": {
+       "INT": 2,
+       "health": 5,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Ảo ảnh phóng ra một tia sáng chói lòa làm tâm trí bạn điên loạn. Bạn tự đập đầu vào đá liên tục để đuổi bà ta đi.",
+      "effects": {
+       "INT": -2,
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Chắp tay xin tha thứ",
+     "text": "Dù là Troll, bạn cũng biết sợ cái vầng hào quang rực rỡ kia. Bạn quỳ lạy suốt đêm, sáng hôm sau tỉnh dậy thấy mình đang ôm một thân cây mục.",
+     "effects": {
+      "LUCK": 1,
+      "joy": -10
+     }
+    },
+    {
+     "label": "Nhảy múa theo Nữ thần",
+     "require": {
+      "LUCK": 5
+     },
+     "showLocked": true,
+     "text": "Bạn lảo đảo nhảy múa cùng ảo ảnh, vô tình né được bầy Goblin Sát thủ đang định phục kích bạn trong đêm.",
+     "effects": {
+      "LUCK": 2,
+      "health": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "troll_act_eat_contest",
+   "text": "Bạn đụng độ một tên High Orc trong khu rừng. Thay vì đánh nhau, cả hai quyết định thi xem ai ăn được nhiều xác Imp thối hơn.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "study"
+   ],
+   "choices": [
+    {
+     "label": "Ăn gian bằng cách giấu vào nách",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Lợi dụng lúc tên Orc nhắm mắt nuốt, bạn nhét vội mấy cái xác vào kẽ nách bốc mùi. Hắn no căng bụng xin hàng và cống nạp toàn bộ Lõi Mana mang theo.",
+      "effects": {
+       "INT": 1,
+       "wealth": 15,
+       "fame": 3
+      }
+     },
+     "fail": {
+      "text": "Những cái xác Imp trơn tuột rơi lả tả xuống đất. Tên Orc phát hiện ra, nổi điên rút búa đập bạn một trận tơi bời.",
+      "effects": {
+       "health": -15,
+       "wealth": -5
+      }
+     }
+    },
+    {
+     "label": "Ăn bằng thực lực",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Cơ hàm của bạn hoạt động như máy nghiền. Bạn ăn nhiều đến mức tên Orc sợ hãi tôn bạn làm đại ca và thề trung thành.",
+      "effects": {
+       "STR": 2,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Dạ dày bạn biểu tình bạo liệt. Bạn nôn thốc nôn tháo toàn bộ bữa ăn lên người đối thủ, khơi mào một trận quyết chiến đẫm máu.",
+      "effects": {
+       "health": -20,
+       "joy": -5
+      }
+     }
+    }
+   ],
+   "moment": "Trở thành nhà vô địch ăn uống bằng cách giấu đồ ăn vào nách."
+  },
+  {
+   "id": "troll_act_train_sword",
+   "text": "Đang đập đá luyện tay, bạn thấy một thanh đại kiếm tuyệt đẹp cắm chặt giữa tảng thạch anh. Trên chuôi kiếm khắc dòng chữ: \"Kẻ rút được kiếm sẽ làm vua\".",
+   "stages": [
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "focus": [
+    "train"
+   ],
+   "choices": [
+    {
+     "label": "Gồng mình nhổ kiếm",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Mặt đất nứt nẻ, tảng đá vỡ vụn. Bạn nhổ được Thánh Kiếm! Do không biết dùng, bạn bẻ gãy lưỡi kiếm lấy chuôi vàng bọc ngọc đem đi mài răng.",
+      "effects": {
+       "STR": 3,
+       "wealth": 20,
+       "fame": 5,
+       "flags": [
+        "broke_excalibur"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn kéo mạnh đến mức tự làm trật khớp cả hai vai. Thanh kiếm vẫn bất động, sỉ nhục trí tuệ và sức lực của bạn.",
+      "effects": {
+       "health": -15,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Đập vỡ cả tảng đá",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Cần gì rút kiếm khi bạn có thể dùng chùy đập nát tảng thạch anh? Lưỡi kiếm văng ra ngoài, bạn nhặt lấy đem làm xiên nướng thịt.",
+      "effects": {
+       "STR": 1,
+       "joy": 5,
+       "wealth": 10
+      }
+     },
+     "fail": {
+      "text": "Chùy đá của bạn dội ngược lại, đập thẳng vào giữa trán. Bạn lăn ra bất tỉnh suốt ba ngày đêm.",
+      "effects": {
+       "INT": -1,
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Nhổ bãi nước bọt rồi đi",
+     "text": "Bạn cho rằng thứ đồ mỏng manh sáng bóng này không hợp với Troll. Bạn bỏ đi, vứt bỏ cơ hội làm Dũng Giả.",
+     "effects": {
+      "LUCK": 1,
+      "fame": -2
+     }
+    }
+   ]
+  },
+  {
+   "id": "troll_act_train_monk",
+   "text": "Một Tu sĩ hói đầu của Giáo hội Thánh Quang thấy bạn đang khổ luyện liền bước tới. Lão ta không dùng vũ khí, chỉ giơ một ngón tay lên thách thức bạn đấm trúng lão.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "train"
+   ],
+   "choices": [
+    {
+     "label": "Dùng tốc độ bắt vỡ đầu lão!",
+     "check": {
+      "stat": "AGI",
+      "target": 10
+     },
+     "success": {
+      "text": "Bạn tung một cú vồ nhanh như thiểm điện, tóm gọn lão tu sĩ và quẳng xuống suối. Lão ta ngoi lên lẩm bẩm thán phục \"kẻ được chọn\" rồi bơi đi mất.",
+      "effects": {
+       "INT": 1,
+       "AGI": 3,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Lão tu sĩ lách người nhẹ như lông hồng, dùng một ngón tay điểm đúng huyệt đạo trên bụng khiến bạn đau quặn nôn ra mật xanh.",
+      "effects": {
+       "health": -25,
+       "joy": -15
+      }
+     }
+    },
+    {
+     "label": "Bốc cát ném vào mắt lão",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Đòn đánh bẩn thỉu nhất mang lại hiệu quả tốt nhất. Lão tu sĩ bị mù tạm thời, la hét ôm mặt chạy vấp vào gốc cây ngất xỉu. Bạn lục lọi lấy được một chuỗi hạt đính Lõi Mana.",
+      "effects": {
+       "INT": 2,
+       "wealth": 15
+      }
+     },
+     "fail": {
+      "text": "Lão tu sĩ phẩy tay tạo ra một luồng kình phong thổi ngược cát vào đôi mắt to lồi của bạn.",
+      "effects": {
+       "AGI": -1,
+       "health": -10
+      }
+     }
+    }
+   ],
+   "moment": "Đánh bại một võ sư bậc thầy bằng nắm cát hèn hạ."
+  },
+  {
+   "id": "troll_act_bridge_knight",
+   "text": "Một Kỵ sĩ quý tộc cưỡi bạch mã phi tới. Hắn rút kiếm sáng loáng, tuyên bố phải chặt đầu ác quỷ gác cầu để rửa hận cho vị hôn thê từng bị bạn cướp sạch nữ trang năm ngoái.",
+   "focus": [
+    "work"
+   ],
+   "choices": [
+    {
+     "label": "Bóp nát con ngựa",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn lờ đi tên Kỵ sĩ, lao tới ôm chầm lấy con bạch mã siết chặt. Tên Kỵ sĩ ngã nhào, vỡ vụn mũ giáp. Bạn thu chiến lợi phẩm rồi thả hắn đi bộ về nhà.",
+      "effects": {
+       "STR": 1,
+       "wealth": 10,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Con ngựa đá hậu một cú trời giáng vào đúng hạ bộ của bạn. Nỗi đau thấu trời khiến bạn gục ngã ôm háng rên rỉ.",
+      "effects": {
+       "health": -20,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Dùng ván cầu làm khiên",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn khôn ngoan giật phăng một tấm ván cầu lên đỡ mũi thương rực lửa của hắn, sau đó dùng chính tấm ván quất bay hắn xuống sông.",
+      "effects": {
+       "INT": 2,
+       "health": 5,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Bạn giật nhầm tấm ván mình đang đứng. Bạn và tên kỵ sĩ cùng rơi tõm xuống dòng sông chảy xiết, bị cuốn trôi hàng dặm.",
+      "effects": {
+       "health": -15,
+       "wealth": -5
+      }
+     }
+    },
+    {
+     "label": "Nhượng bộ và xin lỗi",
+     "text": "Bạn móc từ kẽ răng ra chiếc nhẫn vàng của vị hôn thê kia trả lại cho hắn. Kỵ sĩ nôn oẹ rồi cầm lấy nhẫn bỏ chạy trong kinh tởm.",
+     "effects": {
+      "joy": -5,
+      "wealth": -10
+     }
+    }
+   ],
+   "moment": "Đánh bại kỵ sĩ bằng cách nhổ trả chiếc nhẫn cưới."
+  },
+  {
+   "id": "troll_act_bridge_ghost",
+   "text": "Nửa đêm, một đoàn xe ma quái do Dullahan (Kỵ sĩ không đầu) dẫn đầu lướt qua cầu của bạn mà không chạm đất. Bọn chúng lờ bạn đi và không định nộp phí.",
+   "stages": [
+    "middle"
+   ],
+   "focus": [
+    "work"
+   ],
+   "choices": [
+    {
+     "label": "Nhảy ra chặn xe ma",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn nhảy bổ ra, thò tay tóm đúng cái đầu rơi của Dullahan đang để trên yên ngựa. Để đổi lấy cái đầu, hắn đành ném cho bạn một túi tiền đúc từ Huyết Kim âm phủ.",
+      "effects": {
+       "AGI": 2,
+       "wealth": 20,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Thân thể bạn xuyên qua xe ngựa ma, hít phải một bụng tử khí lạnh lẽo khiến phổi bạn đóng băng đen ngòm suốt nhiều tháng.",
+      "effects": {
+       "health": -25,
+       "joy": -5,
+       "flags": [
+        "touched_by_death"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Giả vờ nhắm mắt làm ngơ",
+     "text": "Bạn run lẩy bẩy, lấy tay che mắt và lẩm bẩm \"Troll mù rồi, không thấy gì hết\". Đoàn xe lướt qua để lại luồng gió buốt buốt.",
+     "effects": {
+      "LUCK": 1,
+      "joy": -5
+     }
+    }
+   ],
+   "moment": "Dám trấn lột cả người chết nhưng suýt bị đóng băng phổi."
+  },
+  {
+   "id": "troll_act_wander_trap",
+   "text": "Đang nghêu ngao hát (thực chất là rống), bạn bước hụt vào một cái hố bẫy khổng lồ do Đội Ranger Đại Ngàn giăng sẵn. Hàng chục mũi lao tẩm độc từ dưới đáy hố chọc xuyên qua lớp da dày của bạn.",
+   "focus": [
+    "adventure"
+   ],
+   "choices": [
+    {
+     "label": "Bám vách đất leo lên",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Mặc kệ những mũi lao cắm trên người, bạn gồng cơ bắp bám những tảng đá khổng lồ leo thẳng lên miệng hố, gầm rú làm lũ Ranger sợ mất mật bỏ trốn.",
+      "effects": {
+       "STR": 2,
+       "health": -10,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Đất đá lở. Bạn rơi phịch xuống đáy hố lần nữa. Nọc độc từ lao bắt đầu làm tê liệt tứ chi, bạn phải nằm chờ ba ngày mới có sức bò lên.",
+      "effects": {
+       "health": -25,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Chờ có người đến thu hoạch",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn nằm im giả chết. Khi bầy Goblin ăn mót đi tới định nhặt xác, bạn vung tay thóm gọn chúng làm bữa tối và trèo lên đống xác để thoát thân.",
+      "effects": {
+       "LUCK": 2,
+       "health": 5,
+       "wealth": 5
+      }
+     },
+     "fail": {
+      "text": "Kẻ đến thu hoạch là một con Nhện Đất khổng lồ. Nó quấn tơ kín mít bạn lại, bạn phải dùng răng tự cắn đứt tay mình để thoát ra ngoài trước khi mọc lại tay mới.",
+      "effects": {
+       "health": -20,
+       "joy": -15
+      }
+     }
+    }
+   ],
+   "moment": "Tự thoát khỏi bẫy hố bằng cách lấy xác bầy Goblin làm thang."
+  },
+  {
+   "id": "troll_act_wander_mermaids",
+   "text": "Lang thang dọc bờ biển Đảo Tro Tàn, bạn nghe thấy tiếng hát mê hoặc của các Sirens (Mỹ nhân ngư ma quỷ) đang gọi bạn bước xuống biển sâu.",
+   "stages": [
+    "middle"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "choices": [
+    {
+     "label": "Hát đối đáp lại",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn gào lên một khúc hát Troll khàn đặc, sai nhịp và chát chúa đến mức bọn Sirens tức hộc máu mồm. Chúng bưng tai lặn mất tăm, đánh rơi những viên ngọc trai khổng lồ trên bãi cát.",
+      "effects": {
+       "INT": 2,
+       "joy": 10,
+       "wealth": 15
+      }
+     },
+     "fail": {
+      "text": "Bạn cố rống theo nhưng bị sặc nước biển. Tiếng hát của chúng thao túng tâm trí, lôi bạn xuống uống một bụng nước mặn chát trước khi bạn sực tỉnh và bơi lên.",
+      "effects": {
+       "INT": -1,
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Lấy bùn nhét kín lỗ tai",
+     "text": "Chẳng hiểu chúng hát gì mà éo éo nhức đầu, bạn nhét hai cục bùn to tướng vào tai rồi bỏ đi nhặt cua đá.",
+     "effects": {
+      "health": 2,
+      "joy": 5
+     }
+    },
+    {
+     "label": "Nhảy xuống bắt ăn",
+     "require": {
+      "AGI": 6
+     },
+     "showLocked": true,
+     "text": "Bạn phi thân xuống nước với tốc độ kinh hoàng, vồ trúng một ả Siren và nhai ngấu nghiến chiếc đuôi cá ngon lành.",
+     "effects": {
+      "AGI": 2,
+      "health": 10,
+      "fame": 3
+     }
+    }
+   ],
+   "moment": "Đánh bại bài ca thao túng tâm lý bằng giọng hát thảm họa của chính mình."
+  },
+  {
+   "id": "troll_act_sleep_dragon",
+   "text": "Bạn đang say giấc trong hang thì một con Hỏa Long (Fire Dragon) đâm sầm vào hất văng bạn ra cửa. Nó định chiếm hang của bạn làm tổ đẻ trứng.",
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "focus": [
+    "rest"
+   ],
+   "choices": [
+    {
+     "label": "Giả mù tạt ngang",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn lờ đờ đứng dậy, vung tay ngáp một cái nhưng thực chất là tát thẳng vào mồm con rồng khiến nó cắn phải lưỡi đau điếng mà bay đi.",
+      "effects": {
+       "LUCK": 2,
+       "health": -5,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Rồng nổi điên khạc lửa. Lớp da đá của bạn nứt nẻ sặc mùi thịt khét lẹt. Bạn phải bỏ chạy để lại hang ổ ấm áp yêu dấu.",
+      "effects": {
+       "health": -25,
+       "joy": -20,
+       "wealth": -10
+      }
+     }
+    },
+    {
+     "label": "Cuộn tròn thành tảng đá",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Lớp da sần sùi của bạn cứng lại như sắt nguội. Bạn nằm trơ trơ mặc cho rồng phun lửa thiêu đốt. Rồng chán nản bỏ đi vì tưởng bạn là một cục quặng vô dụng.",
+      "effects": {
+       "STR": 1,
+       "health": 3,
+       "flags": [
+        "dragon_proof"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Lửa rồng quá nóng, nung chảy mỡ trong bụng bạn. Bạn giãy giụa bỏ chạy vấp ngã liên tục.",
+      "effects": {
+       "health": -20,
+       "fame": -5
+      }
+     }
+    }
+   ],
+   "moment": "Dám tát gãy răng Hỏa Long chỉ vì bị gọi dậy khi đang ngủ."
+  },
+  {
+   "id": "troll_act_sleep_cult",
+   "text": "Bạn đang ngủ say đến mức há mốc mồm. Khi tỉnh dậy, bạn phát hiện đám tín đồ Hắc Nguyệt Hội đang quỳ lạy xung quanh, tưởng bạn là Vực Thẳm Cổ Thần giáng thế và dâng lên bạn đống vàng bạc rực rỡ.",
+   "focus": [
+    "rest"
+   ],
+   "choices": [
+    {
+     "label": "Ra dáng Thần linh",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn ợ một tiếng sấm rền rồi chỉ tay vào đống vàng. Bọn tín đồ kinh ngạc hú hét, để lại toàn bộ cống phẩm rồi cung kính rút lui.",
+      "effects": {
+       "INT": 2,
+       "wealth": 25,
+       "fame": 8
+      }
+     },
+     "fail": {
+      "text": "Bạn cố lầm bầm vài câu bí hiểm nhưng lại xì hơi một tiếng to và thối không tả nổi. Bọn tín đồ nhận ra bạn chỉ là con quái vật ngu ngốc liền rút kiếm xông lên.",
+      "effects": {
+       "health": -15,
+       "wealth": -5
+      }
+     }
+    },
+    {
+     "label": "Ngủ tiếp",
+     "text": "Bạn ngáp dài một cái, gãi bụng rồi lăn ra ngủ tiếp đè bẹp ba tên tín đồ. Bọn còn lại sợ hãi chạy tán loạn, bỏ lại ít tiền lẻ.",
+     "effects": {
+      "joy": 10,
+      "wealth": 5,
+      "fame": 2
+     }
+    },
+    {
+     "label": "Bắt tín đồ ăn thịt",
+     "require": {
+      "STR": 8
+     },
+     "showLocked": true,
+     "text": "Ngủ dậy thì phải ăn sáng. Bạn vớ lấy tên giáo sĩ béo nhất nhai rộp rộp. Đám đông bỏ chạy thục mạng.",
+     "effects": {
+      "STR": 2,
+      "health": 10,
+      "fame": 5
+     }
+    }
+   ],
+   "moment": "Được Hắc Nguyệt Hội tôn vinh làm Cổ Thần vì ngáy quá to."
+  },
+  {
+   "id": "troll_ally_brave",
+   "text": "Một tên Minotaur to lớn cầm rìu chặn đường bạn. Trong khi bạn còn đang gãi mông xuy nghĩ xem nên luộc hay nướng hắn, {ally} đã hét lớn và lao thẳng vào giữa háng tên quái vật để bảo vệ bạn.",
+   "require": {
+    "party": 1,
+    "allyTrait": "brave"
+   },
+   "choices": [
+    {
+     "label": "Quẳng chùy yểm trợ",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn ném thẳng cây chùy đập trúng đầu tên Minotaur, cứu {ally} vừa kịp lúc chân hắn giẫm xuống. Tên bò tót ngã lăn quay.",
+      "effects": {
+       "STR": 1,
+       "wealth": 5,
+       "bond": 10
+      }
+     },
+     "fail": {
+      "text": "Bạn ném trượt, chùy bay thẳng xuống vực. Tên Minotaur đá văng {ally} vào vách đá trước khi quay sang gầm gừ với bạn.",
+      "effects": {
+       "bond": -5,
+       "allyHurt": true
+      }
+     }
+    },
+    {
+     "label": "Đứng vỗ tay cổ vũ",
+     "text": "Bạn thấy màn đánh lộn quá vui nên đứng cười hô hố. Tên Minotaur bực mình bỏ qua {ally} nhỏ bé, xông tới húc gãy mấy cái xương sườn của bạn.",
+     "effects": {
+      "health": -15,
+      "bond": 5
+     }
+    },
+    {
+     "label": "Nhặt cả hai lên nhai",
+     "require": {
+      "INT": 3
+     },
+     "showLocked": true,
+     "text": "Bản năng mách bảo cả hai đều là thức ăn. Bạn vồ lấy nhét cả Minotaur lẫn {ally} vào miệng, chật vật nhổ {ally} ra vì mùi vị quá kỳ cục.",
+     "effects": {
+      "health": 5
+     }
+    }
+   ],
+   "moment": "Được một sinh vật bé tẹo xả thân bảo vệ trước mũi rìu của quái ngưu."
+  },
+  {
+   "id": "troll_ally_loyal",
+   "text": "Bạn bị một tảng đá khổng lồ trên Đỉnh Hỏa Ngục lăn trúng, đè bẹp nửa thân dưới không thể nhúc nhích chờ tái tạo. Bầy Imp ăn xác rình rập xung quanh, nhưng {ally} kiên quyết đứng gác và tha mồi về bón cho bạn.",
+   "require": {
+    "party": 1,
+    "allyTrait": "loyal"
+   },
+   "choices": [
+    {
+     "label": "Cùng gầm gừ xua đuổi",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Dù bị đè, bạn vẫn rống lên một tiếng sấm rền kết hợp với tiếng đe dọa của {ally}. Bầy Imp hoảng sợ chạy mất dép, để lại yên tĩnh cho bạn hồi phục.",
+      "effects": {
+       "health": 10,
+       "bond": 15
+      }
+     },
+     "fail": {
+      "text": "Tiếng rống của bạn biến thành tiếng nấc cục. Bầy Imp tràn lên cắn xé. {ally} dùng thân mình che chở cho bạn và chịu vết thương lớn.",
+      "effects": {
+       "health": -15,
+       "allyHurt": true
+      }
+     }
+    },
+    {
+     "label": "Nhai luôn thức ăn lẫn tay {ally}",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn háu đói nuốt trọn miếng thịt {ally} mang tới, lỡ cắn nhẹ vào tay {ally} nhưng không đứt. Dịch nước bọt của bạn vô tình làm lành vết xước của đồng đội.",
+      "effects": {
+       "LUCK": 1,
+       "health": 5
+      }
+     },
+     "fail": {
+      "text": "Bạn cắn quá mạnh khiến {ally} hoảng hồn rụt tay lại, đánh rơi miếng thịt xuống khe nứt. Cả hai ôm bụng đói meo suốt ba ngày.",
+      "effects": {
+       "health": -10,
+       "joy": -5
+      }
+     }
+    }
+   ],
+   "moment": "Nằm bẹp dưới tảng đá nhưng vẫn ấm lòng vì được bón thịt vụn."
+  },
+  {
+   "id": "troll_ally_greedy",
+   "text": "Tổ đội của bạn đánh bại một con Slime King. Trong khi bạn đang cố húp thứ chất lỏng chua loét, {ally} đã nhanh tay cạy viên Lõi Mana cực lớn giấu vào túi riêng và cãi chày cãi cối là không thấy gì.",
+   "require": {
+    "party": 1,
+    "allyTrait": "greedy"
+   },
+   "choices": [
+    {
+     "label": "Bóp cổ dốc ngược lên",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn chộp lấy chân {ally} dốc ngược lên rung bần bật. Viên Lõi Mana rơi ra cùng với hàng tá đồng Cẩm Thạch chôm chỉa từ người đi đường.",
+      "effects": {
+       "wealth": 15,
+       "bond": -5
+      }
+     },
+     "fail": {
+      "text": "{ally} luồn lách như chạch, cắn vào tay bạn rồi tẩu thoát ra xa. Bạn mất trắng viên lõi quý giá mà không đuổi kịp.",
+      "effects": {
+       "joy": -5,
+       "wealth": -10
+      }
+     }
+    },
+    {
+     "label": "Tưởng {ally} bị bệnh",
+     "text": "Thấy bụng {ally} phình to cứng ngắc, bạn ngốc nghếch tưởng đồng đội ăn nhầm đá liền vỗ bôm bốp vào bụng để chữa bệnh, làm viên Lõi vỡ vụn bên trong.",
+     "effects": {
+      "LUCK": -2,
+      "allyHurt": true
+     }
+    }
+   ],
+   "moment": "Chữa bệnh đầy bụng cho đồng đội bằng cách đập nát kho báu họ vừa ăn trộm."
+  },
+  {
+   "id": "troll_ally_timid",
+   "text": "Bầu trời Thảo Nguyên Gió Hú nổi cơn dông. Một tia sét ma thuật giáng xuống đất. {ally} sợ khóc thét, chui tọt vào trong chiếc khố bốc mùi bùn lầy của bạn để trốn.",
+   "require": {
+    "party": 1,
+    "allyTrait": "timid"
+   },
+   "choices": [
+    {
+     "label": "Móc ra ném lên trời",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn khó chịu tóm cổ {ally} quăng vút lên cành cây cao. Sét đánh trúng cái cây thay vì đánh bạn. Bạn cười khùng khục khen mình thông minh.",
+      "effects": {
+       "STR": 1
+      }
+     },
+     "fail": {
+      "text": "Bạn thò tay bốc hụt, tự cào vào đùi mình chảy máu. Sét đánh trúng ngay ngón chân cái của bạn, khét lẹt xông lên tận mũi.",
+      "effects": {
+       "health": -20,
+       "fame": -2
+      }
+     }
+    },
+    {
+     "label": "Lấy tay che chở",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Dù ngốc nghếch, bạn biết bứt một tảng lá cọ lớn che cho cả hai khỏi cơn bão ma lực. {ally} nhìn bạn với ánh mắt sùng bái tột độ.",
+      "effects": {
+       "INT": 2,
+       "bond": 20
+      }
+     },
+     "fail": {
+      "text": "Bạn vớ nhầm một thanh đại kiếm sắt giơ lên che đầu. Tia sét thứ hai đánh thẳng vào thanh kiếm, truyền điện giật cả bạn lẫn {ally} co giật sùi bọt mép.",
+      "effects": {
+       "health": -25,
+       "joy": -10
+      }
+     }
+    }
+   ],
+   "moment": "Làm cột thu lôi di động vì cầm nhầm kiếm sắt che mưa."
+  },
+  {
+   "id": "troll_ally_funny",
+   "text": "Hai người chạm trán một Dark Knight (Hắc Kỵ Sĩ) đáng sợ. Thay vì bỏ chạy, {ally} nhảy múa vỗ mông trêu ngươi, nhại lại điệu bộ nghiêm túc của kẻ địch khiến hắn nổi cơn thịnh nộ.",
+   "require": {
+    "party": 1,
+    "allyTrait": "cheerful"
+   },
+   "choices": [
+    {
+     "label": "Hợp sức chế nhạo",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn bắt chước xì hơi một tràng dài. Hắc Kỵ Sĩ tức điên đến mức mất lý trí, lao lên vấp phải rễ cây ngã gãy cổ vỡ giáp. Bạn thu được đồ tốt.",
+      "effects": {
+       "INT": 1,
+       "wealth": 15,
+       "bond": 10
+      }
+     },
+     "fail": {
+      "text": "Hắn vung thanh kiếm hắc ám chém một đường tuyệt kỹ. Lớp da dày của bạn bị xé toạc, bạn phải xách {ally} bỏ chạy trối chết.",
+      "effects": {
+       "health": -30,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Bỏ mặc đồng đội để ăn xác chết",
+     "text": "Trong lúc Hắc Kỵ Sĩ bận rượt đuổi đánh {ally} tơi bời, bạn ngồi xuống nhai ngấu nghiến con lợn rừng nướng bỏ dở của hắn.",
+     "effects": {
+      "health": 5,
+      "joy": 10,
+      "allyHurt": true
+     }
+    }
+   ],
+   "moment": "Hạ gục Hắc Kỵ Sĩ bằng một điệu nhảy vỗ mông và một cú xì hơi."
+  },
+  {
+   "id": "troll_ally_cold",
+   "text": "Bạn đang hì hục nhai một tảng đá có hình giống miếng thịt, làm gãy hai cái răng hàm. {ally} ngồi trên cao nhìn xuống, ánh mắt phán xét như nhìn một sinh vật hạ đẳng, tay hờ hững chỉ về phía con lợn lòi thực sự đang bị mắc kẹt.",
+   "require": {
+    "party": 1,
+    "allyTrait": "cold"
+   },
+   "choices": [
+    {
+     "label": "Nổi điên đòi đánh {ally}",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn ném tảng đá lên cành cây khiến {ally} phải nhảy xuống. Bạn tóm được lợn lòi và đe dọa không chia cho {ally} miếng nào.",
+      "effects": {
+       "STR": 1,
+       "wealth": 5,
+       "bond": -10
+      }
+     },
+     "fail": {
+      "text": "Bạn vung chùy đập vào thân cây khiến cây đổ ngược đè lên chính mình. {ally} khẽ thở dài thong thả đi bắt con lợn ăn một mình.",
+      "effects": {
+       "health": -15,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Ngơ ngác làm theo",
+     "text": "Bạn ngoan ngoãn bò tới chỗ {ally} chỉ, tóm được bữa ăn ngon lành. Dù ngốc, bạn lờ mờ nhận ra cứ nghe lời {ally} là có cái đút vào bụng.",
+     "effects": {
+      "INT": 1,
+      "health": 10
+     }
+    },
+    {
+     "label": "Bắt {ally} nhai thử đá",
+     "require": {
+      "AGI": 5
+     },
+     "showLocked": true,
+     "text": "Bạn tóm gọn {ally}, nhét tảng đá vào miệng bắt nhai để chứng minh đá thực sự ngon. {ally} suýt gãy răng, từ bỏ vẻ lạnh lùng mà nhổ toẹt chửi rủa bạn.",
+     "effects": {
+      "joy": 5,
+      "bond": -15
+     }
+    }
+   ],
+   "moment": "Ép kẻ tỏ ra thượng đẳng phải nhai đá tảng."
+  },
+  {
+   "id": "troll_ally_share",
+   "text": "Bạn và {ally} vừa nhặt được một thanh Trọng Kiếm nạm ngọc siêu quý hiếm của tộc Dwarf. {ally} muốn lấy đem bán lấy tiền mua lương thực, còn bạn chỉ muốn bẻ lấy mấy viên ngọc xanh đỏ để nhai chơi.",
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Đập gãy đôi để chia",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Chùy đá nện xuống, thanh kiếm báu gãy làm hai khúc. Bạn vui vẻ đưa phần chuôi ngọc cho {ally}, còn mình nhai phần lưỡi kiếm đứt ruột.",
+      "effects": {
+       "STR": 2,
+       "joy": 5,
+       "wealth": -10
+      }
+     },
+     "fail": {
+      "text": "Thanh kiếm bật ngược lại, chém một đường sâu hoắm lên mặt bạn. {ally} nhân cơ hội giấu luôn thanh kiếm đi chỗ khác.",
+      "effects": {
+       "health": -20,
+       "bond": -5
+      }
+     }
+    },
+    {
+     "label": "Lấy thịt đè người",
+     "text": "Bạn cứ thế nằm đè lên thanh kiếm và ngáy khò khò. {ally} đẩy không nổi, mắng mỏ một lúc rồi đành bỏ cuộc đi kiếm ăn.",
+     "effects": {
+      "wealth": 20,
+      "bond": -10
+     }
+    }
+   ],
+   "moment": "Phá hủy cổ vật vô giá vì không biết cách chia đều."
+  },
+  {
+   "id": "troll_ally_save",
+   "text": "Trong lúc giao chiến với một Mạo hiểm giả hệ Hỏa, râu và tóc rêu của bạn bắt lửa bùng cháy dữ dội. Lửa là thiên địch, bạn hoảng loạn chạy vòng tròn. {ally} nhanh trí vớ lấy một thùng phân Goblin hắt thẳng vào mặt bạn.",
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Tức giận ném {ally} đi",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Lửa tắt nhưng bạn bốc mùi nôn mửa. Phẫn nộ, bạn túm lấy {ally} quẳng bay qua hàng cây. Bọn mạo hiểm giả nôn thốc nôn tháo chạy mất.",
+      "effects": {
+       "health": 5,
+       "fame": 2,
+       "allyLeave": true
+      }
+     },
+     "fail": {
+      "text": "Bạn trượt chân dẫm vào vũng phân ngã đập đầu bất tỉnh. Khi tỉnh dậy, lửa đã tắt và {ally} đang kéo lê bạn vào hang an toàn.",
+      "effects": {
+       "health": -10,
+       "bond": 15
+      }
+     }
+    },
+    {
+     "label": "Ôm chầm lấy cảm ơn",
+     "text": "Dù dính đầy chất thải, bạn ôm chặt lấy {ally} cọ cọ lên người đồng đội để thể hiện tình yêu thương của Troll, khiến {ally} khóc thét cầu xin buông tha.",
+     "effects": {
+      "joy": 10,
+      "bond": 5
+     }
+    }
+   ],
+   "moment": "Thoát chết cháy nhờ một thùng chất thải của Goblin."
+  },
+  {
+   "id": "troll_ally_secret",
+   "text": "Một đêm trăng máu của Hắc Nguyệt Hội, {ally} lén lấy ra một mảnh vương miện rực sáng rớt nước mắt. Bất ngờ, một đội Sát thủ Umbra xuất hiện, nhắm vào {ally} để cướp lại thánh vật. Bạn tỉnh giấc vì tiếng ồn.",
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Bảo vệ kho báu lấp lánh",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Không phải bảo vệ {ally}, bạn bảo vệ cái thứ sáng lấp lánh kia! Bạn vồ lấy bọn sát thủ xé xác trong chớp mắt. {ally} cảm động giải thích thân phận, nhưng bạn chỉ quan tâm đồ đẹp.",
+      "effects": {
+       "AGI": 2,
+       "fame": 10,
+       "bond": 20
+      }
+     },
+     "fail": {
+      "text": "Bọn sát thủ quá nhanh, chém đứt gân kheo của bạn. Chúng cướp được vương miện và đánh {ally} trọng thương trước khi lẩn vào bóng tối.",
+      "effects": {
+       "health": -25,
+       "joy": -15
+      }
+     }
+    },
+    {
+     "label": "Cướp vương miện nuốt luôn",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Trí khôn bất chợt! Bạn giật lấy mảnh vương miện nuốt thẳng vào dạ dày. Bọn sát thủ không thể mổ bụng quái vật khổng lồ nên đành ngậm ngùi rút lui.",
+      "effects": {
+       "INT": 1,
+       "wealth": 20
+      }
+     },
+     "fail": {
+      "text": "Vương miện mắc kẹt ở cổ họng làm bạn sặc sụa thở không nổi. Bọn sát thủ nhân cơ hội móc nó ra khỏi họng bạn rồi tẩu thoát.",
+      "effects": {
+       "health": -15,
+       "fame": -5
+      }
+     }
+    }
+   ],
+   "moment": "Bảo vệ bí mật hoàng gia bằng cách nuốt chửng thánh vật vào bụng."
+  },
+  {
+   "id": "troll_mate_mud_wrestling",
+   "text": "Một cá thể Troll khác giới to lớn, người đầy mùi nấm mốc quyến rũ, bất ngờ xuất hiện và ném một tảng bùn khổng lồ vào mặt bạn. Đó là nghi thức tán tỉnh lãng mạn nhất của loài Troll: Kẻ nào vật ngã đối phương sẽ có quyền làm chủ gia đình.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "require": {
+    "spouse": false
+   },
+   "choices": [
+    {
+     "label": "Gầm rú lao vào ôm vật!",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Hai gã khổng lồ lăn lộn tạo thành một trận động đất nhỏ. Bạn dồn sức đè chặt {spouse} xuống bùn. Đối phương gầm gừ khuất phục và liếm lên má bạn.",
+      "effects": {
+       "STR": 1,
+       "joy": 15,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "{spouse} khỏe hơn bạn tưởng, dùng cùi chỏ huých bạn văng xa chục mét và bĩu môi bỏ đi vì chê bạn quá yếu ớt.",
+      "effects": {
+       "health": -15,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Tặng một nửa con lợn lòi",
+     "check": {
+      "stat": "wealth",
+      "target": 70
+     },
+     "success": {
+      "text": "Bạn lôi từ trong khố ra phần thịt ngon nhất giơ lên. {spouse} sáng mắt, quên cả đánh vật, nhào tới nhai ngấu nghiến rồi tự động đi theo bạn.",
+      "effects": {
+       "joy": 10,
+       "wealth": -10,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Miếng thịt đã thối rữa đến mức ngay cả Troll cũng không ngửi nổi. {spouse} kinh tởm tát bạn một cái rồi bỏ chạy.",
+      "effects": {
+       "health": -5,
+       "wealth": -5
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "troll_mate_goblin_gift",
+   "text": "Để chứng minh bản lĩnh, bạn cần tặng {spouse} một món quà. Bạn phát hiện một thương nhân Goblin đang kéo một xe đầy những viên Lõi Mana và vũ khí lấp lánh của mạo hiểm giả.",
+   "choices": [
+    {
+     "label": "Cướp cả xe hàng",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn nhấc bổng cả cỗ xe lẫn tên Goblin ném về hang. {spouse} vui sướng nhai vụn những thanh kiếm sắt, tình cảm vợ chồng thắm thiết.",
+      "effects": {
+       "STR": 1,
+       "joy": 5,
+       "wealth": 20,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Tên Goblin ném một lọ axit vào tay bạn rồi bỏ chạy. Bạn mang bàn tay cháy xém về nhà, bị {spouse} cười nhạo.",
+      "effects": {
+       "health": -20,
+       "joy": -2
+      }
+     }
+    },
+    {
+     "label": "Bứt một bụi hoa gai độc",
+     "text": "Đồ lấp lánh không ăn được. Bạn nhổ một bụi hoa gai kịch độc tọng vào miệng {spouse}. {spouse} nhai rộp rộp khen ngon, ngộ độc sùi bọt mép nhưng rất hạnh phúc.",
+     "effects": {
+      "joy": 12,
+      "marry": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "troll_child_eating",
+   "text": "{child} khóc lóc vì cắn phải một tảng thạch anh và gãy răng. Bạn nhận ra đứa con của mình quen ăn thịt Goblin mềm xèo mà quên mất kỹ năng nhai đá tảng cơ bản của tộc.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "require": {
+    "children": 1
+   },
+   "choices": [
+    {
+     "label": "Đập đá thành vụn bón cho con",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn dùng tay không bóp nát tảng thạch anh thành sỏi nhỏ. {child} vui vẻ xúc ăn, dạ dày dần làm quen với khoáng chất cứng.",
+      "effects": {
+       "STR": 1,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Bạn bóp trượt, tảng đá văng đập trúng đầu {child} làm nó sưng vù. {spouse} tức giận đấm bạn một trận.",
+      "effects": {
+       "health": -10
+      }
+     }
+    },
+    {
+     "label": "Nuốt mẫu rồi bắt làm theo",
+     "text": "Bạn há to miệng nuốt chửng cả tảng đá rồi vỗ bụng tự hào. {child} cố bắt chước, nuốt một cục đá bằng nắm tay và bị nghẹn, bạn phải vỗ lưng phòi cả đá lẫn ruột ra.",
+     "effects": {
+      "health": -5,
+      "joy": -5
+     }
+    }
+   ]
+  },
+  {
+   "id": "troll_child_lost",
+   "text": "{child} đi lang thang vác chùy chơi đùa và vô tình tông sập cổng của chi nhánh Guild Bình Minh. Bọn Mạo hiểm giả đang vây quanh định làm gỏi đứa con ngu ngốc của bạn.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "require": {
+    "children": 1
+   },
+   "choices": [
+    {
+     "label": "Húc tung tòa nhà Guild",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Bạn lấy đà húc sập toàn bộ tường của chi nhánh Guild. Trong đống đổ nát, bạn tóm lấy {child} nhét vào nách rồi chạy một mạch về rừng. Bọn con người khiếp vía.",
+      "effects": {
+       "health": -15,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Bạn húc trúng lớp màng bảo vệ bằng ma pháp. Sức giật lùi khiến bạn choáng váng. Bạn bị Mạo hiểm giả xúm vào chém tơi bời, phải trổ tài lạy lục mới xin được {child} về.",
+      "effects": {
+       "health": -30,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Lấy vàng chuộc con",
+     "require": {
+      "wealth": 20
+     },
+     "showLocked": true,
+     "text": "Bạn móc hết số tiền mãi lộ tích cóp quẳng vào mặt tên Hội trưởng. Bọn mạo hiểm giả thấy tiền sáng mắt, thả {child} ra ngay lập tức.",
+     "effects": {
+      "wealth": -20
+     }
+    }
+   ]
+  },
+  {
+   "id": "troll_child_rebellion",
+   "text": "{child} nhặt được một cuốn sách rách, học được cách đếm đến năm. Nó cho rằng mình giờ là sinh vật thượng đẳng và thách thức quyền gác cầu của bạn.",
+   "require": {
+    "children": 1
+   },
+   "choices": [
+    {
+     "label": "Thi đếm ngón tay",
+     "check": {
+      "stat": "INT",
+      "target": 10
+     },
+     "success": {
+      "text": "Bằng một nỗ lực phi thường, não bạn lóe sáng, bạn giơ hai bàn tay lên và hét to \"MƯỜI!\". {child} sợ hãi trước kiến thức toán học khổng lồ đó, quỳ xuống xin hàng.",
+      "effects": {
+       "INT": 2,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Bạn giơ 3 ngón tay nhưng miệng lại hô \"Một\". {child} khinh bỉ đá bạn lăn xuống sông và chiếm lấy trạm thu phí. Bạn chính thức bị \"về hưu sớm\".",
+      "effects": {
+       "joy": -20,
+       "fame": -15,
+       "loseJob": true
+      }
+     }
+    },
+    {
+     "label": "Chùy đá không biết đếm",
+     "text": "Cần gì toán học? Bạn vung chùy gõ bong một cái vào đầu {child} khiến nó quên sạch mọi con số vừa học được và trở lại làm một con Troll ngoan ngoãn.",
+     "effects": {
+      "STR": 1,
+      "joy": 5
+     }
+    }
+   ],
+   "moment": "Đánh con rỗng não để nó không thông minh hơn mình."
+  },
+  {
+   "id": "troll_evo_stone_sign",
+   "text": "Bạn cảm thấy ngứa ngáy khắp người. Khi gãi, những mảng da bong ra không phải là rêu thịt mà là những lớp đá dăm xám xịt. Mỗi bước chân của bạn giờ nặng nề như mang vác cả một quả đồi.",
+   "minAge": 40,
+   "weight": 10,
+   "require": {
+    "health": 70,
+    "STR": 22,
+    "form": "none",
+    "notFlags": [
+     "evo_sign_stone"
+    ]
+   },
+   "result": "Sức mạnh +2, Nhanh nhẹn -2. Cơ thể bạn đang chuẩn bị cho một sự thay đổi cội nguồn.",
+   "effects": {
+    "flags": [
+     "evo_sign_stone"
+    ]
+   }
+  },
+  {
+   "id": "troll_evo_stone_ritual",
+   "text": "Bản năng mách bảo bạn phải tự chôn mình vào sâu trong một hang động ngập bùn khoáng để lột xác. Quá trình này vô cùng đau đớn, đất đá sẽ hòa làm một với xương tủy bạn.",
+   "weight": 12,
+   "require": {
+    "form": "none",
+    "flags": [
+     "evo_sign_stone"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Gồng mình chịu đựng áp lực",
+     "check": {
+      "stat": "health",
+      "target": 85
+     },
+     "success": {
+      "text": "Cơ thể bạn hấp thụ tinh hoa của khoáng mạch. Bùn đất bao phủ bạn hóa thành lớp giáp thạch anh siêu cứng. Bạn phá vỡ vỏ bọc, gầm lên một tiếng rền vang. BẠN TIẾN HÓA THÀNH STONE TROLL!",
+      "effects": {
+       "STR": 20,
+       "AGI": -5,
+       "health": 30,
+       "flags": [
+        "evo_stone_troll"
+       ],
+       "evolve": "Stone Troll"
+      }
+     },
+     "fail": {
+      "text": "Đất đá đè nát lồng ngực bạn trước khi quá trình dung hợp hoàn tất. Lớp vỏ hóa đá khóa chặt bạn lại vĩnh viễn. CHẾT (Trở thành một bức tượng vô tri dưới lòng đất)."
+     }
+    },
+    {
+     "label": "Nhai quặng Huyết Kim trước khi ngủ",
+     "require": {
+      "wealth": 15
+     },
+     "showLocked": true,
+     "text": "Bạn ăn sạch số tài sản lấp lánh của mình để cung cấp năng lượng. Quá trình diễn ra suôn sẻ, da bạn lấp lánh ánh kim loại cứng cáp. BẠN TIẾN HÓA THÀNH STONE TROLL!",
+     "effects": {
+      "STR": 15,
+      "health": 20,
+      "wealth": -15,
+      "flags": [
+       "evo_stone_troll"
+      ],
+      "evolve": "Stone Troll"
+     }
+    }
+   ],
+   "once": false
+  },
+  {
+   "id": "troll_evo_stone_sculptor",
+   "text": "Bạn đang ngủ trưa trên núi thì một nhóm thợ mỏ tộc Dwarf lầm tưởng bạn là một mỏ quặng hiếm. Chúng hì hục dùng cuốc chim bổ boong boong lên lưng bạn suốt hai tiếng đồng hồ.",
+   "require": {
+    "form": "Stone Troll"
+   },
+   "result": "Bạn tỉnh dậy vươn vai làm gãy sạch cuốc chim của bọn Dwarf. Chúng khóc thét chạy tán loạn, bỏ lại mấy vựa bia ngon lành.",
+   "effects": {
+    "health": 5,
+    "wealth": 10,
+    "fame": 5
+   }
+  },
+  {
+   "id": "troll_evo_stone_cannon",
+   "text": "Quân đoàn Ma Vương dùng máy bắn đá ném những tảng lửa khổng lồ vào cầu của bạn.",
+   "require": {
+    "form": "Stone Troll"
+   },
+   "result": "Bạn nhặt chính những tảng đá lửa đó, gồng cơ bắp bằng đá ném ngược lại với lực đạo kinh hoàng, phá nát dàn pháo binh của kẻ thù rồi tiếp tục đứng thu phí.",
+   "effects": {
+    "STR": 3,
+    "fame": 15
+   }
+  },
+  {
+   "id": "troll_evo_ice_sign",
+   "text": "Dạ dày bạn tự nhiên lạnh buốt. Mỗi lần bạn ợ hơi sau khi ăn no, một đám mây tuyết nhỏ lại phun ra từ miệng khiến bầy Goblin xung quanh chết cóng.",
+   "minAge": 40,
+   "weight": 10,
+   "require": {
+    "flags": [
+     "ice_troll"
+    ],
+    "health": 60,
+    "form": "none",
+    "notFlags": [
+     "evo_sign_ice"
+    ]
+   },
+   "result": "Sức khỏe +2, Trí tuệ -1. Dòng máu nguyên thủy của những kẻ khổng lồ phương Bắc đang thức tỉnh.",
+   "effects": {
+    "flags": [
+     "evo_sign_ice"
+    ]
+   }
+  },
+  {
+   "id": "troll_evo_ice_ritual",
+   "text": "Một cơn bão tuyết kỷ lục quét qua Dãy Núi Răng Cưa. Bạn phải trèo lên Đỉnh Băng Tuyết cao nhất, mở phanh lồng ngực đón nhận cái lạnh tuyệt đối để đóng băng chính trái tim mình.",
+   "weight": 12,
+   "require": {
+    "form": "none",
+    "flags": [
+     "evo_sign_ice"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hút bão tuyết vào phổi!",
+     "check": {
+      "stat": "health",
+      "target": 85
+     },
+     "success": {
+      "text": "Bạn rống lên hút trọn luồng khí lạnh cực độ vào cơ thể. Máu bạn hóa thành băng xanh lam, da thịt mọc ra những khối băng nhọn hoắt. BẠN TIẾN HÓA THÀNH ANCIENT ICE TROLL!",
+      "effects": {
+       "STR": 15,
+       "INT": 10,
+       "health": 35,
+       "flags": [
+        "evo_ice_troll"
+       ],
+       "evolve": "Ancient Ice Troll"
+      }
+     },
+     "fail": {
+      "text": "Khí lạnh làm vỡ nát phổi bạn. Cơ thể bạn đông cứng rồi vỡ vụn thành hàng vạn mảnh băng lấp lánh cuốn theo chiều gió. CHẾT (Trở thành cát bụi của mùa đông)."
+     }
+    },
+    {
+     "label": "Bắt bầy Yeti nhai lấy nhiệt độ",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn nhanh tay vồ lấy lũ Yeti xé xác ăn tươi nuốt sống, dùng ma lực của chúng để trung hòa cơn đau đóng băng. Quá trình lột xác thành công rực rỡ. BẠN TIẾN HÓA THÀNH ANCIENT ICE TROLL!",
+      "effects": {
+       "STR": 20,
+       "health": 20,
+       "fame": 5,
+       "flags": [
+        "evo_ice_troll"
+       ],
+       "evolve": "Ancient Ice Troll"
+      }
+     },
+     "fail": {
+      "text": "Lũ Yeti đông hơn, chúng vật ngã bạn và ném xuống vực thẳm đóng băng. CHẾT."
+     }
+    }
+   ],
+   "once": false
+  },
+  {
+   "id": "troll_evo_ice_warm",
+   "text": "Mùa hè khắc nghiệt ở Đồng Bằng Thánh Quang tràn đến. Thân nhiệt băng giá của bạn đụng độ không khí nóng tạo ra sương mù mù mịt che phủ cả một vùng, khiến giao thương đình trệ.",
+   "require": {
+    "form": "Ancient Ice Troll"
+   },
+   "result": "Mọi người lầm tưởng đây là một Dungeon hệ băng mới xuất hiện. Bạn ngồi gãi bụng nhặt được vô số tiền của những kẻ lạc đường.",
+   "effects": {
+    "health": -5,
+    "wealth": 20
+   }
+  },
+  {
+   "id": "troll_evo_ice_mage",
+   "text": "Một Ma pháp sư thách thức bạn đấu phép. Hắn vừa niệm chú được nửa câu thì bạn nhảy mũi hắt xì một cái rõ to.",
+   "require": {
+    "form": "Ancient Ice Troll"
+   },
+   "result": "Cú hắt xì phóng ra một trận Bão Tuyết (Blizzard) cấp độ 8, đóng băng tên pháp sư thành một bức tượng đá. Bạn tự tin mình là học giả vĩ đại nhất.",
+   "effects": {
+    "INT": 3,
+    "fame": 10
+   }
+  },
+  {
+   "id": "troll_old_moss",
+   "text": "Bạn đã quá lười di chuyển. Lớp rêu trên người bạn giờ mọc thành cả một rừng cây nhỏ. Những con chim làm tổ trên vai bạn, còn bạn thì tận hưởng việc bắt chim non ăn vặt mỗi khi đói.",
+   "stages": [
+    "elder"
+   ],
+   "choices": [
+    {
+     "label": "Mặc kệ để rừng mọc thêm",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Cơ thể bạn cộng sinh hoàn hảo với thiên nhiên. Bạn lấy rễ cây làm dây chằng, tuổi thọ kéo dài thêm nhiều năm trong sự thanh bình lười biếng.",
+      "effects": {
+       "AGI": -5,
+       "health": 10,
+       "joy": 20
+      }
+     },
+     "fail": {
+      "text": "Rễ cây đâm thủng lớp da mỏng manh, hút kiệt sinh lực đang lụi tàn của bạn.",
+      "effects": {
+       "health": -25,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Lăn vòng để gãi ngứa",
+     "text": "Bạn cố lật người lăn một vòng đè nát cả thảm thực vật trên lưng. Chim chóc bay tán loạn, bạn gãi được cơn ngứa nhưng lại thấy hơi trống trải.",
+     "effects": {
+      "health": -5,
+      "joy": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "troll_old_memory",
+   "text": "Đầu óc thoái hóa khiến bạn quên mất mình là Troll. Nhìn thấy một bầy Goblin đang nhảy múa, bạn lạch bạch chạy tới, khăng khăng nhận mình là một con Goblin \"hơi to con một chút\".",
+   "stages": [
+    "elder"
+   ],
+   "choices": [
+    {
+     "label": "Bắt chúng tôn làm Trưởng tộc",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn rống lên tiếng Goblin bằng giọng ồm ồm, đe dọa ép chúng thừa nhận bạn. Bọn Goblin khiếp vía cung phụng bạn như một ông vua lú lẫn.",
+      "effects": {
+       "INT": 1,
+       "wealth": 10,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Bạn giẫm đạp loạn xạ, đè bẹp một nửa bầy. Số còn lại hoảng hốt ném phân vào mặt bạn rồi chạy trốn, bỏ lại bạn khóc lóc vì \"đồng loại\" quay lưng.",
+      "effects": {
+       "joy": -15,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Ngồi xem chúng nhảy múa",
+     "text": "Bạn cứ ngồi há mốc mồm nhìn vỗ tay cười ngặt nghẽo. Cuối đời, niềm vui chỉ đơn giản là những điều ngớ ngẩn.",
+     "effects": {
+      "joy": 10
+     }
+    }
+   ]
+  },
+  {
+   "id": "troll_old_bridge",
+   "text": "Cây cầu đá cũ kỹ nơi bạn từng gác cuối cùng cũng sập tơi bời. Nhìn dòng sông chảy xiết, bản năng Gác Cầu thôi thúc bạn bước xuống nước, nằm vắt ngang hai bờ và biến chính tấm lưng sần sùi của mình thành lối đi.",
+   "stages": [
+    "elder"
+   ],
+   "choices": [
+    {
+     "label": "Gồng mình làm trụ cầu vĩnh cửu",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Bạn chịu đựng sức mài mòn của dòng nước, hóa đá vĩnh viễn với nụ cười ngốc nghếch mãn nguyện. Các thương nhân đi qua, kính cẩn thả từng đồng Cẩm Thạch xuống sông. KẾT THÚC CỦA MỘT HUYỀN THOẠI. (Qua đời vì cạn kiệt sinh mệnh nhưng lưu danh muôn thuở)."
+     },
+     "fail": {
+      "text": "Lưng bạn rạn nứt vì quá già yếu. Bạn gãy gập giữa dòng sông và bị cuốn trôi ra biển lớn, để lại một cái chết vô danh hôi thối. CHẾT."
+     }
+    },
+    {
+     "label": "Kệ cây cầu, bò lên bờ đi ngủ",
+     "text": "Bạn lẩm bẩm \"Troll hết ca trực rồi\", bò lên bờ suối nằm ngáy khò khò. Bạn trút hơi thở cuối cùng trong giấc ngủ êm đềm, kết thúc một kiếp sống chỉ biết ăn, ngủ và đòi tiền. CHẾT"
+    }
+   ],
+   "moment": "Lấy thân mình làm cầu, hoàn thành tâm nguyện Gác Cầu tối thượng."
+  },
+  {
+   "id": "troll_chain_holy_1",
+   "text": "Giáo hội Thánh Quang không thể chịu nổi nỗi nhục nợ tiền một con Troll. Nửa đêm, một Assassin cấp cao được Giáo hội thuê lén lút tiếp cận bạn để đánh cắp hoặc tiêu hủy tờ giấy nợ bằng máu mà bạn đang nhét trong khố.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "require": {
+    "flags": [
+     "holy_debt"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Ngáy tung kẻ ám sát",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đang ngủ say và vô tình xì hơi cộng thêm ngáy một tiếng cực to. Luồng khí hôi thối và sóng âm đẩy văng tên Assassin đập đầu vào vách đá ngất xỉu. Sáng ra, bạn có thêm đồ chơi.",
+      "effects": {
+       "LUCK": 2,
+       "wealth": 10,
+       "fame": 5,
+       "flags": [
+        "holy_debt_escalated"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Tên Assassin quá điêu luyện, hắn lôi được tờ giấy nợ ra, ném một quả bom khói mù mịt rồi tẩu thoát. Bạn tỉnh dậy thấy khố mình trống rỗng.",
+      "effects": {
+       "fame": -10,
+       "flags": [
+        "holy_debt"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Tỉnh dậy nhai luôn tờ giấy",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Thấy có kẻ rình rập đồ của mình, bạn nhanh tay lôi tờ giấy nợ ra nhét luôn vào mồm nuốt ực. Tên Sát thủ cạn lời, chửi thề một tiếng rồi bỏ đi vì không thể mổ bụng bạn.",
+      "effects": {
+       "INT": 1,
+       "flags": [
+        "holy_debt_internalized"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn nhét nhầm tờ giấy vào lỗ mũi. Tên Sát thủ dùng nhíp gắp nó ra nhẹ nhàng rồi biến mất vào màn đêm.",
+      "effects": {
+       "wealth": -10,
+       "flags": [
+        "holy_debt"
+       ]
+      }
+     }
+    }
+   ],
+   "moment": "Bảo vệ món nợ của Giáo hội bằng tuyệt kỹ xì hơi trong lúc ngủ."
+  },
+  {
+   "id": "troll_chain_holy_2",
+   "text": "Tránh để tin đồn lan xa, đích thân một vị Giám Mục của Giáo hội Thánh Quang mang theo một xe kéo đầy ắp đùi cừu nướng và Huyết Kim đến tận hang của bạn. Hắn nghiến răng xin bạn \"xóa nợ và câm miệng lại\".",
+   "require": {
+    "anyFlags": [
+     "holy_debt_escalated",
+     "holy_debt_internalized"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Đòi thêm một chiếc xe nữa!",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Bạn giơ chùy lên gầm gừ, đe dọa sẽ băm vằm hắn nếu không nhân đôi đồ ăn. Vị Giám Mục hoảng sợ móc hết Lõi Mana trong người ra cống nạp để giữ mạng.",
+      "effects": {
+       "STR": 2,
+       "wealth": 30,
+       "fame": 20
+      }
+     },
+     "fail": {
+      "text": "Vị Giám Mục nổi giận, triệu hồi một thiên thần ánh sáng giáng cho bạn một búa sấm sét, thu lại xe đồ ăn và bỏ đi.",
+      "effects": {
+       "health": -25,
+       "joy": -15
+      }
+     }
+    },
+    {
+     "label": "Vui vẻ nhận đồ và xé nợ",
+     "text": "Nếu bạn đã nuốt tờ giấy (dấu ấn internalized), bạn nôn thốc nôn tháo ra một đống bùi nhùi dính đầy axit dạ dày đưa cho hắn. Hắn kinh tởm nhận lấy, để lại xe đồ ăn.",
+     "effects": {
+      "health": 10,
+      "joy": 20,
+      "wealth": 20
+     }
+    }
+   ],
+   "moment": "Ép Giáo hội Thánh Quang phải trả lãi suất bằng đùi cừu nướng."
+  },
+  {
+   "id": "troll_chain_worm_1",
+   "text": "Con Giun Khổng Lồ (Sand Worm) mà bạn bắt làm thú cưỡi bỗng nhiên lồng lộn lên vì đến mùa giao phối. Nó rít gào, định cắm đầu đào thẳng xuống Vực Thẳm để tìm bạn tình, kéo theo cả sợi xích và bạn đang bám trên đó.",
+   "stages": [
+    "middle"
+   ],
+   "require": {
+    "flags": [
+     "worm_rider"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Kéo ngược sợi xích lại!",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Cơ bắp khổng lồ của bạn gồng lên, chân đạp sâu xuống đất đá. Bạn mạnh mẽ kéo ngược con quái vật lại, khuất phục hoàn toàn bản năng của nó, bắt nó ngoan ngoãn nằm bẹp xuống.",
+      "effects": {
+       "STR": 3,
+       "fame": 10,
+       "flags": [
+        "worm_master"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Sức mạnh của quái thú đang động dục là không thể cản nổi. Lực kéo xé rách lòng bàn tay bạn, bạn văng đập mặt vào vách đá ngất xỉu. Con giun sổng chuồng.",
+      "effects": {
+       "health": -20,
+       "flags": [
+        "worm_rider"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Cứ để nó kéo đi xem sao",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn bám chặt lấy xích chơi trò cưỡi giun siêu tốc. Con giun đào trúng một mỏ Huyết Kim dưới lòng đất trước khi kiệt sức. Bạn nhặt đầy một khố tiền.",
+      "effects": {
+       "LUCK": 2,
+       "health": -10,
+       "wealth": 20,
+       "flags": [
+        "worm_miner"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Nó kéo bạn chui qua một hầm chông của bọn Goblin. Bạn bị chông đâm chi chít như nhím, buộc phải buông tay để giữ mạng.",
+      "effects": {
+       "health": -25,
+       "flags": [
+        "worm_rider"
+       ]
+      }
+     }
+    }
+   ],
+   "moment": "Cố gắng ghì cương một con giun khổng lồ đang động dục."
+  },
+  {
+   "id": "troll_chain_worm_2",
+   "text": "Con giun của bạn đã tự sinh sản vô tính! Sáng tỉnh dậy, bạn thấy lãnh thổ của mình nhung nhúc hàng tá con Giun Cát cỡ nhỏ đang nhai đất đá rào rạo, đe dọa làm sập cả cây cầu/hang động của bạn.",
+   "require": {
+    "anyFlags": [
+     "worm_master",
+     "worm_miner"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Biến chúng thành hàng hóa",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn bắt lũ giun con tọng vào các thùng gỗ gãy, vác ra chợ ngầm bán cho bọn Mạo hiểm giả làm thú cưng hoặc nguyên liệu giả kim, thu về một mớ tiền khổng lồ.",
+      "effects": {
+       "INT": 2,
+       "wealth": 35,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Lũ giun con cắn nát thùng gỗ, túa ra ngoạm vào ngón chân và mông bạn khiến bạn phải nhảy chồm chồm để giũ chúng ra.",
+      "effects": {
+       "health": -15,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Món giun luộc khổng lồ",
+     "require": {
+      "health": 10
+     },
+     "showLocked": true,
+     "text": "Bạn quăng tất cả bọn chúng vào một vũng nước khoáng sôi sùng sục, biến tai họa thành một bữa tiệc buffet buffet giun luộc thơm lừng cho cả tháng.",
+     "effects": {
+      "health": 15,
+      "joy": 20
+     }
+    }
+   ],
+   "moment": "Trở thành đại gia nhờ kinh doanh (hoặc ăn thịt) lũ giun đất sơ sinh."
+  },
+  {
+   "id": "troll_chain_parent_1",
+   "text": "Ký ức lờ mờ ùa về. Bạn nhớ lại ngày xưa, trước khi rời đi, {father} (hoặc {mother}) từng ném vào mặt bạn một cục đá xù xì, nặng chịch và cực kỳ lạnh lẽo, kèm theo tiếng cằn nhằn \"Giữ lấy mà gặm\".",
+   "stages": [
+    "infant",
+    "child"
+   ],
+   "choices": [
+    {
+     "label": "Gặm thử xem sao",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn nhai thử, răng mẻ đi một góc nhưng bạn phát hiện cục đá tỏa ra hơi mát rất dễ chịu. Bạn quyết định cất nó vào khố làm điều hòa nhiệt độ di động.",
+      "effects": {
+       "STR": 1,
+       "health": 5,
+       "flags": [
+        "parent_fossil_egg"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn nhai mạnh quá làm gãy ba cái răng. Vừa đau vừa tức, bạn quẳng nó xuống suối nhưng nó nặng quá lăn trở lại đập trúng ngón chân bạn. Bạn đành ngậm ngùi ôm nó.",
+      "effects": {
+       "health": -10,
+       "joy": -5,
+       "flags": [
+        "parent_fossil_egg"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Mang đi ném chim",
+     "text": "Bạn cầm nó ném một con chim ưng. Cục đá rơi tõm xuống vực mất tăm. Di sản gia đình kết thúc.",
+     "effects": {
+      "joy": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "troll_chain_parent_2",
+   "text": "Đang nằm ngủ, cục đá bạn giữ bấy lâu nay đột nhiên phát sáng ánh xanh lục và nứt toác ra. Bên trong không phải là lõi đá, mà là một sinh vật có cánh, vảy cứng đang rít lên: Một con Rồng Đất Thượng Cổ (Earth Dragon)!",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "require": {
+    "flags": [
+     "parent_fossil_egg"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Nuốt luôn cho nóng!",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bản năng ăn uống trỗi dậy. Bạn vồ lấy con rồng non đang lóp ngóp nhét tọt vào miệng. Một luồng ma lực đất tràn ngập cơ thể, biến da bạn trở nên cứng như thép nguội.",
+      "effects": {
+       "STR": 5,
+       "health": 15,
+       "flags": [
+        "dragon_eater"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Con rồng non phản xạ cực nhanh, phun một ngụm axit đất vào mặt bạn, đốt cháy lông mi rồi vỗ cánh bay mất tích. Bạn mất bữa ăn và rát mặt.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Tưởng là đồng loại, ôm ấp",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn ngu ngốc tưởng sinh vật xanh lè, đầy vảy xù xì này là một con Troll đột biến. Bạn ôm nó vào lòng vỗ về. Rồng non ngửi thấy mùi \"đất\" (bùn) thân thuộc bèn nhận bạn làm mẹ/cha.",
+      "effects": {
+       "INT": 1,
+       "joy": 20,
+       "flags": [
+        "dragon_parent"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Cục thịt khổng lồ hôi thối của bạn làm con rồng non hoảng sợ. Nó cắn phập vào ngực bạn một phát đau điếng rồi lủi vào rừng sâu.",
+      "effects": {
+       "health": -10
+      }
+     }
+    }
+   ],
+   "moment": "Ấp nở một quả trứng Rồng Đất Thượng Cổ từ cục đá hồi môn."
+  },
+  {
+   "id": "troll_chain_parent_3",
+   "text": "\"Đứa con\" Earth Dragon của bạn nay đã to lớn bằng cả một ngôi nhà. Nó sà xuống trước hang của bạn, ngậm một con quái thú Minotaur đã được nướng chín nhừ dâng lên cho \"vị phụ huynh\" ngốc nghếch.",
+   "stages": [
+    "middle"
+   ],
+   "require": {
+    "flags": [
+     "dragon_parent"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Leo lên lưng rồng dạo chơi",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Bạn ăn no rồi nhảy lên lưng rồng. Dù bạn nặng nề, rồng đất vẫn tung cánh bay lượn quanh Đầm Lầy Tử Khí. Mọi sinh vật đều kinh hãi trước cảnh một con Troll cưỡi Rồng Thượng Cổ.",
+      "effects": {
+       "STR": 3,
+       "joy": 25,
+       "fame": 30
+      }
+     },
+     "fail": {
+      "text": "Bạn vừa trèo lên, sức nặng của loài Troll làm rồng lệch trọng tâm ngã lộn cổ. Cả hai đè lên nhau sưng bầm dập. Rồng hậm hực bay đi không cho cưỡi nữa.",
+      "effects": {
+       "health": -20,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Chia sẻ bữa ăn như một gia đình",
+     "text": "Bạn xé nửa con Minotaur đút lại cho rồng. Khung cảnh gia đình đầm ấm giữa một gã khổng lồ bùn lầy và sinh vật thượng đẳng nhất Aethelgard khiến bọn Mạo hiểm giả đi ngang qua phải quỳ lạy.",
+     "effects": {
+      "joy": 30,
+      "fame": 10
+     }
+    }
+   ],
+   "moment": "Trở thành phụ huynh của một con rồng và được dâng đồ ăn tận miệng."
+  }
+ ],
+ "deaths": [],
+ "focus": {
+  "play": {
+   "name": "Nghịch bùn",
+   "desc": "Sức mạnh, May mắn; chơi đùa trong vũng lầy",
+   "stages": [
+    "infant",
+    "child"
+   ],
+   "gains": {
+    "STR": 0.2,
+    "LUCK": 0.15
+   },
+   "bars": {
+    "joy": 1.5
+   },
+   "quiet": {
+    "default": [
+     "Bạn vò bùn thành một quả bóng khổng lồ, ném lên trời rồi đứng cười sặc sụa khi nó rơi trúng đầu mình.",
+     "Bạn nằm ườn trong vũng lầy, cẩn thận đắp bùn che kín những ngón chân mọc đầy nấm để chơi trò trốn tìm với chính mình.",
+     "Bạn tìm thấy một bãi phân rồng, lầm tưởng là loại đất sét hảo hạng nên mang về đắp thành một cái cúp vinh quang."
+    ]
+   }
+  },
+  "study": {
+   "name": "Ăn",
+   "desc": "Sức mạnh, Sức khỏe; nhai mọi thứ nhai được",
+   "stages": [
+    "infant",
+    "child",
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "gains": {
+    "STR": 0.15
+   },
+   "bars": {
+    "health": 2,
+    "wealth": -0.3
+   },
+   "quiet": {
+    "default": [
+     "Bạn gặm một khúc gỗ mục trong suốt ba tháng mùa đông vì tưởng đó là xương đùi của Rồng.",
+     "Bạn cặm cụi bóc vỏ một tảng đá, gãy mất hai cái răng trước khi nhận ra nó không phải là quả óc chó khổng lồ.",
+     "Một năm no đủ, bạn nằm chổng vó lên trời, xỉa răng bằng một thanh đại kiếm rỉ sét nhặt được của Mạo hiểm giả."
+    ]
+   }
+  },
+  "train": {
+   "name": "Khổ luyện (đập đá)",
+   "desc": "Sức mạnh; đập đá cho cứng tay",
+   "stages": [
+    "teen",
+    "adult",
+    "middle"
+   ],
+   "quiet": {
+    "default": [
+     "Bạn dùng đầu húc vào vách núi mỗi sáng để luyện thiết đầu công, kết quả là vách núi lõm một lỗ, còn bạn thì quên luôn tên mình.",
+     "Bạn xách một thân cây sồi khổng lồ vung vẩy khắp rừng, vô tình đập nát nhà của ba gia đình báo gấm.",
+     "Tập thể dục bằng cách bắt bọn Imp đu dây thừng, khi mỏi tay bạn thả tay ra cho chúng bay thẳng xuống Vực Thẳm."
+    ]
+   }
+  },
+  "work": {
+   "name": "Giữ cầu thu phí",
+   "desc": "Làm vai trò của mình, tích kinh nghiệm thăng bậc",
+   "stages": [
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "quiet": {
+    "default": [
+     "Bạn thu được một xe bắp cải thối từ gã nông dân nghèo và nhai rộp rộp suốt tuần.",
+     "Bạn ngủ quên lúc gác cầu, tỉnh dậy thấy bọn Goblin đã lấy cắp cái khố đầy bùn của mình mang đi tế thần.",
+     "Cầu sập do bạn đứng trên đó quá lâu nhảy múa.",
+     "Bạn phải mất cả mùa hè để lấy thân mình làm trụ cầu cho người ta đi qua thu phí."
+    ]
+   }
+  },
+  "adventure": {
+   "name": "Lang thang",
+   "desc": "Đi đòi nợ, đánh nhau, leo thứ bậc lãnh thổ",
+   "stages": [
+    "teen",
+    "adult",
+    "middle"
+   ],
+   "tags": null,
+   "quiet": {
+    "default": [
+     "Bạn đi lạc vào Đại Ngàn Lục Bảo, bứt trụi lá của một cái cây linh thiêng để chùi đít, chọc giận cả tộc Elf.",
+     "Đi mãi về hướng Bắc, bạn nhặt được một con chim cánh cụt lạc đàn và cất nó vào trong khố làm bạn.",
+     "Bạn giẫm đạp lên một khu định cư của Kobold dưới lòng đất mà cứ tưởng mình đang đi dạo trên ổ kiến."
+    ]
+   }
+  },
+  "rest": {
+   "name": "Ngủ ngáy",
+   "desc": "Hồi sức; Troll ngủ để vết thương tự lành",
+   "stages": [
+    "infant",
+    "child",
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "bars": {
+    "health": 3,
+    "joy": 1
+   },
+   "quiet": {
+    "default": [
+     "Bạn ngáy to đến mức tạo ra một trận lở tuyết, chôn vùi luôn hang động của chính mình và ngủ ngon lành trong lớp tuyết xốp.",
+     "Bầy dơi trong hang quá tức giận vì tiếng ngáy, chúng xúm lại ị phân lên đầu bạn, nhưng bạn lại tưởng đó là thuốc mọc tóc rêu.",
+     "Bạn ngủ một mạch từ mùa thu đến mùa xuân, khi thức dậy thấy chim gõ kiến đã khoan ba cái lỗ trên bắp tay mình."
+    ]
+   }
+  },
+  "social": {
+   "hidden": true
+  }
+ },
+ "systems": {
+  "bandName": "đám",
+  "romance": false,
+  "autoChildren": true,
+  "childRate": 0.08,
+  "maxChildren": 3,
+  "child": [
+   "Một cục thịt nhão lăn ra từ đống bùn cạnh bạn và bắt đầu khóc: {child}, con của bạn.",
+   "{child} ra đời, to hơn mọi đứa trẻ Troll khác và đói hơn gấp đôi."
+  ],
+  "companions": [
+   {
+    "race": "Troll",
+    "names": "troll",
+    "job": "Mercenary Troll",
+    "stat": "STR",
+    "weight": 3
+   },
+   {
+    "race": "Goblin",
+    "names": "goblin",
+    "job": "Goblin Scout",
+    "stat": "AGI",
+    "weight": 2
+   },
+   {
+    "race": "Orc",
+    "names": "orc",
+    "job": "Orc Berserker",
+    "stat": "STR",
+    "weight": 1
+   }
+  ],
+  "recruit": {
+   "text": [
+    "Một con Troll khác ngồi xuống cạnh bạn, chìa ra nửa con cừu sống. \"Bạn?\" nó hỏi.",
+    "Một Goblin láu cá trèo lên vai bạn: \"Đại ca! Cho em theo, em đếm tiền giùm cho!\""
+   ],
+   "join": [
+    "{ally} vỗ bụng cười hô hố. Từ nay hai đứa chung một gầm cầu.",
+    "{ally} chia cho bạn một cục đá đẹp. Ở Troll, thế là kết nghĩa."
+   ],
+   "decline": "Đuổi đi, đồ ăn không đủ chia",
+   "declineText": "Bạn ném một tảng đá theo. Kẻ kia chạy mất. Đồ ăn là của bạn hết."
+  },
+  "jobSelect": {
+   "teen": [
+    "Bạn đã đủ to để làm việc gì đó. Gác cầu, đánh thuê, hay đọc sách (ngược)?"
+   ],
+   "adult": [
+    "Bạn vẫn chưa có việc gì làm ngoài ăn và ngủ. Có lẽ nên chọn một nghề."
+   ],
+   "later": "Ăn thêm vài năm đã",
+   "laterText": "Bạn nhai tiếp. Nghề nghiệp có thể chờ."
+  },
+  "promotion": {
+   "try": "Đập một phát cho xong",
+   "wait": "Chưa, ngủ đã",
+   "waitText": "Bạn ngáp và lăn ra ngủ. Lần sau vậy.",
+   "success": "Mọi kẻ xung quanh há hốc mồm. Từ nay, bạn là {next}.",
+   "fail": [
+    "Bạn thất bại, rồi quên luôn mình vừa thất bại.",
+    "Bạn bị đánh bẹp mũi. Nó sẽ mọc lại, như mọi lần."
+   ]
+  },
+  "crossroads": {
+   "child": "Bạn đã biết ném đá. Những năm tới, bạn sẽ làm gì?",
+   "teen": "Bạn đã đủ to để đòi nợ người qua cầu. Bạn sẽ dồn sức vào đâu?",
+   "adult": "Bạn đã là Tai Họa Rừng Sâu. Bạn sẽ làm gì tiếp?",
+   "middle": "Da bạn bắt đầu cứng như đá. Bạn sẽ dùng những năm này ra sao?",
+   "elder": "Rêu mọc kín người bạn. Những năm cuối, bạn muốn làm gì?",
+   "default": "Bạn sẽ dồn sức vào đâu?"
+  },
+  "stageEnter": {
+   "child": "Bạn không còn là một bục thịt nhão. Bạn đã biết ném đá, và ném rất trúng.",
+   "teen": "Bạn đã đủ to để ngồi chắn giữa cầu và đòi tiền.",
+   "adult": "Bạn đã trưởng thành. Cả khu rừng biết tên bạn, dù bạn không nhớ tên mình.",
+   "middle": "Da bạn cứng lại như đá tảng. Vết thương lành chậm hơn, nhưng gươm đâm không thủng.",
+   "elder": "Bạn ngồi yên ngày càng lâu. Rêu bắt đầu mọc trên vai.",
+   "default": "Một chương mới của cuộc đời Troll mở ra."
+  },
+  "parentDeath": [
+   "{who} đã chết. Bạn ngồi bên xác rất lâu, rồi đắp lên đó một ụ bùn thật to.",
+   "Bạn nghe tin {who} không dậy nữa. Bạn khóc một trận to, rồi đi ăn."
+  ],
+  "allyDie": [
+   "Bạn ngồi thẫn thờ, đắp một nấm mồ bằng những cục bùn thối nhất rồi gác lại một cái đùi gà nướng dở, hy vọng {ally} sẽ sống dậy ăn.",
+   "Bạn ngửa cổ rống lên một tiếng bi ai rung chuyển cả Đầm Lầy Tử Khí, dùng chùy đập nát mọi cái cây xung quanh thành mùn cưa để trút giận.",
+   "Bản năng Troll trỗi dậy, bạn nhai luôn xác {ally} để đồng đội \"sống mãi trong bụng mình\", rơi một giọt nước mắt to bằng quả táo."
+  ],
+  "allyHurt": [
+   "Bạn lúng túng dùng ngón tay bẩn thỉu đầy rêu xoa xoa lên vết thương của {ally}, nhổ thêm bãi nước bọt vì tin rằng nó có tác dụng chữa lành.",
+   "Bạn hoảng hốt nhặt {ally} lên, nhét vào sâu trong chiếc khố da thú bốc mùi của mình để bảo vệ cho đến khi vết thương khép miệng.",
+   "Bạn điên cuồng đi bứt những ngọn cỏ độc có gai nhét vào miệng {ally}, bắt nhai vì lầm tưởng đó là dược thảo trị thương của tộc Elf."
+  ],
+  "allyLeave": [
+   "Bạn đứng ngơ ngác gãi đầu, nhặt một tảng đá ném theo rồi quay lưng đi ngủ, quên luôn sự tồn tại của {ally} chỉ sau năm phút.",
+   "Bạn tức giận dẫm nát chỗ ngủ cũ của {ally}, lấy hết số đồ lấp lánh mà hai người từng tích cóp mang ra suối thả trôi bọt nước.",
+   "Dù bị đâm lén, cái đầu ngốc nghếch của bạn vẫn vẫy tay chào tạm biệt, tưởng rằng {ally} chỉ đang chơi trò trốn tìm đi mượn đồ."
+  ]
+ },
+ "stages": [
+  {
+   "id": "infant",
+   "start": 0,
+   "name": "Bục Thịt Nhão"
+  },
+  {
+   "id": "child",
+   "start": 8,
+   "name": "Troll Nhí Ném Đá"
+  },
+  {
+   "id": "teen",
+   "start": 16,
+   "name": "Kẻ Đòi Nợ Cầu Đường"
+  },
+  {
+   "id": "adult",
+   "start": 26,
+   "name": "Tai Họa Rừng Sâu"
+  },
+  {
+   "id": "middle",
+   "start": 40,
+   "name": "Troll Đá Tảng"
+  },
+  {
+   "id": "elder",
+   "start": 60,
+   "name": "Hóa Thạch"
+  }
+ ]
+}

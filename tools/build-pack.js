@@ -98,12 +98,19 @@ function build(raceId, opts) {
     if (e.clearBounty) out.unflags = ["guild_enemy", "bounty_survivor"];
     return out;
   }
+  // "CHẾT già." leaves just "già." after the keyword: make it a sentence
+  function deathText(d, fallback) {
+    d = ren(d || "").replace(/^[.,;:\s]+/, "");
+    if (d === "Bạn chết." || !d) return ren(fallback || "Bạn chết.");
+    if (/^[a-zà-ỹđ]/.test(d) && d.length < 40) return "Bạn chết " + d;
+    return d;
+  }
   function outcome(o, ctx) {
     if (!o) return null;
     const r = { text: ren(o.text) };
     const eff = effects(o.eff, ctx);
     if (Object.keys(eff).length) r.effects = eff;
-    if (o.eff.death) r.death = ren(o.eff.death === "Bạn chết." ? o.text : o.eff.death);
+    if (o.eff.death) r.death = deathText(o.eff.death, o.text);
     if (o.eff.end) r.end = o.eff.end;
     if (o.eff.next != null) r.next = o.eff.next;
     return r;
@@ -136,6 +143,7 @@ function build(raceId, opts) {
     const ch = { label: ren(c.label) };
     if (c.lock) { const rq = lockReq(c.lock); if (rq) { ch.require = rq; ch.showLocked = true; } }
     if (c.needFlags) { ch.require = Object.assign(ch.require || {}, { flags: c.needFlags }); ch.showLocked = true; }
+    if (c.onlyFlags) ch.require = Object.assign(ch.require || {}, { flags: c.onlyFlags }); // hidden without the mark
     if (c.check && c.success && c.fail) {
       ch.check = { stat: c.check.stat, target: target(c.check.stat, c.check.diff) };
       ch.success = outcome(c.success, ctx);
@@ -154,6 +162,8 @@ function build(raceId, opts) {
     const set = new Set();
     // "bậc 1–2" is a rank, not an age
     text = text.replace(/bậc\s*\d+\s*(?:[–-]\s*\d+|hoặc\s*\d+|trở lên|\+)?/gi, "");
+    // "2-3 năm sau sự kiện…", "10 năm sau" are delays, not ages
+    text = text.replace(/(?:khoảng\s*)?\d+(?:\s*[–-]\s*\d+)?\s*năm sau/gi, "").replace(/sau khoảng\s*\d+\s*năm/gi, "");
     // "Danh vọng trên 10", "Sức khỏe dưới 20" are stat checks, not ages
     text = text.replace(/(sức mạnh|trí tuệ|nhanh nhẹn|may mắn|sức khỏe|hạnh phúc|tài sản|danh vọng|thân thiết[^·.]*?)\s*(?:>|<|>=|từ|trên|dưới|lớn hơn|ít nhất)?\s*\d[\d.]*\s*(?:trở lên)?/gi, "");
     const low = text.toLowerCase();
@@ -196,24 +206,28 @@ function build(raceId, opts) {
       else if ((m = low.match(/(?:từ )?bậc (\d+)(?: trở lên)?/))) out.require.jobRank = Number(m[1]) - 1;
     }
     if (ctx.rank && (m = low.match(/bậc (\d+)/))) out.require.guildRank = Number(m[1]) - 1;
-    const fl = [...text.matchAll(/dấu ấn\s+["“]?([a-z][a-z0-9_]+)["”]?/gi)].map((x) => x[1]);
-    const more = [...text.matchAll(/(?:hoặc|có)\s+["“]([a-z0-9_]+)["”]/gi)].map((x) => x[1]);
+    // "Không mang dấu ấn X" / "chưa có dấu ấn X" forbids the mark
+    const notFl = [...text.matchAll(/(?:không (?:mang|có)|chưa (?:mang|có)|chưa từng có)\s+dấu ấn\s+["“]?([a-z][a-z0-9_]+)["”]?/gi)].map((x) => x[1]);
+    if (notFl.length) out.require.notFlags = notFl;
+    const fl = [...text.matchAll(/dấu ấn\s+["“]?([a-z][a-z0-9_]+)["”]?/gi)].map((x) => x[1]).filter((f) => !notFl.includes(f));
+    const more = [...text.matchAll(/(?:hoặc|có)\s+["“]([a-z0-9_]+)["”]/gi), ...text.matchAll(/dấu ấn\s+["“]?[a-z][a-z0-9_]+["”]?\s+hoặc\s+["“]?([a-z][a-z0-9]*_[a-z0-9_]+)/gi)].map((x) => x[1]);
     const allFl = [...new Set([...fl, ...more])];
     if (allFl.length) { if (/hoặc/.test(low) && allFl.length > 1) out.require.anyFlags = allFl; else out.require.flags = allFl; }
     if (/cha và mẹ còn sống|cha mẹ còn sống/.test(low)) { out.require.fatherAlive = true; out.require.motherAlive = true; }
     else {
-      if (/\{mother\} còn sống|mẹ còn sống/.test(low)) out.require.motherAlive = true;
-      if (/\{father\} còn sống|cha còn sống/.test(low)) out.require.fatherAlive = true;
+      if (/\{mother\}\)? còn sống|mẹ còn sống/.test(low)) out.require.motherAlive = true;
+      if (/\{father\}\)? còn sống|cha còn sống/.test(low)) out.require.fatherAlive = true;
     }
     if (/\{maker\}.{0,20}còn sống|chủ nhân còn sống|có \{maker\}/.test(low)) out.require.makerAlive = true;
-    if (/có (đồng đội )?\{ally\}|có đồng đội|đi cùng \{ally\}/.test(low)) out.require.party = 1;
-    for (const [w, t] of Object.entries(TRAITS)) if (low.includes("tính " + w) || low.includes("tính cách " + w) || low.includes("{ally} " + w)) out.require.allyTrait = t;
+    if (/có (đồng đội )?\{ally\}|có đồng đội|đi cùng \{ally\}|ít nhất \d+ đồng đội/.test(low)) out.require.party = 1;
+    if (!/không phải tính/.test(low))
+      for (const [w, t] of Object.entries(TRAITS)) if (low.includes("tính " + w) || low.includes("tính cách " + w) || low.includes("{ally} " + w)) out.require.allyTrait = t;
     if (/chưa có (\{spouse\}|bạn đời|bạn tình)/.test(low)) out.require.spouse = false;
     else if (/(đã )?có \{spouse\}|đã có bạn đời/.test(low)) out.require.spouse = true;
     if (/chưa có \{child\}/.test(low)) out.require.noChildren = true;
     else if (/có \{child\}|\{child\}/.test(low)) out.require.children = 1;
     for (const [w, era] of Object.entries(ERA_WORDS)) if (text.includes(w)) out.eras = [...new Set([...(out.eras || []), era])];
-    for (const mm of low.matchAll(/(sức mạnh|trí tuệ|nhanh nhẹn|may mắn|danh vọng|tài sản)\s*(?:>|từ|>=|trên|lớn hơn)\s*(\d+)/g)) out.require[STAT[mm[1]]] = Math.min(mm[1] === "tài sản" ? 90 : 99, Number(mm[2]));
+    for (const mm of low.matchAll(/(sức mạnh|trí tuệ|nhanh nhẹn|may mắn|danh vọng|tài sản|sức khỏe)\s*(?:>|từ|>=|trên|lớn hơn)\s*(\d+)/g)) out.require[STAT[mm[1]]] = Math.min(mm[1] === "tài sản" ? 90 : 99, Number(mm[2]));
     if ((m = low.match(/có ít nhất (\d+) tài sản/))) out.require.wealth = Math.min(90, Number(m[1]));
     for (const mm of low.matchAll(/(sức khỏe|tài sản|hạnh phúc)\s*dưới\s*(\d+)/g)) out.require.below = Object.assign(out.require.below || {}, { [STAT[mm[1]]]: Number(mm[2]) });
     if ((m = low.match(/thân thiết với \{ally\}\s*<\s*(\d+)/))) out.require.below = Object.assign(out.require.below || {}, { bond: Number(m[1]) });
@@ -260,7 +274,7 @@ function build(raceId, opts) {
       promoXp: r.promoXp || meta.promoXp,
       promoTarget: promoSrc.map((p) => target(p.stat || r.stat, p.diff)),
       promoStat: promoSrc.map((p) => p.stat || r.stat),
-      promo: promoSrc.map((p) => "Thử thách để trở thành {next}: " + ren(p.text).replace(/\s*\((?:sức mạnh|trí tuệ|nhanh nhẹn|may mắn)[^)]*\)/gi, "").replace(/^./, (x) => x.toLowerCase()).replace(/\.?$/, ".")),
+      promo: promoSrc.map((p) => "Thử thách để trở thành {next}: " + ren(p.text).replace(/\s*\((?:sức mạnh|trí tuệ|nhanh nhẹn|may mắn)[^)]*\)/gi, "").replace(/^\(?\d\s*(?:→|->|lên)\s*\d\)?\s*:?\s*/, "").replace(/^./, (x) => x.toLowerCase()).replace(/\.?$/, ".")),
       start: ren(r.start || src.start || "").replace(/\s*Thử thách thăng bậc\s*:?\s*$/i, ""),
       quiet: (r.quiet || (src.quiet || []).map((q) => q.text || q)).map(ren),
     };
@@ -295,20 +309,25 @@ function build(raceId, opts) {
     const req = Object.assign({}, w.require);
     if (rid) req.job = rid;
     // companion events always need a companion
-    if (/_ally_/.test(e.id) && !req.party) req.party = 1;
+    if (/_ally_|_team_/.test(e.id) && !req.party) req.party = 1;
 
     // evolutions: sign → ascension → after
-    if (e.evo != null && evoDefs[e.evo] && /evo|post|tien_hoa|_sign|signal|foreshadow/.test(e.id)) {
-      const d = evoDefs[e.evo];
+    // scripts without "NHÁNH" headers: the branch is named in the id (troll_evo_stone_sign → key "stone")
+    let evoIdx = e.evo;
+    if (evoIdx == null) { const km = e.id.match(/_(?:evo|post)_([a-z]+)/); if (km) { const k = evoDefs.findIndex((d) => d.key === km[1]); if (k >= 0) evoIdx = k; } }
+    if (evoIdx != null && evoDefs[evoIdx] && (/evo|post|tien_hoa|_sign|signal|foreshadow/.test(e.id) || /đã tiến hóa/i.test(e.when || ""))) {
+      const d = evoDefs[evoIdx];
       const flag = "evo_sign_" + d.key;
       if (/sign|foreshadow|bao_hieu|signal/.test(e.id)) { Object.assign(req, d.require || {}, { form: "none", notFlags: [flag] }); if (d.minAge) ev.minAge = d.minAge; ev.weight = 10; ev._addFlags = [flag]; }
-      else if (/post/.test(e.id)) req.form = d.name;
+      else if (/post/.test(e.id) || /đã tiến hóa/i.test(e.when || "")) req.form = d.name;
       else { req.form = "none"; req.flags = [flag]; ev.weight = 12; ev._ascend = d; }
       delete ev.stages;
     }
     // "Thuộc chuỗi …": the second step of a chain needs one of the marks the step before it gives
-    if (/thuộc chuỗi/i.test(e.when || "") && !req.flags && !req.anyFlags) {
-      const prev = parsed.events[parsed.events.indexOf(e) - 1];
+    const prevEv = parsed.events[parsed.events.indexOf(e) - 1];
+    const sameChain = prevEv && /_chain/.test(e.id) && prevEv.id.replace(/_[^_]+$/, "") === e.id.replace(/_[^_]+$/, "");
+    if ((/thuộc chuỗi|sau sự kiện|dấu ấn cũ/i.test(e.when || "") || sameChain) && !req.flags && !req.anyFlags) {
+      const prev = prevEv;
       const given = new Set();
       for (const ch of (prev && prev.choices) || []) for (const oc of [ch.success, ch.fail, ch.plain]) for (const f of (oc && oc.eff && oc.eff.flags) || []) given.add(f);
       if (prev && prev.auto) for (const f of prev.auto.eff.flags || []) given.add(f);
@@ -320,6 +339,12 @@ function build(raceId, opts) {
     Object.assign(req, o.require || {});
     for (const k of Object.keys(o.unrequire || {})) delete req[k];
     if (Object.keys(req).length) ev.require = req;
+    // "{child} ở giai đoạn Troll nhí" is the child's age, not yours: child events follow your own life
+    if (ev.stages && req.children && /\{child\}[^·]*(giai đoạn|tuổi|trưởng thành|bước vào)|\{child\} (là |còn )?(một )?[A-ZĐ]/i.test(e.when || "")) {
+      const own = stagesFor((e.when || "").split("·").filter((seg) => !/\{child\}/.test(seg)).join(" · "));
+      if (own.length && own.length < stages.length) ev.stages = own;
+      else delete ev.stages;
+    }
     // events the script gives no stage for skip stages where the race cannot act yet (a dragon egg)
     if (!ev.stages && meta.defaultStages && !/_evo_|_post_/.test(e.id)) ev.stages = meta.defaultStages;
     if (o.stages) ev.stages = o.stages;
@@ -339,6 +364,9 @@ function build(raceId, opts) {
           if (tgt) tgt.effects = Object.assign(tgt.effects || {}, eff);
         }
       }
+      // a birth event gives a child, even when the script forgot to say so
+      if (/_born|_birth|sinh_con/.test(e.id) && !JSON.stringify(ev.choices).includes('"child"'))
+        for (const ch of ev.choices) for (const tgt of [ch.success, ch.check ? null : ch].filter(Boolean)) if (!tgt.death) tgt.effects = Object.assign(tgt.effects || {}, { child: true });
       // a won courtship means a mate, even when the script forgot to say so
       if (/marriage|mating|_mate_|romance/.test(e.id) && !JSON.stringify(ev.choices).includes('"marry"')) {
         for (const ch of ev.choices) {
@@ -346,6 +374,7 @@ function build(raceId, opts) {
           if (tgt && !tgt.death) tgt.effects = Object.assign(tgt.effects || {}, { marry: true });
         }
       }
+      if (o.choices) ev.choices = o.choices;
       // replace or drop whole fields of a choice: { 2: { death: null } }
       for (const [i, patch] of Object.entries(o.choicePatch || {})) {
         const ch = ev.choices[i];
@@ -375,10 +404,11 @@ function build(raceId, opts) {
       if (ev.text && e.auto.text && ev.text !== ren(e.auto.text)) ev.result = ren(e.auto.text);
       else ev.text = ren(e.auto.text);
       const eff = effects(e.auto.eff, ctx);
+      if (/_born|_birth|sinh_con/.test(e.id) && !eff.child) eff.child = true;
       const addFlags = [...(o.addFlags || []), ...(ev._addFlags || [])];
       if (addFlags.length) eff.flags = [...(eff.flags || []), ...addFlags];
       if (Object.keys(eff).length) ev.effects = eff;
-      if (e.auto.eff.death) ev.death = ren(e.auto.eff.death);
+      if (e.auto.eff.death) ev.death = deathText(e.auto.eff.death, e.auto.text);
     } else if (ev._addFlags) ev.effects = { flags: ev._addFlags };
     delete ev._addFlags;
     delete ev._ascend;
@@ -408,7 +438,7 @@ function build(raceId, opts) {
     });
     const rew = q.reward ? effects(q.reward.eff, ctx) : {};
     const out = {
-      id, org: meta.org.id, name: ren(q.name).replace(/\s*\((thời đại|bậc tối thiểu)[^)]*\)\s*$/i, ""), minRank: Math.max(0, (q.minRank || 1) - 1), hint: ren(q.hint || ""),
+      id, org: meta.org.id, name: ren(q.name).replace(/\s*\((thời đại|bậc tối thiểu)[^)]*\)\s*$/i, ""), minRank: q.minRank ? Math.max(0, q.minRank - 1) : q.minRankName ? Math.max(0, rankIndex(q.minRankName)) : 0, hint: ren(q.hint || ""),
       intro: ren(q.intro || ""), steps, complete: ren(q.complete || `Bạn trở về, hoàn thành "${ren(q.name)}".`), reward: rew, weight: 4,
     };
     if (q.kind === "small") out.repeat = true;

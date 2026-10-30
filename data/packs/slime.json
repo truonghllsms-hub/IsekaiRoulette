@@ -1,0 +1,5614 @@
+{
+ "race": "slime",
+ "stageNames": {
+  "infant": "Giọt Nhầy Nhỏ",
+  "child": "Khối Bùn Trượt",
+  "teen": "Slime Trưởng Thành",
+  "adult": "Quái Vật Dẻo",
+  "middle": "Slime Khổng Lồ",
+  "ancient": "Vua Bùn Nhão"
+ },
+ "forms": {
+  "Slime King": {
+   "name": "Slime King",
+   "life": 300
+  },
+  "Elemental Slime": {
+   "name": "Elemental Slime",
+   "life": 200
+  },
+  "Humanoid Slime": {
+   "name": "Humanoid Slime",
+   "life": 200
+  }
+ },
+ "origins": [
+  {
+   "id": "slime_origin_pure",
+   "name": "Cặn ma lực đọng lại",
+   "weight": 30,
+   "text": "Bạn sinh ra từ một vũng nước ngầm tĩnh lặng, nơi ma lực dư thừa của hầm ngục hội tụ lại. Một cơ thể trong suốt, vô tri, chỉ biết trôi nổi và rung động theo những nhịp đập của lòng đất.",
+   "siblings": "",
+   "home": "",
+   "effects": {
+    "LUCK": 2,
+    "health": 10,
+    "flags": [
+     "pure_slime"
+    ]
+   },
+   "maker": {
+    "name": "Lõi Hầm ngục cổ đại",
+    "race": "Vô tri, tuần hoàn ma lực miệt mài",
+    "role": "Vẫn đang đập từng nhịp sâu dưới hàng ngàn mét đất đá",
+    "trait": "Coi bạn như một tế bào đào thải phế phẩm.",
+    "status": "alive",
+    "note": ""
+   },
+   "noParents": true,
+   "past": "Hàng ngàn giọt nhầy đồng dạng khác liên tục sinh ra và vỡ tan trong bóng tối tĩnh mịch."
+  },
+  {
+   "id": "slime_origin_rot",
+   "name": "Nuôi dưỡng bằng xác thối",
+   "weight": 20,
+   "text": "Hơi thở đầu tiên của bạn phảng phất mùi tử khí ngột ngạt dưới Đầm Lầy Tử Khí. Bạn ngưng tụ thành hình hài từ vũng máu đen đặc ngâm quanh một cái xác khổng lồ vừa gục ngã.",
+   "siblings": "",
+   "home": "",
+   "effects": {
+    "STR": 2,
+    "health": 20,
+    "flags": [
+     "blood_slime"
+    ]
+   },
+   "maker": {
+    "name": "Xác thối của quái thú High Orc",
+    "race": "Từng là một chiến binh hung bạo",
+    "role": "Nay thối rữa và trở thành bữa ăn đầu đời của bạn",
+    "trait": "Là nguồn dinh dưỡng sinh mạng dồi dào.",
+    "status": "alive",
+    "note": ""
+   },
+   "noParents": true,
+   "past": "Những ấu trùng ruồi độc và rêu nhớt háu đói đang tranh giành xác thịt xung quanh bạn."
+  },
+  {
+   "id": "slime_origin_flask",
+   "name": "Bình thí nghiệm vỡ",
+   "weight": 15,
+   "text": "Một tiếng xoảng chói tai đánh thức nhận thức lờ mờ của bạn. Hỗn hợp dung dịch giả kim xám xịt tràn ra sàn đá lạnh lẽo của Học viện Ma pháp Tháp Ngà, rồi từ đó ngọ nguậy nhô lên một khối dẻo quánh.",
+   "siblings": "",
+   "home": "",
+   "effects": {
+    "INT": 2,
+    "wealth": 5,
+    "fame": -2,
+    "flags": [
+     "magic_slime"
+    ]
+   },
+   "maker": {
+    "name": "Nữ Alchemist tập sự Elara",
+    "race": "Hậu đậu, tò mò nhưng thiếu năng lực",
+    "role": "Vẫn đang hoảng hốt dọn dẹp đống kính vỡ",
+    "trait": "Hoàn toàn lầm tưởng bạn chỉ là một vũng nước thải giả kim.",
+    "status": "alive",
+    "note": ""
+   },
+   "noParents": true,
+   "past": "Những công thức ma thuật lỗi, biến dạng đang lẩn khuất dưới cống ngầm Tháp Ngà."
+  },
+  {
+   "id": "slime_origin_chest",
+   "name": "Đáy rương rỗng",
+   "weight": 20,
+   "text": "Bọn mạo hiểm giả chửi thề ầm ĩ khi mở chiếc rương gỗ mục nát dưới ngục tối và chỉ thấy rêu xanh. Khi chúng bỏ đi, đám rêu ấy từ từ ngưng tụ lại thành khối nhầy là bạn.",
+   "siblings": "",
+   "home": "",
+   "effects": {
+    "AGI": 2,
+    "wealth": 10,
+    "flags": [
+     "mimic_potential"
+    ]
+   },
+   "maker": {
+    "name": "Bẫy ma thuật cổ đại",
+    "race": "Được lập trình để trừng phạt kẻ tham lam bằng ảo ảnh",
+    "role": "Đang chờ đợi tái kích hoạt",
+    "trait": "Bạn chỉ là sản phẩm phụ vô ý của ma trận rương báu.",
+    "status": "alive",
+    "note": ""
+   },
+   "noParents": true,
+   "past": "Lũ ma vật Mimic tàn bạo giả dạng rương báu đang ngủ vùi sâu trong vách đá cạnh đó."
+  },
+  {
+   "id": "slime_origin_demon",
+   "name": "Máu Thịt Ác Quỷ",
+   "weight": 10,
+   "text": "Trong Vực Thẳm Phân Tầng, dòng máu nóng hổi của một High Demon văng tung tóe lên vách đá. Khối huyết nhục đen ngòm đó sôi sục, vặn vẹo biến thành một vũng bùn mang khát khao giết chóc cuồng loạn.",
+   "siblings": "",
+   "home": "",
+   "effects": {
+    "STR": 3,
+    "joy": -10,
+    "fame": -5,
+    "flags": [
+     "blood_slime"
+    ]
+   },
+   "maker": {
+    "name": "Ác quỷ cấp thấp Gorth",
+    "race": "Khát máu, tàn bạo và ngạo mạn",
+    "role": "Đã chết dưới tay một Thánh Kỵ Sĩ",
+    "trait": "Oán khí vỡ nát của hắn bám lấy tàn dư ma lực để tạo nên bạn.",
+    "status": "alive",
+    "note": ""
+   },
+   "noParents": true,
+   "past": "Lũ Imp cấp thấp gào thét sinh ra từ cùng một chiến trường xương máu."
+  },
+  {
+   "id": "slime_origin_division",
+   "name": "Phân bào từ Quân vương",
+   "weight": 5,
+   "text": "Một khối thịt khổng lồ rung lên sòng sọc, hất văng một cục nhầy nhỏ bé ra khỏi cơ thể vĩ đại của nó. Bạn rơi tõm xuống nền đá, mang trong mình tàn dư sức mạnh của một quân vương.",
+   "siblings": "",
+   "home": "",
+   "effects": {
+    "STR": 1,
+    "INT": 1,
+    "wealth": 15,
+    "flags": [
+     "royal_slime"
+    ]
+   },
+   "maker": {
+    "name": "Slime King bạo chúa",
+    "race": "Phàm ăn, vô thức thống trị vạn vật",
+    "role": "Vẫn đang cai quản một tầng hầm ngục sâu thẳm",
+    "trait": "Sẵn sàng nuốt chửng lại bạn nếu nó đột nhiên thấy đói.",
+    "status": "alive",
+    "note": ""
+   },
+   "noParents": true,
+   "past": "Hàng trăm bản phân bào nhỏ bé khác đang bò lổm ngổm tranh giành rêu mốc quanh bệ đá."
+  }
+ ],
+ "jobs": [
+  {
+   "id": "slime_metal",
+   "name": "Metal Slime",
+   "stat": "STR",
+   "combat": true,
+   "desc": "Sức mạnh. Ăn kim loại, cứng như thép",
+   "require": {
+    "STR": 4
+   },
+   "alt": {
+    "anyFlags": [
+     "mimic_potential"
+    ],
+    "hint": "xuất thân Đáy rương rỗng"
+   },
+   "ranks": [
+    "Ore Mud",
+    "Rust Slime",
+    "Bronze Slime",
+    "Iron Slime",
+    "Metal Slime"
+   ],
+   "income": [
+    0.4,
+    0.8,
+    1.3,
+    2,
+    2.8
+   ],
+   "hazard": 1.2,
+   "gains": {
+    "STR": 0.3
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    3,
+    5,
+    7,
+    9
+   ],
+   "promoStat": [
+    "STR",
+    "STR",
+    "STR",
+    "STR"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: nuốt trọn một mớ đinh sắt vụn lởm chởm.",
+    "Thử thách để trở thành {next}: tiêu hóa và dung hợp hoàn toàn chiếc khiên đồng của một lính canh gục ngã.",
+    "Thử thách để trở thành {next}: bò vào Lò Rèn Vĩnh Cửu của tộc Dwarf để hấp thụ dòng thép nung chảy.",
+    "Thử thách để trở thành {next}: chịu đựng nhiệt độ cực hạn để cắn nuốt một khối Huyết Kim nguyên chất."
+   ],
+   "start": "Bạn nhai nát một thanh kiếm gãy rỉ sét, và nhận ra vị kim loại đọng lại vòm họng ngon lành hơn rêu xanh rất nhiều.",
+   "quiet": [
+    "Bạn nằm im trong hầm mỏ, từ từ tiêu hóa một chiếc rìu sứt mẻ.",
+    "Tiếng kim loại cọ xát ken két vang lên từ bên trong cơ thể dẻo quánh của bạn.",
+    "Một thợ rèn Dwarf gõ búa thử lên lớp da bạn, mẻ búa, gã chửi thề rồi bỏ đi."
+   ]
+  },
+  {
+   "id": "slime_magic",
+   "name": "Magic Slime",
+   "stat": "INT",
+   "combat": true,
+   "desc": "Trí tuệ. Hấp thụ ma lực",
+   "require": {
+    "INT": 4
+   },
+   "alt": {
+    "anyFlags": [
+     "magic_slime",
+     "pure_slime"
+    ],
+    "hint": "xuất thân Bình thí nghiệm vỡ hoặc Cặn ma lực đọng lại"
+   },
+   "ranks": [
+    "Glow Slime",
+    "Crystal Slime",
+    "Mana Slime",
+    "Elemental Slime",
+    "Arcane Slime"
+   ],
+   "income": [
+    0.4,
+    0.8,
+    1.4,
+    2.2,
+    3
+   ],
+   "hazard": 1.3,
+   "gains": {
+    "INT": 0.3
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    3,
+    5,
+    7,
+    9
+   ],
+   "promoStat": [
+    "INT",
+    "INT",
+    "INT",
+    "INT"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: cố gắng hấp thụ và sống sót qua Lõi Mana rác của một con Goblin.",
+    "Thử thách để trở thành {next}: chịu đựng nhiệt độ sôi sục khi nuốt chửng một viên Ma thạch thuộc tính Lửa.",
+    "Thử thách để trở thành {next}: đột nhập vào sảnh đường Tháp Ngà để trộm một tinh thể khuếch đại.",
+    "Thử thách để trở thành {next}: nuốt trọn một quyển Grimoire chứa cấm thuật mà không bị chữ nghĩa xé nát tâm trí."
+   ],
+   "start": "Khi nuốt chửng Lõi Mana thô đầu tiên, một dòng năng lượng giật tung cơ thể trong suốt của bạn, mở ra cánh cửa chạm vào nguyên tố.",
+   "quiet": [
+    "Cơ thể bạn phát sáng mờ ảo trong đêm, thu hút đàn bướm ma bay vờn quanh.",
+    "Mật độ ma lực khiến nước trong cơ thể bạn chuyển sang màu tím lấp lánh tuyệt đẹp.",
+    "Bạn xì xồ tạo ra vài âm thanh vô nghĩa nhưng nghe như giọng đọc chú ngữ của tộc Elf."
+   ]
+  },
+  {
+   "id": "slime_poison",
+   "name": "Poison Slime",
+   "stat": "AGI",
+   "combat": true,
+   "desc": "Nhanh nhẹn. Kịch độc, axit, dịch bệnh",
+   "require": {
+    "AGI": 4
+   },
+   "alt": {
+    "anyFlags": [
+     "blood_slime"
+    ],
+    "hint": "xuất thân Nuôi dưỡng bằng xác thối hoặc Máu Thịt Ác Quỷ"
+   },
+   "ranks": [
+    "Impure Slime",
+    "Toxic Slime",
+    "Acid Slime",
+    "Venom Slime",
+    "Plague Slime"
+   ],
+   "income": [
+    0.4,
+    0.8,
+    1.3,
+    2,
+    2.8
+   ],
+   "hazard": 1.4,
+   "gains": {
+    "AGI": 0.3
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    3,
+    5,
+    7,
+    9
+   ],
+   "promoStat": [
+    "AGI",
+    "AGI",
+    "AGI",
+    "AGI"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: trườn qua một vũng lầy sương độc và sống sót hấp thụ nó.",
+    "Thử thách để trở thành {next}: nuốt chửng nọc độc chưa phân giải của con nhện khổng lồ.",
+    "Thử thách để trở thành {next}: phun axit làm tan chảy hoàn toàn bộ giáp của một kỵ sĩ hắc ám.",
+    "Thử thách để trở thành {next}: hấp thụ chướng khí vạn năm từ lõi Đầm Lầy Tử Khí mà không bị bào mòn."
+   ],
+   "start": "Cơ thể bạn sậm lại màu tím ngắt sau khi tiêu hóa gốc nấm tử thần; từ nay, nọc độc chính là nhịp đập sống còn của bạn.",
+   "quiet": [
+    "Cỏ cây dưới đất xèo xèo khô héo mỗi khi bạn lướt qua.",
+    "Đám ma vật ranh mãnh chết sặc bọt mép chỉ vì lỡ ngửi thấy mùi không khí quanh bạn.",
+    "Bạn ợ hơi ra vài bọt khí lục nhạt, chúng nổ lép bép trong tĩnh lặng."
+   ]
+  },
+  {
+   "id": "slime_mimic",
+   "name": "Mimic Slime",
+   "stat": "LUCK",
+   "combat": false,
+   "desc": "May mắn. Giả dạng rương báu, đồ vật, con người",
+   "require": {
+    "LUCK": 4
+   },
+   "alt": {
+    "anyFlags": [
+     "mimic_potential"
+    ],
+    "hint": "xuất thân Đáy rương rỗng"
+   },
+   "ranks": [
+    "Formless Flesh",
+    "Camo Slime",
+    "Chest Mimic",
+    "Doppel Slime",
+    "Perfect Mimic"
+   ],
+   "income": [
+    0.6,
+    1,
+    1.6,
+    2.4,
+    3.4
+   ],
+   "hazard": 1.2,
+   "gains": {
+    "LUCK": 0.2,
+    "INT": 0.1
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    3,
+    5,
+    7,
+    9
+   ],
+   "promoStat": [
+    "LUCK",
+    "LUCK",
+    "LUCK",
+    "LUCK"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: đổi màu cơ thể trùng khớp với vách đá rêu phong mà không bị lộ.",
+    "Thử thách để trở thành {next}: biến thành hình dạng một chiếc rương gỗ bọc sắt đánh lừa được một tân thủ.",
+    "Thử thách để trở thành {next}: bắt chước hình dáng và tiếng rít của một con Goblin trinh sát.",
+    "Thử thách để trở thành {next}: cướp da thịt và giả dạng hoàn hảo thành một Mạo hiểm giả loài người."
+   ],
+   "start": "Bọn lính đánh thuê ngốc nghếch kia tưởng bạn là một hòm báu vật rơi vãi, cho đến khi bạn há chiếc miệng lởm chởm nuốt đứt cánh tay chúng.",
+   "quiet": [
+    "Bạn nằm im lìm dưới dạng một hòn đá hoa cương suốt nhiều tháng trời.",
+    "Một con quạ đậu lên đầu bạn, cắn một cái rồi giật mình bay đi vì thấy đá mềm xèo.",
+    "Bạn tự học cách uốn thanh quản từ bùn, thều thào phát âm: \"Cứu... với...\"."
+   ]
+  },
+  {
+   "id": "slime_pet",
+   "name": "Tamer's Pet Slime",
+   "stat": "LUCK",
+   "combat": false,
+   "desc": "Không cần điều kiện. Thú cưng của một Tamer",
+   "require": {},
+   "ranks": [
+    "Bait",
+    "Cushion",
+    "Jelly Backpack",
+    "Battle Pet",
+    "Mind Parasite"
+   ],
+   "income": [
+    0.3,
+    0.6,
+    1,
+    1.6,
+    2.4
+   ],
+   "hazard": 1,
+   "gains": {
+    "LUCK": 0.2
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    3,
+    55,
+    7,
+    9
+   ],
+   "promoStat": [
+    "LUCK",
+    "health",
+    "STR",
+    "INT"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: chịu đựng thái độ ồn ào và cho chủ nhân cưỡi lên người (Hạnh phúc, DỄ).",
+    "Thử thách để trở thành {next}: gồng mình làm lá chắn thịt che mũi tên độc cho chủ.",
+    "Thử thách để trở thành {next}: phẫn nộ cắn chết một con quái vật dám làm tổn thương chủ nhân.",
+    "Thử thách để trở thành {next}: âm thầm luồn rễ thần kinh vào gáy chủ nhân lúc ngủ, kiểm soát hoàn toàn ý thức hắn."
+   ],
+   "start": "Một mạo hiểm giả trẻ tuổi giơ ra củ cà rốt ma thuật, và bạn ngoan ngoãn bò vào lồng, đánh đổi bầu trời tự do để lấy sự an toàn béo mầm.",
+   "quiet": [
+    "Bạn nhóp nhép nhai đống thức ăn viên nhạt nhẽo của hội Tamer mỗi ngày.",
+    "Bạn rung lên bần bật vì sung sướng khi được chủ nhân vuốt ve đúng điểm nhạy cảm.",
+    "Bọn họ dùng bạn như một chiếc giẻ lau ủng di động, bạn phớt lờ vì đang no."
+   ]
+  }
+ ],
+ "orgs": [
+  {
+   "id": "slime_domain",
+   "name": "Lãnh địa",
+   "auto": true,
+   "points": [
+    0,
+    10,
+    25,
+    45,
+    70,
+    100,
+    null
+   ],
+   "missionWord": "cuộc săn mồi",
+   "fameToPts": 0.3,
+   "board": {
+    "text": [
+     "Rung động truyền qua nền đá ẩm. Có thứ gì đó ngon lành đang lạc vào hầm ngục.",
+     "Một mùi hương béo ngậy trôi xuống từ khe nứt phía trên. Cơ thể nhầy của bạn rung lên vì đói."
+    ],
+    "skip": "Co mình lại, nằm im",
+    "skipText": "Bạn dẹt mình xuống thành một vũng nước vô hại. Con mồi đi qua mà không hề biết."
+   },
+   "failText": "Bạn trườn về góc tối, nhỏ đi một vòng. Lần sau sẽ khác.",
+   "ranks": [
+    "Stagnant Puddle",
+    "Damp Corner",
+    "Low-tier Monster Nest",
+    "Death Zone Belt",
+    "Slime Labyrinth",
+    "Bio-Core Sanctum",
+    "Floor Lord"
+   ],
+   "rankAliases": [
+    "vũng nước đọng",
+    "góc ngách ẩm thấp",
+    "ổ quái vật cấp thấp",
+    "vành đai tử khí",
+    "mê cung dịch nhầy",
+    "tâm điểm sinh hóa",
+    "chúa tể tầng ngục"
+   ],
+   "rankUp": {
+    "0": "Bạn chiếm lấy một vũng bùn tanh hôi, đánh đuổi lũ gián đất để xưng vương trên một mét vuông ẩm thấp.",
+    "1": "Mở rộng lãnh thổ ra khỏi vũng nước, bạn bao trùm cả một góc hang tối tăm, nơi nấm độc và rêu xanh buộc phải thần phục.",
+    "2": "Đánh bật lũ Goblin bẩn thỉu, bạn biến một hang động đá tảng thành giang sơn trơn trượt của riêng mình.",
+    "3": "Không sinh vật nào dám bén mảng đến hành lang ngục tối này nữa, vì mọi ngóc ngách đều rỏ xuống thứ dịch nhầy ăn mòn của bạn.",
+    "4": "Bạn phủ kín những bức tường đá bằng tàn dư cơ thể, biến cả một khu vực rộng lớn thành tổ hợp tiêu hóa khổng lồ khép kín.",
+    "5": "Nắm giữ huyết mạch của một phần ba hầm ngục, bạn điều khiển dòng chảy ma lực và biến nơi này thành vùng đất chết của hội mạo hiểm giả.",
+    "6": "Toàn bộ tầng ngục rung chuyển khi bạn vươn xúc tu dung hợp với Lõi Hầm ngục, chính thức trở thành một thảm họa tuyệt đối ngự trị bóng tối."
+   },
+   "join": []
+  }
+ ],
+ "quests": [
+  {
+   "id": "slime_q_bua_tiec_reu_va_chuot_ngam",
+   "org": "slime_domain",
+   "name": "Bữa tiệc rêu và chuột ngầm",
+   "minRank": 0,
+   "hint": "",
+   "intro": "Những con chuột cống ngầm béo mầm đang gặm nhấm rêu xanh quanh mép vũng nước của bạn. Chúng không biết rằng vũng nước ấy có răng và biết ăn thịt.",
+   "steps": [
+    {
+     "text": "Bầy chuột đang say sưa ăn mà không để ý mặt đất dưới chân chúng đang rung động lùng bùng.",
+     "choices": [
+      {
+       "label": "Phóng màng nhầy phủ kín bầy chuột",
+       "check": {
+        "stat": "AGI",
+        "target": 3
+       },
+       "success": {
+        "text": "Bạn ập lên như một tấm chăn ướt, tóm gọn ba con béo nhất.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bạn dập xuống quá chậm, bọn chuột giật mình chạy tán loạn mất tăm.",
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Tiết dịch tạo mùi thơm của nấm dụ chúng lội vào",
+       "check": {
+        "stat": "INT",
+        "target": 5
+       },
+       "success": {
+        "text": "Lũ chuột mất cảnh giác lội thẳng vào bề mặt dính nhớp của bạn, dính chặt không thể thoát.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Mùi bạn tạo ra lại giống mùi mèo hoang, khiến chúng hoảng hốt chui tọt vào hang đá.",
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Đàn chuột vùng vẫy vô vọng trong cơ thể lỏng lẻo của bạn rồi từ từ im bặt. Lại một bữa ăn nhỏ lẻ nhưng giòn tan vị xương.",
+   "reward": {
+    "health": 10,
+    "wealth": 2,
+    "guildPts": 5
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Chuột cống là sinh vật hạ đẳng, nhưng ít ra chúng có vị của máu đỏ."
+  },
+  {
+   "id": "slime_q_bong_ma_duoi_day_gieng",
+   "org": "slime_domain",
+   "name": "Bóng ma dưới đáy giếng",
+   "minRank": 1,
+   "hint": "",
+   "intro": "Một gã cướp mộ đu dây ròng rọc xuống giếng cạn để trốn sự truy đuổi của lính canh thành Sanctus. Hắn không ngờ đáy giếng lại là lãnh địa của bạn.",
+   "steps": [
+    {
+     "text": "Tên cướp đang tụt dần xuống. Hắn chưa thấy bạn nhờ bóng tối bao phủ đáy giếng.",
+     "choices": [
+      {
+       "label": "Giả làm đệm nước êm ái để hắn nhảy xuống",
+       "check": {
+        "stat": "LUCK",
+        "target": 5
+       },
+       "success": {
+        "text": "Hắn tưởng dưới đáy có vũng nước an toàn nên buông tay nhảy thẳng vào giữa lõi của bạn."
+       },
+       "fail": {
+        "text": "Hắn ném một hòn đá xuống dò đường, trúng ngay mặt bạn khiến bạn kêu lên một tiếng xì xèo. Hắn sợ hãi trèo ngược lên.",
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Phóng dịch axit làm đứt dây thừng",
+       "check": {
+        "stat": "STR",
+        "target": 7
+       },
+       "success": {
+        "text": "Dây thừng đứt phựt. Hắn rơi tự do đập đầu vào vách đá gãy cổ chết tươi. Bạn chỉ việc dọn bữa.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Tia axit bắn trượt, chỉ làm xước thành giếng. Gã cướp phát hiện ra nguy hiểm và rút dao găm."
+       }
+      }
+     ]
+    },
+    {
+     "text": "Gã cướp mộ hoảng loạn nhận ra mình đang đứng trên một con quái vật nhầy nhụa, hắn vung loạn xạ con dao găm tẩm độc.",
+     "choices": [
+      {
+       "label": "Quấn chặt lấy mặt hắn gây ngạt thở",
+       "check": {
+        "stat": "AGI",
+        "target": 7
+       },
+       "success": {
+        "text": "Bạn trườn như chớp lên cổ, phong tỏa hoàn toàn đường thở. Hắn giãy giụa rồi lịm đi.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Hắn phản xạ kịp, đâm một nhát dao tẩm độc xuyên trúng hạt nhân sinh mệnh của bạn, xé toạc bạn làm hai nửa.",
+        "death": "(Bạn chết dưới lưỡi dao của một kẻ mạt hạng"
+       }
+      },
+      {
+       "label": "Hấp thụ con dao sắt trước khi hắn vung tay",
+       "check": {
+        "stat": "INT",
+        "target": 5
+       },
+       "success": {
+        "text": "Khối nhầy của bạn vươn ra nuốt trọn lưỡi dao. Mất vũ khí, hắn chỉ còn là miếng mồi mềm yếu.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Hắn rụt tay lại nhanh hơn, chém đứt xúc tu bạn vừa tạo ra rồi đạp lên bạn trèo ra ngoài.",
+        "effects": {
+         "health": -10
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Tiếng thét của gã cướp mộ bị dập tắt dưới lớp bùn. Chiếc giếng lại trở về vẻ tĩnh mịch rợn người, chỉ để lại cái ròng rọc đung đưa.",
+   "reward": {
+    "health": 15,
+    "wealth": 15,
+    "fame": 2,
+    "guildPts": 10
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Con người luôn tự đào hố chôn mình, ta chỉ việc nằm dưới đáy chờ đợi."
+  },
+  {
+   "id": "slime_q_trinh_sat_goblin_lac_bay",
+   "org": "slime_domain",
+   "name": "Trinh sát Goblin lạc bầy",
+   "minRank": 2,
+   "hint": "",
+   "intro": "Một con Goblin mũi khoằm đang cầm đuốc soi mói hang động của bạn, tay lăm lăm đoản kiếm. Đừng để nó chạy thoát và báo cáo cho bộ tộc.",
+   "steps": [
+    {
+     "text": "Ánh lửa từ ngọn đuốc đe dọa trực tiếp tới cơ thể dễ bay hơi của bạn. Hắn đang rọi sáng về phía góc tối.",
+     "choices": [
+      {
+       "label": "Bắn dịch dập tắt đuốc",
+       "check": {
+        "stat": "INT",
+        "target": 5
+       },
+       "success": {
+        "text": "Một cục đờm nhớt dội thẳng vào ngọn lửa, dập tắt ánh sáng. Con Goblin hoảng hốt mù dở trong bóng tối."
+       },
+       "fail": {
+        "text": "Dịch bắn trượt. Con Goblin giật mình, lập tức vung đuốc quơ loạn xạ, làm bạn bỏng nhẹ.",
+        "effects": {
+         "health": -10
+        }
+       }
+      },
+      {
+       "label": "Rơi từ trần hang đè thẳng xuống ngọn lửa",
+       "check": {
+        "stat": "STR",
+        "target": 7
+       },
+       "success": {
+        "text": "Bằng khối lượng lớn, bạn nghiền nát ngọn đuốc và cả con Goblin xuống sàn đá bằng một đòn phủ đầu không tì vết.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bạn rơi chệch hướng, chạm vào lửa khiến một phần màng ngoài khô quắt lại. Con Goblin kêu ré lên.",
+        "effects": {
+         "health": -15
+        }
+       }
+      }
+     ]
+    },
+    {
+     "text": "Con Goblin nhận ra bạn quá nguy hiểm, nó vứt vũ khí quay lưng bỏ chạy, mồm định há to để tru lên gọi bầy.",
+     "choices": [
+      {
+       "label": "Bịt kín mồm hắn trước khi rống lên",
+       "check": {
+        "stat": "AGI",
+        "target": 5
+       },
+       "success": {
+        "text": "Xúc tu nhầy nhụa phóng tới nhồi đầy cổ họng hắn, ngăn chặn âm thanh báo động.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Hắn né được, tru lên một tràng âm thanh chói tai man rợ. Cả bầy Goblin sắp kéo tới đây!",
+        "effects": {
+         "fame": -3
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Cắn nát đôi chân để hắn không thể chạy",
+       "check": {
+        "stat": "STR",
+        "target": 7
+       },
+       "success": {
+        "text": "Cơ bắp bùn của bạn đóng băng cẳng chân hắn, bóp nát xương ống đồng. Hắn ngã quỵ.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Hắn đạp bạn văng ra bằng đôi ủng đinh bẩn thỉu rồi tẩu thoát.",
+        "effects": {
+         "health": -5
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Thi thể con Goblin bị tiêu hóa không sót lại một đoạn xương nào, chỉ nhả lại chiếc quần lót da hôi hám. Sào huyệt của bạn an toàn.",
+   "reward": {
+    "health": 20,
+    "wealth": 10,
+    "fame": 3,
+    "guildPts": 12
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Kẻ do thám đi tìm bóng tối, và bóng tối đã cắn nuốt hắn."
+  },
+  {
+   "id": "slime_q_ga_tan_thu_ngong_cuong",
+   "org": "slime_domain",
+   "name": "Gã tân thủ ngông cuồng",
+   "minRank": 2,
+   "hint": "",
+   "intro": "Một tên Mạo hiểm giả hạng F tự tin vác kiếm đi sâu vào hầm ngục. Hắn coi Slime như bịch kinh nghiệm vô hại và đang hào hứng băm chém mọi vũng nước thấy được.",
+   "steps": [
+    {
+     "text": "Trông thấy bạn, gã hét lên đầy phấn khích: \"Một con Slime bự! Điểm kinh nghiệm đây rồi!\" và lao tới chém thẳng kiếm sắt.",
+     "choices": [
+      {
+       "label": "Tách cơ thể ra làm hai lách qua lưỡi kiếm",
+       "check": {
+        "stat": "AGI",
+        "target": 7
+       },
+       "success": {
+        "text": "Kiếm chém trúng khoảng không, tên tân thủ loạng choạng vì mất đà. Bạn bao vây hắn từ hai phía."
+       },
+       "fail": {
+        "text": "Phản xạ chậm chạp, lưỡi kiếm xả dọc cơ thể bạn làm dịch nhầy văng tung tóe.",
+        "effects": {
+         "health": -15
+        }
+       }
+      },
+      {
+       "label": "Làm cứng bề mặt để đỡ đòn",
+       "check": {
+        "stat": "STR",
+        "target": 9
+       },
+       "success": {
+        "text": "Thanh kiếm sắt rẻ tiền mẻ mẻ nứt toác khi chạm vào lớp màng ngoài cứng như kim cương đen của bạn. Gã sợ hãi run rẩy."
+       },
+       "fail": {
+        "text": "Bạn định gồng lên nhưng lớp vỏ quá mỏng. Kiếm cắm phập vào giữa người bạn, xuyên qua hạt nhân.",
+        "death": "(Bạn thành hòn đá lót đường cho tên tân thủ thăng hạng"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Kẻ địch loạng choạng định lùi lại để rút bình máu. Đây là thời cơ phản công.",
+     "choices": [
+      {
+       "label": "Trườn dọc theo lưỡi kiếm bọc kín cánh tay hắn",
+       "check": {
+        "stat": "LUCK",
+        "target": 5
+       },
+       "success": {
+        "text": "Bạn lan nhanh như ngọn lửa xanh, nung chảy lớp giáp tay và cắn đứt gân tay của hắn. Hắn gục ngã vì sốc.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Hắn vung kiếm hất mạnh, văng bạn vào vách đá nát bấy trước khi bỏ chạy.",
+        "effects": {
+         "health": -15
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Phun dịch trơn trượt làm hắn ngã vỡ đầu",
+       "check": {
+        "stat": "INT",
+        "target": 5
+       },
+       "success": {
+        "text": "Bề mặt đá trở thành lớp băng trơn. Gã tân thủ trượt ngã ngửa đập gáy xuống đá, chết lãng xẹt.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Hắn chống kiếm giữ thăng bằng được, hốt hoảng rút bình máu uống rồi ném bom mù chạy mất.",
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Gã tân thủ kiêu ngạo đã trở thành chất dinh dưỡng hạng bét. Chiếc huy hiệu Guild bằng đồng của hắn chìm dần trong dịch vị của bạn.",
+   "reward": {
+    "health": 25,
+    "wealth": 20,
+    "fame": 5,
+    "guildPts": 15
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Kẻ săn kinh nghiệm di động lại chết bởi chính vũng lầy hắn nhắm tới."
+  },
+  {
+   "id": "slime_q_don_sach_nhen_da_ngam",
+   "org": "slime_domain",
+   "name": "Dọn sạch nhện đá ngầm",
+   "minRank": 3,
+   "hint": "",
+   "intro": "Bầy Rock Spider bắt đầu đan những tấm lưới sắc như cước bít kín lối đi trong lãnh địa của bạn. Đã đến lúc chỉ cho chúng biết ai mới là chủ nhân của ngục tối.",
+   "steps": [
+    {
+     "text": "Hàng chục con nhện đang đu đưa trên mạng, nọc độc rỏ xuống xèo xèo. Chúng coi khối nhầy của bạn như một con mồi béo bở.",
+     "choices": [
+      {
+       "label": "Phủ axit làm tan chảy toàn bộ tơ nhện",
+       "check": {
+        "stat": "INT",
+        "target": 7
+       },
+       "success": {
+        "text": "Axit của bạn mạnh hơn hẳn, làm tan chảy mạng nhện trong nháy mắt. Đám nhện rơi lả tả xuống vũng lầy của bạn.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Lưới nhện chống axit tốt hơn bạn tưởng, chúng vây bọc khiến bạn dính chặt vào vách đá không thể thoát ra. Bạn phải tự đứt đi một nửa người để trốn.",
+        "effects": {
+         "health": -25
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Lăn xả xé toạc mạng nhện bằng cơ bắp bùn",
+       "check": {
+        "stat": "STR",
+        "target": 5
+       },
+       "success": {
+        "text": "Bạn nghiền nát lớp tơ cước như xé giấy, đè bẹp cả nhện mẹ dưới áp lực ngàn cân.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Tơ cước sắc bén cắt cơ thể bạn thành từng khúc nhỏ, nhện mẹ lao xuống cắn vỡ lõi hạt nhân của bạn.",
+        "death": "(Bạn trở thành túi thức ăn nhầy nhụa trong lưới nhện"
+       }
+      },
+      {
+       "label": "Giả vờ mắc bẫy rồi nuốt chửng nhện mẹ khi nó lao ra",
+       "check": {
+        "stat": "LUCK",
+        "target": 7
+       },
+       "success": {
+        "text": "Một con nhện mẹ ngốc nghếch lao tới cắn, chỉ để bị bạn há cái mồm giả nuốt trọn vào trong. Lũ nhện con hoảng sợ bỏ chạy.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bạn đóng kịch quá sâu, tơ dính chặt đến mức nhện mẹ không cần cắn mà chỉ việc trói gô bạn lại để ăn dần.",
+        "effects": {
+         "health": -30
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Mạng nhện tan chảy, bầy nhện đá bị vùi lấp thành một hỗn hợp giòn tan vị vỏ kitin trong bụng bạn. Bạn giành lại trọn vẹn lãnh thổ.",
+   "reward": {
+    "health": 30,
+    "wealth": 15,
+    "fame": 4,
+    "guildPts": 20
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Kẻ săn mồi giăng tơ cuối cùng lại trở thành con nhộng trong lưới bùn."
+  },
+  {
+   "id": "slime_q_1_cuoc_thanh_trung_cong_ngam",
+   "org": "slime_domain",
+   "name": "Cuộc Thanh Trừng Cống Ngầm",
+   "minRank": 1,
+   "hint": "",
+   "intro": "Guild Bình Minh phái một nhóm lính đánh thuê dọn dẹp cống ngầm bên dưới thủ đô Sanctus. Họ rải vôi bột và cầm đuốc đi sục sạo, coi Slime như những mớ giẻ lau cần vứt bỏ.",
+   "steps": [
+    {
+     "text": "Một tên đạo chích đi tiên phong. Hắn rải một nắm vôi bột ma thuật xuống nền đá, làm khô ran mọi vũng nước để chặn đường lui của ma vật.",
+     "choices": [
+      {
+       "label": "Biến thành dạng sợi, lách qua vách gạch",
+       "check": {
+        "stat": "AGI",
+        "target": 5
+       },
+       "success": {
+        "text": "Bạn kéo giãn cơ thể mỏng như sợi chỉ, luồn qua kẽ hở an toàn để vòng ra sau lưng hắn."
+       },
+       "fail": {
+        "text": "Vôi bột dính vào đuôi bạn, hút kiệt độ ẩm khiến bạn quằn quại trong đau đớn.",
+        "effects": {
+         "health": -15
+        }
+       }
+      },
+      {
+       "label": "Hút nước cống bù lại để trôi vôi đi",
+       "check": {
+        "stat": "STR",
+        "target": 3
+       },
+       "success": {
+        "text": "Bạn bơm căng người bằng thứ nước đen ngòm, đẩy trôi bột vôi ra khỏi lớp màng."
+       },
+       "fail": {
+        "text": "Nước cống quá nông, vôi vẫn bám chặt làm khô nứt lớp da ngoài.",
+        "effects": {
+         "health": -10
+        }
+       }
+      }
+     ]
+    },
+    {
+     "text": "Tên đạo chích huýt sáo gọi đồng bọn. Hắn vừa quay lưng lại, bộc lộ vùng gáy không có giáp bảo vệ.",
+     "choices": [
+      {
+       "label": "Chồm lên bao phủ đầu hắn",
+       "check": {
+        "stat": "AGI",
+        "target": 7
+       },
+       "success": {
+        "text": "Bạn chụp thẳng lên mặt hắn như một cái mũ trùm ướt sũng. Tiếng kêu cứu nghẹn lại trong bùn lầy. Bạn thành công nuốt chửng kẻ đầu tiên.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Hắn phản xạ kịp, cúi đầu xuống và đâm ngược thanh chủy thủ lên ghim bạn vào trần cống.",
+        "effects": {
+         "health": -20
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Phun chất nhầy bịt kín thanh quản hắn",
+       "check": {
+        "stat": "INT",
+        "target": 5
+       },
+       "success": {
+        "text": "Một cục đờm nhớt phóng chính xác vào miệng hắn lúc đang há ra. Hắn sặc sụa, ngã lăn ra đất và tử vong vì ngạt.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Cục nhầy bắn trúng áo giáp. Hắn hoảng hồn thổi còi báo động ầm ĩ. Cả đội lính ùa tới chém bạn tơi tả.",
+        "effects": {
+         "health": -30
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Lần đầu tiên bạn tiêu hóa thịt người và nhận ra nó giàu ma lực hơn hẳn lũ chuột hay Goblin. Bộ xương trắng hếu của gã lính đánh thuê chìm xuống đáy bùn.",
+   "reward": {
+    "health": 20,
+    "wealth": 10,
+    "guildPts": 15,
+    "flags": [
+     "taste_of_adventurer"
+    ]
+   },
+   "weight": 4,
+   "moment": "Máu đỏ của loài người có vị ngọt của sự kiêu ngạo."
+  },
+  {
+   "id": "slime_q_2_ke_doat_loi_nguc_toi",
+   "org": "slime_domain",
+   "name": "Kẻ Đoạt Lõi Ngục Tối",
+   "minRank": 3,
+   "hint": "",
+   "intro": "Một gã Hobgoblin Lord đang quyết chiến với bầy quái thú Minotaur để tranh giành tinh thể ma lực lớn nhất của tầng ngục. Đôi bên đều đã trọng thương, máu thịt vung vãi khắp mặt đất. Bạn ẩn nấp trong bóng tối, chờ đợi thời cơ xơi tái tất cả.",
+   "steps": [
+    {
+     "text": "Trận chiến quá khốc liệt. Máu của chúng chảy thành vũng, làm ngập nơi bạn đang nấp. Dòng máu chứa đầy sự bạo nộ.",
+     "choices": [
+      {
+       "label": "Hấp thụ máu tươi để tăng thể tích",
+       "check": {
+        "stat": "STR",
+        "target": 5
+       },
+       "success": {
+        "text": "Dòng máu cường hóa cơ thể bạn, khiến bạn phình to gấp đôi mà không ai hay biết."
+       },
+       "fail": {
+        "text": "Cơn cuồng nộ trong máu Hobgoblin làm lõi của bạn bị sốc, khiến bạn nhói đau và phát ra tiếng động.",
+        "effects": {
+         "health": -10
+        }
+       }
+      },
+      {
+       "label": "Ép mỏng người xuống đáy, nhẫn nhịn chờ đợi",
+       "check": {
+        "stat": "INT",
+        "target": 3
+       },
+       "success": {
+        "text": "Bọn quái vật ngu ngốc giẫm đạp lên lớp nước đỏ ngòm mà không biết chúng đang giẫm lên bạn."
+       },
+       "fail": {
+        "text": "Một cái móng guốc của Minotaur đạp trúng lõi hạt nhân khiến bạn nứt rạn.",
+        "effects": {
+         "health": -15
+        }
+       }
+      }
+     ]
+    },
+    {
+     "text": "Hobgoblin Lord gầm lên chém đứt đầu con Minotaur cuối cùng. Hắn chống kiếm thở dốc, kiệt sức hoàn toàn, bước chân xiêu vẹo lại gần tinh thể ma lực.",
+     "choices": [
+      {
+       "label": "Tụ lại thành mũi giáo khổng lồ đâm xuyên tim hắn",
+       "check": {
+        "stat": "AGI",
+        "target": 7
+       },
+       "success": {
+        "text": "Từ vũng máu dưới chân, bạn phóng lên như một lưỡi dao tử thần. Xuyên thủng giáp và tim gã Chúa tể Goblin. Hắn chết đứng."
+       },
+       "fail": {
+        "text": "Hắn vung thanh đại kiếm gạt phăng mũi giáo của bạn đi. Khối nhầy vỡ nát văng vào vách đá.",
+        "effects": {
+         "health": -30
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Quấn lấy đôi chân và kéo giật hắn ngã xuống lầy",
+       "check": {
+        "stat": "STR",
+        "target": 9
+       },
+       "success": {
+        "text": "Sức mạnh bùn lầy của bạn nhổ bật gốc gã khổng lồ, kéo hắn chìm vào dạ dày đen ngòm."
+       },
+       "fail": {
+        "text": "Cơ bắp hắn quá khủng khiếp, hắn rút chân ra và giẫm bẹp bạn thành một tờ giấy bẩn.",
+        "death": "(Bạn bỏ mạng dưới gót chân của một kẻ hấp hối"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Gã Hobgoblin Lord đã chết, để lại tinh thể ma lực rực rỡ và xác những con Minotaur béo mầm.",
+     "choices": [
+      {
+       "label": "Nuốt trọn tinh thể trước, xác thịt tính sau",
+       "text": "Tinh thể tỏa ra năng lượng bạo thực, dung hợp hoàn hảo với cơ thể bạn, biến bạn thành kẻ thống trị thực sự.",
+       "end": "win"
+      },
+      {
+       "label": "Hòa tan xác thịt Minotaur và Hobgoblin để tiến hóa",
+       "text": "Huyết nhục củng cố lớp màng ngoài của bạn trở nên bất hoại.",
+       "end": "win"
+      }
+     ]
+    }
+   ],
+   "complete": "Cả một đại sảnh vương vãi máu thịt giờ được dọn sạch không tì vết. Bạn chễm chệ trườn lên ngai vàng bằng đá của ngục tối.",
+   "reward": {
+    "STR": 3,
+    "wealth": 30,
+    "fame": 10,
+    "guildPts": 50,
+    "flags": [
+     "usurper_slime"
+    ]
+   },
+   "weight": 4,
+   "moment": "Kẻ mạnh nhất không phải kẻ chiến thắng, mà là kẻ nuốt chửng người chiến thắng."
+  },
+  {
+   "id": "slime_q_3_to_doi_hang_a_guc_nga",
+   "org": "slime_domain",
+   "name": "Tổ Đội Hạng A Gục Ngã",
+   "minRank": 4,
+   "hint": "",
+   "intro": "Nhận được báo cáo về một \"thảm họa bùn nhão\", Guild Bình Minh cử một Tổ Đội Hạng A gồm một Paladin, một Archmage và một Assassin đến thanh trừng bạn. Chúng đã thiết lập kết giới chống trốn chạy quanh Mê Cung.",
+   "steps": [
+    {
+     "text": "Tên Assassin lặn vào bóng râm bằng kỹ năng tàng hình, định ám sát lõi của bạn trong lúc tên Paladin thu hút sự chú ý phía trước.",
+     "choices": [
+      {
+       "label": "Lan tỏa axit ra toàn bộ bề mặt sàn",
+       "check": {
+        "stat": "INT",
+        "target": 5
+       },
+       "success": {
+        "text": "Tên Assassin đạp phải vũng axit tàng hình, đôi giày xì khói khiến hắn gào lên thảm thiết và lộ diện."
+       },
+       "fail": {
+        "text": "Hắn ném một móc câu đu lên trần nhà, hoàn toàn tránh được lớp axit.",
+        "effects": {
+         "health": -20
+        }
+       }
+      },
+      {
+       "label": "Phân thân thành hàng chục khối mồi nhử",
+       "check": {
+        "stat": "LUCK",
+        "target": 7
+       },
+       "success": {
+        "text": "Hắn đâm nhầm vào một bản sao rỗng, và bạn ngay lập tức trườn lên nuốt trọn cánh tay cầm dao của hắn."
+       },
+       "fail": {
+        "text": "Lưỡi dao bọc sát khí của hắn tìm đúng lõi thật của bạn, xoáy một đường chí mạng.",
+        "effects": {
+         "health": -40
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Tên Archmage tức giận niệm chú, gọi xuống một trận mưa sao băng lửa đỏ rực thiêu đốt toàn bộ mê cung, biến nơi này thành lò nung.",
+     "choices": [
+      {
+       "label": "Hấp thụ nhiệt năng bằng lớp màng cách nhiệt",
+       "check": {
+        "stat": "health",
+        "target": 85
+       },
+       "success": {
+        "text": "Lớp vỏ của bạn sôi sục nhưng không vỡ. Bạn chịu đựng thành công qua đợt sát thương diện rộng kinh hoàng này."
+       },
+       "fail": {
+        "text": "Lửa bốc hơi một nửa khối lượng cơ thể bạn, đẩy bạn vào trạng thái khô quắt cận kề cái chết.",
+        "death": "(Bạn tan biến thành màn sương trong ngọn lửa ma pháp"
+       }
+      },
+      {
+       "label": "Co cụm lại, chui sâu xuống lòng đất",
+       "check": {
+        "stat": "AGI",
+        "target": 7
+       },
+       "success": {
+        "text": "Bạn đào nhanh xuống lớp phù sa ngầm, lửa chỉ thiêu rụi phần bùn thừa trên bề mặt."
+       },
+       "fail": {
+        "text": "Bạn đào quá chậm, nham thạch chảy xuống lấp kín lỗ hổng, phong ấn bạn dưới lớp đá nóng chảy.",
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Archmage kiệt sức, Assassin đã phế, nhưng tên Paladin giương cao chiếc khiên phát ra luồng thánh quang rực rỡ, lao lên định dùng chùy đập nát lõi của bạn.",
+     "choices": [
+      {
+       "label": "Gồng mình biến thành búa khổng lồ đập nát khiên",
+       "check": {
+        "stat": "STR",
+        "target": 9
+       },
+       "success": {
+        "text": "Khối lượng vĩ đại của bạn va chạm với thánh quang. Khiên vỡ nát, tên Paladin gãy nát hai tay và bị đè bẹp xẹp lép.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Thánh quang thanh tẩy cơ thể dẻo của bạn, chùy gai đập nát lõi sinh mệnh thành cát bụi.",
+        "death": "(Công lý của con người cuối cùng cũng chém đứt thảm họa"
+       }
+      },
+      {
+       "label": "Hóa lỏng lẻn qua khe hở của khiên rồi chui vào áo giáp hắn",
+       "check": {
+        "stat": "INT",
+        "target": 7
+       },
+       "success": {
+        "text": "Bạn như dòng nước chết chóc luồn lách qua giáp sắt, lấp đầy mũi và miệng hắn. Tên Paladin ngạt thở trong chính lớp vỏ bọc bất hoại của mình.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Hắn tỏa ra vầng hào quang gột rửa, hất văng phần lỏng của bạn ra ngoài.",
+        "effects": {
+         "health": -30
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Ba chiếc thẻ bài Guild bằng vàng rơi rớt trong vũng bùn lỏng bốc khói. Bạn đã chính thức xóa sổ một trong những niềm tự hào của vương quốc.",
+   "reward": {
+    "STR": 4,
+    "wealth": 50,
+    "fame": 20,
+    "guildPts": 100
+   },
+   "weight": 4,
+   "moment": "Giáp trụ và phép thuật đều vô nghĩa khi đối mặt với cơn đói của vực thẳm."
+  },
+  {
+   "id": "slime_q_4_nuot_chung_vang_thai_duong_huyen_thoai",
+   "org": "slime_domain",
+   "name": "Nuốt Chửng Vầng Thái Dương (Huyền thoại)",
+   "minRank": 6,
+   "hint": "",
+   "intro": "Sự bành trướng của bạn đã chọc giận cõi trên. Nữ thần Lumina giáng xuống một Hình nhân (Avatar) mang hình dáng một Thiên Sứ sáu cánh rực lửa. Ánh sáng của nó soi rọi xuống Tầng hầm ngục, biến mặt đất thành nham thạch và bốc hơi mọi ma vật. Chỉ còn bạn ngự trị ở ngai vàng bùn nhão, đối mặt với \"Mặt Trời\" giả tạo này.",
+   "steps": [
+    {
+     "text": "Thiên Sứ chưa cần cất bước, chỉ sức nóng tỏa ra từ 6 cánh hào quang đã đủ làm sôi sục dạ dày của bạn. Khối lượng của bạn bắt đầu bốc hơi dữ dội.",
+     "choices": [
+      {
+       "label": "Hòa mình vào Lõi hầm ngục để mượn mana chống lại",
+       "check": {
+        "stat": "INT",
+        "target": 9
+       },
+       "success": {
+        "text": "Bạn kết nối với trái tim của vực thẳm, kéo lên một màn đêm dày đặc dập tắt sức nóng của hào quang thần thánh."
+       },
+       "fail": {
+        "text": "Lõi hầm ngục chối bỏ bạn vì năng lượng thần thánh quá áp đảo. Bạn trơ trọi bốc khói.",
+        "effects": {
+         "health": -40
+        }
+       }
+      },
+      {
+       "label": "Nén thân hình vĩ đại lại thành một đĩa đen tối thượng",
+       "check": {
+        "stat": "STR",
+        "target": 9
+       },
+       "success": {
+        "text": "Càng nén, lớp vỏ của bạn càng tối lại, hút hết ánh sáng xung quanh vào trong bề mặt tuyệt đối không phản xạ."
+       },
+       "fail": {
+        "text": "Áp suất và nhiệt lượng làm vỡ liên kết của bạn. Màng ngoài nứt toác tung tóe.",
+        "effects": {
+         "health": -50
+        }
+       }
+      }
+     ]
+    },
+    {
+     "text": "Thiên Sứ giương thanh Thánh Kiếm rực lửa khổng lồ, chém xuống một vệt sáng nhằm chia đôi cả hầm ngục lẫn bản thể của bạn.",
+     "choices": [
+      {
+       "label": "Mở toang cơ thể, để thanh kiếm chém vào cõi hư vô bên trong",
+       "check": {
+        "stat": "LUCK",
+        "target": 9
+       },
+       "success": {
+        "text": "Lưỡi kiếm mang uy năng hủy diệt chẻ dọc bạn, nhưng lại lọt thỏm vào khoảng không dạ dày ma thuật vô tận. Bạn khép người lại, giam giữ lưỡi kiếm."
+       },
+       "fail": {
+        "text": "Uy năng của kiếm quá lớn, xé rách màng dạ dày ma thuật và cắt nát lõi của bạn.",
+        "death": "(Bạn tan biến hoàn toàn dưới sự phán xét của ánh sáng"
+       }
+      },
+      {
+       "label": "Vươn xúc tu tóm chặt lấy sáu cánh của Thiên Sứ",
+       "check": {
+        "stat": "AGI",
+        "target": 9
+       },
+       "success": {
+        "text": "Bạn hi sinh hàng vạn tấn bùn bị thiêu rụi để trói nghiến lấy đôi cánh ánh sáng, ngăn cản đòn chém chí mạng."
+       },
+       "fail": {
+        "text": "Tốc độ của ánh sáng vượt quá khả năng phản xạ. Thanh kiếm xẻ bạn thành hai nửa không thể phục hồi.",
+        "death": "(Bóng tối cuối cùng cũng bị thái dương xua tan"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Thiên Sứ mất đà, hào quang yếu đi một nhịp. Đây là khoảnh khắc duy nhất để một sinh vật hèn mọn dưới đáy bùn xơi tái bầu trời.",
+     "choices": [
+      {
+       "label": "Bao trùm toàn bộ, nuốt trọn cả hình nhân lẫn ánh sáng",
+       "require": {
+        "health": 50
+       },
+       "showLocked": true,
+       "text": "Bạn hóa thành một cơn sóng thần đen kịt, nuốt chửng ánh sáng rực rỡ vào trong bóng tối tĩnh lặng tuyệt đối. Mọi giãy giụa của thần linh đều bị dập tắt dưới sức nặng của vực thẳm.",
+       "end": "win"
+      }
+     ]
+    }
+   ],
+   "complete": "Bầu trời trong hầm ngục lại trở về với bóng tối vĩnh hằng. Bạn ợ ra một chùm lông chim phát sáng. Sự tồn tại của bạn giờ đây đã sánh ngang với tà thần.",
+   "reward": {
+    "STR": 10,
+    "INT": 10,
+    "fame": 50,
+    "guildPts": 100
+   },
+   "weight": 4,
+   "moment": "Thần linh cũng có thể tiêu hóa được, nếu bao tử của ngươi đủ lớn."
+  },
+  {
+   "id": "slime_q_bua_toi_cua_ma_tuong",
+   "org": "slime_domain",
+   "name": "Bữa tối của Ma Tướng",
+   "minRank": 5,
+   "hint": "",
+   "intro": "Thời đại Ma Vương Giáng Thế. Một gã Ma Tướng ngạo mạn cưỡi rồng xương bước vào lãnh địa của bạn. Hắn giơ cao Lệnh bài Huyết Ấn, yêu cầu khối bùn bẩn thỉu như bạn phải quỳ gối gia nhập Quân đoàn Ma Vương.",
+   "steps": [
+    {
+     "text": "Gã Ma Tướng tỏa ra áp lực chết chóc kinh người, đàn rồng xương há mõm khè ra ngọn lửa ma trơi xanh rờn cảnh cáo bạn.",
+     "choices": [
+      {
+       "label": "Bỏ mặc lời nói, phun axit hòa tan rồng xương",
+       "check": {
+        "stat": "AGI",
+        "target": 7
+       },
+       "success": {
+        "text": "Axit tạt thẳng vào con rồng xương, ăn mòn các khớp nối khiến nó đổ sụp. Gã Ma Tướng ngã nhào xuống đất."
+       },
+       "fail": {
+        "text": "Rồng xương đập cánh thổi bật tia axit dội ngược lại bạn.",
+        "effects": {
+         "health": -20
+        }
+       }
+      },
+      {
+       "label": "Hóa thành vũng lầy lún, kéo tụt gã xuống",
+       "check": {
+        "stat": "STR",
+        "target": 5
+       },
+       "success": {
+        "text": "Mặt đất dưới chân hắn biến thành đầm lầy. Hắn và con rồng vùng vẫy nhưng càng lún sâu."
+       },
+       "fail": {
+        "text": "Hắn vung ma kiếm chém nứt mặt đất, phá giải cạm bẫy lầy lội của bạn bằng sức mạnh bạo bạo.",
+        "effects": {
+         "health": -15
+        }
+       }
+      }
+     ]
+    },
+    {
+     "text": "Gã Ma Tướng giận dữ lao tới, định dùng Lệnh bài Huyết Ấn ép vào lõi của bạn để nô dịch tâm trí.",
+     "choices": [
+      {
+       "label": "Nuốt luôn cả lệnh bài lẫn cánh tay hắn",
+       "check": {
+        "stat": "INT",
+        "target": 7
+       },
+       "success": {
+        "text": "Dạ dày của bạn dung hòa cả thứ ấn chú mạnh nhất của Ma Vương. Bạn nhai nát cánh tay của gã Ma Tướng trong sự kinh hãi tột độ của hắn.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Lệnh bài kích hoạt, dòng ma lực đen tối làm lõi của bạn bốc khói, ép bạn phải phục tùng.",
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Gã Ma Tướng kiêu hãnh giờ chỉ là một cục chất thải lẫn xương vụn. Bạn không phục vụ ai cả, mọi kẻ xâm phạm đều là thức ăn.",
+   "reward": {
+    "STR": 3,
+    "wealth": 25,
+    "fame": 15,
+    "guildPts": 40
+   },
+   "weight": 4,
+   "eras": [
+    "demon_lord"
+   ],
+   "moment": "Quân đoàn của Ma Vương thiếu một tướng quân, và ta lại có một bữa tối ngon lành."
+  },
+  {
+   "id": "slime_q_ke_don_rac_chien_truong",
+   "org": "slime_domain",
+   "name": "Kẻ dọn rác chiến trường",
+   "minRank": 2,
+   "hint": "",
+   "intro": "Thời đại Chiến Tranh Tuyến Đầu vắt kiệt máu của Nhân loại và Ma tộc. Lãnh địa của bạn nằm ngay dưới một bình nguyên nơi nổ ra trận đại chiến. Xác chết rơi rụng vô số, nhưng tên bay đạn lạc cũng có thể tước mạng bạn bất cứ lúc nào.",
+   "steps": [
+    {
+     "text": "Bạn đang len lỏi hút máu trên mặt đất thì hàng vạn mũi tên lửa của quân đội loài người bắn rợp trời. Một loạt tên lao thẳng về phía khối nhầy của bạn.",
+     "choices": [
+      {
+       "label": "Dùng xác kỵ sĩ làm nắp khiên che chở",
+       "check": {
+        "stat": "LUCK",
+        "target": 3
+       },
+       "success": {
+        "text": "Bạn chui tọt vào trong bộ giáp của một hiệp sĩ gục ngã. Tên lửa cắm phập vào giáp sắt bên ngoài mà không chạm tới bạn."
+       },
+       "fail": {
+        "text": "Bộ giáp hở khe, một mũi tên lửa bắn lọt vào thiêu rụi một mảng người bạn.",
+        "effects": {
+         "health": -15
+        }
+       }
+      },
+      {
+       "label": "Vùi mình vào hố bom bùn đất",
+       "check": {
+        "stat": "AGI",
+        "target": 5
+       },
+       "success": {
+        "text": "Tốc độ trườn lách giúp bạn lọt thỏm xuống hố an toàn, thoải mái nhấm nháp máu đọng dưới hố."
+       },
+       "fail": {
+        "text": "Chậm một nhịp, lửa bén vào da làm bạn bỏng rát bốc khói.",
+        "effects": {
+         "health": -20
+        }
+       }
+      }
+     ]
+    },
+    {
+     "text": "Một chiếc xe công thành khổng lồ của Ma tộc bị máy bắn đá đập nát, lăn ầm ầm về phía chỗ bạn đang ăn.",
+     "choices": [
+      {
+       "label": "Tràn lên hấp thụ ma thạch trên chiếc xe",
+       "check": {
+        "stat": "INT",
+        "target": 7
+       },
+       "success": {
+        "text": "Thay vì bỏ chạy, bạn tính toán chuẩn xác quỹ đạo đổ, vươn xúc tu giật lấy lõi ma thạch và né được khung gỗ đè bẹp.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Xe lăn tới quá nhanh, nghiền nát bạn dưới những bánh răng rỉ sét khổng lồ.",
+        "death": "(Bạn chết lãng nhách dưới bánh xe của chiến tranh"
+       }
+      },
+      {
+       "label": "Tách đôi cơ thể để xe lăn qua giữa",
+       "check": {
+        "stat": "STR",
+        "target": 5
+       },
+       "success": {
+        "text": "Khối nhầy tách làm hai, cỗ máy lăn xẹt qua để lại một vệt bánh khổng lồ. Bạn hợp nhất lại và tiếp tục dọn bữa.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Cơ thể đứt lìa nhưng hợp lại quá chậm, bị sức nóng của cỗ máy bốc hơi mất một đoạn.",
+        "effects": {
+         "health": -10
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Trận chiến kết thúc, đôi bên rút quân. Bạn nằm phơi mình giữa bình nguyên vắng lặng, no nê vì hàng trăm sinh mạng đã lấp đầy dạ dày rỗng tuếch.",
+   "reward": {
+    "health": 30,
+    "wealth": 10,
+    "guildPts": 20
+   },
+   "weight": 4,
+   "eras": [
+    "holy_war"
+   ],
+   "moment": "Lý tưởng vĩ đại của các vương quốc cuối cùng cũng hòa làm một dưới dạ dày của ta."
+  }
+ ],
+ "events": [
+  {
+   "id": "slime_origin_core_pull",
+   "text": "Lực hút từ {maker}—Lõi Hầm ngục—đột nhiên tăng mạnh. Nó muốn thu hồi lượng ma lực trôi nổi là bạn để tự chữa lành một vết nứt.",
+   "stages": [
+    "infant"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "require": {
+    "flags": [
+     "pure_slime"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Bám chặt lấy rễ cây đá",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn dẻo dai bám trụ lại, hấp thu ngược một chút ma lực từ luồng hút.",
+      "effects": {
+       "STR": 1,
+       "health": 5
+      }
+     },
+     "fail": {
+      "text": "Luồng hút xé toạc một nửa khối lượng của bạn, kéo tuột xuống vực.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Len lỏi qua các kẽ nứt hẹp",
+     "check": {
+      "stat": "AGI",
+      "target": 3
+     },
+     "success": {
+      "text": "Bạn trườn qua lớp sỏi, né tránh luồng ma lực xoáy.",
+      "effects": {
+       "AGI": 1
+      }
+     },
+     "fail": {
+      "text": "Bạn kẹt lại giữa hai phiến đá tảng đang khép lại.",
+      "effects": {
+       "health": -10
+      }
+     }
+    },
+    {
+     "label": "Thuận theo dòng chảy",
+     "require": {
+      "INT": 5
+     },
+     "showLocked": true,
+     "text": "Bạn hiểu rõ nhịp độ của Lõi, để dòng ma lực cuốn đi rồi chủ động thoát ra ở vòng tuần hoàn ngoài cùng.",
+     "effects": {
+      "INT": 1,
+      "wealth": 15
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_origin_creator_return",
+   "text": "Elara ({maker}), cô Alchemist hậu đậu năm xưa, quay lại hầm ngầm Tháp Ngà với một quả cầu lửa thanh tẩy để dọn dẹp những \"phế phẩm giả kim\". Ánh lửa quét sát qua chỗ bạn ngụy trang.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "study"
+   ],
+   "require": {
+    "flags": [
+     "magic_slime"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hút lấy nước bẩn để dập lửa",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn phun một luồng dung dịch nhờn làm quả cầu lửa xì khói tắt ngúm. Elara sợ hãi bỏ chạy.",
+      "effects": {
+       "INT": 1,
+       "fame": 3
+      }
+     },
+     "fail": {
+      "text": "Quả cầu lửa làm khối nhầy của bạn bốc hơi một mảng lớn.",
+      "effects": {
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Ép dẹt cơ thể sát tường",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn biến thành một mảng mỏng tang, ánh lửa xẹt qua không mảy may sứt mẻ.",
+      "effects": {
+       "health": 5
+      }
+     },
+     "fail": {
+      "text": "Bạn chậm một nhịp, bị nhiệt độ làm khô cứng lớp da ngoài.",
+      "effects": {
+       "AGI": -1,
+       "health": -15
+      }
+     }
+    }
+   ],
+   "moment": "Kẻ tạo ra ta cố giết ta, nhưng lửa của ả quá yếu ớt."
+  },
+  {
+   "id": "slime_origin_blood_instinct",
+   "text": "Bạn bắt gặp một toán Goblin đang xâu xé một xác nai. Bản năng nguyên thủy từ vũng máu tàn bạo năm xưa gào thét đòi bạn phải nuốt chửng cả sinh vật sống lẫn xác chết.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "work"
+   ],
+   "require": {
+    "flags": [
+     "blood_slime"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Tràn lên càn quét tất cả",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Khối nhầy của bạn phình to, nuốt trọn cả lũ Goblin và xác con mồi trong cơn đói điên cuồng.",
+      "effects": {
+       "STR": 2,
+       "health": 20,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Đám Goblin dùng giáo nhọn đâm thủng lớp màng của bạn và đuổi bạn đi.",
+      "effects": {
+       "health": -25,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Rình mò nuốt máu thừa",
+     "check": {
+      "stat": "AGI",
+      "target": 3
+     },
+     "success": {
+      "text": "Bạn len lỏi dưới mặt đất, hút sạch lượng huyết nhục ngấm xuống đất mùn.",
+      "effects": {
+       "health": 10
+      }
+     },
+     "fail": {
+      "text": "Bạn bị giẫm đạp bởi bước chân loạn xạ của bọn Goblin.",
+      "effects": {
+       "health": -10
+      }
+     }
+    },
+    {
+     "label": "Áp chế cơn khát máu",
+     "text": "Bạn quyết định lùi lại, không để bản năng tàn bạo của xác thối kiểm soát lý trí mới chớm nở.",
+     "effects": {
+      "STR": -1,
+      "INT": 1,
+      "joy": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_origin_king_hunger",
+   "text": "Slime King ({maker}) đang càn quét Tầng hầm ngục. Nó há cái miệng khổng lồ vạn vật để hút mọi bản phân bào về lại cơ thể cội nguồn.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "require": {
+    "flags": [
+     "royal_slime"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Kháng cự bằng dị vật",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn nuốt nhanh các tảng đá nhọn quanh đó, khiến cơ thể trở nên gai góc không thể dung hợp. Slime King phớt lờ bạn.",
+      "effects": {
+       "INT": 2,
+       "health": 10
+      }
+     },
+     "fail": {
+      "text": "Bạn bị hút vào lớp vỏ ngoài của bạo chúa, chật vật tách ra trong đau đớn.",
+      "effects": {
+       "STR": -1,
+       "health": -40
+      }
+     }
+    },
+    {
+     "label": "Gồng mình đi ngược dòng hút",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Cơ thể dẻo quánh của bạn cắm chặt xuống đất, xé toạc lực hút của kẻ sinh ra mình.",
+      "effects": {
+       "STR": 2,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Bạn bị nuốt chửng một phần, phải ngắt bỏ phân nửa khối nhầy để sống sót.",
+      "death": "(Bạn bị Slime King nuốt chửng và dung hợp trở lại thành vô tri"
+     }
+    },
+    {
+     "label": "Nuốt các bản phân bào khác để to lên",
+     "require": {
+      "STR": 8
+     },
+     "showLocked": true,
+     "text": "Bạn hung bạo cắn xé những giọt nhầy đồng loại đang bị hút ngang qua, phình to đến mức bạo chúa phải e dè lướt qua.",
+     "effects": {
+      "STR": 1,
+      "wealth": 20,
+      "fame": 10
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_metal_cursed_sword",
+   "text": "Bạn tìm thấy một thanh Hắc Kiếm rỉ máu cắm giữa vòng tròn phép. Một luồng tà khí hứa hẹn sức mạnh, nhưng cũng chực chờ xé nát tâm trí bạn.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "work"
+   ],
+   "require": {
+    "job": "slime_metal"
+   },
+   "choices": [
+    {
+     "label": "Cắn rập và nuốt chửng nhanh gọn",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Lớp da bạn chuyển sang màu đen bóng. Bạn đè bẹp ý chí oán hận của thanh kiếm.",
+      "effects": {
+       "STR": 3,
+       "health": 10
+      }
+     },
+     "fail": {
+      "text": "Thanh kiếm đâm ngược từ trong ra, cắm chặt bạn xuống sàn đá.",
+      "effects": {
+       "health": -20,
+       "fame": -2
+      }
+     }
+    },
+    {
+     "label": "Chỉ liếm lớp rỉ sét bám bên ngoài",
+     "check": {
+      "stat": "AGI",
+      "target": 3
+     },
+     "success": {
+      "text": "Bạn ăn phần kim loại thừa và lùi lại trước khi tà khí phát tác.",
+      "effects": {
+       "health": 5,
+       "wealth": 2
+      }
+     },
+     "fail": {
+      "text": "Lưỡi kiếm rung lên bần bật, chém một nhát vào không khí cắt đứt tảng thịt của bạn.",
+      "effects": {
+       "health": -10
+      }
+     }
+    },
+    {
+     "label": "Bỏ đi tìm khoáng thạch bình thường",
+     "text": "Bạn quay lưng đi, giữ cho tâm trí thanh sạch nhưng bỏ lỡ sức mạnh.",
+     "effects": {
+      "joy": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_metal_forge_fire",
+   "text": "Mạo hiểm giả tưởng bạn là một cục quặng kỳ lạ nên quăng thẳng bạn vào ngọn lửa đang rực cháy của một thợ rèn Dwarf.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "study"
+   ],
+   "require": {
+    "job": "slime_metal"
+   },
+   "choices": [
+    {
+     "label": "Gồng mình làm cứng lớp vỏ ngoài",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Lửa không thiêu rụi được bạn mà còn nung lớp vỏ ngoài thành một lớp thép tôi luyện sắc bén. Bạn phá lò nhảy ra.",
+      "effects": {
+       "STR": 4,
+       "fame": 5,
+       "orgRankName": "sớm"
+      }
+     },
+     "fail": {
+      "text": "Nhiệt độ vỡ vụn giới hạn chịu đựng, bạn bị nấu chảy thành một vũng kim loại vô hồn.",
+      "death": "(Bạn bị đúc thành một chiếc nồi lẩu cho hội mạo hiểm"
+     }
+    },
+    {
+     "label": "Tan chảy và trôi tuột qua khe ghi đông",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn nhão ra như thủy ngân, chảy xuống khay đựng tàn tro tẩu thoát.",
+      "effects": {
+       "AGI": 2,
+       "health": -5
+      }
+     },
+     "fail": {
+      "text": "Bạn chậm chân bị kẹt lại, hao hụt một lượng lớn khối lượng kim loại tích cóp bấy lâu.",
+      "effects": {
+       "health": -15,
+       "demote": true
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_metal_golem_clash",
+   "text": "Một con Rock Golem khổng lồ đang trấn giữ mỏ Tinh Bạc mà bạn nhắm tới. Nó vung nắm đấm bằng đá tảng nện thẳng xuống.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "train"
+   ],
+   "require": {
+    "job": "slime_metal"
+   },
+   "choices": [
+    {
+     "label": "Đỡ đòn bằng khối thép cơ thể",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Nắm đấm đá vỡ nát khi chạm vào người bạn. Bạn trườn lên ăn luôn phần quặng trên tay nó.",
+      "effects": {
+       "STR": 2,
+       "wealth": 10
+      }
+     },
+     "fail": {
+      "text": "Khối lượng của Golem quá lớn, đập bạn bẹp lép thành một tấm thiếc mỏng.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Hấp thụ dòng quặng ngầm dưới chân nó",
+     "require": {
+      "INT": 6
+     },
+     "showLocked": true,
+     "text": "Bạn khôn ngoan hút rỗng mỏ Tinh Bạc từ bên dưới, khiến Golem mất năng lượng và đổ gục.",
+     "effects": {
+      "INT": 1,
+      "wealth": 20,
+      "fame": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_metal_treasure_drop",
+   "text": "Kẻ cướp đánh rơi hai túi đồ khi tháo chạy. Một túi chứa đầy Đồng Cẩm Thạch, túi kia là mớ phi tiêu ninja rỉ sét.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "require": {
+    "job": "slime_metal"
+   },
+   "choices": [
+    {
+     "label": "Ăn mớ phi tiêu sắt",
+     "text": "Bạn chọn thứ kim loại thực dụng để củng cố sức mạnh.",
+     "effects": {
+      "STR": 2,
+      "wealth": -5
+     }
+    },
+    {
+     "label": "Nuốt sạch tiền xu Cẩm Thạch",
+     "text": "Vị của tiền không tệ, và biết đâu sau này dùng được.",
+     "effects": {
+      "joy": 5,
+      "wealth": 15
+     }
+    }
+   ],
+   "moment": "Ngày ấy, ta nhận ra nuốt tiền bạc chẳng giúp cơ thể ta cứng cáp hơn chút nào."
+  },
+  {
+   "id": "slime_magic_mana_overload",
+   "text": "Bạn vừa tìm thấy một Mạch Mana Cổ Đại rỉ ra dưới lòng đất. Dòng ma lực quá ngọt ngào nhưng cũng quá cuồng bạo, đe dọa thổi bay cơ thể bé nhỏ của bạn.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "work"
+   ],
+   "require": {
+    "job": "slime_magic"
+   },
+   "choices": [
+    {
+     "label": "Thiền định, điều áp dòng chảy",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn mở rộng dung lượng cơ thể, hút trọn vẹn mạch năng lượng thành nguồn dự trữ vĩnh cửu.",
+      "effects": {
+       "STR": 1,
+       "INT": 3,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Lõi mana trong cơ thể bạn nứt toác vì quá tải. Bạn nổ tung thành hàng ngàn mảnh vụn sương mù.",
+      "death": "(Bạn tan biến thành pháo hoa ma thuật dưới lòng đất"
+     }
+    },
+    {
+     "label": "Cắn một ngụm rồi ngắt kết nối ngay",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn chớp thời cơ liếm một mảng năng lượng rồi trườn nhanh ra xa trước khi áp suất tăng cao.",
+      "effects": {
+       "INT": 1,
+       "wealth": 5
+      }
+     },
+     "fail": {
+      "text": "Bạn chậm một nhịp, bị dòng chảy đẩy bật vào vách đá. Tinh thể trong người vỡ một mảng.",
+      "effects": {
+       "health": -10,
+       "demote": true
+      }
+     }
+    },
+    {
+     "label": "Dẫn truyền ma lực sang sinh vật khác",
+     "text": "Bạn dùng cơ thể làm vật trung gian, truyền bớt ma lực thừa sang {ally}, giúp cả hai cùng cường hóa.",
+     "effects": {
+      "INT": 1,
+      "wealth": 10,
+      "bond": 10
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_magic_wizard_trap",
+   "text": "Một học viên từ Tháp Ngà rải bột ma thuật phát quang để bắt bạn về làm bồn chứa năng lượng cho kỳ thi tốt nghiệp.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "study"
+   ],
+   "require": {
+    "job": "slime_magic"
+   },
+   "choices": [
+    {
+     "label": "Giải mã kết giới bằng ma lực bản thân",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn bắn một luồng năng lượng xung khắc, làm kết giới vỡ nát và ung dung trườn đi.",
+      "effects": {
+       "INT": 2,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Mạng lưới phép thắt chặt, đốt cháy lớp màng ngoài của bạn.",
+      "effects": {
+       "health": -15,
+       "wealth": -5
+      }
+     }
+    },
+    {
+     "label": "Ngụy trang thành một vũng nước thường",
+     "check": {
+      "stat": "LUCK",
+      "target": 3
+     },
+     "success": {
+      "text": "Tên học viên đi qua ngó lơ vũng nước đọng đục ngầu.",
+      "effects": {
+       "health": 5
+      }
+     },
+     "fail": {
+      "text": "Bột phát quang không giấu được sự thật, bạn bị bắt bỏ vào bình.",
+      "effects": {
+       "health": -20,
+       "joy": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_magic_elemental_clash",
+   "text": "Hai lõi Băng và Lửa bạn vừa nuốt đang xung đột dữ dội trong bao tử nhầy của bạn, tạo ra những cơn đau quặn thắt và xì khói nghi ngút.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "train"
+   ],
+   "require": {
+    "job": "slime_magic"
+   },
+   "choices": [
+    {
+     "label": "Dùng sức mạnh áp chế chúng",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Cấu trúc cơ thể dẻo dai của bạn ép chặt hai nguyên tố, dung hợp chúng thành luồng Hơi Nước Sôi cuồng nộ.",
+      "effects": {
+       "STR": 2,
+       "INT": 2
+      }
+     },
+     "fail": {
+      "text": "Dạ dày bạn bục rách, nhiệt độ và băng giá rò rỉ ra ngoài tàn phá cơ thể.",
+      "effects": {
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Nhả lõi Lửa ra",
+     "text": "Bạn quyết định an toàn là trên hết, nôn viên ma thạch Lửa ra ngoài.",
+     "effects": {
+      "health": 10,
+      "wealth": -10
+     }
+    }
+   ],
+   "moment": "Ta nôn ra ngọn lửa, chỉ để giữ lại sự lạnh giá của băng."
+  },
+  {
+   "id": "slime_magic_grimoire_find",
+   "text": "Dưới đáy vực, bạn tìm thấy một quyển trục phép thuật của tộc Elf bị lãng quên.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "require": {
+    "job": "slime_magic"
+   },
+   "choices": [
+    {
+     "label": "Ăn luôn quyển sách để lấy kiến thức",
+     "text": "Chữ nghĩa và cuộn giấy thấm vào người, cung cấp trí tuệ thô.",
+     "effects": {
+      "INT": 2,
+      "joy": 5
+     }
+    },
+    {
+     "label": "Phủ rêu lên giấu làm của riêng",
+     "text": "Bạn cất giấu nó chờ dịp giao dịch với ma vật khác.",
+     "effects": {
+      "wealth": 15
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_poison_holy_water",
+   "text": "Một phái đoàn linh mục của Giáo hội Thánh Quang đi ngang qua. Một tên Priest giương Chén Thánh lên, vẩy dồn dập nước thánh thanh tẩy về phía vũng lầy nơi bạn trú ẩn.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "study"
+   ],
+   "require": {
+    "job": "slime_poison"
+   },
+   "choices": [
+    {
+     "label": "Bơm axit bắn trả bọt nước thánh",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Tia axit của bạn xuyên thủng màn nước, tạt thẳng vào mặt tên linh mục khiến hắn gào thét hoảng loạn.",
+      "effects": {
+       "AGI": 2,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Nước thánh chạm vào cơ thể tội lỗi của bạn, thiêu rụi phần lớn khối nhầy. Bạn bốc hơi trong đau đớn.",
+      "death": "(Bạn được thanh tẩy thành một bãi nước trong sạch"
+     }
+    },
+    {
+     "label": "Tách nhỏ cơ thể để né tránh",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn vỡ ra thành hàng chục giọt nhỏ li ti, lách qua từng giọt nước thánh chết người rồi hợp lại.",
+      "effects": {
+       "AGI": 1,
+       "health": 5
+      }
+     },
+     "fail": {
+      "text": "Đa số các mảnh của bạn bị thiêu rụi. Bạn teo nhỏ lại một cách đáng thương.",
+      "effects": {
+       "health": -25,
+       "demote": true
+      }
+     }
+    }
+   ],
+   "moment": "Bọn áo trắng cho rằng chúng mang ánh sáng, nhưng chúng chỉ đem đến cái chết."
+  },
+  {
+   "id": "slime_poison_shroom_feast",
+   "text": "Bạn phát hiện một hang động mọc kín Nấm Đầu Lâu – loài nấm kịch độc của Goblin.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "work"
+   ],
+   "require": {
+    "job": "slime_poison"
+   },
+   "choices": [
+    {
+     "label": "Ăn ngấu nghiến toàn bộ",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Độc tố ngấm vào cơ thể, hòa làm một với bạn, cường hóa sức sát thương độc hại.",
+      "effects": {
+       "STR": 2,
+       "health": 10
+      }
+     },
+     "fail": {
+      "text": "Bạn ăn quá no và nôn mửa liên tục ra chất dịch quý giá.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Chiết xuất tinh chất độc để dành",
+     "check": {
+      "stat": "INT",
+      "target": 3
+     },
+     "success": {
+      "text": "Bằng cách nén chặt dịch vị, bạn tạo ra những viên bi độc đậm đặc cất trong cơ thể.",
+      "effects": {
+       "INT": 1,
+       "wealth": 10
+      }
+     },
+     "fail": {
+      "text": "Nấm quá hôi khiến bạn bị ngộ độc ngược.",
+      "effects": {
+       "joy": -5
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_poison_venom_contest",
+   "text": "Một con Rắn Đuôi Chuông tinh tinh nhắm đến cùng một vũng lầy nọc độc với bạn. Nó xòe mang đe dọa.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "require": {
+    "job": "slime_poison"
+   },
+   "choices": [
+    {
+     "label": "Giao chiến bằng nọc độc",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn phóng một luồng nọc siêu đặc, làm con rắn mù mắt và ngã gục. Bạn nuốt trọn bữa ăn.",
+      "effects": {
+       "AGI": 3,
+       "fame": 4
+      }
+     },
+     "fail": {
+      "text": "Rắn cắn phập vào bạn, truyền nọc của nó làm loạn dòng chảy axit trong người bạn.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Phân tán chướng khí mù mịt rồi cướp thức ăn",
+     "require": {
+      "INT": 5
+     },
+     "showLocked": true,
+     "text": "Bạn nhả khói mù độc, trườn qua cướp lấy vũng lầy trong lúc con rắn còn đang sặc sụa.",
+     "effects": {
+      "INT": 1,
+      "wealth": 15
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_poison_dead_frog",
+   "text": "Có một xác con Ếch Gai Rừng, nọc độc rỉ ra mời gọi.",
+   "stages": [
+    "infant"
+   ],
+   "focus": [
+    "work"
+   ],
+   "require": {
+    "job": "slime_poison"
+   },
+   "choices": [
+    {
+     "label": "Hấp thụ nọc độc",
+     "text": "Bạn liếm sạch lớp chất nhờn có độc trên da nó.",
+     "effects": {
+      "AGI": 1,
+      "health": 5
+     }
+    },
+    {
+     "label": "Nuốt luôn cả xương ếch",
+     "text": "Chút canxi từ xương cũng giúp da bạn bớt nhão.",
+     "effects": {
+      "STR": 1,
+      "health": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_mimic_veteran_hunter",
+   "text": "Bạn đang làm tốt vai trò một chiếc rương gỗ hỏng thì một Ranger cựu binh bước vào. Lão không mở rương mà rút tên bọc bạc, chĩa thẳng vào ổ khóa ngụy trang của bạn.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "study"
+   ],
+   "require": {
+    "job": "slime_mimic"
+   },
+   "choices": [
+    {
+     "label": "Giữ nguyên ảo ảnh đến cùng",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Lão già nheo mắt, nghĩ mình đa nghi nên cất cung bỏ đi. Bạn thoát chết trong tấc tấc.",
+      "effects": {
+       "LUCK": 3,
+       "joy": 5
+      }
+     },
+     "fail": {
+      "text": "Mũi tên bạc cắm phập vào lõi hạt nhân của bạn. Lão thợ săn móc lõi bạn ra đem bán.",
+      "death": "(Vỏ bọc giả dối của bạn bị xé toạc bằng một mũi tên"
+     }
+    },
+    {
+     "label": "Bật nắp rương cắn trả bất ngờ",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn há miệng cắn gãy cung tên của lão, tận dụng cơ hội lão lùi lại để trườn chạy.",
+      "effects": {
+       "AGI": 2,
+       "health": -5
+      }
+     },
+     "fail": {
+      "text": "Lão phản xạ quá nhanh, đá lật tung người bạn, khiến bạn hộc ra hết đồ ăn tích trữ.",
+      "effects": {
+       "wealth": -20,
+       "demote": true
+      }
+     }
+    }
+   ],
+   "moment": "Mắt người trần có lúc còn sắc hơn cả ma thuật."
+  },
+  {
+   "id": "slime_mimic_bait_trap",
+   "text": "Một tên đạo chích lén lút vào hầm ngục. Bạn cần lừa hắn lại gần để có bữa tối thịnh soạn.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "social"
+   ],
+   "require": {
+    "job": "slime_mimic"
+   },
+   "choices": [
+    {
+     "label": "Giả làm một thanh gươm vàng",
+     "check": {
+      "stat": "LUCK",
+      "target": 3
+     },
+     "success": {
+      "text": "Kẻ tham lam sờ vào chuôi gươm và tay hắn biến thành bữa tối của bạn.",
+      "effects": {
+       "LUCK": 2,
+       "health": 10
+      }
+     },
+     "fail": {
+      "text": "Ánh vàng của bạn bị chói quá đà, tên cướp sinh nghi ném đá vào bạn rồi chuồn mất.",
+      "effects": {
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Giả tiếng phụ nữ khóc",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bản tính anh hùng dỏm trỗi dậy, tên cướp đến gần và lọt vào hang ổ của bạn.",
+      "effects": {
+       "INT": 1,
+       "wealth": 10,
+       "fame": 3
+      }
+     },
+     "fail": {
+      "text": "Tiếng khóc của bạn ồm ồm như ếch kêu rống, tên cướp sợ ma bỏ chạy té khói.",
+      "effects": {
+       "fame": -2
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_mimic_true_mimic",
+   "text": "Bạn đang ngụy trang thành rương thì bị một ma vật Mimic thực thụ (Nhện Gỗ) nhắm tới để đánh chiếm lãnh địa.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "require": {
+    "job": "slime_mimic"
+   },
+   "choices": [
+    {
+     "label": "Đọ sức bằng hình thể khổng lồ",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn phình to gấp đôi con Mimic kia, đè bẹp và hấp thu luôn cả mảnh gỗ của nó.",
+      "effects": {
+       "STR": 2,
+       "wealth": 20
+      }
+     },
+     "fail": {
+      "text": "Khớp gỗ cứng của Mimic cào rách nhân thể giả của bạn, buộc bạn phải rút lui.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Biến thành chìa khóa để trêu tức nó",
+     "require": {
+      "flags": [
+       "mimic_potential"
+      ]
+     },
+     "showLocked": true,
+     "text": "Bạn trượt vào ổ khóa của nó, phá hỏng cấu trúc khớp hàm và nhẹ nhàng nuốt trọn con quái.",
+     "effects": {
+      "LUCK": 2,
+      "fame": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_mimic_lost_crown",
+   "text": "Dưới bùn lầy, bạn nhặt được một chiếc vương miện khảm ngọc của hoàng tộc đã thất truyền.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "social"
+   ],
+   "require": {
+    "job": "slime_mimic"
+   },
+   "choices": [
+    {
+     "label": "Nuốt vương miện để giả làm Vua",
+     "text": "Bạn tỏa ra vương khí kỳ quái, đám Goblin xung quanh cúi rạp người nhầm lẫn.",
+     "effects": {
+      "INT": 1,
+      "fame": 5
+     }
+    },
+    {
+     "label": "Ngụy trang thành hòn đá giấu vương miện đi",
+     "text": "Cất kỹ làm vốn mạo hiểm sau này.",
+     "effects": {
+      "wealth": 25
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_pet_meat_shield",
+   "text": "Một con Troll Vực Thẳm bổ chiếc chùy gai khổng lồ xuống. Chủ nhân của bạn {maker} luống cuống trượt chân, cái chết cận kề.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "study"
+   ],
+   "require": {
+    "job": "slime_pet"
+   },
+   "choices": [
+    {
+     "label": "Phóng ra che chắn bằng toàn bộ cơ thể",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Chùy nện vào khối dẻo của bạn, hất văng cả bạn lẫn chủ, nhưng cả hai đều sống sót. Chủ nhân ôm bạn khóc.",
+      "effects": {
+       "health": -20,
+       "joy": 10,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Lực đập quá mạnh, lõi của bạn vỡ nát dưới gai nhọn bảo vệ một kẻ yếu đuối.",
+      "death": "(Bạn chết vinh quang nhưng ngu ngốc, trở thành vệt nước bẩn dưới gai chùy"
+     }
+    },
+    {
+     "label": "Quấn lấy tay chủ kéo giật ra sau",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Tốc độ của bạn kéo hắn lùi lại kịp thời, thoát được cú nện trời giáng.",
+      "effects": {
+       "AGI": 2,
+       "health": 5
+      }
+     },
+     "fail": {
+      "text": "Chậm một nhịp, tay chủ bạn gãy vụn, hắn đá bạn ra vì cho rằng bạn vô dụng.",
+      "effects": {
+       "joy": -20,
+       "demote": true
+      }
+     }
+    }
+   ],
+   "moment": "Đôi khi, làm chó săn đòi hỏi cái giá bằng mạng sống."
+  },
+  {
+   "id": "slime_pet_sold_out",
+   "text": "Chủ nhân của bạn hết tiền cờ bạc ở Đấu trường Huyết Sa, định bán bạn cho gã thương nhân mổ xẻ lấy vật liệu.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "require": {
+    "job": "slime_pet"
+   },
+   "choices": [
+    {
+     "label": "Giả vờ ốm chết để hạ giá trị",
+     "check": {
+      "stat": "INT",
+      "target": 3
+     },
+     "success": {
+      "text": "Bạn xì hơi thối và teo nhỏ lại. Thương nhân chê bai bỏ đi, chủ nhân bực tức ném bạn vào xó.",
+      "effects": {
+       "INT": 1,
+       "wealth": -5
+      }
+     },
+     "fail": {
+      "text": "Gã thương nhân tinh tường đập bạn một gậy để kiểm tra, làm bạn trọng thương.",
+      "effects": {
+       "health": -15,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Tức giận cắn tay chủ bỏ trốn",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn ngoạm một mảng thịt, phá lồng chạy thoát trở về hoang dã. Chấm dứt chuỗi ngày làm nô lệ!",
+      "effects": {
+       "STR": 2,
+       "joy": 15,
+       "loseJob": true
+      }
+     },
+     "fail": {
+      "text": "Chủ dùng roi điện đánh đập bạn tơi tả nhét lại vào lồng.",
+      "effects": {
+       "health": -20
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_pet_midnight_snack",
+   "text": "Giữa đêm, kho lương thực của Guild Bình Minh ngay sát bên bạn tỏa mùi thơm phức của bò nướng ma thuật.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "work"
+   ],
+   "require": {
+    "job": "slime_pet"
+   },
+   "choices": [
+    {
+     "label": "Lẻn ra ngoài nuốt chửng kho lương",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn lẻn đi ăn ngập mồm và lăn về lồng kịp trước lúc gà gáy. Sức mạnh tràn trề.",
+      "effects": {
+       "STR": 3,
+       "health": 15
+      }
+     },
+     "fail": {
+      "text": "Tiếng ợ hơi của bạn làm kinh động lính gác. Chủ nhân phải đền tiền, trút giận đánh bạn.",
+      "effects": {
+       "joy": -10,
+       "wealth": -20
+      }
+     }
+    },
+    {
+     "label": "Ăn luôn tên lính gác ngủ gật",
+     "require": {
+      "STR": 8
+     },
+     "showLocked": true,
+     "text": "Bạn ngầm xơi tái gã lính gác béo ịch, tiêu hóa hắn không còn mảnh vụn xương.",
+     "effects": {
+      "STR": 2,
+      "fame": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_pet_broken_leash",
+   "text": "Cuộc ẩu đả trong quán rượu làm sợi xích ma thuật buộc bạn bị đứt lìa. Cửa sổ đang mở toang.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "study"
+   ],
+   "require": {
+    "job": "slime_pet"
+   },
+   "choices": [
+    {
+     "label": "Nhảy qua cửa sổ tìm tự do",
+     "text": "Bạn bỏ mặc chủ nhân đang say xỉn, trườn ra màn đêm.",
+     "effects": {
+      "joy": 10,
+      "fame": 2,
+      "loseJob": true
+     }
+    },
+    {
+     "label": "Ở lại chờ chủ tỉnh",
+     "text": "Bạn chọn sự béo mầm hèn nhát, cuộn tròn lại góc phòng ngủ thiếp đi.",
+     "effects": {
+      "health": 10,
+      "joy": -5
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_domain_lord_ascension",
+   "text": "Kẻ cai quản hiện tại của tầng ngục—một con Minotaur đột biến mang giáp Huyết Kim—đập vỡ bức tường tiến vào sào huyệt của bạn. Hắn vung cây rìu khổng lồ rực lửa địa ngục, gầm lên đòi xóa sổ khối nhầy dị hợm dám thách thức ngai vàng.",
+   "stages": [
+    "middle"
+   ],
+   "focus": [
+    "train"
+   ],
+   "require": {
+    "guildRank": 5
+   },
+   "choices": [
+    {
+     "label": "Phình to cơ thể, lấy thịt đè người",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn tạo thành một cơn sóng thần bằng bùn nhão, ập xuống dập tắt ngọn lửa và đè nát con quái vật dưới áp lực hàng ngàn tấn. Bạn nuốt trọn chiếc rìu để lên ngôi.",
+      "effects": {
+       "STR": 4,
+       "fame": 10,
+       "orgRankName": "lãnh địa lên Chúa Tể Tầng Ngục",
+       "orgRank": 6
+      }
+     },
+     "fail": {
+      "text": "Lưỡi rìu xẻ dọc cơ thể vĩ đại của bạn làm đôi, ngọn lửa thiêu rụi phần lớn khối lượng bạn cất công tích tụ.",
+      "effects": {
+       "health": -40,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Khống chế dòng chảy ma lực toàn mê cung",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn không đánh trực diện mà kích hoạt toàn bộ axit ngầm trong vách đá. Lượng dịch vị điên cuồng trút xuống như thác, nung chảy lớp giáp Huyết Kim và biến hắn thành vũng máu.",
+      "effects": {
+       "INT": 3,
+       "wealth": 20,
+       "orgRankName": "lãnh địa lên Chúa Tể Tầng Ngục",
+       "orgRank": 6
+      }
+     },
+     "fail": {
+      "text": "Tính toán sai lệch khiến vách đá sụp đổ, chôn vùi cả bạn lẫn tên Minotaur. Bạn ngắc ngoải kẹt dưới đống đổ nát.",
+      "effects": {
+       "health": -25,
+       "wealth": -10
+      }
+     }
+    },
+    {
+     "label": "Hóa thành tia nước áp suất cao xuyên phá",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn nén toàn bộ cơ thể lại thành một mũi giáo dịch nhầy siêu mỏng, bắn xuyên qua khe hở trên mũ giáp của Minotaur và ăn mòn não hắn từ bên trong. Gã khổng lồ gục ngã không kịp kêu một tiếng.",
+      "effects": {
+       "AGI": 3,
+       "joy": 10,
+       "orgRankName": "lãnh địa lên Chúa Tể Tầng Ngục",
+       "orgRank": 6
+      }
+     },
+     "fail": {
+      "text": "Áp suất không đủ mạnh, bạn dội ngược lại lớp thép và bị hắn đá văng ra khỏi lãnh địa trung tâm.",
+      "effects": {
+       "health": -20
+      }
+     }
+    }
+   ],
+   "moment": "Ngai vàng ngục tối không dành cho kẻ cơ bắp, mà dành cho thứ có thể nuốt chửng mọi cơ bắp."
+  },
+  {
+   "id": "slime_absorb_witch_cauldron",
+   "text": "Trong một hốc cây ở Đại Ngàn Lục Bảo, một mụ phù thủy hắc ám đang nấu nồi vạc ma thuật sủi bọt ngùn ngụt rồi bỏ đi hái thêm nấm. Thứ dung dịch rực rỡ ấy vẫy gọi cơn đói của bạn.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "work"
+   ],
+   "choices": [
+    {
+     "label": "Tràn vào nuốt trọn cả nồi lỏng",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn ừng ực nuốt sạch thứ thuốc ma quái, cơ thể bùng nổ sức mạnh từ các nguyên liệu cấm kỵ.",
+      "effects": {
+       "STR": 2,
+       "health": 10
+      }
+     },
+     "fail": {
+      "text": "Nước súp quá nóng và chứa độc tính cao làm bỏng rát lõi của bạn, buộc bạn nhổ ra.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Chỉ liếm sạch cặn ma lực bám quanh thành vạc",
+     "check": {
+      "stat": "INT",
+      "target": 3
+     },
+     "success": {
+      "text": "Bạn hấp thụ lượng tinh hoa tinh khiết nhất rỉ ra mà không chạm vào phần nước độc.",
+      "effects": {
+       "INT": 1,
+       "wealth": 5
+      }
+     },
+     "fail": {
+      "text": "Mụ phù thủy về sớm, quăng một nắm muối ma thuật xua đuổi bạn.",
+      "effects": {
+       "health": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_absorb_dragon_corpse",
+   "text": "Dưới đáy sâu của Vực Thẳm Phân Tầng, bạn phát hiện thi thể vĩ đại của một con Ancient Dragon vỡ nát. Tuy nhiên, một toán Demon đang cắm trại và xẻ thịt nó.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "work"
+   ],
+   "choices": [
+    {
+     "label": "Cuộn trào lên nuốt cả rồng lẫn quỷ",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Cơ thể dẻo quánh của bạn hóa thành sóng thần, đè bẹp và dung hợp cả lũ Demon lẫn tủy rồng thành một bữa tiệc đẫm máu vô song.",
+      "effects": {
+       "STR": 4,
+       "wealth": 30,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Đám Demon ném giáo hỏa ngục xuyên thủng lớp da, thiêu rụi một phần cơ thể bạn.",
+      "effects": {
+       "health": -30,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Len lỏi dưới lòng đất để hút tủy rồng",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn trườn qua kẽ nứt xương, uống cạn dòng tủy rồng rực lửa mà lũ Demon không hề hay biết.",
+      "effects": {
+       "STR": 2,
+       "AGI": 2,
+       "health": 15
+      }
+     },
+     "fail": {
+      "text": "Một gã High Demon tinh ý cắm kiếm xuống đất, đâm trúng khối nhầy của bạn.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Kiên nhẫn đợi chúng thu dọn rồi nhặt xương",
+     "require": {
+      "INT": 6
+     },
+     "showLocked": true,
+     "text": "Bạn án binh bất động suốt một tháng. Dù chỉ ăn được tàn dư vương vãi, nhưng đó vẫn là xương rồng.",
+     "effects": {
+      "INT": 1,
+      "health": 10
+     }
+    }
+   ],
+   "moment": "Máu thịt của loài thượng đẳng cũng chỉ là phân bón cho kẻ ăn tạp phàm tục."
+  },
+  {
+   "id": "slime_absorb_lucky_snack",
+   "text": "Bạn đang há to miệng ngáp vặt dưới một hố bẫy thì một tên Mạo hiểm giả hạng B trượt chân ngã thẳng vào khoang tiêu hóa của bạn. Không cần làm gì, bạn chỉ việc khép miệng lại và tận hưởng.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "work"
+   ],
+   "result": "Bạn có một bữa no nê đầy dinh dưỡng cùng toàn bộ trang bị của hắn.",
+   "effects": {
+    "STR": 2,
+    "joy": 10,
+    "wealth": 20
+   }
+  },
+  {
+   "id": "slime_hide_holy_light",
+   "text": "Một Priest của Giáo hội Thánh Quang đang giương cao mề đay của Nữ thần Lumina để thanh tẩy hầm ngục. Ánh sáng vàng rực mang sức mạnh thiêu đốt ma vật rọi thẳng về phía góc tối của bạn.",
+   "stages": [
+    "infant"
+   ],
+   "focus": [
+    "study"
+   ],
+   "choices": [
+    {
+     "label": "Vùi mình sâu xuống lớp sỏi đá",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn nhanh chóng lẩn lỏi qua những kẽ hở hẹp, ánh sáng chỉ sượt qua làm bốc hơi một chút độ ẩm ngoài da.",
+      "effects": {
+       "AGI": 1,
+       "health": 5
+      }
+     },
+     "fail": {
+      "text": "Bạn chưa kịp chui xuống thì ánh sáng đã đốt cháy một mảng nhầy, bốc mùi khét lẹt.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Gồng mình chịu đựng ánh sáng",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Ánh sáng gột rửa lướt qua. Thay vì tan chảy, lõi của bạn kiên cường thích nghi và sinh ra tính kháng ma thuật nhỏ.",
+      "effects": {
+       "STR": 1,
+       "health": 10
+      }
+     },
+     "fail": {
+      "text": "Năng lượng thần thánh là thiên địch của ma vật. Bạn teo rút lại trong cơn đau đớn cùng cực.",
+      "effects": {
+       "health": -25
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_hide_guild_hunt",
+   "text": "Kích thước khổng lồ của bạn dạo gần đây đã báo động Guild Bình Minh. Họ phái một tổ đội hạng S đi săn lùng bạn, và giờ chúng đang lùng sục ngay trong tầng ngục này.",
+   "stages": [
+    "middle"
+   ],
+   "focus": [
+    "study"
+   ],
+   "choices": [
+    {
+     "label": "Tách thành hàng vạn Slime nhỏ",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn xé lẻ cơ thể vĩ đại thành vô số vũng bùn vô hại rải rác khắp hầm ngục. Tổ đội hạng S không tìm thấy \"quái vật khổng lồ\" đành hậm hực rút lui.",
+      "effects": {
+       "INT": 3,
+       "health": 20,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Quá trình phân chia quá chậm, một nhát kiếm khí của Kiếm Thánh chém đứt đi ba mươi phần trăm khối lượng của bạn.",
+      "effects": {
+       "health": -40,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Ép xác xuống đáy dòng sông ngầm",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Khối lượng nặng nề của bạn chìm sâu xuống đáy nước đen ngòm, chịu áp suất lớn để ẩn náu hoàn toàn.",
+      "effects": {
+       "STR": 2,
+       "AGI": 1
+      }
+     },
+     "fail": {
+      "text": "Dòng chảy quá xiết cuốn trôi bạn đập vào các vách đá ngầm, làm hao hụt đáng kể phần thịt.",
+      "effects": {
+       "health": -20
+      }
+     }
+    }
+   ],
+   "moment": "Quái vật thực thụ biết khi nào cần giấu móng vuốt."
+  },
+  {
+   "id": "slime_hide_safe_crack",
+   "text": "Giữa một cuộc chiến đẫm máu của bầy Orc và Lizardman, bạn lọt thỏm vào một hốc đá nứt hoàn hảo, không ai dẫm tới. Bạn đánh một giấc ngon lành mặc kệ sự đời.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "study"
+   ],
+   "result": "Không ai phát hiện ra sự tồn tại nhỏ bé của bạn. Cảm giác an toàn tuyệt đối.",
+   "effects": {
+    "health": 15,
+    "joy": 10
+   }
+  },
+  {
+   "id": "slime_train_density_compress",
+   "text": "Nhận ra thân hình to lớn lỏng lẻo rất dễ trúng tên, bạn quyết định ép chặt lượng vật chất khổng lồ của mình vào một khối cầu nhỏ bé để tối đa hóa sức phòng thủ.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "train"
+   ],
+   "choices": [
+    {
+     "label": "Dùng sức mạnh cơ học gồng ép",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Khối lượng khổng lồ bị nén lại thành một quả bóng đặc sệt nặng hàng tấn, đạn pháo bắn vào cũng dội ngược.",
+      "effects": {
+       "STR": 3,
+       "health": 15
+      }
+     },
+     "fail": {
+      "text": "Cơ thể không chịu nổi áp suất, nổ tung văng vãi một lượng lớn dịch nhầy ra khắp hang.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Dùng ma lực điều hòa cấu trúc tế bào",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Ma lực liên kết các phân tử lại với nhau một cách trơn tru, giúp bạn thu nhỏ kích thước hoàn hảo.",
+      "effects": {
+       "INT": 2,
+       "health": 10
+      }
+     },
+     "fail": {
+      "text": "Ma lực mất kiểm soát khiến thân hình bạn bị méo mó, nhăn nheo như quả táo héo.",
+      "effects": {
+       "STR": -1,
+       "AGI": -1
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_train_evolution_form",
+   "text": "Một luồng sóng ma lực nguyên thủy kích thích bản năng tiến hóa trong lõi của bạn, thôi thúc khối nhầy phải vươn lên thành một hình hài cao cấp hơn.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "train"
+   ],
+   "choices": [
+    {
+     "label": "Nặn ra tứ chi cơ bắp thô bạo",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn mọc ra đôi tay cuồn cuộn từ bùn nhão, đấm nát tảng đá trước mặt để ăn mừng sự tiến hóa của thể chất.",
+      "effects": {
+       "STR": 3,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Tứ chi quá nặng làm bạn mất trọng tâm, đổ sập xuống thành một bãi phế phẩm xộc xệch.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Mọc ra màng cánh dơi để lướt đi",
+     "check": {
+      "stat": "AGI",
+      "target": 9
+     },
+     "success": {
+      "text": "Lớp màng mỏng vươn rộng, bạn bay lên không trung trong sự ngỡ ngàng của lũ dơi hang. Giờ đây bầu trời thuộc về bạn.",
+      "effects": {
+       "AGI": 4,
+       "joy": 10
+      }
+     },
+     "fail": {
+      "text": "Cánh chưa vỗ được nhịp nào đã rách toạc vì lực cản của gió. Bạn rơi bịch xuống đất.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Tạo ra lớp giáp gai tua tủa",
+     "require": {
+      "health": 50
+     },
+     "showLocked": true,
+     "text": "Bạn kết tinh bề mặt thành lớp giáo mác tua tủa, biến thành cỗ xe tăng sống.",
+     "effects": {
+      "STR": 1,
+      "health": 20
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_train_failed_spike",
+   "text": "Cố gắng dồn sức tạo ra một mũi nhọn để tập tấn công, bạn chỉ nặn ra được một bọt khí lố bịch. Nó vỡ cái \"bép\", khiến bạn bẹp dúm lại.",
+   "stages": [
+    "infant"
+   ],
+   "focus": [
+    "train"
+   ],
+   "result": "Ít nhất bạn nhận ra sự linh hoạt của bản thân quan trọng hơn cố gắng bắt chước giáo mác.",
+   "effects": {
+    "AGI": 1,
+    "health": -5
+   }
+  },
+  {
+   "id": "slime_wander_elf_ruins",
+   "text": "Dòng suối vô tình đưa bạn trôi tuột vào một phế tích cổ đại của tộc Elf. Nơi này được canh gác bằng hệ thống bẫy rập laze ma thuật đang rà quét không ngừng nghỉ.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "choices": [
+    {
+     "label": "Trườn nhanh qua trước khi tia sáng chiếu tới",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Tốc độ trượt nhầy nhụa giúp bạn lọt qua cổng trước khi lưới laze khép lại. Bên trong rương chứa một viên ngọc nguyên tố.",
+      "effects": {
+       "AGI": 2,
+       "wealth": 15
+      }
+     },
+     "fail": {
+      "text": "Tia sáng cắt ngang đuôi bạn, để lại vết bỏng sâu và khiến bạn rơi lại phía sau.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Dò tìm điểm mù của trận pháp",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn nhận ra quy luật quét của kết giới, ung dung lách qua từng kẽ hở an toàn và ăn cắp sạch lõi năng lượng.",
+      "effects": {
+       "INT": 3,
+       "wealth": 20
+      }
+     },
+     "fail": {
+      "text": "Bạn tính sai một nhịp, hệ thống báo động kích hoạt nhốt bạn lại suốt vài ngày.",
+      "effects": {
+       "health": -10,
+       "joy": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_wander_silver_wolf",
+   "text": "Bạn đang ngọ nguậy băng qua đường mòn thì chạm trán một đoàn xe ngựa lớn của Thương hội Sói Bạc. Hàng ngũ lính đánh thuê hộ tống trông cực kỳ gắt gao.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "choices": [
+    {
+     "label": "Phục kích cướp xe chở lương thực",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn phóng lên bọc kín thùng hàng phía sau, cắn xé một lỗ lớn và nuốt trọn số thịt hun khói trước khi tẩu thoát.",
+      "effects": {
+       "AGI": 2,
+       "health": 20,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Đám lính phát hiện, quăng đuốc lửa rực cháy ném thẳng vào người bạn.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Thu nhỏ chui vào rương hàng lén đi theo",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn chui lọt vào rương, không bị phát hiện và được du lịch miễn phí đến một thị trấn nhộn nhịp giàu tài nguyên.",
+      "effects": {
+       "LUCK": 2,
+       "joy": 5,
+       "wealth": 10
+      }
+     },
+     "fail": {
+      "text": "Tên chủ thương hội mở rương kiểm tra, thấy bạn bèn thẳng chân đá văng xuống vách núi.",
+      "effects": {
+       "health": -15
+      }
+     }
+    }
+   ],
+   "moment": "Việc đi lại bằng xe ngựa bao giờ cũng nhàn nhã hơn tự trườn lê lết."
+  },
+  {
+   "id": "slime_wander_giant_trail",
+   "text": "Khối lượng khổng lồ của bạn cứ thế nghiền nát mọi thứ trên đường đi. Sự di chuyển chậm chạp của bạn để lại một rãnh sâu hoắm kéo dài hàng dặm vắt ngang Thảo Nguyên Gió Hú, khiến bầy thú hoảng loạn bỏ chạy.",
+   "stages": [
+    "middle"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "result": "Dù không chủ đích, bước chân của bạn gieo rắc sự sợ hãi cho cả một vùng lãnh thổ.",
+   "effects": {
+    "joy": 5,
+    "fame": 10
+   }
+  },
+  {
+   "id": "slime_mimic_human_face",
+   "text": "Sau khi dung hợp xác một tên chiến binh loài người, bạn nảy sinh ý định biến đổi bề mặt cơ thể để mang diện mạo của hắn, nhằm đàng hoàng thâm nhập vào thị trấn loài người.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "social"
+   ],
+   "choices": [
+    {
+     "label": "Tái tạo lại cấu trúc gương mặt hoàn hảo",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Từ làn da đến ngũ quan đều chính xác. Bạn đường hoàng bước qua cổng thành bằng hai chân, lính gác còn gật đầu chào.",
+      "effects": {
+       "INT": 3,
+       "joy": 10,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Cơ mặt bị nhão xệch xuống trông rùng rợn như thây ma. Đám lính gác kinh hãi phóng giáo đuổi bạn chạy thục mạng.",
+      "effects": {
+       "health": -15,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Chỉ bắt chước thần thái tự tin của hắn",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Dù khuôn mặt có chút chảy xệ, nhưng cách bạn sải bước cộc cằn khiến không ai dám nhìn lâu. Bạn lẻn vào thành công.",
+      "effects": {
+       "LUCK": 2,
+       "wealth": 10
+      }
+     },
+     "fail": {
+      "text": "Dáng đi xiêu vẹo của bạn làm rơi một cục nhầy ra sàn, lính gác lập tức rung chuông báo động.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Trượt vào bộ giáp của hắn làm Kỵ sĩ giấu mặt",
+     "require": {
+      "AGI": 7
+     },
+     "showLocked": true,
+     "text": "Bạn lấp đầy khoảng không bên trong lớp giáp sắt, đóng kín mũ cối, tạo nên một hiệp sĩ câm lặng bí ẩn.",
+     "effects": {
+      "STR": 1,
+      "AGI": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_mimic_honey_trap",
+   "text": "Đói meo bên vệ đường, bạn quyết định nặn hình thái biến thành một thiếu nữ yếu đuối gặp nạn, nằm gục bên vệ đường để câu nhử lũ sơn tặc háo sắc.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "social"
+   ],
+   "choices": [
+    {
+     "label": "Diễn xuất sự đau đớn chân thật",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Một gã sơn tặc ngu ngốc vội chạy tới ôm lấy bạn, và ngay lập tức bị bạn quấn chặt lấy tiêu hóa sạch sẽ.",
+      "effects": {
+       "LUCK": 2,
+       "health": 15,
+       "wealth": 5
+      }
+     },
+     "fail": {
+      "text": "Khớp xương bùn của bạn gãy gập sai tư thế, gã sơn tặc thấy dị hợm liền rút kiếm chém bạn xẻ đôi.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Tiết ra mùi hương mị hoặc",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn tổng hợp hoocmon thu hút từ cỏ hoa, khiến cả toán cướp mê mẩn đi tới và lọt thỏm vào chiếc bẫy lầy lội không đáy.",
+      "effects": {
+       "STR": 2,
+       "INT": 2,
+       "wealth": 20
+      }
+     },
+     "fail": {
+      "text": "Mùi bạn tỏa ra nhầm thành mùi tử khí thối rữa, lũ cướp bịt mũi ném bom lửa vào bạn rồi bỏ đi.",
+      "effects": {
+       "health": -20
+      }
+     }
+    }
+   ],
+   "moment": "Mồi nhử càng đẹp, khoang dạ dày phía sau càng sâu."
+  },
+  {
+   "id": "slime_mimic_dung_fail",
+   "text": "Bạn định chuyển màu ngụy trang thành một bọc vàng lấp lánh để bẫy mồi, nhưng lại kiểm soát sắc tố sai bét, biến bản thân trông y hệt một bãi phân bò khổng lồ hôi hám.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "social"
+   ],
+   "result": "Vạn vật xa lánh bạn, mạo hiểm giả lách qua đi né, và bạn chẳng bắt được con mồi nào trong suốt cả mùa trăng.",
+   "effects": {
+    "joy": -10,
+    "fame": -5
+   }
+  },
+  {
+   "id": "slime_hibernate_freezing_core",
+   "text": "Bão tuyết trên Dãy Núi Răng Cưa năm nay lạnh kỷ lục. Lớp màng ngoài của bạn nứt nẻ bần bật, và lõi sinh mệnh có nguy cơ bị đóng băng thành đá tảng.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "rest"
+   ],
+   "choices": [
+    {
+     "label": "Chuyển hóa lượng ma lực dự trữ thành nhiệt năng",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn điều áp thành công, tạo ra một quầng sáng ấm áp bao bọc lấy phần lõi, bình yên vượt qua mùa đông.",
+      "effects": {
+       "INT": 2,
+       "health": 10
+      }
+     },
+     "fail": {
+      "text": "Bạn kiểm soát sai dòng chảy, ma lực cạn kiệt khiến một nửa cơ thể bị hoại tử do sương giá.",
+      "effects": {
+       "health": -25,
+       "wealth": -5
+      }
+     }
+    },
+    {
+     "label": "Gồng mình biến đổi cấu trúc thích nghi với băng",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Cơn lạnh không giết được bạn mà còn biến bạn thành một cá thể dai dẳng hơn mang thuộc tính băng hàn.",
+      "effects": {
+       "STR": 2,
+       "health": 5
+      }
+     },
+     "fail": {
+      "text": "Tế bào của bạn quá yếu, đông cứng lại và vỡ vụn từng mảng khi bạn cố cử động.",
+      "effects": {
+       "health": -20
+      }
+     }
+    }
+   ],
+   "moment": "Kẻ không chịu đựng được cái lạnh sẽ vĩnh viễn ngủ vùi dưới lớp tuyết đen."
+  },
+  {
+   "id": "slime_hibernate_warm_bed",
+   "text": "Bạn đang ngủ đông dưới dạng một đĩa đệm nhão mềm mại. Đột nhiên, một con Dire Bear (Gấu Ma) to lớn chui vào hang và ngả ngớn nằm đè lên người bạn để tránh rét.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "rest"
+   ],
+   "choices": [
+    {
+     "label": "Tiết axit âm thầm tiêu hóa bộ lông của nó",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Xuyên suốt mùa đông, bạn ranh mãnh rỉ rả ăn mòn lớp da gấu mà con thú cồng kềnh không hề hay biết. Tới mùa xuân, nó chỉ còn là bộ xương khô.",
+      "effects": {
+       "STR": 2,
+       "AGI": 2,
+       "health": 20
+      }
+     },
+     "fail": {
+      "text": "Lượng axit quá hăng làm con gấu ngứa ngáy, nó giận dữ cào xé nát cơ thể bạn rồi chui ra chỗ khác.",
+      "effects": {
+       "health": -25,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Bất ngờ nặn ra gai nhọn đâm từ dưới lên",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Những mũi gai sắc lẻm đâm thủng lớp mỡ, con gấu gầm rống bỏ chạy trối chết để lại vũng máu tươi.",
+      "effects": {
+       "STR": 2,
+       "fame": 3
+      }
+     },
+     "fail": {
+      "text": "Lớp mỡ gấu quá dày, gai của bạn gãy rụng và nhận lại một cú tát trời giáng.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Để yên làm đệm sưởi ấm lẫn nhau",
+     "require": {
+      "health": 20
+     },
+     "showLocked": true,
+     "text": "Bạn từ bỏ dã tâm, ngoan ngoãn hấp thụ hơi ấm từ con mãnh thú, có một giấc ngủ say sưa êm ái nhất trần đời.",
+     "effects": {
+      "health": 15,
+      "joy": 10
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_hibernate_goblin_shrine",
+   "text": "Khi mở mắt thức giấc sau một thập kỷ ngủ vùi, bạn bàng hoàng nhận ra một bộ tộc Goblin đã xây nguyên một khu đền thờ quanh cơ thể cứng đơ của bạn, gọi bạn là \"Vị Thần Của Hắc Ảm\".",
+   "stages": [
+    "middle"
+   ],
+   "focus": [
+    "rest"
+   ],
+   "choices": [
+    {
+     "label": "Giả vờ hiển linh đòi cống nạp",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn phát sáng mờ ảo và rung lên bần bật. Đám Goblin kinh hãi quỳ rạp, vội vã ném mọi của cải, thịt nướng vào miệng bạn.",
+      "effects": {
+       "INT": 2,
+       "wealth": 25,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Đám Shaman của chúng nhận ra luồng ma lực của quái vật chứ không phải thần linh. Cả bầy ùa lên giáo mác đâm chém bạn.",
+      "effects": {
+       "health": -20,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Thức tỉnh thô bạo, đè bẹp Tù trưởng",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn phình to hết cỡ, nghiền nát gã Tù trưởng kiêu ngạo cùng đống tế đàn, nuốt chửng mọi thứ trên đường càn quét.",
+      "effects": {
+       "STR": 3,
+       "health": 15,
+       "wealth": 10
+      }
+     },
+     "fail": {
+      "text": "Cơ thể vừa ngủ dậy còn cứng nhắc, bạn vướng vào các trụ cột đền thờ và bị bầy Goblin bẫy lưới hỏa công.",
+      "effects": {
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Tiếp tục ngủ, mặc kệ đám ranh con",
+     "text": "Bạn lười nhác nhắm mắt lại. Lũ Goblin coi đó là sự ban phước tĩnh lặng, tiếp tục tôn thờ bạn như một bức tượng sống.",
+     "effects": {
+      "joy": 10,
+      "fame": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_ally_brave",
+   "text": "Một con Giant Troll xuất hiện chặn đường. Thay vì chờ bạn lên kế hoạch, {ally} rống lên cất bước lao thẳng vào chân gã khổng lồ với vũ khí thô sơ.",
+   "require": {
+    "party": 1,
+    "allyTrait": "brave"
+   },
+   "choices": [
+    {
+     "label": "Hóa thành đệm lò xo bắn theo yểm trợ",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn búng người theo, bọc lấy gậy của {ally} và biến cú đánh thành một đòn axit tàn phá.",
+      "effects": {
+       "AGI": 2,
+       "bond": 10
+      }
+     },
+     "fail": {
+      "text": "Bạn bắn trượt, {ally} bị Troll đá văng vào vách đá gãy xương.",
+      "effects": {
+       "joy": -5,
+       "allyHurt": true
+      }
+     }
+    },
+    {
+     "label": "Quấn chân kéo {ally} giật lùi lại",
+     "check": {
+      "stat": "STR",
+      "target": 3
+     },
+     "success": {
+      "text": "Xúc tu của bạn lôi tuột {ally} về ngay trước khi chiếc chùy gai đập nát chỗ hắn vừa đứng.",
+      "effects": {
+       "STR": 1,
+       "INT": 1
+      }
+     },
+     "fail": {
+      "text": "Lực kéo không đủ, chiếc chùy sượt qua làm rách một phần cơ thể bạn.",
+      "effects": {
+       "health": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_ally_loyal",
+   "text": "Một tay Sniper giấu mặt bắn mũi tên bọc Bạc Tinh Khiết nhằm thẳng vào lõi của bạn. Không chần chừ, {ally} dang tay lao ra chắn mũi tên chí mạng đó.",
+   "stages": [
+    "teen"
+   ],
+   "require": {
+    "party": 1,
+    "allyTrait": "loyal"
+   },
+   "choices": [
+    {
+     "label": "Tiết dịch phục hồi dung hợp vào vết thương",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Bạn truyền một phần sinh mệnh nhầy nhụa vào cơ thể {ally}, cứu sống kẻ trung thành. Máu của hắn và bạn hòa làm một.",
+      "effects": {
+       "health": -20,
+       "bond": 20
+      }
+     },
+     "fail": {
+      "text": "Dịch của bạn lại làm vết thương nhiễm trùng thêm, {ally} thoi thóp cận kề cái chết.",
+      "effects": {
+       "joy": -15
+      }
+     }
+    },
+    {
+     "label": "Nuốt chửng {ally} để mũi tên không xuyên qua",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn nuốt trọn đồng đội vào khoang bụng an toàn, mũi tên bạc chỉ sượt qua lớp màng ngoài của bạn.",
+      "effects": {
+       "INT": 2,
+       "health": 5
+      }
+     },
+     "fail": {
+      "text": "Mũi tên cắm vào người bạn khiến lõi đau nhói, bạn vội nhả {ally} ra trong đớn đau.",
+      "effects": {
+       "health": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_ally_greedy",
+   "text": "Sau khi hạ gục một con Rock Golem, {ally} lén giấu viên Lõi Mana vàng rực vào túi riêng thay vì nộp cho bạn cắn nuốt.",
+   "focus": [
+    "adventure"
+   ],
+   "require": {
+    "party": 1,
+    "allyTrait": "greedy"
+   },
+   "choices": [
+    {
+     "label": "Dùng bạo lực ép nhả ra",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn quấn chặt lấy {ally} đến ngạt thở. Kẻ tham lam đành sợ hãi nôn viên ma thạch ra dâng cho bạn.",
+      "effects": {
+       "STR": 2,
+       "bond": -10
+      }
+     },
+     "fail": {
+      "text": "{ally} vùng vằng cắn lại, nuốt tọt viên ma thạch vào bụng và chạy mất tích.",
+      "effects": {
+       "wealth": -10,
+       "allyDie": true
+      }
+     }
+    },
+    {
+     "label": "Dụ dỗ trao đổi bằng vàng bạc",
+     "check": {
+      "stat": "wealth",
+      "target": 35
+     },
+     "success": {
+      "text": "Đưa ra vài đồng Huyết Kim lấp lánh, {ally} mờ mắt đổi ngay viên ma thạch cho bạn.",
+      "effects": {
+       "INT": 1,
+       "wealth": -5,
+       "bond": 5
+      }
+     },
+     "fail": {
+      "text": "Bạn chẳng có đồng nào, đành trơ mắt nhìn đồng bọn nuốt trọn năng lượng ngon lành.",
+      "effects": {
+       "joy": -5
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_ally_timid",
+   "text": "Tiếng gầm của một con rồng vang dội từ tầng dưới. Trái tim {ally} đập loạn nhịp, hắn sợ hãi đào bới và rúc hẳn vào giữa khối bùn nhão của bạn để trốn.",
+   "focus": [
+    "study"
+   ],
+   "require": {
+    "party": 1,
+    "allyTrait": "timid"
+   },
+   "choices": [
+    {
+     "label": "Bao bọc và ngụy trang cho cả hai",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Cơ thể bạn chuyển màu xám xịt như tảng đá, che chở hoàn toàn cho kẻ yếu đuối đang run rẩy bên trong.",
+      "effects": {
+       "LUCK": 2,
+       "bond": 15
+      }
+     },
+     "fail": {
+      "text": "Khối lượng của {ally} làm cơ thể bạn phình to bất thường, thu hút sự chú ý của bầy dơi hút máu.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Tức giận nôn {ally} ra ngoài",
+     "text": "Bạn ghét sự hèn nhát, hất văng đồng bọn ra ngoài mặc kệ hắn tự sinh tự diệt.",
+     "effects": {
+      "fame": 2,
+      "bond": -20
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_ally_cheerful",
+   "text": "Trong lúc buồn chán, {ally} coi bạn như một tấm bạt lò xo, liên tục nhảy chồm chồm lên cơ thể dẻo quánh của bạn và cười sằng sặc.",
+   "require": {
+    "party": 1,
+    "allyTrait": "cheerful"
+   },
+   "choices": [
+    {
+     "label": "Hất văng lên trần hang cho chừa",
+     "check": {
+      "stat": "STR",
+      "target": 3
+     },
+     "success": {
+      "text": "Bạn dồn nén cơ bắp rồi búng mạnh. {ally} bay vút lên đập đầu vào thạch nhũ, sưng một cục to tướng nhưng vẫn cười hềnh hệch.",
+      "effects": {
+       "STR": 1,
+       "joy": 5
+      }
+     },
+     "fail": {
+      "text": "Bạn búng lệch, {ally} ngã lăn ra đất gãy tay, khóc lóc thảm thiết.",
+      "effects": {
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Lắc lư theo nhịp để cùng chơi",
+     "text": "Dù mang tiếng là quái vật, đôi khi chút trẻ con cũng làm xoa dịu tâm hồn vặn vẹo của bạn.",
+     "effects": {
+      "joy": 15,
+      "bond": 10
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_ally_cold",
+   "text": "Bạn vừa bắt sống được một nữ Elf Ranger. {ally} rút dao găm, lạnh lùng đề nghị cắt gân chân và gân tay của cô ta để làm \"túi thức ăn tươi sống\" dự trữ ăn dần.",
+   "require": {
+    "party": 1,
+    "allyTrait": "cold"
+   },
+   "choices": [
+    {
+     "label": "Làm theo lời khuyên tàn độc",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn để {ally} ra tay, đảm bảo nguồn dinh dưỡng dồi dào trong nhiều ngày tới mà con mồi không thể trốn thoát.",
+      "effects": {
+       "health": 20,
+       "fame": -5
+      }
+     },
+     "fail": {
+      "text": "Nữ Elf giả vờ ngất, cắn thuốc độc tự sát để giữ gìn danh dự. Bạn mất trắng bữa ăn.",
+      "effects": {
+       "wealth": -10
+      }
+     }
+    },
+    {
+     "label": "Phủ quyết, ăn tươi nuốt sống ngay lập tức",
+     "check": {
+      "stat": "STR",
+      "target": 3
+     },
+     "success": {
+      "text": "Bạn gạt phăng ý đồ bệnh hoạn đó, một ngụm nuốt trọn con mồi kết liễu gọn gàng.",
+      "effects": {
+       "STR": 1,
+       "health": 10
+      }
+     },
+     "fail": {
+      "text": "{ally} tỏ ra khinh bỉ sự phàm ăn thiếu tổ chức của bạn, lòng trung thành giảm sút.",
+      "effects": {
+       "bond": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_ally_food_fight",
+   "text": "Một xác con mồi to béo nằm giữa hang. Cả bạn và {ally} đều lao vào há miệng cắn, không ai chịu nhường ai.",
+   "focus": [
+    "work"
+   ],
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Tiết dịch axit đe dọa",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Một vài giọt axit bắn ra làm bỏng nhẹ, {ally} lập tức lùi lại nhường phần lớn thịt cho vị thủ lĩnh.",
+      "effects": {
+       "STR": 2,
+       "health": 15
+      }
+     },
+     "fail": {
+      "text": "{ally} né được và hớt tay trên khúc thịt ngon nhất, để lại cho bạn toàn xương xẩu.",
+      "effects": {
+       "health": -10
+      }
+     }
+    },
+    {
+     "label": "Chia phần công bằng theo luật",
+     "require": {
+      "INT": 5
+     },
+     "showLocked": true,
+     "text": "Dù là ma vật, bạn biết cách duy trì tổ chức. Cả hai cùng ăn, sức mạnh tập thể tăng lên.",
+     "effects": {
+      "INT": 2,
+      "bond": 15
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_ally_salt_trap",
+   "text": "Bạn trườn nhầm vào một vòng tròn rắc đầy Muối Tinh Khiết của mạo hiểm giả. Cơ thể bạn xèo xèo bốc khói, mất nước trầm trọng và không thể tự thoát.",
+   "focus": [
+    "adventure"
+   ],
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Ra lệnh cho {ally} bốc muối ném đi",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "{ally} dùng áo khoác gạt sạch vòng muối, mở đường máu cho bạn trườn ra thoi thóp.",
+      "effects": {
+       "INT": 1,
+       "health": -10
+      }
+     },
+     "fail": {
+      "text": "{ally} luống cuống đá nhầm đống muối vào người bạn khiến bạn bỏng rát thấu tận lõi.",
+      "effects": {
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Hút máu {ally} để bù nước, phá vòng vây",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Sự sinh tồn lấn át lý trí. Bạn phóng xúc tu cắm vào {ally}, rút máu tươi của đồng đội để cường hóa bản thân lao ra ngoài.",
+      "effects": {
+       "STR": 3,
+       "health": 10,
+       "allyDie": true
+      }
+     },
+     "fail": {
+      "text": "{ally} kinh hãi vùng chạy thoát thân, bỏ mặc bạn khô quắt dần trong vòng muối.",
+      "death": "(Tình đồng chí kết thúc khi cái chết cận kề"
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_ally_loot_split",
+   "text": "Bọn bạn tìm thấy một rương kho báu chứa đầy Huyết Kim, đá quý và một vài bình ma dược quý hiếm.",
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Nuốt ma dược, nhường lại vàng bạc",
+     "text": "Đối với Slime, vàng là thứ vô giá trị. Bạn nuốt thuốc phép để tiến hóa, để {ally} ôm đống tiền thỏa mãn.",
+     "effects": {
+      "INT": 2,
+      "bond": 20
+     }
+    },
+    {
+     "label": "Hấp thụ luôn cả vàng lẫn thuốc",
+     "text": "Bạn tham lam nuốt trọn mọi thứ, vàng củng cố lớp vỏ, thuốc cường hóa lõi. {ally} chỉ biết đứng nhìn ngậm ngùi.",
+     "effects": {
+      "STR": 1,
+      "wealth": 30,
+      "bond": -15
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_ally_past_hunter",
+   "text": "Một gã Tamer cấp cao xuất hiện chặn đường. Hắn chỉ chiếc roi nạm ngọc về phía {ally}, gầm lên: \"Giao con quái vật phản chủ đó ra, ta sẽ tha mạng cho mi, vũng bùn!\".",
+   "stages": [
+    "child"
+   ],
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Bao bọc {ally} và chiến đấu bảo vệ",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Cơn thịnh nộ của Slime bùn bùng nổ, bạn quấn nát chiếc roi ma thuật và đè bẹp gã Tamer ngu ngốc xuống bùn.",
+      "effects": {
+       "STR": 3,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Roi điện vụt xuống làm cơ thể bạn vỡ vụn. Gã Tamer giẫm lên bạn và xích cổ {ally} lôi đi.",
+      "effects": {
+       "health": -25,
+       "allyDie": true
+      }
+     }
+    },
+    {
+     "label": "Nhổ toẹt {ally} ra nộp mạng",
+     "text": "Kẻ thức thời mới sống lâu. Bạn giao nộp đồng bọn để đổi lấy sự bình yên.",
+     "effects": {
+      "joy": -10,
+      "flags": [
+       "betrayer_slime"
+      ],
+      "allyDie": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_divide_mass_overload",
+   "text": "Cơ thể bạn đã hấp thụ quá nhiều vật chất, phình to đến mức lõi sinh mệnh bắt đầu rạn nứt vì áp lực. Bản năng sinh tồn đòi hỏi bạn phải tống khứ một phần máu thịt để tạo ra cá thể mới.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "work"
+   ],
+   "choices": [
+    {
+     "label": "Dồn ép ma lực xé đôi cơ thể",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn gồng mình rặn ra một tiếng \"bóp\" giòn giã. Một khối nhầy nhỏ gọn văng ra, mang theo một phần ý thức của bạn, chớp mắt nhìn bạn trân trân.",
+      "effects": {
+       "STR": 2,
+       "health": -10,
+       "child": true
+      }
+     },
+     "fail": {
+      "text": "Lực xé không đều khiến khối thịt bị đứt đoạn, vữa nát thành vũng nước vô tri. Bạn mất một lượng lớn thể tích vô ích.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Ổn định cơ thể, chờ dịp khác",
+     "text": "Bạn ép khối nhầy đang sôi sục lắng xuống. Lõi vẫn còn nguyên. Cơ hội này sẽ quay lại."
+    }
+   ],
+   "once": false
+  },
+  {
+   "id": "slime_divide_knowledge_seed",
+   "text": "Trải qua bao năm tháng, lượng ký ức và kiến thức trong lõi của bạn trở nên quá tải. Bạn muốn tách một bản sao nhỏ để lưu giữ những ma thuật đã học được.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "choices": [
+    {
+     "label": "Sao chép mạng lưới nơ-ron bùn",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Một giọt bùn lấp lánh ánh sáng xanh tách rời khỏi bạn. Đứa trẻ này sinh ra đã mang sẵn trí tuệ cổ xưa.",
+      "effects": {
+       "INT": 2,
+       "joy": 10,
+       "child": true
+      }
+     },
+     "fail": {
+      "text": "Quá trình truyền tải ký ức thất bại, đứa trẻ sinh ra bị điên loạn và lao vào cắn xé bạn trước khi tự nổ tung.",
+      "effects": {
+       "health": -15,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Ổn định cơ thể, chờ dịp khác",
+     "text": "Bạn ép khối nhầy đang sôi sục lắng xuống. Lõi vẫn còn nguyên. Cơ hội này sẽ quay lại."
+    }
+   ],
+   "once": false
+  },
+  {
+   "id": "slime_divide_death_escape",
+   "text": "Một đòn đánh chí mạng của Thánh Kỵ Sĩ vừa xẻ toạc cơ thể bạn. Trong cơn hấp hối, cách duy nhất để di sản của bạn tồn tại là dồn chút tàn dư cuối cùng để nặn ra một mầm sống mới tẩu thoát.",
+   "require": {
+    "below": {
+     "health": 20
+    }
+   },
+   "choices": [
+    {
+     "label": "Bắn phần lõi phụ lẩn vào khe đá",
+     "check": {
+      "stat": "AGI",
+      "target": 9
+     },
+     "success": {
+      "text": "Thân xác chính vỡ nát, nhưng một giọt nhầy bé nhỏ mang theo hi vọng sống đã trôi tuột xuống cống ngầm an toàn.",
+      "effects": {
+       "fame": -10,
+       "child": true
+      }
+     },
+     "fail": {
+      "text": "Lưỡi kiếm thánh quang quét qua, thiêu rụi cả bản thể lẫn mầm sống chưa kịp thành hình.",
+      "death": "(Diệt môn"
+     }
+    },
+    {
+     "label": "Ổn định cơ thể, chờ dịp khác",
+     "text": "Bạn ép khối nhầy đang sôi sục lắng xuống. Lõi vẫn còn nguyên. Cơ hội này sẽ quay lại."
+    }
+   ],
+   "once": false
+  },
+  {
+   "id": "slime_child_adventurer_meal",
+   "text": "Một nhóm Mạo hiểm giả hạng F đi ngang qua, thấy {child} của bạn béo mầm liền tiện tay chém làm đôi để lấy lõi mana đem bán.",
+   "require": {
+    "children": 1
+   },
+   "choices": [
+    {
+     "label": "Gầm lên lao ra báo thù",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Cơn phẫn nộ của quái vật bùng nổ. Bạn nuốt trọn toàn bộ tổ đội tân thủ, tiêu hóa không chừa một mảnh xương để tế vong linh đứa con non nớt.",
+      "effects": {
+       "STR": 2,
+       "fame": 5,
+       "loseChild": true
+      }
+     },
+     "fail": {
+      "text": "Đám mạo hiểm giả hò reo vì vớ được thêm một con mồi lớn, xúm lại chém bạn tơi tả buộc bạn phải bỏ chạy.",
+      "effects": {
+       "health": -25,
+       "loseChild": true
+      }
+     }
+    },
+    {
+     "label": "Ép mình vào vách đá, bất lực nhìn",
+     "text": "Kẻ yếu không có quyền lên tiếng. Bạn run rẩy nuốt nước mắt vào trong, học được bài học tàn nhẫn của ngục tối.",
+     "effects": {
+      "INT": 1,
+      "joy": -15,
+      "loseChild": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_child_rebellion",
+   "text": "Bản năng của loài Slime là nuốt chửng đồng loại. Đứa con {child} của bạn nay đã đủ lớn, nó há miệng rỏ dãi và quắc mắt nhìn bạn như một bịch dinh dưỡng khổng lồ.",
+   "require": {
+    "children": 1
+   },
+   "choices": [
+    {
+     "label": "Đánh phủ đầu, áp chế bằng bạo lực",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn phình to đè bẹp {child}, dạy cho nó biết ai mới là ngai vàng thực sự. Nó sợ hãi thu mình lại ngoan ngoãn.",
+      "effects": {
+       "STR": 1,
+       "fame": 3
+      }
+     },
+     "fail": {
+      "text": "{child} hung hăng cắn đứt một mảng lớn cơ thể bạn, lớn nhanh như thổi và bỏ đi xưng vương nơi khác.",
+      "effects": {
+       "health": -20,
+       "loseChild": true
+      }
+     }
+    },
+    {
+     "label": "Nuốt ngược lại nó để thu hồi sức mạnh",
+     "require": {
+      "INT": 6
+     },
+     "showLocked": true,
+     "text": "Bạn máu lạnh mở toang khoang dạ dày, tái hấp thu đứa con xấc xược vào cơ thể chính, kết thúc một chu kỳ.",
+     "effects": {
+      "STR": 2,
+      "health": 20,
+      "loseChild": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_child_shiny_gift",
+   "text": "{child} vui vẻ trườn về ổ, nhả ra một chiếc nhẫn vàng cắm đầy gai nhọn bốc mùi tử khí ma thuật dâng cho bạn.",
+   "require": {
+    "children": 1
+   },
+   "choices": [
+    {
+     "label": "Thận trọng nuốt chiếc nhẫn",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Đó là một Nhẫn Ma Vương thất truyền. Quyền năng hắc ám tràn vào lõi, cường hóa cơ thể bạn trở nên cứng cáp lạ thường.",
+      "effects": {
+       "STR": 2,
+       "LUCK": 2,
+       "wealth": 20
+      }
+     },
+     "fail": {
+      "text": "Lời nguyền độc hại từ chiếc nhẫn nổ tung trong bụng, làm bạn đau thấu trời xanh.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Cất giấu vào kho báu",
+     "text": "Đồ của trẻ con mang về cứ cất đi cho an toàn, không nên ăn lung tung.",
+     "effects": {
+      "joy": 5,
+      "wealth": 15
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_child_mimic_lesson",
+   "text": "Bạn đang cố gắng dạy {child} cách ép phẳng cơ thể để ngụy trang thành một tảng đá rêu.",
+   "require": {
+    "children": 1
+   },
+   "choices": [
+    {
+     "label": "Thị phạm bằng cách uốn nắn từng nếp gấp",
+     "check": {
+      "stat": "INT",
+      "target": 3
+     },
+     "success": {
+      "text": "Đứa trẻ thông minh học được ngay, biến thành một hòn đá hoàn hảo không tì vết. Hai cha con nằm im lìm tự hào.",
+      "effects": {
+       "INT": 1,
+       "joy": 10
+      }
+     },
+     "fail": {
+      "text": "Nó không hiểu ý, phình to ra thành hình... một cục phân Goblin. Bạn cạn lời.",
+      "effects": {
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Ổn định cơ thể, chờ dịp khác",
+     "text": "Bạn ép khối nhầy đang sôi sục lắng xuống. Lõi vẫn còn nguyên. Cơ hội này sẽ quay lại."
+    }
+   ],
+   "once": false
+  },
+  {
+   "id": "slime_child_lost_dungeon",
+   "text": "Một tiếng động lớn vang lên khiến hầm ngục rung chuyển. Bụi tan, {child} hoảng loạn trườn đi sai hướng và hoàn toàn mất tích vào phần tối của Mê Cung.",
+   "require": {
+    "children": 1
+   },
+   "choices": [
+    {
+     "label": "Lần theo vệt dịch nhầy để tìm kiếm",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn phóng nhanh qua các hành lang, kịp thời cứu {child} khỏi miệng một con nhện khổng lồ.",
+      "effects": {
+       "AGI": 2
+      }
+     },
+     "fail": {
+      "text": "Vệt dịch bị đứt đoạn bởi dòng suối ngầm. Bạn vĩnh viễn lạc mất đứa trẻ trong vực thẳm.",
+      "effects": {
+       "joy": -20,
+       "loseChild": true
+      }
+     }
+    },
+    {
+     "label": "Ổn định cơ thể, chờ dịp khác",
+     "text": "Bạn ép khối nhầy đang sôi sục lắng xuống. Lõi vẫn còn nguyên. Cơ hội này sẽ quay lại."
+    }
+   ],
+   "once": false
+  },
+  {
+   "id": "slime_evo_king_signal",
+   "text": "Bất chợt, hàng trăm con Slime cấp thấp từ khắp hầm ngục tự động bò về phía bạn, vây quanh ngai vàng bùn đất. Chúng đang chờ một vị Vua ra đời.",
+   "minAge": 100,
+   "weight": 10,
+   "require": {
+    "STR": 7,
+    "anyFlags": [
+     "usurper_slime",
+     "royal_slime"
+    ],
+    "form": "none",
+    "notFlags": [
+     "evo_sign_king"
+    ]
+   },
+   "result": "Bản năng thống trị trỗi dậy trong huyết quản ma lực. Bạn sẵn sàng cho cuộc chuyển hóa.",
+   "effects": {
+    "fame": 10,
+    "flags": [
+     "evo_sign_king"
+    ]
+   }
+  },
+  {
+   "id": "slime_evo_king_event",
+   "text": "Lực hấp dẫn từ lõi sinh mệnh của bạn đột nhiên tăng vọt, đe dọa ép nát chính cơ thể bạn nếu không đủ sức chống đỡ lượng vật chất khổng lồ.",
+   "weight": 12,
+   "require": {
+    "form": "none",
+    "flags": [
+     "evo_sign_king"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Gồng mình mở rộng thể tích tối đa",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Cơ thể bạn bùng nổ, hóa thành một ngọn núi nhầy nhụa khổng lồ với chiếc vương miện kết tinh từ ma lực nổi trên đỉnh. Bạn đã tiến hóa thành Slime King!",
+      "effects": {
+       "STR": 5,
+       "health": 50,
+       "evolve": "Slime King"
+      }
+     },
+     "fail": {
+      "text": "Lõi không chịu nổi áp suất và vỡ nát. Bạn nổ tung thành hàng vạn giọt nước bẩn, kết thúc sinh mạng vĩ đại.",
+      "death": "Lõi không chịu nổi áp suất và vỡ nát. Bạn nổ tung thành hàng vạn giọt nước bẩn, kết thúc sinh mạng vĩ đại."
+     }
+    },
+    {
+     "label": "Ổn định cơ thể, chờ dịp khác",
+     "text": "Bạn ép khối nhầy đang sôi sục lắng xuống. Lõi vẫn còn nguyên. Cơ hội này sẽ quay lại."
+    }
+   ],
+   "once": false
+  },
+  {
+   "id": "slime_king_post_adventurer",
+   "text": "Quân đội vương quốc phái một trung đoàn Kỵ Sĩ cắm cờ lao thẳng vào sào huyệt để tiêu diệt \"Vua Ma Vật\".",
+   "require": {
+    "form": "Slime King"
+   },
+   "result": "Chỉ bằng một cú lăn mình nhẹ nhàng, bạn nghiền nát phân nửa đội hình của chúng, biến kỵ binh thành bữa ăn lót dạ.",
+   "effects": {
+    "STR": 2,
+    "fame": 15
+   }
+  },
+  {
+   "id": "slime_king_post_usurper",
+   "text": "Một con Giant Slime đột biến to gan lao lên định cắn nuốt bạn để cướp ngai vàng.",
+   "require": {
+    "form": "Slime King"
+   },
+   "result": "Bạn há chiếc miệng sâu hoắm vạn trượng, nuốt chửng kẻ phản nghịch mà không cần nhai.",
+   "effects": {
+    "health": 20,
+    "fame": 5
+   }
+  },
+  {
+   "id": "slime_evo_elemental_signal",
+   "text": "Cơ thể bạn bắt đầu tự chuyển đổi màu sắc không kiểm soát: đỏ rực như dung nham, rồi lại xanh buốt như tảng băng trôi. Lượng mana xung quanh đang hội tụ.",
+   "minAge": 50,
+   "weight": 10,
+   "require": {
+    "INT": 8,
+    "any": [
+     {
+      "flags": [
+       "magic_slime"
+      ]
+     },
+     {
+      "job": "slime_magic"
+     }
+    ],
+    "form": "none",
+    "notFlags": [
+     "evo_sign_elemental"
+    ]
+   },
+   "result": "Bạn cảm nhận được nhịp thở của tự nhiên.",
+   "effects": {
+    "INT": 2,
+    "flags": [
+     "evo_sign_elemental"
+    ]
+   }
+  },
+  {
+   "id": "slime_evo_elemental_event",
+   "text": "Ba tinh thể Lửa, Băng và Sấm Sét tự nhiên hình thành trong khoang dạ dày của bạn. Chúng bắt đầu va chạm, tạo ra một cơn bão ma lực đe dọa xé rách bạn từ bên trong.",
+   "weight": 12,
+   "require": {
+    "form": "none",
+    "flags": [
+     "evo_sign_elemental"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Dùng ý chí điều hòa ba luồng sức mạnh",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn cân bằng hoàn hảo các nguyên tố. Cơ thể trong suốt của bạn giờ đây chứa đựng một dải ngân hà bão tố. Bạn tiến hóa thành Elemental Slime!",
+      "effects": {
+       "INT": 5,
+       "wealth": 30,
+       "evolve": "Elemental Slime"
+      }
+     },
+     "fail": {
+      "text": "Xung đột năng lượng tạo ra một vụ nổ hủy diệt, xóa sổ bạn khỏi bản đồ vĩnh viễn.",
+      "death": "Xung đột năng lượng tạo ra một vụ nổ hủy diệt, xóa sổ bạn khỏi bản đồ vĩnh viễn."
+     }
+    },
+    {
+     "label": "Ổn định cơ thể, chờ dịp khác",
+     "text": "Bạn ép khối nhầy đang sôi sục lắng xuống. Lõi vẫn còn nguyên. Cơ hội này sẽ quay lại."
+    }
+   ],
+   "once": false
+  },
+  {
+   "id": "slime_elemental_post_spirit",
+   "text": "Một Tinh Linh Lửa cấp cao kiêu ngạo thách thức quyền khống chế ngọn lửa của bạn.",
+   "require": {
+    "form": "Elemental Slime"
+   },
+   "result": "Bạn hấp thụ hoàn toàn đòn đánh hỏa ngục của nó rồi bắn trả bằng một tia sấm sét hủy diệt, khiến Tinh Linh bỏ chạy tán loạn.",
+   "effects": {
+    "INT": 2,
+    "fame": 10
+   }
+  },
+  {
+   "id": "slime_elemental_post_worship",
+   "text": "Một đàn quái thú hệ Băng lầm tưởng bạn là hiện thân của Thần Mùa Đông nên quỳ lạy dâng lên các loại thảo dược quý hiếm.",
+   "require": {
+    "form": "Elemental Slime"
+   },
+   "result": "Nằm im hưởng thụ lễ vật, bạn nhấm nháp thảo dược để thanh lọc cơ thể.",
+   "effects": {
+    "health": 20,
+    "joy": 10
+   }
+  },
+  {
+   "id": "slime_evo_humanoid_signal",
+   "text": "Trong lúc rình rập, bạn vô thức nặn ra thanh quản bằng bùn đất và bật ra một từ tiếng người hoàn hảo: \"Khát...\". Đám lính gác nghe thấy liền hoảng hốt rút gươm.",
+   "minAge": 50,
+   "weight": 10,
+   "require": {
+    "LUCK": 10,
+    "flags": [
+     "taste_of_adventurer"
+    ],
+    "job": "slime_mimic",
+    "form": "none",
+    "notFlags": [
+     "evo_sign_humanoid"
+    ]
+   },
+   "result": "Hình thái bậc cao của sinh vật đang nảy mầm trong bạn.",
+   "effects": {
+    "LUCK": 2,
+    "flags": [
+     "evo_sign_humanoid"
+    ]
+   }
+  },
+  {
+   "id": "slime_evo_humanoid_event",
+   "text": "Để đi đứng như con người, bạn phải cô đặc bùn lầy thành một hệ thống khung xương và mạng lưới dây thần kinh giả. Sự đau đớn khi tự \"đục đẽo\" cơ thể là tột cùng.",
+   "weight": 12,
+   "require": {
+    "form": "none",
+    "flags": [
+     "evo_sign_humanoid"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Cắn răng chịu đựng cơn đau tái tạo",
+     "check": {
+      "stat": "AGI",
+      "target": 9
+     },
+     "success": {
+      "text": "Lớp da bùn rút lại, lộ ra một hình hài thiếu nam/thiếu nữ tuyệt mỹ với ánh mắt trống rỗng của vực thẳm. Bạn tiến hóa thành Humanoid Slime!",
+      "effects": {
+       "AGI": 5,
+       "fame": 20,
+       "evolve": "Humanoid Slime"
+      }
+     },
+     "fail": {
+      "text": "Việc ép cấu trúc sai lệch khiến cơ thể bạn gãy gập thành một vũng thịt dị dạng, dần dần hoại tử rữa nát.",
+      "death": "Việc ép cấu trúc sai lệch khiến cơ thể bạn gãy gập thành một vũng thịt dị dạng, dần dần hoại tử rữa nát."
+     }
+    },
+    {
+     "label": "Ổn định cơ thể, chờ dịp khác",
+     "text": "Bạn ép khối nhầy đang sôi sục lắng xuống. Lõi vẫn còn nguyên. Cơ hội này sẽ quay lại."
+    }
+   ],
+   "once": false
+  },
+  {
+   "id": "slime_humanoid_post_tavern",
+   "text": "Bạn mặc áo choàng, gọi một ly bia trong quán rượu của Guild. Kẻ phục vụ không hề hay biết ly bia trôi tuột xuống \"cái dạ dày\" trong suốt dưới lớp áo.",
+   "require": {
+    "form": "Humanoid Slime"
+   },
+   "result": "Lắng nghe tình báo của loài người thật dễ dàng khi bạn có cùng hình dáng với chúng.",
+   "effects": {
+    "INT": 2,
+    "joy": 5
+   }
+  },
+  {
+   "id": "slime_humanoid_post_romance",
+   "text": "Một gã Hiệp sĩ quý tộc say đắm nhan sắc giả tạo của bạn, quỳ xuống dâng tặng nhẫn kim cương để thề nguyền.",
+   "require": {
+    "form": "Humanoid Slime"
+   },
+   "result": "Bạn lạnh lùng nhận lấy chiếc nhẫn cất vào túi, rồi nuốt trọn cả gã tình si ngu ngốc vào bụng để ăn mừng.",
+   "effects": {
+    "STR": 1,
+    "wealth": 30
+   }
+  },
+  {
+   "id": "slime_elder_fading_memory",
+   "text": "Hàng thế kỷ trôi qua, lượng thông tin chồng chất làm phần lõi của bạn quá tải. Bạn bắt đầu quên mất mình từng sinh ra từ đâu và vì sao lại tiến hóa.",
+   "stages": [
+    "middle",
+    "ancient"
+   ],
+   "choices": [
+    {
+     "label": "Rút bớt ma lực để thanh lọc tâm trí",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn ngưng đọng lại những ký ức quan trọng nhất vào một tinh thể nhỏ, tiếp tục sống với lý trí sắc bén.",
+      "effects": {
+       "INT": 2,
+       "health": 10
+      }
+     },
+     "fail": {
+      "text": "Sự hỗn loạn nuốt chửng bạn, bạn rơi vào trạng thái vô tri, lang thang vô định như một vũng lầy hoang dại ban sơ.",
+      "effects": {
+       "INT": -5,
+       "joy": -20
+      }
+     }
+    },
+    {
+     "label": "Mặc kệ thời gian gặm nhấm",
+     "text": "Càng quên, bạn càng bớt bận lòng. Cuộc đời chỉ là một chuỗi ngày ăn và ngủ.",
+     "effects": {
+      "INT": -2,
+      "joy": 10
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_elder_fossilized_sleep",
+   "text": "Sự mệt mỏi của cõi bất tử khiến bạn chìm vào một giấc ngủ dài ngàn năm. Đất đá, rêu phong và rừng rậm đã mọc bao phủ kín cơ thể khổng lồ của bạn, biến bạn thành một quả đồi thực sự.",
+   "stages": [
+    "ancient"
+   ],
+   "focus": [
+    "rest"
+   ],
+   "result": "Bạn không còn là một sinh vật nữa, bạn đã trở thành một phần địa lý của thế giới Aethelgard. Một sự tĩnh lặng tuyệt mỹ.",
+   "effects": {
+    "health": 100,
+    "fame": 50
+   }
+  },
+  {
+   "id": "slime_elder_world_shift",
+   "text": "Tỉnh dậy sau một trận lở đất, bạn trườn lên mặt đất và bàng hoàng nhận ra không còn thảo nguyên hay vương quốc nào. Trước mắt bạn là những cỗ máy hơi nước khổng lồ và các tòa tháp kim loại chọc trời.",
+   "stages": [
+    "middle",
+    "ancient"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "result": "Hầm ngục đã bị san lấp, ma thuật đã mai một. Bạn thu nhỏ mình lại, trườn vào cống ngầm của thế giới hiện đại, bắt đầu một kiếp sống mới.",
+   "effects": {
+    "INT": 3,
+    "joy": 10
+   }
+  },
+  {
+   "id": "slime_elder_true_death",
+   "text": "Đối mặt với bạn là một Dũng Giả (Hero) đích thực, mang thanh Thánh Kiếm của Thần Khởi Nguyên. Hắn không nói một lời, vung kiếm chém một nhát xé rách không gian, nhắm thẳng vào linh hồn cằn cỗi của bạn.",
+   "stages": [
+    "ancient"
+   ],
+   "choices": [
+    {
+     "label": "Dồn toàn lực hàng thế kỷ để phản đòn",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Khối lượng vĩ đại của bạn va chạm với Thánh Kiếm, tạo ra vụ nổ xóa sổ nửa lục địa. Dũng Giả gục ngã, còn bạn lê lết tàn thể chìm sâu vào lòng đất để ngủ yên vĩnh viễn."
+     },
+     "fail": {
+      "text": "Lưỡi kiếm nhẹ nhàng lướt qua, cắt đứt sự trói buộc của kiếp bất tử. Cơ thể bạn tan thành muôn vàn cánh hoa ánh sáng. Lần đầu tiên, bạn cảm thấy sự thanh thản tuyệt đối.",
+      "death": "(Kết thúc viên mãn của một thảm họa"
+     }
+    },
+    {
+     "label": "Ổn định cơ thể, chờ dịp khác",
+     "text": "Bạn ép khối nhầy đang sôi sục lắng xuống. Lõi vẫn còn nguyên. Cơ hội này sẽ quay lại."
+    }
+   ],
+   "once": false
+  },
+  {
+   "id": "slime_chain1_tracker",
+   "text": "Kể từ khi nếm thịt gã lính đánh thuê dưới cống ngầm, bạn giữ lại chiếc huy hiệu bạc của hắn trong cơ thể như một chiến lợi phẩm lấp lánh. Không may, ánh sáng đó lọt vào mắt một Ranger của Guild Bình Minh đang đi tuần.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "require": {
+    "flags": [
+     "taste_of_adventurer"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Bắn chiếc huy hiệu ra xa để đánh lạc hướng",
+     "check": {
+      "stat": "INT",
+      "target": 3
+     },
+     "success": {
+      "text": "Tên Ranger nhặt chiếc huy hiệu đẫm bùn và đuổi theo hướng khác. Bạn trốn thoát nhưng mất món đồ chơi yêu thích.",
+      "effects": {
+       "INT": 1,
+       "wealth": -5,
+       "flags": [
+        "guild_suspicion"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Chiếc huy hiệu bay trúng mặt tên Ranger. Hắn tức giận rút cung bắn bạn tơi tả trước khi bạn kịp rúc xuống cống.",
+      "effects": {
+       "health": -15,
+       "flags": [
+        "guild_target"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Nuốt sâu chiếc huy hiệu vào lõi và tấn công",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn trườn tới siết cổ tên Ranger trước khi hắn kịp rút còi báo động. Lại thêm một bữa ăn ngon.",
+      "effects": {
+       "AGI": 2,
+       "health": 10,
+       "flags": [
+        "blood_addict"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Hắn linh hoạt né được, thổi còi vang rền rồi bỏ chạy về báo cáo. Hầm ngục sắp có biến.",
+      "effects": {
+       "fame": 5,
+       "flags": [
+        "guild_target"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_chain1_payback",
+   "text": "Guild Bình Minh cuối cùng cũng xác định bạn là \"Kẻ ăn thịt người cống ngầm\". Đích thân chị gái của gã đạo chích năm xưa—một Assassin hạng A—mang theo song đao tẩm độc bước vào lãnh địa của bạn để báo thù.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "study"
+   ],
+   "require": {
+    "anyFlags": [
+     "guild_target",
+     "blood_addict"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Biến đổi hình dạng thành khuôn mặt em trai ả",
+     "require": {
+      "flags": [
+       "blood_addict"
+      ]
+     },
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Ả sững sờ, tay kiếm run rẩy đánh rơi vũ khí. Bạn nhân cơ hội nuốt chửng ả, đoàn tụ hai chị em trong bao tử của mình.",
+      "effects": {
+       "LUCK": 3,
+       "wealth": 25,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Ả nhận ra sự báng bổ, nổi cơn điên loạn băm vằm cơ thể bạn thành hàng trăm mảnh nhỏ.",
+      "effects": {
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Hóa lỏng lẻn xuống rãnh nước trốn chạy",
+     "require": {
+      "flags": [
+       "guild_target"
+      ]
+     },
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Sự nhút nhát cứu mạng bạn. Ả chém nát vách đá nhưng không tìm thấy bạn đành hậm hực rút lui.",
+      "effects": {
+       "AGI": 1,
+       "fame": -5
+      }
+     },
+     "fail": {
+      "text": "Độc tính từ song đao của ả lan vào dòng nước, khiến bạn bị ngộ độc suy nhược nhiều năm liền.",
+      "effects": {
+       "STR": -2,
+       "health": -20
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_chain2_remnants",
+   "text": "Bầy Minotaur và Goblin—tàn dư từ trận chiến đoạt ngôi năm xưa—cuối cùng cũng gác lại hiềm khích để liên minh. Chúng mang theo búa tạ và đuốc lửa kéo đến trước ngai vàng của bạn, thề băm vằm \"kẻ ăn hôi bẩn thỉu\".",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "train"
+   ],
+   "require": {
+    "flags": [
+     "usurper_slime"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hòa tan mặt đất, nhấn chìm tất cả",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Quyền năng của chúa tể dung hợp với lõi hầm ngục. Toàn bộ sảnh đường biến thành một đầm lầy axit lút đầu, nuốt chửng toàn bộ liên minh nổi loạn.",
+      "effects": {
+       "STR": 3,
+       "health": 20,
+       "flags": [
+        "dungeon_tyrant"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Sức lực của bạn chưa đủ bao trùm tất cả. Vài tên Minotaur lọt qua được và quai búa đập nứt lõi của bạn.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Phóng ra tinh thể ma lực để mua chuộc",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bọn quái vật ngốc nghếch thấy năng lượng liền tranh giành nhau, liên minh tự sụp đổ trong màn chém giết nội bộ. Bạn tiếp tục làm ngư ông đắc lợi.",
+      "effects": {
+       "INT": 2,
+       "wealth": -10,
+       "flags": [
+        "dungeon_schemer"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bọn chúng phớt lờ ma thạch, chỉ một lòng muốn nghiền nát bạn.",
+      "effects": {
+       "health": -20
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_chain2_abyss_call",
+   "text": "Hắc Nguyệt Hội—những kẻ thờ phụng Vực Thẳm Cổ Thần—đã chứng kiến cách bạn cai trị hầm ngục. Chúng lập đàn tế, triệu hồi hư ảnh của một Tà Thần đến đề nghị bạn gia nhập hàng ngũ Quỷ Vương.",
+   "stages": [
+    "middle"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "require": {
+    "anyFlags": [
+     "dungeon_tyrant",
+     "dungeon_schemer"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Chấp nhận ấn ký của Tà Thần",
+     "require": {
+      "flags": [
+       "dungeon_tyrant"
+      ]
+     },
+     "text": "(Chỉ với dấu ấn dungeon_tyrant) Quyền năng hắc ám cuồn cuộn chảy vào lõi. Bạn trở thành một Tướng Quân Bùn Nhão của Ma Vương, đổi lấy tự do vĩnh viễn.",
+     "effects": {
+      "STR": 5,
+      "INT": 5
+     }
+    },
+    {
+     "label": "Lừa dối Tà Thần, ăn luôn đồ hiến tế",
+     "require": {
+      "flags": [
+       "dungeon_schemer"
+      ]
+     },
+     "check": {
+      "stat": "LUCK",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn giả vờ cúi đầu, nuốt trọn số vật tế phẩm đắt giá trên bàn thờ rồi trượt đi mất. Hư ảnh Tà Thần mờ dần vì cạn ma lực trong sự uất hận.",
+      "effects": {
+       "LUCK": 3,
+       "wealth": 50,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Tà Thần nổi giận, giáng một đòn sấm sét hắc ám đánh cháy đen phân nửa khối lượng của bạn.",
+      "effects": {
+       "health": -40
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_chain3_reunion",
+   "text": "Nữ Alchemist Elara ({maker} của bạn) bị một đàn sói quỷ dồn vào chân tường ngay trong hầm ngục của bạn. Cô ả vấp ngã, làm rơi túi ma dược và tuyệt vọng chờ chết.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "study"
+   ],
+   "require": {
+    "flags": [
+     "magic_slime"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Bắn axit giết đàn sói để cứu ả",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Đàn sói tan chảy thành vũng máu. Elara kinh ngạc nhìn khối bùn \"phế phẩm\" năm xưa nay cứu mạng mình, rụt rè đẩy lại cho bạn một bình máu tươi.",
+      "effects": {
+       "AGI": 1,
+       "health": 15,
+       "flags": [
+        "elara_savior"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Sói phản ứng nhanh, cắn xé bạn tả tơi. Elara nhân cơ hội trốn mất, bỏ bạn lại làm bao cát.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Chờ sói cắn chết ả rồi ăn cả đôi bên",
+     "check": {
+      "stat": "INT",
+      "target": 3
+     },
+     "success": {
+      "text": "Bạn núp kỹ. Khi đàn sói no nê nằm ngủ hớ hênh, bạn bao trùm và nuốt gọn tất cả, bao gồm cả xác kẻ đã vô tình sinh ra mình.",
+      "effects": {
+       "INT": 2,
+       "health": 20,
+       "wealth": 10,
+       "flags": [
+        "creator_consumed"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Đàn sói ăn xong Elara liền ngửi thấy mùi bạn, tiếp tục đào bới buộc bạn phải trườn sâu xuống đất.",
+      "effects": {
+       "health": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_chain3_karma",
+   "text": "Món nợ nhân quả",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "require": {
+    "anyFlags": [
+     "elara_savior",
+     "creator_consumed"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Bỏ trốn khỏi sự bao bọc ngu ngốc",
+     "require": {
+      "flags": [
+       "elara_savior"
+      ]
+     },
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Elara giờ là Đại Giả Kim Thuật Sư, dẫn cả một đội mạo hiểm giả đến \"bắt con Slime cưng về nuôi\". Bạn trườn qua khe nứt, thoát khỏi cái ách \"thú cưng\".",
+      "effects": {
+       "joy": 10
+      }
+     },
+     "fail": {
+      "text": "Elara giờ là Đại Giả Kim Thuật Sư, dẫn cả một đội mạo hiểm giả đến bắt bạn về nuôi. Bạn bị nhốt vào một bình pha lê cao cấp, sống những năm lười biếng nhưng mất tự do.",
+      "effects": {
+       "joy": -20,
+       "health": 10
+      }
+     }
+    },
+    {
+     "label": "Dùng sức mạnh áp chế nội hỏa",
+     "require": {
+      "flags": [
+       "creator_consumed"
+      ]
+     },
+     "check": {
+      "stat": "health",
+      "target": 85
+     },
+     "success": {
+      "text": "Tàn dư oán niệm của Elara trong dạ dày bạn bộc phát thành nội hỏa. Bạn luyện hóa hoàn toàn tàn hồn ấy, biến oán khí thành sức mạnh cốt lõi.",
+      "effects": {
+       "STR": 3,
+       "INT": 2
+      }
+     },
+     "fail": {
+      "text": "Tàn dư oán niệm của Elara trong dạ dày bạn bộc phát thành nội hỏa, xé toạc một mảng dạ dày. Bạn nôn ra máu đen, suy yếu tột độ.",
+      "effects": {
+       "health": -30
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_chain4_whispering_seed",
+   "text": "Dưới đáy vực, bạn nuốt phải một Hạt Giống Hắc Ám—di vật của Quân đoàn Ma Vương. Hạt giống không bị tiêu hóa mà bám rễ vào lõi bạn, liên tục phát ra những tiếng thì thầm ma mị xúi giục sự tàn sát.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "work"
+   ],
+   "choices": [
+    {
+     "label": "Truyền ma lực nuôi dưỡng hạt giống",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Hạt giống nảy mầm rễ đen đâm xuyên qua lớp màng ngoài, biến bạn thành một cỗ máy sinh học gai góc.",
+      "effects": {
+       "STR": 2,
+       "INT": 1,
+       "flags": [
+        "demon_seed"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Hạt giống hút cạn ma lực của bạn khiến bạn suy kiệt, teo nhỏ lại.",
+      "effects": {
+       "health": -15,
+       "flags": [
+        "demon_parasite"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Bọc kín nó bằng màng cách ly",
+     "text": "Bạn khóa chặt nguồn năng lượng của nó, coi như nuốt phải một viên sỏi gây khó tiêu.",
+     "effects": {
+      "health": -5,
+      "flags": [
+       "dormant_seed"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_chain4_parasite_bloom",
+   "text": "Hạt giống bên trong bạn chính thức nở thành một Đóa Hoa Huyết Ngải. Nó bắt đầu tranh giành quyền điều khiển khối bùn của bạn, ép bạn bò về phía doanh trại của Thánh Kỵ Sĩ Đoàn để tự sát nhằm kéo theo sinh mạng loài người.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "train"
+   ],
+   "require": {
+    "anyFlags": [
+     "demon_seed",
+     "demon_parasite"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Giao chiến tâm trí để giành lại quyền kiểm soát",
+     "require": {
+      "flags": [
+       "demon_parasite"
+      ]
+     },
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Ý chí nguyên thủy của Slime đánh bại ma thuật ác quỷ. Bạn nghiền nát bông hoa từ bên trong, hấp thu sức mạnh của nó.",
+      "effects": {
+       "INT": 3,
+       "health": 15
+      }
+     },
+     "fail": {
+      "text": "Tâm trí bạn bị xóa sổ. Bạn trở thành con rối đánh bom liều chết của ma quân.",
+      "death": "(Bạn nổ tung trong doanh trại loài người"
+     }
+    },
+    {
+     "label": "Dung hợp hoàn toàn, trở thành Khổng Lồ Huyết Ngải",
+     "require": {
+      "flags": [
+       "demon_seed"
+      ]
+     },
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Thay vì kháng cự, bạn hòa quyện lõi của mình với bông hoa. Bạn biến đổi thành một hình thái thực vật - nhầy nhụa hoàn toàn mới, sở hữu nọc độc tàn phai.",
+      "effects": {
+       "STR": 4,
+       "fame": 10,
+       "evolve": "Bloodbloom Slime"
+      }
+     },
+     "fail": {
+      "text": "Cấu trúc cơ thể không tương thích, bạn vỡ tan thành vũng máu trộn rễ cây khô héo.",
+      "effects": {
+       "health": -40
+      }
+     }
+    }
+   ]
+  }
+ ],
+ "deaths": [],
+ "focus": {
+  "play": {
+   "hidden": true
+  },
+  "work": {
+   "name": "Hấp thụ",
+   "desc": "Làm vai trò của mình: nuốt, tiêu hóa, lớn lên",
+   "stages": [
+    "infant",
+    "child",
+    "teen",
+    "adult",
+    "middle",
+    "ancient"
+   ],
+   "bars": {
+    "health": 1
+   },
+   "quiet": {
+    "default": [
+     "Bạn dành cả năm trườn quanh hang dơi, từ tốn tiêu hóa lớp phân guano màu mỡ trên mặt đất.",
+     "Một tảng rêu đá khổng lồ bị bạn bọc kín, từ từ tan chảy thành thứ dịch lỏng ngọt ngào cung cấp năng lượng.",
+     "Bạn nằm ườn cạnh một bãi chiến trường cũ, gặm nhấm những mẩu xương vỡ mà thú ăn thịt chê bai."
+    ]
+   }
+  },
+  "study": {
+   "name": "Ẩn nấp",
+   "desc": "Nhanh nhẹn, Trí tuệ; trốn khỏi Mạo hiểm giả",
+   "stages": [
+    "infant",
+    "child",
+    "teen",
+    "adult",
+    "middle",
+    "ancient"
+   ],
+   "gains": {
+    "AGI": 0.2,
+    "INT": 0.1
+   },
+   "quiet": {
+    "default": [
+     "Bạn ép mỏng cơ thể, bám dính vào trần hang suốt một năm ròng rã mặc cho lũ Goblin qua lại ồn ào bên dưới.",
+     "Nằm cuộn tròn dưới một hốc cây, bạn ngụy trang thành một bãi bùn lầy nhàm chán mà không sinh vật nào thèm ngó ngàng.",
+     "Trốn trong một bộ giáp rỗng, bạn nhịp nhàng lắng nghe tiếng bước chân dồn dập của các Thánh Kỵ Sĩ tuần tra qua lại."
+    ]
+   }
+  },
+  "train": {
+   "name": "Khổ luyện",
+   "desc": "Sức mạnh; nén chặt cơ thể nhầy",
+   "stages": [
+    "child",
+    "teen",
+    "adult",
+    "middle"
+   ],
+   "quiet": {
+    "default": [
+     "Bạn gồng mình lên thành hình nón, rồi lại nhão ra thành vũng nước hàng vạn lần để kiểm soát cơ bắp giả.",
+     "Lực ép liên tục biến lõi hạt nhân lỏng lẻo của bạn dần trở nên cứng cáp, tựa như một viên kim cương đen thô ráp.",
+     "Bạn cố gắng kéo dãn cơ thể tạo ra xúc tu, nhưng cuối cùng chỉ làm xước một mảng rêu trên vách đá."
+    ]
+   }
+  },
+  "adventure": {
+   "name": "Lang thang",
+   "desc": "Đi săn mồi, mở rộng lãnh địa, leo thứ bậc",
+   "stages": [
+    "child",
+    "teen",
+    "adult",
+    "middle",
+    "ancient"
+   ],
+   "tags": null,
+   "quiet": {
+    "default": [
+     "Bạn nương theo dòng sông ngầm, trôi dạt vô định qua vô số những hang động tinh thể phát quang rực rỡ.",
+     "Trượt dài trên đồng cỏ mượt mà của Đồng Bằng Thánh Quang, bạn thầm tận hưởng làn gió tự do hiếm hoi.",
+     "Bám theo vết bánh xe ngựa chở hàng, bạn nhặt nhạnh những hạt lúa mì vương vãi trên đường đất suốt cả mùa thu."
+    ]
+   }
+  },
+  "social": {
+   "name": "Bắt chước",
+   "desc": "Trí tuệ, May mắn; học dáng hình của kẻ khác",
+   "stages": [
+    "teen",
+    "adult",
+    "middle",
+    "ancient"
+   ],
+   "gains": {
+    "INT": 0.2,
+    "LUCK": 0.15
+   },
+   "quiet": {
+    "default": [
+     "Suốt mùa đông, bạn hóa thành một gốc cây khô cằn gồ ghề, hình hài hoàn hảo đến mức chim chóc thản nhiên làm tổ trên đó.",
+     "Bạn thử nặn ra thanh quản từ bùn đất, lặp đi lặp lại những tiếng chửi thề tục tĩu học lỏm từ lũ Dwarf.",
+     "Nằm tĩnh lặng dưới dạng một tấm thảm trải sàn nhung gấm, bạn vờ như vô tri đón lấy bụi bặm và bước chân người qua lại."
+    ]
+   }
+  },
+  "rest": {
+   "name": "Ngủ đông",
+   "desc": "Ngủ hàng chục năm; hồi sức, thời gian trôi nhanh",
+   "stages": [
+    "infant",
+    "child",
+    "teen",
+    "adult",
+    "middle",
+    "ancient"
+   ],
+   "bars": {
+    "health": 2,
+    "joy": 0.5
+   },
+   "quiet": {
+    "default": [
+     "Bạn rút kiệt lượng hơi nước dư thừa, cuộn tròn thành một khối cầu khô cứng cỡ quả dưa hấu và chìm vào giấc mộng dài.",
+     "Băng tuyết phủ kín mặt đất, nhưng sâu trong lòng hang, nhiệt độ từ lõi ma lực vẫn giữ cho bạn nhịp đập phập phồng chậm rãi.",
+     "Đám rêu xanh mọc rễ ngay trên lớp màng ngoài đang đông cứng, biến bạn thành một hòn đá vô tri giữa thung lũng quạnh hiu."
+    ]
+   }
+  }
+ },
+ "systems": {
+  "bandName": "bầy",
+  "activeFrom": "child",
+  "jobFrom": "child",
+  "romance": false,
+  "autoChildren": false,
+  "companions": [
+   {
+    "race": "Slime",
+    "names": "slime",
+    "job": "Poison Slime",
+    "stat": "AGI",
+    "weight": 3
+   },
+   {
+    "race": "Slime",
+    "names": "slime",
+    "job": "Metal Slime",
+    "stat": "STR",
+    "weight": 2
+   },
+   {
+    "race": "Goblin",
+    "names": "goblin",
+    "job": "Goblin Scout",
+    "stat": "AGI",
+    "weight": 1
+   },
+   {
+    "race": "Kobold",
+    "names": "kobold",
+    "job": "Kobold Trapper",
+    "stat": "INT",
+    "weight": 1
+   }
+  ],
+  "recruit": {
+   "text": [
+    "Một Slime nhỏ màu xanh lá lăn đến cạnh bạn, rung rinh như muốn nói: \"Cho tớ đi với.\"",
+    "Một Goblin đói lả nhìn bạn, rồi nhìn đống xương bạn vừa nhả ra. \"Ta... làm bạn được không?\""
+   ],
+   "join": [
+    "{ally} dính vào thân bạn một chút rồi tách ra. Ở Slime, đó là cái bắt tay.",
+    "{ally} theo sau bạn, để lại một vệt nhầy song song với vệt của bạn."
+   ],
+   "decline": "Trườn đi chỗ khác",
+   "declineText": "Bạn lặng lẽ trườn đi. Đi một mình thì không phải chia mồi."
+  },
+  "jobSelect": {
+   "teen": [
+    "Cơ thể bạn bắt đầu biến đổi theo những gì bạn đã nuốt. Bạn sẽ trở thành loại Slime nào?"
+   ],
+   "adult": [
+    "Bạn đã lớn nhưng vẫn chỉ là một khối nhầy vô định. Có lẽ nên chọn một hình thái."
+   ],
+   "later": "Cứ nhầy nhụa thêm một thời gian",
+   "laterText": "Bạn chảy loang ra sàn đá. Hình thái có thể chờ."
+  },
+  "promotion": {
+   "try": "Nuốt chửng thử thách",
+   "wait": "Chưa, tiêu hóa thêm đã",
+   "waitText": "Bạn chậm rãi tiêu hóa. Slime không vội.",
+   "success": "Cơ thể bạn rung lên và đổi màu. Từ nay, bạn là {next}.",
+   "fail": [
+    "Bạn bị văng ra thành từng mảnh nhỏ. Phải mất cả tháng mới gom lại được.",
+    "Thử thách thất bại. Lõi của bạn đau nhói."
+   ]
+  },
+  "crossroads": {
+   "child": "Bạn đã đủ lớn để trườn khỏi vũng nước. Những năm tới, bạn sẽ làm gì?",
+   "teen": "Bạn đã là một Slime trưởng thành. Bạn sẽ dồn sức vào đâu?",
+   "adult": "Bạn đã là Quái Vật Dẻo, nỗi sợ của Mạo hiểm giả tân thủ. Bạn sẽ làm gì tiếp?",
+   "middle": "Bạn đã khổng lồ. Bạn sẽ dùng những năm này ra sao?",
+   "ancient": "Bạn đã là Vua Bùn Nhão. Những năm cuối, bạn muốn làm gì?",
+   "default": "Bạn sẽ dồn sức vào đâu?"
+  },
+  "stageEnter": {
+   "child": "Bạn không còn là giọt nhầy nhỏ. Bạn đã biết trườn, biết nuốt, biết trốn.",
+   "teen": "Bạn đã to bằng một con chó. Lũ Goblin bắt đầu tránh xa vũng của bạn.",
+   "adult": "Năm mươi năm. Bạn đã là Quái Vật Dẻo, nuốt được cả một Mạo hiểm giả.",
+   "middle": "Hai trăm năm. Bạn khổng lồ đến mức lấp kín cả một hành lang hầm ngục.",
+   "ancient": "Năm trăm năm. Bạn đã là Vua Bùn Nhão, một truyền thuyết của hầm ngục.",
+   "default": "Một chương mới của cuộc đời Slime mở ra."
+  },
+  "parentDeath": [
+   "Bạn cảm nhận được {who} đã tan biến. Một mảnh nhầy nhỏ trong bạn cũng lạnh đi.",
+   "{who} đã không còn. Bạn trườn qua chỗ cũ, hấp thụ chút dịch còn sót lại."
+  ],
+  "allyDie": [
+   "Cơ thể của {ally} lạnh dần và cứng đơ, bạn chầm chậm nuốt chửng cái xác để họ vĩnh viễn là một phần của bạn.",
+   "Máu đỏ của {ally} hòa vào thứ dịch nhầy xanh biếc của bạn, để lại một nỗi trống rỗng mà không cơn đói nào bù đắp được.",
+   "Đôi mắt {ally} nhắm nghiền dưới mũi gươm của loài người; ngày hôm đó, khối bùn vô tri lần đầu biết nếm mùi thù hận."
+  ],
+  "allyHurt": [
+   "Nhìn {ally} ôm cánh tay rỉ máu, bạn vội vã nhổ ra mấy cọng thảo dược xỉn màu với hi vọng cứu chữa.",
+   "Cơ thể bạn cuốn lấy quanh vết thương của {ally}, dùng lớp màng dẻo quánh như một vòng băng gạc tuyệt vọng.",
+   "Tiếng rên rỉ của {ally} vang vọng trong hang tối, bạn chỉ biết lượn lờ xung quanh, bất lực không có đôi tay để an ủi."
+  ],
+  "allyLeave": [
+   "{ally} vứt lại mảnh huy hiệu vỡ và chạy theo bầy đàn mới, để lại bạn trơ trọi một vũng cô độc giữa hầm ngục.",
+   "Một nhát chém lén từ sau lưng, {ally} cướp lấy kho báu rồi tẩu thoát, để lại bạn quằn quại vá víu lại vết thương lòng.",
+   "Bóng lưng {ally} khuất dần về phía lối ra đầy ánh sáng, bỏ lại một khối nhầy vốn thuộc về bóng tối vĩnh hằng."
+  ]
+ },
+ "stages": [
+  {
+   "id": "infant",
+   "start": 0,
+   "name": "Giọt Nhầy Nhỏ"
+  },
+  {
+   "id": "child",
+   "start": 5,
+   "name": "Khối Bùn Trượt"
+  },
+  {
+   "id": "teen",
+   "start": 15,
+   "name": "Slime Trưởng Thành"
+  },
+  {
+   "id": "adult",
+   "start": 50,
+   "name": "Quái Vật Dẻo"
+  },
+  {
+   "id": "middle",
+   "start": 200,
+   "name": "Slime Khổng Lồ"
+  },
+  {
+   "id": "ancient",
+   "start": 500,
+   "name": "Vua Bùn Nhão"
+  }
+ ],
+ "lifespan": [
+  650,
+  950
+ ],
+ "hazard": 0.0012
+}

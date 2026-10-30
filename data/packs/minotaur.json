@@ -1,0 +1,3837 @@
+{
+ "race": "minotaur",
+ "stageNames": {
+  "infant": "Bê Con Cuồng Nộ",
+  "child": "Kẻ Lạc Lối",
+  "teen": "Đấu Sĩ Sừng Nhọn",
+  "adult": "Ác Thú Gác Cổng",
+  "middle": "Bạo Chúa Mê Cung",
+  "elder": "Lão Ngưu Mù Lòa"
+ },
+ "forms": {
+  "Golden Minotaur": {
+   "name": "Golden Minotaur",
+   "life": 10
+  },
+  "Mythical Minotaur": {
+   "name": "Mythical Minotaur",
+   "life": 20
+  }
+ },
+ "origins": [
+  {
+   "id": "minota_origin_maze",
+   "name": "Tâm điểm Mê cung",
+   "weight": 20,
+   "text": "Bạn mở mắt giữa một căn phòng ngập mùi rêu xanh và sắt rỉ, nơi ánh sáng hiếm hoi lọt qua khe hở của lớp trần đá vôi. Tiếng rống trầm đục vang lên, chào đón một sinh mệnh mới sinh ra để làm chúa tể bóng tối.",
+   "siblings": "Không có (Minotaur có bản tính độc chiếm, kẻ yếu hơn đã bị ăn thịt từ trong bụng mẹ).",
+   "home": "Lớn lên trong bóng tối uy nghiêm, được nuôi dưỡng bằng thịt tươi của những kẻ lạc lối và niềm kiêu hãnh của dòng máu gác đền.",
+   "effects": {
+    "STR": 2,
+    "INT": -1,
+    "wealth": 50,
+    "flags": [
+     "maze_guardian"
+    ]
+   },
+   "father": {
+    "name": "Asterion",
+    "race": "Minotaur",
+    "role": "Bạo chúa Mê cung",
+    "trait": "Lầm lì, coi trọng lãnh thổ tuyệt đối",
+    "status": "alive",
+    "note": "Còn sống."
+   },
+   "mother": {
+    "name": "Taurus",
+    "race": "Minotaur",
+    "role": "Ác thú gác cổng",
+    "trait": "Hung bạo, cuồng tín với lời thề",
+    "status": "alive",
+    "note": "Còn sống."
+   }
+  },
+  {
+   "id": "minota_origin_torture",
+   "name": "Phòng tra tấn",
+   "weight": 10,
+   "text": "Thế giới đầu tiên bạn thấy là một màu xám xịt của song sắt và mùi máu ôi thiu tanh tưởi. Bạn sinh ra trên bàn tra tấn, nơi những xiềng xích bằng Huyết Kim kêu loảng xoảng mỗi khi bạn cựa quậy.",
+   "siblings": "Không có.",
+   "home": "Bị coi là một công cụ bạo lực không hơn không kém, lớn lên dưới đòn roi và sự ghẻ lạnh của lũ quản giáo Goblin.",
+   "effects": {
+    "STR": 1,
+    "AGI": 1,
+    "health": -10,
+    "flags": [
+     "enslaved"
+    ]
+   },
+   "father": {
+    "name": null,
+    "race": "Minotaur",
+    "role": "Nô lệ hầm mỏ",
+    "trait": "Bị xẻ thịt trước khi bạn ra đời",
+    "status": "dead",
+    "note": "Đã mất."
+   },
+   "mother": {
+    "name": "Grea",
+    "race": "Minotaur",
+    "role": "Nô lệ giác đấu",
+    "trait": "Tàn tạ, cạn kiệt sinh lực",
+    "status": "alive",
+    "note": "Chết ngay khi sinh ra bạn."
+   }
+  },
+  {
+   "id": "minota_origin_arena",
+   "name": "Đấu trường sinh tử",
+   "weight": 20,
+   "text": "Tiếng hò reo khát máu của hàng ngàn khán giả trên Đấu trường Huyết Sa là khúc hát ru đầu tiên của bạn. Bạn sinh ra ngay giữa bãi cát ngập ngụa máu tươi, dưới sự chứng kiến của những kẻ điên cuồng.",
+   "siblings": "Một anh trai cùng cha khác mẹ, nhưng đã bị chính {father} bẻ gãy sừng vì tội bỏ trốn.",
+   "home": "Lớn lên bằng đòn roi và sự rèn giũa khắc nghiệt, bạo lực là ngôn ngữ duy nhất bạn được dạy.",
+   "effects": {
+    "STR": 2,
+    "AGI": 1,
+    "joy": -20,
+    "flags": [
+     "gladiator_bull"
+    ]
+   },
+   "father": {
+    "name": "Gore",
+    "race": "Minotaur",
+    "role": "Quán quân Đấu trường",
+    "trait": "Kiêu hãnh, tàn nhẫn",
+    "status": "alive",
+    "note": "Còn sống."
+   },
+   "mother": {
+    "name": "Tộc nhân Beastman tộc Bò",
+    "race": "Beastman",
+    "role": "Nữ nô lệ mua vui",
+    "trait": "Cam chịu, nhẫn nhịn",
+    "status": "alive",
+    "note": "Bị chủ nhân sát hại để làm gương."
+   }
+  },
+  {
+   "id": "minota_origin_cult",
+   "name": "Tế đàn dị giáo",
+   "weight": 15,
+   "text": "Bạn được sinh ra trên một bàn đá khắc đầy cổ ngữ của Hắc Nguyệt Hội, bao quanh là những kẻ mặc áo choàng đen đang tụng niệm. Với chúng, sự ra đời của bạn là dấu hiệu Vực Thẳm Cổ Thần đang đáp lời.",
+   "siblings": "Vô số những hình hài thất bại ngâm trong bình chứa xung quanh bệ ấp.",
+   "home": "Được tôn thờ như một á thần sai lệch, sống giữa nhang khói ảo giác và những nghi thức hiến tế vấy máu mỗi đêm.",
+   "effects": {
+    "INT": 2,
+    "LUCK": -1,
+    "wealth": 30,
+    "fame": 10,
+    "flags": [
+     "cult_god"
+    ]
+   },
+   "father": {
+    "name": "Ma thần Vực Thẳm",
+    "race": "High Demon",
+    "role": "Tồn tại khái niệm vô hình",
+    "trait": "Phi logic, hỗn mang",
+    "status": "alive",
+    "note": "Không rõ trạng thái."
+   },
+   "mother": {
+    "name": "Nữ tế sư tối cao",
+    "race": "Human",
+    "role": "Cuồng tín Hắc Nguyệt Hội",
+    "trait": "Điên loạn, sùng bái sức mạnh",
+    "status": "alive",
+    "note": "Còn sống."
+   }
+  },
+  {
+   "id": "minota_origin_abyss",
+   "name": "Đáy Vực Thẳm",
+   "weight": 15,
+   "text": "Rơi xuống từ một kén nhầy nhụa bên vách đá vỡ, bạn chập chững bước những bước đầu tiên trên lớp xương trắng toát ở Cửa Ngục Than Khóc. Màn đêm đen kịt rèn luyện thính giác và khứu giác của bạn thành vũ khí tối thượng.",
+   "siblings": "Không có.",
+   "home": "Sự cô độc tuyệt đối. Phải tự nhai xương mẹ để sinh tồn qua những tháng đầu đời, học cách tàn nhẫn để không bị ăn thịt.",
+   "effects": {
+    "LUCK": 2,
+    "health": 20,
+    "fame": -5,
+    "flags": [
+     "maze_guardian"
+    ]
+   },
+   "father": {
+    "name": "Kẻ đồ tể",
+    "race": "Minotaur",
+    "role": "Kẻ lang thang Vực Thẳm",
+    "trait": "Tàn độc, sống bản năng",
+    "status": "gone",
+    "note": "Đã bỏ đi ngay khi gieo giống."
+   },
+   "mother": {
+    "name": "Khuyết danh",
+    "race": "Minotaur",
+    "role": "Ác thú gác cổng",
+    "trait": "Đơn độc, đói khát",
+    "status": "alive",
+    "note": "Chết vì vết thương sau khi sinh hạ bạn."
+   }
+  },
+  {
+   "id": "minota_origin_ruins",
+   "name": "Tàn tích đền thờ cổ",
+   "weight": 10,
+   "text": "Lớp rêu phong trên những cây cột đá đổ nát là cái nôi của bạn. Tiếng gió rít qua những dãy hành lang dài vô tận như khắc vào não bộ bạn một lời thề ngàn năm không được phép quên.",
+   "siblings": "Không có.",
+   "home": "Lớn lên cùng nhiệm vụ canh gác được truyền thẳng vào máu thịt. Không ai bầu bạn ngoài những cái bóng và bầy dơi.",
+   "effects": {
+    "STR": 1,
+    "INT": 1,
+    "AGI": -1,
+    "wealth": 100,
+    "flags": [
+     "cult_god"
+    ]
+   },
+   "father": {
+    "name": "Khổng lồ đá",
+    "race": "Golem",
+    "role": "Hộ vệ vô tri",
+    "trait": "Cứng nhắc, không có cảm xúc",
+    "status": "alive",
+    "note": "Cạn kiệt Lõi Mana nên đã hóa đá."
+   },
+   "mother": {
+    "name": "Lời nguyền Tự nhiên",
+    "race": "Minotaur",
+    "role": "Kẻ bị nguyền rủa",
+    "trait": "Nửa thân dưới đã hóa đá",
+    "status": "alive",
+    "note": "Còn sống nhưng không thể di chuyển."
+   }
+  },
+  {
+   "id": "minota_origin_volcano",
+   "name": "Lò ấp Đỉnh Hỏa Ngục",
+   "weight": 10,
+   "text": "Dung nham cuộn trào bên dưới Đỉnh Hỏa Ngục làm nứt toác quả trứng lai khổng lồ mà một con Rồng Vỹ bỏ lại. Hơi thở đầu tiên của bạn là khói lưu huỳnh đặc quánh, buồng phổi bốc cháy nhưng mang lại sức mạnh cuồng bạo.",
+   "siblings": "Những bộ xương vỡ vụn của lũ Imp vô tình nở gần đó, bị bạn dẫm nát.",
+   "home": "Sống hoang dã như một con thú lai, mang sự nóng nảy của núi lửa và sự cô độc của giống loài bị nguyền rủa.",
+   "effects": {
+    "STR": 3,
+    "INT": -2,
+    "health": 10,
+    "flags": [
+     "ash_born"
+    ]
+   },
+   "father": {
+    "name": "Chiến binh vô danh",
+    "race": "Minotaur",
+    "role": "Kẻ săn rồng",
+    "trait": "Dũng cảm đến mức ngu ngốc",
+    "status": "alive",
+    "note": "Bị thiêu rụi trong trận chiến."
+   },
+   "mother": {
+    "name": "Rồng lửa Đảo Tro Tàn",
+    "race": "Dragon",
+    "role": "Hung thần bầu trời",
+    "trait": "Kiêu ngạo",
+    "status": "gone",
+    "note": "Bỏ đi sau cuộc giao phối kỳ dị."
+   }
+  }
+ ],
+ "jobs": [
+  {
+   "id": "minotaur_guardian",
+   "name": "Labyrinth Guardian",
+   "stat": "STR",
+   "combat": true,
+   "desc": "Sức mạnh. Hộ vệ Mê cung, canh giữ vĩnh hằng trong bóng tối",
+   "require": {
+    "STR": 5
+   },
+   "alt": {
+    "anyFlags": [
+     "maze_guardian"
+    ],
+    "hint": "sinh ra ở Tâm điểm Mê cung hoặc Đáy Vực Thẳm"
+   },
+   "ranks": [
+    "Gate Guard",
+    "Dungeon Sentry",
+    "Labyrinth Warden",
+    "Minotaur Executioner",
+    "Labyrinth Lord"
+   ],
+   "income": [
+    0.8,
+    1.3,
+    2,
+    2.8,
+    3.8
+   ],
+   "hazard": 1.5,
+   "gains": {
+    "STR": 0.35
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    4,
+    6,
+    8,
+    10
+   ],
+   "promoStat": [
+    "STR",
+    "STR",
+    "STR",
+    "STR"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: cầm cự trước một toán trộm cướp tép riu, dùng sức mạnh thuần túy đập nát khiên và xương cốt của chúng.",
+    "Thử thách để trở thành {next}: đứng bất động canh gác trong ba tháng liên tục không rời vị trí, chỉ sống bằng việc nhai rêu trên vách đá.",
+    "Thử thách để trở thành {next}: phục kích một party mạo hiểm giả hạng C trong bóng tối mù mịt, đoạt mạng cả tổ đội trước khi chúng kịp niệm phép.",
+    "Thử thách để trở thành {next}: giao chiến và vặn gãy cổ Labyrinth Lord đương nhiệm, giành lấy vương tọa bằng luật rừng."
+   ],
+   "start": "Bạn đứng trước cánh cửa đá phủ đầy rêu, tay siết chặt cây rìu rỉ sét, thề sẽ nghiền nát bất cứ sinh vật nào dám bước qua.",
+   "quiet": [
+    "Ngồi cạo lớp rỉ sét đẫm máu trên chiếc rìu khổng lồ.",
+    "Lắng nghe tiếng nước nhỏ giọt trong bóng tối tĩnh lặng của mê cung cô độc.",
+    "Nhai lại những mẩu xương mục của kẻ xấu số lạc bước năm ngoái."
+   ]
+  },
+  {
+   "id": "minotaur_gladiator",
+   "name": "Gladiator",
+   "stat": "STR",
+   "combat": true,
+   "desc": "Sức mạnh và Nhanh nhẹn. Đấu sĩ Huyết Sa",
+   "require": {
+    "STR": 4,
+    "AGI": 4
+   },
+   "alt": {
+    "anyFlags": [
+     "gladiator_bull",
+     "enslaved"
+    ],
+    "hint": "xuất thân Đấu trường sinh tử hoặc Phòng tra tấn"
+   },
+   "ranks": [
+    "Meat Shield",
+    "Rookie Gladiator",
+    "Blood-sand Executioner",
+    "Arena Champion",
+    "Undefeated Warlord"
+   ],
+   "income": [
+    0.8,
+    1.4,
+    2.2,
+    3.2,
+    4.2
+   ],
+   "hazard": 2,
+   "gains": {
+    "STR": 0.2,
+    "AGI": 0.2
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    4,
+    6,
+    8,
+    10
+   ],
+   "promoStat": [
+    "STR",
+    "STR",
+    "STR",
+    "STR"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: tay không bẻ cổ một con Dire Wolf đang đói khát trên bãi cát nóng.",
+    "Thử thách để trở thành {next}: sống sót qua trận loạn đả hai mươi người, né tránh những lưỡi gươm đâm lén từ mọi phía.",
+    "Thử thách để trở thành {next}: chịu đựng chất kịch độc trên vũ khí của một Assassin để vung cú đấm kết liễu đối thủ.",
+    "Thử thách để trở thành {next}: nghiền nát sọ của nhà vô địch đương nhiệm dưới tiếng hò reo điên dại của vạn người."
+   ],
+   "start": "Cánh cổng sắt mở ra, ánh nắng chói lòa cùng mùi máu tanh nồng xộc vào mũi báo hiệu cuộc đời đẫm máu của bạn bắt đầu.",
+   "quiet": [
+    "Để mặc cho lũ Goblin chà rửa vết thương bằng thứ nước lá hôi hám.",
+    "Ngắm nhìn vết sẹo mới vắt ngang ngực với một sự tự hào đầy man rợ.",
+    "Gặm một tảng thịt đùi sống dai nhách trong buồng giam tối tăm."
+   ]
+  },
+  {
+   "id": "minotaur_shaman",
+   "name": "Abyssal Shaman",
+   "stat": "INT",
+   "combat": true,
+   "desc": "Trí tuệ. Vu sư Vực Thẳm",
+   "require": {
+    "INT": 6
+   },
+   "alt": {
+    "anyFlags": [
+     "cult_god"
+    ],
+    "hint": "xuất thân Tế đàn dị giáo hoặc Tàn tích đền thờ cổ"
+   },
+   "ranks": [
+    "Muttermouth",
+    "Apprentice Cultist",
+    "Soul Caller",
+    "Dark Shaman",
+    "Abyssal Emissary"
+   ],
+   "income": [
+    0.6,
+    1.1,
+    1.8,
+    2.8,
+    3.8
+   ],
+   "hazard": 1.3,
+   "gains": {
+    "INT": 0.35
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    4,
+    6,
+    8,
+    10
+   ],
+   "promoStat": [
+    "INT",
+    "INT",
+    "INT",
+    "INT"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: ghi nhớ và niệm một đoạn chú tà ác để dập tắt mọi nguồn sáng trong phòng.",
+    "Thử thách để trở thành {next}: hiến tế một bầy Slime khổng lồ để chiết xuất Lõi Mana hắc ám nguyên chất.",
+    "Thử thách để trở thành {next}: khắc các cổ ngữ rỉ máu trực tiếp lên lớp da dày của mình mà không phát điên vì cơn đau.",
+    "Thử thách để trở thành {next}: mở một cánh cổng không gian nứt nẻ để triệu hồi và khuất phục một High Demon cấp thấp."
+   ],
+   "start": "Bạn dùng móng vuốt rạch tay, vẽ lên vách đá những ký tự hỗn mang để đáp lại tiếng gọi của Vực Thẳm.",
+   "quiet": [
+    "Nhúng sừng vào vũng máu tươi để cường hóa kết giới xung quanh lãnh thổ.",
+    "Vẽ lại những hình thù méo mó gặp trong cơn ác mộng lên nền đá vôi.",
+    "Lẩm bẩm những ngôn từ phi logic khiến bầy Imp xung quanh khiếp sợ bỏ chạy."
+   ]
+  }
+ ],
+ "orgs": [
+  {
+   "id": "minotaur_labyrinth",
+   "name": "Mê cung",
+   "auto": true,
+   "ranks": [
+    "Stray Calf",
+    "Maze Sentry",
+    "Horned Gladiator",
+    "Labyrinth Brute",
+    "Labyrinth Warden",
+    "Labyrinth Tyrant",
+    "Labyrinth Sovereign"
+   ],
+   "points": [
+    0,
+    2,
+    5,
+    9,
+    14,
+    20,
+    null
+   ],
+   "missionWord": "trận chiến",
+   "fameToPts": 0.25,
+   "board": {
+    "text": [
+     "Tiếng chiêng đồng vang dội khắp các hành lang đá. Có kẻ đang thách thức sức mạnh của bạn.",
+     "Mùi mồ hôi và thép lạnh bay vào mê cung. Một trận chiến mới đang chờ chiếc rìu của bạn."
+    ],
+    "skip": "Khịt mũi, nằm lại trên đống xương",
+    "skipText": "Bạn phì hơi nóng ra lỗ mũi rồi nhắm mắt lại. Lũ sâu bọ có thể chờ."
+   },
+   "failText": "Bạn lê về mê cung, sừng mẻ và đầy vết chém. Đám Minotaur trẻ nhìn bạn với ánh mắt khác.",
+   "rankAliases": [],
+   "rankUp": {
+    "0": "Bạn chỉ là một con bê lạc giữa những hành lang đá lạnh.",
+    "1": "Bạn được giao canh một ngã rẽ của mê cung. Kẻ nào lạc vào đó là con mồi của bạn.",
+    "2": "Tiếng hò reo của đấu trường gọi tên bạn. Cặp sừng nhọn đã nếm đủ máu.",
+    "3": "Cả một tầng mê cung run lên mỗi khi bạn dậm chân.",
+    "4": "Bạn nắm chìa khóa của những cánh cửa đá sâu nhất. Kẻ lạc đường cầu xin bạn tha mạng.",
+    "5": "Bạn là Bạo chúa của Mê cung. Mạo hiểm giả đặt tên bạn vào những bản đồ cảnh báo.",
+    "6": "Ngai vàng vấy máu giờ là của bạn. Toàn bộ Mê cung cúi đầu trước tiếng gầm của bạn."
+   },
+   "join": []
+  }
+ ],
+ "quests": [
+  {
+   "id": "minota_battle_rookie_arena",
+   "org": "minotaur_labyrinth",
+   "name": "Lễ Huyết Tế Tân Binh",
+   "minRank": 0,
+   "hint": "Dễ. Đối thủ dẻo dai nhưng yếu ớt, dùng Sức mạnh áp đảo.",
+   "intro": "Cổng chuồng bằng sắt rỉ mở toang, ánh đuốc hắt chiếc bóng khổng lồ của bạn lên bức tường vấy máu. Đối thủ của bạn không phải những vinh quang gì, mà là một bầy Dire Wolf (Sói ma) gầy trơ xương, bị bỏ đói suốt một tuần trên Đấu trường Huyết Sa chỉ để thèm khát nhai thịt bò.",
+   "steps": [
+    {
+     "text": "Bốn con Dire Wolf nhe nanh gầm gừ, lao đến từ bốn phía hòng xé rách gân khoeo của bạn.",
+     "choices": [
+      {
+       "label": "Giẫm nát sọ sói đầu đàn",
+       "check": {
+        "stat": "STR",
+        "target": 6
+       },
+       "success": {
+        "text": "Bạn gầm lên, giậm chân đè bẹp sọ con sói lớn nhất. Lũ còn lại run rẩy cụp đuôi bỏ chạy.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Chân bạn hụt trên nền cát lún. Chúng bâu vào cắn rách đùi bạn.",
+        "effects": {
+         "health": -20
+        }
+       }
+      },
+      {
+       "label": "Quét rìu càn quét",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Bạn xoay người chém một đường ngang mặt đất, tiện đứt đôi ba con sói cùng lúc.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Lưỡi rìu vướng vào mặt đất, một con cắn ngập răng vào tay cầm rìu của bạn.",
+        "effects": {
+         "health": -15
+        }
+       }
+      },
+      {
+       "label": "Nhổ cột sắt đe dọa",
+       "require": {
+        "INT": 5
+       },
+       "showLocked": true,
+       "text": "Bạn bẻ gãy một song sắt chuồng thú, đập mạnh xuống cát tạo ra tiếng nổ đinh tai khiến bản năng loài chó của chúng hoảng loạn tột độ, cắn xé lẫn nhau.",
+       "end": "win"
+      }
+     ]
+    },
+    {
+     "text": "Bầy sói cắn chặt lấy chân và tay bạn. Chúng muốn rỉa thịt bạn đến chết.",
+     "choices": [
+      {
+       "label": "Bóp nát yết hầu",
+       "check": {
+        "stat": "health",
+        "target": 55
+       },
+       "success": {
+        "text": "Mặc kệ cơn đau, bạn túm cổ từng con bóp nát, máu nóng của sói tưới ướt cánh tay bạn.",
+        "effects": {
+         "health": -10
+        },
+        "end": "win"
+       },
+       "fail": {
+        "text": "Mất máu quá nhiều làm bạn kiệt sức, ngã khuỵu xuống bãi cát. Cảnh vệ phải lao vào can thiệp.",
+        "effects": {
+         "fame": -5
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Bạn đứng giữa bãi xác sói lầy lội, ngẩng chiếc đầu bò lên gầm một tiếng vang dội đáp trả tiếng hò reo man rợ từ khán đài.",
+   "reward": {
+    "wealth": 20,
+    "fame": 5,
+    "guildPts": 1
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Trận chiến đẫm máu sói đầu tiên dạy bạn rằng kẻ yếu sẽ làm mồi cho kẻ mạnh."
+  },
+  {
+   "id": "minota_battle_thief_party",
+   "org": "minotaur_labyrinth",
+   "name": "Kẻ Lạc Lối Ngu Ngốc",
+   "minRank": 1,
+   "hint": "Vừa. Bọn mạo hiểm giả cấp thấp thường ỷ lại vào ánh sáng, hãy dập tắt nó.",
+   "intro": "Một nhóm Mạo hiểm giả hạng E (gồm một Fighter, một Rogue và một Priest) lén lút tiến vào khu vực bạn canh giữ ở ngục tối. Chúng ngu ngốc thắp những ngọn đuốc sáng rực, biến bản thân thành những chiếc bia tập bắn tuyệt đẹp trong thế giới mù lòa nhưng nhạy bén của bạn.",
+   "steps": [
+    {
+     "text": "Bọn chúng đang xì xầm chia chác một viên đá quý vừa nhặt được, hoàn toàn không biết bạn đang đứng trong góc khuất ngay trên đỉnh đầu.",
+     "choices": [
+      {
+       "label": "Lao ra húc văng tên Fighter",
+       "check": {
+        "stat": "STR",
+        "target": 6
+       },
+       "success": {
+        "text": "Cặp sừng của bạn cắm ngập qua chiếc khiên gỗ, đâm xuyên ngực tên Fighter. Hai tên còn lại khiếp vía ngã nhào."
+       },
+       "fail": {
+        "text": "Tên Fighter giật mình vung khiên cản lại, khiến sừng bạn trượt đi, cắm vào tường.",
+        "effects": {
+         "health": -10
+        }
+       }
+      },
+      {
+       "label": "Ném đá dập đuốc",
+       "check": {
+        "stat": "AGI",
+        "target": 4
+       },
+       "success": {
+        "text": "Viên đá to bằng quả dưa hấu bay xẹt qua, thổi tắt ngọn đuốc. Tiếng hét hoảng loạn vang lên trong bóng tối."
+       },
+       "fail": {
+        "text": "Viên đá trượt mục tiêu. Bọn chúng phát hiện ra bạn và lập tức bày đội hình chiến đấu."
+       }
+      },
+      {
+       "label": "Dụ vào bẫy chông",
+       "require": {
+        "INT": 6
+       },
+       "showLocked": true,
+       "text": "Bạn ném một đồng Tinh Bạc về phía hố chông ẩn. Tên Rogue tham lam lao tới nhặt và kéo theo cả tên Priest ngã cắm mặt xuống hố. Tên Fighter hoảng loạn bỏ chạy thục mạng.",
+       "end": "win"
+      }
+     ]
+    },
+    {
+     "text": "Tên Rogue ném một lọ dầu cháy về phía bạn, trong khi tên Priest run rẩy niệm chú chuẩn bị tung phép \"Tia Sáng Lóa\" (Flash) làm mù mắt.",
+     "choices": [
+      {
+       "label": "Che mắt, húc mù quáng",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Bạn lấy tay che mắt, dùng bản năng húc văng cả ba cái xác vào vách đá thành một đống thịt nát bét.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Tia sáng làm bạn lóa mắt, bạn húc nhầm vào cột trụ khiến đá lở rơi trúng đầu, tạo cơ hội cho chúng bỏ chạy.",
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Lăn người né tránh",
+       "check": {
+        "stat": "AGI",
+        "target": 6
+       },
+       "success": {
+        "text": "Bạn né nhẹ lọ dầu, túm lấy vạt áo tên Rogue và chém bay đầu hắn. Tên linh mục sợ hãi vãi ra quần rồi ngất xỉu.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Lọ dầu vỡ toang, ngọn lửa thiêu cháy một mảng lông ngực của bạn. Bạn đau đớn lùi lại, để sổng con mồi.",
+        "effects": {
+         "wealth": -10
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Nhặt lấy những viên Tinh Bạc dính máu trên cái xác cháy xém, bạn dùng mũi chân hất phần còn lại xuống hố sâu cho bầy Slime dọn dẹp.",
+   "reward": {
+    "wealth": 40,
+    "fame": 8,
+    "guildPts": 2
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Ngọn đuốc của kẻ thù chỉ làm nổi bật cái bóng tử thần của bạn trong mê cung."
+  },
+  {
+   "id": "minota_battle_assassin_trap",
+   "org": "minotaur_labyrinth",
+   "name": "Phục Kích Trong Lặng Câm",
+   "minRank": 2,
+   "hint": "Vừa. Sát thủ dùng độc và tàng hình, không thể dùng mắt, phải dùng khứu giác hoặc độ lì đòn.",
+   "intro": "Trong lúc bạn đang dựa lưng vào vách đá chợp mắt, một sát thủ từ Guild Sát thủ Umbra đã lẻn vào lãnh thổ. Hắn bôi nọc độc Tinh Thể Nhện lên đôi dao găm Huyết Kim, im lìm như một bóng ma, chực chờ đâm lén gót chân Achilles của bạn.",
+   "steps": [
+    {
+     "text": "Tiếng gió khẽ rít lên bất thường. Bạn ngửi thấy mùi kim loại lạnh lẽo và sát khí nồng nặc sượt qua gáy. Hắn đang lao xuống từ trên cao!",
+     "choices": [
+      {
+       "label": "Bọc giáp cơ bắp, chịu đòn",
+       "check": {
+        "stat": "health",
+        "target": 55
+       },
+       "success": {
+        "text": "Bạn gồng cứng lớp cơ lưng. Dao găm sượt qua lớp da trâu dày cộp nhưng không chạm tới xương, khiến vũ khí của hắn kẹt lại."
+       },
+       "fail": {
+        "text": "Lưỡi dao cắm ngập vào bả vai bạn. Nọc độc bắt đầu ngấm làm tê liệt nửa thân trên.",
+        "effects": {
+         "AGI": -2,
+         "health": -30
+        }
+       }
+      },
+      {
+       "label": "Xoay người quật rìu",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Bản năng hoang dã trỗi dậy. Bạn vung rìu chém ngược lên không trung, bổ đôi tên sát thủ trước khi hắn kịp chạm đất. Cơn mưa máu dội xuống.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bạn chém hụt vào không khí. Hắn lướt qua và rạch một đường dài trên đùi bạn.",
+        "effects": {
+         "health": -20
+        }
+       }
+      },
+      {
+       "label": "Hít sâu tìm mùi độc",
+       "require": {
+        "INT": 7
+       },
+       "showLocked": true,
+       "text": "Chẳng cần quay lại, bạn nắm lấy một tảng đá ném thẳng vào nơi phát ra mùi hăng hắc của Tinh Thể Nhện. Tảng đá đè nát lồng ngực tên sát thủ đang ẩn thân.",
+       "end": "win"
+      }
+     ]
+    },
+    {
+     "text": "Kẻ thủ lộn nhào lùi lại khoảng cách an toàn. Biết không thể giáp lá cà, hắn vung tay ném một phi tiêu tẩm độc cực mạnh thẳng vào mặt bạn, định dứt điểm.",
+     "choices": [
+      {
+       "label": "Cúi đầu dùng sừng đỡ",
+       "check": {
+        "stat": "STR",
+        "target": 6
+       },
+       "success": {
+        "text": "Phi tiêu ghim phập vào chiếc sừng cứng như kim cương rồi gãy vụn. Bạn lao tới húc nát ngực hắn vào tường vách đá.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Phi tiêu sượt qua hốc mắt bạn, gây mù lòa tạm thời. Thừa cơ hội đó, hắn tẩu thoát không để lại dấu vết.",
+        "effects": {
+         "fame": -5
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Bắt phi tiêu bằng tay không",
+       "check": {
+        "stat": "LUCK",
+        "target": 10
+       },
+       "success": {
+        "text": "Bàn tay vạm vỡ của bạn chụp dính phi tiêu ngay sát nhãn cầu. Bằng một cú ném sấm sét, bạn phi ngược nó cắm phập vào yết hầu tên sát thủ.",
+        "effects": {
+         "fame": 10
+        },
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bàn tay chộp hụt, phi tiêu đâm ngập vào não bộ qua đường hốc mắt. Sinh lực khổng lồ của bạn tắt ngúm trong một giây.",
+        "death": "Cơ thể đồ sộ đổ gục xuống rúng động nền đá"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Tên sát thủ kiêu ngạo đã biến thành đống bầy hầy lẫn lộn giữa dao găm gãy và máu đen. Bạn bẻ lấy phần Huyết Kim còn lại để làm chiến lợi phẩm.",
+   "reward": {
+    "wealth": 60,
+    "fame": 10,
+    "guildPts": 3
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Đừng bao giờ chơi trò trốn tìm trong bóng tối với kẻ được sinh ra từ lòng dạ vực thẳm."
+  },
+  {
+   "id": "minota_quest_story_1",
+   "org": "minotaur_labyrinth",
+   "name": "Kẻ Thách Thức Từ Huyết Mạc",
+   "minRank": 2,
+   "hint": "Vừa. Đọ sức mạnh thuần túy, nhưng hãy cẩn thận trạng thái cuồng nộ của địch.",
+   "intro": "Một tên High Orc Lord xưng vương ở Thảo Nguyên Gió Hú đã ngạo mạn dẫn quân đạp vỡ cánh cổng đá ngoài cùng của bạn. Hắn cắm thanh đại kiếm cưa răng cưa xuống đất, gầm lên thách thức ngai vàng của Đao phủ mê cung. Bầy Orc tay sai hò reo inh ỏi.",
+   "steps": [
+    {
+     "text": "Tên High Orc vác đại kiếm lao đến với lực chém ngàn cân, định chẻ đôi đầu bạn ngay từ nhịp đầu tiên.",
+     "choices": [
+      {
+       "label": "Húc vỡ đại kiếm",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Cặp sừng của bạn va chạm với lưỡi kiếm sinh ra tia lửa chói lòa. Kiếm thép gãy nát, hắn lùi lại gầm gừ."
+       },
+       "fail": {
+        "text": "Lực chém của hắn quá mạnh, sừng bạn tuy không gãy nhưng bạn bị đẩy lùi đập lưng vào vách đá.",
+        "effects": {
+         "health": -20
+        }
+       }
+      },
+      {
+       "label": "Trượt người phản công",
+       "check": {
+        "stat": "AGI",
+        "target": 6
+       },
+       "success": {
+        "text": "Thân hình đồ sộ của bạn uốn éo một cách đáng sợ. Bạn né đường kiếm, tung một cú đá sầm sập gãy gập chân phải của hắn."
+       },
+       "fail": {
+        "text": "Động tác chậm một nhịp, mũi kiếm sượt qua rạch một đường dài từ ngực xuống bụng bạn.",
+        "effects": {
+         "health": -25
+        }
+       }
+      },
+      {
+       "label": "Hủy diệt nhuệ khí",
+       "require": {
+        "INT": 6
+       },
+       "showLocked": true,
+       "text": "Bạn ném chiếc rìu chặt bay đầu tên cận vệ Orc đứng múa may mồm mép nhất. Tiếng hò reo của bầy Orc im bặt, tên High Orc Lord dao động tâm lý."
+      }
+     ]
+    },
+    {
+     "text": "Bị dồn ép, tên High Orc kích hoạt Skill [Huyết Nộ]. Cơ bắp hắn phình to, đôi mắt đỏ ngầu, vung những cú đấm cuồng loạn nhắm vào ngực bạn.",
+     "choices": [
+      {
+       "label": "Gồng mình chịu đòn",
+       "check": {
+        "stat": "health",
+        "target": 55
+       },
+       "success": {
+        "text": "Bạn lấy ngực hứng trọn loạt đấm. Da trâu dày cộp chỉ bầm tím, trong khi nắm tay hắn nát tươm vì phản lực."
+       },
+       "fail": {
+        "text": "Vài cú đấm đánh trúng tim khiến bạn hộc máu, lồng ngực đau nhói tưởng chừng nát xương sườn.",
+        "effects": {
+         "health": -30
+        }
+       }
+      },
+      {
+       "label": "Khóa chặt hai tay",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Bỏ vũ khí, bạn nhào tới tóm chặt hai cổ tay đang bốc hỏa của hắn, bẻ gãy gập ra sau lưng. Hắn hét lên đau đớn."
+       },
+       "fail": {
+        "text": "Hắn vùng ra được, tung một cú húc đầu sấm sét vào giữa mặt bạn.",
+        "effects": {
+         "health": -20,
+         "fame": -2
+        }
+       }
+      }
+     ]
+    },
+    {
+     "text": "Tên High Orc đã kiệt sức nhưng vẫn ngoan cố rút ra một con dao găm độc định đâm lén.",
+     "choices": [
+      {
+       "label": "Nghiền nát hộp sọ",
+       "check": {
+        "stat": "STR",
+        "target": 6
+       },
+       "success": {
+        "text": "Bạn giậm gót nát bấy bàn tay cầm dao của hắn, sau đó dùng hai tay ép nát hộp sọ tên Orc Lord như một quả dưa hấu.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bạn dẫm hụt, dao găm cắm phập vào bắp chân bạn. Độc tính khiến bạn gục ngã, bầy Orc thừa cơ ùa vào băm vằn bạn.",
+        "death": "Huyết Mạc đổi chủ từ đây"
+       }
+      },
+      {
+       "label": "Lưỡi rìu phán quyết",
+       "check": {
+        "stat": "LUCK",
+        "target": 4
+       },
+       "success": {
+        "text": "Chiếc rìu văng ra lúc nãy rơi đúng ngay chân bạn. Bạn nhặt lên và vung một nhát chém đứt lìa nửa thân trên của kẻ thách thức.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Hắn lăn người né được và chọc mù một mắt bạn. Bạn điên cuồng vung tay đập chết hắn nhưng lãnh vết thương vĩnh viễn.",
+        "effects": {
+         "AGI": -2
+        },
+        "end": "win"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Bạn cắm cái đầu đầy máu của tên High Orc Lord lên cọc nhọn trước cửa mê cung. Bầy Orc hốt hoảng vứt cả vũ khí, khóc lóc tháo chạy khỏi lãnh thổ của bạn.",
+   "reward": {
+    "wealth": 100,
+    "fame": 20,
+    "guildPts": 5,
+    "flags": [
+     "orc_bane"
+    ]
+   },
+   "weight": 4,
+   "moment": "Mê cung là thần thánh, và máu của bầy Orc là thứ nước rửa đền hoàn hảo nhất."
+  },
+  {
+   "id": "minota_quest_story_2",
+   "org": "minotaur_labyrinth",
+   "name": "Thập Tự Chinh Báo Thù",
+   "minRank": 4,
+   "hint": "Khó. Thánh Quang khắc chế bóng tối, ưu tiên sự lì lợm và tận dụng địa hình.",
+   "intro": "Lệnh thanh tẩy được ban ra từ Đồng Bằng Thánh Quang. Một đội Thập Tự Chinh do Paladin Commander (Đội trưởng Thánh Kỵ Sĩ) dẫn đầu đã phá vỡ phong ấn, mang theo ngọn lửa ánh sáng rực rỡ quyết thiêu rụi cái hốc tăm tối của bạn.",
+   "steps": [
+    {
+     "text": "Mười tên Paladin tiên phong dựng khiên tháp, kết hợp ma pháp tạo thành một bức tường ánh sáng chói lòa ép bạn vào góc chết.",
+     "choices": [
+      {
+       "label": "Húc vỡ đội hình",
+       "check": {
+        "stat": "STR",
+        "target": 10
+       },
+       "success": {
+        "text": "Bạn nhắm mắt, dùng sức nặng hàng tấn lao vào như thiên thạch. Bức tường ánh sáng vỡ vụn, năm tên kỵ sĩ nát bét dưới móng guốc của bạn."
+       },
+       "fail": {
+        "text": "Ánh sáng đẩy bật bạn ra xa. Da thịt bạn bỏng rát như bị dội axit.",
+        "effects": {
+         "health": -30
+        }
+       }
+      },
+      {
+       "label": "Phá sập trần hang",
+       "check": {
+        "stat": "INT",
+        "target": 6
+       },
+       "success": {
+        "text": "Nhận ra cấu trúc yếu của trần đá vôi, bạn đập rìu vào các cột chống. Đá tảng rơi xuống đè bẹp đội hình khiên mà không cần chạm tay."
+       },
+       "fail": {
+        "text": "Cột đá quá cứng, trong khi ánh sáng từ khiên của chúng đã chiếu rọi làm bạn lòa mắt.",
+        "effects": {
+         "AGI": -1,
+         "health": -20
+        }
+       }
+      }
+     ]
+    },
+    {
+     "text": "Bọn linh mục đứng sau ném ra những Sợi Xích Thánh Quang trói chặt hai tay và cặp sừng của bạn, định kéo gục bạn xuống để tên Đội trưởng hành quyết.",
+     "choices": [
+      {
+       "label": "Xé đứt xiềng xích",
+       "check": {
+        "stat": "health",
+        "target": 70
+       },
+       "success": {
+        "text": "Máu rỉ ra từ da thịt đang cháy khét, nhưng bạn gầm lên, giật tung những sợi xích ma thuật khiến bọn linh mục hộc máu vì phản phệ."
+       },
+       "fail": {
+        "text": "Xích thắt quá chặt, lún sâu vào xương thịt. Bạn quỳ gối gầm gào trong bất lực.",
+        "effects": {
+         "health": -40
+        }
+       }
+      },
+      {
+       "label": "Lợi dụng lực kéo",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Nương theo lực kéo của chúng, bạn lao tới tóm cổ hai tên linh mục và đập sọ chúng vào nhau vỡ nát. Xích ma thuật tự tan biến."
+       },
+       "fail": {
+        "text": "Bạn vấp ngã. Một tên Paladin dùng gươm đâm lủng bắp đùi bạn.",
+        "effects": {
+         "health": -25
+        }
+       }
+      }
+     ]
+    },
+    {
+     "text": "Chỉ còn lại Paladin Commander. Hắn cầu nguyện, thanh đại kiếm bừng sáng rực rỡ như một mặt trời nhỏ giữa mê cung mù lòa, đâm thẳng vào tim bạn.",
+     "choices": [
+      {
+       "label": "Lấy mạng đổi mạng",
+       "check": {
+        "stat": "STR",
+        "target": 10
+       },
+       "success": {
+        "text": "Mặc kệ thanh kiếm đâm xuyên qua ngực trái, bạn dùng tay không bẻ gãy cổ tên Đội trưởng, kết thúc sinh mạng hắn trước khi tim bạn ngừng đập.",
+        "effects": {
+         "fame": 30
+        },
+        "end": "win"
+       },
+       "fail": {
+        "text": "Ánh sáng từ thanh kiếm thiêu rụi trái tim ác thú của bạn từ bên trong. Bạn ngã xuống, bóng tối mê cung vĩnh viễn bị ánh sáng chiếm đoạt.",
+        "death": "Ánh sáng từ thanh kiếm thiêu rụi trái tim ác thú của bạn từ bên trong. Bạn ngã xuống, bóng tối mê cung vĩnh viễn bị ánh sáng chiếm đoạt."
+       }
+      },
+      {
+       "label": "Trí mạng trong bóng tối",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Bạn giậm mạnh tung một lớp bụi mù mịt, che lấp ánh sáng. Dựa vào tiếng nhịp tim của hắn, bạn bổ chiếc rìu chuẩn xác xẻ đôi người tên kỵ sĩ cùng lớp giáp bạch kim.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Ánh sáng quá chói. Bạn chém hụt, bị hắn chém bay một chiếc sừng và phải rút lui vào tầng sâu nhất để giữ mạng.",
+        "effects": {
+         "wealth": -100
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Ánh sáng tắt ngúm, mê cung chìm lại vào bóng tối ấm áp mùi máu tanh. Bạn lấy mảnh giáp bạch kim của tên Đội trưởng đắp lên vết thương cháy xém trên ngực mình.",
+   "reward": {
+    "wealth": 100,
+    "fame": 30,
+    "guildPts": 5,
+    "flags": [
+     "holy_blood"
+    ]
+   },
+   "weight": 4,
+   "moment": "Ngay cả ánh sáng của thần linh cũng phải tắt thở khi bước vào lãnh địa của bạn."
+  },
+  {
+   "id": "minota_quest_story_3",
+   "org": "minotaur_labyrinth",
+   "name": "Ngọn Lửa Hủy Diệt Đảo Tro Tàn",
+   "minRank": 6,
+   "hint": "Rất Khó (Huyền thoại). Đừng cố dùng thủ đoạn với Rồng Cổ Đại, hãy dùng bản lĩnh của một vị vua.",
+   "intro": "Một tiếng gầm xé nát bầu trời Đảo Tro Tàn. Một con Ancient Dragon (Rồng Cổ Đại) vảy đỏ rực đáp xuống đỉnh ngục tối của bạn, hơi thở của nó nung chảy lớp đá bazan. Nó muốn chiếm lấy toàn bộ hệ thống ngục tối ngầm này làm ổ ấp trứng, và coi bạn như một con côn trùng cản đường.",
+   "steps": [
+    {
+     "text": "Con Rồng há chiếc mõm khổng lồ, phun ra một cột lửa dung nham có thể nung chảy Huyết Kim nhằm thiêu rụi toàn bộ hành lang dẫn vào lõi ngục.",
+     "choices": [
+      {
+       "label": "Bức tường cơ bắp",
+       "check": {
+        "stat": "health",
+        "target": 85
+       },
+       "success": {
+        "text": "Bạn đứng chặn giữa hành lang, dùng lớp da thịt kiên cố và ý chí quỷ dữ để cản luồng lửa, bảo vệ lõi ngục phía sau. Da bạn nứt nẻ nhưng không cháy."
+       },
+       "fail": {
+        "text": "Lửa quá nóng, đốt cháy một nửa khuôn mặt bạn. Bạn gào thét lăn lộn trong nham thạch.",
+        "effects": {
+         "health": -50
+        }
+       }
+      },
+      {
+       "label": "Phá mạch nước ngầm",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Bạn ném chiếc rìu phá vỡ bức tường chứa mạch nước ngầm. Nước tràn ra gặp lửa tạo thành hơi nước nóng bốc lên mịt mù, làm lệch hướng cột lửa."
+       },
+       "fail": {
+        "text": "Nước không đủ, luồng lửa vẫn cuốn trọn lấy bạn, luộc chín một lớp da dày.",
+        "effects": {
+         "health": -40
+        }
+       }
+      }
+     ]
+    },
+    {
+     "text": "Con Rồng đâm sầm vào lõi ngục. Nó dùng chiếc đuôi gai vĩ đại quật bay hàng loạt cột chống đá, định đè bẹp bạn.",
+     "choices": [
+      {
+       "label": "Bắt lấy đuôi rồng",
+       "check": {
+        "stat": "STR",
+        "target": 10
+       },
+       "success": {
+        "text": "Hai tay bạn ôm chặt chiếc đuôi đang lao tới, cơ bắp cuồn cuộn gân xanh. Bạn gầm lên, xoay vòng và quật ngã con Rồng khổng lồ xuống mặt đất rung chuyển."
+       },
+       "fail": {
+        "text": "Lực quật của Rồng Cổ Đại vượt quá giới hạn. Hai tay bạn gãy gập, bạn bị văng xuyên qua ba lớp vách đá.",
+        "effects": {
+         "health": -50,
+         "fame": -10
+        }
+       }
+      },
+      {
+       "label": "Nhảy lên lưng rồng",
+       "check": {
+        "stat": "AGI",
+        "target": 10
+       },
+       "success": {
+        "text": "Bạn phóng người lên như một viên đạn đại bác, bám chặt lấy lớp vảy lưng của nó và điên cuồng vung nắm đấm nện xuống cột sống."
+       },
+       "fail": {
+        "text": "Nó dang cánh hất tung bạn lên trần hang rồi cắn đứt một cánh tay bạn.",
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Con rồng lồng lộn, để lộ ra chiếc vảy ngược (Nghịch lân) phát sáng dưới cổ. Đây là điểm yếu duy nhất, nhưng nó cũng chuẩn bị niệm ma pháp [Vẫn Thạch] cào bằng cả khu vực.",
+     "choices": [
+      {
+       "label": "Húc vỡ Nghịch lân",
+       "check": {
+        "stat": "STR",
+        "target": 10
+       },
+       "success": {
+        "text": "Gom toàn bộ sức lực của một kiếp Minotaur, bạn lấy thân mình làm mũi giáo, lao cặp sừng xuyên thẳng qua lớp vảy ngược, đâm thủng tim con rồng trước khi ma pháp hoàn tất.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Nó niệm xong phép. Một tảng thiên thạch rơi xuống nghiền nát bạn cùng ngục tối, kết thúc kỷ nguyên cai trị của vị vua bò tót.",
+        "death": "Cơ thể bạn hóa thành tro bụi"
+       }
+      },
+      {
+       "label": "Chém rụng đầu rồng",
+       "check": {
+        "stat": "LUCK",
+        "target": 8
+       },
+       "success": {
+        "text": "Trong lúc giằng co, lưỡi rìu của bạn vô tình móc đúng vào kẽ nứt của lớp vảy cổ. Bạn bồi thêm lực, cắt lìa chiếc đầu khổng lồ trong vòi rồng máu phun trào.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Rìu trượt khỏi lớp vảy cứng, con rồng gặm lấy nửa thân người bạn nhai nát.",
+        "death": "Rìu trượt khỏi lớp vảy cứng, con rồng gặm lấy nửa thân người bạn nhai nát."
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Chiếc đầu Rồng Cổ Đại lăn lóc dưới chân bạn. Bạn tắm trong máu rồng sôi sục, cắm lưỡi rìu lên cái sọ vĩ đại và tuyên bố quyền lực tuyệt đối của bạn trước cả ngầm sâu và bầu trời.",
+   "reward": {
+    "wealth": 100,
+    "fame": 100,
+    "flags": [
+     "dragon_sovereign"
+    ]
+   },
+   "weight": 4,
+   "moment": "Sinh ra trong bóng tối ngục ngầm, nay vinh quang của bạn sáng ngang mặt trời."
+  },
+  {
+   "id": "minotaur_q_lenh_trieu_tap_dam_mau",
+   "org": "minotaur_labyrinth",
+   "name": "Lệnh Triệu Tập Đẫm Máu",
+   "minRank": 4,
+   "hint": "Rất Khó. Quân đoàn Ma Vương sẽ không dừng lại cho đến khi bạn thuần phục hoặc chúng chết hết.",
+   "intro": "Ma Vương giáng thế, bóng tối bao trùm Aethelgard. Một Đại tướng của Quân đoàn Ma Vương (High Demon) dẫn vạn đội quân đến bao vây mê cung, ném xuống một tờ hịch đẫm máu bắt bạn phải giao nộp lãnh thổ và trở thành quân tiên phong cho chúng. Với một Minotaur, giao nộp lãnh thổ đồng nghĩa với cái chết.",
+   "steps": [
+    {
+     "text": "Hàng ngàn tên Troll và Goblin ma hóa tràn vào mê cung của bạn như một bầy châu chấu khát máu.",
+     "choices": [
+      {
+       "label": "Tàn sát không khoan nhượng",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Đứng chắn giữa huyết mạch mê cung, bạn chém mỏi tay, máu ma vật cao đến đầu gối. Bạn nghiền nát chúng thành một ngọn đồi xác chết."
+       },
+       "fail": {
+        "text": "Đám đông kiến cắn chết voi. Bạn bị lũ ma vật đè ngợp, rách nát khắp thân thể.",
+        "effects": {
+         "health": -30
+        }
+       }
+      }
+     ]
+    },
+    {
+     "text": "Tên High Demon bước qua đống xác, tung ra ma pháp [Hắc Viêm Khống Chế] tước đoạt tâm trí, định biến bạn thành con rối.",
+     "choices": [
+      {
+       "label": "Cuồng nộ phá vỡ tinh thần",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Bản năng nguyên thủy của loài bò tót trỗi dậy. Bạn nhai nát môi mình, dùng cơn đau để phá vỡ ảo giác khống chế, rống lên khiến tên Đại tướng kinh hãi lùi lại."
+       },
+       "fail": {
+        "text": "Ma pháp xâm nhập vào não bộ. Đầu bạn đau như búa bổ, bạn tự vung rìu chém rách chân mình.",
+        "effects": {
+         "AGI": -2,
+         "health": -20
+        }
+       }
+      },
+      {
+       "label": "Kháng ma bằng thể chất",
+       "check": {
+        "stat": "health",
+        "target": 85
+       },
+       "success": {
+        "text": "Dòng máu quái vật gác cổng trong bạn quá đặc, kháng lại hoàn toàn ngọn lửa đen. Bạn lao xuyên qua ma pháp như một cỗ xe tăng."
+       },
+       "fail": {
+        "text": "Ngọn lửa ăn sâu vào lục phủ ngũ tạng, đốt cạn sinh lực bạn.",
+        "effects": {
+         "health": -40
+        }
+       }
+      }
+     ]
+    },
+    {
+     "text": "Tên Đại tướng bắt đầu hoảng sợ và niệm phép bay lên không định tẩu thoát.",
+     "choices": [
+      {
+       "label": "Ném vũ khí đoạt mạng",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Chiếc rìu khổng lồ bay vút đi như một lưỡi hái tử thần, găm phập vào lưng tên High Demon, kéo hắn rơi phịch xuống đất nát bét.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bạn kiệt sức, chiếc rìu chỉ sượt qua cánh hắn. Hắn tẩu thoát, để lại bạn thoi thóp giữa tàn tích.",
+        "effects": {
+         "fame": 10
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Bạn treo xác tên Đại tướng ngay lối vào ngục. Kể từ ngày đó, ngay cả Quân đoàn Ma Vương cũng phải đi đường vòng khi đi ngang qua lãnh thổ của bạn.",
+   "reward": {
+    "wealth": 100,
+    "fame": 50,
+    "flags": [
+     "demon_defier"
+    ]
+   },
+   "weight": 4,
+   "eras": [
+    "demon_lord"
+   ],
+   "moment": "Giữa ngọn lửa của chiến tranh thế giới, mê cung của bạn là pháo đài cô độc vĩnh cửu không ai có thể chạm vào."
+  }
+ ],
+ "events": [
+  {
+   "id": "minota_event_father_trial",
+   "text": "{father} bất ngờ tóm lấy gáy bạn và ném thẳng xuống một hố bẫy sâu hoắm ngập ngụa lũ Imp đang đói khát. Tiếng ông gầm lên từ trên cao: \"Kẻ yếu đuối không xứng đáng có lãnh thổ!\"",
+   "stages": [
+    "infant"
+   ],
+   "require": {
+    "notFlags": [
+     "enslaved"
+    ],
+    "fatherAlive": true
+   },
+   "choices": [
+    {
+     "label": "Gồng mình tàn sát",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Cơn cuồng nộ che mờ mắt, bạn xé xác từng con Imp bằng móng vuốt và hàm răng. Máu nhuộm đỏ bắp tay bạn.",
+      "effects": {
+       "STR": 1,
+       "fame": 2,
+       "flags": [
+        "blood_taste"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Lũ Imp cắn xé bạn tả tơi trước khi {father} miễn cưỡng ném một sợi dây thừng xuống.",
+      "effects": {
+       "health": -20,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Bóng tối săn mồi",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn nhắm nghiền đôi mắt mù màu, dựa vào khứu giác vương mùi máu để lẩn tránh và bẻ cổ từng con Imp trong góc tối.",
+      "effects": {
+       "INT": 1,
+       "AGI": 1
+      }
+     },
+     "fail": {
+      "text": "Một con Imp chém trúng chân bạn, khiến bạn ngã quỵ và phải gào thét cầu cứu {father}.",
+      "effects": {
+       "health": -15,
+       "fame": -3
+      }
+     }
+    },
+    {
+     "label": "Hút cạn năng lượng",
+     "require": {
+      "INT": 6
+     },
+     "showLocked": true,
+     "text": "Bạn đập vỡ Lõi Mana của một con Imp chết, hít lấy luồng ma lực để cường hóa cơ thể rồi bình tĩnh leo lên vách đá.",
+     "effects": {
+      "INT": 1,
+      "wealth": -10
+     }
+    }
+   ],
+   "moment": "Ngày bạn bị cha ném xuống hố sâu, bạn hiểu rằng bạo lực là thứ tình yêu duy nhất."
+  },
+  {
+   "id": "minota_event_mother_legacy",
+   "text": "Bọn mạo hiểm giả từ Guild Bình Minh vây ráp căn phòng trung tâm. Khi bạn đến nơi, {mother} đang nằm gục bên cánh cửa mê cung vỡ nát, sừng phải bị chém đứt, máu nhuộm đỏ chiếc rìu hai lưỡi.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "focus": [
+    "work"
+   ],
+   "require": {
+    "motherAlive": true
+   },
+   "choices": [
+    {
+     "label": "Rống lên cuồng nộ",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Cơ thể bạn phình to, chiếc rìu của mẹ như hòa làm một với tay bạn. Bạn nghiền nát gã chiến binh mặc giáp trụ thành một đống bầy hầy thịt nát.",
+      "effects": {
+       "STR": 2,
+       "fame": 5,
+       "parentDie": "mother"
+      }
+     },
+     "fail": {
+      "text": "Một mũi tên tẩm độc ghim phập vào mắt bạn. Bọn mạo hiểm giả cướp sạch kho báu và bỏ bạn lại với xác mẹ.",
+      "effects": {
+       "health": -30,
+       "wealth": -100,
+       "parentDie": "mother"
+      }
+     }
+    },
+    {
+     "label": "Tận dụng địa hình",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn giậm mạnh chân, khiến trần hang đá vôi sụp đổ. Lũ mạo hiểm giả bị chôn vùi, bảo vệ được thi thể mẹ.",
+      "effects": {
+       "LUCK": 1,
+       "wealth": 50,
+       "parentDie": "mother"
+      }
+     },
+     "fail": {
+      "text": "Trần hang rơi xuống trúng cả bạn. Bạn bất tỉnh, khi tỉnh dậy mẹ đã ngừng thở.",
+      "effects": {
+       "health": -20,
+       "parentDie": "mother"
+      }
+     }
+    },
+    {
+     "label": "Kích hoạt cấm thuật",
+     "require": {
+      "INT": 8
+     },
+     "showLocked": true,
+     "text": "Bạn khắc trận pháp Huyết Kim bằng chính máu của mẹ để đóng phong ấn vĩnh viễn lối vào, nhốt chết bọn mạo hiểm giả bên trong ngục tối.",
+     "effects": {
+      "INT": 2,
+      "fame": 10,
+      "flags": [
+       "locked_tomb"
+      ],
+      "parentDie": "mother"
+     }
+    }
+   ],
+   "moment": "Mẹ bạn chết bên lối vào mê cung, bạn kế thừa chiếc sừng gãy và sự cô độc ngàn năm."
+  },
+  {
+   "id": "minota_event_guard_thief",
+   "text": "Một tên Rogue hạng B từ Guild Bình Minh đã lẩn qua tầm nhìn mù màu của bạn, hắn đang cạy mở rương báu Huyết Kim ngay sau lưng.",
+   "focus": [
+    "work"
+   ],
+   "require": {
+    "job": "minotaur_guardian"
+   },
+   "choices": [
+    {
+     "label": "Cuồng nộ xoay vòng",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Cầm rìu xoay một vòng tử thần, bạn chẻ đôi tên trộm cùng hàng cột đá bên cạnh.",
+      "effects": {
+       "STR": 1,
+       "wealth": 20,
+       "flags": [
+        "bloody_axe"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Lưỡi rìu găm vào tường đá, tên trộm luồn qua háng bạn và biến mất cùng báu vật.",
+      "effects": {
+       "wealth": -50,
+       "fame": -2
+      }
+     }
+    },
+    {
+     "label": "Bắt bằng khứu giác",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Hít lấy mùi mồ hôi sợ hãi, bạn vung tay tóm gọn cổ hắn trong bóng tối và bóp nát.",
+      "effects": {
+       "INT": 1,
+       "AGI": 1,
+       "wealth": 30
+      }
+     },
+     "fail": {
+      "text": "Bạn vồ hụt. Hắn tung một bốc bột mù vào mặt bạn rồi tẩu thoát.",
+      "effects": {
+       "health": -10,
+       "wealth": -30
+      }
+     }
+    },
+    {
+     "label": "Phá hủy rương báu",
+     "require": {
+      "INT": 5
+     },
+     "showLocked": true,
+     "text": "Nhận ra không thể đuổi kịp, bạn đập nát rương báu để kích hoạt bẫy độc giấu bên trong, giết chết tên trộm ngay tại chỗ.",
+     "effects": {
+      "INT": 2,
+      "wealth": -20
+     }
+    }
+   ],
+   "moment": "Một tên trộm định lừa gạt bạn trong bóng tối, hắn đã học được thế nào là sự tàn nhẫn của mê cung."
+  },
+  {
+   "id": "minota_event_guard_bribe",
+   "text": "Một tay buôn của Thương hội Sói Bạc ném cho bạn một bao tải Tinh Bạc nặng trĩu, xin được mở một tuyến đường buôn lậu đi xuyên qua ngục tối của bạn.",
+   "require": {
+    "jobRank": 1,
+    "job": "minotaur_guardian"
+   },
+   "choices": [
+    {
+     "label": "Giết kẻ báng bổ",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Lãnh thổ là thần thánh. Bạn giẫm nát tên thương nhân, cắm đầu hắn lên cọc gỗ trước cửa mê cung răn đe kẻ khác.",
+      "effects": {
+       "STR": 1,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Tên thương nhân có bùa dịch chuyển tẩu thoát, nhưng để lại lũ đánh thuê hạng nặng đánh bạn thừa sống thiếu chết.",
+      "effects": {
+       "health": -25,
+       "fame": -3
+      }
+     }
+    },
+    {
+     "label": "Nhận hối lộ",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn nhận tiền và giả vờ ngủ mỗi khi đoàn buôn đi qua. Không ai biết về giao kèo nhơ bẩn này.",
+      "effects": {
+       "wealth": 100,
+       "fame": -2,
+       "flags": [
+        "corrupt_guard"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Một Labyrinth Lord khác phát hiện ra sự phản bội của bạn. Bạn bị đánh gãy một chiếc sừng và đuổi khỏi lãnh thổ.",
+      "effects": {
+       "health": -30,
+       "wealth": -50,
+       "loseJob": true,
+       "demote": true
+      }
+     }
+    }
+   ],
+   "moment": "Đồng tiền sáng lấp lánh thử thách lòng trung thành của một ác thú gác cổng."
+  },
+  {
+   "id": "minota_event_guard_sleep",
+   "text": "Cơn buồn ngủ ập đến sau nhiều ngày căng thẳng. Bạn chợp mắt chỉ vài nhịp thở, nhưng khi tỉnh dậy, toàn bộ Lõi Mana bảo vệ cửa ải đã bị lấy cắp không để lại dấu vết.",
+   "require": {
+    "notFlags": [
+     "alert_mind"
+    ],
+    "job": "minotaur_guardian"
+   },
+   "result": "Chúa tể mê cung tức giận giáng cho bạn một đòn chí mạng.",
+   "effects": {
+    "health": -40,
+    "wealth": -20,
+    "demote": true
+   }
+  },
+  {
+   "id": "minota_event_glad_rebel",
+   "text": "Một nhóm nô lệ Orc lên kế hoạch phá ngục. Chúng đưa cho bạn một thanh sắt mài nhọn, rủ bạn cùng giết tên quản giáo Goblin để đào tẩu.",
+   "focus": [
+    "adventure"
+   ],
+   "require": {
+    "jobRank": 0,
+    "job": "minotaur_gladiator"
+   },
+   "choices": [
+    {
+     "label": "Dẫn đầu cuộc nổi loạn",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Bạn húc văng cánh cổng sắt nặng hàng tấn, mở đường máu thoát khỏi Đấu trường Huyết Sa để trở thành kẻ tự do.",
+      "effects": {
+       "STR": 3,
+       "joy": 20,
+       "fame": 10,
+       "flags": [
+        "freedom_fighter"
+       ],
+       "loseJob": true
+      }
+     },
+     "fail": {
+      "text": "Đội cung thủ của Đấu trường bắn hạ bạn ngay khi vừa bước ra khỏi cửa. Máu bạn tưới đẫm bãi cát.",
+      "death": "Cơ thể khổng lồ của bạn trở thành thức ăn cho bầy ma thú"
+     }
+    },
+    {
+     "label": "Bán đứng đồng loại",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn giao thanh sắt cho tên quản giáo, đổi lấy một bữa ăn no và sự ưu ái. Lũ Orc bị đem đi hành quyết.",
+      "effects": {
+       "INT": 1,
+       "joy": -10,
+       "wealth": 30
+      }
+     },
+     "fail": {
+      "text": "Lũ Orc phát hiện bạn báo tin, chúng xúm lại đâm bạn trọng thương trước khi quản giáo can thiệp.",
+      "effects": {
+       "AGI": -1,
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Bàng quan đứng nhìn",
+     "text": "Bạn quay lưng đi ngủ, mặc xác bọn chúng chết dưới giáo mác của lính canh.",
+     "effects": {
+      "health": 10,
+      "joy": -5
+     }
+    }
+   ],
+   "moment": "Sự tự do có mùi vị của máu, và đôi khi cái giá phải trả đắt hơn cả sinh mạng."
+  },
+  {
+   "id": "minota_event_glad_noble",
+   "text": "Một quý tộc từ Đồng Bằng Thánh Quang yêu cầu bạn phải dùng hai tay không xé xác một nữ Elf nô lệ trước mặt ông ta để đổi lấy số tiền khổng lồ.",
+   "require": {
+    "jobRank": 2,
+    "job": "minotaur_gladiator"
+   },
+   "choices": [
+    {
+     "label": "Chiều lòng khách hàng",
+     "check": {
+      "stat": "STR",
+      "target": 4
+     },
+     "success": {
+      "text": "Bạo lực là bản năng. Bạn thực hiện màn trình diễn tàn nhẫn, khiến tay quý tộc cười sảng khoái vung tiền thưởng.",
+      "effects": {
+       "STR": 1,
+       "joy": -15,
+       "wealth": 80
+      }
+     },
+     "fail": {
+      "text": "Nữ Elf dùng chút ma lực cuối cùng niệm chú hệ Phong cắt đứt gân tay bạn.",
+      "effects": {
+       "AGI": -2,
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Phản kháng kiêu hãnh",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn tung một cú đá đá văng mâm trái cây vào mặt tên quý tộc, bế nữ Elf lùi lại góc phòng tự vệ.",
+      "effects": {
+       "AGI": 2,
+       "fame": 5,
+       "flags": [
+        "noble_enemy"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Lính gác của tay quý tộc xông vào dùng gậy điện đánh bạn gục ngã. Bạn bị ném vào hố phân.",
+      "effects": {
+       "health": -25,
+       "wealth": -20
+      }
+     }
+    }
+   ],
+   "moment": "Đấu trường không chỉ có bạo lực, nó còn là nơi thử thách phần nhân tính ít ỏi còn sót lại."
+  },
+  {
+   "id": "minota_event_glad_rot",
+   "text": "Vũ khí của kẻ thù có bôi nọc độc Lizardman. Vết chém trên đùi bạn không liền lại mà bắt đầu thối rữa, bốc mùi tử khí.",
+   "require": {
+    "job": "minotaur_gladiator"
+   },
+   "result": "Bác sĩ Goblin phải cắt đi một phần thịt thối rữa của bạn mà không dùng thuốc tê. Bạn gầm thét trong đau đớn.",
+   "effects": {
+    "AGI": -1,
+    "health": -25
+   }
+  },
+  {
+   "id": "minota_event_sham_whisper",
+   "text": "Nửa đêm, bức tượng Vực Thẳm Cổ Thần đột nhiên rỉ máu từ hốc mắt. Một giọng nói không thành tiếng vang lên trong đầu bạn, yêu cầu dâng hiến trí khôn để đổi lấy sức mạnh tuyệt đối.",
+   "require": {
+    "jobRank": 2,
+    "job": "minotaur_shaman"
+   },
+   "choices": [
+    {
+     "label": "Hòa mình vào Hỗn mang",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Tâm trí bạn chống chọi được sự điên loạn. Bạn hấp thu kiến thức cổ xưa, đôi mắt sáng lên luồng ma lực đen ngòm.",
+      "effects": {
+       "STR": 2,
+       "INT": 3,
+       "health": -15,
+       "flags": [
+        "abyss_stare"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Kiến thức hắc ám thổi bay chút lý trí mỏng manh của loài bò. Bạn phát điên, tự cắn đứt tay mình rồi gục chết bên tế đàn.",
+      "death": "Một kết cục bi thảm của kẻ khao khát quyền năng vượt quá giới hạn"
+     }
+    },
+    {
+     "label": "Tập trung nhục thể",
+     "check": {
+      "stat": "health",
+      "target": 55
+     },
+     "success": {
+      "text": "Bạn dùng cơn đau thể xác để áp chế ảo giác, cự tuyệt lời thì thầm nhưng vẫn học lỏm được cách cường hóa cơ bắp.",
+      "effects": {
+       "STR": 2,
+       "INT": -1
+      }
+     },
+     "fail": {
+      "text": "Lời thì thầm bào mòn tinh thần bạn, khiến bạn suy kiệt và sợ hãi bóng tối trong suốt nhiều năm.",
+      "effects": {
+       "health": -20,
+       "joy": -20
+      }
+     }
+    },
+    {
+     "label": "Đập vỡ tượng thần",
+     "require": {
+      "STR": 8
+     },
+     "showLocked": true,
+     "text": "Bằng sự cuồng nộ nguyên thủy, bạn vung rìu chẻ đôi bức tượng, từ chối mọi sự chi phối.",
+     "effects": {
+      "STR": 1,
+      "fame": 5,
+      "loseJob": true
+     }
+    }
+   ],
+   "moment": "Bạn đối diện với Cổ Thần. Có kẻ trở thành sứ giả, có kẻ chỉ để lại một xác chết vặn vẹo."
+  },
+  {
+   "id": "minota_event_sham_inquisitor",
+   "text": "Một đội Inquisitor của Giáo hội Thánh Quang đã lần theo mùi tà khí. Bọn họ giăng một trận pháp ánh sáng thiêu đốt lớp da của bạn.",
+   "require": {
+    "job": "minotaur_shaman"
+   },
+   "choices": [
+    {
+     "label": "Phá trận bằng huyết chú",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn cắt tay, dùng máu tưới lên mặt đất để kích hoạt phản trận, triệu hồi hàng chục cánh tay nhầy nhụa từ dưới đất kéo tuột lũ Inquisitor xuống địa ngục.",
+      "effects": {
+       "INT": 2,
+       "wealth": 20,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Thánh Quang thiêu rụi tà thuật của bạn. Bạn bị đánh trọng thương và phải bỏ trốn khỏi tế đàn.",
+      "effects": {
+       "health": -30,
+       "wealth": -40
+      }
+     }
+    },
+    {
+     "label": "Đột phá vòng vây",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Ôm lấy cuộn giấy da cổ, bạn lấy thân hình vạm vỡ hất tung một tên tu sĩ, lao mình qua lưới lửa tẩu thoát an toàn.",
+      "effects": {
+       "AGI": 1,
+       "health": -10
+      }
+     },
+     "fail": {
+      "text": "Lưới lửa trói chặt lấy bạn. Bạn bị thiêu cháy một mảng lông lớn và mất đi một lượng ma lực quý giá.",
+      "effects": {
+       "INT": -2,
+       "health": -30
+      }
+     }
+    }
+   ],
+   "moment": "Thánh Quang soi rọi bóng tối, và bạn nhận ra ma thuật của mình vĩnh viễn là cái gai trong mắt ánh sáng."
+  },
+  {
+   "id": "minota_event_sham_vision",
+   "text": "Việc nhìn trực diện vào một sinh vật từ Vực Thẳm Phân Tầng khiến mắt trái của bạn nổ tung. Bù lại, hốc mắt rỗng tuếch giờ đây có thể nhìn thấy dòng chảy Mana của mọi sinh vật.",
+   "require": {
+    "job": "minotaur_shaman"
+   },
+   "result": "Bạn trả giá đắt để có được nhãn quan ma thuật.",
+   "effects": {
+    "INT": 2,
+    "AGI": -1,
+    "health": -15,
+    "flags": [
+     "abyss_eye"
+    ]
+   }
+  },
+  {
+   "id": "minota_rank_sovereign",
+   "text": "Kẻ cai trị mê cung suốt trăm năm qua ném chiếc rìu khổng lồ tẩm máu xuống chân bạn. Lão gầm lên một tiếng làm rung chuyển vách đá, yêu cầu trận tử chiến để quyết định kẻ duy nhất xứng đáng ngồi lên ngai vàng.",
+   "stages": [
+    "middle"
+   ],
+   "require": {
+    "guildRank": 5
+   },
+   "choices": [
+    {
+     "label": "Húc vỡ sọ",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Hai cặp sừng lao vào nhau với lực chấn động làm sập trần hang. Bạn nghiền nát sọ lão, tắm mình trong dòng máu nóng để đăng quang.",
+      "effects": {
+       "STR": 3,
+       "fame": 10,
+       "flags": [
+        "sovereign_blood"
+       ],
+       "jobRankSet": 6,
+       "orgRank": 6
+      }
+     },
+     "fail": {
+      "text": "Lão quá khỏe so với tuổi tác. Lão bẻ gãy một bên sừng của bạn và đá bạn văng xuống tầng thấp nhất của ngục tối.",
+      "effects": {
+       "STR": -2,
+       "health": -40,
+       "joy": -20
+      }
+     }
+    },
+    {
+     "label": "Vũ điệu tử thần",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Lợi dụng đôi mắt mù lòa của lão, bạn luồn lách qua những hàng cột đổ nát, tung nhát chém chí mạng vào gân gót chân rồi cắt cổ cựu vương.",
+      "effects": {
+       "AGI": 2,
+       "fame": 5,
+       "jobRankSet": 6,
+       "orgRank": 6
+      }
+     },
+     "fail": {
+      "text": "Bạn vấp phải một mảng rêu trơn trượt. Lão tóm được yết hầu bạn và nện bạn nhừ tử cho đến khi bạn đầu hàng.",
+      "effects": {
+       "health": -30,
+       "wealth": -20
+      }
+     }
+    },
+    {
+     "label": "Lật bẫy sa bàn",
+     "require": {
+      "INT": 8
+     },
+     "showLocked": true,
+     "text": "Bạn giả vờ bỏ chạy dụ lão vào vùng cấm địa, giẫm lên công tắc ẩn để trần đá vôi sụp xuống đè nát đối thủ mà không tốn một giọt mồ hôi.",
+     "effects": {
+      "INT": 2,
+      "fame": 8,
+      "jobRankSet": 6
+     }
+    }
+   ],
+   "moment": "Xác của vị vua cũ là bậc thang cuối cùng để bạn bước lên ngôi vị Chúa tể Mê cung."
+  },
+  {
+   "id": "minota_act_smash_pillar",
+   "text": "Trông thấy một cột đá khắc đầy chữ rune rực sáng, bản năng bạo lực thôi thúc bạn húc đổ nó. Tuy nhiên, đây lại là một Trụ ma thuật phòng thủ từ Thời Bình, chứa đầy năng lượng bất ổn.",
+   "stages": [
+    "infant",
+    "child"
+   ],
+   "focus": [
+    "play"
+   ],
+   "choices": [
+    {
+     "label": "Húc vỡ cốt lõi",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Cặp sừng của bạn cứng hơn cả thép. Bạn đập tan lõi mana, hấp thụ một phần luồng ma lực tản ra.",
+      "effects": {
+       "STR": 2,
+       "INT": 1,
+       "health": -10
+      }
+     },
+     "fail": {
+      "text": "Luồng năng lượng dội ngược lại, hất văng bạn vào vách tường làm gãy nứt xương sườn.",
+      "effects": {
+       "health": -20,
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Phanh gấp lẩn tránh",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Nhận ra nguy hiểm vào giây cuối, bạn ngoặt người né tránh. Trụ đá nổ tung nhưng bạn chỉ bị sây sát nhẹ.",
+      "effects": {
+       "INT": 1,
+       "AGI": 1
+      }
+     },
+     "fail": {
+      "text": "Bạn trượt chân ngã nhào, hứng trọn tia lửa điện phóng ra từ trụ ma thuật.",
+      "effects": {
+       "AGI": -1,
+       "health": -15
+      }
+     }
+    }
+   ],
+   "moment": "Ngay từ bé, bạn đã hiểu ranh giới giữa sự phá hoại ngoạn mục và cái chết ngu ngốc chỉ cách nhau một tấc."
+  },
+  {
+   "id": "minota_act_smash_horn",
+   "text": "Sừng của bạn bắt đầu nhú lên, mang theo cơn ngứa ngáy đến phát điên. Bạn đập đầu liên tục vào bất cứ thứ gì trong tầm mắt khiến hầm ngục rung chuyển.",
+   "stages": [
+    "infant",
+    "child"
+   ],
+   "focus": [
+    "play"
+   ],
+   "result": "Bạn vô tình đập nát một ổ bọ cạp độc mọc trong vách đá, bị cắn tơi bời nhưng cặp sừng mới đã trồi ra sắc bén.",
+   "effects": {
+    "STR": 2,
+    "health": -10,
+    "joy": -10
+   }
+  },
+  {
+   "id": "minota_act_train_waterfall",
+   "text": "Để rèn luyện sức chịu đựng, bạn quyết định đứng dưới một thác nước ngầm. Không may, đó lại là dòng nước thải axit rỉ ra từ Đầm Lầy Tử Khí.",
+   "focus": [
+    "train"
+   ],
+   "choices": [
+    {
+     "label": "Cắn răng chịu đựng",
+     "check": {
+      "stat": "health",
+      "target": 85
+     },
+     "success": {
+      "text": "Lớp da bò của bạn cháy xèo xèo nhưng dần kết vảy thành một lớp giáp sinh học kháng độc.",
+      "effects": {
+       "health": 15,
+       "flags": [
+        "acid_skin"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Axit ăn mòn quá sâu khiến bạn gục ngã đau đớn, để lại những vết sẹo gớm ghiếc cả đời.",
+      "effects": {
+       "health": -30,
+       "fame": -3
+      }
+     }
+    },
+    {
+     "label": "Đấm vỡ mạch nước",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn tung một cú đấm làm sập vách đá, lấp luôn nguồn nước độc đang tuôn xuống.",
+      "effects": {
+       "STR": 2,
+       "joy": 5
+      }
+     },
+     "fail": {
+      "text": "Nắm đấm trượt mục tiêu, bạn mất thăng bằng ngã cắm mặt vào vũng axit.",
+      "effects": {
+       "AGI": -1,
+       "health": -25
+      }
+     }
+    }
+   ],
+   "moment": "Nỗi đau từ dòng nước axit khắc sâu sự lì lợm lên da thịt và cả tâm hồn bạn."
+  },
+  {
+   "id": "minota_act_train_beast",
+   "text": "Cảm thấy những tảng đá đã quá nhàm chán, bạn bắt một con rùa ma thú khổng lồ có mai thép về làm \"bao cát\" tập đấm.",
+   "focus": [
+    "train"
+   ],
+   "result": "Ngày qua ngày nện nắm tay vào mai thép, đốt ngón tay của bạn gãy rồi lại lành, biến thành một khối bướu xương cứng như sắt.",
+   "effects": {
+    "STR": 2,
+    "AGI": -1
+   }
+  },
+  {
+   "id": "minota_act_guard_illusion",
+   "text": "Một party Mạo hiểm giả xảo quyệt dùng ma thuật ảo ảnh để tạo ra hàng chục phân thân nhằm đánh lừa đôi mắt mù lòa của bạn, chúng đang lách qua để tiến vào lõi ngục.",
+   "focus": [
+    "work"
+   ],
+   "choices": [
+    {
+     "label": "Cuồng phong càn quét",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Không cần nhìn, bạn xoay rìu tạo thành một cơn lốc hủy diệt, băm nát cả ảo ảnh lẫn người thật thành đống bầy hầy.",
+      "effects": {
+       "STR": 2,
+       "wealth": 30
+      }
+     },
+     "fail": {
+      "text": "Bạn chém liên tục vào không khí đến kiệt sức. Bọn chúng vòng qua lưng chém gục bạn rồi cướp bóc.",
+      "effects": {
+       "health": -30,
+       "wealth": -50
+      }
+     }
+    },
+    {
+     "label": "Hít thở chướng khí",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Nhắm mắt lại, bạn dùng khứu giác phân biệt mùi mồ hôi thật và giả, đập vỡ sọ pháp sư tung phép ảo ảnh chỉ bằng một cú đá.",
+      "effects": {
+       "INT": 1,
+       "wealth": 20,
+       "fame": 3
+      }
+     },
+     "fail": {
+      "text": "Mùi hương bị gió trong hang làm nhiễu. Bạn bị dính một bùa choáng trước khi kịp nhận ra đối thủ.",
+      "effects": {
+       "health": -20,
+       "wealth": -20
+      }
+     }
+    }
+   ],
+   "moment": "Mắt mù không có nghĩa là mù lòa trước cái chết. Bạn đã dạy cho bọn mạo hiểm giả bài học đó."
+  },
+  {
+   "id": "minota_act_guard_rest",
+   "text": "Dọn dẹp đống xương cốt của bọn trộm cướp vừa bị bạn giết hôm qua, bạn phát hiện một viên Tinh Bạc và một lõi ma lực chôn giấu trong túi áo.",
+   "focus": [
+    "work"
+   ],
+   "result": "Của cải của kẻ yếu là phần thưởng cho kẻ mạnh. Bạn ném xác chúng vào hố rác và cất giữ chiến lợi phẩm.",
+   "effects": {
+    "joy": 5,
+    "wealth": 30
+   }
+  },
+  {
+   "id": "minota_act_duel_manticore",
+   "text": "Trận đấu của bạn bị gián đoạn khi một con Manticore đói khát phá lồng sắt lao ra, nó không tấn công đối thủ của bạn mà nhắm thẳng vào cái đầu bò khổng lồ của bạn.",
+   "focus": [
+    "adventure"
+   ],
+   "choices": [
+    {
+     "label": "Vật ngã mãnh thú",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn tóm lấy đôi cánh của nó, dùng sức nặng cơ thể đè bẹp và xé toạc lớp da bọc thép. Khán đài nổ tung trong tiếng hò reo.",
+      "effects": {
+       "STR": 2,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Con Manticore quật ngã bạn, vuốt nhọn cào rách một mảng ngực trước khi quản giáo can thiệp.",
+      "effects": {
+       "health": -25,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Né đòn độc",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Trượt qua cú đâm của đuôi bọ cạp tẩm độc, bạn chém ngược thanh kiếm cùn đứt lìa chiếc đuôi, khiến con quái vật tru lên thảm thiết.",
+      "effects": {
+       "AGI": 2,
+       "health": 5
+      }
+     },
+     "fail": {
+      "text": "Bạn chậm một nhịp. Đuôi độc đâm phập vào vai bạn, nọc độc làm bạn tê liệt và sùi bọt mép.",
+      "effects": {
+       "AGI": -1,
+       "health": -40
+      }
+     }
+    }
+   ],
+   "moment": "Đấu trường không có luật lệ, chỉ có kẻ sống sót cuối cùng mới nhận được vinh quang."
+  },
+  {
+   "id": "minota_act_duel_sabotage",
+   "text": "Đêm trước trận quyết chiến sinh tử, bạn phát hiện tảng thịt đùi bò được phân phát có mùi thạch tín hăng hắc. Kẻ nào đó đã trả tiền để bạn phải chết.",
+   "focus": [
+    "adventure"
+   ],
+   "choices": [
+    {
+     "label": "Ăn để tăng kháng tính",
+     "check": {
+      "stat": "health",
+      "target": 85
+     },
+     "success": {
+      "text": "Ruột gan bạn cồn cào như lửa đốt, nhưng cơ thể quái vật của bạn đã chuyển hóa chất độc thành năng lượng phẫn nộ. Bạn bước ra đấu trường như một ác thần.",
+      "effects": {
+       "STR": 2,
+       "health": 10,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Độc tính quá mạnh. Bạn nôn ra máu đen ngay trên bãi cát và bị đối thủ dễ dàng chém gục.",
+      "effects": {
+       "health": -40,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Ép cung kẻ đưa đồ",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn tóm cổ tên Goblin đưa cơm, bắt hắn khai ra tên quý tộc đứng sau và đổi lấy một phần ăn sạch.",
+      "effects": {
+       "INT": 1,
+       "wealth": 50
+      }
+     },
+     "fail": {
+      "text": "Tên Goblin cắn lưỡi tự sát. Bạn phải nhịn đói bước vào trận chiến ngày hôm sau.",
+      "effects": {
+       "health": -10,
+       "joy": -5
+      }
+     }
+    },
+    {
+     "label": "Nhịn đói chiến đấu",
+     "text": "Bạn ném tảng thịt đi, ra sân với cái bụng rỗng nhưng ý chí minh mẫn.",
+     "effects": {
+      "INT": 1,
+      "joy": -10
+     }
+    }
+   ]
+  },
+  {
+   "id": "minota_act_wander_dragon",
+   "text": "Đánh hơi thấy một hang động khô ráo tuyệt đẹp, bạn vừa bước vào thì nhận ra đây là ổ của một con Rồng Đất (Earth Dragon). Nó gầm gừ bảo vệ đống trứng phía sau.",
+   "focus": [
+    "study"
+   ],
+   "choices": [
+    {
+     "label": "Khiêu chiến đoạt hang",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Một trận chiến long trời lở đất. Bạn dùng sừng húc thủng vảy ngực con rồng, chiếm lấy hang động làm lãnh địa mới.",
+      "effects": {
+       "STR": 3,
+       "wealth": 50,
+       "fame": 10,
+       "flags": [
+        "dragon_slayer"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Con rồng phun luồng cát sắc như dao bào mòn da thịt bạn. Bạn phải cúp đuôi bỏ chạy trong nhục nhã.",
+      "effects": {
+       "health": -35,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Rút lui trong êm đẹp",
+     "check": {
+      "stat": "AGI",
+      "target": 4
+     },
+     "success": {
+      "text": "Bạn lùi lại chậm rãi, không kích động con thú mẹ và chuồn êm vào bóng đêm.",
+      "effects": {
+       "AGI": 1,
+       "health": 5
+      }
+     },
+     "fail": {
+      "text": "Vô tình đá phải một viên đá mồ côi, bạn đánh động con rồng và bị cái đuôi vĩ đại quật bay ra khỏi cửa hang.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Giao kèo tôn trọng",
+     "require": {
+      "INT": 6
+     },
+     "showLocked": true,
+     "text": "Bạn cúi đầu đặt một con hươu săn được xuống làm quà, ngầm hứa sẽ canh gác cửa hang đổi lấy chỗ trú mưa. Con rồng khịt mũi đồng ý.",
+     "effects": {
+      "INT": 2,
+      "joy": 10
+     }
+    }
+   ],
+   "moment": "Dưới gầm trời này, đôi khi kẻ mạnh phải học cách sống chung với kẻ mạnh hơn."
+  },
+  {
+   "id": "minota_act_wander_oasis",
+   "text": "Đi sâu vào dãy Núi Răng Cưa, bạn tình cờ tìm thấy một hồ nước khoáng ngầm phát sáng ánh lam, xung quanh mọc đầy nấm hồi phục.",
+   "focus": [
+    "study"
+   ],
+   "result": "Cắm trại tại đây vài tháng, bạn gặm nấm và uống nước thiêng, gột rửa đi bao mệt mỏi và thương tích tích tụ từ những cuộc tàn sát.",
+   "effects": {
+    "health": 30,
+    "joy": 20
+   }
+  },
+  {
+   "id": "minota_act_sleep_thieves",
+   "text": "Bạn nằm im lìm quá lâu đến mức đám rêu đã mọc trên sừng. Một nhóm trộm cướp tưởng bạn là cái xác khô, bèn mon men lại gần định nhổ những chiếc răng vàng của bạn.",
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "focus": [
+    "rest"
+   ],
+   "choices": [
+    {
+     "label": "Gầm lên thị uy",
+     "check": {
+      "stat": "STR",
+      "target": 4
+     },
+     "success": {
+      "text": "Chỉ một tiếng rống trầm đục, đống xương cốt rung lên lách cách. Lũ trộm bỏ chạy thục mạng, vứt lại đồ đạc.",
+      "effects": {
+       "joy": 5,
+       "wealth": 20,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Tiếng gầm biến thành tiếng ho khan sặc sụa. Lũ trộm cười phá lên và phóng vài mũi tên găm vào đùi bạn.",
+      "effects": {
+       "health": -20,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Trở mình đè nát",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn làm bộ xoay người trong giấc ngủ, vô tình đè bẹp hai tên trộm xấu số dưới cơ thể khổng lồ.",
+      "effects": {
+       "STR": 1,
+       "LUCK": 1
+      }
+     },
+     "fail": {
+      "text": "Bạn lăn nhầm vào vách đá sắc nhọn, tự làm đau mình tỉnh giấc, trong khi lũ trộm đã kịp chạy mất hút.",
+      "effects": {
+       "health": -10
+      }
+     }
+    }
+   ],
+   "moment": "Một ác thú già nua vẫn là ác thú. Đừng dại dột đánh thức cái chết đang say ngủ."
+  },
+  {
+   "id": "minota_act_sleep_dream",
+   "text": "Trong giấc mơ, bạn thấy mình rơi vào Vực Thẳm Phân Tầng vô tận. Những hồn ma của kẻ thù bị bạn xé xác bay quanh, gào thét đòi mạng.",
+   "stages": [
+    "elder"
+   ],
+   "focus": [
+    "rest"
+   ],
+   "result": "Bạn tỉnh giấc trong đầm đìa mồ hôi. Tuổi già đang đến, sinh lực cạn dần, nhưng tâm trí bạn lại trở nên sắc bén và bình thản một cách kỳ lạ.",
+   "effects": {
+    "INT": 2,
+    "health": -15,
+    "joy": 5
+   }
+  },
+  {
+   "id": "minota_ally_brave",
+   "text": "Một con Cave Troll khổng lồ đi lạc vào lãnh thổ. Dù chỉ bằng một góc chân nó, {ally} vẫn gào thét lao lên cắn phập vào gót chân con quái vật để bảo vệ vòm lưng đang đầy thương tích của bạn.",
+   "require": {
+    "party": 1,
+    "allyTrait": "brave"
+   },
+   "choices": [
+    {
+     "label": "Hỗ trợ đồng đội",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn gầm lên, ném chiếc rìu chặt đứt cánh tay đang định vung búa đập nát {ally}. Con Troll ngã gục.",
+      "effects": {
+       "STR": 1,
+       "bond": 10
+      }
+     },
+     "fail": {
+      "text": "Bạn chậm một nhịp, {ally} bị hất văng đập mạnh vào vách đá gãy xương sườn. Bạn điên cuồng lao tới xé xác con Troll.",
+      "effects": {
+       "health": -10,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Tận dụng sơ hở",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Trong lúc con Troll bận rũ {ally} ra khỏi chân, bạn luồn ra sau và tung một nhát chém cắt đứt gân cổ nó.",
+      "effects": {
+       "AGI": 1,
+       "wealth": 15
+      }
+     },
+     "fail": {
+      "text": "Bạn dẫm phải đá vụn trượt ngã. Cả bạn và {ally} đều ăn một búa đau điếng.",
+      "effects": {
+       "health": -20
+      }
+     }
+    }
+   ],
+   "moment": "Kẻ mạnh nhất chưa chắc là kẻ to xác nhất, mà là kẻ dám nhe nanh khi biết chắc mình sẽ chết."
+  },
+  {
+   "id": "minota_ally_loyal",
+   "text": "Kẻ thù ném vào buồng giam một tảng thịt bò tươi rói nhưng có mùi lạ. Bụng bạn đang đói cồn cào, nhưng {ally} vội vàng cắn thử một miếng trước để kiểm tra.",
+   "require": {
+    "party": 1,
+    "allyTrait": "loyal"
+   },
+   "choices": [
+    {
+     "label": "Hất văng miếng thịt",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn kịp hất miếng thịt khỏi tay {ally} trước khi nuốt xuống. Cả hai cùng nhịn đói nhưng an toàn.",
+      "effects": {
+       "health": -10,
+       "bond": 15
+      }
+     },
+     "fail": {
+      "text": "{ally} đã nuốt xong, ngay lập tức nôn ra bọt mép và co giật dữ dội. Bạn phải dùng Lõi Mana để cứu mạng.",
+      "effects": {
+       "health": -20,
+       "wealth": -30
+      }
+     }
+    },
+    {
+     "label": "Vận công ép độc",
+     "require": {
+      "INT": 6
+     },
+     "showLocked": true,
+     "text": "Bằng chút ma thuật nguyên thủy, bạn ấn mạnh vào dạ dày {ally}, ép nôn ra chất độc rỉ ra từ Đầm Lầy Tử Khí.",
+     "effects": {
+      "INT": 1,
+      "fame": 2
+     }
+    }
+   ],
+   "moment": "Bạn cô độc giữa mê cung, nhưng có kẻ nguyện lấy mạng sống để đổi lấy cho bạn một bữa ăn."
+  },
+  {
+   "id": "minota_ally_greedy",
+   "text": "Bất chấp lời cảnh báo của bạn, {ally} lén thò tay nhổ một chiếc răng vàng từ cái xác rủa của một gã quý tộc, vô tình kích hoạt hệ thống phi tiêu tẩm độc bắn ra tứ phía.",
+   "require": {
+    "party": 1,
+    "allyTrait": "greedy"
+   },
+   "choices": [
+    {
+     "label": "Lấy thân làm mộc",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Lớp da trâu của bạn cứng như thép, ghim chặt những mũi phi tiêu không cho độc ngấm sâu. {ally} khóc lóc tạ lỗi.",
+      "effects": {
+       "health": -10,
+       "bond": 20
+      }
+     },
+     "fail": {
+      "text": "Phi tiêu đâm vào mắt cá chân khiến bạn đi tập tễnh mất mấy tháng, {ally} thì nơm nớp lo sợ bị bạn ăn thịt.",
+      "effects": {
+       "AGI": -1,
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Túm cổ ném đi",
+     "check": {
+      "stat": "STR",
+      "target": 4
+     },
+     "success": {
+      "text": "Bạn túm cổ {ally} ném văng ra sau hòn đá, bản thân tự lùi lại an toàn. Dĩ nhiên, bạn tịch thu luôn chiếc răng vàng.",
+      "effects": {
+       "STR": 1,
+       "joy": 5,
+       "wealth": 20
+      }
+     },
+     "fail": {
+      "text": "Lực ném quá mạnh khiến {ally} đập đầu bất tỉnh.",
+      "effects": {
+       "health": -15,
+       "wealth": -10
+      }
+     }
+    }
+   ],
+   "moment": "Lòng tham của một con chuột đôi khi có thể giết chết một con quái vật khổng lồ."
+  },
+  {
+   "id": "minota_ally_coward",
+   "text": "Giữa trận chiến ác liệt với bầy Slime axit, {ally} sợ hãi cuộn tròn giả chết trong góc. Tuy nhiên, cái xác giả vờ đó vô tình làm một con Slime trượt ngã, hất bãi axit vào đồng loại.",
+   "require": {
+    "party": 1,
+    "allyTrait": "timid"
+   },
+   "result": "Bạn nhân cơ hội đó dọn dẹp phần còn lại của chiến trường một cách dễ dàng, sau đó nhấc bổng {ally} lên bằng hai ngón tay và khịt mũi buồn cười.",
+   "effects": {
+    "LUCK": 2,
+    "wealth": 10,
+    "bond": 5
+   }
+  },
+  {
+   "id": "minota_ally_funny",
+   "text": "Bạn đang đau đớn cắn răng tự rút một mũi tên gãy khỏi vai. {ally} bắt chước dáng vẻ oai phong lố lăng của tên Mạo hiểm giả vừa bắn bạn, lải nhải những câu chế giễu ngớ ngẩn.",
+   "require": {
+    "party": 1,
+    "allyTrait": "cheerful"
+   },
+   "result": "Bạn bật cười thành tiếng, một âm thanh khò khè kỳ lạ vang vọng ngục tối. Cơn đau như vơi đi phần nào giữa chốn địa ngục trần gian này.",
+   "effects": {
+    "health": 5,
+    "joy": 20
+   }
+  },
+  {
+   "id": "minota_ally_cold",
+   "text": "Bọn mạo hiểm giả đang lùng sục gần buồng giam/lõi mê cung. {ally} vô cảm đề nghị bẻ gãy chân một tên Goblin tù binh, ném ra ngoài làm mồi nhử cho bẫy chông sập xuống.",
+   "require": {
+    "party": 1,
+    "allyTrait": "cold"
+   },
+   "choices": [
+    {
+     "label": "Đồng ý tàn nhẫn",
+     "text": "Bạn lạnh lùng làm theo. Tên Goblin gào thét kéo bọn người kia sập bẫy.",
+     "effects": {
+      "INT": 1,
+      "joy": -10,
+      "fame": 3
+     }
+    },
+    {
+     "label": "Tự tay nghênh chiến",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạo lực cường tráng không cần đến mưu hèn. Bạn lao ra chẻ đôi tên đi đầu, khiến đám còn lại khiếp vía rút lui.",
+      "effects": {
+       "STR": 2,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Đội hình của chúng quá vững. Bạn bị đánh bật lại và phải lui vào sâu hơn cùng {ally}.",
+      "effects": {
+       "health": -20
+      }
+     }
+    }
+   ],
+   "moment": "Sống trong bóng tối đủ lâu, nhịp tim của cả bạn và đồng đội đều lạnh ngắt như đá vôi."
+  },
+  {
+   "id": "minota_ally_rescue",
+   "text": "Một trận động đất bất ngờ làm rung chuyển Vực Thẳm. Một tảng đá hàng tấn rơi xuống, đè lên chân {ally}. Đất đá đang tiếp tục trút xuống, hăm dọa chôn vùi cả hai.",
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Gồng vai gánh đá",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn dùng đôi vai vạm vỡ đội tảng đá lên, rống lên để {ally} bò ra. Cả hai thoát chết trong gang tấc.",
+      "effects": {
+       "STR": 2,
+       "bond": 30,
+       "flags": [
+        "blood_bond"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Tảng đá quá nặng, nó nghiền nát chân {ally} và làm rạn xương vai của bạn.",
+      "effects": {
+       "health": -55
+      }
+     }
+    },
+    {
+     "label": "Bỏ mặc chạy lấy người",
+     "text": "Bạn quay lưng bỏ chạy, mặc cho tiếng gào thét chìm dần trong đống đổ nát. Sự sinh tồn luôn tàn nhẫn.",
+     "effects": {
+      "LUCK": 1,
+      "joy": -20,
+      "allyDie": true
+     }
+    }
+   ],
+   "moment": "Trong giây phút cận kề cái chết, bạn mới biết thứ gì nặng hơn: mạng sống của bản thân hay một kẻ đồng hành."
+  },
+  {
+   "id": "minota_ally_loot",
+   "text": "Dọn dẹp xác một con Golem cổ đại, hai người tìm thấy một Lõi Mana Huyết Kim nguyên chất rực rỡ. Đây là thứ có thể đổi lấy cả một gia tài hoặc cường hóa sức mạnh đáng kể.",
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Chiếm đoạt một mình",
+     "check": {
+      "stat": "INT",
+      "target": 4
+     },
+     "success": {
+      "text": "Bằng cái lườm đáng sợ của loài quái vật, bạn khiến {ally} tự nguyện lùi lại. Bạn nhai ngấu nghiến Lõi Mana.",
+      "effects": {
+       "STR": 2,
+       "INT": 1,
+       "bond": -20
+      }
+     },
+     "fail": {
+      "text": "{ally} ấm ức, lén bỏ thuốc sổ vào nước uống của bạn để trả thù.",
+      "effects": {
+       "health": -10,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Chia sẻ công bằng",
+     "require": {
+      "STR": 6
+     },
+     "showLocked": true,
+     "text": "Bạn dùng rìu chặt đôi viên Huyết Kim cứng như kim cương, ném cho {ally} một nửa. Dù hao hụt năng lượng, nhưng lòng tin được củng cố.",
+     "effects": {
+      "wealth": 30,
+      "bond": 20
+     }
+    }
+   ],
+   "moment": "Tiền bạc thường là thứ cắt đứt mọi lời thề, nhưng thỉnh thoảng nó lại mua được sự trung thành tuyệt đối."
+  },
+  {
+   "id": "minota_ally_depart",
+   "text": "{ally} nhặt được một chiếc chìa khóa mở cánh cổng ngầm dẫn lên Đồng Bằng Thánh Quang. Đôi mắt {ally} rơm rớm, xin bạn tha thứ để được bước ra ngoài ánh sáng tìm lại cuộc đời.",
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Cho phép rời đi",
+     "text": "Bạn im lặng quay lưng lại, vờ như không thấy. {ally} dập đầu tạ ơn rồi biến mất vào ánh sáng. Bạn trở lại với bóng tối cô độc quen thuộc.",
+     "effects": {
+      "joy": -15,
+      "fame": 5,
+      "flags": [
+       "lone_shadow"
+      ],
+      "allyDie": true
+     }
+    },
+    {
+     "label": "Nghiền nát chìa khóa",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Lãnh thổ của bạn không có cửa ra. Bạn giật lấy chiếc chìa khóa bóp nát bấy, ép {ally} vĩnh viễn ở lại ngục tối này cùng mình.",
+      "effects": {
+       "STR": 1,
+       "bond": -40
+      }
+     },
+     "fail": {
+      "text": "{ally} vùng vằng lách qua háng bạn và chạy thoát, để lại bạn gầm thét tức tưởi.",
+      "effects": {
+       "joy": -20,
+       "allyDie": true
+      }
+     }
+    }
+   ],
+   "moment": "Ánh sáng không dành cho Minotaur, bạn hiểu điều đó, nhưng nhìn đồng đội bước đi vẫn mang lại một khoảng trống khó lấp đầy."
+  },
+  {
+   "id": "minota_mate_maze",
+   "text": "Dưới ánh trăng đỏ rực, một nữ Minotaur lang thang xâm nhập vào lãnh thổ của bạn. Thay vì tấn công vỡ sọ nhau như mọi khi, mùi hương ngai ngái phát ra từ cô ta kích thích bản năng duy trì nòi giống bạo liệt trong huyết quản bạn. Cô ta rống lên, thách thức bạn chứng minh sức mạnh.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "require": {
+    "notFlags": [
+     "enslaved"
+    ],
+    "health": 50
+   },
+   "choices": [
+    {
+     "label": "Vật ngã khuất phục",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn lao vào như một cỗ xe tăng, gánh trọn cú húc của cô ta rồi quật ngã đối thủ xuống nền đá. Một màn giao phối hoang dại diễn ra giữa đống xương cốt.",
+      "effects": {
+       "STR": 2,
+       "joy": 20,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Cô ta quá khỏe, húc gãy một mảng sừng của bạn và khinh bỉ bỏ đi.",
+      "effects": {
+       "health": -20,
+       "joy": -15
+      }
+     }
+    },
+    {
+     "label": "Khóa sừng đọ sức dai dẳng",
+     "check": {
+      "stat": "health",
+      "target": 55
+     },
+     "success": {
+      "text": "Hai cặp sừng đan vào nhau. Bạn thi gan cùng cô ta suốt ba ngày ba đêm không ăn uống, cho đến khi cô ta kiệt sức và tự nguyện phục tùng.",
+      "effects": {
+       "health": 5,
+       "fame": 5,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Bạn đói lả và gục xuống trước. Cô ta giẫm lên lưng bạn cười nhạo rồi rời khỏi mê cung.",
+      "effects": {
+       "health": -30,
+       "fame": -5
+      }
+     }
+    }
+   ],
+   "moment": "Tình yêu của loài ác thú luôn bắt đầu bằng mùi máu và những vết thương."
+  },
+  {
+   "id": "minota_mate_arena",
+   "text": "Sau khi bạn xé xác một con Wyvern (Phi long) trên Đấu trường Huyết Sa, chủ nhân thưởng cho bạn một nữ nô lệ Beastman tộc Bò. Cô ta co rúm trong góc lồng sắt, chờ đợi bị nghiền nát bởi cơn cuồng nộ của bạn.",
+   "focus": [
+    "adventure"
+   ],
+   "choices": [
+    {
+     "label": "Cưỡng đoạt tàn bạo",
+     "check": {
+      "stat": "STR",
+      "target": 4
+     },
+     "success": {
+      "text": "Bạn không quan tâm đến sự sợ hãi của cô ta. Bạo lực là thứ ngôn ngữ duy nhất bạn biết. Cô ta sống sót qua đêm tân hôn nhưng thân tàn ma dại.",
+      "effects": {
+       "STR": 1,
+       "joy": 10,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Cô ta hoảng loạn dùng trâm cài tóc đâm vào hốc mắt bạn. Bạn tức giận vung tay đập chết cô ta.",
+      "effects": {
+       "health": -15,
+       "joy": -20
+      }
+     }
+    },
+    {
+     "label": "Chia sẻ miếng thịt tươi",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn nén lại bản năng thú vật, ném cho cô ta tảng thịt Wyvern và im lặng ngồi canh gác. Sự dịu dàng kỳ lạ của một con quái vật khiến cô ta dần mở lòng.",
+      "effects": {
+       "INT": 2,
+       "joy": 25,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Bọn lính canh bên ngoài thấy bạn không chịu \"biểu diễn\", liền dùng roi điện chọc vào lồng bắt ép bạn.",
+      "effects": {
+       "health": -20,
+       "joy": -10
+      }
+     }
+    }
+   ],
+   "moment": "Ngay cả trong lò sát sinh ngập máu, một hạt giống của sự sống vẫn có thể nảy mầm."
+  },
+  {
+   "id": "minota_child_born",
+   "text": "{spouse} sinh hạ {child} ngay trên nền đá vôi lạnh lẽo. Đứa bé nhỏ thó, run rẩy và dường như bị sinh non. Bản năng mách bảo bạn rằng một con Minotaur yếu ớt sẽ chỉ làm bẩn lãnh thổ.",
+   "require": {
+    "spouse": true
+   },
+   "choices": [
+    {
+     "label": "Thử thách sinh tồn",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn thả một con rết độc ngầm cắn {child}. Bằng một phép màu, huyết mạch ác thú giúp nó sống sót và phình to cơ bắp.",
+      "effects": {
+       "STR": 1,
+       "child": true
+      }
+     },
+     "fail": {
+      "text": "Chất độc quá mạnh, {child} ngừng thở. Bạn ném cái xác nhỏ bé cho bầy Slime dọn dẹp.",
+      "effects": {
+       "joy": -20,
+       "loseChild": true
+      }
+     }
+    },
+    {
+     "label": "Bảo vệ bất chấp",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Gạt bỏ bản năng, bạn ôm ấp {child}, dùng thân nhiệt khổng lồ của mình để ủ ấm cho sinh mệnh yếu ớt này qua mùa đông Vực Thẳm.",
+      "effects": {
+       "joy": 20,
+       "fame": -2,
+       "child": true
+      }
+     },
+     "fail": {
+      "text": "Chướng khí trong ngục tối đã lấy mạng đứa bé trước khi nó kịp mở mắt.",
+      "effects": {
+       "joy": -30
+      }
+     }
+    }
+   ],
+   "moment": "Giữa thế giới vô tình, sự ra đời của máu mủ là một vệt sáng mỏng manh."
+  },
+  {
+   "id": "minota_child_rebel",
+   "text": "Cơ bắp cuồn cuộn và cái sừng sắc lẹm, {child} giờ đây nhìn bạn không phải bằng ánh mắt tôn kính của một đứa con, mà là sự thèm khát ngai vàng của kẻ thách thức. Nó gầm lên, vung rìu lao thẳng về phía bạn.",
+   "require": {
+    "notFlags": [
+     "enslaved"
+    ],
+    "children": 1
+   },
+   "choices": [
+    {
+     "label": "Nghiền nát và dung thứ",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Bạn tay không chụp lấy lưỡi rìu, đấm vỡ một chiếc sừng của {child} và ghim nó xuống đất. Nó run rẩy xin hàng, chấp nhận rời đi tìm lãnh thổ mới.",
+      "effects": {
+       "STR": 2,
+       "joy": 2,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Tuổi tác làm bạn chậm lại. {child} chém trúng ngực bạn một vệt dài, cướp lấy một phần kho báu và bỏ đi ngạo nghễ.",
+      "effects": {
+       "health": -30,
+       "joy": -17,
+       "wealth": -50
+      }
+     }
+    },
+    {
+     "label": "Dứt điểm diệt trừ",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Nhìn thấu sự nông nổi của {child}, bạn tung một cú đá chí mạng bẻ gãy cổ nó. Kẻ ngáng đường phải chết, dù đó là máu mủ của bạn.",
+      "effects": {
+       "INT": 2,
+       "joy": -30,
+       "loseChild": true
+      }
+     },
+     "fail": {
+      "text": "Lưỡi rìu của nó sượt qua làm đứt gân tay bạn. Trận đấu kết thúc trong sự giằng co và hận thù vĩnh viễn.",
+      "effects": {
+       "AGI": -2,
+       "health": -25
+      }
+     }
+    }
+   ],
+   "moment": "Quyền lực của Minotaur là độc tôn, đôi khi cái giá phải trả là chính dòng máu của mình."
+  },
+  {
+   "id": "minota_child_legacy",
+   "text": "{child} ném xuống chân bạn cái đầu đứt lìa của một tên Mạo hiểm giả hạng B, chiếc mũ sắt vẫn còn dính chặt vào sọ. Nó khịt mũi kiêu hãnh, chờ đợi sự công nhận từ vị vua già.",
+   "require": {
+    "children": 1
+   },
+   "result": "Bạn bóc chiếc mũ sắt ra, nhai nát sọ kẻ thù như một cách chia sẻ bữa tiệc chiến thắng, rồi gật đầu cất tiếng rống trầm đục. Dòng máu gác đền đã có kẻ kế thừa.",
+   "effects": {
+    "joy": 20,
+    "fame": 5
+   }
+  },
+  {
+   "id": "minota_evo_gold_sign",
+   "text": "Lớp sừng của bạn dạo gần đây liên tục bong tróc, để lộ ra một chất sừng lấp lánh như vàng ròng. Thay vì thèm khát thịt tươi, bạn bắt đầu có cảm giác đói cồn cào với những khối Huyết Kim và Tinh Bạc chất đống trong rương.",
+   "minAge": 35,
+   "weight": 10,
+   "require": {
+    "STR": 10,
+    "wealth": 70,
+    "anyFlags": [
+     "bloody_axe",
+     "sovereign_blood"
+    ],
+    "form": "none",
+    "notFlags": [
+     "evo_sign_gold"
+    ]
+   },
+   "result": "Cơn khát của cải vật chất ngấm vào tủy xương, báo hiệu cơ thể bạn chuẩn bị trải qua một đợt biến đổi trái với quy luật tự nhiên.",
+   "effects": {
+    "health": -10,
+    "wealth": -20,
+    "flags": [
+     "evo_sign_gold"
+    ]
+   }
+  },
+  {
+   "id": "minota_evo_gold_ritual",
+   "text": "Cơn thèm khát lên đến đỉnh điểm. Bạn kéo toàn bộ kho báu Huyết Kim của mình vào lò dung nham ngầm, nung chảy chúng thành một hồ chất lỏng sôi sục rồi lao mình vào đó để hấp thu.",
+   "weight": 12,
+   "require": {
+    "form": "none",
+    "flags": [
+     "evo_sign_gold"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Gồng mình hòa dung",
+     "check": {
+      "stat": "health",
+      "target": 85
+     },
+     "success": {
+      "text": "Da thịt bạn bốc cháy, nhưng máu Minotaur hòa quyện hoàn hảo với Huyết Kim. Bạn bước ra khỏi hồ dung nham với lớp da vàng rực, cứng hơn cả khiên rồng.",
+      "effects": {
+       "AGI": -2,
+       "health": 50,
+       "wealth": -100,
+       "evolve": "Golden Minotaur"
+      }
+     },
+     "fail": {
+      "text": "Cơ thể bạn không chịu nổi nhiệt độ. Bạn bị luộc chín và tan chảy thành một pho tượng thịt lẫn vàng vĩnh viễn dưới đáy ngục.",
+      "death": "Cơ thể bạn không chịu nổi nhiệt độ. Bạn bị luộc chín và tan chảy thành một pho tượng thịt lẫn vàng vĩnh viễn dưới đáy ngục."
+     }
+    },
+    {
+     "label": "Điều hướng kim loại vào xương",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn cẩn thận dẫn luồng Huyết Kim nóng chảy lấp đầy tủy xương và cặp sừng. Cơ thể vẫn giữ màu lông cũ nhưng xương cốt đã bất hoại.",
+      "effects": {
+       "STR": 4,
+       "wealth": -100,
+       "evolve": "Golden Minotaur"
+      }
+     },
+     "fail": {
+      "text": "Luồng kim loại làm tắc nghẽn mạch máu, tim bạn nổ tung vì áp lực.",
+      "death": "Luồng kim loại làm tắc nghẽn mạch máu, tim bạn nổ tung vì áp lực."
+     }
+    }
+   ],
+   "once": false,
+   "moment": "Sinh ra từ bóng tối, nhưng giờ đây bạn rực rỡ và đắt giá hơn bất kỳ kho báu nào trên thế gian."
+  },
+  {
+   "id": "minota_gold_event_1",
+   "text": "Lời đồn về con quái vật đúc bằng vàng ròng bay đến tai Thương hội Sói Bạc. Chúng phái hàng chục tay lính đánh thuê thiện chiến nhất mang cưa ma thuật đến định cắt lấy sừng và lột da bạn.",
+   "require": {
+    "form": "Golden Minotaur"
+   },
+   "result": "Vũ khí của chúng gãy vụn khi chạm vào lớp da của bạn. Chỉ bằng một cái vung tay nhẹ, bạn đã biến lũ ruồi nhặng tham lam thành những vũng máu, tịch thu toàn bộ trang bị đắt tiền của chúng.",
+   "effects": {
+    "STR": 1,
+    "wealth": 100,
+    "fame": 10
+   }
+  },
+  {
+   "id": "minota_gold_event_2",
+   "text": "Bầy Goblin và Kobold trong khu vực không dám tấn công bạn nữa. Thay vào đó, chúng quỳ lạy và lập bàn thờ bạn như một Tà thần Tài Lộc, dâng lên những viên ngọc quý mỗi tháng mong được bảo hộ.",
+   "require": {
+    "form": "Golden Minotaur"
+   },
+   "result": "Ngồi vắt vẻo trên đống vàng, bạn khịt mũi hưởng thụ sự sùng bái ngu muội của bọn sinh vật cấp thấp, túi tiền tự động phình to.",
+   "effects": {
+    "joy": 10,
+    "wealth": 50,
+    "fame": 10
+   }
+  },
+  {
+   "id": "minota_evo_myth_sign",
+   "text": "Bóng của bạn không còn in trên vách đá nữa mà bắt đầu tự di chuyển, bóp chết những con chuột nhắt cản đường. Bạn nghe thấy tiếng mê cung thở đều đặn cùng nhịp tim của mình.",
+   "minAge": 35,
+   "weight": 10,
+   "require": {
+    "INT": 8,
+    "STR": 9,
+    "anyFlags": [
+     "abyss_stare",
+     "cult_god"
+    ],
+    "form": "none",
+    "notFlags": [
+     "evo_sign_myth"
+    ]
+   },
+   "result": "Vực Thẳm đang gọi tên bạn. Sự tồn tại vật lý của bạn đang dần mờ đi để nhường chỗ cho một khái niệm trừu tượng và tà ác hơn.",
+   "effects": {
+    "INT": 2,
+    "health": -15,
+    "flags": [
+     "evo_sign_myth"
+    ]
+   }
+  },
+  {
+   "id": "minota_evo_myth_ritual",
+   "text": "Bạn đứng trước Lõi Mana khổng lồ duy trì toàn bộ Vực Thẳm Phân Tầng. Lời thì thầm của Cổ Thần yêu cầu bạn từ bỏ xác thịt phàm trần để hòa làm một với linh hồn của ngục tối.",
+   "weight": 12,
+   "require": {
+    "form": "none",
+    "flags": [
+     "evo_sign_myth"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Cưỡng ép thôn phệ lõi",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Thay vì quy phục, bạn há miệng nuốt chửng Lõi ngục tối. Cơ thể bạn bành trướng, lơ lửng trong không trung, cặp sừng bốc cháy ngọn lửa linh hồn xanh biếc.",
+      "effects": {
+       "INT": 4,
+       "fame": 50,
+       "evolve": "Mythical Minotaur"
+      }
+     },
+     "fail": {
+      "text": "Năng lượng ngục tối quá kinh khủng. Nó xé nát lục phủ ngũ tạng của bạn từ bên trong, biến bạn thành một vũng máu đen.",
+      "death": "Năng lượng ngục tối quá kinh khủng. Nó xé nát lục phủ ngũ tạng của bạn từ bên trong, biến bạn thành một vũng máu đen."
+     }
+    },
+    {
+     "label": "Buông bỏ nhục thể",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn ngồi thiền định giữa không trung, để năng lượng hắc ám hòa tan lớp thịt. Bạn tái sinh dưới hình dạng một vị thần nửa bò nửa quỷ cấu tạo từ bóng tối và ma lực thuần túy.",
+      "effects": {
+       "STR": 3,
+       "health": 30,
+       "evolve": "Mythical Minotaur"
+      }
+     },
+     "fail": {
+      "text": "Linh hồn bạn bị Lõi ngục tối hấp thụ hoàn toàn, xóa sổ ý thức của bạn. Bạn trở thành một Golem vô tri bảo vệ nơi này mãi mãi.",
+      "death": "Mất ý thức"
+     }
+    }
+   ],
+   "once": false,
+   "moment": "Nhục thể chỉ là lớp vỏ tạm bợ, giờ đây bạn chính là mê cung, và mê cung chính là bạn."
+  },
+  {
+   "id": "minota_myth_event_1",
+   "text": "Một đội Mạo hiểm giả hạng A cố gắng dùng Bản đồ Ma thuật để dò đường vào lõi ngục.",
+   "require": {
+    "form": "Mythical Minotaur"
+   },
+   "result": "Chỉ bằng một ý nghĩ, bạn dịch chuyển toàn bộ hành lang xung quanh chúng, biến lối ra thành một vòng lặp vô tận dẫn thẳng vào hồ dung nham. Chúng chết mà không kịp hiểu vì sao.",
+   "effects": {
+    "INT": 2,
+    "wealth": 80
+   }
+  },
+  {
+   "id": "minota_myth_event_2",
+   "text": "Các Tư tế cao cấp của Hắc Nguyệt Hội kéo đến, quỳ rạp dưới chân bạn và hiến tế hàng chục trinh nữ để xin bạn ban cho một mảnh sức mạnh Vực Thẳm.",
+   "require": {
+    "form": "Mythical Minotaur"
+   },
+   "result": "Bạn hấp thụ sinh khí từ lễ hiến tế, vươn vai phát ra luồng uy áp ép chúng hộc máu, chứng minh quyền uy của một Thần thú.",
+   "effects": {
+    "health": 30,
+    "fame": 20
+   }
+  },
+  {
+   "id": "minota_old_sight",
+   "text": "Tuổi già làm đục ngầu hai nhãn cầu của bạn. Một buổi sáng tỉnh dậy, sự mù màu đã chuyển thành mù lòa hoàn toàn. Mọi thứ chìm vào một màu đen đặc quánh.",
+   "stages": [
+    "elder"
+   ],
+   "result": "Nỗi sợ hãi qua đi rất nhanh. Bạn phát hiện ra khi không còn đôi mắt, khứu giác và thính giác của bạn lại sắc bén đến mức có thể nghe tiếng tim đập của con mồi cách xa ba tầng ngục.",
+   "effects": {
+    "INT": 2,
+    "AGI": -2,
+    "health": -10
+   }
+  },
+  {
+   "id": "minota_old_challenger",
+   "text": "Một gã Minotaur khổng lồ đang trong độ tuổi sung sức nhất đập vỡ cánh cửa ngục. Hắn gầm lên thách thức ngai vàng của bạn. Hình bóng hắn quen thuộc đến mức khiến bạn nhớ lại chính mình của sáu chục năm về trước.",
+   "stages": [
+    "elder"
+   ],
+   "choices": [
+    {
+     "label": "Chiến đấu đến hơi thở cuối cùng",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Tuổi già không làm mòn lưỡi rìu. Bằng kinh nghiệm phong phú, bạn dụ hắn vung rìu hụt rồi chém lìa cổ kẻ thách thức trẻ tuổi. Ngai vàng vẫn là của bạn!",
+      "effects": {
+       "STR": 2,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Lực lượng kiệt quệ. Hắn bẻ gãy sừng bạn và nện chiếc búa đinh vào sọ bạn. Bạn ngã xuống, thanh thản nhường lại vương tọa cho thời đại mới.",
+      "death": "Lực lượng kiệt quệ. Hắn bẻ gãy sừng bạn và nện chiếc búa đinh vào sọ bạn. Bạn ngã xuống, thanh thản nhường lại vương tọa cho thời đại mới."
+     }
+    },
+    {
+     "label": "Buông vũ khí chấp nhận",
+     "text": "Bạn ngồi yên trên ngai đá, từ tốn nhắm mắt lại. Lưỡi rìu của kẻ trẻ tuổi chẻ đôi người bạn. Máu của vị vua già tưới đẫm vùng đất thánh.",
+     "death": "Bạn ngồi yên trên ngai đá, từ tốn nhắm mắt lại. Lưỡi rìu của kẻ trẻ tuổi chẻ đôi người bạn. Máu của vị vua già tưới đẫm vùng đất thánh."
+    }
+   ]
+  },
+  {
+   "id": "minota_old_statue",
+   "text": "Bạn không còn sức để đứng lên nữa. Ngồi gục đầu trên ngai vàng làm từ xương, hơi thở của bạn chậm dần. Từng mảng da thịt bắt đầu vôi hóa và kết hợp với lớp đá rêu phong của ngục tối.",
+   "stages": [
+    "elder"
+   ],
+   "result": "Bạn nhắm mắt, từ từ hóa thành một bức tượng đá uy nghi vĩnh cửu trấn giữ ngai vàng. Hàng ngàn năm sau, những kẻ lạc lối vẫn phải run rẩy khi đi ngang qua bức tượng mang linh hồn của bạo chúa mê cung.",
+   "death": "Già). Danh vọng +100"
+  },
+  {
+   "id": "minota_chain_tomb_crack",
+   "text": "Trận pháp Huyết Kim làm từ máu của {mother} bắt đầu mờ dần theo thời gian. Từ sau cánh cửa đóng kín năm xưa, bạn nghe thấy tiếng móng tay cào vào đá tuyệt vọng, xen lẫn âm thanh gầm gừ không thuộc về cõi sống.",
+   "require": {
+    "flags": [
+     "locked_tomb"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Rạch tay bồi đắp phong ấn",
+     "check": {
+      "stat": "health",
+      "target": 55
+     },
+     "success": {
+      "text": "Bạn lấy chính máu mình tưới lên trận pháp. Cánh cửa lại bừng sáng ánh đỏ, tiếng cào cấu im bặt. Bạn bảo vệ được sự yên nghỉ của mẹ.",
+      "effects": {
+       "health": -15,
+       "fame": 2,
+       "flags": [
+        "blood_seal"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Máu của bạn không khớp hoàn toàn với ma lực của {mother}. Phong ấn nứt toác, chướng khí từ bên trong ùa ra làm bạn suy yếu.",
+      "effects": {
+       "health": -20,
+       "flags": [
+        "broken_tomb"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Phá cửa đối mặt",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn vung rìu đập nát cánh cửa, quyết định giải quyết dứt điểm. Bạn chặt đứt đầu lũ mạo hiểm giả nay đã hóa thành Ghoul đói khát.",
+      "effects": {
+       "STR": 2,
+       "wealth": 30,
+       "flags": [
+        "tomb_cleared"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn vừa mở cửa thì bị chướng khí và bầy Ghoul lao vào cắn xé. Bạn phải chật vật lắm mới lùi lại và lấp cửa bằng đá tảng.",
+      "effects": {
+       "health": -30,
+       "flags": [
+        "broken_tomb"
+       ]
+      }
+     }
+    }
+   ],
+   "moment": "Âm hồn của những kẻ bị chôn sống không bao giờ ngủ yên, chúng chờ đợi sự suy yếu của bạn."
+  },
+  {
+   "id": "minota_chain_tomb_revenge",
+   "text": "Phong ấn vỡ nát hoàn toàn. Tên Pháp sư của tổ đội Mạo hiểm giả năm xưa nay đã biến thành một Lich (Tử Linh Sư) hắc ám. Hắn dẫn đầu bầy xác sống trỗi dậy, quyết tâm biến lãnh thổ của bạn thành bãi tha ma.",
+   "require": {
+    "flags": [
+     "broken_tomb"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hủy diệt bằng sức mạnh nguyên thủy",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Mặc kệ ma pháp hắc ám gặm nhấm da thịt, bạn lao thẳng tới nghiền nát hộp sọ của tên Lich bằng tay không, dập tắt ngọn lửa linh hồn của hắn.",
+      "effects": {
+       "STR": 3,
+       "health": -20,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Lời nguyền của Tử Linh Sư khiến cơ bắp bạn teo tóp. Bạn bị bầy xác sống đè ngợp và vĩnh viễn trở thành thú cưỡi xác sống cho tên Lich.",
+      "death": "Lời nguyền của Tử Linh Sư khiến cơ bắp bạn teo tóp. Bạn bị bầy xác sống đè ngợp và vĩnh viễn trở thành thú cưỡi xác sống cho tên Lich."
+     }
+    },
+    {
+     "label": "Thanh tẩy bằng lửa",
+     "require": {
+      "INT": 7
+     },
+     "showLocked": true,
+     "text": "Bạn hất văng những thùng dầu đốt lấy từ kho báu, quẹt tia lửa từ Huyết Kim thiêu rụi toàn bộ hang động. Bầy xác sống bị thiêu thành tro bụi mà không tốn một giọt mồ hôi.",
+     "effects": {
+      "INT": 2,
+      "health": 5,
+      "wealth": -20
+     }
+    }
+   ],
+   "moment": "Món nợ máu với bọn mạo hiểm giả cuối cùng cũng được thanh toán bằng ngọn lửa vĩnh hằng."
+  },
+  {
+   "id": "minota_chain_orc_ambush",
+   "text": "Đang đi tuần, một mũi tên đen tẩm kịch độc cắm phập vào vai bạn. Kẻ bắn lén là một tên Orc trẻ tuổi mang ánh mắt thù hận, chính là con trai của gã High Orc Lord năm xưa đến để đòi nợ máu.",
+   "require": {
+    "flags": [
+     "orc_bane"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Đuổi theo xé xác",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Mặc kệ cơn đau, bạn lao đi như gió, tóm cổ tên Orc nhãi ranh và xé xác hắn làm đôi. Lời nguyền huyết thống của bọn Orc bị cắt đứt.",
+      "effects": {
+       "AGI": 2,
+       "health": -10,
+       "flags": [
+        "orc_extinct"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Nọc độc phát tác khiến bạn ngã quỵ. Tên Orc nhân cơ hội tẩu thoát, để lại nụ cười khinh bỉ.",
+      "effects": {
+       "health": -30,
+       "flags": [
+        "orc_threat"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Bắt sống làm con tin",
+     "require": {
+      "INT": 6
+     },
+     "showLocked": true,
+     "text": "Bạn giả vờ gục ngã để dụ hắn lại gần, rồi tóm sống hắn. Bạn trói hắn bằng xích sắt, treo lơ lửng trước cửa ngục để thách thức bộ tộc của hắn.",
+     "effects": {
+      "INT": 2,
+      "joy": 5,
+      "flags": [
+       "orc_hostage"
+      ]
+     }
+    }
+   ],
+   "moment": "Cỏ dại không nhổ tận gốc, nọc độc sẽ lại đâm chồi."
+  },
+  {
+   "id": "minota_chain_orc_army",
+   "text": "Bộ tộc Orc phản ứng lại hành động của bạn. Tùy thuộc vào những gì bạn đã làm, cái kết sẽ diễn ra theo hai hướng trái ngược.",
+   "require": {
+    "anyFlags": [
+     "orc_extinct",
+     "orc_threat",
+     "orc_hostage"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Giao dịch máu",
+     "check": {
+      "stat": "STR",
+      "target": 4
+     },
+     "success": {
+      "text": "Bọn Orc mang đến hàng thùng Tinh Bạc để chuộc thiếu chủ. Bạn hất tung hòm tiền lấy tài sản, sau đó tiện tay vặn gãy luôn cổ tên con tin, rống lên đuổi bọn chúng đi. Sự tàn ác khiến bộ tộc Orc khiếp đảm không bao giờ dám quay lại.",
+      "effects": {
+       "STR": 1,
+       "wealth": 100,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Bọn chúng nổi điên lao vào cướp người khi thấy bạn nuốt lời. Bạn lãnh vài nhát chém trước khi đuổi được chúng đi.",
+      "effects": {
+       "health": -20,
+       "wealth": 100
+      }
+     }
+    },
+    {
+     "label": "Đòn tử vì đạo",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Tàn dư của tộc Orc quấn đầy chất nổ ma thuật lao vào ngục tối nhằm cùng chết với bạn. Nhờ bản năng, bạn kịp đá văng chúng xuống hố sâu trước khi chúng phát nổ.",
+      "effects": {
+       "LUCK": 2,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Vụ nổ kinh thiên động địa đánh sập một phần mê cung. Bạn bị đè dưới đống đổ nát, vỡ sọ và gãy nát toàn bộ xương sườn.",
+      "death": "Cơ nghiệp một đời chôn vùi trong khói bụi"
+     }
+    }
+   ],
+   "moment": "Sự hận thù của giống loài da xanh đã được định đoạt bằng cái giá đắt nhất."
+  },
+  {
+   "id": "minota_chain_holy_burn",
+   "text": "Năng lượng thanh tẩy trong mảnh giáp bạch kim chưa từng tắt. Mỗi khi trăng tròn, nó lại bừng sáng, thiêu đốt lớp thịt sẹo trên ngực bạn, cố gắng ăn mòn sinh lực của một sinh vật Vực Thẳm.",
+   "require": {
+    "flags": [
+     "holy_blood"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Dùng móng vuốt cạy bỏ",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bất chấp đau đớn xé ruột, bạn lách móng vuốt vào lớp thịt, cạy tung mảnh giáp ra. Máu đen phun trào nhưng bạn đã loại bỏ được mầm mống Thánh Quang.",
+      "effects": {
+       "STR": 1,
+       "health": -20,
+       "flags": [
+        "scarred_chest"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Mảnh giáp đã ăn quá sâu vào xương sườn. Càng cạy nó càng tỏa nhiệt dữ dội khiến bạn ngất lịm vì đau đớn.",
+      "effects": {
+       "INT": -1,
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Hấp thụ ngược ánh sáng",
+     "check": {
+      "stat": "health",
+      "target": 85
+     },
+     "success": {
+      "text": "Bạn thi gan với nỗi đau, vận dụng ma lực hoang dã của loài quái vật để áp chế, biến mảnh giáp Thánh Quang thành một phần xương thịt bất hoại của mình.",
+      "effects": {
+       "INT": 2,
+       "health": 15,
+       "flags": [
+        "holy_resistance"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Ánh sáng đốt cháy một phần buồng phổi bạn, khiến bạn vĩnh viễn mang một tiếng ho khò khè mỗi khi hít thở ráo hoảnh.",
+      "effects": {
+       "AGI": -2,
+       "health": -30
+      }
+     }
+    }
+   ],
+   "moment": "Ánh sáng của thần linh là một thứ thuốc độc dịu dàng, nhẫn nại ăn mòn ác quỷ từ bên trong."
+  },
+  {
+   "id": "minota_chain_holy_saint",
+   "text": "Thánh Nữ của Giáo hội Thánh Quang, em gái của tên Đội trưởng năm xưa, tự mình dẫn thân vào mê cung để đòi lại thánh tích. Cô ta niệm chú [Phán Xét Ánh Sáng] rực rỡ hòng làm bốc hơi bạn ngay tắp lự.",
+   "require": {
+    "anyFlags": [
+     "scarred_chest",
+     "holy_resistance"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Miễn nhiễm phán xét",
+     "text": "(Không tung xúc xắc)"
+    },
+    {
+     "label": "Huyết chiến càn quét",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Tránh được luồng ánh sáng hủy diệt, bạn ném rìu chặt đứt cánh tay cầm trượng của Thánh Nữ. Cô ta bỏ chạy thục mạng trong đau đớn, để lại quyền trượng Tinh Bạc.",
+      "effects": {
+       "AGI": 2,
+       "wealth": 80,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Luồng ánh sáng đánh trúng vào vết sẹo cũ trên ngực bạn. Lồng ngực nổ tung, trái tim bạn bị nung chảy thành tro trước khi bạn kịp chạm vào vạt áo cô ta.",
+      "death": "Thánh Quang cuối cùng đã làm chủ ngục tối"
+     }
+    }
+   ],
+   "moment": "Một ngọn nến sáng không thể xua tan được cả một vực thẳm. Kẻ mang danh thần thánh cuối cùng cũng phải quỳ gối trước bạo chúa."
+  }
+ ],
+ "deaths": [],
+ "focus": {
+  "play": {
+   "name": "Húc phá",
+   "desc": "Sức mạnh; húc đổ mọi thứ trên đường",
+   "stages": [
+    "infant",
+    "child",
+    "teen"
+   ],
+   "gains": {
+    "STR": 0.3
+   },
+   "bars": {
+    "joy": 1
+   },
+   "quiet": {
+    "default": [
+     "Bạn húc đổ một cây cột đá mục nát, bụi rơi lả tả xuống mái tóc bờm xờm.",
+     "Lấy chiếc đầu lâu khổng lồ của một ma thú làm bia, bạn say sưa tập húc cho đến khi nó vỡ vụn.",
+     "Một mảng sừng bị mẻ khi bạn điên cuồng húc vào vách đá ngầm Huyết Kim, nhưng cơn đau chỉ làm bạn hưng phấn."
+    ]
+   }
+  },
+  "train": {
+   "name": "Khổ luyện",
+   "desc": "Sức mạnh, Nhanh nhẹn; rèn sừng và rìu",
+   "stages": [
+    "child",
+    "teen",
+    "adult",
+    "middle"
+   ],
+   "quiet": {
+    "default": [
+     "Nâng tảng đá nặng gấp mười lần cơ thể lặp đi lặp lại đến khi cơ bắp như muốn xé rách.",
+     "Chạy vác đá dọc cầu thang xoắn ốc của Vực Thẳm Phân Tầng, mặc kệ mồ hôi và máu trộn lẫn.",
+     "Dùng roi da vẩy nanh sói tự quất vào lưng để rèn luyện sự chai lì với cơn đau."
+    ]
+   }
+  },
+  "work": {
+   "name": "Canh giữ mê cung",
+   "desc": "Làm vai trò của mình, tích kinh nghiệm thăng bậc",
+   "stages": [
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "quiet": {
+    "default": [
+     "Đi tuần tra quanh những rương báu phủ bụi, lắng nghe nhịp thở của ngục tối.",
+     "Ghi nhận tiếng bước chân xa xăm rồi mỉm cười man rợ trong bóng tối mù mịt.",
+     "Ngồi gật gù trên ngai đá, nhưng tay vẫn siết chặt cán rìu sẵn sàng tước đoạt sinh mạng."
+    ]
+   }
+  },
+  "adventure": {
+   "name": "Giác đấu",
+   "desc": "Những trận chiến sinh tử, leo thứ bậc Mê cung",
+   "stages": [
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "tags": null,
+   "quiet": {
+    "default": [
+     "Bôi thứ cát tẩm máu lên khắp cơ thể để thị uy trước trận đánh tân binh.",
+     "Lắng nghe tiếng hò reo khát máu của khán giả dội xuống từ qua lớp song sắt lạnh lẽo.",
+     "Đập vỡ khiên của một tên lính mới chỉ bằng một cú đá nhẹ hều."
+    ]
+   }
+  },
+  "study": {
+   "name": "Lang thang tìm lãnh thổ",
+   "desc": "Nhanh nhẹn, May mắn; đi tìm một mê cung của riêng mình",
+   "stages": [
+    "child",
+    "teen",
+    "adult",
+    "middle"
+   ],
+   "gains": {
+    "AGI": 0.2,
+    "LUCK": 0.15
+   },
+   "quiet": {
+    "default": [
+     "Đi qua một đầm lầy sặc mùi khí độc của Slime, gót chân dính đầy chất nhầy rêu phong.",
+     "Đánh dấu lãnh thổ bằng cách húc gãy một thân cây khổng lồ giữa Rừng Lục Bảo.",
+     "Đứng trên đỉnh đồi, nhìn trăng máu và rống lên một tiếng kéo dài trong màn đêm."
+    ]
+   }
+  },
+  "rest": {
+   "name": "Ngủ trên đống xương",
+   "desc": "Hồi sức giữa đống xương con mồi",
+   "stages": [
+    "infant",
+    "child",
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "bars": {
+    "health": 2,
+    "joy": 1
+   },
+   "quiet": {
+    "default": [
+     "Nhắm đôi mắt mù lòa, hồi tưởng về thời thanh xuân đẫm máu mà miệng bất giác mỉm cười.",
+     "Dùng một thanh gươm rỉ sét của mạo hiểm giả nào đó để gãi lưng.",
+     "Cảm nhận sự lạnh lẽo của xương cốt thấm vào da thịt già nua, một sự chuẩn bị cho cái chết."
+    ]
+   }
+  },
+  "social": {
+   "hidden": true
+  }
+ },
+ "systems": {
+  "bandName": "bầy",
+  "romance": false,
+  "autoChildren": false,
+  "companions": [
+   {
+    "race": "Minotaur",
+    "names": "minotaur",
+    "job": "Gladiator",
+    "stat": "STR",
+    "weight": 3
+   },
+   {
+    "race": "Minotaur",
+    "names": "minotaur",
+    "job": "Labyrinth Guardian",
+    "stat": "STR",
+    "weight": 2
+   },
+   {
+    "race": "Kobold",
+    "names": "kobold",
+    "job": "Kobold Trapper",
+    "stat": "INT",
+    "weight": 2
+   },
+   {
+    "race": "Goblin",
+    "names": "goblin",
+    "job": "Goblin Scout",
+    "stat": "AGI",
+    "weight": 1
+   }
+  ],
+  "recruit": {
+   "text": [
+    "Một Minotaur trẻ bị đuổi khỏi đàn đứng chắn trước mặt bạn, khịt mũi: \"Cho tôi đi cùng.\"",
+    "Sau trận giác đấu, một bầy Kobold quỳ rạp trước móng guốc bạn, xin được làm tay sai."
+   ],
+   "join": [
+    "{ally} húc nhẹ sừng vào vai bạn. Ở Minotaur, đó là lời thề trung thành.",
+    "{ally} lặng lẽ đi theo sau bạn. Từ nay hai kẻ chung một mê cung."
+   ],
+   "decline": "Gầm lên đuổi đi",
+   "declineText": "Bạn rống lên một tiếng. Kẻ kia lùi lại rồi biến mất vào hành lang tối."
+  },
+  "jobSelect": {
+   "teen": [
+    "Cặp sừng của bạn đã đủ nhọn. Mỗi Minotaur phải chọn con đường của mình: canh giữ, giác đấu, hay nghe tiếng thì thầm của Vực Thẳm."
+   ],
+   "adult": [
+    "Một Minotaur không có chỗ đứng chỉ là một con thú lạc. Đã đến lúc chọn con đường."
+   ],
+   "later": "Húc tường thêm vài năm rồi tính",
+   "laterText": "Bạn húc đổ thêm một bức tường. Con đường có thể chờ."
+  },
+  "promotion": {
+   "try": "Lao vào chứng minh sức mạnh",
+   "wait": "Chưa đến lúc, mài sừng chờ thời",
+   "waitText": "Bạn mài cặp sừng vào vách đá. Lần sau sẽ khác.",
+   "success": "Mê cung rung chuyển. Từ nay, bạn là {next}.",
+   "fail": [
+    "Bạn bị đánh gục trước những tiếng cười chế nhạo.",
+    "Bạn thất bại, và vết thương này sẽ thành sẹo."
+   ]
+  },
+  "crossroads": {
+   "child": "Bạn đã đủ lớn để không húc vào mọi thứ. Những năm tới, bạn sẽ dồn sức vào đâu?",
+   "teen": "Cặp sừng đã nhọn. Bạn sẽ dùng nó vào việc gì?",
+   "adult": "Bạn đã là một Ác Thú Gác Cổng. Những năm tới, bạn sẽ làm gì?",
+   "middle": "Bạn đã là Bạo Chúa Mê Cung. Bạn sẽ dùng những năm này ra sao?",
+   "elder": "Mắt bạn đã mờ, nhưng tai vẫn nghe rõ tiếng bước chân trong mê cung. Những năm cuối, bạn muốn làm gì?",
+   "default": "Bạn sẽ dồn sức vào đâu?"
+  },
+  "stageEnter": {
+   "child": "Bạn không còn là con bê húc loạn. Mê cung bắt đầu trở thành nhà.",
+   "teen": "Cặp sừng của bạn đã nhọn như mũi giáo. Bạn đã là một Đấu Sĩ Sừng Nhọn.",
+   "adult": "Bạn đã trưởng thành. Những kẻ lạc vào mê cung giờ phải đi qua bạn.",
+   "middle": "Bạn đã là Bạo Chúa của Mê cung. Tiếng gầm của bạn vang khắp các tầng đá.",
+   "elder": "Đôi mắt bạn mờ dần. Bạn đã là một Lão Ngưu, nhưng vẫn chưa ai dám bước qua cửa của bạn.",
+   "default": "Một chương mới của cuộc đời Minotaur mở ra."
+  },
+  "parentDeath": [
+   "{who} đã chết. Bạn kéo xác về mê cung và chôn dưới phiến đá lớn nhất.",
+   "Tin {who} ngã xuống đến tai bạn. Bạn rống một tiếng dài rồi im lặng suốt nhiều ngày."
+  ],
+  "allyDie": [
+   "Máu của {ally} lạnh dần trên tay bạn, để lại sự tĩnh lặng đến điếc tai trong mê cung vô tận.",
+   "Bạn đặt xác {ally} vào một kẽ nứt của vách đá, lấp lại bằng những tảng vỡ vụn và tiếng thở dài trầm đục.",
+   "Không có mộ phần nào chốn Đấu trường, thi thể {ally} nhanh chóng bị lũ ma thú kéo đi nhai nát trước mắt bạn."
+  ],
+  "allyHurt": [
+   "{ally} rên rỉ góc tường, mùi máu tươi và thịt thối rữa kích thích bản năng bạo lực của bạn, nhưng bạn cố kiềm chế.",
+   "Bạn vụng về dùng móng vuốt bôi thứ rêu ngầm cầm máu lên vết thương há hoác của {ally}.",
+   "Lớp băng vải bẩn thỉu quấn quanh người {ally} rỉ ra thứ nước hôi hám, báo hiệu những ngày sắp tới sẽ vô cùng khắc nghiệt."
+  ],
+  "allyLeave": [
+   "Tiếng bước chân {ally} khuất dần vào ánh sáng, trả bạn về với vị vua duy nhất của đời mình: sự cô độc.",
+   "Bạn chạm tay vào vết dao đâm lén sau lưng, tự cười giễu cợt bản thân vì đã trót tin một sinh vật khác.",
+   "Buồng giam/hầm ngục giờ đây chỉ còn lại chiếc bóng khổng lồ của bạn hắt lên vách tường lạnh lẽo."
+  ]
+ },
+ "stages": [
+  {
+   "id": "infant",
+   "start": 0,
+   "name": "Bê Con Cuồng Nộ"
+  },
+  {
+   "id": "child",
+   "start": 7,
+   "name": "Kẻ Lạc Lối"
+  },
+  {
+   "id": "teen",
+   "start": 14,
+   "name": "Đấu Sĩ Sừng Nhọn"
+  },
+  {
+   "id": "adult",
+   "start": 23,
+   "name": "Ác Thú Gác Cổng"
+  },
+  {
+   "id": "middle",
+   "start": 35,
+   "name": "Bạo Chúa Mê Cung"
+  },
+  {
+   "id": "elder",
+   "start": 53,
+   "name": "Lão Ngưu Mù Lòa"
+  }
+ ]
+}

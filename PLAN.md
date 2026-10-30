@@ -49,6 +49,12 @@ Mở `index.html` hoặc chạy `node tools/serve.js` rồi vào http://localhos
 - [x] Dragon: 6 xuất thân, 3 Đạo, Lãnh thổ 7 bậc, 54 sự kiện, 7 cuộc chinh phạt, 2 nhánh (Ancient Dragon, Dragon God).
 - [x] High Demon: 4 xuất thân, 3 vai trò, Triều đình Ma giới 7 bậc, 54 sự kiện, 7 cuộc chinh phạt, 2 nhánh (Demon King, Demon God).
 - [x] Ghoul: 6 xuất thân, 3 vai trò, Bầy xác sống 7 bậc, 55 sự kiện, 7 cuộc săn đêm, 2 nhánh (Ghast, Lich).
+- [x] Minotaur: 7 xuất thân, 3 vai trò, Mê cung 7 bậc (kịch bản không ghi tên bậc, Claude đặt), 55 sự kiện, 7 trận chiến,
+      2 nhánh (Golden Minotaur, Mythical Minotaur).
+- [x] Troll: 7 xuất thân, 3 vai trò, Lãnh thổ 7 bậc, 56 sự kiện, 7 chuyến đòi nợ, 2 nhánh (Stone Troll, Ancient Ice Troll).
+- [x] Orc: 6 xuất thân, 5 vai trò, Bộ lạc 7 bậc, 84 sự kiện, 11 cuộc chinh phạt, 2 nhánh (High Orc, Orc Warlord).
+- [x] Slime: 6 xuất thân, 5 vai trò, Lãnh địa 7 bậc, 85 sự kiện, 11 cuộc săn mồi, 3 nhánh (Slime King, Elemental Slime,
+      Humanoid Slime). Mốc tuổi theo kịch bản, sống ~650–950 năm.
 
 ## Khi nhận kịch bản Gemini (prompts/v2) — việc Claude phải làm
 - [ ] Rà và sửa toàn bộ tên gọi theo `docs/NAMING.md` (tên tộc tiếng Anh kèm giải thích, nghề/chức vụ kiểu manga dịch).
@@ -65,4 +71,4 @@ Mở `index.html` hoặc chạy `node tools/serve.js` rồi vào http://localhos
 - [ ] Script làm sạch ảnh (`tools/pixelize.js`) và khung chân dung trong game (màn đầu thai, HUD, màn tổng kết).
 
 ## Vấn đề đã biết
-- 11 tộc chưa có nội dung riêng, nên chỉ gặp sự kiện chung và hay lặp lại.
+- 7 tộc chưa có nội dung riêng (Human, Beastman, Dwarf, Elf, Demon, Kobold, Lizardman), nên chỉ gặp sự kiện chung và hay lặp lại.

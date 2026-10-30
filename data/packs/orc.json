@@ -1,0 +1,6134 @@
+{
+ "race": "orc",
+ "stageNames": {
+  "infant": "Orc Non Nớt",
+  "child": "Tân Binh Bộ Lạc",
+  "teen": "Chiến Binh Máu Nóng",
+  "adult": "Huyết Kỵ Sĩ",
+  "middle": "Tướng Lĩnh Chiến Trường",
+  "elder": "Tù Trưởng Già Cỗi"
+ },
+ "forms": {
+  "High Orc": {
+   "name": "High Orc",
+   "life": 15
+  },
+  "Orc Warlord": {
+   "name": "Orc Warlord",
+   "life": 10
+  }
+ },
+ "origins": [
+  {
+   "id": "orc_origin_1",
+   "name": "Sinh ra trong khói lửa",
+   "weight": 30,
+   "text": "Bạn cất tiếng khóc chào đời giữa một cuộc càn quét vào ngôi làng của loài Human. Tiếng gào thét của bạn bị chìm lấp trong tiếng gầm xung phong của bầy Orc và ngọn lửa rực cháy.",
+   "siblings": "3 người anh trai, tất cả đều đã có sẹo chiến trận từ trước khi trưởng thành.",
+   "home": "Tầng lớp chiến binh tiêu chuẩn trong bộ lạc, được ăn no và luôn bị kỳ vọng phải đổ máu vì vinh quang.",
+   "effects": {
+    "STR": 2,
+    "health": 10,
+    "fame": 5,
+    "flags": [
+     "warborn"
+    ]
+   },
+   "father": {
+    "name": null,
+    "race": "Orc",
+    "role": "Tiền phong chiến đấu (Vanguard)",
+    "trait": "Cục cằn, hiếu chiến nhưng rất trọng huynh đệ",
+    "status": "alive",
+    "note": "Còn sống."
+   },
+   "mother": {
+    "name": null,
+    "race": "Orc",
+    "role": "Lo hậu cần bộ lạc",
+    "trait": "Vạm vỡ, tháo vát, đầy sẹo",
+    "status": "alive",
+    "note": "Còn sống."
+   }
+  },
+  {
+   "id": "orc_origin_2",
+   "name": "Dòng máu Tù trưởng",
+   "weight": 10,
+   "text": "Bạn được sinh ra trên một tấm thảm da Beastman, ngay dưới hộp sọ của một con Ancient Dragon. Cả bộ lạc nổi trống ăn mừng người thừa kế mới của Warchief, nhưng vô số ánh mắt thù địch cũng chĩa về phía bạn.",
+   "siblings": "5 anh chị em cùng cha khác mẹ, ngày đêm tính kế ám sát lẫn nhau để tranh quyền.",
+   "home": "Thượng lưu và giàu có nhất bộ lạc, nhưng luôn sống trong sự nghi kỵ và áp lực khổng lồ.",
+   "effects": {
+    "STR": 1,
+    "INT": 1,
+    "wealth": 30,
+    "fame": 10,
+    "flags": [
+     "royal_blood"
+    ]
+   },
+   "father": {
+    "name": null,
+    "race": "Orc",
+    "role": "Tù trưởng (Warchief)",
+    "trait": "Độc đoán, quyền lực, không dung thứ kẻ yếu",
+    "status": "alive",
+    "note": "Còn sống."
+   },
+   "mother": {
+    "name": null,
+    "race": "Orc",
+    "role": "Vợ cả của Warchief",
+    "trait": "Kiêu hãnh, sắc sảo, tham vọng tột cùng",
+    "status": "alive",
+    "note": "Còn sống."
+   }
+  },
+  {
+   "id": "orc_origin_3",
+   "name": "Nô lệ giác đấu",
+   "weight": 15,
+   "text": "Bạn ra đời trong ngục tối ẩm thấp của Đấu trường Huyết Sa. Bạn học cách cầm một thanh kiếm rỉ sét trước cả khi biết đi, lớn lên nhờ bú dòng sữa pha lẫn vị máu.",
+   "siblings": "Không có.",
+   "home": "Tận cùng đáy xã hội, cổ đeo vòng xích sắt, trưởng thành bằng cách ăn thức ăn thừa và giành giật sự sống với dã thú.",
+   "effects": {
+    "STR": 3,
+    "health": -10,
+    "fame": -5,
+    "flags": [
+     "gladiator"
+    ]
+   },
+   "father": {
+    "name": null,
+    "race": "Orc",
+    "role": "Đấu sĩ vô danh",
+    "trait": "Đã chết gục trên bãi cát trước khi bạn sinh ra.",
+    "status": "dead",
+    "note": ""
+   },
+   "mother": {
+    "name": null,
+    "race": "Orc",
+    "role": "Nô lệ giác đấu (Gladiator)",
+    "trait": "Kiên cường, đầy bi phẫn",
+    "status": "dead",
+    "note": "Đã chết vì nhiễm trùng vết thương khi bạn lên hai."
+   }
+  },
+  {
+   "id": "orc_origin_4",
+   "name": "Đứa con của Tà Thần",
+   "weight": 5,
+   "text": "Bầu trời nhuộm màu huyết nguyệt khi bạn lọt lòng, trên làn da xanh của bạn nổi rõ những mạch máu đen kịt. Thầy cúng của Hắc Nguyệt Hội tuyên bố bạn mang phước lành của Vực Thẳm Cổ Thần.",
+   "siblings": "1 người anh sinh đôi đã bị hiến tế ngay khi vừa cắt rốn.",
+   "home": "Bị toàn thể bộ lạc e sợ và kinh tởm vì mang ma thuật tà đạo, nhưng không ai dám công khai hãm hại.",
+   "effects": {
+    "INT": 3,
+    "LUCK": 2,
+    "joy": -20,
+    "fame": -10,
+    "flags": [
+     "blessed_orc"
+    ]
+   },
+   "father": {
+    "name": null,
+    "race": "Orc",
+    "role": "Huyết Kỵ Sĩ (Blood Knight)",
+    "trait": "Cuồng tín, điên loạn",
+    "status": "alive",
+    "note": "Đã tự sát trong một nghi lễ hiến tế."
+   },
+   "mother": {
+    "name": null,
+    "race": "Orc",
+    "role": "Nữ tư tế hắc ám",
+    "trait": "Mê sảng, quỷ quyệt",
+    "status": "alive",
+    "note": "Còn sống nhưng bị xiềng xích trong lều cấm."
+   }
+  },
+  {
+   "id": "orc_origin_5",
+   "name": "Mầm Mống Tàn Lụi",
+   "weight": 20,
+   "text": "Sinh non và nhỏ thó như một đứa trẻ Human, bạn bị các trưởng lão nhổ nước bọt dưới chân. Họ định ném bạn cho bầy Direwolf ăn thịt, nhưng định mệnh đã giữ bạn lại.",
+   "siblings": "Không có, cha mẹ bạn không dám sinh thêm vì sợ gánh thêm ô nhục.",
+   "home": "Dưới đáy bộ lạc, sống chui rúc ở rìa khu cắm trại, nhặt nhạnh đồ thừa từ các cuộc đi săn.",
+   "effects": {
+    "STR": -2,
+    "AGI": 2,
+    "LUCK": 1,
+    "fame": -15,
+    "flags": [
+     "orphan_orc"
+    ]
+   },
+   "father": {
+    "name": null,
+    "race": "Orc",
+    "role": "Thợ săn còi cọc",
+    "trait": "Hèn nhát, yếu đuối",
+    "status": "gone",
+    "note": "Bỏ đi biệt tích vì không chịu nổi nỗi nhục nhã."
+   },
+   "mother": {
+    "name": null,
+    "race": "Orc",
+    "role": "Kẻ nhặt mót",
+    "trait": "Cam chịu, nhẫn nhục bảo vệ bạn",
+    "status": "alive",
+    "note": "Còn sống."
+   }
+  },
+  {
+   "id": "orc_origin_6",
+   "name": "Hậu duệ Kẻ Lưu Đày",
+   "weight": 20,
+   "text": "Bạn lọt lòng giữa những tàn tích rêu phong tại Đầm Lầy Tử Khí, cách xa ngọn lửa ấm áp của bộ lạc. Tiếng ru của bạn là tiếng gầm gừ của bầy Lizardman săn mồi trong sương mù độc.",
+   "siblings": "1 người chị gái, luôn vác theo thanh cự kiếm mẻ của gia tộc để tuần tra đầm lầy.",
+   "home": "Nghèo túng và nguy hiểm tột độ khi bị đồng loại xua đuổi, nhưng ngọn lửa danh dự vẫn rực cháy trong huyết quản.",
+   "effects": {
+    "STR": 1,
+    "health": 10,
+    "wealth": -5,
+    "fame": -5,
+    "flags": [
+     "exiled_blood"
+    ]
+   },
+   "father": {
+    "name": null,
+    "race": "Orc",
+    "role": "Tướng lĩnh sa ngã",
+    "trait": "Căm phẫn, khắc nghiệt, luôn ôm mộng phục hận",
+    "status": "alive",
+    "note": "Còn sống."
+   },
+   "mother": {
+    "name": null,
+    "race": "Orc",
+    "role": "Chiến binh gãy nanh",
+    "trait": "Trầm lặng, trung thành tuyệt đối",
+    "status": "alive",
+    "note": "Còn sống."
+   }
+  }
+ ],
+ "jobs": [
+  {
+   "id": "orc_berserker",
+   "name": "Orc Berserker",
+   "stat": "STR",
+   "combat": true,
+   "desc": "Sức mạnh. Cuồng Chiến Binh",
+   "require": {
+    "STR": 5
+   },
+   "alt": {
+    "anyFlags": [
+     "warborn",
+     "gladiator"
+    ],
+    "hint": "sinh ra trong khói lửa hoặc từng là nô lệ giác đấu"
+   },
+   "ranks": [
+    "Fresh Fang",
+    "Skull Cleaver",
+    "Dust Executioner",
+    "Bloodcrazed",
+    "Warlord"
+   ],
+   "income": [
+    0.8,
+    1.2,
+    1.8,
+    2.6,
+    3.4
+   ],
+   "hazard": 2.2,
+   "gains": {
+    "STR": 0.35
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    4,
+    6,
+    8,
+    10
+   ],
+   "promoStat": [
+    "STR",
+    "STR",
+    "STR",
+    "STR"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: trụ vững trong một cuộc đụng độ nhỏ với bầy Goblin hoang.",
+    "Thử thách để trở thành {next}: đơn thương độc mã nghiền nát một con Kobold bọc thép cứng.",
+    "Thử thách để trở thành {next}: phá vỡ phòng tuyến khiên vững chắc của lính đánh thuê Human.",
+    "Thử thách để trở thành {next}: chặt đứt đầu một Thánh Kỵ Sĩ hạng A của Giáo hội Thánh Quang."
+   ],
+   "start": "Bạn gầm lên xé rách bầu không khí, xách thanh cự kiếm mẻ lao thẳng vào vòng xoáy chém giết mà không cần biết kẻ thù là ai.",
+   "quiet": [
+    "Bạn ngồi liếm những giọt máu khô trên lưỡi rìu chiến của mình.",
+    "Tiếng trống trận của bộ lạc khiến dòng máu vọt lên não, bạn đấm vỡ một tảng đá để giải tỏa.",
+    "Những vết sẹo chằng chịt trên lưng bạn đang kéo da non ngứa ngáy."
+   ]
+  },
+  {
+   "id": "orc_ranger",
+   "name": "Orc Ranger",
+   "stat": "AGI",
+   "combat": true,
+   "desc": "Nhanh nhẹn. Thợ Săn Gió Khát",
+   "require": {
+    "AGI": 5
+   },
+   "alt": {
+    "anyFlags": [
+     "orphan_orc"
+    ],
+    "hint": "xuất thân Mầm Mống Tàn Lụi"
+   },
+   "ranks": [
+    "Tracker",
+    "Toxic Arrow",
+    "Wind Tearer",
+    "Master Predator",
+    "Phantom Hunter"
+   ],
+   "income": [
+    0.8,
+    1.2,
+    1.8,
+    2.5,
+    3.2
+   ],
+   "hazard": 1.6,
+   "gains": {
+    "AGI": 0.35
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    4,
+    6,
+    8,
+    10
+   ],
+   "promoStat": [
+    "AGI",
+    "AGI",
+    "AGI",
+    "AGI"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: đọc dấu chân và săn được một con lợn rừng bọc thép.",
+    "Thử thách để trở thành {next}: gài bẫy và tóm sống một con quái điểu ranh mãnh.",
+    "Thử thách để trở thành {next}: bắn rụng một Griffin tuần tra của loài người từ trên trời.",
+    "Thử thách để trở thành {next}: theo dấu và hạ gục một con Rồng Đất (Earth Dragon) ở Đảo Tro Tàn."
+   ],
+   "start": "Thay vì lao lên như lũ ngốc gào thét, bạn thu mình vào bóng tối với cây nỏ sắt, trở thành ánh mắt tử thần trên thảo nguyên.",
+   "quiet": [
+    "Bạn cặm cụi tẩm độc nhện vào từng mũi tên sắt.",
+    "Nép mình trên cành cây khô, bạn hòa nhịp thở vào từng cơn gió hú.",
+    "Bạn mang về một đống thịt rừng, mặc kệ ánh nhìn xoi mói của lũ Orc võ biền."
+   ]
+  },
+  {
+   "id": "orc_shaman",
+   "name": "Orc Shaman",
+   "stat": "INT",
+   "combat": true,
+   "desc": "Trí tuệ. Thầy Cúng Huyết Tế",
+   "require": {
+    "INT": 5
+   },
+   "alt": {
+    "anyFlags": [
+     "blessed_orc"
+    ],
+    "hint": "là Đứa con của Tà Thần"
+   },
+   "ranks": [
+    "Crow Beak",
+    "Spirit Caller",
+    "Witch Doctor",
+    "High Blood Priest",
+    "Abyssal Prophet"
+   ],
+   "income": [
+    0.6,
+    1,
+    1.6,
+    2.4,
+    3.4
+   ],
+   "hazard": 1.4,
+   "gains": {
+    "INT": 0.35
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    4,
+    6,
+    8,
+    10
+   ],
+   "promoStat": [
+    "INT",
+    "INT",
+    "INT",
+    "INT"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: học thuộc và thi triển thành công lời nguyền gây chảy máu.",
+    "Thử thách để trở thành {next}: giao tiếp với linh hồn một ác quỷ cấp thấp rớt từ Vực Thẳm.",
+    "Thử thách để trở thành {next}: dùng vu thuật cứu sống một chiến binh đang cận kề cái chết.",
+    "Thử thách để trở thành {next}: triệu hồi và điều khiển một bão máu (Blood Storm) càn quét chiến trường."
+   ],
+   "start": "Khoác lên tấm da thú bốc mùi hăng hắc bùa chú, bạn từ bỏ con đường vung kiếm ngốc nghếch để lắng nghe tiếng thì thầm của Hắc Nguyệt.",
+   "quiet": [
+    "Đám chiến binh lườm bạn đầy khinh bỉ, nhưng không kẻ nào dám đến gần cái vạc sủi bọt của bạn.",
+    "Bạn lầm rầm tụng niệm, đốt cháy một nắm lá ma thuật tạo ảo ảnh.",
+    "Một đêm trăng đỏ rực, tiếng xì xào của cổ thần lại vang vọng trong màng nhĩ."
+   ]
+  },
+  {
+   "id": "orc_smith",
+   "name": "Orc Smith",
+   "stat": "STR",
+   "combat": false,
+   "desc": "Sức mạnh và Trí tuệ. Thợ Rèn Chiến Địa",
+   "require": {
+    "STR": 4,
+    "INT": 4
+   },
+   "alt": {
+    "anyFlags": [
+     "exiled_blood"
+    ],
+    "hint": "là Hậu duệ Kẻ Lưu Đày"
+   },
+   "ranks": [
+    "Hammer Boy",
+    "Iron Smelter",
+    "Bloodsteel Smith",
+    "Forge Master",
+    "Hellish Artisan"
+   ],
+   "income": [
+    0.9,
+    1.4,
+    2.1,
+    3,
+    4
+   ],
+   "hazard": 1.1,
+   "gains": {
+    "STR": 0.2,
+    "INT": 0.15
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    4,
+    6,
+    8,
+    10
+   ],
+   "promoStat": [
+    "STR",
+    "INT",
+    "STR",
+    "INT"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: rèn thành công một thanh đại kiếm cơ bản không gãy.",
+    "Thử thách để trở thành {next}: nung chảy quặng sắt lẫn xương ma thú để tạo vũ khí sắc bén.",
+    "Thử thách để trở thành {next}: chế tạo một bộ giáp nguyên tấm bằng Tinh Bạc cướp được.",
+    "Thử thách để trở thành {next}: rèn một món vũ khí Huyết Kim chịu được lửa của Rồng."
+   ],
+   "start": "Giữa cái nóng hầm hập của lò rèn, bạn vung chiếc búa tạ lên cao, thề sẽ đúc ra những món vũ khí cưa đứt mọi vinh quang của loài Human.",
+   "quiet": [
+    "Tiếng đe búa chát chúa lấp đầy tâm hồn cục cằn của bạn.",
+    "Bạn lau mồ hôi bằng mu bàn tay cháy sạm, tự hào nhìn đống vũ khí vừa ra lò.",
+    "Thương nhân từ các bộ lạc khác ghé lều rèn của bạn đổi thịt lấy gươm giáo."
+   ]
+  },
+  {
+   "id": "orc_rider",
+   "name": "Orc Wolf Rider",
+   "stat": "AGI",
+   "combat": true,
+   "desc": "May mắn và Nhanh nhẹn. Kỵ Sĩ Sói Điên, ai cũng có thể gia nhập",
+   "require": {},
+   "ranks": [
+    "Wolf Herder",
+    "Tamer",
+    "Ironfang Rider",
+    "Pack Leader",
+    "Steppe Lord"
+   ],
+   "income": [
+    0.8,
+    1.2,
+    1.8,
+    2.6,
+    3.4
+   ],
+   "hazard": 2,
+   "gains": {
+    "AGI": 0.2,
+    "LUCK": 0.15
+   },
+   "promoXp": [
+    5,
+    6,
+    8,
+    10
+   ],
+   "promoTarget": [
+    4,
+    6,
+    8,
+    10
+   ],
+   "promoStat": [
+    "LUCK",
+    "AGI",
+    "LUCK",
+    "STR"
+   ],
+   "promo": [
+    "Thử thách để trở thành {next}: sống sót trong chuồng nuôi nhốt sói đói suốt một đêm.",
+    "Thử thách để trở thành {next}: thuần phục thành công một con sói đầu đàn để làm thú cưỡi.",
+    "Thử thách để trở thành {next}: dẫn đầu đội kỵ binh càn lướt qua phòng tuyến của vương quốc Human.",
+    "Thử thách để trở thành {next}: đánh bại và cưỡi một con Fenrir (Sói quỷ) khổng lồ."
+   ],
+   "start": "Chìa bàn tay đầy sẹo ra trước chiếc mõm gầm gừ bê bết máu của con Direwolf, bạn khơi mào cho mối liên kết của máu và gió.",
+   "quiet": [
+    "Bạn chải lông cho con sói chiến, lắng nghe tiếng nhịp tim của nó đập chung nhịp với bạn.",
+    "Thảo nguyên lướt qua vùn vụt, bạn và chiến thú của mình băng qua những cơn gió bấc.",
+    "Bạn ném nguyên một tảng thịt bự cho bầy thú cưỡi, thỏa mãn ngắm nhìn chúng cắn xé."
+   ]
+  }
+ ],
+ "orgs": [
+  {
+   "id": "orc_tribe",
+   "name": "Bộ lạc",
+   "auto": true,
+   "points": [
+    0,
+    2,
+    5,
+    9,
+    14,
+    20,
+    null
+   ],
+   "missionWord": "cuộc chinh phạt",
+   "fameToPts": 0.2,
+   "board": {
+    "text": [
+     "Trống trận nện thình thịch. Tù trưởng giơ cao chiếc rìu: một cuộc chinh phạt mới!",
+     "Lửa trại bùng lên giữa thảo nguyên. Cả bộ lạc gào thét đòi máu."
+    ],
+    "skip": "Ở lại uống rượu",
+    "skipText": "Bạn nốc cạn vò rượu nấm và lăn ra ngủ. Bộ lạc đi mà không có bạn."
+   },
+   "failText": "Bạn quay về trại với vết thương đầy người và hai bàn tay trắng. Lũ Orc trẻ cười khẩy sau lưng.",
+   "ranks": [
+    "Green Fang",
+    "Blood Warrior",
+    "Vanguard Captain",
+    "Blood General",
+    "Warlord",
+    "Right Hand",
+    "Warchief"
+   ],
+   "rankAliases": [
+    "nanh non",
+    "huyết binh",
+    "đội trưởng tiền phong",
+    "huyết tướng",
+    "lãnh chúa chiến tranh",
+    "cánh tay phải tù trưởng",
+    "tù trưởng chiến"
+   ],
+   "rankUp": {
+    "0": "Bạn chỉ là một kẻ mới tập vung vũ khí, được phép đi theo đội chiến để hít bụi và nhặt nhạnh chiến lợi phẩm thừa.",
+    "1": "Khi máu tươi của kẻ thù lần đầu vẩy lên ngực, bạn chính thức được bộ lạc gầm lên công nhận là một chiến binh thực thụ.",
+    "2": "Những gã Orc cấp thấp giờ đây phải cúi đầu gọi bạn là thủ lĩnh, liều mạng lao lên theo từng nhịp trống xung phong của bạn.",
+    "3": "Bạn được ban cho khu vực lều trại riêng, sở hữu nô lệ và nắm trong tay quyền quyết định sống chết của những tù binh bắt được.",
+    "4": "Uy danh thô bạo của bạn khiến lũ Goblin, Kobold và cả binh lính loài người phải run rẩy tháo chạy chỉ vì nghe thấy tên bạn vang lên.",
+    "5": "Quyền lực của bạn ở đỉnh cao và chỉ cúi đầu trước một người, mọi chỉ thị bạn thốt ra đều mang sức nặng định đoạt mạng sống của cả bộ lạc.",
+    "6": "Đặt bàn chân to lớn lên hộp sọ của kẻ tiền nhiệm, bạn gầm lên một tiếng rách trời, tuyên bố quyền thống trị tuyệt đối với cả bộ lạc."
+   },
+   "join": []
+  }
+ ],
+ "quests": [
+  {
+   "id": "orc_q_cuop_boc_lang_human",
+   "org": "orc_tribe",
+   "name": "Cướp bóc Làng Human",
+   "minRank": 0,
+   "hint": "Dễ. Thích hợp để cọ xát lấy máu đầu tiên.",
+   "intro": "Bộ lạc cạn kiệt lương thực. Đội do thám phát hiện một ngôi làng nhỏ của loài Human ở rìa Đồng Bằng Thánh Quang. Đội chiến quyết định đánh úp cướp lúa mạch và gia súc.",
+   "steps": [
+    {
+     "text": "Một hàng rào gỗ gai góc chặn đường, bên trên có vài tên dân quân đang giương cung tên tẩm dầu tấp nập phòng thủ.",
+     "choices": [
+      {
+       "label": "Dùng búa tạ đập nát cổng chính",
+       "check": {
+        "stat": "STR",
+        "target": 4
+       },
+       "success": {
+        "text": "Cổng gỗ vỡ vụn thành trăm mảnh, bầy Orc gầm rú tràn vào thảm sát.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Cổng quá cứng, búa văng ra. Bạn bị trúng tên lửa thiêu đốt rát vai.",
+        "effects": {
+         "health": -15
+        },
+        "next": 1
+       }
+      },
+      {
+       "label": "Phóng hỏa đốt rào gỗ từ góc khuất",
+       "check": {
+        "stat": "AGI",
+        "target": 4
+       },
+       "success": {
+        "text": "Ngọn lửa bùng lên thiêu rụi tuyến phòng thủ, đám lính hoảng loạn bỏ chạy.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Gió tạt ngược làm lửa táp vào mặt, bạn phải lăn lộn dập lửa.",
+        "effects": {
+         "health": -20
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Trưởng làng và đám dân quân trang bị giáo mác thô sơ liều mạng chặn đường tiến của bạn, mắt hằn lên tia máu tuyệt vọng.",
+     "choices": [
+      {
+       "label": "Xông thẳng vào băm vằn đội hình",
+       "check": {
+        "stat": "STR",
+        "target": 6
+       },
+       "success": {
+        "text": "Bạn như cỗ xe tăng bọc thịt bọc xương nghiền nát đám người yếu đuối, máu văng nhuộm đỏ lúa mạch.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bị ba mũi giáo đâm trúng bụng, bạn lùi lại và gục ngã vì mất máu.",
+        "effects": {
+         "health": -30
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Bắt trưởng làng làm con tin uy hiếp",
+       "check": {
+        "stat": "INT",
+        "target": 6
+       },
+       "success": {
+        "text": "Cánh tay vạm vỡ siết cổ lão già, ép toàn bộ dân làng buông vũ khí nộp mạng và tài sản.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bạn tóm trượt, bị lão già chém lén một dao vào đùi. Lũ dân quân quây kín lấy bạn.",
+        "effects": {
+         "health": -20
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Khói bốc lên ngùn ngụt. Bạn vác trên vai những bao tải lúa mạch và thịt hun khói đẫm máu.",
+   "reward": {
+    "wealth": 20,
+    "fame": 5,
+    "guildPts": 1
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Ngọn lửa thiêu rụi ngôi làng tạc vào mắt bạn định nghĩa đầu tiên về kẻ mạnh."
+  },
+  {
+   "id": "orc_q_san_lung_bay_goblin",
+   "org": "orc_tribe",
+   "name": "Săn lùng bầy Goblin",
+   "minRank": 1,
+   "hint": "Vừa. Đề phòng độc và bẫy rập.",
+   "intro": "Một bầy Goblin đang phục kích các xe chở quặng của bộ lạc gần Đầm Lầy Tử Khí. Tù trưởng cử bạn đi dọn dẹp cái tổ bẩn thỉu của chúng.",
+   "steps": [
+    {
+     "text": "Bùn lầy hôi thối cản bước. Hàng tá cọc nhọn tẩm độc và dây gai được lũ quỷ lùn giăng sẵn khắp nơi.",
+     "choices": [
+      {
+       "label": "Lội thẳng qua, gầm rú uy hiếp",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Sức mạnh cơ bắp đạp nát mọi cọc nhọn. Tiếng gầm của bạn khiến bầy Goblin sợ vãi kẹt bỏ chạy thục mạng.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Chân sa lầy sâu, bạn hứng trọn một bạt phi tiêu độc làm cơ thể tê liệt cắn răng chịu đau.",
+        "effects": {
+         "health": -20
+        },
+        "next": 1
+       }
+      },
+      {
+       "label": "Quan sát và né tránh dây bẫy",
+       "check": {
+        "stat": "AGI",
+        "target": 6
+       },
+       "success": {
+        "text": "Bằng phản xạ tốt, bạn luồn lách qua các cạm bẫy và tiếp cận cửa hang an toàn.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Đạp trúng bẫy sập, một khúc gỗ tạ đập văng bạn xuống bùn đen.",
+        "effects": {
+         "health": -30
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Tại sâu trong hang, con Hobgoblin (Vua Goblin) to tướng cầm chùy gai rống lên chỉ đạo hàng chục con lính lác quây đánh bạn.",
+     "choices": [
+      {
+       "label": "Ném đá lấp cửa thông gió, hun khói chúng",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Lửa thảo mộc xông khói mù mịt. Bọn Goblin sặc sụa và chết ngạt, bạn nhàn nhã vào gom đồ.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Gió tạt ngược khói ra ngoài khiến bạn ho sặc sụa mất phương hướng, buộc phải bỏ chạy.",
+        "effects": {
+         "health": -10
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Đơn độc xông vào chém rụng đầu Vua Goblin",
+       "check": {
+        "stat": "STR",
+        "target": 6
+       },
+       "success": {
+        "text": "Một nhát chém chẻ đôi sọ con Hobgoblin, đám tiểu yêu mất đầu lĩnh lập tức tan tác.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bạn trượt chân, lũ Goblin ùa lên như bầy kiến cắn xé bạn đến khi chỉ còn bộ xương trắng.",
+        "death": "Bị bầy Goblin xâu xé"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Xâu chuỗi tai Goblin thành một vòng cổ gớm ghiếc, bạn mang về ném trước mặt đám thợ rèn kiêu ngạo.",
+   "reward": {
+    "wealth": 15,
+    "fame": 10,
+    "guildPts": 1
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Số lượng không có ý nghĩa gì trước sức mạnh tuyệt đối."
+  },
+  {
+   "id": "orc_q_cuop_xe_hang_thuong_hoi_soi_bac",
+   "org": "orc_tribe",
+   "name": "Cướp xe hàng Thương hội Sói Bạc",
+   "minRank": 2,
+   "hint": "Khó. Địch có lính đánh thuê thiện chiến.",
+   "intro": "Đội trinh sát báo cáo một đoàn xe chở vũ khí Tinh Bạc đang đi qua Thảo Nguyên Gió Hú. Đây là món mồi béo bở nhưng được bảo vệ bởi lính đánh thuê lớp giáp dày.",
+   "steps": [
+    {
+     "text": "Đội hình khiên chắn bằng sắt thép của lính đánh thuê Human dàn ra như một bức tường bất khả xâm phạm.",
+     "choices": [
+      {
+       "label": "Cưỡi sói/Lao lên húc văng đội hình",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Sức nặng khổng lồ xuyên phá hàng khiên. Lính đánh thuê vỡ trận tán loạn trước cơn điên của bạn.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Hàng giáo chĩa lên chuẩn xác, đâm xuyên đùi bạn khiến bạn ngã lăn lóc.",
+        "effects": {
+         "health": -30
+        },
+        "next": 1
+       }
+      },
+      {
+       "label": "Phục kích bắn tỉa tên chỉ huy",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Mũi tên cắm ngập họng tên đội trưởng. Rắn mất đầu, trận hình phòng thủ lập tức xộc xệch.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Bắn hụt, làm lộ vị trí. Hàng loạt cung nỏ của Human nã trả khiến bạn lùi sâu bỏ mạng.",
+        "effects": {
+         "health": -20
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Chiếc xe ngựa chở rương Tinh Bạc đang vùt roi chạy trốn. Hai tên lính đánh thuê hạng B liều mạng ở lại chặn hậu.",
+     "choices": [
+      {
+       "label": "Đập gãy bánh xe, cuỗm rương rồi bỏ chạy",
+       "check": {
+        "stat": "LUCK",
+        "target": 6
+       },
+       "success": {
+        "text": "Bạn phi búa làm nát trục bánh xe, ôm trọn rương báu lăn vào rừng cỏ cao trước khi quân địch kịp quây lưới.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Xe lật ngang đè gãy chân bạn. Đồng đội phải hốt xác bạn kéo về.",
+        "effects": {
+         "health": -40
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Huyết chiến tay đôi hạ sát hai tên chặn hậu",
+       "check": {
+        "stat": "STR",
+        "target": 10
+       },
+       "success": {
+        "text": "Sức mạnh hoang dã băm vằm giáp sắt, đập gãy xương cổ cả hai tên. Bạn hiên ngang dắt xe hàng về.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Kỹ năng kiếm thuật của Human vượt trội, một lưỡi gươm sáng loáng lia đứt cổ họng bạn.",
+        "death": "Bị lính đánh thuê chém đứt đầu"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Trở về với những rương chứa đầy kiếm giáo Tinh Bạc sáng loáng, đội chiến của bạn gầm vang bài ca cướp bóc.",
+   "reward": {
+    "wealth": 40,
+    "fame": 15,
+    "guildPts": 2
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Tiếng leng keng của Tinh Bạc là thứ âm nhạc hay nhất trên thảo nguyên."
+  },
+  {
+   "id": "orc_q_khuat_phuc_da_thu",
+   "org": "orc_tribe",
+   "name": "Khuất phục Dã Thú",
+   "minRank": 2,
+   "hint": "Vừa. Đừng giết, hãy thuần phục.",
+   "intro": "Một con Direwolf khổng lồ đang tàn phá rìa khu cắm trại. Warchief ra lệnh: \"Không được giết, kẻ nào bắt sống nó sẽ được ban thưởng vinh quang\".",
+   "steps": [
+    {
+     "text": "Con dã thú lông bờm dựng đứng, nhe hàm nanh sắc lẹm, cơ bắp cuồn cuộn gầm gừ thủ thế sẵn sàng xé xác bạn.",
+     "choices": [
+      {
+       "label": "Gồng cơ bắp, lao vào vật lộn tay không",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Hai con mãnh thú lao vào nhau. Bằng sức vóc trâu bò, bạn ép cổ nó xuống đất đến khi nó chịu nằm im.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Nó né tránh và ngoạm nát một mảng vai bạn, hất văng bạn vào bụi gai.",
+        "effects": {
+         "health": -30
+        },
+        "next": 1
+       }
+      },
+      {
+       "label": "Nhảy lên lưng, bám chặt mặc nó lồng lộn",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Nó nhảy chồm lộn xộn nhưng bạn như dính chặt trên yên cương. Kiệt sức, nó quỳ rạp quy hàng.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Một cú quăng đuôi mạnh bạo hất bạn đập sọ vào thân cây ngất xỉu.",
+        "effects": {
+         "health": -25
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Dùng bùa chú Tổ tiên ép buộc tinh thần",
+       "require": {
+        "INT": 6
+       },
+       "showLocked": true,
+       "text": "Ánh mắt bạn lóe lên ma lực hắc ám, đè bẹp ý chí dã thú khiến nó ngoan ngoãn thu vòi.",
+       "end": "win"
+      }
+     ]
+    },
+    {
+     "text": "Bị thương tơi tả, bạn nhận ra con sói điên cuồng vì đang bảo vệ bầy con mới đẻ đang chết đói ở hang đá phía sau.",
+     "choices": [
+      {
+       "label": "Ném toàn bộ thịt khô mang theo ra cho nó",
+       "check": {
+        "stat": "wealth",
+        "target": 55
+       },
+       "success": {
+        "text": "Mùi thịt làm dịu cơn khát máu. Nó ăn ngấu nghiến rồi liếm tay bạn thay lời giao ước.",
+        "effects": {
+         "wealth": -15
+        },
+        "end": "win"
+       },
+       "fail": {
+        "text": "Miếng thịt hôi thối làm nó nổi điên hơn, nó vồ tới cắn nát cổ bạn.",
+        "death": "Bị sói hoang cắn xé"
+       }
+      },
+      {
+       "label": "Rút vũ khí ra tử chiến, trái lệnh Warchief",
+       "text": "Bạn bổ rìu kết liễu nó để giữ mạng. Sống sót nhưng bị Tù trưởng nổi trận lôi đình lột sạch đồ.",
+       "effects": {
+        "health": -10,
+        "wealth": -30,
+        "fame": -15
+       },
+       "end": "fail"
+      }
+     ]
+    }
+   ],
+   "complete": "Con Direwolf hung bạo ngoan ngoãn đi theo gót chân bạn về trại. Ánh mắt mọi người nhìn bạn đầy kính sợ.",
+   "reward": {
+    "wealth": 10,
+    "fame": 20,
+    "guildPts": 1,
+    "flags": [
+     "direwolf_tamer"
+    ]
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Nhìn vào mắt con dã thú, bạn thấy sự tàn bạo của chính mình."
+  },
+  {
+   "id": "orc_q_tan_tich_duoi_long_dat",
+   "org": "orc_tribe",
+   "name": "Tàn tích Dưới Lòng Đất",
+   "minRank": 3,
+   "hint": "Khó. Cẩn thận bóng tối và lũ Undead.",
+   "intro": "Các bô lão kể về một phế tích bỏ hoang ở Đại Ngàn Lục Bảo, nơi chôn giấu hòm Lõi Mana. Lũ Ghoul và Skeleton đói khát là những lính gác không bao giờ ngủ.",
+   "steps": [
+    {
+     "text": "Một phiến đá khắc chữ cổ của Dwarf bịt kín lối vào duy nhất. Không khí âm hàn bốc lên từ các khe nứt.",
+     "choices": [
+      {
+       "label": "Kê vai, gồng sức nâng phiến đá lên",
+       "check": {
+        "stat": "STR",
+        "target": 10
+       },
+       "success": {
+        "text": "Gân xanh nổi đầy mặt, phiến đá nặng ngàn cân bị hất văng mở đường vào thẳng trung tâm mộ.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Đá quá nặng ép xuống trật khớp vai bạn. Bạn phải đau đớn lết về.",
+        "effects": {
+         "health": -25
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Dò tìm cơ quan bí mật mở cửa",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Xoay đúng khớp răng cưa, cửa mở êm ái mà không đánh động bọn quái vật bên trong.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Đoán sai ròng rọc, một dàn chông độc từ trần nhà đâm xuyên ngực ghim bạn xuống nền đá.",
+        "death": "Bị bẫy chông xuyên ngực"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Bệ thờ chứa Lõi Mana bị vây quanh bởi hàng chục Skeleton cầm gươm rỉ sét. Một con Ghoul lù lù trườn ra từ vách đá.",
+     "choices": [
+      {
+       "label": "Vung cự kiếm đập vụn sọ lũ Undead",
+       "check": {
+        "stat": "STR",
+        "target": 6
+       },
+       "success": {
+        "text": "Khí thế cuồng bạo nghiền nát xương cốt, biến bọn hình hài ma quái thành bãi bột trắng. Vàng bạc thuộc về bạn.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Đội hình Skeleton đông đảo cấu xé, rạch rách đùi và tay, ép bạn bỏ chạy vứt lại chiến lợi phẩm.",
+        "effects": {
+         "health": -30
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Né tránh, cuỗm rương trên bệ thờ rồi vọt lẹ",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Nhanh như chớp, bạn ôm rương thoát khỏi vòng vây khi những thanh gươm rỉ sét chỉ kịp chém vào hư không.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Bị con Ghoul tóm được cổ chân lôi ngược lại vào bóng tối bất tận. Tiếng gào của bạn tắt lịm.",
+        "death": "Bị Ghoul phanh thây"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Hất lớp nhện bụi bặm, bạn mở tung rương báu. Ánh sáng từ những viên Lõi Mana chiếu rọi nụ cười nhăn nhở của cả đội chiến.",
+   "reward": {
+    "wealth": 50,
+    "fame": 10,
+    "guildPts": 2
+   },
+   "weight": 4,
+   "repeat": true,
+   "moment": "Lão Tổ tiên nói đúng, cái chết cũng không đáng sợ bằng sự nghèo đói."
+  },
+  {
+   "id": "orc_q_tieng_goi_tu_to_tien",
+   "org": "orc_tribe",
+   "name": "Tiếng Gọi Từ Tổ Tiên",
+   "minRank": 2,
+   "hint": "Vừa. Một di vật cổ xưa đang chờ kẻ mạnh đến lấy.",
+   "intro": "Lão Thầy cúng của bộ lạc trong cơn mê sảng đã nhìn thấy một chiếc Rìu Xương cổ đại ẩn sâu dưới Dãy Núi Răng Cưa. Bạn được giao nhiệm vụ mang nó về để chứng minh dòng máu chiến binh thuần khiết.",
+   "steps": [
+    {
+     "text": "Lối vào hang động bị chặn bởi một tảng đá khắc trận pháp bẫy của lũ Kobold. Tiếng lách cách của cơ quan cơ học vang lên.",
+     "choices": [
+      {
+       "label": "Gầm lên, dùng búa tạ nện nát tảng đá",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Tảng đá vỡ vụn, trận pháp hỏng hóc chập điện rồi tắt ngấm. Mở đường tiến vào trong.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Cú đập kích hoạt bẫy nổ, hất văng bạn vào vách đá sứt đầu mẻ trán. Lối đi sập xuống.",
+        "effects": {
+         "health": -30
+        },
+        "end": "fail"
+       }
+      },
+      {
+       "label": "Dò tìm và tháo gỡ dây bẫy",
+       "check": {
+        "stat": "AGI",
+        "target": 6
+       },
+       "success": {
+        "text": "Đôi tay thô ráp của bạn cẩn thận cắt đứt dây mồi nổ. Cửa động mở ra an toàn.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Đứt sai dây, phi tiêu tẩm độc phóng ra cắm ngập vào vai bạn.",
+        "effects": {
+         "health": -20
+        },
+        "next": 1
+       }
+      }
+     ]
+    },
+    {
+     "text": "Sâu trong hang, hàng chục đôi mắt đỏ ngầu của bầy Kobold chớp tắt trong bóng tối. Chúng định phóng lao ám sát bạn từ trên trần hang.",
+     "choices": [
+      {
+       "label": "Ném ngọn đuốc lên cao để bắt bài chúng",
+       "check": {
+        "stat": "INT",
+        "target": 6
+       },
+       "success": {
+        "text": "Ánh lửa bừng sáng soi rõ bọn chuột nhắt. Bạn nhanh chóng phóng rìu chặt rụng từng tên một.",
+        "next": 2
+       },
+       "fail": {
+        "text": "Đuốc tuột tay rơi xuống vũng nước tắt ngấm. Bọn Kobold nhân cơ hội đâm lao chi chít vào lưng bạn.",
+        "effects": {
+         "health": -20
+        },
+        "next": 2
+       }
+      },
+      {
+       "label": "Điên cuồng xoay kiếm chém loạn xạ trong bóng tối",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Kỹ năng Berserk càn quét băm vằm mọi thứ dám tới gần, máu Kobold đổ rào rào như mưa.",
+        "next": 2
+       },
+       "fail": {
+        "text": "Chém hụt, bạn kiệt sức và bị chúng ném đá chột một mắt. Khó nhọc rút lui.",
+        "effects": {
+         "health": -30,
+         "fame": -10
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Chiếc Rìu Xương lơ lửng trên bệ đá, nhưng bảo vệ nó là một con Golem đá khổng lồ vừa bừng tỉnh. Đôi mắt nó rực sáng ánh sáng ma thuật.",
+     "choices": [
+      {
+       "label": "Húc đầu trực diện, đọ sức với Golem",
+       "check": {
+        "stat": "STR",
+        "target": 10
+       },
+       "success": {
+        "text": "Nắm đấm bọc thép của bạn đập vỡ lõi ma thuật giữa ngực con Golem. Nó đổ sập xuống thành đống gạch vụn.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Golem vung tay áo hất tung bạn gãy nát lồng ngực. Bạn nằm thoi thóp chờ chết.",
+        "death": "Bị Golem đập nát"
+       }
+      },
+      {
+       "label": "Luồn qua hai chân nó, cướp rìu rồi chạy",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Chớp thời cơ con quái chậm chạp giơ tay, bạn vồ lấy chiếc Rìu Xương và lộn nhào ra ngoài cửa hang an toàn.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Golem dẫm một cước nát bét chân bạn. Đồng đội phải xông vào kéo cái xác tàn phế của bạn ra.",
+        "effects": {
+         "health": -40
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Nắm chặt Rìu Xương trong tay, bạn cảm nhận sức mạnh Tổ tiên cuồn cuộn chảy trong huyết quản, tiếng gầm của bạn làm rung chuyển cả ngọn núi.",
+   "reward": {
+    "STR": 2,
+    "wealth": 30,
+    "fame": 20
+   },
+   "weight": 4,
+   "moment": "Máu thịt có thể thối rữa, nhưng vũ khí của Tổ tiên thì sống mãi với thời gian."
+  },
+  {
+   "id": "orc_q_bong_canh_che_khuat_thao_nguyen",
+   "org": "orc_tribe",
+   "name": "Bóng Cánh Che Khuất Thảo Nguyên",
+   "minRank": 3,
+   "hint": "Khó. Cẩn thận các đòn tấn công từ trên không.",
+   "intro": "Một con Wyvern khổng lồ đã biến Thảo Nguyên Gió Hú thành bãi săn, liên tục cắp đi gia súc và trẻ con Orc. Vinh quang tối thượng sẽ thuộc về kẻ chặt đứt đôi cánh của nó.",
+   "steps": [
+    {
+     "text": "Con quái vật bay lượn trên cao. Bạn phải tìm ra con đường dốc đá dẫn lên tổ của nó nằm tít trên đỉnh vách núi rêu phong.",
+     "choices": [
+      {
+       "label": "Quan sát hướng gió và phân chim để tìm lối",
+       "check": {
+        "stat": "INT",
+        "target": 6
+       },
+       "success": {
+        "text": "Bạn dễ dàng lập bản đồ lộ trình, tìm ra một đường vách đá khuất gió để leo lên.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Tính sai hướng, bạn đi vào vách đá cụt, tốn thời gian khiến thể lực suy giảm.",
+        "effects": {
+         "health": -10
+        },
+        "next": 1
+       }
+      },
+      {
+       "label": "Găm dao găm vào đá, leo thẳng vách đứng",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Cơ bắp cuồn cuộn giúp bạn bật nhảy qua các vòm đá trơn trượt vươn tới tận tổ chim.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Trượt tay, bạn rơi tự do xuống một tán cây dày rập nát tay chân.",
+        "effects": {
+         "health": -40
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Vừa leo tới tổ, bạn phát hiện con Wyvern mẹ đi vắng, chỉ có ba con Wyvern con cỡ bằng con bò tót đang gầm gừ lao tới.",
+     "choices": [
+      {
+       "label": "Vung gươm chém rụng đầu cả ba",
+       "check": {
+        "stat": "STR",
+        "target": 6
+       },
+       "success": {
+        "text": "Máu rồng lai bắn tung tóe nhuộm đỏ bộ giáp. Bạn đứng sừng sững chờ con mẹ về.",
+        "next": 2
+       },
+       "fail": {
+        "text": "Lũ con cắn ngập nanh vào chân bạn, tiết ra nọc độc làm bạn tê dại chân tay.",
+        "effects": {
+         "AGI": -1,
+         "health": -20
+        },
+        "next": 2
+       }
+      },
+      {
+       "label": "Nghiền nát mấy quả trứng chưa nở để uy hiếp chúng",
+       "require": {
+        "INT": 6
+       },
+       "showLocked": true,
+       "text": "Trò tâm lý tàn nhẫn khiến bầy con hoảng loạn lùi lại, để lại không gian rộng rãi cho bạn thủ thế.",
+       "next": 2
+      }
+     ]
+    },
+    {
+     "text": "Tiếng rít xé gió vang lên, Wyvern mẹ sà xuống với móng vuốt khổng lồ và cái đuôi tẩm độc sắc như gươm nhắm thẳng đầu bạn.",
+     "choices": [
+      {
+       "label": "Né đòn, nhảy lên lưng nó cắm ngập kiếm",
+       "check": {
+        "stat": "AGI",
+        "target": 10
+       },
+       "success": {
+        "text": "Con quái bay vút lên trời nhưng bạn bám chặt, xẻ một đường dọc sống lưng khiến nó rơi tự do xuống đất chết tươi.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Đuôi độc quất trúng ngực, hất văng bạn vỡ tung nội tạng xuống đáy vực sâu.",
+        "death": "Bị Wyvern hất xuống vực"
+       }
+      },
+      {
+       "label": "Lấy khiên khổng lồ đón đỡ, dùng sức mạnh bẻ gãy móng vuốt",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Bạn như hòn đá tảng không thể lay chuyển, bóp nát chân con quái rồi bổ búa vỡ sọ nó.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Lực húc từ trên không quá mạnh làm nát bấy khiên và đập dập xương vai bạn.",
+        "effects": {
+         "health": -30
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Kéo lê chiếc sừng Wyvern nhuốm máu về trại giữa tiếng gầm vang dội, bạn chính thức trở thành hung thần của thảo nguyên.",
+   "reward": {
+    "wealth": 50,
+    "fame": 30,
+    "flags": [
+     "wyvern_slayer"
+    ]
+   },
+   "weight": 4,
+   "moment": "Không có bầu trời nào quá cao để loài Orc không thể với tới cắn xé."
+  },
+  {
+   "id": "orc_q_dap_nat_cong_thanh_quang",
+   "org": "orc_tribe",
+   "name": "Đập Nát Cổng Thánh Quang",
+   "minRank": 5,
+   "hint": "Khó. Thánh quang là khắc tinh của bóng tối, hãy dùng cơ bắp.",
+   "intro": "Một tiền đồn của Giáo hội Thánh Quang đã bắt giữ hàng chục chiến binh Orc làm nô lệ. Warchief giao cho bạn quyền chỉ huy quân đội để san bằng đồn bót này và đòi lại món nợ máu.",
+   "steps": [
+    {
+     "text": "Bức tường thành xây bằng đá cẩm thạch trắng sáng lóa. Lính gác đang nã cung tên và phép thuật ánh sáng xuống đội hình Orc.",
+     "choices": [
+      {
+       "label": "Chỉ huy xông lên đập cổng bằng xe nện",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Hàng chục chiến binh gầm rú húc văng cánh cổng sắt nặng nề, dòng lũ da xanh ùa vào thành.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Phép thuật lửa thiêu rụi xe nện, quân Orc thương vong vô số, bạn phải gồng mình che chắn.",
+        "effects": {
+         "health": -20,
+         "fame": -5
+        },
+        "next": 1
+       }
+      },
+      {
+       "label": "Cho quân ném bom khói, đột nhập qua cống ngầm",
+       "check": {
+        "stat": "INT",
+        "target": 6
+       },
+       "success": {
+        "text": "Màn khói che lấp ánh sáng. Bạn dẫn một toán quân tinh nhuệ chui qua cống xẻ họng lính gác mở cổng từ bên trong.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Cống ngầm bị đặt bẫy nổ thánh quang, đội đột nhập chết sạch, chỉ mình bạn lết ra được.",
+        "effects": {
+         "health": -30
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Tiến vào trong sân, một toán Thánh Kỵ Sĩ mặc giáp toàn thân dàn đội hình chĩa những ngọn giáo phát sáng về phía bạn.",
+     "choices": [
+      {
+       "label": "Càn lướt vào giữa đội hình để phá vỡ liên kết",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Tốc độ phi thường giúp bạn né mọi ngọn giáo, lưỡi dao tàn nhẫn chém gãy chân từng tên kỵ sĩ ngạo mạn.",
+        "next": 2
+       },
+       "fail": {
+        "text": "Ánh sáng làm bạn chói mắt, bị hai ngọn giáo chọc thủng bụng ép lùi lại.",
+        "effects": {
+         "health": -30
+        },
+        "next": 2
+       }
+      },
+      {
+       "label": "Dùng khiên thịt đồng đội làm bia đỡ đạn lao lên",
+       "text": "Tàn nhẫn nhưng hiệu quả, bạn núp sau xác một gã Orc khác và nhảy bổ lên băm vằm đám kỵ sĩ.",
+       "effects": {
+        "STR": 1,
+        "fame": -10
+       },
+       "next": 2
+      }
+     ]
+    },
+    {
+     "text": "Dưới ngục tối, các chiến binh Orc đang bị xích bằng xiềng thánh quang. Một tên Pháp sư đang cầm chìa khóa tàng hình lẩn trốn.",
+     "choices": [
+      {
+       "label": "Dựa vào bản năng đánh hơi để tóm cổ tên Pháp sư",
+       "check": {
+        "stat": "LUCK",
+        "target": 6
+       },
+       "success": {
+        "text": "Linh cảm dã thú giúp bạn vung búa trúng hư không nhưng đập vỡ sọ tên Pháp sư, giải cứu thành công đồng loại.",
+        "next": 3
+       },
+       "fail": {
+        "text": "Hắn lẩn thoát và ếm một bùa nổ vào hầm ngục, bạn phải phá cửa xích bằng tay không thương tích đầy mình.",
+        "effects": {
+         "health": -20
+        },
+        "next": 3
+       }
+      },
+      {
+       "label": "Gầm lên, dùng sức mạnh thuần túy bẻ gãy xích ma thuật",
+       "check": {
+        "stat": "STR",
+        "target": 10
+       },
+       "success": {
+        "text": "Cơ bắp căng phồng chống lại ma thuật, xích vỡ vụn. Lũ Orc được giải phóng gầm rú tung hô bạn.",
+        "effects": {
+         "fame": 10
+        },
+        "next": 3
+       },
+       "fail": {
+        "text": "Thánh quang phản phệ thiêu đốt hai tay bạn bỏng nặng, nô lệ kẹt lại trong ngục.",
+        "effects": {
+         "health": -40
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Ngay khi định rút lui, một Đại Kỵ Sĩ hạng S giáng xuống sân chém đôi mặt đất. Hắn vung thanh trọng kiếm rực lửa thánh thiêu đốt mọi ma vật tới gần.",
+     "choices": [
+      {
+       "label": "Điên cuồng tử chiến, đọ sức một mất một còn",
+       "check": {
+        "stat": "STR",
+        "target": 10
+       },
+       "success": {
+        "text": "Một trận đập nhau rung chuyển đất trời. Rìu của bạn gãy đôi nhưng bạn kịp cắm phần lưỡi vào cổ họng tên Đại Kỵ Sĩ.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Kiếm ánh sáng chẻ dọc người bạn làm đôi. Đội quân Orc kinh hoàng tháo chạy.",
+        "death": "Bị Thánh Kỵ Sĩ chém đôi"
+       }
+      },
+      {
+       "label": "Ném bột mù và dụ hắn vào bẫy sập",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Trò khôn lỏi phát huy tác dụng. Hắn lao tới vấp ngã xuống cái hố gai độc, bạn lạnh lùng ném đá tảng bồi thêm đến khi hắn tắt thở.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Hắn dùng khiên gió thổi bay bột mù, lao tới chặt đứt một cánh tay của bạn.",
+        "effects": {
+         "health": -40
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Pháo đài bốc cháy trong ánh chiều tà. Bạn cắm đầu tên Đại Kỵ Sĩ lên giáo, rước bầy chiến binh tự do trở về như một vị vua không ngai.",
+   "reward": {
+    "wealth": 80,
+    "fame": 40,
+    "flags": [
+     "holy_crusher"
+    ]
+   },
+   "weight": 4,
+   "moment": "Máu loài người cũng đỏ như bất cứ sinh vật hèn mọn nào khác."
+  },
+  {
+   "id": "orc_q_huyen_thoai_dinh_hoa_nguc",
+   "org": "orc_tribe",
+   "name": "Huyền Thoại Đỉnh Hỏa Ngục",
+   "minRank": 6,
+   "hint": "Rất Khó. Đối mặt với Cổ Long, cần sức vóc của một vị thần.",
+   "intro": "Đỉnh cao của danh vọng Orc không gì khác ngoài việc tắm máu loài rồng. Mang thân phận Warchief, bạn dẫn tinh anh bộ lạc tiến lên Đỉnh Hỏa Ngục, thề sẽ bẻ gãy sừng con Ancient Dragon (Cổ Long) hoặc bỏ xác tại đây.",
+   "steps": [
+    {
+     "text": "Băng qua Đảo Tro Tàn, đường lên đỉnh bị chặn bởi một dòng sông nham thạch cuồn cuộn sôi sục.",
+     "choices": [
+      {
+       "label": "Nhảy qua các tảng đá nổi để vượt sông",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Từng cú bật xa chuẩn xác giúp bạn và đội tinh anh vượt qua dòng sông lửa tử thần.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Đá vỡ vụn dưới chân, bạn sụt chân xuống nham thạch bỏng nát thịt tận xương.",
+        "effects": {
+         "health": -30
+        },
+        "next": 1
+       }
+      },
+      {
+       "label": "Chặt đổ trụ đá khổng lồ làm cầu bắc ngang",
+       "check": {
+        "stat": "STR",
+        "target": 10
+       },
+       "success": {
+        "text": "Tiếng gầm xé trời vang lên, cột đá chọc trời đổ gục tạo thành cây cầu vững chãi. Cả tộc trầm trồ trước sức mạnh của Warchief.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Cột đá đổ lệch hướng, rơi thẳng xuống nham thạch văng tung tóe thiêu chết vài tên lính.",
+        "effects": {
+         "health": -15,
+         "fame": -10
+        },
+        "next": 1
+       }
+      }
+     ]
+    },
+    {
+     "text": "Cửa hang ổ rồng được canh gác bởi một bầy Minotaur da đỏ khổng lồ, toàn thân bọc giáp dung nham, mũi thở ra khói lưu huỳnh.",
+     "choices": [
+      {
+       "label": "Trực diện lao vào vòng xoáy nghiền nát chúng",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Bạn như cơn cuồng phong chém đứt sừng, moi tim từng con quái bò tót, mở ra con đường đẫm máu.",
+        "next": 2
+       },
+       "fail": {
+        "text": "Bị đàn bò tót húc tung lên không trung và giẫm đạp không thương tiếc.",
+        "effects": {
+         "health": -30
+        },
+        "next": 2
+       }
+      },
+      {
+       "label": "Dụ chúng đuổi theo rồi đẩy xuống vách đá",
+       "check": {
+        "stat": "INT",
+        "target": 6
+       },
+       "success": {
+        "text": "Bọn não cơ bắp mù quáng lao tới, vấp phải chướng ngại vật bạn giăng sẵn và lăn lông lốc xuống hố dung nham.",
+        "next": 2
+       },
+       "fail": {
+        "text": "Bạn chạy không đủ nhanh, bị sừng quái vật xuyên qua đùi.",
+        "effects": {
+         "health": -25
+        },
+        "next": 2
+       }
+      }
+     ]
+    },
+    {
+     "text": "Ancient Dragon vươn cái cổ khổng lồ từ biển lửa, phồng rộp mang tai tung ra một luồng Hơi Thở Của Rồng (Dragon Breath) thiêu rụi mọi thứ trên diện rộng.",
+     "choices": [
+      {
+       "label": "Gồng khiên Huyết Kim và vận toàn bộ sức mạnh chịu đựng",
+       "check": {
+        "stat": "health",
+        "target": 85
+       },
+       "success": {
+        "text": "Lửa rồng táp qua nung đỏ giáp, da thịt xèo xèo nhưng bạn vẫn hiên ngang đứng vững, tạo bức tường bảo vệ lính lác phía sau.",
+        "next": 3
+       },
+       "fail": {
+        "text": "Khiên chảy nhão, lửa nuốt trọn toàn thân bạn biến thành đuốc sống trong chớp mắt.",
+        "death": "Bị Cổ Long thiêu rụi"
+       }
+      },
+      {
+       "label": "Lao xuống khe nứt hẹp tìm chỗ ẩn nấp",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Vừa kịp lăn vào kẽ đá, ngọn lửa càn quét qua đỉnh đầu thiêu rụi toàn bộ lính gác xung quanh, chỉ còn bạn sống sót.",
+        "next": 3
+       },
+       "fail": {
+        "text": "Kẹt lại nửa người, lưng bạn bị bỏng nặng nề không thể cử động linh hoạt nữa.",
+        "effects": {
+         "health": -40
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    },
+    {
+     "text": "Con Cổ Long đáp xuống tung vỡ mặt đất, há cái mõm chứa đầy răng nanh khổng lồ tợp thẳng xuống đầu bạn để kết liễu.",
+     "choices": [
+      {
+       "label": "Phi thân lên không, đâm kiếm xuyên con mắt nó",
+       "check": {
+        "stat": "AGI",
+        "target": 10
+       },
+       "success": {
+        "text": "Nhờ độ chính xác tuyệt đối, bạn cắm ngập lưỡi gươm vào nhãn cầu quái vật đến tận chuôi, khiến con rồng rống lên rồi đổ gục.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Nhảy hụt, bạn rơi thẳng vào mõm rồng và bị nhai nát thành từng mảnh.",
+        "death": "Bị Rồng ăn thịt"
+       }
+      },
+      {
+       "label": "Lấy thân làm mồi nhử, từ trong miệng rồng xẻ bụng nó ra",
+       "check": {
+        "stat": "STR",
+        "target": 10
+       },
+       "success": {
+        "text": "Bạn chủ động lao vào miệng nó, chịu đựng bộ hàm kẹp chặt, rồi dùng sức mạnh thần thánh xẻ tung từ thực quản đến dạ dày. Máu rồng trút như thác.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Răng rồng cắt đôi người bạn trước khi bạn kịp làm gì. Đỉnh Hỏa Ngục khắc tên kẻ thất bại.",
+        "death": "Bị Rồng cắn đứt đôi người"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Tắm mình trong máu rồng, bạn bước ra với chiếc hộp sọ Cổ Long vĩ đại. Từ nay về sau, toàn cõi Aethelgard phải gọi tên loài Orc với sự kinh hoàng tột độ.",
+   "reward": {
+    "wealth": 100,
+    "fame": 100,
+    "guildPts": 5,
+    "flags": [
+     "dragon_slayer"
+    ]
+   },
+   "weight": 4,
+   "moment": "Máu rồng nóng hổi rửa trôi mọi nghi ngờ, khắc tên bạn vào ngôi đền của những vị thần chiến tranh."
+  },
+  {
+   "id": "orc_q_xe_xac_tranh_thuc",
+   "org": "orc_tribe",
+   "name": "Xé Xác Tranh Thực",
+   "minRank": 3,
+   "hint": "Vừa. Đấu với những kẻ đang bị đẩy vào đường cùng.",
+   "intro": "Đói khát lan tràn khắp Aethelgard. Một đoàn xe buôn lương thực của Thương hội Sói Bạc đi ngang qua Thảo Nguyên Gió Hú. Đội chiến của bạn đói meo nhưng thề sẽ xé xác bất cứ ai bảo vệ đống lúa mì đó.",
+   "steps": [
+    {
+     "text": "Bảo vệ xe lương là những lính đánh thuê Beastman tộc Sói cũng đang ốm trơ xương, nhưng hàm răng vẫn sắc nhọn liều chết giữ lấy miếng ăn.",
+     "choices": [
+      {
+       "label": "Dùng bạo lực bóp nát cổ họng từng tên",
+       "check": {
+        "stat": "STR",
+        "target": 6
+       },
+       "success": {
+        "text": "Bạn điên cuồng vung nắm đấm. Bọn Beastman yếu ớt nhanh chóng gục ngã trước cơn khát máu của bạn.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Đói khát làm bạn run tay. Một tên Beastman tợp được một mảng thịt trên cánh tay bạn.",
+        "effects": {
+         "health": -20
+        },
+        "next": 1
+       }
+      },
+      {
+       "label": "Ném miếng thịt ôi ra dụ bọn chúng tự tàn sát",
+       "check": {
+        "stat": "INT",
+        "target": 8
+       },
+       "success": {
+        "text": "Cơn đói đánh gục lý trí. Lũ Beastman quay sang cắn xé nhau giành miếng thịt, để bạn rảnh tay tiến lên.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Bọn chúng nhận ra mưu hèn, đồng loạt điên tiết quây đánh bạn tơi bời.",
+        "effects": {
+         "health": -25
+        },
+        "next": 1
+       }
+      }
+     ]
+    },
+    {
+     "text": "Tên thương nhân mập mạp rút ra một cuộn giấy cuộn phép thuật lửa cấp cao, uy hiếp sẽ đốt sạch xe lúa nếu bạn dám tiến thêm một bước.",
+     "choices": [
+      {
+       "label": "Nhanh như chớp phi rìu chặt đứt tay hắn",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Rìu cắm phập, cánh tay béo ngậy đứt lìa rơi xuống đất cùng cuộn phép. Bạn đã cứu được bữa ăn cho cả bộ lạc.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Rìu bay trượt. Tên thương nhân hoảng sợ xé cuộn phép, một vụ nổ nuốt chửng cả xe lương lẫn bạn.",
+        "effects": {
+         "health": -40,
+         "wealth": -20
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Vác tải lúa mì lốm đốm máu về trại, bạn được bọn trẻ con Orc xúm lại reo hò rớt nước dãi. Sự sinh tồn là chân lý duy nhất.",
+   "reward": {
+    "health": 20,
+    "wealth": 30,
+    "fame": 10
+   },
+   "weight": 4,
+   "eras": [
+    "dark_age"
+   ],
+   "moment": "Đạo đức không bao giờ lấp đầy được một cái dạ dày rỗng."
+  },
+  {
+   "id": "orc_q_bat_khuat_truoc_vuc_tham",
+   "org": "orc_tribe",
+   "name": "Bất Khuất Trước Vực Thẳm",
+   "minRank": 4,
+   "hint": "Khó. Chống lại ma thuật hắc ám và sợ hãi.",
+   "intro": "Quân đoàn Ma Vương sai sứ giả đến yêu cầu bộ lạc Orc quỳ gối quy phục. Đáp lại, Tù trưởng băm vằm tên sứ giả và ném cho bầy sói ăn. Giờ đây, tiền quân của Ma tộc (High Demon) đang tràn tới phá hủy doanh trại.",
+   "steps": [
+    {
+     "text": "Đội tiên phong của địch gồm toàn Imp và Ghoul do một tên Troll khổng lồ chỉ huy càn lướt vào cổng trại, phả ra mùi tử khí rợn người.",
+     "choices": [
+      {
+       "label": "Trực diện đấu sức với tên Troll đột biến",
+       "check": {
+        "stat": "STR",
+        "target": 8
+       },
+       "success": {
+        "text": "Cơ bắp cuồn cuộn của bạn ép tên Troll lùi lại, chặt đứt hai chân nó làm đội hình ma quỷ rối loạn.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Chùy của Troll đập lún mũ giáp làm bạn choáng váng ộc máu.",
+        "effects": {
+         "health": -30
+        },
+        "next": 1
+       }
+      },
+      {
+       "label": "Cho quân bắn tên lửa đốt cháy lũ Undead",
+       "check": {
+        "stat": "INT",
+        "target": 6
+       },
+       "success": {
+        "text": "Lửa cháy phừng phực thiêu rụi bọn Ghoul thối rữa, mùi khét lẹt làm nức lòng chiến binh Orc.",
+        "next": 1
+       },
+       "fail": {
+        "text": "Ma thuật bảo vệ của lũ Imp chặn đứng mũi tên lửa. Chúng ùa vào tàn sát một góc trại.",
+        "effects": {
+         "wealth": -20,
+         "fame": -10
+        },
+        "next": 1
+       }
+      }
+     ]
+    },
+    {
+     "text": "Tên High Demon Tướng quân từ trên không lao xuống, đôi sừng dài và thanh gươm đẫm máu tà ác chỉ thẳng vào ngực bạn đòi đấu tay đôi.",
+     "choices": [
+      {
+       "label": "Khởi động Berserk, băm vằm mặc kệ phòng thủ",
+       "check": {
+        "stat": "STR",
+        "target": 10
+       },
+       "success": {
+        "text": "Cơn cuồng nộ xóa bỏ sợ hãi, bạn hứng chịu một nhát gươm nhưng đổi lại chặt lìa sừng và đầu tên Ác quỷ cấp cao.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Gươm quỷ hút cạn sinh lực bạn. Bạn ngã xuống gục chết, đôi mắt mở trừng đầy uất hận.",
+        "death": "Bị High Demon hút cạn máu"
+       }
+      },
+      {
+       "label": "Dùng khiên phản đòn chớp nhoáng",
+       "check": {
+        "stat": "AGI",
+        "target": 8
+       },
+       "success": {
+        "text": "Hắn chém mạnh vào khiên, lực phản chấn làm hắn khựng lại. Bạn lập tức lia gươm rớt đầu tên ác quỷ ngạo mạn.",
+        "end": "win"
+       },
+       "fail": {
+        "text": "Khiên vỡ nát, thanh gươm hắc ám cắm ngập vào bả vai bạn.",
+        "effects": {
+         "health": -40
+        },
+        "end": "fail"
+       }
+      }
+     ]
+    }
+   ],
+   "complete": "Nâng chiếc thủ cấp High Demon với đôi sừng đen ngòm lên cao, tiếng gầm của loài Orc dập tắt mọi ma thuật u ám xung quanh.",
+   "reward": {
+    "wealth": 60,
+    "fame": 50,
+    "guildPts": 3
+   },
+   "weight": 4,
+   "eras": [
+    "demon_lord"
+   ],
+   "moment": "Ma Vương có thể dọa nạt loài người, nhưng loài Orc không bao giờ chịu khuất phục dưới bất kỳ cái bóng nào."
+  }
+ ],
+ "events": [
+  {
+   "id": "orc_parent_first_blood",
+   "text": "{father} ném một con Goblin đang bị trói gô xuống bùn trước mặt bạn. Ông gầm lên, yêu cầu bạn tự tay nghiền nát nó để chứng minh bản năng chiến binh loài Orc.",
+   "stages": [
+    "infant"
+   ],
+   "focus": [
+    "play"
+   ],
+   "require": {
+    "fatherAlive": true
+   },
+   "choices": [
+    {
+     "label": "Lao vào bóp cổ nó",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn siết chặt đến khi tiếng giãy giụa tắt hẳn. {father} ngửa cổ cười rống lên tự hào.",
+      "effects": {
+       "STR": 1,
+       "joy": 5,
+       "fame": 3
+      }
+     },
+     "fail": {
+      "text": "Con Goblin vùng vẫy cắn rách tay bạn khiến bạn khóc thét. {father} nhổ toẹt nước bọt đầy thất vọng.",
+      "effects": {
+       "health": -10,
+       "joy": -10,
+       "fame": -3
+      }
+     }
+    },
+    {
+     "label": "Nhặt đá ném chết nó từ xa",
+     "check": {
+      "stat": "AGI",
+      "target": 4
+     },
+     "success": {
+      "text": "Hòn đá đập vỡ sọ con mồi. Ông gật gù, nhưng càu nhàu rằng chiến đấu từ xa là trò hèn hạ của bọn Elf.",
+      "effects": {
+       "AGI": 1,
+       "fame": -1
+      }
+     },
+     "fail": {
+      "text": "Hòn đá bay trượt, con Goblin cắn đứt dây trói và chạy biến vào rừng.",
+      "effects": {
+       "wealth": -5,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Lén cắt dây thả nó đi",
+     "require": {
+      "INT": 6
+     },
+     "showLocked": true,
+     "text": "Bạn dùng mảnh đá nhọn cắt dây cước, cứu mạng kẻ yếu ớt hơn.",
+     "effects": {
+      "LUCK": 2,
+      "health": -20,
+      "joy": 10
+     }
+    }
+   ],
+   "moment": "Lần đầu tiên đối mặt với sinh mạng kẻ khác, bạn chọn cách hành xử của riêng mình."
+  },
+  {
+   "id": "orc_parent_mother_ill",
+   "text": "Trong đợt di cư tránh bão tuyết ở Thảo Nguyên Gió Hú, {mother} suy kiệt vì dịch bệnh. Theo luật lệ tàn khốc của bộ lạc, những kẻ không thể tự bước đi sẽ bị bỏ lại làm mồi cho sài lang.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "train"
+   ],
+   "require": {
+    "motherAlive": true
+   },
+   "choices": [
+    {
+     "label": "Vác mẹ trên lưng hành quân",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Bạn nghiến răng gồng gánh người mẹ to lớn suốt ba ngày đêm, chứng minh sức mạnh phi thường khiến cả tộc nể sợ.",
+      "effects": {
+       "STR": 2,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Bạn kiệt sức gục ngã giữa bão tuyết. Bộ lạc lôi bạn đi, bỏ lại tiếng ho khan của bà chìm dần trong giá rét.",
+      "effects": {
+       "health": -20,
+       "joy": -30,
+       "parentDie": "mother"
+      }
+     }
+    },
+    {
+     "label": "Thách đấu Thầy cúng đòi thuốc",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Bạn đấm gục gã Thầy cúng khinh khỉnh, cướp lấy cỏ thuốc đắng ngắt. Mẹ bạn dần hồi phục.",
+      "effects": {
+       "wealth": -10,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Bạn bị đánh một trận nhừ tử bằng gậy phép và ném ra khỏi lều.",
+      "effects": {
+       "health": -30,
+       "parentDie": "mother"
+      }
+     }
+    },
+    {
+     "label": "Tuân theo luật lệ, quay lưng đi",
+     "text": "Bạn để lại cho bà một thanh dao găm để tự sát giữ danh dự, lạnh lùng bước tiếp cùng bộ lạc.",
+     "effects": {
+      "INT": 1,
+      "joy": -20,
+      "fame": 2,
+      "flags": [
+       "cold_heart"
+      ],
+      "parentDie": "mother"
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_parent_father_legacy",
+   "text": "{father} tử trận dưới lưỡi kiếm của một Thánh Kỵ Sĩ Human, chỉ còn lại cái xác khô héo được ném về trại. Đám Orc côn đồ trong tộc lập tức ùa vào lều của bạn, định cướp lấy thanh cự kiếm đắt giá của ông.",
+   "stages": [
+    "teen"
+   ],
+   "require": {
+    "fatherAlive": true
+   },
+   "choices": [
+    {
+     "label": "Rút vũ khí bảo vệ di sản",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn chém đứt cánh tay của gã to con nhất, gầm lên khẳng định chủ quyền. Bọn côn đồ hoảng sợ lùi lại.",
+      "effects": {
+       "STR": 1,
+       "wealth": 20,
+       "fame": 10,
+       "flags": [
+        "father_sword"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Chúng đánh bạn bò lê dưới đất, lột sạch đồ đạc và khạc nhổ lên xác cha bạn.",
+      "effects": {
+       "health": -30,
+       "wealth": -20,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Ôm thanh kiếm bỏ chạy vào rừng",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn chuồn qua cửa sau cùng kỷ vật quý giá nhất, để mặc chúng vơ vét số của cải còn lại.",
+      "effects": {
+       "AGI": 1,
+       "wealth": -10,
+       "flags": [
+        "father_sword"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn vấp ngã, bị chúng tóm cổ và ném văng ra ngoài bùn.",
+      "effects": {
+       "health": -20,
+       "wealth": -20,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Dâng hiến thanh kiếm cho Tù trưởng",
+     "require": {
+      "INT": 5
+     },
+     "showLocked": true,
+     "text": "Bạn chủ động đem báu vật cống nạp để đổi lấy sự che chở, khiến đám côn đồ không dám làm càn.",
+     "effects": {
+      "INT": 2,
+      "wealth": -20,
+      "fame": 5
+     }
+    }
+   ],
+   "moment": "Ngày cha ngã xuống, bạn học được rằng sức mạnh là thứ duy nhất bảo vệ được tài sản ở Aethelgard."
+  },
+  {
+   "id": "orc_parent_redemption",
+   "text": "Ký ức về sự khinh bỉ năm xưa vẫn dằn vặt gia đình. {father} (hoặc {mother}) trao cho bạn một lọ Huyết Kim, yêu cầu bạn mang đầu của một con Minotaur ở Đảo Tro Tàn về cắm trước lều Tù trưởng để giành lại vị thế vinh quang.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "require": {
+    "anyFlags": [
+     "exiled_blood",
+     "orphan_orc"
+    ],
+    "motherAlive": true
+   },
+   "choices": [
+    {
+     "label": "Một mình đi săn Minotaur",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Bạn vác chiếc sừng vĩ đại đẫm máu trở về. Cả bộ lạc cúi đầu mở đường, cha mẹ bạn bật khóc vì tự hào.",
+      "effects": {
+       "STR": 2,
+       "wealth": 50,
+       "fame": 20
+      }
+     },
+     "fail": {
+      "text": "Con quái vật húc gãy xương sườn bạn. Bạn lết về trong thất bại thảm hại, đánh mất cơ hội đổi đời.",
+      "effects": {
+       "health": -40,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Bỏ tiền thuê Guild Sát thủ Umbra làm thay",
+     "check": {
+      "stat": "wealth",
+      "target": 55
+     },
+     "success": {
+      "text": "Bạn bí mật mua một cái đầu Minotaur tươi rói. Cả tộc trầm trồ, dù cách làm của bạn sặc mùi dối trá.",
+      "effects": {
+       "INT": 2,
+       "wealth": -30,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Lũ sát thủ ăn chặn tiền và chế nhạo bạn. Gia đình bạn càng thêm nhục nhã.",
+      "effects": {
+       "joy": -20,
+       "wealth": -50,
+       "fame": -15
+      }
+     }
+    },
+    {
+     "label": "Từ chối mệnh lệnh của gia đình",
+     "require": {
+      "INT": 7
+     },
+     "showLocked": true,
+     "text": "Bạn ném trả lọ Huyết Kim, tuyên bố rằng danh dự của bạn không cần chứng minh với kẻ nào.",
+     "effects": {
+      "INT": 2,
+      "joy": 10,
+      "fame": -5
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_job_berserker_1",
+   "text": "Kỹ năng Berserk bùng phát trong lúc say rượu, bạn nhầm lẫn đồng đội với quân thù và bắt đầu vung vũ khí loạn xạ giữa khu trại.",
+   "require": {
+    "job": "orc_berserker"
+   },
+   "choices": [
+    {
+     "label": "Dùng ý chí khống chế cơn điên",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn cắm phập kiếm xuống đất, thở hồng hộc và lấy lại bình tĩnh trước khi chém trúng ai.",
+      "effects": {
+       "INT": 1,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Bạn chém trọng thương một chiến binh, bị cả bầy xúm lại đánh thừa sống thiếu chết và lột sạch tiền bạc.",
+      "effects": {
+       "health": -20,
+       "wealth": -30,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Đập đầu vào cột gỗ để ngất đi",
+     "check": {
+      "stat": "health",
+      "target": 55
+     },
+     "success": {
+      "text": "Bạn tự làm mình choáng váng và ngã gục. Sáng hôm sau tỉnh dậy với cái đầu sưng to nhưng an toàn.",
+      "effects": {
+       "health": -10,
+       "fame": -2
+      }
+     },
+     "fail": {
+      "text": "Cột gỗ gãy nát nhưng bạn vẫn điên cuồng, kết cục bị Tù trưởng ra lệnh đấm văng ra ngoài rào.",
+      "effects": {
+       "health": -30,
+       "wealth": -10
+      }
+     }
+    },
+    {
+     "label": "Trút giận lên bầy dã thú bị nhốt",
+     "require": {
+      "AGI": 6
+     },
+     "showLocked": true,
+     "text": "Bạn kịp thời lao về phía chuồng sói và đồ sát vài con thú để thỏa cơn khát máu.",
+     "effects": {
+      "STR": 1,
+      "wealth": -10,
+      "fame": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_job_berserker_2",
+   "text": "Đội chiến của bạn rơi vào ổ phục kích của Đội Ranger Đại Ngàn (Elf). Tên bay như mưa, Tù trưởng thổi tù và ra lệnh rút lui, nhưng dòng máu Berserker thôi thúc bạn lao lên.",
+   "require": {
+    "job": "orc_berserker"
+   },
+   "choices": [
+    {
+     "label": "Bỏ mặc lệnh, gầm lên xung phong",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Cơn điên của bạn càn quét cả một hàng cây, dọa nạt bọn Elf phải lùi bước. Tù trưởng khen ngợi sự tàn bạo này.",
+      "effects": {
+       "STR": 2,
+       "wealth": 20,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Bọn Elf bắn bạn nhím người. Bạn ngã gục, mất mạng trong sự hả hê của kẻ thù.",
+      "death": "Bị tên độc bắn xuyên yết hầu"
+     }
+    },
+    {
+     "label": "Cắn răng tuân lệnh rút lui",
+     "text": "Bạn quay lưng bỏ chạy cùng đồng bọn. Sống sót, nhưng bị coi là một gã khổng lồ hèn nhát.",
+     "effects": {
+      "health": 10,
+      "fame": -10
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_job_berserker_3",
+   "text": "Sau trận cướp bóc, bạn nhắm trúng một tấm giáp ngực bằng Tinh Bạc, nhưng một gã Orc khác to con hơn cũng đang thò tay vào cướp nó.",
+   "require": {
+    "job": "orc_berserker"
+   },
+   "choices": [
+    {
+     "label": "Húc đầu thách đấu tay đôi",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Cú húc vỡ mũi gã kia khiến hắn lùi lại. Tấm giáp thuộc về bạn.",
+      "effects": {
+       "STR": 1,
+       "wealth": 30,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Hắn nhấc bổng bạn lên và ném đập lưng vào vách đá. Bạn mất trắng.",
+      "effects": {
+       "health": -20,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Dùng thủ đoạn hất cát vào mắt hắn",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Hắn ôm mặt chửi rủa, bạn ôm tấm giáp chuồn êm.",
+      "effects": {
+       "AGI": 1,
+       "wealth": 30,
+       "fame": -5
+      }
+     },
+     "fail": {
+      "text": "Hắn gạt được, vung tay tát bạn lật mặt.",
+      "effects": {
+       "health": -10,
+       "wealth": -5
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_job_berserker_4",
+   "text": "Vết thương từ trận chiến trước đã nhiễm trùng nặng mủ xanh. Nếu không chữa trị, bạn sẽ mất một cánh tay hoặc tàn phế.",
+   "require": {
+    "below": {
+     "health": 30
+    },
+    "job": "orc_berserker"
+   },
+   "choices": [
+    {
+     "label": "Áp sắt nung đỏ lên vết thương",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Tiếng thịt xèo xèo vang lên. Bạn ngất đi, nhưng khi tỉnh lại, vết thương đã cầm máu và khép miệng.",
+      "effects": {
+       "STR": 1,
+       "health": 30
+      }
+     },
+     "fail": {
+      "text": "Cơn đau vượt quá sức chịu đựng khiến cơ thể sốc kịch liệt. Bạn tàn phế, bị giáng chức đuổi khỏi binh đoàn.",
+      "effects": {
+       "health": -20,
+       "fame": -15
+      }
+     }
+    },
+    {
+     "label": "Đi tìm thầy cúng tốn tiền",
+     "check": {
+      "stat": "wealth",
+      "target": 35
+     },
+     "success": {
+      "text": "Bỏ ra một nạm Đồng Cẩm Thạch, Thầy cúng bôi thứ mỡ hôi rình giúp bạn qua cơn nguy kịch.",
+      "effects": {
+       "health": 40,
+       "wealth": -30
+      }
+     },
+     "fail": {
+      "text": "Bị lừa mua phải mỡ rởm, bệnh tình không bớt.",
+      "effects": {
+       "health": -10,
+       "wealth": -20
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_job_hunter_1",
+   "text": "Bầy Orc đang đói khát. Bạn lãnh trách nhiệm dẫn đường đi săn nhưng bị một bầy Troll đột kích làm hỏng cả đội hình.",
+   "require": {
+    "job": "orc_ranger"
+   },
+   "choices": [
+    {
+     "label": "Bắn yểm trợ cho đồng đội rút lui",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn ghim tên vào mắt Troll, giúp đội chiến thoái lui an toàn. Mọi người nể phục khả năng của bạn.",
+      "effects": {
+       "AGI": 2,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Cung nỏ gãy nát, bạn bị con Troll quật văng rập xương.",
+      "effects": {
+       "health": -30,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Dùng bom khói bỏ chạy một mình",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn trốn thoát êm đẹp, để mặc vài tên đồng bọn chịu chết.",
+      "effects": {
+       "LUCK": 1,
+       "health": 10,
+       "fame": -15
+      }
+     },
+     "fail": {
+      "text": "Gió thổi ngược khói vào mặt, bạn ho sặc sụa và bị bắt kịp.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Dụ bầy Troll rơi vào bẫy hố",
+     "require": {
+      "INT": 6
+     },
+     "showLocked": true,
+     "text": "Bạn khôn khéo chạy lắt léo dẫn chúng lao thẳng xuống hố gai độc đã chuẩn bị trước.",
+     "effects": {
+      "INT": 1,
+      "wealth": 30,
+      "fame": 15
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_job_hunter_2",
+   "text": "Khi đang tuần tra, bạn phát hiện một tay bắn tỉa của Đội Ranger Đại Ngàn (Elf) đang nhắm vào Tù trưởng trại bạn.",
+   "require": {
+    "job": "orc_ranger"
+   },
+   "choices": [
+    {
+     "label": "Giương cung đọ súng với hắn",
+     "check": {
+      "stat": "AGI",
+      "target": 10
+     },
+     "success": {
+      "text": "Mũi tên thô kệch của bạn xé gió bay trước một nhịp, cắm phập vào ngực tên Elf kiêu ngạo.",
+      "effects": {
+       "AGI": 2,
+       "wealth": 40,
+       "fame": 20
+      }
+     },
+     "fail": {
+      "text": "Mũi tên Elf lao nhanh như chớp cắm thẳng qua mắt bạn. Bạn chết ngay tại chỗ.",
+      "death": "Bị bắn xuyên sọ"
+     }
+    },
+    {
+     "label": "Gầm lớn cảnh báo Tù trưởng",
+     "text": "Bạn hét lên, Tù trưởng cúi né kịp thời nhưng bạn bị lộ vị trí và phải hứng chịu cơn mưa tên yểm trợ của địch.",
+     "effects": {
+      "health": -30,
+      "fame": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_job_hunter_3",
+   "text": "Sự khinh bỉ của lũ chiến binh khiến thợ săn thường bị chia phần ăn ít nhất. Bạn phát hiện kho lương của bộ lạc bị hớ hênh.",
+   "require": {
+    "below": {
+     "wealth": 10
+    },
+    "job": "orc_ranger"
+   },
+   "choices": [
+    {
+     "label": "Đột nhập trộm thịt khô",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn trườn như bóng ma, khuân ra một đùi quái thú to bự mà không ai hay.",
+      "effects": {
+       "AGI": 1,
+       "joy": 10,
+       "wealth": 20
+      }
+     },
+     "fail": {
+      "text": "Trượt chân ngã, bạn bị bắt quả tang. Tù trưởng nổi điên, tước vũ khí và giáng bậc bạn.",
+      "effects": {
+       "wealth": -10,
+       "fame": -20,
+       "demote": true
+      }
+     }
+    },
+    {
+     "label": "Hối lộ tên canh gác",
+     "check": {
+      "stat": "wealth",
+      "target": 55
+     },
+     "success": {
+      "text": "Chia cho hắn chút bạc cắc, hắn lờ đi cho bạn lấy đồ.",
+      "effects": {
+       "INT": 1,
+       "wealth": 10
+      }
+     },
+     "fail": {
+      "text": "Hắn hét toáng lên gọi người bắt bạn.",
+      "effects": {
+       "health": -20,
+       "fame": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_job_hunter_4",
+   "text": "Bạn nhặt được một bó tên bằng Huyết Kim hắc ám rớt lại từ một trận chiến với Ma tộc.",
+   "require": {
+    "job": "orc_ranger"
+   },
+   "choices": [
+    {
+     "label": "Sử dụng chúng để săn mồi",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn làm chủ được thứ khí tức tà ác này. Mỗi phát bắn giờ đây ăn mòn giáp trụ kẻ thù.",
+      "effects": {
+       "STR": 2,
+       "INT": 1,
+       "wealth": 20
+      }
+     },
+     "fail": {
+      "text": "Tà khí xâm nhập qua da thịt khiến tay bạn run rẩy lở loét.",
+      "effects": {
+       "AGI": -2,
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Bán cho Thương hội Sói Bạc",
+     "text": "Bạn gói ghém cẩn thận đem bán lấy tiền mua rượu và vũ khí mới, an toàn là trên hết.",
+     "effects": {
+      "joy": 5,
+      "wealth": 30
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_job_shaman_1",
+   "text": "Một tên Orc Warlord khạc nhổ vào đống thảo mộc của bạn, lăng mạ vu thuật là trò hèn hạ rẻ rách của đàn bà và bọn Goblin.",
+   "require": {
+    "job": "orc_shaman"
+   },
+   "choices": [
+    {
+     "label": "Yểm bùa nguyền rủa hắn",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn lẩm nhẩm một câu chú, khiến gã nôn ra mật xanh mật vàng ngay tại chỗ. Bọn xung quanh hoảng sợ lùi lại.",
+      "effects": {
+       "INT": 2,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Chú ngữ phản phệ, bạn ho ra máu. Gã Warlord cười phá lên và đá bạn văng vào đống bùn.",
+      "effects": {
+       "health": -20,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Dùng gậy độc đập lén hắn",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Phang trúng điểm mù, gã choáng váng gục xuống. Bạn khẳng định sức mạnh vật lý.",
+      "effects": {
+       "AGI": 1,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Gã tóm được gậy và bẻ gãy nó cái rắc, tát bạn rớt răng.",
+      "effects": {
+       "health": -20,
+       "wealth": -10
+      }
+     }
+    },
+    {
+     "label": "Nuốt giận, mỉm cười thu dọn",
+     "text": "Bạn im lặng chịu nhục, ngầm ghi hận chờ ngày hắn trọng thương trên chiến trường rồi tính sổ.",
+     "effects": {
+      "INT": 1,
+      "joy": -15,
+      "fame": -5
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_job_shaman_2",
+   "text": "Hắc Nguyệt Hội bí mật yêu cầu bạn thực hiện một nghi lễ hiến tế trẻ con để cầu xin sức mạnh từ Vực Thẳm.",
+   "require": {
+    "job": "orc_shaman"
+   },
+   "choices": [
+    {
+     "label": "Tráo đổi vật hiến tế bằng lợn rừng",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Ma thuật biến đổi hoàn hảo, Cổ Thần bị đánh lừa và ban sức mạnh mà không hại mạng người.",
+      "effects": {
+       "STR": 2,
+       "INT": 2,
+       "LUCK": 1
+      }
+     },
+     "fail": {
+      "text": "Cổ Thần nổi giận vì sự dối trá, giáng sét đen thiêu rụi toàn bộ lều trại và giáng bạn làm mỏ quạ.",
+      "effects": {
+       "wealth": -50,
+       "fame": -20
+      }
+     }
+    },
+    {
+     "label": "Mật báo cho Tù trưởng bắt kẻ chủ mưu",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Lực lượng bộ lạc ập tới tóm gọn đám cuồng tín. Bạn được khen thưởng lớn vì lòng trung thành.",
+      "effects": {
+       "wealth": 40,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Tù trưởng gạt phắt đi, cho rằng bạn bị hoang tưởng. Bọn tà giáo sau đó lén lút ám sát bạn.",
+      "death": "Bị cắt cổ bằng dao găm tẩm độc"
+     }
+    },
+    {
+     "label": "Lãnh khốc thực hiện nghi lễ",
+     "require": {
+      "INT": 7
+     },
+     "showLocked": true,
+     "text": "Đứa trẻ vô danh tắt thở. Bạn nhận được một nguồn mana khổng lồ hắc ám tràn vào tĩnh mạch.",
+     "effects": {
+      "STR": 2,
+      "INT": 3,
+      "joy": -30,
+      "fame": -15,
+      "flags": [
+       "child_killer"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_job_shaman_3",
+   "text": "Bộ lạc bế tắc trước kỳ di cư. Bạn buộc phải bói xương thú để chỉ đường, nhưng xương thú lại vỡ vụn thành điềm đại hung vô nghĩa.",
+   "require": {
+    "job": "orc_shaman"
+   },
+   "choices": [
+    {
+     "label": "Bịa ra một lời tiên tri hoàng tráng",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Lời lẽ dối trá của bạn trơn tru đến mức cả Tù trưởng cũng tin sái cổ, dẫn bộ lạc tránh được nguy hiểm.",
+      "effects": {
+       "INT": 2,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Ai cũng nhận ra bạn đang bốc phét. Bạn bị trói vào cọc sỉ nhục suốt 3 ngày.",
+      "effects": {
+       "health": -20,
+       "fame": -20
+      }
+     }
+    },
+    {
+     "label": "Dũng cảm nói thật về điềm hung",
+     "text": "Bạn thú nhận bế tắc. Bộ lạc hoang mang cực độ, uy tín của bạn rớt thảm hại nhưng không ai bắt bẻ được.",
+     "effects": {
+      "joy": 5,
+      "fame": -15
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_job_shaman_4",
+   "text": "Một con Minotaur cắn thuốc điên đang phá nát trại. Bọn chiến binh không thể cản nó.",
+   "require": {
+    "job": "orc_shaman"
+   },
+   "choices": [
+    {
+     "label": "Phóng chú ngữ Hút Máu (Blood Drain)",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Chú ngữ bòn rút sinh lực con quái, khiến nó gục ngã cạn kiệt. Cả trại nhìn bạn với ánh mắt kiêng dè nể sợ.",
+      "effects": {
+       "INT": 2,
+       "fame": 20
+      }
+     },
+     "fail": {
+      "text": "Chú ngữ trượt mục tiêu. Con Minotaur dẫm nát vạc phép của bạn.",
+      "effects": {
+       "health": -10,
+       "wealth": -30
+      }
+     }
+    },
+    {
+     "label": "Hèn nhát tàng hình bỏ trốn",
+     "check": {
+      "stat": "AGI",
+      "target": 4
+     },
+     "success": {
+      "text": "Bạn nép vào góc khuất an toàn, kệ xác bọn chiến binh phải hi sinh máu thịt bảo vệ trại.",
+      "effects": {
+       "health": 10,
+       "fame": -10
+      }
+     },
+     "fail": {
+      "text": "Phép tàng hình hỏng, con quái chú ý và húc bạn gãy xương sườn.",
+      "effects": {
+       "health": -40
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_job_smith_1",
+   "text": "Bọn cướp bóc mang về một khối Huyết Kim quý giá nhưng đầy tạp chất. Bọn chúng yêu cầu bạn phải rèn ra một thanh đao hoàn mỹ.",
+   "require": {
+    "job": "orc_smith"
+   },
+   "choices": [
+    {
+     "label": "Tập trung sức mạnh quai búa liên tục 3 ngày",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bằng sức lực trâu bò, bạn ép sạch tạp chất, tạo ra thanh Huyết Đao sáng lòa. Bọn cướp ném cho bạn một túi vàng lớn.",
+      "effects": {
+       "STR": 2,
+       "wealth": 40,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Đập quá đà, khối quặng nứt toác và phế hoàn toàn. Bạn phải đền tiền đến sạt nghiệp.",
+      "effects": {
+       "wealth": -50,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Dùng thuật hóa kim (Trí tuệ) để thanh lọc",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn dùng dung môi đặc biệt hòa tan tạp chất. Vũ khí mượt mà như tác phẩm của Dwarf.",
+      "effects": {
+       "INT": 2,
+       "wealth": 30,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Dung môi nổ tung, tàn phá lò rèn và làm bạn bỏng nặng.",
+      "effects": {
+       "health": -30,
+       "wealth": -30
+      }
+     }
+    },
+    {
+     "label": "Lén cắt bớt Huyết Kim, pha sắt thường vào",
+     "require": {
+      "AGI": 6
+     },
+     "showLocked": true,
+     "text": "Bạn khéo léo qua mặt bọn võ biền, giữ lại một phần Huyết Kim quý giá cho riêng mình.",
+     "effects": {
+      "wealth": 50,
+      "fame": -5
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_job_smith_2",
+   "text": "Tù trưởng yêu cầu bạn rèn một bộ giáp gai độc quyền, nhưng thời hạn đưa ra quá ngắn. Nếu trễ hạn, hình phạt là chặt đứt một ngón tay.",
+   "require": {
+    "job": "orc_smith"
+   },
+   "choices": [
+    {
+     "label": "Liều mạng cày ngày cày đêm",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Bạn gục ngã vì kiệt sức ngay khi giao hàng, nhưng đổi lại là sự nể trọng tuyệt đối của Tù trưởng.",
+      "effects": {
+       "health": -20,
+       "wealth": 40,
+       "fame": 20
+      }
+     },
+     "fail": {
+      "text": "Chế tác dở dang, bạn bị lôi ra quảng trường chặt đứt ngón cái, vĩnh viễn tàn phế tay nghề và bị giáng chức.",
+      "effects": {
+       "health": -30,
+       "fame": -20,
+       "demote": true
+      }
+     }
+    },
+    {
+     "label": "Bỏ tiền thuê thợ phụ của tộc Dwarf",
+     "check": {
+      "stat": "wealth",
+      "target": 55
+     },
+     "success": {
+      "text": "Tiền nong rủng rỉnh, tên nô lệ Dwarf hoàn thiện nốt phần gai nhọn giúp bạn kịp tiến độ.",
+      "effects": {
+       "wealth": -40,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Tên Dwarf ôm tiền bỏ trốn trong đêm. Bạn chết đứng đợi hình phạt.",
+      "effects": {
+       "health": -20,
+       "wealth": -30
+      }
+     }
+    },
+    {
+     "label": "Thừa cơ ám sát Tù trưởng bằng giáp lỗi",
+     "require": {
+      "INT": 8
+     },
+     "showLocked": true,
+     "text": "Bạn lén cài một mũi kim tẩm độc vào khe giáp. Lão Tù trưởng mặc vào liền sùi bọt mép chết. Bạn thoát tội nhưng bộ lạc rơi vào nội chiến.",
+     "effects": {
+      "INT": 2,
+      "fame": -20,
+      "flags": [
+       "warchief_slayer"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_job_smith_3",
+   "text": "Một thợ rèn tộc Dwarf bắt bị cầm tù nhổ nước bọt vào vũ khí của bạn, chê bai đây chỉ là đồ chơi rác rưởi của bọn man rợ.",
+   "require": {
+    "job": "orc_smith"
+   },
+   "choices": [
+    {
+     "label": "Ép hắn thi thố tay nghề ngay tại lò rèn",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Bạn dùng sức ép búa tạo ra đường vân thép tuyệt mỹ, bóp nghẹt sự kiêu ngạo của gã lùn.",
+      "effects": {
+       "STR": 2,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Hắn với hai bàn tay trói chặt vẫn rèn ra con dao găm bén hơn kiếm của bạn. Bạn tức tối đập nát lò rèn.",
+      "effects": {
+       "wealth": -20,
+       "fame": -15
+      }
+     }
+    },
+    {
+     "label": "Tẩn hắn một trận nhừ tử",
+     "text": "Chẳng cần nhiều lời, bạn đấm rụng răng hắn để bảo vệ danh dự một cách thô thiển.",
+     "effects": {
+      "INT": -1,
+      "health": 5,
+      "fame": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_job_smith_4",
+   "text": "Lò rèn văng tia lửa gây hỏa hoạn thiêu rụi xưởng của bạn giữa đêm khuya.",
+   "require": {
+    "wealth": 20,
+    "job": "orc_smith"
+   },
+   "choices": [
+    {
+     "label": "Lao vào biển lửa cứu búa thần và khuôn đúc",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn phóng như bay, ôm được hòm đồ nghề vô giá thoát ra ngoài, chỉ cháy sém chút tóc.",
+      "effects": {
+       "AGI": 2,
+       "wealth": -10
+      }
+     },
+     "fail": {
+      "text": "Lửa táp mù mắt, cột nhà sập xuống đè nát lưng. Bạn mất mạng trong ngọn lửa.",
+      "death": "Bị thiêu rụi thành tro"
+     }
+    },
+    {
+     "label": "Đứng ngoài nhìn tài sản tiêu tan",
+     "text": "Bạn thở dài bất lực, mất mát mọi của cải nhưng giữ được mạng sống hèn mọn.",
+     "effects": {
+      "joy": -30,
+      "wealth": -50
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_job_rider_1",
+   "text": "Con sói chiến của bạn giẫm phải bẫy gai trên Thảo Nguyên Gió Hú. Nó rống lên điên dại và lồng lộn định hất bạn xuống vách đá.",
+   "require": {
+    "job": "orc_rider"
+   },
+   "choices": [
+    {
+     "label": "Gồng tay ghì chặt bờm nó",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Sức vóc trâu bò của bạn ép con thú quỳ phục xuống. Bạn từ từ nhổ cái bẫy gai ra.",
+      "effects": {
+       "STR": 1
+      }
+     },
+     "fail": {
+      "text": "Sức bật của nó quá mạnh. Bạn bị ném văng xuống khe núi vỡ đầu chết tươi.",
+      "death": "Ngã dập gãy xương cổ"
+     }
+    },
+    {
+     "label": "Lộn nhào thoát thân khỏi lưng thú",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn tiếp đất lăn tròn không hề hấn gì. Con thú xổng đi mất, bạn bị giáng chức vì mất ngựa chiến.",
+      "effects": {
+       "AGI": 1,
+       "fame": -15,
+       "demote": true
+      }
+     },
+     "fail": {
+      "text": "Đạp hụt chân, bạn bị con sói giẫm lủng ruột.",
+      "effects": {
+       "health": -30,
+       "wealth": -10
+      }
+     }
+    },
+    {
+     "label": "Dùng ánh mắt vuốt ve trấn an nó",
+     "require": {
+      "LUCK": 7
+     },
+     "showLocked": true,
+     "text": "Chẳng hiểu do may mắn hay ma thuật, con vật nhìn bạn và ngoan ngoãn dịu lại giữa cơn đau thấu xương.",
+     "effects": {
+      "LUCK": 2,
+      "fame": 10
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_job_rider_2",
+   "text": "Một dịch bệnh lạ từ Đầm Lầy Tử Khí lây lan trong chuồng thú trại, khiến những con Direwolf nổi mụn rộp và cắn xé lẫn nhau.",
+   "require": {
+    "job": "orc_rider"
+   },
+   "choices": [
+    {
+     "label": "Cô lập và tự tay chăm sóc sói của mình",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Các vị thần mỉm cười. Con thú của bạn sống sót thần kỳ qua đại dịch, trở nên miễn nhiễm độc tố.",
+      "effects": {
+       "LUCK": 2,
+       "wealth": 20,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Con sói lây bệnh sang bạn. Nó thì chết, còn bạn sốt li bì liệt giường nửa tháng.",
+      "effects": {
+       "health": -40,
+       "joy": -20
+      }
+     }
+    },
+    {
+     "label": "Nhẫn tâm giết thú bệnh để dập dịch",
+     "text": "Bạn tự tay đâm chết chiến thú yêu quý nhất để bảo vệ cả đàn. Tim bạn rỉ máu nhưng uy tín lên cao.",
+     "effects": {
+      "INT": 1,
+      "joy": -30,
+      "fame": 15
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_job_rider_3",
+   "text": "Bạn đang cưỡi sói đuổi theo một con mồi quý giá (Ngựa sừng lấp lánh), thì một đám Kỵ binh loài người cũng bao vây từ hướng khác cướp công.",
+   "require": {
+    "job": "orc_rider"
+   },
+   "choices": [
+    {
+     "label": "Xung phong càn lướt đội hình Human",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn và sói điên như mũi khoan xuyên thủng lũ người mỏng manh, đoạt lại con mồi trong tiếng rú thảm thiết của địch.",
+      "effects": {
+       "STR": 2,
+       "wealth": 50,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Giáo dài của Human chọc thủng đùi bạn, ép bạn phải tháo chạy nhục nhã.",
+      "effects": {
+       "health": -30,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Bắn tiễn độc tỉa quân địch từ xa",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Kỹ năng kỵ xạ của bạn hạ gục tên đội trưởng ngã ngựa, khiến đám còn lại bỏ chạy hoảng loạn.",
+      "effects": {
+       "AGI": 2,
+       "wealth": 30
+      }
+     },
+     "fail": {
+      "text": "Mũi tên trượt, địch tràn lên và lật đổ cả người lẫn sói.",
+      "effects": {
+       "health": -20,
+       "wealth": -20
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_job_rider_4",
+   "text": "Một thương nhân của Thương hội Sói Bạc đến gạ gẫm mua con Direwolf đầu đàn của bạn với giá bằng vàng ròng.",
+   "require": {
+    "job": "orc_rider"
+   },
+   "choices": [
+    {
+     "label": "Bán đứt người bạn đồng hành",
+     "check": {
+      "stat": "wealth",
+      "target": 55
+     },
+     "success": {
+      "text": "Tiền đè chết người, bạn mua được trang bị xịn xò nhưng lũ chiến binh lườm bạn bằng ánh mắt khinh miệt.",
+      "effects": {
+       "joy": -10,
+       "wealth": 80,
+       "fame": -20
+      }
+     },
+     "fail": {
+      "text": "Thương nhân tráo tiền giả, lừa gạt bạn trắng trợn.",
+      "effects": {
+       "joy": -20,
+       "wealth": -20
+      }
+     }
+    },
+    {
+     "label": "Tát văng mặt lão thương nhân",
+     "text": "Một Kỵ Sĩ Orc không bao giờ bán máu của chính mình. Bạn giữ lại danh dự và sự kiêu hãnh của loài thú.",
+     "effects": {
+      "wealth": -10,
+      "fame": 15
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_rank_warchief_duel",
+   "text": "Đỉnh điểm của dã tâm đã đến. Bạn bước vào Vòng Tròn Máu giữa tâm trại, ném vũ khí xuống thách đấu sinh tử với Warchief đương nhiệm — một gã khổng lồ già cỗi nhưng sở hữu cây búa tạ nguyền rủa nặng ngàn cân.",
+   "focus": [
+    "social"
+   ],
+   "require": {
+    "guildRank": 5
+   },
+   "choices": [
+    {
+     "label": "Gầm lên đọ sức mạnh vật lý thuần túy",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Bạn tay không cản lại cú búa tạ, gồng nát cổ tay gã Warchief và tự tay vặn gãy cổ lão. Tiếng hú cuồng loạn của bộ lạc vang dội tung hô tân vương.",
+      "effects": {
+       "STR": 3,
+       "wealth": 100,
+       "fame": 50,
+       "orgRank": 6
+      }
+     },
+     "fail": {
+      "text": "Sức mạnh của lão vượt xa tưởng tượng. Lão vung búa nghiền nát lồng ngực bạn thành đống thịt bầy hầy.",
+      "death": "Bị Warchief đập nát ngực"
+     }
+    },
+    {
+     "label": "Luồn lách cắt đứt gân kheo của lão",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Chớp thời cơ lão vung búa lố đà do tuổi già, bạn trượt qua nền đất rỉ máu và chém đứt gân chân lão, rồi lạnh lùng đâm xuyên tim từ phía sau.",
+      "effects": {
+       "AGI": 2,
+       "wealth": 100,
+       "fame": 30,
+       "orgRank": 6
+      }
+     },
+     "fail": {
+      "text": "Lão già bắt bài được tốc độ của bạn, thò tay bóp chặt sọ bạn và quật mạnh xuống nền đá cứng.",
+      "death": "Bị bóp vỡ sọ"
+     }
+    },
+    {
+     "label": "Dùng mưu hèn kích động lão tự hủy",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn liên tục chế nhạo và né đòn, dụ lão nổi điên đập búa loạn xạ phá nát các cột chống của Đấu trường, khiến đá tảng rơi xuống đè nát lão. Bạn thắng mạng nhưng không oai phong cho lắm.",
+      "effects": {
+       "INT": 2,
+       "wealth": 100,
+       "fame": 10,
+       "orgRank": 6
+      }
+     },
+     "fail": {
+      "text": "Bạn tính sai góc độ, cột đá đổ ập xuống đè nát cả lão lẫn chính bạn thành đống xương vụn.",
+      "death": "Bị đá đè chết chung với kẻ thù"
+     }
+    }
+   ],
+   "moment": "Ngồi lên chiếc ngai làm từ xương quái thú, bạn khắc tên mình vào lịch sử đẫm máu của bộ lạc bằng bạo lực thuần túy."
+  },
+  {
+   "id": "orc_act_brawl_1",
+   "text": "Bạn dồn một đứa nhóc Orc còi cọc vào vách đá, định cướp lấy sợi dây chuyền răng nanh mà nó đang đeo. Bất ngờ, anh trai của nó to gấp đôi bạn lù lù xuất hiện.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "play"
+   ],
+   "choices": [
+    {
+     "label": "Không chùn bước, lao vào đấm gã anh",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Cú đấm móc của bạn bẻ gãy mũi gã khổng lồ, khiến cả hai anh em chúng quỳ rạp xuống nộp đồ.",
+      "effects": {
+       "STR": 2,
+       "wealth": 10,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Gã tóm cổ bạn ném thẳng vào bụi gai độc, đánh bạn một trận nhừ xương.",
+      "effects": {
+       "health": -20,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Dùng đất vụn ném vào mắt gã rồi bỏ chạy",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Gã ôm mặt chửi thề, bạn chuồn êm về lều an toàn nhưng bị mang tiếng hèn nhát.",
+      "effects": {
+       "AGI": 1,
+       "fame": -5
+      }
+     },
+     "fail": {
+      "text": "Gã nhắm mắt lại vẫn tát trúng mặt bạn lật hàm, cướp sạch tiền lẻ trong túi bạn.",
+      "effects": {
+       "health": -15,
+       "wealth": -10
+      }
+     }
+    },
+    {
+     "label": "Trả lại sợi dây và mỉm cười xảo trá",
+     "require": {
+      "INT": 5
+     },
+     "showLocked": true,
+     "text": "Bạn nhận vơ rằng mình chỉ đang \"dạy dỗ\" đứa em cách phòng thủ. Gã anh gầm gừ nhưng bỏ qua.",
+     "effects": {
+      "INT": 1,
+      "LUCK": 1
+     }
+    }
+   ],
+   "moment": "Ngay từ nhỏ, bạn đã học được cách định vị vị trí của mình trong chuỗi thức ăn của bộ lạc."
+  },
+  {
+   "id": "orc_act_brawl_2",
+   "text": "Trong một cuộc ẩu đả quanh đống lửa, ba gã Orc trưởng thành say xỉn quyết định lôi bạn ra làm bia tập đấm để giải trí.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "play"
+   ],
+   "choices": [
+    {
+     "label": "Rút vũ khí ra tử chiến",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Lưỡi dao của bạn rạch một đường dài trên ngực gã cầm đầu. Bọn chúng hoảng sợ trước sự điên cuồng của bạn và lùi lại.",
+      "effects": {
+       "STR": 2,
+       "joy": 10,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Chúng tước vũ khí và dẫm đạp lên ngực bạn đến khi hộc máu. Bạn mất đi một mảnh kiêu hãnh.",
+      "effects": {
+       "health": -30,
+       "joy": -20,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Gồng mình chịu trận không hé môi",
+     "check": {
+      "stat": "health",
+      "target": 55
+     },
+     "success": {
+      "text": "Đấm chán tay mà bạn vẫn trừng mắt nhìn lại, bọn chúng mất hứng và vứt cho bạn một bình rượu rẻ tiền.",
+      "effects": {
+       "STR": 1,
+       "health": 1,
+       "wealth": 5
+      }
+     },
+     "fail": {
+      "text": "Trận đòn tàn bạo làm gãy ba cái xương sườn, bạn ngất lịm trên vũng máu.",
+      "effects": {
+       "health": -40,
+       "joy": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_act_brawl_3",
+   "text": "Bị đánh bại tơi tả bởi đứa con cưng của Warchief, bạn ngã gục xuống bùn lầy và bị cả tộc cười nhạo. Tuy nhiên, nỗi uất hận đã châm ngòi cho ngọn lửa sinh tồn mãnh liệt cháy bùng trong lồng ngực.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "play"
+   ],
+   "result": "Bạn nghiến răng bò dậy, thề sẽ có ngày xé xác kẻ đã sỉ nhục mình.",
+   "effects": {
+    "STR": 1,
+    "INT": 1,
+    "health": -10,
+    "joy": -20,
+    "flags": [
+     "bitter_grudge"
+    ]
+   }
+  },
+  {
+   "id": "orc_act_learn_1",
+   "text": "Thầy cúng ép bạn uống một bát máu sủi bọt của loài Troll, bảo rằng nó sẽ mở mang tâm trí để nghe thấy tiếng gọi của Vực Thẳm Cổ Thần.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "study"
+   ],
+   "choices": [
+    {
+     "label": "Nín thở nốc cạn một hơi",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Máu Troll sôi lên trong dạ dày nhưng bạn không nôn. Tâm trí bạn bừng sáng với những ảo ảnh tri thức tà ác.",
+      "effects": {
+       "INT": 3,
+       "health": 10
+      }
+     },
+     "fail": {
+      "text": "Bao tử quặn thắt kịch liệt, bạn nôn ra máu đen suốt ba ngày và suýt mất mạng.",
+      "effects": {
+       "INT": -1,
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Dùng phép giả vờ uống rồi đổ đi",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn giấu nhẹm bát máu điêu luyện, lẩm nhẩm vài lời bốc phét khiến Thầy cúng hài lòng.",
+      "effects": {
+       "INT": 1,
+       "AGI": 1
+      }
+     },
+     "fail": {
+      "text": "Thầy cúng bắt quả tang, tức giận dùng gậy nện bạn gãy xương bả vai.",
+      "effects": {
+       "health": -20,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Phá vỡ bát máu, cự tuyệt tà môn",
+     "require": {
+      "STR": 6
+     },
+     "showLocked": true,
+     "text": "Bạn hất đổ bát máu tà đạo, gầm lên rằng chiến binh Orc chỉ tin vào sắt thép.",
+     "effects": {
+      "STR": 1,
+      "joy": 10,
+      "fame": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_act_learn_2",
+   "text": "Trong lúc dọn dẹp lều cúng, bạn nhặt được một cuộn da cừu ghi chép bản đồ dẫn tới một kho tàng thất lạc của tộc Dwarf ở Dãy Núi Răng Cưa.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "study"
+   ],
+   "choices": [
+    {
+     "label": "Tự mình sao chép lại bản đồ",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn cố gắng ghi nhớ và vẽ lại chính xác từng đường nét trước khi để lại cuộn da chỗ cũ. Một cơ hội đổi đời mở ra.",
+      "effects": {
+       "INT": 2,
+       "wealth": 20,
+       "flags": [
+        "dwarf_map"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Trí tuệ hạn hẹp khiến bạn vẽ sai bét nhè. Bạn tốn tiền chuẩn bị hành trang đi tìm nhưng chỉ đâm đầu vào vách núi.",
+      "effects": {
+       "wealth": -30
+      }
+     }
+    },
+    {
+     "label": "Trộm cuộn da đem bán",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Lão Thầy cúng lẩm cẩm không hề nhận ra mất đồ. Bạn đổi được một món hời từ bọn buôn lậu.",
+      "effects": {
+       "AGI": 1,
+       "wealth": 40
+      }
+     },
+     "fail": {
+      "text": "Tiếng lá bùa cảnh báo rú lên. Bạn bị bắt lại và lột đồ phạt quỳ ngoài trời rét tướt.",
+      "effects": {
+       "health": -20,
+       "fame": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_act_learn_3",
+   "text": "Trong lúc thiền định dưới gốc cây cổ thụ mục nát, một linh hồn Orc vĩ đại hiện về. Ông ta chạm tay vào trán bạn, truyền lại mảnh vụn ký ức của một chiến binh thực thụ.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "study"
+   ],
+   "result": "Bạn tỉnh dậy, đôi mắt đỏ ngầu, nhận ra vũ lực không chỉ là sức mạnh bắp thịt mà còn là chiến ý bất diệt.",
+   "effects": {
+    "STR": 1,
+    "INT": 1,
+    "joy": 10
+   }
+  },
+  {
+   "id": "orc_act_train_1",
+   "text": "Để tôi luyện độ cứng cáp, bạn quyết định lao vào rèn luyện thân thể bên cạnh mạch nham thạch sục sôi dưới Đỉnh Hỏa Ngục.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "train"
+   ],
+   "choices": [
+    {
+     "label": "Băng qua con đường nham thạch chân trần",
+     "check": {
+      "stat": "health",
+      "target": 85
+     },
+     "success": {
+      "text": "Lớp da bạn bị thiêu rụi rồi kéo da non thành một lớp chai sần cứng như thép đánh nguội.",
+      "effects": {
+       "STR": 2,
+       "health": 20,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Nham thạch thiêu nát chân bạn thành tro. Bạn tàn phế lết về, khóc lóc trong nỗi nhục nhã ê chề.",
+      "effects": {
+       "health": -40,
+       "fame": -20,
+       "orgRankUp": -1
+      }
+     }
+    },
+    {
+     "label": "Chỉ tập hít đất cạnh dòng nhiệt",
+     "check": {
+      "stat": "STR",
+      "target": 4
+     },
+     "success": {
+      "text": "Mồ hôi tuôn như tắm, cơ bắp cuồn cuộn nổi lên, một buổi tập an toàn và hiệu quả.",
+      "effects": {
+       "STR": 1,
+       "health": 5
+      }
+     },
+     "fail": {
+      "text": "Hơi nóng làm bạn sốc nhiệt ngất đi, may mắn có người kéo bạn ra kịp lúc.",
+      "effects": {
+       "health": -10
+      }
+     }
+    },
+    {
+     "label": "Đứng niệm bùa chú kháng hỏa",
+     "require": {
+      "INT": 6
+     },
+     "showLocked": true,
+     "text": "Bạn dùng trí tuệ Orc Shaman tạo ra lớp khiên mát lạnh, dễ dàng đi lại quanh dung nham như đi dạo.",
+     "effects": {
+      "INT": 1,
+      "joy": 10
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_act_train_2",
+   "text": "Warchief cưỡi sói chiến đi ngang qua bãi tập và liếc nhìn bạn đang chém đứt gốc cây bằng thanh cự kiếm cùn.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "train"
+   ],
+   "choices": [
+    {
+     "label": "Gầm lên, chém gãy luôn tảng đá bên cạnh để phô diễn",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Tảng đá vỡ đôi. Warchief gật đầu tán thưởng, ném cho bạn một đồng Huyết Kim.",
+      "effects": {
+       "STR": 1,
+       "wealth": 20,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Lưỡi kiếm mẻ nát bấy, tay bạn phản lực rạn xương. Lão nhếch mép cười khinh bỉ rồi bỏ đi.",
+      "effects": {
+       "health": -20,
+       "wealth": -10,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Quỳ một chân cúi chào cung kính",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn thể hiện sự trung thành tuyệt đối. Lão không nói gì nhưng ánh mắt có vẻ hài lòng.",
+      "effects": {
+       "INT": 1,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Bạn quỳ trượt chân ngã sấp mặt vào bãi phân thú. Tiếng cười rộ lên khắp bãi tập.",
+      "effects": {
+       "joy": -10,
+       "fame": -5
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_act_train_3",
+   "text": "Bất chấp trời mưa bão sấm sét gầm rú, bạn vẫn điên cuồng vung vũ khí ngoài trời trống cho đến khi cơ bắp đứt đoạn.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "train"
+   ],
+   "result": "Một tia sét đánh sượt qua làm xém lông mày, nhưng chính lúc đó, bạn ngộ ra một kỹ năng chiến đấu tàn khốc mới.",
+   "effects": {
+    "STR": 2,
+    "AGI": 1,
+    "health": -10
+   }
+  },
+  {
+   "id": "orc_act_serve_1",
+   "text": "Trong lúc sắp xếp kho lương thực mục nát của bộ lạc, cơn đói khát khiến bạn hoa mắt trước nửa con hươu bọc giáp đang rỏ mỡ.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "work"
+   ],
+   "choices": [
+    {
+     "label": "Gặm một miếng đùi rồi xé nham nhở để đổ vấy cho sói hoang",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Mọi người tin sái cổ lũ thú đã mò vào kho. Bạn được ăn no nê mà vẫn vô can.",
+      "effects": {
+       "INT": 1,
+       "health": 15,
+       "wealth": 10
+      }
+     },
+     "fail": {
+      "text": "Dấu nanh của bạn quá rõ ràng, bạn bị đòn một trận nhừ tử và bị bắt nhịn ăn hai ngày.",
+      "effects": {
+       "health": -20,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Dùng tốc độ lén tuốt thịt vào túi",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn giấu được một đống thịt khô tẩm ướp tuyệt ngon về lều nhai trong bóng tối.",
+      "effects": {
+       "AGI": 1,
+       "joy": 5,
+       "wealth": 15
+      }
+     },
+     "fail": {
+      "text": "Đang tuốt thịt thì lính canh bước vào hắng giọng. Bạn phải dâng sạch tiền để bịt miệng hắn.",
+      "effects": {
+       "wealth": -30
+      }
+     }
+    },
+    {
+     "label": "Nuốt nước bọt, tiếp tục làm việc nhịn đói",
+     "require": {
+      "STR": 6
+     },
+     "showLocked": true,
+     "text": "Ý chí sắt đá giúp bạn cưỡng lại dục vọng hèn mọn, đúc kết thành sự chai lỳ.",
+     "effects": {
+      "STR": 1,
+      "health": -5,
+      "fame": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_act_serve_2",
+   "text": "Trong lúc bạn lau chùi lồng sắt, một con Minotaur chiến bị nhốt bỗng phát điên, bẻ gãy thanh sắt và lao ra định đâm lòi ruột bạn.",
+   "stages": [
+    "child"
+   ],
+   "focus": [
+    "work"
+   ],
+   "choices": [
+    {
+     "label": "Trượt qua háng nó và gài chốt cửa ngoài",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Phản xạ xuất thần cứu mạng bạn. Con thú bị nhốt lại, bạn được Tù trưởng khen ngợi vì sự nhanh trí.",
+      "effects": {
+       "AGI": 2,
+       "joy": 10,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Sừng con quái húc văng bạn vào tường làm nứt hộp sọ. Bạn sống dở chết dở dưới vũng máu.",
+      "effects": {
+       "health": -40,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Lôi cục thịt bò tẩm thuốc mê ném vào họng nó",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Con quái đớp gọn rồi sùi bọt mép gục ngã. Bạn thở phào lau mồ hôi hột.",
+      "effects": {
+       "LUCK": 1,
+       "health": 5
+      }
+     },
+     "fail": {
+      "text": "Cục thịt văng trúng tường dội lại, nó nổi điên đá bạn bay mất vài cái răng.",
+      "effects": {
+       "health": -20
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_act_serve_3",
+   "text": "Bị coi là kẻ cặn bã yếu đuối nhất, bạn bị ép phải liếm sạch ủng đẫm bùn và máu cho một tên Đội Trưởng Tiền Phong hống hách.",
+   "focus": [
+    "work"
+   ],
+   "result": "Bạn nuốt hận vào bụng, nếm mùi vị tanh tưởi nhưng tự thề rằng một ngày nào đó kẻ phải liếm ủng chính là hắn.",
+   "effects": {
+    "INT": 1,
+    "joy": -20,
+    "fame": -10,
+    "flags": [
+     "taste_of_mud"
+    ]
+   }
+  },
+  {
+   "id": "orc_act_raid_1",
+   "text": "Đội tiên phong của bạn đụng độ Thánh Kỵ Sĩ Đoàn của Đồng Bằng Thánh Quang. Ánh sáng chói lóa từ giáo mác của chúng làm chói mắt cả đội hình.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "choices": [
+    {
+     "label": "Mù quáng lao lên vung búa xé nát đội hình địch",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Mặc kệ thánh quang thiêu đốt, bạn gào thét đập bẹp đầu một gã Kỵ sĩ, phá tan trận hình khiên của chúng.",
+      "effects": {
+       "STR": 2,
+       "wealth": 30,
+       "fame": 20
+      }
+     },
+     "fail": {
+      "text": "Thánh lực găm thẳng vào ngực, bạn bị đánh bật lại, thương tích đầy mình và đội chiến thảm bại.",
+      "effects": {
+       "health": -40,
+       "fame": -15
+      }
+     }
+    },
+    {
+     "label": "Lấy xác đồng đội làm khiên che ánh sáng",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Nghe có vẻ tàn độc, nhưng bạn lẩn sau xác chết, áp sát và xẻ cổ tên Kỵ sĩ cầm cờ, lật ngược thế cờ.",
+      "effects": {
+       "INT": 2,
+       "wealth": 20,
+       "fame": -5
+      }
+     },
+     "fail": {
+      "text": "Ánh sáng đâm xuyên cả xác chết, đốt cháy mắt bạn mù tạm thời.",
+      "effects": {
+       "AGI": -1,
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Tháo chạy vào rừng chờ thời cơ",
+     "require": {
+      "AGI": 6
+     },
+     "showLocked": true,
+     "text": "Khôn ngoan rút lui bảo toàn lực lượng, bạn tránh được trận càn quét đẫm máu.",
+     "effects": {
+      "AGI": 1,
+      "joy": 5,
+      "fame": -10
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_act_raid_2",
+   "text": "Bắt được một nữ quý tộc loài Human xinh đẹp, lũ tiểu yêu Goblin dưới trướng đang reo hò đòi xẻ thịt ả ăn mừng. Cô ả khóc lóc gào thét đòi chuộc bằng vàng.",
+   "stages": [
+    "middle"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "choices": [
+    {
+     "label": "Trói ả lại, sai sứ giả đến đòi tiền chuộc",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Lãnh chúa loài người run rẩy gửi đến một xe đầy Tinh Bạc. Bộ lạc giàu to và bạn được ngợi ca.",
+      "effects": {
+       "INT": 1,
+       "wealth": 80,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Sứ giả của bạn bị chém đầu, thay vì tiền chuộc là một đạo quân viễn chinh kéo đến đốt sạch doanh trại.",
+      "effects": {
+       "health": -30,
+       "wealth": -50,
+       "fame": -20
+      }
+     }
+    },
+    {
+     "label": "Một đao chém đứt đầu ả để tế cờ",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Máu tuôn xối xả làm nức lòng chiến binh, sĩ khí quân Orc tăng cao ngút trời.",
+      "effects": {
+       "STR": 1,
+       "joy": 10,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Ả giãy giụa làm bạn chém trượt vấp ngã. Đám lính lác lén cười rúc rích.",
+      "effects": {
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Giữ ả lại làm nô lệ sưởi giường",
+     "require": {
+      "wealth": 30
+     },
+     "showLocked": true,
+     "text": "Bạn vứt cho đám lính một ít tiền để im miệng, giữ lại chiến lợi phẩm đặc biệt này cho riêng lều của mình.",
+     "effects": {
+      "joy": 20,
+      "wealth": -30
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_act_raid_3",
+   "text": "Càn quét thành công một hầm ngục Dungeon cấp D, bạn và đội chiến vác về hàng đống Lõi Mana và vũ khí ma thuật, nhưng cái giá phải trả là thi thể của hơn nửa số anh em chiến đấu.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "adventure"
+   ],
+   "result": "Bạn uống cạn vại rượu rưới lên mộ phần đồng đội, nhận ra vinh quang của tộc Orc luôn được đúc bằng xương máu.",
+   "effects": {
+    "STR": 1,
+    "joy": -20,
+    "wealth": 50,
+    "fame": 15
+   }
+  },
+  {
+   "id": "orc_act_duel_1",
+   "text": "Một gã Huyết Binh (Blood Warrior) to xác khinh khỉnh giật lấy tảng thịt nướng ngon nhất ngay trước mặt bạn. Bạn đạp đổ đống lửa, chỉ thẳng vũ khí vào mặt hắn đòi bước vào Vòng Tròn Máu.",
+   "stages": [
+    "teen"
+   ],
+   "focus": [
+    "social"
+   ],
+   "choices": [
+    {
+     "label": "Gầm lên, dùng sức mạnh vật lý nghiền nát hắn",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn húc đầu làm gã vỡ mũi, sau đó nện hắn lún xuống bùn lầy. Tảng thịt và cả túi tiền của gã đều thuộc về bạn.",
+      "effects": {
+       "STR": 2,
+       "wealth": 20,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Gã to khỏe hơn dự tính, ôm ngang eo và quật bạn gãy mấy cái xương sườn. Bạn mất mặt trước toàn trại.",
+      "effects": {
+       "health": -20,
+       "fame": -15
+      }
+     }
+    },
+    {
+     "label": "Dùng tốc độ chém gót chân hắn",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Hắn vung rìu hụt, bạn lách người chém đứt gân chân khiến hắn khuỵu xuống cầu xin.",
+      "effects": {
+       "AGI": 1,
+       "wealth": 10,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Tốc độ của bạn không bù lại được lớp da dày của hắn. Lưỡi dao kẹt lại, bạn bị ăn một cú đấm trời giáng.",
+      "effects": {
+       "health": -15,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Chấp nhận lùi bước và nuốt cục tức",
+     "require": {
+      "INT": 5
+     },
+     "showLocked": true,
+     "text": "Bạn nhận ra mình chưa đủ lông đủ cánh, nhịn nhục chờ ngày hắn bị thương trên chiến trường rồi mới tính sổ.",
+     "effects": {
+      "INT": 1,
+      "joy": -10,
+      "fame": -10
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_act_duel_2",
+   "text": "Một tân binh ngạo mạn vừa giết được quái thú cấp cao đã ảo tưởng sức mạnh, vác rìu đến lều của bạn gào thét thách thức đòi lấy ghế chỉ huy.",
+   "stages": [
+    "middle"
+   ],
+   "focus": [
+    "social"
+   ],
+   "choices": [
+    {
+     "label": "Ra tay tàn độc để thị uy",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn bẻ gãy cánh tay cầm vũ khí của gã trong ba chiêu, ném gã ra ngoài rìa trại để làm gương cho kẻ khác. Cả bộ lạc run sợ kính phục.",
+      "effects": {
+       "STR": 1,
+       "joy": 10,
+       "fame": 20
+      }
+     },
+     "fail": {
+      "text": "Tuổi tác làm bạn chậm lại một nhịp, gã nhãi rạch được một đường dài trên mặt bạn trước khi bị bạn đá văng. Uy tín suy giảm.",
+      "effects": {
+       "health": -20,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Né đòn cho gã tự kiệt sức",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn trêu đùa gã như mèo vờn chuột. Khi gã thở hồng hộc, bạn gõ cán kiếm làm gã ngất xỉu một cách dễ dàng.",
+      "effects": {
+       "AGI": 1,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Bạn vấp ngã khi lùi lại, bị gã giẫm lên ngực suýt mất mạng.",
+      "effects": {
+       "health": -30,
+       "fame": -20,
+       "orgRankUp": -1
+      }
+     }
+    },
+    {
+     "label": "Dùng quyền lực ép gã đi làm nhiệm vụ tự sát",
+     "require": {
+      "INT": 7
+     },
+     "showLocked": true,
+     "text": "Thay vì đánh tay đôi, bạn cười nhạt và điều gã đi làm mồi nhử một bầy Troll. Kẻ thách thức một đi không trở lại.",
+     "effects": {
+      "INT": 2,
+      "wealth": 20,
+      "fame": -5
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_act_duel_3",
+   "text": "Trong một cuộc quyết đấu sinh tử kéo dài từ xế chiều đến rạng sáng với kẻ thù không đội trời chung, cả hai đều gục ngã vì mất quá nhiều máu, không ai có thể tung đòn kết liễu.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "social"
+   ],
+   "result": "Bạn tỉnh dậy trong lều với một vết sẹo chéo che kín nửa thân người. Bạn không thắng, nhưng ý chí chiến đấu điên cuồng của bạn đã khắc sâu vào tâm trí bộ lạc.",
+   "effects": {
+    "STR": 1,
+    "health": -10,
+    "fame": 15,
+    "flags": [
+     "honor_scar"
+    ]
+   }
+  },
+  {
+   "id": "orc_act_rest_1",
+   "text": "Thương hội Sói Bạc mang đến một thùng \"Huyết Tửu\" trứ danh cất từ máu thằn lằn độc. Cả trại mở hội thi nốc rượu, phần thưởng là một thanh Huyết Kim Kiếm.",
+   "stages": [
+    "adult"
+   ],
+   "focus": [
+    "rest"
+   ],
+   "choices": [
+    {
+     "label": "Nốc liên tục không ngừng nghỉ",
+     "check": {
+      "stat": "health",
+      "target": 85
+     },
+     "success": {
+      "text": "Dạ dày bạn như thùng không đáy. Lũ Orc xung quanh lần lượt sùi bọt mép gục ngã, chỉ còn bạn giương cao vại rượu chiến thắng.",
+      "effects": {
+       "health": 1,
+       "wealth": 40,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Độc tính phát tác làm bạn nôn ra máu, ngất xỉu ba ngày ba đêm suýt phơi thây.",
+      "effects": {
+       "INT": -1,
+       "health": -40,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Lén dùng bùa giải độc (Shaman)",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn dùng ma thuật âm thầm thanh tẩy độc tố trong rượu. Chơi ăn gian nhưng phần thưởng thì là thật.",
+      "effects": {
+       "INT": 1,
+       "joy": 10,
+       "wealth": 40
+      }
+     },
+     "fail": {
+      "text": "Chú ngữ hỏng, bùa chú phản phệ hòa cùng độc rượu làm bạn co giật đùng đùng giữa bàn tiệc.",
+      "effects": {
+       "health": -30,
+       "wealth": -10
+      }
+     }
+    },
+    {
+     "label": "Lợi dụng lúc mọi người say lén móc túi",
+     "require": {
+      "AGI": 6
+     },
+     "showLocked": true,
+     "text": "Trò hèn hạ của bọn Goblin, nhưng túi tiền rủng rỉnh lúc cuối ngày làm bạn cười khùng khục trong lều.",
+     "effects": {
+      "wealth": 30,
+      "fame": -10
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_act_rest_2",
+   "text": "Bị men rượu làm mờ mắt, bạn ngồi vào bàn xóc đĩa của một gã yêu lùn Kobold ranh ma và phát hiện ra mình đang thua sạch cả giáp trụ lều trại.",
+   "stages": [
+    "middle"
+   ],
+   "focus": [
+    "rest"
+   ],
+   "require": {
+    "wealth": 20
+   },
+   "choices": [
+    {
+     "label": "Lật tẩy xúc xắc có chì của hắn",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn tóm lấy tay gã, bóp nát viên xúc xắc lòi ra cục chì bên trong. Bạn chém bay đầu gã và lấy lại gấp đôi số tiền.",
+      "effects": {
+       "INT": 1,
+       "wealth": 50,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Hắn quá nhanh tay tráo lại xúc xắc thật. Cả bàn cờ bạc chửi bới bạn chơi thua định quỵt, bạn phải cắn răng trả tiền.",
+      "effects": {
+       "wealth": -40,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Lật tung bàn, dùng vũ lực cướp lại",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Chẳng cần lý lẽ, thanh gươm của bạn là luật. Bạn đánh đuổi gã Kobold chạy trối chết và ôm tiền bỏ đi.",
+      "effects": {
+       "STR": 1,
+       "wealth": 20,
+       "fame": -5
+      }
+     },
+     "fail": {
+      "text": "Gã Kobold có bảo kê là bọn đánh thuê Human. Chúng lao vào đấm bạn tỉnh cả rượu, ném bạn ra ngoài bãi rác.",
+      "effects": {
+       "health": -30,
+       "wealth": -50
+      }
+     }
+    },
+    {
+     "label": "Nhắm mắt tung xúc xắc cầu nguyện",
+     "require": {
+      "LUCK": 8
+     },
+     "showLocked": true,
+     "text": "Nữ thần May mắn bất ngờ mỉm cười, bạn ném ra con bài cao nhất lật ngược thế cờ phút chót.",
+     "effects": {
+      "LUCK": 2,
+      "joy": 20,
+      "wealth": 60
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_act_rest_3",
+   "text": "Ngồi uống thứ rượu rẻ tiền bên đống lửa đang lụi tàn, những vết thương cũ nhức nhối nhắc nhở bạn rằng tuổi thọ của một chiến binh Orc quá đỗi ngắn ngủi.",
+   "stages": [
+    "elder"
+   ],
+   "focus": [
+    "rest"
+   ],
+   "result": "Dù cơ bắp đã chùng xuống, nhưng nhìn bầy con cháu non nớt gầm gừ tập đấu vật, bạn biết dòng máu vinh quang của mình vẫn đang chảy.",
+   "effects": {
+    "STR": -2,
+    "INT": 2,
+    "joy": 15,
+    "fame": 10
+   }
+  },
+  {
+   "id": "orc_ally_brave_charge",
+   "text": "Bất chấp đội hình địch đông gấp ba và tường khiên giáo tủa tủa, {ally} gầm lên một tiếng rách họng và đơn độc lao thẳng vào giữa vòng vây của bọn Human.",
+   "focus": [
+    "adventure"
+   ],
+   "require": {
+    "allyTrait": "brave",
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Gầm lên lao theo yểm trợ",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Sự điên cuồng của hai con quái thú da xanh đánh sập hoàn toàn tường khiên, dẫm nát lũ lính đánh thuê.",
+      "effects": {
+       "STR": 2,
+       "fame": 10,
+       "bond": 15
+      }
+     },
+     "fail": {
+      "text": "Cả hai bị giáo đâm nhím người, lết về trại trong tình trạng bết bát mắng chửi nhau.",
+      "effects": {
+       "health": -30,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Bắn tên yểm trợ từ xa",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Mũi tên của bạn ghim trúng mắt tên chỉ huy, giúp {ally} rảnh tay đồ sát đám tàn quân.",
+      "effects": {
+       "AGI": 1,
+       "bond": 10
+      }
+     },
+     "fail": {
+      "text": "Bạn bắn trượt, {ally} bị vây đánh tơi tả và trách móc bạn hèn nhát không dám xông lên.",
+      "effects": {
+       "bond": -15
+      }
+     }
+    },
+    {
+     "label": "Mặc kệ gã ngốc đó tự sinh tự diệt",
+     "require": {
+      "INT": 6
+     },
+     "showLocked": true,
+     "text": "Bạn lạnh lùng đứng nhìn {ally} xoay sở. Hắn sống sót trở về nhưng ném cho bạn một cái nhìn đầy khinh bỉ.",
+     "effects": {
+      "INT": 1,
+      "bond": -20
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_ally_loyal_shield",
+   "text": "Một mũi tên tẩm kịch độc của Elf xé gió lao thẳng đến giữa trán bạn. Không chần chừ, {ally} lao ra đưa bả vai vạm vỡ đỡ lấy mũi tên chí mạng.",
+   "require": {
+    "allyTrait": "loyal",
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Nhanh tay dùng dao khoét bỏ phần thịt nhiễm độc",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Tiếng thịt xèo xèo, {ally} gầm lên đau đớn nhưng giữ được mạng. Hắn nợ bạn một ân tình.",
+      "effects": {
+       "AGI": 1,
+       "bond": 20
+      }
+     },
+     "fail": {
+      "text": "Độc tính lan quá nhanh, bạn phải chặt đứt một cánh tay của {ally} để cứu mạng hắn.",
+      "effects": {
+       "bond": 10
+      }
+     }
+    },
+    {
+     "label": "Đỡ lấy hắn và cõng chạy về lều Thầy cúng",
+     "check": {
+      "stat": "health",
+      "target": 55
+     },
+     "success": {
+      "text": "Bạn vác gã khổng lồ chạy thục mạng suốt ba dặm, cứu sống hắn trong gang tấc.",
+      "effects": {
+       "health": 1,
+       "wealth": -20,
+       "bond": 15
+      }
+     },
+     "fail": {
+      "text": "Bạn kiệt sức dọc đường, {ally} thoi thóp nôn ra máu đen nhưng may mắn có người tuần tra vớt được.",
+      "effects": {
+       "health": -20,
+       "bond": 5
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_ally_greedy_loot",
+   "text": "Đứng trước đống Lõi Mana vừa cướp được, bạn tinh mắt thấy {ally} lén giấu hai viên to nhất vào dưới vạt giáp của hắn thay vì gom vào quỹ chung.",
+   "require": {
+    "allyTrait": "greedy",
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Túm cổ hắn đập vào vách đá đòi lại",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Hắn hoảng sợ nôn đồ ra, ngoan ngoãn nộp lại và rối rít xin tha mạng.",
+      "effects": {
+       "STR": 1,
+       "wealth": 20,
+       "bond": -10
+      }
+     },
+     "fail": {
+      "text": "Hắn phản kháng hất văng bạn, ôm đồ bỏ chạy mất dạng khỏi đội chiến.",
+      "effects": {
+       "health": -10,
+       "allyLeave": true
+      }
+     }
+    },
+    {
+     "label": "Ra hiệu chia đôi để giữ im lặng",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Hắn toát mồ hôi hột và chia cho bạn viên to nhất, cả hai cùng mỉm cười xảo trá.",
+      "effects": {
+       "INT": 1,
+       "wealth": 40,
+       "bond": 5
+      }
+     },
+     "fail": {
+      "text": "Hắn ngu ngốc gào lên từ chối, làm Tù trưởng nghe thấy. Cả hai bị đánh đòn roi vì tội tư lợi.",
+      "effects": {
+       "health": -20,
+       "wealth": -10,
+       "fame": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_ally_timid_hide",
+   "text": "Bị một con Minotaur điên vây hãm, {ally} run rẩy rơi cả vũ khí, ngồi sụp xuống ôm đầu chờ chết thay vì kề vai sát cánh cùng bạn.",
+   "require": {
+    "allyTrait": "timid",
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Tát hắn lật mặt để lấy lại tinh thần",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Cú tát nổ đom đóm mắt làm {ally} tỉnh mộng, hắn lượm búa lên và gầm rú lao vào chém con quái cùng bạn.",
+      "effects": {
+       "STR": 1,
+       "fame": 5,
+       "bond": 10
+      }
+     },
+     "fail": {
+      "text": "Cú tát làm hắn hoảng loạn hơn, bỏ chạy thục mạng để mặc bạn đối phó với con Minotaur.",
+      "effects": {
+       "health": -30,
+       "allyLeave": true
+      }
+     }
+    },
+    {
+     "label": "Một mình gánh vác, bảo vệ gã hèn nhát",
+     "check": {
+      "stat": "health",
+      "target": 85
+     },
+     "success": {
+      "text": "Bạn như một vị thần chiến tranh băm vằm con quái, biến sự hèn nhát của {ally} thành phông nền cho sự vĩ đại của bạn.",
+      "effects": {
+       "STR": 1,
+       "fame": 20,
+       "bond": 15
+      }
+     },
+     "fail": {
+      "text": "Một mình không xuể, bạn bị con quái húc rập xương sườn trong sự gào khóc vô dụng của {ally}.",
+      "effects": {
+       "health": -40
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_ally_funny_drunk",
+   "text": "Trong cơn say bên lửa trại, {ally} nhái lại điệu bộ đi khập khiễng của gã Warchief tàn bạo, khiến cả đám cười bò. Đột nhiên, bóng đen của Warchief che khuất đống lửa.",
+   "require": {
+    "allyTrait": "cheerful",
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Đứng ra nhận tội thay bằng một câu lấp liếm",
+     "check": {
+      "stat": "INT",
+      "target": 10
+     },
+     "success": {
+      "text": "Bạn bịa ra rằng {ally} đang diễn kịch chế giễu bọn Human. Warchief gầm gừ nhưng bỏ qua. Sinh mạng {ally} được cứu.",
+      "effects": {
+       "INT": 2,
+       "fame": 5,
+       "bond": 30
+      }
+     },
+     "fail": {
+      "text": "Warchief không ngu. Lão đập búa làm bạn gãy răng rồi lôi {ally} đi đánh một trận chí tử.",
+      "effects": {
+       "health": -20,
+       "bond": 10,
+       "allyHurt": true
+      }
+     }
+    },
+    {
+     "label": "Cười hùa theo và đổ thêm dầu vào lửa",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Warchief đang lúc cao hứng uống say, lão cười vang rung đất và ném cho cả bọn vại bia to.",
+      "effects": {
+       "LUCK": 2,
+       "joy": 20,
+       "bond": 5
+      }
+     },
+     "fail": {
+      "text": "Cả bạn và {ally} bị treo ngược lên cành cây suốt đêm giữa trời rét cóng.",
+      "effects": {
+       "health": -20,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Đấm thẳng vào mặt {ally} để phủi quan hệ",
+     "text": "Bạn đấm gục gã bạn nhậu để chứng tỏ mình không liên quan. Lão Tù trưởng gật gù hài lòng bỏ đi.",
+     "effects": {
+      "fame": 5,
+      "bond": -30
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_ally_cold_execution",
+   "text": "Trận chiến kết thúc, một hiệp sĩ Human cụt tay đang quỳ khóc lóc cầu xin tha mạng. Bất thình lình, {ally} vung đao chém rụng đầu hắn mà không chớp mắt.",
+   "require": {
+    "allyTrait": "cold",
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Khen ngợi sự dứt khoát của hắn",
+     "check": {
+      "stat": "INT",
+      "target": 4
+     },
+     "success": {
+      "text": "Bạn đá cái xác sang một bên, khẳng định đây mới là bản chất của Orc. Hắn gật đầu đồng tình.",
+      "effects": {
+       "fame": 5,
+       "bond": 10
+      }
+     },
+     "fail": {
+      "text": "Lời khen của bạn quá giả tạo, hắn lạnh nhạt quay lưng đi lau vết máu trên đao.",
+      "effects": {
+       "bond": -5
+      }
+     }
+    },
+    {
+     "label": "Chửi bới hắn vì phá hỏng nguồn tiền chuộc",
+     "check": {
+      "stat": "wealth",
+      "target": 55
+     },
+     "success": {
+      "text": "Bạn lôi quy tắc chia chác ra ép hắn phải bồi thường tiền con tin. Hắn cắn răng ném cho bạn một túi bạc.",
+      "effects": {
+       "wealth": 20,
+       "bond": -10
+      }
+     },
+     "fail": {
+      "text": "Hắn lườm bạn bằng ánh mắt như nhìn một xác chết, từ chối nôn ra đồng nào.",
+      "effects": {
+       "bond": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_team_argue",
+   "text": "Bạn và {ally} cùng vung vũ khí kết liễu một con quái điểu. Cả hai gầm gừ vào mặt nhau, tranh giành vinh quang người hạ sát.",
+   "focus": [
+    "adventure"
+   ],
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Nện nhau một trận tay đôi để phân xử",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn vật ngã {ally} xuống bùn, gầm lên khẳng định vị thế thủ lĩnh. Hắn nhổ nước bọt nhưng chịu lùi bước.",
+      "effects": {
+       "STR": 1,
+       "fame": 5,
+       "bond": 5
+      }
+     },
+     "fail": {
+      "text": "{ally} tẩn bạn sưng mắt, giật lấy cái xác quái điểu đi khoe khoang.",
+      "effects": {
+       "health": -15,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Rút đao chặt đôi con quái vật, mỗi người một nửa",
+     "text": "Chẳng ai có được vinh quang trọn vẹn, nhưng đó là cách chia chác công bằng nhất trên thảo nguyên.",
+     "effects": {
+      "INT": 1,
+      "wealth": 10,
+      "bond": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_team_save",
+   "text": "Hầm ngục Dungeon sụp đổ. Một tảng đá khổng lồ đè nát chân bạn. Trong khi mọi người tháo chạy, chỉ còn {ally} nghiến răng gồng lưng đẩy tảng đá.",
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Gồng sức chống tay phụ hắn lật tảng đá",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Sức mạnh của hai chiến binh hất tung khối đá. Cả hai thoát ra ngoài trước khi hầm ngục chôn vùi tất cả.",
+      "effects": {
+       "STR": 2,
+       "health": -10,
+       "bond": 30,
+       "flags": [
+        "blood_brother"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Tảng đá không nhúc nhích. {ally} bị đá lở đè chết chung với bạn.",
+      "death": "Bị hầm ngục chôn sống cùng đồng đội"
+     }
+    },
+    {
+     "label": "Ném vũ khí cho hắn, bắt hắn bỏ chạy",
+     "require": {
+      "fame": 10
+     },
+     "showLocked": true,
+     "text": "Bạn gầm lên ra lệnh cho hắn sống sót mang vinh quang về trại. Hắn rơi lệ chạy đi, bạn tự cắt đứt chân mình để lết ra.",
+     "effects": {
+      "health": -40,
+      "fame": 20
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_team_leave",
+   "text": "Đêm khuya, {ally} gói ghém đồ đạc, nói rằng hắn đã chán ngấy việc làm chư hầu và muốn rời bộ lạc để tự làm lính đánh thuê tự do.",
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Chúc hắn may mắn bằng một vại rượu",
+     "check": {
+      "stat": "wealth",
+      "target": 55
+     },
+     "success": {
+      "text": "Tặng hắn chút tiền đi đường, hai người chia tay trong danh dự. Hắn hứa sẽ trả ơn nếu có ngày gặp lại.",
+      "effects": {
+       "wealth": -20,
+       "fame": 10,
+       "allyLeave": true
+      }
+     },
+     "fail": {
+      "text": "Hắn uống xong nhưng trộm luôn vũ khí dự phòng của bạn rồi chuồn mất.",
+      "effects": {
+       "wealth": -30,
+       "allyLeave": true
+      }
+     }
+    },
+    {
+     "label": "Đánh gãy chân hắn vì tội phản phản bội bộ lạc",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Búa của bạn đập nát xương ống đồng của hắn. Hắn phải ở lại làm phế nhân phục dịch trại.",
+      "effects": {
+       "STR": 1,
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Hắn tránh được, chém bạn một nhát vào ngực rồi bỏ trốn vào đêm tối.",
+      "effects": {
+       "health": -20,
+       "allyLeave": true
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_team_secret",
+   "text": "Bạn tình cờ phát hiện {ally} đang lén dùng một cuộn giấy Phép Thuật Trị Thương (Healing Scroll) của Elf để chữa vết thương – một hành động bị coi là hèn nhát tột cùng ở tộc Orc.",
+   "require": {
+    "party": 1
+   },
+   "choices": [
+    {
+     "label": "Đập nát cuộn phép, bắt hắn tự liền sẹo bằng ý chí",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Lời mắng chửi tàn tệ của bạn khiến hắn tỉnh ngộ, vứt bỏ ma thuật hèn yếu để rèn luyện sự chai lỳ.",
+      "effects": {
+       "STR": 1,
+       "INT": 1,
+       "bond": -5
+      }
+     },
+     "fail": {
+      "text": "Hắn tức giận đẩy ngã bạn, dùng xong cuộn phép rồi quay mặt không thèm nhìn bạn nữa.",
+      "effects": {
+       "bond": -15
+      }
+     }
+    },
+    {
+     "label": "Đe dọa sẽ mách Tù trưởng để tống tiền",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Hắn hoảng sợ đút lót cho bạn toàn bộ số Lõi Mana hắn giấu. Bạn giữ im lặng.",
+      "effects": {
+       "wealth": 40,
+       "bond": -20
+      }
+     },
+     "fail": {
+      "text": "Hắn điên tiết vung búa đập bạn bất tỉnh để diệt khẩu.",
+      "effects": {
+       "health": -30
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_mate_hunt",
+   "text": "Để lọt vào mắt xanh của một nữ chiến binh Orc hung bạo nhất trại, bạn phải dâng lên cô ta trái tim còn đập của một con Chimera cắm trên mũi giáo.",
+   "stages": [
+    "adult"
+   ],
+   "require": {
+    "spouse": false
+   },
+   "choices": [
+    {
+     "label": "Đơn độc vào núi săn Chimera",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Bạn trở về với vô số vết cào xé, quỳ một chân dâng quả tim khổng lồ còn rỉ máu. Nữ chiến binh gầm lên chấp nhận bạn.",
+      "effects": {
+       "STR": 2,
+       "joy": 30,
+       "fame": 20,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Móng vuốt Chimera xé toạc ngực bạn. Bạn lết về tay không và bị cô ta nhổ toẹt nước bọt khinh bỉ.",
+      "effects": {
+       "health": -30,
+       "fame": -15
+      }
+     }
+    },
+    {
+     "label": "Dùng bẫy độc để hạ sát con quái",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Độc tính làm con quái gục ngã dễ dàng. Trái tim hơi tái đen nhưng vẫn đủ để chứng minh bản lĩnh đi săn của bạn.",
+      "effects": {
+       "AGI": 1,
+       "fame": 10,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Con quái vật ngửi thấy mùi độc và húc bạn văng xuống sườn núi.",
+      "effects": {
+       "health": -20,
+       "wealth": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_mate_duel",
+   "text": "Ba gã Orc to xác khác cũng đang nhòm ngó {spouse} của bạn. Nàng cắm cự kiếm xuống đất, tuyên bố kẻ nào đứng vững cuối cùng trong Vòng Tròn Máu sẽ được quyền thị tẩm.",
+   "stages": [
+    "middle"
+   ],
+   "require": {
+    "spouse": false
+   },
+   "choices": [
+    {
+     "label": "Gào thét lao vào đánh hội đồng cả ba",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Nắm đấm bọc thép của bạn đập vỡ hàm từng gã một. Bạn nhấc bổng {spouse} lên vai giữa tiếng hò reo của bộ lạc.",
+      "effects": {
+       "STR": 2,
+       "fame": 15,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Ba gã xúm lại nện bạn ra bã. Bạn nằm bẹp dưới bùn nhìn nàng bị kẻ khác dắt vào lều.",
+      "effects": {
+       "health": -25,
+       "joy": -20,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Đợi chúng đánh nhau chán chê rồi mới ra tay",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Sự khôn lỏi giúp bạn dễ dàng kết liễu gã chiến thắng đang kiệt sức. {spouse} không thích cách này lắm nhưng luật là luật.",
+      "effects": {
+       "INT": 1,
+       "fame": -5,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Gã chiến thắng vẫn quá khỏe, tung một cước đá văng bạn ra khỏi vòng tròn.",
+      "effects": {
+       "health": -15,
+       "fame": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_mate_tribute",
+   "text": "Nữ pháp sư Shaman quyến rũ của bộ lạc khao khát một chiếc vương miện Tinh Bạc đang nằm trên đầu bức tượng Nữ thần Lumina tại tiền đồn của Human.",
+   "stages": [
+    "adult"
+   ],
+   "require": {
+    "spouse": false
+   },
+   "choices": [
+    {
+     "label": "Đột kích tiền đồn cướp vương miện",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn như bóng ma xé toạc màn đêm, chém gục lính gác và mang về chiếc vương miện sáng lóa. Nàng âu yếm chữa lành vết thương cho bạn.",
+      "effects": {
+       "AGI": 2,
+       "wealth": 20,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Phép thuật ánh sáng báo động. Bạn bị Kỵ sĩ đuổi chạy trối chết, không giành được cả tình yêu lẫn vinh quang.",
+      "effects": {
+       "health": -20,
+       "fame": -10
+      }
+     }
+    },
+    {
+     "label": "Bỏ tiền thuê phường trộm cắp lấy hộ",
+     "check": {
+      "stat": "wealth",
+      "target": 55
+     },
+     "success": {
+      "text": "Tiền nong giải quyết được khao khát của nàng. Nàng đeo vương miện, không quan tâm bạn lấy nó bằng cách nào.",
+      "effects": {
+       "wealth": -50,
+       "marry": true
+      }
+     },
+     "fail": {
+      "text": "Lũ trộm ôm tiền chạy mất, bạn thành trò cười cho nàng.",
+      "effects": {
+       "joy": -15,
+       "wealth": -30
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_child_first_kill",
+   "text": "{child} kéo về trại cái xác đầm đìa máu của một con Goblin trinh sát, khuôn mặt non nớt nhoe nhoét máu đỏ tươi nhưng ánh mắt đầy tự hào.",
+   "require": {
+    "children": 1
+   },
+   "result": "Bạn ngửa cổ cười rống lên, vỗ mạnh vào vai con đến mức nó suýt ngã. Dòng máu chiến binh đã được truyền thừa.",
+   "effects": {
+    "STR": 1,
+    "joy": 20,
+    "fame": 10
+   }
+  },
+  {
+   "id": "orc_child_weak",
+   "text": "Trong một cuộc hành quyết tù binh, bạn đưa dao cho {child} nhưng nó lại run rẩy đánh rơi vũ khí, khóc lóc từ chối tước đoạt sinh mạng kẻ yếu.",
+   "require": {
+    "children": 1
+   },
+   "choices": [
+    {
+     "label": "Tát gục nó và tự tay chém tù binh",
+     "check": {
+      "stat": "STR",
+      "target": 4
+     },
+     "success": {
+      "text": "Bạo lực là bài học tốt nhất. Bạn cho bộ lạc thấy gia đình mình không dung thứ sự hèn nhát.",
+      "effects": {
+       "STR": 1,
+       "joy": -10,
+       "fame": 5
+      }
+     },
+     "fail": {
+      "text": "Đánh quá tay làm {child} gãy xương hàm, nó nhìn bạn bằng ánh mắt đầy thù hận.",
+      "effects": {
+       "health": -10,
+       "joy": -20
+      }
+     }
+    },
+    {
+     "label": "Trừng mắt bảo vệ con trước bầy đàn",
+     "require": {
+      "INT": 7
+     },
+     "showLocked": true,
+     "text": "Bạn gầm lên tuyên bố rằng sinh mạng tù binh này thuộc về con bạn, nó muốn thả thì thả. Cả trại xì xầm khinh bỉ.",
+     "effects": {
+      "INT": 1,
+      "joy": 10,
+      "fame": -20
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_child_challenge",
+   "text": "{child} đứng chắn trước lều, giương thanh cự kiếm chỉ thẳng vào bạn, gầm gừ đòi tiếp quản vị trí thủ lĩnh gia đình.",
+   "require": {
+    "children": 1
+   },
+   "choices": [
+    {
+     "label": "Nện cho nó một trận để khẳng định uy quyền",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đập gãy vũ khí của nó, vật nó xuống đất nhưng không lấy mạng. Nó cúi đầu phục tùng kẻ mạnh hơn.",
+      "effects": {
+       "STR": 1,
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Sức trẻ áp đảo tuổi già. Nó tẩn bạn một trận sấp mặt và lột sạch của cải trong lều.",
+      "effects": {
+       "health": -20,
+       "joy": -15,
+       "wealth": -30
+      }
+     }
+    },
+    {
+     "label": "Trao lại cự kiếm, nhường ngôi tự nguyện",
+     "text": "Bạn nhìn thấy hình bóng tuổi trẻ của mình. Bạn giao lại vũ khí, lui về phía sau ngọn lửa trại.",
+     "effects": {
+      "STR": -2,
+      "joy": 15,
+      "fame": -10
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_child_death",
+   "text": "Đội quân Orc đại bại trở về. Một chiến binh mang đến mảnh giáp vỡ nát của {child} và thông báo rằng con bạn đã tử trận dưới kiếm của Thánh Kỵ Sĩ Đoàn.",
+   "require": {
+    "children": 1
+   },
+   "result": "Bạn uống cạn một vại rượu pha máu, im lặng mài rìu thâu đêm. Cái chết trên chiến trường là vinh quang, nhưng thù này phải trả.",
+   "effects": {
+    "STR": 2,
+    "joy": -40,
+    "flags": [
+     "vengeful_parent"
+    ]
+   }
+  },
+  {
+   "id": "orc_child_glory",
+   "text": "{child} đơn độc trảm sát một con Wyvern và ném hộp sọ nó dưới chân Warchief, chính thức được phong làm Huyết Tướng trẻ nhất bộ lạc.",
+   "require": {
+    "children": 1,
+    "fame": 30
+   },
+   "result": "Mọi ánh mắt kính sợ đều đổ dồn về lều của bạn. Dòng máu của bạn đang thống trị Thảo Nguyên Gió Hú.",
+   "effects": {
+    "joy": 20,
+    "wealth": 20,
+    "fame": 30
+   }
+  },
+  {
+   "id": "orc_evo_high_sign",
+   "text": "Cơ thể bạn nóng ran, những vết sẹo cũ bong tróc. Trí óc bạn đột nhiên trở nên minh mẫn lạ thường, nghe thấy những cổ ngữ ma thuật thì thầm trong gió.",
+   "minAge": 20,
+   "weight": 10,
+   "require": {
+    "INT": 7,
+    "fame": 20,
+    "form": "none",
+    "notFlags": [
+     "evo_sign_high"
+    ]
+   },
+   "result": "Một quá trình tiến hóa từ sâu trong huyết quản đang bắt đầu. Lớp da bạn chuyển dần sang màu lục ngọc bích.",
+   "effects": {
+    "INT": 2,
+    "health": -10,
+    "flags": [
+     "evo_sign_high"
+    ]
+   }
+  },
+  {
+   "id": "orc_evo_high_main",
+   "text": "Giữa một cơn bão sét ma thuật, năng lượng đất trời ập vào cơ thể bạn. Nếu không thể dùng ý chí kiểm soát nguồn mana khổng lồ này, bạn sẽ phát nổ.",
+   "weight": 12,
+   "require": {
+    "form": "none",
+    "flags": [
+     "evo_sign_high"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Nghiến răng, dùng trí óc điều tiết luồng mana",
+     "check": {
+      "stat": "INT",
+      "target": 10
+     },
+     "success": {
+      "text": "Tia chớp giáng xuống. Bạn đứng lên từ hố sâu, thân hình cao lớn hơn 2 mét, mang vẻ đẹp hoang dã bệ vệ cùng trí tuệ của một hiền giả. Bạn đã tiến hóa thành High Orc.",
+      "effects": {
+       "STR": 3,
+       "INT": 5,
+       "fame": 30,
+       "evolve": "High Orc"
+      }
+     },
+     "fail": {
+      "text": "Mana xé rách tĩnh mạch, đầu bạn nổ tung như một quả dưa hấu dưới áp lực của phép thuật.",
+      "death": "Bị năng lượng ma thuật xé xác"
+     }
+    },
+    {
+     "label": "Dùng thuốc ức chế để chặn đứng tiến hóa",
+     "text": "Bạn bảo toàn mạng sống nhưng tự tay bóp nghẹt cơ hội vươn lên thành huyền thoại.",
+     "effects": {
+      "joy": -20,
+      "wealth": -30
+     }
+    }
+   ],
+   "once": false
+  },
+  {
+   "id": "orc_high_magic",
+   "text": "Một Đại Ma pháp sư của Tháp Ngà nhếch mép tung cầu lửa vào bạn, đinh ninh loài Orc chậm tiêu sẽ cháy thành tro.",
+   "require": {
+    "form": "High Orc"
+   },
+   "result": "Bạn giơ tay tay không bóp nát quả cầu lửa bằng lượng mana khổng lồ của High Orc, rồi lạnh lùng đấm xuyên ngực gã.",
+   "effects": {
+    "STR": 2,
+    "INT": 2,
+    "fame": 20
+   }
+  },
+  {
+   "id": "orc_high_tactics",
+   "text": "Thay vì lao lên hú hét như bọn võ biền, bạn xếp đặt quân Orc thành một đội hình khiên giáo sắt thép, đè bẹp hoàn toàn quân đoàn Goblin.",
+   "require": {
+    "form": "High Orc"
+   },
+   "result": "Sự kết hợp giữa kỷ luật và sức mạnh hoang dã khiến đạo quân của bạn trở nên bất khả chiến bại. Tù trưởng cũng phải nhún nhường.",
+   "effects": {
+    "INT": 2,
+    "wealth": 30,
+    "fame": 15
+   }
+  },
+  {
+   "id": "orc_evo_warlord_sign",
+   "text": "Cơ bắp bạn phồng rộp và đau nhức dữ dội như muốn rách tung da thịt. Bạn không thể ngủ, trong đầu chỉ gầm rú khao khát được chém giết.",
+   "minAge": 25,
+   "weight": 10,
+   "require": {
+    "STR": 10,
+    "fame": 20,
+    "form": "none",
+    "notFlags": [
+     "evo_sign_warlord"
+    ]
+   },
+   "result": "Da bạn bắt đầu chuyển sang màu đỏ gạch, đôi nanh dài mọc đâm thủng cả môi dưới.",
+   "effects": {
+    "STR": 2,
+    "joy": -10,
+    "flags": [
+     "evo_sign_warlord"
+    ]
+   }
+  },
+  {
+   "id": "orc_evo_warlord_main",
+   "text": "Trong một trận huyết chiến tuyệt vọng, bạn bị chém đứt nửa ruột. Máu của hàng trăm ma vật và cả máu của bạn hòa quyện, kích hoạt bản năng sống còn nguyên thủy nhất.",
+   "weight": 12,
+   "require": {
+    "form": "none",
+    "flags": [
+     "evo_sign_warlord"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Gào thét, hấp thụ cuồng khí từ chiến trường",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Vết thương khép miệng tức khắc. Bạn hóa khổng lồ cao gần 3 mét, cơ bắp cuồn cuộn đỏ rực. Tiếng gầm của bạn làm chim chóc rụng lả tả. Bạn là Orc Warlord.",
+      "effects": {
+       "STR": 6,
+       "health": 30,
+       "fame": 40
+      }
+     },
+     "fail": {
+      "text": "Thân xác không chịu đựng nổi lượng máu bạo tàn. Động mạch của bạn đứt phựt, gục ngã vĩnh viễn trên vũng máu.",
+      "death": "Bạn chết Đột quỵ vì quá giới hạn cơ thể"
+     }
+    },
+    {
+     "label": "Bỏ chạy khỏi chiến trường để tìm thầy cúng",
+     "text": "Bạn giữ được cái mạng quèn, nhưng cơn khát máu tiêu tán, thân xác xẹp lại trong nỗi nhục nhã ê chề.",
+     "effects": {
+      "joy": -20,
+      "fame": -30
+     }
+    }
+   ],
+   "once": false
+  },
+  {
+   "id": "orc_warlord_horde",
+   "text": "Đứng trên đỉnh đồi rêu phong, bạn vung cây chiến búa khổng lồ lên trời và gầm vang. Hàng ngàn con Orc từ khắp nơi điên cuồng tụ tập dưới trướng bạn.",
+   "require": {
+    "form": "Orc Warlord"
+   },
+   "result": "Bạn không còn là một cá nhân, bạn là một cơn bão chiến tranh sống động sắp càn quét toàn bộ Aethelgard.",
+   "effects": {
+    "STR": 2,
+    "wealth": 50,
+    "fame": 30
+   }
+  },
+  {
+   "id": "orc_warlord_crush",
+   "text": "Một con Rồng Đất (Earth Dragon) ngáng đường đạo quân của bạn, gầm rú phun đá tảng định tiêu diệt quân đoàn.",
+   "require": {
+    "form": "Orc Warlord"
+   },
+   "result": "Không cần vũ khí, bạn đi tay không tới, túm lấy hai sừng của con rồng và bẻ gãy cổ nó bằng cơ bắp thuần túy.",
+   "effects": {
+    "STR": 3,
+    "fame": 20
+   }
+  },
+  {
+   "id": "orc_old_slowing",
+   "text": "Trong một buổi đi săn bình thường, chân bạn vấp phải rễ cây khiến bạn ngã quỵ. Con lợn rừng bọc thép dễ dàng chạy thoát. Những chiến binh trẻ lén cười cợt sau lưng.",
+   "stages": [
+    "elder"
+   ],
+   "result": "Nỗi nhục nhã của tuổi già bắt đầu gặm nhấm sự kiêu hãnh. Cơ bắp không còn nghe theo ý muốn.",
+   "effects": {
+    "STR": -2,
+    "AGI": -2,
+    "joy": -15,
+    "fame": -5
+   }
+  },
+  {
+   "id": "orc_old_heirloom",
+   "text": "Đêm giá rét, bạn gọi {child} vào lều, ném thanh vũ khí Huyết Kim nặng trĩu mà cả đời bạn vung vẩy xuống đất, yêu cầu nó nhấc lên.",
+   "stages": [
+    "elder"
+   ],
+   "require": {
+    "children": 1
+   },
+   "result": "Nhìn đứa con dễ dàng nhấc bổng món vũ khí, bạn nhếch mép cười mãn nguyện. Phần đời của bạn đã kết thúc, nhưng thanh gươm này sẽ tiếp tục nếm máu.",
+   "effects": {
+    "joy": 20,
+    "wealth": -30,
+    "fame": 10
+   }
+  },
+  {
+   "id": "orc_old_last_stand",
+   "text": "Tuổi già thảm hại là nỗi nhục của chiến binh. Cảm nhận cái chết đang đến gần, bạn khoác lại bộ giáp rách nát, một mình bước vào Vực Thẳm Phân Tầng để tìm cái chết vinh quang.",
+   "stages": [
+    "elder"
+   ],
+   "choices": [
+    {
+     "label": "Gầm thét xông vào giữa bầy Troll",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Trận chiến cuối cùng kéo dài suốt ba ngày đêm. Xung quanh bạn là ngọn núi xác chết ma vật trước khi bạn trút hơi thở cuối cùng. Huyền thoại về bạn sẽ được hát vang mãi.",
+      "effects": {
+       "fame": 50
+      },
+      "death": "Bạn chết vinh quang"
+     },
+     "fail": {
+      "text": "Sức tàn lực kiệt, bạn bị một con Troll đập chết ngay từ nhát chùy đầu tiên.",
+      "effects": {
+       "fame": -10
+      },
+      "death": "Sức tàn lực kiệt, bạn bị một con Troll đập chết ngay từ nhát chùy đầu tiên."
+     }
+    },
+    {
+     "label": "Yêu cầu {child} kết liễu mình để truyền ngôi",
+     "text": "Bạn quỳ xuống, ra lệnh cho con vung đao xẻ cổ bạn. Máu của bạn sẽ là lễ tế vĩ đại nhất cho thế hệ sau.",
+     "effects": {
+      "fame": 20
+     },
+     "death": "Bạn chết vinh quang"
+    }
+   ]
+  },
+  {
+   "id": "orc_old_fire",
+   "text": "Bị bỏ lại trong lều khi bộ lạc đi chinh phạt, bạn ngồi run rẩy ôm đống lửa tàn giữa mùa đông lạnh giá, những vết sẹo giật liên hồi nhắc về thời oanh liệt.",
+   "stages": [
+    "elder"
+   ],
+   "result": "Bạn nhắm mắt lại, ảo giác nghe thấy tiếng trống trận và tiếng gầm của Organ, từ từ chìm vào cõi vĩnh hằng trong sự tĩnh lặng mà một con Orc luôn căm ghét.",
+   "death": "Bạn chết già",
+   "moment": "Mọi chiến binh kiêu hãnh đều nợ thời gian một sinh mạng, không ai vung búa được mãi mãi."
+  },
+  {
+   "id": "orc_chain_sword_1",
+   "text": "Thanh cự kiếm của cha bạn đã sứt mẻ sau nhiều năm chinh chiến. Một lão thợ rèn tộc Dwarf bị bắt làm nô lệ đề nghị sẽ rèn lại nó thành một vũ khí ma thuật, đổi lại bạn phải thả lão đi.",
+   "stages": [
+    "adult"
+   ],
+   "require": {
+    "flags": [
+     "father_sword"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Đồng ý giao kiếm và thả lão đi",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Lão Dwarf giữ lời. Thanh kiếm được tôi luyện lại sắc bén vô song, vung lên có tiếng gió rít. Bạn thả lão đi như một chiến binh trọng chữ tín.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "flags": [
+        "reforged_sword"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Lão ôm thanh kiếm quý giá của cha bạn và bỏ trốn trong đêm. Bạn điên cuồng gào thét nhưng vô ích.",
+      "effects": {
+       "joy": -30,
+       "wealth": -20,
+       "flags": [
+        "father_sword"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Dùng bạo lực ép lão rèn mà không thả",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Lão run sợ làm việc dưới mũi dao của bạn, thanh kiếm được sửa lại nhưng không có ma thuật. Lão chết vì kiệt sức ngay sau đó.",
+      "effects": {
+       "STR": 1,
+       "flags": [
+        "reforged_sword"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Lão uất hận lén nhúng kiếm vào a-xít, làm hỏng hoàn toàn di vật của cha bạn trước khi tự sát.",
+      "effects": {
+       "joy": -40,
+       "flags": [
+        "father_sword"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_chain_sword_2",
+   "text": "Trên chiến trường Đồng Bằng Thánh Quang, bạn đụng độ chính tên Thánh Kỵ Sĩ năm xưa đã kết liễu cha mình. Hắn giờ đã là một Tướng quân, đang giương ngọn giáo chói lóa về phía bạn.",
+   "stages": [
+    "middle"
+   ],
+   "require": {
+    "flags": [
+     "reforged_sword"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Gầm lên, dùng chính thanh kiếm của cha để kết liễu hắn",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Thanh Huyết Kiếm xẻ đôi ngọn giáo thánh quang, chém đứt đầu tên Tướng quân. Bạn ngửa cổ rống lên, rửa sạch mối nhục năm xưa cho dòng họ.",
+      "effects": {
+       "STR": 3,
+       "joy": 50,
+       "fame": 30
+      }
+     },
+     "fail": {
+      "text": "Ma thuật ánh sáng của hắn đè bẹp bạn. Hắn cười khẩy, đâm xuyên ngực bạn y như cách hắn đã làm với cha bạn.",
+      "death": "Bị Thánh Kỵ Sĩ đâm xuyên tim"
+     }
+    },
+    {
+     "label": "Phóng ám khí tẩm độc hạ gục hắn từ xa",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn không quan tâm đến danh dự tay đôi, mũi tiêu cắm phập vào cổ họng hắn. Kẻ thù chết, nhưng thanh kiếm trên tay bạn dường như rung lên oán trách.",
+      "effects": {
+       "AGI": 2,
+       "joy": 10,
+       "fame": -10
+      }
+     },
+     "fail": {
+      "text": "Hắn dùng khiên đỡ được, ném giáo phản công xuyên thủng đùi bạn, ép bạn phải tháo chạy.",
+      "effects": {
+       "health": -30
+      }
+     }
+    }
+   ],
+   "moment": "Máu nợ phải trả bằng máu, đó là quy luật duy nhất mà Tổ tiên truyền lại."
+  },
+  {
+   "id": "orc_chain_holy_1",
+   "text": "Giáo hội Thánh Quang treo thưởng cái đầu của kẻ đã đập nát pháo đài của họ. Giữa đêm khuya, một sát thủ bóng tối của Guild Sát thủ Umbra lẻn vào lều lúc bạn đang say giấc.",
+   "stages": [
+    "middle"
+   ],
+   "require": {
+    "flags": [
+     "holy_crusher"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Tỉnh giấc nhờ bản năng và phản công",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn bật dậy tóm cổ tên sát thủ ngay khi con dao cách cổ họng một tấc. Bạn bóp nát cổ hắn, ném cái xác ra ngoài thị uy.",
+      "effects": {
+       "LUCK": 2,
+       "fame": 10,
+       "flags": [
+        "assassin_head"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Lưỡi dao cứa một đường sâu vào cổ. Nhờ lớp da dày bạn không chết ngay, nhưng mất rất nhiều máu trước khi đập chết hắn.",
+      "effects": {
+       "health": -40,
+       "flags": [
+        "assassin_head"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Vờ ngủ, đợi hắn tới gần rồi rút dao găm đâm ngược",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Sự xảo trá của bạn vượt qua cả sát thủ chuyên nghiệp. Hắn chết mà không hiểu tại sao.",
+      "effects": {
+       "INT": 2,
+       "fame": 5,
+       "flags": [
+        "assassin_head"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn vung dao hụt, hắn đâm phập vào vai bạn rồi dùng bom khói tẩu thoát.",
+      "effects": {
+       "health": -20
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_chain_holy_2",
+   "text": "Quá phẫn nộ vì sát thủ bị diệt, Giáo hội cử một đạo quân Thập Tự Chinh tiến thẳng vào Thảo Nguyên Gió Hú, thề sẽ san phẳng bộ lạc của bạn để trừ hậu họa.",
+   "stages": [
+    "elder"
+   ],
+   "require": {
+    "flags": [
+     "assassin_head"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Tập hợp toàn quân, quyết một trận tử chiến",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Đứng ở vị trí tiên phong, bạn như bức tường thịt chặn đứng mọi đợt sóng xung phong của loài người. Lõi Mana của quân địch nằm la liệt. Bộ lạc an toàn.",
+      "effects": {
+       "STR": 2,
+       "wealth": 100,
+       "fame": 50
+      }
+     },
+     "fail": {
+      "text": "Lực lượng loài người quá đông. Bộ lạc bị tàn sát, bạn bị đóng đinh lên thánh giá thiêu sống để làm gương.",
+      "death": "Bị Thập Tự Chinh hỏa thiêu"
+     }
+    },
+    {
+     "label": "Di tản bộ lạc vào Đầm Lầy Tử Khí, dùng địa hình đánh du kích",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Đạo quân bọc thép hạng nặng của loài người sập bẫy và chết đuối trong đầm lầy. Bạn bảo toàn được lực lượng mà vẫn tiêu diệt kẻ thù.",
+      "effects": {
+       "INT": 3,
+       "health": 10,
+       "fame": 20
+      }
+     },
+     "fail": {
+      "text": "Bạn tính sai thủy triều đầm lầy. Cả quân ta lẫn quân địch đều chết chìm trong lớp sương độc.",
+      "death": "Chết ngạt trong bùn lầy"
+     }
+    }
+   ],
+   "moment": "Kẻ mạnh không bao giờ chạy trốn ánh sáng, chúng đập nát ánh sáng."
+  },
+  {
+   "id": "orc_chain_dragon_1",
+   "text": "Máu của Cổ Long ngấm vào cơ thể bạn bắt đầu phản phệ. Làn da bạn nứt nẻ, phun ra lửa mỗi khi hô hấp, ý chí của con rồng đã chết đang cố gắng đoạt xá thân xác bạn.",
+   "require": {
+    "flags": [
+     "dragon_slayer"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Ngồi thiền định, dùng ý chí tâm linh đè bẹp linh hồn rồng",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Tiếng rống thảm thiết vang lên trong tâm trí. Bạn dung hợp hoàn toàn sức mạnh rồng, biến những vảy đỏ thành áo giáp vĩnh cửu.",
+      "effects": {
+       "STR": 2,
+       "INT": 3,
+       "flags": [
+        "dragon_heart"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Ý chí quái vật quá mạnh, nó bóp nát tâm trí bạn. Bạn phát điên, đồ sát đồng loại và bị bộ lạc vây đánh tới chết.",
+      "death": "Phát điên, bị bộ lạc tiêu diệt"
+     }
+    },
+    {
+     "label": "Nốc cạn kịch độc để ép hồn rồng phải rời đi",
+     "check": {
+      "stat": "health",
+      "target": 85
+     },
+     "success": {
+      "text": "Độc tính hủy diệt mọi thứ, kể cả tàn hồn quái vật. Bạn nôn ra một bãi máu đen rực lửa và giành lại quyền kiểm soát.",
+      "effects": {
+       "STR": -1,
+       "health": 10,
+       "flags": [
+        "dragon_heart"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Độc dược phá hủy nội tạng trước cả khi hồn rồng biến mất. Bạn chết trong sự quằn quại.",
+      "death": "Ngộ độc tử vong"
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_chain_dragon_2",
+   "text": "Hắc Nguyệt Hội và những kẻ cuồng tín tôn thờ Cổ Long tìm đến lều của bạn. Bọn chúng quỳ rạp xuống, tôn bạn làm Á Thần Rồng (Dragon Demigod) và dâng lên hàng rương Lõi Mana.",
+   "stages": [
+    "elder"
+   ],
+   "require": {
+    "flags": [
+     "dragon_heart"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Lạnh lùng chém chết tên cầm đầu, từ chối tà giáo",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn gầm lên rằng Tổ tiên Orc không cần làm thần của lũ cặn bã. Bạn cướp sạch rương báu và đuổi cổ bọn chúng.",
+      "effects": {
+       "STR": 1,
+       "wealth": 80,
+       "fame": 20
+      }
+     },
+     "fail": {
+      "text": "Bọn cuồng tín nổi điên quây lấy bạn, đâm hàng chục nhát dao găm khiến bạn trọng thương.",
+      "effects": {
+       "health": -40,
+       "wealth": -20
+      }
+     }
+    },
+    {
+     "label": "Chấp nhận làm Á Thần, thao túng bọn cuồng tín",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Dù là Warchief hay Á Thần thì mục đích cũng là quyền lực. Bạn sử dụng lũ giáo đồ làm bia đỡ đạn cho bộ lạc, ngồi mát ăn bát vàng.",
+      "effects": {
+       "INT": 2,
+       "wealth": 100,
+       "fame": 30
+      }
+     },
+     "fail": {
+      "text": "Lời nói dối bị bóc mẽ, bọn chúng nhận ra bạn chỉ là một con Orc ăn may. Chúng bỏ đi và bôi nhọ danh dự của bạn khắp nơi.",
+      "effects": {
+       "fame": -30
+      }
+     }
+    }
+   ],
+   "moment": "Uống máu rồng không biến bạn thành rồng, nó biến bạn thành thứ đáng sợ hơn thế."
+  },
+  {
+   "id": "orc_chain_mud_1",
+   "text": "Trong một cuộc tháo chạy, tên Đội Trưởng Tiền Phong từng sỉ nhục bạn năm xưa bị quái thú cắn gãy chân. Hắn quỳ rạp xuống bùn lầy, van xin bạn cứu mạng.",
+   "stages": [
+    "adult"
+   ],
+   "require": {
+    "flags": [
+     "taste_of_mud"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Đạp mặt hắn xuống bùn, ép liếm sạch bãi nôn của bạn",
+     "check": {
+      "stat": "STR",
+      "target": 4
+     },
+     "success": {
+      "text": "Nỗi nhục năm xưa được trả gấp bội. Hắn nếm trải sự ê chề tuyệt vọng trước khi bị bạn chặt đứt đầu ném cho sói hoang.",
+      "effects": {
+       "STR": 1,
+       "joy": 30,
+       "fame": 15,
+       "flags": [
+        "mud_avenged"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Hắn nhân lúc bạn đắc ý rút dao găm đâm lén, buộc bạn phải giết hắn nhanh gọn mà chưa kịp hành hạ.",
+      "effects": {
+       "health": -10,
+       "flags": [
+        "mud_avenged"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Rộng lượng băng bó cho hắn, ép hắn làm nô lệ",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Kẻ mạnh thực sự thao túng linh hồn kẻ yếu. Hắn mang nợ mạng bạn và phải phục dịch chùi lều cho bạn suốt phần đời còn lại.",
+      "effects": {
+       "INT": 2,
+       "fame": 20,
+       "flags": [
+        "mud_enslaved"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Băng bó xong, hắn vô ơn dùng đá đập vào đầu bạn rồi bỏ trốn mất dạng.",
+      "effects": {
+       "health": -20,
+       "joy": -20
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "orc_chain_mud_2",
+   "text": "Nếu có \"mud_enslaved\": Tên nô lệ cựu Đội Trưởng đỡ cho bạn một nhát dao ám sát, dùng sinh mạng để chuộc lại danh dự. Nếu có \"mud_avenged\": Đàn em cũ của tên Đội Trưởng kéo đến vây đánh bạn để trả thù cho đại ca chúng.",
+   "stages": [
+    "middle"
+   ],
+   "require": {
+    "anyFlags": [
+     "mud_enslaved",
+     "mud_avenged"
+    ]
+   },
+   "choices": [
+    {
+     "label": "(Nếu mud_enslaved) Tuyên bố hắn chết như một chiến binh",
+     "text": "Bạn vuốt mắt cho hắn, xóa bỏ thân phận nô lệ. Sự tàn bạo của bạn đã sinh ra một lòng trung thành tuyệt đối.",
+     "effects": {
+      "INT": 1,
+      "joy": 10,
+      "fame": 20
+     }
+    },
+    {
+     "label": "(Nếu mud_avenged) Cuồng sát toàn bộ bọn đàn em",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Gió thoảng mây bay, lũ tép riu bị bạn băm nát trong vài phút. Không ai dám nhắc lại cái tên của tên Đội Trưởng năm xưa nữa.",
+      "effects": {
+       "STR": 2,
+       "fame": 20
+      }
+     },
+     "fail": {
+      "text": "Số lượng quá đông khiến bạn chật vật, bị chém trọng thương đứt gân tay trước khi đuổi được chúng đi.",
+      "effects": {
+       "AGI": -2,
+       "health": -30
+      }
+     }
+    }
+   ],
+   "moment": "Mùi bùn lầy bao giờ cũng thoang thoảng vị tanh của máu, đó là mùi của sự trưởng thành."
+  }
+ ],
+ "deaths": [],
+ "focus": {
+  "play": {
+   "name": "Đánh nhau",
+   "desc": "Sức mạnh, Nhanh nhẹn; ẩu đả với lũ Orc cùng lứa",
+   "stages": [
+    "infant",
+    "child",
+    "teen"
+   ],
+   "gains": {
+    "STR": 0.25,
+    "AGI": 0.15
+   },
+   "bars": {
+    "joy": 1
+   },
+   "quiet": {
+    "default": [
+     "Bạn lộn nhào trong bùn lầy, cắn lộn với lũ nhóc Orc khác để giành một mẩu xương rồng tủy.",
+     "Tiếng khóc thét của đám nhóc bị bạn đấm rụng răng vang vọng khắp rìa khu trại.",
+     "Bạn trượt ngã đập đầu vào đá trong lúc đuổi đánh một con Goblin nô lệ, nhưng chỉ lồm cồm bò dậy cười sằng sặc."
+    ]
+   }
+  },
+  "study": {
+   "name": "Học lời tổ tiên",
+   "desc": "Trí tuệ; nghe Thầy cúng kể chuyện cũ",
+   "stages": [
+    "child",
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "quiet": {
+    "default": [
+     "Bạn ngửi mùi khói thảo mộc đến buồn nôn trong căn lều tối tăm của Thầy cúng.",
+     "Những ký tự cổ xưa vẽ bằng máu lên vách đá khiến đầu bạn đau như búa bổ.",
+     "Bạn ngủ gục khi nghe Thầy cúng lải nhải về lịch sử bộ lạc và bị gõ trúng đầu đến sưng vù."
+    ]
+   }
+  },
+  "train": {
+   "name": "Khổ luyện",
+   "desc": "Sức mạnh, Nhanh nhẹn; rèn rìu và thân thể",
+   "stages": [
+    "child",
+    "teen",
+    "adult",
+    "middle"
+   ],
+   "quiet": {
+    "default": [
+     "Cơ bắp bạn căng cứng sau khi vác những tảng đá khổng lồ chạy quanh trại suốt ngày dài.",
+     "Bạn vung vũ khí đến mức hai bàn tay tứa máu, hòa lẫn vào cán gỗ thô ráp.",
+     "Những vết sẹo mới đè lên sẹo cũ, minh chứng cho việc bạn không bao giờ biết chùn bước là gì."
+    ]
+   }
+  },
+  "work": {
+   "name": "Phục dịch bộ lạc",
+   "desc": "Làm vai trò của mình, tích kinh nghiệm thăng bậc",
+   "stages": [
+    "child",
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "quiet": {
+    "default": [
+     "Lưng bạn còng xuống vì phải khuân vác những cái xác dã thú đầm đìa máu về kho lương.",
+     "Cả ngày dài chẻ củi và thui thịt khiến bạn sặc sụa, mùi khét ám vào da thịt.",
+     "Đám chiến binh say xỉn ném xương vào bạn, nhưng bạn cắn răng dọn dẹp không buông lời oán thán."
+    ]
+   }
+  },
+  "adventure": {
+   "name": "Chinh phạt",
+   "desc": "Theo Tù trưởng đi chinh phạt, leo thứ bậc bộ lạc",
+   "stages": [
+    "teen",
+    "adult",
+    "middle"
+   ],
+   "tags": null,
+   "quiet": {
+    "default": [
+     "Bạn rửa sạch máu tanh của loài Human khỏi rìu chiến bằng một ngụm rượu đắng ngắt.",
+     "Khói lửa bốc lên từ một ngôi làng vừa bị san phẳng rọi sáng nụ cười tàn nhẫn của bạn.",
+     "Những đồng Tinh Bạc và Lõi Mana kêu leng keng trong túi sau đợt cướp bóc no nê."
+    ]
+   }
+  },
+  "social": {
+   "name": "Thách đấu và tranh quyền",
+   "desc": "Tranh chỗ đứng, kết bè, giành bạn đời",
+   "stages": [
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "quiet": {
+    "default": [
+     "Bạn mài chiếc cự kiếm của mình trên tảng đá dính đầy vết máu khô của những kẻ thách thức trước đó.",
+     "Ánh mắt hình viên đạn của bạn lướt qua bãi trại, khiến đám chiến binh yếu bóng vía phải cúi gằm mặt xuống.",
+     "Bạn đứng giữa Vòng Tròn Máu, hít căng lồng ngực mùi bụi đất và sự sợ hãi của đồng loại."
+    ]
+   }
+  },
+  "rest": {
+   "name": "Uống rượu nghỉ ngơi",
+   "desc": "Hồi sức bên vò rượu nấm",
+   "stages": [
+    "child",
+    "teen",
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "bars": {
+    "health": 2,
+    "joy": 1.5
+   },
+   "quiet": {
+    "default": [
+     "Bạn ngáy rung cả lều sau khi nốc cạn một thùng bia nấm lên men hôi rình.",
+     "Nằm vắt vẻo trên đống da lông thú chiến lợi phẩm, bạn ợ một cái rõ to, mặc kệ sự đời.",
+     "Tiếng hát khàn đục, the thé của bọn yêu tinh hát rong làm bạn bực mình ném xương thú vào đầu chúng."
+    ]
+   }
+  }
+ },
+ "systems": {
+  "bandName": "chiến hữu",
+  "romance": false,
+  "autoChildren": true,
+  "childRate": 0.08,
+  "maxChildren": 3,
+  "child": [
+   "{child} chào đời giữa tiếng trống trận. Đứa bé gào to đến mức cả trại phải ngoái lại.",
+   "Bạn giơ {child} lên trước lửa trại. Cả bộ lạc gầm vang chào đón một chiến binh mới."
+  ],
+  "companions": [
+   {
+    "race": "Orc",
+    "names": "orc",
+    "job": "Orc Berserker",
+    "stat": "STR",
+    "weight": 4
+   },
+   {
+    "race": "Orc",
+    "names": "orc",
+    "job": "Orc Ranger",
+    "stat": "AGI",
+    "weight": 2
+   },
+   {
+    "race": "Orc",
+    "names": "orc",
+    "job": "Orc Shaman",
+    "stat": "INT",
+    "weight": 1
+   },
+   {
+    "race": "Goblin",
+    "names": "goblin",
+    "job": "Goblin Scout",
+    "stat": "AGI",
+    "weight": 1
+   }
+  ],
+  "recruit": {
+   "text": [
+    "Sau trận ẩu đả, gã Orc vừa bị bạn đấm gãy nanh đứng dậy, nhổ máu và chìa tay ra: \"Mày mạnh. Tao theo mày.\"",
+    "Một Orc lang thang bị đuổi khỏi bộ lạc khác quỳ trước lửa trại của bạn, xin được chiến đấu dưới ngọn cờ của bạn."
+   ],
+   "join": [
+    "{ally} đập rìu vào khiên của bạn. Từ nay hai kẻ là chiến hữu.",
+    "{ally} rạch tay, nhỏ máu vào vò rượu chung. Huyết thệ đã thành."
+   ],
+   "decline": "Đá nó đi, kẻ yếu không đáng đi cùng",
+   "declineText": "Bạn đá kẻ kia lăn ra đất. Ở bộ lạc, chỉ kẻ mạnh mới được đi cùng kẻ mạnh."
+  },
+  "jobSelect": {
+   "teen": [
+    "Tù trưởng gọi lũ Orc trẻ ra giữa trại. Mỗi đứa phải chọn cho mình một con đường: rìu, cung, trống cúng, búa rèn hay lưng sói."
+   ],
+   "adult": [
+    "Một Orc trưởng thành mà chưa có vai trò là nỗi nhục của bộ lạc. Đã đến lúc chọn."
+   ],
+   "later": "Đánh nhau thêm vài năm đã",
+   "laterText": "Bạn quay lại với những trận ẩu đả. Con đường có thể chờ."
+  },
+  "promotion": {
+   "try": "Lao vào chứng minh sức mạnh",
+   "wait": "Chưa đến lúc",
+   "waitText": "Bạn nhổ nước bọt xuống đất. Lần sau.",
+   "success": "Cả bộ lạc gầm vang tên bạn. Từ nay, bạn là {next}.",
+   "fail": [
+    "Bạn bị đánh gục trước tiếng cười của cả trại.",
+    "Bạn thất bại. Vết sẹo này sẽ nhắc bạn mãi."
+   ]
+  },
+  "crossroads": {
+   "child": "Bạn đã là Tân binh của bộ lạc. Những năm tới, bạn sẽ dồn sức vào đâu?",
+   "teen": "Máu bạn đang sôi. Bạn sẽ dùng nó vào việc gì?",
+   "adult": "Bạn đã là Huyết Kỵ Sĩ. Bạn sẽ làm gì với những năm tới?",
+   "middle": "Ít Orc nào sống đến khi thành Tướng lĩnh. Bạn sẽ dùng những năm này ra sao?",
+   "elder": "Bạn đã già, điều hiếm hoi với một Orc. Những ngày cuối, bạn muốn làm gì?",
+   "default": "Bạn sẽ dồn sức vào đâu?"
+  },
+  "stageEnter": {
+   "child": "Nanh bạn đã nhú. Bộ lạc trao cho bạn chiếc rìu gỗ đầu tiên.",
+   "teen": "Máu bạn sôi lên trước mỗi trận chiến. Bạn đã là Chiến binh máu nóng.",
+   "adult": "Bạn đã trưởng thành. Một con sói chiến gầm gừ nhận bạn làm chủ.",
+   "middle": "Bạn đã là Tướng lĩnh chiến trường. Những Orc trẻ nhìn bạn với ánh mắt kính sợ.",
+   "elder": "Nanh bạn đã mòn, lưng đã còng. Bộ lạc vẫn nhường bạn chỗ ngồi gần lửa nhất.",
+   "default": "Một chương mới của cuộc đời Orc mở ra."
+  },
+  "parentDeath": [
+   "{who} đã chết. Bộ lạc đốt xác trên giàn lửa cao, và bạn gầm lên cùng tiếng trống.",
+   "{who} ngã xuống trong một trận chiến xa. Bạn mài rìu suốt đêm đó."
+  ],
+  "allyDie": [
+   "{ally} ngã gục với một nụ cười man rợ, máu văng tung tóe lên chiếc khiên của bạn như lời trăn trối cuối cùng.",
+   "Bạn đứng nhìn xác {ally} bị bầy kền kền rỉa thịt, tự hứa sẽ mang hộp sọ của kẻ giết hắn về làm ly uống rượu.",
+   "Tiếng gầm thét của {ally} tắt lịm giữa chiến trường, để lại một khoảng trống lạnh lẽo bên mạn sườn bạn."
+  ],
+  "allyHurt": [
+   "{ally} nhổ ra một ngụm máu đen, dùng thanh kiếm gãy chống người đứng dậy và gầm gừ đòi đánh tiếp.",
+   "Vết thương sâu hoắm làm lộ cả xương sườn của {ally}, nhưng hắn chỉ lấy mảnh vải bẩn thít lại rồi lảo đảo bước đi.",
+   "Bạn vác {ally} thoi thóp trên vai, cảm nhận nhịp tim yếu ớt của hắn đập hòa cùng tiếng trống trận."
+  ],
+  "allyLeave": [
+   "{ally} vứt bỏ gia huy bộ lạc xuống bùn, quay lưng đi thẳng vào bóng tối của Đầm Lầy Tử Khí không một lần ngoảnh lại.",
+   "Lưỡi dao kề sát cổ họng bạn từ phía sau. Khi bạn quay lại, ánh mắt của {ally} đã lạnh lẽo như thép tẩm độc.",
+   "Chén rượu chia tay đắng ngắt, bạn biết từ nay trên chiến trường, gã chiến hữu năm xưa có thể chính là kẻ thù tiếp theo."
+  ]
+ },
+ "stages": [
+  {
+   "id": "infant",
+   "start": 0,
+   "name": "Orc Non Nớt"
+  },
+  {
+   "id": "child",
+   "start": 4,
+   "name": "Tân Binh Bộ Lạc"
+  },
+  {
+   "id": "teen",
+   "start": 10,
+   "name": "Chiến Binh Máu Nóng"
+  },
+  {
+   "id": "adult",
+   "start": 16,
+   "name": "Huyết Kỵ Sĩ"
+  },
+  {
+   "id": "middle",
+   "start": 26,
+   "name": "Tướng Lĩnh Chiến Trường"
+  },
+  {
+   "id": "elder",
+   "start": 36,
+   "name": "Tù Trưởng Già Cỗi"
+  }
+ ]
+}

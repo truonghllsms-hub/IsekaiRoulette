@@ -63,14 +63,14 @@ function parseEffects(str) {
     if (/^thắng ngay/.test(low)) { eff.end = "win"; continue; }
     if (/^thất bại ngay/.test(low)) { eff.end = "fail"; continue; }
     if ((m = low.match(/(?:chuyển sang|đi tiếp|sang) cảnh (\d+)/))) { eff.next = Number(m[1]) - 1; continue; }
-    if ((m = t.match(/dấu ấn\s*:?\s*(.+)/i))) { const fl = [...m[1].matchAll(/["“]?([a-z][a-z0-9_]+)["”]?/g)].map((x) => x[1]).filter((x) => x.includes("_") || /^[a-z]+$/.test(x)); eff.flags = (eff.flags || []).concat(fl); continue; }
+    if ((m = t.match(/dấu ấn\s*:?\s*(.+)/i))) { const fl = [...m[1].replace(/\([^)]*\)/g, "").matchAll(/(?<![A-Za-zÀ-ỹ0-9_])["“]?([a-z][a-z0-9_]+)["”]?(?![A-Za-zÀ-ỹ])/g)].map((x) => x[1]).filter((x) => x.includes("_") || /^[a-z]+$/.test(x)); eff.flags = (eff.flags || []).concat(fl); continue; }
     if ((m = low.match(/^["“]([a-z0-9_]+)["”]$/))) { eff.flags = (eff.flags || []).concat(m[1]); continue; }
     if ((m = low.match(/thân thiết với \{(\w+)\}\s*([+-]\s*\d+)/))) { const v = Number(m[2].replace(/\s/g, "")); if (m[1] === "ally") add("bond", v); else add("joy", Math.round(v / 3)); continue; }
     if ((m = low.match(/toàn bộ chỉ số\s*([+-]\d+)/))) { for (const k of ["STR", "INT", "AGI", "LUCK"]) add(k, Number(m[1])); continue; }
     if ((m = low.match(/điểm thăng bậc\s*(tối đa|[+-]?\s*\d+)/)) || (m = low.match(/^\+?(\d+) điểm thăng bậc/))) { add("guildPts", m[1] === "tối đa" ? 999 : Number(String(m[1]).replace(/\s/g, ""))); continue; }
     if (/mất (đồng đội )?\{ally\}/.test(low)) { eff.allyDie = true; continue; }
     if (/mất \{child\}/.test(low)) { eff.loseChild = true; continue; }
-    if (/có \{child\}|sinh \{child\}/.test(low)) { eff.child = true; continue; }
+    if (/có \{child\}|sinh (ra )?\{child\}/.test(low)) { eff.child = true; continue; }
     if (/(có|tìm được|cưới|kết đôi với) \{spouse\}/.test(low)) { eff.marry = true; continue; }
     if (/thu nhận \{ally\}|\{ally\} gia nhập/.test(low)) { eff.recruit = true; continue; }
     if ((m = t.match(/(?:tiến hóa thành|đổi dạng thành)\s+(.+)/i))) { eff.evolve = m[1].replace(/\*+|!+/g, "").trim(); continue; }
@@ -146,6 +146,8 @@ function parseHead(rest) {
     const dm = r.match(/(rất khó|rất dễ|cực khó|khó|vừa|trung bình|dễ|huyền thoại)/);
     out.check = { stat: STAT[m[1]], diff: dm ? DIFF[dm[1]] : 3 };
   }
+  // "(Chỉ với dấu ấn demon_parasite)": only shown with that mark
+  if ((m = r.match(/chỉ (?:với|khi có) dấu ấn\s*["“]?([a-z][a-z0-9_]+)/))) out.onlyFlags = [m[1]];
   if (/khóa/.test(r)) out.lock = rest.replace(/.*?KHÓA\s*(nếu|:)?/i, "").split("—")[0].trim();
   return out;
 }
@@ -169,7 +171,8 @@ function parse(text) {
 
   let block = null; // event or origin
   let quest = null; // quest container
-  let pendingEra = null; // "Thời đại:" seen before the quest started
+  let pendingEra = null;
+  let lastLine = ""; // the line before this one (a plain quest title sits right above "Bậc tối thiểu") // "Thời đại:" seen before the quest started
   let scene = null; // scene inside quest
   let opt = null;
   let role = null, focus = null, evo = null;
@@ -204,16 +207,39 @@ function parse(text) {
       /^tiến hóa$/i.test(pre.trim()) ? `[${id}] ${rest}` : `${pre.trim()} - [${id}]: ${rest}`);
     let line = strip(raw);
     if (!line) continue;
+    const prevLine = lastLine;
+    lastLine = line;
     const low = line.toLowerCase();
     let m;
 
     // ---- companion status lines ----
-    if (/^(\d+\s*câu\s*)?khi (đồng đội )?(chết|bị thương|bỏ đi)/i.test(line) && line.length < 60) {
+    if (/^(\d+\s*câu\s*)?(phản ứng của bạn\s+)?khi (\{ally\}\s+|đồng đội\s+)?(chết|bị thương|bỏ đi)/i.test(line) && line.length < 70) {
       mode = /chết/.test(low) ? "ally:die" : /thương/.test(low) ? "ally:hurt" : "ally:leave";
       block = null; opt = null; continue;
     }
     if (mode && mode.startsWith("ally:") && !/\[/.test(line) && !isCapsHeader(line) && !/^phần \d/i.test(line) && !/^(dưới đây|[a-d]\.)/i.test(line) && line.length > 15) {
       res.allyLines[mode.slice(5)].push(line.replace(/^["“]|["”]$/g, ""));
+      continue;
+    }
+
+    // ---- era quest written as "[Chiến Tranh Tuyến Đầu] Lệnh Triệu Tập Đẫm Máu" ----
+    const eh = line.match(/^\[(kỷ nguyên tăm tối|ma vương giáng thế|chiến tranh tuyến đầu|thời bình)\]\s*(.{3,90})$/i);
+    if (eh) {
+      closeContainers(); block = null; scene = null; opt = null; mode = null;
+      startQuest(slug(eh[2]), eh[2].trim());
+      quest.kind = "era"; quest.era = quest.era || eh[1];
+      lastHeader = line;
+      continue;
+    }
+    // ---- quest headers: "CUỘC CHINH PHẠT NHỎ 1: Cướp bóc Làng Human", "TRẬN CHIẾN CỐT TRUYỆN 2: …" ----
+    const qh = line.match(/^((?:CUỘC|VIỆC|NHIỆM|MỆNH|TRẬN|CHIẾN)[^:]{2,50}?)\s*:\s*(.{3,90})$/);
+    if (qh && isCapsHeader(qh[1]) && !/^VIỆC CHÍNH/.test(qh[1]) && !/[.!?]$/.test(qh[2])) {
+      closeContainers(); block = null; scene = null; opt = null; mode = null;
+      const k = /CỐT TRUYỆN/.test(qh[1]) ? "story" : /THỜI ĐẠI/.test(qh[1]) ? "era" : "small";
+      questKind = k;
+      startQuest(slug(qh[2]), qh[2].trim());
+      quest.kind = k;
+      lastHeader = line;
       continue;
     }
 
@@ -236,9 +262,11 @@ function parse(text) {
         continue;
       }
       quest = null; scene = null;
-      if (/_origin_|_bg_|origin/.test(id) || /—\s*\d+\s*%/.test(rest)) {
+      // an origin has "— N%"; an "origin"-looking id without it is an event once real origins (with %) were seen
+      const hasPct = /—\s*\d+\s*%/.test(rest);
+      if (hasPct || (/_origin_|_bg_|origin/.test(id) && !res.origins.some((o) => o.pct))) {
         const pm = rest.match(/^(.*?)\s*—\s*(\d+)\s*%/);
-        block = { type: "origin", id, name: (pm ? pm[1] : rest).replace(/\(mới\)/i, "").trim(), weight: pm ? Number(pm[2]) : 10 };
+        block = { type: "origin", id, pct: hasPct, name: (pm ? pm[1] : rest).replace(/\(mới\)/i, "").trim(), weight: pm ? Number(pm[2]) : 10 };
         res.origins.push(block);
         continue;
       }
@@ -254,7 +282,7 @@ function parse(text) {
     }
 
     // ---- choices ----
-    const om = line.match(/^([A-D])[.)]\s*["“](.+?)["”]\s*(?:[—–-]\s*(.*))?$/);
+    const om = line.match(/^([A-D])[.)]\s*["“](.+?)["”]\s*(?:[—–-]\s*(.*))?$/) || line.match(/^([A-D])[.)]\s+([^"“—–]{3,90}?)\s+[—–]\s+(.*)$/);
     if (om && target()) {
       const restOpt = (om[3] || "").replace(/[\[\]]/g, "");
       const head = parseHead(restOpt);
@@ -264,7 +292,9 @@ function parse(text) {
       if (!head.check && afterNoRoll) opt.plain = splitOutcome(afterNoRoll[1]);
       else if (!head.check && parts.length > 1) opt.plain = splitOutcome(parts.slice(1).join(" — "));
       else if (!head.check && restOpt && !head.lock && !/không tung/i.test(restOpt)) opt.plain = splitOutcome(restOpt);
-      target().choices.push(opt);
+      const tg = target();
+      if (!tg.choices) { if (process.env.PARSE_DEBUG) console.error("choice in", tg.type, tg.id, line.slice(0, 60)); tg.choices = []; }
+      tg.choices.push(opt);
       continue;
     }
     // "Cần dấu ấn: "twin_core". Thành công: ..." — the option needs a mark
@@ -302,17 +332,22 @@ function parse(text) {
       // quest-level fields
       if (/^bậc tối thiểu/.test(key)) {
         if (block && block.type === "event" && !block.text && !block.choices.length) blockToQuest();
-        else if (!quest || questDone) startQuest(slug(lastHeader || "quest"), lastHeader.replace(/^\d+\.\s*/, "").replace(/^(việc vặt|cuộc cướp phá|nhiệm vụ|chiến dịch[^:]*)\s*:\s*/i, ""));
+        else if (!quest || questDone) {
+          // the title is the header above, or a plain short line right before this field
+          const title = prevLine && prevLine.length < 90 && !FIELD.test(prevLine) && !/[.!?]$/.test(prevLine) && prevLine !== lastHeader ? prevLine : lastHeader || "quest";
+          startQuest(slug(title), title.replace(/^\d+\.\s*/, "").replace(/^(việc vặt|cuộc cướp phá|nhiệm vụ|chiến dịch[^:]*)\s*:\s*/i, ""));
+        }
         const rm = val.match(/bậc\s*(\d+)/i) || val.match(/^(\d+)/);
-        quest.minRank = rm ? Number(rm[1]) : 1;
+        quest.minRank = rm ? Number(rm[1]) : null;
+        if (!rm) quest.minRankName = val.replace(/\s*\(.*$/, "").trim();
         closeContainers();
         continue;
       }
       if (quest && !scene && /^(gợi ý)$/.test(key)) { quest.hint = val.replace(/\*/g, ""); continue; }
       if (/^thời đại( yêu cầu)?$/.test(key)) { if (quest && !questDone) quest.era = val; else pendingEra = val; continue; }
       if (quest && /^(mở đầu|đoạn mở đầu)$/.test(key) && !scene) { quest.intro = val; continue; }
-      if (quest && !scene && key === "khi nào") { if (/thời đại/i.test(val)) quest.era = quest.era || val; continue; }
-      if (quest && /^đoạn kết/.test(key)) { quest.complete = val; questDone = true; scene = null; opt = null; continue; }
+      if (quest && !scene && key === "khi nào") { if (/thời đại/i.test(val)) quest.era = val; continue; }
+      if (quest && /^(đoạn kết|kết thúc thành công|kết thúc)/.test(key)) { quest.complete = val; questDone = true; scene = null; opt = null; continue; }
       if (quest && /^phần thưởng/.test(key)) { quest.reward = parseEffects(val); questDone = true; scene = null; continue; }
       if (quest && questDone && /^khoảnh khắc/.test(key)) { quest.moment = val; continue; }
       if (quest && scene) {
@@ -361,7 +396,7 @@ function parse(text) {
 
     // ---- headers ----
     if (/^(\d+\s*bậc\s*thứ bậc|thứ bậc\b)/i.test(line) && line.length < 120 && !/^thứ bậc\s*:/i.test(line)) { lastHeader = line; closeContainers(); mode = "hier"; block = null; quest = null; continue; }
-    if (/năm yên ả/i.test(line) && line.length < 40) {
+    if (/năm yên ả/i.test(line) && (line.length < 40 || (/^năm yên ả\s*\(/i.test(line) && line.length < 140 && /:$/.test(line)))) {
       if (!role && !focus) {
         const prev = res.focusQuiet[res.focusQuiet.length - 1];
         if (prev && prev.title === lastHeader) focus = prev;
@@ -377,7 +412,7 @@ function parse(text) {
     const looksHeader = isCapsHeader(line) || /^\d+\.\s*(việc chính|vai trò|việc vặt)/i.test(line) || /^(vai trò|việc chính|nhánh)\b/i.test(line) || /^phần \d/i.test(line);
     if (looksHeader && line.length < 120) {
       lastHeader = line;
-      if (/thứ bậc|\(7 cấp\)|7 bậc/i.test(line) && !/5 bậc/i.test(line)) { closeContainers(); mode = "hier"; block = null; quest = null; continue; }
+      if (/thứ bậc|\(7 cấp\)|7 bậc|^bậc lãnh (địa|thổ)|^cấp bậc/i.test(line) && !/5 bậc/i.test(line)) { closeContainers(); mode = "hier"; block = null; quest = null; continue; }
       if (/nhánh/i.test(line) && !/vai trò/i.test(line)) {
         closeContainers(); block = null; quest = null; scene = null;
         evo = { index: res.evolutions.length, title: line, require: "" }; res.evolutions.push(evo);
@@ -395,7 +430,7 @@ function parse(text) {
       continue;
     }
     if (/^\d+\.\s/.test(line) && line.length < 100 && !/^\d+\.\s*(điều kiện|\d+ bậc|5 bậc)/i.test(line)) {
-      if (mode === "promo" && role) { const p = promoLines(line); if (p.length) { role.promo.push(...p); continue; } }
+      if (mode === "promo" && role) { const p = promoLines(line); if (!p.length && role.promo.length < 4 && line.length > 20 && !/:$/.test(line) && (!FIELD.test(line) || /["“]/.test(line.split(":")[0]))) p.push(promoOf(line.replace(/\.$/, ""), null, null)); if (p.length) { role.promo.push(...p); continue; } }
       // a short numbered line outside a list of trials is a section title: it closes the open role / focus
       if (mode !== "promo" && mode !== "quiet" && !/[.!?]$/.test(line)) closeContainers();
       lastHeader = line; block = null; opt = null; if (questDone) quest = null;
@@ -404,7 +439,7 @@ function parse(text) {
 
     // ---- free lines inside containers ----
     if (mode === "hier" && res.hierarchy.length < 7 && !/^(dưới đây)/i.test(line)) { pushHier(line); continue; }
-    if (mode === "promo" && role) { const p = promoLines(line); if (p.length) { role.promo.push(...p); continue; } }
+    if (mode === "promo" && role) { const p = promoLines(line); if (!p.length && role.promo.length < 4 && line.length > 20 && !/:$/.test(line) && (!FIELD.test(line) || /["“]/.test(line.split(":")[0]))) p.push(promoOf(line.replace(/\.$/, ""), null, null)); if (p.length) { role.promo.push(...p); continue; } }
     if (mode === "quiet" && (role || focus) && !/^(dưới đây|phần)/i.test(line)) { (role || focus).quiet.push(...quietSplit(line)); continue; }
     if (opt && !opt.check && !opt.plain) { opt.plain = splitOutcome(line); continue; }
     if (!block && !quest && line.length < 100) lastHeader = line;
@@ -418,6 +453,7 @@ function parse(text) {
     let m;
     if ((m = l.match(/^\((rất khó|cực khó|khó|vừa|dễ)\s*[-–,]\s*([^)]+)\)\s*(.+)$/i))) return [promoOf(m[3], m[1], m[2])];
     if ((m = l.match(/^(?:\d+\.\s*)?(.+?)\s*\((rất khó|cực khó|khó|vừa|dễ)(?:\s*[,-–]\s*([^)]+))?\)\.?$/i))) return [promoOf(m[1], m[2], m[3])];
+    if ((m = l.match(/^(?:\d+\.\s*)?(.+?)\s*\((sức mạnh|trí tuệ|nhanh nhẹn|may mắn|sức khỏe)\s*[,-–]\s*(rất khó|cực khó|khó|vừa|dễ)\)\.?$/i))) return [promoOf(m[1], m[3], m[2])];
     if ((m = l.match(/^(?:\d+\.\s*)?(.+?)\s*\((sức mạnh|trí tuệ|nhanh nhẹn|may mắn|sức khỏe)\)\.?$/i))) return [promoOf(m[1], null, m[2])];
     if ((m = l.match(/^bậc (\d+)(?: lên (\d+))?\s*(?:\(([^)]+)\))?\s*:\s*(.+)$/i))) return [promoOf(m[4], m[3])];
     return [];
@@ -431,7 +467,8 @@ function parse(text) {
   function pushHier(l) {
     let m;
     l = l.replace(/^bậc\s*\d+\s*:\s*/i, "").replace(/^\d+\.\s*/, "");
-    if ((m = l.match(/^([^:]{2,80}?)\s*(?:\(bậc \d+\))?\s*:\s*(.+)$/i))) res.hierarchy.push({ rank: res.hierarchy.length + 1, name: m[1].trim(), text: m[2].trim() });
+    if ((m = l.match(/^([^:—–]{2,80}?)\s+[—–]\s+(.+)$/))) res.hierarchy.push({ rank: res.hierarchy.length + 1, name: m[1].trim(), text: m[2].trim() });
+    else if ((m = l.match(/^([^:]{2,80}?)\s*(?:\(bậc \d+\))?\s*:\s*(.+)$/i))) res.hierarchy.push({ rank: res.hierarchy.length + 1, name: m[1].trim(), text: m[2].trim() });
     else res.hierarchy.push({ rank: res.hierarchy.length + 1, name: "", text: l.trim(), unsplit: true });
   }
 
