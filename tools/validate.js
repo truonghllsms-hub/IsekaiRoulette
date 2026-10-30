@@ -2,12 +2,12 @@
 // Run: node tools/validate.js   (exit code 1 when anything is wrong)
 const STATS = ["STR", "INT", "AGI", "LUCK"];
 const BARS = ["health", "joy", "wealth"];
-const EFFECT_KEYS = new Set([...STATS, ...BARS, "flags", "unflags", "fame", "jobXp", "guildPts", "bond", "partyBond", "allyHurt", "allyDie", "allyLeave", "loseJob", "setJob", "joinGuild", "focus"]);
-const BOOL_EFFECTS = new Set(["allyHurt", "allyDie", "allyLeave", "loseJob", "joinGuild"]);
-const STR_EFFECTS = new Set(["setJob", "focus"]);
-const REQ_KEYS = new Set([...STATS, ...BARS, "fame", "below", "flags", "anyFlags", "notFlags", "flagHint", "gender", "job", "jobRank", "guild", "guildRank", "party", "allyTrait", "spouse", "children", "focus", "hint"]);
-const EVENT_KEYS = new Set(["_file", "id", "races", "excludeRaces", "tags", "stages", "eras", "minAge", "maxAge", "once", "weight", "require", "text", "effects", "choices", "moment", "death", "focus"]);
-const PLACEHOLDERS = new Set(["name", "race", "age", "origin", "stage", "pct", "cause", "ally", "allyJob", "partner", "child", "job", "rank", "guild", "spouse", "quest", "next"]);
+const EFFECT_KEYS = new Set([...STATS, ...BARS, "flags", "unflags", "fame", "jobXp", "guildPts", "bond", "partyBond", "allyHurt", "allyDie", "allyLeave", "loseJob", "setJob", "joinGuild", "focus", "recruit", "marry", "child", "loseChild", "demote", "orgRank", "orgRankName", "evolve", "era"]);
+const BOOL_EFFECTS = new Set(["allyHurt", "allyDie", "allyLeave", "loseJob", "joinGuild", "recruit", "marry", "child", "loseChild", "demote"]);
+const STR_EFFECTS = new Set(["setJob", "focus", "orgRankName", "evolve", "era"]);
+const REQ_KEYS = new Set([...STATS, ...BARS, "fame", "below", "flags", "anyFlags", "notFlags", "flagHint", "gender", "job", "jobRank", "jobRankMax", "guild", "guildRank", "guildRankMax", "party", "noParty", "allyTrait", "spouse", "children", "noChildren", "focus", "hint", "any", "fatherAlive", "motherAlive", "form"]);
+const EVENT_KEYS = new Set(["_file", "id", "races", "excludeRaces", "tags", "stages", "eras", "minAge", "maxAge", "once", "weight", "require", "text", "effects", "choices", "moment", "death", "focus", "result", "pack"]);
+const PLACEHOLDERS = new Set(["name", "race", "age", "origin", "stage", "pct", "cause", "ally", "allyJob", "partner", "child", "job", "rank", "guild", "spouse", "quest", "next", "father", "mother", "maker", "who"]);
 
 function validate(data) {
   const errors = [];
@@ -63,12 +63,14 @@ function validate(data) {
       else if (k === "flags" || k === "unflags") { if (!Array.isArray(eff[k])) err(where, `${k} phải là mảng`); }
       else if (BOOL_EFFECTS.has(k)) { if (eff[k] !== true) err(where, `${k} phải là true`); }
       else if (STR_EFFECTS.has(k)) { if (typeof eff[k] !== "string") err(where, `${k} phải là chuỗi`); }
-      else if (typeof eff[k] !== "number" || Math.abs(eff[k]) > 60) err(where, `${k} phải là số trong khoảng -60..60`);
+      else if (k === "orgRank") { if (typeof eff[k] !== "number") err(where, "orgRank phải là số"); }
+      else if (typeof eff[k] !== "number" || Math.abs(eff[k]) > 100) err(where, `${k} phải là số trong khoảng -100..100`);
     }
   };
   const checkReq = (where, req) => {
     if (!req) return;
     for (const k of Object.keys(req)) if (!REQ_KEYS.has(k)) err(where, `require lạ "${k}"`);
+    for (const r of req.any || []) checkReq(where + " (any)", r);
   };
   const checkRaces = (where, list) => {
     for (const r of list || []) if (!raceIds.has(r)) err(where, `tộc không tồn tại "${r}"`);
@@ -147,14 +149,23 @@ function validate(data) {
     for (const t of j.promo || []) checkText(w, t);
     for (const t of j.quiet || []) checkText(w, t);
   }
-  const RANKS = ["F", "E", "D", "C", "B", "A", "S"];
+  const orgs = new Map((data.orgs || []).map((o) => [o.id, o]));
+  for (const o of data.orgs || []) {
+    const w = `orgs [${o.id}]`;
+    if (!(o.ranks && o.ranks.length >= 2)) err(w, "cần danh sách ranks");
+    if (!(o.points && o.points.length === o.ranks.length)) err(w, "points phải dài bằng ranks");
+  }
   const qids = new Set();
   for (const q of data.quests || []) {
-    const w = `quests.json [${q.id}]`;
+    const w = `quests [${q.id}]`;
     if (qids.has(q.id)) err(w, "trùng id");
     qids.add(q.id);
-    if (q.minRank && !RANKS.includes(q.minRank)) err(w, "minRank phải là F..S");
-    if (q.maxRank && !RANKS.includes(q.maxRank)) err(w, "maxRank phải là F..S");
+    const o = orgs.get(q.org || "guild");
+    if (!o) err(w, `tổ chức không tồn tại "${q.org}"`);
+    else {
+      if (q.minRank != null && !(q.minRank >= 0 && q.minRank < o.ranks.length)) err(w, "minRank ngoài phạm vi");
+      if (q.maxRank != null && !(q.maxRank >= 0 && q.maxRank < o.ranks.length)) err(w, "maxRank ngoài phạm vi");
+    }
     for (const x of q.eras || []) if (!eraIds.has(x)) err(w, `thời đại không tồn tại "${x}"`);
     checkText(w, q.intro);
     checkText(w, q.complete);
@@ -162,7 +173,9 @@ function validate(data) {
     (q.steps || []).forEach((st, si) => {
       const sw = `${w} cảnh ${si + 1}`;
       checkText(sw, st.text);
-      if (!(st.choices && st.choices.length >= 2 && st.choices.length <= 4)) err(sw, "cần 2–4 lựa chọn");
+      if (st.auto) { checkOutcome(sw + " (tự động)", st.auto); return; }
+      if (!(st.choices && st.choices.length >= 1 && st.choices.length <= 4)) err(sw, "cần 1–4 lựa chọn");
+      for (const ch of st.choices || []) for (const o of [ch, ch.success, ch.fail]) if (o && o.next != null && !(o.next >= 0 && o.next < q.steps.length)) err(sw, `next=${o.next} không tồn tại`);
       (st.choices || []).forEach((ch, i) => {
         const cw = `${sw} lựa chọn ${i + 1}`;
         if (!ch.label) err(cw, "thiếu label");

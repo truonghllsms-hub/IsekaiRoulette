@@ -13,7 +13,7 @@ nhiều nội dung để không lặp. Các tộc ma vật giữ mức vừa ph�
 | Dwarf | 12% | văn minh | ×1.7 | 9 nghề | 14 | 10 | 184 | 14 | [dwarf.md](dwarf.md) |
 | Demon | 7% | văn minh | ×1 | 7 nghề | 10 | 10 | 126 | 11 | [demon.md](demon.md) |
 | Elf | 7% | văn minh | ×1 | 7 nghề | 10 | 10 | 126 | 11 | [elf.md](elf.md) |
-| Goblin | 4% | ma vật | ×1 | 5 vai trò | 11 | 7 | 110 | 10 | [goblin.md](goblin.md) |
+| Goblin | 4% | ma vật | ×1 | 5 vai trò | 11 | 8 | 111 | 10 | [goblin.md](goblin.md) |
 | Slime | 3% | ma vật | ×1 | 5 vai trò | 11 | 6 | 109 | 10 | [slime.md](slime.md) |
 | Kobold | 3% | ma vật | ×1 | 5 vai trò | 11 | 6 | 105 | 10 | [kobold.md](kobold.md) |
 | Lizardman | 3% | ma vật | ×1 | 5 vai trò | 11 | 6 | 105 | 10 | [lizardman.md](lizardman.md) |

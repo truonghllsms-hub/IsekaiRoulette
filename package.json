@@ -4,9 +4,10 @@
   "private": true,
   "description": "Text-based isekai life simulator (web).",
   "scripts": {
-    "build": "node tools/build.js",
+    "build": "node tools/build-pack.js && node tools/build.js",
     "validate": "node tools/validate.js",
     "simulate": "node tools/simulate.js",
-    "test": "node tools/validate.js && node tools/simulate.js && node tools/build.js"
+    "test": "node tools/build-pack.js && node tools/validate.js && node tools/simulate.js && node tools/build.js",
+    "packs": "node tools/build-pack.js"
   }
 }

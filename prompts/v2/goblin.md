@@ -1,7 +1,7 @@
 # Prompt Gemini: kịch bản đời người — GOBLIN (goblin)
 
 Tỉ lệ đầu thai **4%** · nhóm **ma vật / dị tộc** · hệ số nội dung **×1**
-Khoảng **110** mục nội dung, chia thành **10 phần**.
+Khoảng **111** mục nội dung, chia thành **10 phần**.
 
 **Cách dùng**
 1. Mở một cuộc trò chuyện mới với Gemini. Dán **KHỐI CHUNG** trước.
@@ -30,7 +30,7 @@ Cách ra đời: Đẻ ra cả lứa trong hang. Con non bị vứt cho tự sin
 
 === GIAI ĐOẠN ĐỜI ===
 tuổi thọ 15–20 năm
-Ấu tể da xanh 0–2 · Yêu tinh nhí 2–4 · Tiểu yêu ranh mãnh 4–6 · Chiến binh hang động 6–11 · Yêu tinh già dặn 11–16 · Lão làng Vực thẳm 16+
+Ấu tể 0–2 · Goblin con 2–4 · Goblin thiếu niên 4–6 · Goblin trưởng thành 6–11 · Goblin lão luyện 11–16 · Goblin lão làng 16+
 Những giai đoạn trẻ và sung sức là lúc nhiều biến cố nhất: viết nhiều cho các giai đoạn này.
 
 === CÁCH GAME VẬN HÀNH (để bạn viết cho khớp) ===
@@ -43,7 +43,7 @@ Những giai đoạn trẻ và sung sức là lúc nhiều biến cố nhất: v
 - GIÀNH BẠN TÌNH (thay cho hôn nhân) và con cháu.
 - TIẾN HÓA: Hobgoblin · Goblin Shaman Lord · Goblin King (cực hiếm).
 - DẤU ẤN: lựa chọn để lại dấu ấn; nhiều năm sau, sự kiện khác chỉ xảy ra nếu có dấu ấn đó.
-- Game đã có sẵn 48 sự kiện cũ cho tộc này (đời thường, ngẫu nhiên). Lần này bạn viết LỚP MỚI gắn với
+- Game đã có sẵn 137 sự kiện cũ cho tộc này (đời thường, ngẫu nhiên). Lần này bạn viết LỚP MỚI gắn với
   việc chính, vai trò, cuộc cướp phá, băng nhóm, gia đình. Tránh lặp lại những ý quá quen.
 
 === THẾ GIỚI AETHELGARD ===
@@ -110,6 +110,17 @@ Riêng tộc này: Sử thi trang trọng đặt vào thân phận hèn mọn. H
 - **Khoảnh khắc:** (tùy chọn) một dòng ngắn ghi vào tổng kết cuộc đời.
 
 Sự kiện KHÔNG có lựa chọn thì chỉ cần: Khi nào, Tình huống, Hệ quả.
+
+QUY ƯỚC BẮT BUỘC (để game đọc đúng):
+- Dòng khóa luôn viết dạng điều kiện CẦN CÓ: "KHÓA: cần Trí tuệ 6", "KHÓA: cần dấu ấn "x" hoặc Trí tuệ 7".
+  Không viết "KHÓA nếu ... từ ..." (dễ hiểu ngược).
+- Sự kiện có lựa chọn phải có ÍT NHẤT 2 lựa chọn. Lựa chọn liều mạng luôn đi kèm một lựa chọn an toàn hoặc hèn nhát.
+- Chỉ tung xúc xắc bằng: Sức mạnh, Trí tuệ, Nhanh nhẹn, May mắn hoặc Sức khỏe.
+- Tài sản và Danh vọng tính trên thang 0–100: thưởng thường +5..+30, thưởng huyền thoại tối đa +100.
+- Hệ quả đặc biệt dùng đúng chữ: "thu nhận {ally}", "mất {ally}", "có {spouse}", "có {child}", "mất {child}",
+  "giáng chức về Bậc 1", "thăng bậc <tên bậc>", "TIẾN HÓA THÀNH <tên>", "CHẾT (lý do ngắn)".
+- Mỗi kết quả trong một CẢNH của nhiệm vụ/cướp phá kết thúc bằng đúng một trong: (THẮNG NGAY ...), (THẤT BẠI NGAY ...),
+  (Chuyển sang CẢNH n ...), (CHẾT, lý do). Không ghi gì nghĩa là đi tiếp sang cảnh kế.
 MÃ viết thường, không dấu, bắt đầu bằng mã tộc, ví dụ goblin_job_duel, goblin_quest_ruins_2.
 
 Hãy trả lời "Đã hiểu" và chờ tôi gửi từng phần.
@@ -125,13 +136,14 @@ PHẦN 1: Xuất thân và cha mẹ
 Viết lại xuất thân, lần này kèm đầy đủ thông tin CHA MẸ.
 Cách ra đời của tộc này: Đẻ ra cả lứa trong hang. Con non bị vứt cho tự sinh tự diệt; cha thường không rõ là ai, mẹ có thể còn nhớ hoặc không. Con của Tù trưởng hay Pháp sư thì biết rõ cha mẹ.
 
-a) 6 xuất thân ĐÃ CÓ bên dưới: giữ tên và ý chính, bổ sung cha mẹ, anh chị em, gia cảnh.
+a) 7 xuất thân ĐÃ CÓ bên dưới: giữ tên và ý chính, bổ sung cha mẹ, anh chị em, gia cảnh.
    - Bụi rậm Rừng Tân Thủ (dấu ấn: forest_goblin)
    - Đống rác Hầm ngục (dấu ấn: dungeon_scavenger)
-   - Hang Ổ Tù Trưởng (dấu ấn: hated, chief_son)
+   - Hang ổ Goblin Chief (dấu ấn: hated, chief_son)
    - Bia tập chém Tân thủ (dấu ấn: orphan)
-   - Đứa con của Pháp Sư (dấu ấn: shaman_apprentice)
+   - Con của Goblin Shaman (dấu ấn: shaman_apprentice)
    - Đột biến dị thường (dấu ấn: hobgoblin_blood)
+   - Tù Binh Trại Orc (dấu ấn: orc_slave)
 b) Viết thêm 1 xuất thân MỚI.
 
 Mỗi xuất thân viết theo mẫu:

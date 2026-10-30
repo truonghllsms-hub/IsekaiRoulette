@@ -3,14 +3,15 @@
 // A life is played in "chapters": one click lets time flow tick by tick until something worth
 // stopping for happens (a choice, a new life stage, death) or a few events have been told.
 // Quiet years are folded into one line, so busy ages read year by year and calm ones fly past.
+//
+// Races can bring their own "pack" (data/packs/<race>.json, merged by tools/load.js): their own
+// organisation (Guild, tribe...), roles, raids, focus names, companions and texts.
 (function (root) {
   "use strict";
 
   const STAT_KEYS = ["STR", "INT", "AGI", "LUCK"];
   const BAR_KEYS = ["health", "joy", "wealth"];
   const STAT_LABEL = { STR: "Sức mạnh", INT: "Trí tuệ", AGI: "Nhanh nhẹn", LUCK: "May mắn", health: "Sức khỏe", joy: "Hạnh phúc", wealth: "Tài sản", fame: "Danh vọng" };
-  const GUILD_RANKS = ["F", "E", "D", "C", "B", "A", "S"];
-  const GUILD_POINTS = [0, 3, 8, 15, 25, 40, 60];
   const MAX_PARTY = 3;
 
   // Default life stages as a share of the race's average lifespan.
@@ -78,14 +79,15 @@
   function currentStage(c) {
     return stagesOf(c.race)[stageIndex(c)];
   }
+  function adultStart(race) {
+    const adult = stagesOf(race).find((s) => s.id === "adult");
+    return adult ? adult.start : avgLifespan(race) * 0.25 || 20;
+  }
 
   // How many real years equal one "human year" of living for this race. Used so a dragon does not
   // get promoted every tick: work experience, income and child births scale with it.
   function yearScale(race) {
-    const st = stagesOf(race);
-    const adult = st.find((s) => s.id === "adult");
-    const adultStart = adult ? adult.start : avgLifespan(race) * 0.25 || 20;
-    return Math.max(1, adultStart / 19);
+    return Math.max(1, adultStart(race) / 19);
   }
 
   function tickYears(c) {
@@ -103,6 +105,32 @@
     return step;
   }
 
+  // ---------- race-specific settings ----------
+  // Text and settings can be overridden per race in data.systems.race[raceId].
+  function sys(c, data, key) {
+    const r = data.systems.race && data.systems.race[c.race.id];
+    return r && r[key] !== undefined ? r[key] : data.systems[key];
+  }
+  function orgFor(c, data) {
+    return (data.orgs || []).find(
+      (o) => (o.races && o.races.includes(c.race.id)) || (!o.races && o.tags && (c.race.tags || []).some((t) => o.tags.includes(t)))
+    );
+  }
+  function orgDef(c, data) {
+    return c.guild ? (data.orgs || []).find((o) => o.id === c.guild.org) : null;
+  }
+  function orgRankName(c, data) {
+    const o = orgDef(c, data);
+    if (!o) return "";
+    return o.rankLabel ? `${o.rankLabel} ${o.ranks[c.guild.rank]}` : o.ranks[c.guild.rank];
+  }
+  function focusDef(c, data, id) {
+    const base = (data.focus || []).find((f) => f.id === id);
+    const over = data.focusRace && data.focusRace[c.race.id] && data.focusRace[c.race.id][id];
+    if (!base) return null;
+    return over ? Object.assign({}, base, over) : base;
+  }
+
   // ---------- text ----------
   function jobDef(c, data) {
     return c.job ? (data.jobs || []).find((j) => j.id === c.job.id) : null;
@@ -118,10 +146,19 @@
   function aliveParty(c) {
     return c.party.filter((m) => m.alive);
   }
+  function raceTitle(c) {
+    return c.form ? `${c.race.name} → ${c.form}` : c.race.name;
+  }
+  function parentName(c, who) {
+    const p = c.parents && c.parents[who];
+    if (!p || !p.name) return who === "father" ? "cha bạn" : who === "mother" ? "mẹ bạn" : "kẻ đã tạo ra bạn";
+    return p.name;
+  }
 
   function fmt(text, c, extra, data) {
     const ctx = c.ctx || {};
     const j = data ? jobDef(c, data) : null;
+    const kid = ctx.child || (c.children.length ? c.children[c.children.length - 1].name : "đứa con");
     const vars = Object.assign(
       {
         name: c.name,
@@ -129,15 +166,18 @@
         age: c.age,
         origin: c.origin ? c.origin.name : "",
         stage: currentStage(c).name,
-        ally: ctx.ally ? ctx.ally.name : "người đồng hành",
+        ally: ctx.ally ? ctx.ally.name : "kẻ đồng hành",
         allyJob: ctx.ally ? ctx.ally.jobName : "",
         partner: ctx.partner ? ctx.partner.name : "",
-        child: ctx.child || "",
+        child: kid,
         job: j ? j.name : "kẻ lang bạt",
         rank: j ? rankNames(c, j)[c.job.rank] : "",
-        guild: c.guild ? GUILD_RANKS[c.guild.rank] : "",
-        spouse: c.spouse ? c.spouse.name : "",
+        guild: data && c.guild ? orgRankName(c, data) : "",
+        spouse: c.spouse ? c.spouse.name : ctx.partner ? ctx.partner.name : "người ấy",
         quest: ctx.quest ? ctx.quest.name : "",
+        father: parentName(c, "father"),
+        mother: parentName(c, "mother"),
+        maker: parentName(c, "maker"),
       },
       extra || {}
     );
@@ -150,6 +190,45 @@
     const first = pick(rng, list);
     const fam = names.family && names.family.length ? " " + pick(rng, names.family) : "";
     return first + fam;
+  }
+
+  // ---------- parents ----------
+  // Origins from a race pack describe the parents; other races get plain generated ones.
+  function makeParents(c, data, rng) {
+    const o = c.origin;
+    const out = {};
+    const famName = (c.name.split(" ").slice(1).join(" ") || "").trim();
+    const lifeLeft = () => {
+      if (!c.race.lifespan) return null;
+      const parentAge = adultStart(c.race) * (1 + rng() * 0.6);
+      return Math.max(1, randInt(rng, c.race.lifespan[0], c.race.lifespan[1]) - parentAge);
+    };
+    for (const who of ["father", "mother", "maker"]) {
+      const p = o[who];
+      if (p) {
+        out[who] = Object.assign({}, p, { alive: p.status === "alive", dieAt: p.status === "alive" ? lifeLeft() : null });
+      } else if (who !== "maker" && !o.noParents) {
+        const orphan = c.flags.some((f) => /orphan|mo_coi/.test(f));
+        const g = who === "father" ? "male" : "female";
+        const first = randomName(data, rng, c.race.id, g).split(" ")[0];
+        out[who] = { name: famName ? `${first} ${famName}` : first, race: c.race.name, status: orphan ? "dead" : "alive", alive: !orphan, dieAt: orphan ? null : lifeLeft(), generated: true };
+      }
+    }
+    return out;
+  }
+
+  function parentsTick(c, data, rng) {
+    if (!c.parents) return;
+    for (const who of ["father", "mother"]) {
+      const p = c.parents[who];
+      if (p && p.alive && p.dieAt != null && c.age >= p.dieAt) {
+        p.alive = false;
+        p.status = "dead";
+        const lines = sys(c, data, "parentDeath") || ["{who} qua đời. Bạn đứng lặng rất lâu trước nấm mồ."];
+        pushLog(c, "loss", fmt(pick(rng, lines), c, { who: p.name || (who === "father" ? "Cha bạn" : "Mẹ bạn") }, data));
+        addMoment(c, `${who === "father" ? "Cha" : "Mẹ"} qua đời`, data);
+      }
+    }
   }
 
   // ---------- character ----------
@@ -191,6 +270,8 @@
       alive: true,
       cause: null,
       // life profile
+      form: null,
+      parents: null,
       focus: null,
       job: null,
       pastJobs: [],
@@ -207,6 +288,9 @@
       clicks: 0,
     };
     applyEffects(c, origin.effects, data, rng);
+    c.parents = makeParents(c, data, rng);
+    const org = orgFor(c, data);
+    if (org && org.auto) c.guild = { org: org.id, rank: 0, pts: 0, since: 0 };
     if (era) pushLog(c, "era", era.text);
     pushLog(c, "intro", introLine(c));
     pushLog(c, "birth", fmt(origin.text, c, null, data));
@@ -236,6 +320,11 @@
     for (const k of STAT_KEYS) if (eff[k]) c.stats[k] = clamp(c.stats[k] + eff[k], 0, 99);
     for (const k of BAR_KEYS) if (eff[k]) c.bars[k] = clamp(c.bars[k] + eff[k], 0, 100);
     if (eff.fame) c.fame = clamp(c.fame + eff.fame, 0, 100);
+    // In some organisations (a Goblin tribe) any renown also climbs the ladder.
+    if (eff.fame > 0 && data && c.guild) {
+      const o = orgDef(c, data);
+      if (o && o.fameToPts) addGuildPoints(c, data, eff.fame * o.fameToPts);
+    }
     if (eff.flags) for (const f of eff.flags) if (!c.flags.includes(f)) c.flags.push(f);
     if (eff.unflags) c.flags = c.flags.filter((f) => !eff.unflags.includes(f));
     if (!data) return;
@@ -249,17 +338,52 @@
       ally.bond = clamp(ally.bond - 5, 0, 100);
     }
     if (eff.allyDie && ally) killAlly(c, data, ally, rng);
-    if (eff.allyLeave && ally) {
+    if (eff.allyLeave && ally && ally.alive) {
       ally.alive = false;
       ally.left = true;
+      pushLog(c, "loss", fmt(pick(rng, sys(c, data, "allyLeave")), c, { ally: ally.name }, data));
+    }
+    if (eff.recruit && aliveParty(c).length < MAX_PARTY) {
+      const m = makeCompanion(c, data, rng);
+      c.party.push(m);
+      addMoment(c, `${m.name} gia nhập ${sys(c, data, "bandName") || "tổ đội"}`, data);
     }
     if (eff.loseJob && c.job) {
       c.pastJobs.push(c.job);
       c.job = null;
       c.nextJobOffer = c.age + tickYears(c) * 2;
     }
+    if (eff.demote && c.job) {
+      c.job.rank = 0;
+      c.job.xp = 0;
+    }
     if (eff.setJob) takeJob(c, data, eff.setJob, rng);
     if (eff.joinGuild && !c.guild) joinGuild(c, data);
+    if (eff.orgRankName && c.guild) {
+      const o = orgDef(c, data);
+      const idx = o.ranks.findIndex((r) => r.toLowerCase().startsWith(String(eff.orgRankName).toLowerCase()));
+      if (idx >= 0) setOrgRank(c, data, idx);
+    }
+    if (eff.orgRank != null && c.guild) setOrgRank(c, data, eff.orgRank);
+    if (eff.marry && !c.spouse) {
+      const p = (c.ctx && c.ctx.partner) || makePartner(c, data, rng);
+      c.spouse = { name: p.name, race: p.race || c.race.name, since: c.age };
+    }
+    if (eff.child) addChild(c, data, rng);
+    if (eff.loseChild && c.children.length) {
+      const k = c.children.pop();
+      c.lostChildren = (c.lostChildren || 0) + 1;
+      k.lost = c.age;
+    }
+    if (eff.evolve) evolve(c, data, eff.evolve);
+    if (eff.era && data.eras) {
+      const e = data.eras.find((x) => x.id === eff.era);
+      if (e && (!c.era || c.era.id !== e.id)) {
+        c.era = e;
+        c.eraUntil = c.age + randInt(rng, 30, 120) * Math.max(1, yearScale(c.race) / 2);
+        pushLog(c, "era", e.change);
+      }
+    }
     if (eff.focus) c.focus = eff.focus;
   }
 
@@ -272,11 +396,16 @@
 
   function meets(c, req, data) {
     if (!req) return true;
+    if (req.any && !req.any.some((r) => meets(c, r, data))) return false;
     for (const k of STAT_KEYS) if (req[k] != null && c.stats[k] < req[k]) return false;
     for (const k of BAR_KEYS) if (req[k] != null && c.bars[k] < req[k]) return false;
     if (req.fame != null && c.fame < req.fame) return false;
     if (req.below) {
-      for (const k of Object.keys(req.below)) if (statValue(c, k) >= req.below[k]) return false;
+      for (const k of Object.keys(req.below)) {
+        if (k === "bond") {
+          if (!aliveParty(c).some((m) => m.bond < req.below.bond)) return false;
+        } else if (statValue(c, k) >= req.below[k]) return false;
+      }
     }
     if (req.flags && !req.flags.every((f) => c.flags.includes(f))) return false;
     if (req.anyFlags && !req.anyFlags.some((f) => c.flags.includes(f))) return false;
@@ -289,26 +418,39 @@
       else if (!c.job || !jobs.includes(c.job.id)) return false;
     }
     if (req.jobRank != null && (!c.job || c.job.rank < req.jobRank)) return false;
+    if (req.jobRankMax != null && (!c.job || c.job.rank > req.jobRankMax)) return false;
     if (req.guild === true && !c.guild) return false;
     if (req.guild === false && c.guild) return false;
     if (req.guildRank != null && (!c.guild || c.guild.rank < req.guildRank)) return false;
+    if (req.guildRankMax != null && (!c.guild || c.guild.rank > req.guildRankMax)) return false;
     if (req.party != null && aliveParty(c).length < req.party) return false;
+    if (req.noParty && aliveParty(c).length) return false;
     if (req.allyTrait && !aliveParty(c).some((m) => m.trait === req.allyTrait)) return false;
     if (req.spouse === true && !c.spouse) return false;
     if (req.spouse === false && c.spouse) return false;
     if (req.children != null && c.children.length < req.children) return false;
+    if (req.noChildren && c.children.length) return false;
     if (req.focus && !(c.focus && [].concat(req.focus).includes(c.focus))) return false;
+    if (req.fatherAlive != null && !!(c.parents && c.parents.father && c.parents.father.alive) !== req.fatherAlive) return false;
+    if (req.motherAlive != null && !!(c.parents && c.parents.mother && c.parents.mother.alive) !== req.motherAlive) return false;
+    if (req.form !== undefined) {
+      if (req.form === "none" ? c.form : req.form === "any" ? !c.form : c.form !== req.form) return false;
+    }
     return true;
   }
 
   // Human-readable reason why a requirement is not met (for locked choices).
   function unmetReason(c, req, data) {
     if (!req) return "";
+    if (req.any) {
+      const parts = req.any.map((r) => unmetReason(c, r, data).replace(/^Cần /, "")).filter(Boolean);
+      return parts.length ? "Cần " + parts.join(" hoặc ") : "";
+    }
     const out = [];
     for (const k of STAT_KEYS) if (req[k] != null && c.stats[k] < req[k]) out.push(`${STAT_LABEL[k]} ${req[k]}`);
     for (const k of BAR_KEYS) if (req[k] != null && c.bars[k] < req[k]) out.push(`${STAT_LABEL[k]} ${req[k]}`);
     if (req.fame != null && c.fame < req.fame) out.push(`Danh vọng ${req.fame}`);
-    if (req.flags && !req.flags.every((f) => c.flags.includes(f))) out.push(req.flagHint || "xuất thân phù hợp");
+    if (req.flags && !req.flags.every((f) => c.flags.includes(f))) out.push(req.flagHint || "một dấu ấn trong quá khứ");
     if (req.anyFlags && !req.anyFlags.some((f) => c.flags.includes(f))) out.push(req.flagHint || "xuất thân phù hợp");
     if (req.notFlags && req.notFlags.some((f) => c.flags.includes(f))) out.push("quá khứ của bạn không cho phép");
     return out.length ? "Cần " + out.join(", ") : "";
@@ -327,7 +469,7 @@
     return meets(c, e.require, data);
   }
 
-  // ---------- jobs, guild, party ----------
+  // ---------- jobs, organisations, party, family ----------
   function jobsFor(c, data) {
     return (data.jobs || []).filter(
       (j) =>
@@ -349,40 +491,67 @@
   }
 
   function joinGuild(c, data) {
-    c.guild = { rank: 0, pts: 0, since: c.age };
-    const s = data.systems;
-    pushLog(c, "milestone", fmt(pick(Math.random, s.guildJoin), c, null, data));
-    addMoment(c, "Ghi danh tại Guild Bình Minh, nhận thẻ hạng F", data);
+    const o = orgFor(c, data);
+    if (!o) return;
+    c.guild = { org: o.id, rank: 0, pts: 0, since: c.age };
+    if (o.join && o.join.length) pushLog(c, "milestone", fmt(pick(Math.random, o.join), c, null, data));
+    addMoment(c, o.joinMoment || `Gia nhập ${o.name}`, data);
+  }
+
+  function setOrgRank(c, data, idx) {
+    const o = orgDef(c, data);
+    idx = clamp(idx, 0, o.ranks.length - 1);
+    if (idx === c.guild.rank) return;
+    const up = idx > c.guild.rank;
+    c.guild.rank = idx;
+    if (o.points && o.points[idx] != null) c.guild.pts = Math.max(c.guild.pts, o.points[idx]);
+    if (up) {
+      c.fame = clamp(c.fame + 4 + idx * 2, 0, 100);
+      const text = (o.rankUp && (o.rankUp[idx] || o.rankUp.default)) || `Bạn được thăng lên ${o.ranks[idx]}.`;
+      pushLog(c, "milestone", fmt(text, c, null, data));
+      addMoment(c, `Trở thành ${o.rankLabel ? o.rankLabel + " " : ""}${o.ranks[idx]}`, data);
+    }
   }
 
   function addGuildPoints(c, data, pts) {
+    const o = orgDef(c, data);
     c.guild.pts += pts;
-    while (c.guild.rank < GUILD_RANKS.length - 1 && c.guild.pts >= GUILD_POINTS[c.guild.rank + 1]) {
-      c.guild.rank++;
-      c.fame = clamp(c.fame + 4 + c.guild.rank * 2, 0, 100);
-      const text = data.systems.guildRankUp[c.guild.rank] || data.systems.guildRankUp.default;
-      pushLog(c, "milestone", fmt(text, c, null, data));
-      addMoment(c, `Thăng lên mạo hiểm giả hạng ${GUILD_RANKS[c.guild.rank]}`, data);
+    while (c.guild.rank < o.ranks.length - 1 && o.points[c.guild.rank + 1] != null && c.guild.pts >= o.points[c.guild.rank + 1]) {
+      setOrgRank(c, data, c.guild.rank + 1);
     }
   }
 
   function makeCompanion(c, data, rng) {
-    const s = data.systems;
-    const raceIds = s.companionRaces.filter((id) => data.races.some((r) => r.id === id));
-    const raceId = rng() < 0.45 && raceIds.includes(c.race.id) ? c.race.id : pick(rng, raceIds);
+    const traits = data.systems.traits;
+    const custom = sys(c, data, "companions");
+    let raceName, raceId, jobName, stat, jobId;
+    if (custom && custom.length) {
+      const t = weightedPick(custom, rng);
+      raceName = t.race;
+      raceId = t.names || c.race.id;
+      jobName = t.job;
+      stat = t.stat;
+      jobId = t.id || "companion";
+    } else {
+      const ids = data.systems.companionRaces.filter((id) => data.races.some((r) => r.id === id));
+      raceId = rng() < 0.45 && ids.includes(c.race.id) ? c.race.id : pick(rng, ids);
+      raceName = data.races.find((r) => r.id === raceId).name;
+      const job = pick(rng, (data.jobs || []).filter((j) => j.combat && j.tags));
+      jobName = job.name;
+      stat = job.stat;
+      jobId = job.id;
+    }
     const race = data.races.find((r) => r.id === raceId);
-    const gender = race.genderless ? null : rng() < 0.5 ? "male" : "female";
-    const combatJobs = (data.jobs || []).filter((j) => j.combat);
-    const job = pick(rng, combatJobs);
-    const trait = pick(rng, Object.keys(s.traits));
+    const gender = race && race.genderless ? null : rng() < 0.5 ? "male" : "female";
+    const trait = pick(rng, Object.keys(traits));
     const rank = c.guild ? c.guild.rank : 0;
     return {
       name: randomName(data, rng, raceId, gender).split(" ")[0],
-      race: race.name,
+      race: raceName,
       gender,
-      job: job.id,
-      jobName: job.name,
-      stat: job.stat,
+      job: jobId,
+      jobName,
+      stat,
       power: clamp(randInt(rng, 2, 6) + rank + (trait === "brave" ? 1 : 0), 1, 15),
       trait,
       bond: randInt(rng, 25, 45),
@@ -391,13 +560,36 @@
     };
   }
 
+  function makePartner(c, data, rng) {
+    const g = c.gender === "male" ? "female" : c.gender === "female" ? "male" : null;
+    return { name: randomName(data, rng, c.race.id, g).split(" ")[0], race: c.race.name };
+  }
+
+  function addChild(c, data, rng) {
+    const g = rng() < 0.5 ? "male" : "female";
+    const name = randomName(data, rng, c.race.id, g).split(" ")[0];
+    c.children.push({ name, born: c.age });
+    if (c.ctx) c.ctx.child = name;
+    addMoment(c, `Đứa con ${name} chào đời`, data);
+    return name;
+  }
+
+  function evolve(c, data, name) {
+    const forms = (c.race.forms || {});
+    const key = Object.keys(forms).find((k) => k.toLowerCase() === String(name).toLowerCase()) || name;
+    const f = forms[key] || {};
+    c.form = f.name || key;
+    if (c.maxAge != null && f.life) c.maxAge += f.life;
+    addMoment(c, `Tiến hóa thành ${c.form}`, data);
+  }
+
   function killAlly(c, data, m, rng) {
     if (!m || !m.alive) return;
     m.alive = false;
     m.diedAt = c.age;
     c.bars.joy = clamp(c.bars.joy - 15 - Math.round(m.bond / 5), 0, 100);
-    pushLog(c, "loss", fmt(pick(rng, data.systems.allyDie), c, { ally: m.name }, data));
-    addMoment(c, `Mất đi người đồng đội ${m.name}`, data);
+    pushLog(c, "loss", fmt(pick(rng, sys(c, data, "allyDie")), c, { ally: m.name }, data));
+    addMoment(c, `Mất đi ${m.name}`, data);
   }
 
   // Bonus a party gives to a check: everyone helps a little, those whose craft fits help a lot.
@@ -411,9 +603,11 @@
     return Math.min(0.25, b);
   }
 
+  // Stats (about 1–15) move the odds 8% per point; bars and fame (0–100) about 1.5% per point.
   function successChance(c, check) {
     const v = statValue(c, check.stat);
-    const base = 0.5 + (v - check.target) * 0.08 + (c.stats.LUCK - 5) * 0.02;
+    const slope = STAT_KEYS.includes(check.stat) ? 0.08 : 0.015;
+    const base = 0.5 + (v - check.target) * slope + (c.stats.LUCK - 5) * 0.02;
     return clamp(base + partyBonus(c, check), 0.05, 0.95);
   }
 
@@ -421,12 +615,16 @@
   function focusOptions(c, data) {
     const st = currentStage(c).id;
     const isLast = stageIndex(c) === stagesOf(c.race).length - 1;
-    return (data.focus || []).filter((f) => {
-      if (f.stages && !f.stages.includes(st) && !(isLast && f.stages.includes("elder"))) return false;
-      if (f.tags && !(c.race.tags || []).some((t) => f.tags.includes(t))) return false;
-      if (f.id === "work" && !c.job && !["child", "teen"].includes(st) && !jobsFor(c, data).length) return false;
-      return true;
-    });
+    return (data.focus || [])
+      .map((f) => focusDef(c, data, f.id))
+      .filter((f) => {
+        if (f.hidden) return false;
+        if (f.stages && !f.stages.includes(st) && !(isLast && f.stages.includes("elder"))) return false;
+        if (f.tags && !(c.race.tags || []).some((t) => f.tags.includes(t))) return false;
+        if (f.id === "adventure" && !c.guild && !orgFor(c, data)) return false;
+        if (f.id === "work" && !c.job && !["child", "teen"].includes(st) && !jobsFor(c, data).length) return false;
+        return true;
+      });
   }
 
   function setFocus(c, data, id) {
@@ -439,8 +637,8 @@
 
   // Yearly drift from what you focus on: stat gains (diminishing) and bar changes.
   function liveFocus(c, data, rng, years, quiet) {
-    const per = years / yearScale(c.race);
-    const f = (data.focus || []).find((x) => x.id === c.focus);
+    const per = (years / yearScale(c.race)) * lifePace(c.race);
+    const f = c.focus ? focusDef(c, data, c.focus) : null;
     const gains = Object.assign({}, f ? f.gains : {});
     const bars = Object.assign({}, f ? f.bars : {});
     const j = jobDef(c, data);
@@ -460,7 +658,7 @@
       }
     }
     for (const k of Object.keys(bars)) c.bars[k] = clamp(c.bars[k] + bars[k] * Math.min(per, 6), 0, 100);
-    // Married life and children warm the heart; living costs money once grown.
+    // Married life warms the heart; living costs money once grown.
     if (c.spouse) c.bars.joy = clamp(c.bars.joy + Math.min(per, 4), 0, 100);
     if (["adult", "middle", "elder"].includes(currentStage(c).id) && c.focus !== "work") c.bars.wealth = clamp(c.bars.wealth - Math.min(per, 6), 0, 100);
   }
@@ -471,7 +669,9 @@
     c.pending = null;
     c.quest = null;
     c.causeKind = kind || "event";
-    c.cause = fmt(causeText, c, null, data);
+    let t = fmt(causeText, c, null, data).trim();
+    if (t && !/[.!?…]$/.test(t)) t += ".";
+    c.cause = t;
     pushLog(c, "death", c.cause);
   }
 
@@ -504,7 +704,8 @@
   }
 
   // ---------- system scenes (built by the engine, worded in data/systems.json) ----------
-  function scene(c, kind, text, choices, extra) {
+  function scene(c, kind, text, choices, extra, data) {
+    if (data) choices = choices.map((ch) => (/\{\w+\}/.test(ch.label) ? Object.assign({}, ch, { label: fmt(ch.label, c, null, data) }) : ch));
     c.pending = Object.assign({ kind, text, choices }, extra || {});
     pushLog(c, "choice", text);
   }
@@ -515,8 +716,8 @@
       c.focus = opts[0] ? opts[0].id : null;
       return false;
     }
-    const s = data.systems;
-    const text = fmt(s.crossroads[currentStage(c).id] || s.crossroads.default, c, null, data);
+    const cr = sys(c, data, "crossroads");
+    const text = fmt(cr[currentStage(c).id] || cr.default || data.systems.crossroads.default, c, null, data);
     scene(
       c,
       "crossroads",
@@ -527,7 +728,7 @@
   }
 
   function jobScene(c, data, rng) {
-    const s = data.systems.jobSelect;
+    const s = sys(c, data, "jobSelect");
     const choices = jobsFor(c, data).map((j) => {
       const ok = canTakeJob(c, j, data);
       return {
@@ -537,7 +738,7 @@
         reason: ok ? "" : unmetReason(c, j.require, data) + (j.alt && j.alt.hint ? ` (hoặc ${j.alt.hint})` : ""),
         text: j.start,
         act: { type: "job", id: j.id },
-        moment: `Bước vào nghề ${j.name}`,
+        moment: `Trở thành ${j.name}`,
       };
     });
     choices.push({ label: s.later, text: s.laterText, act: { type: "jobLater" } });
@@ -548,12 +749,12 @@
   function promotionScene(c, data, rng) {
     const j = jobDef(c, data);
     const r = c.job.rank;
-    const s = data.systems.promotion;
+    const s = sys(c, data, "promotion");
     const next = rankNames(c, j)[r + 1];
     scene(c, "promotion", fmt(j.promo[r], c, { next }, data), [
       {
         label: s.try,
-        check: { stat: j.stat, target: j.promoTarget[r] },
+        check: { stat: (j.promoStat && j.promoStat[r]) || j.stat, target: j.promoTarget[r] },
         success: { text: fmt(s.success, c, { next }, data), act: { type: "promote" }, moment: `Trở thành ${next}` },
         fail: { text: fmt(pick(rng, s.fail), c, null, data), effects: { joy: -8 }, act: { type: "promoteFail" } },
       },
@@ -562,14 +763,15 @@
   }
 
   function recruitScene(c, data, rng) {
-    const s = data.systems.recruit;
+    const s = sys(c, data, "recruit");
+    const traits = data.systems.traits;
     const cands = [makeCompanion(c, data, rng), makeCompanion(c, data, rng)];
     const choices = cands.map((m) => ({
       label: `${m.name} — ${m.race}, ${m.jobName}`,
-      hint: `Sức chiến đấu ${m.power} · ${data.systems.traits[m.trait].name}: ${data.systems.traits[m.trait].desc}`,
+      hint: `Sức chiến đấu ${m.power} · ${traits[m.trait].name}: ${traits[m.trait].desc}`,
       text: fmt(pick(rng, s.join), c, { ally: m.name }, data),
       act: { type: "recruit", member: m },
-      moment: `Kết nạp ${m.name} vào tổ đội`,
+      moment: `Kết nạp ${m.name} vào ${sys(c, data, "bandName") || "tổ đội"}`,
     }));
     choices.push({ label: s.decline, text: fmt(s.declineText, c, null, data) });
     scene(c, "recruit", fmt(pick(rng, s.text), c, null, data), choices);
@@ -578,19 +780,21 @@
   function questPool(c, data) {
     return (data.quests || []).filter(
       (q) =>
-        (q.repeat ? !(c.questLast[q.id] != null && c.age - c.questLast[q.id] < 3 * yearScale(c.race)) : !c.used.includes("quest:" + q.id)) &&
-        GUILD_RANKS.indexOf(q.minRank || "F") <= c.guild.rank &&
-        (q.maxRank == null || GUILD_RANKS.indexOf(q.maxRank) >= c.guild.rank) &&
+        (q.org || "guild") === c.guild.org &&
+        (q.repeat ? !(c.questLast[q.id] != null && c.age - c.questLast[q.id] < (3 * yearScale(c.race)) / lifePace(c.race)) : !c.used.includes("quest:" + q.id)) &&
+        (q.minRank || 0) <= c.guild.rank &&
+        (q.maxRank == null || q.maxRank >= c.guild.rank) &&
         (!q.eras || (c.era && q.eras.includes(c.era.id))) &&
         meets(c, q.require, data)
     );
   }
 
   function boardScene(c, data, rng) {
-    const s = data.systems.board;
+    const o = orgDef(c, data);
+    const s = (o && o.board) || data.systems.board;
     const pool = questPool(c, data).slice();
     const offered = [];
-    // Story quests first when available, then fill with contracts.
+    // Story quests first when available, then fill with smaller jobs.
     const story = pool.filter((q) => !q.repeat);
     if (story.length) offered.push(weightedPick(story, rng));
     while (offered.length < 3) {
@@ -600,7 +804,7 @@
     }
     if (!offered.length) return false;
     const choices = offered.map((q) => ({
-      label: `${q.name} · hạng ${q.minRank || "F"}`,
+      label: `${q.name} · ${o.rankLabel ? o.rankLabel + " " : ""}${o.ranks[q.minRank || 0]}`,
       hint: q.hint,
       act: { type: "quest", id: q.id },
     }));
@@ -609,16 +813,24 @@
     return true;
   }
 
-  // Difficulty of repeatable contracts grows with your guild rank.
-  function questTarget(c, q, t) {
-    return q.repeat ? t + c.guild.rank * 1.5 : t;
+  // Difficulty of repeatable jobs grows with your rank.
+  function questTarget(c, q, check) {
+    const scale = STAT_KEYS.includes(check.stat) ? 1.5 : 6;
+    return q.repeat ? check.target + c.guild.rank * scale : check.target;
   }
 
   function questStepScene(c, data, rng) {
     const q = (data.quests || []).find((x) => x.id === c.quest.id);
     const step = q.steps[c.quest.step];
     const party = aliveParty(c);
-    c.ctx = { quest: q, ally: party.length ? pick(rng, party) : null };
+    c.ctx = Object.assign(c.ctx || {}, { quest: q, ally: party.length ? pick(rng, party) : null });
+    // A scene with no choice simply happens, then the story moves on.
+    if (step.auto) {
+      if (step.text) pushLog(c, "quest", fmt(step.text, c, null, data));
+      if (step.auto.text) pushLog(c, "result", fmt(step.auto.text, c, null, data));
+      applyEffects(c, step.auto.effects, data, rng);
+      return questAdvance(c, data, rng, step.auto, true, null);
+    }
     const choices = step.choices
       .filter((ch) => !ch.require || meets(c, ch.require, data) || ch.showLocked)
       .map((ch) => {
@@ -627,15 +839,33 @@
           out.disabled = true;
           out.reason = unmetReason(c, ch.require, data);
         }
-        if (ch.check) out.check = { stat: ch.check.stat, target: questTarget(c, q, ch.check.target) };
+        if (ch.check) out.check = { stat: ch.check.stat, target: questTarget(c, q, ch.check) };
         out.act = { type: "questStep" };
         return out;
       });
-    scene(c, "quest", fmt(step.text, c, null, data), choices, { quest: q.name });
+    if (!choices.some((ch) => !ch.disabled)) return finishQuest(c, data, rng, false);
+    scene(c, "quest", fmt(step.text, c, null, data), choices, { quest: q.name }, data);
+  }
+
+  // Move a quest on after a scene: explicit jump, instant win or loss, or the next scene.
+  function questAdvance(c, data, rng, outcome, succeeded, ch) {
+    if (!c.alive || !c.quest) return;
+    const q = data.quests.find((x) => x.id === c.quest.id);
+    const last = c.quest.step + 1 >= q.steps.length;
+    if (outcome.end === "fail") return finishQuest(c, data, rng, false);
+    if (outcome.end === "win") return finishQuest(c, data, rng, true);
+    if (outcome.next != null) {
+      c.quest.step = outcome.next;
+      return questStepScene(c, data, rng);
+    }
+    // Failing the final scene fails the quest unless that outcome says otherwise.
+    if (last) return finishQuest(c, data, rng, !(ch && ch.check && !succeeded));
+    c.quest.step++;
+    questStepScene(c, data, rng);
   }
 
   function romanceScene(c, data, rng) {
-    const s = data.systems.romance;
+    const s = sys(c, data, "romance");
     const close = aliveParty(c).filter((m) => m.bond >= 55);
     let partner;
     let text;
@@ -643,8 +873,7 @@
       partner = pick(rng, close);
       text = pick(rng, s.ally);
     } else {
-      const g = c.gender === "male" ? "female" : c.gender === "female" ? "male" : null;
-      partner = { name: randomName(data, rng, c.race.id, g).split(" ")[0], race: c.race.name };
+      partner = makePartner(c, data, rng);
       text = pick(rng, s.stranger);
     }
     c.ctx = { partner };
@@ -661,9 +890,14 @@
   }
 
   // Things that must happen when their time comes, before random events get a say.
+  // Short-lived races live more per year: a Goblin year counts about three times.
+  function lifePace(race) {
+    return Math.max(1, Math.min(3, Math.round(19 / adultStart(race))));
+  }
+
   function scheduled(c, data, rng, years) {
     const st = currentStage(c).id;
-    const per = years / yearScale(c.race);
+    const per = (years / yearScale(c.race)) * lifePace(c.race);
     const jobs = jobsFor(c, data);
     const st0 = stagesOf(c.race);
     const i = stageIndex(c);
@@ -679,28 +913,25 @@
       promotionScene(c, data, rng);
       return true;
     }
-    if (c.guild && aliveParty(c).length < MAX_PARTY && ["adventure", "social"].includes(c.focus)) {
+    if (c.guild && aliveParty(c).length < MAX_PARTY && ["adventure", "social"].includes(c.focus) && !["infant", "child"].includes(st)) {
       const p = aliveParty(c).length === 0 ? 0.5 : 0.15;
-      if (rng() < p * Math.min(per, 2)) {
+      if (rng() < Math.min(0.9, p * Math.min(per, 2))) {
         recruitScene(c, data, rng);
         return true;
       }
     }
-    if (c.focus === "adventure" && c.guild && !["infant", "child"].includes(st) && rng() < 0.4 * Math.min(per, 2)) {
+    if (c.focus === "adventure" && c.guild && !["infant", "child"].includes(st) && rng() < Math.min(0.85, 0.4 * Math.min(per, 2))) {
       if (boardScene(c, data, rng)) return true;
     }
-    if (!c.spouse && c.gender && ["adult", "middle"].includes(st) && rng() < (c.focus === "social" ? 0.25 : 0.04) * Math.min(per, 2)) {
+    if (sys(c, data, "romance") && !c.spouse && c.gender && ["adult", "middle"].includes(st) && rng() < (c.focus === "social" ? 0.25 : 0.04) * Math.min(per, 2)) {
       romanceScene(c, data, rng);
       return true;
     }
-    if (c.spouse && ["adult", "middle"].includes(st) && c.children.length < 5 && rng() < 0.12 * Math.min(per, 3)) {
-      const g = rng() < 0.5 ? "male" : "female";
-      const child = randomName(data, rng, c.race.id, g).split(" ")[0];
-      c.children.push({ name: child, born: c.age });
-      c.ctx = { child };
-      pushLog(c, "milestone", fmt(pick(rng, data.systems.child), c, null, data));
+    if (sys(c, data, "autoChildren") !== false && c.spouse && ["adult", "middle"].includes(st) && c.children.length < 5 && rng() < 0.12 * Math.min(per, 3)) {
+      c.ctx = {};
+      addChild(c, data, rng);
+      pushLog(c, "milestone", fmt(pick(rng, sys(c, data, "child")), c, null, data));
       c.bars.joy = clamp(c.bars.joy + 12, 0, 100);
-      addMoment(c, `Đón đứa con ${child} chào đời`, data);
       c.ctx = null;
       return "logged";
     }
@@ -713,16 +944,19 @@
     const party = aliveParty(c);
     const fits = e.require && e.require.allyTrait ? party.filter((m) => m.trait === e.require.allyTrait) : party;
     c.ctx = { ally: fits.length ? pick(rng, fits) : null };
+    // Events about winning a mate name the one being courted.
+    if (!c.spouse && /\{spouse\}/.test(e.text)) c.ctx.partner = makePartner(c, data, rng);
     if (e.choices && e.choices.length) {
       const open = e.choices
         .filter((ch) => meets(c, ch.require, data) || ch.showLocked)
         .map((ch) => (meets(c, ch.require, data) ? ch : Object.assign({}, ch, { disabled: true, reason: unmetReason(c, ch.require, data) })));
       if (open.filter((ch) => !ch.disabled).length >= 1 && open.length >= 2) {
-        scene(c, "event", fmt(e.text, c, null, data), open);
+        scene(c, "event", fmt(e.text, c, null, data), open, null, data);
         return;
       }
     }
     pushLog(c, "event", fmt(e.text, c, null, data));
+    if (e.result) pushLog(c, "result", fmt(e.result, c, null, data));
     applyEffects(c, e.effects, data, rng);
     if (e.moment) addMoment(c, e.moment, data);
     if (e.death) die(c, data, e.death);
@@ -733,15 +967,16 @@
     const all = data.events.filter((e) => eligible(e, c, stageId, data));
     const focused = all.filter((e) => e.focus);
     const general = all.filter((e) => !e.focus);
+    // Race-made events (from a pack) are favoured over the old generic pool.
     const pool = focused.length && (rng() < 0.6 || !general.length) ? focused : general;
-    return weightedPick(pool, rng);
+    return weightedPick(pool, rng, (e) => (e.weight == null ? 1 : e.weight) * (e.pack ? 3 : 1));
   }
 
   function quietText(c, data, rng, stageId) {
-    const f = (data.focus || []).find((x) => x.id === c.focus);
+    const f = c.focus ? focusDef(c, data, c.focus) : null;
     const j = jobDef(c, data);
     let list = null;
-    if (c.focus === "work" && j && j.quiet && ["adult", "middle", "elder", "ancient"].includes(stageId)) list = j.quiet;
+    if (c.focus === "work" && j && j.quiet && ["teen", "adult", "middle", "elder", "ancient"].includes(stageId)) list = j.quiet;
     else if (f && f.quiet) list = f.quiet[stageId] || f.quiet.default;
     if (!list || !list.length) {
       const pool = data.fillers.filter((x) => (!x.stages || x.stages.includes(stageId)) && (!x.races || x.races.includes(c.race.id)));
@@ -801,6 +1036,7 @@
       else c.bars.health = clamp(c.bars.health + 3, 0, 100);
 
       liveFocus(c, data, rng, years, quiet);
+      parentsTick(c, data, rng);
       checkDeath(c, data, rng, years);
 
       let stop = !c.alive;
@@ -809,8 +1045,8 @@
         const stageId = currentStage(c).id;
         if (stageId !== c.stageId) {
           c.stageId = stageId;
-          const s = data.systems.stageEnter;
-          pushLog(c, "stage", fmt(s[stageId] || s.default, c, null, data));
+          const s = sys(c, data, "stageEnter");
+          pushLog(c, "stage", fmt(s[stageId] || s.default || data.systems.stageEnter.default, c, null, data));
           stop = crossroads(c, data);
         } else {
           const sch = scheduled(c, data, rng, years);
@@ -819,9 +1055,13 @@
             let density = STAGE_DENSITY[stageId] != null ? STAGE_DENSITY[stageId] : 0.5;
             if (c.focus === "adventure" || c.focus === "social") density += 0.1;
             if (c.focus === "rest") density -= 0.15;
-            if (rng() < density) {
-              const e = pickEvent(c, data, rng, stageId);
-              if (e) resolveEvent(c, data, e, rng);
+            // Short-lived races pack more life into each year (a Goblin year is worth ~3 human ones).
+            const rolls = lifePace(c.race);
+            for (let r = 0; r < rolls && !c.pending && c.alive; r++) {
+              if (rng() < density) {
+                const e = pickEvent(c, data, rng, stageId);
+                if (e) resolveEvent(c, data, e, rng);
+              }
             }
           }
         }
@@ -892,16 +1132,22 @@
     const q = data.quests.find((x) => x.id === c.quest.id);
     c.ctx = Object.assign(c.ctx || {}, { quest: q });
     if (success) {
-      const r = q.reward || {};
+      const r = Object.assign({}, q.reward || {});
       const scale = q.repeat ? 1 + c.guild.rank * 0.5 : 1;
+      const pts = (r.guildPts || 1) + (q.repeat ? 0 : 1);
+      delete r.guildPts;
+      if (r.wealth > 0) r.wealth = Math.round(r.wealth * scale);
+      if (r.joy == null) r.joy = 5;
+      r.partyBond = 6;
       pushLog(c, "result", fmt(q.complete, c, null, data));
-      applyEffects(c, { wealth: Math.round((r.wealth || 0) * scale), fame: r.fame || 0, joy: r.joy || 5, flags: r.flags, partyBond: 6 }, data, rng);
-      addGuildPoints(c, data, (r.guildPts || 1) + (q.repeat ? 0 : 1));
+      applyEffects(c, r, data, rng);
+      if (c.guild) addGuildPoints(c, data, pts);
       c.questsDone++;
       if (q.moment) addMoment(c, q.moment, data);
-      else if (!q.repeat) addMoment(c, `Hoàn thành nhiệm vụ "${q.name}"`, data);
+      else if (!q.repeat) addMoment(c, `Hoàn thành "${q.name}"`, data);
     } else {
-      pushLog(c, "result", fmt(q.failText || data.systems.questFail, c, null, data));
+      const o = orgDef(c, data);
+      pushLog(c, "result", fmt(q.failText || (o && o.failText) || data.systems.questFail, c, null, data));
     }
     c.quest = null;
     c.ctx = null;
@@ -923,13 +1169,13 @@
     pushLog(c, "picked", ch.label);
     if (outcome.text) pushLog(c, "result", fmt(outcome.text, c, null, data));
 
-    // A quest step that goes badly can wound or kill a companion.
+    // A quest scene that goes badly can wound or kill a companion.
     if (p.kind === "quest" && ch.check && !succeeded && c.ctx && c.ctx.ally && !(outcome.effects && (outcome.effects.allyDie || outcome.effects.allyHurt))) {
       const r = rng();
       if (r < 0.06) killAlly(c, data, c.ctx.ally, rng);
       else if (r < 0.3) {
         c.ctx.ally.hurt = true;
-        pushLog(c, "result", fmt(pick(rng, data.systems.allyHurt), c, null, data));
+        pushLog(c, "result", fmt(pick(rng, sys(c, data, "allyHurt")), c, null, data));
       }
     }
 
@@ -949,17 +1195,7 @@
       } else die(c, data, outcome.death);
     }
 
-    if (c.alive && p.kind === "quest" && c.quest) {
-      const q = data.quests.find((x) => x.id === c.quest.id);
-      const last = c.quest.step + 1 >= q.steps.length;
-      // Failing the final scene fails the quest unless that outcome says otherwise.
-      if (outcome.end === "fail" || (last && ch.check && !succeeded && outcome.end !== "win")) finishQuest(c, data, rng, false);
-      else if (outcome.end === "win" || last) finishQuest(c, data, rng, true);
-      else {
-        c.quest.step++;
-        questStepScene(c, data, rng);
-      }
-    }
+    if (c.alive && p.kind === "quest" && c.quest) questAdvance(c, data, rng, outcome, succeeded, ch);
     if (!c.quest && !c.pending) c.ctx = null;
     checkDeath(c, data, rng, 0);
     return c;
@@ -971,8 +1207,10 @@
     const pct = Math.round((c.race.weight / totalW) * 1000) / 10;
     const ep = weightedPick(data.epitaphs.filter((e) => !e.races || e.races.includes(c.race.id)), rng);
     const profile = [];
+    if (c.form) profile.push(`Tiến hóa: ${c.form}`);
     if (c.job) profile.push(jobTitle(c, data));
-    if (c.guild) profile.push(`Mạo hiểm giả hạng ${GUILD_RANKS[c.guild.rank]} · ${c.questsDone} nhiệm vụ`);
+    const o = orgDef(c, data);
+    if (o) profile.push(`${o.name}: ${orgRankName(c, data)}` + (c.questsDone ? ` · ${c.questsDone} ${o.missionWord || "nhiệm vụ"}` : ""));
     if (c.spouse) profile.push(`Bạn đời: ${c.spouse.name}` + (c.children.length ? ` · ${c.children.length} người con` : ""));
     if (c.party.length) profile.push("Đồng đội: " + c.party.map((m) => m.name + (m.alive ? "" : " †")).join(", "));
     if (c.fame) profile.push(`Danh vọng ${c.fame}`);
@@ -988,7 +1226,6 @@
     STAT_KEYS,
     BAR_KEYS,
     STAT_LABEL,
-    GUILD_RANKS,
     makeRng,
     weightedPick,
     stagesOf,
@@ -1004,6 +1241,9 @@
     setFocus,
     jobTitle,
     introLine,
+    raceTitle,
+    orgDef,
+    orgRankName,
     aliveParty,
     summary,
     eligible,

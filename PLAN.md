@@ -40,6 +40,10 @@ Mở `index.html` hoặc chạy `node tools/serve.js` rồi vào http://localhos
 - [ ] Chỉnh hệ số và nguy cơ theo kết quả `simulate`
 - [ ] Bạn chơi thử, góp ý; đăng bản web để chia sẻ
 
+## Kịch bản đã nhận
+- [x] Goblin (`content/scripts/goblin.txt` → `data/packs/goblin.json`): 7 xuất thân kèm cha mẹ, 5 vai trò, bộ lạc 7 bậc,
+      89 sự kiện, 11 cuộc cướp phá, 3 nhánh tiến hóa. Quy trình: `docs/PACKS.md`.
+
 ## Khi nhận kịch bản Gemini (prompts/v2) — việc Claude phải làm
 - [ ] Rà và sửa toàn bộ tên gọi theo `docs/NAMING.md` (tên tộc tiếng Anh kèm giải thích, nghề/chức vụ kiểu manga dịch).
 - [ ] Nối các hệ thống mới vào engine: cha mẹ ({father} {mother} {maker}), dạng thú của Beastman,

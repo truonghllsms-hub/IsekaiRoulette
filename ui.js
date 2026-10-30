@@ -10,6 +10,7 @@
   const BAR_COLOR = { health: "var(--good)", joy: "var(--accent)", wealth: "var(--warn)" };
 
   let c = null;
+  const esc = (t) => String(t).replace(/[&<>"]/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
   let rendered = 0;
 
   const store = {
@@ -70,15 +71,35 @@
     $("reveal-gloss").textContent = c.race.gloss ? `(${c.race.gloss})` : "";
     $("reveal-odds").textContent = `Chỉ ${pctOf(c.race)}% linh hồn được đầu thai làm ${c.race.name}.`;
     $("reveal-origin").textContent = c.origin.name + (c.era ? ` · ${c.era.name}` : "");
+    renderFamily();
     $("reveal-desc").textContent = c.race.desc || "";
     show("screen-reveal");
+  }
+
+  // Parents (or whoever made you), siblings and home, shown when you are born.
+  const STATUS = { alive: "còn sống", dead: "đã mất", gone: "đã bỏ đi", unknown: "không rõ tung tích" };
+  function personLine(label, p) {
+    if (!p) return "";
+    const name = p.name || "Không rõ là ai";
+    const bits = [p.role, p.trait].filter(Boolean).join(", ");
+    const status = STATUS[p.status] || "";
+    return `<li><span class="fam-k">${label}</span><span><b>${esc(name)}</b>${p.race && p.race !== c.race.name ? ` · ${esc(p.race)}` : ""}${bits ? ` — ${esc(bits)}` : ""}${status ? ` <i>(${status})</i>` : ""}</span></li>`;
+  }
+  function renderFamily() {
+    const box = $("reveal-family");
+    const p = c.parents || {};
+    let html = personLine("Cha", p.father) + personLine("Mẹ", p.mother) + personLine("Kẻ tạo ra bạn", p.maker);
+    if (c.origin.siblings) html += `<li><span class="fam-k">Anh chị em</span><span>${esc(c.origin.siblings)}</span></li>`;
+    if (c.origin.home) html += `<li><span class="fam-k">Gia cảnh</span><span>${esc(c.origin.home)}</span></li>`;
+    box.innerHTML = html;
+    box.hidden = !html;
   }
 
   // ---------- life ----------
   function renderHud() {
     const genderTxt = c.gender === "male" ? "Nam" : c.gender === "female" ? "Nữ" : "Vô tính";
     $("hud-name").textContent = c.name;
-    $("hud-meta").textContent = `${c.race.name} · ${genderTxt} · ${c.era ? c.era.name : c.origin.name}`;
+    $("hud-meta").textContent = `${E.raceTitle(c)} · ${genderTxt} · ${c.era ? c.era.name : c.origin.name}`;
     $("hud-age").textContent = fmtAge(c.age);
     $("hud-stage").textContent = E.currentStage(c).name;
 
@@ -89,12 +110,12 @@
     $("hud-profile").innerHTML = profileHtml();
   }
 
-  const esc = (t) => String(t).replace(/[&<>"]/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
 
   function profileHtml() {
     const out = [];
     if (c.job) out.push(`<span>Nghề <b>${esc(E.jobTitle(c, D))}</b></span>`);
-    if (c.guild) out.push(`<span>Hội <b>hạng ${E.GUILD_RANKS[c.guild.rank]}</b></span>`);
+    const org = E.orgDef(c, D);
+    if (org) out.push(`<span>${esc(org.name)} <b>${esc(E.orgRankName(c, D))}</b></span>`);
     if (c.fame) out.push(`<span>Danh vọng <b>${c.fame}</b></span>`);
     if (c.party.length)
       out.push(`<span>Tổ đội ${c.party.filter((m) => !m.left).map((m) => `<b class="${m.alive ? "" : "dead"}" title="${esc(m.race + ", " + m.jobName)}">${esc(m.name)}</b>`).join(", ")}</span>`);
@@ -217,7 +238,7 @@
   function renderDeath() {
     const s = E.summary(c, D);
     $("death-name").textContent = c.name;
-    $("death-meta").textContent = `${c.race.name} · ${fmtAge(c.age)} tuổi · ${c.origin.name}`;
+    $("death-meta").textContent = `${E.raceTitle(c)} · ${fmtAge(c.age)} tuổi · ${c.origin.name}`;
     $("death-cause").textContent = c.cause;
     $("death-epitaph").textContent = s.epitaph;
     const prof = $("death-profile");
@@ -236,7 +257,7 @@
       li.lastElementChild.textContent = m.text;
       ul.appendChild(li);
     }
-    store.add({ name: c.name, race: c.race.name, age: c.age });
+    store.add({ name: c.name, race: E.raceTitle(c), age: c.age });
     show("screen-death");
   }
 

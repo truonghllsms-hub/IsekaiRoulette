@@ -1,5 +1,5 @@
 [
-  { "id": "job_warrior_duel", "require": { "job": "warrior" }, "focus": ["work"], "weight": 6,
+  { "id": "job_warrior_duel", "tags": ["civil"], "require": { "job": "warrior" }, "focus": ["work"], "weight": 6,
     "text": "Một kỵ sĩ quý tộc ném găng xuống chân bạn giữa quảng trường, chỉ vì bạn không cúi chào.",
     "choices": [
       { "label": "Nhặt găng, nhận lời thách đấu", "check": { "stat": "STR", "target": 6 },
@@ -8,7 +8,7 @@
       { "label": "Xin lỗi cho qua chuyện", "text": "Bạn nuốt cơn giận. Hắn bỏ đi, và bạn còn sống để chiến đấu vào ngày khác.", "effects": { "joy": -4 } },
       { "label": "Vạch ra luật đấu của hắn sai", "require": { "INT": 7 }, "showLocked": true, "text": "Bạn trích dẫn luật hiệp sĩ chính xác đến từng chữ. Hắn đỏ mặt rút lui, còn viên chỉ huy nhìn bạn đầy tán thưởng.", "effects": { "INT": 1, "fame": 2, "jobXp": 1 } }
     ] },
-  { "id": "job_warrior_siege", "require": { "job": "warrior" }, "focus": ["work"], "eras": ["holy_war", "demon_lord"], "weight": 8,
+  { "id": "job_warrior_siege", "tags": ["civil"], "require": { "job": "warrior" }, "focus": ["work"], "eras": ["holy_war", "demon_lord"], "weight": 8,
     "text": "Thành trì bạn trấn giữ bị vây hãm. Đêm thứ bảy, thang mây dựng lên dày đặc bên tường thành.",
     "choices": [
       { "label": "Giữ đoạn tường nguy hiểm nhất", "check": { "stat": "STR", "target": 7 },
@@ -19,16 +19,16 @@
         "fail": { "text": "Dầu bắt lửa quá sớm. Bạn cháy sém nửa người.", "effects": { "health": -35 } } },
       { "label": "Ở lại hậu phương tải thương", "text": "Bạn khiêng người bị thương suốt đêm. Không ai nhắc tên bạn, nhưng nhiều người còn sống nhờ bạn.", "effects": { "joy": 4 } }
     ] },
-  { "id": "job_warrior_squire", "require": { "job": "warrior", "jobRank": 2 }, "focus": ["work"], "weight": 5,
+  { "id": "job_warrior_squire", "tags": ["civil"], "require": { "job": "warrior", "jobRank": 2 }, "focus": ["work"], "weight": 5,
     "text": "Một cậu bé mồ côi xin được làm người hầu cận cho bạn, đôi mắt sáng rực như bạn ngày xưa.",
     "choices": [
       { "label": "Nhận và dạy nó kiếm thuật", "text": "Bạn dạy nó tất cả những gì mình biết. Mỗi buổi sáng, sân tập có thêm một tiếng hô nhỏ.", "effects": { "joy": 10, "wealth": -3, "flags": ["has_squire"] }, "moment": "Nhận một học trò" },
       { "label": "Đuổi nó về", "text": "Con đường này quá máu me cho một đứa trẻ. Bạn quay đi trước khi nó kịp khóc.", "effects": { "joy": -3 } }
     ] },
-  { "id": "job_warrior_old_wound", "require": { "job": "warrior" }, "stages": ["middle", "elder"], "weight": 5,
+  { "id": "job_warrior_old_wound", "tags": ["civil"], "require": { "job": "warrior" }, "stages": ["middle", "elder"], "weight": 5,
     "text": "Những vết thương cũ trên chiến trường giờ đau nhức mỗi khi trời trở gió.", "effects": { "health": -8, "STR": -1 } },
 
-  { "id": "job_mage_explosion", "require": { "job": "mage" }, "focus": ["work"], "weight": 6,
+  { "id": "job_mage_explosion", "tags": ["civil"], "require": { "job": "mage" }, "focus": ["work"], "weight": 6,
     "text": "Thí nghiệm của bạn bắt đầu rung lên và phát ra tiếng rít chói tai. Vòng tròn ma pháp đỏ rực.",
     "choices": [
       { "label": "Bình tĩnh ổn định dòng mana", "check": { "stat": "INT", "target": 7 },
@@ -38,7 +38,7 @@
         "success": { "text": "Bạn đáp xuống đống rơm đúng lúc căn phòng nổ tung. Ít nhất bạn còn nguyên vẹn.", "effects": { "wealth": -5 } },
         "fail": { "text": "Bạn đáp xuống không phải đống rơm.", "effects": { "health": -25 } } }
     ] },
-  { "id": "job_mage_forbidden", "require": { "job": "mage", "INT": 8 }, "focus": ["work", "study"], "weight": 5,
+  { "id": "job_mage_forbidden", "tags": ["civil"], "require": { "job": "mage", "INT": 8 }, "focus": ["work", "study"], "weight": 5,
     "text": "Trong kho lưu trữ dưới hầm, bạn tìm thấy một cuốn sách bọc da người, khóa bằng xích bạc. Nó thì thầm tên bạn.",
     "choices": [
       { "label": "Mở nó ra", "check": { "stat": "INT", "target": 9 },
@@ -47,13 +47,13 @@
       { "label": "Báo cáo cho Hội đồng Tháp Ngà", "text": "Hội đồng niêm phong cuốn sách và ghi nhận sự trung thực của bạn.", "effects": { "jobXp": 2, "fame": 1 } },
       { "label": "Đốt nó đi", "text": "Lửa cháy xanh lè suốt một đêm. Có tiếng thét khi trang cuối cùng hóa tro.", "effects": { "LUCK": 1 } }
     ] },
-  { "id": "job_mage_student", "require": { "job": "mage", "jobRank": 2 }, "weight": 4,
+  { "id": "job_mage_student", "tags": ["civil"], "require": { "job": "mage", "jobRank": 2 }, "weight": 4,
     "text": "Một học đồ trẻ đến xin bạn chỉ dạy, nhưng đôi tay nó run rẩy mỗi khi chạm vào mana.",
     "choices": [
       { "label": "Kiên nhẫn dạy nó", "text": "Phải mất ba năm, nhưng rồi một ngày ngọn lửa trong tay nó cháy đều. Nó khóc, và bạn cũng vậy.", "effects": { "joy": 10, "fame": 2 } },
       { "label": "Khuyên nó tìm nghề khác", "text": "Bạn nói thật. Có những sự thật là lòng tốt, dù nghe tàn nhẫn.", "effects": {} }
     ] },
-  { "id": "job_mage_rival", "require": { "job": "mage" }, "focus": ["work"], "weight": 4,
+  { "id": "job_mage_rival", "tags": ["civil"], "require": { "job": "mage" }, "focus": ["work"], "weight": 4,
     "text": "Một pháp sư đồng môn đánh cắp nghiên cứu của bạn và trình lên Hội đồng dưới tên hắn.",
     "choices": [
       { "label": "Thách đấu phép thuật", "check": { "stat": "INT", "target": 7 },
@@ -62,7 +62,7 @@
       { "label": "Âm thầm làm nghiên cứu mới", "text": "Bạn để hắn giữ hư danh. Công trình tiếp theo của bạn vĩ đại gấp mười lần.", "effects": { "INT": 2, "joy": -3 } }
     ] },
 
-  { "id": "job_rogue_heist", "require": { "job": "rogue" }, "focus": ["work"], "weight": 6,
+  { "id": "job_rogue_heist", "tags": ["civil"], "require": { "job": "rogue" }, "focus": ["work"], "weight": 6,
     "text": "Guild Sát thủ Umbra giao một phi vụ: lấy viên hồng ngọc trong két sắt của một thương gia giàu nhất Sanctus.",
     "choices": [
       { "label": "Leo vào qua mái nhà", "check": { "stat": "AGI", "target": 7 },
@@ -73,7 +73,7 @@
         "fail": { "text": "Cô ta báo cho vệ binh. Bạn mất cả tiền mua chuộc lẫn phi vụ.", "effects": { "wealth": -8, "flags": ["wanted"] } } },
       { "label": "Từ chối phi vụ", "text": "Guild Sát thủ Umbra không thích bị từ chối. Bạn nhận được một con dao cắm trên cửa nhà vào sáng hôm sau.", "effects": { "joy": -8 } }
     ] },
-  { "id": "job_rogue_caught", "require": { "job": "rogue", "flags": ["wanted"] }, "weight": 10,
+  { "id": "job_rogue_caught", "tags": ["civil"], "require": { "job": "rogue", "flags": ["wanted"] }, "weight": 10,
     "text": "Vệ binh thành phố đã tìm ra nơi ở của bạn. Tiếng giày sắt dồn dập trên cầu thang.",
     "choices": [
       { "label": "Phá cửa sổ chạy trốn", "check": { "stat": "AGI", "target": 7 },
@@ -81,7 +81,7 @@
         "fail": { "text": "Bạn bị bắt và giải ra pháp trường. Ba năm khổ sai ở mỏ đá.", "effects": { "health": -25, "wealth": -20, "loseJob": true, "unflags": ["wanted"], "flags": ["ex_convict"] }, "moment": "Bị bắt và đày đi khổ sai" } },
       { "label": "Đầu thú", "text": "Bạn ra trình diện. Án nhẹ hơn, nhưng Guild Sát thủ Umbra sẽ không bao giờ nhận lại bạn.", "effects": { "wealth": -15, "loseJob": true, "unflags": ["wanted"] } }
     ] },
-  { "id": "job_rogue_assassin", "require": { "job": "rogue", "jobRank": 2 }, "focus": ["work"], "weight": 5,
+  { "id": "job_rogue_assassin", "tags": ["civil"], "require": { "job": "rogue", "jobRank": 2 }, "focus": ["work"], "weight": 5,
     "text": "Hợp đồng mới: một vị lãnh chúa tàn bạo. Nhưng khi bạn tới nơi, hắn đang ôm đứa con gái nhỏ ngủ say.",
     "choices": [
       { "label": "Hoàn thành hợp đồng", "check": { "stat": "AGI", "target": 8 },
@@ -90,7 +90,7 @@
       { "label": "Bỏ đi", "text": "Bạn biến mất vào đêm. Guild Sát thủ Umbra phạt bạn nặng, nhưng đêm ấy bạn ngủ được.", "effects": { "wealth": -10, "joy": 5, "flags": ["mercy"] } }
     ] },
 
-  { "id": "job_cleric_plague", "require": { "job": "cleric" }, "focus": ["work"], "weight": 6,
+  { "id": "job_cleric_plague", "tags": ["civil"], "require": { "job": "cleric" }, "focus": ["work"], "weight": 6,
     "text": "Một ngôi làng bị dịch bệnh bao vây. Người ta đã đóng cổng, và những ai bên trong chỉ còn chờ chết.",
     "choices": [
       { "label": "Vào làng chữa bệnh", "check": { "stat": "INT", "target": 6 },
@@ -98,7 +98,7 @@
         "fail": { "text": "Bạn cứu được vài người, rồi chính mình đổ bệnh. Bạn sống, nhưng thân thể không còn như xưa.", "effects": { "health": -35, "fame": 2 } } },
       { "label": "Cầu nguyện từ bên ngoài", "text": "Bạn quỳ trước cổng làng cầu nguyện bảy ngày. Bên trong, tiếng khóc thưa dần rồi tắt hẳn.", "effects": { "joy": -12 } }
     ] },
-  { "id": "job_cleric_doubt", "require": { "job": "cleric" }, "weight": 5,
+  { "id": "job_cleric_doubt", "tags": ["civil"], "require": { "job": "cleric" }, "weight": 5,
     "text": "Một đêm, sau khi chôn cất đứa trẻ thứ mười trong tuần, bạn tự hỏi Nữ thần Lumina có thật sự lắng nghe.",
     "choices": [
       { "label": "Giữ vững đức tin", "check": { "stat": "LUCK", "target": 5 },
@@ -106,7 +106,7 @@
         "fail": { "text": "Bạn vẫn cầu nguyện, nhưng những lời ấy đã rỗng tuếch.", "effects": { "joy": -10 } } },
       { "label": "Cởi bỏ áo tu sĩ", "text": "Bạn treo tấm áo trắng lên bàn thờ và bước ra khỏi nhà thờ, không ngoảnh lại.", "effects": { "loseJob": true, "joy": -5, "flags": ["lost_faith"] }, "moment": "Rời bỏ Giáo hội" }
     ] },
-  { "id": "job_cleric_exorcism", "require": { "job": "cleric", "jobRank": 1 }, "focus": ["work"], "weight": 5,
+  { "id": "job_cleric_exorcism", "tags": ["civil"], "require": { "job": "cleric", "jobRank": 1 }, "focus": ["work"], "weight": 5,
     "text": "Một gia đình quý tộc mời bạn trừ tà cho căn biệt thự nơi đêm nào cũng nghe tiếng trẻ con cười.",
     "choices": [
       { "label": "Làm lễ trừ tà", "check": { "stat": "INT", "target": 7 },
@@ -115,7 +115,7 @@
       { "label": "Tìm hiểu quá khứ ngôi nhà", "require": { "INT": 6 }, "showLocked": true, "text": "Bạn tìm ra hài cốt đứa bé dưới sàn hầm và chôn cất nó tử tế. Tiếng cười tắt hẳn.", "effects": { "fame": 2, "joy": 6, "jobXp": 2 } }
     ] },
 
-  { "id": "job_smith_masterwork", "require": { "job": "smith" }, "focus": ["work"], "weight": 6,
+  { "id": "job_smith_masterwork", "tags": ["civil"], "require": { "job": "smith" }, "focus": ["work"], "weight": 6,
     "text": "Một khối thép xanh lạ lùng được mang đến lò rèn. Không ai trong vùng từng rèn được thứ kim loại này.",
     "choices": [
       { "label": "Rèn theo bản năng", "check": { "stat": "STR", "target": 7 },
@@ -125,7 +125,7 @@
         "success": { "text": "Một trang sách của người lùn chỉ ra bí quyết: tôi thép trong máu rồng. Bạn tìm được thứ thay thế.", "effects": { "INT": 1, "wealth": 12, "jobXp": 2 } },
         "fail": { "text": "Sách cổ chỉ toàn những lời khuyên mơ hồ. Bạn trả lại khối thép, chưa dám chạm vào.", "effects": { "joy": -3 } } }
     ] },
-  { "id": "job_smith_burn", "require": { "job": "smith" }, "focus": ["work"], "weight": 4,
+  { "id": "job_smith_burn", "tags": ["civil"], "require": { "job": "smith" }, "focus": ["work"], "weight": 4,
     "text": "Một tia thép nóng chảy bắn ra từ khuôn.",
     "choices": [
       { "label": "Né", "check": { "stat": "AGI", "target": 5 },
@@ -135,14 +135,14 @@
         "success": { "text": "Bạn cắn răng giữ khuôn. Mẻ thép hoàn hảo, và lòng bàn tay bạn phồng rộp.", "effects": { "health": -5, "jobXp": 1, "wealth": 5 } },
         "fail": { "text": "Khuôn đổ, thép tràn ra sàn. Bạn mất cả mẻ hàng lẫn hai ngón tay suýt nữa.", "effects": { "health": -20, "wealth": -8 } } }
     ] },
-  { "id": "job_smith_dwarf", "require": { "job": "smith", "jobRank": 1 }, "weight": 4,
+  { "id": "job_smith_dwarf", "tags": ["civil"], "require": { "job": "smith", "jobRank": 1 }, "weight": 4,
     "text": "Một người lùn già dừng chân ở lò rèn của bạn, nhìn sản phẩm rất lâu rồi khịt mũi.",
     "choices": [
       { "label": "Mời ông ta chỉ giáo", "text": "Ông ở lại một mùa. Khi đi, ông để lại một bí quyết tôi thép mà cả vùng không ai biết.", "effects": { "STR": 1, "jobXp": 3 }, "moment": "Học bí quyết rèn của người lùn" },
       { "label": "Đuổi ông ta đi", "text": "Lão già lầm bầm bằng thứ tiếng của núi đá, rồi biến mất trong sương.", "effects": {} }
     ] },
 
-  { "id": "job_merchant_gamble", "require": { "job": "merchant" }, "focus": ["work"], "weight": 6,
+  { "id": "job_merchant_gamble", "tags": ["civil"], "require": { "job": "merchant" }, "focus": ["work"], "weight": 6,
     "text": "Tin đồn lan khắp chợ: chiến tranh sắp nổ ra, giá sắt sẽ tăng gấp năm. Hoặc đó chỉ là tin đồn.",
     "choices": [
       { "label": "Dốc vốn mua sắt", "check": { "stat": "LUCK", "target": 6 },
@@ -153,7 +153,7 @@
         "fail": { "text": "Bạn điều tra quá lâu. Khi biết sự thật, thời cơ đã qua.", "effects": { "joy": -3 } } },
       { "label": "Bỏ qua", "text": "Bạn buôn bán như thường. Không giàu thêm, không nghèo đi.", "effects": {} }
     ] },
-  { "id": "job_merchant_caravan", "require": { "job": "merchant", "jobRank": 1 }, "focus": ["work"], "weight": 5,
+  { "id": "job_merchant_caravan", "tags": ["civil"], "require": { "job": "merchant", "jobRank": 1 }, "focus": ["work"], "weight": 5,
     "text": "Đoàn xe hàng của bạn bị một toán cướp chặn giữa Thảo Nguyên Gió Hú.",
     "choices": [
       { "label": "Mặc cả", "check": { "stat": "INT", "target": 6 },
@@ -163,7 +163,7 @@
         "success": { "text": "Bạn bỏ lại một xe hàng làm mồi nhử, kéo cả đoàn chạy thoát.", "effects": { "wealth": -5 } },
         "fail": { "text": "Lũ cướp đuổi kịp. Bạn mất hết, còn bị đánh một trận nhừ tử.", "effects": { "wealth": -30, "health": -15 } } }
     ] },
-  { "id": "job_merchant_bankrupt", "require": { "job": "merchant", "below": { "wealth": 10 } }, "weight": 8,
+  { "id": "job_merchant_bankrupt", "tags": ["civil"], "require": { "job": "merchant", "below": { "wealth": 10 } }, "weight": 8,
     "text": "Chủ nợ gõ cửa lần thứ ba trong tháng. Sổ sách của bạn chỉ còn những con số đỏ.",
     "choices": [
       { "label": "Vay nặng lãi để gượng dậy", "check": { "stat": "LUCK", "target": 6 },
@@ -172,7 +172,7 @@
       { "label": "Đóng cửa hàng", "text": "Bạn trả nợ bằng tất cả những gì còn lại. Ít nhất bạn còn giữ được tên tuổi.", "effects": { "loseJob": true, "joy": -8 } }
     ] },
 
-  { "id": "job_farmer_harvest", "require": { "job": "farmer" }, "focus": ["work"], "weight": 6,
+  { "id": "job_farmer_harvest", "tags": ["civil"], "require": { "job": "farmer" }, "focus": ["work"], "weight": 6,
     "text": "Mùa gặt đến sớm, nhưng mây đen đã kéo về từ phía biển. Bạn chỉ có thể gặt kịp một nửa.",
     "choices": [
       { "label": "Gặt xuyên đêm", "check": { "stat": "STR", "target": 5 },
@@ -182,7 +182,7 @@
         "success": { "text": "Cả làng xắn tay. Năm sau, khi nhà khác cần, bạn là người đến đầu tiên.", "effects": { "wealth": 5, "joy": 8 } },
         "fail": { "text": "Mỗi nhà đều bận ruộng của mình. Bạn gặt một mình được bao nhiêu hay bấy nhiêu.", "effects": { "wealth": -3 } } }
     ] },
-  { "id": "job_farmer_monster", "require": { "job": "farmer" }, "focus": ["work"], "weight": 5,
+  { "id": "job_farmer_monster", "tags": ["civil"], "require": { "job": "farmer" }, "focus": ["work"], "weight": 5,
     "text": "Một con heo rừng khổng lồ có nanh như dao găm phá nát ruộng bắp của bạn ba đêm liền.",
     "choices": [
       { "label": "Đào hố bẫy", "check": { "stat": "INT", "target": 5 },
@@ -193,10 +193,10 @@
         "fail": { "text": "Nanh nó xé toạc đùi bạn. Bạn nằm liệt giường cả mùa.", "effects": { "health": -25 } } },
       { "label": "Thuê mạo hiểm giả", "text": "Một tân binh của Guild Bình Minh nhận việc. Hắn hạ con heo, và lấy hết số tiền tiết kiệm của bạn.", "effects": { "wealth": -8 } }
     ] },
-  { "id": "job_farmer_peace", "require": { "job": "farmer" }, "stages": ["middle", "elder"], "weight": 4,
+  { "id": "job_farmer_peace", "tags": ["civil"], "require": { "job": "farmer" }, "stages": ["middle", "elder"], "weight": 4,
     "text": "Chiều nay bạn ngồi trên bờ ruộng nhìn lúa trổ bông. Một cảm giác bình yên khó tả len vào lòng.", "effects": { "joy": 8 } },
 
-  { "id": "job_any_offer", "require": { "job": "any", "jobRank": 2 }, "focus": ["work"], "weight": 3,
+  { "id": "job_any_offer", "tags": ["civil"], "require": { "job": "any", "jobRank": 2 }, "focus": ["work"], "weight": 3,
     "text": "Một lãnh chúa đề nghị bạn về phục vụ riêng cho gia tộc ông, lương gấp đôi, đổi lại là lòng trung thành tuyệt đối.",
     "choices": [
       { "label": "Nhận lời", "text": "Bạn khoác huy hiệu gia tộc lên ngực. Tiền nhiều hơn, tự do ít hơn.", "effects": { "wealth": 15, "joy": -4, "flags": ["lord_retainer"] } },

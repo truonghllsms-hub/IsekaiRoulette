@@ -111,6 +111,17 @@ Riêng tộc này: Hoang dã, nóng nảy, trọng danh dự bầy đàn. Bản 
 - **Khoảnh khắc:** (tùy chọn) một dòng ngắn ghi vào tổng kết cuộc đời.
 
 Sự kiện KHÔNG có lựa chọn thì chỉ cần: Khi nào, Tình huống, Hệ quả.
+
+QUY ƯỚC BẮT BUỘC (để game đọc đúng):
+- Dòng khóa luôn viết dạng điều kiện CẦN CÓ: "KHÓA: cần Trí tuệ 6", "KHÓA: cần dấu ấn "x" hoặc Trí tuệ 7".
+  Không viết "KHÓA nếu ... từ ..." (dễ hiểu ngược).
+- Sự kiện có lựa chọn phải có ÍT NHẤT 2 lựa chọn. Lựa chọn liều mạng luôn đi kèm một lựa chọn an toàn hoặc hèn nhát.
+- Chỉ tung xúc xắc bằng: Sức mạnh, Trí tuệ, Nhanh nhẹn, May mắn hoặc Sức khỏe.
+- Tài sản và Danh vọng tính trên thang 0–100: thưởng thường +5..+30, thưởng huyền thoại tối đa +100.
+- Hệ quả đặc biệt dùng đúng chữ: "thu nhận {ally}", "mất {ally}", "có {spouse}", "có {child}", "mất {child}",
+  "giáng chức về Bậc 1", "thăng bậc <tên bậc>", "TIẾN HÓA THÀNH <tên>", "CHẾT (lý do ngắn)".
+- Mỗi kết quả trong một CẢNH của nhiệm vụ/cướp phá kết thúc bằng đúng một trong: (THẮNG NGAY ...), (THẤT BẠI NGAY ...),
+  (Chuyển sang CẢNH n ...), (CHẾT, lý do). Không ghi gì nghĩa là đi tiếp sang cảnh kế.
 MÃ viết thường, không dấu, bắt đầu bằng mã tộc, ví dụ bm_job_duel, bm_quest_ruins_2.
 
 Hãy trả lời "Đã hiểu" và chờ tôi gửi từng phần.

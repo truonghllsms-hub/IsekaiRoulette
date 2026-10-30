@@ -7,6 +7,7 @@ const path = require("path");
 const ROOT = path.join(__dirname, "..");
 const DATA_DIR = path.join(ROOT, "data");
 const PROFILE_DIR = path.join(ROOT, "content", "races");
+const PACK_DIR = path.join(DATA_DIR, "packs");
 
 function readJson(file) {
   try {
@@ -44,6 +45,31 @@ function mergeProfile(data, p, file) {
   if (p.names) data.names[p.id] = p.names;
 }
 
+// A race pack (built by tools/build-pack.js from an approved Gemini script) brings everything a race
+// needs to live its own way: origins with parents, roles, its organisation and raids, events, texts.
+function mergePack(data, p, file) {
+  const race = data.races.find((r) => r.id === p.race);
+  if (!race) throw new Error(`data/packs/${file}: tộc "${p.race}" không tồn tại`);
+  if (p.stageNames && race.stages) race.stages.forEach((s) => { if (p.stageNames[s.id]) s.name = p.stageNames[s.id]; });
+  if (p.forms) race.forms = p.forms;
+  if (p.origins && p.origins.length) {
+    data.origins = data.origins.filter((o) => !(o.races && o.races.length === 1 && o.races[0] === p.race));
+    for (const o of p.origins) data.origins.push(Object.assign({ races: [p.race] }, o));
+  }
+  for (const j of p.jobs || []) data.jobs.push(Object.assign({ races: [p.race] }, j));
+  for (const o of p.orgs || []) data.orgs.push(Object.assign({ races: [p.race] }, o));
+  for (const q of p.quests || []) data.quests.push(q);
+  const ids = new Set(data.events.map((e) => e.id));
+  for (const e of p.events || []) {
+    const ev = Object.assign({ _file: "packs/" + file, races: [p.race], pack: true }, e);
+    if (ids.has(ev.id)) ev.id += "_v2"; // an older event already uses this id
+    data.events.push(ev);
+  }
+  for (const d of p.deaths || []) data.deaths.push(Object.assign({ races: [p.race] }, d));
+  if (p.focus) data.focusRace[p.race] = p.focus;
+  if (p.systems) data.systems.race[p.race] = p.systems;
+}
+
 function loadData() {
   const one = (name) => readJson(path.join(DATA_DIR, name + ".json"));
   const events = [];
@@ -58,6 +84,7 @@ function loadData() {
     deaths: one("deaths"),
     epitaphs: one("epitaphs"),
     fillers: one("fillers"),
+    orgs: one("orgs"),
     jobs: one("jobs"),
     focus: one("focus"),
     quests: one("quests"),
@@ -65,6 +92,8 @@ function loadData() {
     events,
   };
   for (const f of jsonFiles(PROFILE_DIR)) mergeProfile(data, readJson(path.join(PROFILE_DIR, f)), f);
+  data.focusRace = {};
+  for (const f of jsonFiles(PACK_DIR)) mergePack(data, readJson(path.join(PACK_DIR, f)), f);
   return data;
 }
 

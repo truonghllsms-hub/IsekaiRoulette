@@ -1,7 +1,7 @@
 [
-  { "id": "party_campfire", "require": { "party": 1 }, "focus": ["adventure", "social"], "weight": 4,
+  { "id": "party_campfire", "tags": ["civil"], "require": { "party": 1 }, "focus": ["adventure", "social"], "weight": 4,
     "text": "Bên đống lửa trại, {ally} kể về quê nhà và người mẹ đang chờ ở đó. Lần đầu tiên bạn thấy {ally} cười.", "effects": { "bond": 10, "joy": 4 } },
-  { "id": "party_save", "require": { "party": 1 }, "focus": ["adventure"], "weight": 4,
+  { "id": "party_save", "tags": ["civil"], "require": { "party": 1 }, "focus": ["adventure"], "weight": 4,
     "text": "Một mũi tên bay về phía {ally} từ bụi rậm. Chỉ có bạn nhìn thấy.",
     "choices": [
       { "label": "Lao ra đỡ", "check": { "stat": "AGI", "target": 6 },
@@ -11,7 +11,7 @@
         "success": { "text": "{ally} nghiêng người kịp lúc. Mũi tên cắm vào thân cây.", "effects": { "bond": 8 } },
         "fail": { "text": "Quá muộn. Mũi tên găm vào {ally}.", "effects": { "allyHurt": true } } }
     ] },
-  { "id": "party_quarrel", "require": { "party": 2 }, "weight": 4,
+  { "id": "party_quarrel", "tags": ["civil"], "require": { "party": 2 }, "weight": 4,
     "text": "Hai người đồng đội của bạn cãi nhau to về cách chia chiến lợi phẩm. {ally} đã rút dao.",
     "choices": [
       { "label": "Đứng ra phân xử", "check": { "stat": "INT", "target": 6 },
@@ -20,7 +20,7 @@
       { "label": "Nhường phần của mình", "text": "Bạn đẩy túi tiền của mình ra giữa bàn. Cuộc cãi vã tắt ngấm vì xấu hổ.", "effects": { "wealth": -6, "partyBond": 10 } },
       { "label": "Mặc kệ", "text": "Sáng hôm sau, {ally} đã bỏ đi, mang theo phần hơn.", "effects": { "allyLeave": true } }
     ] },
-  { "id": "party_greedy", "require": { "party": 1, "allyTrait": "greedy" }, "weight": 5,
+  { "id": "party_greedy", "tags": ["civil"], "require": { "party": 1, "allyTrait": "greedy" }, "weight": 5,
     "text": "Bạn tỉnh dậy giữa đêm và thấy {ally} đang lục túi tiền chung của tổ đội.",
     "choices": [
       { "label": "Đối chất", "check": { "stat": "STR", "target": 6 },
@@ -29,9 +29,9 @@
       { "label": "Giả vờ ngủ", "text": "Sáng hôm sau, túi tiền nhẹ đi một phần ba. {ally} cười nói như không có gì.", "effects": { "wealth": -8 } },
       { "label": "Đuổi khỏi tổ đội", "text": "Bạn ném đồ đạc của {ally} ra cửa. Không cần lời giải thích.", "effects": { "allyLeave": true } }
     ] },
-  { "id": "party_loyal", "require": { "party": 1, "allyTrait": "loyal", "below": { "health": 40 } }, "weight": 8,
+  { "id": "party_loyal", "tags": ["civil"], "require": { "party": 1, "allyTrait": "loyal", "below": { "health": 40 } }, "weight": 8,
     "text": "Bạn đổ bệnh nặng giữa đường. {ally} cõng bạn qua ba ngọn đồi để tìm thầy thuốc.", "effects": { "health": 25, "bond": 15 }, "moment": "Được đồng đội cõng qua ba ngọn đồi" },
-  { "id": "party_timid", "require": { "party": 1, "allyTrait": "timid" }, "focus": ["adventure"], "weight": 4,
+  { "id": "party_timid", "tags": ["civil"], "require": { "party": 1, "allyTrait": "timid" }, "focus": ["adventure"], "weight": 4,
     "text": "Đứng trước cửa hầm ngục, {ally} run rẩy xin được ở lại canh ngựa.",
     "choices": [
       { "label": "Động viên", "check": { "stat": "LUCK", "target": 5 },
@@ -39,9 +39,9 @@
         "fail": { "text": "{ally} theo vào nhưng đánh rơi đuốc giữa chừng. Cả đội lạc trong bóng tối.", "effects": { "health": -8, "bond": -5 } } },
       { "label": "Để ở lại", "text": "{ally} canh ngựa. Khi bạn trở ra, ngựa vẫn còn, và có cả nồi canh nóng.", "effects": { "bond": 5 } }
     ] },
-  { "id": "party_cheerful", "require": { "party": 1, "allyTrait": "cheerful" }, "weight": 3,
+  { "id": "party_cheerful", "tags": ["civil"], "require": { "party": 1, "allyTrait": "cheerful" }, "weight": 3,
     "text": "{ally} học được một bài hát bậy bạ ở quán rượu và hát suốt chặng đường. Bạn giả vờ khó chịu nhưng vẫn hát theo.", "effects": { "joy": 6, "bond": 5 } },
-  { "id": "party_cold", "require": { "party": 1, "allyTrait": "cold" }, "weight": 4,
+  { "id": "party_cold", "tags": ["civil"], "require": { "party": 1, "allyTrait": "cold" }, "weight": 4,
     "text": "{ally} vốn ít nói, hôm nay bỗng kể về kẻ đã giết cả gia đình mình, và nói rằng hắn đang ở thành phố bên.",
     "choices": [
       { "label": "Cùng đi báo thù", "check": { "stat": "STR", "target": 7 },
@@ -51,7 +51,7 @@
         "success": { "text": "{ally} im lặng rất lâu, rồi gật đầu. Có lẽ đó là đêm đầu tiên họ ngủ không gặp ác mộng.", "effects": { "bond": 15 } },
         "fail": { "text": "{ally} lạnh lùng nhìn bạn, rồi một mình đi trong đêm. Sáng hôm sau họ trở về, máu khô trên tay.", "effects": { "bond": -10 } } }
     ] },
-  { "id": "party_brave", "require": { "party": 1, "allyTrait": "brave" }, "focus": ["adventure"], "weight": 4,
+  { "id": "party_brave", "tags": ["civil"], "require": { "party": 1, "allyTrait": "brave" }, "focus": ["adventure"], "weight": 4,
     "text": "{ally} lao lên trước khi bạn kịp ra hiệu. Con quái vật quay sang.",
     "choices": [
       { "label": "Xông lên hỗ trợ", "check": { "stat": "STR", "target": 6 },
@@ -59,7 +59,7 @@
         "fail": { "text": "Bạn đến chậm một nhịp. {ally} lãnh trọn cú đánh.", "effects": { "allyHurt": true } } },
       { "label": "Giữ khoảng cách quan sát", "text": "{ally} tự xoay xở được, nhưng không quên ánh mắt chờ đợi của mình lúc ấy.", "effects": { "bond": -8 } }
     ] },
-  { "id": "party_retire", "require": { "party": 1 }, "stages": ["middle", "elder"], "weight": 4,
+  { "id": "party_retire", "tags": ["civil"], "require": { "party": 1 }, "stages": ["middle", "elder"], "weight": 4,
     "text": "{ally} nói muốn treo kiếm, về quê mở một quán trọ nhỏ.",
     "choices": [
       { "label": "Chúc phúc", "text": "Bạn tiễn {ally} ở cổng thành. Mỗi năm, một thùng rượu từ quán trọ ấy được gửi đến nhà bạn.", "effects": { "allyLeave": true, "joy": 4 } },
