@@ -71,4 +71,4 @@ Mở `index.html` hoặc chạy `node tools/serve.js` rồi vào http://localhos
 - [ ] Script làm sạch ảnh (`tools/pixelize.js`) và khung chân dung trong game (màn đầu thai, HUD, màn tổng kết).
 
 ## Vấn đề đã biết
-- 7 tộc chưa có nội dung riêng (Human, Beastman, Dwarf, Elf, Demon, Kobold, Lizardman), nên chỉ gặp sự kiện chung và hay lặp lại.
+- Đã nhập đủ 17 kịch bản. Số liệu, bảng ảnh và việc còn lại: docs/bao-cao.html (tools/stats-report.js + tools/report-page.js)., nên chỉ gặp sự kiện chung và hay lặp lại.

@@ -1,0 +1,545 @@
+<title>Sổ Cái Luân Hồi</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@500;700&family=Be+Vietnam+Pro:wght@400;500;600&display=swap">
+<style>
+/* Layout: a ledger. One column of sections; the two big tables scroll sideways in their own frames with the race column pinned. */
+:root {
+  --bg: #eef0f4; --surface: #ffffff; --ink: #1c2130; --muted: #5a6274; --line: #d6dae3;
+  --accent: #0e6f68; --gold: #a46a12;
+  --old: #4f8a5b; --health: #c58a1d; --violent: #b4473d; --event: #6b56b8;
+  --display: "Alegreya SC", "Palatino Linotype", Georgia, serif;
+  --body: "Be Vietnam Pro", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #11141b; --surface: #191d27; --ink: #e5e8f0; --muted: #9aa2b4; --line: #2b3140;
+  --accent: #3cc7b8; --gold: #e2b357;
+  --old: #6fb67d; --health: #e0a43a; --violent: #e06a5e; --event: #9d88ec; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #11141b; --surface: #191d27; --ink: #e5e8f0; --muted: #9aa2b4; --line: #2b3140;
+  --accent: #3cc7b8; --gold: #e2b357;
+  --old: #6fb67d; --health: #e0a43a; --violent: #e06a5e; --event: #9d88ec; color-scheme: dark }
+body { background: var(--bg); color: var(--ink); font: 15px/1.6 var(--body); }
+main { max-width: 1180px; margin: 0 auto; padding-block: 40px 64px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 48px; }
+header { display: grid; gap: 10px; max-width: 70ch; }
+.kicker { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+h1 { font: 700 clamp(30px, 5vw, 46px)/1.1 var(--display); margin: 0; text-wrap: balance; }
+h2 { font: 700 26px/1.2 var(--display); margin: 0; text-wrap: balance; }
+h3 { font-size: 15px; margin: 0; }
+p { margin: 0; }
+.lede { color: var(--muted); }
+section.block { display: grid; gap: 16px; min-width: 0; }
+.block > .intro { max-width: 72ch; display: grid; gap: 8px; color: var(--muted); }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 24px; font-variant-numeric: tabular-nums; }
+.facts b { font: 700 22px/1 var(--display); color: var(--ink); margin-right: 6px; }
+.frame { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+table { border-collapse: separate; border-spacing: 0; font-variant-numeric: tabular-nums; font-size: 13.5px; width: max-content; min-width: 100%; }
+th, td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+thead th { font-size: 11.5px; font-weight: 600; color: var(--muted); letter-spacing: .03em; background: var(--surface); position: sticky; top: 0; z-index: 2; }
+thead tr.group th { text-transform: uppercase; letter-spacing: .1em; font-size: 10.5px; color: var(--accent); border-bottom: 0; padding-bottom: 0; }
+tbody th { position: sticky; left: 0; background: var(--surface); z-index: 1; min-width: 132px; box-shadow: 1px 0 0 var(--line); }
+thead th:first-child { left: 0; z-index: 3; }
+tbody tr:last-child > * { border-bottom: 0; }
+.race { display: block; font-weight: 600; }
+.birth { display: block; font-size: 11.5px; color: var(--muted); font-weight: 400; }
+td.n { text-align: right; white-space: nowrap; }
+td.heat { background: color-mix(in srgb, var(--accent) calc(var(--h) * 0.32%), transparent); }
+td.forms { font-size: 12px; color: var(--muted); min-width: 150px; }
+td.death { min-width: 170px; }
+.bar { display: flex; height: 10px; border-radius: 3px; overflow: hidden; background: var(--line); }
+.seg { display: block; flex-grow: 0; flex-shrink: 0; }
+.seg.old, .legend .old::before { background: var(--old); }
+.seg.health, .legend .health::before { background: var(--health); }
+.seg.violent, .legend .violent::before { background: var(--violent); }
+.seg.event, .legend .event::before { background: var(--event); }
+.death-n { display: flex; justify-content: space-between; font-size: 11px; margin-top: 3px; }
+.death-n .old { color: var(--old); } .death-n .health { color: var(--health); } .death-n .violent { color: var(--violent); } .death-n .event { color: var(--event); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 12.5px; color: var(--muted); }
+.legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+.notes { display: grid; gap: 6px; font-size: 13.5px; color: var(--muted); max-width: 80ch; padding-left: 18px; margin: 0; }
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; align-items: start; }
+.two > * { min-width: 0; }
+.kins { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 4px 16px; font-variant-numeric: tabular-nums; }
+.kins li { display: flex; justify-content: space-between; border-bottom: 1px dotted var(--line); padding: 3px 0; }
+td.total { font-weight: 600; color: var(--accent); }
+tfoot td, tfoot th { font-weight: 600; border-top: 2px solid var(--line); border-bottom: 0; background: var(--surface); }
+.grand { font: 700 40px/1 var(--display); color: var(--gold); }
+.extra { display: grid; gap: 10px; }
+.grand-box, .two > div.block { display: grid; gap: 8px; align-content: start; }
+.extra div { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+.extra small { grid-column: 1 / -1; color: var(--muted); }
+.todo { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px 32px; }
+.todo-group { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.todo-group h3 { font: 700 18px/1.2 var(--display); }
+.todo-group ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.todo-group li { display: grid; grid-template-columns: 44px 1fr; gap: 10px; font-size: 14px; }
+.prio { font-size: 11px; font-weight: 600; text-align: center; border-radius: 3px; padding: 2px 0; height: fit-content; border: 1px solid currentColor; }
+.p-hi { color: var(--violent); } .p-mid { color: var(--health); } .p-lo { color: var(--muted); }
+footer { font-size: 12.5px; color: var(--muted); max-width: 80ch; }
+code { font-size: 12.5px; }
+</style>
+<main>
+<header>
+  <span class="kicker">Luân Hồi Dị Giới · số liệu sau khi nhập đủ 17 kịch bản</span>
+  <h1>Sổ Cái Luân Hồi</h1>
+  <p class="lede">Mỗi tộc được chơi tự động 1.000 đời với lựa chọn ngẫu nhiên, như một người chơi bấm bừa. Người chơi chủ động (đi làm, tìm thăng tiến, tìm tiến hóa) sẽ có tỉ lệ thăng tiến và tiến hóa cao hơn các con số dưới đây.</p>
+  <div class="facts"><span><b>17</b>tộc</span><span><b>3.003</b>sự kiện</span><span><b>149</b>xuất thân</span><span><b>98</b>nghề và vai trò</span><span><b>208</b>nhiệm vụ</span></div>
+</header>
+
+<section class="block" id="ti-le">
+  <h2>Tỉ lệ theo tộc</h2>
+  <div class="intro"><p>Tuổi tính theo năm của tộc đó. “Đạt bậc cao nhất” là bậc 5 của nghề, hoặc bậc trên cùng của tổ chức (hạng S, Goblin King, Chân Tổ…). Ô càng đậm màu, tỉ lệ càng cao.</p></div>
+  <div class="frame"><table>
+    <thead>
+      <tr class="group"><th></th><th colspan="4">Tuổi đời</th><th colspan="3">Nghề</th><th colspan="3">Tổ chức</th><th colspan="2">Tiến hóa</th><th colspan="3">Gia đình</th><th colspan="5">Đồng đội và biến cố</th><th>Nguyên nhân chết</th></tr>
+      <tr><th>Tộc</th><th>Tuổi thọ</th><th>Tuổi chết TB</th><th>Trung vị</th><th>Lượt bấm</th>
+      <th>Có nghề</th><th>Bậc 3+</th><th>Bậc cao nhất</th>
+      <th>Gia nhập</th><th>Bậc cao nhất</th><th>Nhiệm vụ/đời</th>
+      <th>Tiến hóa</th><th>Theo nhánh</th>
+      <th>Có bạn đời</th><th>Có con</th><th>Số con TB</th>
+      <th>Có đồng đội</th><th>Đồng đội chết</th><th>Bị phản bội</th><th>Mồ côi trước khi lớn</th><th>Sống tới tuổi già</th>
+      <th>già · sức khỏe · bạo lực · sự kiện (%)</th></tr>
+    </thead>
+    <tbody>
+<tr>
+<th scope="row"><span class="race">Human</span><span class="birth">33% đầu thai</span></th>
+<td class="n">70–80</td>
+<td class="n">60,2</td>
+<td class="n">72</td>
+<td class="n">27,7</td>
+<td class="n heat" style="--h:92.9">92,9%</td><td class="n heat" style="--h:27.6">27,6%</td><td class="n heat" style="--h:2.2">2,2%</td>
+<td class="n heat" style="--h:53.8">53,8%</td><td class="n heat" style="--h:0.1">0,1%</td>
+<td class="n">0,9</td>
+<td class="n heat" style="--h:0">0%</td><td class="forms">—</td>
+<td class="n heat" style="--h:54.4">54,4%</td><td class="n heat" style="--h:45.4">45,4%</td><td class="n">1,2</td>
+<td class="n heat" style="--h:47">47%</td><td class="n heat" style="--h:8.5">8,5%</td><td class="n heat" style="--h:11.4">11,4%</td><td class="n heat" style="--h:5.1">5,1%</td><td class="n heat" style="--h:67.9">67,9%</td>
+<td class="death"><div class="bar" role="img" aria-label="già 56,7%, kiệt sức khỏe 15%, bạo lực 20,6%, sự kiện 7,7%"><span class="seg old" style="flex-basis:56.7%"></span><span class="seg health" style="flex-basis:15%"></span><span class="seg violent" style="flex-basis:20.6%"></span><span class="seg event" style="flex-basis:7.7%"></span></div><div class="death-n"><span class="old">57</span><span class="health">15</span><span class="violent">21</span><span class="event">8</span></div></td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Beastman</span><span class="birth">18% đầu thai</span></th>
+<td class="n">50–60</td>
+<td class="n">44,4</td>
+<td class="n">52</td>
+<td class="n">22,7</td>
+<td class="n heat" style="--h:92.7">92,7%</td><td class="n heat" style="--h:22.1">22,1%</td><td class="n heat" style="--h:0.8">0,8%</td>
+<td class="n heat" style="--h:48.9">48,9%</td><td class="n heat" style="--h:7.5">7,5%</td>
+<td class="n">0,5</td>
+<td class="n heat" style="--h:0">0%</td><td class="forms">—</td>
+<td class="n heat" style="--h:34.3">34,3%</td><td class="n heat" style="--h:23.2">23,2%</td><td class="n">0,5</td>
+<td class="n heat" style="--h:41.4">41,4%</td><td class="n heat" style="--h:0.6">0,6%</td><td class="n heat" style="--h:9.4">9,4%</td><td class="n heat" style="--h:11.4">11,4%</td><td class="n heat" style="--h:68.9">68,9%</td>
+<td class="death"><div class="bar" role="img" aria-label="già 60,9%, kiệt sức khỏe 3,9%, bạo lực 27,2%, sự kiện 8%"><span class="seg old" style="flex-basis:60.9%"></span><span class="seg health" style="flex-basis:3.9%"></span><span class="seg violent" style="flex-basis:27.2%"></span><span class="seg event" style="flex-basis:8%"></span></div><div class="death-n"><span class="old">61</span><span class="health">4</span><span class="violent">27</span><span class="event">8</span></div></td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Dwarf</span><span class="birth">12% đầu thai</span></th>
+<td class="n">150–200</td>
+<td class="n">118,7</td>
+<td class="n">145</td>
+<td class="n">22,8</td>
+<td class="n heat" style="--h:81.7">81,7%</td><td class="n heat" style="--h:20.6">20,6%</td><td class="n heat" style="--h:2.3">2,3%</td>
+<td class="n heat" style="--h:42.6">42,6%</td><td class="n heat" style="--h:2.5">2,5%</td>
+<td class="n">0,6</td>
+<td class="n heat" style="--h:0">0%</td><td class="forms">—</td>
+<td class="n heat" style="--h:38.5">38,5%</td><td class="n heat" style="--h:33.9">33,9%</td><td class="n">0,9</td>
+<td class="n heat" style="--h:36.4">36,4%</td><td class="n heat" style="--h:1">1%</td><td class="n heat" style="--h:3.6">3,6%</td><td class="n heat" style="--h:5.2">5,2%</td><td class="n heat" style="--h:53.2">53,2%</td>
+<td class="death"><div class="bar" role="img" aria-label="già 17,1%, kiệt sức khỏe 32,7%, bạo lực 42,4%, sự kiện 7,8%"><span class="seg old" style="flex-basis:17.1%"></span><span class="seg health" style="flex-basis:32.7%"></span><span class="seg violent" style="flex-basis:42.4%"></span><span class="seg event" style="flex-basis:7.8%"></span></div><div class="death-n"><span class="old">17</span><span class="health">33</span><span class="violent">42</span><span class="event">8</span></div></td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Demon</span><span class="birth">7% đầu thai</span></th>
+<td class="n">300–500</td>
+<td class="n">233,3</td>
+<td class="n">240</td>
+<td class="n">21</td>
+<td class="n heat" style="--h:78.8">78,8%</td><td class="n heat" style="--h:21.1">21,1%</td><td class="n heat" style="--h:2.5">2,5%</td>
+<td class="n heat" style="--h:100">100%</td><td class="n heat" style="--h:2.9">2,9%</td>
+<td class="n">0,4</td>
+<td class="n heat" style="--h:0">0%</td><td class="forms">—</td>
+<td class="n heat" style="--h:26.5">26,5%</td><td class="n heat" style="--h:17.9">17,9%</td><td class="n">0,4</td>
+<td class="n heat" style="--h:52.7">52,7%</td><td class="n heat" style="--h:7.6">7,6%</td><td class="n heat" style="--h:55.4">55,4%</td><td class="n heat" style="--h:23.2">23,2%</td><td class="n heat" style="--h:33.8">33,8%</td>
+<td class="death"><div class="bar" role="img" aria-label="già 10,1%, kiệt sức khỏe 36,2%, bạo lực 35,8%, sự kiện 17,9%"><span class="seg old" style="flex-basis:10.1%"></span><span class="seg health" style="flex-basis:36.2%"></span><span class="seg violent" style="flex-basis:35.8%"></span><span class="seg event" style="flex-basis:17.9%"></span></div><div class="death-n"><span class="old">10</span><span class="health">36</span><span class="violent">36</span><span class="event">18</span></div></td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Elf</span><span class="birth">7% đầu thai</span></th>
+<td class="n">1000–2000</td>
+<td class="n">992,1</td>
+<td class="n">1.053</td>
+<td class="n">22,8</td>
+<td class="n heat" style="--h:86">86%</td><td class="n heat" style="--h:22.4">22,4%</td><td class="n heat" style="--h:4.4">4,4%</td>
+<td class="n heat" style="--h:45.2">45,2%</td><td class="n heat" style="--h:0.8">0,8%</td>
+<td class="n">0,5</td>
+<td class="n heat" style="--h:0">0%</td><td class="forms">—</td>
+<td class="n heat" style="--h:45.3">45,3%</td><td class="n heat" style="--h:33.2">33,2%</td><td class="n">0,9</td>
+<td class="n heat" style="--h:38.5">38,5%</td><td class="n heat" style="--h:2.1">2,1%</td><td class="n heat" style="--h:13.6">13,6%</td><td class="n heat" style="--h:13.2">13,2%</td><td class="n heat" style="--h:39">39%</td>
+<td class="death"><div class="bar" role="img" aria-label="già 17,6%, kiệt sức khỏe 30,3%, bạo lực 41,9%, sự kiện 10,2%"><span class="seg old" style="flex-basis:17.6%"></span><span class="seg health" style="flex-basis:30.3%"></span><span class="seg violent" style="flex-basis:41.9%"></span><span class="seg event" style="flex-basis:10.2%"></span></div><div class="death-n"><span class="old">18</span><span class="health">30</span><span class="violent">42</span><span class="event">10</span></div></td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Goblin</span><span class="birth">4% đầu thai</span></th>
+<td class="n">15–20</td>
+<td class="n">13,8</td>
+<td class="n">15</td>
+<td class="n">11,1</td>
+<td class="n heat" style="--h:83.7">83,7%</td><td class="n heat" style="--h:8.7">8,7%</td><td class="n heat" style="--h:0.1">0,1%</td>
+<td class="n heat" style="--h:100">100%</td><td class="n heat" style="--h:0.1">0,1%</td>
+<td class="n">0,1</td>
+<td class="n heat" style="--h:9.9">9,9%</td><td class="forms">Goblin Shaman Lord 5,2%<br>Hobgoblin 4,7%</td>
+<td class="n heat" style="--h:14.5">14,5%</td><td class="n heat" style="--h:0.1">0,1%</td><td class="n">0</td>
+<td class="n heat" style="--h:38.1">38,1%</td><td class="n heat" style="--h:2.6">2,6%</td><td class="n heat" style="--h:26.3">26,3%</td><td class="n heat" style="--h:40">40%</td><td class="n heat" style="--h:48">48%</td>
+<td class="death"><div class="bar" role="img" aria-label="già 51,3%, kiệt sức khỏe 0,8%, bạo lực 37,8%, sự kiện 10,1%"><span class="seg old" style="flex-basis:51.3%"></span><span class="seg health" style="flex-basis:0.8%"></span><span class="seg violent" style="flex-basis:37.8%"></span><span class="seg event" style="flex-basis:10.1%"></span></div><div class="death-n"><span class="old">51</span><span class="health">1</span><span class="violent">38</span><span class="event">10</span></div></td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Slime</span><span class="birth">3% đầu thai</span></th>
+<td class="n">650–950</td>
+<td class="n">435,9</td>
+<td class="n">350</td>
+<td class="n">24,9</td>
+<td class="n heat" style="--h:98.9">98,9%</td><td class="n heat" style="--h:28.6">28,6%</td><td class="n heat" style="--h:15.3">15,3%</td>
+<td class="n heat" style="--h:100">100%</td><td class="n heat" style="--h:0.5">0,5%</td>
+<td class="n">1,1</td>
+<td class="n heat" style="--h:14.7">14,7%</td><td class="forms">Elemental Slime 12,5%<br>Slime King 2,1%<br>Humanoid Slime 0,1%</td>
+<td class="n heat" style="--h:0">0%</td><td class="n heat" style="--h:5.6">5,6%</td><td class="n">0,1</td>
+<td class="n heat" style="--h:70.8">70,8%</td><td class="n heat" style="--h:5.8">5,8%</td><td class="n heat" style="--h:0">0%</td><td class="n heat" style="--h:0">0%</td><td class="n heat" style="--h:43.4">43,4%</td>
+<td class="death"><div class="bar" role="img" aria-label="già 26,4%, kiệt sức khỏe 4,3%, bạo lực 44,7%, sự kiện 24,6%"><span class="seg old" style="flex-basis:26.4%"></span><span class="seg health" style="flex-basis:4.3%"></span><span class="seg violent" style="flex-basis:44.7%"></span><span class="seg event" style="flex-basis:24.6%"></span></div><div class="death-n"><span class="old">26</span><span class="health">4</span><span class="violent">45</span><span class="event">25</span></div></td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Kobold</span><span class="birth">3% đầu thai</span></th>
+<td class="n">20–25</td>
+<td class="n">14,8</td>
+<td class="n">15</td>
+<td class="n">11</td>
+<td class="n heat" style="--h:70.3">70,3%</td><td class="n heat" style="--h:4.5">4,5%</td><td class="n heat" style="--h:0">0%</td>
+<td class="n heat" style="--h:100">100%</td><td class="n heat" style="--h:0.1">0,1%</td>
+<td class="n">0,1</td>
+<td class="n heat" style="--h:5.7">5,7%</td><td class="forms">Dragonblood Kobold 3,2%<br>Kobold Elite 2,5%</td>
+<td class="n heat" style="--h:11.6">11,6%</td><td class="n heat" style="--h:3.1">3,1%</td><td class="n">0</td>
+<td class="n heat" style="--h:36.2">36,2%</td><td class="n heat" style="--h:2.8">2,8%</td><td class="n heat" style="--h:1.5">1,5%</td><td class="n heat" style="--h:30.4">30,4%</td><td class="n heat" style="--h:40.1">40,1%</td>
+<td class="death"><div class="bar" role="img" aria-label="già 36,6%, kiệt sức khỏe 0,4%, bạo lực 48,9%, sự kiện 14,1%"><span class="seg old" style="flex-basis:36.6%"></span><span class="seg health" style="flex-basis:0.4%"></span><span class="seg violent" style="flex-basis:48.9%"></span><span class="seg event" style="flex-basis:14.1%"></span></div><div class="death-n"><span class="old">37</span><span class="health">0</span><span class="violent">49</span><span class="event">14</span></div></td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Lizardman</span><span class="birth">3% đầu thai</span></th>
+<td class="n">55–65</td>
+<td class="n">39,3</td>
+<td class="n">41</td>
+<td class="n">18,2</td>
+<td class="n heat" style="--h:77.6">77,6%</td><td class="n heat" style="--h:12.2">12,2%</td><td class="n heat" style="--h:0.4">0,4%</td>
+<td class="n heat" style="--h:100">100%</td><td class="n heat" style="--h:0.4">0,4%</td>
+<td class="n">0,1</td>
+<td class="n heat" style="--h:3.3">3,3%</td><td class="forms">High Serpent Priest 2%<br>Swamp Dragonewt 1,3%</td>
+<td class="n heat" style="--h:34.9">34,9%</td><td class="n heat" style="--h:18.8">18,8%</td><td class="n">0,3</td>
+<td class="n heat" style="--h:48">48%</td><td class="n heat" style="--h:0.2">0,2%</td><td class="n heat" style="--h:0.5">0,5%</td><td class="n heat" style="--h:25.9">25,9%</td><td class="n heat" style="--h:46.4">46,4%</td>
+<td class="death"><div class="bar" role="img" aria-label="già 36,4%, kiệt sức khỏe 3,1%, bạo lực 45,7%, sự kiện 14,8%"><span class="seg old" style="flex-basis:36.4%"></span><span class="seg health" style="flex-basis:3.1%"></span><span class="seg violent" style="flex-basis:45.7%"></span><span class="seg event" style="flex-basis:14.8%"></span></div><div class="death-n"><span class="old">36</span><span class="health">3</span><span class="violent">46</span><span class="event">15</span></div></td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Vampire</span><span class="birth">2,5% đầu thai</span></th>
+<td class="n">2950–3150</td>
+<td class="n">1.616</td>
+<td class="n">1.461</td>
+<td class="n">18,8</td>
+<td class="n heat" style="--h:96.9">96,9%</td><td class="n heat" style="--h:19.8">19,8%</td><td class="n heat" style="--h:3.8">3,8%</td>
+<td class="n heat" style="--h:100">100%</td><td class="n heat" style="--h:0.3">0,3%</td>
+<td class="n">0,4</td>
+<td class="n heat" style="--h:14.7">14,7%</td><td class="forms">Vampire Noble 10,8%<br>True Ancestor 3,8%<br>Daywalker 0,1%</td>
+<td class="n heat" style="--h:13.1">13,1%</td><td class="n heat" style="--h:7.6">7,6%</td><td class="n">0,1</td>
+<td class="n heat" style="--h:54.4">54,4%</td><td class="n heat" style="--h:15.2">15,2%</td><td class="n heat" style="--h:21.1">21,1%</td><td class="n heat" style="--h:0">0%</td><td class="n heat" style="--h:23.5">23,5%</td>
+<td class="death"><div class="bar" role="img" aria-label="già 4,5%, kiệt sức khỏe 31,7%, bạo lực 32,1%, sự kiện 31,7%"><span class="seg old" style="flex-basis:4.5%"></span><span class="seg health" style="flex-basis:31.7%"></span><span class="seg violent" style="flex-basis:32.1%"></span><span class="seg event" style="flex-basis:31.7%"></span></div><div class="death-n"><span class="old">5</span><span class="health">32</span><span class="violent">32</span><span class="event">32</span></div></td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Imp</span><span class="birth">2% đầu thai</span></th>
+<td class="n">30–40</td>
+<td class="n">24,6</td>
+<td class="n">30</td>
+<td class="n">12,6</td>
+<td class="n heat" style="--h:72.4">72,4%</td><td class="n heat" style="--h:3.6">3,6%</td><td class="n heat" style="--h:0">0%</td>
+<td class="n heat" style="--h:100">100%</td><td class="n heat" style="--h:0">0%</td>
+<td class="n">0,2</td>
+<td class="n heat" style="--h:5.5">5,5%</td><td class="forms">Free Imp 4,9%<br>Greater Demon 0,6%</td>
+<td class="n heat" style="--h:9.9">9,9%</td><td class="n heat" style="--h:0.7">0,7%</td><td class="n">0</td>
+<td class="n heat" style="--h:49.6">49,6%</td><td class="n heat" style="--h:5.4">5,4%</td><td class="n heat" style="--h:26.3">26,3%</td><td class="n heat" style="--h:27.9">27,9%</td><td class="n heat" style="--h:35.6">35,6%</td>
+<td class="death"><div class="bar" role="img" aria-label="già 42,3%, kiệt sức khỏe 5,2%, bạo lực 42,2%, sự kiện 10,3%"><span class="seg old" style="flex-basis:42.3%"></span><span class="seg health" style="flex-basis:5.2%"></span><span class="seg violent" style="flex-basis:42.2%"></span><span class="seg event" style="flex-basis:10.3%"></span></div><div class="death-n"><span class="old">42</span><span class="health">5</span><span class="violent">42</span><span class="event">10</span></div></td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Orc</span><span class="birth">2% đầu thai</span></th>
+<td class="n">40–45</td>
+<td class="n">28,2</td>
+<td class="n">31</td>
+<td class="n">15</td>
+<td class="n heat" style="--h:79.2">79,2%</td><td class="n heat" style="--h:7.2">7,2%</td><td class="n heat" style="--h:0">0%</td>
+<td class="n heat" style="--h:100">100%</td><td class="n heat" style="--h:0.2">0,2%</td>
+<td class="n">0,3</td>
+<td class="n heat" style="--h:1.5">1,5%</td><td class="forms">High Orc 1,5%</td>
+<td class="n heat" style="--h:7.3">7,3%</td><td class="n heat" style="--h:3.4">3,4%</td><td class="n">0</td>
+<td class="n heat" style="--h:47.5">47,5%</td><td class="n heat" style="--h:0.9">0,9%</td><td class="n heat" style="--h:3.2">3,2%</td><td class="n heat" style="--h:17.6">17,6%</td><td class="n heat" style="--h:44.8">44,8%</td>
+<td class="death"><div class="bar" role="img" aria-label="già 34,4%, kiệt sức khỏe 3,9%, bạo lực 44%, sự kiện 17,7%"><span class="seg old" style="flex-basis:34.4%"></span><span class="seg health" style="flex-basis:3.9%"></span><span class="seg violent" style="flex-basis:44%"></span><span class="seg event" style="flex-basis:17.7%"></span></div><div class="death-n"><span class="old">34</span><span class="health">4</span><span class="violent">44</span><span class="event">18</span></div></td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Minotaur</span><span class="birth">1,5% đầu thai</span></th>
+<td class="n">60–70</td>
+<td class="n">49,3</td>
+<td class="n">60</td>
+<td class="n">20,1</td>
+<td class="n heat" style="--h:85.9">85,9%</td><td class="n heat" style="--h:23">23%</td><td class="n heat" style="--h:1.2">1,2%</td>
+<td class="n heat" style="--h:100">100%</td><td class="n heat" style="--h:0">0%</td>
+<td class="n">0,6</td>
+<td class="n heat" style="--h:2">2%</td><td class="forms">Mythical Minotaur 1,7%<br>Golden Minotaur 0,3%</td>
+<td class="n heat" style="--h:26.9">26,9%</td><td class="n heat" style="--h:2.7">2,7%</td><td class="n">0</td>
+<td class="n heat" style="--h:48.2">48,2%</td><td class="n heat" style="--h:7.7">7,7%</td><td class="n heat" style="--h:8.6">8,6%</td><td class="n heat" style="--h:0">0%</td><td class="n heat" style="--h:60.9">60,9%</td>
+<td class="death"><div class="bar" role="img" aria-label="già 45,4%, kiệt sức khỏe 10,2%, bạo lực 36%, sự kiện 8,4%"><span class="seg old" style="flex-basis:45.4%"></span><span class="seg health" style="flex-basis:10.2%"></span><span class="seg violent" style="flex-basis:36%"></span><span class="seg event" style="flex-basis:8.4%"></span></div><div class="death-n"><span class="old">45</span><span class="health">10</span><span class="violent">36</span><span class="event">8</span></div></td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Troll</span><span class="birth">0,8% đầu thai</span></th>
+<td class="n">60–80</td>
+<td class="n">53,4</td>
+<td class="n">61</td>
+<td class="n">20,8</td>
+<td class="n heat" style="--h:87.4">87,4%</td><td class="n heat" style="--h:19.3">19,3%</td><td class="n heat" style="--h:1">1%</td>
+<td class="n heat" style="--h:100">100%</td><td class="n heat" style="--h:0">0%</td>
+<td class="n">0,3</td>
+<td class="n heat" style="--h:5.8">5,8%</td><td class="forms">Stone Troll 5,1%<br>Ancient Ice Troll 0,7%</td>
+<td class="n heat" style="--h:14.1">14,1%</td><td class="n heat" style="--h:6.4">6,4%</td><td class="n">0,1</td>
+<td class="n heat" style="--h:40.9">40,9%</td><td class="n heat" style="--h:0.8">0,8%</td><td class="n heat" style="--h:3.7">3,7%</td><td class="n heat" style="--h:32.2">32,2%</td><td class="n heat" style="--h:55.4">55,4%</td>
+<td class="death"><div class="bar" role="img" aria-label="già 48,2%, kiệt sức khỏe 1,9%, bạo lực 31,9%, sự kiện 18%"><span class="seg old" style="flex-basis:48.2%"></span><span class="seg health" style="flex-basis:1.9%"></span><span class="seg violent" style="flex-basis:31.9%"></span><span class="seg event" style="flex-basis:18%"></span></div><div class="death-n"><span class="old">48</span><span class="health">2</span><span class="violent">32</span><span class="event">18</span></div></td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Ghoul</span><span class="birth">0,5% đầu thai</span></th>
+<td class="n">1150–1400</td>
+<td class="n">672,2</td>
+<td class="n">511</td>
+<td class="n">20,4</td>
+<td class="n heat" style="--h:79.4">79,4%</td><td class="n heat" style="--h:22.1">22,1%</td><td class="n heat" style="--h:6.6">6,6%</td>
+<td class="n heat" style="--h:100">100%</td><td class="n heat" style="--h:0">0%</td>
+<td class="n">0,6</td>
+<td class="n heat" style="--h:42">42%</td><td class="forms">Ghast 42%</td>
+<td class="n heat" style="--h:32.8">32,8%</td><td class="n heat" style="--h:20.3">20,3%</td><td class="n">0,4</td>
+<td class="n heat" style="--h:45.2">45,2%</td><td class="n heat" style="--h:1.3">1,3%</td><td class="n heat" style="--h:7.4">7,4%</td><td class="n heat" style="--h:0">0%</td><td class="n heat" style="--h:36.5">36,5%</td>
+<td class="death"><div class="bar" role="img" aria-label="già 19%, kiệt sức khỏe 9,1%, bạo lực 35,6%, sự kiện 36,3%"><span class="seg old" style="flex-basis:19%"></span><span class="seg health" style="flex-basis:9.1%"></span><span class="seg violent" style="flex-basis:35.6%"></span><span class="seg event" style="flex-basis:36.3%"></span></div><div class="death-n"><span class="old">19</span><span class="health">9</span><span class="violent">36</span><span class="event">36</span></div></td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Dragon</span><span class="birth">0,5% đầu thai</span></th>
+<td class="n">9600–10400</td>
+<td class="n">7.840</td>
+<td class="n">9.119</td>
+<td class="n">25,5</td>
+<td class="n heat" style="--h:96">96%</td><td class="n heat" style="--h:41.1">41,1%</td><td class="n heat" style="--h:12.7">12,7%</td>
+<td class="n heat" style="--h:100">100%</td><td class="n heat" style="--h:0">0%</td>
+<td class="n">0,9</td>
+<td class="n heat" style="--h:17.4">17,4%</td><td class="forms">Ancient Dragon 17,4%</td>
+<td class="n heat" style="--h:28.5">28,5%</td><td class="n heat" style="--h:28.5">28,5%</td><td class="n">0,3</td>
+<td class="n heat" style="--h:69.5">69,5%</td><td class="n heat" style="--h:9.5">9,5%</td><td class="n heat" style="--h:15.2">15,2%</td><td class="n heat" style="--h:1.7">1,7%</td><td class="n heat" style="--h:52.1">52,1%</td>
+<td class="death"><div class="bar" role="img" aria-label="già 17,4%, kiệt sức khỏe 29,7%, bạo lực 37%, sự kiện 15,9%"><span class="seg old" style="flex-basis:17.4%"></span><span class="seg health" style="flex-basis:29.7%"></span><span class="seg violent" style="flex-basis:37%"></span><span class="seg event" style="flex-basis:15.9%"></span></div><div class="death-n"><span class="old">17</span><span class="health">30</span><span class="violent">37</span><span class="event">16</span></div></td>
+</tr>
+<tr>
+<th scope="row"><span class="race">High Demon</span><span class="birth">0,2% đầu thai</span></th>
+<td class="n">9600–10400</td>
+<td class="n">7.007</td>
+<td class="n">8.400</td>
+<td class="n">22,9</td>
+<td class="n heat" style="--h:95.8">95,8%</td><td class="n heat" style="--h:43.3">43,3%</td><td class="n heat" style="--h:12.4">12,4%</td>
+<td class="n heat" style="--h:100">100%</td><td class="n heat" style="--h:0">0%</td>
+<td class="n">0,8</td>
+<td class="n heat" style="--h:2.1">2,1%</td><td class="forms">Demon King 2,1%</td>
+<td class="n heat" style="--h:0.9">0,9%</td><td class="n heat" style="--h:0.7">0,7%</td><td class="n">0</td>
+<td class="n heat" style="--h:69.2">69,2%</td><td class="n heat" style="--h:5.8">5,8%</td><td class="n heat" style="--h:59.7">59,7%</td><td class="n heat" style="--h:47.2">47,2%</td><td class="n heat" style="--h:34.3">34,3%</td>
+<td class="death"><div class="bar" role="img" aria-label="già 3,8%, kiệt sức khỏe 55,3%, bạo lực 29,7%, sự kiện 11,2%"><span class="seg old" style="flex-basis:3.8%"></span><span class="seg health" style="flex-basis:55.3%"></span><span class="seg violent" style="flex-basis:29.7%"></span><span class="seg event" style="flex-basis:11.2%"></span></div><div class="death-n"><span class="old">4</span><span class="health">55</span><span class="violent">30</span><span class="event">11</span></div></td>
+</tr>
+    </tbody>
+  </table></div>
+  <div class="legend"><span class="old">Chết già (hết tuổi thọ)</span><span class="health">Kiệt sức khỏe (gồm suy kiệt tuổi già, bệnh, thương tích)</span><span class="violent">Bạo lực ngẫu nhiên trong năm</span><span class="event">Chết trong một sự kiện hay nhiệm vụ</span></div>
+  <ul class="notes">
+    <li>“Bị phản bội”: đồng đội bỏ đi, hoặc gặp sự kiện có kẻ phản bội, bán đứng, đâm sau lưng nhân vật.</li>
+    <li>“Mồ côi trước khi lớn”: cả cha và mẹ (đã biết) đều mất trước giai đoạn trưởng thành của tộc.</li>
+    <li>Human, Elf, Dwarf, Beastman chỉ vào Guild Bình Minh khi chọn Mạo hiểm; các tộc còn lại sinh ra đã thuộc tổ chức của mình.</li>
+  </ul>
+  <div class="two">
+    <div class="block"><h3>Beastman theo dạng thú</h3><ul class="kins"><li><span>Chó</span><span class="n">17,8%</span></li><li><span>Mèo</span><span class="n">16,6%</span></li><li><span>Sói</span><span class="n">13,1%</span></li><li><span>Cáo</span><span class="n">11%</span></li><li><span>Thỏ</span><span class="n">9,8%</span></li><li><span>Chuột</span><span class="n">8,9%</span></li><li><span>Hổ</span><span class="n">8,6%</span></li><li><span>Ưng</span><span class="n">7,2%</span></li><li><span>Gấu</span><span class="n">7%</span></li></ul></div>
+    <div class="block"><h3>Đọc nhanh</h3><ul class="notes">
+      <li>Đời nhiều lựa chọn nhất: Human (khoảng 27,7 lượt bấm), ít nhất: Goblin và Kobold (khoảng 11).</li>
+      <li>Tiến hóa nhiều nhất: Ghoul thành Ghast (42%). Các tộc có trí tuệ chọn nghề không có nhánh tiến hóa trong kịch bản.</li>
+      <li>Dễ mồ côi nhất: High Demon và Goblin (khoảng 47,2% và 40%).</li>
+    </ul></div>
+  </div>
+</section>
+
+<section class="block" id="anh">
+  <h2>Ảnh cần vẽ</h2>
+  <div class="intro">
+    <p>Chân dung pixel 64×64. Tộc có trí tuệ vẽ riêng nam và nữ; ma vật vẽ một giới. Human chiếm 33% số lần đầu thai nên có 3 kiểu ngoại hình mỗi giới; Beastman vẽ đủ 9 dạng thú.</p>
+    <p>Trang phục nghề vẽ ở tuổi trưởng thành và ghép lên thân theo tộc, nên không cần vẽ mọi tổ hợp tuổi × nghề.</p>
+  </div>
+  <div class="frame"><table>
+    <thead><tr><th>Tộc</th><th>Giai đoạn đời được vẽ</th><th>Biến thể</th><th>Chân dung gốc</th><th>Trang phục nghề</th><th>Tiến hóa</th><th>Tổng</th></tr></thead>
+    <tbody>
+<tr>
+<th scope="row"><span class="race">Human</span><span class="birth">có trí tuệ · nam và nữ</span></th>
+<td>Thơ ấu · Thiếu niên · Trưởng thành · Già</td>
+<td class="n">3 kiểu ngoại hình</td>
+<td class="n">24</td>
+<td class="n">14 nghề → 28</td>
+<td class="n">—</td>
+<td class="n total">52</td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Beastman</span><span class="birth">có trí tuệ · nam và nữ</span></th>
+<td>Thơ ấu · Thiếu niên · Trưởng thành · Già</td>
+<td class="n">9 dạng thú</td>
+<td class="n">72</td>
+<td class="n">11 nghề → 22</td>
+<td class="n">—</td>
+<td class="n total">94</td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Dwarf</span><span class="birth">có trí tuệ · nam và nữ</span></th>
+<td>Thơ ấu · Thiếu niên · Trưởng thành · Già</td>
+<td class="n">—</td>
+<td class="n">8</td>
+<td class="n">9 nghề → 18</td>
+<td class="n">—</td>
+<td class="n total">26</td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Demon</span><span class="birth">có trí tuệ · nam và nữ</span></th>
+<td>Thơ ấu · Thiếu niên · Trưởng thành · Già</td>
+<td class="n">—</td>
+<td class="n">8</td>
+<td class="n">7 nghề → 14</td>
+<td class="n">—</td>
+<td class="n total">22</td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Elf</span><span class="birth">có trí tuệ · nam và nữ</span></th>
+<td>Thơ ấu · Thiếu niên · Trưởng thành · Già</td>
+<td class="n">—</td>
+<td class="n">8</td>
+<td class="n">7 nghề → 14</td>
+<td class="n">—</td>
+<td class="n total">22</td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Goblin</span><span class="birth">ma vật · một giới</span></th>
+<td>Non · Trưởng thành · Già</td>
+<td class="n">—</td>
+<td class="n">3</td>
+<td class="n">5 nghề → 5</td>
+<td class="n">3 dạng → 3</td>
+<td class="n total">11</td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Slime</span><span class="birth">ma vật · một giới</span></th>
+<td>Non · Trưởng thành · Già</td>
+<td class="n">—</td>
+<td class="n">3</td>
+<td class="n">5 nghề → 5</td>
+<td class="n">3 dạng → 3</td>
+<td class="n total">11</td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Kobold</span><span class="birth">ma vật · một giới</span></th>
+<td>Non · Trưởng thành · Già</td>
+<td class="n">—</td>
+<td class="n">3</td>
+<td class="n">5 nghề → 5</td>
+<td class="n">2 dạng → 2</td>
+<td class="n total">10</td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Lizardman</span><span class="birth">ma vật · một giới</span></th>
+<td>Non · Trưởng thành · Già</td>
+<td class="n">—</td>
+<td class="n">3</td>
+<td class="n">5 nghề → 5</td>
+<td class="n">2 dạng → 2</td>
+<td class="n total">10</td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Vampire</span><span class="birth">có trí tuệ · nam và nữ</span></th>
+<td>Tân sinh · Trưởng thành · Cổ xưa</td>
+<td class="n">—</td>
+<td class="n">6</td>
+<td class="n">5 nghề → 10</td>
+<td class="n">3 dạng → 6</td>
+<td class="n total">22</td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Imp</span><span class="birth">ma vật · một giới</span></th>
+<td>Non · Trưởng thành · Già</td>
+<td class="n">—</td>
+<td class="n">3</td>
+<td class="n">5 nghề → 5</td>
+<td class="n">2 dạng → 2</td>
+<td class="n total">10</td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Orc</span><span class="birth">ma vật · một giới</span></th>
+<td>Non · Trưởng thành · Già</td>
+<td class="n">—</td>
+<td class="n">3</td>
+<td class="n">5 nghề → 5</td>
+<td class="n">2 dạng → 2</td>
+<td class="n total">10</td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Minotaur</span><span class="birth">ma vật · một giới</span></th>
+<td>Non · Trưởng thành · Già</td>
+<td class="n">—</td>
+<td class="n">3</td>
+<td class="n">3 nghề → 3</td>
+<td class="n">2 dạng → 2</td>
+<td class="n total">8</td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Troll</span><span class="birth">ma vật · một giới</span></th>
+<td>Non · Trưởng thành · Già</td>
+<td class="n">—</td>
+<td class="n">3</td>
+<td class="n">3 nghề → 3</td>
+<td class="n">2 dạng → 2</td>
+<td class="n total">8</td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Ghoul</span><span class="birth">ma vật · một giới</span></th>
+<td>Non · Trưởng thành · Già</td>
+<td class="n">—</td>
+<td class="n">3</td>
+<td class="n">3 nghề → 3</td>
+<td class="n">2 dạng → 2</td>
+<td class="n total">8</td>
+</tr>
+<tr>
+<th scope="row"><span class="race">Dragon</span><span class="birth">ma vật · một giới</span></th>
+<td>Trứng · Ấu long · Cự long · Cổ long</td>
+<td class="n">—</td>
+<td class="n">4</td>
+<td class="n">3 nghề → 3</td>
+<td class="n">2 dạng → 2</td>
+<td class="n total">9</td>
+</tr>
+<tr>
+<th scope="row"><span class="race">High Demon</span><span class="birth">có trí tuệ · nam và nữ</span></th>
+<td>Tân sinh · Trưởng thành · Cổ xưa</td>
+<td class="n">—</td>
+<td class="n">6</td>
+<td class="n">3 nghề → 6</td>
+<td class="n">2 dạng → 4</td>
+<td class="n total">16</td>
+</tr>
+    </tbody>
+    <tfoot><tr><th>Cộng 17 tộc</th><td></td><td></td><td class="n">163</td><td class="n">154</td><td class="n">32</td><td class="n total">349</td></tr></tfoot>
+  </table></div>
+  <div class="two">
+    <div class="extra"><div><strong>Đồng đội không có sẵn chân dung</strong><span class="n">2</span><small>Familiar (người hầu của Vampire), Dragon Rider (kỵ sĩ rồng)</small></div><div><strong>Nhân vật cốt truyện</strong><span class="n">10</span><small>Ma Vương, Dũng Giả, Thánh Nữ Lumina, Đại Ác Ma Baelgor, Necromancer Zeras, Nữ Giả Kim Elara, Cổ Long Đỉnh Hỏa Ngục, Goblin King đương nhiệm, Chân Tổ đời trước, Giáo hoàng Sanctus</small></div><div><strong>Nền thời đại</strong><span class="n">4</span><small>Kỷ Nguyên Tăm Tối, Ma Vương Giáng Thế, Chiến Tranh Tuyến Đầu, Thời Bình</small></div></div>
+    <div class="grand-box"><span class="kicker">Tổng số ảnh</span><span class="grand">365</span><p class="lede">Với 2 tài khoản Gemini Pro, mỗi ngày làm khoảng 40–60 ảnh đạt yêu cầu thì cần khoảng 8 ngày. Nên làm theo thứ tự tỉ lệ đầu thai: Human, Beastman, Dwarf, rồi Elf và Demon.</p></div>
+  </div>
+</section>
+
+<section class="block" id="viec-can-lam">
+  <h2>Việc cần làm để hoàn thiện</h2>
+  <div class="todo">
+<section class="todo-group"><h3>Nội dung và tên gọi</h3><ul><li><span class="prio p-hi">Cao</span><span>Rà chính tả và lỗi của Gemini trong cả 17 kịch bản. Đã bắt được một chữ tiếng Trung lẫn vào kịch bản Lizardman; có thể còn lỗi khác chưa lộ ra khi mô phỏng.</span></li><li><span class="prio p-hi">Cao</span><span>Chốt quy ước tên nghề: hiện có chỗ dùng Hán Việt (Kiếm sĩ, Chấp Sự Ma Giới, Thánh Kỵ Sĩ), có chỗ dùng tiếng Anh (Rune Smith, Night Blade).</span></li><li><span class="prio p-mid">Vừa</span><span>Quyết định giữ hay bỏ nội dung cũ làm trước khi có kịch bản (data/events/&lt;tộc&gt;.json, &lt;tộc&gt;_gen.json). Hiện vẫn chạy song song, kịch bản được ưu tiên gấp 3.</span></li><li><span class="prio p-lo">Thấp</span><span>Đổi tên “Metal Slime” (thuật ngữ của Dragon Quest) nếu muốn tránh trùng thương hiệu.</span></li></ul></section>
+<section class="todo-group"><h3>Cân bằng (theo bảng tỉ lệ)</h3><ul><li><span class="prio p-hi">Cao</span><span>Đạt bậc nghề cao nhất chỉ 0–13% số đời: cân nhắc giảm kinh nghiệm cần để thăng bậc hoặc hạ độ khó thử thách.</span></li><li><span class="prio p-mid">Vừa</span><span>Goblin, Imp, Orc, Minotaur, High Demon gần như không có con; Slime không có bạn đời. Xác nhận đây là chủ ý của kịch bản.</span></li><li><span class="prio p-mid">Vừa</span><span>Ghoul tiến hóa 42% số đời, các tộc khác 1–17%. Bạn đã chọn giữ tỉ lệ cũ; ghi lại để xem lại sau khi chơi thử.</span></li><li><span class="prio p-mid">Vừa</span><span>Demon và High Demon gặp sự kiện phản bội hơn 50% số đời (do giọng văn Ma giới). Xem lại nếu thấy quá dày.</span></li><li><span class="prio p-lo">Thấp</span><span>Human chết do kiệt sức khỏe 15%, cao hơn hẳn trước khi có kịch bản (4%). Có thể giảm vài sự kiện trừ Sức khỏe.</span></li></ul></section>
+<section class="todo-group"><h3>Engine</h3><ul><li><span class="prio p-mid">Vừa</span><span>Chết có điều kiện (“CHẾT nếu Sức khỏe dưới 50”) và hình phạt kéo dài (“mất quyền làm việc chính 3 năm”): hiện đã đổi tạm thành trừ chỉ số.</span></li><li><span class="prio p-mid">Vừa</span><span>Đồng đội trở thành bạn đời (kịch bản Human): hiện tạo bạn đời mới thay vì chuyển đúng người.</span></li><li><span class="prio p-mid">Vừa</span><span>Lưu đời đang chơi dở để quay lại sau; hiện chỉ lưu danh sách các kiếp đã kết thúc.</span></li><li><span class="prio p-lo">Thấp</span><span>Bộ sưu tập: các tộc, dạng thú, tiến hóa, nghề đã từng đạt; thành tựu cho người chơi lâu dài.</span></li></ul></section>
+<section class="todo-group"><h3>Hình ảnh</h3><ul><li><span class="prio p-hi">Cao</span><span>Chốt phong cách bằng prompt thử của Goblin, rồi viết prompt cho các tộc còn lại theo bảng ảnh.</span></li><li><span class="prio p-hi">Cao</span><span>Công cụ làm sạch ảnh (tools/pixelize.js): thu về lưới 64×64, ép bảng màu chung, xóa nền.</span></li><li><span class="prio p-mid">Vừa</span><span>Ghép lớp trong game: thân theo tộc/tuổi/giới + trang phục nghề, để không phải vẽ mọi tổ hợp.</span></li><li><span class="prio p-mid">Vừa</span><span>Khung chân dung ở màn đầu thai, thanh trạng thái và màn tổng kết; ảnh dự phòng khi thiếu.</span></li></ul></section>
+<section class="todo-group"><h3>Giao diện và trải nghiệm</h3><ul><li><span class="prio p-mid">Vừa</span><span>Màn hình mở đầu, hướng dẫn ngắn cho lần chơi đầu.</span></li><li><span class="prio p-lo">Thấp</span><span>Âm thanh, hiệu ứng chuyển cảnh, tùy chọn tốc độ chữ.</span></li></ul></section>
+<section class="todo-group"><h3>Kiểm thử và phát hành</h3><ul><li><span class="prio p-hi">Cao</span><span>Đẩy mã lên GitHub: hiện mọi commit chỉ nằm trên máy ảo và sẽ mất nếu máy bị thu hồi.</span></li><li><span class="prio p-hi">Cao</span><span>Chơi thử tay ít nhất 3 đời mỗi tộc, ghi lại câu chữ lạ và lựa chọn vô lý.</span></li><li><span class="prio p-mid">Vừa</span><span>Chọn nơi đăng (GitHub Pages hoặc itch.io) và mở chia sẻ trang chơi (hiện đang riêng tư).</span></li></ul></section>
+  </div>
+</section>
+
+<footer>Số liệu sinh bằng <code>node tools/stats-report.js 1000 --json</code> và <code>node tools/report-page.js</code> trong mã nguồn game; chạy lại sau mỗi lần cân bằng để cập nhật trang này.</footer>
+</main>
