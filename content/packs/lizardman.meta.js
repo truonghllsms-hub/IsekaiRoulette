@@ -8,6 +8,7 @@ module.exports = {
 
   rename: [
     ["Bán Long Đầm Lầy", "Swamp Dragonewt"],
+    ["bọn yêu tinh", "bọn Goblin"],
     ["Đại Tư Tế Tà Thần", "High Serpent Priest"],
   ],
 
@@ -75,7 +76,11 @@ module.exports = {
   systems: {
     bandName: "bầy săn",
     romance: false,
-    autoChildren: false,
+    // the script has child events but no birth event
+    autoChildren: true,
+    childRate: 0.08,
+    maxChildren: 3,
+    child: ["Một quả trứng trong bãi đẻ ngập nước nở ra: {child}, con của bạn, quẫy đuôi lao ngay xuống bùn.", "{child} phá vỏ trứng dưới ánh trăng đầm lầy. Tư tế nói đó là điềm lành của Tà thần."],
     companions: [
       { race: "Lizardman", names: "lizardman", job: "Lizardman Warrior", stat: "STR", weight: 3 },
       { race: "Lizardman", names: "lizardman", job: "Swamp Hunter", stat: "AGI", weight: 3 },

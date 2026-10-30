@@ -81,7 +81,8 @@
   function personLine(label, p) {
     if (!p) return "";
     const name = p.name || "Không rõ là ai";
-    const bits = [p.role, p.trait].filter(Boolean).join(", ");
+    // "Không rõ" roles and traits say nothing more than the name already does
+    const bits = [p.role, p.trait].filter((x) => x && !/^không rõ/i.test(x)).join(", ");
     const status = STATUS[p.status] || "";
     return `<li><span class="fam-k">${label}</span><span><b>${esc(name)}</b>${p.race && p.race !== c.race.name ? ` · ${esc(p.race)}` : ""}${bits ? ` — ${esc(bits)}` : ""}${status ? ` <i>(${status})</i>` : ""}</span></li>`;
   }

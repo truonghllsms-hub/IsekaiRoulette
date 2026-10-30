@@ -79,7 +79,11 @@ module.exports = {
   systems: {
     bandName: "tổ đào",
     romance: false,
-    autoChildren: false,
+    // the script has child events but no birth event
+    autoChildren: true,
+    childRate: 0.08,
+    maxChildren: 3,
+    child: ["Một quả trứng trong lò ấp lưu huỳnh nứt ra. {child} bò ra, kêu chí chóe đòi ăn.", "{child} nở ra từ quả trứng bạn canh suốt mùa đông. Nó cắn ngay vào ngón tay bạn."],
     companions: [
       { race: "Kobold", names: "kobold", job: "Kobold Trapper", stat: "INT", weight: 3 },
       { race: "Kobold", names: "kobold", job: "Kobold Miner", stat: "STR", weight: 3 },

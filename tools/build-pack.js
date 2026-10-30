@@ -39,7 +39,7 @@ function build(raceId, opts) {
   const races = require(path.join(ROOT, "data", "races.json"));
   const race = races.find((r) => r.id === raceId);
   const profile = JSON.parse(fs.readFileSync(path.join(ROOT, "content", "races", raceId + ".json"), "utf8"));
-  const stages = (profile.stages || race.stages || []).map((s) => ({ id: s.id, start: s.start, name: (meta.stageNames && meta.stageNames[s.id]) || s.name }));
+  const stages = (meta.stages || profile.stages || race.stages || []).map((s) => ({ id: s.id, start: s.start, name: (meta.stageNames && meta.stageNames[s.id]) || s.name }));
   const parsed = parse(fs.readFileSync(path.join(ROOT, meta.script), "utf8"));
   const report = [];
   const renames = [...(meta.rename || []), ...GLOBAL_RENAME];
@@ -108,8 +108,16 @@ function build(raceId, opts) {
   function outcome(o, ctx) {
     if (!o) return null;
     const r = { text: ren(o.text) };
-    // "… vỡ sọ. CHẾT." written without the arrow: a death all the same
-    if (/\sCHẾT\.?$/.test(r.text)) { r.text = r.text.replace(/\s*CHẾT\.?$/, ""); if (!o.eff.death) o.eff.death = "Bạn chết."; }
+    // "… vỡ sọ. CHẾT.", "(CHẾT) …", "CHẾT (ghi chú)", "(Dòng đời: …)": a death written inside the text
+    let note = null;
+    const dl = r.text.match(/\(Dòng đời:\s*([^)]*)\)/i);
+    if (dl) { note = dl[1].trim(); r.text = r.text.replace(dl[0], "").trim(); }
+    if (/\(CHẾT\)|(^|\s)CHẾT(?=$|[\s.(])/.test(r.text)) {
+      const cm = r.text.match(/CHẾT\s*\(([^)]*)\)/);
+      if (cm) note = note || cm[1].trim();
+      r.text = r.text.replace(/\s*\(CHẾT\)\s*/g, " ").replace(/\s*CHẾT\s*(\([^)]*\))?\.?/g, " ").replace(/\s+/g, " ").trim();
+      if (!o.eff.death) o.eff.death = note ? note.charAt(0).toUpperCase() + note.slice(1).replace(/\.?$/, ".") : "Bạn chết.";
+    }
     const eff = effects(o.eff, ctx);
     if (Object.keys(eff).length) r.effects = eff;
     if (o.eff.death) r.death = deathText(o.eff.death, r.text);
@@ -216,7 +224,7 @@ function build(raceId, opts) {
     // "Không mang dấu ấn X" / "chưa có dấu ấn X" forbids the mark
     const notFl = [...text.matchAll(/(?:không (?:mang|có)|chưa (?:mang|có)|chưa từng có)\s+dấu ấn\s+["“]?([a-z][a-z0-9_]+)["”]?/gi)].map((x) => x[1]);
     if (notFl.length) out.require.notFlags = notFl;
-    const fl = [...text.matchAll(/dấu ấn\s+["“]?([a-z][a-z0-9_]+)["”]?/gi)].map((x) => x[1]).filter((f) => !notFl.includes(f));
+    const fl = [...text.matchAll(/dấu ấn\s+["“]?([a-z][a-z0-9_]+)["”]?(?![A-Za-zÀ-ỹ])/gi)].map((x) => x[1]).filter((f) => !notFl.includes(f));
     const more = [...text.matchAll(/(?:hoặc|có)\s+["“]([a-z0-9_]+)["”]/gi), ...text.matchAll(/dấu ấn\s+["“]?[a-z][a-z0-9_]+["”]?\s+hoặc\s+["“]?([a-z][a-z0-9]*_[a-z0-9_]+)/gi)].map((x) => x[1]);
     const allFl = [...new Set([...fl, ...more])];
     if (allFl.length) { if (/hoặc/.test(low) && allFl.length > 1) out.require.anyFlags = allFl; else out.require.flags = allFl; }
@@ -226,6 +234,10 @@ function build(raceId, opts) {
       if (/\{father\}\)? còn sống|cha còn sống/.test(low)) out.require.fatherAlive = true;
     }
     if (/\{maker\}.{0,20}còn sống|chủ nhân còn sống|có \{maker\}/.test(low)) out.require.makerAlive = true;
+    if (/\{father\} (đã )?chết|\{father\} qua đời/.test(low)) out.require.fatherAlive = false;
+    if (/\{mother\} (đã )?chết|\{mother\} qua đời/.test(low)) out.require.motherAlive = false;
+    if (/\{spouse\}/.test(low) && !/chưa có/.test(low)) out.require.spouse = out.require.spouse !== undefined ? out.require.spouse : true;
+    if (/thân thiết\s*(>|trên|từ)/.test(low) && /\{ally\}|thân thiết/.test(low)) out.require.party = 1;
     if (/có (đồng đội )?\{ally\}|có đồng đội|đi cùng \{ally\}|ít nhất \d+ đồng đội/.test(low)) out.require.party = 1;
     if (!/không phải tính/.test(low))
       for (const [w, t] of Object.entries(TRAITS)) if (low.includes("tính " + w) || low.includes("tính cách " + w) || low.includes("{ally} " + w)) out.require.allyTrait = t;
@@ -276,7 +288,7 @@ function build(raceId, opts) {
     const promoSrc = r.promo || (src.promo || []).map((p, k) => ({ text: p.text, diff: p.diff != null ? p.diff : k + 1, stat: p.stat || r.stat }));
     return {
       id: r.id, name: r.name, stat: r.stat, combat: r.combat !== false, desc: r.desc,
-      require: r.require, alt: r.alt, ranks,
+      require: r.require, alt: r.alt, ranks, ranksF: r.ranksF,
       income: r.income || [0.8, 1.3, 2, 2.8, 3.8], hazard: r.hazard || 1.3, gains: r.gains || { [r.stat]: 0.3 },
       promoXp: r.promoXp || meta.promoXp,
       promoTarget: promoSrc.map((p) => target(p.stat || r.stat, p.diff)),
@@ -304,7 +316,7 @@ function build(raceId, opts) {
     const o = (meta.overrides || {})[e.id] || {};
     if (o.skip) continue;
     const deathLike = o.asDeath || (!o.keep && (/tử vong|cái chết tự nhiên|chết già/i.test(e.title || "") && !e.choices.length) || /đạt tuổi thọ tối đa|trước khi qua đời do hết tuổi|hết tuổi thọ|tuổi thọ đạt giới hạn/i.test(e.when || "") ? "old" : null);
-    if (deathLike) { deaths.push({ id: e.id, kind: deathLike, text: [ren(e.text), ren(e.auto ? e.auto.text : "")].filter(Boolean).join(" ").replace(/\s*(→\s*)?CHẾT\.?\s*$/, "") }); continue; }
+    if (deathLike) { deaths.push({ id: e.id, kind: deathLike, text: [ren(e.text), ren(e.auto ? e.auto.text : "")].filter(Boolean).join(" ").replace(/\s*(→\s*)?CHẾT\.?\s*(\([^)]*\))?\.?\s*$/, "") }); continue; }
     const rid = roleOf(e);
     const ctx = { role: !!rid, rank: !!e.rank };
     const w = when(e.when, ctx);
@@ -467,8 +479,10 @@ function build(raceId, opts) {
   // other names the script uses for the same ranks ("Thủy Tổ Long Thần" for "Primordial Dragon God")
   org.rankAliases = parsed.hierarchy.map((h) => ren(h.name).replace(/\s*\(.*\)\s*$/, "").toLowerCase());
   if (meta.rankAliases) org.rankAliases = meta.rankAliases.map((x) => x.toLowerCase());
-  org.rankUp = {};
-  hier.forEach((h, i) => (org.rankUp[i] = h.text));
+  if (hier.length) {
+    org.rankUp = {};
+    hier.forEach((h, i) => (org.rankUp[i] = h.text));
+  }
   org.join = org.join || [];
 
   // ---- focus quiet lines ----
@@ -500,7 +514,7 @@ function build(raceId, opts) {
   for (const f of Object.values(meta.forms || {})) forms[f.name] = f;
 
   const pack = { race: raceId, stageNames: meta.stageNames, forms, origins, jobs, orgs: [org], quests, events, deaths, focus, systems };
-  if (meta.useScriptStages) pack.stages = stages;
+  if (meta.useScriptStages || meta.stages) pack.stages = stages;
   for (const k of ["tags", "lifespan", "hazard", "yearScale", "noChildhood"]) if (meta[k] !== undefined) pack[k] = meta[k];
   fs.writeFileSync(path.join(ROOT, "data", "packs", raceId + ".json"), JSON.stringify(pack, null, 1), "utf8");
   console.log(`Đã tạo data/packs/${raceId}.json: ${origins.length} xuất thân, ${jobs.length} vai trò, ${events.length} sự kiện, ${quests.length} ${org.missionWord || "nhiệm vụ"}, ${deaths.length} cái chết riêng.`);

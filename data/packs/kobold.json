@@ -2002,6 +2002,9 @@
     "middle",
     "elder"
    ],
+   "require": {
+    "fatherAlive": false
+   },
    "choices": [
     {
      "label": "Bán viên đá cho lũ thợ rèn Dwarf",
@@ -5171,6 +5174,9 @@
   {
    "id": "kobold_mate_sneak",
    "text": "Luật của bầy không cho phép giao phối ngoài mùa rụng trứng để tiết kiệm năng lượng. Đêm nay, sự khao khát trỗi dậy, bạn rón rén kéo {spouse} vào ngách hầm bỏ hoang.",
+   "require": {
+    "spouse": true
+   },
    "choices": [
     {
      "label": "Hành sự nhanh gọn trong sự cảnh giác cao độ",
@@ -5206,10 +5212,7 @@
       "wealth": -15
      }
     }
-   ],
-   "require": {
-    "spouse": false
-   }
+   ]
   },
   {
    "id": "kobold_child_hatch",
@@ -6426,7 +6429,13 @@
  "systems": {
   "bandName": "tổ đào",
   "romance": false,
-  "autoChildren": false,
+  "autoChildren": true,
+  "childRate": 0.08,
+  "maxChildren": 3,
+  "child": [
+   "Một quả trứng trong lò ấp lưu huỳnh nứt ra. {child} bò ra, kêu chí chóe đòi ăn.",
+   "{child} nở ra từ quả trứng bạn canh suốt mùa đông. Nó cắn ngay vào ngón tay bạn."
+  ],
   "companions": [
    {
     "race": "Kobold",

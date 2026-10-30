@@ -71,7 +71,8 @@ function parseEffects(str) {
     if (/mất (đồng đội )?\{ally\}/.test(low)) { eff.allyDie = true; continue; }
     if (/mất \{child\}/.test(low)) { eff.loseChild = true; continue; }
     if (/có \{child\}|sinh (ra )?\{child\}/.test(low)) { eff.child = true; continue; }
-    if (/(có|tìm được|cưới|kết đôi với) \{spouse\}/.test(low)) { eff.marry = true; continue; }
+    if (/(có|tìm được|cưới|kết đôi với) \{spouse\}|\{ally\} trở thành \{spouse\}/.test(low)) { eff.marry = true; continue; }
+    if (/\{spouse\} (biến thành|trở thành) \{ally\}/.test(low)) { eff.recruit = true; continue; }
     if (/thu nhận \{ally\}|\{ally\} gia nhập/.test(low)) { eff.recruit = true; continue; }
     if ((m = t.match(/(?:tiến hóa thành|đổi dạng thành)\s+(.+)/i))) { eff.evolve = m[1].replace(/\*+|!+/g, "").trim(); continue; }
     if (/bạn đã tiến hóa/.test(low)) continue;
@@ -142,7 +143,7 @@ function parseHead(rest) {
   const out = {};
   let m;
   // "dựa vào Sức mạnh" or "dựa vào Uy áp (Sức mạnh)"
-  if ((m = r.match(new RegExp(`dựa vào\\s+(?:[^(—,]{1,25}\\(\\s*)?${STAT_RE}`)))) {
+  if ((m = r.match(new RegExp(`dựa vào\\s+(?:[^(—,]{1,25}\\(\\s*)?${STAT_RE}`))) || (m = r.match(new RegExp(`^\\s*${STAT_RE}(?:\\s*\\([^)]*\\))?\\s*[,–-]\\s*(?:rất khó|rất dễ|cực khó|khó|vừa|trung bình|dễ|huyền thoại)`)))) {
     const dm = r.match(/(rất khó|rất dễ|cực khó|khó|vừa|trung bình|dễ|huyền thoại)/);
     out.check = { stat: STAT[m[1]], diff: dm ? DIFF[dm[1]] : 3 };
   }
@@ -165,7 +166,7 @@ function parse(text) {
   text = text
     .replace(/\.(\d)\.\s+/g, ".\n$1. ")
     .replace(/\.(Thứ bậc|Năm yên ả|5 [Bb]ậc|Mở đầu|Câu mở đầu)\s*:/g, ".\n$1:")
-    .replace(/\)\s+(Năm yên ả\s*:)/g, ")\n$1");
+    .replace(/\)\s+(?:\d+\.\s+)?(Năm yên ả\s*:)/g, ")\n$1");
   const lines = text.split(/\r?\n/);
   const res = { origins: [], events: [], quests: [], roles: [], evolutions: [], hierarchy: [], focusQuiet: [], allyLines: { die: [], hurt: [], leave: [] } };
 
@@ -209,14 +210,15 @@ function parse(text) {
     if (!line) continue;
     // number words at the start of list titles ("Năm bậc:", "Bốn thử thách…", "Ba câu năm yên ả") and "(Bậc 1 lên 2): …"
     line = line.replace(/^(năm|bốn|ba|bảy|hai)\s+(bậc|thử thách|câu|cấp)/i, (m, w, rest) => ({ "năm": 5, "bốn": 4, "ba": 3, "bảy": 7, "hai": 2 }[w.toLowerCase()] + " " + rest))
-      .replace(/^\((bậc \d+ lên \d+)\)\s*:/i, "$1:");
+      .replace(/^\((bậc \d+ lên \d+)\)\s*:/i, "$1:")
+      .replace(/^\d\s*(?:→|->)\s*\d\s*:\s*/, ""); // "1→2: Vung kiếm… (Sức mạnh, DỄ)"
     const prevLine = lastLine;
     lastLine = line;
     const low = line.toLowerCase();
     let m;
 
     // ---- companion status lines ----
-    if (/^(\d+\s*câu\s*)?(phản ứng của bạn\s+)?khi (\{ally\}\s+|đồng đội\s+)?(chết|bị thương|bỏ đi)/i.test(line) && line.length < 70) {
+    if (/^(\d+\s*câu\s*)?(phản ứng của bạn\s+)?khi (\{ally\}\s+|đồng đội\s+)?(chết|bị thương|bỏ đi)/i.test(line) && (line.length < 70 || (line.length < 160 && /:$/.test(line)))) {
       mode = /chết/.test(low) ? "ally:die" : /thương/.test(low) ? "ally:hurt" : "ally:leave";
       block = null; opt = null; continue;
     }
@@ -330,12 +332,14 @@ function parse(text) {
     }
 
     // ---- fields ----
+    // "Hệ quả (Không lựa chọn): …" is a plain outcome
+    line = line.replace(/^(hệ quả)\s*\((?:không lựa chọn|tự động|không tung xúc xắc)\)\s*:/i, "$1:");
     const fm = line.match(FIELD);
     if (fm) {
       const key = fm[1].toLowerCase().replace(/^\d+\.\s*/, "").trim();
       const val = fm[2].trim();
       // quest-level fields
-      if (/^bậc tối thiểu/.test(key)) {
+      if (/^(bậc|hạng) tối thiểu/.test(key)) {
         if (block && block.type === "event" && !block.text && !block.choices.length) blockToQuest();
         else if (!quest || questDone) {
           // the title is the header above, or a plain short line right before this field
@@ -387,7 +391,7 @@ function parse(text) {
         else { role = { index: res.roles.length, title: lastHeader, require: val, ranks: [], promo: [], quiet: [] }; res.roles.push(role); focus = null; evo = null; mode = null; }
         continue;
       }
-      if (role && /5 bậc|tên 5 bậc|^thứ bậc$/.test(key) && val) {
+      if (role && /5 bậc|năm bậc|tên 5 bậc|^thứ bậc$/.test(key) && val) {
         role.ranks = val.split(/\s*(?:→|·|>|,|;)\s*/).map((x) => x.replace(/\(bậc \d+\)/i, "").replace(/\.$/, "").trim()).filter(Boolean);
         continue;
       }

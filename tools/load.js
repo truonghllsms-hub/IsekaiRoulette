@@ -67,6 +67,9 @@ function mergePack(data, p, file) {
     data.origins = data.origins.filter((o) => !(o.races && o.races.length === 1 && o.races[0] === p.race));
     for (const o of p.origins) data.origins.push(Object.assign({ races: [p.race] }, o));
   }
+  // a race with its own trades no longer gets the shared ones (Human: 14 script trades instead of 7 generic)
+  if (p.jobs && p.jobs.length)
+    for (const j of data.jobs) if (!j.races) j.excludeRaces = [...new Set([...(j.excludeRaces || []), p.race])];
   for (const j of p.jobs || []) data.jobs.push(Object.assign({ races: [p.race] }, j));
   for (const o of p.orgs || []) data.orgs.push(Object.assign({ races: [p.race] }, o));
   for (const q of p.quests || []) data.quests.push(q);
