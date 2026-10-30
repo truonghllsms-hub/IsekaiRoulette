@@ -195,7 +195,10 @@ function parse(text) {
   }
   const slug = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/đ/g, "d").replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "").slice(0, 40);
 
-  for (const raw of lines) {
+  for (const raw0 of lines) {
+    // "Báo hiệu (some_id): text" / "Tiến hóa (some_id): Title" → the usual [id] forms
+    const raw = raw0.replace(/^\s*([^()\[\]:]{2,40}?)\s*\(([a-z][a-z0-9]*_[a-z0-9_]+)\)\s*:\s*(.*)$/i, (m, pre, id, rest) =>
+      /^tiến hóa$/i.test(pre.trim()) ? `[${id}] ${rest}` : `${pre.trim()} - [${id}]: ${rest}`);
     const line = strip(raw);
     if (!line) continue;
     const low = line.toLowerCase();
@@ -317,6 +320,7 @@ function parse(text) {
       // role / evolution fields
       if (/^điều kiện/.test(key)) {
         block = null; opt = null; quest = null; scene = null;
+        if (evo && !evo.require) { evo.require = val; continue; }
         if (/nhánh|tiến hóa/i.test(lastHeader)) { evo = { index: res.evolutions.length, title: lastHeader, require: val }; res.evolutions.push(evo); role = null; focus = null; mode = null; }
         else { role = { index: res.roles.length, title: lastHeader, require: val, ranks: [], promo: [], quiet: [] }; res.roles.push(role); focus = null; evo = null; mode = null; }
         continue;
@@ -325,7 +329,7 @@ function parse(text) {
         role.ranks = val.split(/\s*(?:→|·|>|,|;)\s*/).map((x) => x.replace(/\(bậc \d+\)/i, "").replace(/\.$/, "").trim()).filter(Boolean);
         continue;
       }
-      if (role && /^(câu mở đầu|mở đầu)$/.test(key)) { role.start = val; continue; }
+      if (role && /^(câu mở đầu|mở đầu)$/.test(key)) { role.start = val; mode = "promo"; continue; }
       if (role && /thử thách/.test(key)) { mode = "promo"; if (val) role.promo.push(...promoLines(val)); continue; }
       if ((role || focus) && /năm yên ả/.test(key)) { mode = "quiet"; if (val) (role || focus).quiet.push(...quietSplit(val)); continue; }
       if (role && (m = line.match(/^bậc (\d+)(?: lên (\d+))?\s*(?:\(([^)]+)\))?\s*:\s*(.+)$/i))) { role.promo.push(promoOf(m[4], m[3])); mode = "promo"; continue; }
@@ -352,6 +356,11 @@ function parse(text) {
     if (looksHeader && line.length < 120) {
       lastHeader = line;
       if (/thứ bậc|\(7 cấp\)|7 bậc/i.test(line) && !/5 bậc/i.test(line)) { closeContainers(); mode = "hier"; block = null; quest = null; continue; }
+      if (/nhánh/i.test(line) && !/vai trò/i.test(line)) {
+        closeContainers(); block = null; quest = null; scene = null;
+        evo = { index: res.evolutions.length, title: line, require: "" }; res.evolutions.push(evo);
+        continue;
+      }
       if (/việc chính/i.test(line)) {
         closeContainers(); block = null; quest = null; scene = null;
         focus = { index: res.focusQuiet.length, title: line, quiet: [] }; res.focusQuiet.push(focus);
@@ -363,7 +372,13 @@ function parse(text) {
       if (!/sự kiện|câu/i.test(line)) { closeContainers(); block = null; if (questDone) quest = null; }
       continue;
     }
-    if (/^\d+\.\s/.test(line) && line.length < 100 && !/^\d+\.\s*(điều kiện|\d+ bậc|5 bậc)/i.test(line)) { lastHeader = line; block = null; opt = null; if (questDone) quest = null; }
+    if (/^\d+\.\s/.test(line) && line.length < 100 && !/^\d+\.\s*(điều kiện|\d+ bậc|5 bậc)/i.test(line)) {
+      if (mode === "promo" && role) { const p = promoLines(line); if (p.length) { role.promo.push(...p); continue; } }
+      // a short numbered line outside a list of trials is a section title: it closes the open role / focus
+      if (mode !== "promo" && mode !== "quiet" && !/[.!?]$/.test(line)) closeContainers();
+      lastHeader = line; block = null; opt = null; if (questDone) quest = null;
+      continue;
+    }
 
     // ---- free lines inside containers ----
     if (mode === "hier" && res.hierarchy.length < 7 && !/^(dưới đây)/i.test(line)) { pushHier(line); continue; }

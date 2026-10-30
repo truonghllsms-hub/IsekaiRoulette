@@ -291,6 +291,8 @@
     c.parents = makeParents(c, data, rng);
     const org = orgFor(c, data);
     if (org && org.auto) c.guild = { org: org.id, rank: 0, pts: 0, since: 0 };
+    const focusList = focusOptions(c, data);
+    if (focusList.length) c.focus = focusList[0].id;
     if (era) pushLog(c, "era", era.text);
     pushLog(c, "intro", introLine(c));
     pushLog(c, "birth", fmt(origin.text, c, null, data));
@@ -379,7 +381,9 @@
     if (eff.joinGuild && !c.guild) joinGuild(c, data);
     if (eff.orgRankName && c.guild) {
       const o = orgDef(c, data);
-      const idx = o.ranks.findIndex((r) => r.toLowerCase().startsWith(String(eff.orgRankName).toLowerCase()));
+      const want = String(eff.orgRankName).toLowerCase();
+      let idx = o.ranks.findIndex((r) => r.toLowerCase().startsWith(want) || want.startsWith(r.toLowerCase()));
+      if (idx < 0 && o.rankAliases) idx = o.rankAliases.findIndex((a) => a && (a.startsWith(want) || want.startsWith(a)));
       if (idx >= 0) setOrgRank(c, data, idx);
     }
     if (eff.orgRank != null && c.guild) setOrgRank(c, data, eff.orgRank);

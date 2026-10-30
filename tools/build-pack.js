@@ -257,7 +257,7 @@ function build(raceId, opts) {
     if (rid) req.job = rid;
 
     // evolutions: sign → ascension → after
-    if (e.evo != null && evoDefs[e.evo]) {
+    if (e.evo != null && evoDefs[e.evo] && /evo|post|tien_hoa|_sign|signal|foreshadow/.test(e.id)) {
       const d = evoDefs[e.evo];
       const flag = "evo_sign_" + d.key;
       if (/sign|foreshadow|bao_hieu|signal/.test(e.id)) { Object.assign(req, d.require || {}, { form: "none", notFlags: [flag] }); if (d.minAge) ev.minAge = d.minAge; ev.weight = 10; ev._addFlags = [flag]; }
@@ -356,6 +356,9 @@ function build(raceId, opts) {
   const org = Object.assign({}, meta.org);
   const hier = meta.hierarchy || parsed.hierarchy.map((h) => ({ name: mangaName(ren(h.name)), text: ren(h.text) }));
   if (!org.ranks) org.ranks = hier.map((h) => h.name);
+  // other names the script uses for the same ranks ("Thủy Tổ Long Thần" for "Primordial Dragon God")
+  org.rankAliases = parsed.hierarchy.map((h) => ren(h.name).replace(/\s*\(.*\)\s*$/, "").toLowerCase());
+  if (meta.rankAliases) org.rankAliases = meta.rankAliases.map((x) => x.toLowerCase());
   org.rankUp = {};
   hier.forEach((h, i) => (org.rankUp[i] = h.text));
   org.join = org.join || [];
