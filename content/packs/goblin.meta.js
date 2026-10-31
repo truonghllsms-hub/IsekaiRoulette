@@ -9,6 +9,8 @@ module.exports = {
   exclusive: true,
   // the story script asks "Sức mạnh > 15" on a race that usually has 2–10
   storyStatScale: 0.6,
+  storyStageShift: 1,
+  storyStageLate: 2,
 
   // Manga-style naming (docs/NAMING.md), applied to every text of the script.
   rename: [

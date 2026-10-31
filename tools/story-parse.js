@@ -6,7 +6,7 @@ const strip = (s) => s.replace(/\*\*/g, "").replace(/^\s*#+\s*/, "").replace(/^\
 const condLine = (l) => l.match(/^\(([^)]+)\)\s*(.+)$/);
 
 function scanStory(text, stages) {
-  const out = { arcs: {}, cast: {}, chapters: {}, bio: { open: {}, end: [] }, memories: [], bands: {}, minions: {} };
+  const out = { arcs: {}, cast: {}, chapters: {}, bio: { open: {}, end: [] }, memories: [], bands: {}, minions: {}, recruits: {} };
   const lines = text.split(/\r?\n/).map(strip).filter(Boolean);
   let mode = null;
   let arc = null, kind = null, band = null, minion = null, stage = null;
@@ -18,26 +18,32 @@ function scanStory(text, stages) {
   for (let raw of lines) {
     let m;
     // section headers
-    if ((m = raw.match(/^KIỂU \d+:\s*(.+?)\s*\(Mã mạch:\s*([a-z_]+)\)/i))) {
+    if ((m = raw.match(/^KIỂU \d+:\s*(.+?)\s*\((?:Mã mạch:\s*)?((?:rival|mentor|friend)_[a-z])\)/i))) {
       kind = out.cast[m[2]] = { id: m[2], role: m[2].split("_")[0], title: m[1], desc: "", recall: [] };
       mode = "cast"; arc = band = minion = null; continue;
     }
-    if ((m = raw.match(/^MẠCH \d+:\s*(.+?)\s*\(([a-z_]+)\)\s*$/i))) {
+    if ((m = raw.match(/^MẠCH (?:\d+|XUẤT THÂN):\s*(.+?)\s*\(([a-z_]+)\)\s*$/i))) {
       arc = out.arcs[m[2]] = { id: m[2], title: m[1], opening: "", unfinished: "", endings: [] };
       mode = "arc"; kind = band = minion = null; continue;
     }
-    if ((m = raw.match(/^BĂNG \d+:\s*(.+?)\s*\(Mã:\s*(band_[a-z])\)/i))) {
+    if ((m = raw.match(/^(?:BĂNG|TỔ ĐỘI) \d+:\s*(.+?)\s*\((?:Mã:\s*)?((?:band|party)_[a-z])\)/i))) {
       band = out.bands[m[2]] = { id: m[2], title: m[1], name: "", rule: "", lair: "", members: [], condition: "", recall: [] };
       mode = "band"; kind = arc = minion = null; continue;
     }
-    if (/^a\)\s*MỞ CHƯƠNG/i.test(raw)) { mode = "chapter"; continue; }
-    if (/^b\)\s*TIỂU SỬ/i.test(raw)) { mode = "bio"; continue; }
-    if (/^c\)\s*NHỮNG NĂM YÊN Ả/i.test(raw)) { mode = "memory"; continue; }
+    if (/^[aA][).]\s*MỞ CHƯƠNG/.test(raw)) { mode = "chapter"; continue; }
+    if (/^[bB][).]\s*TIỂU SỬ/.test(raw)) { mode = "bio"; continue; }
+    if (/^[cC][).]\s*NHỮNG NĂM YÊN Ả/.test(raw)) { mode = "memory"; continue; }
+    if (/^\d+\.\s*MƯỜI ỨNG VIÊN|^\d+\.\s*CẢNH LẬP|^\d+\.\s*SÁU NÚT/i.test(raw)) { mode = null; continue; }
     if (/LOẠI THUỘC HẠ/i.test(raw)) { mode = "minion"; continue; }
     if (/^\[[a-z]/.test(raw)) {
       // an event node: recall lines of a cast kind or a band end here; arc lines (Kết đời) may follow later
       if (mode === "cast" || mode === "band") mode = mode + "-events";
       if (mode === "minion" && minion) minion = null;
+      continue;
+    }
+    // "Ứng viên: Garr · Beastman tộc Sói · Gladiator (Bậc 3) · Tính cách: Cuồng bạo, khát máu. Yêu cầu: ..."
+    if ((m = raw.match(/^Ứng viên:\s*([^·]+)·\s*([^·]+)·\s*([^·]+?)\s*·\s*Tính cách:\s*([^.]+)/i))) {
+      out.recruits[m[1].trim()] = { name: m[1].trim(), race: m[2].trim(), position: m[3].trim(), desc: m[4].trim() };
       continue;
     }
     if (/^Dưới đây là/i.test(raw)) { if (mode === "memory") mode = null; continue; }
@@ -58,6 +64,18 @@ function scanStory(text, stages) {
     if (mode === "band" && band) {
       if ((m = raw.match(/Tên băng:\s*([^·]+)·\s*Luật lệ:\s*([^·]+)·\s*Hang ổ:\s*([^.]+)/i))) {
         band.name = m[1].trim(); band.rule = m[2].trim().replace(/\.$/, ""); band.lair = m[3].trim(); continue;
+      }
+      if ((m = raw.match(/Tên tổ đội:\s*([^·]+)·.*?Tôn chỉ:\s*([^·]+)·\s*Nơi tụ họp:\s*(.+?)\.?$/i))) {
+        band.name = m[1].trim(); band.rule = m[2].trim().replace(/^["“]|["”]$/g, ""); band.lair = m[3].trim(); band.party = true; continue;
+      }
+      if ((m = raw.match(/^Điều kiện gia nhập:\s*(.+)$/i))) { band.condition = m[1]; continue; }
+      if ((m = raw.match(/^([A-ZĐ][^:·(]{1,20}?):\s*([^·]+)·\s*([^·]+?)\s*(?:·\s*([^.·]+?))?\.\s*(.*)$/)) && !/^(Thành viên|Tên tổ đội|Mô tả)/.test(m[1])) {
+        // "Kael: Human · Kiếm sĩ (Bậc 1) · Đội trưởng. Lạc quan, ... Bí mật: ... Quan hệ: ..."
+        const lead = m[4] && /trưởng|phó|thủ lĩnh|lãnh đạo/i.test(m[4]);
+        const pos = lead ? `${m[3]} · ${m[4]}` : m[3];
+        const rest = lead || !m[4] ? m[5] : `${m[4]}. ${m[5]}`;
+        band.members.push({ name: m[1].trim(), race: m[2].trim(), position: pos.trim(), desc: rest.replace(/\s*Bí mật:.*$/, "").trim(), secret: (rest.match(/Bí mật:\s*([^]*?)(?:\s*Quan hệ:|$)/) || [])[1] || "" });
+        continue;
       }
       if ((m = raw.match(/^([A-ZĐ][^:(]{1,20}?):\s*([^(]+)\(([^)]+)\)\.\s*(.*)$/))) {
         let desc = m[4];
@@ -83,14 +101,14 @@ function scanStory(text, stages) {
       continue;
     }
     if (mode === "chapter") {
-      if ((m = raw.match(/^(.+?)\s*\((\d+)\s*(?:[–-]\s*\d+)?\s*\+?\s*tuổi\)\s*$/i))) { stage = stageFor(Number(m[2])); out.chapters[stage] = out.chapters[stage] || []; continue; }
+      if ((m = raw.match(/^([^()]+?)\s*\((\d+)\s*(?:[–-]\s*\d+)?\s*\+?\s*tuổi\)\s*$/i))) { const byName = stages.find((x) => x.name && x.name.toLowerCase() === m[1].trim().toLowerCase()); stage = byName ? byName.id : stageFor(Number(m[2])); out.chapters[stage] = out.chapters[stage] || []; continue; }
       if (stage && (m = condLine(raw))) { out.chapters[stage].push({ cond: m[1].trim(), text: m[2].trim() }); continue; }
     }
     if (mode === "bio") {
-      if (/^Mở đầu/i.test(raw)) { mode = "bio-open"; continue; }
+      if (/^Mở đầu|câu mở đầu/i.test(raw)) { mode = "bio-open"; continue; }
     }
     if (mode === "bio-open") {
-      if (/^Kết thúc/i.test(raw)) { mode = "bio-end"; continue; }
+      if (/^Kết thúc|câu kết đời/i.test(raw)) { mode = "bio-end"; continue; }
       if ((m = condLine(raw))) { out.bio.open[m[1].trim()] = m[2].trim(); continue; }
     }
     if (mode === "bio-end" && (m = condLine(raw))) { out.bio.end.push({ cond: m[1].trim(), text: m[2].trim() }); continue; }

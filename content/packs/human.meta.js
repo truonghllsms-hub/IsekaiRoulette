@@ -6,6 +6,11 @@ const guild = require("../../data/orgs.json").find((o) => o.id === "guild");
 module.exports = {
   race: "human",
   script: "content/scripts/human.txt",
+  story: "content/scripts/human_story.txt",
+  exclusive: true,
+  // which biography opening ("con hoang", "thợ rèn"...) fits each origin
+  storyBioOpen: { harlot: "con hoang", noble_bastard: "con hoang", priest_sin: "tội lỗi", cultist: "tà giáo", hero_descendant: "anh hùng", knight_orphan: "anh hùng",
+    blacksmith: "thợ rèn", half_elf: "con lai", half_beast: "con lai", farmer: "nông dân", merchant: "thương gia", thief: "kẻ trộm" },
 
   // the script's ages: Thơ ấu 3–11, Thiếu niên 11–18, Thanh niên 18–41, Trung niên 41–60, Tuổi già 60+
   stages: [

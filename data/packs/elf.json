@@ -5699,7 +5699,8 @@
     "adventure"
    ],
    "require": {
-    "allyTrait": "brave"
+    "allyTrait": "brave",
+    "party": 1
    },
    "choices": [
     {
@@ -5760,7 +5761,8 @@
    "id": "elf_party_loyal",
    "text": "Trong lúc bạn đang lơ đễnh xem xét một tàn tích, một sát thủ bóng tối bắn mũi tên tẩm độc chí mạng từ góc khuất. {ally} lao ra lấy thân mình đỡ trọn mũi tên thay bạn.",
    "require": {
-    "allyTrait": "loyal"
+    "allyTrait": "loyal",
+    "party": 1
    },
    "choices": [
     {
@@ -5822,7 +5824,8 @@
     "adventure"
    ],
    "require": {
-    "allyTrait": "greedy"
+    "allyTrait": "greedy",
+    "party": 1
    },
    "choices": [
     {
@@ -5885,7 +5888,8 @@
     "adventure"
    ],
    "require": {
-    "allyTrait": "timid"
+    "allyTrait": "timid",
+    "party": 1
    },
    "choices": [
     {
@@ -5951,7 +5955,8 @@
     "social"
    ],
    "require": {
-    "allyTrait": "cheerful"
+    "allyTrait": "cheerful",
+    "party": 1
    },
    "choices": [
     {
@@ -6014,7 +6019,8 @@
     "adventure"
    ],
    "require": {
-    "allyTrait": "cold"
+    "allyTrait": "cold",
+    "party": 1
    },
    "choices": [
     {
@@ -6074,6 +6080,9 @@
   {
    "id": "elf_party_loot",
    "text": "Đánh bại Boss hầm ngục, cả đội tìm thấy một chiếc vương miện Tinh Bạc của tộc Elf cổ đại. {ally} hớn hở định mang nó về Thương hội Sói Bạc để bán đấu giá, trong khi bạn cho rằng món đồ này thuộc về di sản rừng thiêng.",
+   "require": {
+    "party": 1
+   },
    "choices": [
     {
      "label": "Ép {ally} giao nộp bằng vũ lực",
@@ -6133,6 +6142,9 @@
   {
    "id": "elf_party_secret",
    "text": "Đang trị thương cho {ally} bên đống lửa, bạn vô tình thấy một hình xăm trăng khuyết đen ngòm của Hắc Nguyệt Hội trên ngực trái họ. Nhận ra bạn đã thấy, {ally} nắm chặt vũ khí, ánh mắt đầy phòng bị.",
+   "require": {
+    "party": 1
+   },
    "choices": [
     {
      "label": "Bình thản tiếp tục rịt thuốc, ngầm báo tin tưởng",
@@ -6197,6 +6209,9 @@
     "adult",
     "middle"
    ],
+   "require": {
+    "party": 1
+   },
    "choices": [
     {
      "label": "Dùng thảo dược Yggdrasil níu kéo tuổi xuân cho họ",
@@ -6261,6 +6276,9 @@
    "focus": [
     "adventure"
    ],
+   "require": {
+    "party": 1
+   },
    "choices": [
     {
      "label": "Dốc cạn sức lực chuyển đá không ngừng nghỉ",
@@ -6321,6 +6339,10 @@
   {
    "id": "elf_party_romance_stars",
    "text": "Sau một trận tử chiến, bạn và {ally} tựa lưng vào một nhánh rễ phụ của Cây Thế Giới, ngắm những tinh linh đom đóm bay lượn. Bất chợt, {ally} quay sang, ánh mắt đong đầy tình cảm, thổ lộ muốn được cùng bạn đi hết chặng đường đời.",
+   "require": {
+    "party": 1,
+    "spouse": false
+   },
    "choices": [
     {
      "label": "Nhận lời, hứa sẽ bảo vệ họ bằng sinh mệnh ngàn năm",
@@ -6373,14 +6395,15 @@
       "joy": -5
      }
     }
-   ],
-   "require": {
-    "spouse": false
-   }
+   ]
   },
   {
    "id": "elf_party_romance_time",
    "text": "Bạn vừa chữa lành một vết thương nặng cho {ally}. Thay vì vui mừng, họ rơi nước mắt, thú nhận rằng họ yêu bạn nhưng rất sợ hãi. Họ sợ một ngày mình sẽ già đi, xấu xí và nhăn nheo, trong khi bạn vẫn giữ mãi dung nhan tuyệt mỹ này.",
+   "require": {
+    "party": 1,
+    "spouse": false
+   },
    "choices": [
     {
      "label": "Hát khúc ca đính ước, thề sẽ yêu cả phần linh hồn",
@@ -6433,10 +6456,7 @@
       "bond": -30
      }
     }
-   ],
-   "require": {
-    "spouse": false
-   }
+   ]
   },
   {
    "id": "elf_love_temple",

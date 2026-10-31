@@ -97,12 +97,15 @@ function parseEffects(str) {
     if ((m = low.match(/thân thiết với \{(rival|mentor|friend)\}\s*([+-]\s*\d+)/))) { eff.castBond = Object.assign(eff.castBond || {}, { [m[1]]: Number(m[2].replace(/\s/g, "")) }); continue; }
     if ((m = low.match(/gia nhập (?:băng|tổ đội|đội)\s+([a-z]+_[a-z0-9]+)/))) { eff.joinBand = m[1]; continue; }
     if (/bị đuổi khỏi (băng|tổ đội)|rời (băng|tổ đội)|bỏ trốn khỏi băng/.test(low)) { eff.leaveBand = true; continue; }
-    if (/(băng|tổ đội) (bị xóa sổ|tan rã)/.test(low)) { eff.bandGone = true; continue; }
+    if (/(băng|tổ đội) bị xóa sổ|bị tàn sát/.test(low)) { eff.bandGone = true; continue; }
+    if (/(băng|tổ đội) (tan rã|giải tán)/.test(low)) { eff.leaveBand = true; continue; }
     if (/trở thành (đầu băng|đội trưởng)/.test(low)) { eff.bandLead = true; continue; }
     if ((m = low.match(/thu phục thuộc hạ\s+(minion_[a-z])/))) { eff.minionAdd = m[1]; continue; }
     if ((m = low.match(/mất (?:hết )?thuộc hạ(?:\s+(minion_[a-z]))?/))) { eff.minionLose = m[1] || true; continue; }
     if (/thuộc hạ nổi loạn/.test(low)) { eff.minionRevolt = true; continue; }
     if ((m = low.match(/thân thiết với thuộc hạ\s*([+-]\s*\d+)/))) { add("minionLoyal", Number(m[1].replace(/\s/g, ""))); continue; }
+    if ((m = t.match(/^([A-ZĐ][a-zà-ỹ]+)\s+gia nhập (?:tổ đội|băng|đội)$/)) && !/^(Bạn)$/.test(m[1])) { eff.memberJoin = m[1]; continue; }
+    if (/^không gia nhập$/i.test(t)) continue;
     if ((m = t.match(/^Thân thiết với ([A-ZĐ][^+\-−]{0,20}?)\s*([+-]\s*\d+)$/))) { eff.memberBond = Object.assign(eff.memberBond || {}, { [m[1].trim()]: Number(m[2].replace(/\s/g, "")) }); continue; }
     if ((m = t.match(/^([A-ZĐ][^\s,{}]*(?: [A-ZĐ][^\s,{}]*)?)\s+(CHẾT|chết|tử trận)\b/)) && !/^(Bạn|Cha|Mẹ)$/.test(m[1])) { (eff.memberDie = eff.memberDie || []).push(m[1]); continue; }
     if ((m = t.match(/^([A-ZĐ][^\s,{}]*(?: [A-ZĐ][^\s,{}]*)?)\s+(bỏ trốn|phản bội|rời đội|rời băng|bỏ đi)/)) && !/^(Bạn|Cha|Mẹ)$/.test(m[1])) { (eff.memberLeave = eff.memberLeave || []).push(m[1]); continue; }
@@ -164,7 +167,7 @@ function parseHead(rest) {
   if (/chỉ số cao nhất|chỉ số chính/.test(r)) {
     const dm = r.match(/(rất khó|rất dễ|cực khó|khó|vừa|trung bình|dễ|huyền thoại)/);
     out.check = { stat: /cao nhất/.test(r) ? "best" : "jobstat", diff: dm ? DIFF[dm[1]] : 3 };
-    if (/khóa/.test(r)) out.lock = rest.replace(/.*?KHÓA\s*(nếu|:)?/i, "").split("—")[0].trim();
+    if (/KHÓA|\bkhóa\s*(nếu|:)/.test(rest)) out.lock = rest.replace(/.*?KHÓA\s*(nếu|:)?/i, "").split("—")[0].trim();
     return out;
   }
   // "dựa vào Sức mạnh" or "dựa vào Uy áp (Sức mạnh)"
@@ -174,7 +177,7 @@ function parseHead(rest) {
   }
   // "(Chỉ với dấu ấn demon_parasite)": only shown with that mark
   if ((m = r.match(/chỉ (?:với|khi có) dấu ấn\s*["“]?([a-z][a-z0-9_]+)/))) out.onlyFlags = [m[1]];
-  if (/khóa/.test(r)) out.lock = rest.replace(/.*?KHÓA\s*(nếu|:)?/i, "").split("—")[0].trim();
+  if (/KHÓA|\bkhóa\s*(nếu|:)/.test(rest)) out.lock = rest.replace(/.*?KHÓA\s*(nếu|:)?/i, "").split("—")[0].trim();
   return out;
 }
 
@@ -240,6 +243,7 @@ function parse(text) {
       .replace(/^\[MÃ\]\s*/i, "") // "[MÃ] demon_quest_scavenge_1"
       // "Thành công (THẮNG NGAY): …", "Thất bại (CHẾT): …": the note in brackets is an effect
       .replace(/^(Thành công|Thất bại)\s*\((THẮNG NGAY|THẤT BẠI NGAY|CHẾT)\)\s*:\s*(.+)$/i, (m0, k, note, rest) => `${k}: ${rest}${/→/.test(rest) ? ", " : " → "}${note.toUpperCase()}`)
+      .replace(/^(Thành công|Thất bại)\s*:\s*\((THẮNG NGAY|THẤT BẠI NGAY|CHẾT)\)\s*(.+)$/i, (m0, k, note, rest) => `${k}: ${rest}${/→/.test(rest) ? ", " : " → "}${note.toUpperCase()}`)
       .replace(/^(Thành công|Thất bại)\s*\(dựa vào[^)]*\)\s*:/i, "$1:")
       // a bare id at the start of a line ("demon_dk_sword", "demon_origin_abyss — 12%") is an [id] line
       .replace(/^([a-z][a-z0-9]*(?:_[a-z0-9]+)+)(?=\s*$|\s+[—–-]\s|\s+[A-ZÀ-ỸĐ])/, "[$1]");
@@ -320,7 +324,7 @@ function parse(text) {
     }
 
     // ---- choices ----
-    const om = line.match(/^([A-D])[.)]\s*["“](.+?)["”]\s*(?:[—–-]\s*(.*))?$/) || line.match(/^([A-D])[.)]\s+([^"“—–]{3,90}?)\s+[—–]\s+(.*)$/);
+    const om = line.match(/^([A-D])[.)]\s*["“](.+?)["”]\s*(?:\((?:Dành cho|Chỉ dành)[^)]*\)\s*)?(?:[—–-]\s*(.*))?$/) || line.match(/^([A-D])[.)]\s+([^"“—–]{3,90}?)\s+[—–]\s+(.*)$/);
     if (om && target()) {
       const restOpt = (om[3] || "").replace(/[\[\]]/g, "");
       const head = parseHead(restOpt);

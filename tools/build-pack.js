@@ -56,7 +56,7 @@ function build(raceId, opts) {
   const ren = (t) => {
     if (typeof t !== "string") return t;
     for (const [a, b] of renames) t = t.split(a).join(b);
-    return t.replace(/\s+/g, " ").trim();
+    return t.replace(/\s*\((THẮNG NGAY|THẤT BẠI NGAY)[^)]*\)\s*/g, " ").replace(/Cậu bé\/cô bé/g, "Nhóc").replace(/cậu bé\/cô bé/g, "nhóc").replace(/\s+/g, " ").trim();
   };
   const target = (stat, diff) => {
     const table = STAT_KEYS.includes(stat) || stat === "best" || stat === "jobstat" ? meta.diff.stat : meta.diff.bar;
@@ -90,7 +90,7 @@ function build(raceId, opts) {
     if (e.flags && e.flags.length) out.flags = [...new Set(e.flags)];
     for (const k of ["allyDie", "allyLeave", "allyHurt", "recruit", "loseChild", "child", "marry", "loseSpouse", "loseJob", "jobPromote"]) if (e[k]) out[k] = true;
     if (e.parentDie) out.parentDie = e.parentDie;
-    for (const k of ["castDie", "castJoin", "castLeave", "castBond", "joinBand", "leaveBand", "bandGone", "bandLead", "minionAdd", "minionLose", "minionRevolt", "minionLoyal", "memberBond", "memberDie", "memberLeave"]) if (e[k] != null) out[k] = e[k];
+    for (const k of ["castDie", "castJoin", "castLeave", "castBond", "joinBand", "leaveBand", "bandGone", "bandLead", "minionAdd", "minionLose", "minionRevolt", "minionLoyal", "memberBond", "memberDie", "memberLeave", "memberJoin", "foundBand"]) if (e[k] != null) out[k] = e[k];
     if (e.demote) { if (ctx.rank) out.orgRank = 0; else out.demote = true; }
     if (e.rankDelta) { if (ctx.role) out.demote = true; else out.orgRankUp = e.rankDelta; }
     if (e.setRank != null) { if (ctx.role && !ctx.rank) out.jobRankSet = e.setRank; else out.orgRank = e.setRank; }
@@ -244,7 +244,9 @@ function build(raceId, opts) {
     if (notFl.length) out.require.notFlags = notFl;
     const fl = [...text.matchAll(/dấu ấn\s+["“]?([a-z][a-z0-9_]+)["”]?(?![A-Za-zÀ-ỹ])/gi)].map((x) => x[1]).filter((f) => !notFl.includes(f));
     const more = [...text.matchAll(/(?:hoặc|có)\s+["“]([a-z0-9_]+)["”]/gi), ...text.matchAll(/dấu ấn\s+["“]?[a-z][a-z0-9_]+["”]?\s+hoặc\s+["“]?([a-z][a-z0-9]*_[a-z0-9_]+)/gi)].map((x) => x[1]);
-    const allFl = [...new Set([...fl, ...more])];
+    // "dấu ấn a, b hoặc c"
+    const listed = [...text.matchAll(/dấu ấn\s+([a-z0-9_"“”,\s]+?(?:\s*hoặc\s+["“]?[a-z][a-z0-9_]+)+)/gi)].flatMap((x) => x[1].match(/[a-z][a-z0-9]*_[a-z0-9_]+/g) || []).filter((f) => !notFl.includes(f));
+    const allFl = [...new Set([...fl, ...more, ...listed])];
     if (allFl.length) { if (/hoặc/.test(low) && allFl.length > 1) out.require.anyFlags = allFl; else out.require.flags = allFl; }
     if (/cha và mẹ còn sống|cha mẹ còn sống/.test(low)) { out.require.fatherAlive = true; out.require.motherAlive = true; }
     else {
@@ -260,6 +262,7 @@ function build(raceId, opts) {
     if (!/không phải tính/.test(low))
       for (const [w, t] of Object.entries(TRAITS)) if (low.includes("tính " + w) || low.includes("tính cách " + w) || low.includes("{ally} " + w)) out.require.allyTrait = t;
     if (/chưa có (\{spouse\}|bạn đời|bạn tình)/.test(low)) out.require.spouse = false;
+    if ((m = text.match(/CẦN ([A-ZĐ][a-zà-ỹ]+) còn trong đội/))) out.require.bandMember = m[1];
     else if (/(đã )?có \{spouse\}|đã có bạn đời/.test(low)) out.require.spouse = true;
     if (/chưa có \{child\}/.test(low)) out.require.noChildren = true;
     else if (/có \{child\}|\{child\}/.test(low)) out.require.children = 1;
@@ -367,7 +370,7 @@ function build(raceId, opts) {
     const req = Object.assign({}, w.require);
     if (rid) req.job = rid;
     // companion events always need a companion
-    if (/_ally_|_team_|_squad_/.test(e.id) && !req.party) req.party = 1;
+    if ((/_ally_|_team_|_squad_/.test(e.id) || (!e._story && /_party_/.test(e.id))) && !req.party) req.party = 1;
     // story nodes: who they are about, and they come first when due
     if (e._story) {
       let sm;
@@ -379,16 +382,24 @@ function build(raceId, opts) {
           const who = (e.beat || "").match(/\(([^)]+)\)/);
           if (sm[2].startsWith("m") && who) req.bandMember = who[1].trim();
         }
-      } else if (/_minion_rec_[a-z]$/.test(e.id)) req.minionOk = true;
+      } else if ((sm = e.id.match(/_party_(party_[a-z])_(join|m?\d+)$/))) {
+        if (sm[2] === "join") req.noBand = true;
+        else req.band = sm[1];
+        if (!ev.stages) ev.stages = ["teen"];
+      } else if (/_recruit_\d+$/.test(e.id)) { req.bandLead = true; req.partyMax = 2; if (!ev.stages) ev.stages = ["adult"]; }
+      else if (/_lead_1$/.test(e.id)) { req.bandLead = false; req.any = [{ guildRank: 2 }, { jobRank: 2 }]; ev._found = true; }
+      else if (/_lead_(link_)?\d+$/.test(e.id)) { req.bandLead = true; if (!ev.stages) ev.stages = ["adult"]; }
+      else if (/_minion_rec_[a-z]$/.test(e.id)) req.minionOk = true;
       else if (/_minion_\d+$/.test(e.id)) req.minions = 1;
       else if ((sm = e.id.match(/_minion_(hob|sham|king)_/))) { req.form = { hob: "Hobgoblin", sham: "Goblin Shaman Lord", king: "Goblin King" }[sm[1]]; }
+      if ((sm = (e.when || "").match(/\{(rival|mentor|friend)\} còn sống/))) req.castAlive = sm[1];
       // a node must not be missed for want of the right "việc chính": the activity is only flavour
       delete ev.focus;
       // scripts sometimes use the Human stat scale (Sức mạnh > 15); bring it to this race's scale
       if (meta.storyStatScale) for (const k of STAT_KEYS) if (req[k] > 10) req[k] = Math.round(req[k] * meta.storyStatScale);
       ev.arc = e.arc || null;
       if (e.recall && e.recall.length) ev.recall = e.recall.map((r) => ({ flags: r.flags, text: ren(r.text) }));
-      ev.weight = /_band_.*_1$/.test(e.id) ? 35 : /_minion_rec_/.test(e.id) ? 25 : /_minion_/.test(e.id) ? 15 : 40;
+      ev.weight = /_arc_/.test(e.id) ? 100 : /_band_.*_1$/.test(e.id) ? 35 : /_minion_rec_/.test(e.id) ? 25 : /_minion_/.test(e.id) ? 15 : 40;
     }
     for (const st of meta.subtypes || []) if (new RegExp(`(beastman )?tộc ${st.word}(?![a-zà-ỹ])`, "i").test(e.when || "")) req.subtype = st.id;
 
@@ -500,14 +511,19 @@ function build(raceId, opts) {
     delete ev._ascend;
     if (o.effects) ev.effects = Object.assign(ev.effects || {}, o.effects);
     if (e.moment) ev.moment = ren(e.moment);
-    if (JSON.stringify(ev.choices || ev.effects || {}).includes('"marry":true') && !(ev.require && "spouse" in ev.require)) ev.require = Object.assign(ev.require || {}, { spouse: false });
+    if (JSON.stringify(ev.choices || ev.effects || {}).includes('"marry":true') && !(ev.require && ev.require.spouse === false)) ev.require = Object.assign(ev.require || {}, { spouse: false }); // a wedding needs someone still single
     if (!ev.text) { report.push(`  ! bỏ qua ${e.id}: không có nội dung`); continue; }
     // a story node that missed its stage can still come later: the chain matters more than the age
+    if (ev._found) { for (const ch of ev.choices || []) for (const t of [ch.success, ch.fail, ch]) if (t && t.effects && t.effects.bandLead) { delete t.effects.bandLead; t.effects.foundBand = true; } delete ev._found; }
     if (ev.arc && !(ev.stages && ev.stages.length)) ev.stages = ["child"]; // never in the cradle
     if (ev.arc && ev.stages && ev.stages.length) {
       const ORDER = ["infant", "child", "teen", "adult", "middle", "elder", "ancient"];
       const from = Math.min(...ev.stages.map((x) => ORDER.indexOf(x)).filter((i) => i >= 0));
-      if (Number.isFinite(from)) ev.stages = ORDER.slice(from);
+      // short lives: a race can let its chains run a stage ahead of what the script wrote (the flags still keep the order)
+      const shift = /_arc_|_cast_|_band_/.test(ev.id) && !/_band_.*_1$/.test(ev.id) ? meta.storyStageShift || 0 : 0;
+      // ...and a scene written for a child should not turn up in old age: at most one stage late
+      const to = Math.max(...ev.stages.map((x) => ORDER.indexOf(x)));
+      if (Number.isFinite(from)) ev.stages = ORDER.slice(Math.max(1, from - shift), to >= ORDER.indexOf("elder") || !/_arc_|_cast_|_join$|_lead_1$|_band_band_[a-z]_1$/.test(ev.id) ? ORDER.length : to + 1 + (meta.storyStageLate || 1));
     }
     events.push(ev);
     report.push(`${e.id.padEnd(34)} ${(ev.stages || ["*"]).join(",").padEnd(22)} ${(ev.focus || ["-"]).join(",").padEnd(9)} ${JSON.stringify(ev.require || {})}${ev.eras ? " eras=" + ev.eras : ""}${ev.choices ? "" : " [không lựa chọn]"}`);
@@ -600,12 +616,12 @@ function build(raceId, opts) {
   const pack = { race: raceId, stageNames: meta.stageNames, forms, origins, jobs, orgs: [org], quests, events, deaths, focus, systems };
   if (meta.useScriptStages || meta.stages) pack.stages = stages;
   if (story) {
-    const originOf = (arcId) => (meta.storyOrigins && meta.storyOrigins[arcId]) || `${raceId}_origin_${arcId}`;
+    const originOf = (arcId) => (meta.storyOrigins && meta.storyOrigins[arcId]) || (origins.find((o) => o.id.endsWith("_" + arcId)) || { id: `${raceId}_origin_${arcId}` }).id;
     const rmap = (o) => JSON.parse(ren(JSON.stringify(o)));
     pack.story = rmap({
       arcs: Object.fromEntries(Object.values(story.arcs).map((a) => [originOf(a.id), a])),
       cast: story.cast, chapters: story.chapters, bio: story.bio, memories: story.memories,
-      bands: story.bands, minions: story.minions,
+      bands: story.bands, minions: story.minions, recruits: story.recruits, bioMap: meta.storyBioOpen || null,
     });
   }
   if (meta.exclusive) pack.exclusive = true;
