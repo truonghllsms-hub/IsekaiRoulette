@@ -2,6 +2,7 @@
 module.exports = {
   race: "orc",
   script: "content/scripts/orc.txt",
+  story: "content/scripts/orc_story.txt",
   useScriptStages: true,
 
   rename: [

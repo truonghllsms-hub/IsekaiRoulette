@@ -2,6 +2,8 @@
 module.exports = {
   race: "troll",
   script: "content/scripts/troll.txt",
+  story: "content/scripts/troll_story.txt",
+  exclusive: true,
   useScriptStages: true,
 
   rename: [
@@ -69,6 +71,7 @@ module.exports = {
   ],
 
   systems: {
+    noRecruit: true,
     bandName: "đám",
     romance: false,
     // the script has child events but no birth event

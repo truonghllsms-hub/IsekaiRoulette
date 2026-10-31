@@ -23,11 +23,11 @@ và `tools/race-profiles-v3.js` (mô tả, giọng văn, thế giới, ví dụ 
 | Lizardman | [lizardman.md](lizardman.md) | 6 | 9 kiểu × 5 | 6 × 5 | bầy săn | có | chờ Gemini |
 | Vampire | [vampire.md](vampire.md) | 7 | 9 kiểu × 5 | 6 × 5 | tổ đội | có | chờ Gemini |
 | Imp | [imp.md](imp.md) | 6 | 6 kiểu × 4 | 6 × 4 | bè lũ | có | chờ Gemini |
-| Orc | [orc.md](orc.md) | 6 | 6 kiểu × 4 | 6 × 4 | chiến đoàn | có | chờ Gemini |
-| Minotaur | [minotaur.md](minotaur.md) | 6 | 9 kiểu × 5 | 7 × 5 | bầy | có | chờ Gemini |
-| Troll | [troll.md](troll.md) | 6 | 9 kiểu × 5 | 7 × 5 | đám | có | chờ Gemini |
+| Orc | [orc.md](orc.md) | 6 | 6 kiểu × 4 | 6 × 4 | chiến đoàn | có | mới có tri kỷ (8 nút), thiếu phần còn lại |
+| Minotaur | [minotaur.md](minotaur.md) | 6 | 9 kiểu × 5 | 7 × 5 | bầy | có | đã nhập |
+| Troll | [troll.md](troll.md) | 6 | 9 kiểu × 5 | 7 × 5 | đám | có | đã nhập |
 | Ghoul | [ghoul.md](ghoul.md) | 6 | 9 kiểu × 5 | 6 × 5 | bầy | có | chờ Gemini |
-| Dragon | [dragon.md](dragon.md) | 5 | 9 kiểu × 5 | 6 × 5 | — | có | chờ Gemini |
-| High Demon | [high_demon.md](high_demon.md) | 4 | 9 kiểu × 5 | 4 × 5 | — | có | chờ Gemini |
+| Dragon | [dragon.md](dragon.md) | 5 | 9 kiểu × 5 | 6 × 5 | — | có | đã nhập |
+| High Demon | [high_demon.md](high_demon.md) | 4 | 9 kiểu × 5 | 4 × 5 | — | có | đã nhập |
 
 Thứ tự bảng theo tỉ lệ đầu thai: tộc gặp nhiều nên làm trước.

@@ -5854,6 +5854,944 @@
     }
    ],
    "moment": "Mùi bùn lầy bao giờ cũng thoang thoảng vị tanh của máu, đó là mùi của sự trưởng thành."
+  },
+  {
+   "id": "orc_cast_friend_a_1",
+   "text": "Phía sau lều, một đám Orc nhí đang quây đánh một gã béo phệ rách nát. Dù bị đấm đá tơi bời, {friend} vẫn ôm khư khư vò rượu giấu dưới bụng, ánh mắt van lơn nhìn bạn cầu cứu.",
+   "stages": [
+    "child",
+    "teen"
+   ],
+   "arc": "friend_a",
+   "recall": [
+    {
+     "flags": [
+      "friend_a_1_ruou"
+     ],
+     "text": "Bạn và {friend} đã kết nghĩa huynh đệ qua ngụm rượu chia sẻ lúc nhỏ."
+    },
+    {
+     "flags": [
+      "friend_a_1_chia"
+     ],
+     "text": "Kỷ niệm ăn đòn chung thuở ấu thơ gắn kết hai kẻ cùng khổ."
+    },
+    {
+     "flags": [
+      "friend_a_1_cuop"
+     ],
+     "text": "Sự phản trắc đầu đời khiến {friend} luôn nhìn bạn bằng ánh mắt dè chừng."
+    },
+    {
+     "flags": [
+      "friend_a_1_nhuc"
+     ],
+     "text": "Cú ngã vấp vào đống phân vì định ăn cướp luôn là trò cười của {friend}."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "friend_a",
+    "castAlive": "friend"
+   },
+   "choices": [
+    {
+     "label": "Xông vào đánh đuổi lũ bắt nạt",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn tung vài cú đấm thép đuổi cổ đám đông. {friend} lồm cồm bò dậy, nhe răng cười và chia cho bạn một ngụm rượu chát ngầm.",
+      "effects": {
+       "STR": 1,
+       "fame": 5,
+       "flags": [
+        "friend_a_1_ruou"
+       ],
+       "castBond": {
+        "friend": 10
+       }
+      }
+     },
+     "fail": {
+      "text": "Đám đông quá hung hãn đè bẹp cả hai. Bạn và {friend} cùng nằm sấp mặt, chia nhau vò rượu bị vỡ nát.",
+      "effects": {
+       "health": -10,
+       "flags": [
+        "friend_a_1_chia"
+       ],
+       "castBond": {
+        "friend": 10
+       }
+      }
+     }
+    },
+    {
+     "label": "Lợi dụng hỗn loạn cướp vò rượu",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn đá thốc vào mạn sườn gã béo, cuỗm vò rượu rồi lủi mất. Hắn khóc lóc gào thét tên bạn trong uất ức.",
+      "effects": {
+       "wealth": 5,
+       "fame": -5,
+       "flags": [
+        "friend_a_1_cuop"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Hắn ôm chặt vò rượu bằng sức mạnh sinh tồn, bạn trượt ngã nhào vào đống phân bị đám đông cười nhạo.",
+      "effects": {
+       "health": -5,
+       "joy": -10,
+       "flags": [
+        "friend_a_1_nhuc"
+       ]
+      }
+     }
+    }
+   ],
+   "moment": "Lần đầu tiên va chạm với kẻ sau này sẽ kề vai sát cánh."
+  },
+  {
+   "id": "orc_cast_friend_a_2",
+   "text": "Cuộc tuyển quân ra tuyến đầu vô cùng đẫm máu. {friend} quá sợ hãi, lén thu dọn đồ đạc định trốn khỏi bộ lạc trong đêm để giữ cái mạng hèn mọn.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "arc": "friend_a",
+   "recall": [
+    {
+     "flags": [
+      "friend_a_2_gan"
+     ],
+     "text": "Nắm đấm của bạn là thứ duy nhất rèn nên lòng dũng cảm của {friend}."
+    },
+    {
+     "flags": [
+      "friend_a_2_tron"
+     ],
+     "text": "Kẻ hèn nhát {friend} bỏ chạy, để lại bạn đơn độc."
+    },
+    {
+     "flags": [
+      "friend_a_2_tha"
+     ],
+     "text": "Bạn đánh đổi danh dự để tri kỷ hèn nhát được sống."
+    },
+    {
+     "flags": [
+      "friend_a_2_roi"
+     ],
+     "text": "Vết sẹo roi da chứng minh tình anh em vượt qua luật lệ."
+    },
+    {
+     "flags": [
+      "friend_a_2_nop"
+     ],
+     "text": "Giao nộp anh em cho lính gác là vết đen tàn nhẫn trong tâm hồn bạn."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "friend_a_1_ruou",
+     "friend_a_1_chia",
+     "friend_a_1_cuop",
+     "friend_a_1_nhuc"
+    ],
+    "cast": "friend_a",
+    "castAlive": "friend"
+   },
+   "choices": [
+    {
+     "label": "Đấm hắn một trận tỉnh ngộ",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bằng cả nắm đấm lẫn lý lẽ máu lửa, bạn vực dậy ý chí chiến binh bị thui chột của {friend}. Hắn vứt đùm đồ, gầm lên sẵn sàng.",
+      "effects": {
+       "INT": 2,
+       "flags": [
+        "friend_a_2_gan"
+       ],
+       "castBond": {
+        "friend": 15
+       }
+      }
+     },
+     "fail": {
+      "text": "Hắn phản kháng, vung tay tát rách môi bạn rồi lao vào bóng đêm bỏ trốn, để lại cho bạn sự hụt hẫng.",
+      "effects": {
+       "health": -10,
+       "joy": -15,
+       "flags": [
+        "friend_a_2_tron"
+       ],
+       "castLeave": "friend"
+      }
+     }
+    },
+    {
+     "label": "Đưa cho hắn lộ phí rồi che giấu",
+     "check": {
+      "stat": "wealth",
+      "target": 55
+     },
+     "success": {
+      "text": "Bạn nhét vài đồng Đồng Cẩm Thạch vào tay tri kỷ, chỉ đường cho hắn thoát vòng gác. Tình nghĩa vẫn còn, nhưng đường ai nấy đi.",
+      "effects": {
+       "wealth": -10,
+       "flags": [
+        "friend_a_2_tha"
+       ],
+       "castLeave": "friend",
+       "castBond": {
+        "friend": 20
+       }
+      }
+     },
+     "fail": {
+      "text": "Lính gác phát hiện, bạn bị đánh mấy chục roi vì tội bao che, còn hắn bị gông cổ lôi xềnh xệch ra chiến trường.",
+      "effects": {
+       "health": -25,
+       "fame": -10,
+       "flags": [
+        "friend_a_2_roi"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Bắt trói nộp cho chỉ huy",
+     "text": "Bạn lạnh lùng đạp ngã kẻ đào ngũ, trói gô nộp cho trại lính để đổi lấy điểm tín nhiệm.",
+     "effects": {
+      "fame": 10,
+      "flags": [
+       "friend_a_2_nop"
+      ],
+      "castBond": {
+       "friend": -30
+      }
+     }
+    }
+   ],
+   "moment": "Đứng giữa tình chiến hữu và quân pháp vô tình."
+  },
+  {
+   "id": "orc_cast_friend_a_3",
+   "text": "Trong cơn hỗn loạn, một sát thủ Elf lén tập kích sau lưng bạn. {friend} - vốn là kẻ nhút nhát - đột ngột gào thét xông ra, đưa thân mình béo ngậy ra đỡ nhát đao tử thần thay bạn.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "arc": "friend_a",
+   "recall": [
+    {
+     "flags": [
+      "friend_a_3_dao"
+     ],
+     "text": "Sinh mạng bạn được đánh đổi bằng máu của tri kỷ."
+    },
+    {
+     "flags": [
+      "friend_a_3_trongthuong"
+     ],
+     "text": "Nhìn {friend} thoi thóp, bạn dằn vặt vì sự yếu kém của bản thân."
+    },
+    {
+     "flags": [
+      "friend_a_3_cong"
+     ],
+     "text": "Danh vọng chiến trường che mờ cả tình nghĩa huynh đệ."
+    },
+    {
+     "flags": [
+      "friend_a_3_tham"
+     ],
+     "text": "Trận chiến tủi nhục phá nát hình tượng anh hùng của bạn."
+    },
+    {
+     "flags": [
+      "friend_a_3_hen"
+     ],
+     "text": "Bỏ rơi người đã đỡ đao cho mình là tội lỗi không bao giờ rửa sạch."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "friend_a_2_gan",
+     "friend_a_2_roi",
+     "friend_a_2_nop"
+    ],
+    "cast": "friend_a",
+    "castAlive": "friend"
+   },
+   "choices": [
+    {
+     "label": "Chém đôi sát thủ, cứu tri kỷ",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Lưỡi rìu của bạn bổ nát tên Elf, bạn vội vàng ôm lấy {friend} đổ máu. Hắn giữ được mạng, tình huynh đệ hóa thành huyết thệ.",
+      "effects": {
+       "fame": 15,
+       "flags": [
+        "friend_a_3_dao"
+       ],
+       "castBond": {
+        "friend": 30
+       }
+      }
+     },
+     "fail": {
+      "text": "Nhát chém quá chậm, bạn trúng độc sượt qua tay, còn {friend} bị đâm xuyên phổi gục ngã thoi thóp.",
+      "effects": {
+       "health": -25,
+       "flags": [
+        "friend_a_3_trongthuong"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Tranh thủ sơ hở để đoạt thủ cấp địch",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn dẫm lên vũng máu của {friend} luồn ra sau kết liễu tên Elf giật công, mặc kệ bạn mình đang ôm vết thương chí mạng.",
+      "effects": {
+       "fame": 20,
+       "flags": [
+        "friend_a_3_cong"
+       ],
+       "castBond": {
+        "friend": -20
+       }
+      }
+     },
+     "fail": {
+      "text": "Bạn vấp phải chân {friend}, bị tên Elf bồi thêm một cước gãy mấy xương sườn trước khi đồng bọn kịp đến cứu.",
+      "effects": {
+       "health": -30,
+       "fame": -10,
+       "flags": [
+        "friend_a_3_tham"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hoảng sợ bỏ chạy",
+     "text": "Bạn lùi bước tẩu thoát, bỏ mặc người bạn vừa chắn đao cho mình chết thảm dưới chân quân thù.",
+     "effects": {
+      "joy": -20,
+      "flags": [
+       "friend_a_3_hen"
+      ],
+      "castDie": [
+       "friend"
+      ]
+     }
+    }
+   ],
+   "moment": "Đối diện với sự hy sinh bất ngờ từ kẻ nhát gan."
+  },
+  {
+   "id": "orc_cast_friend_a_4",
+   "text": "Quân lính bao vây bốn bề. {friend} bị chém cụt một chân, không thể chạy trốn. Hắn lấy vò rượu cũ, rắc vào đó ngòi nổ và mỉm cười đòi lại lại cản đường cho bạn thoát thân.",
+   "arc": "friend_a",
+   "recall": [
+    {
+     "flags": [
+      "friend_a_4_song"
+     ],
+     "text": "Vò rượu sứt nay trở thành bảo vật chứng giám tình huynh đệ vào sinh ra tử."
+    },
+    {
+     "flags": [
+      "friend_a_4_chet"
+     ],
+     "text": "Cát bụi ôm trọn hai linh hồn chiến binh sát cánh đến hơi thở cuối."
+    },
+    {
+     "flags": [
+      "friend_a_4_bom"
+     ],
+     "text": "Tiếng nổ kinh hoàng ấy vĩnh viễn mang {friend} rời xa cõi đời."
+    },
+    {
+     "flags": [
+      "friend_a_4_phe"
+     ],
+     "text": "Cánh tay tàn phế là di chứng từ ly rượu vĩnh biệt người tri kỷ."
+    },
+    {
+     "flags": [
+      "friend_a_4_phan"
+     ],
+     "text": "Bạn giẫm đạp lên tình anh em để kéo dài sự tồn tại bẩn thỉu."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "friend_a_3_dao",
+     "friend_a_3_trongthuong"
+    ],
+    "cast": "friend_a",
+    "castAlive": "friend"
+   },
+   "choices": [
+    {
+     "label": "Bế xốc hắn lên cùng phá vòng vây",
+     "check": {
+      "stat": "health",
+      "target": 85
+     },
+     "success": {
+      "text": "Bạn nghiến răng vác thân hình nặng nề của tri kỷ cày nát phòng tuyến địch. Cả hai sống sót trở về trong máu và vinh quang.",
+      "effects": {
+       "joy": 20,
+       "fame": 30,
+       "flags": [
+        "friend_a_4_song"
+       ],
+       "castBond": {
+        "friend": 40
+       }
+      }
+     },
+     "fail": {
+      "text": "Thể lực cạn kiệt, mũi giáo đâm xuyên lồng ngực cả hai. Bạn gục ngã bên cạnh tri kỷ, vò rượu vỡ nát.",
+      "effects": {
+       "flags": [
+        "friend_a_4_chet"
+       ]
+      },
+      "death": "Chết cùng tri kỷ trên chiến trường"
+     }
+    },
+    {
+     "label": "Nâng ly vĩnh biệt rồi kích nổ bom",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn uất nghẹn cụng ly rượu cuối cùng, chạy đi ngay trước khi {friend} gầm lên kích nổ ngòi lửa, mang theo mười tên giặc xuống mồ.",
+      "effects": {
+       "joy": -30,
+       "fame": 10,
+       "flags": [
+        "friend_a_4_bom"
+       ],
+       "castDie": [
+        "friend"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Lửa châm quá vội, vụ nổ hất văng bạn vào vách đá nát bấy một cánh tay. Bạn thoát được nhưng tàn phế. {friend}",
+      "effects": {
+       "health": -45,
+       "flags": [
+        "friend_a_4_phe"
+       ],
+       "castDie": [
+        "friend"
+       ]
+      },
+      "death": "Lửa châm quá vội, vụ nổ hất văng bạn vào vách đá nát bấy một cánh tay. Bạn thoát được nhưng tàn phế. {friend}"
+     }
+    },
+    {
+     "label": "Ném hắn vào địch để câu giờ",
+     "text": "Bạn tàn nhẫn đẩy gã béo về phía lưỡi kiếm của giặc, mượn thân xác hắn chặn đường tiến công để bản thân lùi an toàn.",
+     "effects": {
+      "fame": -20,
+      "flags": [
+       "friend_a_4_phan"
+      ],
+      "castDie": [
+       "friend"
+      ]
+     }
+    }
+   ],
+   "moment": "Kết thúc bản trường ca đẫm máu của tình bạn Orc.",
+   "stages": [
+    "child",
+    "teen"
+   ]
+  },
+  {
+   "id": "orc_cast_friend_b_1",
+   "text": "Bạn chộp được một tên Goblin đang lục lọi lều của cha mình. Gã gầy gò nhắm mắt chắp tay khóc lóc, dâng lên một đồng Tinh Bạc giấu kỹ van xin bạn tha mạng.",
+   "stages": [
+    "child",
+    "teen"
+   ],
+   "arc": "friend_b",
+   "recall": [
+    {
+     "flags": [
+      "friend_b_1_cuu"
+     ],
+     "text": "Lòng nhân từ hiếm hoi của bạn mua được một tên tay sai trung thành tuyệt đối."
+    },
+    {
+     "flags": [
+      "friend_b_1_chay"
+     ],
+     "text": "Con mồi Goblin vuột mất để lại vết cắn rướm máu."
+    },
+    {
+     "flags": [
+      "friend_b_1_giet"
+     ],
+     "text": "Việc giết chóc dễ dàng làm bạn không mảy may bận tâm đến một sinh mạng hèn kém."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "friend_b",
+    "castAlive": "friend"
+   },
+   "choices": [
+    {
+     "label": "Cướp tiền, nhận làm đàn em",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn dọa nạt chặt một ngón tay hắn rồi thu nhận đồng tiền. Tên Goblin run rẩy ôm chân thề làm trâu ngựa cho bạn cả đời.",
+      "effects": {
+       "INT": 1,
+       "wealth": 10,
+       "flags": [
+        "friend_b_1_cuu"
+       ],
+       "castBond": {
+        "friend": 10
+       }
+      }
+     },
+     "fail": {
+      "text": "Hắn quá lanh lẹ, cắn vào ngón tay bạn vứt lại đồng xu rồi chuồn thẳng qua kẽ hở vách lều.",
+      "effects": {
+       "health": -5,
+       "wealth": 5,
+       "flags": [
+        "friend_b_1_chay"
+       ],
+       "castLeave": "friend"
+      }
+     }
+    },
+    {
+     "label": "Giết chết vứt xác ra ngoài",
+     "text": "Bạn không thèm nói nhiều, bóp gãy cổ tên trộm vặt, lấy đồng Tinh Bạc mua rượu uống.",
+     "effects": {
+      "joy": 2,
+      "wealth": 10,
+      "flags": [
+       "friend_b_1_giet"
+      ],
+      "castDie": [
+       "friend"
+      ]
+     }
+    }
+   ],
+   "moment": "Đứng trước quyền sinh sát một kẻ trộm cắp đáy xã hội."
+  },
+  {
+   "id": "orc_cast_friend_b_2",
+   "text": "Tên thủ lĩnh mất một lượng lớn Huyết Kim và vu oan cho {friend}. Lưỡi rìu đao phủ kề cổ, tên Goblin nước mắt giàn giụa cầu cứu bạn đứng ra bảo lãnh.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "arc": "friend_b",
+   "recall": [
+    {
+     "flags": [
+      "friend_b_2_ganh"
+     ],
+     "text": "Tấm lưng vững chãi của bạn là khiên chắn cho gã tri kỷ bé nhỏ."
+    },
+    {
+     "flags": [
+      "friend_b_2_dap"
+     ],
+     "text": "Những vết bầm tím trên vai nhắc bạn về cái giá của lòng trượng nghĩa."
+    },
+    {
+     "flags": [
+      "friend_b_2_che"
+     ],
+     "text": "Mưu hèn kế bẩn giúp cả hai vượt qua án tử hình ngầm."
+    },
+    {
+     "flags": [
+      "friend_b_2_nhuc"
+     ],
+     "text": "Chuỗi ngày dọn cứt sói băm vằm lòng kiêu hãnh của bạn."
+    },
+    {
+     "flags": [
+      "friend_b_2_mac"
+     ],
+     "text": "Cái chết oan uổng của tri kỷ chẳng qua chỉ là hạt bụi mờ trong mắt bạn."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "flags": [
+     "friend_b_1_cuu"
+    ],
+    "cast": "friend_b",
+    "castAlive": "friend"
+   },
+   "choices": [
+    {
+     "label": "Dùng nắm đấm gánh tội thay",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn bước ra gầm lên nhận tội, đánh bật đao phủ. Uy thế của bạn khiến thủ lĩnh phải nhượng bộ thu hồi án phạt. {friend} nợ bạn một mạng.",
+      "effects": {
+       "fame": 10,
+       "flags": [
+        "friend_b_2_ganh"
+       ],
+       "castBond": {
+        "friend": 30
+       }
+      }
+     },
+     "fail": {
+      "text": "Lực lượng bảo vệ quá đông, bạn bị đánh dập vỡ vai, lĩnh đòn nhừ tử còn {friend} suýt bị cắt lưỡi.",
+      "effects": {
+       "health": -25,
+       "fame": -10,
+       "flags": [
+        "friend_b_2_dap"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Ngụy tạo bằng chứng rửa oan",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn lén thả mớ Huyết Kim vào túi một tên lính canh đang ngủ, xoay chuyển tình thế cứu mạng tên tri kỷ nhỏ bé.",
+      "effects": {
+       "INT": 2,
+       "flags": [
+        "friend_b_2_che"
+       ],
+       "castBond": {
+        "friend": 15
+       }
+      }
+     },
+     "fail": {
+      "text": "Trò vặt bị lật tẩy. Bạn bị phạt lao động khổ sai chùi dọn chuồng sói, nhục nhã ê chề.",
+      "effects": {
+       "joy": -20,
+       "fame": -15,
+       "flags": [
+        "friend_b_2_nhuc"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Bỏ mặc tri kỷ chết oan",
+     "text": "Bạn làm ngơ huýt sáo quay đi, để mặc tên Goblin bị chặt đầu răn đe.",
+     "effects": {
+      "joy": -10,
+      "fame": 5,
+      "flags": [
+       "friend_b_2_mac"
+      ],
+      "castDie": [
+       "friend"
+      ]
+     }
+    }
+   ],
+   "moment": "Đánh đổi sinh mạng và danh dự để che chở kẻ yếu hèn."
+  },
+  {
+   "id": "orc_cast_friend_b_3",
+   "text": "{friend} phát hiện một hang động chứa cổ vật đầm lầy. Cả hai lẻn vào nhưng đánh thức một con thủy quái. Nó nhắm thẳng vào tên Goblin đang vơ vét tiền vàng.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "arc": "friend_b",
+   "recall": [
+    {
+     "flags": [
+      "friend_b_3_tien"
+     ],
+     "text": "Kho báu hang sương mù đánh dấu lần hợp tác tuyệt hảo của hai tri kỷ."
+    },
+    {
+     "flags": [
+      "friend_b_3_gay"
+     ],
+     "text": "Lồng ngực bạn luôn thắt lại mỗi khi nhớ về con thủy quái khổng lồ."
+    },
+    {
+     "flags": [
+      "friend_b_3_bip"
+     ],
+     "text": "Nhát hất chân tàn ác khiến {friend} hận bạn đến thấu xương."
+    },
+    {
+     "flags": [
+      "friend_b_3_tan"
+     ],
+     "text": "Dấu răng thủy quái là cái giá đắt cho sự lươn lẹo không thành."
+    },
+    {
+     "flags": [
+      "friend_b_3_chay"
+     ],
+     "text": "Đánh rơi kho báu trong tiếc nuối là bài học nhớ đời cho sự nhát gan."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "friend_b_2_ganh",
+     "friend_b_2_dap",
+     "friend_b_2_che",
+     "friend_b_2_nhuc"
+    ],
+    "cast": "friend_b",
+    "castAlive": "friend"
+   },
+   "choices": [
+    {
+     "label": "Rung vũ khí thu hút hỏa lực",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Bạn gào thét đập khiên, con quái lao tới bị bạn giáng một đòn vỡ sọ. {friend} ôm trọn đống vàng chia cho bạn.",
+      "effects": {
+       "wealth": 30,
+       "fame": 15,
+       "flags": [
+        "friend_b_3_tien"
+       ],
+       "castBond": {
+        "friend": 20
+       }
+      }
+     },
+     "fail": {
+      "text": "Đuôi con quái đập bạn gãy văng xương lồng ngực. Bạn ngất lịm, tỉnh lại thấy mình được {friend} kéo lết ra ngoài tay trắng.",
+      "effects": {
+       "health": -35,
+       "flags": [
+        "friend_b_3_gay"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Dùng hắn làm mồi nhử để cướp vàng",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn hất {friend} về phía con quái để nó nhai chân hắn, lợi dụng sơ hở ôm rương tiền bỏ chạy mỉm cười đắc thắng.",
+      "effects": {
+       "wealth": 40,
+       "flags": [
+        "friend_b_3_bip"
+       ],
+       "castBond": {
+        "friend": -40
+       }
+      }
+     },
+     "fail": {
+      "text": "Hắn lách quá nhanh khiến con quái quay sang cắn nát bắp chân bạn. Bạn mất tiền và ôm thương tật trọn đời.",
+      "effects": {
+       "health": -40,
+       "wealth": -10,
+       "flags": [
+        "friend_b_3_tan"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Bỏ tiền giữ mạng tháo chạy",
+     "text": "Cả hai hốt hoảng vứt lại tất cả, xách quần tháo chạy khỏi hang động, thoát chết nhưng tay trắng.",
+     "effects": {
+      "LUCK": 2,
+      "wealth": -5,
+      "flags": [
+       "friend_b_3_chay"
+      ]
+     }
+    }
+   ],
+   "moment": "Đứng giữa cám dỗ tiền bạc và mạng sống của đồng bọn nơi hiểm địa."
+  },
+  {
+   "id": "orc_cast_friend_b_4",
+   "text": "{friend} cuỗm được Lõi Mana của Tướng Địch. Giặc truy nã ráo riết. Hắn bị thương, nhét Lõi Mana vào tay bạn, khóc van xin bạn đánh lạc hướng để hắn trốn đi vùng đất khác.",
+   "arc": "friend_b",
+   "recall": [
+    {
+     "flags": [
+      "friend_b_4_song"
+     ],
+     "text": "Kho báu và danh vọng thuộc về bạn sau trận chiến máu lửa chia tay."
+    },
+    {
+     "flags": [
+      "friend_b_4_chet"
+     ],
+     "text": "Không còn lời nào kể về hai kẻ bỏ xác giữa vòng vây quân thù."
+    },
+    {
+     "flags": [
+      "friend_b_4_ban"
+     ],
+     "text": "Tiền bạc dư dả nhưng đêm về văng vẳng tiếng nguyền rủa của tri kỷ bị bán đứng."
+    },
+    {
+     "flags": [
+      "friend_b_4_phe"
+     ],
+     "text": "Tay đứt ruột xót, lòng tham trả giá bằng vết thương cả đời."
+    },
+    {
+     "flags": [
+      "friend_b_4_thoat"
+     ],
+     "text": "Bạn giữ được tri kỷ nhưng đánh mất cơ hội đổi đời giàu sang."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "friend_b_3_tien",
+     "friend_b_3_bip"
+    ],
+    "cast": "friend_b",
+    "castAlive": "friend"
+   },
+   "choices": [
+    {
+     "label": "Ôm Lõi Mana, tử chiến bảo vệ tri kỷ",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Bằng sức mạnh cuồng bạo được Mana buff lên, bạn xẻ thịt cả đội truy kích. Giữ trọn báu vật, {friend} sống sót an toàn rút lui.",
+      "effects": {
+       "joy": 20,
+       "wealth": 40,
+       "fame": 40,
+       "flags": [
+        "friend_b_4_song"
+       ],
+       "castLeave": "friend"
+      }
+     },
+     "fail": {
+      "text": "Địch quá đông, giáo mác xuyên thủng bạn. Tên Goblin bị bắt lại và cả hai chịu chung cái chết thảm khốc tại chỗ.",
+      "effects": {
+       "flags": [
+        "friend_b_4_chet"
+       ]
+      },
+      "death": "Bỏ mạng vì che chở cho đồng bọn ăn cắp"
+     }
+    },
+    {
+     "label": "Bắt hắn nộp cho giặc để lĩnh thưởng",
+     "check": {
+      "stat": "INT",
+      "target": 10
+     },
+     "success": {
+      "text": "Bạn dâng nộp Lõi Mana lẫn {friend} cho tướng địch, nhận về một rương Huyết Kim khổng lồ, giẫm đạp lên tình nghĩa.",
+      "effects": {
+       "wealth": 60,
+       "fame": -20,
+       "flags": [
+        "friend_b_4_ban"
+       ],
+       "castDie": [
+        "friend"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Tướng địch tráo trở, tịch thu báu vật và chém đứt một tay bạn vì tội đồng lõa. Bạn sống tàn phế. {friend}",
+      "effects": {
+       "health": -45,
+       "wealth": -20,
+       "flags": [
+        "friend_b_4_phe"
+       ],
+       "castDie": [
+        "friend"
+       ]
+      },
+      "death": "Tướng địch tráo trở, tịch thu báu vật và chém đứt một tay bạn vì tội đồng lõa. Bạn sống tàn phế. {friend}"
+     }
+    },
+    {
+     "label": "Ném báu vật trả lại, kéo hắn chạy trốn",
+     "text": "Bạn vứt bỏ món đồ trị giá liên thành để quân địch dừng bước tranh giành, kéo tri kỷ lặn mất tăm bảo toàn mạng sống.",
+     "effects": {
+      "joy": 10,
+      "wealth": -30,
+      "flags": [
+       "friend_b_4_thoat"
+      ]
+     }
+    }
+   ],
+   "moment": "Đưa ra lựa chọn cuối cùng định đoạt số phận kẻ song hành.",
+   "stages": [
+    "child",
+    "teen"
+   ]
   }
  ],
  "deaths": [],
@@ -6130,5 +7068,42 @@
    "start": 36,
    "name": "Tù Trưởng Già Cỗi"
   }
- ]
+ ],
+ "story": {
+  "arcs": {},
+  "cast": {
+   "friend_a": {
+    "id": "friend_a",
+    "role": "friend",
+    "title": "GÃ BÉO SAY XỈN",
+    "desc": "Nam, Orc. Thân hình ục ịch nhiều ngấn mỡ, bị cụt nửa vành tai phải, luôn kè kè một vò rượu nứt sứt mẻ và hay khoác vai gọi bạn là \"anh em cốt nhục\".",
+    "recall": [
+     "Hồn cốt tình anh em được tôi luyện qua những ngụm rượu ăn cắp đầu đời.",
+     "Nhờ nắm đấm của bạn, tên béo {friend} mới dám bước chân lên tiền tuyến.",
+     "Vết sẹo đỡ đao thay bạn của {friend} luôn nhắc nhở về một tình tri kỷ đẫm máu."
+    ]
+   },
+   "friend_b": {
+    "id": "friend_b",
+    "role": "friend",
+    "title": "NÔ LỆ LANH LẸ",
+    "desc": "Nam, Goblin. Thấp bé nhẵn nhụi, đeo đầy phi tiêu quanh hông, miệng mồm liến thoắng và luôn chui lủi kiếm chác chiến lợi phẩm vương vãi trên đất.",
+    "recall": [
+     "{friend} luôn gọi bạn là ân nhân vì mạng sống được tha thứ.",
+     "Kỹ năng lươn lẹo của tên Goblin giúp bạn thát hiểm trong gang tấc.",
+     "Hắn luôn biết cách đánh hơi thấy Huyết Kim từ những cái xác cháy đen."
+    ]
+   }
+  },
+  "chapters": {},
+  "bio": {
+   "open": {},
+   "end": []
+  },
+  "memories": [],
+  "bands": {},
+  "minions": {},
+  "recruits": {},
+  "bioMap": null
+ }
 }

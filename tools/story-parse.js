@@ -58,7 +58,7 @@ function scanStory(text, stages) {
     }
     if (mode === "cast" && kind) {
       if ((m = raw.match(/^Mô tả:\s*(.+)$/i))) { kind.desc = m[1].replace(/\s*\d+\s*câu\s*["“]?Nhắc lại.*$/i, "").trim(); continue; }
-      if (!/:$/.test(raw) && raw.length > 15 && !/^\d+\.\s/.test(raw)) kind.recall.push(raw);
+      if (!/:$/.test(raw) && raw.length > 15 && !/^\d+\.\s/.test(raw)) kind.recall.push(raw.replace(/^Nhắc lại:\s*/i, "").replace(/^\([a-z][a-z0-9_]*\)\s*/, ""));
       continue;
     }
     if (mode === "band" && band) {
@@ -78,17 +78,19 @@ function scanStory(text, stages) {
         continue;
       }
       if ((m = raw.match(/^([A-ZĐ][^:(]{1,20}?):\s*([^(]+)\(([^)]+)\)\.\s*(.*)$/))) {
+        if (/^Bạn$/i.test(m[1].trim())) continue;
         let desc = m[4];
         const cond = desc.match(/\d\.\s*Điều kiện gia nhập:\s*(.+?)(?:\d\.\s*Nhắc lại.*)?$/i);
         if (cond) { band.condition = cond[1].trim(); desc = desc.slice(0, desc.indexOf(cond[0])).trim(); }
         band.members.push({ name: m[1], race: m[2].trim(), position: m[3].trim(), desc: desc.replace(/\s*\d\.\s*$/, "").trim() });
         continue;
       }
-      if (!/:$/.test(raw) && raw.length > 15 && !/^\d+\.\s/.test(raw)) band.recall.push(raw);
+      if ((m = raw.match(/^Điều kiện gia nhập:\s*(.+)$/i))) { band.condition = m[1]; continue; }
+      if (!/:$/.test(raw) && raw.length > 15 && !/^\d+\.\s/.test(raw)) band.recall.push(raw.replace(/^Nhắc lại:\s*/i, ""));
       continue;
     }
     if (mode === "minion") {
-      if ((m = raw.match(/^\d+\.\s*(.+?)\s*\(([^)]+)\)\s*$/)) && !/[{}]/.test(raw) && m[1] !== m[1].toUpperCase()) {
+      if ((m = raw.match(/^(?:\d+\.\s*)?([^:()]+?)\s*\(([^)]+)\)\s*$/)) && !/[{}]/.test(raw) && m[1] !== m[1].toUpperCase()) {
         const id = "minion_" + String.fromCharCode(97 + Object.keys(out.minions).length);
         minion = out.minions[id] = { id, name: m[1].trim(), en: m[2].trim(), how: "", strength: "", needs: "" };
         continue;

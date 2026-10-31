@@ -424,7 +424,7 @@ function parse(text) {
           continue;
         }
         if (key === "nhắc lại") {
-          block.recall = [...val.matchAll(/\(([^)]+)\)\s*([^·]+)/g)].map((x) => ({ flags: x[1].split(/\s*\/\s*|\s+hoặc\s+/).map((f) => f.trim()), text: x[2].trim() }));
+          block.recall = (block.recall || []).concat([...val.matchAll(/\(([^)]+)\)\s*([^·]+)/g)].map((x) => ({ flags: x[1].split(/\s*\/\s*|\s+hoặc\s+/).map((f) => f.trim()), text: x[2].trim() })));
           continue;
         }
       }

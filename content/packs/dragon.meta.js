@@ -2,6 +2,8 @@
 module.exports = {
   race: "dragon",
   script: "content/scripts/dragon.txt",
+  story: "content/scripts/dragon_story.txt",
+  exclusive: true,
 
   // The script's timeline: Ấu long 100+, Phi long 500+, Cự long 2.000+, Cổ long 5.000+, Thủy tổ long 9.000+.
   useScriptStages: true,
@@ -70,6 +72,7 @@ module.exports = {
   ],
 
   systems: {
+    noRecruit: true,
     activeFrom: "child",
     jobFrom: "teen",
     bandName: "đám thuộc hạ",

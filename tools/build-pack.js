@@ -514,6 +514,8 @@ function build(raceId, opts) {
     if (o.effects) ev.effects = Object.assign(ev.effects || {}, o.effects);
     if (e.moment) ev.moment = ren(e.moment);
     if (JSON.stringify(ev.choices || ev.effects || {}).includes('"marry":true') && !(ev.require && ev.require.spouse === false)) ev.require = Object.assign(ev.require || {}, { spouse: false }); // a wedding needs someone still single
+    // ...and someone grown up: a mating scene with no age written waits for adulthood
+    if (JSON.stringify(ev.choices || ev.effects || {}).includes('"marry":true') && !(ev.stages && ev.stages.length)) ev.stages = ["teen", "adult", "middle", "elder", "ancient"];
     if (!ev.text) { report.push(`  ! bỏ qua ${e.id}: không có nội dung`); continue; }
     // a story node that missed its stage can still come later: the chain matters more than the age
     if (ev._found) { for (const ch of ev.choices || []) for (const t of [ch.success, ch.fail, ch]) if (t && t.effects && t.effects.bandLead) { delete t.effects.bandLead; t.effects.foundBand = true; } delete ev._found; }
@@ -618,7 +620,10 @@ function build(raceId, opts) {
   const pack = { race: raceId, stageNames: meta.stageNames, forms, origins, jobs, orgs: [org], quests, events, deaths, focus, systems };
   if (meta.useScriptStages || meta.stages) pack.stages = stages;
   if (story) {
-    const originOf = (arcId) => (meta.storyOrigins && meta.storyOrigins[arcId]) || (origins.find((o) => o.id.endsWith("_" + arcId)) || { id: `${raceId}_origin_${arcId}` }).id;
+    // arc codes the v3 prompts gave (prompts/v3/arc-codes.json) when the origin id is only a number
+    let codes = {};
+    try { codes = JSON.parse(fs.readFileSync(path.join(ROOT, "prompts", "v3", "arc-codes.json"), "utf8"))[raceId] || {}; } catch (e) {}
+    const originOf = (arcId) => (meta.storyOrigins && meta.storyOrigins[arcId]) || codes[arcId] || (origins.find((o) => o.id === arcId || o.id.endsWith("_" + arcId)) || { id: `${raceId}_origin_${arcId}` }).id;
     const rmap = (o) => JSON.parse(ren(JSON.stringify(o)));
     pack.story = rmap({
       arcs: Object.fromEntries(Object.values(story.arcs).map((a) => [originOf(a.id), a])),

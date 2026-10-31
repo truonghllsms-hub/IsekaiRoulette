@@ -2,6 +2,8 @@
 module.exports = {
   race: "minotaur",
   script: "content/scripts/minotaur.txt",
+  story: "content/scripts/minotaur_story.txt",
+  exclusive: true,
   useScriptStages: true,
 
   rename: [
@@ -76,6 +78,7 @@ module.exports = {
   ],
 
   systems: {
+    noRecruit: true,
     bandName: "bầy",
     romance: false,
     autoChildren: false,

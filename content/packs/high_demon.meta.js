@@ -2,6 +2,8 @@
 module.exports = {
   race: "high_demon",
   script: "content/scripts/high_demon.txt",
+  story: "content/scripts/high_demon_story.txt",
+  exclusive: true,
 
   // The script's timeline: Ma tướng trẻ tuổi 500+, Kẻ chinh phạt 2.000+, Bạo chúa 5.000+, Ma Vương 7.000+, Thực thể tà ác 9.000+.
   useScriptStages: true,
@@ -74,6 +76,7 @@ module.exports = {
   ],
 
   systems: {
+    noRecruit: true,
     activeFrom: "child",
     jobFrom: "child",
     bandName: "đám thuộc hạ",
