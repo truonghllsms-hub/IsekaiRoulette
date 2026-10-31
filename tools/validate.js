@@ -2,12 +2,13 @@
 // Run: node tools/validate.js   (exit code 1 when anything is wrong)
 const STATS = ["STR", "INT", "AGI", "LUCK"];
 const BARS = ["health", "joy", "wealth"];
-const EFFECT_KEYS = new Set([...STATS, ...BARS, "flags", "unflags", "fame", "jobXp", "guildPts", "bond", "partyBond", "allyHurt", "allyDie", "allyLeave", "loseJob", "setJob", "joinGuild", "focus", "recruit", "marry", "child", "loseChild", "demote", "orgRank", "orgRankName", "evolve", "era", "jobRankSet", "jobPromote", "orgRankUp", "loseSpouse", "parentDie"]);
+const EFFECT_KEYS = new Set([...STATS, ...BARS, "flags", "unflags", "fame", "jobXp", "guildPts", "bond", "partyBond", "allyHurt", "allyDie", "allyLeave", "loseJob", "setJob", "joinGuild", "focus", "recruit", "marry", "child", "loseChild", "demote", "orgRank", "orgRankName", "evolve", "era", "jobRankSet", "jobPromote", "orgRankUp", "loseSpouse", "parentDie", "castDie", "castJoin", "castLeave", "castBond", "joinBand", "leaveBand", "bandGone", "bandLead", "minionAdd", "minionLose", "minionRevolt", "minionLoyal", "memberBond", "memberDie", "memberLeave"]);
 const BOOL_EFFECTS = new Set(["allyHurt", "allyDie", "allyLeave", "loseJob", "joinGuild", "recruit", "marry", "child", "loseChild", "demote", "jobPromote", "loseSpouse"]);
 const STR_EFFECTS = new Set(["setJob", "focus", "orgRankName", "evolve", "era", "parentDie"]);
-const REQ_KEYS = new Set([...STATS, ...BARS, "fame", "below", "flags", "anyFlags", "notFlags", "flagHint", "gender", "job", "jobRank", "jobRankMax", "guild", "guildRank", "guildRankMax", "party", "noParty", "allyTrait", "spouse", "children", "noChildren", "focus", "hint", "any", "fatherAlive", "motherAlive", "makerAlive", "form", "subtype"]);
-const EVENT_KEYS = new Set(["_file", "id", "races", "excludeRaces", "tags", "stages", "eras", "minAge", "maxAge", "once", "weight", "require", "text", "effects", "choices", "moment", "death", "focus", "result", "pack"]);
-const PLACEHOLDERS = new Set(["name", "race", "age", "origin", "stage", "pct", "cause", "ally", "allyJob", "partner", "child", "job", "rank", "guild", "spouse", "quest", "next", "father", "mother", "maker", "who"]);
+const REQ_KEYS = new Set([...STATS, ...BARS, "fame", "below", "flags", "anyFlags", "notFlags", "flagHint", "gender", "job", "jobRank", "jobRankMax", "guild", "guildRank", "guildRankMax", "party", "noParty", "allyTrait", "spouse", "children", "noChildren", "focus", "hint", "any", "fatherAlive", "motherAlive", "makerAlive", "form", "subtype", "cast", "castAlive", "noBand", "band", "bandMember", "minionOk", "minions"]);
+const STORY_EFFECTS = new Set(["castDie", "castJoin", "castLeave", "castBond", "joinBand", "leaveBand", "bandGone", "bandLead", "minionAdd", "minionLose", "minionRevolt", "minionLoyal", "memberBond", "memberDie", "memberLeave"]);
+const EVENT_KEYS = new Set(["_file", "id", "races", "excludeRaces", "tags", "stages", "eras", "minAge", "maxAge", "once", "weight", "require", "text", "effects", "choices", "moment", "death", "focus", "result", "pack", "arc", "recall"]);
+const PLACEHOLDERS = new Set(["name", "race", "age", "origin", "stage", "pct", "cause", "ally", "allyJob", "partner", "child", "job", "rank", "guild", "spouse", "quest", "next", "father", "mother", "maker", "who", "rival", "mentor", "friend", "party", "leader", "member", "minion"]);
 
 function validate(data) {
   const errors = [];
@@ -63,6 +64,7 @@ function validate(data) {
       else if (k === "flags" || k === "unflags") { if (!Array.isArray(eff[k])) err(where, `${k} phải là mảng`); }
       else if (BOOL_EFFECTS.has(k)) { if (eff[k] !== true) err(where, `${k} phải là true`); }
       else if (STR_EFFECTS.has(k)) { if (typeof eff[k] !== "string") err(where, `${k} phải là chuỗi`); }
+      else if (STORY_EFFECTS.has(k)) { /* free-form story values: true, ids, lists, objects */ }
       else if (["orgRank", "jobRankSet", "orgRankUp"].includes(k)) { if (typeof eff[k] !== "number") err(where, `${k} phải là số`); }
       else if (typeof eff[k] !== "number" || Math.abs(eff[k]) > 100) err(where, `${k} phải là số trong khoảng -100..100`);
     }

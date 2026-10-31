@@ -3,6 +3,12 @@
 module.exports = {
   race: "goblin",
   script: "content/scripts/goblin.txt",
+  // story layer (prompts/v3): arcs per origin, recurring cast, bands, minions, chapters, biography
+  story: "content/scripts/goblin_story.txt",
+  // only this race's own events: no old pre-script events, no shared filler
+  exclusive: true,
+  // the story script asks "Sức mạnh > 15" on a race that usually has 2–10
+  storyStatScale: 0.6,
 
   // Manga-style naming (docs/NAMING.md), applied to every text of the script.
   rename: [
@@ -98,6 +104,8 @@ module.exports = {
 
   systems: {
     bandName: "băng nhóm",
+    // companions come from bands (and later minions), not from strangers met on the road
+    noRecruit: true,
     romance: false,
     autoChildren: false,
     companions: [

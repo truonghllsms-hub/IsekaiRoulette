@@ -1,0 +1,3313 @@
+Dưới đây là thiết kế chi tiết cho Lớp cốt truyện xuyên suốt (Tuyển tập nhân vật) của phần mở đầu, tuân thủ tuyệt đối quy tắc nhân quả, văn phong tàn nhẫn, hài đen của Goblin.
+
+1. ĐỐI THỦ TRUYỀN KIẾP ({rival})
+KIỂU 1: THẰNG TO XÁC (Mã mạch: rival_a)
+Mô tả: Thằng nhóc Goblin béo ị, ham ăn, có cái răng nanh dưới mọc lệch đâm thủng môi trên, luôn dùng sức mạnh để chèn ép kẻ yếu.3 câu "Nhắc lại" dùng chung:
+
+{rival} gãi cái bụng phệ, khoe chiếc răng nanh mọc lệch thủng môi đầy đe dọa.
+
+
+Mùi hôi thối đặc trưng từ những tảng thịt ôi thiu mà {rival} hay giấu dội thẳng vào mũi bạn.
+
+
+{rival} khạc nhổ xuống đất, cái nhìn của hắn vẫn hằn học hệt như lúc hai đứa còn ở bãi rác.
+
+
+[goblin_cast_rival_a_1] Luật Của Bãi Rác
+Mạch: rival_a · Nút: 1/5
+
+
+Khi nào: tuổi 2–4 · Bới rác
+
+
+Tình huống: Bầy Goblin con xúm quanh một xác chuột cống khổng lồ. Bạn vừa xé được cái chân ngon nhất thì {rival} lao đến húc văng bạn, giơ nắm đấm tảng thịt lên đe dọa.
+
+
+A. Cắn trả đến cùng — dựa vào [Sức mạnh], [VỪA]
+
+
+
+Thành công: Bạn cắn ngập răng vào tai hắn, xé rách một mảng khiến hắn gào thét bỏ chạy. → (Sức mạnh +2, Sức khỏe −5, Danh vọng +5), dấu ấn "rival_a_1_won"
+
+
+Thất bại: Hắn đè bạn ra đánh bầm dập và cướp miếng mồi, cười khùng khục. → (Sức khỏe −15, Tài sản −5), dấu ấn "rival_a_1_lost"
+
+
+B. Giao nộp chân chuột và nịnh nọt — Bạn dâng miếng thịt, cúi đầu gọi hắn là đại ca. Hắn vứt lại cho bạn cái đuôi chuột. → (May mắn +1, Hạnh phúc −10, Danh vọng −5), dấu ấn "rival_a_1_submissive"
+
+
+[goblin_cast_rival_a_2] Kẻ Gác Cổng Khó Ưa
+Mạch: rival_a · Nút: 2/5
+
+
+Khi nào: tuổi 4–6 · Phục dịch bộ lạc · CẦN dấu ấn "rival_a_1_won" hoặc "rival_a_1_lost" hoặc "rival_a_1_submissive"
+
+
+Tình huống: {rival} vừa được thăng làm Goblin Grunt nhờ to xác, hắn đứng gác kho lương và chặn bạn lại, bắt bạn chui qua háng hắn mới cho vào nhận phần ăn thừa.
+
+
+A. Luồn lách trộm lương thực — dựa vào [Nhanh nhẹn], [KHÓ]
+
+
+
+Thành công: Bạn trườn qua lớp lều rách, nẫng một tảng thịt mỡ ngay sau lưng hắn mà hắn không biết. → (Nhanh nhẹn +2, Tài sản +15), dấu ấn "rival_a_2_stealed"
+
+
+Thất bại: Hắn tóm được chân bạn, ném bạn vào vũng bùn và tước luôn khẩu phần hôm nay. → (Sức khỏe −20, Hạnh phúc −10), dấu ấn "rival_a_2_starved"
+
+
+B. (Nếu có rival_a_1_submissive) Sủa như chó để qua — Bạn chấp nhận sỉ nhục làm trò vui cho hắn. Hắn cười ném cho bạn mẩu bánh mì mốc. → (Sức khỏe +10, Hạnh phúc −15, Danh vọng −10), dấu ấn "rival_a_2_dog"
+
+
+Nhắc lại: (rival_a_1_won) Hắn gầm gừ che lại bên tai từng bị bạn cắn rách. · (rival_a_1_lost) Cơn đau từ trận đòn ở bãi rác năm xưa vẫn nhói lên ở xương sườn bạn.
+
+
+[goblin_cast_rival_a_3] Tiếng Gầm Của Orc
+Mạch: rival_a · Nút: 3/5
+
+
+Khi nào: tuổi 6–11 · Đi cướp · CẦN dấu ấn "rival_a_2_stealed" hoặc "rival_a_2_starved" hoặc "rival_a_2_dog"
+
+
+Tình huống: Bầy bộ lạc bị một toán Orc phục kích. {rival} cậy khỏe lao lên nhưng bị một con Orc dùng rìu đập gãy chân, đang kêu la thảm thiết. Đám Orc đang đến gần hắn.
+
+
+A. Ném đá đánh lạc hướng cứu hắn — dựa vào [Trí tuệ], [VỪA]
+
+
+
+Thành công: Hòn đá trúng mắt con Orc, đủ thời gian cho {rival} lết về. Hắn nhìn bạn ngỡ ngàng. → (Danh vọng +15, May mắn +2), dấu ấn "rival_a_3_saved"
+
+
+Thất bại: Con Orc gầm lên ném chiếc rìu trượt qua đầu bạn, bạn đành bỏ chạy, để {rival} tự sinh tự diệt. → (Sức khỏe −10, Hạnh phúc −5), dấu ấn "rival_a_3_fled"
+
+
+B. Lục túi hắn rồi bỏ mặc — Bạn lẻn đến cướp chiếc nhẫn vàng hắn giấu trong khố rồi bỏ chạy. → (Tài sản +20, Danh vọng −10), {rival} CHẾT, dấu ấn "rival_a_3_betrayed"
+
+
+Nhắc lại: (rival_a_2_stealed) Hắn vẫn còn tức vụ bạn ăn trộm ngay dưới mũi hắn năm trước. · (rival_a_2_dog) Hắn hét gọi "con chó ngoan" của hắn tới cứu.
+
+
+[goblin_cast_rival_a_4] Sự Trở Lại Của Kẻ Tàn Phế
+Mạch: rival_a · Nút: 4/5
+
+
+Khi nào: tuổi 11–16 · Tranh quyền · CẦN dấu ấn "rival_a_3_saved" hoặc "rival_a_3_fled"
+
+
+Tình huống: Nhờ vóc dáng, {rival} sống sót qua binh lửa và giờ thành một Goblin Elite thọt chân tàn bạo. Hắn lôi kéo bè phái định lật đổ Goblin Chief hiện tại và ép bạn chọn phe.
+
+
+A. Bán đứng hắn cho Goblin Chief — dựa vào [Trí tuệ], [KHÓ]
+
+
+
+Thành công: Chief tin bạn. Đêm đó, lều của {rival} bị đốt cháy. Hắn bị hành quyết dã man. → (Danh vọng +20, Tài sản +30), {rival} CHẾT, thăng bậc Goblin Leader, dấu ấn "rival_a_4_snitch"
+
+
+Thất bại: Chief không tin lời một kẻ thấp kém như bạn. Lộ chuyện, {rival} sai tay chân chặt mất một ngón tay của bạn. → (Sức khỏe −30, Sức mạnh −2), dấu ấn "rival_a_4_punished"
+
+
+B. (Nếu có rival_a_3_saved) Yêu cầu chia quyền lợi — Bịnn nhắc lại mạng sống năm xưa. Hắn gật đầu, hứa cho bạn làm phó tướng. Cuộc đảo chính đẫm máu bắt đầu. → (Sức khỏe −20, Danh vọng +10), thăng bậc Goblin Leader, dấu ấn "rival_a_4_coup"
+
+
+[goblin_cast_rival_a_5] Vua Của Đầm Lầy
+Mạch: rival_a · Nút: 5/5
+
+
+Khi nào: tuổi 16+ · Tranh quyền · CẦN dấu ấn "rival_a_4_coup" hoặc "rival_a_4_punished"
+
+
+Tình huống: Bộ lạc kiệt quệ. {rival} tự xưng là Goblin Lord nhưng bị bệnh hoại tử hành hạ. Hắn ngồi trên ngai vàng bằng sương, thở phì phò, vẫy bạn lại gần.
+
+
+A. Xiết cổ hắn và đoạt ngai — dựa vào [Sức mạnh], [RẤT KHÓ]
+
+
+
+Thành công: Bạn siết sợi dây thừng vào cổ hắn. Hắn dãy dụa yếu ớt rồi lịm đi. Bạn là kẻ thống trị mới! → (Sức mạnh +3, Danh vọng +50, Tài sản +50), {rival} CHẾT, thăng bậc Goblin Chief, dấu ấn "rival_a_5_king"
+
+
+Thất bại: Hắn phản kháng, vung chùy đập nát lồng ngực bạn. Một đời Goblin kết thúc. → CHẾT (Bị {rival} đập nát ngực), dấu ấn "rival_a_5_dead"
+
+
+B. Trở thành Shaman riêng chăm sóc hắn — Bạn dùng rễ cây độc kéo dài mạng sống thoi thóp của hắn, thực chất là điều khiển sau rèm. → (Trí tuệ +3, Tài sản +30), thăng bậc Goblin Shaman, dấu ấn "rival_a_5_shadow"
+
+
+Khoảnh khắc: Mối hận thù từ một xác chuột cống đã kết thúc bằng máu dưới chân ngai vàng sọ người.
+
+
+KIỂU 2: KẺ ĐƯỢC ƯU ÁI (Mã mạch: rival_b)
+Mô tả: Con hoang của Goblin Chief, luôn quàng chiếc khăn lụa đỏ rách nát ăn cắp từ Human, ánh mắt xảo quyệt và luôn dùng mưu bẩn.3 câu "Nhắc lại" dùng chung:
+
+Chiếc khăn lụa đỏ bẩn thỉu của {rival} phấp phới trong gió như một lời chế nhạo.
+
+
+{rival} mỉm cười xảo quyệt, tay nghịch con dao găm bằng bạc của Human.
+
+
+Cái mác "dòng máu của Chief" luôn là thứ khiên chắn giúp {rival} thoát mọi tội lỗi.
+
+
+[goblin_cast_rival_b_1] Chiếc Bình Vỡ
+Mạch: rival_b · Nút: 1/5
+
+
+Khi nào: tuổi 2–4 · Trốn ngủ
+
+
+Tình huống: Bạn và {rival} lén vào lều của Chief. {rival} lóng ngóng làm vỡ bình rượu nho quý giá. Vừa lúc lính canh chạy tới, nó chỉ thẳng mặt bạn khóc lóc: "Nó làm vỡ đấy!".
+
+
+A. Trốn ra bằng vách lều — dựa vào [Nhanh nhẹn], [VỪA]
+
+
+
+Thành công: Bạn luồn qua kẽ rách, lẩn vào màn đêm, để mặc {rival} khóc rống lên giải thích với lính canh. → (Nhanh nhẹn +2, Hạnh phúc +5), dấu ấn "rival_b_1_escaped"
+
+
+Thất bại: Lính canh tóm được đuôi bạn. Bạn bị đánh một trận nhừ tử và bị bắt dọn phân ba tháng. → (Sức khỏe −15, Danh vọng −5), dấu ấn "rival_b_1_blamed"
+
+
+B. Nhận tội thay nó để đòi ơn — Bạn cắn răng chịu trận đòn roi, thầm thì với {rival} rằng nó nợ bạn một mạng. → (Sức khỏe −25, Trí tuệ +1), dấu ấn "rival_b_1_debt"
+
+
+[goblin_cast_rival_b_2] Dao Găm Giấu Sau Lưng
+Mạch: rival_b · Nút: 2/5
+
+
+Khi nào: tuổi 4–6 · Học lỏm · CẦN dấu ấn "rival_b_1_escaped" hoặc "rival_b_1_blamed" hoặc "rival_b_1_debt"
+
+
+Tình huống: Bầy Goblin vớt được xác một hiệp sĩ Human. Bạn tìm thấy một túi tiền vàng, nhưng {rival} xuất hiện với một đám tay sai, đòi tịch thu "cho cha tao".
+
+
+A. Nhét tiền vào miệng nuốt chửng — dựa vào [Sức khỏe], [KHÓ]
+
+
+
+Thành công: Bạn nuốt trôi cả túi tiền bất chấp đau đớn. Đám tay sai chán nản bỏ đi. Bạn rặn ra dần vào mấy ngày sau. → (Tài sản +25, Sức khỏe −10), dấu ấn "rival_b_2_swallowed"
+
+
+Thất bại: Đồng tiền nghẹn ở cổ, bạn nôn ra máu. {rival} giẫm lên đầu bạn và nhặt lấy số tiền. → (Sức khỏe −20, Tài sản −10), dấu ấn "rival_b_2_robbed"
+
+
+B. (Nếu có rival_b_1_debt) Đòi món nợ bình rượu — {rival} bĩu môi, giữ thể diện sai đàn em lùi lại, chia cho bạn một nửa số tiền vàng. → (Tài sản +10, Trí tuệ +1), dấu ấn "rival_b_2_paid"
+
+
+Nhắc lại: (rival_b_1_blamed) Hắn cười nhạt nhắc lại trận đòn oan uổng dạo nọ. · (rival_b_1_escaped) Hắn hậm hực vì lần vỡ bình trước bạn trốn thoát được.
+
+
+[goblin_cast_rival_b_3] Kẻ Phản Bội
+Mạch: rival_b · Nút: 3/5
+
+
+Khi nào: tuổi 6–11 · Tranh quyền · CẦN dấu ấn "rival_b_2_swallowed" hoặc "rival_b_2_robbed" hoặc "rival_b_2_paid"
+
+
+Tình huống: Goblin Chief qua đời. {rival} mặc định lên ngôi Goblin Chief. Hắn ngay lập tức đày bạn ra tuyến đầu làm bia đỡ đạn cho lũ Dwarf hầm mỏ để nhổ cái gai trong mắt.
+
+
+A. Đào ngũ trốn sang bộ lạc khác — dựa vào [May mắn], [VỪA]
+
+
+
+Thành công: Bạn cắt đuôi được lũ Dwarf và lạc vào một trại Goblin khác, bắt đầu lại từ đáy xã hội nhưng sống sót. → (Sức khỏe +10, Danh vọng −20), giáng chức về Goblin Peon, dấu ấn "rival_b_3_exile"
+
+
+Thất bại: Đang chạy thì giẫm phải bẫy gấu của Dwarf. Bạn mất một chân, lết về bộ lạc làm kẻ tàn phế. → (Sức khỏe −40, Nhanh nhẹn −3), dấu ấn "rival_b_3_crippled"
+
+
+B. Tổ chức ám sát tân Chief — Bạn rủ 2 đồng bọn lén thả rắn độc vào lều của {rival}. Nhưng hắn đã biết trước và tóm gọn bạn. → CHẾT (Bị bêu đầu trước cọc gỗ), dấu ấn "rival_b_3_dead"
+
+
+[goblin_cast_rival_b_4] Bóng Tối Hắc Nguyệt
+Mạch: rival_b · Nút: 4/5
+
+
+Khi nào: tuổi 11–16 · Đi cướp · CẦN dấu ấn "rival_b_3_exile" hoặc "rival_b_3_crippled"
+
+
+Tình huống: Hắc Nguyệt Hội thuê bộ lạc bắt nô lệ Human. {rival} định bán đứng cả tộc mình cho bọn Human lấy vàng. Bạn tình cờ nghe được giao kèo mờ ám của hắn trong rừng.
+
+
+A. Tống tiền {rival} — dựa vào [Trí tuệ], [KHÓ]
+
+
+
+Thành công: Bạn giấu bằng chứng, ép hắn chia 30% lợi nhuận. Hắn nghiến răng ném cho bạn một túi đá quý. → (Tài sản +40, Danh vọng +10), dấu ấn "rival_b_4_blackmail"
+
+
+Thất bại: Hắn cười lạnh, rút dao găm lụi một nhát chí mạng vào bụng bạn. Ngươi biết quá nhiều. → CHẾT (Chết thảm trong rừng sâu), dấu ấn "rival_b_4_silenced"
+
+
+B. Báo mộng cho Shaman bộ lạc — Bạn phao tin đồn bằng các điềm báo giả. Bộ lạc náo loạn, {rival} phải tạm dừng kế hoạch nhưng bắt đầu nghi ngờ bạn. → (Trí tuệ +2, Danh vọng +5), dấu ấn "rival_b_4_rumor"
+
+
+[goblin_cast_rival_b_5] Phán Quyết Cuối Cùng
+Mạch: rival_b · Nút: 5/5
+
+
+Khi nào: tuổi 16+ · Tranh quyền · CẦN dấu ấn "rival_b_4_blackmail" hoặc "rival_b_4_rumor"
+
+
+Tình huống: Thánh Kỵ Sĩ Đoàn bao vây. {rival} quỳ rạp cầu xin chúng tha mạng bằng cách hiến tế toàn bộ ấu tể Goblin. Bộ lạc phẫn nộ, chúng dồn mắt về phía Goblin lão làng là bạn để chờ một mệnh lệnh.
+
+
+A. Kích động bạo loạn chém {rival} — dựa vào [Danh vọng], [VỪA]
+
+
+
+Thành công: Đám đông lao lên xé xác {rival}. Bạn nhặt chiếc khăn lụa đỏ nhuốm máu, lãnh đạo bộ lạc mở đường máu rút lui. → (Danh vọng +30, Sức khỏe −10), {rival} CHẾT, thăng bậc Goblin Chief, dấu ấn "rival_b_5_leader"
+
+
+Thất bại: Lời nói của bạn không ai nghe. Kỵ sĩ ập vào tàn sát tất cả. Bạn chết dưới móng ngựa, {rival} cũng chung số phận. → CHẾT (Bị Thánh Kỵ Sĩ giẫm nát), dấu ấn "rival_b_5_massacre"
+
+
+B. (Nếu có rival_b_4_blackmail) Mua chuộc Kỵ sĩ bằng vàng — Bạn lôi số đá quý từng tống tiền {rival} ra hối lộ tên chỉ huy. Cả bộ lạc được tha, nhưng {rival} gào thét vì mất hết tài sản. Bạn trở thành anh hùng. → (Tài sản −40, Danh vọng +50), thăng bậc Goblin Lord, dấu ấn "rival_b_5_hero"
+
+
+Khoảnh khắc: Chiếc khăn lụa đỏ đã thấm đẫm máu Goblin, kết thúc vinh quang giả tạo của một tên khốn xảo quyệt.
+
+
+2. KẺ DẪN DẮT ({mentor})
+KIỂU 1: LÃO BINH CỤT CHÂN (Mã mạch: mentor_a)
+Mô tả: Lão già cụt một chân, chống bằng khúc xương đùi Orc mài nhẵn, tai thủng lỗ chỗ, luôn lẩm bẩm về "bầu trời đỏ" rực lửa năm xưa.3 câu "Nhắc lại" dùng chung:
+
+Tiếng cộc cộc từ chiếc gậy xương đùi Orc của {mentor} gõ nhịp trên nền đất ẩm.
+
+
+{mentor} nhe hàm răng rụng quá nửa, nhắc lại bài học sinh tồn "luôn nhắm vào háng địch".
+
+
+Vết thẹo bỏng rát trên mặt {mentor} dường như co rút lại mỗi khi nhắc về Thánh Kỵ Sĩ.
+
+
+[goblin_cast_mentor_a_1] Bài Học Đầu Tiên
+Mạch: mentor_a · Nút: 1/5
+
+
+Khi nào: tuổi 2–4 · Bới rác
+
+
+Tình huống: Bạn lang thang bới rác gần bìa rừng Tân Thủ và bị hai con chó hoang dồn vào góc cây. Lão {mentor} từ bụi rậm nhảy ra, đập nát đầu một con bằng gậy xương đùi, con kia cắp đuôi chạy. Lão ném xác chó về phía bạn.
+
+
+A. Ăn sống thịt chó hoang — dựa vào [Sức khỏe], [VỪA]
+
+
+
+Thành công: Dạ dày bạn tiêu hóa được thứ thịt sống bốc mùi. Lão gật gù khen ngợi nanh vuốt của bạn. → (Sức khỏe +5, Sức mạnh +1, Thân thiết với {mentor} +10), dấu ấn "mentor_a_1_ate"
+
+
+Thất bại: Bạn nôn thốc nôn tháo, ốm liệt giường ba ngày. Lão chửi bạn là thứ yếu ớt. → (Sức khỏe −10, Thân thiết với {mentor} −5), dấu ấn "mentor_a_1_sick"
+
+
+B. Đem nướng rồi mới ăn — Bạn cặm cụi nhóm lửa. Lão đập gậy mắng: "Lửa gọi Mạo hiểm giả tới, đồ ngu!". Lão đạp tắt lửa, cướp luôn xác chó. → (Trí tuệ +1, Tài sản −5, Thân thiết với {mentor} −10), dấu ấn "mentor_a_1_scolded"
+
+
+[goblin_cast_mentor_a_2] Nghệ Thuật Giả Chết
+Mạch: mentor_a · Nút: 2/5
+
+
+Khi nào: tuổi 4–6 · Học lỏm · CẦN dấu ấn "mentor_a_1_ate" hoặc "mentor_a_1_sick" hoặc "mentor_a_1_scolded"
+
+
+Tình huống: Mạo hiểm giả Guild Bình Minh càn quét. Bọn Goblin chết như ngả rạ. {mentor} kéo bạn nằm bẹp xuống đầm lầy vấy máu, thì thầm: "Bôi ruột đồng loại lên người, nín thở!".
+
+
+A. Vạch bụng xác chết bôi máu lên mặt — dựa vào [May mắn], [KHÓ]
+
+
+
+Thành công: Đám lính lướt qua mà không buồn đạp vào xác bạn. Lão mỉm cười bằng nửa cái miệng hếch hác. → (May mắn +2, Danh vọng +5, Thân thiết với {mentor} +15), dấu ấn "mentor_a_2_survived"
+
+
+Thất bại: Bạn hắt hơi vì mùi hôi. Một tên Mạo hiểm giả quay lại chém một nhát vào vai bạn. Bạn phải vờ chết thật sau nhát chém đó. → (Sức khỏe −25), dấu ấn "mentor_a_2_wounded"
+
+
+B. Sợ hãi vùng dậy bỏ chạy — Bạn hoảng loạn bỏ chạy. Tên cung thủ bắn xuyên bắp chân bạn. Lão {mentor} thở dài nhìn bạn bị đồng loại giẫm đạp. → (Sức khỏe −15, Nhanh nhẹn −1, Thân thiết với {mentor} −20), dấu ấn "mentor_a_2_coward"
+
+
+Nhắc lại: (mentor_a_1_ate) Lão hầm hừ nhắc lại con chó hoang năm nào. · (mentor_a_1_scolded) Lão châm chọc rằng suýt nữa bạn đã nướng cả hai bằng cách nhóm lửa.
+
+
+[goblin_cast_mentor_a_3] Giọt Máu Khô
+Mạch: mentor_a · Nút: 3/5
+
+
+Khi nào: tuổi 6–11 · Đi cướp · CẦN dấu ấn "mentor_a_2_survived" hoặc "mentor_a_2_wounded" hoặc "mentor_a_2_coward"
+
+
+Tình huống: Lão {mentor} bị trọng thương khi đỡ đòn cho một Goblin trẻ. Vết thương mưng mủ, lão nằm co quắp. Shaman bộ lạc ra giá một bông Hoa Huyết Liên ở Rừng Sâu để đổi lấy thuốc giải.
+
+
+A. Trộm Hoa Huyết Liên từ Đội Ranger Elf — dựa vào [Nhanh nhẹn], [RẤT KHÓ]
+
+
+
+Thành công: Bạn né được hàng chục mũi tên ma thuật, mang hoa về cứu sống lão. Lão thề sẽ trả món nợ này. → (Sức khỏe −15, Danh vọng +20, Thân thiết với {mentor} +30), dấu ấn "mentor_a_3_healed"
+
+
+Thất bại: Đội Ranger bắt được bạn, đánh bầm dập vứt ra bìa rừng. Bạn lết về tay không, bệnh tình lão trở nặng. → (Sức khỏe −30), dấu ấn "mentor_a_3_failed"
+
+
+B. Dùng thảo dược rẻ tiền lừa Shaman — Shaman vứt chỗ thuốc dỏm đi cười khẩy, {mentor} hấp hối sống dở chết dở, thoi thóp thù hận nhìn bạn. → (Tài sản +10, Thân thiết với {mentor} −40), dấu ấn "mentor_a_3_fake"
+
+
+Nhắc lại: (mentor_a_2_wounded) Vết sẹo chém trên vai bạn dội lên nhức nhối khi di chuyển. · (mentor_a_2_survived) Lão tự hào vì đã truyền được bí kíp giả chết cho bạn.
+
+
+[goblin_cast_mentor_a_4] Răng Nanh Của Kẻ Sống Sót
+Mạch: mentor_a · Nút: 4/5
+
+
+Khi nào: tuổi 11–16 · Khổ luyện · CẦN dấu ấn "mentor_a_3_healed" hoặc "mentor_a_3_failed" hoặc "mentor_a_3_fake"
+
+
+Tình huống: Một gã Hobgoblin ngoại lai đến thách đấu cướp quyền. Lão {mentor} biết bạn sắp bị gọi lên làm bia. Lão lôi ra một lọ độc có nhãn đầu lâu, bảo bạn bôi lên vũ khí trước trận chiến.
+
+
+A. Sử dụng lọ độc của lão — dựa vào [Trí tuệ], [VỪA]
+
+
+
+Thành công: Trí tuệ của bạn giúp bôi độc lén lút hoàn hảo. Gã Hobgoblin trúng độc gục ngã sau hai hiệp. Bộ lạc tôn sùng bạn. → (Danh vọng +30, Trí tuệ +1), dấu ấn "mentor_a_4_poison"
+
+
+Thất bại: Bạn bôi sai cách, độc ngấm ngược vào tay. Bạn bị phế một cánh tay, gã Hobgoblin giẫm lên bạn mà cười. → (Sức khỏe −30, Sức mạnh −2), dấu ấn "mentor_a_4_botched"
+
+
+B. (Nếu có mentor_a_3_healed) Lão đánh thay bạn — Để trả ơn cứu mạng, lão cầm gậy xương đùi nhảy ra thách đấu. Lão bị Hobgoblin xé xác nhưng câu đủ thời gian cho bạn đâm lén từ sau lưng. Hắn chết. Lão cũng đi. → (Danh vọng +20), {mentor} CHẾT, dấu ấn "mentor_a_4_sacrifice"
+
+
+[goblin_cast_mentor_a_5] Bầu Trời Đỏ Trở Lại
+Mạch: mentor_a · Nút: 5/5
+
+
+Khi nào: tuổi 16+ · Thử thách · CẦN dấu ấn "mentor_a_4_poison" hoặc "mentor_a_4_botched" hoặc "mentor_a_4_sacrifice"
+
+
+Tình huống: Bầu trời nhuốm đỏ rực. Ký ức về cuộc tàn sát 10 năm trước lặp lại: Thánh Kỵ Sĩ Đoàn giáng lâm thảm sát hầm ngục. (Nếu {mentor} còn sống, lão khóc nghẹn ôm lấy bạn). Lối thoát duy nhất là cống ngầm sục sôi nham thạch.
+
+
+A. (Nếu {mentor} còn sống) Cõng lão chạy qua cống ngầm — dựa vào [Sức mạnh], [RẤT KHÓ]
+
+
+
+Thành công: Da thịt bạn bỏng rộp nhưng cả hai thoát ra ngoài. Hai lão già Goblin cùng nhìn đống tro tàn của bộ lạc. → (Sức khỏe −20, Hạnh phúc +20), sống sót vinh quang, dấu ấn "mentor_a_5_legend"
+
+
+Thất bại: Bạn kiệt sức giữa dòng. Lão đẩy bạn lên bờ rồi chìm vào dung nham. Bạn thét lên thảm thiết. → (Sức khỏe −10, Hạnh phúc −30), {mentor} CHẾT, dấu ấn "mentor_a_5_tragic"
+
+
+B. (Nếu mentor_a_4_sacrifice) Áp dụng bài học giả chết — Nhớ lời lão dạy, bạn lại vùi mình dưới lớp xác đồng loại bốc mùi bôi tro nham thạch, nín thở nhìn kỵ sĩ lướt qua. Bạn là kẻ duy nhất sống sót. → (May mắn +3, Hạnh phúc −20), dấu ấn "mentor_a_5_survivor"
+
+
+Khoảnh khắc: Cuối cùng bạn đã hiểu thấu thế nào là "bầu trời đỏ" mà khúc xương đùi Orc kia từng phải chứng kiến.
+
+
+KIỂU 2: MỤ SHAMAN ĐIÊN (Mã mạch: mentor_b)
+Mô tả: Mụ già da xanh thẫm, cổ đeo đầy sọ chuột, mắt tròng trắng dã, hay cười sằng sặc và lảm nhảm với những bóng ma vô hình.3 câu "Nhắc lại" dùng chung:
+
+Tiếng xóc sọ chuột lạch cạch trên cổ mụ {mentor} nghe như lời nguyền rủa từ địa ngục.
+
+
+{mentor} cười sằng sặc, ép bạn uống thêm một ngụm thứ nước bọt ếch xanh lè sôi sùng sục.
+
+
+Trong bóng tối, đôi mắt trắng dã của {mentor} lóe lên sự điên loạn không thể đoán trước.
+
+
+[goblin_cast_mentor_b_1] Vật Thử Nghiệm Hảo Hạng
+Mạch: mentor_b · Nút: 1/5
+
+
+Khi nào: tuổi 2–4 · Khổ luyện
+
+
+Tình huống: Bị thương sau chấn động ngã cây, bạn bị vứt ngoài cửa lều Shaman. Mụ {mentor} lôi bạn vào, đổ ực vào mồm bạn một lọ chất lỏng xanh lục bốc khói cay xè. "Uống đi, đồ ranh con, không chết thì làm đệ của ta!".
+
+
+A. Cố kìm nén cơn nôn mửa — dựa vào [Sức khỏe], [KHÓ]
+
+
+
+Thành công: Dạ dày bạn như bị đốt cháy, nhưng cơ bắp phồng lên, mắt sáng rực trong đêm. Mụ xoa đầu bạn, cười sằng sặc. → (Sức mạnh +2, Trí tuệ +1, Thân thiết với {mentor} +15), dấu ấn "mentor_b_1_mutated"
+
+
+Thất bại: Bạn co giật, sùi bọt mép và hôn mê hai ngày liền. Thức dậy thấy tóc trên đầu rụng sạch. Mụ chậc lưỡi chê bai. → (Sức khỏe −15, Thân thiết với {mentor} −5), dấu ấn "mentor_b_1_bald"
+
+
+B. Nhổ toẹt vào mặt mụ và bỏ chạy — Bạn hắt bát thuốc, chạy thục mạng. Mụ nguyền rủa cho bạn xui xẻo suốt một năm tới, và mụ làm thật bằng tà thuật. → (May mắn −2, Trí tuệ +1, Danh vọng −5), dấu ấn "mentor_b_1_cursed"
+
+
+[goblin_cast_mentor_b_2] Khế Ước Của Rừng Đen
+Mạch: mentor_b · Nút: 2/5
+
+
+Khi nào: tuổi 4–6 · Học lỏm · CẦN dấu ấn "mentor_b_1_mutated" hoặc "mentor_b_1_bald" hoặc "mentor_b_1_cursed"
+
+
+Tình huống: Mụ {mentor} kéo bạn vào Đầm Lầy Tử Khí. Mụ cắt cổ một con dơi quỷ, dùng máu vẽ một vòng tròn ma thuật rồi bắt bạn ngồi vào giữa để "mở mắt linh hồn".
+
+
+A. Tập trung đón nhận Hắc Ám — dựa vào [Trí tuệ], [VỪA]
+
+
+
+Thành công: Trong thoáng chốc, bạn nghe tiếng thì thầm của vong linh Goblin chết oan. Ma thuật hắc ám nhen nhóm. Bạn chính thức là tập sự. → (Trí tuệ +3, Danh vọng +10), dấu ấn "mentor_b_2_awakened"
+
+
+Thất bại: Áp lực ma thuật quá lớn khiến bạn chảy máu tai, ngất xỉu. Bạn tỉnh dậy với chứng ù tai kinh niên. → (Trí tuệ +1, Sức khỏe −15), dấu ấn "mentor_b_2_deaf"
+
+
+B. Đập phá vòng tròn vòi tiền công — Bạn nói không làm trừ khi có đồ ăn. Mụ tát bạn nổ đom đóm mắt rồi quăng cho một con nhái bén nhai tạm. → (Tài sản +5, Thân thiết với {mentor} −10), dấu ấn "mentor_b_2_greedy"
+
+
+Nhắc lại: (mentor_b_1_mutated) Sức mạnh từ lọ thuốc xanh năm xưa vẫn cuộn chảy dưới làn da bạn. · (mentor_b_1_cursed) Bạn vẫn còn rùng mình nhớ lại lời nguyền năm đó mụ giáng xuống.
+
+
+[goblin_cast_mentor_b_3] Phiên Tòa Lửa
+Mạch: mentor_b · Nút: 3/5
+
+
+Khi nào: tuổi 6–11 · Phục dịch bộ lạc · CẦN dấu ấn "mentor_b_2_awakened" hoặc "mentor_b_2_deaf" hoặc "mentor_b_2_greedy"
+
+
+Tình huống: Bệnh dịch lây lan trong bộ lạc. Goblin Chief đổ lỗi cho tà thuật của mụ {mentor} và quyết định thiêu sống mụ. Mụ bị trói vào cọc gỗ, nhìn bạn đầy hi vọng.
+
+
+A. Chế tạo pháo khói giải cứu mụ — dựa vào [Trí tuệ], [KHÓ]
+
+
+
+Thành công: Quả pháo nổ tung che mù mắt lính canh. Bạn cắt dây trói, cả hai chạy trốn vào Dungeon. Mụ truyền cho bạn toàn bộ bí kíp. → (Danh vọng −15, Trí tuệ +3, Thân thiết với {mentor} +40), thăng bậc Goblin Shaman, dấu ấn "mentor_b_3_rescue"
+
+
+Thất bại: Pháo lép. Bạn bị tóm cổ ném luôn vào đống lửa thiêu cùng mụ. Bạn vùng vẫy thoát ra được nhưng bị bỏng nặng. → (Sức khỏe −30, Danh vọng −10), {mentor} CHẾT, dấu ấn "mentor_b_3_burnt"
+
+
+B. Châm ngọn đuốc thiêu mụ để lấy lòng Chief — Bạn bước lên, lạnh lùng ném đuốc. Mụ cười man dại rủa xả bạn khi lửa bùng lên. Chief thưởng cho bạn vị trí của mụ. → (Danh vọng +20, Hạnh phúc −20), {mentor} CHẾT, thăng bậc Goblin Shaman, dấu ấn "mentor_b_3_betrayal"
+
+
+Nhắc lại: (mentor_b_2_awakened) Những vong linh Đầm Lầy lại thầm thì quanh quẩn bên tai bạn. · (mentor_b_2_deaf) Tiếng ù tai phiền phức mỗi khi làm phép lại nhắc bạn nhớ về buổi lễ thất bại.
+
+
+[goblin_cast_mentor_b_4] Hố Đen Gọi Mời
+Mạch: mentor_b · Nút: 4/5
+
+
+Khi nào: tuổi 11–16 · Tranh quyền · CẦN dấu ấn "mentor_b_3_rescue" hoặc "mentor_b_3_burnt" hoặc "mentor_b_3_betrayal"
+
+
+Tình huống: Để chống lại Đội Ranger Đại Ngàn, bạn (hoặc mụ nếu còn sống) đang thực hiện nghi thức Huyết Tế triệu hồi Quỷ Lửa. Tuy nhiên, phép thuật vượt quá tầm kiểm soát, ngọn lửa đen bắt đầu nuốt chửng linh hồn người tế.
+
+
+A. (Nếu có mentor_b_3_rescue) Cùng mụ kiềm chế ngọn lửa — dựa vào [Trí tuệ], [RẤT KHÓ]
+
+
+
+Thành công: Hai thầy trò hợp lực niệm chú. Quỷ Lửa tuân lệnh, thiêu rụi bọn Elf. Bạn nhận được ấn chú "dark_pact". → (Danh vọng +40, Trí tuệ +2), mở đường tiến hóa Shaman Lord, dấu ấn "mentor_b_4_pact"
+
+
+Thất bại: Ngọn lửa dội ngược. Mụ đẩy bạn ra và bị lửa đen nuốt chửng không còn một mẩu xương. → (Sức khỏe −10, Hạnh phúc −20), {mentor} CHẾT, dấu ấn "mentor_b_4_ash"
+
+
+B. Hút lấy sức mạnh ngọn lửa một mình — Bỏ mặc sự an nguy của mọi người, bạn tự thân dung nạp lửa đen. Nó xé nát tâm trí bạn. Mất nửa tuổi thọ nhưng sức mạnh tột đỉnh. → (Sức khỏe −30, Sức mạnh +4, Trí tuệ +2), có "dark_pact", dấu ấn "mentor_b_4_solo"
+
+
+[goblin_cast_mentor_b_5] Quyền Trượng Sọ Chuột
+Mạch: mentor_b · Nút: 5/5
+
+
+Khi nào: tuổi 16+ · Thử thách · CẦN dấu ấn "mentor_b_4_pact" hoặc "mentor_b_4_ash" hoặc "mentor_b_4_solo"
+
+
+Tình huống: Tuổi già ập đến, thân xác tàn tạ. Bạn đứng trước tế đàn xương người. Một lũ Goblin trẻ xông vào định lật đổ "lão Shaman điên" là bạn, lặp lại vòng luân hồi phản trắc.
+
+
+A. Dùng tà thuật nguyền rủa chúng — dựa vào [Trí tuệ], [VỪA]
+
+
+
+Thành công: Bạn phóng hắc ám, biến 5 tên tiên phong thành tro bụi. Đám còn lại quỳ rạp tôn thờ bạn như ác thần. → (Danh vọng +50, Trí tuệ +2), tiến hóa Goblin Shaman Lord, dấu ấn "mentor_b_5_lord"
+
+
+Thất bại: Tuổi tác làm phép thuật chệch hướng. Lũ trẻ lao lên băm vằm bạn thành trăm mảnh. → CHẾT (Bị Goblin trẻ phanh thây), dấu ấn "mentor_b_5_dismembered"
+
+
+B. Chuyển sinh tâm trí vào thủ lĩnh phe phiến loạn — Một tà thuật cổ cấm kỵ. Bạn chết đi, nhưng ý thức chiếm đoạt cơ thể khỏe mạnh của tên kia, tiếp tục cai trị bộ lạc. → (Sức khỏe hồi phục 100, Sức mạnh +2), {mentor} mãn nguyện nơi chín suối, dấu ấn "mentor_b_5_rebirth"
+
+
+Khoảnh khắc: Chiếc chuỗi sọ chuột trên cổ bạn khẽ rung lên, điệu cười điên dại truyền lại từ thế hệ trước nay lại vang vọng Rừng Đen.
+
+
+3. ĐỒNG BỌN THÂN NHẤT ({friend})
+KIỂU 1: KẺ HÈN NHÁT BÁM ĐUÔI (Mã mạch: friend_a)
+Mô tả: Con Goblin gầy ốm nhom, mắt lúc nào cũng ươn ướt chực khóc, trên cổ đeo lủng lẳng một mảnh kính vỡ lấp lánh nó tin là "bùa chú hộ mệnh".3 câu "Nhắc lại" dùng chung:
+
+Ánh sáng lóe lên từ mảnh kính vỡ đeo cổ của {friend} báo hiệu nó lại đang run rẩy lẩn trốn.
+
+
+{friend} níu chặt lấy khố của bạn, mắt ươn ướt khẩn khoản xin đừng bỏ nó lại phía sau.
+
+
+Tiếng khóc thút thít của {friend} luôn là nhạc nền quen thuộc mỗi khi có biến.
+
+
+[goblin_cast_friend_a_1] Bánh Mì Mốc và Mảnh Kính
+Mạch: friend_a · Nút: 1/5
+
+
+Khi nào: tuổi 2–4 · Bới rác
+
+
+Tình huống: Dưới đáy hầm ngục ẩm ướt, bạn tìm được nửa ổ bánh mì cứng như đá. Nhóc {friend} bò từ góc tối ra, chìa mảnh kính vỡ lấp lánh đòi đổi lấy một miếng vì nó đã đói rã ruột 3 ngày.
+
+
+A. Bẻ cho nó một nửa bánh mì — dựa vào [Tài sản], [DỄ]
+
+
+
+Thành công: Nó ngấu nghiến nhai vội vã, sau đó bám riết lấy bạn gọi "Đại ca". Bạn có thêm một cái đuôi. → (Hạnh phúc +5, Thân thiết với {friend} +20), {friend} gia nhập băng, dấu ấn "friend_a_1_share"
+
+
+Thất bại: Đang định chia thì một con chuột cống lao ra cướp mất ổ bánh mì. Hai đứa ôm bụng đói meo nhưng thành thân nhau qua hoạn nạn. → (Sức khỏe −10, Thân thiết với {friend} +15), {friend} gia nhập băng, dấu ấn "friend_a_1_starve"
+
+
+B. Đá nó ra và ăn một mình — Bạn ăn ngấu nghiến. Nó ôm bụng khóc nức nở nhìn bạn thù hận, bỏ đi theo băng nhóm khác. → (Sức khỏe +10, Danh vọng −5, Thân thiết với {friend} −30), dấu ấn "friend_a_1_selfish"
+
+
+[goblin_cast_friend_a_2] Chạy Trốn Bầy Sói
+Mạch: friend_a · Nút: 2/5
+
+
+Khi nào: tuổi 4–6 · Đi cướp · CẦN dấu ấn "friend_a_1_share" hoặc "friend_a_1_starve" hoặc "friend_a_1_selfish"
+
+
+Tình huống: Trong lúc rình mò Rừng Tân Thủ, một bầy Sói Xám phát hiện ra băng của bạn. {friend} hốt hoảng vấp ngã trật khớp cá chân, thảm thiết giơ tay cầu cứu bạn. Bầy sói chỉ còn cách chục bước.
+
+
+A. Quay lại cõng nó chạy thục mạng — dựa vào [Nhanh nhẹn], [KHÓ]
+
+
+
+Thành công: Bạn phóng như bay qua các rễ cây, bỏ rơi bầy sói. Nó vừa khóc vừa sùng bái bạn tột độ. → (Nhanh nhẹn +2, Thân thiết với {friend} +30), dấu ấn "friend_a_2_saved"
+
+
+Thất bại: Bầy sói ngoạm được chân bạn. Bạn phải cắn răng đạp nó ra để mình thoát. {friend} bị cắn nát bắp đùi nhưng sống sót, trở nên thọt vĩnh viễn. → (Sức khỏe −15, Thân thiết với {friend} −10), dấu ấn "friend_a_2_bitten"
+
+
+B. (Nếu có friend_a_1_share) Đẩy lùi một con sói để nó tự bò dậy — Bạn ném đá mù mắt con sói đi đầu, tạo cơ hội cho {friend} lết theo. Hai đứa xơ xác về tới lều. → (Sức mạnh +1, Sức khỏe −10), dấu ấn "friend_a_2_fought"
+
+
+Nhắc lại: (friend_a_1_share) Mảnh bánh mì mốc ngày xưa đã mua được lòng trung thành dai dẳng này. · (friend_a_1_selfish) Nhìn bạn, nó vẫn nhớ cơn đói cồn cào ở hầm ngục tăm tối.
+
+
+[goblin_cast_friend_a_3] Chiếc Khố Của Kẻ Quyền Lực
+Mạch: friend_a · Nút: 3/5
+
+
+Khi nào: tuổi 6–11 · Phục dịch bộ lạc · CẦN dấu ấn "friend_a_2_saved" hoặc "friend_a_2_bitten" hoặc "friend_a_2_fought"
+
+
+Tình huống: Bạn vừa thăng bậc, có địa vị. {friend} quỳ mọp xin được làm tay sai thân tín chuyên nếm thức ăn độc và canh gác lều cho bạn, tự hào khoe rắng nó "sống dai lắm".
+
+
+A. Thu nhận nó làm tay chân — dựa vào [Danh vọng], [VỪA]
+
+
+
+Thành công: Kẻ khác chế nhạo bạn dùng phế vật, nhưng nó canh gác rất tuyệt, phát hiện một con rết độc bò vào lều bạn. → (Hạnh phúc +10, Thân thiết với {friend} +15), cứu một mạng, dấu ấn "friend_a_3_guard"
+
+
+Thất bại: Bộ lạc coi thường bạn khi chứa chấp kẻ hèn. Bạn bị phe đối lập cười cợt và đánh mất uy tín. → (Danh vọng −15, Hạnh phúc +5), dấu ấn "friend_a_3_mocked"
+
+
+B. Tống cổ nó đi cho rảnh nợ — Bạn đạp nó ra xa, bảo không rảnh nuôi báo cô. Nó uất ức khóc lóc, ném mảnh kính vỡ lại rồi bỏ chạy vào rừng. → (Tài sản +5, Thân thiết với {friend} −50), mất {friend}, dấu ấn "friend_a_3_abandoned"
+
+
+Nhắc lại: (friend_a_2_saved) Nó vẫn thường xoa bóp đôi chân từng cõng nó chạy khỏi bầy sói của bạn. · (friend_a_2_bitten) Nó khập khiễng bước theo sau, cái chân thọt nhắc nhở về sự vô tình của bầy đàn.
+
+
+[goblin_cast_friend_a_4] Phòng Tra Tấn Của Elf
+Mạch: friend_a · Nút: 4/5
+
+
+Khi nào: tuổi 11–16 · Thử thách · CẦN dấu ấn "friend_a_3_guard" hoặc "friend_a_3_mocked"
+
+
+Tình huống: Cả băng bị Đội Ranger Đại Ngàn phục kích. {friend} bị tóm. Bọn Elf treo nó lên tra tấn bằng gai độc bắt khai ra kho lương của bộ lạc. Bạn nấp trên cây ngay trên đầu chúng.
+
+
+A. Nhảy xuống ám sát lính gác cứu nó — dựa vào [Nhanh nhẹn], [KHÓ]
+
+
+
+Thành công: Bạn cắt cổ tên lính gác êm ru. Bạn và {friend} trốn thoát thành công. Tình nghĩa anh em khắc cốt ghi tâm. → (Danh vọng +20, Thân thiết với {friend} +40), dấu ấn "friend_a_4_rescue"
+
+
+Thất bại: Bọn Elf phát hiện. Bạn dính mũi tên vào vai và phải bỏ chạy vứt {friend} lại. Nó bị hành hạ đến chết. → (Sức khỏe −30), {friend} CHẾT, dấu ấn "friend_a_4_failrescue"
+
+
+B. Nằm im mặc kệ nó — {friend} bị bẻ từng ngón tay nhưng kiên quyết không khai vì bảo vệ bạn. Khi bọn chúng chán nản bỏ đi, nó chết gục trong đau đớn, tay vẫn nắm chặt mảnh kính vỡ. → (Hạnh phúc −40, An toàn), {friend} CHẾT, dấu ấn "friend_a_4_martyr"
+
+
+[goblin_cast_friend_a_5] Sự Lựa Chọn Của Kẻ Yếu
+Mạch: friend_a · Nút: 5/5
+
+
+Khi nào: tuổi 16+ · Tranh quyền · CẦN dấu ấn "friend_a_4_rescue"
+
+
+Tình huống: Kẻ thù trong bộ lạc bao vây lều của bạn để lật đổ. Bạn trọng thương nằm một chỗ. {friend}, kẻ hèn nhát cả đời, cầm con dao rỉ chấn giữ trước cửa lều, hai chân run cầm cập.
+
+
+A. Đẩy nó ra và tự mình chiến đấu — dựa vào [Sức mạnh], [RẤT KHÓ]
+
+
+
+Thành công: Dù già cỗi, bạn vẫn gầm lên chém bay đầu tên dẫn đầu. Đám phản loạn khiếp sợ lùi lại. Bạn giữ vững ngai vàng. → (Sức mạnh +2, Danh vọng +30), thăng bậc Goblin Chief, dấu ấn "friend_a_5_king"
+
+
+Thất bại: Đám phản loạn áp đảo đâm xuyên người bạn. {friend} thét lên lao vào ôm lấy thi thể bạn và chịu chung số phận. → CHẾT (Bị quân phản loạn đâm chết), dấu ấn "friend_a_5_together"
+
+
+B. Dùng nó làm khiên thịt để chạy trốn — Bạn đẩy {friend} vào đám đông, lấy nó làm bia để chuồn ra ngả sau. Nó quay lại nhìn bạn, ánh mắt vừa không ngờ vừa chấp nhận số phận, trước khi bị băm vằm. → (Sức khỏe +10, Danh vọng −50, Hạnh phúc −30), {friend} CHẾT, sống nhục nhã cuối đời, dấu ấn "friend_a_5_cowardice"
+
+
+Khoảnh khắc: Mảnh kính vỡ nhuốm máu rơi trên nền đất, phản chiếu hình ảnh một tên Goblin đã đánh đổi tình bạn lấy sinh mệnh thừa thãi.
+
+
+KIỂU 2: NHÓC CON THAM VỌNG (Mã mạch: friend_b)
+Mô tả: Con Goblin cái mắt sắc lẹm, có vết sẹo dài vắt ngang mũi, luôn mài một con dao găm hoen rỉ và mơ mộng trở thành Hobgoblin.3 câu "Nhắc lại" dùng chung:
+
+Tiếng mài dao sột soạt của {friend} luôn râm ran mỗi khi có cơ hội cướp bóc.
+
+
+{friend} chạm tay vào vết sẹo ngang mũi, mắt lóe lên ngọn lửa tham vọng điên cuồng.
+
+
+Chẳng ai nghĩ một con Goblin cái lại hiếu chiến và khát máu đến thế, trừ bạn.
+
+
+[goblin_cast_friend_b_1] Phục Kích Thỏ Sừng
+Mạch: friend_b · Nút: 1/5
+
+
+Khi nào: tuổi 2–4 · Khổ luyện
+
+
+Tình huống: Một con thỏ sừng khổng lồ (bằng cỡ hai con Goblin con) đang gặm cỏ. Nhóc {friend} rủ bạn cùng nhảy ra giết nó để lấy bộ da bán cho thương nhân, dù nguy hiểm đến tính mạng.
+
+
+A. Chấp nhận rủi ro, nhảy ra kẹp cổ con thỏ — dựa vào [Sức mạnh], [VỪA]
+
+
+
+Thành công: Bạn kẹp chặt, {friend} dùng dao đâm lòi mắt con quái. Cả hai vác chiến lợi phẩm về trong ánh mắt ngưỡng mộ. → (Sức mạnh +1, Tài sản +20, Thân thiết với {friend} +20), {friend} gia nhập băng, dấu ấn "friend_b_1_hunter"
+
+
+Thất bại: Con thỏ húc sừng văng bạn gãy mấy cái xương sườn. {friend} liều mạng cắn đuôi nó giải cứu bạn, cả hai tơi tả bò về lều. → (Sức khỏe −20, Thân thiết với {friend} +15), {friend} gia nhập băng, dấu ấn "friend_b_1_beaten"
+
+
+B. Từ chối vì quá nguy hiểm — Bạn lùi lại. {friend} chửi bạn là đồ nhát cáy, một mình lao lên và bị thỏ đá sưng vù mặt, từ đó có sẹo ngang mũi. Tình bạn rạn nứt ngay từ đầu. → (An toàn, Thân thiết với {friend} −20), dấu ấn "friend_b_1_refused"
+
+
+[goblin_cast_friend_b_2] Cắt Cổ Mạo Hiểm Giả
+Mạch: friend_b · Nút: 2/5
+
+
+Khi nào: tuổi 4–6 · Đi cướp · CẦN dấu ấn "friend_b_1_hunter" hoặc "friend_b_1_beaten" hoặc "friend_b_1_refused"
+
+
+Tình huống: Một tân binh Mạo hiểm giả đang ngủ say bên đống lửa. {friend} thì thầm rủ bạn lẻn tới cắt cổ hắn cướp thanh kiếm sắt, cơ hội đổi đời hiếm có của Goblin trẻ.
+
+
+A. Giữ chân hắn để {friend} cứa cổ — dựa vào [Nhanh nhẹn], [KHÓ]
+
+
+
+Thành công: Hắn giật mình nhưng bạn đè chặt tay hắn. Máu tuôn xối xả. Hai đứa ôm kiếm chạy mất, trở thành hiện tượng của bộ lạc. → (Danh vọng +20, Tài sản +25, Thân thiết với {friend} +20), dấu ấn "friend_b_2_murderers"
+
+
+Thất bại: Hắn vung tay hất văng cả hai. Lưỡi kiếm chém đứt nửa mang tai của bạn. Hai đứa phải lặn xuống bùn trốn nửa ngày. → (Sức khỏe −25, Danh vọng −5), dấu ấn "friend_b_2_scarred"
+
+
+B. Đánh thức hắn dậy để nhận tiền chuộc mưu hèn — Bạn hèn hạ báo động. Tên Mạo hiểm giả tha mạng cho bạn và cho một đồng bạc. {friend} bị hắn đánh trọng thương, thù bạn thấu xương. → (Tài sản +10, Hạnh phúc −10, Thân thiết với {friend} −50), mất {friend}, dấu ấn "friend_b_2_traitor"
+
+
+Nhắc lại: (friend_b_1_hunter) Bộ da thỏ sừng năm ấy vẫn được chia đôi làm đệm lót cho hai đứa. · (friend_b_1_beaten) Những cái xương sườn gãy năm nao dường như thắt lại khi hai người sóng bước.
+
+
+[goblin_cast_friend_b_3] Kẻ Bị Ruồng Bỏ
+Mạch: friend_b · Nút: 3/5
+
+
+Khi nào: tuổi 6–11 · Tranh quyền · CẦN dấu ấn "friend_b_2_murderers" hoặc "friend_b_2_scarred"
+
+
+Tình huống: Vì quá hiếu chiến, {friend} chọc giận một toán Orc đi tuần. Bọn Orc đòi bộ lạc giao nộp thủ phạm. Goblin Chief quyết định trói cô ả lại nộp mạng. {friend} nhìn bạn qua chấn song lều giam, cầu xin sự giúp đỡ.
+
+
+A. Trộm chìa khóa giải cứu trong đêm — dựa vào [Trí tuệ], [VỪA]
+
+
+
+Thành công: Bạn mở khóa êm ru. Hai đứa bỏ trốn khỏi bộ lạc, trở thành những Goblin du mục khét tiếng. → (Danh vọng +10, Thân thiết với {friend} +40), bị trục xuất, dấu ấn "friend_b_3_outlaws"
+
+
+Thất bại: Lính gác bắt được bạn. Bạn bị đánh nhừ tử và bắt quỳ xem {friend} bị bọn Orc lôi đi làm nô lệ. Tình bạn kết thúc trong nước mắt. → (Sức khỏe −25, Hạnh phúc −30), mất {friend}, dấu ấn "friend_b_3_taken"
+
+
+B. Mặc kệ vì lợi ích bộ lạc — Bạn nhắm mắt làm ngơ. {friend} bị lôi đi, gào thét rủa xả bạn hèn nhát. Bạn sống an toàn nhưng mang nỗi nhục suốt đời. → (An toàn, Danh vọng +5, Hạnh phúc −20), mất {friend}, dấu ấn "friend_b_3_ignored"
+
+
+Nhắc lại: (friend_b_2_murderers) Thanh kiếm sắt cướp được ngày ấy giờ rỉ sét nhưng vẫn là biểu tượng vinh quang của hai người. · (friend_b_2_scarred) Vết cắt ở tai nhắc bạn nhớ về lần chọc ổ kiến lửa chung.
+
+
+[goblin_cast_friend_b_4] Lính Đánh Thuê Của Sói Bạc
+Mạch: friend_b · Nút: 4/5
+
+
+Khi nào: tuổi 11–16 · Đi cướp · CẦN dấu ấn "friend_b_3_outlaws"
+
+
+Tình huống: Trong một phi vụ, bạn đụng độ Thương hội Sói Bạc. Thủ lĩnh lính đánh thuê của chúng không ai khác chính là {friend}, nay đã cao lớn vạm vỡ, mặc giáp sắt sáng loáng. Ả cười mỉa mai chĩa kiếm vào bạn: "Giao nộp chiến lợi phẩm hoặc chết, hỡi đồng minh cũ!".
+
+
+A. Thuyết phục ả về lại phe bạn bằng tình xưa — dựa vào [Trí tuệ], [KHÓ]
+
+
+
+Thành công: Bạn nhắc lại kỷ niệm sinh tử. Ả dao động, hạ kiếm xuống, phản bội Thương hội để quay về sát cánh cùng bạn. → (Danh vọng +30, Thân thiết với {friend} +50), {friend} trở thành đồng minh hạng nặng, dấu ấn "friend_b_4_reunited"
+
+
+Thất bại: Ả khạc nhổ: "Goblin chỉ tin sức mạnh!". Ả chém bạn một nhát chí mạng. Bạn phải bò lết qua bùn lầy mới giữ được mạng. → (Sức khỏe −40, Sức mạnh −1), dấu ấn "friend_b_4_enemy"
+
+
+B. Nhào lên liều chết một phen — Bạn rút vũ khí. Trận chiến đẫm máu giữa hai người bạn cũ. Bạn đâm lén trúng kẽ hở giáp của ả. Ả gục xuống, thều thào ngợi khen sự tàn nhẫn của bạn. → (Danh vọng +40, Tài sản +30), {friend} CHẾT, dấu ấn "friend_b_4_killed"
+
+
+[goblin_cast_friend_b_5] Huyết Tế Tiến Hóa
+Mạch: friend_b · Nút: 5/5
+
+
+Khi nào: tuổi 16+ · Thử thách · CẦN dấu ấn "friend_b_4_reunited"
+
+
+Tình huống: Để đương đầu với cuộc càn quét lớn nhất của Guild Bình Minh, {friend} tiết lộ một tà thuật: hiến tế sinh lực của người này sẽ giúp người kia đánh thức "hobgoblin_blood", tiến hóa thành ma thú mạnh mẽ.
+
+
+A. Xung phong hiến tế bản thân cho {friend} tiến hóa — dựa vào [Danh vọng], [VỪA]
+
+
+
+Thành công: Sinh mệnh bạn héo úa, nhưng {friend} rống lên, biến thành một Hobgoblin khổng lồ bảo vệ cả bộ lạc. Bạn chết trong vinh quang của kẻ hi sinh. → CHẾT (Hiến tế vinh quang), {friend} thành Hobgoblin, dấu ấn "friend_b_5_martyr"
+
+
+Thất bại: Tà thuật thất bại nửa chừng. Cả hai cùng già yếu và gục ngã dưới mũi kiếm của Mạo hiểm giả. → CHẾT (Tà thuật thất bại, bị tàn sát), dấu ấn "friend_b_5_fail"
+
+
+B. Ép {friend} hiến tế cho mình — Bạn lừa ả đứng vào tâm ma pháp trận rồi kích hoạt. Tiếng thét của ả vang vọng Rừng Đen. Cơ thể bạn vươn cao, cuồn cuộn sức mạnh. Bạn tiến hóa thành Hobgoblin vô địch! → (Sức mạnh +5, Sức khỏe hồi phục 100), {friend} CHẾT, có "hobgoblin_blood", dấu ấn "friend_b_5_betrayal"
+
+
+Khoảnh khắc: Tham vọng rực cháy cuối cùng cũng thành hình, nhưng cái giá phải trả là xương máu của kẻ duy nhất từng thực sự đứng cạnh bạn.
+MẠCH 1: BỤI RẬM RỪNG TÂN THỦ (forest)
+
+Câu mở mạch: Grel đã bỏ bạn lại ở Rừng Tân Thủ với một cái hông lép kẹp và lời dặn "đừng để bầy sói nhai xương", kẻ sinh ra bạn là ai, có lẽ cả cái rừng này cũng chẳng thèm quan tâm.
+
+
+Kết dở dang: Bạn gục ngã giữa đám rễ cây mục nát. Rừng Tân Thủ lại có thêm một nắm xương vô danh làm phân bón, đúng như cách bạn sinh ra.
+
+
+[goblin_arc_forest_1] Bẫy Thú Của Grel
+Mạch: forest · Nút: 1/4
+
+
+Khi nào: tuổi 2–4 · Bới rác · CẦN dấu ấn "forest_goblin"
+
+
+Tình huống: Bụng đói cồn cào, bạn đánh hơi thấy mùi thịt ươn quen thuộc. Grel đã để lại một cái bẫy kẹp sắt giấu dưới lá khô, bên trong là nửa con chuột đồng.
+
+
+A. Dùng cành cây khều thịt ra — dựa vào [Trí tuệ], [VỪA]
+
+
+
+Thành công: Cành cây gãy đôi nhưng bạn khều được miếng thịt. Bẫy sập cái "xoạch", bạn vừa nhai nhồm nhoàm vừa rùng mình. → (Sức khỏe +10, Trí tuệ +1), dấu ấn "forest_1_smart"
+
+
+Thất bại: Cành cây trượt, bẫy sập kẹp nát mấy ngón tay bạn. Bạn đau đớn lết về với cái bụng rỗng. → (Sức khỏe −15, Nhanh nhẹn −1), dấu ấn "forest_1_maimed"
+
+
+B. Lao vào cướp thịt bằng tốc độ — dựa vào [Nhanh nhẹn], [KHÓ]
+
+
+
+Thành công: Bạn giật miếng thịt ra một tích tắc trước khi hai hàm răng sắt cạp vào nhau. Tốc độ sinh tồn được mài giũa. → (Nhanh nhẹn +2, Sức khỏe +10), dấu ấn "forest_1_fast"
+
+
+Thất bại: Bẫy kẹp chặt lấy cổ chân bạn. Bạn phải tự dùng đá đập vỡ xương mình để rút chân ra trước khi sói tới. → (Sức khỏe −30, Nhanh nhẹn −3), dấu ấn "forest_1_crippled"
+
+
+Nhắc lại: (forest_1_smart) Bạn vẫn nhớ tiếng sập kinh hồn của chiếc bẫy sắt năm xưa. · (forest_1_crippled) Cái chân đi cà nhắc luôn nhắc bạn về sự tàn nhẫn của mẹ mình.
+
+
+Khoảnh khắc: Học được bài học đầu đời: ở Rừng Tân Thủ, miếng ăn miễn phí luôn gắn liền với cái chết.
+
+
+[goblin_arc_forest_2] Bầy Lũ Mới
+Mạch: forest · Nút: 2/4
+
+
+Khi nào: tuổi 4–6 · Học lỏm · CẦN dấu ấn "forest_1_smart" hoặc "forest_1_maimed" hoặc "forest_1_fast" hoặc "forest_1_crippled"
+
+
+Tình huống: Đang theo dõi một đoàn xe buôn, bạn tình cờ nhìn thấy Grel. Mụ đang nhai cỏ, đằng sau là ba đứa Goblin con mới đẻ và một gã Hobgoblin lực lưỡng là tình nhân mới của mụ.
+
+
+A. Trộm lương thực của gã Hobgoblin — dựa vào [Nhanh nhẹn], [KHÓ]
+
+
+
+Thành công: Bạn lẻn vào, trộm một bao thịt lợn muối rồi tẩu thoát êm ru. Grel chửi rủa ỏm tỏi nhưng bạn đã no bụng. → (Tài sản +20, Danh vọng +10), dấu ấn "forest_2_thief"
+
+
+Thất bại: Gã Hobgoblin bắt được bạn. Grel nhìn bạn trân trân rồi vờ như không quen. Hắn quẳng bạn xuống vách đá. → (Sức khỏe −40, Hạnh phúc −20), dấu ấn "forest_2_thrown"
+
+
+B. Bò ra khóc lóc van xin Grel nhận lại — Grel đạp thẳng vào mặt bạn, mắng: "Thứ yếu ớt vướng chân!". Bạn ôm mặt máu bò đi, lòng ngập tràn thù hận. → (Sức khỏe −10, Hạnh phúc −30, Sức mạnh +1), dấu ấn "forest_2_hated"
+
+
+Nhắc lại: (forest_2_thief) Bao thịt lợn muối trộm được của gia đình mới nhà Grel từng nuôi sống bạn cả tháng. · (forest_2_hated) Cú đạp tàn nhẫn của Grel đã xóa sạch chút tình mẫu tử cuối cùng trong bạn.
+
+
+[goblin_arc_forest_3] Bữa Tiệc Máu Rừng Sâu
+Mạch: forest · Nút: 3/4
+
+
+Khi nào: tuổi 6–11 · Đi cướp · CẦN dấu ấn "forest_2_thief" hoặc "forest_2_thrown" hoặc "forest_2_hated"
+
+
+Tình huống: Trại của Grel bị Đội Ranger Elf càn quét. Gã Hobgoblin tình nhân đã chết. Mụ đang hấp hối dưới đất, bảo vệ đám con nheo nhóc. Bạn đi ngang qua cùng băng nhóm của mình.
+
+
+A. Ăn xác gã Hobgoblin để hấp thụ sức mạnh — dựa vào [Sức mạnh], [VỪA]
+
+
+
+Thành công: Bạn xé xác gã Hobgoblin nhai sống trước ánh mắt kinh hoàng của Grel. Dòng máu ma thú sôi sục trong tĩnh mạch bạn. → (Sức mạnh +3, Sức khỏe hồi phục 50), có "hobgoblin_blood", dấu ấn "forest_3_cannibal"
+
+
+Thất bại: Thịt Hobgoblin ngộ độc. Bạn nôn mửa sùi bọt mép, lỡ mất cơ hội tiến hóa nhưng bầy đàn bạn đã tiện tay giết nốt gia đình mụ. → (Sức khỏe −20), Grel CHẾT, dấu ấn "forest_3_sick"
+
+
+B. (Nếu có forest_2_hated) Tự tay băm vằm Grel và đám con — Bạn mỉm cười xách dao tiến lại gần. Sự tàn nhẫn tột cùng khiến bạn được băng đảng tôn lên làm thủ lĩnh. → (Danh vọng +30, Hạnh phúc +10), thăng bậc Goblin Leader, Grel CHẾT, dấu ấn "forest_3_slayer"
+
+
+Nhắc lại: (forest_3_cannibal) Dòng máu Hobgoblin đập thình thịch trong tim bạn mỗi khi ngửi thấy mùi máu. · (forest_3_slayer) Ánh mắt tuyệt vọng của Grel trước khi chết thỉnh thoảng vẫn hiện về trong giấc mơ của bạn, mang theo nụ cười thỏa mãn.
+
+
+[goblin_arc_forest_4] Vua Của Tán Lá Mục
+Mạch: forest · Nút: 4/4
+
+
+Khi nào: tuổi 11+ · Tranh quyền · CẦN dấu ấn "forest_3_cannibal" hoặc "forest_3_sick" hoặc "forest_3_slayer"
+
+
+Tình huống: Băng nhóm của bạn nay đã thành một thế lực trong Rừng Tân Thủ. Tuy nhiên, một đứa con sống sót của Grel nay đã lớn, dẫn theo bầy Sói Xám tới tính sổ với bạn.
+
+
+A. Gọi bầy đàn nghênh chiến — dựa vào [Danh vọng], [KHÓ]
+
+
+
+Thành công: Danh vọng của bạn quy tụ hàng trăm Goblin. Bạn tự tay bóp nát sọ đứa em cùng mẹ khác cha, tắm trong máu sói và gầm vang xưng vương. → (Danh vọng +50, Sức khỏe −20), thăng bậc Goblin Chief, dấu ấn "forest_4_king"
+
+
+Thất bại: Đàn em sợ hãi bỏ chạy hết. Bạn bị bầy Sói Xám xé xác, kết thúc một kiếp giang hồ. → CHẾT (Bị sói xám xé xác), dấu ấn "forest_4_torn"
+
+
+B. (Nếu có forest_3_cannibal) Một mình lao ra nghiền nát chúng — Với sức mạnh Hobgoblin, bạn cầm thân cây làm chùy, đập nát cả bầy sói. Kẻ thù khiếp sợ quỳ rạp. Bạn là bạo chúa tuyệt đối của khu rừng. → (Sức mạnh +3, Sức khỏe −10), thăng bậc Goblin Lord, dấu ấn "forest_4_tyrant"
+
+
+Khoảnh khắc: Máu mủ ruột rà chẳng có nghĩa lý gì, kẻ đứng cuối cùng trên đống xác mới là kẻ đúng.
+
+
+Kết đời (forest_4_king / forest_4_tyrant): Bị vứt bỏ từ lúc lọt lòng, bạn đã bò lên từ đáy Rừng Tân Thủ bằng hàm răng tẩm máu đồng loại. Khi chết đi, cả khu rừng phải rùng mình kính sợ cái tên của kẻ từng là đứa trẻ bị vứt bỏ năm xưa.
+
+
+Kết đời (forest_4_torn): Sinh ra trong bụi rậm, chết đi làm mồi cho sói. Báo ứng của Rừng Tân Thủ luôn chực chờ những kẻ rũ bỏ máu mủ của chính mình, dù thứ máu mủ ấy vô cùng hôi thối.
+
+
+MẠCH 2: ĐỐNG RÁC HẦM NGỤC (dungeon)
+
+Câu mở mạch: Snik nhai rào rạo một con bọ cạp tẩm bùn và nhét một nửa vào mồm bạn. Dưới đống rác Hầm ngục này, nếu không ăn rác, bạn sẽ sớm thành rác cho kẻ khác dọn.
+
+
+Kết dở dang: Bạn kẹt chân trong một khe đá và chết đói từ từ trong bóng tối. Lũ bọ cạp lại có thêm một bữa ăn.
+
+
+[goblin_arc_dungeon_1] Món Đồ Sáng Lấp Lánh
+Mạch: dungeon · Nút: 1/4
+
+
+Khi nào: tuổi 2–4 · Bới rác · CẦN dấu ấn "dungeon_scavenger"
+
+
+Tình huống: Mẹ Snik bới được một viên ngọc ma thuật màu tím từ xác Mạo hiểm giả. Bà vội nhét nó vào tay bạn bảo giấu đi, ngay trước khi bị gã Goblin Warrior to xác đi tuần đá ngã lăn lóc.
+
+
+A. Nuốt viên ngọc vào bụng — dựa vào [Sức khỏe], [KHÓ]
+
+
+
+Thành công: Cổ họng rát bỏng nhưng viên ngọc trôi tuột xuống. Gã Warrior khám xét không thấy gì bèn nhổ nước bọt bỏ đi. Snik xoa đầu bạn. → (Sức khỏe −10, Tài sản +20), dấu ấn "dungeon_1_swallowed"
+
+
+Thất bại: Viên ngọc nghẹn lại làm bạn ho sặc sụa. Gã Warrior bóp cổ bạn ói viên ngọc ra, rồi tát Snik gãy mấy cái răng. → (Sức khỏe −20, Hạnh phúc −15), dấu ấn "dungeon_1_choked"
+
+
+B. Dâng viên ngọc cho gã Warrior — Gã nhếch mép cười, xoa đầu bạn rồi ném cho bạn một khúc xương dính chút thịt, phớt lờ tiếng gào khóc tiếc của Snik. → (Hạnh phúc −10, Sức mạnh +1, Tài sản −5), dấu ấn "dungeon_1_submissive"
+
+
+Nhắc lại: (dungeon_1_swallowed) Thỉnh thoảng bụng bạn vẫn phát ra ánh sáng tím nhạt mỗi khi trời tối. · (dungeon_1_submissive) Snik vẫn nhìn bạn bằng ánh mắt thất vọng vì sự hèn nhát năm ấy.
+
+
+Khoảnh khắc: Trong bóng tối Hầm ngục, lòng tham luôn sáng hơn bất cứ viên ngọc nào.
+
+
+[goblin_arc_dungeon_2] Sập Hầm Cấp Ba
+Mạch: dungeon · Nút: 2/4
+
+
+Khi nào: tuổi 4–6 · Học lỏm · CẦN dấu ấn "dungeon_1_swallowed" hoặc "dungeon_1_choked" hoặc "dungeon_1_submissive"
+
+
+Tình huống: Trần Hầm ngục cấp ba bất ngờ đổ sụp do bọn lính Dwarf đánh mìn. Đá tảng lăn ầm ầm. Snik bị một tảng đá đè nát nửa người, đang với tay về phía bạn cầu cứu. Phía sau bà là một hòm đồ vừa lộ ra.
+
+
+A. Hợp sức cạy đá cứu mẹ — dựa vào [Sức mạnh], [RẤT KHÓ]
+
+
+
+Thành công: Bạn gầm lên vần tảng đá ra. Snik thoát chết nhưng vĩnh viễn liệt nửa người, phải bám trên lưng bạn. → (Sức mạnh +2, Danh vọng +10, Hạnh phúc +15), dấu ấn "dungeon_2_saved"
+
+
+Thất bại: Tảng đá bất di bất dịch. Trần hang tiếp tục sụp, bạn buộc phải bỏ chạy trong tiếng la hét thảm thiết của Snik bị đá đè nát bấy. → (Hạnh phúc −30), Snik CHẾT, dấu ấn "dungeon_2_crushed"
+
+
+B. Bỏ mặc Snik, ôm hòm đồ bỏ chạy — Bạn nhặt chiếc hòm sắt nhỏ cắm cổ chạy thục mạng. Snik trút hơi thở cuối cùng nguyền rủa đứa con bất hiếu. → (Tài sản +30, Danh vọng −10, Hạnh phúc −20), Snik CHẾT, dấu ấn "dungeon_2_looted"
+
+
+Nhắc lại: (dungeon_2_saved) Mẹ Snik gầy gò luôn lẩm bẩm những lời sấm truyền kỳ lạ trên lưng bạn. · (dungeon_2_looted) Chiếc hòm sắt đẫm máu Snik đã mang lại cho bạn bước khởi đầu của quyền lực.
+
+
+[goblin_arc_dungeon_3] Tiếng Gọi Từ Vực Thẳm
+Mạch: dungeon · Nút: 3/4
+
+
+Khi nào: tuổi 6–11 · Khổ luyện · CẦN dấu ấn "dungeon_2_saved" hoặc "dungeon_2_crushed" hoặc "dungeon_2_looted"
+
+
+Tình huống: Bạn đi lạc vào Lõi Hầm Ngục. Một khối tinh thể đen đặc sền sệt thì thầm vào tai bạn, hứa ban cho ma thuật tối thượng nếu bạn dâng hiến thứ quý giá nhất của mình.
+
+
+A. (Nếu có dungeon_2_saved) Ném mẹ Snik vào lõi tinh thể — dựa vào [Trí tuệ], [VỪA]
+
+
+
+Thành công: Bạn lạnh lùng ném mụ già phế nhân vào khối tinh thể. Tiếng thét của mụ bị nuốt chửng, hắc ám bùng nổ bao trùm lấy bạn. → (Trí tuệ +4, Danh vọng +20, Hạnh phúc −40), có "dark_pact", Snik CHẾT, dấu ấn "dungeon_3_sacrifice"
+
+
+Thất bại: Snik bấu chặt lấy cổ bạn, kéo cả hai ngã nhào. Ánh sáng hắc ám thiêu rụi bà ta và làm bạn mù một mắt. Bạn lãnh ngộ ma thuật nhưng cái giá quá đắt. → (Trí tuệ +2, Sức khỏe −30), có "dark_pact", Snik CHẾT, dấu ấn "dungeon_3_halfsacrifice"
+
+
+B. Dâng hiến một nửa tuổi thọ của chính mình — Bạn cắt cổ tay, rỏ máu vào tinh thể đen. Nó hút sinh khí của bạn bừng sáng. Bạn yếu đi nhiều nhưng nắm trong tay ngọn lửa đen Hắc Ám. → (Sức khỏe −40, Trí tuệ +3), có "dark_pact", mở đường thăng Shaman, dấu ấn "dungeon_3_bloodpact"
+
+
+Nhắc lại: (dungeon_3_sacrifice) Khối tinh thể đen thi thoảng lại vang lên tiếng kêu cứu thảm thiết của mẹ Snik. · (dungeon_3_bloodpact) Làn da nhăn nheo trước tuổi là minh chứng cho khế ước ở Lõi Hầm Ngục.
+
+
+[goblin_arc_dungeon_4] Bóng Tối Nuốt Chửng
+Mạch: dungeon · Nút: 4/4
+
+
+Khi nào: tuổi 11+ · Tranh quyền · CẦN dấu ấn "dungeon_3_sacrifice" hoặc "dungeon_3_halfsacrifice" hoặc "dungeon_3_bloodpact"
+
+
+Tình huống: Guild Bình Minh dốc toàn lực thanh trừng Hầm ngục. Hàng trăm chiến binh Human đổ xuống. Bộ lạc Goblin hoảng loạn nháo nhác. Với ấn chú "dark_pact" trên tay, bạn là kẻ duy nhất có khả năng lật ngược thế cờ.
+
+
+A. Giải phóng toàn bộ Hắc Ám hủy diệt tất cả — dựa vào [Trí tuệ], [RẤT KHÓ]
+
+
+
+Thành công: Bạn niệm chú tà ác, sụp đổ trần hầm ngục, chôn vùi toàn bộ lính Human lẫn bộ lạc của mình. Bạn bước ra từ đống đổ nát, trở thành Vua Shaman duy nhất còn sống sót. → (Danh vọng +50, Hạnh phúc −30), thăng bậc Goblin Shaman Lord, dấu ấn "dungeon_4_lord"
+
+
+Thất bại: Ma thuật vượt quá giới hạn thể xác. Bạn nổ tung thành một vũng máu đen trước khi kịp niệm xong chú. → CHẾT (Nổ tung do ma thuật hắc ám quá tải), dấu ấn "dungeon_4_exploded"
+
+
+B. Dùng ma thuật thao túng tâm trí lính Human mở đường máu — Bạn thôi miên đội tiên phong làm lá chắn để rẽ lối chạy trốn. Bạn thoát ra khỏi Hầm ngục, mất bộ lạc nhưng giữ được mạng cùng vô số châu báu. → (Tài sản +40, Sức khỏe −10), sống sót thoát hầm ngục, dấu ấn "dungeon_4_escaped"
+
+
+Khoảnh khắc: Cuối cùng, chính bóng tối của hầm ngục đã nhuộm đen tâm hồn bạn, hoàn hảo và trọn vẹn.
+
+
+Kết đời (dungeon_4_lord): Cả cuộc đời bò lết trong đống rác hầm ngục đã nhào nặn ra một ác quỷ thao túng bóng tối. Dù bạn cuối cùng cũng gục ngã vì tuổi già, truyền thuyết về Vua Shaman tàn độc nhất Đầm Lầy Tử Khí vẫn còn mãi.
+
+
+Kết đời (dungeon_4_escaped): Sống hèn nhát từ ngày đầu tiên bới rác cho đến khi vác kho báu trốn chạy khỏi hầm ngục, bạn sống thọ hơn hầu hết đồng loại nhờ việc vứt bỏ mọi thứ cản chân mình.
+
+
+MẠCH 3: HANG Ổ GOBLIN CHIEF (chief)
+
+Câu mở mạch: Là con của Ragnok Đồ Tể chẳng mang lại cho bạn thứ gì ngoài ánh mắt thù hằn của cả bộ lạc, và sự ghẻ lạnh của chính ông ta khi coi bạn là thứ giòi bọ ăn hại do một mụ vợ lẽ đẻ ra.
+
+
+Kết dở dang: Bạn chết vì bệnh kiết lị trên chiếc nệm da rách nát, kết thúc chuỗi ngày vô dụng trong bóng râm của kẻ cầm quyền.
+
+
+[goblin_arc_chief_1] Bữa Ăn Của Kẻ Mạnh
+Mạch: chief · Nút: 1/4
+
+
+Khi nào: tuổi 2–4 · Khổ luyện · CẦN dấu ấn "hated" và "chief_son"
+
+
+Tình huống: Ragnok vừa săn về một con hươu ma. Lura đẩy bạn lên, bảo phải ăn trộm được quả tim hươu để có sức mạnh, nhưng con Sói Ma khổng lồ của ông ta đang nằm canh chừng bên cạnh.
+
+
+A. Tẩm độc vào cục thịt khác cho sói ăn — dựa vào [Trí tuệ], [VỪA]
+
+
+
+Thành công: Con sói nhai thịt tẩm nấm độc, nằm co giật sùi bọt mép. Bạn nẫng quả tim hươu nuốt chửng. Cảm giác nóng rực lan tỏa khắp người. → (Sức mạnh +2, Trí tuệ +1), dấu ấn "chief_1_poisoner"
+
+
+Thất bại: Độc không đủ mạnh, con sói táp một cú làm nát bả vai bạn. Bạn khóc ré lên, Ragnok ra đá bay bạn ra khỏi lều. → (Sức khỏe −25, Danh vọng −10), dấu ấn "chief_1_bitten"
+
+
+B. Rón rén bò dưới gầm phản ăn trộm — dựa vào [Nhanh nhẹn], [KHÓ]
+
+
+
+Thành công: Bạn như một cái bóng, luồn qua bụng con sói và giật quả tim hươu chạy biến. Ragnok biết chuyện nhưng chỉ bật cười khùng khục khen ngợi. → (Nhanh nhẹn +2, Danh vọng +10), dấu ấn "chief_1_sneaky"
+
+
+Thất bại: Con sói đè bạn ra ngửi ngửi rồi sủa to. Ragnok phạt bạn nhịn đói ba ngày và treo ngược lên cây. → (Sức khỏe −15, Hạnh phúc −10), dấu ấn "chief_1_starved"
+
+
+Nhắc lại: (chief_1_poisoner) Độc dược luôn là thứ nghệ thuật bí ẩn chảy trong dòng máu vương giả của bạn. · (chief_1_sneaky) Ragnok đôi khi vẫn nhìn bạn bằng nửa con mắt kể từ lần bạn trộm đồ trót lọt.
+
+
+Khoảnh khắc: Con của Chief thì cũng phải tự giành giật mạng sống, quyền lực không dành cho kẻ ngồi chờ.
+
+
+[goblin_arc_chief_2] Trò Tiêu Khiển Của Đồ Tể
+Mạch: chief · Nút: 2/4
+
+
+Khi nào: tuổi 4–6 · Tranh quyền · CẦN dấu ấn "chief_1_poisoner" hoặc "chief_1_bitten" hoặc "chief_1_sneaky" hoặc "chief_1_starved"
+
+
+Tình huống: Để thanh lọc dòng máu, Ragnok vứt bạn và thằng anh cùng cha khác mẹ to xác vào một cái hố sâu, quăng xuống một con dao: "Kẻ nào bước lên được, kẻ đó là thủ lĩnh tương lai!".
+
+
+A. Ném cát mù mắt rồi đâm lén — dựa vào [May mắn], [VỪA]
+
+
+
+Thành công: Cát trúng mắt, thằng anh chới với. Bạn lao tới cắm ngập dao vào cổ nó, trèo lên khỏi hố trong ánh mắt kinh hãi của bộ lạc. → (Danh vọng +20, Sức mạnh +1, Hạnh phúc +10), thăng bậc Goblin Elite, dấu ấn "chief_2_killer"
+
+
+Thất bại: Thằng anh gạt được dao, đấm bạn gãy xương sườn. Bạn phải quỳ lạy bú liếm đôi giày cỏ của nó xin tha mạng mới sống sót. → (Sức khỏe −20, Danh vọng −30, Hạnh phúc −20), giáng chức về Goblin Peon, dấu ấn "chief_2_humiliated"
+
+
+B. (Nếu có chief_1_poisoner) Bôi nọc độc sắn dây vào lưỡi dao — Chẳng cần tốn sức, bạn chỉ cần sượt qua đùi nó một nhát. Lát sau nó sùi bọt mép chết. Ragnok nhìn bạn với ánh mắt vừa tán thưởng vừa dè chừng. → (Trí tuệ +2, Danh vọng +15), thăng bậc Goblin Elite, dấu ấn "chief_2_venom"
+
+
+Nhắc lại: (chief_2_killer) Vết máu của anh ruột dường như chưa bao giờ khô trên con dao của bạn. · (chief_2_humiliated) Trận đòn nhục nhã dưới hố sâu khiến cái mác "con của Chief" trở thành trò hề.
+
+
+[goblin_arc_chief_3] Ngai Vàng Lung Lay
+Mạch: chief · Nút: 3/4
+
+
+Khi nào: tuổi 6–11 · Tranh quyền · CẦN dấu ấn "chief_2_killer" hoặc "chief_2_humiliated" hoặc "chief_2_venom"
+
+
+Tình huống: Ragnok bị một Thánh Kỵ Sĩ chém trọng thương, phế một cánh tay. Đám Elite trong bộ lạc rục rịch lật đổ. Mẹ Lura thì thầm vào tai bạn, dúi một lọ độc: "Giết lão đi, lên ngôi trước khi lũ kia động thủ".
+
+
+A. Đâm lén cha đẻ để cướp ngôi — dựa vào [Nhanh nhẹn], [KHÓ]
+
+
+
+Thành công: Lợi dụng lúc Ragnok hôn mê, bạn cắt cổ ông ta. Bộ lạc gầm thét tuân phục kẻ mạnh nhất. Bạn nhổ toẹt vào xác cha mình rồi ngồi lên ngai xương. → (Danh vọng +40, Tài sản +30), thăng bậc Goblin Chief, Ragnok CHẾT, dấu ấn "chief_3_usurper"
+
+
+Thất bại: Ragnok bừng tỉnh, túm cổ ném văng bạn ra khỏi lều. Ông ta ra lệnh trục xuất bạn khỏi bộ lạc vĩnh viễn. Lura bị xử tử. → (Sức khỏe −30, Danh vọng −40), bị trục xuất, giáng chức về Goblin Peon, mẹ Lura CHẾT, dấu ấn "chief_3_exiled"
+
+
+B. Bảo vệ Ragnok và chém chết đám phản loạn — Bạn đứng gác trước lều, tử chiến với lũ phản đồ. Thấy lòng trung thành của bạn, Ragnok hấp hối truyền lại sức mạnh Hobgoblin cho bạn bằng máu của chính ông ta. → (Sức mạnh +4, Danh vọng +30), có "hobgoblin_blood", Ragnok CHẾT (vì vết thương), thăng bậc Goblin Chief, dấu ấn "chief_3_loyalist"
+
+
+Nhắc lại: (chief_3_usurper) Ngai vàng bạn đang ngồi nhuốm máu của chính Ragnok Đồ Tể. · (chief_3_loyalist) Sức mạnh từ dòng máu cha mình đang chảy rần rật trong cơ thể vạm vỡ của bạn.
+
+
+[goblin_arc_chief_4] Vị Vua Cuối Cùng
+Mạch: chief · Nút: 4/4
+
+
+Khi nào: tuổi 11+ · Tranh quyền · CẦN dấu ấn "chief_3_usurper" hoặc "chief_3_exiled" hoặc "chief_3_loyalist"
+
+
+Tình huống: (Nếu làm Vua) Mùa đông khăc nghiệt, bộ lạc chết đói phân nửa. Thương hội Sói Bạc đến gõ cửa, đề nghị mua 50 ấu tể Goblin đổi lấy thịt muối và vũ khí ấm áp.
+
+
+A. Bán đứng ấu tể lấy lương thực — dựa vào [Danh vọng], [VỪA]
+
+
+
+Thành công: Bạn giao nộp đám trẻ. Bộ lạc sống sót qua mùa đông. Tuy nhiên, trong bóng tối, những ánh mắt thù hận đang nhìn vị bạo chúa của chúng đắm chìm trong sự xa hoa. → (Tài sản +50, Hạnh phúc −20), quyền lực củng cố, dấu ấn "chief_4_slaver"
+
+
+Thất bại: Đám mẹ Goblin nổi điên xé xác lính Sói Bạc, sau đó tràn vào lều tính sổ với bạn. Bạn bị phanh thây trên chính ngai vàng. → CHẾT (Bị dân bộ lạc nổi loạn phanh thây), dấu ấn "chief_4_lynched"
+
+
+B. (Nếu có chief_3_loyalist) Gầm lên lãnh đạo cuộc tấn công Thương hội — Với sức mạnh Hobgoblin, bạn dẫn đầu đoàn quân đói khát phục kích đâm chết bọn Sói Bạc, cướp luôn kho lương của chúng. Lịch sử suy tôn bạn là Vua vĩ đại nhất! → (Danh vọng +50, Sức mạnh +2, Tài sản +30), thăng bậc Goblin King, dấu ấn "chief_4_legend"
+
+
+Khoảnh khắc: Máu lạnh của kẻ cai trị đã làm đóng băng mọi sự cảm thương. Bạn là Chief, bạn là luật pháp!
+
+
+Kết đời (chief_4_slaver / chief_4_legend): Sinh ra trong ánh mắt thù hận, nhưng bạn đã đạp lên tất cả để giữ vững chiếc ngai vàng mục nát. Cái tên của vị Chief tàn bạo nhất bộ lạc sẽ luôn được dùng để dọa những đứa Goblin con khóc nhè vào ban đêm.
+
+
+Kết đời (chief_4_lynched): Kẻ cầm quyền không chết vì kiếm của Mạo hiểm giả, mà chết bởi cơn đói của chính thần dân. Sự ngạo mạn của dòng máu Ragnok cuối cùng cũng bị trả giá đắt.
+
+
+MẠCH 4: BIA TẬP CHÉM TÂN THỦ (orphan)
+
+Câu mở mạch: Bạn mở mắt ra trên bãi bia tập chém của Tân thủ, xung quanh là những cái xác Goblin trẻ con bê bết máu. Tixa đã chết sau khi đẻ ra bạn, bỏ lại bạn một mình đón nhận cơn mưa cung tên.
+
+
+Kết dở dang: Một mũi tên lạc ghim thẳng vào giữa trán. Cuộc đời của một đứa trẻ mồ côi ngắn ngủi và vô nghĩa như một cái chớp mắt.
+
+
+[goblin_arc_orphan_1] Cơn Mưa Tên Bạc
+Mạch: orphan · Nút: 1/4
+
+
+Khi nào: tuổi 2–4 · Khổ luyện · CẦN dấu ấn "orphan"
+
+
+Tình huống: Bọn thực tập sinh Guild Bình Minh đang nhắm bắn vào lũ ấu tể. Một cô gái tóc vàng giương cung ngắm thẳng vào lồng ngực bạn. Trốn chạy trên nền đất phẳng là bất khả thi.
+
+
+A. Nằm rạp xuống giả chết trong đống xác — dựa vào [Trí tuệ], [VỪA]
+
+
+
+Thành công: Mũi tên sượt qua vai, bạn nín thở, bôi máu đồng loại lên mặt. Cô gái bỏ đi cười đùa với đồng đội. Bạn sống sót qua đêm tàn sát đầu tiên. → (Trí tuệ +2, Sức khỏe −10), dấu ấn "orphan_1_playdead"
+
+
+Thất bại: Mũi tên cắm phập vào bắp đùi bạn. Bạn hét lên, tên lính canh lao tới định tung đòn kết liễu, bạn phải giả điên ăn phân lợn để hắn buồn nôn bỏ đi. → (Sức khỏe −25, Danh vọng −20), dấu ấn "orphan_1_madness"
+
+
+B. Nhặt đá liều mạng ném trả — dựa vào [Sức mạnh], [KHÓ]
+
+
+
+Thành công: Hòn đá trúng mắt cô ả, khiến cô ta ôm mặt khóc thét. Trong lúc lộn xộn, bạn chuồn thẳng vào hố bùn. Mầm mống hiếu chiến đã châm ngòi. → (Sức mạnh +2, Danh vọng +10), dấu ấn "orphan_1_defiant"
+
+
+Thất bại: Hòn đá văng trượt. Cô ả tức giận bắn thủng bụng bạn. Chút sức tàn giúp bạn bò xuống cống ngầm ngâm mình trong rác rưởi để giữ mạng. → (Sức khỏe −40, Nhanh nhẹn −2), dấu ấn "orphan_1_gutted"
+
+
+Nhắc lại: (orphan_1_playdead) Mùi máu và phân trong đống xác chết năm ấy vĩnh viễn ám ảnh tâm trí bạn. · (orphan_1_defiant) Vết sẹo thủng bụng luôn nhói đau mỗi khi thấy Mạo hiểm giả tóc vàng.
+
+
+Khoảnh khắc: Mồ côi không có nghĩa là yếu đuối, nó có nghĩa là bạn không còn gì để mất.
+
+
+[goblin_arc_orphan_2] Di Vật Gỉ Sét
+Mạch: orphan · Nút: 2/4
+
+
+Khi nào: tuổi 4–6 · Bới rác · CẦN dấu ấn "orphan_1_playdead" hoặc "orphan_1_madness" hoặc "orphan_1_defiant" hoặc "orphan_1_gutted"
+
+
+Tình huống: Bới trong đống rác vũ khí hỏng của Human, bạn nhặt được nửa thanh kiếm sắt gỉ — di vật của một chiến binh Goblin dũng cảm nào đó, có thể là cha bạn. Một thằng nhóc to xác hơn đòi cướp.
+
+
+A. Vung thanh kiếm gỉ chém điên loạn — dựa vào [Sức mạnh], [VỪA]
+
+
+
+Thành công: Nhát kiếm sắc lẹm xả rách cánh tay thằng to xác. Hắn sợ hãi lùi lại. Bạn ôm khư khư nửa thanh kiếm như bảo vật định mệnh. → (Sức mạnh +1, Tài sản +15), kiếm gỉ làm vũ khí, dấu ấn "orphan_2_blademaster"
+
+
+Thất bại: Lưỡi kiếm rỉ mục gãy đôi khi va chạm. Thằng nhóc tát bạn lật mặt, cướp luôn phần kiếm còn lại bán đồng nát. → (Sức khỏe −15, Hạnh phúc −10), dấu ấn "orphan_2_disarmed"
+
+
+B. Hèn nhát chui háng hắn cầu xin — Bạn vứt mẩu kiếm đi, tự nhận mình là rác rưởi không đáng dùng vũ khí. Thằng nhóc cười hả hê bỏ đi. → (Sức khỏe +10, Danh vọng −15, Hạnh phúc −10), dấu ấn "orphan_2_coward"
+
+
+Nhắc lại: (orphan_2_blademaster) Lưỡi kiếm gỉ rít lên từng hồi như vong hồn chiến binh vô danh gọi tên bạn. · (orphan_2_coward) Đôi tay trắng trơn của bạn vẫn run rẩy mỗi khi chạm tới kim loại.
+
+
+[goblin_arc_orphan_3] Món Nợ Máu
+Mạch: orphan · Nút: 3/4
+
+
+Khi nào: tuổi 6–11 · Khổ luyện · CẦN dấu ấn "orphan_2_blademaster" hoặc "orphan_2_disarmed" hoặc "orphan_2_coward"
+
+
+Tình huống: Cô gái tóc vàng năm xưa giờ đã là Mạo hiểm giả hạng Bạc, đang hống hách dẫn một toán lính đi săn Goblin. Máu của đứa trẻ mồ côi trong bạn sôi sục.
+
+
+A. (Nếu có orphan_2_blademaster) Phục kích găm kiếm gỉ vào cổ họng cô ả — dựa vào [Nhanh nhẹn], [KHÓ]
+
+
+
+Thành công: Nhanh như chớp, bạn lao từ trên cây xuống. Kiếm gỉ đâm xuyên động mạch. Máu Human tưới đẫm người, đánh thức bản năng khát máu tột cùng của quái vật. → (Danh vọng +40, Sức mạnh +3), ả tóc vàng CHẾT, có "hobgoblin_blood", dấu ấn "orphan_3_avenger"
+
+
+Thất bại: Cô ả phản xạ dùng khiên đánh bật bạn ra, chém đứt một tay bạn. Bọn chúng cười cợt tha mạng cho con "Goblin phế vật". → (Sức khỏe −40, Sức mạnh −2), phế một tay, dấu ấn "orphan_3_amputee"
+
+
+B. Dụ chúng vào tổ của Quái Điểu để mượn đao giết người — Bạn dùng tốc độ chạy ngang qua ổ Quái Điểu. Bọn lính đuổi theo bị Quái Điểu xé xác. Bạn nhặt sạch trang bị của chúng. → (Tài sản +40, Trí tuệ +2), ả tóc vàng CHẾT, dấu ấn "orphan_3_trickster"
+
+
+Nhắc lại: (orphan_3_avenger) Dòng máu Hobgoblin thức tỉnh từ thù hận nay là thứ sức mạnh không thể cản phá. · (orphan_3_trickster) Bội thu trang bị từ xác kẻ thù khiến băng nhóm phục sát đất trí tuệ của bạn.
+
+
+[goblin_arc_orphan_4] Truyền Thuyết Đứa Trẻ Không Tên
+Mạch: orphan · Nút: 4/4
+
+
+Khi nào: tuổi 11+ · Thử thách · CẦN dấu ấn "orphan_3_avenger" hoặc "orphan_3_amputee" hoặc "orphan_3_trickster"
+
+
+Tình huống: Trại Goblin bị vây hãm bởi hàng trăm lính canh thành phố. Goblin Chief hèn nhát đã bỏ trốn. Bộ lạc như rắn mất đầu chờ bị làm thịt. Đứa mồ côi năm xưa nay phải đứng ra.
+
+
+A. Gầm lên lãnh đạo trận quyết chiến tử thủ — dựa vào [Danh vọng], [RẤT KHÓ]
+
+
+
+Thành công: Uy danh của bạn làm lũ Goblin ngừng run rẩy. Dưới sự dẫn dắt của bạn, chúng cuồng nộ đánh lui đạo quân lính canh bảo vệ quê nhà. Bạn được tôn vương! → (Danh vọng +50, Hạnh phúc +20), thăng bậc Goblin King, dấu ấn "orphan_4_hero"
+
+
+Thất bại: Lực lượng quá chênh lệch. Bạn chiến đấu tới hơi thở cuối cùng, chém chết hàng chục tên địch trước khi gục ngã bởi hàng trăm ngọn giáo xuyên qua người. → CHẾT (Hi sinh oanh liệt bảo vệ bộ lạc), dấu ấn "orphan_4_martyr"
+
+
+B. Đào hầm dẫn đám ấu tể trốn thoát — Kệ xác bọn Goblin trưởng thành hèn nhát, bạn dùng trí tuệ và sự ranh mãnh cứu thoát toàn bộ thế hệ trẻ mồ côi, xây dựng một bộ lạc mới ở Rừng Sâu. → (Trí tuệ +3, Danh vọng +20, Hạnh phúc +30), làm thủ lĩnh bộ lạc mới, dấu ấn "orphan_4_savior"
+
+
+Khoảnh khắc: Bia tập chém ngày nào nay đã trở thành bức tường đồng vững chắc nhất của chủng tộc.
+
+
+Kết đời (orphan_4_hero / orphan_4_savior): Bắt đầu là một bia thịt mồ côi mặc cho kẻ khác bắn giết, bạn đã sống trọn vẹn một kiếp kiêu hãnh. Di sản bạn để lại không phải là dòng máu cao quý, mà là ý chí bất diệt của sinh vật dưới đáy chuỗi thức ăn.
+
+
+Kết đời (orphan_4_martyr): Một cái chết rực rỡ và đẫm máu. Từ tro tàn của sinh mệnh rẻ rúng, đứa trẻ mồ côi đã trở thành huyền thoại, câu chuyện về bạn sẽ được các Shaman truyền tụng mãi mãi bên bếp lửa Đầm Lầy.
+MẠCH 1: CON CỦA GOBLIN SHAMAN (shaman)
+
+Câu mở mạch: Zikzak Cụt Ngón luôn nhìn bạn bằng con mắt đánh giá một vật tế tiềm năng hơn là một đứa con, còn cái chết vì nổ vạc thuốc của mẹ Nyla luôn nhắc nhở bạn rằng: ma thuật là thứ không có tình người.
+
+
+Kết dở dang: Ma thuật phản phệ đốt cháy não bộ bạn thành một vũng nhầy. Một Shaman tập sự nữa lại bỏ mạng trước khi kịp nhớ được câu thần chú đầu tiên.
+
+
+[goblin_arc_shaman_1] Vạc Thuốc Bốc Mùi
+Mạch: shaman · Nút: 1/4
+
+
+Khi nào: tuổi 2–4 · Khổ luyện · CẦN dấu ấn "shaman_apprentice"
+
+
+Tình huống: Zikzak múc một muôi chất lỏng xanh lét đang sủi bọt từ chiếc vạc từng giết chết mẹ Nyla, ép bạn uống để "mở mang linh hồn". Mùi cóc chết và rễ nấm độc bốc lên nồng nặc.
+
+
+A. Lén ngậm trong miệng rồi nhổ ra sau lều — dựa vào [Trí tuệ], [DỄ]
+
+
+
+Thành công: Lão già mù lòa sương sương không nhận ra. Bạn giả vờ co giật vài cái cho giống thật rồi tẩu thoát êm ru. → (Trí tuệ +1, Hạnh phúc +5), dấu ấn "shaman_1_fake"
+
+
+Thất bại: Lão tóm cổ bạn, bóp miệng đổ tuột gáo thuốc xuống họng. Dạ dày bạn lộn mửa, nằm bẹp ba ngày. → (Sức khỏe −15, Thân thiết với {father} −10), dấu ấn "shaman_1_forced"
+
+
+B. Nuốt chửng để chứng minh sức mạnh — Chất độc đốt cháy cổ họng bạn nhưng làm mắt bạn sáng quắc trong đêm. Zikzak gật gù khen ngợi nanh vuốt của bạn. → (Sức khỏe −10, Trí tuệ +2, Thân thiết với {father} +15), dấu ấn "shaman_1_drinker"
+
+
+Nhắc lại: (shaman_1_fake) Bạn thường mỉm cười xảo quyệt khi nhớ lại cú lừa đầu đời trót lọt với chính cha mình. · (shaman_1_forced) Dạ dày bạn vẫn thắt lại mỗi khi ngửi thấy mùi nấm độc sủi bọt.
+
+
+Khoảnh khắc: Đứa trẻ của Shaman sớm nhận ra sinh tồn là nghệ thuật của sự lừa dối, kể cả với máu mủ ruột rà.
+
+
+[goblin_arc_shaman_2] Bí Thư Da Người
+Mạch: shaman · Nút: 2/4
+
+
+Khi nào: tuổi 4–6 · Học lỏm · CẦN dấu ấn "shaman_1_fake" hoặc "shaman_1_forced" hoặc "shaman_1_drinker"
+
+
+Tình huống: Zikzak đổ bệnh nặng. Dưới gối lão là cuốn ma đạo thư bọc bằng da Human, thứ mà lão luôn giấu kín. Đây là cơ hội nghìn năm có một để chạm vào ma thuật thực sự.
+
+
+A. Đánh cắp cuốn sách và bỏ trốn vào Rừng Sâu — dựa vào [Nhanh nhẹn], [KHÓ]
+
+
+
+Thành công: Bạn cuỗm cuốn sách, lặn vào màn đêm trước khi lão tỉnh. Chẳng ai dạy, bạn tự mài giũa ma pháp từ những trang sách đẫm máu. → (Trí tuệ +3, Tài sản +20, Thân thiết với {father} −50), dấu ấn "shaman_2_thief"
+
+
+Thất bại: Zikzak bật dậy, dùng quyền trượng đập gãy một cánh tay của bạn. Lão gầm lên rủa xả sự phản trắc của bạn. → (Sức khỏe −25, Sức mạnh −2, Thân thiết với {father} −30), dấu ấn "shaman_2_beaten"
+
+
+B. Tận tụy sắc thuốc và chăm sóc lão — Bạn kiên nhẫn hầu hạ. Khi bình phục, lão thở dài, ném cho bạn cuốn sách và bảo: "Ít ra mày không ngu như con mụ Nyla". → (Trí tuệ +2, Danh vọng +5, Thân thiết với {father} +20), dấu ấn "shaman_2_heir"
+
+
+Nhắc lại: (shaman_2_thief) Chạm tay vào bìa sách da người, bạn vẫn nhớ ánh mắt ngỡ ngàng của Zikzak đêm đó. · (shaman_2_beaten) Cánh tay từng gãy luôn nhức nhối khi bạn tập trung niệm chú.
+
+
+[goblin_arc_shaman_3] Oán Linh Của Nyla
+Mạch: shaman · Nút: 3/4
+
+
+Khi nào: tuổi 6–11 · Khổ luyện · CẦN dấu ấn "shaman_2_thief" hoặc "shaman_2_beaten" hoặc "shaman_2_heir"
+
+
+Tình huống: Để thăng cấp lên Goblin Shaman, bạn phải gọi hồn người chết. Vong linh hiện lên lại chính là mẹ Nyla, gào thét đòi mạng Zikzak vì lão đã cố tình làm nổ vạc thuốc năm xưa để hiến tế bà.
+
+
+A. (Nếu Zikzak còn sống) Giúp oán linh Nyla kết liễu Zikzak — dựa vào [Trí tuệ], [VỪA]
+
+
+
+Thành công: Bạn yểm bùa khóa chặt Zikzak, để hồn ma Nyla xé xác lão. Hắc ám cuồn cuộn chảy vào người bạn qua khế ước với người mẹ đã khuất. → (Trí tuệ +4, Danh vọng +20), Zikzak CHẾT, có "dark_pact", thăng bậc Goblin Shaman, dấu ấn "shaman_3_matricide"
+
+
+Thất bại: Zikzak quá mạnh. Lão dùng bùa chú đánh tan hồn ma Nyla một lần nữa và đày bạn ra làm bia đỡ đạn cho bộ lạc. → (Sức khỏe −30, Danh vọng −20), giáng chức về Goblin Peon, dấu ấn "shaman_3_exiled"
+
+
+B. Dùng ma thuật phong ấn linh hồn mẹ mãi mãi — Bạn lạnh lùng niệm chú nhốt Nyla vào một viên pha lê để làm nguồn năng lượng dự trữ, chứng minh với ma quỷ rằng bạn tàn nhẫn hơn cả cha mình. → (Trí tuệ +3, Tài sản +30, Hạnh phúc −20), có "dark_pact", dấu ấn "shaman_3_sealed"
+
+
+Nhắc lại: (shaman_3_matricide) Ma thuật của bạn luôn vương vấn tiếng thét hân hoan báo thù của mẹ Nyla. · (shaman_3_sealed) Viên pha lê giam giữ linh hồn mẹ thi thoảng lại rung lên trên cổ bạn.
+
+
+[goblin_arc_shaman_4] Chúa Tể Hắc Ám
+Mạch: shaman · Nút: 4/4
+
+
+Khi nào: tuổi 11+ · Tranh quyền · CẦN dấu ấn "shaman_3_matricide" hoặc "shaman_3_exiled" hoặc "shaman_3_sealed"
+
+
+Tình huống: Một đại quân Thánh Kỵ Sĩ bao vây Đầm Lầy Tử Khí. Goblin Chief quỳ gối xin hàng. Bạn là hy vọng duy nhất, đứng trước ngã rẽ mở Cổng Địa Ngục triệu hồi Quỷ Lùn bằng cách hiến tế toàn bộ sinh lực của bản thân.
+
+
+A. Mở Cổng Địa Ngục, cược cả sinh mệnh — dựa vào [Danh vọng], [RẤT KHÓ]
+
+
+
+Thành công: Đất nứt toác. Quỷ Lùn trồi lên cắn xé đám Kỵ Sĩ. Lũ Goblin run rẩy tôn bạn làm Chúa Tể. Ma pháp bảo vệ bạn khỏi cái chết nhưng khiến thân thể biến dạng vĩnh viễn. → (Danh vọng +50, Trí tuệ +3, Sức khỏe −40), thăng bậc Goblin Shaman Lord, dấu ấn "shaman_4_lord"
+
+
+Thất bại: Pháp trận quá tải. Cánh cửa địa ngục hút bạn vào trong trước khi kịp hoàn thành bùa chú. Bạn bị ác quỷ nhai xương nơi đáy vực. → CHẾT (Bị Cổng Địa Ngục nuốt chửng), dấu ấn "shaman_4_devoured"
+
+
+B. Dùng phép Dịch Chuyển đào tẩu cùng kho báu — Kệ xác bọn Thánh Kỵ Sĩ và bộ lạc, bạn vơ vét hết tiền vàng rồi dùng ma thuật chạy trốn sang vương quốc của Orc, sống một đời nhàn nhã của kẻ cơ hội. → (Tài sản +50, Danh vọng −40, Hạnh phúc +20), sống sót an nhàn, dấu ấn "shaman_4_coward"
+
+
+Khoảnh khắc: Ma thuật tối thượng không màng đến thiện ác, nó chỉ mỉm cười với kẻ dám trả giá bằng chính linh hồn mình.
+
+
+Kết đời (shaman_4_lord): Từ một học việc uống thuốc thừa, bạn đã dẫm lên xác cha mẹ để trở thành vị Shaman Lord tàn bạo nhất lịch sử. Khi bạn ngã xuống, bóng tối Đầm Lầy Tử Khí dường như cũng sụp đổ theo cùng.
+
+
+Kết đời (shaman_4_coward): Sống hèn nhát ranh mãnh cho đến tận lúc nhắm mắt xuôi tay, bạn chứng minh rằng người dùng phép giỏi nhất không phải người giết được nhiều kẻ địch nhất, mà là người chạy trốn nhanh nhất.
+
+
+Kết đời (shaman_4_devoured): Chơi đùa với ngọn lửa địa ngục cuối cùng cũng khiến bạn bị thiêu rụi. Khát vọng quyền lực của một Shaman khép lại bằng tiếng gào thét nơi cõi âm ti.
+
+
+MẠCH 2: ĐỘT BIẾN DỊ THƯỜNG (mutant)
+
+Câu mở mạch: Dòng máu Hobgoblin từ gã cha lang thang khiến cơ thể bạn to lớn và sục sôi bạo lực hơn bất kỳ đứa trẻ nào, nhưng mẹ Vrex luôn dặn: "Giấu nanh đi con, ở bộ lạc này, cơ bắp to chỉ là thứ bia đỡ đạn tuyệt vời nhất".
+
+
+Kết dở dang: Cơ thể to lớn đổ gục xuống bùn, bị vô số giáo mác đâm xuyên. Cuối cùng, bạn cũng chỉ là một khối thịt nhiều máu hơn bình thường, kết liễu số phận của một con tốt thí.
+
+
+[goblin_arc_mutant_1] Thú Đói Giữa Bầy
+Mạch: mutant · Nút: 1/4
+
+
+Khi nào: tuổi 2–4 · Bới rác · CẦN dấu ấn "hobgoblin_blood"
+
+
+Tình huống: Bầy Goblin con quây lại ném đá vào bạn vì thân hình quá khổ và màu da đỏ ối kỳ dị. Thằng nhóc cầm đầu định dùng cành cây nhọn chọc mù mắt bạn để "cảnh cáo".
+
+
+A. Gầm lên và bẻ gãy cổ thằng cầm đầu — dựa vào [Sức mạnh], [VỪA]
+
+
+
+Thành công: Bạn vung tay tát một cái khiến cổ nó gãy gập. Bầy Goblin con kinh hãi tản ra, quỳ rạp dưới chân một tiểu ác quỷ mới nhú. → (Sức mạnh +2, Danh vọng +10), dấu ấn "mutant_1_killer"
+
+
+Thất bại: Đám đông xúm lại đè bạn xuống đánh nhừ tử. Mẹ Vrex phải lao ra hứng đòn thay và van xin chúng tha mạng cho bạn. → (Sức khỏe −15, Hạnh phúc −10, Thân thiết với {mother} +15), dấu ấn "mutant_1_beaten"
+
+
+B. Cuộn tròn chịu trận như lời mẹ dặn — Bạn cắn răng chịu những hòn đá sắc lẹm rạch nát da thịt, kìm nén con thú bên trong. Bọn chúng chán nản bỏ đi, Vrex khóc ôm lấy bạn. → (Sức khỏe −10, Danh vọng −5, Hạnh phúc −10), dấu ấn "mutant_1_patient"
+
+
+Nhắc lại: (mutant_1_killer) Tiếng rắc của đốt sống cổ thằng nhóc năm ấy vẫn là âm thanh êm tai nhất bạn từng nghe. · (mutant_1_patient) Vết sẹo lởm chởm trên lưng là huy chương cho sự nhẫn nhục đầu đời.
+
+
+Khoảnh khắc: Sức mạnh khác biệt luôn thu hút sự đố kỵ, và bạo lực là ngôn ngữ duy nhất bầy đàn này hiểu.
+
+
+[goblin_arc_mutant_2] Lò Mổ Của Sói Bạc
+Mạch: mutant · Nút: 2/4
+
+
+Khi nào: tuổi 4–6 · Phục dịch bộ lạc · CẦN dấu ấn "mutant_1_killer" hoặc "mutant_1_beaten" hoặc "mutant_1_patient"
+
+
+Tình huống: Thương hội Sói Bạc đến thu mua nô lệ. Thấy thể trạng dị thường của bạn, tên thương nhân ném một túi vàng ròng cho Goblin Chief. Lính Sói Bạc quăng thòng lọng gai định trói cổ bạn giải đi.
+
+
+A. Giật đứt thòng lọng và bỏ chạy cùng Vrex — dựa vào [Nhanh nhẹn], [KHÓ]
+
+
+
+Thành công: Bạn giật tung dây thừng, cõng mẹ Vrex phóng như điên vào Rừng Tân Thủ. Cả hai mẹ con trở thành kẻ lang thang nhưng được tự do. → (Nhanh nhẹn +2, Sức khỏe −10, Hạnh phúc +20), dấu ấn "mutant_2_escaped"
+
+
+Thất bại: Bọn lính phóng lao đâm xuyên bắp chân bạn. Bạn bị đánh thuốc mê, tỉnh dậy thấy mình đang bị giam trong lồng sắt hướng về Đấu trường ngầm. → (Sức khỏe −30, Danh vọng −20), Vrex bị bỏ lại, dấu ấn "mutant_2_caged"
+
+
+B. Chấp nhận làm lính đánh thuê cho chúng — Kệ xác bộ lạc nghèo hèn, bạn ưỡn ngực đi theo Sói Bạc, hứa hẹn sẽ mang lại cho chúng nhiều vàng hơn nếu được cầm vũ khí thay vì đeo xích. Tên thương nhân mỉm cười đồng ý. → (Sức mạnh +2, Tài sản +30, Danh vọng +10), rời bỏ bộ lạc, dấu ấn "mutant_2_merc"
+
+
+Nhắc lại: (mutant_2_escaped) Đôi chân to lớn của bạn đã cứu mạng cả hai mẹ con khỏi gông xiềng nô lệ. · (mutant_2_caged) Vết cháy xém từ chiếc cùm sắt của Sói Bạc vẫn hằn rõ trên cổ tay bạn.
+
+
+[goblin_arc_mutant_3] Thức Tỉnh Hoàn Toàn
+Mạch: mutant · Nút: 3/4
+
+
+Khi nào: tuổi 6–11 · Khổ luyện · CẦN dấu ấn "mutant_2_escaped" hoặc "mutant_2_caged" hoặc "mutant_2_merc"
+
+
+Tình huống: Cơ thể bạn phát triển đến mức đau đớn tột cùng khi máu Hobgoblin đòi hỏi phải lột xác. Bạn đứng trước nguy cơ vỡ nát tim mạch nếu không tìm được cách đột phá.
+
+
+A. Săn và uống máu Hùng Tinh (Gấu Ma) để dung hòa — dựa vào [Sức mạnh], [VỪA]
+
+
+
+Thành công: Bạn vật ngã con Hùng Tinh, xé cổ nó nốc cạn dòng máu nóng. Cơ bắp cuồn cuộn vươn cao, da chuyển đỏ thẫm. Bạn đã chính thức hóa thành Hobgoblin! → (Sức mạnh +5, Sức khỏe hồi phục 100), tiến hóa Hobgoblin, dấu ấn "mutant_3_awakened"
+
+
+Thất bại: Con gấu tát lột da đầu bạn. Bạn may mắn thoát chết nhờ sức sống dai dẳng nhưng quá trình tiến hóa bị đình trệ, để lại di chứng đau nhức kinh niên. → (Sức khỏe −40, Danh vọng −10), dấu ấn "mutant_3_failed"
+
+
+B. Tìm đến Shaman Đầm Lầy nhờ phong ấn dòng máu — Quá sợ hãi sự biến dị, bạn nhờ pháp sư yểm bùa. Bạn ngừng lớn, sức mạnh giảm sút nhưng bù lại học được sự ranh mãnh và sống dai hơn của Goblin thuần chủng. → (Trí tuệ +2, Sức mạnh −3, Sức khỏe +20), mất ấn hobgoblin_blood, dấu ấn "mutant_3_sealed"
+
+
+Nhắc lại: (mutant_3_awakened) Thân hình khổng lồ của một Hobgoblin khiến mọi tiếng gầm của bạn đều như sấm động. · (mutant_3_sealed) Lớp bùa chú trên ngực nhắc nhở bạn đã từng chối bỏ sức mạnh kinh hoàng nhường nào.
+
+
+[goblin_arc_mutant_4] Vị Vua Ngoại Lai
+Mạch: mutant · Nút: 4/4
+
+
+Khi nào: tuổi 11+ · Tranh quyền · CẦN dấu ấn "mutant_3_awakened" hoặc "mutant_3_failed" hoặc "mutant_3_sealed"
+
+
+Tình huống: Bộ lạc Goblin cũ (hoặc một bộ lạc mới) đang bị tộc Orc đàn áp thu cống nạp. Với hình hài hiện tại, bạn quay lại đứng trước Goblin King hèn nhát, đòi đoạt ngôi để dẫn dắt bầy đàn rửa nhục.
+
+
+A. Một tay bóp nát sọ Goblin King đương nhiệm — dựa vào [Sức mạnh], [RẤT KHÓ]
+
+
+
+Thành công: Goblin King chưa kịp rút dao đã bị bạn nhấc bổng, bóp nát sọ như một quả dưa. Bọn Orc kinh hồn bạt vía bỏ chạy. Bộ lạc tôn thờ bạn như thần chiến tranh. → (Danh vọng +50, Tài sản +40), thăng bậc Goblin King, dấu ấn "mutant_4_usurper"
+
+
+Thất bại: Áo giáp giấu kín của hắn đâm thủng tay bạn. Lính gác của hắn ùa lên băm vằm bạn thành đống bầy nhầy. Bạn chết vì quá ngạo mạn. → CHẾT (Bị lính gác của King phanh thây), dấu ấn "mutant_4_dead"
+
+
+B. (Nếu có mutant_3_awakened) Thách đấu thủ lĩnh Orc — Bạn bỏ qua bọn Goblin rác rưởi, tiến thẳng tới trại Orc gầm lên thách đấu gã Chieftain to như tòa nhà. Trận chiến rung chuyển Đầm Lầy, bạn chặt đầu hắn, ép tộc Orc phải cúi đầu trước một Hobgoblin! → (Danh vọng +60, Sức mạnh +3, Tài sản +50), thống nhất Orc và Goblin, dấu ấn "mutant_4_warlord"
+
+
+Khoảnh khắc: Đột biến không phải là lời nguyền, đó là sự lựa chọn của vận mệnh để sinh ra kẻ thống trị.
+
+
+Kết đời (mutant_4_usurper): Kẻ bị hắt hủi vì sự khác biệt nay đã ngồi trên ngai vàng bằng xương kẻ thù. Cả một đời chém giết, bạn đã chứng minh rằng ở Đầm Lầy, cơ bắp và sự tàn bạo chính là chân lý.
+
+
+Kết đời (mutant_4_warlord): Không chỉ thống trị Goblin, bạn đã bắt cả loài Orc kiêu ngạo phải rạp mình. Huyền thoại về Huyết Quái Hobgoblin sẽ còn làm Mạo hiểm giả run sợ nhiều thế kỷ sau.
+
+
+Kết đời (mutant_4_dead): Cậy mạnh khinh địch, khối cơ bắp của bạn cuối cùng cũng gục ngã trước mưu hèn kế bẩn. Sự dị thường của bạn trở thành trò cười trong những quán nhậu của Human.
+
+
+MẠCH 3: TÙ BINH TRẠI ORC (slave)
+
+Câu mở mạch: Tiếng roi vút xé gió của gã cai ngục Orc là bài hát ru duy nhất bạn biết, và tấm lưng gầy gò túa máu của mẹ Grukia đang cong gập đẩy cối xay là hình ảnh đầu tiên bạn ghi tạc vào lòng.
+
+
+Kết dở dang: Một cú vung chùy của tên cai ngục vỡ nát sọ bạn vì làm rơi một giỏ than. Đời nô lệ kết thúc nhanh gọn, rẻ rúng hệt như lúc nó bắt đầu.
+
+
+[goblin_arc_slave_1] Mẩu Bánh Của Chó
+Mạch: slave · Nút: 1/4
+
+
+Khi nào: tuổi 2–4 · Bới rác · CẦN dấu ấn "orc_slave"
+
+
+Tình huống: Bụng đói hoa mắt, bạn thấy con chó ngao của gã cai ngục Orc đang nhai dở một nửa ổ bánh mì thịt ngon lành. Đã ba ngày bạn và Grukia không có gì vào bụng ngoài nước bùn.
+
+
+A. Nhào vào giành giật với con chó ngao — dựa vào [Nhanh nhẹn], [VỪA]
+
+
+
+Thành công: Bạn luồn háng con quái thú, chộp lấy nửa ổ bánh rồi trèo tót lên mái lán. Nó sủa váng trời nhưng bạn đã ném được phần lớn bánh xuống cho mẹ. → (Nhanh nhẹn +2, Hạnh phúc +10), dấu ấn "slave_1_thief"
+
+
+Thất bại: Con chó ngoạm rách bắp đùi bạn. Tên cai ngục đi ngang qua cười hô hố, đá bạn văng vào đống phân súc vật. Mẹ Grukia khóc nấc ôm lấy bạn. → (Sức khỏe −20, Danh vọng −10), dấu ấn "slave_1_bitten"
+
+
+B. Bò rạp xuống vẫy đuôi xin ăn — Bạn bắt chước bộ dạng con chó, sủa gâu gâu trước mặt tên Orc. Hắn thấy vui mắt bèn ném mẩu bánh mì dính đất cho bạn. Sinh tồn là không màng liêm sỉ. → (Sức khỏe +5, Hạnh phúc −20, Danh vọng −15), dấu ấn "slave_1_dog"
+
+
+Nhắc lại: (slave_1_thief) Kỹ năng giật đồ từ mõm thú dữ đã rèn đôi tay bạn nhanh thoăn thoắt. · (slave_1_dog) Cảm giác nhục nhã khi phải sủa như chó cầu xin miếng ăn vẫn sôi sục trong tâm trí.
+
+
+Khoảnh khắc: Ở trại Orc, mạng sống của Goblin rẻ hơn thức ăn thừa của súc vật.
+
+
+[goblin_arc_slave_2] Cối Xay Máu
+Mạch: slave · Nút: 2/4
+
+
+Khi nào: tuổi 4–6 · Khổ luyện · CẦN dấu ấn "slave_1_thief" hoặc "slave_1_bitten" hoặc "slave_1_dog"
+
+
+Tình huống: Mẹ Grukia gục ngã bên cối xay lúa khổng lồ vì lao lực. Gã cai ngục vung roi da nham nhở gai sắt, gầm lên bắt bà đứng dậy nếu không sẽ đánh tới chết.
+
+
+A. Chạy tới lãnh đòn thay mẹ — dựa vào [Sức khỏe], [KHÓ]
+
+
+
+Thành công: Lưng bạn chịu năm nhát roi xé thịt nhưng bạn không hé răng nửa lời. Gã cai ngục chán nản bỏ đi. Grukia thều thào gọi bạn là đứa con ngoan nhất. → (Sức khỏe −20, Danh vọng +10, Thân thiết với {mother} +30), dấu ấn "slave_2_shield"
+
+
+Thất bại: Trận đòn quá nặng khiến bạn ngất lịm, gãy mấy xương sườn. Khi tỉnh lại, mẹ Grukia đã bị đánh chết và quăng cho chó ăn. Bạn mồ côi. → (Sức khỏe −30, Hạnh phúc −40), Grukia CHẾT, dấu ấn "slave_2_orphan"
+
+
+B. Cúi gầm mặt lao vào thay mẹ đẩy cối xay — Bạn hì hục dùng thân hình nhỏ bé đẩy khối đá khổng lồ. Gã cai ngục hất hàm tha cho Grukia. Bạn làm việc quần quật suốt ba năm, cơ bắp chai sạn như sắt. → (Sức mạnh +3, Sức khỏe −15, Hạnh phúc −10), dấu ấn "slave_2_grinder"
+
+
+Nhắc lại: (slave_2_shield) Những vết sẹo chéo nhằng nhịt trên lưng là minh chứng cho trận đòn cứu mẹ năm xưa. · (slave_2_grinder) Vai bạn chai sần thành cục vì những năm tháng đẩy cối xay đá ở Trại Orc.
+
+
+[goblin_arc_slave_3] Đêm Nổi Loạn
+Mạch: slave · Nút: 3/4
+
+
+Khi nào: tuổi 6–11 · Tranh quyền · CẦN dấu ấn "slave_2_shield" hoặc "slave_2_orphan" hoặc "slave_2_grinder"
+
+
+Tình huống: Bọn Orc mở tiệc rượu say xỉn. Một lão Goblin mù âm thầm tuồn dao găm cho các nô lệ, thì thầm kế hoạch cứa cổ lính canh để phá cũi thoát thân.
+
+
+A. Cầm đầu nhóm đột kích lều cai ngục — dựa vào [Danh vọng], [KHÓ]
+
+
+
+Thành công: Bạn lẻn vào đâm xuyên cổ họng gã cai ngục từng đánh mẹ mình, đoạt chìa khóa giải phóng hàng trăm Goblin. Bạn dẫn dắt đoàn người trốn vào hầm ngục. → (Danh vọng +30, Tài sản +10, Hạnh phúc +20), thoát kiếp nô lệ, thăng bậc Goblin Leader, dấu ấn "slave_3_rebel"
+
+
+Thất bại: Kế hoạch bại lộ. Bạn bị bắt lại, bị chặt đứt ba ngón tay và đeo cùm ngầm bằng thép nung đỏ suốt phần đời còn lại. → (Sức khỏe −40, Sức mạnh −2, Danh vọng −20), dấu ấn "slave_3_crippled"
+
+
+B. Mật báo kế hoạch cho bọn Orc để lập công — Trí khôn của kẻ hèn hạ lên tiếng. Bọn Orc thưởng cho bạn (và mẹ, nếu còn) thân phận "tự do giả tạo", bắt bạn làm cai giám sát chính đồng loại mình. → (Tài sản +20, Danh vọng −40, Hạnh phúc −20), trở thành cai nô lệ, dấu ấn "slave_3_traitor"
+
+
+Nhắc lại: (slave_3_rebel) Đêm rực lửa ở Trại Orc là khoảnh khắc bạn biết Goblin cũng có thể vùng lên. · (slave_3_traitor) Ánh mắt khinh bỉ của đồng loại vĩnh viễn thiêu đốt tâm can bạn mỗi khi bạn cầm roi.
+
+
+[goblin_arc_slave_4] Kẻ Phá Xiềng
+Mạch: slave · Nút: 4/4
+
+
+Khi nào: tuổi 11+ · Thử thách · CẦN dấu ấn "slave_3_rebel" hoặc "slave_3_crippled" hoặc "slave_3_traitor"
+
+
+Tình huống: (Nếu trốn thoát) Thủ lĩnh Orc dẫn quân tinh nhuệ lùng sục xuống tận sâu Đầm Lầy để đòi lại bầy nô lệ. Hàng trăm Goblin trốn chạy đang kêu gào tuyệt vọng, dồn mắt nhìn về phía bạn - kẻ đã thắp lên ngọn lửa hy vọng của chúng.
+
+
+A. Bày mưu sập hầm ngục chôn sống quân Orc — dựa vào [Trí tuệ], [VỪA]
+
+
+
+Thành công: Bạn kích nổ vách đá, hàng vạn tấn bùn đá ụp xuống chôn vùi đội quân Orc. Lũ Goblin nô lệ gầm vang, suy tôn bạn làm Vua của Đế chế Tự do vĩ đại! → (Trí tuệ +2, Danh vọng +50, Hạnh phúc +30), thăng bậc Goblin King, dấu ấn "slave_4_king"
+
+
+Thất bại: Đất lở không đúng chỗ. Bọn Orc tràn vào tàn sát không chừa một ai. Bạn bị đóng đinh lên thập tự giá bằng sắt, chứng kiến bộ lạc diệt vong. → CHẾT (Bị đóng đinh trên thập tự giá), dấu ấn "slave_4_crucified"
+
+
+B. (Nếu có slave_3_traitor) Dẫn quân Orc vây bắt đồng loại — Bạn không còn đường lui, tiếp tục làm con chó ngoan dẫn đường cho Orc tàn sát bầy đàn. Cuối trận đánh, gã thủ lĩnh Orc đâm xuyên qua lưng bạn với nụ cười nhạt: "Kẻ phản bội đồng loại không bao giờ đáng tin". → CHẾT (Bị chủ nhân Orc đâm lén sau lưng), dấu ấn "slave_4_betrayed"
+
+
+Khoảnh khắc: Sợi dây xích quấn quanh cổ Goblin không làm bằng sắt, nó làm bằng nỗi sợ hãi mà bạn đã đập tan.
+
+
+Kết đời (slave_4_king): Từ một mẩu bánh xin chó của bọn giặc, bạn đã dẫn dắt giống loài mình bước ra khỏi chuỗi ngày đen tối nhất. Goblin sẽ không còn là nô lệ cho bất kỳ ai, miễn là cái tên của Kẻ Phá Xiềng vẫn còn được nhắc lại.
+
+
+Kết đời (slave_4_crucified): Chút ánh sáng tự do lóe lên rồi vụt tắt, nhưng bạn đã chết không như một con súc vật đẩy cối xay đá. Bạn chết như một chiến binh Goblin kiêu hãnh.
+
+
+Kết đời (slave_4_betrayed): Bán rẻ linh hồn và đồng loại chỉ để đổi lấy sự tồn tại thoi thóp, cái chết dưới tay chính kẻ bạn hầu hạ là cái kết nhục nhã, xứng đáng cho kiếp chó săn.
+a) MỞ CHƯƠNG
+Goblin con (2–4 tuổi)
+
+(mồ côi) Tuổi thơ của bạn là những đêm cuộn tròn trong đống rác hôi thối, học cách nhai cả sỏi đá để quên đi cái bụng lép kẹp.
+
+
+(còn cha hoặc mẹ) Sự che chở duy nhất bạn có là bóng lưng gầy gò của đấng sinh thành, dù đôi khi họ nhìn bạn như một suất lương thực dự trữ.
+
+
+(đói khổ) Trong bầy, kẻ nào nhỏ nhất sẽ nhịn đói, và bạn đang phải liếm sương đọng trên lá mục để lây lất sống qua ngày.
+
+
+(cô độc) Không anh em, không đồng bọn, bạn lầm lũi đi dọc bìa rừng như một cái bóng mờ nhạt chực chờ bị nuốt chửng bất cứ lúc nào.
+
+
+(mang thương tật) Cơn đau nhức từ vết thương chưa lành nhắc nhở rằng thế giới này không có chỗ cho sự yếu ớt, nhất là với một con ấu tể.
+
+
+(có băng nhóm) Đám nhóc ranh nhe nanh múa vuốt tụ tập quanh bạn, chứng minh rằng phế vật khi tụ lại cũng thành một thế lực ở bãi rác.
+
+
+Goblin thiếu niên (4–6 tuổi)
+
+(có vai trò) Lần đầu tiên khoác lên mình chức danh của bộ lạc, bạn nhận ra quyền lực có mùi của máu ôi và sắt rỉ.
+
+
+(đói khổ) Đói khát cào xé dạ dày, đẩy bạn vác gậy gỗ đi rình mò những sinh vật mà lẽ ra một Goblin thiếu niên không nên dại dột động tới.
+
+
+(có của ăn của để) Giấu nhẹm những chiến lợi phẩm lấp lánh dưới gầm lều rách, bạn bắt đầu nếm được vị ngọt của lòng tham tột độ.
+
+
+(mang thương tật) Khập khiễng bước theo bầy đàn, bạn phải nỗ lực gấp đôi để không biến thành mồi nhử trong mắt những kẻ đi sau.
+
+
+(có băng nhóm) Những tiếng hò reo man rợ của đồng bọn làm bạn tự huyễn hoặc rằng băng nhóm của mình có thể đạp đổ cả khu rừng.
+
+
+(mồ côi) Cái chết của kẻ ruột thịt chẳng để lại gì ngoài một khoảng trống lạnh lẽo và bài học sinh tồn tàn nhẫn nhất mà một thiếu niên phải học.
+
+
+Goblin trưởng thành (6–11 tuổi)
+
+(bậc cao trong bộ lạc) Đứng trên đầu trên cổ kẻ khác, bạn hít căng lồng ngực mùi thối tha của quyền lực và sự đố kỵ từ bọn tay dưới.
+
+
+(có lứa con) Nhìn đám ấu tể nheo nhóc tranh nhau khúc xương, bạn tự hỏi có bao nhiêu đứa sẽ sống sót để quay lại lật đổ mình sau này.
+
+
+(đã tiến hóa) Dòng máu ma thú chảy rần rật trong huyết quản, biến mỗi nhịp tim thành một tiếng gầm gừ đòi hỏi bạo lực và giết chóc.
+
+
+(có của ăn của để) Kho báu tích cóp được đủ để mua chuộc bất kỳ gã Shaman nào, nhưng cũng biến bạn thành miếng mồi béo bở cho sự phản trắc.
+
+
+(cô độc) Nhìn những chiếc lều chật ních tiếng cười man rợ, bạn lặng lẽ lau chùi vũ khí một mình, từ chối giao mạng sống cho bất kỳ ai.
+
+
+(có vai trò) Trách nhiệm với bộ lạc ngày càng đè nặng, nhưng đi kèm là những đặc quyền đủ khiến những kẻ thấp hèn phải liếm gót chân bạn.
+
+
+Goblin lão luyện (11–16 tuổi)
+
+(mang thương tật) Những vết sẹo chằng chịt trên da thịt già cỗi là cuốn nhật ký ghi lại hàng chục lần chạm trán tử thần của một lão binh.
+
+
+(bậc cao trong bộ lạc) Bọn trẻ tuổi nhìn bạn rớt dãi vì thèm khát chiếc ghế bạn đang ngồi, buộc bạn phải ngủ với một con dao tẩm độc giấu dưới gối.
+
+
+(đã tiến hóa) Sức mạnh thể chất áp đảo kết hợp với sự tinh ranh của tuổi tác khiến bạn trở thành một con quái vật thực sự của Đầm Lầy.
+
+
+(có lứa con) Lũ con của bạn đã bắt đầu liếc nhìn tài sản của cha/mẹ chúng bằng ánh mắt của những con sói đói chờ chực xé xác con mồi.
+
+
+(có băng nhóm) Đám đàn em năm xưa giờ đã thành những gã lão luyện đầy mưu mô, tình nghĩa anh em mong manh hơn bao giờ hết.
+
+
+(cô độc) Chẳng còn kẻ thù lẫn bạn bè cùng lứa, bạn sống sót quá lâu đến mức trở thành một hồn ma đáng sợ lang thang ngay trong chính bộ lạc của mình.
+
+
+Goblin lão làng (16+ tuổi)
+
+(bậc cao trong bộ lạc) Đỉnh cao quyền lực cũng là đỉnh cao của sự cô độc; mọi mệnh lệnh của bạn nay mang theo sức nặng tàn nhẫn của một vị vua sắp lìa đời.
+
+
+(mang thương tật) Từng cái khớp xương kêu răng rắc báo hiệu rằng cái chết đang gõ cửa, dù bản năng sinh tồn của bạn có ngoan cố cự tuyệt đến đâu.
+
+
+(có của ăn của để) Nằm trên đống vàng bạc vô nghĩa, bạn nhận ra không có đồng tiền nào mua được thêm một năm tuổi thọ cho giống loài thảm hại này.
+
+
+(có lứa con) Lũ cháu chắt tranh nhau chạy quanh lều, lầm rầm tính toán ngày được chia chác vũ khí và khố rách của ông/bà chúng.
+
+
+(đã tiến hóa) Là một trong số ít những dị nhân sống thọ, sự tồn tại kỳ quái của bạn giờ đây được bộ lạc thêu dệt thành một huyền thoại sống.
+
+
+(mồ côi) Thật nực cười khi sống đến chừng này tuổi, bạn thỉnh thoảng vẫn nhớ về cái hố bùn lạnh lẽo nơi mình bị quăng bỏ lúc mới lọt lòng.
+
+
+b) TIỂU SỬ KHI CHẾT
+Mở đầu theo xuất thân:
+
+(forest) Bị vứt bỏ từ lúc lọt lòng giữa rễ cây mục nát của Rừng Tân Thủ, một sinh linh thấp hèn đã bắt đầu chuỗi ngày giành giật hơi thở với dã thú.
+
+
+(dungeon) Bò lên từ bãi rác tối tăm tận cùng của Hầm ngục, đứa trẻ này đã quen với việc nhai nuốt bóng tối và lòng tham trước khi biết đi.
+
+
+(chief) Sinh ra trong ánh mắt thù hận của bầy đàn và cái bóng khổng lồ của một người cha bạo chúa, số phận đã định sẵn đây không phải một cuộc đời bình yên.
+
+
+(orphan) Mở mắt ra trên bãi bia tập chém đẫm máu của Tân thủ, đứa trẻ vô danh này đã bị cả thế giới từ chối quyền được sống ngay từ giây phút chào đời.
+
+
+(shaman) Lớn lên cùng khói độc, bùa chú và những tiếng thét hiến tế, dòng máu của kẻ nối dõi ma thuật đen tối đã nhào nặn nên một tâm hồn vặn vẹo.
+
+
+(mutant) Mang trong mình thân hình dị thường và dòng máu sôi sục của ma thú, sự tồn tại của kẻ này vốn dĩ là một sai lầm chết người của tự nhiên.
+
+
+(slave) Tiếng khóc chào đời hòa lẫn tiếng roi vút xé thịt tại trại Orc, cuộc đời này bắt đầu bằng thân phận của một súc vật không hơn không kém.
+
+
+Kết thúc theo cách chết:
+
+(chết già) Nằm xuống trên đệm da êm ái khi răng đã rụng sạch, một cái chết êm đềm đến mức nực cười và là kỳ tích hiếm hoi nhất đối với chủng loài đoản mệnh này.
+
+
+(chết đói) Cuối cùng, cơn đói khát bám theo từ lúc lọt lòng cũng đuổi kịp; cái dạ dày lép kẹp đã vĩnh viễn đầu hàng trước sự khắc nghiệt của Đầm Lầy Tử Khí.
+
+
+(bị mạo hiểm giả giết) Máu xanh nhuộm đỏ lưỡi kiếm sáng loáng của một Mạo hiểm giả, khép lại kiếp giang hồ bằng thân phận một điểm kinh nghiệm rẻ rúng.
+
+
+(bị đồng loại đâm sau lưng) Ánh sáng cuối cùng lụi tắt trong mắt là nụ cười xảo trá của kẻ từng kề vai sát cánh; một cái chết đậm chất Goblin nhất có thể.
+
+
+(chết trong cuộc cướp phá) Hơi thở cuối cùng tan vào tiếng thét xung trận và lửa cháy rực trời; ngã xuống giữa đống chiến lợi phẩm mà cả đời không bao giờ kịp tiêu xài.
+
+
+(chết khi đã là Goblin Chief/King) Chiếc vương miện đẫm máu văng khỏi đầu, khép lại kỷ nguyên của một kẻ cai trị bạo tàn; cả bộ lạc sẽ phải nhớ đến cái tên này, ít nhất là cho đến bình minh.
+
+
+(chết khi đã tiến hóa) Cơ thể ma thú khổng lồ đổ ầm xuống nền đất, chứng minh rằng dù có đột biến vĩ đại đến đâu, lưỡi hái tử thần vẫn không chừa một ngoại lệ nào.
+
+
+(chết vì thí nghiệm của Shaman) Thân xác nổ tung hoặc co quắp trong tà thuật ghê tởm, hi sinh mạng sống một cách lãng xẹt để phục vụ cho sự điên rồ của ma thuật hắc ám.
+
+
+(chết mà mạch truyện còn dở dang) Một lưỡi dao vô tình, một hòn đá lăn trượt; một câu chuyện lẽ ra đã vĩ đại lại bị cắt phăng đột ngột như bao kiếp sinh linh hèn mọn khác trên cõi đời này.
+
+
+(chết trước khi kịp lớn) Vòng đời đứt gánh khi nanh vuốt chưa kịp mọc hết, để lại một nắm xương non nớt vô danh lẫn vào muôn ngàn nắm xương bùn lầy khác.
+
+
+c) NHỮNG NĂM YÊN Ả CÓ KÝ ỨC
+(còn {father}) Bạn nhìn {father} ngồi nhai một khúc xương khô, chợt nhận ra bóng lưng từng khiến bạn khiếp sợ nay đã còng gập vì tuổi tác.
+
+
+(còn {mother}) {mother} lén nhét cho bạn một mẩu nấm mốc vừa hái được; tình mẫu tử ở nơi đáy xã hội đôi khi chỉ rẻ mạt và buồn cười đến thế.
+
+
+(có {spouse}) Bạn và {spouse} cãi nhau ỏm tỏi về việc ai sẽ ăn phần đầu con ếch, nhưng đêm đến lại rúc vào nhau ngủ chung dưới một mảnh da rách.
+
+
+(có {child}) Nhìn {child} tập đâm cành cây vào xác bọ cạp, bạn khùng khục cười, hy vọng nó đủ tàn nhẫn để sống lâu hơn bạn.
+
+
+({rival} còn sống) Bạn chạm mặt {rival} ở suối cạn; cả hai gầm gừ lườm nhau nhưng quá mệt mỏi để bắt đầu một trận ẩu đả trong cái nóng đổ lửa.
+
+
+({mentor} còn sống) {mentor} đập gậy vào đầu bạn vì tội ngủ gật, lải nhải về một chân lý sinh tồn nào đó mà bạn đã nghe tới lần thứ một trăm.
+
+
+({friend} còn sống) Bạn và {friend} chia nhau con chuột cống cuối cùng của mùa đông; không ai nói với ai lời nào, nhưng sự đồng điệu hiện rõ trong ánh mắt.
+
+
+({father} đã chết) Khi gió rét lùa qua lều, bạn vô thức nhìn ra bãi rác, nơi xương cốt của {father} đã bị thời gian và dã thú vùi lấp từ lâu.
+
+
+({mother} đã chết) Bạn tìm thấy chiếc vòng cổ bằng răng súc vật của {mother}; một phút mềm lòng trỗi dậy rồi nhanh chóng bị bản năng sinh tồn đè bẹp.
+
+
+({spouse} đã chết) Chỗ nằm trống trải bên cạnh khiến bạn rùng mình; thiếu hơi ấm của {spouse}, cái rét Đầm Lầy dường như buốt thấu tận xương tủy.
+
+
+(có {child}) {child} trộm được một món đồ rỉ sét mang về khoe, bạn thẳng tay tát nó một cái để dạy nó bài học không bao giờ lộ tài sản ra ngoài.
+
+
+({rival} đã chết) Đi ngang qua nấm mồ nông choèn của {rival}, bạn khẽ nhếch mép đá thêm một hòn sỏi lên đó, tự mãn vì mình là kẻ sống sót cuối cùng.
+
+
+({mentor} đã chết) Trong một khoảnh khắc nguy kịch hụt bước, bạn nhớ lại lời răn dạy cộc lốc của {mentor} và giật mình giữ được mạng.
+
+
+({friend} đã chết) Nốc cạn ngụm rượu nấm chua loét, bạn đổ phần còn lại xuống đất, thầm gọi tên {friend} trong sự cô độc tột cùng của bầy đàn.
+
+
+(có {spouse} và {child}) Ngồi trong lều nhìn {spouse} đang đấm đá lũ ấu tể để tranh ăn, bạn chậc lưỡi nhận ra cuộc đời đang lặp lại vòng tuần hoàn khốn kiếp của nó một cách hoàn hảo.
+Dưới đây là 5 băng nhóm Goblin điển hình, được thiết kế theo đúng quy tắc nhân quả, tàn nhẫn và hài đen của Đầm Lầy Tử Khí.
+
+BĂNG 1: BĂNG ĐUÔI CHUỘT CHÁY (Mã: band_a)
+1. Tên băng: Đuôi Chuột Cháy · Luật lệ: Thấy đồ ăn là nuốt ngay, cấm nhai nhả ra, nôn ra bắt ăn lại. · Hang ổ: Cống ngầm Dưới Đống Rác.2. Thành viên (3 con):
+
+Ruk: Goblin (đầu băng). Ranh mãnh, hay giấu thức ăn thừa vào trong lỗ tai to bè của mình.
+
+
+Sniv: Goblin (tay chân). Hèn nhát, gầy trơ xương, luôn mếu máo khóc nhè mỗi khi đói.
+
+
+Blor: Kobold lai Goblin (kẻ bị bắt nạt). Vảy rụng lởm chởm, làm tay đấm, bí mật ấp một quả trứng thằn lằn dưới khố rách.3. Điều kiện gia nhập: Tuổi Goblin con hoặc Thiếu niên (2–6). Chỉ số Sức khỏe > 10.7. Nhắc lại những năm yên ả:
+
+
+Ruk ngồi gãi gãi lỗ tai, móc ra một cục sáp lẫn vụn bánh mì mốc đưa lên miệng nhai.
+
+
+Tiếng sụt sịt khóc lóc vì đói của Sniv vang vọng khắp cống ngầm.
+
+
+Blor lén lút thò tay vào trong khố kiểm tra quả trứng thằn lằn của nó.
+
+
+[goblin_band_band_a_1] Cống Nạp Đầu Vào
+Mạch: band_a · Nút: 1 (Gia nhập)
+
+
+Khi nào: tuổi 2–6 · Sức khỏe > 10
+
+
+Tình huống: Băng Đuôi Chuột Cháy chặn bạn ở miệng cống ngầm. Ruk vểnh cái tai chứa đầy vụn bánh mì, yêu cầu bạn nộp "lệ phí cống rãnh" hoặc phải đánh bại thằng lai Blor.
+
+
+A. Nộp một nửa con chuột ươn vừa bới được — (Không tung xúc xắc) Ruk giật lấy, nuốt chửng ngay lập tức rồi đá đít bạn vào hàng ngũ. → (Tài sản −10), gia nhập băng band_a, dấu ấn "band_a_joined"
+
+
+B. Lao vào đấm thằng lai Blor — dựa vào [Sức mạnh], [VỪA]
+
+
+
+Thành công: Bạn đấm gãy vảy mũi Blor. Ruk vỗ tay cười ré lên, ném bạn vào băng thay vị trí tay đấm. → (Sức mạnh +1, Danh vọng +5), gia nhập băng band_a, dấu ấn "band_a_beatblor"
+
+
+Thất bại: Blor cắn vào bắp chân bạn xé rách một mảng thịt. Bạn phải quỳ lạy cầu xin và làm chân sai vặt dọn phân cho cả băng. → (Sức khỏe −15, Danh vọng −10), gia nhập băng band_a, dấu ấn "band_a_servant"
+
+
+[goblin_band_band_a_2] Chia Phần Cướp
+Mạch: band_a · Nút: 2 (Đời sống 1)
+
+
+Khi nào: CẦN "band_a_joined" hoặc "band_a_beatblor" hoặc "band_a_servant"
+
+
+Tình huống: Băng trộm được một bao thịt lợn mặn từ nhà bếp Dwarf. Ruk tự chia cho mình và bạn (nếu bạn từng thắng Blor), ném cho Sniv một miếng da, còn Blor không có gì. Blor gầm gừ phẫn nộ.
+
+
+A. Nhường phần của mình cho Blor để thu phục nó — (Không tung xúc xắc) Blor kinh ngạc nhìn bạn, nuốt miếng thịt và thề sẽ làm khiên thịt cho bạn sau này. → (Sức khỏe −10, Thân thiết với Blor +20), dấu ấn "band_a_allyblor"
+
+
+B. Ăn hết phần mình rồi chửi bới Blor — dựa vào [Danh vọng], [VỪA]
+
+
+
+Thành công: Cả băng hùa theo chửi rủa thằng lai. Blor cúp đuôi chịu trận. Bạn khẳng định uy thế. → (Hạnh phúc +10, Sức khỏe +15), dấu ấn "band_a_bully"
+
+
+Thất bại: Blor điên tiết nhảy bổ vào cào rách mặt bạn trước khi Ruk kịp cản lại. Bạn bị nhiễm trùng vết xước. → (Sức khỏe −20), dấu ấn "band_a_scratched"
+
+
+[goblin_band_band_a_3] Nước Mắt Kẻ Hèn
+Mạch: band_a · Nút: 3 (Đời sống 2)
+
+
+Khi nào: CẦN "band_a_allyblor" hoặc "band_a_bully" hoặc "band_a_scratched"
+
+
+Tình huống: Sniv khóc lóc ồn ào vì đói, làm lộ vị trí băng với một con Nhện Đất. Ruk ra lệnh vứt Sniv lại làm mồi nhử để cả băng rút lui.
+
+
+A. Đạp Sniv vào mồm Nhện Đất và bỏ chạy — (Không tung xúc xắc) Tiếng khóc của Sniv bị cắt ngang bởi tiếng nhai xương rộp rộp. Băng thoát nạn. → (An toàn, Hạnh phúc −10), Sniv CHẾT, dấu ấn "band_a_snivdead"
+
+
+B. Dùng đuốc ném mù mắt con Nhện để cứu Sniv — dựa vào [Nhanh nhẹn], [KHÓ]
+
+
+
+Thành công: Bạn kéo tay Sniv lôi đi. Thằng nhóc vừa khóc vừa liếm chân bạn hàm ơn. → (Danh vọng +15, Thân thiết với Sniv +30), dấu ấn "band_a_snivsaved"
+
+
+Thất bại: Nhện Đất quấn tơ dính chặt bạn. Bọn Ruk bỏ mặc bạn. Bạn phải cắt bỏ một phần da thịt đùi để thoát thân. → (Sức khỏe −30, Nhanh nhẹn −2), dấu ấn "band_a_spiderbitten"
+
+
+[goblin_band_band_a_4] Lật Đổ Tên Ranh Mãnh
+Mạch: band_a · Nút: 4 (Đời sống 3)
+
+
+Khi nào: CẦN dấu ấn từ Nút 3
+
+
+Tình huống: Băng ngày càng nhút nhát dưới sự chỉ huy hèn mọn của Ruk. Trong một đêm đói meo, bạn quyết định đã đến lúc lật đổ tên tai to này.
+
+
+A. (Nếu có band_a_allyblor) Ra hiệu cho Blor xé xác Ruk — (Không tung xúc xắc) Blor lao tới cắn đứt cổ họng Ruk. Bạn ngồi lên hòn đá cao nhất, tuyên bố mình là đầu băng. → (Danh vọng +20), trở thành đầu băng, Ruk CHẾT, dấu ấn "band_a_leader"
+
+
+B. Tự mình lao vào thách đấu Ruk — dựa vào [Sức mạnh], [VỪA]
+
+
+
+Thành công: Bạn đấm nát lỗ tai hay giấu đồ ăn của hắn. Ruk quỳ gối chịu thua. Băng có chủ mới. → (Sức mạnh +1, Tài sản +20), trở thành đầu băng, dấu ấn "band_a_usurper"
+
+
+Thất bại: Ruk rút dao đâm sượt sườn bạn, kêu gọi băng ném bạn xuống cống ngầm sâu hơn. Bạn bị trục xuất. → (Sức khỏe −25, Danh vọng −30), bị đuổi khỏi băng, dấu ấn "band_a_exiled"
+
+
+[goblin_band_band_a_5] Cống Ngầm Sụp Đổ
+Mạch: band_a · Nút: 5 (Khép lại)
+
+
+Khi nào: CẦN "band_a_leader" hoặc "band_a_usurper"
+
+
+Tình huống: Bọn thợ mỏ Dwarf vô tình đào trúng trần cống ngầm. Nước thải đen ngòm và đá tảng đổ ào ạt xuống hang ổ của Đuôi Chuột Cháy.
+
+
+A. Vét sạch thức ăn và chạy trốn, mặc xác bầy đàn — (Không tung xúc xắc) Bạn lặn qua ống cống hẹp duy nhất, nghe tiếng la hét của băng nhóm lịm dần trong dòng nước bẩn. → (Tài sản +30, Hạnh phúc −20), băng bị xóa sổ, dấu ấn "band_a_survivor"
+
+
+B. Cố gắng hướng dẫn băng lách qua khe nứt — dựa vào [Trí tuệ], [RẤT KHÓ]
+
+
+
+Thành công: Bạn đưa cả băng thoát lên Rừng Tân Thủ. Dù mất hang ổ, uy danh của bạn ở bầy đàn lên đến đỉnh điểm. → (Danh vọng +40, Trí tuệ +2), băng sống sót, dấu ấn "band_a_hero"
+
+
+Thất bại: Một tảng đá đè nát nửa băng. Bạn bị cuốn trôi ra đầm lầy, chỉ còn lại một mình tơi tả. → (Sức khỏe −40, Danh vọng −30), băng bị xóa sổ, dấu ấn "band_a_crushed"
+
+
+[goblin_band_band_a_m1] Bí Mật Của Lỗ Tai
+Mạch: band_a · Nút: m1 (Ruk)
+
+
+Tình huống: Bạn tóm được Ruk đang lén moi một viên ngọc nhỏ từ trong lỗ tai ra ngắm nghía trong lúc cả băng đang ngủ.
+
+
+A. Tống tiền Ruk — dựa vào [Trí tuệ], [VỪA]
+
+
+
+Thành công: Hắn cắn răng chia cho bạn một nửa số bạc vụn hắn giấu ở mang tai bên kia để bịt miệng. → (Tài sản +20), dấu ấn "band_a_ruksecret"
+
+
+Thất bại: Hắn ném bùn vào mắt bạn rồi hét lên "Có trộm!". Bạn bị cả băng đập một trận vì phá giấc ngủ. → (Sức khỏe −15, Danh vọng −10)
+
+
+[goblin_band_band_a_m2] Quả Trứng Thằn Lằn
+Mạch: band_a · Nút: m2 (Blor)
+
+
+Tình huống: Quả trứng dưới khố của Blor vô tình nở ra một con rắn mối. Ruk định giật lấy ăn thịt. Blor giơ nanh vuốt liều chết bảo vệ con vật.
+
+
+A. Bênh vực Blor và dọa nạt Ruk — (Không tung xúc xắc) Ruk chửi thề bỏ đi. Blor nhìn bạn với ánh mắt nức nở, con rắn mối liếm ngón tay bạn. → (Thân thiết với Blor +30, Hạnh phúc +10)
+
+
+B. Hùa với Ruk đè Blor ra cướp trứng — dựa vào [Sức mạnh], [VỪA]
+
+
+
+Thành công: Hai đánh một, con rắn mối thành bữa sáng. Blor sụp đổ hoàn toàn tinh thần. → (Sức khỏe +10, Thân thiết với Blor −50)
+
+
+Thất bại: Blor nổi điên cắn đứt một ngón tay của bạn rồi ôm con rắn mối chạy trốn khỏi băng mãi mãi. → (Sức khỏe −20), Blor bỏ trốn.
+
+
+BĂNG 2: BĂNG RÌU MÁU (Mã: band_b)
+1. Tên băng: Rìu Máu · Luật lệ: Kẻ yếu làm nệm gác chân cho kẻ mạnh. · Hang ổ: Hang Động Gấu Ma.2. Thành viên (4 con):
+
+Gorg: Hobgoblin (đầu băng). To xác, cơ bắp cuồn cuộn nhưng cực kỳ sợ nhện nhỏ.
+
+
+Kraz: Goblin (phó băng). Xảo quyệt, chân thọt, chuyên xúi bậy Gorg đi đập phá.
+
+
+Mug: Goblin (bia thịt). Ngu ngốc, to con, thích nhai sỏi cho "chắc răng".
+
+
+Vara: Goblin cái (trinh sát). Thích lén lút, cổ đeo một chuỗi tai Elf khô héo.3. Điều kiện gia nhập: Trưởng thành (6–11). Sức mạnh > 15. Bậc Goblin Warrior hoặc Grunt+.7. Nhắc lại những năm yên ả:
+
+
+Mũi rìu sứt mẻ của Gorg thi thoảng lại vung lên dọa chém vỡ đầu một tên thuộc hạ.
+
+
+Tiếng cười khùng khục của thằng thọt Kraz luôn báo hiệu một âm mưu hèn hạ mới.
+
+
+Vara thản nhiên ngồi mài dao, lẩm nhẩm đếm số tai Elf khô trên cổ.
+
+
+[goblin_band_band_b_1] Thử Thách Của Kẻ Mạnh
+Mạch: band_b · Nút: 1 (Gia nhập)
+
+
+Khi nào: tuổi 6–11 · Sức mạnh > 15
+
+
+Tình huống: Để vào Băng Rìu Máu, Kraz thọt chĩa gậy yêu cầu bạn phải đánh gục Mug "bia thịt" hoặc chịu làm thảm chùi chân cho Gorg.
+
+
+A. Đấu tay đôi với Mug — dựa vào [Sức mạnh], [KHÓ]
+
+
+
+Thành công: Bạn dùng đá phang vỡ đầu gối Mug. Gorg cười hô hố, nhận bạn vào làm chiến binh tiên phong. → (Danh vọng +15, Sức mạnh +2), gia nhập băng band_b, dấu ấn "band_b_joined"
+
+
+Thất bại: Mug đè bạn xuống nhét đầy sỏi vào mồm bạn. Bạn bị tước vũ khí và làm nô bộc. → (Sức khỏe −20, Tài sản −15), gia nhập băng band_b, dấu ấn "band_b_slave"
+
+
+B. Dâng nạp vũ khí xịn để đút lót Kraz — (Không tung xúc xắc) Kraz nhận hối lộ, rỉ tai Gorg nhận bạn. Băng khinh bạn nhưng vẫn cho gia nhập. → (Tài sản −30, Danh vọng −10), gia nhập băng band_b, dấu ấn "band_b_bribed"
+
+
+[goblin_band_band_b_2] Đâm Chọt Sau Lưng
+Mạch: band_b · Nút: 2 (Đời sống 1)
+
+
+Khi nào: CẦN "band_b_joined" hoặc "band_b_slave" hoặc "band_b_bribed"
+
+
+Tình huống: Sau một vụ cướp đoàn buôn Human, Kraz lén giấu chiếc nhẫn vàng và đổ tội cho Vara đã ăn trộm hòng trừ khử ả trinh sát. Gorg nổi điên rút rìu.
+
+
+A. Bênh vực Vara, lôi nhẫn từ túi Kraz ra — dựa vào [Nhanh nhẹn], [VỪA]
+
+
+
+Thành công: Nhanh tay móc túi Kraz, bạn ném chiếc nhẫn ra. Gorg tát Kraz lật mặt. Vara nợ bạn một mạng. → (Danh vọng +15, Thân thiết với Vara +30), dấu ấn "band_b_savedvara"
+
+
+Thất bại: Kraz né được, hô hoán bạn và Vara đồng lõa. Cả hai bị Gorg đánh một trận thừa sống thiếu chết và tước sạch phần cướp. → (Sức khỏe −30, Tài sản −20), dấu ấn "band_b_beaten"
+
+
+B. Mặc kệ Vara bị chém — (Không tung xúc xắc) Rìu của Gorg phập xuống. Vara chết không nhắm mắt. Kraz đắc ý nháy mắt với bạn. → (Thân thiết với Kraz +20, Danh vọng −10), Vara CHẾT, dấu ấn "band_b_varadead"
+
+
+[goblin_band_band_b_3] Lá Chắn Bằng Thịt
+Mạch: band_b · Nút: 3 (Đời sống 2)
+
+
+Khi nào: CẦN dấu ấn từ Nút 2
+
+
+Tình huống: Băng lọt vào ổ phục kích của Đội Ranger Elf. Mưa tên trút xuống. Gorg túm lấy Mug làm khiên thịt, còn Kraz bám chặt lấy chân bạn đòi được bảo vệ.
+
+
+A. Đạp Kraz ra làm mồi nhử cho tên — dựa vào [Sức mạnh], [VỪA]
+
+
+
+Thành công: Kraz văng ra, bị ghim 3 mũi tên vào lưng, la hét thảm thiết. Bạn nhân cơ hội rút lui an toàn. → (An toàn, Danh vọng −10), Kraz CHẾT, dấu ấn "band_b_betrayedkraz"
+
+
+Thất bại: Kraz ôm quá chặt, cả hai cùng ngã. Bạn ăn một mũi tên đâm xuyên bả vai. → (Sức khỏe −30, Nhanh nhẹn −1), dấu ấn "band_b_arrowed"
+
+
+B. Nấp sau xác khổng lồ của Mug cùng Gorg — (Không tung xúc xắc) Mug lãnh hàng chục mũi tên, gục xuống ứa máu mồm lẫn sỏi. Băng sống sót nhưng mất bia đỡ đạn xịn nhất. → (Danh vọng −5), Mug CHẾT, dấu ấn "band_b_mugdead"
+
+
+[goblin_band_band_b_4] Nỗi Sợ Của Bạo Chúa
+Mạch: band_b · Nút: 4 (Đời sống 3)
+
+
+Khi nào: CẦN dấu ấn từ Nút 3
+
+
+Tình huống: Nắm thóp được điểm yếu chí mạng của Gorg, bạn bí mật đem một ổ nhện con thả vào giường hắn để tranh quyền.
+
+
+A. Thả nhện, Gorg phát điên — dựa vào [Trí tuệ], [VỪA]
+
+
+
+Thành công: Gorg gào rú bỏ chạy thục mạng ra khỏi hang động trong bộ dạng trần truồng. Băng nhóm nhìn hắn đầy khinh bỉ và quay sang tôn bạn làm thủ lĩnh. → (Danh vọng +30), trở thành đầu băng, Gorg bỏ trốn, dấu ấn "band_b_spiderking"
+
+
+Thất bại: Gorg giẫm nát lũ nhện trước khi phát hoảng. Hắn nhận ra bạn là thủ phạm, dùng rìu chém lìa một bàn tay của bạn. → (Sức khỏe −40, Sức mạnh −2), bị đuổi khỏi băng, dấu ấn "band_b_handless"
+
+
+B. Dùng nhện tống tiền đòi làm phó băng — (Không tung xúc xắc) Gorg tái xanh mặt mũi, ngoan ngoãn chia nửa số vàng và nhường quyền hành thứ hai cho bạn. → (Tài sản +30, Danh vọng +10), dấu ấn "band_b_vicelord"
+
+
+[goblin_band_band_b_5] Rìu Máu Gãy Nát
+Mạch: band_b · Nút: 5 (Khép lại)
+
+
+Khi nào: CẦN "band_b_spiderking" hoặc "band_b_vicelord"
+
+
+Tình huống: Băng Rìu Máu quá khét tiếng, đánh động đến Thánh Kỵ Sĩ Đoàn. Quân lính bọc thép càn quét Hang Động Gấu Ma, tuyên bố xóa sổ băng cướp tàn bạo này.
+
+
+A. Cầm rìu máu quyết tử với Kỵ Sĩ — dựa vào [Sức mạnh], [RẤT KHÓ]
+
+
+
+Thành công: Sức mạnh phi thường giúp bạn chém đứt đầu tên đội trưởng. Kỵ sĩ hoảng loạn rút lui. Băng Rìu Máu trở thành huyền thoại bất diệt của Đầm Lầy! → (Danh vọng +50, Sức khỏe −20), băng sống sót huy hoàng, dấu ấn "band_b_legend"
+
+
+Thất bại: Kiếm bạc xuyên thủng ngực bạn. Toàn bộ băng nhóm bị tàn sát không chừa một ai. → CHẾT (Bị Thánh Kỵ Sĩ tiêu diệt cùng băng nhóm), băng bị xóa sổ, dấu ấn "band_b_purged"
+
+
+B. Đầu hàng và bán đứng đồng bọn — (Không tung xúc xắc) Bạn chui ra chỉ điểm chỗ nấp của tàn dư băng nhóm. Kỵ sĩ chém chết tất cả nhưng tha mạng và quăng cho bạn một đồng bạc rách búng máu. → (Sức khỏe +10, Danh vọng −50, Hạnh phúc −40), băng bị xóa sổ, dấu ấn "band_b_traitor"
+
+
+[goblin_band_band_b_m1] Cuộc Đi Săn Tai Elf
+Mạch: band_b · Nút: m1 (Vara)
+
+
+Tình huống: Vara bị sập bẫy trong rừng khi ráng lẻn vào trại Elf để cắt tai. Bọn Elf sắp quay lại kiểm tra bẫy. Ả nhìn bạn van nài.
+
+
+A. Chặt đứt chân ả để giải thoát — dựa vào [Sức khỏe], [VỪA]
+
+
+
+Thành công: Bạn phập dao xả đứt cẳng chân ả, vác ả chạy thoát. Vara thọt chân vĩnh viễn nhưng tôn thờ bạn. → (Thân thiết với Vara +40, Danh vọng +10)
+
+
+Thất bại: Bạn chém lóng ngóng trúng tay mình. Bọn Elf ập tới, bạn phải vứt ả lại chạy một mình. Vara bị bắt làm bia tập bắn. → (Sức khỏe −10), Vara CHẾT.
+
+
+[goblin_band_band_b_m2] Bữa Ăn Của Kẻ Ngốc
+Mạch: band_b · Nút: m2 (Mug)
+
+
+Tình huống: Mug nhai nhầm một viên tinh thể nổ của Gnome thay vì sỏi. Bụng hắn chướng to sủi bọt, rên rỉ đau đớn.
+
+
+A. Chọc dao cho xì hơi — dựa vào [May mắn], [VỪA]
+
+
+
+Thành công: Bụng xẹp xuống tàng tàng khói xanh. Mug ợ một cái rõ to, hàm ơn bạn. → (Hạnh phúc +10, Thân thiết với Mug +20)
+
+
+Thất bại: Lưỡi dao tạo ma sát. Viên tinh thể nổ tung văng miểng. Bạn bị thương nặng, Mug cháy đen bỏng nặng nhưng sống sót kỳ diệu. → (Sức khỏe −30).
+
+
+BĂNG 3: BĂNG MẮT TRẮNG (Mã: band_c)
+1. Tên băng: Mắt Trắng · Luật lệ: Máu hiến tế trước, máu mình sau. · Hang ổ: Tế đàn xương trong Rừng Sâu.2. Thành viên (3 con):
+
+Xan: Goblin Shaman (đầu băng). Mù hai mắt (tròng trắng dã), điên loạn, thường xuyên uống máu ếch độc.
+
+
+Zil: Goblin (bưng bê). Trân mình cuồng tín, trên người đầy mụn mủ, thường lén trộm thuốc cặn của Xan uống.
+
+
+Nox: Goblin (đao phủ). Câm, thân hình vạm vỡ nhưng vẹo vọ, vác rìu phay, yêu đắm đuối một cái sọ người Human.3. Điều kiện gia nhập: Mọi độ tuổi. Trí tuệ > 12 HOẶC vai trò Shaman/Apprentice HOẶC có dấu ấn "dark_pact".7. Nhắc lại những năm yên ả:
+
+
+Mùi ếch độc thối rữa từ người Xan luôn lởn vởn quanh hang ổ.
+
+
+Zil ngồi gãi những cái mụn mủ sưng tấy đỏ rực trên tay với vẻ thỏa mãn kỳ dị.
+
+
+Tiếng thì thầm không lời của Nox khi gã cọ má âu yếm chiếc sọ người khô khốc.
+
+
+[goblin_band_band_c_1] Máu Ếch Ma
+Mạch: band_c · Nút: 1 (Gia nhập)
+
+
+Khi nào: Trí tuệ > 12 hoặc Shaman hoặc dark_pact
+
+
+Tình huống: Để trở thành môn đồ của Băng Mắt Trắng, Xan đưa cho bạn một sọ người chứa đầy máu ếch đầm lầy sủi bọt, ép uống cạn để chứng minh linh hồn đã vấy bẩn.
+
+
+A. Uống một ngụm rồi yểm bùa giả mù — dựa vào [Trí tuệ], [VỪA]
+
+
+
+Thành công: Bạn giả vờ giật đùng đùng, tròng mắt lật ngược. Xan gật gù hài lòng thu nhận "con chiên" ngoan đạo. → (Trí tuệ +1, Sức khỏe −5), gia nhập băng band_c, dấu ấn "band_c_faked"
+
+
+Thất bại: Ma thuật lừa đảo bị Xan nhìn thấu. Lão ếm lời nguyền khiến tay bạn nổi đầy mụn mủ như Zil rồi bắt làm cu li bưng bê. → (Sức khỏe −20, Danh vọng −10), gia nhập băng band_c, dấu ấn "band_c_cursed"
+
+
+B. Nốc cạn máu ếch không do dự — dựa vào [Sức khỏe], [KHÓ]
+
+
+
+Thành công: Máu ếch mở nhãn quan ma quỷ của bạn. Bạn thấy được vong linh bay lượn. Xan trọng dụng bạn làm đệ tử đích truyền. → (Trí tuệ +3, Sức khỏe −15), gia nhập băng band_c, dấu ấn "band_c_blessed"
+
+
+Thất bại: Độc ếch khiến bạn hôn mê sùi bọt mép ba ngày. Thức dậy thấy tóc rụng sạch, làm một tên sai vặt yếu đuối. → (Sức khỏe −30), gia nhập băng band_c, dấu ấn "band_c_bald"
+
+
+[goblin_band_band_c_2] Hiến Tế Đêm Trăng Đỏ
+Mạch: band_c · Nút: 2 (Đời sống 1)
+
+
+Khi nào: CẦN dấu ấn từ Nút 1
+
+
+Tình huống: Băng bắt được một ấu tể Human lạc trong rừng. Xan ra lệnh Nox chặt đầu hiến tế. Zil thèm thuồng húp máu tế rỉ ra. Bạn phải đóng vai trò trong buổi lễ.
+
+
+A. Chiếm đoạt năng lượng hiến tế cho riêng mình — dựa vào [Trí tuệ], [KHÓ]
+
+
+
+Thành công: Trong lúc tế lễ, bạn đổi hướng bùa chú. Năng lượng Hắc Ám cuồn cuộn chảy vào bạn thay vì tế đàn. Xan mù không hề biết. → (Trí tuệ +3, Danh vọng +10), có "dark_pact", dấu ấn "band_c_stolenpower"
+
+
+Thất bại: Ma thuật phản phệ. Bàn tế nổ tung hất văng bạn. Nox tức giận định chém bạn nhưng Xan cản lại, phạt đánh 50 roi xương. → (Sức khỏe −30, Danh vọng −15), dấu ấn "band_c_blasted"
+
+
+B. Ngoan ngoãn phụ giúp Nox hành quyết — (Không tung xúc xắc) Máu tung tóe. Buổi lễ trót lọt. Tà thần ban cho cả băng một chút sinh lực hèn mọn. → (Sức khỏe +10, Trí tuệ +1), dấu ấn "band_c_loyal"
+
+
+[goblin_band_band_c_3] Kẻ Phản Tín
+Mạch: band_c · Nút: 3 (Đời sống 2)
+
+
+Khi nào: CẦN dấu ấn từ Nút 2
+
+
+Tình huống: Zil ăn trộm quá nhiều thuốc cặn, bị ngộ độc sắp biến dị thành quái vật rễ cây. Lão Xan bảo bạn đem đốt sống Zil trước khi mầm bệnh lan rộng.
+
+
+A. Trói Zil lại và châm lửa đốt — (Không tung xúc xắc) Tiếng thét của Zil cháy nổ lách tách như củi khô. Xan cười man dại. Bạn trở thành phó băng tàn nhẫn. → (Danh vọng +15, Hạnh phúc −15), Zil CHẾT, dấu ấn "band_c_burnedzil"
+
+
+B. Giúp Zil chạy trốn khỏi Tế đàn — dựa vào [Nhanh nhẹn], [VỪA]
+
+
+
+Thành công: Bạn lén thả Zil vào rừng sâu. Hắn biến thành quái vật nhưng tha mạng cho bạn. Xan nổi điên trừng phạt Nox vì tội canh gác lỏng. → (Hạnh phúc +10, Thân thiết với Nox −20), Zil bỏ trốn, dấu ấn "band_c_sparedzil"
+
+
+Thất bại: Xan phát hiện. Bùa chú trói chặt cả bạn lẫn Zil. Bạn bị ép nhìn Zil biến thành rễ cây và nuốt chửng một cánh tay của chính bạn trước khi chết. → (Sức khỏe −40, Sức mạnh −2), Zil CHẾT, dấu ấn "band_c_punished"
+
+
+[goblin_band_band_c_4] Đôi Mắt Của Shaman
+Mạch: band_c · Nút: 4 (Đời sống 3)
+
+
+Khi nào: CẦN dấu ấn từ Nút 3
+
+
+Tình huống: Tuổi già khiến Xan ngày càng yếu, lão định dùng cấm thuật chuyển sinh linh hồn vào thân xác bạn để tiếp tục trị vì. Nox câm lặng đứng chốt cửa hang.
+
+
+A. Lật bài ngửa, đấu bùa chú sống còn với Xan — dựa vào [Trí tuệ], [RẤT KHÓ]
+
+
+
+Thành công: Ma thuật của bạn áp đảo, phản nguyền thiêu rụi linh hồn Xan. Hắn gục xuống thành cái xác khô. Nox cúi đầu dâng tế đàn cho tân Shaman là bạn. → (Trí tuệ +4, Danh vọng +40), trở thành đầu băng, Xan CHẾT, dấu ấn "band_c_newmaster"
+
+
+Thất bại: Xan xâm nhập được vào tâm trí bạn. Bạn bị chiếm một nửa thân xác, sống vất vưởng điên dại như một công cụ cho đến cuối đời. → CHẾT (Bị chiếm đoạt linh hồn), dấu ấn "band_c_mindwiped"
+
+
+B. Hối lộ Nox bằng cái sọ người xịn hơn để hắn chém Xan — (Không tung xúc xắc) Bạn ném cho Nox sọ của một tên Elf ngọc ngà. Nox hoa mắt, vung rìu phay chặt bay đầu Xan lão làng. Bạn nghiễm nhiên lên nắm quyền. → (Tài sản −30, Danh vọng +20), trở thành đầu băng, Xan CHẾT, dấu ấn "band_c_bribednox"
+
+
+[goblin_band_band_c_5] Ánh Sáng Thanh Tẩy
+Mạch: band_c · Nút: 5 (Khép lại)
+
+
+Khi nào: CẦN "band_c_newmaster" hoặc "band_c_bribednox"
+
+
+Tình huống: Một Pháp Sư Human cấp cao tìm đến Tế đàn xương để dọn sạch Tà giáo. Ánh sáng thiêng liêng rọi xuống, xuyên thấu tà khí bảo vệ băng.
+
+
+A. Triệu hồi khiên chắn Bóng Đêm chống đỡ — dựa vào [Trí tuệ], [RẤT KHÓ]
+
+
+
+Thành công: Hắc ám của bạn đủ mạnh để chặn đứng tia sáng, che giấu cả băng tẩu thoát vào tận cùng hang sâu. Bạn trở thành huyền thoại Tà đạo. → (Danh vọng +50, Trí tuệ +2), băng sống sót, dấu ấn "band_c_darklegend"
+
+
+Thất bại: Ánh sáng thiêu rụi khiên chắn và nung chảy da thịt bạn. Tế đàn sụp đổ. Băng Mắt Trắng hoàn toàn bị diệt vong trong cột lửa thiêng. → CHẾT (Bị ma pháp ánh sáng thanh tẩy), băng bị xóa sổ, dấu ấn "band_c_cleansed"
+
+
+B. Dùng Nox làm khiên thịt cản ma pháp — (Không tung xúc xắc) Nox bị ánh sáng bốc hơi cùng mấy cái sọ yêu quý. Bạn mượn cơ hội tàng hình trốn mất, giữ mạng nhưng mất sạch thế lực. → (Sức khỏe +10, Danh vọng −40, Hạnh phúc −20), băng bị xóa sổ, Nox CHẾT, dấu ấn "band_c_coward"
+
+
+[goblin_band_band_c_m1] Bí Mật Của Kẻ Câm
+Mạch: band_c · Nút: m1 (Nox)
+
+
+Tình huống: Bạn phát hiện Nox đang bôi trát nhựa cây để phục hồi cái sọ người mà hắn yêu mến vừa bị nứt vỡ.
+
+
+A. Giúp hắn tô màu cái sọ bằng tiết lợn — (Không tung xúc xắc) Nox nhìn bạn bằng đôi mắt biết ơn vô hạn, cọ cọ cái sọ vào tay bạn thân thiện. → (Thân thiết với Nox +40, Hạnh phúc +5)
+
+
+B. Cướp cái sọ dọa ném đi để uy hiếp — dựa vào [Sức mạnh], [VỪA]
+
+
+
+Thành công: Nox quỳ sụp xuống, giao nộp túi bạc vụn để chuộc lại "người tình". Bạn vớ bẫm. → (Tài sản +20, Thân thiết với Nox −30)
+
+
+Thất bại: Nox gầm lên như thú hoang, dùng sống rìu đập gãy xương sườn bạn và giành lại. Bạn dưỡng thương mất cả tháng. → (Sức khỏe −25)
+
+
+BĂNG 4: BĂNG NANH CUỒNG (Mã: band_d)
+1. Tên băng: Nanh Cuồng · Luật lệ: Sói ăn trước, người ăn sau. Kẻ nào để sói đói, kẻ đó làm mồi. · Hang ổ: Vách đá Hú.2. Thành viên (4 con/thú):
+
+Rida: Goblin Wolf Rider (đầu băng cái). Chột mắt, dữ dằn, yêu sói hơn đồng loại.
+
+
+Huyết Tinh: Sói hoang (phó băng). To như bê, lông đỏ quạch, khoái ngoạm đùi đồng minh.
+
+
+Tark: Goblin (lính mới). Nhát gan, phải cưỡi sói nhỏ, luôn tè dầm mỗi khi sói hú.
+
+
+Grik: Goblin (thu dọn). Bốc mùi phân sói nghẹt thở, hay lén chôm thịt của Huyết Tinh.3. Điều kiện gia nhập: Trưởng thành (6+). Nhanh nhẹn > 15. Bậc Goblin Scout hoặc Wolf Rider.7. Nhắc lại những năm yên ả:
+
+
+Rida thong thả lấy một cái lược làm từ xương người chải cục lông đỏ quạch cho Huyết Tinh.
+
+
+Mùi phân sói chua loét dính trên áo Grik làm cả băng phải ngồi lùi ra xa ba bước.
+
+
+Tark lấm lét ôm lấy con sói con, cố gắng không để bản thân tè dầm ra yên ngựa.
+
+
+[goblin_band_band_d_1] Bài Test Hàm Răng
+Mạch: band_d · Nút: 1 (Gia nhập)
+
+
+Khi nào: tuổi 6+ · Nhanh nhẹn > 15
+
+
+Tình huống: Để lên làm Kỵ binh, Rida ném bạn vào chuồng của Huyết Tinh. Bạn phải sống sót qua cú cắn thử của con quái thú này mà không khóc lóc cầu xin.
+
+
+A. Đứng trân mình chịu một cú ngoạm vào vai — dựa vào [Sức khỏe], [KHÓ]
+
+
+
+Thành công: Răng sói ngập vào thịt nhưng bạn chỉ nghiến răng cười khẩy. Rida gật đầu vứt cho bạn một con sói cưỡi. → (Sức khỏe −15, Danh vọng +10), gia nhập băng band_d, dấu ấn "band_d_bitten"
+
+
+Thất bại: Đau quá bạn hét toán lên bỏ chạy. Huyết Tinh vồ lấy xé rách mông bạn. Bạn bị ném vào làm chân dọn chuồng sói với Grik. → (Sức khỏe −25, Danh vọng −15), gia nhập băng band_d, dấu ấn "band_d_cleaner"
+
+
+B. Dùng kỹ năng lách né và xoa bụng sói — dựa vào [Nhanh nhẹn], [VỪA]
+
+
+
+Thành công: Bạn né cú cắn, luồn xuống gãi đúng chỗ hiểm khiến Huyết Tinh nằm vật ra phe phẩy đuôi. Rida kinh ngạc phong bạn làm kỵ binh tinh nhuệ. → (Nhanh nhẹn +2, Hạnh phúc +10), gia nhập băng band_d, dấu ấn "band_d_rider"
+
+
+Thất bại: Né trượt. Bạn bị Huyết Tinh tát gãy mũi. Trở thành trò cười của băng nhóm. → (Sức khỏe −15, Danh vọng −10), gia nhập băng band_d, dấu ấn "band_d_laughed"
+
+
+[goblin_band_band_d_2] Ăn Bớt Mồi Sói
+Mạch: band_d · Nút: 2 (Đời sống 1)
+
+
+Khi nào: CẦN dấu ấn từ Nút 1
+
+
+Tình huống: Cả băng vồ được một con hươu béo. Rida ném nguyên con hươu cho lũ sói. Grik lén lút rủ bạn ăn cắp cặp đùi hươu để nướng nhậu vì cả hai đã nhịn đói 3 ngày.
+
+
+A. Trộm đùi hươu trót lọt — dựa vào [Nhanh nhẹn], [VỪA]
+
+
+
+Thành công: Nhanh như chớp, bạn cắt phăng hai cái đùi chia cho Grik trước khi sói tới. Cả hai có bữa nhậu no say. → (Hạnh phúc +15, Thân thiết với Grik +20), dấu ấn "band_d_stolenmeat"
+
+
+Thất bại: Huyết Tinh tóm được tay bạn. Rida tức giận quất roi da gai xé nát lưng bạn, bỏ đói bạn thêm 3 ngày nữa. → (Sức khỏe −20, Danh vọng −10), dấu ấn "band_d_whipped"
+
+
+B. Tố cáo Grik với Rida để lập công — (Không tung xúc xắc) Rida khen ngợi sự trung thành, ném Grik vào chuồng cho sói ăn thịt. Bạn được ăn phần nội tạng hươu. → (Danh vọng +10, Sức khỏe +10), Grik CHẾT, dấu ấn "band_d_snitch"
+
+
+[goblin_band_band_d_3] Đồ Bỏ Đi
+Mạch: band_d · Nút: 3 (Đời sống 2)
+
+
+Khi nào: CẦN dấu ấn từ Nút 2
+
+
+Tình huống: Đang bị toán tuần tra Dwarf truy đuổi, sói của Tark bị què chân. Tark ngã lăn ra đất khóc lóc. Rida hô hào bỏ mặc thằng phế vật lại để bầy sói chạy thoát.
+
+
+A. Thòng dây kéo Tark lên sói của mình — dựa vào [Sức mạnh], [KHÓ]
+
+
+
+Thành công: Cánh tay rắn chắc của bạn kéo bổng Tark lên. Con sói của bạn cõng hai người phóng đi. Tark thề bán mạng cho bạn. → (Danh vọng +20, Thân thiết với Tark +40), dấu ấn "band_d_savedtark"
+
+
+Thất bại: Sức kéo làm bạn mất đà ngã xuống cùng Tark. Bọn Dwarf xông tới đâm bạn trọng thương, Tark bị băm vằm. Bạn phải giả chết mới lết về được. → (Sức khỏe −40), Tark CHẾT, dấu ấn "band_d_failedtark"
+
+
+B. Đạp Tark xuống hố để cản đường bọn Dwarf — (Không tung xúc xắc) Tark văng xuống la thét nức nở. Bọn Dwarf dừng lại kết liễu nó, băng nhóm bạn thoát thân an toàn. → (An toàn, Danh vọng −10, Hạnh phúc −10), Tark CHẾT, dấu ấn "band_d_lefttark"
+
+
+[goblin_band_band_d_4] Cuộc Đua Tử Thần
+Mạch: band_d · Nút: 4 (Đời sống 3)
+
+
+Khi nào: CẦN dấu ấn từ Nút 3
+
+
+Tình huống: Rida quá kiêu ngạo, đánh đập bầy sói vô cớ. Bạn thách thức ngôi thủ lĩnh của ả bằng luật của Vách đá Hú: cuộc đua sói băng qua Hẻm Nhọn.
+
+
+A. Đua sòng phẳng bằng kỹ năng cưỡi sói — dựa vào [Nhanh nhẹn], [RẤT KHÓ]
+
+
+
+Thành công: Bạn như hòa làm một với sói, vượt khe nứt hẹp sát nút bỏ xa Rida. Ả uất ức nhường lại ngôi vị thủ lĩnh cho bạn. → (Danh vọng +40, Nhanh nhẹn +2), trở thành đầu băng, dấu ấn "band_d_newalpha"
+
+
+Thất bại: Sói của bạn hụt chân ngã xuống vực. Bạn may mắn bám được rễ cây, mất sói, lết về trong nhục nhã và bị Rida đuổi cổ. → (Sức khỏe −30, Danh vọng −40), bị đuổi khỏi băng, dấu ấn "band_d_wolfdead"
+
+
+B. (Nếu có band_d_stolenmeat) Tẩm thuốc sổ vào mồi của Huyết Tinh — (Không tung xúc xắc) Sói của Rida đang chạy thì ôm bụng lăn lộn sùi bọt. Ả ngã dập mặt, bạn thắng dễ dàng và chiếm lấy đàn sói. → (Trí tuệ +2, Danh vọng +20), trở thành đầu băng, dấu ấn "band_d_cheater"
+
+
+[goblin_band_band_d_5] Sói Phản Chủ
+Mạch: band_d · Nút: 5 (Khép lại)
+
+
+Khi nào: CẦN "band_d_newalpha" hoặc "band_d_cheater"
+
+
+Tình huống: Bầy sói hoang phát điên vì bệnh dại lây từ Đầm Lầy. Huyết Tinh đỏ mắt lao vào xé xác đồng loại và quay sang vồ lấy băng Nanh Cuồng. Hang ổ ngập trong máu.
+
+
+A. Rút vũ khí chém bay đầu Huyết Tinh — dựa vào [Sức mạnh], [RẤT KHÓ]
+
+
+
+Thành công: Bạn chém vỡ hộp sọ quái thú, dập tắt cơn điên của bầy sói còn lại. Tuy mất đi phó tướng mạnh nhất, bạn vẫn giữ được băng nhóm. → (Sức mạnh +3, Danh vọng +30), băng sống sót, dấu ấn "band_d_beastslayer"
+
+
+Thất bại: Huyết Tinh quá khỏe, nó ngoạm đứt cổ bạn và cắn nát toàn bộ băng nhóm. Nanh Cuồng kết thúc bởi chính bầy thú nó nuôi. → CHẾT (Bị sói điên xé xác), băng bị xóa sổ, dấu ấn "band_d_tornapart"
+
+
+B. Phóng hỏa đốt hang vứt bỏ bầy sói chạy trốn — (Không tung xúc xắc) Lửa cháy thiêu rụi bầy sói và những đồng bọn yếu ớt chạy chậm. Bạn sống sót như một Kỵ binh không còn sói cỡi, lang thang cô độc. → (Sức khỏe +10, Danh vọng −50, Hạnh phúc −30), băng bị xóa sổ, dấu ấn "band_d_wolfless"
+
+
+[goblin_band_band_d_m1] Tình Yêu Mù Quáng
+Mạch: band_d · Nút: m1 (Rida)
+
+
+Tình huống: Rida khóc bù lu bù loa vì Huyết Tinh bị gai đâm kẽ chân mưng mủ, ả đòi bạn dùng miệng hút mủ cho con sói.
+
+
+A. Bịt mũi hút mủ để nịnh nọt — (Không tung xúc xắc) Bạn nhổ toẹt vũng mủ hôi thối ra. Sói hết què. Rida cười phá lên thưởng cho bạn một vốc bạc cướp được. → (Sức khỏe −5, Tài sản +25, Thân thiết với Rida +20)
+
+
+B. Chửi ả điên và rút dao khều gai — dựa vào [Trí tuệ], [VỪA]
+
+
+
+Thành công: Khều chính xác mủ bắn ra. Con sói tha mạng cho bạn, Rida lườm nguýt nhưng nể phục. → (Danh vọng +10)
+
+
+Thất bại: Khều trượt, con sói táp rách tay bạn. Rida tát bạn lăn quay. → (Sức khỏe −15, Thân thiết với Rida −10)
+
+
+BĂNG 5: BĂNG SẸO ĐỎ (Mã: band_e)
+1. Tên băng: Sẹo Đỏ · Luật lệ: Không tin ai, cấm ngủ say, kẻ nào ngáy chặt đầu. · Hang ổ: Phế tích Tháp Canh Elf.2. Thành viên (3 con):
+
+Vurn: Goblin Veteran (đầu băng). Cụt một tay, hoang tưởng, đêm nào cũng mài dao găm sột soạt.
+
+
+Sliz: Goblin (cảnh giới). Mắt thâm quầng vì thiếu ngủ trầm trọng, hay thấy ảo giác, giấu vàng dưới chân tháp.
+
+
+Brak: Hobgoblin (lá chắn). Tàn phế, bỏng cháy đen nửa người, câm lặng chịu đựng, lén nuôi một con chim non nhặt được.3. Điều kiện gia nhập: Lão luyện (11+) hoặc sống sót qua trận càn quét (dấu ấn survived). Sức khỏe < 50 hoặc Danh vọng > 30.7. Nhắc lại những năm yên ả:
+
+
+Tiếng mài dao sột soạt ma quái của Vurn ám ảnh những đêm trường thiếu ngủ ở Tháp Canh.
+
+
+Sliz thỉnh thoảng giật nảy mình hét toáng lên vào không khí, chém gió loạn xạ vì ảo giác.
+
+
+Nửa thân hình cháy đen của Brak khẽ rung lên khi hắn mớm vụn bánh cho con chim non.
+
+
+[goblin_band_band_e_1] Thử Thách Của Kẻ Sống Sót
+Mạch: band_e · Nút: 1 (Gia nhập)
+
+
+Khi nào: tuổi 11+ hoặc dấu ấn survived · SK < 50 hoặc DV > 30
+
+
+Tình huống: Để vào Băng Sẹo Đỏ, Vurn cụt tay bắt bạn quỳ xuống, kề con dao găm rỉ sét vào cổ bạn tra khảo xem bạn có phải nội gián của Guild Mạo hiểm giả hay không.
+
+
+A. Trừng mắt nhìn thẳng, chìa vết sẹo cũ ra chứng minh — dựa vào [Danh vọng], [VỪA]
+
+
+
+Thành công: Khí chất lão luyện của bạn làm Vurn gật gù, hạ dao xuống chào mừng đồng đội. → (Danh vọng +10), gia nhập băng band_e, dấu ấn "band_e_veteran"
+
+
+Thất bại: Vurn không tin, rạch một đường dài trên ngực bạn để thử sức chịu đựng. Bạn nghiến răng qua ải nhưng mất máu nhiều. → (Sức khỏe −20, Hạnh phúc −10), gia nhập băng band_e, dấu ấn "band_e_slashed"
+
+
+B. Đạp Vurn ngã ngửa và giành lấy con dao — dựa vào [Nhanh nhẹn], [KHÓ]
+
+
+
+Thành công: Bạn cướp dao dọa ngược lại Vurn. Lão bật cười hoang dại, mời bạn vào ngồi vị trí nòng cốt. → (Nhanh nhẹn +2, Danh vọng +20), gia nhập băng band_e, dấu ấn "band_e_bold"
+
+
+Thất bại: Brak khổng lồ tóm cổ bạn quật ngã. Bạn ăn một chùy gãy xương sườn trước khi được chấp nhận nương náu. → (Sức khỏe −30), gia nhập băng band_e, dấu ấn "band_e_broken"
+
+
+[goblin_band_band_e_2] Ảo Giác Và Vàng
+Mạch: band_e · Nút: 2 (Đời sống 1)
+
+
+Khi nào: CẦN dấu ấn từ Nút 1
+
+
+Tình huống: Sliz thiếu ngủ hoang tưởng chém bừa bãi vào bóng râm, vô tình cào vỡ nơi hắn giấu túi vàng cướp được, tiền rơi vãi tung tóe. Sliz gào lên đòi giết kẻ nào dám đụng vào.
+
+
+A. Đánh ngất Sliz để chia chác số vàng cùng Vurn — dựa vào [Sức mạnh], [VỪA]
+
+
+
+Thành công: Bạn đập chuôi dao vào gáy Sliz. Vurn chia cho bạn phân nửa số vàng trong tiếng cười khoái trá. → (Tài sản +30, Danh vọng +10), dấu ấn "band_e_stolegold"
+
+
+Thất bại: Sliz phát cuồng đâm thủng đùi bạn bằng giáo. Bạn mất máu, vàng bị Vurn hốt trọn. → (Sức khỏe −20, Hạnh phúc −15), dấu ấn "band_e_stabbed"
+
+
+B. Lùi lại nhường vàng cho Sliz để lấy lòng — (Không tung xúc xắc) Sliz điên loạn vơ vét số vàng giấu lại vào hốc tường, thì thầm cám ơn "người anh em tốt". Vurn khinh bỉ bạn ra mặt. → (Danh vọng −10, Thân thiết với Sliz +20), dấu ấn "band_e_coward"
+
+
+[goblin_band_band_e_3] Màn Cắn Trộm
+Mạch: band_e · Nút: 3 (Đời sống 2)
+
+
+Khi nào: CẦN dấu ấn từ Nút 2
+
+
+Tình huống: Băng bị một bầy Kobold tập kích ban đêm. Trong lúc hỗn chiến, Brak bị thương nặng ngã xuống cản đường lui. Vurn vung dao chém hụt định bỏ mặc Brak làm lá chắn chết thay.
+
+
+A. Kéo Brak đứng dậy và cùng tử thủ — dựa vào [Sức mạnh], [KHÓ]
+
+
+
+Thành công: Sự ngoan cường của bạn làm bầy Kobold chùn bước bỏ chạy. Brak thầm lặng rơi nước mắt, quyết làm chó săn trung thành cho bạn. → (Danh vọng +20, Thân thiết với Brak +40), dấu ấn "band_e_savedbrak"
+
+
+Thất bại: Kobold đâm nát bả vai bạn. Brak nổi điên xé xác vài con rồi gục ngã chết cháy trong đống lửa. Bạn sống sót mang theo sẹo mới. → (Sức khỏe −35), Brak CHẾT, dấu ấn "band_e_brakdead"
+
+
+B. Hùa theo Vurn, đẩy Brak vào lửa để cản đường địch — (Không tung xúc xắc) Khối thịt khổng lồ của Brak cháy rực chặn đứng lũ Kobold. Tiếng chim non gào khóc thảm thiết cháy theo xác chủ. → (Hạnh phúc −20, Danh vọng −10), Brak CHẾT, dấu ấn "band_e_betrayedbrak"
+
+
+[goblin_band_band_e_4] Kẻ Điên Cầm Lái
+Mạch: band_e · Nút: 4 (Đời sống 3)
+
+
+Khi nào: CẦN dấu ấn từ Nút 3
+
+
+Tình huống: Bệnh hoang tưởng của Vurn lên đến đỉnh điểm. Lão ra lệnh xử tử tất cả ấu tể vừa thu nạp vì nghi là gián điệp. Đã đến lúc kết liễu lão già điên này để cứu lấy tàn dư.
+
+
+A. (Nếu có band_e_savedbrak) Ra hiệu Brak bóp cổ Vurn — (Không tung xúc xắc) Với thân hình đồ sộ, Brak dễ dàng nhấc bổng Vurn lên và bóp gãy cổ lão. Bạn danh chính ngôn thuận tiếp quản băng Sẹo Đỏ. → (Danh vọng +30), trở thành đầu băng, Vurn CHẾT, dấu ấn "band_e_brakkill"
+
+
+B. Ám sát Vurn khi lão đang mài dao — dựa vào [Nhanh nhẹn], [KHÓ]
+
+
+
+Thành công: Bạn đâm một nhát xuyên tim. Lão chỉ kịp gằn giọng khen ngợi một câu trước khi gục. Bạn đoạt quyền thủ lĩnh. → (Danh vọng +20, Nhanh nhẹn +1), trở thành đầu băng, Vurn CHẾT, dấu ấn "band_e_assassin"
+
+
+Thất bại: Vurn cảnh giác cao độ, quay lại chém mù một mắt bạn. Bạn phải lăn qua vách tường sập để chạy trốn, sống vất vưởng cô độc. → (Sức khỏe −30, Danh vọng −40), bị đuổi khỏi băng, dấu ấn "band_e_oneeye"
+
+
+[goblin_band_band_e_5] Đêm Cuối Cùng Ở Tháp Canh
+Mạch: band_e · Nút: 5 (Khép lại)
+
+
+Khi nào: CẦN "band_e_brakkill" hoặc "band_e_assassin"
+
+
+Tình huống: Một đại đội Mạo hiểm giả quyết định dọn sạch Tháp Canh Elf. Chúng ném bom lửa vào hang ổ. Băng Sẹo Đỏ đứng trước cuộc chiến cuối cùng của những tàn binh.
+
+
+A. Dẫn băng đột phá vòng vây lửa — dựa vào [Danh vọng], [RẤT KHÓ]
+
+
+
+Thành công: Danh vọng của bạn kích thích sự hung hãn tột độ của tàn binh. Băng chém giết điên cuồng, phá vòng vây thoát ra Đầm Lầy. Những cái bóng sẹo đỏ mãi là nỗi khiếp sợ của Human. → (Danh vọng +50, Sức khỏe −20), băng sống sót huy hoàng, dấu ấn "band_e_bloodyescape"
+
+
+Thất bại: Bom lửa nuốt chửng tất cả. Dù chống trả ngoan cường, tàn binh cũng không thể đấu với biển lửa. Bạn gục ngã vĩnh viễn. → CHẾT (Chết cháy trong cuộc tử thủ), băng bị xóa sổ, dấu ấn "band_e_burned"
+
+
+B. Chui xuống hầm xí ngầm ngâm mình trốn lửa — (Không tung xúc xắc) Kệ xác đồng bọn chết thiêu, bạn lặn ngụp dưới đống phân và bùn lầy. Khi lửa tàn, bạn chui lên sống sót nhưng Sẹo Đỏ chỉ còn là đống tro tàn. → (Sức khỏe −10, Hạnh phúc −30, Danh vọng −30), băng bị xóa sổ, dấu ấn "band_e_cowardlysurvivor"
+
+
+[goblin_band_band_e_m1] Cơn Mộng Du
+Mạch: band_e · Nút: m1 (Sliz)
+
+
+Tình huống: Ban đêm, Sliz mộng du cầm dao kề sát cổ bạn, lẩm bẩm đòi tiền.
+
+
+A. Nằm im không thở — dựa vào [Nhanh nhẹn], [VỪA]
+
+
+
+Thành công: Sliz lẩm bẩm vài câu rồi cất dao quay về góc ngủ tiếp. Hú hồn. → (Hạnh phúc +5)
+
+
+Thất bại: Bạn thở mạnh, Sliz giật mình cứa một vệt máu dài trên cổ bạn. Bạn đạp hắn ngã lăn nhưng suýt mất mạng. → (Sức khỏe −20, Thân thiết với Sliz −20)
+
+
+[goblin_band_band_e_m2] Lồng Chim Của Quái Vật
+Mạch: band_e · Nút: m2 (Brak)
+
+
+Tình huống: Con chim non của Brak vô tình bay rớt vào đống lửa thui trụi lông đuôi, nó kêu ré lên. Brak khóc nghẹn ôm mặt đau khổ.
+
+
+A. Bôi mỡ lợn trị phỏng cho chim non — (Không tung xúc xắc) Brak quỳ rạp xuống liếm giày bạn tỏ lòng biết ơn vô tận. → (Thân thiết với Brak +30, Hạnh phúc +10)
+
+
+B. Dẫm bẹp con chim cho nó đỡ ồn — dựa vào [Sức mạnh], [VỪA]
+
+
+
+Thành công: Con chim nát bét. Brak gào lên nhưng quá yếu để đánh trả bạn, thu mình vào bóng tối thù hận. → (Danh vọng +5, Thân thiết với Brak −50)
+
+
+Thất bại: Brak điên cuồng vung chùy đập nát một bên vai bạn. Lão Vurn phải lao ra cản mới giữ được mạng bạn. → (Sức khỏe −30)
+1. 8 LOẠI THUỘC HẠ & CẢNH THU PHỤC
+1. Bọn Nhãi Nhép (Goblin Peon)
+
+Cách có được: Bắt nạt và thu nạp từ đống rác bộ lạc.
+
+
+Điểm mạnh: Số lượng đông, làm bia thịt cản tên cực tốt, dọn dẹp chiến trường.
+
+
+Điều nó cần để trung thành: Thức ăn thừa và nỗi sợ bị đánh đập.
+
+
+[goblin_minion_rec_a] Bia Thịt Rẻ Tiền
+Mạch: minion_a · Nút: 1 (Thu phục)
+
+
+Tình huống: Một nhóm ba con Goblin Peon đang gặm chung một khúc xương khô cạn tủy. Chúng thấy bạn đi tới bèn co rúm lại, sẵn sàng bỏ chạy.
+
+
+A. Ném cho chúng nửa cái xác chuột ươn — (Không tung xúc xắc) Cả ba lao vào xé xác con chuột, sau đó quỳ mọp liếm ngón chân bạn gọi "Đại ca". → (Tài sản −5), thu phục thuộc hạ minion_a
+
+
+B. Đập nhừ tử con to nhất để thị uy — dựa vào [Sức mạnh], [DỄ]
+
+
+
+Thành công: Bạn đá gãy răng con to nhất. Hai con còn lại run rẩy quỳ rạp xuống xin thề trung thành. → (Danh vọng +5), thu phục thuộc hạ minion_a
+
+
+Thất bại: Đám Peon hoảng loạn bỏ chạy tán loạn vào rừng trước khi bạn kịp ra tay. → (Danh vọng −5)
+
+
+2. Kobold Thợ Mỏ (Kobold Miner)
+
+Cách có được: Bắt sống khi cướp phá hầm ngục Kobold.
+
+
+Điểm mạnh: Đào hầm xuất sắc, thiết lập bẫy rập, đánh hơi quặng mỏ.
+
+
+Điều nó cần để trung thành: Đồ vật lấp lánh (vàng, đá quý, thủy tinh) và không bị đem thui.
+
+
+[goblin_minion_rec_b] Kẻ Đào Sâu
+Mạch: minion_b · Nút: 1 (Thu phục)
+
+
+Tình huống: Băng của bạn đánh sập một hầm Kobold. Bạn tóm được một con Kobold Thợ Mỏ đang rúc dưới tảng đá, ôm khư khư cái cuốc chim.
+
+
+A. Gạ gẫm bằng một đồng bạc lẻ — (Không tung xúc xắc) Mắt con Kobold sáng lên, nó giật đồng bạc nhét vào vảy và gật đầu đồng ý đào hầm cho bạn. → (Tài sản −10), thu phục thuộc hạ minion_b
+
+
+B. Dọa chặt đuôi nấu súp — dựa vào [Danh vọng], [VỪA]
+
+
+
+Thành công: Khí thế của bạn làm nó vãi cả ra quần, thề sẽ đào mọi thứ bạn muốn để giữ lại cái đuôi. → (Danh vọng +5), thu phục thuộc hạ minion_b
+
+
+Thất bại: Con Kobold hoảng loạn vung cuốc chim bổ vào gối bạn rồi đào một cái hố chuồn thẳng. → (Sức khỏe −15)
+
+
+3. Sói Ma Sứt Tai (Dire Wolf Pup)
+
+Cách có được: Ăn trộm từ hang Sói Ma khi mẹ nó đi săn.
+
+
+Điểm mạnh: Cắn xé, theo dấu vết bằng mùi máu, đe dọa kẻ thù.
+
+
+Điều nó cần để trung thành: Thịt sống tươi và sự thống trị tuyệt đối của con đầu đàn (là bạn).
+
+
+[goblin_minion_rec_c] Đứa Con Của Sói
+Mạch: minion_c · Nút: 1 (Thu phục)
+
+
+Tình huống: Lẻn vào hang Sói Ma, bạn túm được một con sói con sứt tai. Nó nhe hàm răng lởm chởm định táp vào tay bạn.
+
+
+A. Bóp mõm nó và nện một cú vào đầu — dựa vào [Sức mạnh], [VỪA]
+
+
+
+Thành công: Nó ăng ẳng cụp đuôi, chấp nhận bạn là con đầu đàn mới. Một con thú săn mồi đắc lực gia nhập. → (Sức mạnh +1, Sức khỏe −5), thu phục thuộc hạ minion_c
+
+
+Thất bại: Nó táp đứt một mảng thịt tay bạn rồi kêu hú gọi mẹ. Bạn phải ba chân bốn cẳng bỏ chạy. → (Sức khỏe −20)
+
+
+B. Dùng tiết lợn bôi lên tay cho nó liếm — (Không tung xúc xắc) Nó liếm láp ngon lành và lẽo đẽo theo bạn về tận lều. → (Tài sản −5), thu phục thuộc hạ minion_c
+
+
+4. Nô Lệ Human (Human Squire)
+
+Cách có được: Phục kích một tân binh Mạo hiểm giả bị thương.
+
+
+Điểm mạnh: Chế tạo công cụ cơ bản, hiểu biết về thế giới loài người, làm mồi nhử hoàn hảo hoặc đòi tiền chuộc.
+
+
+Điều nó cần để trung thành: Niềm hy vọng hão huyền rằng một ngày sẽ được thả, và nỗi sợ bị ăn thịt.
+
+
+[goblin_minion_rec_d] Kẻ Thấp Kém Cao Quý
+Mạch: minion_d · Nút: 1 (Thu phục)
+
+
+Tình huống: Một tân binh Human bị gãy chân đang bò lết trong rừng. Bạn đứng vắt vẻo trên cành cây, chĩa giáo vào đầu hắn. Hắn khóc lóc van xin tha mạng.
+
+
+A. Đeo gông cổ và hứa tha mạng nếu phục dịch — (Không tung xúc xắc) Hắn gật đầu lia lịa, tự tay khóa gông vào cổ. Khí tiết của Human rốt cuộc cũng chỉ đến thế. → (Danh vọng +10), thu phục thuộc hạ minion_d
+
+
+B. Đập gãy nốt chân kia cho khỏi chạy — dựa vào [Sức mạnh], [VỪA]
+
+
+
+Thành công: Tiếng gãy xương khô khốc vang lên. Hắn ngất xỉu vì đau, bạn kéo lê hắn về làm cu li tàn phế. → (Sức khỏe +5, Danh vọng +15), thu phục thuộc hạ minion_d
+
+
+Thất bại: Hắn vung khiên đập vào mặt bạn một cú chói lóa rồi lết đi mất. Bạn ôm mũi máu cay cú. → (Sức khỏe −15)
+
+
+5. Orc Gãy Nanh (Deserter Orc)
+
+Cách có được: Mua lại từ thương nhân nô lệ hoặc cứu khỏi bãi lầy.
+
+
+Điểm mạnh: Sức mạnh cơ bắp vô song, vác đồ nặng, càn quét trận địa.
+
+
+Điều nó cần để trung thành: Đánh bại hắn trong một cuộc thi sức mạnh hoặc cung cấp rượu thịt không giới hạn.
+
+
+[goblin_minion_rec_e] Gã Khổng Lồ Bại Trận
+Mạch: minion_e · Nút: 1 (Thu phục)
+
+
+Tình huống: Một tên Orc đào ngũ bị sa lầy ngập đến cổ. Hắn gầm gừ đòi một tên Goblin như bạn phải kéo hắn lên, bù lại hắn sẽ làm lá chắn cho bạn.
+
+
+A. Thòng dây kéo hắn lên rồi bắt thề máu — dựa vào [Sức mạnh], [KHÓ]
+
+
+
+Thành công: Bạn dùng hết sức bình sinh kéo gã khổng lồ lên. Hắn rỏ máu thề phục tùng kẻ mạnh. → (Sức mạnh +2, Danh vọng +20), thu phục thuộc hạ minion_e
+
+
+Thất bại: Sức ỳ của hắn kéo luôn bạn ngã chúi xuống bùn. Hai đứa chửi nhau ỏm tỏi trước khi bạn tự bò lên bỏ mặc hắn. → (Sức khỏe −10)
+
+
+B. Quăng cho hắn cuộn dây thừng đổi lấy thanh kiếm sắt của hắn — (Không tung xúc xắc) Hắn giao kiếm, tự trói tay để bạn kéo lên. Một giao kèo sòng phẳng không có tình nghĩa. → (Tài sản +20, Danh vọng +5), thu phục thuộc hạ minion_e
+
+
+6. Goblin Pha Chế (Apprentice Shaman)
+
+Cách có được: Phần thưởng từ Goblin Chief hoặc thu phục đám đệ tử bị đuổi.
+
+
+Điểm mạnh: Yểm bùa chú cơ bản, pha độc dược, hồi máu sơ cấp.
+
+
+Điều nó cần để trung thành: Đồ nghề ma thuật, xác chết để thực hành và sự bảo kê của bạn.
+
+
+[goblin_minion_rec_f] Kẻ Chơi Đùa Với Độc
+Mạch: minion_f · Nút: 1 (Thu phục)
+
+
+Tình huống: Một gã Shaman tập sự vừa làm nổ vạc thuốc, bị đuổi khỏi Tế đàn. Hắn lết tới lều của bạn, chìa ra một lọ thuốc giải độc xin đổi lấy sự che chở.
+
+
+A. Chấp nhận và cung cấp rễ nấm độc cho hắn — (Không tung xúc xắc) Hắn liếm môi cười xảo trá, chui vào góc lều của bạn bắt đầu pha chế mẻ độc mới. → (Tài sản −15, Trí tuệ +1), thu phục thuộc hạ minion_f
+
+
+B. Dọa giết trừ khi hắn uống thử thuốc của chính mình — dựa vào [Trí tuệ], [VỪA]
+
+
+
+Thành công: Hắn bấm bụng uống. Mặt hắn xanh lè nhưng sống sót. Bạn gật đầu thu nạp một tên có nghề. → (Danh vọng +10), thu phục thuộc hạ minion_f
+
+
+Thất bại: Hắn uống xong thì sùi bọt mép nằm giãy đành đạch chết tươi. Bạn thu được cái lọ rỗng. → (Tài sản +5)
+
+
+7. Slime Dọn Rác (Corpse Slime)
+
+Cách có được: Lừa bằng xác chết từ Hầm ngục.
+
+
+Điểm mạnh: Ăn sạch mọi dấu vết, nhổ a-xít, chống sát thương vật lý.
+
+
+Điều nó cần để trung thành: Nguồn cung cấp thịt thối liên tục, nếu không nó sẽ ăn chính bạn.
+
+
+[goblin_minion_rec_g] Vũng Lầy Tham Lam
+Mạch: minion_g · Nút: 1 (Thu phục)
+
+
+Tình huống: Một khối Slime xanh lục đang bò qua xác một con gấu. Bạn muốn dắt khối a-xít di động này về làm công cụ thủ tiêu thi thể.
+
+
+A. Dùng xác Goblin cũ làm mồi nhử dụ nó theo — (Không tung xúc xắc) Bạn thả từng mẩu xác dọc đường. Khối Slime ọc ạch bò theo về tận hang của bạn. → (Tài sản −10), thu phục thuộc hạ minion_g
+
+
+B. Dùng hũ thủy tinh khổng lồ úp nó lại — dựa vào [Nhanh nhẹn], [KHÓ]
+
+
+
+Thành công: Bạn úp trọn khối Slime, đóng nắp lại an toàn. Bạn có một vũ khí sinh học ném được. → (Nhanh nhẹn +1, Danh vọng +10), thu phục thuộc hạ minion_g
+
+
+Thất bại: Nó phun a-xít phỏng rát tay bạn. Chiếc hũ vỡ tan, nó trườn đi mất. → (Sức khỏe −25)
+
+
+8. Tiểu Yêu Móc Túi (Wood Sprite)
+
+Cách có được: Dùng bẫy dính trong Rừng Sâu.
+
+
+Điểm mạnh: Tàng hình, thám thính, mở khóa, ăn trộm vô hình.
+
+
+Điều nó cần để trung thành: Sự đe dọa thiêu rụi cái cây bản mệnh của nó.
+
+
+[goblin_minion_rec_h] Cánh Bướm Tàn Tạ
+Mạch: minion_h · Nút: 1 (Thu phục)
+
+
+Tình huống: Một con Tiểu Yêu nhỏ xíu bằng bàn tay bị dính chặt vào bẫy keo nhựa thông của bạn. Nó khóc lóc vo ve xin tha mạng.
+
+
+A. Bóp gãy một cánh để nó khỏi bay trốn — dựa vào [Sức mạnh], [VỪA]
+
+
+
+Thành công: Bạn tàn nhẫn xé một bên cánh mỏng manh. Nó thét lên đau đớn, ngoan ngoãn nằm trong túi áo bạn làm tai mắt. → (Trí tuệ +2, Hạnh phúc −10), thu phục thuộc hạ minion_h
+
+
+Thất bại: Nó rắc phấn độc vào mặt bạn làm bạn hắt hơi mù mịt rồi vùng thoát ra được. → (Sức khỏe −10)
+
+
+B. Bắt nó thề ma thuật bằng linh hồn — (Không tung xúc xắc) Bùa chú khóa chặt sinh mệnh nó vào bạn. Bạn thả bẫy dính, nó bay lượn quanh đầu bạn miễn cưỡng phục vụ. → (Trí tuệ +1, Tài sản −5), thu phục thuộc hạ minion_h
+
+
+2. 8 NÚT QUẢN LÝ THUỘC HẠ (Dùng chung choọi {minion})
+[goblin_minion_1] Mùa Đông Đói Khát
+Mạch: quản_lý · Nút: 1
+
+
+Khi nào: Có thuộc hạ · Mùa đông đến sớm
+
+
+Tình huống: Lương thực cạn kiệt. Bụng bạn kêu gào, còn {minion} thì đang nhìn bạn bằng con mắt rũ rượi, sắp kiệt sức đến nơi.
+
+
+A. Đập nó một trận và cướp luôn khẩu phần còm cõi của nó — Bạn là chủ, bạn có quyền sống. Bạn nuốt trọn số thịt khô. {minion} thoi thóp thù hận nhìn bạn. → (Sức khỏe +15, Hạnh phúc −10, Thân thiết với thuộc hạ −30)
+
+
+B. Cắn răng nhường nó một phần thức ăn để giữ lực lượng — Dựa vào [Tài sản], [VỪA].
+
+
+
+Thành công: Dạ dày bạn teo lại nhưng {minion} rớt nước mắt ăn ngấu nghiến. Lòng trung thành của nó được đảm bảo tuyệt đối. → (Sức khỏe −15, Thân thiết với thuộc hạ +40)
+
+
+Thất bại: Chia không đủ no, cả bạn và nó đều ốm lả đi trong gió rét Đầm Lầy. → (Sức khỏe −25, Thân thiết với thuộc hạ +10)
+
+
+[goblin_minion_2] Ánh Mắt Phản Trắc
+Mạch: quản_lý · Nút: 2
+
+
+Khi nào: Có thuộc hạ
+
+
+Tình huống: Giao cho {minion} canh gác kho báu, bạn quay lại thấy nó đang lén nhét một đồng tiền vàng vào kẽ răng. Nó chối bay chối biến khi bị hỏi tội.
+
+
+A. Chặt một ngón tay của nó làm gương — (Không tung xúc xắc) Tiếng hét vang lên, máu nhỏ giọt. Bạn lấy lại đồng vàng, răn đe thói tắt mắt vô kỷ luật. → (Tài sản +10, Danh vọng +5, Thân thiết với thuộc hạ −20)
+
+
+B. Dùng lời lẽ sắc bén đe dọa tâm lý — Dựa vào [Trí tuệ], [VỪA].
+
+
+
+Thành công: Bạn kể chi tiết cách bạn thui sống kẻ ăn trộm trước đây. Nó sợ vãi đái, tự nôn đồng vàng ra nộp lại. → (Tài sản +10, Trí tuệ +1)
+
+
+Thất bại: Nó giả ngu ngơ rồi nuốt ực đồng vàng xuống bụng, bạn mất tiền mà không làm gì được ngoài việc tát nó mấy cái. → (Tài sản −10, Danh vọng −5)
+
+
+[goblin_minion_3] Vật Tế Chạy Trốn
+Mạch: quản_lý · Nút: 3
+
+
+Khi nào: Có thuộc hạ
+
+
+Tình huống: Bị một con Troll Đá khổng lồ đuổi theo trong hầm ngục. Lối thoát hẹp trước mặt chỉ vừa một người lách qua.
+
+
+A. Đá {minion} về phía con Troll làm mồi — (Không tung xúc xắc) Không chút do dự, bạn đạp nó lại phía sau. Tiếng nhai xương rào rạo vang lên câu đủ thời gian cho bạn thoát mạng. → (Sức khỏe +10, Danh vọng −10), mất thuộc hạ.
+
+
+B. Hợp sức đẩy tảng đá lấp lối cản con Troll — Dựa vào [Sức mạnh], [KHÓ].
+
+
+
+Thành công: Cả hai dốc toàn lực đẩy tảng đá sập xuống chặn miệng hang. Bạn và {minion} thở dốc nhìn nhau, cùng chung sinh tử. → (Danh vọng +15, Thân thiết với thuộc hạ +30)
+
+
+Thất bại: Tảng đá kẹt lại. Troll tóm được {minion} xé xác. Bạn bị trầy xước nặng nề lách qua kẽ hở trốn thoát. → (Sức khỏe −30), mất thuộc hạ.
+
+
+[goblin_minion_4] Niềm Kiêu Hãnh Của Kẻ Hầu
+Mạch: quản_lý · Nút: 4
+
+
+Khi nào: Có thuộc hạ
+
+
+Tình huống: Trong một cuộc phục kích, {minion} của bạn xuất thần kết liễu được tên đội trưởng Human, lôi về một thanh kiếm bạc sáng lóa. Cả bộ lạc trầm trồ khen ngợi nó.
+
+
+A. Tịch thu thanh kiếm và cướp công trắng trợn — Bạn tuyên bố thanh kiếm là chiến lợi phẩm của thủ lĩnh. Bộ lạc khinh bỉ, {minion} uất hận nghiến răng. → (Tài sản +30, Danh vọng −15, Thân thiết với thuộc hạ −40)
+
+
+B. Thưởng cho nó và phong làm Phó tướng — Dựa vào [Danh vọng], [VỪA].
+
+
+
+Thành công: Bạn ca ngợi lòng dũng cảm của nó dưới trướng bạn. Đám đàn em thán phục sự hào phóng của thủ lĩnh. → (Danh vọng +20, Hạnh phúc +10, Thân thiết với thuộc hạ +30)
+
+
+Thất bại: Khen ngợi quá đà khiến nó sinh kiêu ngạo, vung kiếm đe dọa lại chính bạn đòi thêm quyền lợi. → (Danh vọng −10, Tài sản −10)
+
+
+[goblin_minion_5] Đêm Trắng Phản Loạn
+Mạch: quản_lý · Nút: 5
+
+
+Khi nào: Có thuộc hạ · Thân thiết với thuộc hạ < 20 (hoặc xui xẻo)
+
+
+Tình huống: Bị dồn ép quá mức, {minion} lén mò vào lều của bạn lúc nửa đêm, tay lăm lăm vũ khí định kết liễu chủ nhân để giành tự do.
+
+
+A. Giả vờ ngủ và lật lọng đâm ngược lại — Dựa vào [Nhanh nhẹn], [KHÓ].
+
+
+
+Thành công: Khi dao nó vừa hạ xuống, bạn vung gươm chém đứt tay nó. Kẻ phản trắc quỳ gối gào khóc. Bêu đầu nó trước trại! → (Danh vọng +20), thuộc hạ nổi loạn, mất thuộc hạ.
+
+
+Thất bại: Bạn phản ứng chậm, bị nó đâm một nhát sâu vào lồng ngực. Dù sau đó đập chết được nó, bạn mang thương tật vĩnh viễn. → (Sức khỏe −40, Sức mạnh −2), thuộc hạ nổi loạn, mất thuộc hạ.
+
+
+B. Thức dậy và ném tiền mua chuộc sự tha thứ của nó — (Không tung xúc xắc) Hèn hạ quỳ lạy chính thuộc hạ của mình, bạn dâng hết vàng bạc. Nó hừ lạnh lấy tiền rồi bỏ trốn khỏi bộ lạc. → (Tài sản −50, Danh vọng −30, Hạnh phúc −20), mất thuộc hạ.
+
+
+[goblin_minion_6] Lòng Tham Của Goblin Chief
+Mạch: quản_lý · Nút: 6
+
+
+Khi nào: Có thuộc hạ · Bạn chưa phải là King/Chief
+
+
+Tình huống: Goblin Chief dạo quanh khu trại, mắt sáng rực khi thấy tài năng của {minion}. Lão ra lệnh: "Giao con chó ngoan này cho ta, hoặc tao chặt đầu mày!".
+
+
+A. Ngoan ngoãn dâng {minion} cho Chief — (Không tung xúc xắc) {minion} nhìn bạn bằng ánh mắt khinh bỉ tột độ khi bị lính canh lôi đi. Bạn giữ được mạng và nhận một vốc xương làm phần thưởng mỉa mai. → (Sức khỏe +10, Danh vọng −20, Hạnh phúc −15), mất thuộc hạ.
+
+
+B. Nói dối rằng {minion} đang mắc bệnh hủi lây lan — Dựa vào [Trí tuệ], [VỪA].
+
+
+
+Thành công: Chief bịt mũi lùi lại, mắng nhiếc sự hôi thối của lều bạn rồi bỏ đi. {minion} phục sát đất trí thông minh của bạn. → (Trí tuệ +1, Danh vọng +10, Thân thiết với thuộc hạ +20)
+
+
+Thất bại: Chief sai Shaman kiểm tra. Lời nói dối bị lật tẩy. Bạn bị phạt đánh 30 roi và vẫn mất {minion}. → (Sức khỏe −30, Danh vọng −20), mất thuộc hạ.
+
+
+[goblin_minion_7] Cuộc Thảm Sát Buổi Sớm
+Mạch: quản_lý · Nút: 7
+
+
+Khi nào: Có thuộc hạ
+
+
+Tình huống: Đội Ranger Đại Ngàn đột kích lúc hừng đông. Doanh trại tan hoang. Bạn tìm thấy {minion} đang nằm thoi thóp dưới một đống đổ nát, ruột đổ ra ngoài, cầu xin bạn ban cho một ân huệ cuối cùng.
+
+
+A. Nhẫn tâm lục lọi xác nó lấy đồ rồi bỏ đi — Bạn lột chiếc nhẫn vàng và vũ khí của nó khi nó còn chưa tắt thở, chứng minh Goblin không có chỗ cho lòng thương hại. → (Tài sản +20, Danh vọng −10, Hạnh phúc −20), mất thuộc hạ.
+
+
+B. Ngồi xuống kết liễu nó nhanh gọn bằng một nhát dao êm ái — (Không tung xúc xắc) Một nhát xuyên tim. Bạn nhắm mắt kẻ đã từng vào sinh ra tử cùng mình. Một khoảnh khắc lặng lẽ hiếm hoi giữa Đầm Lầy. → (Hạnh phúc +10, Danh vọng +5), mất thuộc hạ.
+
+
+[goblin_minion_8] Tuổi Già Gõ Cửa
+Mạch: quản_lý · Nút: 8
+
+
+Khi nào: Có thuộc hạ · Bạn đã ở tuổi 11+
+
+
+Tình huống: Thời gian không chừa một ai. {minion} nay đã già cỗi, chậm chạp, hay ho sặc sụa và tiêu tốn quá nhiều thức ăn mà không làm được việc gì ra hồn.
+
+
+A. Vứt nó vào rừng cho sói ăn — Không nuôi báo cô. Bạn thẳng tay đá nó ra khỏi cửa. Tiếng rên rỉ yếu ớt của nó mất hút trong đêm sương. → (Tài sản +10, Danh vọng +5, Hạnh phúc −15), mất thuộc hạ.
+
+
+B. Nuôi nó như một biểu tượng của quyền lực lâu đời — Dựa vào [Tài sản], [VỪA].
+
+
+
+Thành công: Bạn đủ giàu để ném thức ăn cho nó. Đám trẻ nhìn vào thấy một minh chứng sống cho sự trường tồn của bạn. → (Danh vọng +20, Hạnh phúc +15)
+
+
+Thất bại: Nuôi một phế nhân làm kinh tế kiệt quệ. Đàn em phàn nàn bạn quá yếu mềm và âm mưu cướp kho lương. → (Tài sản −20, Danh vọng −10)
+
+
+3. CÁC NÚT ĐẶC THÙ THEO NHÁNH TIẾN HÓA
+HOBGOBLIN
+[goblin_minion_hob_1] Nỗi Sợ Bạo Lực
+
+Mạch: hobgoblin_minion · Nút: 1
+
+
+Khi nào: Đã tiến hóa Hobgoblin · Có thuộc hạ
+
+
+Tình huống: Thân hình khổng lồ của bạn che khuất ánh mặt trời. Khi {minion} lóng ngóng làm rơi khay thịt, nó quỳ mọp xuống run bắn người chờ đợi cơn thịnh nộ.
+
+
+A. Bóp nát một tảng đá bằng một tay để thị uy — Dựa vào [Sức mạnh], [VỪA].
+
+
+
+Thành công: Bột đá lả tả rơi. Thuộc hạ khiếp sợ đến mức tè dầm, thề tuyệt đối không bao giờ làm sai nữa. → (Sức mạnh +1, Danh vọng +20, Thân thiết với thuộc hạ +10)
+
+
+Thất bại: Bóp phải đá cứng quá trật khớp ngón tay. Đám thuộc hạ cố nhịn cười nhưng vẫn sợ vóc dáng của bạn. → (Sức khỏe −5, Danh vọng −10)
+
+
+B. Dùng chân đá bay nó ra khỏi lều — (Không tung xúc xắc) Cú đá như trời giáng khiến nó gãy mấy xương sườn bay ra bãi rác. Ở Đầm Lầy, to xác là chân lý. → (Sức khỏe +5, Danh vọng +10, Thân thiết với thuộc hạ −20)
+
+
+[goblin_minion_hob_2] Cuồng Tín Xác Thịt
+
+Mạch: hobgoblin_minion · Nút: 2
+
+
+Khi nào: Đã tiến hóa Hobgoblin · Có thuộc hạ
+
+
+Tình huống: Giữa chiến trường rực lửa với bầy Orc, bạn gầm lên một tiếng xé toạc màng nhĩ. Đám thuộc hạ được truyền cảm hứng bởi sức mạnh ma thú tuyệt đối của bạn.
+
+
+A. Xung phong nghiền nát địch, lệnh thuộc hạ theo sau — Dựa vào [Sức mạnh], [KHÓ].
+
+
+
+Thành công: Bạn như cỗ xe tăng càn quét. Lũ thuộc hạ cuồng nộ tột độ lao theo như bầy chó dại, đè bẹp hoàn toàn phe Orc. → (Danh vọng +30, Hạnh phúc +20, Sức mạnh +2)
+
+
+Thất bại: Bạn bị dính bẫy gấu gục xuống. Lũ thuộc hạ mất tinh thần bỏ chạy sạch, để bạn lại tự loay hoay với cái chân nát bấy. → (Sức khỏe −30, Danh vọng −20)
+
+
+GOBLIN SHAMAN LORD
+[goblin_minion_sham_1] Làn Khói Tẩy Não
+
+Mạch: shaman_minion · Nút: 1
+
+
+Khi nào: Đã tiến hóa Shaman Lord · Có thuộc hạ
+
+
+Tình huống: {minion} tỏ ý bất mãn với những nghi thức tế lễ đẫm máu. Bạn thổi một làn khói hắc ám từ quyền trượng sọ người vào thẳng mặt nó.
+
+
+A. Dùng ma thuật thao túng tâm trí nó — Dựa vào [Trí tuệ], [VỪA].
+
+
+
+Thành công: Đôi mắt nó đục ngầu, sùi bọt mép rồi đứng thẳng dậy. Tâm trí đã bị xóa sạch, chỉ còn lại một cỗ máy tuân lệnh tuyệt đối. → (Trí tuệ +2, Danh vọng +15, Thân thiết với thuộc hạ +50)
+
+
+Thất bại: Làn khói quá độc làm não nó nổ tung. Nó lăn đùng ra chết ngay tại chỗ. Bọn khác đứng xem lạnh sống lưng. → (Danh vọng +5, Hạnh phúc −10), mất thuộc hạ.
+
+
+B. Bắt nó nốc cạn bát máu pha bùa chú — (Không tung xúc xắc) Cổ họng nó cháy rát. Nó gào thét một lúc rồi lịm đi, tỉnh dậy trở nên ngoan đạo một cách rùng rợn. → (Tài sản −10, Danh vọng +10)
+
+
+[goblin_minion_sham_2] Quả Bom Chết Chóc
+
+Mạch: shaman_minion · Nút: 2
+
+
+Khi nào: Đã tiến hóa Shaman Lord · Có thuộc hạ
+
+
+Tình huống: Quân Human tiến công. Bạn không cần quân đội cản bước, bạn cần một vụ nổ. Bạn cấy ký sinh ma thuật vào người {minion} và lệnh nó lao vào giữa quân thù.
+
+
+A. Kích nổ linh hồn kẻ hầu — Dựa vào [Trí tuệ], [KHÓ].
+
+
+
+Thành công: {minion} nổ tung thành luồng lửa xanh. Hàng chục tên lính Human bị thổi bay. Bạn đứng vuốt cằm cười man rợ. → (Danh vọng +40, Trí tuệ +2), mất thuộc hạ.
+
+
+Thất bại: Bùa chú lép. {minion} chạy tới nơi thì nôn ra ký sinh trùng rồi đầu hàng bọn Human, khai sạch căn cứ của bạn. Bạn phải vội vã rút quân. → (Sức khỏe −20, Danh vọng −30), mất thuộc hạ.
+
+
+GOBLIN KING
+[goblin_minion_king_1] Đại Tiệc Của Kẻ Thống Trị
+
+Mạch: king_minion · Nút: 1
+
+
+Khi nào: Bậc Goblin King · Có thuộc hạ (Cả bộ lạc)
+
+
+Tình huống: Ngồi trên ngai vàng xương, cả ngàn tên Goblin quỳ rạp dưới chân. Bạn phẩy tay ra lệnh bày một bữa đại tiệc bằng mọi thứ chúng cướp được.
+
+
+A. Bắt tất cả nộp 80% tài sản làm cống phẩm — Dựa vào [Danh vọng], [VỪA].
+
+
+
+Thành công: Chúng ngoan ngoãn dâng vàng bạc, đồ ăn. Bạn ngập trong sự xa hoa trụy lạc của một vì vua độc tài. → (Tài sản +50, Hạnh phúc +30)
+
+
+Thất bại: Đám đông lầm bầm phẫn nộ. Chúng chỉ nộp rác rưởi ôi thiu và lườm bạn bằng con mắt hình viên đạn. Cẩn thận cái ghế. → (Danh vọng −20, Tài sản +5)
+
+
+B. Hào phóng ban phát kho báu để múa vui — (Không tung xúc xắc) Bạn ném vàng xuống. Bọn đàn em cấu xé nhau vỡ đầu để tranh giành trong khi bạn cười khả ố xem trò vui. → (Tài sản −30, Danh vọng +30, Hạnh phúc +20)
+
+
+[goblin_minion_king_2] Nọc Độc Trong Rượu Nho
+
+Mạch: king_minion · Nút: 2
+
+
+Khi nào: Bậc Goblin King · Có thuộc hạ
+
+
+Tình huống: Một tên Goblin Elite trẻ tuổi dâng cho bạn chiếc sừng trâu đựng rượu nho. Đôi mắt lấm lét của nó báo hiệu một âm mưu phản nghịch cướp ngôi kinh điển.
+
+
+A. Ép chính {minion} thân tín nhất nếm thử rượu — Dựa vào [Trí tuệ], [VỪA].
+
+
+
+Thành công: {minion} uống xong hộc máu chết tươi. Cả điện kinh hãi. Bạn gầm lên sai người băm vằm tên Elite phản tặc, giữ vững ngai vàng. → (Danh vọng +40, Trí tuệ +2), mất thuộc hạ.
+
+
+Thất bại: {minion} biết rượu có độc nhưng lại bưng bít, hắt chén rượu đi giả vờ lỡ tay. Phản tặc trốn thoát, bạn rơi vào vòng vây âm mưu. → (Hạnh phúc −20, Danh vọng −15)
+
+
+B. Cầm sừng rượu đổ ụp lên đầu tên Elite rồi chém đầu hắn — Không cần nếm thử, sự nghi ngờ của vua là phán quyết. Đầu hắn lăn lóc, cả bộ lạc rùng mình tôn kính Vua Goblin tàn độc nhất. → (Sức mạnh +2, Danh vọng +30)
+

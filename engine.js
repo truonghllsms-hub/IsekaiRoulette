@@ -182,6 +182,13 @@
         father: parentName(c, "father"),
         mother: parentName(c, "mother"),
         maker: parentName(c, "maker"),
+        rival: c.cast && c.cast.rival ? c.cast.rival.name : CAST_WORD.rival,
+        mentor: c.cast && c.cast.mentor ? c.cast.mentor.name : CAST_WORD.mentor,
+        friend: c.cast && c.cast.friend ? c.cast.friend.name : CAST_WORD.friend,
+        party: c.band ? c.band.name : "băng",
+        leader: c.band ? (c.band.lead ? "bạn" : c.band.leaderName || "đầu băng") : "đầu băng",
+        member: ctx.ally ? ctx.ally.name : c.party.find((m) => m.alive && !m.left) ? c.party.find((m) => m.alive && !m.left).name : "một đồng bọn",
+        minion: c.minions && c.minions.length ? c.minions[c.minions.length - 1].name : "đám thuộc hạ",
       },
       extra || {}
     );
@@ -316,6 +323,11 @@
     if (era) pushLog(c, "era", era.text);
     pushLog(c, "intro", introLine(c));
     pushLog(c, "birth", fmt(origin.text, c, null, data));
+    makeCast(c, data, rng);
+    c.minions = [];
+    const st = storyOf(c, data);
+    const arc = st && st.arcs && st.arcs[origin.id];
+    if (arc && arc.opening) pushLog(c, "story", fmt(arc.opening, c, null, data));
     return c;
   }
 
@@ -333,6 +345,169 @@
 
   function addMoment(c, text, data) {
     if (text) c.moments.push({ age: c.age, text: fmt(text, c, null, data) });
+  }
+
+  // ---------- the story layer: recurring cast, bands, minions ----------
+  const CAST_ROLES = ["rival", "mentor", "friend"];
+  const CAST_WORD = { rival: "kẻ thù cũ", mentor: "người dẫn dắt", friend: "đồng bọn thân nhất" };
+  const storyOf = (c, data) => (data && data.story && data.story[c.race.id]) || null;
+
+  // "Hèn nhát, gầy trơ xương…" → a companion trait the engine knows
+  function traitFrom(text) {
+    const t = (text || "").toLowerCase();
+    if (/hèn|nhát|sợ/.test(t)) return "timid";
+    if (/tham|giấu|chôm|trộm|lấp lánh/.test(t)) return "greedy";
+    if (/trung thành|tận tụy|bảo vệ/.test(t)) return "loyal";
+    if (/lạnh|câm|lầm lì|tàn nhẫn/.test(t)) return "cold";
+    if (/cười|vui|hài/.test(t)) return "cheerful";
+    return "brave";
+  }
+
+  function makeCast(c, data, rng) {
+    const st = storyOf(c, data);
+    if (!st || !st.cast) return;
+    c.cast = {};
+    for (const role of CAST_ROLES) {
+      const kinds = Object.values(st.cast).filter((k) => k.role === role);
+      if (!kinds.length) continue;
+      const k = pick(rng, kinds);
+      // a name nobody else in this life already carries
+      const taken = [c.name.split(" ")[0], ...Object.values(c.cast).map((x) => x.name), ...Object.values(c.parents || {}).map((p) => p && p.name)].filter(Boolean).map((x) => x.split(" ")[0]);
+      for (const b of Object.values(st.bands || {})) for (const m of b.members || []) taken.push(m.name);
+      let name = randomName(data, rng, c.race.id, null).split(" ")[0];
+      for (let i = 0; i < 20 && taken.includes(name); i++) name = randomName(data, rng, c.race.id, null).split(" ")[0];
+      c.cast[role] = { role, kind: k.id, name, alive: true, left: false, bond: 0 };
+    }
+  }
+
+  function joinBand(c, data, id) {
+    const st = storyOf(c, data);
+    const b = st && st.bands && st.bands[id];
+    if (!b) return;
+    leaveBand(c, false);
+    const leader = b.members.find((m) => /đầu băng|đội trưởng|thủ lĩnh/i.test(m.position)) || b.members[0];
+    c.band = { id, name: b.name || b.title, leaderName: leader ? leader.name : null, lead: false, gone: false, since: c.age };
+    for (const m of b.members) {
+      if (m === leader) continue;
+      if (aliveParty(c).length >= MAX_PARTY) break;
+      c.party.push({ name: m.name, race: m.race, gender: /cái/.test(m.race + m.position) ? "female" : "male", job: "band", jobName: m.position,
+        stat: "STR", power: 4, trait: traitFrom(m.desc), bond: 30, alive: true, since: c.age, band: id });
+    }
+    addMoment(c, `Gia nhập băng ${c.band.name}`, data);
+  }
+
+  function leaveBand(c, wiped) {
+    if (!c.band) return;
+    // members stay in the record of this life; those who are gone no longer walk with you
+    for (const m of c.party) if (m.band === c.band.id && m.alive) { m.alive = false; if (wiped) m.died = c.age; else m.left = true; }
+    c.formerBands = (c.formerBands || []).concat(c.band.name);
+    c.band = null;
+  }
+
+  // The person a name in the script points at: a band member, the band leader, or one of the cast.
+  function findPerson(c, name) {
+    const m = c.party.find((x) => x.name === name);
+    if (m) return { kind: "member", m };
+    if (c.band && c.band.leaderName === name) return { kind: "leader" };
+    return null;
+  }
+
+  // "(mồ côi)", "(có băng nhóm)", "({rival} còn sống)", "(có {spouse} và {child})": does the life fit?
+  function storyCond(c, data, cond) {
+    if (!cond) return true;
+    return String(cond).split(/\s+và\s+/).every((partRaw) => {
+      const p = partRaw.trim().toLowerCase();
+      const parents = ["father", "mother"].map((w) => c.parents && c.parents[w]).filter(Boolean);
+      const alive = (w) => !!(c.parents && c.parents[w] && c.parents[w].alive);
+      let m;
+      if ((m = p.match(/^\{(rival|mentor|friend)\} (còn sống|đã chết)/))) { const x = c.cast && c.cast[m[1]]; return !!x && (m[2] === "còn sống" ? x.alive && !x.left : !x.alive); }
+      if ((m = p.match(/^(?:còn )?\{(father|mother)\}(?: còn sống)?$/))) return alive(m[1]);
+      if ((m = p.match(/^\{(father|mother)\} đã (chết|mất)/))) return !!(c.parents && c.parents[m[1]] && !c.parents[m[1]].alive && c.parents[m[1]].status !== "unknown");
+      if (/^\{spouse\} đã (chết|mất)/.test(p)) return !c.spouse && !!(c.formerSpouses && c.formerSpouses.length);
+      if (/^có \{spouse\}|^có bạn đời|^có bạn tình/.test(p)) return !!c.spouse;
+      if (/^có \{child\}|^có lứa con|^có con/.test(p)) return c.children.length > 0;
+      if (/mồ côi/.test(p)) return parents.length > 0 ? parents.every((x) => !x.alive) : true;
+      if (/còn cha|còn mẹ|cha mẹ còn/.test(p)) return parents.some((x) => x.alive);
+      if (/đói khổ|nghèo/.test(p)) return c.bars.wealth < 20;
+      if (/của ăn của để|giàu/.test(p)) return c.bars.wealth > 50;
+      if (/có vai trò|có nghề/.test(p)) return !!c.job;
+      if (/chưa có nghề|chưa có vai trò/.test(p)) return !c.job;
+      if (/bậc cao/.test(p)) return !!(c.guild && c.guild.rank >= 2);
+      if (/có băng|có tổ đội|có đồng bọn/.test(p)) return !!c.band || aliveParty(c).length > 0;
+      if (/cô độc/.test(p)) return !c.band && !aliveParty(c).length && !c.spouse;
+      if (/thương tật/.test(p)) return c.bars.health < 30;
+      if (/tiến hóa/.test(p)) return !!c.form;
+      if (/nổi danh/.test(p)) return c.fame > 50;
+      if (/có thuộc hạ/.test(p)) return !!(c.minions && c.minions.length);
+      return false;
+    });
+  }
+
+  // a line from the past for a quiet year: memories, recalled choices, the cast, the band
+  function memoryLine(c, data, rng) {
+    const st = storyOf(c, data);
+    if (!st) return null;
+    const pool = [];
+    for (const mm of st.memories || []) if (storyCond(c, data, mm.cond)) pool.push(mm.text);
+    for (const e of c.used.length ? data.events.filter((x) => x.recall && c.used.includes(x.id)) : [])
+      for (const r of e.recall) if (r.flags.some((f) => c.flags.includes(f))) pool.push(r.text);
+    if (c.cast)
+      for (const role of CAST_ROLES) {
+        const x = c.cast[role];
+        const k = x && st.cast && st.cast[x.kind];
+        if (k && x.alive && !x.left && c.used.some((id) => id.includes(`_cast_${x.kind}_`))) pool.push(...k.recall);
+      }
+    if (c.band && st.bands && st.bands[c.band.id]) pool.push(...st.bands[c.band.id].recall);
+    return pool.length ? pick(rng, pool) : null;
+  }
+
+  function chapterLine(c, data, rng, stageId) {
+    const st = storyOf(c, data);
+    const list = st && st.chapters && st.chapters[stageId];
+    if (!list || !list.length) return null;
+    const fit = list.filter((x) => storyCond(c, data, x.cond));
+    return fit.length ? pick(rng, fit).text : null;
+  }
+
+  // The life told back when it ends: where you came from, what you did, how the story closed, how you died.
+  function biography(c, data) {
+    const st = storyOf(c, data);
+    if (!st || !st.bio) return null;
+    const out = [];
+    const arcKey = c.origin.id.replace(new RegExp(`^${c.race.id}_(origin|bg)_`), "");
+    if (st.bio.open && st.bio.open[arcKey]) out.push(st.bio.open[arcKey]);
+    const arc = st.arcs && st.arcs[c.origin.id];
+    const ending = arc && arc.endings.find((e) => e.flags.some((f) => c.flags.includes(f)));
+    if (ending) out.push(ending.text);
+    // a line about the people of this life
+    const bits = [];
+    if (c.band) {
+      const b = (st.bands || {})[c.band.id];
+      if (b && b.name) bits.push(c.band.gone ? `băng ${b.name} giờ chỉ còn là chuyện kể` : `băng ${b.name} còn nhớ tên bạn`);
+    }
+    if (c.minions && c.minions.length) bits.push(`${c.minions.length} thuộc hạ đứng quanh nấm mồ`);
+    const rival = c.cast && c.cast.rival;
+    if (rival && !rival.alive) bits.push(`kẻ thù ${rival.name} đã nằm xuống trước bạn`);
+    else if (rival && rival.alive) bits.push(`${rival.name} vẫn sống, và sẽ kể về bạn theo cách của hắn`);
+    if (bits.length) out.push(bits.join("; ").replace(/^./, (x) => x.toUpperCase()) + ".");
+    // the last line follows how the life really ended
+    const cause = (c.cause || "").toLowerCase();
+    const tags = [];
+    const adult = (stagesOf(c.race).find((x) => x.id === "adult") || { start: 0 }).start;
+    if (c.causeKind === "old") tags.push("già");
+    if (/phản bội|sau lưng|đâm lén|anh em|đồng loại|đồng bọn|giành|tranh/.test(cause)) tags.push("đồng loại");
+    if (/mạo hiểm giả|hiệp sĩ|kiếm|tân thủ|thợ săn|mũi tên/.test(cause)) tags.push("mạo hiểm giả");
+    if (/cướp|đột kích|trận|xung phong/.test(cause)) tags.push("cướp phá");
+    if (/shaman|thí nghiệm|thuốc|phép|bùa/.test(cause)) tags.push("shaman");
+    if (/đói|chết đói/.test(cause) || (c.causeKind === "health" && c.bars.wealth < 20)) tags.push("đói");
+    if (c.age < adult) tags.push("trước khi kịp lớn");
+    if (c.guild && c.guild.rank >= 5) tags.push("chief", "king");
+    if (c.form) tags.push("tiến hóa");
+    let end = null;
+    for (const t of tags) if ((end = (st.bio.end || []).find((x) => x.cond.toLowerCase().includes(t)))) break;
+    if (!ending && !end) end = (st.bio.end || []).find((x) => /dở dang/i.test(x.cond));
+    if (end) out.push(end.text);
+    return out.map((t) => fmt(t, c, null, data));
   }
 
   // ---------- effects and requirements ----------
@@ -396,6 +571,39 @@
       c.formerSpouses = (c.formerSpouses || []).concat(c.spouse.name);
       c.spouse = null;
     }
+    // story layer
+    if (c.cast) {
+      for (const role of [].concat(eff.castDie || [])) if (c.cast[role] && c.cast[role].alive) { c.cast[role].alive = false; c.cast[role].died = c.age; }
+      if (eff.castLeave && c.cast[eff.castLeave]) c.cast[eff.castLeave].left = true;
+      if (eff.castBond) for (const [role, v] of Object.entries(eff.castBond)) if (c.cast[role]) c.cast[role].bond += v;
+      if (eff.castJoin && c.cast[eff.castJoin] && c.cast[eff.castJoin].alive && !c.party.some((m) => m.cast === eff.castJoin) && aliveParty(c).length < MAX_PARTY) {
+        const x = c.cast[eff.castJoin];
+        c.party.push({ name: x.name, race: c.race.name, job: "cast", jobName: CAST_WORD[eff.castJoin], stat: "STR", power: 5, trait: "loyal", bond: 60, alive: true, since: c.age, cast: eff.castJoin });
+      }
+    }
+    if (eff.joinBand) joinBand(c, data, eff.joinBand);
+    if (eff.leaveBand) leaveBand(c, false);
+    if (eff.bandGone) leaveBand(c, true);
+    if (eff.bandLead && c.band) { c.band.lead = true; c.band.leaderName = c.name; addMoment(c, `Trở thành đầu băng ${c.band.name}`, data); }
+    for (const name of [].concat(eff.memberDie || [])) {
+      const p = findPerson(c, name);
+      if (p && p.kind === "member") { p.m.alive = false; p.m.died = c.age; }
+      if (p && p.kind === "leader") c.band.leaderName = null;
+    }
+    for (const name of [].concat(eff.memberLeave || [])) { const p = findPerson(c, name); if (p && p.kind === "member") { p.m.left = true; p.m.alive = false; } }
+    if (eff.memberBond) for (const [name, v] of Object.entries(eff.memberBond)) { const p = findPerson(c, name); if (p && p.kind === "member") p.m.bond = clamp(p.m.bond + v, 0, 100); }
+    if (eff.minionAdd) {
+      const st = storyOf(c, data);
+      const d = st && st.minions && st.minions[eff.minionAdd];
+      c.minions = c.minions || [];
+      if (d && !c.minions.some((x) => x.id === eff.minionAdd)) { c.minions.push({ id: eff.minionAdd, name: d.en || d.name, loyalty: 50, since: c.age }); addMoment(c, `Thu phục thuộc hạ: ${d.en || d.name}`, data); }
+    }
+    if (eff.minionLose && c.minions && c.minions.length) {
+      if (eff.minionLose === true) c.minions.pop();
+      else c.minions = c.minions.filter((x) => x.id !== eff.minionLose);
+    }
+    if (eff.minionRevolt && c.minions) c.minions = c.minions.filter((x) => x.loyalty >= 70);
+    if (eff.minionLoyal && c.minions) for (const x of c.minions) x.loyalty = clamp(x.loyalty + eff.minionLoyal, 0, 100);
     if (eff.parentDie && c.parents && c.parents[eff.parentDie] && c.parents[eff.parentDie].alive) {
       c.parents[eff.parentDie].alive = false;
       c.parents[eff.parentDie].status = "dead";
@@ -487,6 +695,13 @@
     if (req.fatherAlive != null && !!(c.parents && c.parents.father && c.parents.father.alive) !== req.fatherAlive) return false;
     if (req.motherAlive != null && !!(c.parents && c.parents.mother && c.parents.mother.alive) !== req.motherAlive) return false;
     if (req.makerAlive != null && !!(c.parents && c.parents.maker && c.parents.maker.alive) !== req.makerAlive) return false;
+    if (req.cast && !(c.cast && Object.values(c.cast).some((x) => x.kind === req.cast))) return false;
+    if (req.castAlive && !(c.cast && c.cast[req.castAlive] && c.cast[req.castAlive].alive && !c.cast[req.castAlive].left)) return false;
+    if (req.noBand && c.band) return false;
+    if (req.band && !(c.band && c.band.id === req.band)) return false;
+    if (req.bandMember && !(c.band && (c.band.leaderName === req.bandMember || c.party.some((m) => m.name === req.bandMember && m.alive && !m.left)))) return false;
+    if (req.minionOk && !((c.band && c.band.lead) || (c.guild && c.guild.rank >= 2) || c.form)) return false;
+    if (req.minions && !(c.minions && c.minions.length >= req.minions)) return false;
     if (req.form !== undefined) {
       if (req.form === "none" ? c.form : req.form === "any" ? !c.form : c.form !== req.form) return false;
     }
@@ -727,6 +942,7 @@
     if (t && !/[.!?…]$/.test(t)) t += ".";
     c.cause = t;
     pushLog(c, "death", c.cause);
+    c.biography = biography(c, data);
   }
 
   function pickDeath(c, data, rng, kind) {
@@ -974,7 +1190,7 @@
     // raids and companions start from the teens, or from systems.race[id].activeFrom
     const activeFrom = st0.findIndex((s) => s.id === (sys(c, data, "activeFrom") || "teen"));
     const active = activeFrom >= 0 ? i >= activeFrom : !["infant", "child"].includes(st);
-    if (c.guild && aliveParty(c).length < MAX_PARTY && ["adventure", "social"].includes(c.focus) && active) {
+    if (c.guild && !sys(c, data, "noRecruit") && aliveParty(c).length < MAX_PARTY && ["adventure", "social"].includes(c.focus) && active) {
       const p = aliveParty(c).length === 0 ? 0.5 : 0.15;
       if (rng() < Math.min(0.9, p * Math.min(per, 2))) {
         recruitScene(c, data, rng);
@@ -1027,8 +1243,15 @@
     c.ctx = null;
   }
 
+  // story nodes (arc, cast, band, minion) that can happen now; the oldest thread first
+  function storyNode(c, data, rng, stageId) {
+    if (!storyOf(c, data)) return null;
+    const due = data.events.filter((e) => e.arc && e.races && e.races.includes(c.race.id) && eligible(e, c, stageId, data));
+    return due.length ? weightedPick(due, rng, (e) => e.weight || 10) : null;
+  }
+
   function pickEvent(c, data, rng, stageId) {
-    const all = data.events.filter((e) => eligible(e, c, stageId, data));
+    const all = data.events.filter((e) => !e.arc && eligible(e, c, stageId, data));
     const focused = all.filter((e) => e.focus);
     const general = all.filter((e) => !e.focus);
     // Race-made events (from a pack) are favoured over the old generic pool.
@@ -1072,7 +1295,8 @@
       if (quiet.ticks > 0) {
         const now = c.age;
         c.age = quiet.to;
-        const entry = pushLog(c, "quiet", fmt(quietText(c, data, rng, currentStage(c).id), c, null, data), quiet.from + 1);
+        const memory = rng() < 0.4 ? memoryLine(c, data, rng) : null;
+        const entry = pushLog(c, "quiet", fmt(memory || quietText(c, data, rng, currentStage(c).id), c, null, data), quiet.from + 1);
         c.age = now;
         const g = gainsText(quiet.gains);
         if (g) entry.gains = g;
@@ -1110,10 +1334,13 @@
         if (stageId !== c.stageId) {
           c.stageId = stageId;
           const s = sys(c, data, "stageEnter");
-          pushLog(c, "stage", fmt(s[stageId] || s.default || data.systems.stageEnter.default, c, null, data));
+          const chapter = chapterLine(c, data, rng, stageId);
+          pushLog(c, "stage", fmt(chapter || s[stageId] || s.default || data.systems.stageEnter.default, c, null, data));
           stop = crossroads(c, data);
         } else {
-          const sch = scheduled(c, data, rng, years);
+          // a story node whose time has come goes before anything random
+          const node = rng() < 0.6 ? storyNode(c, data, rng, stageId) : null;
+          const sch = node ? (resolveEvent(c, data, node, rng), c.pending ? true : "logged") : scheduled(c, data, rng, years);
           if (sch === true) stop = true;
           else if (!sch) {
             let density = STAGE_DENSITY[stageId] != null ? STAGE_DENSITY[stageId] : 0.5;

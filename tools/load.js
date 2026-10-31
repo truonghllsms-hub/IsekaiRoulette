@@ -82,6 +82,12 @@ function mergePack(data, p, file) {
   }
   for (const d of p.deaths || []) data.deaths.push(Object.assign({ races: [p.race] }, d));
   if (p.focus) data.focusRace[p.race] = p.focus;
+  if (p.story) data.story[p.race] = p.story;
+  // a race whose life is fully written: older and shared events step aside
+  if (p.exclusive)
+    for (const e of data.events)
+      if (!e.pack && (!e.races || e.races.includes(p.race)))
+        e.excludeRaces = [...new Set([...(e.excludeRaces || []), p.race])];
   if (p.systems) data.systems.race[p.race] = p.systems;
 }
 
@@ -108,6 +114,7 @@ function loadData() {
   };
   for (const f of jsonFiles(PROFILE_DIR)) mergeProfile(data, readJson(path.join(PROFILE_DIR, f)), f);
   data.focusRace = {};
+  data.story = {};
   for (const f of jsonFiles(PACK_DIR)) mergePack(data, readJson(path.join(PACK_DIR, f)), f);
   return data;
 }

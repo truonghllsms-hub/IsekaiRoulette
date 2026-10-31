@@ -242,6 +242,14 @@
     $("death-meta").textContent = `${E.raceTitle(c)} · ${fmtAge(c.age)} tuổi · ${c.origin.name}`;
     $("death-cause").textContent = c.cause;
     $("death-epitaph").textContent = s.epitaph;
+    const bio = $("death-bio");
+    bio.innerHTML = "";
+    bio.hidden = !(c.biography && c.biography.length);
+    for (const t of c.biography || []) {
+      const p = document.createElement("p");
+      p.textContent = t;
+      bio.appendChild(p);
+    }
     const prof = $("death-profile");
     prof.innerHTML = "";
     for (const line of s.profile) {

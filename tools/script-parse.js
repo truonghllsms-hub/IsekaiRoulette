@@ -53,6 +53,8 @@ function parseEffects(str) {
   const eff = {}; const notes = [];
   const add = (k, v) => (eff[k] = (eff[k] || 0) + v);
   let deathNext = false;
+  // "(Sức mạnh +2, Sức khỏe −5), dấu ấn "x"": numbers wrapped in brackets are effects all the same
+  str = String(str || "").replace(/−/g, "-").replace(/\(([^()]*[+-]\s*\d[^()]*)\)/g, "$1");
   for (const tok of splitTop(str || "")) {
     const t = tok.replace(/\s+/g, " ").trim();
     const low = t.toLowerCase();
@@ -65,7 +67,7 @@ function parseEffects(str) {
     if ((m = low.match(/(?:chuyển sang|đi tiếp|sang) cảnh (\d+)/))) { eff.next = Number(m[1]) - 1; continue; }
     if ((m = t.match(/dấu ấn\s*:?\s*(.+)/i))) { const fl = [...m[1].replace(/\([^)]*\)/g, "").matchAll(/(?<![A-Za-zÀ-ỹ0-9_])["“]?([a-z][a-z0-9_]+)["”]?(?![A-Za-zÀ-ỹ])/g)].map((x) => x[1]).filter((x) => x.includes("_") || /^[a-z]+$/.test(x)); eff.flags = (eff.flags || []).concat(fl); continue; }
     if ((m = low.match(/^["“]([a-z0-9_]+)["”]$/))) { eff.flags = (eff.flags || []).concat(m[1]); continue; }
-    if ((m = low.match(/thân thiết với \{(\w+)\}\s*([+-]\s*\d+)/))) { const v = Number(m[2].replace(/\s/g, "")); if (m[1] === "ally") add("bond", v); else add("joy", Math.round(v / 3)); continue; }
+    if ((m = low.match(/thân thiết với \{(\w+)\}\s*([+-]\s*\d+)/)) && !/^(rival|mentor|friend)$/.test(m[1])) { const v = Number(m[2].replace(/\s/g, "")); if (m[1] === "ally") add("bond", v); else add("joy", Math.round(v / 3)); continue; }
     if ((m = low.match(/toàn bộ chỉ số\s*([+-]\d+)/))) { for (const k of ["STR", "INT", "AGI", "LUCK"]) add(k, Number(m[1])); continue; }
     if ((m = low.match(/điểm thăng bậc\s*(tối đa|[+-]?\s*\d+)/)) || (m = low.match(/^\+?(\d+) điểm thăng bậc/))) { add("guildPts", m[1] === "tối đa" ? 999 : Number(String(m[1]).replace(/\s/g, ""))); continue; }
     if (/mất (đồng đội )?\{ally\}/.test(low)) { eff.allyDie = true; continue; }
@@ -88,6 +90,22 @@ function parseEffects(str) {
     if (/bùng nổ chiến tranh/.test(low)) { eff.era = "holy_war"; continue; }
     if (/ác danh tăng/.test(low)) { add("fame", 3); continue; }
     // who lives, dies, joins or leaves
+    // story layer: the recurring cast, bands and minions
+    if ((m = low.match(/^\{(rival|mentor|friend)\}\s*(chết|tử trận)/))) { (eff.castDie = eff.castDie || []).push(m[1]); continue; }
+    if ((m = low.match(/^\{(rival|mentor|friend)\}\s*gia nhập (băng|tổ đội|đội)/))) { eff.castJoin = m[1]; continue; }
+    if ((m = low.match(/^\{(rival|mentor|friend)\}\s*(bỏ đi|rời|phản bội|bỏ trốn)/))) { eff.castLeave = m[1]; continue; }
+    if ((m = low.match(/thân thiết với \{(rival|mentor|friend)\}\s*([+-]\s*\d+)/))) { eff.castBond = Object.assign(eff.castBond || {}, { [m[1]]: Number(m[2].replace(/\s/g, "")) }); continue; }
+    if ((m = low.match(/gia nhập (?:băng|tổ đội|đội)\s+([a-z]+_[a-z0-9]+)/))) { eff.joinBand = m[1]; continue; }
+    if (/bị đuổi khỏi (băng|tổ đội)|rời (băng|tổ đội)|bỏ trốn khỏi băng/.test(low)) { eff.leaveBand = true; continue; }
+    if (/(băng|tổ đội) (bị xóa sổ|tan rã)/.test(low)) { eff.bandGone = true; continue; }
+    if (/trở thành (đầu băng|đội trưởng)/.test(low)) { eff.bandLead = true; continue; }
+    if ((m = low.match(/thu phục thuộc hạ\s+(minion_[a-z])/))) { eff.minionAdd = m[1]; continue; }
+    if ((m = low.match(/mất (?:hết )?thuộc hạ(?:\s+(minion_[a-z]))?/))) { eff.minionLose = m[1] || true; continue; }
+    if (/thuộc hạ nổi loạn/.test(low)) { eff.minionRevolt = true; continue; }
+    if ((m = low.match(/thân thiết với thuộc hạ\s*([+-]\s*\d+)/))) { add("minionLoyal", Number(m[1].replace(/\s/g, ""))); continue; }
+    if ((m = t.match(/^Thân thiết với ([A-ZĐ][^+\-−]{0,20}?)\s*([+-]\s*\d+)$/))) { eff.memberBond = Object.assign(eff.memberBond || {}, { [m[1].trim()]: Number(m[2].replace(/\s/g, "")) }); continue; }
+    if ((m = t.match(/^([A-ZĐ][^\s,{}]*(?: [A-ZĐ][^\s,{}]*)?)\s+(CHẾT|chết|tử trận)\b/)) && !/^(Bạn|Cha|Mẹ)$/.test(m[1])) { (eff.memberDie = eff.memberDie || []).push(m[1]); continue; }
+    if ((m = t.match(/^([A-ZĐ][^\s,{}]*(?: [A-ZĐ][^\s,{}]*)?)\s+(bỏ trốn|phản bội|rời đội|rời băng|bỏ đi)/)) && !/^(Bạn|Cha|Mẹ)$/.test(m[1])) { (eff.memberLeave = eff.memberLeave || []).push(m[1]); continue; }
     if (/\{ally\}\s*(chết|tử trận)/.test(low)) { eff.allyDie = true; continue; }
     if (/\{ally\}\s*bỏ đi|\{ally\}\s*rời/.test(low)) { eff.allyLeave = true; continue; }
     if (/\{ally\}\s*(bị thương|suýt chết)|sức khỏe (của )?\{ally\}/.test(low)) { eff.allyHurt = true; continue; }
@@ -212,7 +230,7 @@ function parse(text) {
   for (const raw0 of lines) {
     // "Báo hiệu (some_id): text" / "Tiến hóa (some_id): Title" → the usual [id] forms
     const raw = raw0.replace(/^\s*([^()\[\]:]{2,40}?)\s*\(([a-z][a-z0-9]*_[a-z0-9_]+)\)\s*:\s*(.*)$/i, (m, pre, id, rest) =>
-      /^tiến hóa$/i.test(pre.trim()) ? `[${id}] ${rest}` : `${pre.trim()} - [${id}]: ${rest}`);
+      /^tiến hóa$/i.test(pre.trim()) ? `[${id}] ${rest}` : /^(kết đời|kết thúc|kết)$/i.test(pre.trim()) ? m : `${pre.trim()} - [${id}]: ${rest}`);
     let line = strip(raw);
     if (!line) continue;
     // number words at the start of list titles ("Năm bậc:", "Bốn thử thách…", "Ba câu năm yên ả") and "(Bậc 1 lên 2): …"
@@ -395,6 +413,16 @@ function parse(text) {
         if (key === "tình huống") { block.text = val; continue; }
         if (key === "hệ quả") { block.auto = splitOutcome(val); continue; }
         if (key === "khoảnh khắc") { block.moment = val; continue; }
+        // story layer: "Mạch: rival_a · Nút: 2/5", "Nhắc lại: (flag) câu · (flag) câu"
+        if (key === "mạch") {
+          const mm = val.match(/^([a-z0-9_ạảãáàăắằẳẵặâấầẩẫậđ]+)\s*(?:·\s*nút\s*:?\s*(.+))?$/i);
+          if (mm) { block.arc = mm[1]; block.beat = (mm[2] || "").trim(); }
+          continue;
+        }
+        if (key === "nhắc lại") {
+          block.recall = [...val.matchAll(/\(([^)]+)\)\s*([^·]+)/g)].map((x) => ({ flags: x[1].split(/\s*\/\s*|\s+hoặc\s+/).map((f) => f.trim()), text: x[2].trim() }));
+          continue;
+        }
       }
       // role / evolution fields
       if (/^điều kiện/.test(key)) {
