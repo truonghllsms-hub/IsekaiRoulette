@@ -7,7 +7,7 @@ Lớp mới KHÔNG thay kịch bản cũ, chỉ thêm trục chính:
 2. **Mạch truyện theo xuất thân**: 7 xuất thân, mỗi xuất thân 4 nút truyện, nút sau rẽ nhánh theo lựa chọn ở nút trước.
 3. **Câu nhắc lại**, **mở chương** và **tiểu sử khi chết**.
 
-**Cách dùng:** cuộc trò chuyện mới với Gemini → dán **KHỐI CHUNG** → gửi lần lượt **PHẦN 1 → PHẦN 4** → đọc, sửa, gửi lại cho Claude.
+**Cách dùng:** cuộc trò chuyện mới với Gemini → dán **KHỐI CHUNG** → gửi lần lượt **PHẦN 1 → PHẦN 6** → đọc, sửa, gửi lại cho Claude.
 
 ---
 
@@ -185,7 +185,70 @@ c) NHỮNG NĂM YÊN Ả CÓ KÝ ỨC: 15 câu ngắn cho những năm không c�
 
 ---
 
+## PHẦN 5 — Băng nhóm trong bộ lạc
+
+```
+PHẦN 5: BĂNG NHÓM TRONG BỘ LẠC
+
+LUẬT MỚI VỀ ĐỒNG BỌN (thay cho cách cũ "nhặt từng Goblin lạ"):
+- Goblin sống theo BĂNG trong bộ lạc. Từ tuổi Goblin con, nhân vật bị lùa vào, xin vào, hoặc giành chỗ trong một
+  BĂNG CÓ SẴN gồm 3–6 con, có đầu băng, có thứ bậc ăn trước ăn sau, có kẻ bị bắt nạt.
+- Mỗi đời ở một băng tại một thời điểm. Có thể bị đuổi, bỏ trốn sang băng khác, băng bị xóa sổ trong cuộc cướp,
+  hoặc lật đổ đầu băng để tự làm đầu băng.
+- Trong câu chữ: {party} là tên băng hiện tại, {leader} là đầu băng, {member} là một thành viên được game chọn.
+  Khi muốn nhắc đúng một con cụ thể, viết thẳng tên nó.
+
+Thiết kế 5 BĂNG khác hẳn nhau, ví dụ: băng nhóc con bới rác; băng cướp đường do một Hobgoblin cầm đầu;
+băng tay sai của Goblin Shaman; băng cưỡi sói; băng tàn binh sống sót sau trận thảm sát của mạo hiểm giả.
+
+Với MỖI băng, viết:
+1. Tên băng (kiểu "Răng Gãy", "Đuôi Chuột Cháy"), luật lệ 1 câu, hang ổ.
+2. Thành viên (3–6 con): Tên · Goblin hay giống khác (Hobgoblin, Kobold, sói hoang) · vai trò · tính cách ·
+   một tật xấu hoặc bí mật · vị trí trong băng (đầu băng, tay chân, kẻ bị bắt nạt...).
+3. Điều kiện để vào băng: giai đoạn, bậc bộ lạc hoặc vai trò, chỉ số tối thiểu, dấu ấn liên quan.
+4. Cảnh vào băng (1 nút): bị bắt nộp đồ, đánh nhau với kẻ yếu nhất, hoặc lén theo đuôi; 2–3 lựa chọn.
+   Vào băng thì ghi "gia nhập băng <mã băng>".
+5. 5 nút đời sống băng: chia phần cướp → bị bắt nạt hoặc bắt nạt kẻ khác → một thành viên bị bỏ lại làm mồi →
+   tranh ngôi đầu băng → khép lại (băng bị xóa sổ, bạn lên làm đầu băng, bạn bị bán cho Orc...).
+6. Mỗi thành viên quan trọng 1 nút riêng.
+7. 3 câu "Nhắc lại" về băng cho những năm yên ả.
+
+Mã băng: band_a ... band_e. Mã nút: goblin_band_<mã băng>_<số> và goblin_band_<mã băng>_m<số>.
+Hệ quả đặc biệt: "gia nhập băng <mã>", "bị đuổi khỏi băng", "băng bị xóa sổ", "trở thành đầu băng",
+"<Tên> CHẾT", "<Tên> bỏ trốn", "<Tên> phản bội", "Thân thiết với <Tên> +10".
+```
+
+---
+
+## PHẦN 6 — Thuộc hạ khi leo cao hoặc tiến hóa
+
+```
+PHẦN 6: THUỘC HẠ
+
+Khi nhân vật đã là đầu băng, đạt bậc Goblin Leader trở lên, hoặc đã tiến hóa (Hobgoblin, Goblin Shaman Lord,
+Goblin King), nhân vật không còn "đồng bọn" ngang hàng mà có THUỘC HẠ: Goblin cấp thấp, Kobold, sói hoang, nô lệ
+Human bắt được, thậm chí Orc đào ngũ.
+
+Viết:
+1. 8 loại thuộc hạ, mỗi loại: tên gọi (kiểu "Goblin Peon", "Kobold đào hầm", "Dire Wolf con") · cách có được
+   (bắt sống, thu phục, cướp từ băng khác, Goblin Chief ban cho) · điểm mạnh · điều nó cần để trung thành
+   (ăn, sợ hãi, của cải) · 1 cảnh thu phục có 2–3 lựa chọn. Thu phục thì ghi "thu phục thuộc hạ <mã>".
+2. 8 nút quản lý thuộc hạ: chia thức ăn mùa đói, thuộc hạ bất tuân, đem thuộc hạ làm mồi trong cuộc cướp,
+   thuộc hạ lập công, thuộc hạ nổi loạn, Goblin Chief đòi lấy thuộc hạ giỏi nhất của bạn, mạo hiểm giả tàn sát
+   thuộc hạ, thuộc hạ già đi cùng bạn.
+3. Riêng cho từng nhánh tiến hóa, 2 nút: Hobgoblin (thuộc hạ sợ sức mạnh), Goblin Shaman Lord (thuộc hạ bị mê hoặc),
+   Goblin King (cả bộ lạc là thuộc hạ; nút về một kẻ âm mưu cướp ngôi).
+
+Mã thuộc hạ: minion_a ... minion_h. Mã nút: goblin_minion_<số>.
+Hệ quả đặc biệt: "thu phục thuộc hạ <mã>", "mất thuộc hạ <mã>", "thuộc hạ nổi loạn", "Thân thiết với thuộc hạ +10".
+```
+
+---
+
 ## Ghi chú cho Claude khi nhập
 - Mạch xuất thân chọn theo `origin.id`; nút truyện có ưu tiên cao trong cửa sổ tuổi, nút sau chỉ mở khi có dấu ấn nút trước.
 - Dàn nhân vật: mỗi đời chọn 1 kiểu {rival}, 1 {mentor}, 1 {friend}; đặt tên Goblin khi sinh ra.
 - Dấu ấn "hobgoblin_blood", "dark_pact", và các nút lên Goblin Chief nối vào hệ tiến hóa và bộ lạc đang có.
+- Băng nhóm (PHẦN 5) thay cho cơ chế "thu nhận Goblin lạ": băng có sẵn, thành viên cố định có tên, vào/ra/tan rã, lật đầu băng.
+- Thuộc hạ (PHẦN 6): khi là đầu băng, Leader trở lên hoặc đã tiến hóa, đồng đội chuyển thành thuộc hạ cấp dưới (khác tộc được),
+  có lòng trung thành thay cho độ thân thiết.

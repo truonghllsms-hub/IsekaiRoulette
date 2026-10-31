@@ -9,7 +9,7 @@ Lớp mới này KHÔNG thay kịch bản cũ. Nó thêm **trục chính** để
 
 **Cách dùng**
 1. Mở cuộc trò chuyện **mới** với Gemini (Pro, tư duy trung bình là đủ). Dán **KHỐI CHUNG** trước.
-2. Gửi lần lượt **PHẦN 1 → PHẦN 7**, mỗi lần một phần. Gemini dừng giữa chừng thì gõ "viết tiếp".
+2. Gửi lần lượt **PHẦN 1 → PHẦN 9**, mỗi lần một phần. Gemini dừng giữa chừng thì gõ "viết tiếp".
 3. Đọc, sửa theo ý bạn, rồi gửi lại toàn bộ cho Claude để chuyển thành dữ liệu game.
 
 ---
@@ -235,7 +235,70 @@ c) NHỮNG NĂM YÊN Ả CÓ KÝ ỨC: 20 câu ngắn cho những năm không c�
 
 ---
 
+## PHẦN 8 — Tổ đội có sẵn để gia nhập
+
+```
+PHẦN 8: TỔ ĐỘI CÓ SẴN
+
+LUẬT MỚI VỀ ĐỒNG ĐỘI (thay cho cách cũ "nhặt từng người lạ"):
+- Human không tự gom đồng đội lẻ tẻ. Từ tuổi thiếu niên muộn, nhân vật được MỜI hoặc XIN GIA NHẬP một TỔ ĐỘI CÓ SẴN
+  gồm 2–5 thành viên, mỗi người có tên riêng, vai trò, tính cách, quá khứ và quan hệ với nhau.
+- Mỗi đời chỉ ở một tổ đội tại một thời điểm. Có thể rời đi, bị đuổi, tổ đội tan rã, hoặc về sau tự lập tổ đội riêng
+  và trở thành đội trưởng.
+- Trong câu chữ: {party} là tên tổ đội hiện tại, {leader} là đội trưởng, {member} là một thành viên được game chọn,
+  {ally} vẫn dùng được như cũ. Khi muốn nhắc đúng một người cụ thể, viết thẳng tên người đó.
+
+Hãy thiết kế 6 TỔ ĐỘI khác hẳn nhau về hạng Guild, tôn chỉ và không khí, ví dụ: tổ đội tân binh hạng F ồn ào;
+tổ đội hạng B kỷ luật thép do một cựu Thánh Kỵ Sĩ dẫn dắt; tổ đội đánh thuê chỉ biết tiền; tổ đội săn quái vật
+toàn kẻ bị xã hội ruồng bỏ; tổ đội quý tộc đi "trải nghiệm"; tổ đội huyền thoại hạng S đang già đi.
+
+Với MỖI tổ đội, viết:
+1. Tên tổ đội (kiểu manga: "Nanh Bạc", "Đuốc Bình Minh"...), hạng Guild, tôn chỉ 1 câu, nơi tụ họp.
+2. Thành viên (2–5 người): Tên · tộc (có thể có Elf, Dwarf, Beastman tộc nào) · nghề và bậc · tính cách (dũng cảm,
+   trung thành, tham lam, nhút nhát, vui tính, lạnh lùng) · một bí mật hoặc mục tiêu riêng · quan hệ với người khác
+   trong đội (ví dụ: "yêu thầm đội trưởng", "nợ máu với tên Assassin").
+3. Điều kiện để được mời: giai đoạn, hạng Guild hoặc nghề, chỉ số tối thiểu, dấu ấn liên quan (nếu có).
+4. Cảnh gia nhập (1 nút theo mẫu): thử thách hoặc lời mời, 2–3 lựa chọn (gia nhập theo cách nào, hoặc từ chối).
+   Gia nhập thì ghi "gia nhập tổ đội <mã tổ đội>".
+5. 6 nút đời sống tổ đội, theo trình tự: nhiệm vụ đầu tiên cùng nhau → mâu thuẫn nội bộ → bí mật của một thành viên
+   lộ ra → mất mát (một người bị thương nặng, chết hoặc bỏ đi) → tổ đội đứng trước ngã rẽ lớn (thăng hạng, tan rã,
+   phản bội) → khép lại (thành huyền thoại, giải tán, bạn lên làm đội trưởng...). Nút sau đọc dấu ấn của nút trước.
+6. Mỗi thành viên 1 nút riêng (chuyện cá nhân của người đó, cần bạn giúp hoặc lựa chọn đứng về phía ai).
+7. 3 câu "Nhắc lại" về tổ đội cho những năm yên ả.
+
+Mã tổ đội: party_a ... party_f. Mã nút: human_party_<mã tổ đội>_<số> và human_party_<mã tổ đội>_m<số thành viên>.
+Hệ quả đặc biệt dùng đúng chữ: "gia nhập tổ đội <mã>", "rời tổ đội", "bị đuổi khỏi tổ đội", "tổ đội tan rã",
+"trở thành đội trưởng", "<Tên thành viên> CHẾT", "<Tên thành viên> rời đội", "<Tên thành viên> phản bội",
+"Thân thiết với <Tên thành viên> +10", "có {spouse} là <Tên thành viên>".
+Viết 2 tổ đội rồi chờ tôi gõ "viết tiếp".
+```
+
+---
+
+## PHẦN 9 — Tự lập tổ đội và chiêu mộ
+
+```
+PHẦN 9: TỰ LẬP TỔ ĐỘI
+
+Khi đã đủ mạnh (hạng Guild C trở lên, hoặc nghề bậc 3 trở lên, hoặc tổ đội cũ tan rã), nhân vật có thể tự lập tổ đội.
+Viết:
+1. Cảnh lập tổ đội (1 nút): đặt tên, lý do, ai đi theo bạn từ tổ đội cũ (nếu có).
+2. 10 "ứng viên" có thể chiêu mộ, mỗi người: tên · tộc · nghề · tính cách · điều họ đòi hỏi (tiền, báo thù, chỗ dung thân)
+   · 1 cảnh chiêu mộ có 2–3 lựa chọn (thuyết phục bằng Trí tuệ, thắng tay đôi bằng Sức mạnh, trả tiền, từ chối).
+3. 6 nút "làm đội trưởng": chia chiến lợi phẩm, thành viên bất mãn, quyết định hy sinh một người để cứu cả đội,
+   đối thủ Guild cướp nhiệm vụ, thành viên muốn rời đi, truyền lại tổ đội khi về già.
+4. Liên kết với PHẦN 1: {rival}, {mentor}, {friend} có thể xuất hiện trong tổ đội (ví dụ {friend} xin gia nhập,
+   {rival} lập tổ đội đối địch). Viết 4 nút cho các trường hợp này.
+
+Mã nút: human_lead_<số>, human_recruit_<số>.
+```
+
+---
+
 ## Ghi chú cho Claude khi nhập
 - Mạch xuất thân: game chọn mạch theo `origin.id`. Nút truyện ưu tiên cao trong cửa sổ tuổi, nút kế tiếp chỉ mở khi có dấu ấn của nút trước.
 - Dàn nhân vật: mỗi đời chọn 1 kiểu {rival}, 1 kiểu {mentor}, 1 kiểu {friend}; đặt tên khi sinh ra.
 - "Nhắc lại", mở chương, năm yên ả có ký ức, tiểu sử: dùng cho phần kể chuyện (log, màn kết đời).
+- Tổ đội (PHẦN 8–9): engine cần đối tượng tổ đội (tên, hạng, đội trưởng, thành viên cố định có tên/quan hệ),
+  lời mời gia nhập theo điều kiện, sự kiện theo tổ đội và theo từng thành viên, rời/bị đuổi/tan rã, tự lập và chiêu mộ.
+  Thay cho cơ chế cũ "gặp người lạ → thu nhận".
