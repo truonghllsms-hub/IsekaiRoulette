@@ -392,6 +392,8 @@ function build(raceId, opts) {
       else if (/_minion_rec_[a-z]$/.test(e.id)) req.minionOk = true;
       else if (/_minion_\d+$/.test(e.id)) req.minions = 1;
       else if ((sm = e.id.match(/_minion_(hob|sham|king)_/))) { req.form = { hob: "Hobgoblin", sham: "Goblin Shaman Lord", king: "Goblin King" }[sm[1]]; }
+      // v3 prompts for other races: <race>_minion_f<n>_<k>, f1 = the first evolution of the pack
+      else if ((sm = e.id.match(/_minion_f(\d+)_/))) { const f = (meta.evos || [])[Number(sm[1]) - 1]; if (f) req.form = f.name || f.form || f; }
       if ((sm = (e.when || "").match(/\{(rival|mentor|friend)\} còn sống/))) req.castAlive = sm[1];
       // a node must not be missed for want of the right "việc chính": the activity is only flavour
       delete ev.focus;
