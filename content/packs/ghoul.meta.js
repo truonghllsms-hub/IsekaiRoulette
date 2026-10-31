@@ -2,6 +2,8 @@
 module.exports = {
   race: "ghoul",
   script: "content/scripts/ghoul.txt",
+  story: "content/scripts/ghoul_story.txt",
+  exclusive: true,
 
   // The script's timeline: Ác quỷ thèm thịt 11+, Thợ săn đêm 51+, Tai ương nghĩa trang 151+, Ghoul chúa 301+, Khô cốt 1.000+.
   useScriptStages: true,
@@ -80,6 +82,7 @@ module.exports = {
   ],
 
   systems: {
+    noRecruit: true,
     activeFrom: "infant",
     bandName: "bầy",
     romance: false,

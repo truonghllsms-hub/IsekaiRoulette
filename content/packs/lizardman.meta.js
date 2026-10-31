@@ -2,6 +2,8 @@
 module.exports = {
   race: "lizardman",
   script: "content/scripts/lizardman.txt",
+  story: "content/scripts/lizardman_story.txt",
+  exclusive: true,
   useScriptStages: true,
   // the script's old-age events run to 60+ (Cổ thằn lằn from 45)
   lifespan: [55, 65],
@@ -74,6 +76,7 @@ module.exports = {
   ],
 
   systems: {
+    noRecruit: true,
     bandName: "bầy săn",
     romance: false,
     // the script has child events but no birth event

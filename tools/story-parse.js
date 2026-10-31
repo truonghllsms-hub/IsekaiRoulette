@@ -69,7 +69,7 @@ function scanStory(text, stages) {
         band.name = m[1].trim(); band.rule = m[2].trim().replace(/^["“]|["”]$/g, ""); band.lair = m[3].trim(); band.party = true; continue;
       }
       if ((m = raw.match(/^Điều kiện gia nhập:\s*(.+)$/i))) { band.condition = m[1]; continue; }
-      if ((m = raw.match(/^([A-ZĐ][^:·(]{1,20}?):\s*([^·]+)·\s*([^·]+?)\s*(?:·\s*([^.·]+?))?\.\s*(.*)$/)) && !/^(Thành viên|Tên tổ đội|Mô tả)/.test(m[1])) {
+      if ((m = raw.match(/^(\p{Lu}[^:·(]{1,20}?):\s*([^·]+)·\s*([^·]+?)\s*(?:·\s*([^.·]+?))?\.\s*(.*)$/)) && !/^(Thành viên|Tên tổ đội|Mô tả)/.test(m[1])) {
         // "Kael: Human · Kiếm sĩ (Bậc 1) · Đội trưởng. Lạc quan, ... Bí mật: ... Quan hệ: ..."
         const lead = m[4] && /trưởng|phó|thủ lĩnh|lãnh đạo/i.test(m[4]);
         const pos = lead ? `${m[3]} · ${m[4]}` : m[3];
@@ -77,7 +77,7 @@ function scanStory(text, stages) {
         band.members.push({ name: m[1].trim(), race: m[2].trim(), position: pos.trim(), desc: rest.replace(/\s*Bí mật:.*$/, "").trim(), secret: (rest.match(/Bí mật:\s*([^]*?)(?:\s*Quan hệ:|$)/) || [])[1] || "" });
         continue;
       }
-      if ((m = raw.match(/^([A-ZĐ][^:(]{1,20}?):\s*([^(]+)\(([^)]+)\)\.\s*(.*)$/))) {
+      if ((m = raw.match(/^(\p{Lu}[^:(]{1,20}?):\s*([^(]+)\(([^)]+)\)\.\s*(.*)$/u))) {
         if (/^Bạn$/i.test(m[1].trim())) continue;
         let desc = m[4];
         const cond = desc.match(/\d\.\s*Điều kiện gia nhập:\s*(.+?)(?:\d\.\s*Nhắc lại.*)?$/i);
@@ -103,7 +103,9 @@ function scanStory(text, stages) {
       continue;
     }
     if (mode === "chapter") {
-      if ((m = raw.match(/^([^()]+?)\s*\((\d+)\s*(?:[–-]\s*\d+)?\s*\+?\s*tuổi\)\s*$/i))) { const byName = stages.find((x) => x.name && x.name.toLowerCase() === m[1].trim().toLowerCase()); stage = byName ? byName.id : stageFor(Number(m[2])); out.chapters[stage] = out.chapters[stage] || []; continue; }
+      if ((m = raw.match(/^([^()]+?)\s*\((\d+)\s*(?:[–-]\s*\d+)?\s*\+?\s*tuổi\)\s*$/i))) { const nm = m[1].trim().toLowerCase(); const byName = stages.find((x) => x.name && x.name.toLowerCase() === nm);
+        const GENERIC = { "sơ sinh": "infant", "thơ ấu": "child", "thiếu niên": "teen", "trưởng thành": "adult", "thanh niên": "adult", "trung niên": "middle", "tuổi già": "elder" };
+        stage = byName ? byName.id : GENERIC[nm] && stages.some((x) => x.id === GENERIC[nm]) ? GENERIC[nm] : stageFor(Number(m[2])); out.chapters[stage] = out.chapters[stage] || []; continue; }
       if (stage && (m = condLine(raw))) { out.chapters[stage].push({ cond: m[1].trim(), text: m[2].trim() }); continue; }
     }
     if (mode === "bio") {

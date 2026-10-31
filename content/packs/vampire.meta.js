@@ -2,6 +2,8 @@
 module.exports = {
   race: "vampire",
   script: "content/scripts/vampire.txt",
+  story: "content/scripts/vampire_story.txt",
+  exclusive: true,
 
   // Vampires live on the script's timeline (Bá tước 201+, Chân Tổ 801+, Tro tàn 2.900+), not the default one.
   useScriptStages: true,
@@ -98,6 +100,7 @@ module.exports = {
   ],
 
   systems: {
+    noRecruit: true,
     activeFrom: "infant",
     jobFrom: "child",
     bandName: "đoàn tùy tùng",

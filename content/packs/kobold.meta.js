@@ -2,6 +2,8 @@
 module.exports = {
   race: "kobold",
   script: "content/scripts/kobold.txt",
+  story: "content/scripts/kobold_story.txt",
+  exclusive: true,
   useScriptStages: true,
 
   rename: [
@@ -77,6 +79,7 @@ module.exports = {
   ],
 
   systems: {
+    noRecruit: true,
     bandName: "tổ đào",
     romance: false,
     // the script has child events but no birth event

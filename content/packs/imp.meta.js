@@ -2,6 +2,8 @@
 module.exports = {
   race: "imp",
   script: "content/scripts/imp.txt",
+  story: "content/scripts/imp_story.txt",
+  exclusive: true,
 
   rename: [
     ["{maker} của bạn", "{maker}"],
@@ -87,6 +89,7 @@ module.exports = {
   ],
 
   systems: {
+    noRecruit: true,
     bandName: "bè lũ",
     romance: false,
     autoChildren: false,

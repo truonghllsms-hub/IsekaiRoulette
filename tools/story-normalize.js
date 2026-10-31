@@ -15,7 +15,7 @@ const CHOICE_RE = /(?<=\S)\s+(?=[A-D]\.\s+(?:["“][^"”\n]{2,100}["”]\s*(?:\
 // "(cha mẹ còn đủ) câu… (mồ côi) câu…": a condition starts a new entry after a sentence ends
 const COND_RE = /(?<=[.!?…"”)]|:)\s+(?=\((?!\d)[^()]{2,80}\)\s)/g;
 // "Barnos: Minotaur (đầu băng). … Gruk: Minotaur (tay chân). …": band members glued together
-const MEMBER_RE = /(?<=\.)\s+(?=[A-ZĐ][^\s:.,()]{1,20}(?: [A-ZĐ][^\s:.,()]{1,20})?: [^.()]{2,60}\([^)]{2,60}\)[.:])/g;
+const MEMBER_RE = /(?<=\.)\s+(?=\p{Lu}[^\s:.,()]{0,20}(?: [\p{Lu}\p{Ll}][^\s:.,()]{0,20}){0,2}: [^.()]{2,60}\([^)]{2,60}\)[.:])/gu;
 const PARTY_MEMBER_RE = /(?<=\.)\s+(?=[A-ZĐ][^\s:.,()]{1,20}: [^.·()]{2,40} · )/g;
 
 function normalizeStory(text) {
@@ -39,8 +39,10 @@ function normalizeStory(text) {
     }
     if (mode === "cast") line = line.replace(/(Nhắc lại:)\s+/, "$1\n").replace(/(?<=[.!?…"”])\s+(?=\([a-z][a-z0-9_]*\)\s)/g, "\n");
     if (mode === "band") {
-      line = line.replace(MEMBER_RE, "\n").replace(PARTY_MEMBER_RE, "\n");
+      line = line.replace(/^(\s*Thành viên \(\d+ [^)]*\):)\s+/, "$1\n").replace(MEMBER_RE, "\n").replace(PARTY_MEMBER_RE, "\n");
       // "Điều kiện gia nhập: …. Câu nhắc lại 1. Câu nhắc lại 2." : what follows the condition is recall
+      const nr = line.match(/^\s*Nhắc lại:\s*(.+)$/);
+      if (nr) line = nr[1].split(/(?<=[.!?…])\s+(?=[\p{Lu}"“])/u).join("\n");
       const m = line.match(/^(\s*Điều kiện gia nhập:[^]*?\.)\s+([A-ZĐÀ-Ỹ"“][^]*)$/);
       if (m) line = m[1] + "\n" + m[2].split(/(?<=[.!?…])\s+(?=[A-ZĐÀ-Ỹ"“])/).join("\n");
     }
