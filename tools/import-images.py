@@ -3,8 +3,9 @@
 
     python3 tools/import-images.py <file.zip | file.xlsx | folder> [more…]
 
-Images come either as files named <Mã ảnh>_<n>.png (goblin_nam_chienbinh_1.png, loose spellings
-are fine) or pasted into the worksheet docs/bang-anh-nhan-vat.xlsx, in the "Ảnh n" cells of a row.
+Images come either as files named <Mã nhân dạng>_<cột>.png (human_nam_3_chienbinh.png) or
+<Mã ảnh>.png for evolved forms (goblin_nam_hobgoblin.png), loose spellings are fine, or pasted
+into the worksheet docs/bang-anh-nhan-vat.xlsx (sheets "Nhân dạng" and "Tiến hóa").
 For every image it:
   1. removes the flat background (flood fill from the border, tolerant to AI noise),
   2. crops to the character,
@@ -20,9 +21,13 @@ from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "img")
-ROWS = json.load(open(os.path.join(ROOT, "prompts", "image-rows.json"), encoding="utf8"))
-KEYS = [x["code"] for x in ROWS]
-NEED = {x["code"]: x["count"] for x in ROWS}
+SRC = json.load(open(os.path.join(ROOT, "prompts", "image-rows.json"), encoding="utf8"))
+LOOK_BY_VI = {l["vi"]: l["id"] for l in SRC["looks"]}
+# every picture the worksheet asks for, in the order of the sheet (most seen first)
+KEYS = [f'{x["code"]}_{l}' for x in SRC["identities"] for l in [l["id"] for l in SRC["looks"]] if l in x["looks"]] + [x["code"] for x in SRC["forms"]]
+NEED = set(KEYS)
+ID_CODES = {x["code"] for x in SRC["identities"]}
+FORM_CODES = {x["code"] for x in SRC["forms"]}
 EXTS = (".png", ".jpg", ".jpeg", ".webp")
 
 
@@ -37,16 +42,20 @@ LOOKUP = {norm(k): k for k in KEYS}
 
 
 def key_for(name):
-    """(code, n) from a file name: goblin_nam_chienbinh_2.png, "Goblin_Nam_ChienBinh (2).jpg"…"""
-    raw = os.path.splitext(os.path.basename(name))[0]
-    paren = re.search(r"\((\d+)\)\s*$", raw)
-    base = norm(raw)
-    m = re.match(r"^(.*?)_(\d+)$", base)
-    if m and m.group(1) in LOOKUP:
-        return LOOKUP[m.group(1)], int(m.group(2))
-    if base in LOOKUP:
-        return LOOKUP[base], int(paren.group(1)) if paren else 1
-    return None, None
+    """The picture a file name stands for: human_nam_3_chienbinh.png, "Human_Nam_3_ChienBinh (1).jpg"…"""
+    base = norm(os.path.splitext(os.path.basename(name))[0])
+    return LOOKUP.get(base) or LOOKUP.get(re.sub(r"_\d+$", "", base))
+
+
+def cell_key(code, head):
+    """The picture for a worksheet cell: the row's code and the column title."""
+    code = str(code or "").strip()
+    m = re.match(r"Ảnh: (.+?)(?: \(tạo trước\))?$", head or "")
+    if code in ID_CODES and m and m.group(1) in LOOK_BY_VI:
+        return f"{code}_{LOOK_BY_VI[m.group(1)]}"
+    if code in FORM_CODES and (head or "").strip() == "Ảnh":
+        return code
+    return None
 
 
 def remove_background(img, tol=48):
@@ -171,15 +180,11 @@ def xlsx_images(path):
     out = []
     for ws in wb.worksheets:
         head = {c.column: str(c.value or "") for c in ws[1]}
-        def at(row, col):
-            code = ws.cell(row, 1).value
-            m = re.match(r"Ảnh (\d+)", head.get(col, ""))
-            return (code, int(m.group(1))) if code in NEED and m else (None, None)
         for im in getattr(ws, "_images", []):
             a = im.anchor._from
-            code, n = at(a.row + 1, a.col + 1)
-            if code:
-                out.append((code, n, im._data()))
+            k = cell_key(ws.cell(a.row + 1, 1).value, head.get(a.col + 1, ""))
+            if k:
+                out.append((k, im._data()))
     # pictures placed in cells (Excel 365): cell vm → rich value → relationship → media file
     z = zipfile.ZipFile(path)
     names = set(z.namelist())
@@ -212,20 +217,19 @@ def xlsx_images(path):
             for ref, c in cells.items():
                 if c.get("vm"):
                     col, row = re.match(r"([A-Z]+)(\d+)", ref).groups()
-                    code = val(f"A{row}")
-                    m = re.match(r"Ảnh (\d+)", val(f"{col}1"))
+                    k = cell_key(val(f"A{row}"), val(f"{col}1"))
                     target = media(int(c.get("vm")))
-                    if code in NEED and m and target:
+                    if k and target:
                         target = os.path.normpath(target).replace("\\", "/")
-                        out.append((code, int(m.group(1)), z.read(target)))
+                        out.append((k, z.read(target)))
     return out
 
 
 def sources(paths):
     for p in paths:
         if p.lower().endswith((".xlsx", ".xlsm")):
-            for code, n, data in xlsx_images(p):
-                yield f"{code}_{n}.png", data
+            for k, data in xlsx_images(p):
+                yield k + ".png", data
         elif zipfile.is_zipfile(p):
             with zipfile.ZipFile(p) as z:
                 for n in z.namelist():
@@ -244,29 +248,27 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     done, unknown = [], []
     for name, data in sources(sys.argv[1:]):
-        code, n = key_for(name)
-        if name.lower().endswith((".xlsx", ".xlsm")) or not code:
-            if not code:
-                unknown.append(os.path.basename(name))
+        k = key_for(name)
+        if not k:
+            unknown.append(os.path.basename(name))
             continue
         im, p = process(data, name)
-        f = f"{code}_{n}.png"
-        im.save(os.path.join(OUT, f), optimize=True)
-        done.append(f"{f}  ({im.width}x{im.height}, lưới {p}px)")
-    files = [f[:-4] for f in os.listdir(OUT) if f.endswith(".png")]
-    have = Counter(re.sub(r"_\d+$", "", f) for f in files)
+        im.save(os.path.join(OUT, k + ".png"), optimize=True)
+        done.append(f"{k}.png  ({im.width}x{im.height}, lưới {p}px)")
+    have = {f[:-4] for f in os.listdir(OUT) if f.endswith(".png")}
     print(f"Đã nhập {len(done)} ảnh.")
     for d in done[:200]:
         print("  ✓ " + d)
     if unknown:
         print(f"Không khớp tên ({len(unknown)}): " + ", ".join(unknown[:50]))
-    rows_done = sum(1 for k in KEYS if have[k] >= 1)
-    imgs = sum(min(have[k], NEED[k]) for k in KEYS)
-    print(f"Nhóm hình đã có ảnh: {rows_done}/{len(KEYS)} · ảnh: {imgs}/{sum(NEED.values())}")
-    missing = [k for k in KEYS if not have[k]]
+    print(f"Đã có {len(have & NEED)}/{len(KEYS)} ảnh.")
+    ids_started = sorted({k.rsplit("_", 1)[0] for k in have & NEED if k.rsplit("_", 1)[0] in ID_CODES})
+    no_base = [c for c in ids_started if f"{c}_thuongdan" not in have]
+    if no_base:
+        print("Nhân dạng thiếu ảnh gốc Thường dân: " + ", ".join(no_base))
+    missing = [k for k in KEYS if k not in have]
     if missing:
-        print("Nhóm chưa có ảnh nào (10 đầu, theo thứ tự ưu tiên): " + ", ".join(missing[:10]))
-
+        print("Tiếp theo nên làm (10 ảnh đầu bảng còn thiếu): " + ", ".join(missing[:10]))
 
 if __name__ == "__main__":
     main()

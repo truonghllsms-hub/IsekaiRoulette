@@ -2241,35 +2241,42 @@ window.GAME_DATA = {"races":[{"id":"human","name":"Human","gloss":"loài ngườ
   const upper = (t) => (t ? t.charAt(0).toUpperCase() + t.slice(1) : "");
 
   // ---------- sprites ----------
-  // img/<who>_<nam|nu|x>_<look>_<n>.png, who = race or race_kin, look = nho | gia | a trade group |
-  // an evolved form (see tools/looks.js). Several variants per group: one is kept per life.
+  // img/<who>_<nam|nu|x>_<n>_<look>.png: person n of a race (or race_kin) in one look
+  //   (nho, thuongdan, gia, chienbinh, phapsu, thosan, tho — see tools/looks.js);
+  // img/<who>_<nam|nu|x>_<form>.png: an evolved form. A life keeps one person all its life.
   const slug = (t) => String(t).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "");
   const AGE_LOOK = { infant: "nho", child: "nho", elder: "gia", ancient: "gia" };
   let spriteIndex = null;
-  function spriteGroups() {
+  function spriteIdx() {
     if (spriteIndex) return spriteIndex;
-    spriteIndex = {};
+    const people = {}, forms = {};
     for (const f of D.images || []) {
-      const m = f.match(/^(.+)_(\d+)$/);
-      if (m) (spriteIndex[m[1]] = spriteIndex[m[1]] || []).push(f);
+      const m = f.match(/^(.+_(?:nam|nu|x))_(\d+)_([a-z]+)$/);
+      if (m) ((people[m[1]] = people[m[1]] || {})[m[2]] = people[m[1]][m[2]] || {})[m[3]] = f;
+      else forms[f] = f;
     }
-    return spriteIndex;
+    return (spriteIndex = { people, forms });
   }
   function spriteOf(ch) {
-    const groups = spriteGroups();
+    const { people, forms } = spriteIdx();
     const who = ch.subtype ? `${ch.race.id}_${ch.subtype}` : ch.race.id;
     const g = ch.gender === "male" ? "nam" : ch.gender === "female" ? "nu" : "x";
     const og = g === "nam" ? "nu" : g === "nu" ? "nam" : "x";
-    const job = ch.job && (D.jobs || []).find((j) => j.id === ch.job.id);
-    const look = ch.form ? slug(ch.form) : AGE_LOOK[E.currentStage(ch).id] || (job && job.look) || "thuongdan";
-    // closest group that has a picture: same look, then plain clothes, then the other gender, then anything of this people
-    const tries = [`${who}_${g}_${look}`, `${who}_${g}_thuongdan`, `${who}_${og}_${look}`, `${who}_${og}_thuongdan`];
-    let list = tries.map((k) => groups[k]).find(Boolean);
-    if (!list) list = Object.keys(groups).filter((k) => k.startsWith(`${who}_${g}_`)).concat(Object.keys(groups).filter((k) => k.startsWith(`${who}_`))).map((k) => groups[k])[0];
-    if (!list) return null;
+    if (ch.form) {
+      const f = forms[`${who}_${g}_${slug(ch.form)}`] || forms[`${who}_${og}_${slug(ch.form)}`];
+      if (f) return `img/${f}.png`;
+    }
+    const pool = people[`${who}_${g}`] || people[`${who}_${og}`];
+    if (!pool) return null;
+    // the same person for the whole life: chosen from the name, which never changes
+    const ids = Object.keys(pool).sort((a, b) => a - b);
     let h = 0;
-    for (const ch_ of ch.name) h = (h * 31 + ch_.charCodeAt(0)) >>> 0;
-    return `img/${list[h % list.length]}.png`;
+    for (const x of ch.name) h = (h * 31 + x.charCodeAt(0)) >>> 0;
+    const person = pool[ids[h % ids.length]];
+    const job = ch.job && (D.jobs || []).find((j) => j.id === ch.job.id);
+    const look = AGE_LOOK[E.currentStage(ch).id] || (job && job.look) || "thuongdan";
+    const f = person[look] || person.thuongdan || Object.values(person)[0];
+    return `img/${f}.png`;
   }
   function setSprite(id, ch) {
     const el = $(id);
