@@ -10,6 +10,8 @@ from openpyxl import Workbook
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter as L
 
+FULL = "--full-stages" in sys.argv  # every life stage as its own column (baby, child, teen, adult, old)
+sys.argv = [x for x in sys.argv if x != "--full-stages"]
 races = json.load(open(sys.argv[1], encoding="utf8"))
 idrows = json.load(open(sys.argv[2], encoding="utf8"))["identities"]
 OUT, TITLE = sys.argv[3], sys.argv[4]
@@ -46,12 +48,22 @@ for r in races:
             for i in range(1, n + 1):
                 people.append((f"{who}_{g}_{i}", kin, gvi, i))
     # picture columns: commoner first, then every trade new + veteran, then young and old
-    cols = [("Thường dân", "Ảnh gốc · tạo trước", "thuongdan", BASE)]
+    if FULL:
+        st = {x["id"]: x for x in r["stages"]}
+        old = r["stages"][-1]
+        def sc(sid, vi, code, fill=IMG, extra=""):
+            x = st.get(sid)
+            return (vi, f'{x["name"]}\n{x["ages"]}{extra}' if x else vi, code, fill)
+        cols = [sc("infant", "Bé tí", "beti"), sc("child", "Hơi lớn", "hoilon"), sc("teen", "Thiếu niên", "thieunien"),
+                sc("adult", "Trưởng thành", "thuongdan", BASE, "\nẢnh gốc · tạo trước"), (f"Về già", f'{old["name"]}\n{old["ages"]}', "gia", IMG)]
+    else:
+        cols = [("Thường dân", "Ảnh gốc · tạo trước", "thuongdan", BASE)]
     for jb in r["jobs"]:
         short = jb["id"].split("_", 1)[1]
         cols.append((jb["name"], f'Mới vào nghề\n{jb["first"]}', f"{short}_moi", IMG))
         cols.append((jb["name"], f'Kỳ cựu\n{jb["top"]}', f"{short}_kycuu", IMG))
-    cols += [("Lúc nhỏ", "Thơ ấu", "nho", IMG), ("Tuổi già", "Về già", "gia", IMG)]
+    if not FULL:
+        cols += [("Lúc nhỏ", "Thơ ấu", "nho", IMG), ("Tuổi già", "Về già", "gia", IMG)]
     for fm in r["forms"]:
         slug = "".join(ch if ch.isalnum() else "_" for ch in fm["name"].lower()).strip("_")
         cols.append(("Tiến hóa", fm["name"], f"tienhoa_{slug}", IMG))
@@ -59,7 +71,7 @@ for r in races:
     fixed = ["STT", "Mã nhân dạng"] + (["Tộc thú"] if r["kins"] else []) + ["Giới tính"]
     c0 = len(fixed) + 1
     ws.cell(1, 1, f'{r["name"]} — {len(people)} nhân dạng · {len(r["jobs"])} nghề · {len(r["forms"])} nhánh tiến hóa').font = Font(name=F, bold=True, size=14)
-    ws.cell(2, 1, "Mỗi dòng là MỘT người. Tạo ô Thường dân (cam) trước, rồi đính kèm ảnh đó khi tạo các ô còn lại của cùng dòng để giữ nguyên gương mặt. "
+    ws.cell(2, 1, "Mỗi dòng là MỘT người. Tạo ô " + ("Trưởng thành" if FULL else "Thường dân") + " (cam) trước, rồi đính kèm ảnh đó khi tạo các ô còn lại của cùng dòng để giữ nguyên gương mặt. "
             "Gửi lại: chèn ảnh vào ô, hoặc zip với tên <Mã nhân dạng>_<mã cột>.png (mã cột ở dòng 5, vd "
             f'{people[0][0]}_{cols[1][2]}.png).').font = Font(name=F, size=9, color="555555")
     H1, H2, H3 = 3, 4, 5
@@ -94,7 +106,7 @@ for r in races:
     for rr in (H1, H2, H3):
         for cc in range(1, c0 + len(cols)):
             ws.cell(rr, cc).border = BOX
-    ws.row_dimensions[H2].height = 30
+    ws.row_dimensions[H2].height = 44 if FULL else 30
     row = H3 + 1
     for n, (code, kin, gvi, i) in enumerate(people, start=1):
         vals = [n, code] + ([kin] if r["kins"] else []) + [gvi]
@@ -121,11 +133,11 @@ for r in races:
     widths = [5, 22] + ([10] if r["kins"] else []) + [9] + [14] * len(cols)
     for kk, w in enumerate(widths, start=1):
         ws.column_dimensions[L(kk)].width = w
-    ws.freeze_panes = f"{L(c0 + 1)}{H3 + 1}"  # keeps the person and the commoner picture in view
+    ws.freeze_panes = f"{L(c0 if FULL else c0 + 1)}{H3 + 1}"  # keeps the person (and the reference picture) in view
 
 # ---- overview ----
 over.cell(1, 1, TITLE).font = Font(name=F, bold=True, size=14)
-over.cell(2, 1, "Mỗi sheet một tộc. Mỗi dòng là một người: ảnh Thường dân trước, rồi lần lượt các nghề (mới vào nghề, kỳ cựu), lúc nhỏ, tuổi già, tiến hóa.").font = Font(name=F, size=10)
+over.cell(2, 1, ("Mỗi sheet một tộc. Mỗi dòng là một người: bé tí, hơi lớn, thiếu niên, trưởng thành (ảnh gốc), về già, rồi toàn bộ nghề (mới vào nghề, kỳ cựu) và các nhánh tiến hóa." if FULL else "Mỗi sheet một tộc. Mỗi dòng là một người: ảnh Thường dân trước, rồi lần lượt các nghề (mới vào nghề, kỳ cựu), lúc nhỏ, tuổi già, tiến hóa.")).font = Font(name=F, size=10)
 hdr = ["Tộc", "Số nghề", "Nhánh tiến hóa", "Số nhân dạng", "Ảnh mỗi người", "Tổng số ảnh"]
 for j, h in enumerate(hdr, start=1):
     c = over.cell(4, j, h)
@@ -148,8 +160,10 @@ for j in (2, 3, 4, 6):
     c.alignment = mid
 notes = [
     "",
-    "Số nhân dạng: Human 8 nam + 8 nữ; các tộc khác theo tỉ lệ người chơi gặp tộc đó (ít nhất 1 mỗi giới).",
+    "Số nhân dạng: Human 8 nam + 8 nữ; Slime, Ghoul vô tính; các tộc khác theo tỉ lệ người chơi gặp tộc đó (ít nhất 1 mỗi giới).",
     "Mới vào nghề = cấp bậc đầu của nghề (đồ nghề đơn sơ). Kỳ cựu = cấp bậc cao nhất (trang bị xịn, khí chất bậc thầy).",
+    "Tên giai đoạn và độ tuổi ghi theo đúng từng tộc trong game (vd Goblin: Ấu tể 0–2 tuổi). Về già = giai đoạn cuối đời của tộc.",
+    "Tộc không có tiến hóa (Demon) thì không có cột tiến hóa.",
     "Ô cam = ảnh gốc của người đó, tạo trước. Ô vàng = các ảnh còn lại, đính kèm ảnh gốc khi tạo để giữ nguyên gương mặt.",
     "Phong cách: pixel art 16-bit như ảnh goblin mẫu, toàn thân, nghiêng 3/4 quay phải, nền xám phẳng (script tự xóa nền).",
     "Gửi lại: chèn ảnh thẳng vào ô rồi gửi file, hoặc zip với tên <Mã nhân dạng>_<mã cột>.png. Gửi từng đợt cũng được.",
