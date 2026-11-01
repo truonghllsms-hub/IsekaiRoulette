@@ -65,9 +65,28 @@
 
   const upper = (t) => (t ? t.charAt(0).toUpperCase() + t.slice(1) : "");
 
+  // ---------- sprites ----------
+  // img/<race>.png, img/beastman_<kin>.png, img/<race>__<form>.png; whatever exists in D.images.
+  const slug = (t) => String(t).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "");
+  function spriteOf(ch) {
+    const have = new Set(D.images || []);
+    const base = ch.subtype && have.has(`${ch.race.id}_${ch.subtype}`) ? `${ch.race.id}_${ch.subtype}` : ch.race.id;
+    const keys = [ch.form ? `${ch.race.id}__${slug(ch.form)}` : null, base].filter(Boolean);
+    const k = keys.find((x) => have.has(x));
+    return k ? `img/${k}.png` : null;
+  }
+  function setSprite(id, ch) {
+    const el = $(id);
+    if (!el) return;
+    const src = spriteOf(ch);
+    el.hidden = !src;
+    if (src && el.getAttribute("src") !== src) el.setAttribute("src", src);
+  }
+
   function startLife() {
     c = E.createCharacter(D);
     rendered = 0;
+    setSprite("reveal-sprite", c);
     $("reveal-name").textContent = c.name;
     $("reveal-race").textContent = c.subtypeName ? `${c.race.name} ${c.subtypeName}` : c.race.name;
     $("reveal-gloss").textContent = c.race.gloss ? `(${c.race.gloss})` : "";
@@ -101,6 +120,7 @@
   // ---------- life ----------
   function renderHud() {
     const genderTxt = c.gender === "male" ? "Nam" : c.gender === "female" ? "Nữ" : "Vô tính";
+    setSprite("hud-sprite", c);
     $("hud-name").textContent = c.name;
     $("hud-meta").textContent = `${E.raceTitle(c)} · ${genderTxt} · ${c.captive ? upper(E.CAPTIVE_WORD[c.captive.kind]) : c.era ? c.era.name : c.origin.name}`;
     $("hud-age").textContent = fmtAge(c.age);
@@ -240,6 +260,7 @@
   // ---------- death ----------
   function renderDeath() {
     const s = E.summary(c, D);
+    setSprite("death-sprite", c);
     $("death-name").textContent = c.name;
     $("death-meta").textContent = `${E.raceTitle(c)} · ${fmtAge(c.age)} tuổi · ${c.origin.name}`;
     $("death-cause").textContent = c.cause;

@@ -181,3 +181,11 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 7vw, 48
   .entry { grid-template-columns: 48px 1fr; gap: 8px; }
   .entry .text { font-size: 16px; }
 }
+
+/* character sprites (pixel art): drawn at whole multiples so pixels stay square */
+.sprite { image-rendering: pixelated; image-rendering: crisp-edges; display: block; object-fit: contain; }
+.sprite-hud { height: 56px; width: 56px; flex: none; align-self: center; }
+.sprite-big { height: 160px; width: 160px; margin: 0 auto 8px; }
+.sprite-dead { filter: grayscale(1) brightness(.85); opacity: .9; }
+.hud .who { flex: 1; }
+@media (max-width: 480px) { .sprite-hud { height: 44px; width: 44px; } .sprite-big { height: 128px; width: 128px; } }

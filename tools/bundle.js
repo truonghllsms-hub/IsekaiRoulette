@@ -33,4 +33,6 @@ ${safeJs(read("ui.js"))}
 
 fs.mkdirSync(path.join(ROOT, "dist"), { recursive: true });
 fs.writeFileSync(path.join(ROOT, "dist", "game.html"), out, "utf8");
+const imgs = fs.existsSync(path.join(ROOT, "img")) ? fs.readdirSync(path.join(ROOT, "img")).filter((f) => f.endsWith(".png")) : [];
+if (imgs.length) console.log(`Ảnh nhân vật (${imgs.length}) đăng kèm dưới dạng file riêng: img/<tên>.png từ thư mục img/.`);
 console.log(`Đã đóng gói dist/game.html (${(Buffer.byteLength(out) / 1024).toFixed(0)} KB)`);
