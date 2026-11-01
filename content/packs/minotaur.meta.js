@@ -133,6 +133,7 @@ module.exports = {
     lenh_trieu_tap_dam_mau: { minRank: 4 },
   },
   overrides: {
+    minota_mate_maze: { require: { free: true } },
     minota_rank_sovereign: { require: { guildRank: 5 }, unrequire: { job: true, jobRank: true }, choiceEffects: { 0: { success: { orgRank: 6 } }, 1: { success: { orgRank: 6 } }, 2: { success: { orgRank: 6 } } } },
   },
 };

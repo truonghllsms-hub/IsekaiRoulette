@@ -49,5 +49,7 @@ module.exports = {
   evos: [],
   systems: {
     noRecruit: true,},
-  overrides: {},
+  overrides: {
+    bm_parent_missing_return: { require: { parentGone: "father" } },
+  },
 };

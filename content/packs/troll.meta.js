@@ -128,6 +128,8 @@ module.exports = {
   // the first errand needs rank 2 in the script; open it from rank 1 so a new Troll has something to do
   questOverrides: { troll_quest_goblin_toll: { minRank: 0 } },
   overrides: {
+    troll_event_parents_return: { require: { parentGone: "any" } },
+    troll_chain_parent_1: { require: { any: [{ fatherAlive: false }, { motherAlive: false }] } },
     // "Giai đoạn Troll nhí" here is the child's age
     troll_child_eating: { stages: ["adult", "middle", "elder"] },
     troll_child_lost: { stages: ["adult", "middle", "elder"] },

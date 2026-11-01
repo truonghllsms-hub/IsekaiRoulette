@@ -106,5 +106,15 @@ module.exports = {
 
   systems: {},
 
-  overrides: {},
+  overrides: {
+    human_parent_return: { require: { parentGone: "any" } },
+    human_parent_heirloom: { require: { parentDead: "any" } },
+    human_parent_mausoleum: { require: { parentDead: "any" } },
+    human_parent_ghost: { require: { parentDead: "any" } },
+    human_old_enemy_return: { require: { anyFlags: ["noble_enemy"] } },
+    human_chain_abyss_2: { require: { anyFlags: ["dark_magic", "abyss_touched"] } },
+    // chains whose condition the script wrote in words: only lives that fit
+    human_chain_gladiator_1: { require: { any: [{ flags: ["gladiator_seed"] }, { job: "human_gladiator" }] } },
+    human_chain_elf_1: { require: { any: [{ flags: ["elf_friend"] }, { job: "human_ranger" }] } },
+  },
 };

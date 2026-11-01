@@ -4595,6 +4595,9 @@
    "stages": [
     "adult"
    ],
+   "require": {
+    "parentGone": "any"
+   },
    "choices": [
     {
      "label": "Đuổi thẳng cổ, gọi lính gác",
@@ -5045,7 +5048,8 @@
    "require": {
     "notFlags": [
      "poor"
-    ]
+    ],
+    "parentDead": "any"
    },
    "choices": [
     {
@@ -5197,7 +5201,8 @@
     "elder"
    ],
    "require": {
-    "wealth": 80
+    "wealth": 80,
+    "parentDead": "any"
    },
    "choices": [
     {
@@ -5252,7 +5257,8 @@
     "elder"
    ],
    "require": {
-    "INT": 8
+    "INT": 8,
+    "parentDead": "any"
    },
    "choices": [
     {
@@ -17331,6 +17337,11 @@
    "stages": [
     "elder"
    ],
+   "require": {
+    "anyFlags": [
+     "noble_enemy"
+    ]
+   },
    "choices": [
     {
      "label": "Rót rượu cụng ly, cười ha hả về những ấu trĩ thời trẻ",
@@ -18127,6 +18138,12 @@
    "stages": [
     "elder"
    ],
+   "require": {
+    "anyFlags": [
+     "dark_magic",
+     "abyss_touched"
+    ]
+   },
    "result": "RẤT KHÓ"
   },
   {
@@ -18136,6 +18153,18 @@
     "adult",
     "middle"
    ],
+   "require": {
+    "any": [
+     {
+      "flags": [
+       "elf_friend"
+      ]
+     },
+     {
+      "job": "human_ranger"
+     }
+    ]
+   },
    "choices": [
     {
      "label": "Giơ cao chiếc lá/kỷ vật mà tộc Elf từng tặng để cầu viện",
@@ -18196,6 +18225,18 @@
    "stages": [
     "adult"
    ],
+   "require": {
+    "any": [
+     {
+      "flags": [
+       "gladiator_seed"
+      ]
+     },
+     {
+      "job": "human_gladiator"
+     }
+    ]
+   },
    "choices": [
     {
      "label": "Khóc lóc, vứt bỏ vũ khí để người anh em giết mình",

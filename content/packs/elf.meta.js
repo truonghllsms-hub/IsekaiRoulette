@@ -26,5 +26,9 @@ module.exports = {
   evos: [],
   systems: {
     noRecruit: true,},
-  overrides: {},
+  overrides: {
+    elf_evt_lost_parent: { require: { parentGone: "any" } },
+    elf_old_legacy: { require: { jobRank: 3 } },
+    elf_chain_parent_1: { require: { any: [{ fatherAlive: false }, { motherAlive: false }] } },
+  },
 };

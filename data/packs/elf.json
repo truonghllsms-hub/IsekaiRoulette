@@ -2097,6 +2097,9 @@
    "focus": [
     "social"
    ],
+   "require": {
+    "parentGone": "any"
+   },
    "choices": [
     {
      "label": "Tra hỏi lý do",
@@ -7269,6 +7272,9 @@
    "stages": [
     "elder"
    ],
+   "require": {
+    "jobRank": 3
+   },
    "choices": [
     {
      "label": "Truyền dạy toàn bộ bí kíp bằng phương pháp khắc nghiệt",
@@ -7619,6 +7625,16 @@
    "focus": [
     "rest"
    ],
+   "require": {
+    "any": [
+     {
+      "fatherAlive": false
+     },
+     {
+      "motherAlive": false
+     }
+    ]
+   },
    "result": "Bạn hấp thụ được ma lực sót lại từ cuốn nhật ký, đồng thời tiếp nhận món nợ nhân quả nặng nề.",
    "effects": {
     "INT": 2,

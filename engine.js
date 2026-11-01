@@ -430,7 +430,9 @@
   const FREE_FOCUS = ["adventure", "social"];
   // the open world a captive cannot reach: swamps, bridges, forests, travellers, raids
   const CAPTIVE_OUT = /đầm lầy|gầm cầu|cây cầu|qua cầu|đầu cầu|thu phí|lữ khách|khu rừng|bìa rừng|rừng sâu|thảo nguyên|đỉnh núi|sườn núi|phá phách khắp|lang thang khắp|rong ruổi|cướp bóc|cướp cả|xe hàng|thương nhân|ngôi làng|làng mạc|chuyến săn|cuộc săn|giữa cầu|chắn cầu|lợn lòi|trèo cây|thân cây|con suối|xuống suối|dinh thự|di chúc|thừa kế/i;
-  const captiveOk = (t) => !FREE_WORLD.test(t) && !CAPTIVE_OUT.test(t);
+  // an arena slave or a prisoner is not living in the tribe's camp either (a slave of a tribe is)
+  const TRIBE_LIFE = /bộ lạc|bãi lều|lều trại|trong lều|lều của|khu trại|lửa trại|bầy đàn của bạn|cả tộc|Warchief|tù trưởng/i;
+  const captiveOk = (t, c) => !FREE_WORLD.test(t) && !CAPTIVE_OUT.test(t) && !(c && c.captive && ["arena", "prison"].includes(c.captive.kind) && TRIBE_LIFE.test(t));
   const CAPTIVE_PLACE = { arena: "hầm ngục dưới đấu trường", slave: "trại nô lệ", prison: "bốn bức tường ngục tối", bound: "sợi dây khế ước" };
   const FREE_WORLD = /Guild Bình Minh|bảng nhiệm vụ|nhận nhiệm vụ|quán rượu|quán trọ|tửu quán|phiên chợ|khu chợ|mạo hiểm giả hạng|lữ hành|du ngoạn|buổi tuyển chọn|dạ tiệc|vũ hội|học viện|trường học|thuê một căn|mua một căn|dọn ra ở riêng|tổ đội của bạn|hộ tống|đoàn xe|thương đoàn|lên đường|chuyến đi|tiền lương|trừ (?:tiền|lương)|tiền công|chủ xưởng|làm thuê|phường hội|học việc|mời (?:đại )?tư tế|mua sắm|cửa hàng|tiệm/i;
   const FREED = /(?:chém|cắt|tháo|bẻ|đập|giật) (?:đứt |gãy |vỡ |tung )?(?:xiềng|gông|còng|vòng cổ)|thoát thân|phá sập cổng|hệ thống nô lệ|trốn thoát|thoát khỏi|phá (?:tan |nát |vỡ )?(?:xiềng|gông|cũi|lồng|ngục)|chặt đứt (?:xiềng|gông)|chuộc (?:thân|lại tự do)|được thả|trả tự do|giải phóng|vượt ngục|phá ngục|bỏ trốn|tự do/i;
@@ -491,7 +493,15 @@
     const n = Math.round(c.age - (c.band.since || c.age));
     const g = groupName(c, data);
     let t;
-    if (/_recruit_/.test(e.id)) t = pick(rng, [`Tin ${g} đang tìm thêm người lan ra khắp nơi.`, `Ghế trống quanh đống lửa của ${g} khiến bạn để mắt tới những kẻ lạ.`, `Bạn đi tìm thêm người cho ${g}.`]);
+    if (/_recruit_/.test(e.id)) {
+      // several candidates in one life: each one met in a new way, not the same lead-in again
+      const lines = [`Tin ${g} đang tìm thêm người lan ra khắp nơi.`, `Ghế trống quanh đống lửa của ${g} khiến bạn để mắt tới những kẻ lạ.`, `Bạn đi tìm thêm người cho ${g}.`,
+        `Một mùa nữa trôi qua, ${g} vẫn thiếu người.`, `Có kẻ tìm đến tận nơi ${g} hay tụ họp, hỏi xem còn nhận người không.`, `Trên đường làm nhiệm vụ, bạn để ý một gương mặt lạ có thể hợp với ${g}.`];
+      c.recruitLines = c.recruitLines || [];
+      const fresh = lines.filter((x, i) => !c.recruitLines.includes(i));
+      t = pick(rng, fresh.length ? fresh : lines);
+      c.recruitLines.push(lines.indexOf(t));
+    }
     else if (n < 1) t = pick(rng, [`Chưa được bao lâu kể từ ngày bạn theo ${g}.`, `Những ngày đầu cùng ${g} chưa kịp quen thì chuyện đã tới.`]);
     else t = pick(rng, [`Đã ${n} năm bạn đi cùng ${g}.`, `Năm thứ ${n} theo ${g}.`, `${upperFirst(String(n))} năm qua, ${g} gần như đã là nhà của bạn.`]);
     if (c.band.lastBridge === c.age) return;
@@ -562,7 +572,8 @@
       if (/chưa có nghề|chưa có vai trò/.test(p)) return !c.job;
       if (/bậc cao/.test(p)) return !!(c.guild && c.guild.rank >= 2);
       if (/có băng|có tổ đội|có đồng bọn/.test(p)) return !!c.band || aliveParty(c).length > 0;
-      if (/cô độc/.test(p)) return !c.band && !aliveParty(c).length && !c.spouse;
+      // "alone" lines speak of no family either: nobody left at all
+      if (/cô độc/.test(p)) return !c.band && !aliveParty(c).length && !c.spouse && !parents.some((x) => x.alive) && !(c.children || []).length;
       if (/thương tật/.test(p)) return c.bars.health < 30;
       if (/tiến hóa/.test(p)) return !!c.form;
       if (/nổi danh/.test(p)) return c.fame > 50;
@@ -597,7 +608,7 @@
     const st = storyOf(c, data);
     const list = st && st.chapters && st.chapters[stageId];
     if (!list || !list.length) return null;
-    const fit = list.filter((x) => storyCond(c, data, x.cond) && (!c.captive || captiveOk(x.text)));
+    const fit = list.filter((x) => storyCond(c, data, x.cond) && (!c.captive || captiveOk(x.text, c)));
     return fit.length ? pick(rng, fit).text : null;
   }
 
@@ -877,6 +888,14 @@
     if (req.children != null && c.children.length < req.children) return false;
     if (req.noChildren && c.children.length) return false;
     if (req.focus && !(c.focus && [].concat(req.focus).includes(c.focus))) return false;
+    // "cha bỏ đi" / "cha mẹ đã mất": by what happened to the parent, "any" for either one
+    for (const [key, test] of [["parentGone", (p) => p && !p.alive && (p.status === "gone" || p.status === "unknown")], ["parentDead", (p) => p && !p.alive && p.status === "dead"]]) {
+      if (req[key] == null) continue;
+      const ps = c.parents || {};
+      const who = req[key] === "any" ? ["father", "mother"] : [req[key]];
+      if (!who.some((w) => test(ps[w]))) return false;
+    }
+    if (req.free && c.captive) return false;
     if (req.fatherAlive != null && !!(c.parents && c.parents.father && c.parents.father.alive) !== req.fatherAlive) return false;
     if (req.motherAlive != null && !!(c.parents && c.parents.mother && c.parents.mother.alive) !== req.motherAlive) return false;
     if (req.makerAlive != null && !!(c.parents && c.parents.maker && c.parents.maker.alive) !== req.makerAlive) return false;
@@ -980,11 +999,16 @@
     }
     // scenes that may come back (a sign, a trial) come back twice at most
     if (e.once === false && c.used.filter((id) => id === e.id).length >= 2) return false;
+    // a child does not sit drinking in a tavern (a Dwarf child may at least be in one)
+    const st = currentStage(c).id;
+    if ((st === "infant" || st === "child") && (/uống rượu|nốc cạn|say khướt|say mèm|thanh lâu|kỹ viện|cụng ly/i.test(t) || (c.race.id !== "dwarf" && /quán rượu|tửu quán/i.test(t)))) return false;
+    // "your party", "your band": only once there is one
+    if (/(?<!\p{L})(tổ đội|băng săn|bầy săn|băng|đội) của bạn(?!\p{L})/iu.test(t) && !c.band && !aliveParty(c).length && !r.band && !r.bandLead && !r.party) return false;
     // ...and the reverse: a free life does not wake up already in chains
     if (!c.captive && !/_arc_/.test(e.id) && /^(Bị giam|Bị xích|Bị cùm|Trong phòng giam|Trong ngục|Bị nhốt)|nới lỏng xiềng xích|xiềng xích trên (cổ|tay|chân) bạn/i.test(t) && !(r.flags || r.anyFlags)) return false;
     if (c.captive && !/_arc_/.test(e.id)) {
       if (e.focus && e.focus.some((f) => FREE_FOCUS.includes(f))) return false;
-      if (!captiveOk(t)) return false;
+      if (!captiveOk(t, c)) return false;
       if (/_band_band_[a-z]_1$|_party_party_[a-z]_join$|_lead_|_recruit_/.test(e.id) && !designedFor(e, c)) return false;
     }
     return true;
@@ -1232,7 +1256,7 @@
         (!d.stages || !d.stages.length || d.stages.includes(st))
     );
     // a captive dies where it is kept, not on a road or in a forest
-    if (c.captive) { const inside = pool.filter((d) => captiveOk(d.text) && !/mạo hiểm giả|đi ngang qua|Rừng Tân Thủ/i.test(d.text)); if (inside.length) pool.splice(0, pool.length, ...inside); }
+    if (c.captive) { const inside = pool.filter((d) => captiveOk(d.text, c) && !/mạo hiểm giả|đi ngang qua|Rừng Tân Thủ/i.test(d.text)); if (inside.length) pool.splice(0, pool.length, ...inside); }
     const specific = pool.filter((d) => d.races && d.races.length);
     const d = weightedPick(specific.length && rng() < 0.7 ? specific : pool, rng);
     return d ? d.text : "Bạn qua đời.";
@@ -1268,7 +1292,7 @@
     }
     const cr = sys(c, data, "crossroads");
     let raw = cr[currentStage(c).id] || cr.default || data.systems.crossroads.default;
-    if (c.captive && !captiveOk(raw)) raw = "Bạn vẫn chưa thoát khỏi xiềng xích. Những năm tới, bạn sẽ bám víu vào điều gì để sống sót?";
+    if (c.captive && !captiveOk(raw, c)) raw = "Bạn vẫn chưa thoát khỏi xiềng xích. Những năm tới, bạn sẽ bám víu vào điều gì để sống sót?";
     const text = fmt(raw, c, null, data);
     scene(
       c,
@@ -1309,12 +1333,19 @@
     const j = jobDef(c, data);
     const r = c.job.rank;
     const s = sys(c, data, "promotion");
+    const winLine = c.captive && !captiveOk(s.success, c) ? "Từ nay, bạn là {next}." : s.success;
     const next = rankNames(c, j)[r + 1];
-    scene(c, "promotion", fmt(j.promo[r], c, { next }, data), [
+    // a trial that comes back says so, instead of reading word for word like the first time
+    c.promoTries = c.promoTries || {};
+    const key = `${c.job.id}:${r}`;
+    const tries = (c.promoTries[key] = (c.promoTries[key] || 0) + 1);
+    let text = fmt(j.promo[r], c, { next }, data);
+    if (tries > 1) text = text.replace(/^Thử thách để trở thành ([^:]+): /, (m0, who) => pick(rng, [`Cơ hội trở thành ${who} lại đến, vẫn là thử thách cũ: `, `Lần thử thứ ${tries} để trở thành ${who}. Thử thách vẫn vậy: `, `Bạn lại đứng trước thử thách để trở thành ${who}: `]));
+    scene(c, "promotion", text, [
       {
         label: s.try,
         check: { stat: (j.promoStat && j.promoStat[r]) || j.stat, target: j.promoTarget[r] },
-        success: { text: fmt(s.success, c, { next }, data), act: { type: "promote" }, moment: `Trở thành ${next}` },
+        success: { text: fmt(winLine, c, { next }, data), act: { type: "promote" }, moment: `Trở thành ${next}` },
         fail: { text: fmt(pick(rng, s.fail), c, null, data), effects: { joy: -8 }, act: { type: "promoteFail" } },
       },
       { label: s.wait, text: fmt(s.waitText, c, null, data), act: { type: "promoteWait" } },
@@ -1576,7 +1607,7 @@
     const OLD = /già nua|tuổi già|xế chiều|tóc bạc|râu bạc|lưng còng|răng rụng|gậy chống|chống gậy|tuổi xế/i;
     const YOUNG = /chập chững|bập bẹ|tập đi|bú mớm|đứa trẻ con|lũ trẻ con/i;
     const late = ["middle", "elder", "ancient"].includes(stageId), early = ["infant", "child"].includes(stageId);
-    const fit = list.filter((t) => (late || !OLD.test(t)) && (early || !YOUNG.test(t)));
+    const fit = list.filter((t) => (late || !OLD.test(t)) && (early || !YOUNG.test(t)) && parentsOk(t, c, {}) && (!c.captive || captiveOk(t, c)));
     return pick(rng, fit.length ? fit : list);
   }
 
@@ -1678,7 +1709,7 @@
           const s = sys(c, data, "stageEnter");
           const chapter = chapterLine(c, data, rng, stageId);
           let line = chapter || s[stageId] || s.default || data.systems.stageEnter.default;
-          if (c.captive && !chapter && !captiveOk(line)) line = `Năm tháng trôi qua, bạn lớn thêm một vòng, nhưng thế giới của bạn vẫn chỉ rộng bằng ${CAPTIVE_PLACE[c.captive.kind] || "chốn giam cầm"}.`;
+          if (c.captive && !chapter && !captiveOk(line, c)) line = `Năm tháng trôi qua, bạn lớn thêm một vòng, nhưng thế giới của bạn vẫn chỉ rộng bằng ${CAPTIVE_PLACE[c.captive.kind] || "chốn giam cầm"}.`;
           pushLog(c, "stage", fmt(line, c, null, data));
           stop = crossroads(c, data);
         } else {
