@@ -14,7 +14,7 @@ và `tools/race-profiles-v3.js` (mô tả, giọng văn, thế giới, ví dụ 
 |---|---|---|---|---|---|---|---|
 | Human | [human.md](human.md) | 9 | 9 kiểu × 6 | 20 × 5 | tổ đội + tự lập | | đã nhập |
 | Goblin | [goblin.md](goblin.md) | 6 | 6 kiểu × 5 | 7 × 4 | băng | có | đã nhập |
-| Beastman | [beastman.md](beastman.md) | 10 | 9 kiểu × 5 | 23 × 5 | tổ đội |  | đã nhập (PHẦN 10 chỉ có 4 nút nối dàn nhân vật, chưa có lập tổ đội và 10 ứng viên) |
+| Beastman | [beastman.md](beastman.md) | 10 | 9 kiểu × 5 | 23 × 5 | tổ đội |  | đã nhập |
 | Dwarf | [dwarf.md](dwarf.md) | 7 | 9 kiểu × 5 | 10 × 5 | tổ đội |  | đã nhập |
 | Demon | [demon.md](demon.md) | 7 | 9 kiểu × 5 | 10 × 5 | tổ đội |  | đã nhập |
 | Elf | [elf.md](elf.md) | 7 | 9 kiểu × 5 | 10 × 5 | tổ đội |  | đã nhập |

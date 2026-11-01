@@ -35230,1945 +35230,6 @@
    "moment": "Đôi cánh sinh ra để đón gió bão, nếu tự bẻ gãy nó, bầu trời sẽ trở thành địa ngục."
   },
   {
-   "id": "beastman_lead_1",
-   "text": "Giữa quán rượu sặc mùi bia và mồ hôi, một toán lính đánh thuê vô chủ đang cãi vã um sùm vì thiếu người dẫn dắt. Bạn vứt mạnh thanh vũ khí lên bàn, dõng dạc tuyên bố sẽ thành lập một tổ đội mới càn quét mọi nhiệm vụ khó nhằn nhất Aethelgard.",
-   "stages": [
-    "adult",
-    "middle",
-    "elder"
-   ],
-   "arc": "lead",
-   "recall": [
-    {
-     "flags": [
-      "lead_1_dung_luc"
-     ],
-     "text": "Cú ném vỡ vách quán rượu khắc họa uy quyền tuyệt đối của vị đội trưởng dã thú."
-    },
-    {
-     "flags": [
-      "lead_1_that_the"
-     ],
-     "text": "Vết bầm tím ngày đầu giương cờ nhắc nhở bạn sức mạnh là thứ phải rèn luyện không ngừng."
-    },
-    {
-     "flags": [
-      "lead_1_thuyet_phuc"
-     ],
-     "text": "Bài hùng biện sắc sảo đã chiêu mộ được những tay kiếm tài ba nhất quán rượu."
-    },
-    {
-     "flags": [
-      "lead_1_mat_tien"
-     ],
-     "text": "Mất một đống tiền mồi chài mới lập được đội là nỗi nhục đâm chói lòng tự tôn."
-    },
-    {
-     "flags": [
-      "lead_1_vung_tien"
-     ],
-     "text": "Đội quân mua bằng vàng luôn có thể bị kẻ khác mua lại bằng nhiều vàng hơn."
-    }
-   ],
-   "weight": 40,
-   "require": {
-    "bandLead": false,
-    "any": [
-     {
-      "guildRank": 2
-     },
-     {
-      "jobRank": 2
-     }
-    ]
-   },
-   "choices": [
-    {
-     "label": "Phô diễn sức mạnh đè bẹp kẻ phản đối",
-     "check": {
-      "stat": "STR",
-      "target": 6
-     },
-     "success": {
-      "text": "Bạn túm cổ gã to mồm nhất ném lủng vách gỗ. Đám đông im bặt, ánh mắt nể sợ đổ dồn về phía bạn. Bạn chính thức giương cờ.",
-      "effects": {
-       "STR": 2,
-       "fame": 15,
-       "flags": [
-        "lead_1_dung_luc"
-       ],
-       "foundBand": true
-      }
-     },
-     "fail": {
-      "text": "Gã to mồm phản kháng quật bạn ngã lăn quay. Bạn bị chê cười đuổi khỏi quán, đành ngậm ngùi thu nhặt đàn em lẻ tẻ nơi góc chợ.",
-      "effects": {
-       "health": -15,
-       "fame": -10,
-       "flags": [
-        "lead_1_that_the"
-       ],
-       "foundBand": true
-      }
-     }
-    },
-    {
-     "label": "Dùng uy tín và lời lẽ kích động lòng tham",
-     "check": {
-      "stat": "INT",
-      "target": 8
-     },
-     "success": {
-      "text": "Bạn vẽ ra bản đồ kho báu và lộ trình thâu tóm Huyết Kim. Đám lính đánh thuê sáng mắt, đồng loạt nâng ly thề trung thành với người thủ lĩnh khôn ngoan.",
-      "effects": {
-       "INT": 3,
-       "wealth": 10,
-       "fame": 10,
-       "flags": [
-        "lead_1_thuyet_phuc"
-       ],
-       "foundBand": true
-      }
-     },
-     "fail": {
-      "text": "Lời lẽ lủng củng khiến chúng nhếch mép chê bai bạn là kẻ ảo tưởng. Bạn phải tốn tiền bao cả quán chầu rượu để vớt vát lại chút thể diện.",
-      "effects": {
-       "joy": -10,
-       "wealth": -20,
-       "flags": [
-        "lead_1_mat_tien"
-       ],
-       "foundBand": true
-      }
-     }
-    },
-    {
-     "label": "Vung tiền mua đứt sự phục tùng",
-     "text": "Đổ ập rương Tinh Bạc xuống bàn, bạn dùng tiền mua được một đội quân. Chúng tung hô bạn nhưng ánh mắt chỉ nhìn vào túi tiền chứ không nể phục cốt cách dã thú.",
-     "effects": {
-      "wealth": -40,
-      "fame": 5,
-      "flags": [
-       "lead_1_vung_tien"
-      ],
-      "foundBand": true
-     }
-    }
-   ],
-   "moment": "Vương miện được đúc bằng uy danh, sức mạnh và đôi khi là Huyết Kim."
-  },
-  {
-   "id": "beastman_recruit_1",
-   "text": "Roux đang nhai tảng thịt sống giữa bãi phế liệu. Hắn cắm thanh đao xuống đất, gầm gừ bảo chỉ phục tùng kẻ nào có cú đấm nặng hơn hắn.",
-   "stages": [
-    "adult",
-    "middle",
-    "elder",
-    "ancient"
-   ],
-   "arc": "recruit",
-   "recall": [
-    {
-     "flags": [
-      "recruit_1_thang"
-     ],
-     "text": "Cú đấm vỡ mũi Roux đổi lấy một đấu sĩ cuồng bạo trung thành tuyệt đối."
-    },
-    {
-     "flags": [
-      "recruit_1_thua"
-     ],
-     "text": "Xương sườn nhức nhối nhắc bạn về con sói kiêu ngạo đã khinh miệt tổ đội mình."
-    },
-    {
-     "flags": [
-      "recruit_1_mua"
-     ],
-     "text": "Đồng tiền mua được lưỡi đao của Roux nhưng không mua được lòng trung thành của thú hoang."
-    }
-   ],
-   "weight": 40,
-   "require": {
-    "bandLead": true,
-    "partyMax": 2
-   },
-   "choices": [
-    {
-     "label": "Vung nắm đấm đối kháng trực diện",
-     "check": {
-      "stat": "STR",
-      "target": 8
-     },
-     "success": {
-      "text": "Cú đấm của bạn làm Roux lùi ba bước hộc máu mũi. Hắn lau máu, nhếch mép cười rồi xách đao đứng sau lưng bạn.",
-      "effects": {
-       "STR": 2,
-       "fame": 10,
-       "flags": [
-        "recruit_1_thang"
-       ],
-       "memberJoin": "Roux"
-      }
-     },
-     "fail": {
-      "text": "Roux đấm gãy một chiếc xương sườn của bạn. Hắn khinh bỉ bỏ đi, chê tổ đội của bạn quá yếu đuối.",
-      "effects": {
-       "health": -20,
-       "fame": -10,
-       "flags": [
-        "recruit_1_thua"
-       ]
-      }
-     }
-    },
-    {
-     "label": "Đồng ý trả hắn gấp đôi tiền thưởng mỗi chuyến",
-     "text": "Bạn từ chối bạo lực, ném cho hắn một túi tiền cọc. Roux nhặt lấy, gật đầu gia nhập nhưng không hề có sự tôn trọng.",
-     "effects": {
-      "wealth": -25,
-      "flags": [
-       "recruit_1_mua"
-      ],
-      "memberJoin": "Roux"
-     }
-    }
-   ],
-   "moment": "Đồng đội tốt nhất thường bắt đầu bằng một trận ẩu đả."
-  },
-  {
-   "id": "beastman_recruit_2",
-   "text": "Zila quấn quanh mình một con trăn bạch tạng, rít lên những lời đường mật về khả năng nguyền rủa kẻ thù, nhưng cái giá cô ả đưa ra có thể làm kiệt quệ tài chính của đội.",
-   "stages": [
-    "adult",
-    "middle",
-    "elder",
-    "ancient"
-   ],
-   "arc": "recruit",
-   "recall": [
-    {
-     "flags": [
-      "recruit_2_thuyet_phuc"
-     ],
-     "text": "Bản hợp đồng với Zila chứng tỏ bạn đủ khôn ngoan để chơi với rắn độc."
-    },
-    {
-     "flags": [
-      "recruit_2_bi_lua"
-     ],
-     "text": "Ví tiền xẹp lép hằng tháng nhắc nhở cú lừa ngoạn mục của nữ pháp sư Zila."
-    },
-    {
-     "flags": [
-      "recruit_2_de_doa"
-     ],
-     "text": "Ánh thép lạnh lùng đã bẻ gãy lòng tham của ả rắn Zila bắt ả quy phục."
-    },
-    {
-     "flags": [
-      "recruit_2_trung_doc"
-     ],
-     "text": "Vết sẹo độc cháy rát trên mặt là bài học không bao giờ được khinh suất trước loài bò sát."
-    }
-   ],
-   "weight": 40,
-   "require": {
-    "bandLead": true,
-    "partyMax": 2
-   },
-   "choices": [
-    {
-     "label": "Dùng lý lẽ mặc cả giảm giá",
-     "check": {
-      "stat": "INT",
-      "target": 8
-     },
-     "success": {
-      "text": "Bạn vạch ra giới hạn lợi nhuận, ép cô ả hạ xuống 15% kèm lời hứa cung cấp độc dược. Zila gật gù thích thú với sự sắc sảo của bạn.",
-      "effects": {
-       "INT": 3,
-       "wealth": -10,
-       "flags": [
-        "recruit_2_thuyet_phuc"
-       ],
-       "memberJoin": "Zila"
-      }
-     },
-     "fail": {
-      "text": "Zila tung bùa lú lẫn làm bạn mờ mắt, lừa bạn ký khế ước chia 40%. Đội nhận được Shaman giỏi nhưng túi tiền trống rỗng.",
-      "effects": {
-       "wealth": -40,
-       "flags": [
-        "recruit_2_bi_lua"
-       ],
-       "memberJoin": "Zila"
-      }
-     }
-    },
-    {
-     "label": "Từ chối và dọa giết vì thói tham lam",
-     "check": {
-      "stat": "STR",
-      "target": 6
-     },
-     "success": {
-      "text": "Bạn rút vũ khí chĩa thẳng cổ ả. Zila hoảng hốt chấp nhận gia nhập với giá bình dân để giữ mạng.",
-      "effects": {
-       "STR": 2,
-       "fame": 5,
-       "flags": [
-        "recruit_2_de_doa"
-       ],
-       "memberJoin": "Zila"
-      }
-     },
-     "fail": {
-      "text": "Ả phun nọc độc mù mắt bạn rồi chuồn mất. Bạn nằm vật ra đất đau đớn, vuột mất một pháp sư tài ba.",
-      "effects": {
-       "health": -25,
-       "joy": -10,
-       "flags": [
-        "recruit_2_trung_doc"
-       ]
-      }
-     }
-    }
-   ],
-   "moment": "Phép thuật có giá trị của nó, nhưng không cao bằng mạng sống."
-  },
-  {
-   "id": "beastman_recruit_3",
-   "text": "Borm ôm cái bụng rỗng nằm rên rỉ bên đường. Cậu ta to như một quả núi, có thể cõng cả khối lượng hàng hóa của đội, nhưng sức ăn của cậu ta có thể làm sập tiệm bất cứ thương đoàn nào.",
-   "stages": [
-    "adult",
-    "middle",
-    "elder",
-    "ancient"
-   ],
-   "arc": "recruit",
-   "recall": [
-    {
-     "flags": [
-      "recruit_3_day_san"
-     ],
-     "text": "Borm không chỉ là cỗ máy vác đồ mà còn là thợ săn học việc đáng tự hào của bạn."
-    },
-    {
-     "flags": [
-      "recruit_3_nuoi_an"
-     ],
-     "text": "Công sức đi săn nuôi cái dạ dày không đáy của Borm khiến bạn hao mòn sức lực."
-    },
-    {
-     "flags": [
-      "recruit_3_bao_an"
-     ],
-     "text": "Bữa tiệc thịt nướng khổng lồ đã mua đứt sự trung thành của gã gấu to xác Borm."
-    }
-   ],
-   "weight": 40,
-   "require": {
-    "bandLead": true,
-    "partyMax": 2
-   },
-   "choices": [
-    {
-     "label": "Thử thách Borm đi săn tự kiếm ăn",
-     "check": {
-      "stat": "AGI",
-      "target": 6
-     },
-     "success": {
-      "text": "Bạn dẫn Borm đi săn, dạy cậu ta cách bắt lợn rừng. Borm học nhanh, vừa no bụng vừa biết ơn gia nhập đội.",
-      "effects": {
-       "AGI": 2,
-       "joy": 10,
-       "flags": [
-        "recruit_3_day_san"
-       ],
-       "memberJoin": "Borm"
-      }
-     },
-     "fail": {
-      "text": "Borm quá vụng về làm thú rừng chạy hết. Bạn phải tự mình săn nai nhọc nhằn để nuôi gã khổng lồ này trước khi gã chịu làm việc.",
-      "effects": {
-       "health": -15,
-       "wealth": -15,
-       "flags": [
-        "recruit_3_nuoi_an"
-       ],
-       "memberJoin": "Borm"
-      }
-     }
-    },
-    {
-     "label": "Chấp nhận bỏ tiền bao ăn trọn gói",
-     "text": "Bạn thở dài rút tiền mua nguyên một xe thịt nướng. Borm ăn no say, quỳ lạy gọi bạn là đại ân nhân và gia nhập không chút do dự.",
-     "effects": {
-      "wealth": -30,
-      "fame": 5,
-      "flags": [
-       "recruit_3_bao_an"
-      ],
-      "memberJoin": "Borm"
-     }
-    }
-   ],
-   "moment": "Đội quân mạnh nhất đi bằng dạ dày của chúng."
-  },
-  {
-   "id": "beastman_recruit_4",
-   "text": "Fael giương cung nhắm vào trán bạn từ trên cành cây. Cô ta từng là nô lệ hụt, căm ghét mọi kẻ bán mạng vì tiền. Cô ta sẽ chỉ hạ cung nếu bạn thề biến tổ đội thành lưỡi kiếm chĩa vào bọn buôn nô lệ.",
-   "stages": [
-    "adult",
-    "middle",
-    "elder",
-    "ancient"
-   ],
-   "arc": "recruit",
-   "recall": [
-    {
-     "flags": [
-      "recruit_4_the_doc"
-     ],
-     "text": "Lời thề đẫm máu với cô tiên tộc Fael trói buộc đội bạn vào cuộc chiến với bọn buôn nô lệ."
-    },
-    {
-     "flags": [
-      "recruit_4_bi_ban"
-     ],
-     "text": "Vết sẹo mũi tên trên vai là lời nhắc nhở về sự tàn nhẫn của nữ cung thủ Fael."
-    },
-    {
-     "flags": [
-      "recruit_4_thuyet_phuc"
-     ],
-     "text": "Sự khôn ngoan đã thu phục được mũi tên sắc bén nhất rừng xanh Fael về dưới trướng."
-    },
-    {
-     "flags": [
-      "recruit_4_bi_khinh"
-     ],
-     "text": "Cảm giác bất lực khi bị cung thủ Elf đùa cợt cắn xé sự tự tôn của một đội trưởng."
-    }
-   ],
-   "weight": 40,
-   "require": {
-    "bandLead": true,
-    "partyMax": 2
-   },
-   "choices": [
-    {
-     "label": "Thề độc bằng máu theo ý cô ta",
-     "check": {
-      "stat": "health",
-      "target": 55
-     },
-     "success": {
-      "text": "Bạn cắt tay rỉ máu thề độc. Fael hạ cung, mỉm cười sắc lạnh nhảy xuống gia nhập hàng ngũ. Đội có thêm một xạ thủ thần sầu.",
-      "effects": {
-       "health": -5,
-       "fame": 10,
-       "flags": [
-        "recruit_4_the_doc"
-       ],
-       "memberJoin": "Fael"
-      }
-     },
-     "fail": {
-      "text": "Bạn chần chừ, mũi tên của cô ta cắm phập vào vai bạn cảnh cáo trước khi ả biến mất vào rừng sâu.",
-      "effects": {
-       "health": -20,
-       "fame": -10,
-       "flags": [
-        "recruit_4_bi_ban"
-       ]
-      }
-     }
-    },
-    {
-     "label": "Dùng lời lẽ thuyết phục về mục tiêu chung",
-     "text": "Bạn chỉ ra rằng nếu mù quáng giết chóc sẽ bị diệt vong, cần có kế hoạch. Fael bị thuyết phục bởi sự khôn ngoan của bạn, cất cung gia nhập đội.",
-     "effects": {
-      "INT": 3,
-      "fame": 15,
-      "flags": [
-       "recruit_4_thuyet_phuc"
-      ],
-      "memberJoin": "Fael"
-     }
-    },
-    {
-     "label": "Rút vũ khí đe dọa lại",
-     "text": "Không chịu bị lép vế, bạn giương vũ khí đòi giết ả. Fael khinh khỉnh bắn một mũi tên xẹt đứt mảng lông tai bạn rồi lướt đi mất tăm.",
-     "effects": {
-      "joy": -10,
-      "fame": -15,
-      "flags": [
-       "recruit_4_bi_khinh"
-      ]
-     }
-    }
-   ],
-   "moment": "Đừng cãi lý với kẻ đang nắm giữ mũi tên nhắm vào đầu bạn."
-  },
-  {
-   "id": "beastman_recruit_5",
-   "text": "Krix chui ra từ thùng rác, run lẩy bẩy ôm khư khư một rương đá quý trộm được. Hắn xin gia nhập tổ đội của bạn, đổi lại sẽ chia một nửa số ngọc, nhưng ngay phía xa, tiếng gầm thét của bầy Orc bị mất đồ đang rung chuyển mặt đất.",
-   "stages": [
-    "adult",
-    "middle",
-    "elder",
-    "ancient"
-   ],
-   "arc": "recruit",
-   "recall": [
-    {
-     "flags": [
-      "recruit_5_diet_orc"
-     ],
-     "text": "Xác bầy Orc dưới chân vinh danh sức mạnh bảo kê vô địch thu phục gã đạo tặc Krix."
-    },
-    {
-     "flags": [
-      "recruit_5_bai_tran"
-     ],
-     "text": "Cơn đau nhức nhối từ cú đập của Orc nhắc nhở thất bại cay đắng vì lòng tham ngọc ngà."
-    },
-    {
-     "flags": [
-      "recruit_5_danh_lua"
-     ],
-     "text": "Mưu trí đánh lừa bầy quái vật giúp đội kết nạp Krix mà vẫn rủng rỉnh túi tiền."
-    },
-    {
-     "flags": [
-      "recruit_5_mat_tien"
-     ],
-     "text": "Sự dại dột gánh nợ thay tên trộm Krix vắt kiệt từng đồng Tinh Bạc của tổ đội."
-    },
-    {
-     "flags": [
-      "recruit_5_ban_krix"
-     ],
-     "text": "Việc bán đứng Krix cho Orc đổi lấy vàng nhuốm bẩn danh dự đội trưởng của bạn."
-    }
-   ],
-   "weight": 40,
-   "require": {
-    "bandLead": true,
-    "partyMax": 2
-   },
-   "choices": [
-    {
-     "label": "Nhận ngọc và dàn trận đồ sát bầy Orc",
-     "check": {
-      "stat": "STR",
-      "target": 10
-     },
-     "success": {
-      "text": "Đội của bạn nghênh chiến điên cuồng, chém rụng đầu lũ Orc hung bạo. Krix tung hô bạn như thần thánh, cống nạp ngọc và gia nhập làm đạo tặc đắc lực.",
-      "effects": {
-       "STR": 4,
-       "wealth": 30,
-       "fame": 20,
-       "flags": [
-        "recruit_5_diet_orc"
-       ],
-       "memberJoin": "Krix"
-      }
-     },
-     "fail": {
-      "text": "Bầy Orc đè bẹp tổ đội. Bạn bị đập gãy giáo, Krix sợ hãi ném rương ngọc lại rồi bỏ trốn. Bạn phải lê lết rút lui mang theo thương tích nặng nề.",
-      "effects": {
-       "health": -40,
-       "fame": -20,
-       "flags": [
-        "recruit_5_bai_tran"
-       ]
-      }
-     }
-    },
-    {
-     "label": "Dùng mưu tạo dấu vết giả đánh lừa bầy Orc",
-     "check": {
-      "stat": "AGI",
-      "target": 8
-     },
-     "success": {
-      "text": "Bạn hất một phần rương ngọc xuống suối dụ bầy Orc đuổi theo hướng khác. Krix thoát chết, kính cẩn gia nhập đội, túi tiền được bổ sung.",
-      "effects": {
-       "AGI": 3,
-       "wealth": 15,
-       "fame": 10,
-       "flags": [
-        "recruit_5_danh_lua"
-       ],
-       "memberJoin": "Krix"
-      }
-     },
-     "fail": {
-      "text": "Kế hoạch bị lộ, Orc vây ráp. Bạn phải vứt toàn bộ tài sản trong người để xin chuộc mạng cả đội. Krix gia nhập nhưng mang theo sự nghèo túng tột cùng.",
-      "effects": {
-       "health": -10,
-       "wealth": -100,
-       "flags": [
-        "recruit_5_mat_tien"
-       ],
-       "memberJoin": "Krix"
-      }
-     }
-    },
-    {
-     "label": "Trói Krix giao cho Orc lấy tiền thưởng",
-     "text": "Cân nhắc rủi ro, bạn đập ngất Krix ném cho bầy Orc. Lũ quái vật thưởng cho bạn một vốc Tinh Bạc. Krix bị xé xác, bạn an toàn nhưng đội mất đi một đạo tặc giỏi.",
-     "effects": {
-      "joy": -20,
-      "wealth": 20,
-      "fame": -30,
-      "flags": [
-       "recruit_5_ban_krix"
-      ]
-     }
-    }
-   ],
-   "moment": "Đạo tặc giỏi nhất là kẻ có thể trộm được cả mạng sống từ tay tử thần."
-  },
-  {
-   "id": "beastman_recruit_6",
-   "text": "Gặp gỡ trong quán trọ cũ kỹ, Luna chìa ra một tấm bản đồ hầm ngầm phủ bụi. Ả tuyên bố chỉ gia nhập một tổ đội dám dấn thân vào cõi chết để khai quật bí thuật cổ xưa, nếu bạn chỉ lo kiếm tiền cắc, ả sẽ bỏ đi.",
-   "stages": [
-    "adult",
-    "middle",
-    "elder",
-    "ancient"
-   ],
-   "arc": "recruit",
-   "recall": [
-    {
-     "flags": [
-      "recruit_6_tri_thuc"
-     ],
-     "text": "Sự am hiểu cổ mộ đã thu phục được cô phù thủy kiêu ngạo Luna."
-    },
-    {
-     "flags": [
-      "recruit_6_bi_khinh"
-     ],
-     "text": "Tiếng cười nhạo của Luna khoét sâu vào sự kém cỏi tri thức của bạn."
-    },
-    {
-     "flags": [
-      "recruit_6_dung_luc"
-     ],
-     "text": "Nắm đấm dã thú đập bàn đá ép buộc Luna gia nhập bằng sự đe dọa bạo lực."
-    },
-    {
-     "flags": [
-      "recruit_6_bi_giat"
-     ],
-     "text": "Cơn co giật vì bùa sét của Luna dạy bạn bài học không được động tay chân với pháp sư."
-    },
-    {
-     "flags": [
-      "recruit_6_tu_choi"
-     ],
-     "text": "Sự nhút nhát từ chối cổ mộ vứt bỏ đi cơ hội nắm giữ ma thuật của tổ đội."
-    }
-   ],
-   "weight": 40,
-   "require": {
-    "bandLead": true,
-    "partyMax": 2
-   },
-   "choices": [
-    {
-     "label": "Nhận lời và thể hiện kiến thức tàn tích",
-     "check": {
-      "stat": "INT",
-      "target": 8
-     },
-     "success": {
-      "text": "Bạn đọc vanh vách những cạm bẫy cổ đại trên bản đồ khiến Luna mở to mắt thán phục. Ả gật đầu ngay lập tức, đội có thêm bộ óc ma thuật thiên tài.",
-      "effects": {
-       "INT": 3,
-       "fame": 15,
-       "flags": [
-        "recruit_6_tri_thuc"
-       ],
-       "memberJoin": "Luna"
-      }
-     },
-     "fail": {
-      "text": "Sự kém hiểu biết làm Luna phì cười khinh bỉ. Ả giật lại bản đồ, buông lời chế nhạo tổ đội của bạn toàn lũ đầu đất rồi quay gót rời đi.",
-      "effects": {
-       "joy": -10,
-       "fame": -15,
-       "flags": [
-        "recruit_6_bi_khinh"
-       ]
-      }
-     }
-    },
-    {
-     "label": "Ép ả theo bằng sức mạnh võ biền",
-     "check": {
-      "stat": "STR",
-      "target": 6
-     },
-     "success": {
-      "text": "Bạn đập vỡ bàn đá, gầm gừ tuyên bố tổ đội của bạn có thể cày nát mọi cổ mộ. Bị uy hiếp bởi sức mạnh thuần túy, Luna tặc lưỡi gia nhập, coi bạn là con khỉ đột hữu dụng.",
-      "effects": {
-       "STR": 2,
-       "fame": 5,
-       "flags": [
-        "recruit_6_dung_luc"
-       ],
-       "memberJoin": "Luna"
-      }
-     },
-     "fail": {
-      "text": "Ả tung bùa phép giật sét làm bạn tê liệt toàn thân, bỏ lại một bãi nôn mửa vì sốc điện. Bạn vuột mất phù thủy giỏi.",
-      "effects": {
-       "health": -20,
-       "fame": -20,
-       "flags": [
-        "recruit_6_bi_giat"
-       ]
-      }
-     }
-    },
-    {
-     "label": "Từ chối vì không muốn mạo hiểm",
-     "text": "Cổ mộ quá nhiều rủi ro, bạn từ chối. Luna lạnh nhạt bỏ đi tìm đội khác. Đội của bạn an toàn nhưng vĩnh viễn mất cơ hội chạm tay vào ma pháp thượng cổ.",
-     "effects": {
-      "joy": 5,
-      "fame": -10,
-      "flags": [
-       "recruit_6_tu_choi"
-      ]
-     }
-    }
-   ],
-   "moment": "Tri thức đôi khi nguy hiểm hơn cả gươm đao."
-  },
-  {
-   "id": "beastman_recruit_7",
-   "text": "Giữa võ đài hoang mạc, Tyra cắm đôi song đao đầy máu xuống đất. Ả vạch một đường ranh giới, gầm gừ thách thức vị đội trưởng mới nổi là bạn bước vào đấu một trận không khoan nhượng.",
-   "stages": [
-    "adult",
-    "middle",
-    "elder",
-    "ancient"
-   ],
-   "arc": "recruit",
-   "recall": [
-    {
-     "flags": [
-      "recruit_7_thang_tyra"
-     ],
-     "text": "Hạ gục chiến thần Tyra trên võ đài là đỉnh cao vinh quang của một đội trưởng."
-    },
-    {
-     "flags": [
-      "recruit_7_thua_tyra"
-     ],
-     "text": "Vết sẹo lồng ngực rách nát nhắc nhở sự cuồng bạo vô địch của ác thú Tyra."
-    },
-    {
-     "flags": [
-      "recruit_7_meo_thang"
-     ],
-     "text": "Chiến thắng bằng mưu mẹo khiến Tyra phục tùng nhưng vẫn luôn nhìn bạn bằng ánh mắt hằn học."
-    },
-    {
-     "flags": [
-      "recruit_7_be_mat"
-     ],
-     "text": "Cú đấm vỡ mũi của Tyra bêu rếu trước thị trấn đập nát nhuệ khí của tổ đội."
-    },
-    {
-     "flags": [
-      "recruit_7_chay_tron"
-     ],
-     "text": "Cụp đuôi trốn chạy khỏi võ đài biến bạn thành trò cười hèn mọn khắp hoang mạc."
-    }
-   ],
-   "weight": 40,
-   "require": {
-    "bandLead": true,
-    "partyMax": 2
-   },
-   "choices": [
-    {
-     "label": "Vận khí chém gục Tyra không do dự",
-     "check": {
-      "stat": "STR",
-      "target": 10
-     },
-     "success": {
-      "text": "Một trận đụng độ long trời lở đất. Bạn khóa đao của ả, vật ả ngã rạp xuống vũng bùn. Tyra cười ha hả, lau máu môi quỳ một chân xin gia nhập. Đội có thêm chiến thần.",
-      "effects": {
-       "STR": 5,
-       "fame": 30,
-       "flags": [
-        "recruit_7_thang_tyra"
-       ],
-       "memberJoin": "Tyra"
-      }
-     },
-     "fail": {
-      "text": "Sức ả quá điên rồ, song đao chém rách toạc lồng ngực bạn. Bạn gục ngã thoi thóp, Tyra khinh bỉ bỏ đi gọi bạn là thứ rác rưởi ảo tưởng. Tổ đội mất mặt nghiêm trọng.",
-      "effects": {
-       "health": -45,
-       "joy": -30,
-       "fame": -40,
-       "flags": [
-        "recruit_7_thua_tyra"
-       ]
-      }
-     }
-    },
-    {
-     "label": "Dùng mưu xảo quyệt tước vũ khí",
-     "check": {
-      "stat": "AGI",
-      "target": 8
-     },
-     "success": {
-      "text": "Lách người né đòn bạo liệt, bạn tung móc quật ngã ả và đá văng song đao. Tyra cay cú nhưng giữ đúng lời hứa, bất mãn gia nhập đội.",
-      "effects": {
-       "AGI": 4,
-       "fame": 15,
-       "flags": [
-        "recruit_7_meo_thang"
-       ],
-       "memberJoin": "Tyra"
-      }
-     },
-     "fail": {
-      "text": "Chân vấp phải cán đao, Tyra đấm bạn vỡ mũi. Bạn lết ra khỏi vòng chiến trong tiếng la ó của khán giả, mang vết thương tàn nhẫn.",
-      "effects": {
-       "health": -25,
-       "fame": -30,
-       "flags": [
-        "recruit_7_be_mat"
-       ]
-      }
-     }
-    },
-    {
-     "label": "Từ chối thi đấu hèn nhát bỏ đi",
-     "text": "Nhìn cơ bắp cuồn cuộn của ả, bạn cụp đuôi bỏ cuộc. Tyra khạc nhổ vào hướng bạn đi. Cả thị trấn cười chê vị đội trưởng nhát gan.",
-     "effects": {
-      "health": 5,
-      "joy": -20,
-      "fame": -50,
-      "flags": [
-       "recruit_7_chay_tron"
-      ]
-     }
-    }
-   ],
-   "moment": "Đừng nhận mình là chúa tể nếu chưa đánh gục được con sư tử điên."
-  },
-  {
-   "id": "beastman_recruit_8",
-   "text": "Jin nằm vắt vẻo trên mái hiên, nhai cọng cỏ ậm ờ trả lời lời mời của bạn. Hắn tuyên bố sẽ theo đội để kiếm ăn, nhưng cấm cản quyền tự do của hắn thì hắn sẽ cuốn gói ngay trong đêm.",
-   "stages": [
-    "adult",
-    "middle",
-    "elder",
-    "ancient"
-   ],
-   "arc": "recruit",
-   "recall": [
-    {
-     "flags": [
-      "recruit_8_chap_nhan"
-     ],
-     "text": "Thỏa thuận tự do đã mang về cho đội mạng lưới thông tin tình báo vô giá từ Jin."
-    },
-    {
-     "flags": [
-      "recruit_8_bi_trom"
-     ],
-     "text": "Vài đồng lẻ bị Jin cuỗm mất nhắc nhở bạn không nên quá tin tưởng những con mèo hoang."
-    },
-    {
-     "flags": [
-      "recruit_8_ep_ky"
-     ],
-     "text": "Ánh mắt hằn học của Jin khi bị ép ký huyết ấn luôn là mối họa ngầm trong đội."
-    },
-    {
-     "flags": [
-      "recruit_8_bi_cao"
-     ],
-     "text": "Vết cào trên mặt vì định dùng vũ lực với gã mèo Jin là sự sỉ nhục tốc độ của bạn."
-    },
-    {
-     "flags": [
-      "recruit_8_bo_qua"
-     ],
-     "text": "Khước từ Jin vì kỷ luật giữ vững trật tự nhưng tước đi của đội một đôi mắt tinh tường."
-    }
-   ],
-   "weight": 40,
-   "require": {
-    "bandLead": true,
-    "partyMax": 2
-   },
-   "choices": [
-    {
-     "label": "Chấp nhận điều kiện, thả lỏng kỷ luật",
-     "check": {
-      "stat": "INT",
-      "target": 6
-     },
-     "success": {
-      "text": "Bạn cười đồng ý, coi Jin như lính đánh thuê tự do. Cậu chàng vui vẻ nhảy xuống gia nhập, cung cấp tin tức tình báo cực giá trị cho đội.",
-      "effects": {
-       "INT": 2,
-       "wealth": 10,
-       "fame": 10,
-       "flags": [
-        "recruit_8_chap_nhan"
-       ],
-       "memberJoin": "Jin"
-      }
-     },
-     "fail": {
-      "text": "Sự lỏng lẻo khiến Jin coi thường, hắn lén cuỗm một ít tiền lẻ của tổ đội rồi trốn biệt tăm. Đội bị thiệt hại kinh tế nhẹ nhưng ức chế.",
-      "effects": {
-       "joy": -10,
-       "wealth": -20,
-       "flags": [
-        "recruit_8_bi_trom"
-       ]
-      }
-     }
-    },
-    {
-     "label": "Ép buộc ký khế ước bằng vũ lực",
-     "check": {
-      "stat": "STR",
-      "target": 8
-     },
-     "success": {
-      "text": "Bạn quật ngã Jin, kề dao vào cổ ép hắn ký huyết ấn trung thành. Hắn sợ hãi gia nhập, làm việc hiệu quả nhưng luôn ủ mưu chống đối.",
-      "effects": {
-       "STR": 3,
-       "fame": 10,
-       "flags": [
-        "recruit_8_ep_ky"
-       ],
-       "memberJoin": "Jin"
-      }
-     },
-     "fail": {
-      "text": "Jin nhanh như chớp cào mặt bạn chảy máu rồi biến mất qua các mái nhà. Bạn đứng dưới chửi thề tức tối vô vọng.",
-      "effects": {
-       "health": -15,
-       "fame": -15,
-       "flags": [
-        "recruit_8_bi_cao"
-       ]
-      }
-     }
-    },
-    {
-     "label": "Quay lưng đi tìm người có kỷ luật hơn",
-     "text": "Một đội quân cần kỷ luật. Bạn bỏ mặc gã mèo lười biếng, tiếp tục tìm kiếm thành viên trung thành. Bỏ lỡ một mạng lưới tình báo tốt.",
-     "effects": {
-      "joy": -5,
-      "fame": 5,
-      "flags": [
-       "recruit_8_bo_qua"
-      ]
-     }
-    }
-   ],
-   "moment": "Buộc gió vào dây là chuyện không tưởng."
-  },
-  {
-   "id": "beastman_recruit_9",
-   "text": "Grum say xỉn bị đuổi ra khỏi quán rượu. Lão lôi ra bộ giáp da Rồng Đất tuyệt phẩm sờn rách, nấc cụt hứa sẽ biến tổ đội của bạn thành những pháo đài di động nếu đáp ứng đủ vật liệu cho chứng nghiện chế tác của lão.",
-   "stages": [
-    "adult",
-    "middle",
-    "elder",
-    "ancient"
-   ],
-   "arc": "recruit",
-   "recall": [
-    {
-     "flags": [
-      "recruit_9_cam_ket"
-     ],
-     "text": "Lô da thú đắt đỏ đổi lấy bộ giáp tuyệt phẩm của Grum biến đội thành pháo đài thép."
-    },
-    {
-     "flags": [
-      "recruit_9_ngheo"
-     ],
-     "text": "Tiếng cười nhạo nghèo kiết xác của lão Dwarf Grum khắc sâu vào lòng kiêu hãnh của bạn."
-    },
-    {
-     "flags": [
-      "recruit_9_chung_minh"
-     ],
-     "text": "Chiếc sừng quái thú chứng minh đẳng cấp đội trưởng đã thu phục gã thợ rèn khó tính."
-    },
-    {
-     "flags": [
-      "recruit_9_kem_hieu_biet"
-     ],
-     "text": "Đem sừng lởm khoe thợ rèn là sự bêu rếu tột cùng về sự thiếu hiểu biết của bạn."
-    },
-    {
-     "flags": [
-      "recruit_9_tu_choi"
-     ],
-     "text": "Sự keo kiệt từ chối Grum khiến tổ đội luôn chịu cảnh áo giáp rách nát trên chiến trường."
-    }
-   ],
-   "weight": 40,
-   "require": {
-    "bandLead": true,
-    "partyMax": 2
-   },
-   "choices": [
-    {
-     "label": "Cam kết cung cấp đủ hàng bằng mọi giá",
-     "check": {
-      "stat": "wealth",
-      "target": 70
-     },
-     "success": {
-      "text": "Dốc túi mua trước lô da thú hiếm dâng lão, Grum sáng mắt lập tức gia nhập. Đội ngũ được bọc thép hoàn hảo, sức chiến đấu tăng vọt.",
-      "effects": {
-       "STR": 3,
-       "wealth": -30,
-       "fame": 25,
-       "flags": [
-        "recruit_9_cam_ket"
-       ],
-       "memberJoin": "Grum"
-      }
-     },
-     "fail": {
-      "text": "Không gom đủ tiền, lão chửi bạn là thứ nghèo kiết xác, ném cốc bia vào đầu bạn rồi lảo đảo đi tìm đội khác. Nỗi nhục ê chề.",
-      "effects": {
-       "health": -10,
-       "wealth": -10,
-       "fame": -20,
-       "flags": [
-        "recruit_9_ngheo"
-       ]
-      }
-     }
-    },
-    {
-     "label": "Chứng minh khả năng săn thú để lão tự tin",
-     "check": {
-      "stat": "STR",
-      "target": 6
-     },
-     "success": {
-      "text": "Bạn quăng một chiếc sừng quái vật vừa săn được lên bàn. Grum sờ thử, gật gù công nhận tài năng của bạn và xách búa theo đội không cần tiền cọc.",
-      "effects": {
-       "STR": 3,
-       "fame": 15,
-       "flags": [
-        "recruit_9_chung_minh"
-       ],
-       "memberJoin": "Grum"
-      }
-     },
-     "fail": {
-      "text": "Bạn quăng nhầm sừng thú rẻ tiền. Lão nhổ toẹt nước bọt khinh bỉ đuổi bạn đi. Bạn mất mặt trước đám đông vì thiếu hiểu biết.",
-      "effects": {
-       "INT": -1,
-       "joy": -10,
-       "fame": -15,
-       "flags": [
-        "recruit_9_kem_hieu_biet"
-       ]
-      }
-     }
-    },
-    {
-     "label": "Bỏ đi vì yêu cầu quá vô lý",
-     "text": "Chi phí nuôi gã thợ rèn này quá lớn. Bạn bỏ mặc lão say, tổ đội vĩnh viễn mặc áo giáp rách rưới kém chất lượng.",
-     "effects": {
-      "health": -5,
-      "wealth": 10,
-      "fame": -10,
-      "flags": [
-       "recruit_9_tu_choi"
-      ]
-     }
-    }
-   ],
-   "moment": "Giáp xịn không cứu được kẻ hèn, nhưng giữ mạng cho kẻ liều."
-  },
-  {
-   "id": "beastman_recruit_10",
-   "text": "Sola giũ đôi cánh màu bạc chói lọi, hạ cánh xuống trước mặt bạn. Ả từng làm việc cho lãnh chúa, kỹ năng đánh thuê bậc thầy. Ả ra giá cực gắt, nếu không đồng ý, ả sẽ gia nhập đội đối thủ và biến đội bạn thành con mồi.",
-   "stages": [
-    "adult",
-    "middle",
-    "elder",
-    "ancient"
-   ],
-   "arc": "recruit",
-   "recall": [
-    {
-     "flags": [
-      "recruit_10_tra_tien"
-     ],
-     "text": "Núi tiền Huyết Kim đổi lấy đôi cánh hủy diệt Sola đưa uy danh tổ đội lên đỉnh cao."
-    },
-    {
-     "flags": [
-      "recruit_10_bi_cuop"
-     ],
-     "text": "Sự thiếu hụt tiền bạc trả giá bằng đợt tập kích nhục nhã do ả Sola dẫn đầu."
-    },
-    {
-     "flags": [
-      "recruit_10_danh_bai"
-     ],
-     "text": "Bẻ gãy đôi cánh kiêu ngạo của Sola khẳng định sức mạnh vô song của đội trưởng."
-    },
-    {
-     "flags": [
-      "recruit_10_thua_tran"
-     ],
-     "text": "Vết sẹo vỡ sườn vì thua trận trước Sola bêu rếu sự kém cỏi tột cùng của bạn."
-    },
-    {
-     "flags": [
-      "recruit_10_doa_dam"
-     ],
-     "text": "Lời đe dọa hèn hạ xua đuổi Sola bảo vệ túi tiền nhưng vấy bẩn danh dự lính đánh thuê."
-    }
-   ],
-   "weight": 40,
-   "require": {
-    "bandLead": true,
-    "partyMax": 2
-   },
-   "choices": [
-    {
-     "label": "Vung tiền trả lương cao thu phục",
-     "check": {
-      "stat": "wealth",
-      "target": 85
-     },
-     "success": {
-      "text": "Bạn xuất xuất Huyết Kim chi đậm. Sola cười kiêu ngạo, rút gươm đứng vào hàng ngũ. Đội sở hữu sức mạnh hủy diệt trên không trung, tên tuổi vang dội.",
-      "effects": {
-       "STR": 3,
-       "wealth": -50,
-       "fame": 40,
-       "flags": [
-        "recruit_10_tra_tien"
-       ],
-       "memberJoin": "Sola"
-      }
-     },
-     "fail": {
-      "text": "Dốc cạn túi vẫn thiếu. Ả khinh khỉnh bay đi, hôm sau dẫn đội đối thủ tập kích cướp sạch kho hàng của bạn. Tổ đội phá sản thê thảm.",
-      "effects": {
-       "health": -20,
-       "wealth": -100,
-       "fame": -30,
-       "flags": [
-        "recruit_10_bi_cuop"
-       ]
-      }
-     }
-    },
-    {
-     "label": "Quyết đấu sinh tử đập tan sự kiêu ngạo",
-     "check": {
-      "stat": "AGI",
-      "target": 8
-     },
-     "success": {
-      "text": "Trận không chiến và bộ pháp ảo diệu giúp bạn bẻ gập cánh ả đè xuống đất. Sola khuất phục trước kẻ mạnh hơn, gia nhập với mức lương bình thường.",
-      "effects": {
-       "AGI": 4,
-       "joy": 20,
-       "fame": 30,
-       "flags": [
-        "recruit_10_danh_bai"
-       ],
-       "memberJoin": "Sola"
-      }
-     },
-     "fail": {
-      "text": "Ả bay vút lên đá văng bạn gãy sườn. Bạn thua thảm hại, Sola bay mất để lại tràng cười chế giễu vị đội trưởng thùng rỗng kêu to.",
-      "effects": {
-       "health": -30,
-       "joy": -20,
-       "fame": -40,
-       "flags": [
-        "recruit_10_thua_tran"
-       ]
-      }
-     }
-    },
-    {
-     "label": "Dọa báo cho lãnh chúa để xua đuổi",
-     "text": "Biết ả là lính đào ngũ, bạn đem lãnh chúa ra uy hiếp. Sola tức giận chửi thề rồi bay mất tăm. Đội an toàn nhưng giữ tiếng xấu bẩn thỉu.",
-     "effects": {
-      "joy": -10,
-      "wealth": 5,
-      "fame": -20,
-      "flags": [
-       "recruit_10_doa_dam"
-      ]
-     }
-    }
-   ],
-   "moment": "Lính đánh thuê trung thành với túi tiền trước khi trung thành với sinh mệnh."
-  },
-  {
-   "id": "beastman_lead_2",
-   "text": "Sau một phi vụ đẫm máu, tổ đội thu được một Lõi Huyết rực rỡ có giá trị ngang một tòa thành. Hai thành viên cốt cán lao vào cãi vã, kẻ muốn bán chia tiền, người muốn hấp thụ để tăng sức mạnh. Lưỡi gươm đã rút ra, mọi ánh mắt đổ dồn chờ Đội trưởng phán quyết.",
-   "stages": [
-    "adult",
-    "middle",
-    "elder",
-    "ancient"
-   ],
-   "arc": "lead",
-   "recall": [
-    {
-     "flags": [
-      "lead_2_chia_deu"
-     ],
-     "text": "Cú đập vỡ Lõi Huyết chia đều vinh danh sự công bằng tuyệt đối của thủ lĩnh."
-    },
-    {
-     "flags": [
-      "lead_2_no_loi"
-     ],
-     "text": "Vết phỏng Huyết Kim vì phá hỏng chiến lợi phẩm luôn làm tổ đội hậm hực."
-    },
-    {
-     "flags": [
-      "lead_2_tich_thu"
-     ],
-     "text": "Hành động tịch thu báu vật bằng nắm đấm khẳng định kỷ luật thép đẫm máu."
-    },
-    {
-     "flags": [
-      "lead_2_bi_dam"
-     ],
-     "text": "Vết đâm lén vì tranh giành Lõi Huyết tạc sâu sự phản trắc của lòng tham."
-    },
-    {
-     "flags": [
-      "lead_2_thien_vi"
-     ],
-     "text": "Quyết định thiên vị tước đi hơi ấm đồng đội, để lại sự bất mãn rỉ máu."
-    }
-   ],
-   "weight": 40,
-   "require": {
-    "bandLead": true
-   },
-   "choices": [
-    {
-     "label": "Đập vỡ Lõi Huyết chia đều mảnh vỡ",
-     "check": {
-      "stat": "INT",
-      "target": 8
-     },
-     "success": {
-      "text": "Quyết đoán đập vỡ bảo vật thành các khối nhỏ, bạn chia công bằng cho tất cả. Dù giá trị giảm sút, nhưng chấm dứt xung đột, anh em bái phục sự công tâm.",
-      "effects": {
-       "INT": 3,
-       "joy": 20,
-       "wealth": 20,
-       "fame": 10,
-       "flags": [
-        "lead_2_chia_deu"
-       ]
-      }
-     },
-     "fail": {
-      "text": "Cú đập sai kỹ thuật kích nổ Lõi Huyết. Bạn bị văng ra phỏng nặng, Lõi tan tành mây khói. Tổ đội trắng tay, nội bộ lục đục oán hận ngút trời.",
-      "effects": {
-       "health": -30,
-       "wealth": -20,
-       "fame": -30,
-       "flags": [
-        "lead_2_no_loi"
-       ]
-      }
-     }
-    },
-    {
-     "label": "Tịch thu làm của chung phục vụ tổ đội",
-     "check": {
-      "stat": "STR",
-      "target": 6
-     },
-     "success": {
-      "text": "Bạn vận sức gầm lên, giật lấy Lõi cất vào rương đội. Quyền uy áp đảo khiến cả hai kẻ nổi loạn phải câm nín. Quỹ đội tăng mạnh.",
-      "effects": {
-       "STR": 3,
-       "joy": -10,
-       "wealth": 40,
-       "fame": 15,
-       "flags": [
-        "lead_2_tich_thu"
-       ]
-      }
-     },
-     "fail": {
-      "text": "Một thành viên phẫn nộ đâm lén bạn. Bạn trọng thương rỉ máu, Lõi Huyết bị cướp mất trong đêm. Bạn đánh mất uy nghiêm của người cầm đầu.",
-      "effects": {
-       "health": -40,
-       "joy": -40,
-       "fame": -40,
-       "flags": [
-        "lead_2_bi_dam"
-       ]
-      }
-     }
-    },
-    {
-     "label": "Thiên vị trao cho người mạnh nhất hấp thụ",
-     "text": "Bạn lạnh lùng ném Lõi cho kẻ mạnh nhất. Kẻ đó tung hô bạn, nhưng những người còn lại căm phẫn rời đội. Sức mạnh đội giảm sút vì chia rẽ trầm trọng.",
-     "effects": {
-      "STR": 2,
-      "joy": -40,
-      "fame": -30,
-      "flags": [
-       "lead_2_thien_vi"
-      ]
-     }
-    }
-   ],
-   "moment": "Vàng bạc thử lòng người, quyền lực thử kẻ cầm đầu."
-  },
-  {
-   "id": "beastman_lead_3",
-   "text": "Đội bị bầy quái thú vây hãm, tổn thất cận kề. Bạn ra lệnh rút lui chiến thuật, nhưng một chiến binh máu nóng phớt lờ, gầm lên xông thẳng vào vòng vây đòi tử chiến, kéo theo đội hình vỡ nát. Nếu không can thiệp, cả đội sẽ chết sạch.",
-   "stages": [
-    "adult",
-    "middle",
-    "elder",
-    "ancient"
-   ],
-   "arc": "lead",
-   "recall": [
-    {
-     "flags": [
-      "lead_3_cuong_che"
-     ],
-     "text": "Bờ vai đầy sẹo cào cấu cứu đồng đội bất tuân lệnh tạo nên huyền thoại thủ lĩnh bao dung."
-    },
-    {
-     "flags": [
-      "lead_3_tham_hoa"
-     ],
-     "text": "Trận đồ sát vì vô kỷ luật cướp đi sinh mạng anh em đục khoét tâm can bạn."
-    },
-    {
-     "flags": [
-      "lead_3_ken_lenh"
-     ],
-     "text": "Tiếng kèn lệnh xé gió trong hỏa mù chứng minh sự lạnh lùng cần thiết của người chỉ huy."
-    },
-    {
-     "flags": [
-      "lead_3_ban_dong_doi"
-     ],
-     "text": "Mũi tên bắn vào chân đồng đội là biện pháp đẫm máu để duy trì sinh mạng cả đội."
-    },
-    {
-     "flags": [
-      "lead_3_bo_mac"
-     ],
-     "text": "Tiếng thét xé xác của kẻ chống lệnh bị bỏ lại là bài học tàn khốc về kỷ luật thép."
-    }
-   ],
-   "weight": 40,
-   "require": {
-    "bandLead": true
-   },
-   "choices": [
-    {
-     "label": "Lao vào bầy thú cưỡng chế kéo hắn ra",
-     "check": {
-      "stat": "health",
-      "target": 85
-     },
-     "success": {
-      "text": "Chịu hàng tá vết cào xé, bạn xông vào túm cổ tên cứng đầu lôi xềnh xệch ra ngoài. Toàn đội rút lui an toàn, kẻ chống lệnh ân hận quỳ xuống xin lỗi.",
-      "effects": {
-       "health": -30,
-       "joy": 20,
-       "fame": 35,
-       "flags": [
-        "lead_3_cuong_che"
-       ]
-      }
-     },
-     "fail": {
-      "text": "Bạn bị quái thú đè bẹp xé nát bả vai. Cả đội phải xông vào huyết chiến cứu bạn, hai người tử trận. Thảm họa đẫm máu vì sự vô kỷ luật.",
-      "effects": {
-       "health": -45,
-       "joy": -50,
-       "fame": -30,
-       "flags": [
-        "lead_3_tham_hoa"
-       ]
-      }
-     }
-    },
-    {
-     "label": "Sử dụng kèn lệnh đanh thép ép phục tùng",
-     "check": {
-      "stat": "INT",
-      "target": 8
-     },
-     "success": {
-      "text": "Tiếng kèn quân lệnh chát chúa hòa cùng mưu kế tạo hỏa mù. Kẻ cuồng sát giật mình bừng tỉnh, nghe lệnh rút theo hỏa mù. Tổ đội an toàn không sứt mẻ.",
-      "effects": {
-       "INT": 4,
-       "LUCK": 2,
-       "fame": 25,
-       "flags": [
-        "lead_3_ken_lenh"
-       ]
-      }
-     },
-     "fail": {
-      "text": "Hắn đã mất trí, không nghe lệnh. Bạn bị buộc phải bắn một mũi tên vào chân hắn để ngăn lại. Hắn thù hận bạn mãi mãi vì làm hắn tàn phế.",
-      "effects": {
-       "health": -10,
-       "joy": -30,
-       "fame": -15,
-       "flags": [
-        "lead_3_ban_dong_doi"
-       ]
-      }
-     }
-    },
-    {
-     "label": "Ra lệnh bỏ mặc kẻ chống đối tự sinh tự diệt",
-     "text": "Lệnh là lệnh. Bạn dắt đội rút đi, để lại kẻ cuồng sát bị quái thú phanh thây. Đội bảo toàn lực lượng nhưng không khí u ám, lạnh lẽo bao trùm sinh tử.",
-     "effects": {
-      "health": 10,
-      "joy": -40,
-      "fame": -40,
-      "flags": [
-       "lead_3_bo_mac"
-      ]
-     }
-    }
-   ],
-   "moment": "Đội trưởng tồi để đồng đội chết, đội trưởng giỏi biết khi nào phải rút kiếm vào vỏ."
-  },
-  {
-   "id": "beastman_lead_4",
-   "text": "Trong lúc khám phá hầm ngầm, cơ quan tự hủy kích hoạt. Cửa đá khổng lồ đang rớt xuống chậm rãi. Phải có một người ở lại giữ cần gạt cho toàn đội thoát thân, đồng nghĩa với cái chết. Mọi ánh mắt sợ hãi nhìn nhau, thời gian chỉ còn đếm từng giây.",
-   "stages": [
-    "adult",
-    "middle",
-    "elder",
-    "ancient"
-   ],
-   "arc": "lead",
-   "recall": [
-    {
-     "flags": [
-      "lead_4_tu_cuu"
-     ],
-     "text": "Cú lách người khỏi cửa hầm sụp đổ vinh danh sinh mệnh vĩ đại của vị đội trưởng hi sinh."
-    },
-    {
-     "flags": [
-      "lead_4_tan_phe"
-     ],
-     "text": "Đôi chân phế tàn kẹt trong bóng tối vĩnh viễn là cái giá máu thịt bảo vệ tổ đội."
-    },
-    {
-     "flags": [
-      "lead_4_chi_dinh"
-     ],
-     "text": "Lệnh hy sinh tàn nhẫn cứa nát linh hồn, đổi lấy sự sống sót lạnh lẽo của tập thể."
-    },
-    {
-     "flags": [
-      "lead_4_tham_sat"
-     ],
-     "text": "Cửa hầm đẫm máu anh em là bản án tử hình cho sự chỉ huy vô tâm thất bại."
-    },
-    {
-     "flags": [
-      "lead_4_hen_nhat"
-     ],
-     "text": "Cú đạp đồng đội giành đường sống biến bạn thành kẻ rác rưởi bị nhổ toẹt khắp Aethelgard."
-    }
-   ],
-   "weight": 40,
-   "require": {
-    "bandLead": true
-   },
-   "choices": [
-    {
-     "label": "Tự thân ở lại giữ cần gạt hi sinh vì đội",
-     "check": {
-      "stat": "STR",
-      "target": 10
-     },
-     "success": {
-      "text": "Gồng bắp thịt vỡ nát mạch máu, bạn giữ cần gạt cho anh em chạy hết. Khi cửa sập, bạn lao mình lách qua kẽ hở cực hẹp thoát chết trong gang tấc. Vinh quang thủ lĩnh tột đỉnh.",
-      "effects": {
-       "STR": 5,
-       "joy": 50,
-       "fame": 60,
-       "flags": [
-        "lead_4_tu_cuu"
-       ]
-      }
-     },
-     "fail": {
-      "text": "Bạn giữ được cho đội thoát nhưng không kịp rút lui. Cửa đá đập gãy nát hai chân bạn, bạn kẹt lại trong bóng tối. Đội phải đào bới ba ngày mới cứu được một phế nhân thoi thóp.",
-      "effects": {
-       "health": -60,
-       "joy": -20,
-       "fame": 40,
-       "flags": [
-        "lead_4_tan_phe"
-       ]
-      }
-     }
-    },
-    {
-     "label": "Chỉ định người yếu nhất ở lại hy sinh",
-     "check": {
-      "stat": "INT",
-      "target": 6
-     },
-     "success": {
-      "text": "Bằng giọng nói thép, bạn ra lệnh cho một thành viên bị thương nặng hy sinh. Hắn mỉm cười thanh thản gạt cần. Đội sống sót mang theo của cải, nhưng lương tâm bạn rỉ máu.",
-      "effects": {
-       "INT": 3,
-       "joy": -50,
-       "wealth": 30,
-       "fame": -30,
-       "flags": [
-        "lead_4_chi_dinh"
-       ]
-      }
-     },
-     "fail": {
-      "text": "Kẻ bị chỉ định nổi điên phản kháng. Trong hỗn loạn, cửa sập xuống đè nát ba người, của cải kẹt lại. Bạn thoát chết nhưng đội ngũ tan hoang thê thảm.",
-      "effects": {
-       "health": -30,
-       "joy": -70,
-       "wealth": -100,
-       "fame": -60,
-       "flags": [
-        "lead_4_tham_sat"
-       ]
-      }
-     }
-    },
-    {
-     "label": "Chạy trước bỏ mặc đồng đội tự quyết",
-     "text": "Cơn sợ cái chết lấn át. Bạn đạp ngã đồng đội lao ra cửa trước tiên. Cửa sập chôn vùi một nửa tổ đội. Bạn sống nhục nhã, bị thế giới ngầm tẩy chay vì tội hèn nhát bỏ rơi anh em.",
-     "effects": {
-      "health": 10,
-      "joy": -80,
-      "fame": -80,
-      "flags": [
-       "lead_4_hen_nhat"
-      ],
-      "leaveBand": true
-     }
-    }
-   ],
-   "moment": "Kẻ đội vương miện phải sẵn sàng chịu sức nặng của bầu trời sập xuống."
-  },
-  {
-   "id": "beastman_lead_5",
-   "text": "Đội của bạn vừa tiêu diệt một con Rồng Đất trọng thương, kiệt sức tột độ. Một tổ đội hạng A của Thương hội Sói Bạc đi ngang qua, giương cung nỏ bao vây, trắng trợn đòi cướp cái đầu Rồng làm chiến lợi phẩm và lệnh cho các bạn biến đi.",
-   "stages": [
-    "adult",
-    "middle",
-    "elder",
-    "ancient"
-   ],
-   "arc": "lead",
-   "recall": [
-    {
-     "flags": [
-      "lead_5_tu_chien"
-     ],
-     "text": "Bãi chiến trường nhuốm máu Sói Bạc trên xác Rồng Đất lập nên truyền thuyết bất bại."
-    },
-    {
-     "flags": [
-      "lead_5_bi_cuop"
-     ],
-     "text": "Vết gãy sườn vì bị cướp trắng chiến lợi phẩm khoét sâu nỗi hận thù hèn kém."
-    },
-    {
-     "flags": [
-      "lead_5_dam_phan"
-     ],
-     "text": "Trí tuệ chia chác vảy rồng lừa gạt lũ hạng A ngu ngốc mang về gia tài kếch xù."
-    },
-    {
-     "flags": [
-      "lead_5_mat_ngon"
-     ],
-     "text": "Ngón tay đứt lìa bêu rếu sự yếu kém không bảo vệ được thành quả xương máu."
-    },
-    {
-     "flags": [
-      "lead_5_chiu_nhuc"
-     ],
-     "text": "Lệnh rút lui nhường rồng cho kẻ thù bóp nát ngọn lửa kiêu hãnh của toàn tổ đội."
-    }
-   ],
-   "weight": 40,
-   "require": {
-    "bandLead": true
-   },
-   "choices": [
-    {
-     "label": "Vận tàn lực huyết chiến bảo vệ chiến lợi phẩm",
-     "check": {
-      "stat": "health",
-      "target": 85
-     },
-     "success": {
-      "text": "Cơn điên dã thú bùng nổ, bạn dẫn đội xé nát đội hình Sói Bạc, gầm thét nhuộm đỏ xác Rồng bằng máu kẻ cướp. Uy danh tổ đội vang dội không ai dám nhờn mặt.",
-      "effects": {
-       "health": -35,
-       "joy": 20,
-       "wealth": 40,
-       "fame": 50,
-       "flags": [
-        "lead_5_tu_chien"
-       ]
-      }
-     },
-     "fail": {
-      "text": "Đội bạn kiệt sức bị chúng đánh đập tàn bạo. Bạn gãy xương sườn, mất cái đầu Rồng và toàn bộ vũ khí, lê lết trở về trong sự sỉ nhục ê chề.",
-      "effects": {
-       "health": -45,
-       "joy": -40,
-       "wealth": -30,
-       "fame": -40,
-       "flags": [
-        "lead_5_bi_cuop"
-       ]
-      }
-     }
-    },
-    {
-     "label": "Thương thuyết chia sẻ lợi nhuận, tránh đổ máu",
-     "check": {
-      "stat": "INT",
-      "target": 8
-     },
-     "success": {
-      "text": "Bạn dẻo miệng đàm phán nhường vinh quang giết rồng cho chúng, đổi lấy bộ da vảy và Lõi Rồng đắt giá. Bọn Sói Bạc ngu ngốc đồng ý, bạn hốt bạc trong êm thấm.",
-      "effects": {
-       "INT": 4,
-       "joy": 10,
-       "wealth": 50,
-       "fame": -10,
-       "flags": [
-        "lead_5_dam_phan"
-       ]
-      }
-     },
-     "fail": {
-      "text": "Lời lẽ không thuyết phục, chúng cười cợt chém bạn đứt một ngón tay rồi cướp sạch. Đội của bạn trắng tay nhục nhã giữa rừng hoang.",
-      "effects": {
-       "health": -20,
-       "wealth": -40,
-       "fame": -30,
-       "flags": [
-        "lead_5_mat_ngon"
-       ]
-      }
-     }
-    },
-    {
-     "label": "Rút lui nhường chiến lợi phẩm không kháng cự",
-     "text": "Cân nhắc tính mạng, bạn ra lệnh đội lùi lại. Sói Bạc ung dung nẫng tay trên. Đội bạn an toàn nhưng tinh thần sa sút nghiêm trọng vì sự hèn nhát của đội trưởng.",
-     "effects": {
-      "health": 10,
-      "joy": -50,
-      "wealth": -20,
-      "fame": -50,
-      "flags": [
-       "lead_5_chiu_nhuc"
-      ]
-     }
-    }
-   ],
-   "moment": "Kẻ giết rồng thực sự không phải là người giáng đòn cuối cùng, mà là người mang được đầu rồng về."
-  },
-  {
-   "id": "beastman_lead_6",
-   "text": "Một thành viên kỳ cựu đã theo bạn sinh ra tử bao năm bất ngờ xin rửa tay gác kiếm. Hắn tìm được một người bạn đời, muốn mở trang trại yên bình. Luật ngầm của đội là vào dễ ra khó, những kẻ biết quá nhiều bí mật thường không được phép đi.",
-   "stages": [
-    "adult",
-    "middle",
-    "elder",
-    "ancient"
-   ],
-   "arc": "lead",
-   "recall": [
-    {
-     "flags": [
-      "lead_6_chia_tay"
-     ],
-     "text": "Bữa tiệc chia tay rực lửa vinh danh tấm lòng vị tha của người anh cả tổ đội."
-    },
-    {
-     "flags": [
-      "lead_6_lo_bibmat"
-     ],
-     "text": "Lỗi lầm hở miệng trong cơn say phá nát buổi chia ly, nhuốm máu tình anh em."
-    },
-    {
-     "flags": [
-      "lead_6_dau_tay_doi"
-     ],
-     "text": "Trận huyết chiến gãy tay đổi lấy tự do giữ vững kỷ luật thép nhưng đau xót tột cùng."
-    },
-    {
-     "flags": [
-      "lead_6_lo_tay_giet"
-     ],
-     "text": "Nhát đâm lỡ tay kết liễu người anh em muốn gác kiếm ám ảnh bạn trong những cơn ác mộng."
-    },
-    {
-     "flags": [
-      "lead_6_duoi_di"
-     ],
-     "text": "Đuổi người anh em đi tay trắng mang lại vàng bạc nhưng giết chết linh hồn tổ đội."
-    }
-   ],
-   "weight": 40,
-   "require": {
-    "bandLead": true
-   },
-   "choices": [
-    {
-     "label": "Phá vỡ luật ngầm, tổ chức tiệc chia tay hào phóng",
-     "check": {
-      "stat": "INT",
-      "target": 6
-     },
-     "success": {
-      "text": "Bạn dốc quỹ đội chia cho hắn một phần lớn, ôm cạn ly chúc phúc. Sự hào hiệp của bạn thu phục nhân tâm toàn đội, danh tiếng đồn xa về một thủ lĩnh nhân từ.",
-      "effects": {
-       "INT": 3,
-       "joy": 40,
-       "wealth": -30,
-       "fame": 30,
-       "flags": [
-        "lead_6_chia_tay"
-       ]
-      }
-     },
-     "fail": {
-      "text": "Hắn uống say lỡ miệng kể bí mật đội cho kẻ lạ. Bạn phải tự tay đi thanh trừng kẻ hở môi, tốn kém tiền bạc bưng bít, bữa tiệc trở thành thảm kịch.",
-      "effects": {
-       "health": -20,
-       "joy": -30,
-       "wealth": -40,
-       "fame": -20,
-       "flags": [
-        "lead_6_lo_bibmat"
-       ]
-      }
-     }
-    },
-    {
-     "label": "Đấu tay đôi sinh tử để được quyền rời đi",
-     "check": {
-      "stat": "STR",
-      "target": 8
-     },
-     "success": {
-      "text": "Trận chiến đẫm máu nhưng có chừng mực. Bạn đánh hắn gãy một tay như hình phạt rồi tha cho đi. Kỷ luật được giữ vững, hắn ra đi mang theo sự kính trọng.",
-      "effects": {
-       "STR": 3,
-       "joy": -10,
-       "fame": 20,
-       "flags": [
-        "lead_6_dau_tay_doi"
-       ]
-      }
-     },
-     "fail": {
-      "text": "Bạn lỡ tay đâm hắn một nhát chí mạng. Hắn chết gục trước mặt bạn. Nỗi ám ảnh giết chết anh em vì một quy tắc cứng nhắc phá nát tâm hồn bạn.",
-      "effects": {
-       "health": -15,
-       "joy": -60,
-       "fame": -30,
-       "flags": [
-        "lead_6_lo_tay_giet"
-       ]
-      }
-     }
-    },
-    {
-     "label": "Cướp sạch đồ rồi đuổi đi tay trắng",
-     "text": "Lạnh lùng tàn nhẫn, bạn tịch thu mọi vũ khí và Huyết Kim của hắn, tống cổ ra đường. Hắn ngậm đắng nuốt cay rời đi, nội bộ đội lạnh lẽo sợ hãi sự tàn bạo của bạn.",
-     "effects": {
-      "joy": -50,
-      "wealth": 40,
-      "fame": -40,
-      "flags": [
-       "lead_6_duoi_di"
-      ]
-     }
-    }
-   ],
-   "moment": "Kẻ mạnh nhất không phải là kẻ trói buộc được người khác, mà là kẻ dám buông tay."
-  },
-  {
-   "id": "beastman_lead_7",
-   "text": "Tuổi già đã làm chậm những bước chân của bạn. Tổ đội đã lớn mạnh thành một thế lực đáng gờm. Đã đến lúc bạn phải truyền lại chiếc huy hiệu Đội Trưởng. Có hai ứng viên: một kẻ cơ bắp tàn bạo nhưng trung thành, và một kẻ thông minh mưu mẹo nhưng đầy tham vọng.",
-   "stages": [
-    "middle",
-    "elder",
-    "ancient"
-   ],
-   "arc": "lead",
-   "recall": [
-    {
-     "flags": [
-      "lead_7_truyen_co_bap"
-     ],
-     "text": "Kẻ kế vị tàn bạo đưa tên tuổi tổ đội vang dội bằng sức mạnh thuần túy, bạn yên nghỉ kiêu hãnh."
-    },
-    {
-     "flags": [
-      "lead_7_do_mau"
-     ],
-     "text": "Quyết định sai lầm dìm tổ đội vào biển máu nội chiến làm uất nghẹn tuổi xế chiều."
-    },
-    {
-     "flags": [
-      "lead_7_truyen_muu"
-     ],
-     "text": "Băng đảng bóng tối hùng mạnh bọc bạn trong nhung lụa chứng tỏ con mắt nhìn người sắc sảo."
-    },
-    {
-     "flags": [
-      "lead_7_bi_phan"
-     ],
-     "text": "Ngục tối hôi thối giam cầm kẻ cựu thủ lĩnh là hậu quả của việc trao quyền cho ác quỷ."
-    },
-    {
-     "flags": [
-      "lead_7_giai_tan"
-     ],
-     "text": "Huy hiệu vỡ nát khép lại kỷ nguyên giông bão, trả lại sự yên bình hư vô cho cát bụi."
-    }
-   ],
-   "weight": 40,
-   "require": {
-    "bandLead": true
-   },
-   "choices": [
-    {
-     "label": "Truyền cho kẻ cơ bắp tàn bạo",
-     "check": {
-      "stat": "STR",
-      "target": 6
-     },
-     "success": {
-      "text": "Bạn thử thách hắn bằng một trận chiến. Hắn chứng tỏ sức mạnh kinh hồn bảo vệ bầy đàn. Tổ đội tiếp tục vang danh bằng bạo lực đẫm máu. Bạn nghỉ hưu an nhàn.",
-      "effects": {
-       "STR": 3,
-       "joy": 20,
-       "fame": 30,
-       "flags": [
-        "lead_7_truyen_co_bap"
-       ]
-      }
-     },
-     "fail": {
-      "text": "Hắn quá tàn bạo, vừa lên ngôi đã tàn sát những thành viên cũ không phục tùng. Tổ đội chìm trong biển máu, bạn uất ức chết trong cô độc.",
-      "effects": {
-       "health": -40,
-       "joy": -60,
-       "fame": -50,
-       "flags": [
-        "lead_7_do_mau"
-       ]
-      }
-     }
-    },
-    {
-     "label": "Truyền cho kẻ thông minh mưu mẹo",
-     "check": {
-      "stat": "INT",
-      "target": 8
-     },
-     "success": {
-      "text": "Bạn dặn dò hắn các mánh khóe thương trường. Hắn đưa tổ đội trở thành một mạng lưới bóng tối khổng lồ, bao bọc bạn trong giàu sang đến cuối đời.",
-      "effects": {
-       "INT": 4,
-       "joy": 30,
-       "wealth": 60,
-       "fame": 40,
-       "flags": [
-        "lead_7_truyen_muu"
-       ]
-      }
-     },
-     "fail": {
-      "text": "Vừa nhận huy hiệu, hắn phản trắc giam lỏng bạn, tước đoạt toàn bộ tài sản. Bạn thoi thóp chết mòn trong ngục tối do chính đàn em mình xây dựng.",
-      "effects": {
-       "health": -100,
-       "joy": -80,
-       "wealth": -100,
-       "flags": [
-        "lead_7_bi_phan"
-       ]
-      },
-      "death": "Bị phản bội"
-     }
-    },
-    {
-     "label": "Không truyền lại, giải tán toàn bộ vỡ mộng",
-     "text": "Cảm thấy không ai xứng đáng, bạn đập nát huy hiệu, chia tài sản rồi giải tán. Mọi thứ tan biến vào dĩ vãng. Bạn bước vào hoang mạc chết già một cách tĩnh lặng mờ nhạt.",
-     "effects": {
-      "joy": -20,
-      "wealth": 30,
-      "fame": -60,
-      "flags": [
-       "lead_7_giai_tan"
-      ]
-     }
-    }
-   ],
-   "moment": "Lịch sử của một tổ đội không kết thúc khi đội trưởng chết, mà kết thúc khi huy hiệu bị trao nhầm người."
-  },
-  {
    "id": "beastman_lead_link_1",
    "text": "{friend} thân tàn ma dại lết đến trại của bạn. Hắn vừa bị đuổi khỏi một tổ đội khác vì gánh nặng tuổi tác hoặc vết thương cũ tái phát. Hắn nhìn bạn cầu xin một vị trí hèn mọn nhất trong tổ đội của người tri kỷ năm xưa.",
    "stages": [
@@ -44504,6 +42565,1954 @@
     }
    ],
    "moment": "Báo thù là một thứ thuốc độc mà khi uống vào, kẻ chết đầu tiên lại chính là mình."
+  },
+  {
+   "id": "beastman_lead_1",
+   "text": "Bạn cắm thanh vũ khí xuống trung tâm sảnh Guild Bình Minh, dõng dạc tuyên bố thành lập tổ đội riêng. Những ánh mắt dò xét từ đám lính đánh thuê tứ xứ dồn về phía bạn, chờ xem kẻ tự xưng là thủ lĩnh có bản lĩnh gì để thu phục họ.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "arc": "leader",
+   "recall": [
+    {
+     "flags": [
+      "lead_1_thuyet_phuc"
+     ],
+     "text": "Bài diễn văn sắc sảo ngày lập cờ đã định hình linh hồn kiêu hãnh của toàn tổ đội."
+    },
+    {
+     "flags": [
+      "lead_1_nhan_nhuc"
+     ],
+     "text": "Khởi đầu gian nan với những kẻ mạt hạng nhắc nhở bạn không bao giờ được ngừng nỗ lực."
+    },
+    {
+     "flags": [
+      "lead_1_uy_luc"
+     ],
+     "text": "Cú đánh gục gã lính to xác thiết lập kỷ luật thép không thể suy xuyển dưới trướng bạn."
+    },
+    {
+     "flags": [
+      "lead_1_vo_mui"
+     ],
+     "text": "Vết sẹo trên mũi bêu rếu sự thất bại cay đắng trong ngày xưng danh đội trưởng."
+    },
+    {
+     "flags": [
+      "lead_1_mua_chuoc"
+     ],
+     "text": "Đội quân được xây bằng tiền luôn mang đến cảm giác bất an về sự phản trắc."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "bandLead": false,
+    "any": [
+     {
+      "guildRank": 2
+     },
+     {
+      "jobRank": 2
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Khơi gợi danh dự và tương lai huy hoàng",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Lời lẽ đanh thép về một tổ đội độc lập không cúi đầu trước ai khiến đám đông gai ốc nổi rần rần. Nhiều kẻ tiến lên xin thề trung thành.",
+      "effects": {
+       "INT": 2,
+       "fame": 10,
+       "flags": [
+        "lead_1_thuyet_phuc"
+       ],
+       "foundBand": true
+      }
+     },
+     "fail": {
+      "text": "Bài phát biểu lủng củng khiến chúng cười ồ lên nhạo báng. Bạn đành cắn răng nhặt nhạnh vài kẻ cùng đường mạt lộ để miễn cưỡng lập đội.",
+      "effects": {
+       "health": -10,
+       "fame": -15,
+       "flags": [
+        "lead_1_nhan_nhuc"
+       ],
+       "foundBand": true
+      }
+     }
+    },
+    {
+     "label": "Thách đấu công khai kẻ nào dám lên tiếng",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn quật ngã gã lính to xác nhất chỉ bằng một đòn khóa tay tàn bạo. Kẻ mạnh làm vua, đám đông cúi đầu phục tùng quy luật dã thú.",
+      "effects": {
+       "STR": 3,
+       "fame": 15,
+       "flags": [
+        "lead_1_uy_luc"
+       ],
+       "foundBand": true
+      }
+     },
+     "fail": {
+      "text": "Gã lính đánh trả quyết liệt làm bạn vỡ mũi. Dù cuối cùng vẫn có kẻ theo bạn vì thương hại, uy quyền đội trưởng đã sứt mẻ ngay từ ngày đầu.",
+      "effects": {
+       "health": -20,
+       "fame": -10,
+       "flags": [
+        "lead_1_vo_mui"
+       ],
+       "foundBand": true
+      }
+     }
+    },
+    {
+     "label": "Rải tiền đập bàn mua chuộc lính đánh thuê",
+     "text": "Vốc Tinh Bạc ném ra lập tức chiêu mộ được một đám lính hám tiền. Tổ đội được thành lập nhanh chóng nhưng lòng trung thành mỏng manh như tờ giấy.",
+     "effects": {
+      "wealth": -30,
+      "fame": 5,
+      "flags": [
+       "lead_1_mua_chuoc"
+      ],
+      "foundBand": true
+     }
+    }
+   ],
+   "moment": "Lá cờ được dựng lên bằng uy danh, máu và đôi khi là cả sự nhẫn nhục."
+  },
+  {
+   "id": "beastman_lead_2",
+   "text": "Tổ đội vừa hạ gục một con quái thú lớn mang về khoản Huyết Kim kếch xù. Khi đứng trước đống chiến lợi phẩm, ánh mắt của mọi người bắt đầu thay đổi. {ally} hắng giọng bước lên, yêu cầu được chia phần lớn hơn vì đã liều mạng nhiều nhất trong trận chiến.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "leader",
+   "recall": [
+    {
+     "flags": [
+      "lead_2_cong_bang"
+     ],
+     "text": "Sự công tâm trong việc chia Lõi Huyết Kim giúp bạn giữ vững lòng tin của cả tổ đội."
+    },
+    {
+     "flags": [
+      "lead_2_tinh_sai"
+     ],
+     "text": "Trận cãi vã vì đống Huyết Kim chia sai nhắc nhở bạn tiền bạc là lưỡi dao hai lưỡi."
+    },
+    {
+     "flags": [
+      "lead_2_ky_luat"
+     ],
+     "text": "Vũ khí ghim xuống bàn dập tắt lòng tham bẩn thỉu của những kẻ dưới trướng."
+    },
+    {
+     "flags": [
+      "lead_2_bi_bat_nat"
+     ],
+     "text": "Nỗi nhục bị đàn em hất bàn đòi tiền khoét sâu sự yếu kém của một thủ lĩnh."
+    },
+    {
+     "flags": [
+      "lead_2_nhuong_bo"
+     ],
+     "text": "Sự nhượng bộ vì hèn nhát khiến uy quyền đội trưởng của bạn bị dẫm đạp không thương tiếc."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "lead_1_thuyet_phuc",
+     "lead_1_nhan_nhuc",
+     "lead_1_uy_luc",
+     "lead_1_vo_mui",
+     "lead_1_mua_chuoc"
+    ],
+    "bandLead": true
+   },
+   "choices": [
+    {
+     "label": "Phân tích công trạng và chia theo luật ngầm",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn dõng dạc chỉ ra đóng góp của từng người, chia phần công bằng tuyệt đối. {ally} dù tham lam cũng phải gật đầu bái phục sự sắc sảo của bạn.",
+      "effects": {
+       "INT": 2,
+       "joy": 10,
+       "bond": 10,
+       "flags": [
+        "lead_2_cong_bang"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Tính toán nhầm lẫn khiến {ally} phẫn nộ cho rằng bạn ăn chặn. Đội ngũ lục đục cãi vã ỏm tỏi, bạn phải bù tiền túi ra để xoa dịu tình hình.",
+      "effects": {
+       "wealth": -20,
+       "fame": -15,
+       "flags": [
+        "lead_2_tinh_sai"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Dùng uy quyền đè bẹp sự chống đối",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn rút vũ khí dập thẳng xuống bàn, gầm lên tuyên bố luật chia đều không có ngoại lệ. {ally} tái mặt lùi lại, kỷ luật đội được siết chặt.",
+      "effects": {
+       "STR": 3,
+       "joy": -10,
+       "fame": 10,
+       "flags": [
+        "lead_2_ky_luat"
+       ]
+      }
+     },
+     "fail": {
+      "text": "{ally} hất tung bàn mắng bạn là kẻ độc tài. Trận ẩu đả nhỏ nổ ra khiến bạn bị bầm dập, tiếng tăm lãnh đạo bị sứt mẻ nghiêm trọng.",
+      "effects": {
+       "health": -15,
+       "fame": -20,
+       "flags": [
+        "lead_2_bi_bat_nat"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Nhượng bộ chia phần lớn cho kẻ đòi hỏi",
+     "text": "Cân nhắc hòa khí, bạn tự bớt phần của mình đắp cho {ally}. Kẻ đó đắc thắng nhếch mép, nhưng những thành viên khác bắt đầu coi bạn là kẻ nhu nhược dễ bị bắt nạt.",
+     "effects": {
+      "joy": -15,
+      "wealth": -20,
+      "fame": -25,
+      "flags": [
+       "lead_2_nhuong_bo"
+      ]
+     }
+    }
+   ],
+   "moment": "Đứng trước vàng bạc, lòng trung thành mỏng manh như lớp sương sớm."
+  },
+  {
+   "id": "beastman_lead_3",
+   "text": "Trong một đêm mưa lạnh, sự bất mãn vì những chuyến đi săn thất bại dồn nén. {ally} rút vũ khí vạch một đường ranh giới xuống đất, công khai thách thức quyền đội trưởng của bạn theo luật bầy hoang dã. Cả tổ đội lùi lại tạo thành vòng tròn sinh tử.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "leader",
+   "recall": [
+    {
+     "flags": [
+      "lead_3_danh_guc"
+     ],
+     "text": "Cú đập gục kẻ thách thức giữa mưa lạnh khắc tên bạn thành vị vua độc tôn của bầy."
+    },
+    {
+     "flags": [
+      "lead_3_mat_ngoi"
+     ],
+     "text": "Bờ vai rách bươm và cú ngã sấp bùn là án tử cho sự nghiệp lãnh đạo oanh liệt của bạn."
+    },
+    {
+     "flags": [
+      "lead_3_tuoc_vu_khi"
+     ],
+     "text": "Nhát dao kề cổ cảnh cáo lạnh lùng dập tắt ngọn lửa tạo phản từ trứng nước."
+    },
+    {
+     "flags": [
+      "lead_3_vo_mieng"
+     ],
+     "text": "Vết sẹo khóe miệng nhắc nhở sự chần chừ nguy hiểm khi đối mặt với kẻ làm phản."
+    },
+    {
+     "flags": [
+      "lead_3_truc_xuat"
+     ],
+     "text": "Lệnh trục xuất hèn nhát cứu vãn mạng sống nhưng giết chết ngọn lửa dã thú của tập thể."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "lead_2_cong_bang",
+     "lead_2_tinh_sai",
+     "lead_2_ky_luat",
+     "lead_2_bi_bat_nat",
+     "lead_2_nhuong_bo"
+    ],
+    "bandLead": true
+   },
+   "choices": [
+    {
+     "label": "Đánh tay đôi trấn áp bằng sức mạnh",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Trận chiến đẫm máu. Bạn khóa gáy và đánh {ally} gục ngã xuống vũng bùn. Máu tứa ra, kẻ thách thức phải cúi đầu thề trung thành một lần nữa.",
+      "effects": {
+       "STR": 4,
+       "fame": 25,
+       "bond": 10,
+       "flags": [
+        "lead_3_danh_guc"
+       ]
+      }
+     },
+     "fail": {
+      "text": "{ally} quá mạnh, chém bạn rách một mảng vai và đạp bạn ngã sấp mặt. Bạn bị tước quyền đội trưởng trong nhục nhã, tổ đội coi bạn như bù nhìn.",
+      "effects": {
+       "health": -35,
+       "joy": -40,
+       "fame": -40,
+       "flags": [
+        "lead_3_mat_ngoi"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Dùng tốc độ tước vũ khí cảnh cáo",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Lướt như bóng ma, bạn hất tung vũ khí của {ally} và kề dao vào cổ y. Sự áp đảo tuyệt đối mà không cần đổ máu khiến cả đội khiếp sợ bái phục.",
+      "effects": {
+       "AGI": 3,
+       "joy": 10,
+       "fame": 20,
+       "flags": [
+        "lead_3_tuoc_vu_khi"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Phản xạ chậm một nhịp, bạn bị đấm lùi lại vỡ khóe miệng. Tuy sau đó bạn vẫn giữ được ngôi vị nhờ đám đông can ngăn, nhưng sự uy dũng đã phai nhạt.",
+      "effects": {
+       "health": -20,
+       "fame": -20,
+       "flags": [
+        "lead_3_vo_mieng"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Nhượng bộ và đuổi kẻ thách thức đi",
+     "text": "Tránh vỏ dưa gặp vỏ dừa, bạn tuyên bố không muốn giết anh em và trục xuất {ally} khỏi đội. Dù giữ được mạng sống, tổ đội mất đi một thành viên và chán chường vì bạn thiếu dũng khí.",
+     "effects": {
+      "joy": -20,
+      "fame": -30,
+      "flags": [
+       "lead_3_truc_xuat"
+      ],
+      "allyLeave": true
+     }
+    }
+   ],
+   "moment": "Ngai vàng nào cũng phải được bôi trơn bằng máu của những kẻ dòm ngó nó."
+  },
+  {
+   "id": "beastman_lead_4",
+   "text": "Tổ đội sa lưới bọn thợ săn nô lệ Huyết Sa giữa đầm lầy chết chóc. Cửa thoát duy nhất đang bị lưới độc thu hẹp dần. Phải có một người ở lại cản đường bọn lính gác để những người khác trốn thoát, đồng nghĩa với cái chết nắm chắc. Mọi ánh mắt chờ lệnh từ bạn.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "leader",
+   "recall": [
+    {
+     "flags": [
+      "lead_4_can_hau"
+     ],
+     "text": "Những vết sẹo lưới độc trên lưng vinh danh sinh mệnh vĩ đại của vị thủ lĩnh quên mình."
+    },
+    {
+     "flags": [
+      "lead_4_that_bai_cuu"
+     ],
+     "text": "Cánh tay tàn phế của đồng đội nhắc nhở sự yếu kém bất lực của bạn khi cố làm anh hùng."
+    },
+    {
+     "flags": [
+      "lead_4_ra_lenh_chet"
+     ],
+     "text": "Mệnh lệnh hy sinh máu lạnh đâm nát tâm can bạn mỗi khi nhắm mắt ngủ."
+    },
+    {
+     "flags": [
+      "lead_4_loan_doi"
+     ],
+     "text": "Sự hỗn loạn ích kỷ trong đầm lầy Huyết Sa đập vỡ hoàn toàn kỷ luật của tổ đội."
+    },
+    {
+     "flags": [
+      "lead_4_te_than"
+     ],
+     "text": "Tiếng thét của kẻ bị đẩy vào chỗ chết biến bạn thành thứ cặn bã bị nguyền rủa nhất thế gian."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "lead_3_danh_guc",
+     "lead_3_mat_ngoi",
+     "lead_3_tuoc_vu_khi",
+     "lead_3_vo_mieng",
+     "lead_3_truc_xuat"
+    ],
+    "bandLead": true
+   },
+   "choices": [
+    {
+     "label": "Tự mình cản hậu hy sinh vì đội",
+     "check": {
+      "stat": "health",
+      "target": 85
+     },
+     "success": {
+      "text": "Bạn đẩy đồng đội ra, gầm lên xông vào làn lưới độc chắn đường. Chịu đựng nỗi đau cháy da thịt, bạn sống sót lết ra được nhưng mang sẹo vĩnh viễn. Đội khóc nấc hàm ơn.",
+      "effects": {
+       "health": -35,
+       "fame": 40,
+       "bond": 10,
+       "flags": [
+        "lead_4_can_hau"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Lưới độc đè bẹp bạn. Bạn gục ngã nôn ra máu. {ally} phải liều mạng ném lựu đạn khói kéo bạn ra, trả giá bằng một cánh tay tàn phế của họ. Bạn hối hận tột cùng.",
+      "effects": {
+       "health": -45,
+       "joy": -50,
+       "fame": -20,
+       "flags": [
+        "lead_4_that_bai_cuu"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Lãnh cảm ra lệnh cho thành viên ở lại",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Lấy tư cách đội trưởng, bạn phân tích lối thoát và lệnh cho {ally} tử thủ. Kẻ đó cắn răng gật đầu xông lên nộp mạng. Đội thoát chết, nhưng lương tâm bạn rỉ máu ngàn thu.",
+      "effects": {
+       "INT": 2,
+       "joy": -60,
+       "fame": -30,
+       "flags": [
+        "lead_4_ra_lenh_chet"
+       ],
+       "allyDie": true
+      }
+     },
+     "fail": {
+      "text": "{ally} nổi điên từ chối mệnh lệnh, đấm bạn một cú rồi chạy mất. Tổ đội hoảng loạn giẫm đạp lên nhau chạy trốn, tổn thất tài sản và bị thương nặng nề.",
+      "effects": {
+       "health": -25,
+       "wealth": -30,
+       "fame": -40,
+       "flags": [
+        "lead_4_loan_doi"
+       ],
+       "allyLeave": true
+      }
+     }
+    },
+    {
+     "label": "Đẩy đồng đội vào lưới độc làm mồi nhử",
+     "text": "Cơn sợ hãi biến bạn thành quỷ dữ. Bạn đạp thẳng {ally} vào lưới độc để ngáng đường địch rồi cắm cổ chạy thục mạng. Kẻ đó chết thảm khốc, tổ đội ghê tởm bạn tận xương tủy.",
+     "effects": {
+      "health": 10,
+      "joy": -80,
+      "fame": -80,
+      "flags": [
+       "lead_4_te_than"
+      ],
+      "allyDie": true,
+      "leaveBand": true
+     }
+    }
+   ],
+   "moment": "Lãnh đạo là phải gánh vác tội ác để những người khác được sống sạch sẽ."
+  },
+  {
+   "id": "beastman_lead_5",
+   "text": "Một tổ đội hạng A của Thương hội Sói Bạc hung hãn tiến vào bãi săn của bạn, cắm cờ đòi tiếp quản nhiệm vụ đánh giết quái vật và ép tổ đội bạn phải cút đi. Chúng đông, trang bị tốt hơn hẳn và lăm lăm vũ khí chờ chém giết.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "leader",
+   "recall": [
+    {
+     "flags": [
+      "lead_5_tu_thu"
+     ],
+     "text": "Cờ lệnh Sói Bạc gãy nát dưới chân minh chứng cho sức mạnh bất khả xâm phạm của tổ đội."
+    },
+    {
+     "flags": [
+      "lead_5_mat_lanh_tho"
+     ],
+     "text": "Vết thương tàn phế là cái giá đắt đỏ cho sự ngoan cố chống lại cường quyền vô vọng."
+    },
+    {
+     "flags": [
+      "lead_5_du_kich"
+     ],
+     "text": "Cuộc đột kích nẫng tay trên Lõi Mana phô diễn chiến thuật ma mãnh của người đội trưởng."
+    },
+    {
+     "flags": [
+      "lead_5_trung_doc"
+     ],
+     "text": "Cánh tay sưng tấy độc dược bêu rếu cú lừa gạt thảm hại trước mũi Sói Bạc."
+    },
+    {
+     "flags": [
+      "lead_5_nhan_nhin"
+     ],
+     "text": "Tiếng cười nhạo báng của kẻ thù khoét sâu nỗi hèn mọn khi nhổ trại tháo chạy."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "lead_4_can_hau",
+     "lead_4_that_bai_cuu",
+     "lead_4_ra_lenh_chet",
+     "lead_4_loan_doi",
+     "lead_4_te_than"
+    ],
+    "bandLead": true
+   },
+   "choices": [
+    {
+     "label": "Tử thủ huyết chiến bảo vệ lãnh thổ",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Điên cuồng chống trả, bạn và đồng đội dựa lưng vào nhau chém gục hàng loạt kẻ thù, đánh gãy cờ Sói Bạc. Tổ đội giữ được bãi săn và vang danh lẫy lừng.",
+      "effects": {
+       "health": -20,
+       "wealth": 20,
+       "fame": 35,
+       "flags": [
+        "lead_5_tu_thu"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Địch quá mạnh nghiền nát phòng tuyến. Bạn bị chém phế một bên chân, tổ đội tháo chạy tơi bời để lại toàn bộ tài sản cắm trại. Sự sỉ nhục ê chề bủa vây.",
+      "effects": {
+       "health": -35,
+       "joy": -30,
+       "wealth": -30,
+       "fame": -40,
+       "flags": [
+        "lead_5_mat_lanh_tho"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đánh du kích lén lút cướp lại con mồi",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Khôn khéo ẩn nấp, bạn lợi dụng lúc chúng đánh quái vật để đoạt Lõi Mana rồi tẩu thoát êm ru. Bọn Sói Bạc tức điên mà không làm gì được, đội bạn hốt bạc.",
+      "effects": {
+       "AGI": 3,
+       "wealth": 30,
+       "fame": 15,
+       "flags": [
+        "lead_5_du_kich"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bị phát giác giữa chừng, bạn trúng tên độc sưng vù cả cánh tay. Đội phải bỏ của chạy lấy người, vừa mất uy tín vừa chịu đau đớn kịch liệt.",
+      "effects": {
+       "health": -25,
+       "wealth": -15,
+       "fame": -20,
+       "flags": [
+        "lead_5_trung_doc"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Ngậm đắng nuốt cay nhổ cờ rút lui",
+     "text": "Nhận thấy chênh lệch lực lượng, bạn ra lệnh rút binh để bảo toàn mạng sống. Bọn Sói Bạc cười nhạo sỉ nhục sau lưng. Tổ đội an toàn nhưng tinh thần sa sút trầm trọng.",
+     "effects": {
+      "health": 10,
+      "joy": -40,
+      "fame": -50,
+      "flags": [
+       "lead_5_nhan_nhin"
+      ]
+     }
+    }
+   ],
+   "moment": "Đất đai trên thảo nguyên không có sổ đỏ, nó được vẽ ranh giới bằng máu."
+  },
+  {
+   "id": "beastman_lead_6",
+   "text": "{ally} đặt huy hiệu của tổ đội lên bàn, ánh mắt mệt mỏi xin được rời đi để trở về quê hương lập gia đình và sống yên ổn. Luật ngầm của thảo nguyên không dung thứ cho kẻ đào ngũ khi đội đang thiếu người và đầy rẫy kẻ thù rình rập.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "leader",
+   "recall": [
+    {
+     "flags": [
+      "lead_6_giu_nguoi"
+     ],
+     "text": "Lời hứa về phi vụ cuối cùng đã níu giữ bước chân mệt mỏi của người đồng đội cũ."
+    },
+    {
+     "flags": [
+      "lead_6_cai_va"
+     ],
+     "text": "Huy hiệu ném vỡ nát trên bàn khép lại tình anh em trong sự oán trách cay đắng."
+    },
+    {
+     "flags": [
+      "lead_6_chia_tay"
+     ],
+     "text": "Bữa tiệc chia ly rực lửa rượu vang minh chứng cho tình nghĩa huynh đệ trọn vẹn nhất."
+    },
+    {
+     "flags": [
+      "lead_6_tiec_buon"
+     ],
+     "text": "Vết bầm tím trong đêm chia tay phá nát khoảnh khắc yên bình cuối cùng của tổ đội."
+    },
+    {
+     "flags": [
+      "lead_6_duoi_di"
+     ],
+     "text": "Ánh mắt uất hận của người bị đuổi đi tay trắng ám ảnh những đêm trường cô độc của bạn."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "lead_5_tu_thu",
+     "lead_5_mat_lanh_tho",
+     "lead_5_du_kich",
+     "lead_5_trung_doc",
+     "lead_5_nhan_nhin"
+    ],
+    "bandLead": true
+   },
+   "choices": [
+    {
+     "label": "Dùng lời lẽ thuyết phục giữ người ở lại",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn hứa hẹn một phi vụ cuối cùng đổi đời và vạch ra tương lai tươi sáng. {ally} mềm lòng cất lại huy hiệu, tiếp tục sát cánh cống hiến cho tổ đội thêm nhiều năm nữa.",
+      "effects": {
+       "INT": 3,
+       "fame": 15,
+       "bond": 10,
+       "flags": [
+        "lead_6_giu_nguoi"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Lời lẽ sáo rỗng khiến {ally} thất vọng, cho rằng bạn chỉ muốn vắt kiệt sức lao động. Cự cãi nổ ra, {ally} ném huy hiệu vào mặt bạn rồi bỏ đi không thèm từ biệt.",
+      "effects": {
+       "joy": -20,
+       "fame": -20,
+       "flags": [
+        "lead_6_cai_va"
+       ],
+       "allyLeave": true
+      }
+     }
+    },
+    {
+     "label": "Tổ chức tiệc chia tay và tặng tiền lộ phí",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Bỏ qua luật ngầm, bạn hào phóng mở tiệc cạn ly và tặng một túi vàng. {ally} rơi nước mắt cảm kích, mang theo danh tiếng về một người đội trưởng vĩ đại lan truyền khắp nơi.",
+      "effects": {
+       "LUCK": 2,
+       "joy": 20,
+       "wealth": -20,
+       "fame": 30,
+       "flags": [
+        "lead_6_chia_tay"
+       ],
+       "allyLeave": true
+      }
+     },
+     "fail": {
+      "text": "Trong bữa tiệc, đám bảo kê quán rượu sinh sự đánh nhau. Bữa chia ly biến thành thảm họa bầm dập, tiền mất tật mang và để lại kỷ niệm buồn bã.",
+      "effects": {
+       "health": -15,
+       "joy": -30,
+       "wealth": -25,
+       "flags": [
+        "lead_6_tiec_buon"
+       ],
+       "allyLeave": true
+      }
+     }
+    },
+    {
+     "label": "Tịch thu toàn bộ tài sản rồi đuổi đi",
+     "text": "Lạnh lùng thực thi luật ngầm, bạn lột sạch vũ khí và tiền bạc của {ally}, tống cổ ra đường. Kẻ đó rời đi tay trắng với lòng thù hận, nội bộ tổ đội rét lạnh vì sự tàn nhẫn của bạn.",
+     "effects": {
+      "joy": -50,
+      "wealth": 30,
+      "fame": -40,
+      "flags": [
+       "lead_6_duoi_di"
+      ],
+      "allyLeave": true
+     }
+    }
+   ],
+   "moment": "Một đội trưởng giỏi là người biết khi nào nên siết chặt tay, và khi nào nên buông bỏ."
+  },
+  {
+   "id": "beastman_lead_7",
+   "text": "Những vết thương cũ nhức nhối báo hiệu tuổi già đã ập đến. Tổ đội đang ở đỉnh cao danh vọng, nhưng bạn không còn đủ sức vung vũ khí dẫn đầu nữa. {ally} đứng trước mặt bạn, ánh mắt rực lửa chờ đợi quyết định cuối cùng về tương lai của ngọn cờ này.",
+   "stages": [
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "leader",
+   "recall": [
+    {
+     "flags": [
+      "lead_7_truyen_ngoi"
+     ],
+     "text": "Buổi lễ chuyển giao quyền lực êm ái bảo vệ trọn vẹn di sản cả đời của bạn."
+    },
+    {
+     "flags": [
+      "lead_7_bi_loai"
+     ],
+     "text": "Sự bạc bẽo của kẻ kế nhiệm nhấn chìm năm tháng tuổi già của bạn vào bóng tối u buồn."
+    },
+    {
+     "flags": [
+      "lead_7_thu_thach"
+     ],
+     "text": "Đòn đánh thử sức cuối cùng khẳng định ngai vàng dã thú luôn thuộc về kẻ mạnh nhất."
+    },
+    {
+     "flags": [
+      "lead_7_gay_xuong"
+     ],
+     "text": "Khớp hông trật lấp ló trong ngày trao quyền phơi bày sự tàn nhẫn của thời gian."
+    },
+    {
+     "flags": [
+      "lead_7_giai_tan"
+     ],
+     "text": "Cờ hiệu vỡ nát giải phóng mọi gánh nặng, để huyền thoại lính đánh thuê mãi ngủ yên."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "lead_6_giu_nguoi",
+     "lead_6_cai_va",
+     "lead_6_chia_tay",
+     "lead_6_tiec_buon",
+     "lead_6_duoi_di"
+    ],
+    "bandLead": true
+   },
+   "choices": [
+    {
+     "label": "Trao lại quyền chỉ huy một cách êm đẹp",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn dặn dò cẩn thận, khoác áo choàng thủ lĩnh cho {ally}. Sự chuyển giao diễn ra thuận lợi, tổ đội tiếp tục phát triển huy hoàng, bạn lui về an hưởng tuổi già trong sự tôn kính.",
+      "effects": {
+       "INT": 3,
+       "joy": 30,
+       "fame": 40,
+       "bond": 10,
+       "flags": [
+        "lead_7_truyen_ngoi"
+       ]
+      }
+     },
+     "fail": {
+      "text": "{ally} tỏ ra tự mãn, vừa nắm quyền đã gạt bạn ra rìa và thay đổi mọi luật lệ. Bạn uất ức sống nốt những năm tháng cuối đời như một cái bóng mờ nhạt bị quên lãng.",
+      "effects": {
+       "health": -20,
+       "joy": -50,
+       "fame": -30,
+       "flags": [
+        "lead_7_bi_loai"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Thử thách bằng một đòn đánh cuối cùng trước khi nhường ngôi",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn vung vũ khí giáng một đòn sấm sét. {ally} kiên cường đỡ đòn, chứng tỏ đủ sức mạnh gánh vác. Bạn cười lớn hài lòng, an tâm giao lại giang sơn.",
+      "effects": {
+       "STR": 2,
+       "joy": 20,
+       "fame": 30,
+       "flags": [
+        "lead_7_thu_thach"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Đòn đánh quá sức khiến bạn trượt tay vấp ngã trật khớp hông. {ally} đỡ bạn dậy trong sự xót xa ngượng ngùng. Lễ trao quyền khép lại trong bóng tối của tuổi già ập đến.",
+      "effects": {
+       "health": -30,
+       "joy": -20,
+       "fame": -15,
+       "flags": [
+        "lead_7_gay_xuong"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Giải tán tổ đội, chia tiền để huyền thoại ngủ yên",
+     "text": "Cảm thấy không ai đủ sức thay thế, bạn đập vỡ cờ hiệu, chia đều tài sản cho anh em. Tổ đội giải tán vĩnh viễn, bạn trở về quê hương mang theo một kho báu và vô vàn truyền thuyết vĩ đại.",
+     "effects": {
+      "joy": -10,
+      "wealth": 40,
+      "fame": 10,
+      "flags": [
+       "lead_7_giai_tan"
+      ],
+      "leaveBand": true
+     }
+    }
+   ],
+   "moment": "Lịch sử vĩ đại nhất là biết dừng lại đúng lúc khi bản thân đang ở trên đỉnh cao."
+  },
+  {
+   "id": "beastman_recruit_1",
+   "text": "Hask đang ngồi mài rìu ngoài cửa sập của Guild. Cổ hắn hằn sâu một vết sẹo cháy đen hình vòng xích nô lệ. Hắn gầm gừ tuyên bố sẽ chỉ trao sinh mạng cho tổ đội nào thề sẽ nghiền nát mọi kẻ buôn người trên thảo nguyên.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "recruit",
+   "recall": [
+    {
+     "flags": [
+      "rec_hask_won"
+     ],
+     "text": "Cú đấm khuất phục gã gấu khổng lồ Hask là nền móng cho sức mạnh bạo liệt của tổ đội."
+    },
+    {
+     "flags": [
+      "rec_hask_lost"
+     ],
+     "text": "Vết sẹo xương sườn bêu rếu sự thất bại khi cố thu phục một kẻ ôm hận thù."
+    },
+    {
+     "flags": [
+      "rec_hask_plan"
+     ],
+     "text": "Giao kèo máu bằng lý trí đã đưa chiến binh diệt nô lệ Hask về chung một ngọn cờ."
+    },
+    {
+     "flags": [
+      "rec_hask_paid"
+     ],
+     "text": "Những đồng Tinh Bạc rớt trên đất là minh chứng cho việc lý tưởng không thể mua bằng tiền."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "bandLead": true,
+    "partyMax": 2
+   },
+   "choices": [
+    {
+     "label": "Giao đấu tay đôi để chứng minh sức mạnh của đội trưởng",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn tung một cú đấm bạo liệt khiến gã gấu lùi lại hai bước. Hask cười khùng khục, công nhận sức mạnh của bạn và thề vung rìu dưới trướng.",
+      "effects": {
+       "STR": 3,
+       "fame": 10,
+       "flags": [
+        "rec_hask_won"
+       ],
+       "memberJoin": "Hask"
+      }
+     },
+     "fail": {
+      "text": "Hask quá khỏe, quật bạn ngã lăn lóc vỡ nát xương sườn. Hắn khinh bỉ nhổ bọt, cho rằng đội của bạn quá yếu để đối đầu Thương hội Sói Bạc.",
+      "effects": {
+       "health": -20,
+       "fame": -15,
+       "flags": [
+        "rec_hask_lost"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hứa hẹn và vạch ra kế hoạch triệt hạ đường dây nô lệ",
+     "text": "Lời nói sắc bén và bản đồ đường đi nước bước của bạn làm Hask hoàn toàn bị thuyết phục. Hắn gật đầu trầm ngâm, xách rìu đi theo.",
+     "effects": {
+      "INT": 2,
+      "fame": 5,
+      "flags": [
+       "rec_hask_plan"
+      ],
+      "memberJoin": "Hask"
+     }
+    },
+    {
+     "label": "Vứt tiền thuê hắn đi theo không cần hỏi nhiều",
+     "text": "Bạn ném túi Tinh Bạc xuống đất. Hask hất tung túi tiền, mắng chửi bạn là thứ hôi tanh mùi tiền không có lý tưởng, rồi quay lưng bỏ đi.",
+     "effects": {
+      "joy": -10,
+      "wealth": -5,
+      "fame": -10,
+      "flags": [
+       "rec_hask_paid"
+      ]
+     }
+    }
+   ],
+   "moment": "Hận thù là thứ vũ khí sắc bén nhất, nếu bạn biết cách biến nó thành ngọn giáo của mình."
+  },
+  {
+   "id": "beastman_recruit_2",
+   "text": "Sylf ngồi vắt vẻo trên nhánh cổ thụ, nhắm một mũi tên xẹt qua cắt đứt sợi tóc của bạn làm lời chào. Cô ả Elf đang kẹt tiền để gia cố cây cung ma thuật bị nứt, kiêu ngạo đòi một khoản tiền lớn trước khi chịu cống hiến kỹ năng trinh sát.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "recruit",
+   "recall": [
+    {
+     "flags": [
+      "rec_sylf_scared"
+     ],
+     "text": "Lưỡi dao găm sượt má đã đập vỡ lớp vỏ kiêu ngạo của cô ả cung thủ Elf Sylf."
+    },
+    {
+     "flags": [
+      "rec_sylf_shot"
+     ],
+     "text": "Mũi tên ghim ngập đùi nhắc nhở bạn không bao giờ được khinh suất trước cung thủ rừng sâu."
+    },
+    {
+     "flags": [
+      "rec_sylf_paid"
+     ],
+     "text": "Số Huyết Kim khổng lồ cống nạp cho Sylf là khoản đầu tư đắt đỏ nhưng xứng đáng."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "bandLead": true,
+    "partyMax": 2
+   },
+   "choices": [
+    {
+     "label": "Phóng vũ khí đáp trả để uy hiếp",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn ném phập con dao găm sượt qua má ả trước khi ả kịp lên tên. Bị áp đảo tốc độ, Sylf toát mồ hôi chấp nhận gia nhập với giá bình dân.",
+      "effects": {
+       "AGI": 4,
+       "fame": 15,
+       "flags": [
+        "rec_sylf_scared"
+       ],
+       "memberJoin": "Sylf"
+      }
+     },
+     "fail": {
+      "text": "Ả dễ dàng né được rồi bắn một mũi tên ghim thẳng vào đùi bạn. Bạn lết đi trong sự đau đớn và tiếng cười nhạo báng của tiên tộc.",
+      "effects": {
+       "health": -25,
+       "fame": -20,
+       "flags": [
+        "rec_sylf_shot"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Chấp nhận trả vốc Huyết Kim để mua tài năng",
+     "text": "Cắn răng dốc sạch hầu bao, bạn thanh toán đủ cho ả. Sylf cầm tiền đi sửa cung rồi hững hờ gia nhập, đem theo kỹ năng bắn tỉa bách phát bách trúng.",
+     "effects": {
+      "wealth": -40,
+      "fame": 5,
+      "flags": [
+       "rec_sylf_paid"
+      ],
+      "memberJoin": "Sylf"
+     }
+    }
+   ],
+   "moment": "Lính đánh thuê cừ khôi nhất luôn biết cách bắn giá cao bằng mũi tên của mình."
+  },
+  {
+   "id": "beastman_recruit_3",
+   "text": "Grok đang đập bàn đập ghế ẩu đả với lão chủ quán ăn vì không có tiền trả cho bữa tiệc thịt nướng hắn vừa ngấu nghiến. Gã Orc này to như hộ pháp, đánh lộn cực giỏi, nhưng dạ dày của hắn là một lỗ đen không đáy. Hắn cần một tổ đội bao nuôi.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "recruit",
+   "recall": [
+    {
+     "flags": [
+      "rec_grok_brawl"
+     ],
+     "text": "Vụ đập quán quỵt tiền ăn trưa đã mang về một gã Orc khổng lồ tàn bạo tên Grok."
+    },
+    {
+     "flags": [
+      "rec_grok_beaten"
+     ],
+     "text": "Bãi rác sau quán nhậu chứng kiến sự thảm hại của hai kẻ định ăn quỵt nhưng bất thành."
+    },
+    {
+     "flags": [
+      "rec_grok_paid"
+     ],
+     "text": "Nuôi cái dạ dày của Grok là gánh nặng tài chính nhưng mua được bức tường thịt kiên cố nhất."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "bandLead": true,
+    "partyMax": 2
+   },
+   "choices": [
+    {
+     "label": "Vào hùa với Grok, dùng sức mạnh quỵt tiền",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn lật tung bàn ăn, cùng Grok đấm gục đám bảo kê quán rồi chạy thục mạng ra phố. Hợp cạ trong sự lưu manh, Grok cười hô hố xin theo bạn đi khắp thế gian.",
+      "effects": {
+       "STR": 2,
+       "joy": 10,
+       "fame": -10,
+       "flags": [
+        "rec_grok_brawl"
+       ],
+       "memberJoin": "Grok"
+      }
+     },
+     "fail": {
+      "text": "Bảo kê quán quá đông, quật cả bạn lẫn Grok tơi bời. Bạn bị vứt ra mương nước thúi, mất mặt và vuột mất tên đấu sĩ tàn bạo.",
+      "effects": {
+       "health": -20,
+       "fame": -20,
+       "flags": [
+        "rec_grok_beaten"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Thanh toán hóa đơn và hứa hẹn bao ăn",
+     "text": "Bạn thở dài móc tiền Huyết Kim trả cho chủ quán. Grok ợ một cái rõ to, vỗ ngực thề sẽ làm khiên thịt cản mọi mũi giáo cho bạn để đáp lễ.",
+     "effects": {
+      "wealth": -30,
+      "fame": 10,
+      "flags": [
+       "rec_grok_paid"
+      ],
+      "memberJoin": "Grok"
+     }
+    }
+   ],
+   "moment": "Muốn có một con quái vật đi theo, trước tiên phải biết cách lấp đầy cái mồm của nó."
+  },
+  {
+   "id": "beastman_recruit_4",
+   "text": "Nissa chui tọt ra từ một chiếc thùng gỗ hôi hám, hơi thở gấp gáp. Ả vừa trộm được một ấn tín hoàng gia và đang bị truy nã gắt gao. Ả xin gia nhập tổ đội của bạn hòng mượn danh nghĩa lính đánh thuê để lẩn trốn, sẵn sàng dâng một phần ba số chiến lợi phẩm.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "recruit",
+   "recall": [
+    {
+     "flags": [
+      "rec_nissa_hide"
+     ],
+     "text": "Lớp hóa trang bùn lầy qua mặt lính gác đã thu nạp được nữ tặc ranh mãnh Nissa."
+    },
+    {
+     "flags": [
+      "rec_nissa_caught"
+     ],
+     "text": "Trò che giấu tội phạm thất bại khiến bạn suýt rũ tù và mất một khoản tiền oan uổng."
+    },
+    {
+     "flags": [
+      "rec_nissa_extort"
+     ],
+     "text": "Ấn tín hoàng gia nằm gọn trong tay giúp bạn thao túng Nissa làm tay sai đắc lực."
+    },
+    {
+     "flags": [
+      "rec_nissa_rejected"
+     ],
+     "text": "Sự hèn nhát từ chối Nissa giữ an toàn cho đội nhưng làm sứt mẻ uy tín giang hồ."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "bandLead": true,
+    "partyMax": 2
+   },
+   "choices": [
+    {
+     "label": "Dùng mưu tạo vỏ bọc giả qua mặt lính gác",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn hóa trang cho Nissa thành phu khuân vác dính đầy bùn, đánh lừa toán lính tuần tra đi ngang qua cái một. Nissa thở phào kính phục, chính thức góp sức.",
+      "effects": {
+       "INT": 4,
+       "wealth": 15,
+       "fame": 5,
+       "flags": [
+        "rec_nissa_hide"
+       ],
+       "memberJoin": "Nissa"
+      }
+     },
+     "fail": {
+      "text": "Lớp ngụy trang quá vụng về. Lính gác nhận ra, ập tới bắt cả hai. Bạn phải dùng mọi mối quan hệ và tiền bạc chạy chọt mới không bị vạ lây, ả thì bị bắt.",
+      "effects": {
+       "health": -10,
+       "wealth": -25,
+       "fame": -20,
+       "flags": [
+        "rec_nissa_caught"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đòi ả nôn ấn tín ra mới chịu bảo kê",
+     "text": "Nhanh như cắt, bạn giật lấy ấn tín hoàng gia uy hiếp. Nissa sợ hãi đành khuất phục hoàn toàn, chấp nhận gia nhập và để bạn nắm đằng chuôi.",
+     "effects": {
+      "AGI": 2,
+      "wealth": 25,
+      "flags": [
+       "rec_nissa_extort"
+      ],
+      "memberJoin": "Nissa"
+     }
+    },
+    {
+     "label": "Đá ả ra đường không rước họa vào thân",
+     "text": "Phiền phức quá lớn. Bạn đá ả ra ngõ để mặc lính gác tóm cổ. Bạn an toàn nhưng bỏ lỡ một siêu trộm, thế giới ngầm lầm bầm chửi bạn là kẻ hèn nhát.",
+     "effects": {
+      "joy": -5,
+      "fame": -15,
+      "flags": [
+       "rec_nissa_rejected"
+      ]
+     }
+    }
+   ],
+   "moment": "Đội ngũ đôi khi là nơi chứa chấp những kẻ bị ánh sáng chối từ."
+  },
+  {
+   "id": "beastman_recruit_5",
+   "text": "Zev tung hứng những ngọn lửa xanh lè trên đầu ngón tay. Gã Cáo này có kiến thức cổ ngữ thượng thừa, nhưng bản tính tham lam vô độ. Hắn đồng ý vào đội làm phép sư với điều kiện mọi ma thạch và sách cổ tìm thấy phải thuộc về hắn.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "recruit",
+   "recall": [
+    {
+     "flags": [
+      "rec_zev_deal"
+     ],
+     "text": "Khế ước chia lợi nhuận cổ vật chứng minh bạn còn ranh mãnh hơn cả gã cáo Zev."
+    },
+    {
+     "flags": [
+      "rec_zev_tricked"
+     ],
+     "text": "Chữ ký hớ hênh vì bùa lú của Zev biến bạn thành kẻ làm thuê không công cho hắn."
+    },
+    {
+     "flags": [
+      "rec_zev_force"
+     ],
+     "text": "Lưỡi đao sắc bén buộc gã pháp sư Zev phải cụp đuôi từ bỏ thói tham lam."
+    },
+    {
+     "flags": [
+      "rec_zev_left"
+     ],
+     "text": "Từ chối Zev giữ nguyên kỷ luật tài chính nhưng làm đội bạn chật vật khi gặp ma pháp."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "bandLead": true,
+    "partyMax": 2
+   },
+   "choices": [
+    {
+     "label": "Dùng đầu óc thương thuyết chia tỷ lệ hợp lý",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn dồn hắn bằng lý lẽ sắc bén, ép hắn chịu thỏa thuận chia 6-4. Zev tặc lưỡi nhận thấy không thể qua mặt bạn, đồng ý ký khế ước. Đội có thêm phép thuật hỗ trợ.",
+      "effects": {
+       "INT": 3,
+       "fame": 15,
+       "flags": [
+        "rec_zev_deal"
+       ],
+       "memberJoin": "Zev"
+      }
+     },
+     "fail": {
+      "text": "Hắn quá ranh ma, dùng bùa lú lẫn khiến bạn ký nhầm khế ước cho hắn toàn quyền cuỗm sạch đồ. Bạn ngậm bồ hòn làm ngọt nhận hắn vào đội nhưng lỗ nặng.",
+      "effects": {
+       "joy": -10,
+       "wealth": -20,
+       "flags": [
+        "rec_zev_tricked"
+       ],
+       "memberJoin": "Zev"
+      }
+     }
+    },
+    {
+     "label": "Đe dọa bằng vũ lực bắt hắn tuân theo luật đội",
+     "text": "Kề đao vào cổ Zev, bạn dọa cắt đứt đôi tay làm phép. Zev sợ hãi tái mặt, buộc phải tuân theo luật phân chia công bằng của bạn.",
+     "effects": {
+      "STR": 3,
+      "fame": 10,
+      "flags": [
+       "rec_zev_force"
+      ],
+      "memberJoin": "Zev"
+     }
+    },
+    {
+     "label": "Không chấp nhận thói tham lam, bỏ đi",
+     "text": "Tổ đội không có chỗ cho kẻ tham lam vô kỷ luật. Bạn bỏ mặc Zev. Hắn cười nhạo bạn sau lưng, tổ đội thiếu đi ma thuật yểm trợ trong các trận chiến.",
+     "effects": {
+      "health": -5,
+      "fame": -10,
+      "flags": [
+       "rec_zev_left"
+      ]
+     }
+    }
+   ],
+   "moment": "Trí thức là vô giá, nhưng lòng tham thì luôn có thể đo đếm được."
+  },
+  {
+   "id": "beastman_recruit_6",
+   "text": "Jax ngồi vắt chân trong lều trại, dùng khăn lau sạch vết máu trên lớp vảy xanh lạnh lẽo. Gã Lizardman này chém giết lạnh lùng như một cỗ máy, nhưng mức thù lao gã đưa ra đủ để mua đứt một thương trạm.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "recruit",
+   "recall": [
+    {
+     "flags": [
+      "rec_jax_smart"
+     ],
+     "text": "Nắm bắt thóp tâm lý giúp bạn mua được lưỡi đao đáng sợ của Jax với giá hời."
+    },
+    {
+     "flags": [
+      "rec_jax_broke"
+     ],
+     "text": "Chấp nhận cái giá cắt cổ của Jax vắt kiệt tài chính nhưng mang về một cỗ máy chém giết."
+    },
+    {
+     "flags": [
+      "rec_jax_beat"
+     ],
+     "text": "Sức mạnh áp đảo bẻ gãy lòng tham của tên lính đánh thuê thực dụng Jax."
+    },
+    {
+     "flags": [
+      "rec_jax_lost"
+     ],
+     "text": "Vết sẹo lồng ngực là đòn trừng phạt tàn khốc vì dám thách thức gã máu lạnh Jax."
+    },
+    {
+     "flags": [
+      "rec_jax_passed"
+     ],
+     "text": "Từ chối Jax đẩy gã sang phe địch, tạo nên một bóng ma máu lạnh luôn rình rập tổ đội."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "bandLead": true,
+    "partyMax": 2
+   },
+   "choices": [
+    {
+     "label": "Phân tích tình thế chiến sự ép giá",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn chỉ ra rằng Sói Bạc đang truy quét gắt gao lính đánh thuê tự do, hắn cần tổ đội để trú ẩn. Jax im lặng một lúc rồi gật đầu giảm một nửa giá để lấy chỗ dựa.",
+      "effects": {
+       "INT": 4,
+       "wealth": -20,
+       "fame": 15,
+       "flags": [
+        "rec_jax_smart"
+       ],
+       "memberJoin": "Jax"
+      }
+     },
+     "fail": {
+      "text": "Hắn vặn lại rằng kỹ năng của hắn xứng đáng từng đồng. Bạn cứng họng, đành dốc sạch tiền túi trả trước vì thực sự cần một tay đao phủ.",
+      "effects": {
+       "wealth": -50,
+       "fame": -10,
+       "flags": [
+        "rec_jax_broke"
+       ],
+       "memberJoin": "Jax"
+      }
+     }
+    },
+    {
+     "label": "Quyết đấu sinh tử chứng minh hắn chưa đủ trình ép giá",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Một trận đụng độ chớp nhoáng, bạn đập văng vũ khí của Jax. Hắn lau máu mép, nể phục sức mạnh của bạn và đồng ý theo không lấy cọc.",
+      "effects": {
+       "STR": 4,
+       "fame": 30,
+       "flags": [
+        "rec_jax_beat"
+       ],
+       "memberJoin": "Jax"
+      }
+     },
+     "fail": {
+      "text": "Jax quá tàn độc, vung đao rạch nát lồng ngực bạn. Bạn gục ngã thoi thóp, hắn lắc đầu chê bai tổ đội phế vật rồi bỏ đi.",
+      "effects": {
+       "health": -35,
+       "joy": -20,
+       "fame": -20,
+       "flags": [
+        "rec_jax_lost"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Từ chối vì giá quá ảo tưởng",
+     "text": "Tiền không phải vỏ hến. Bạn lắc đầu bước đi. Jax lạnh lùng gia nhập một đội đối thủ và trở thành cái gai sắc nhọn ngáng đường bạn sau này.",
+     "effects": {
+      "joy": -5,
+      "wealth": 10,
+      "fame": -15,
+      "flags": [
+       "rec_jax_passed"
+      ]
+     }
+    }
+   ],
+   "moment": "Đừng hỏi một cỗ máy giết chóc về lý tưởng, hãy hỏi giá của nó."
+  },
+  {
+   "id": "beastman_recruit_7",
+   "text": "Đang đi dạo qua ngõ hẹp, bạn thấy Mina bị ba gã côn đồ xăm trổ dồn vào góc tường đòi nợ. Ả bấu víu lấy áo bạn, khóc lóc hứa hẹn sẽ làm tai mắt đưa tin miễn phí suốt đời nếu bạn giúp ả giải vây ngay lúc này.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "recruit",
+   "recall": [
+    {
+     "flags": [
+      "rec_mina_fight"
+     ],
+     "text": "Nắm đấm giải vây côn đồ mang về một tai mắt nhanh nhạy mang tên Mina."
+    },
+    {
+     "flags": [
+      "rec_mina_beat"
+     ],
+     "text": "Vết cắt dao găm sỉ nhục từ bọn đòi nợ nhắc nhở về vụ giải cứu Mina bất thành."
+    },
+    {
+     "flags": [
+      "rec_mina_jump"
+     ],
+     "text": "Cú phi thân mái nhà trót lọt cứu sống cô nàng đưa tin Mina ồn ào."
+    },
+    {
+     "flags": [
+      "rec_mina_fall"
+     ],
+     "text": "Bãi rác hôi thối dìm dập cả cơ thể lẫn danh dự khi trượt chân cứu Mina."
+    },
+    {
+     "flags": [
+      "rec_mina_paid"
+     ],
+     "text": "Dùng Huyết Kim trả nợ thay Mina là cách nhẹ nhàng nhất để thu nạp một tín sứ."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "bandLead": true,
+    "partyMax": 2
+   },
+   "choices": [
+    {
+     "label": "Xông vào đánh bật đám côn đồ",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn tung cước đấm vỡ mũi tên cầm đầu. Bọn chúng hoảng sợ ôm mặt bỏ chạy. Mina reo lên vui sướng, quấn lấy bạn gia nhập đội ngũ tình báo.",
+      "effects": {
+       "STR": 2,
+       "joy": 10,
+       "fame": 10,
+       "flags": [
+        "rec_mina_fight"
+       ],
+       "memberJoin": "Mina"
+      }
+     },
+     "fail": {
+      "text": "Bọn côn đồ rút dao găm đâm loạn xạ. Bạn bị xước chằng chịt, chảy máu lùi lại. Chúng lôi Mina đi mất tăm, bạn ôm cục tức rát buốt.",
+      "effects": {
+       "health": -20,
+       "fame": -15,
+       "flags": [
+        "rec_mina_beat"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Vác Mina lên vai nhảy qua mái nhà bỏ trốn",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Phản xạ như mèo hoang, bạn bế thốc ả đạp tường nhảy vọt lên nóc nhà. Bọn đòi nợ đứng dưới chửi thề bất lực. Bạn thu nạp Mina dễ dàng.",
+      "effects": {
+       "AGI": 3,
+       "fame": 15,
+       "flags": [
+        "rec_mina_jump"
+       ],
+       "memberJoin": "Mina"
+      }
+     },
+     "fail": {
+      "text": "Mái ngói mục nát làm bạn trượt ngã đập lưng xuống đống rác. Bọn chúng xúm vào đập bạn nhừ tử rồi lôi ả đi, để lại bạn bầm dập thảm hại.",
+      "effects": {
+       "health": -25,
+       "fame": -20,
+       "flags": [
+        "rec_mina_fall"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Móc tiền trả nợ thay ả để yên chuyện",
+     "text": "Phiền phức bạo lực không đáng. Bạn quăng tiền trả nợ. Bọn côn đồ rời đi. Mina ôm chân bạn hàm ơn gia nhập, dù cái giá hơi chát.",
+     "effects": {
+      "wealth": -25,
+      "fame": 5,
+      "flags": [
+       "rec_mina_paid"
+      ],
+      "memberJoin": "Mina"
+     }
+    }
+   ],
+   "moment": "Đôi khi tình báo quý giá nhất bắt nguồn từ một rắc rối lố bịch nhất."
+  },
+  {
+   "id": "beastman_recruit_8",
+   "text": "Thorek đỏ mặt tía tai đập bẹp một chiếc khiên sừng vì bị khách hàng chê. Lão cầm búa chỉ vào mặt bạn, gầm gừ thách thức rằng nếu tổ đội của bạn không biết trân trọng và cung cấp đồ da Rồng cho lão, lão thà đập nát xưởng chứ không thèm gia nhập.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "recruit",
+   "recall": [
+    {
+     "flags": [
+      "rec_thorek_smart"
+     ],
+     "text": "Vốn kiến thức sâu rộng về chế tác đã vuốt ve cái tôi khó ở của lão Dwarf Thorek."
+    },
+    {
+     "flags": [
+      "rec_thorek_dumb"
+     ],
+     "text": "Bị ném đe sắt đuổi khỏi xưởng là sự sỉ nhục vì thói giả vờ hiểu biết trước mặt Thorek."
+    },
+    {
+     "flags": [
+      "rec_thorek_drink"
+     ],
+     "text": "Ba vò rượu mạnh và cú nện búa đã kết nghĩa huynh đệ với thợ rèn Thorek."
+    },
+    {
+     "flags": [
+      "rec_thorek_puke"
+     ],
+     "text": "Bãi nôn mửa ngoài vệ đường bêu rếu sự yếu kém tửu lượng trước gã Dwarf Thorek."
+    },
+    {
+     "flags": [
+      "rec_thorek_paid"
+     ],
+     "text": "Dốc túi mua vảy rồng dập tắt cơn thịnh nộ của Thorek để có được thợ chế tác xịn."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "bandLead": true,
+    "partyMax": 2
+   },
+   "choices": [
+    {
+     "label": "Phô diễn kiến thức về da thuộc để vuốt ve cái tôi của lão",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn bình phẩm chính xác về đường khâu ma thuật trên áo giáp của lão. Thorek sáng rực mắt, vỗ đùi đen đét coi bạn là tri kỷ, lập tức xách búa theo đội.",
+      "effects": {
+       "INT": 3,
+       "fame": 15,
+       "flags": [
+        "rec_thorek_smart"
+       ],
+       "memberJoin": "Thorek"
+      }
+     },
+     "fail": {
+      "text": "Bạn nói sai tên một loại quặng, lão nổi điên đuổi bạn ra khỏi xưởng, ném cái đe sượt qua đầu. Bạn vuột mất một thợ chế tác bậc thầy.",
+      "effects": {
+       "health": -10,
+       "joy": -10,
+       "fame": -15,
+       "flags": [
+        "rec_thorek_dumb"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Cùng lão uống rượu thi đập búa khoe sức mạnh",
+     "check": {
+      "stat": "health",
+      "target": 55
+     },
+     "success": {
+      "text": "Uống cạn ba vò rượu mạnh, bạn cầm búa nện nát tảng đá Huyết Kim. Thorek cười sằng sặc, nể phục sức chịu đựng dã thú và vui vẻ gia nhập.",
+      "effects": {
+       "health": 3,
+       "fame": 10,
+       "flags": [
+        "rec_thorek_drink"
+       ],
+       "memberJoin": "Thorek"
+      }
+     },
+     "fail": {
+      "text": "Rượu quá mạnh, bạn nôn thốc nôn tháo ngất xỉu. Thorek khinh bỉ vứt bạn ra ngoài vệ đường rách rưới thảm hại.",
+      "effects": {
+       "health": -25,
+       "fame": -25,
+       "flags": [
+        "rec_thorek_puke"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đặt cọc tiền mua luôn nguyên liệu xịn cho lão",
+     "text": "Không vòng vo, bạn đặt tiền mua một bộ da vảy xịn ném lên bàn. Thorek im bặt cơn giận, cầm vảy rồng lên ngắm nghía rồi tặc lưỡi đi theo bạn.",
+     "effects": {
+      "wealth": -35,
+      "fame": 5,
+      "flags": [
+       "rec_thorek_paid"
+      ],
+      "memberJoin": "Thorek"
+     }
+    }
+   ],
+   "moment": "Đối phó với một nghệ nhân Dwarf, hãy mang theo rượu hoặc sự tôn trọng tuyệt đối."
+  },
+  {
+   "id": "beastman_recruit_9",
+   "text": "Rex kiêu hãnh giẫm chân lên xác một con Heo Rừng Ma khổng lồ. Hắn vuốt ngược bờm, nhìn bạn nửa vời và ra điều kiện: hắn sẽ tham gia đội, nhưng hắn phải là người quyết định con mồi và đi đầu trong mọi cuộc đi săn, không chịu làm lính lác phục tùng.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "recruit",
+   "recall": [
+    {
+     "flags": [
+      "rec_rex_trick"
+     ],
+     "text": "Chức vị Đội trưởng Tiên phong hão huyền xỏ mũi gã sư tử hiếu chiến Rex phục tùng."
+    },
+    {
+     "flags": [
+      "rec_rex_scar"
+     ],
+     "text": "Vết cào rách mặt chứng tỏ sự thất bại khi định chơi trò thao túng quyền lực với Rex."
+    },
+    {
+     "flags": [
+      "rec_rex_beat"
+     ],
+     "text": "Áp đảo gã sư tử Rex bằng sức mạnh thuần túy khẳng định quyền lực độc tôn của bạn."
+    },
+    {
+     "flags": [
+      "rec_rex_beaten"
+     ],
+     "text": "Bờ vai nát vụn vì bại trận trước Rex khắc sâu sự chênh lệch hạng cân dã thú."
+    },
+    {
+     "flags": [
+      "rec_rex_decline"
+     ],
+     "text": "Khước từ Rex bảo vệ kỷ luật thép của tổ đội khỏi mầm mống nổi loạn bất trị."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "bandLead": true,
+    "partyMax": 2
+   },
+   "choices": [
+    {
+     "label": "Thỏa hiệp nhượng quyền chỉ huy chiến thuật phụ",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn dẻo miệng phong hắn làm Đội trưởng Tiên phong, còn bạn nắm quyền vĩ mô. Rex hả hê với danh xưng hào nhoáng, ngoan ngoãn gia nhập mà không biết bị mượn dao giết người.",
+      "effects": {
+       "INT": 3,
+       "fame": 10,
+       "flags": [
+        "rec_rex_trick"
+       ],
+       "memberJoin": "Rex"
+      }
+     },
+     "fail": {
+      "text": "Hắn nhận ra mưu mô chia quyền, rống lên giận dữ cào bạn rách mặt rồi bỏ đi bêu rếu đội của bạn là lũ hèn nhát.",
+      "effects": {
+       "health": -20,
+       "joy": -10,
+       "fame": -25,
+       "flags": [
+        "rec_rex_scar"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Giao đấu áp đảo hắn, buộc hắn cúi đầu",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Trận tử chiến cào nát da thịt. Bạn đè sấp gã sư tử kiêu ngạo xuống đất, gầm lên thị uy. Rex kinh hãi nhận thua, thề trung thành phục tùng bạn vô điều kiện.",
+      "effects": {
+       "STR": 4,
+       "fame": 30,
+       "flags": [
+        "rec_rex_beat"
+       ],
+       "memberJoin": "Rex"
+      }
+     },
+     "fail": {
+      "text": "Sức mạnh của hắn quá khủng khiếp, tát bạn gãy nát bả vai. Bạn ngã gục thảm hại, vuột mất tư cách thu nạp gã chiến thần thảo nguyên.",
+      "effects": {
+       "health": -35,
+       "joy": -20,
+       "fame": -30,
+       "flags": [
+        "rec_rex_beaten"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Lắc đầu quay lưng khước từ sự kiêu ngạo",
+     "text": "Tổ đội không thể có hai con hổ. Bạn từ chối thẳng thừng, bỏ qua sức mạnh của Rex để bảo toàn kỷ luật tuyệt đối cho đội.",
+     "effects": {
+      "joy": 5,
+      "fame": 10,
+      "flags": [
+       "rec_rex_decline"
+      ]
+     }
+    }
+   ],
+   "moment": "Khi kẻ mạnh cúi đầu, vương miện của bạn mới thực sự tỏa sáng."
+  },
+  {
+   "id": "beastman_recruit_10",
+   "text": "Vok ôm cây gậy gỗ tả tơi, đứng thập thò ngoài lều của đội bạn. Gã Goblin nhát cấy xin được vào đội để ăn ké, thề thốt sẽ bùa chú trị thương bọc hậu cực tốt, nhưng kiên quyết từ chối mọi nhiệm vụ phải xông pha đối mặt hiểm nguy.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "recruit",
+   "recall": [
+    {
+     "flags": [
+      "rec_vok_accept"
+     ],
+     "text": "Biến kẻ hèn nhát Vok thành hỗ trợ đắc lực phô diễn tài năng dùng người của bạn."
+    },
+    {
+     "flags": [
+      "rec_vok_fail"
+     ],
+     "text": "Cơn mù lòa do bùa chú nhầm lẫn của Vok là bài học về việc kết nạp lộn phế vật."
+    },
+    {
+     "flags": [
+      "rec_vok_force"
+     ],
+     "text": "Lưỡi đao ép buộc bóc lột sức mạnh bùa chú của gã Goblin Vok đến cùng kiệt."
+    },
+    {
+     "flags": [
+      "rec_vok_flee"
+     ],
+     "text": "Bị tên Goblin Vok cuỗm lương thực trốn chạy là cú tát vào uy tín của tổ đội."
+    },
+    {
+     "flags": [
+      "rec_vok_kick"
+     ],
+     "text": "Cú đá văng Vok bảo vệ sự trong sạch kiêu hãnh của hàng ngũ lính đánh thuê."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "bandLead": true,
+    "partyMax": 2
+   },
+   "choices": [
+    {
+     "label": "Sắp xếp Vok làm pháp sư hậu cần",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Nhìn thấu khả năng hỗ trợ, bạn ký khế ước ép hắn đứng sau yểm trợ. Vok mừng rỡ gia nhập, phép buff của hắn bất ngờ phát huy hiệu quả cứu mạng cả đội nhiều lần.",
+      "effects": {
+       "INT": 2,
+       "joy": 15,
+       "flags": [
+        "rec_vok_accept"
+       ],
+       "memberJoin": "Vok"
+      }
+     },
+     "fail": {
+      "text": "Bạn xếp hắn sai đội hình, trong trận chiến Vok hoảng loạn tung nhầm phép làm cả đội mù tạm thời. Hắn bị ăn đòn một trận nhừ tử rồi bị đuổi cổ đi.",
+      "effects": {
+       "health": -20,
+       "fame": -15,
+       "flags": [
+        "rec_vok_fail"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Cầm dao dọa ép hắn ra tiền tuyến",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn kề dao hù dọa sẽ làm thịt hắn nếu không tiến lên. Vok sợ vãi tè, nhắm mắt tung ma pháp mạnh mẽ tiêu diệt kẻ thù, lết về gia nhập đội dưới sự cai trị bạo chúa của bạn.",
+      "effects": {
+       "STR": 3,
+       "fame": 15,
+       "flags": [
+        "rec_vok_force"
+       ],
+       "memberJoin": "Vok"
+      }
+     },
+     "fail": {
+      "text": "Hắn sợ quá tung bùa khói bỏ chạy mất dép, cuỗm luôn một ít lương thực của đội. Bạn bầm gan tím ruột vì bị con Goblin ranh mãnh lừa gạt.",
+      "effects": {
+       "joy": -10,
+       "wealth": -15,
+       "fame": -10,
+       "flags": [
+        "rec_vok_flee"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đá hắn ra khỏi cửa không dung thứ phế vật",
+     "text": "Đội đánh thuê không phải thùng rác. Bạn đá gã Goblin lăn lông lốc ra đường, giữ vững danh tiếng tổ đội toàn những kẻ tinh nhuệ thiện chiến.",
+     "effects": {
+      "joy": 5,
+      "fame": 10,
+      "flags": [
+       "rec_vok_kick"
+      ]
+     }
+    }
+   ],
+   "moment": "Không có quân cờ vô dụng, chỉ có kẻ cầm quân không biết cách đặt đúng bàn cờ."
   }
  ],
  "deaths": [],
@@ -46198,65 +46207,65 @@
   },
   "minions": {},
   "recruits": {
-   "Roux": {
-    "name": "Roux",
-    "race": "Sói",
-    "position": "Gladiator (Bậc 3)",
-    "desc": "Lì lợm, khát máu, ít nói"
+   "Hask": {
+    "name": "Hask",
+    "race": "Beastman tộc Gấu",
+    "position": "Berserker (Bậc 3)",
+    "desc": "cục cằn, trung thành"
    },
-   "Zila": {
-    "name": "Zila",
-    "race": "Rắn",
-    "position": "Shaman (Bậc 4)",
-    "desc": "Bí hiểm, tham lam, ma mãnh"
-   },
-   "Borm": {
-    "name": "Borm",
-    "race": "Gấu",
-    "position": "Beast Herder (Bậc 2)",
-    "desc": "Hiền lành, to xác, ăn cực nhiều"
-   },
-   "Fael": {
-    "name": "Fael",
+   "Sylf": {
+    "name": "Sylf",
     "race": "Elf",
-    "position": "Scout (Bậc 3)",
-    "desc": "Kiêu ngạo, thù hận, chính xác"
+    "position": "Scout (Bậc 4)",
+    "desc": "cao ngạo, lạnh nhạt"
    },
-   "Krix": {
-    "name": "Krix",
-    "race": "Goblin",
-    "position": "Thief (Bậc 4)",
-    "desc": "Ranh mãnh, hèn nhát, tham sống sợ chết"
+   "Grok": {
+    "name": "Grok",
+    "race": "Orc",
+    "position": "Gladiator (Bậc 3)",
+    "desc": "tham ăn, ồn ào"
    },
-   "Luna": {
-    "name": "Luna",
-    "race": "Cáo",
+   "Nissa": {
+    "name": "Nissa",
+    "race": "Human",
+    "position": "Thief (Bậc 2)",
+    "desc": "ranh mãnh, đa nghi"
+   },
+   "Zev": {
+    "name": "Zev",
+    "race": "Beastman tộc Cáo",
     "position": "Tribal Mage (Bậc 3)",
-    "desc": "Ưa tri thức, lạnh lùng, tò mò"
+    "desc": "xảo quyệt, ham học"
    },
-   "Tyra": {
-    "name": "Tyra",
-    "race": "Sư Tử",
-    "position": "Berserker (Bậc 5)",
-    "desc": "Cuồng nộ, kiêu hãnh, không phục tùng"
+   "Jax": {
+    "name": "Jax",
+    "race": "Lizardman",
+    "position": "Silver Wolf Mercenary (Bậc 4)",
+    "desc": "thực dụng, máu lạnh"
    },
-   "Jin": {
-    "name": "Jin",
-    "race": "Mèo",
+   "Mina": {
+    "name": "Mina",
+    "race": "Beastman tộc Mèo",
     "position": "Courier (Bậc 3)",
-    "desc": "Lười biếng, khôn vặt, tự do"
+    "desc": "nhí nhảnh, nhiều chuyện"
    },
-   "Grum": {
-    "name": "Grum",
+   "Thorek": {
+    "name": "Thorek",
     "race": "Dwarf",
     "position": "Leatherworker (Bậc 4)",
-    "desc": "Cáu bẳn, nát rượu, thù dai"
+    "desc": "tự ái cao, nghiện rượu"
    },
-   "Sola": {
-    "name": "Sola",
-    "race": "Chim",
-    "position": "Silver Wolf Mercenary (Bậc 5)",
-    "desc": "Kiêu sa, tàn nhẫn, tham tiền"
+   "Rex": {
+    "name": "Rex",
+    "race": "Beastman tộc Sư Tử",
+    "position": "Steppe Hunter (Bậc 3)",
+    "desc": "kiêu ngạo, hiếu chiến"
+   },
+   "Vok": {
+    "name": "Vok",
+    "race": "Goblin",
+    "position": "Shaman (Bậc 2)",
+    "desc": "nhát gan, ồn ào"
    }
   },
   "bioMap": null
