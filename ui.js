@@ -66,14 +66,35 @@
   const upper = (t) => (t ? t.charAt(0).toUpperCase() + t.slice(1) : "");
 
   // ---------- sprites ----------
-  // img/<race>.png, img/beastman_<kin>.png, img/<race>__<form>.png; whatever exists in D.images.
+  // img/<who>_<nam|nu|x>_<look>_<n>.png, who = race or race_kin, look = nho | gia | a trade group |
+  // an evolved form (see tools/looks.js). Several variants per group: one is kept per life.
   const slug = (t) => String(t).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "");
+  const AGE_LOOK = { infant: "nho", child: "nho", elder: "gia", ancient: "gia" };
+  let spriteIndex = null;
+  function spriteGroups() {
+    if (spriteIndex) return spriteIndex;
+    spriteIndex = {};
+    for (const f of D.images || []) {
+      const m = f.match(/^(.+)_(\d+)$/);
+      if (m) (spriteIndex[m[1]] = spriteIndex[m[1]] || []).push(f);
+    }
+    return spriteIndex;
+  }
   function spriteOf(ch) {
-    const have = new Set(D.images || []);
-    const base = ch.subtype && have.has(`${ch.race.id}_${ch.subtype}`) ? `${ch.race.id}_${ch.subtype}` : ch.race.id;
-    const keys = [ch.form ? `${ch.race.id}__${slug(ch.form)}` : null, base].filter(Boolean);
-    const k = keys.find((x) => have.has(x));
-    return k ? `img/${k}.png` : null;
+    const groups = spriteGroups();
+    const who = ch.subtype ? `${ch.race.id}_${ch.subtype}` : ch.race.id;
+    const g = ch.gender === "male" ? "nam" : ch.gender === "female" ? "nu" : "x";
+    const og = g === "nam" ? "nu" : g === "nu" ? "nam" : "x";
+    const job = ch.job && (D.jobs || []).find((j) => j.id === ch.job.id);
+    const look = ch.form ? slug(ch.form) : AGE_LOOK[E.currentStage(ch).id] || (job && job.look) || "thuongdan";
+    // closest group that has a picture: same look, then plain clothes, then the other gender, then anything of this people
+    const tries = [`${who}_${g}_${look}`, `${who}_${g}_thuongdan`, `${who}_${og}_${look}`, `${who}_${og}_thuongdan`];
+    let list = tries.map((k) => groups[k]).find(Boolean);
+    if (!list) list = Object.keys(groups).filter((k) => k.startsWith(`${who}_${g}_`)).concat(Object.keys(groups).filter((k) => k.startsWith(`${who}_`))).map((k) => groups[k])[0];
+    if (!list) return null;
+    let h = 0;
+    for (const ch_ of ch.name) h = (h * 31 + ch_.charCodeAt(0)) >>> 0;
+    return `img/${list[h % list.length]}.png`;
   }
   function setSprite(id, ch) {
     const el = $(id);

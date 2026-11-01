@@ -69,6 +69,8 @@ const SPRITES = [
   ["high_demon__demon_god", "Demon God", "a demon god, towering demon with six wings, burning crown, dark cosmic aura, glowing eyes"],
 ];
 
+module.exports = { SPRITES, STYLE };
+if (require.main !== module) return;
 const lines = [
   "# Ảnh nhân vật (pixel art) — danh sách tạo ảnh",
   "",
@@ -95,4 +97,3 @@ fs.writeFileSync(path.join(ROOT, "prompts", "images.md"), lines.join("\n"));
 fs.writeFileSync(path.join(ROOT, "prompts", "images.json"), JSON.stringify(SPRITES.map(([key, label, desc]) => ({ key, label, prompt: `${desc}. ${STYLE}` })), null, 2));
 console.log(`Đã viết prompts/images.md (${SPRITES.length} ảnh)`);
 
-module.exports = { SPRITES };

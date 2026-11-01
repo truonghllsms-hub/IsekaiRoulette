@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Brings character sprites into the game.
 
-    python3 tools/import-images.py <file.zip | folder> [more…]
+    python3 tools/import-images.py <file.zip | file.xlsx | folder> [more…]
 
-For every image whose name matches a key in prompts/images.json (goblin__hobgoblin.png, also
-"Goblin - Hobgoblin (1).jpg"…) it:
+Images come either as files named <Mã ảnh>_<n>.png (goblin_nam_chienbinh_1.png, loose spellings
+are fine) or pasted into the worksheet docs/bang-anh-nhan-vat.xlsx, in the "Ảnh n" cells of a row.
+For every image it:
   1. removes the flat background (flood fill from the border, tolerant to AI noise),
   2. crops to the character,
   3. finds the real pixel size of the art and shrinks it back to that grid (nearest neighbour),
@@ -19,7 +20,9 @@ from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "img")
-KEYS = [x["key"] for x in json.load(open(os.path.join(ROOT, "prompts", "images.json"), encoding="utf8"))]
+ROWS = json.load(open(os.path.join(ROOT, "prompts", "image-rows.json"), encoding="utf8"))
+KEYS = [x["code"] for x in ROWS]
+NEED = {x["code"]: x["count"] for x in ROWS}
 EXTS = (".png", ".jpg", ".jpeg", ".webp")
 
 
@@ -30,17 +33,20 @@ def norm(s):
     return re.sub(r"[^a-z0-9]+", "_", s).strip("_")
 
 
-LOOKUP = {}
-for k in KEYS:
-    LOOKUP[norm(k)] = k
-    LOOKUP[norm(k).replace("__", "_")] = k
-    LOOKUP[norm(k.split("__")[-1])] = LOOKUP.get(norm(k.split("__")[-1]), k)  # "hobgoblin.png" alone
+LOOKUP = {norm(k): k for k in KEYS}
 
 
 def key_for(name):
-    base = norm(os.path.splitext(os.path.basename(name))[0])
-    base = re.sub(r"_\d+$", "", base)
-    return LOOKUP.get(base) or LOOKUP.get(re.sub(r"_+", "_", base))
+    """(code, n) from a file name: goblin_nam_chienbinh_2.png, "Goblin_Nam_ChienBinh (2).jpg"…"""
+    raw = os.path.splitext(os.path.basename(name))[0]
+    paren = re.search(r"\((\d+)\)\s*$", raw)
+    base = norm(raw)
+    m = re.match(r"^(.*?)_(\d+)$", base)
+    if m and m.group(1) in LOOKUP:
+        return LOOKUP[m.group(1)], int(m.group(2))
+    if base in LOOKUP:
+        return LOOKUP[base], int(paren.group(1)) if paren else 1
+    return None, None
 
 
 def remove_background(img, tol=48):
@@ -156,9 +162,71 @@ def process(data, name):
     return rgb, p
 
 
+def xlsx_images(path):
+    """Images in the worksheet: (code, n, bytes). Floating pictures by the cell they sit on, and
+    Excel's "place in cell" pictures through the rich-value tables."""
+    from openpyxl import load_workbook
+    import xml.etree.ElementTree as ET
+    wb = load_workbook(path)
+    out = []
+    for ws in wb.worksheets:
+        head = {c.column: str(c.value or "") for c in ws[1]}
+        def at(row, col):
+            code = ws.cell(row, 1).value
+            m = re.match(r"Ảnh (\d+)", head.get(col, ""))
+            return (code, int(m.group(1))) if code in NEED and m else (None, None)
+        for im in getattr(ws, "_images", []):
+            a = im.anchor._from
+            code, n = at(a.row + 1, a.col + 1)
+            if code:
+                out.append((code, n, im._data()))
+    # pictures placed in cells (Excel 365): cell vm → rich value → relationship → media file
+    z = zipfile.ZipFile(path)
+    names = set(z.namelist())
+    if "xl/richData/richValueRel.xml" in names:
+        ns = {"m": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
+        rels = ET.fromstring(z.read("xl/richData/_rels/richValueRel.xml.rels"))
+        rid2t = {r.get("Id"): r.get("Target") for r in rels}
+        rel_list = [el.get("{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id") for el in ET.fromstring(z.read("xl/richData/richValueRel.xml"))]
+        rv = [int(v.find("{*}v").text) for v in ET.fromstring(z.read("xl/richData/rdrichvalue.xml"))]
+        media = lambda vm: "xl/richData/" + rid2t[rel_list[rv[vm - 1]]] if vm - 1 < len(rv) else None
+        wb_rels = {}
+        for sheet_xml in [n for n in names if re.match(r"xl/worksheets/sheet\d+\.xml$", n)]:
+            root = ET.fromstring(z.read(sheet_xml))
+            cells = {}
+            for c in root.iter("{%s}c" % ns["m"]):
+                cells[c.get("r")] = c
+            def val(ref):
+                c = cells.get(ref)
+                if c is None:
+                    return ""
+                v = c.find("{*}v")
+                if c.get("t") == "s" and v is not None:
+                    return shared[int(v.text)]
+                is_ = c.find("{*}is")
+                return (is_ is not None and "".join(t.text or "" for t in is_.iter("{*}t"))) or (v.text if v is not None else "")
+            shared = []
+            if "xl/sharedStrings.xml" in names:
+                for si in ET.fromstring(z.read("xl/sharedStrings.xml")):
+                    shared.append("".join(t.text or "" for t in si.iter("{*}t")))
+            for ref, c in cells.items():
+                if c.get("vm"):
+                    col, row = re.match(r"([A-Z]+)(\d+)", ref).groups()
+                    code = val(f"A{row}")
+                    m = re.match(r"Ảnh (\d+)", val(f"{col}1"))
+                    target = media(int(c.get("vm")))
+                    if code in NEED and m and target:
+                        target = os.path.normpath(target).replace("\\", "/")
+                        out.append((code, int(m.group(1)), z.read(target)))
+    return out
+
+
 def sources(paths):
     for p in paths:
-        if zipfile.is_zipfile(p):
+        if p.lower().endswith((".xlsx", ".xlsm")):
+            for code, n, data in xlsx_images(p):
+                yield f"{code}_{n}.png", data
+        elif zipfile.is_zipfile(p):
             with zipfile.ZipFile(p) as z:
                 for n in z.namelist():
                     if n.lower().endswith(EXTS) and not n.startswith("__MACOSX"):
@@ -176,21 +244,28 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     done, unknown = [], []
     for name, data in sources(sys.argv[1:]):
-        k = key_for(name)
-        if not k:
-            unknown.append(os.path.basename(name))
+        code, n = key_for(name)
+        if name.lower().endswith((".xlsx", ".xlsm")) or not code:
+            if not code:
+                unknown.append(os.path.basename(name))
             continue
         im, p = process(data, name)
-        im.save(os.path.join(OUT, k + ".png"), optimize=True)
-        done.append(f"{k}  ({im.width}x{im.height}, lưới {p}px, {os.path.getsize(os.path.join(OUT, k + '.png')) // 1024 + 1} KB)")
-    have = {f[:-4] for f in os.listdir(OUT) if f.endswith(".png")}
-    print(f"Đã nhập {len(done)} ảnh:")
-    for d in done:
+        f = f"{code}_{n}.png"
+        im.save(os.path.join(OUT, f), optimize=True)
+        done.append(f"{f}  ({im.width}x{im.height}, lưới {p}px)")
+    files = [f[:-4] for f in os.listdir(OUT) if f.endswith(".png")]
+    have = Counter(re.sub(r"_\d+$", "", f) for f in files)
+    print(f"Đã nhập {len(done)} ảnh.")
+    for d in done[:200]:
         print("  ✓ " + d)
     if unknown:
-        print(f"Không khớp tên ({len(unknown)}): " + ", ".join(unknown))
-    missing = [k for k in KEYS if k not in have]
-    print(f"Đã có {len(have & set(KEYS))}/{len(KEYS)}. Còn thiếu: " + (", ".join(missing) if missing else "không"))
+        print(f"Không khớp tên ({len(unknown)}): " + ", ".join(unknown[:50]))
+    rows_done = sum(1 for k in KEYS if have[k] >= 1)
+    imgs = sum(min(have[k], NEED[k]) for k in KEYS)
+    print(f"Nhóm hình đã có ảnh: {rows_done}/{len(KEYS)} · ảnh: {imgs}/{sum(NEED.values())}")
+    missing = [k for k in KEYS if not have[k]]
+    if missing:
+        print("Nhóm chưa có ảnh nào (10 đầu, theo thứ tự ưu tiên): " + ", ".join(missing[:10]))
 
 
 if __name__ == "__main__":
