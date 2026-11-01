@@ -4,6 +4,8 @@ const C = require("./_civil");
 module.exports = {
   race: "beastman",
   script: "content/scripts/beastman.txt",
+  story: "content/scripts/beastman_story.txt",
+  storyStatScale: 0.6,
 
   // nine animal kins, rolled at birth with the script's shares and suggested stats ("Sức khỏe +1" = +5 health)
   subtypes: [

@@ -37,7 +37,11 @@ function normalizeStory(text) {
       line = line.replace(/^(\s*[a-c]\) (?:MỞ CHƯƠNG|TIỂU SỬ KHI CHẾT|NHỮNG NĂM YÊN Ả CÓ KÝ ỨC))(?:\s*\([^)]*\))?\s+/i, "$1\n");
       line = line.replace(COND_RE, "\n").replace(/(\(\d+[^)]*tuổi\))\s+(?=\()/g, "$1\n");
     }
-    if (mode === "cast") line = line.replace(/(Nhắc lại:)\s+/, "$1\n").replace(/(?<=[.!?…"”])\s+(?=\([a-z][a-z0-9_]*\)\s)/g, "\n");
+    if (mode === "cast") {
+      line = line.replace(/(Nhắc lại:)\s+/, "$1\n").replace(/(?<=[.!?…"”])\s+(?=\([a-z][a-z0-9_]*\)\s)/g, "\n");
+      // recall sentences of a cast kind, glued on one line: one per line
+      line = line.split("\n").map((l) => (/^\s*(Mô tả|KIỂU|Nhắc lại:$)/.test(l) ? l : l.split(/(?<=[.!?…])\s+(?=[\p{Lu}{"“])/u).join("\n"))).join("\n");
+    }
     if (mode === "band") {
       line = line.replace(/^(\s*Thành viên \(\d+ [^)]*\):)\s+/, "$1\n").replace(MEMBER_RE, "\n").replace(PARTY_MEMBER_RE, "\n");
       // "Điều kiện gia nhập: …. Câu nhắc lại 1. Câu nhắc lại 2." : what follows the condition is recall

@@ -413,7 +413,14 @@ function parse(text) {
       }
       // event fields
       if (block && block.type === "event" && !block.inline) {
-        if (key === "khi nào") { block.when = val; continue; }
+        if (key === "khi nào") {
+          // a "Khi nào" under a choice locks that choice only
+          if (opt && block.choices && block.choices.includes(opt)) {
+            const fl = val.match(/[a-z][a-z0-9]*_[a-z0-9_]+/g);
+            if (fl) { opt.needAnyFlags = fl; continue; }
+          }
+          block.when = val; continue;
+        }
         if (key === "tình huống") { block.text = val; continue; }
         if (key === "hệ quả") { block.auto = splitOutcome(val); continue; }
         if (key === "khoảnh khắc") { block.moment = val; continue; }

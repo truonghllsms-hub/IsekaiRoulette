@@ -21163,6 +21163,2400 @@
     }
    ],
    "moment": "Trận chiến sinh tử giữa hai tổ đội đối địch."
+  },
+  {
+   "id": "dwarf_cast_mentor_a_1",
+   "text": "Bạn lảng vảng gần Lò Rèn Vĩnh Cửu và bị {mentor} tóm cổ. Lão ném cho bạn một cây búa tạ xỉn màu, chỉ tay vào đe sắt mà không nói lời nào.",
+   "stages": [
+    "child",
+    "teen"
+   ],
+   "arc": "mentor_a",
+   "recall": [
+    {
+     "flags": [
+      "mentor_a_1_nhan_de_tu"
+     ],
+     "text": "Cây búa tạ xỉn màu {mentor} tặng là vật bất ly thân của bạn."
+    },
+    {
+     "flags": [
+      "mentor_a_1_bi_che"
+     ],
+     "text": "Ngón chân bạn vẫn hơi tật vì cú đập búa hụt trước mặt {mentor}."
+    },
+    {
+     "flags": [
+      "mentor_a_1_bo_chay"
+     ],
+     "text": "Bạn từng bỏ chạy vì sợ cây búa của {mentor}."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "mentor_a",
+    "castAlive": "mentor"
+   },
+   "choices": [
+    {
+     "label": "Dùng hết sức quai búa xuống đe",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Tiếng vang chát chúa vang lên, đốm lửa tóe ra. Lão gật đầu ưng ý, ném cho bạn một miếng thịt nướng.",
+      "effects": {
+       "STR": 1,
+       "fame": 5,
+       "flags": [
+        "mentor_a_1_nhan_de_tu"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Búa quá nặng khiến bạn trượt tay, đập vào ngón chân. Lão lắc đầu khinh bỉ.",
+      "effects": {
+       "health": -5,
+       "joy": -5,
+       "flags": [
+        "mentor_a_1_bi_che"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Sợ hãi bỏ chạy khỏi lò rèn",
+     "text": "Bạn luống cuống bỏ chạy, để lại tiếng cười nhạt của lão.",
+     "effects": {
+      "fame": -10,
+      "flags": [
+       "mentor_a_1_bo_chay"
+      ]
+     }
+    }
+   ],
+   "moment": "Đối mặt với bài kiểm tra im lặng của {mentor}."
+  },
+  {
+   "id": "dwarf_cast_mentor_a_2",
+   "text": "{mentor} giao cho bạn một thỏi Huyết Kim cực kỳ khó nung chảy. Lão yêu cầu bạn phải giữ lửa lò liên tục trong ba ngày ba đêm.",
+   "stages": [
+    "child",
+    "teen",
+    "adult",
+    "middle"
+   ],
+   "arc": "mentor_a",
+   "recall": [
+    {
+     "flags": [
+      "mentor_a_2_thanh_cong"
+     ],
+     "text": "Vại bia của {mentor} thưởng cho bạn sau ba đêm thức trắng là vại ngon nhất."
+    },
+    {
+     "flags": [
+      "mentor_a_2_ngu_guc"
+     ],
+     "text": "Bạn luôn áy náy vì đã làm hỏng thỏi Huyết Kim quý của {mentor}."
+    },
+    {
+     "flags": [
+      "mentor_a_2_gian_lan"
+     ],
+     "text": "Vết roi của {mentor} dạy bạn rằng nghề rèn không có đường tắt."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "mentor_a",
+    "castAlive": "mentor"
+   },
+   "choices": [
+    {
+     "label": "Thức trắng đêm canh lửa",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Bạn kiệt sức nhưng thỏi Huyết Kim đã hóa lỏng hoàn hảo. {mentor} rót cho bạn một vại bia đầy.",
+      "effects": {
+       "STR": 2,
+       "INT": 1,
+       "wealth": 10,
+       "flags": [
+        "mentor_a_2_thanh_cong"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn ngủ gục, lửa tắt ngấm. Thỏi kim loại nứt toác, lão tức giận đá bạn ra khỏi xưởng.",
+      "effects": {
+       "health": -15,
+       "joy": -10,
+       "flags": [
+        "mentor_a_2_ngu_guc"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Lén bỏ thêm than ma thuật cho nhanh",
+     "text": "Lửa bùng lên dữ dội làm hỏng quặng. Lão phát hiện và đánh đòn bạn nhừ tử.",
+     "effects": {
+      "health": -20,
+      "fame": -10,
+      "flags": [
+       "mentor_a_2_gian_lan"
+      ]
+     }
+    }
+   ],
+   "moment": "Rèn luyện lòng kiên nhẫn với Huyết Kim cùng {mentor}."
+  },
+  {
+   "id": "dwarf_cast_mentor_a_3",
+   "text": "Lò rèn bị kẹt xỉ than ở tầng sâu nhất. {mentor} chỉ tay xuống hố lửa đang nguội dần, ý bảo bạn trèo xuống khơi thông luồng gió.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "arc": "mentor_a",
+   "recall": [
+    {
+     "flags": [
+      "mentor_a_3_an_toan"
+     ],
+     "text": "Bạn nắm rõ từng ngóc ngách hầm gió dưới Lò Rèn Vĩnh Cửu nhờ {mentor}."
+    },
+    {
+     "flags": [
+      "mentor_a_3_bong_chan"
+     ],
+     "text": "Chân bạn thỉnh thoảng đau rát nhớ lại vụ kẹt xỉ lò rèn."
+    },
+    {
+     "flags": [
+      "mentor_a_3_tu_choi"
+     ],
+     "text": "Bạn luôn tự trách vì để {mentor} già cả phải chui xuống đáy lò."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "mentor_a_2_thanh_cong",
+     "mentor_a_2_ngu_guc"
+    ],
+    "cast": "mentor_a",
+    "castAlive": "mentor"
+   },
+   "choices": [
+    {
+     "label": "Trèo xuống hầm lò tối tăm",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn chui xuống, đập vỡ tảng xỉ than và leo lên an toàn trước khi khí độc tỏa ra.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "flags": [
+        "mentor_a_3_an_toan"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Xỉ than lở xuống đè trúng chân bạn. {mentor} phải kéo bạn lên trong tình trạng bỏng nặng.",
+      "effects": {
+       "health": -20,
+       "joy": -5,
+       "flags": [
+        "mentor_a_3_bong_chan"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Từ chối vì quá nguy hiểm",
+     "text": "Lão nhìn bạn thất vọng, tự mình trèo xuống và ho sặc sụa nhiều ngày sau đó.",
+     "effects": {
+      "joy": -15,
+      "fame": -10,
+      "flags": [
+       "mentor_a_3_tu_choi"
+      ]
+     }
+    }
+   ],
+   "moment": "Dọn dẹp hầm xỉ than khổng lồ theo lệnh {mentor}."
+  },
+  {
+   "id": "dwarf_cast_mentor_a_4",
+   "text": "Một con Rồng đất nhỏ xông vào xưởng rèn ăn cắp quặng. {mentor} rút cây búa chiến cũ kỹ ra, nhưng lão đã quá già và bị rồng quật ngã.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "arc": "mentor_a",
+   "recall": [
+    {
+     "flags": [
+      "mentor_a_4_cuu_mang"
+     ],
+     "text": "Bạn tự hào vì đã dùng đe sắt cứu mạng {mentor}."
+    },
+    {
+     "flags": [
+      "mentor_a_4_thuong_nang"
+     ],
+     "text": "{mentor} càng yếu hơn sau trận chiến với rồng bảo vệ bạn."
+    },
+    {
+     "flags": [
+      "mentor_a_4_so_hai"
+     ],
+     "text": "Ánh mắt khinh thường của {mentor} găm chặt vào lương tâm bạn."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "mentor_a",
+    "castAlive": "mentor"
+   },
+   "choices": [
+    {
+     "label": "Vác đe sắt lao ra đỡ đòn cho lão",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Bạn dùng đe sắt nện choáng con rồng, cứu mạng lão. Lão cười lớn, vỗ vai bạn tự hào.",
+      "effects": {
+       "fame": 25,
+       "flags": [
+        "mentor_a_4_cuu_mang"
+       ],
+       "castBond": {
+        "mentor": 30
+       }
+      }
+     },
+     "fail": {
+      "text": "Bạn bị đuôi rồng quật văng. {mentor} phải liều mạng đuổi nó đi và bị thương nặng.",
+      "effects": {
+       "health": -30,
+       "fame": -10,
+       "flags": [
+        "mentor_a_4_thuong_nang"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Núp sau đống than chờ rồng đi khỏi",
+     "text": "Con rồng cuỗm sạch quặng rồi bay đi. Lão nhìn bạn với ánh mắt nguội lạnh.",
+     "effects": {
+      "joy": -20,
+      "wealth": -20,
+      "flags": [
+       "mentor_a_4_so_hai"
+      ]
+     }
+    }
+   ],
+   "moment": "Chạm trán rồng đất bảo vệ xưởng rèn của {mentor}."
+  },
+  {
+   "id": "dwarf_cast_mentor_a_5",
+   "text": "{mentor} nằm thoi thóp trên giường bệnh. Lão trao cho bạn chiếc tẩu xương và cây búa chiến, ra hiệu mỏi mệt muốn bạn rèn một chiếc quan tài bằng thép.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "arc": "mentor_a",
+   "recall": [
+    {
+     "flags": [
+      "mentor_a_5_man_nguyen"
+     ],
+     "text": "Chiếc quan tài bằng thép của {mentor} là kiệt tác cả đời của bạn."
+    },
+    {
+     "flags": [
+      "mentor_a_5_dang_do"
+     ],
+     "text": "Bạn dằn vặt vì rèn hỏng nắp quan tài của {mentor}."
+    },
+    {
+     "flags": [
+      "mentor_a_5_tron_tranh"
+     ],
+     "text": "Tẩu xương của {mentor} nằm chỏng chơ vì bạn không dám dùng lại."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "mentor_a",
+    "castAlive": "mentor"
+   },
+   "choices": [
+    {
+     "label": "Rèn cật lực để hoàn thành tâm nguyện",
+     "check": {
+      "stat": "health",
+      "target": 55
+     },
+     "success": {
+      "text": "Bạn rèn xong chiếc quan tài hoàn mỹ. {mentor} nhắm mắt xuôi tay trong nụ cười mãn nguyện.",
+      "effects": {
+       "joy": 20,
+       "fame": 15,
+       "flags": [
+        "mentor_a_5_man_nguyen"
+       ],
+       "castDie": [
+        "mentor"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Mắt mờ tay mỏi, bạn rèn hỏng tấm thép nắp. Lão thở dài rồi qua đời trong im lặng.",
+      "effects": {
+       "health": -10,
+       "joy": -20,
+       "flags": [
+        "mentor_a_5_dang_do"
+       ],
+       "castDie": [
+        "mentor"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Thuê thợ khác rèn vì không nỡ tự làm",
+     "text": "Bạn không chịu nổi nỗi đau. Quan tài được hoàn thành nhưng không có linh hồn.",
+     "effects": {
+      "joy": -10,
+      "wealth": -20,
+      "flags": [
+       "mentor_a_5_tron_tranh"
+      ],
+      "castDie": [
+       "mentor"
+      ]
+     }
+    }
+   ],
+   "moment": "Đóng nắp quan tài thép tiễn đưa {mentor}."
+  },
+  {
+   "id": "dwarf_cast_mentor_b_1",
+   "text": "Bạn tò mò muốn trốn ra khỏi cổng núi xem thế giới. {mentor} tóm cổ áo bạn xách lên, ném trả vào trong và quát tháo về sự nguy hiểm bên ngoài.",
+   "stages": [
+    "child",
+    "teen"
+   ],
+   "arc": "mentor_b",
+   "recall": [
+    {
+     "flags": [
+      "mentor_b_1_buong_binh"
+     ],
+     "text": "{mentor} vẫn thường nhắc lại cú cắn trộm của bạn ngày bé."
+    },
+    {
+     "flags": [
+      "mentor_b_1_dap_mui"
+     ],
+     "text": "Vết bầm trên mũi nhắc bạn không bao giờ được cãi lời {mentor}."
+    },
+    {
+     "flags": [
+      "mentor_b_1_ngoan_ngoan"
+     ],
+     "text": "{mentor} từng chê bạn quá hiền lành so với một Dwarf."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "mentor_b",
+    "castAlive": "mentor"
+   },
+   "choices": [
+    {
+     "label": "Vùng vằng cắn vào tay bà ta",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn cắn trúng, bà ta bật cười sảng khoái vì sự bướng bỉnh của bạn và cho một ngụm bia.",
+      "effects": {
+       "STR": 1,
+       "joy": 5,
+       "flags": [
+        "mentor_b_1_buong_binh"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bà ta hất bạn ngã dập mũi, mắng cho một trận nhớ đời.",
+      "effects": {
+       "health": -10,
+       "joy": -5,
+       "flags": [
+        "mentor_b_1_dap_mui"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Khoanh tay ngoan ngoãn xin lỗi",
+     "text": "Bạn cúi gầm mặt. Bà ta chán nản vỗ mông bạn đuổi về.",
+     "effects": {
+      "fame": -5,
+      "flags": [
+       "mentor_b_1_ngoan_ngoan"
+      ]
+     }
+    }
+   ],
+   "moment": "Bị {mentor} tóm cổ khi định trốn khỏi núi."
+  },
+  {
+   "id": "dwarf_cast_mentor_b_2",
+   "text": "{mentor} quyết định dạy bạn cách dùng khiên. Bà ta bắt bạn cầm một chiếc mâm gỗ nhỏ và liên tục ném đá tảng vào bạn.",
+   "stages": [
+    "child",
+    "teen",
+    "adult",
+    "middle"
+   ],
+   "arc": "mentor_b",
+   "recall": [
+    {
+     "flags": [
+      "mentor_b_2_do_don"
+     ],
+     "text": "Chiếc khiên sắt {mentor} tặng luôn được bạn đánh bóng mỗi ngày."
+    },
+    {
+     "flags": [
+      "mentor_b_2_vo_dau"
+     ],
+     "text": "Bài học khiên của {mentor} để lại cho bạn một vết sẹo trên trán."
+    },
+    {
+     "flags": [
+      "mentor_b_2_thoa_hiep"
+     ],
+     "text": "Bạn không bao giờ học được kỹ năng dùng khiên từ {mentor}."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "mentor_b",
+    "castAlive": "mentor"
+   },
+   "choices": [
+    {
+     "label": "Tập trung phán đoán quỹ đạo đá",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn nghiêng mâm gạt văng tảng đá cuối cùng. Bà ta khen ngợi và thưởng cho một chiếc khiên sắt.",
+      "effects": {
+       "STR": 1,
+       "AGI": 2,
+       "flags": [
+        "mentor_b_2_do_don"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Đá văng trúng đầu khiến bạn bất tỉnh. Tỉnh dậy thấy bà ta đang nhét củ hành vào mũi bạn.",
+      "effects": {
+       "INT": -1,
+       "health": -20,
+       "flags": [
+        "mentor_b_2_vo_dau"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Cầm mâm gỗ bỏ chạy",
+     "text": "Bạn lẩn trốn, bà ta gầm gừ nguyền rủa bạn là đồ thỏ đế.",
+     "effects": {
+      "health": 5,
+      "fame": -15,
+      "flags": [
+       "mentor_b_2_thoa_hiep"
+      ]
+     }
+    }
+   ],
+   "moment": "Luyện tập kỹ năng dùng khiên khắc nghiệt với {mentor}."
+  },
+  {
+   "id": "dwarf_cast_mentor_b_3",
+   "text": "Lễ hội thu hoạch, {mentor} thách bạn thi uống bia đen ủ mười năm. Xung quanh đám đông lính gác hò reo cá cược.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "arc": "mentor_b",
+   "recall": [
+    {
+     "flags": [
+      "mentor_b_3_thang_bia"
+     ],
+     "text": "Kỷ lục uống bia hạ gục {mentor} của bạn vẫn được lưu truyền."
+    },
+    {
+     "flags": [
+      "mentor_b_3_non_mua"
+     ],
+     "text": "Dạ dày bạn vẫn lộn nhạo khi nhớ đến thùng bia đen của {mentor}."
+    },
+    {
+     "flags": [
+      "mentor_b_3_an_gian"
+     ],
+     "text": "Bạn từng bị bêu riếu vì dám ăn gian trong cuộc thi uống với {mentor}."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "mentor_b_2_do_don",
+     "mentor_b_2_vo_dau"
+    ],
+    "cast": "mentor_b",
+    "castAlive": "mentor"
+   },
+   "choices": [
+    {
+     "label": "Nốc cạn từng thùng không khoan nhượng",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Bạn gục xuống bàn ngay sau khi bà ta ngã lăn ra sàn. Bạn thắng cuộc trong tiếng tung hô.",
+      "effects": {
+       "joy": 10,
+       "wealth": 10,
+       "fame": 15,
+       "flags": [
+        "mentor_b_3_thang_bia"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn nôn thốc nôn tháo, bị khiêng về nhà và bị bà ta cười nhạo suốt một tháng.",
+      "effects": {
+       "health": -15,
+       "fame": -10,
+       "flags": [
+        "mentor_b_3_non_mua"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Lén đổ bia xuống gầm bàn",
+     "text": "Bạn ăn gian nhưng bị phát hiện, phải trả tiền cho toàn bộ vại bia của mọi người.",
+     "effects": {
+      "wealth": -20,
+      "fame": -15,
+      "flags": [
+       "mentor_b_3_an_gian"
+      ]
+     }
+    }
+   ],
+   "moment": "Đọ tửu lượng với {mentor} trong lễ hội."
+  },
+  {
+   "id": "dwarf_cast_mentor_b_4",
+   "text": "Một bầy Goblin đột kích cổng núi trong đêm. {mentor} cầm khiên tháp chặn độc đạo nhưng bị thương ở chân, máu chảy ròng ròng. Bầy Goblin đông đặc đang ùa tới.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "arc": "mentor_b",
+   "recall": [
+    {
+     "flags": [
+      "mentor_b_4_sat_canh"
+     ],
+     "text": "Trận huyết chiến sát cánh cùng {mentor} biến bạn thành anh hùng."
+    },
+    {
+     "flags": [
+      "mentor_b_4_mat_kem"
+     ],
+     "text": "{mentor} mang theo hàng tá vết sẹo vì che chắn cho bạn khỏi lũ Goblin."
+    },
+    {
+     "flags": [
+      "mentor_b_4_goi_nguoi"
+     ],
+     "text": "Bạn dằn vặt vì đã bỏ mặc {mentor} ở lại cổng thành đêm đó."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "mentor_b",
+    "castAlive": "mentor"
+   },
+   "choices": [
+    {
+     "label": "Vác rìu đứng cạnh sát cánh cùng bà",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Hai người lập thành bức tường thép, chém gục hàng tá Goblin cho đến khi viện binh tới.",
+      "effects": {
+       "STR": 2,
+       "fame": 30,
+       "flags": [
+        "mentor_b_4_sat_canh"
+       ],
+       "castBond": {
+        "mentor": 20
+       }
+      }
+     },
+     "fail": {
+      "text": "Bạn bị Goblin cào trúng mắt, {mentor} phải dùng khiên che chắn cho bạn và nhận thêm nhiều vết thương.",
+      "effects": {
+       "health": -30,
+       "fame": -10,
+       "flags": [
+        "mentor_b_4_mat_kem"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Chạy đi gọi viện binh",
+     "text": "Bạn quay lưng chạy. Khi viện binh tới, {mentor} đã gục ngã trên vũng máu của chính mình.",
+     "effects": {
+      "health": -5,
+      "joy": -20,
+      "flags": [
+       "mentor_b_4_goi_nguoi"
+      ]
+     }
+    }
+   ],
+   "moment": "Chặn đứng bầy Goblin tấn công cùng {mentor}."
+  },
+  {
+   "id": "dwarf_cast_mentor_b_5",
+   "text": "{mentor} tuổi cao sức yếu, không thể nâng nổi chiếc khiên thép đen nữa. Bà gọi bạn đến, chà tay lên mặt khiên và hỏi bạn có sẵn sàng nhận lấy trọng trách giữ cổng không.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "arc": "mentor_b",
+   "recall": [
+    {
+     "flags": [
+      "mentor_b_5_khe_uoc"
+     ],
+     "text": "Chiếc khiên thép đen của {mentor} giờ là lá chắn vững chãi của bạn."
+    },
+    {
+     "flags": [
+      "mentor_b_5_that_vong"
+     ],
+     "text": "Bạn luôn thấy áy náy vì đã làm rơi chiếc khiên tâm huyết của {mentor}."
+    },
+    {
+     "flags": [
+      "mentor_b_5_tu_choi"
+     ],
+     "text": "{mentor} mất đi mà không tìm được người kế thừa chiếc khiên thép."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "mentor_b",
+    "castAlive": "mentor"
+   },
+   "choices": [
+    {
+     "label": "Quỳ xuống thề nhận lấy khiên",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn đỡ lấy chiếc khiên, cảm nhận sức nặng của lịch sử. Bà mỉm cười, bình thản nhắm mắt.",
+      "effects": {
+       "joy": 10,
+       "fame": 25,
+       "flags": [
+        "mentor_b_5_khe_uoc"
+       ],
+       "castDie": [
+        "mentor"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Chiếc khiên quá nặng khiến bạn tuột tay làm nó rơi ầm xuống đất. Bà chắp tay thất vọng rồi qua đời.",
+      "effects": {
+       "joy": -15,
+       "flags": [
+        "mentor_b_5_that_vong"
+       ],
+       "castDie": [
+        "mentor"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Từ chối vì cảm thấy không xứng đáng",
+     "text": "Bạn lắc đầu. Bà cất chiếc khiên vào hòm, mang nỗi buồn xuống mồ.",
+     "effects": {
+      "joy": -20,
+      "fame": -10,
+      "flags": [
+       "mentor_b_5_tu_choi"
+      ],
+      "castDie": [
+       "mentor"
+      ]
+     }
+    }
+   ],
+   "moment": "Kế thừa di sản và trách nhiệm từ {mentor}."
+  },
+  {
+   "id": "dwarf_cast_mentor_c_1",
+   "text": "{mentor} lôi bạn vào góc tối của quán rượu, đập cuốn sổ lên bàn bụi bay mù mịt, ép bạn phải học thuộc tên của ba gia tộc Elf từng lừa gạt cụ cố bạn.",
+   "stages": [
+    "child",
+    "teen"
+   ],
+   "arc": "mentor_c",
+   "recall": [
+    {
+     "flags": [
+      "mentor_c_1_ghi_nho"
+     ],
+     "text": "Bạn không bao giờ quên danh sách kẻ thù mà {mentor} bắt học thuộc."
+    },
+    {
+     "flags": [
+      "mentor_c_1_bi_dap"
+     ],
+     "text": "Cú đập bằng sổ của {mentor} vẫn ám ảnh bạn mỗi khi nghe tới Elf."
+    },
+    {
+     "flags": [
+      "mentor_c_1_bo_ngoai_tai"
+     ],
+     "text": "{mentor} từng khóc lóc vì bạn không chịu học Sổ Oán Hận."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "mentor_c",
+    "castAlive": "mentor"
+   },
+   "choices": [
+    {
+     "label": "Cố gắng đọc và ghi nhớ",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn đọc thuộc lòng. Lão vỗ đùi bôm bốp, khen ngợi huyết thống gia tộc và mua cho bạn cái bánh thịt.",
+      "effects": {
+       "INT": 1,
+       "joy": 5,
+       "flags": [
+        "mentor_c_1_ghi_nho"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn đọc vấp, lão dùng cuốn sổ đập vào đầu bạn và mắng mỏ thậm tệ.",
+      "effects": {
+       "health": -5,
+       "joy": -10,
+       "flags": [
+        "mentor_c_1_bi_dap"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Bỏ ngoài tai, đòi ăn kẹo",
+     "text": "Bạn quấy khóc. Lão tặc lưỡi bỏ đi, càu nhàu rằng thế hệ trẻ đã hỏng hết.",
+     "effects": {
+      "fame": -5,
+      "flags": [
+       "mentor_c_1_bo_ngoai_tai"
+      ]
+     }
+    }
+   ],
+   "moment": "Buổi học vỡ lòng về thù hận với {mentor}."
+  },
+  {
+   "id": "dwarf_cast_mentor_c_2",
+   "text": "{mentor} lôi bạn đến nhà một gã thợ mỏ đã nợ ông nội lão 5 đồng Tinh Bạc từ 50 năm trước. Gã kia từ chối trả vì ông nội bạn đã mất. Lão hất cằm bảo bạn ra tay.",
+   "stages": [
+    "child",
+    "teen",
+    "adult",
+    "middle"
+   ],
+   "arc": "mentor_c",
+   "recall": [
+    {
+     "flags": [
+      "mentor_c_2_doi_no"
+     ],
+     "text": "Bạn tự hào khi giúp {mentor} gạch được một món nợ máu."
+    },
+    {
+     "flags": [
+      "mentor_c_2_no_don"
+     ],
+     "text": "Bạn bị đánh bầm dập chỉ vì món nợ vớ vẩn trong sổ của {mentor}."
+    },
+    {
+     "flags": [
+      "mentor_c_2_can_ngan"
+     ],
+     "text": "Tên bạn nằm chình ình trong phụ lục Sổ Oán Hận của {mentor}."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "mentor_c",
+    "castAlive": "mentor"
+   },
+   "choices": [
+    {
+     "label": "Túm cổ áo gã ném ra đường",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Gã khiếp sợ phải đập lợn đất moi đủ 5 đồng trả bạn. {mentor} cười đắc ý gạch một dòng trong sổ.",
+      "effects": {
+       "wealth": 15,
+       "fame": 10,
+       "flags": [
+        "mentor_c_2_doi_no"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Gã to con hơn, đánh bạn bầm dập. {mentor} say bét nhè chỉ biết đứng nhìn và chửi thề.",
+      "effects": {
+       "health": -15,
+       "fame": -10,
+       "flags": [
+        "mentor_c_2_no_don"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Khuyên can lão ra về",
+     "text": "Bạn lôi lão đi. Lão vùng vằng, ghi tên bạn vào phần phụ lục của cuốn sổ.",
+     "effects": {
+      "joy": -10,
+      "flags": [
+       "mentor_c_2_can_ngan"
+      ],
+      "castBond": {
+       "mentor": -10
+      }
+     }
+    }
+   ],
+   "moment": "Cùng {mentor} đi đòi một món nợ vô lý từ đời trước."
+  },
+  {
+   "id": "dwarf_cast_mentor_c_3",
+   "text": "Lão say khướt và đánh rơi cuốn Sổ Oán Hận xuống vực sông ngầm gần tổ của lũ Nhện đá. {mentor} hoảng loạn, đe dọa sẽ nhảy xuống tự tử nếu mất sổ.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "arc": "mentor_c",
+   "recall": [
+    {
+     "flags": [
+      "mentor_c_3_lay_lai"
+     ],
+     "text": "Bạn là ân nhân lớn nhất đời {mentor} vì nhặt lại cuốn sổ."
+    },
+    {
+     "flags": [
+      "mentor_c_3_nhiem_doc"
+     ],
+     "text": "Cánh tay bạn thường đau nhức do nọc nhện khi tìm sổ cho {mentor}."
+    },
+    {
+     "flags": [
+      "mentor_c_3_mat_so"
+     ],
+     "text": "{mentor} như người mất hồn từ ngày cuốn Sổ Oán Hận rơi xuống sông."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "mentor_c",
+    "castAlive": "mentor"
+   },
+   "choices": [
+    {
+     "label": "Đu dây xuống nhặt lại sổ",
+     "check": {
+      "stat": "AGI",
+      "target": 10
+     },
+     "success": {
+      "text": "Bạn đá bay một con nhện, nhặt được sổ và leo lên an toàn. {mentor} ôm lấy bạn khóc nức nở.",
+      "effects": {
+       "fame": 15,
+       "flags": [
+        "mentor_c_3_lay_lai"
+       ],
+       "castBond": {
+        "mentor": 20
+       }
+      }
+     },
+     "fail": {
+      "text": "Nhện độc cắn trúng tay bạn. Bạn kéo được sổ lên nhưng tay sưng vù nhiều ngày.",
+      "effects": {
+       "health": -25,
+       "wealth": -10,
+       "flags": [
+        "mentor_c_3_nhiem_doc"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Trói lão lại, mặc kệ cuốn sổ",
+     "text": "Bạn cứu mạng lão nhưng lão suy sụp, mất đi mục đích sống và nằm liệt giường.",
+     "effects": {
+      "joy": -20,
+      "fame": -15,
+      "flags": [
+       "mentor_c_3_mat_so"
+      ]
+     }
+    }
+   ],
+   "moment": "Cứu cuốn Sổ Oán Hận khỏi vực sâu sông ngầm."
+  },
+  {
+   "id": "dwarf_cast_mentor_c_4",
+   "text": "Kẻ thù lớn nhất trong sổ, một pháp sư Human từng sỉ nhục gia tộc bạn, nay đi ngang qua núi. {mentor} run rẩy giúi cho bạn cây rìu và chỉ vào lều của gã lúc nửa đêm.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "arc": "mentor_c",
+   "recall": [
+    {
+     "flags": [
+      "mentor_c_4_phuc_thu"
+     ],
+     "text": "Màn phục thù pháp sư cùng {mentor} là giai thoại lẫy lừng."
+    },
+    {
+     "flags": [
+      "mentor_c_4_chay_nhuc"
+     ],
+     "text": "Chòm râu của bạn mất nhiều năm mới mọc lại sau vụ đi theo {mentor}."
+    },
+    {
+     "flags": [
+      "mentor_c_4_dot_so"
+     ],
+     "text": "{mentor} căm phẫn gọi bạn là kẻ phản bội vì đã đốt Sổ Oán Hận."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "mentor_c_3_lay_lai",
+     "mentor_c_3_nhiem_doc"
+    ],
+    "cast": "mentor_c",
+    "castAlive": "mentor"
+   },
+   "choices": [
+    {
+     "label": "Ám sát gã pháp sư",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn chặt đứt cây gậy phép của gã, ép gã quỳ lạy xin lỗi. {mentor} sung sướng xé bỏ trang sổ đó.",
+      "effects": {
+       "wealth": 20,
+       "fame": 25,
+       "flags": [
+        "mentor_c_4_phuc_thu"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Gã thức giấc, tung quả cầu lửa thiêu cháy râu tóc bạn. Hai chú cháu phải chạy trối chết.",
+      "effects": {
+       "health": -25,
+       "fame": -20,
+       "flags": [
+        "mentor_c_4_chay_nhuc"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đốt cuốn sổ oán hận vào lửa trại",
+     "text": "Bạn quyết định chấm dứt vòng xoáy. Lão gào thét như bị rạch thịt, rồi ngất lịm đi.",
+     "effects": {
+      "joy": 10,
+      "flags": [
+       "mentor_c_4_dot_so"
+      ],
+      "castBond": {
+       "mentor": -30
+      }
+     }
+    }
+   ],
+   "moment": "Đối mặt với mục tiêu lớn nhất trong Sổ Oán Hận."
+  },
+  {
+   "id": "dwarf_cast_mentor_c_5",
+   "text": "{mentor} bị xơ gan do uống quá nhiều rượu. Trên giường bệnh, lão trao lại cho bạn cuốn Sổ (nếu chưa bị đốt), đôi mắt van lơn bạn hãy thay lão viết tiếp.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "arc": "mentor_c",
+   "recall": [
+    {
+     "flags": [
+      "mentor_c_5_nhan_so"
+     ],
+     "text": "Cuốn Sổ Oán Hận của {mentor} hiện đeo lủng lẳng bên hông bạn."
+    },
+    {
+     "flags": [
+      "mentor_c_5_am_uc"
+     ],
+     "text": "Ánh mắt trừng trừng lúc chết của {mentor} luôn hiện về trong mơ."
+    },
+    {
+     "flags": [
+      "mentor_c_5_chon_so"
+     ],
+     "text": "Không còn Sổ Oán Hận, bạn sống thanh thản hơn sau khi {mentor} mất."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "mentor_c",
+    "castAlive": "mentor"
+   },
+   "choices": [
+    {
+     "label": "Thề sẽ giữ gìn Sổ Oán Hận",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn dõng dạc thề. Lão cười thỏa mãn và trút hơi thở cuối cùng. Bạn chính thức gánh vác thù hận gia tộc.",
+      "effects": {
+       "joy": -10,
+       "fame": 15,
+       "flags": [
+        "mentor_c_5_nhan_so"
+       ],
+       "castDie": [
+        "mentor"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn thề một cách miễn cưỡng, lão nhận ra và chết trong ấm ức, mắt mở trừng trừng.",
+      "effects": {
+       "joy": -20,
+       "flags": [
+        "mentor_c_5_am_uc"
+       ],
+       "castDie": [
+        "mentor"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Chôn cuốn sổ cùng thi hài lão",
+     "text": "Bạn để thù hận ngủ yên cùng người chết. Lão nhắm mắt, gia tộc bước sang trang mới.",
+     "effects": {
+      "joy": 20,
+      "fame": -10,
+      "flags": [
+       "mentor_c_5_chon_so"
+      ],
+      "castDie": [
+       "mentor"
+      ]
+     }
+    }
+   ],
+   "moment": "{mentor} ra đi, để lại di sản thù hận cuối cùng."
+  },
+  {
+   "id": "dwarf_cast_friend_a_1",
+   "text": "{friend} phát hiện một đường hầm bỏ hoang có biển cấm. Cậu ta ném hòn đá vào trong, quả quyết có tiếng vang kim loại và rủ bạn vào tìm vàng.",
+   "stages": [
+    "child",
+    "teen"
+   ],
+   "arc": "friend_a",
+   "recall": [
+    {
+     "flags": [
+      "friend_a_1_duoc_vang"
+     ],
+     "text": "Tiền bán nhẫn vàng cổ cùng {friend} là gia tài đầu tiên của bạn."
+    },
+    {
+     "flags": [
+      "friend_a_1_bi_can"
+     ],
+     "text": "{friend} luôn trêu chọc việc bạn khóc nhè khi bị dơi đá cắn."
+    },
+    {
+     "flags": [
+      "friend_a_1_nhat_gan"
+     ],
+     "text": "{friend} vẫn tự hào khoe vết sẹo ở chân do tự đi thám hiểm."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "friend_a",
+    "castAlive": "friend"
+   },
+   "choices": [
+    {
+     "label": "Xách cuốc chạy theo",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Hai người đào được một nhẫn vàng cổ, chia nhau tiền bán nhẫn, mua đầy bánh kẹo.",
+      "effects": {
+       "wealth": 15,
+       "flags": [
+        "friend_a_1_duoc_vang"
+       ],
+       "castBond": {
+        "friend": 10
+       }
+      }
+     },
+     "fail": {
+      "text": "Một bầy dơi đá lao ra cắn xé hai người tơi tả, phải chạy khóc về mách mẹ.",
+      "effects": {
+       "health": -10,
+       "joy": -5,
+       "flags": [
+        "friend_a_1_bi_can"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Lắc đầu từ chối, đi về nhà",
+     "text": "Cậu ta chê bạn nhát gan rồi tự đi, sau đó về với cái chân tập tễnh.",
+     "effects": {
+      "joy": -5,
+      "flags": [
+       "friend_a_1_nhat_gan"
+      ]
+     }
+    }
+   ],
+   "moment": "Cùng {friend} phá luật vào hầm mỏ cấm."
+  },
+  {
+   "id": "dwarf_cast_friend_a_2",
+   "text": "Đang mải mê đào quặng, một thanh chống gãy gập. Đá lở bít kín lối ra, bạn và {friend} bị nhốt trong khoang hẹp tối tăm, dưỡng khí chỉ còn đủ cho vài giờ.",
+   "stages": [
+    "child",
+    "teen",
+    "adult",
+    "middle"
+   ],
+   "arc": "friend_a",
+   "recall": [
+    {
+     "flags": [
+      "friend_a_2_thoat_hac"
+     ],
+     "text": "Bạn và {friend} từng kề vai sát cánh sống sót khỏi sập hầm."
+    },
+    {
+     "flags": [
+      "friend_a_2_ton_thuong"
+     ],
+     "text": "Phổi của bạn và {friend} đều thở khò khè sau vụ kẹt hầm."
+    },
+    {
+     "flags": [
+      "friend_a_2_cai_nhau"
+     ],
+     "text": "Trận cãi vã với {friend} dưới hầm tối vẫn khiến cả hai khó chịu."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "friend_a",
+    "castAlive": "friend"
+   },
+   "choices": [
+    {
+     "label": "Luân phiên nhau đào lối thoát",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Cả hai đầm đìa mồ hôi, đập vỡ tảng đá chặn đường vừa kịp lúc nghẹt thở. Tình bạn càng thêm gắn bó.",
+      "effects": {
+       "fame": 10,
+       "flags": [
+        "friend_a_2_thoat_hac"
+       ],
+       "castBond": {
+        "friend": 20
+       }
+      }
+     },
+     "fail": {
+      "text": "Đào được nửa đường thì cả hai ngất đi. Đội cứu hộ lôi được ra nhưng phổi tổn thương nặng.",
+      "effects": {
+       "health": -25,
+       "wealth": -10,
+       "flags": [
+        "friend_a_2_ton_thuong"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Ngồi im chờ đội cứu hộ đến",
+     "text": "Bạn và cậu ta cãi nhau vì bất đồng quan điểm, không khí ngột ngạt hơn.",
+     "effects": {
+      "joy": -15,
+      "flags": [
+       "friend_a_2_cai_nhau"
+      ],
+      "castBond": {
+       "friend": -10
+      }
+     }
+    }
+   ],
+   "moment": "Cùng {friend} đối mặt với tử thần dưới hầm sập."
+  },
+  {
+   "id": "dwarf_cast_friend_a_3",
+   "text": "{friend} nháy mắt kéo bạn ra sau đồi, khoe cậu ta vừa \"chôm\" được một thùng bia Tinh Thạch hảo hạng của hội trưởng lão và muốn chia sẻ với bạn.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "arc": "friend_a",
+   "recall": [
+    {
+     "flags": [
+      "friend_a_3_uong_chui"
+     ],
+     "text": "Vị bia Tinh Thạch uống trộm với {friend} là thứ ngon nhất trần đời."
+    },
+    {
+     "flags": [
+      "friend_a_3_bi_phat"
+     ],
+     "text": "Bạn và {friend} từng bị phạt roi bêu riếu vì tội trộm bia."
+    },
+    {
+     "flags": [
+      "friend_a_3_tu_choi"
+     ],
+     "text": "{friend} dỗi bạn một thời gian dài vì bạn không uống cùng."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "friend_a",
+    "castAlive": "friend"
+   },
+   "choices": [
+    {
+     "label": "Tu ừng ực không nghĩ ngợi",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Bia quá ngon! Cả hai say sưa hát hò cả đêm mà không ai phát hiện ra.",
+      "effects": {
+       "joy": 20,
+       "flags": [
+        "friend_a_3_uong_chui"
+       ],
+       "castBond": {
+        "friend": 15
+       }
+      }
+     },
+     "fail": {
+      "text": "Lính gác bắt quả tang. Cả hai bị phạt roi và phải đền bù gấp đôi tiền thùng bia.",
+      "effects": {
+       "wealth": -20,
+       "fame": -15,
+       "flags": [
+        "friend_a_3_bi_phat"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Từ chối và dọa báo lính gác",
+     "text": "Cậu ta giận dữ mắng bạn là đồ bội bạc rồi tự ôm thùng bia đi uống một mình.",
+     "effects": {
+      "joy": -10,
+      "flags": [
+       "friend_a_3_tu_choi"
+      ],
+      "castBond": {
+       "friend": -20
+      }
+     }
+    }
+   ],
+   "moment": "Uống trộm bia ngon của trưởng lão cùng {friend}."
+  },
+  {
+   "id": "dwarf_cast_friend_a_4",
+   "text": "Đang thám hiểm khu mỏ sâu, một con Troll đá khổng lồ thức giấc. Nó túm chân {friend} nhấc bổng lên định tống vào miệng nhai.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "arc": "friend_a",
+   "recall": [
+    {
+     "flags": [
+      "friend_a_4_cuu_ban"
+     ],
+     "text": "{friend} nợ bạn một mạng sau vụ con Troll đá."
+    },
+    {
+     "flags": [
+      "friend_a_4_thuong_nang"
+     ],
+     "text": "Bạn và {friend} đều suýt mất mạng dưới tay Troll đá."
+    },
+    {
+     "flags": [
+      "friend_a_4_bo_ban"
+     ],
+     "text": "{friend} không bao giờ quên việc bạn quay lưng chạy trốn."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "friend_a",
+    "castAlive": "friend"
+   },
+   "choices": [
+    {
+     "label": "Vung búa lao vào chân con Troll",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Cú nện nát ngón chân Troll khiến nó thả cậu ta ra. Hai người hò hét chạy thoát an toàn.",
+      "effects": {
+       "fame": 25,
+       "flags": [
+        "friend_a_4_cuu_ban"
+       ],
+       "castBond": {
+        "friend": 30
+       }
+      }
+     },
+     "fail": {
+      "text": "Bạn bị nó đá văng đập lưng vào vách đá. Cậu ta phải tự cắt đứt vạt áo để trốn thoát cùng bạn.",
+      "effects": {
+       "health": -30,
+       "flags": [
+        "friend_a_4_thuong_nang"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Bỏ chạy đi tìm viện binh",
+     "text": "Khi mọi người đến, con Troll đã bỏ đi, {friend} nằm thoi thóp gãy hai xương sườn.",
+     "effects": {
+      "health": -10,
+      "flags": [
+       "friend_a_4_bo_ban"
+      ],
+      "castBond": {
+       "friend": -30
+      }
+     }
+    }
+   ],
+   "moment": "Bất chấp mạng sống cứu {friend} khỏi miệng Troll."
+  },
+  {
+   "id": "dwarf_cast_friend_a_5",
+   "text": "{friend} mắc bệnh phổi nghiêm trọng do bụi than cả đời, nằm thoi thóp nhờ bạn rót cho vại bia cuối cùng trước khi tới cõi của tổ tiên.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "arc": "friend_a",
+   "recall": [
+    {
+     "flags": [
+      "friend_a_5_chua_tri"
+     ],
+     "text": "{friend} vẫn sống lắt lay, thỉnh thoảng rủ bạn uống bia thuốc."
+    },
+    {
+     "flags": [
+      "friend_a_5_chet_tuc"
+     ],
+     "text": "Bạn dằn vặt vì đã phá hỏng vại bia cuối cùng của {friend}."
+    },
+    {
+     "flags": [
+      "friend_a_5_tien_biet"
+     ],
+     "text": "Bạn thường chừa lại một vại bia trống trên bàn tưởng nhớ {friend}."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "friend_a_4_cuu_ban",
+     "friend_a_4_thuong_nang"
+    ],
+    "cast": "friend_a",
+    "castAlive": "friend"
+   },
+   "choices": [
+    {
+     "label": "Hòa thảo dược vào bia để mong cậu sống tiếp",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Cậu ta nhăn mặt uống, phổi dịu lại và kéo dài thêm vài năm tuổi thọ vui vẻ cùng bạn.",
+      "effects": {
+       "joy": 20,
+       "fame": 10,
+       "flags": [
+        "friend_a_5_chua_tri"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Vị thuốc làm hỏng vị bia. Cậu ta càu nhàu, hất vại đi rồi tắt thở vì tức giận.",
+      "effects": {
+       "joy": -20,
+       "flags": [
+        "friend_a_5_chet_tuc"
+       ],
+       "castDie": [
+        "friend"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Rót vại bia tinh khiết nhất, cụng ly tiễn biệt",
+     "text": "Cậu ta uống cạn, mỉm cười nói \"Bia ngon\", rồi nhẹ nhàng qua đời trên tay bạn.",
+     "effects": {
+      "joy": 10,
+      "fame": 5,
+      "flags": [
+       "friend_a_5_tien_biet"
+      ],
+      "castDie": [
+       "friend"
+      ]
+     }
+    }
+   ],
+   "moment": "Tiễn biệt người bạn nối khố {friend}."
+  },
+  {
+   "id": "dwarf_cast_friend_b_1",
+   "text": "Trong giờ đập đá, {friend} bỏ búa xuống và bắt đầu hát vang một bài thơ ngớ ngẩn về viên thạch anh. Đám thợ mỏ cười rống lên và ném sỏi vào người cô.",
+   "stages": [
+    "child",
+    "teen"
+   ],
+   "arc": "friend_b",
+   "recall": [
+    {
+     "flags": [
+      "friend_b_1_bao_ve"
+     ],
+     "text": "Bài thơ {friend} viết tặng riêng bạn được bạn cất kỹ trong túi áo."
+    },
+    {
+     "flags": [
+      "friend_b_1_nem_soi"
+     ],
+     "text": "Bạn từng chịu chung trận mưa sỏi với {friend} dưới hầm."
+    },
+    {
+     "flags": [
+      "friend_b_1_cuoi_nhao"
+     ],
+     "text": "Ánh mắt buồn rười rượi của {friend} khi bạn cười nhạo cô vẫn ghim vào tâm trí."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "friend_b",
+    "castAlive": "friend"
+   },
+   "choices": [
+    {
+     "label": "Vung búa xua đuổi đám thợ mỏ",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn dọa đám thợ sợ chạy tán loạn. Cô ấy cảm kích và làm hẳn một bài thơ tặng bạn.",
+      "effects": {
+       "fame": 5,
+       "flags": [
+        "friend_b_1_bao_ve"
+       ],
+       "castBond": {
+        "friend": 15
+       }
+      }
+     },
+     "fail": {
+      "text": "Đám thợ ném sỏi vào cả hai người khiến bạn và cô ấy phải ôm đầu trốn.",
+      "effects": {
+       "health": -10,
+       "fame": -5,
+       "flags": [
+        "friend_b_1_nem_soi"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Cùng cười nhạo với đám thợ mỏ",
+     "text": "Cô ấy nhìn bạn với ánh mắt tổn thương sâu sắc rồi ôm đàn chạy đi.",
+     "effects": {
+      "joy": -10,
+      "flags": [
+       "friend_b_1_cuoi_nhao"
+      ],
+      "castBond": {
+       "friend": -15
+      }
+     }
+    }
+   ],
+   "moment": "Lần đầu nghe bài ca đá cuội của {friend}."
+  },
+  {
+   "id": "dwarf_cast_friend_b_2",
+   "text": "Một lính gác Elf kiêu ngạo đến giao dịch đã buông lời lăng mạ các bài hát của {friend}. Cô ấy khóc nấc lên.",
+   "stages": [
+    "child",
+    "teen",
+    "adult",
+    "middle"
+   ],
+   "arc": "friend_b",
+   "recall": [
+    {
+     "flags": [
+      "friend_b_2_benh_vuc"
+     ],
+     "text": "Sự tự tin của {friend} lớn hơn nhiều sau khi bạn cãi thắng tên Elf."
+    },
+    {
+     "flags": [
+      "friend_b_2_tui_nhuc"
+     ],
+     "text": "Vụ bẽ mặt trước tên Elf khiến {friend} ngừng hát mất mấy tháng."
+    },
+    {
+     "flags": [
+      "friend_b_2_danh_elf"
+     ],
+     "text": "Nắm đấm của bạn vì {friend} làm hỏng hợp đồng quan trọng."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "friend_b",
+    "castAlive": "friend"
+   },
+   "choices": [
+    {
+     "label": "Cãi lại bằng lý lẽ sắc bén",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn chỉ trích tính phù phiếm của Elf, khiến gã bẽ mặt. Cô ấy tôn bạn làm tri kỷ.",
+      "effects": {
+       "fame": 15,
+       "flags": [
+        "friend_b_2_benh_vuc"
+       ],
+       "castBond": {
+        "friend": 20
+       }
+      }
+     },
+     "fail": {
+      "text": "Bạn nói vấp, gã Elf càng cười to hơn khiến cả bạn và cô ấy nhục nhã ê chề.",
+      "effects": {
+       "joy": -15,
+       "fame": -15,
+       "flags": [
+        "friend_b_2_tui_nhuc"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đấm thẳng vào mặt gã Elf",
+     "text": "Giao dịch đổ bể, bạn bị trưởng lão phạt nặng nhưng cô ấy rất vui.",
+     "effects": {
+      "joy": 10,
+      "wealth": -20,
+      "fame": -10,
+      "flags": [
+       "friend_b_2_danh_elf"
+      ]
+     }
+    }
+   ],
+   "moment": "Đứng ra bảo vệ lòng tự trọng của {friend} trước ngoại tộc."
+  },
+  {
+   "id": "dwarf_cast_friend_b_3",
+   "text": "{friend} gói ghém hành lý, kiên quyết đòi rời bỏ hang động vĩnh cửu để lên mặt đất làm du ca. Cô ấy rủ bạn đi cùng để bảo vệ cô.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "arc": "friend_b",
+   "recall": [
+    {
+     "flags": [
+      "friend_b_3_du_ca"
+     ],
+     "text": "Chuyến du ca mặt đất cùng {friend} là kỷ niệm đẹp nhất đời bạn."
+    },
+    {
+     "flags": [
+      "friend_b_3_soi_can"
+     ],
+     "text": "{friend} sợ hãi ánh mặt trời sau vụ bị sói cắn."
+    },
+    {
+     "flags": [
+      "friend_b_3_ngan_can"
+     ],
+     "text": "{friend} sống như cái bóng vô hồn sau khi bị bạn giấu đàn."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "friend_b",
+    "castAlive": "friend"
+   },
+   "choices": [
+    {
+     "label": "Quyết định xách búa đi theo bảo vệ",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Hai người có một chuyến đi tuyệt vời, cô hát trên đồi cỏ, bạn học cách yêu ánh mặt trời.",
+      "effects": {
+       "joy": 25,
+       "flags": [
+        "friend_b_3_du_ca"
+       ],
+       "castBond": {
+        "friend": 30
+       }
+      }
+     },
+     "fail": {
+      "text": "Vừa lên mặt đất, cả hai bị bầy dã sói đuổi cắn tơi bời phải chui lại vào hang.",
+      "effects": {
+       "health": -20,
+       "wealth": -10,
+       "flags": [
+        "friend_b_3_soi_can"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Kiên quyết can ngăn, giấu cây đàn đi",
+     "text": "Cô ấy khóc lóc ầm ĩ nhưng bỏ ý định. Cô vĩnh viễn là một Dwarf hầm mỏ u uất.",
+     "effects": {
+      "joy": -20,
+      "fame": 5,
+      "flags": [
+       "friend_b_3_ngan_can"
+      ]
+     }
+    }
+   ],
+   "moment": "Đứng trước quyết định rời bỏ hầm mỏ cùng {friend}."
+  },
+  {
+   "id": "dwarf_cast_friend_b_4",
+   "text": "Một nhóm bạo chúa Orc tràn vào vùng núi. Tiếng hát của {friend} vô tình thu hút chúng. Một con Orc vung rựa định chẻ đôi người cô.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "arc": "friend_b",
+   "recall": [
+    {
+     "flags": [
+      "friend_b_4_cuu_thoat"
+     ],
+     "text": "Bản anh hùng ca {friend} viết về bạn vang danh khắp tộc."
+    },
+    {
+     "flags": [
+      "friend_b_4_do_don"
+     ],
+     "text": "Vết sẹo dài trên lưng bạn là cái giá để giữ mạng cho {friend}."
+    },
+    {
+     "flags": [
+      "friend_b_4_mat_dan"
+     ],
+     "text": "Tiếng hát của {friend} đã vĩnh viễn tắt lịm từ ngày cây đàn vỡ."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "friend_b_3_du_ca",
+     "friend_b_3_soi_can"
+    ],
+    "cast": "friend_b",
+    "castAlive": "friend"
+   },
+   "choices": [
+    {
+     "label": "Lấy thân mình đỡ đòn thay cô",
+     "check": {
+      "stat": "AGI",
+      "target": 10
+     },
+     "success": {
+      "text": "Bạn kéo cô kịp né gót văng, chém rớt tay con Orc. Cô ôm chầm lấy bạn khóc nức nở.",
+      "effects": {
+       "STR": 2,
+       "fame": 20,
+       "flags": [
+        "friend_b_4_cuu_thoat"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Lưỡi rựa xả một đường dài trên lưng bạn, nhưng cô ấy an toàn.",
+      "effects": {
+       "health": -35,
+       "joy": 10,
+       "flags": [
+        "friend_b_4_do_don"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đẩy cô ấy vào lùm cây rồi trốn",
+     "text": "Con Orc dẫm nát cây đàn. Cô sống sót nhưng ám ảnh và câm lặng từ đó.",
+     "effects": {
+      "health": -5,
+      "joy": -25,
+      "flags": [
+       "friend_b_4_mat_dan"
+      ],
+      "castBond": {
+       "friend": -30
+      }
+     }
+    }
+   ],
+   "moment": "Xả thân cứu nữ du ca {friend} khỏi bạo chúa Orc."
+  },
+  {
+   "id": "dwarf_cast_friend_b_5",
+   "text": "{friend} mắc bệnh già yếu. Trước khi nhắm mắt, cô trao cho bạn cuốn sổ chép tay ghi lại mọi bài hát cô từng sáng tác và nhờ bạn đưa nó cho một du ca Human.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "arc": "friend_b",
+   "recall": [
+    {
+     "flags": [
+      "friend_b_5_hoan_thanh"
+     ],
+     "text": "Thơ ca của {friend} giờ được hát khắp mọi quán trọ mặt đất."
+    },
+    {
+     "flags": [
+      "friend_b_5_mat_so"
+     ],
+     "text": "Bạn day dứt khôn nguôi vì để mất cuốn di cảo của {friend}."
+    },
+    {
+     "flags": [
+      "friend_b_5_giu_kin"
+     ],
+     "text": "Cuốn sổ thơ của {friend} mục nát cùng cô trong nấm mồ đá."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "friend_b_4_cuu_thoat",
+     "friend_b_4_do_don"
+    ],
+    "cast": "friend_b",
+    "castAlive": "friend"
+   },
+   "choices": [
+    {
+     "label": "Lên mặt đất tìm người gửi gắm",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn tìm được một nhạc công xứng đáng. Lời ca của cô vang danh toàn cõi. Cô ấy mỉm cười nhắm mắt.",
+      "effects": {
+       "joy": 20,
+       "fame": 30,
+       "flags": [
+        "friend_b_5_hoan_thanh"
+       ],
+       "castDie": [
+        "friend"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn đi lạc, bị cướp mất cuốn sổ. Bạn trở về tay không, cô ấy qua đời trong nước mắt.",
+      "effects": {
+       "health": -15,
+       "joy": -25,
+       "flags": [
+        "friend_b_5_mat_so"
+       ],
+       "castDie": [
+        "friend"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Giữ lại làm kỷ niệm riêng",
+     "text": "Bạn chôn cuốn sổ cùng cô. Tiếng hát của cô mãi mãi bị vùi lấp dưới lòng đất sâu.",
+     "effects": {
+      "joy": 5,
+      "fame": -10,
+      "flags": [
+       "friend_b_5_giu_kin"
+      ],
+      "castDie": [
+       "friend"
+      ]
+     }
+    }
+   ],
+   "moment": "Thực hiện tâm nguyện cuối của nàng du ca {friend}."
+  },
+  {
+   "id": "dwarf_cast_friend_c_1",
+   "text": "Ở khu chợ biên giới, {friend} đang bị đám nhóc Human trêu chọc ném bùn vì vóc dáng lùn tịt. Cậu ta cầm gậy gỗ đe dọa lại bằng phong cách Dwarf.",
+   "stages": [
+    "child",
+    "teen"
+   ],
+   "arc": "friend_c",
+   "recall": [
+    {
+     "flags": [
+      "friend_c_1_ket_nghia"
+     ],
+     "text": "{friend} luôn tự xưng là anh em kết nghĩa máu mủ của bạn."
+    },
+    {
+     "flags": [
+      "friend_c_1_nem_bun"
+     ],
+     "text": "Mùi bùn thối từ bọn trẻ con khiến bạn luôn nhớ ngày gặp {friend}."
+    },
+    {
+     "flags": [
+      "friend_c_1_vo_tam"
+     ],
+     "text": "Sự vô tâm của bạn làm tổn thương lòng tự trọng của {friend}."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "friend_c",
+    "castAlive": "friend"
+   },
+   "choices": [
+    {
+     "label": "Ra tay đuổi đám nhóc đi",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Đám nhóc sợ bỏ chạy. {friend} hâm mộ bạn sát đất, lẽo đẽo đi theo xin nhận làm anh em.",
+      "effects": {
+       "fame": 5,
+       "flags": [
+        "friend_c_1_ket_nghia"
+       ],
+       "castBond": {
+        "friend": 15
+       }
+      }
+     },
+     "fail": {
+      "text": "Đám nhóc đông quá, ném bùn dơ cả người bạn. Bạn phải kéo gã chạy trốn.",
+      "effects": {
+       "health": -5,
+       "fame": -5,
+       "flags": [
+        "friend_c_1_nem_bun"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đứng nhìn và cười nhạo",
+     "text": "Cậu ta lườm bạn, chửi thề một câu bằng tiếng lóng Dwarf rồi tự bỏ đi.",
+     "effects": {
+      "joy": -5,
+      "flags": [
+       "friend_c_1_vo_tam"
+      ]
+     }
+    }
+   ],
+   "moment": "Giải cứu {friend} khỏi lũ trẻ con bắt nạt."
+  },
+  {
+   "id": "dwarf_cast_friend_c_2",
+   "text": "Đang ăn tiệc, {friend} vô tình làm rơi bộ râu lông cừu vào vạc súp sôi. Đám đông Dwarf hầm hố đứng dậy định ném gã ngoại tộc giả mạo này ra ngoài.",
+   "stages": [
+    "child",
+    "teen",
+    "adult",
+    "middle"
+   ],
+   "arc": "friend_c",
+   "recall": [
+    {
+     "flags": [
+      "friend_c_2_bao_lanh"
+     ],
+     "text": "Nhờ bạn bảo lãnh, {friend} được nhậu chung với thợ rèn lùn."
+    },
+    {
+     "flags": [
+      "friend_c_2_bi_nem"
+     ],
+     "text": "Bạn và {friend} từng bị ném ra khỏi quán rượu như hai gã hề."
+    },
+    {
+     "flags": [
+      "friend_c_2_choi_bo"
+     ],
+     "text": "Bạn bỏ rơi {friend} lúc gã xấu hổ nhất vì rơi râu giả."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "friend_c",
+    "castAlive": "friend"
+   },
+   "choices": [
+    {
+     "label": "Đứng ra nhận bảo lãnh cho gã",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn dõng dạc nói rằng trái tim gã mới là Dwarf thật. Đám đông vỗ tay vác vại bia ra mời.",
+      "effects": {
+       "fame": 15,
+       "flags": [
+        "friend_c_2_bao_lanh"
+       ],
+       "castBond": {
+        "friend": 20
+       }
+      }
+     },
+     "fail": {
+      "text": "Bạn nói hớ, đám đông nổi giận ném cả hai người ra khỏi cửa lấm lem bụi đất.",
+      "effects": {
+       "health": -10,
+       "fame": -15,
+       "flags": [
+        "friend_c_2_bi_nem"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Giả vờ không quen biết",
+     "text": "Cậu ta bị ném xuống suối cạn, ướt nhẹp và nhìn bạn đầy thất vọng.",
+     "effects": {
+      "joy": -15,
+      "flags": [
+       "friend_c_2_choi_bo"
+      ],
+      "castBond": {
+       "friend": -20
+      }
+     }
+    }
+   ],
+   "moment": "Đứng ra bảo lãnh thân phận cho gã Human {friend}."
+  },
+  {
+   "id": "dwarf_cast_friend_c_3",
+   "text": "Dwarf miễn nhiễm nhiều loại bệnh, nhưng {friend} là Human nên bị nhiễm phong hàn cực nặng do sống ở vùng núi lạnh giá. Gã sốt cao li bì.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "arc": "friend_c",
+   "recall": [
+    {
+     "flags": [
+      "friend_c_3_cuu_song"
+     ],
+     "text": "Bát súp nấm Tuyết của bạn đã giữ lại mạng sống mỏng manh cho {friend}."
+    },
+    {
+     "flags": [
+      "friend_c_3_yeu_ot"
+     ],
+     "text": "{friend} luôn ho rũ rượi vì không chịu nổi cái lạnh của núi Răng Cưa."
+    },
+    {
+     "flags": [
+      "friend_c_3_chuyen_di"
+     ],
+     "text": "Bạn rất ít gặp {friend} từ khi gã phải chuyển xuống chân núi sống."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "friend_c",
+    "castAlive": "friend"
+   },
+   "choices": [
+    {
+     "label": "Mạo hiểm vách đá hái nấm Tuyết",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn hái được nấm, nấu súp cứu gã khỏi lưỡi hái tử thần.",
+      "effects": {
+       "health": 5,
+       "fame": 10,
+       "flags": [
+        "friend_c_3_cuu_song"
+       ],
+       "castBond": {
+        "friend": 30
+       }
+      }
+     },
+     "fail": {
+      "text": "Bạn trượt chân ngã rách chân, nấm dập nát. Gã sống lay lắt với đôi phổi yếu ớt suốt phần đời còn lại.",
+      "effects": {
+       "health": -20,
+       "flags": [
+        "friend_c_3_yeu_ot"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Cho gã uống bia nóng thay thuốc",
+     "text": "Gã ốm nặng hơn, phải chuyển xuống sống ở chân núi một thời gian dài mới khỏi.",
+     "effects": {
+      "joy": -10,
+      "flags": [
+       "friend_c_3_chuyen_di"
+      ],
+      "castBond": {
+       "friend": -15
+      }
+     }
+    }
+   ],
+   "moment": "Tìm thuốc quý cứu mạng người anh em Human {friend}."
+  },
+  {
+   "id": "dwarf_cast_friend_c_4",
+   "text": "Khi đi qua khu đầm lầy, một toán lính tuần tra Elf chặn đường, lăng nhục {friend} là thứ hạ đẳng bị đột biến và muốn bắt gã làm nô lệ.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "arc": "friend_c",
+   "recall": [
+    {
+     "flags": [
+      "friend_c_4_danh_duoi"
+     ],
+     "text": "Bọn Elf đồn đại về cơn điên của bạn khi bảo vệ {friend}."
+    },
+    {
+     "flags": [
+      "friend_c_4_mat_tien"
+     ],
+     "text": "Sự nghèo túng của bạn là để chuộc lại mạng sống cho {friend}."
+    },
+    {
+     "flags": [
+      "friend_c_4_phan_boi"
+     ],
+     "text": "Tiếng thét tuyệt vọng của {friend} văng vẳng trong những đêm bạn khó ngủ."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "friend_c_2_bao_lanh",
+     "friend_c_3_cuu_song"
+    ],
+    "cast": "friend_c",
+    "castAlive": "friend"
+   },
+   "choices": [
+    {
+     "label": "Rút búa chiến tử thủ bảo vệ anh em",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Cơn thịnh nộ của bạn đập nát khiên Elf, chúng bỏ chạy thục mạng. Gã khóc vì cảm kích.",
+      "effects": {
+       "wealth": 10,
+       "fame": 25,
+       "flags": [
+        "friend_c_4_danh_duoi"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bọn Elf đánh bạn gãy xương sườn. Bạn phải hối lộ toàn bộ tiền bạc để chúng tha cho gã.",
+      "effects": {
+       "health": -30,
+       "wealth": -30,
+       "flags": [
+        "friend_c_4_mat_tien"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Ngậm ngùi giao gã cho bọn Elf",
+     "text": "Gã gào thét tên bạn trong tuyệt vọng khi bị kéo đi thành nô lệ vĩnh viễn.",
+     "effects": {
+      "joy": -30,
+      "fame": -20,
+      "flags": [
+       "friend_c_4_phan_boi"
+      ],
+      "castBond": {
+       "friend": -50
+      }
+     }
+    }
+   ],
+   "moment": "Tử chiến với Elf để bảo vệ tự do cho {friend}."
+  },
+  {
+   "id": "dwarf_cast_friend_c_5",
+   "text": "Tuổi thọ Human rất ngắn. Bạn vẫn đang ở tuổi trung niên sung sức, nhưng {friend} đã là một ông lão da mồi tóc bạc, nằm trên giường chờ chết.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder"
+   ],
+   "arc": "friend_c",
+   "recall": [
+    {
+     "flags": [
+      "friend_c_5_vinh_du"
+     ],
+     "text": "Mộ của {friend} được khắc hình chiếc búa, công nhận gã là Dwarf danh dự."
+    },
+    {
+     "flags": [
+      "friend_c_5_tu_ti"
+     ],
+     "text": "Bạn đau đớn khi phải nhìn sinh mệnh ngắn ngủi của {friend} úa tàn."
+    },
+    {
+     "flags": [
+      "friend_c_5_lang_le"
+     ],
+     "text": "Một góc lặng trong tâm hồn bạn dành riêng cho người anh em {friend}."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "friend_c_4_danh_duoi",
+     "friend_c_4_mat_tien"
+    ],
+    "cast": "friend_c",
+    "castAlive": "friend"
+   },
+   "choices": [
+    {
+     "label": "Trao cho gã huy hiệu vinh dự Dwarf",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Gã đeo huy hiệu lên ngực, rưng rưng tự hào mình đã sống như một Dwarf thực thụ, rồi trút hơi thở.",
+      "effects": {
+       "joy": 20,
+       "fame": 15,
+       "flags": [
+        "friend_c_5_vinh_du"
+       ],
+       "castDie": [
+        "friend"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Huy hiệu rơi xuống đất. Gã ho sặc sụa, qua đời trong sự luyến tiếc và tự ti bẩm sinh.",
+      "effects": {
+       "health": -10,
+       "joy": -20,
+       "flags": [
+        "friend_c_5_tu_ti"
+       ],
+       "castDie": [
+        "friend"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Im lặng ngồi nắm tay gã",
+     "text": "Cả hai không nói gì, gã thiếp đi. Một cái kết lặng lẽ cho tình bạn dị biệt.",
+     "effects": {
+      "joy": 10,
+      "fame": 5,
+      "flags": [
+       "friend_c_5_lang_le"
+      ],
+      "castDie": [
+       "friend"
+      ]
+     }
+    }
+   ],
+   "moment": "Đau xót tiễn đưa người anh em Human {friend} chết vì tuổi già."
   }
  ],
  "deaths": [],
@@ -21568,7 +23962,9 @@
     "title": "GIA TỘC ĐỐI ĐỊCH",
     "desc": "Nam Dwarf. Hắn luôn mang theo chiếc búa có khắc huy hiệu gia tộc bị mẻ một góc, ánh mắt đầy hằn học và thích khạc nhổ mỗi khi nghe đến tên gia tộc của bạn.",
     "recall": [
-     "Kẻ thù {rival} đang mài búa trong hầm sâu, chờ ngày rửa hận. Sổ Oán Hận nhà {rival} ngày càng dày thêm những trang ghi tên bạn. Tiếng búa của {rival} vang lên từ xa như một lời đe dọa không lời."
+     "Kẻ thù {rival} đang mài búa trong hầm sâu, chờ ngày rửa hận.",
+     "Sổ Oán Hận nhà {rival} ngày càng dày thêm những trang ghi tên bạn.",
+     "Tiếng búa của {rival} vang lên từ xa như một lời đe dọa không lời."
     ]
    },
    "rival_b": {
@@ -21577,7 +23973,9 @@
     "title": "KẺ TRỤC XUẤT PHẢN BỘI",
     "desc": "Nữ Dwarf. Từng là thợ mỏ giỏi nhưng bị cạo sạch râu tóc vì phá lời thề, ả luôn đeo mặt nạ sắt che nửa mặt và mang theo cây cuốc dính máu.",
     "recall": [
-     "Tiếng cuốc chim của {rival} vang lên như lời nguyền rủa trong đêm. Kẻ phản thề {rival} vẫn rình rập quanh ranh giới lãnh địa cướp bóc. {rival} lải nhải về việc cả ngọn núi này sẽ phải trả giá vì đuổi ả đi."
+     "Tiếng cuốc chim của {rival} vang lên như lời nguyền rủa trong đêm.",
+     "Kẻ phản thề {rival} vẫn rình rập quanh ranh giới lãnh địa cướp bóc.",
+     "{rival} lải nhải về việc cả ngọn núi này sẽ phải trả giá vì đuổi ả đi."
     ]
    },
    "rival_c": {
@@ -21586,7 +23984,75 @@
     "title": "KẺ THÁCH THỨC NGOẠI TỘC",
     "desc": "Nam Human. Gã thợ rèn trẻ tuổi với mái tóc vàng chói lọi, ngón tay chằng chịt vết bỏng và nụ cười tự mãn tột độ mỗi khi nhắc đến kim loại.",
     "recall": [
-     "{rival} tự nhận mình rèn thép Human sắc bén hơn bất kỳ Dwarf nào. Gã Human {rival} mở xưởng rèn ngay sát ranh giới để giành khách. Cái nhếch mép của {rival} là cái gai trong mắt mọi thợ rèn lùn."
+     "{rival} tự nhận mình rèn thép Human sắc bén hơn bất kỳ Dwarf nào.",
+     "Gã Human {rival} mở xưởng rèn ngay sát ranh giới để giành khách.",
+     "Cái nhếch mép của {rival} là cái gai trong mắt mọi thợ rèn lùn."
+    ]
+   },
+   "mentor_a": {
+    "id": "mentor_a",
+    "role": "mentor",
+    "title": "LÃO THỢ RÈN CHỘT MẮT",
+    "desc": "Nam Dwarf. Lão già chột một mắt sau trận chiến với rồng, ít nói, thường giao tiếp bằng tiếng quai búa và luôn ngậm một tẩu thuốc làm bằng xương.",
+    "recall": [
+     "Tiếng búa của {mentor} luôn văng vẳng trong đầu bạn mỗi khi cầm dụng cụ lên.",
+     "{mentor} lầm lì nhả khói tẩu, gật gù đánh giá từng mẻ thép.",
+     "Con mắt còn lại của {mentor} sáng rực như than hồng mỗi khi thấy quặng tốt."
+    ]
+   },
+   "mentor_b": {
+    "id": "mentor_b",
+    "role": "mentor",
+    "title": "NỮ CHIẾN BINH GIỮ CỔNG",
+    "desc": "Nữ Dwarf. Chiến binh lão luyện canh gác Dãy Núi Răng Cưa, sẹo đầy tay, mang theo một chiếc khiên tháp bằng thép đen và coi bia là nước lọc.",
+    "recall": [
+     "Giọng oang oang của {mentor} vang dội cả cổng thành mỗi khi uống say.",
+     "Chiếc khiên thép đen của {mentor} là bức tường không thể xuyên thủng.",
+     "{mentor} luôn dặn dò bạn: \"Khiên đi trước, búa theo sau!\"."
+    ]
+   },
+   "mentor_c": {
+    "id": "mentor_c",
+    "role": "mentor",
+    "title": "ÔNG CHÚ GIỮ SỔ OÁN HẬN",
+    "desc": "Nam Dwarf. Người chú họ luôn say xỉn, mang một cuốn Sổ Oán Hận dày cộp bọc da thú buộc ngang hông và lải nhải về những món nợ máu từ thời ông cố.",
+    "recall": [
+     "{mentor} luôn lật lật cuốn sổ da thú, miệng lầm bầm những cái tên xa lạ.",
+     "Tiếng nấc cụt của {mentor} kèm theo những lời nguyền rủa kẻ thù gia tộc.",
+     "{mentor} khẳng định Dwarf nào quên nợ máu là một kẻ bỏ đi."
+    ]
+   },
+   "friend_a": {
+    "id": "friend_a",
+    "role": "friend",
+    "title": "BẠN THỢ MỎ CÙNG LỨA",
+    "desc": "Nam Dwarf. Cậu bạn chí cốt người dính đầy bụi than, râu thắt bím gọn gàng, lúc nào cũng rủ rê bạn trốn việc đi uống bia hoặc khám phá hang động.",
+    "recall": [
+     "{friend} ngoắc tay rủ bạn cúp cua khỏi xưởng rèn để đi đập đá.",
+     "Mùi mồ hôi và bia chua của {friend} báo hiệu một rắc rối sắp tới.",
+     "{friend} luôn là người vỗ vai bạn mạnh nhất sau mỗi vại bia."
+    ]
+   },
+   "friend_b": {
+    "id": "friend_b",
+    "role": "friend",
+    "title": "KẺ THƠ CA BỊ CHÊ CƯỜI",
+    "desc": "Nữ Dwarf. Cô nàng quái gở không thích rèn hay uống bia mà luôn kẹp một cây đàn tì bà nhỏ, vừa đi vừa hát những bài thơ ngô nghê về đá cuội.",
+    "recall": [
+     "Giọng hát the thé của {friend} vang vọng cả đường hầm dội vào vách đá.",
+     "{friend} gảy đàn, mộng mơ về thế giới đầy nắng và hoa trên mặt đất.",
+     "Mọi người cười nhạo thơ của {friend}, trừ bạn."
+    ]
+   },
+   "friend_c": {
+    "id": "friend_c",
+    "role": "friend",
+    "title": "HUMAN LÙN NHẤT LÀNG KẾT NGHĨA",
+    "desc": "Nam Human. Một gã loài người mắc chứng lùn bẩm sinh, luôn tự huyễn hoặc mình là một Dwarf thực thụ, đeo bộ râu giả bằng lông cừu và nói tiếng lóng rất tệ.",
+    "recall": [
+     "Bộ râu lông cừu của {friend} thỉnh thoảng lại rụng lả tả.",
+     "{friend} vung cây búa gỗ, hò hét những câu chửi lóng sai bét nhè.",
+     "Sức vóc yếu ớt của Human khiến {friend} luôn tụt lại phía sau."
     ]
    }
   },

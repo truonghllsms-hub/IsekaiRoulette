@@ -20292,6 +20292,1248 @@
     }
    ],
    "moment": "Quyết định trận tử chiến cuối cùng giữa tiểu đội của bạn và thế lực của {rival}."
+  },
+  {
+   "id": "demon_cast_rival_a_1",
+   "text": "Trong đợt sát hạch ma thuật đầu tiên, bạn vừa hạ gục một con quái thú thì {rival} bước tới. Hắn hất cằm, ném cho bạn một túi Đồng Cẩm Thạch và ra lệnh nhường lại cái xác để hắn lấy điểm cao nhất.",
+   "stages": [
+    "child",
+    "teen"
+   ],
+   "arc": "rival_a",
+   "recall": [
+    {
+     "flags": [
+      "rival_a_1_scar"
+     ],
+     "text": "Vết sẹo xước trên mặt {rival} luôn đỏ lên mỗi khi hắn nhìn thấy bạn."
+    },
+    {
+     "flags": [
+      "rival_a_1_mock"
+     ],
+     "text": "Bạn từng bị {rival} giẫm đạp dưới bùn lầy tại trường sát hạch."
+    },
+    {
+     "flags": [
+      "rival_a_1_shadow"
+     ],
+     "text": "Bạn đã sớm học được cách cúi đầu trước tiền tài của {rival}."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "rival_a",
+    "castAlive": "rival"
+   },
+   "choices": [
+    {
+     "label": "Giật lấy phần thưởng",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn tung một cú đấm sượt qua mặt hắn, để lại một vết xước rỉ máu và ôm cái xác bỏ đi.",
+      "effects": {
+       "STR": 2,
+       "wealth": -5,
+       "fame": 5,
+       "flags": [
+        "rival_a_1_scar"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Hắn dễ dàng gạt tay bạn ra, đá bạn ngã lăn xuống bùn và cướp lấy chiến lợi phẩm.",
+      "effects": {
+       "health": -10,
+       "joy": -10,
+       "flags": [
+        "rival_a_1_mock"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Cầm tiền và ngậm miệng",
+     "text": "Bạn cúi đầu nhận tiền, chấp nhận nhường lại vinh quang cho kẻ có quyền.",
+     "effects": {
+      "joy": -5,
+      "wealth": 15,
+      "flags": [
+       "rival_a_1_shadow"
+      ]
+     }
+    }
+   ],
+   "moment": "Đụng độ {rival} lần đầu trong kỳ sát hạch ma thuật."
+  },
+  {
+   "id": "demon_cast_rival_a_2",
+   "text": "{rival} nhờ ô dù gia tộc đã trở thành chỉ huy tiểu đội của bạn. Hắn mỉm cười độc ác, chỉ định bạn làm mồi nhử trong một nhiệm vụ tấn công hang ổ Troll, nơi cái chết gần như chắc chắn.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "arc": "rival_a",
+   "recall": [
+    {
+     "flags": [
+      "rival_a_2_outsmart"
+     ],
+     "text": "Bạn từng chơi khăm {rival} một vố đau điếng trước bầy Troll."
+    },
+    {
+     "flags": [
+      "rival_a_2_meatshield"
+     ],
+     "text": "Ký ức về việc bị {rival} vứt bỏ cho bầy quái vật nhai đầu vẫn còn in đậm."
+    },
+    {
+     "flags": [
+      "rival_a_2_survivor"
+     ],
+     "text": "Khả năng sinh tồn ngoan cường của bạn đã khiến {rival} bắt đầu e dè."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "rival_a_1_scar",
+     "rival_a_1_mock",
+     "rival_a_1_shadow"
+    ],
+    "cast": "rival_a",
+    "castAlive": "rival"
+   },
+   "choices": [
+    {
+     "label": "Lấy độc trị độc",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn lén sửa lại bản đồ tác chiến, khiến bầy Troll quay sang tấn công đội tiên phong của {rival} trong khi bạn an toàn rút lui.",
+      "effects": {
+       "INT": 3,
+       "health": -5,
+       "fame": 10,
+       "flags": [
+        "rival_a_2_outsmart"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Mưu đồ bại lộ, {rival} đích thân ném bạn vào giữa bầy Troll và đứng cười nhạo.",
+      "effects": {
+       "health": -30,
+       "fame": -10,
+       "flags": [
+        "rival_a_2_meatshield"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Cắn răng thi hành lệnh",
+     "text": "Bạn dùng mọi kỹ năng sinh tồn để sống sót qua vai trò mồi nhử, lê lết trở về trong ánh mắt sững sờ của hắn.",
+     "effects": {
+      "STR": 2,
+      "health": -20,
+      "fame": 5,
+      "flags": [
+       "rival_a_2_survivor"
+      ]
+     }
+    }
+   ],
+   "moment": "Sống sót qua âm mưu mượn dao giết người của {rival}."
+  },
+  {
+   "id": "demon_cast_rival_a_3",
+   "text": "Trong trận chiến với Thánh Kỵ Sĩ Đoàn, cánh quân của {rival} bị phục kích. Bạn vô tình phát hiện hắn đang bị thương nặng, quỳ gối run rẩy dưới thanh gươm của một Thánh Kỵ Sĩ, quạt lông quạ đã gãy nát.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "arc": "rival_a",
+   "recall": [
+    {
+     "flags": [
+      "rival_a_3_debt"
+     ],
+     "text": "Món nợ ân tình cứu mạng đã vô tình trói buộc tự tôn của {rival}."
+    },
+    {
+     "flags": [
+      "rival_a_3_cripple"
+     ],
+     "text": "{rival} mang một cánh tay cụt vì sự chậm trễ cố ý của bạn."
+    },
+    {
+     "flags": [
+      "rival_a_3_abandon"
+     ],
+     "text": "Ánh mắt oán hận của {rival} khi bị bạn bỏ rơi giữa bầy Thánh Kỵ Sĩ."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "rival_a_2_outsmart",
+     "rival_a_2_meatshield",
+     "rival_a_2_survivor"
+    ],
+    "cast": "rival_a",
+    "castAlive": "rival"
+   },
+   "choices": [
+    {
+     "label": "Cứu kẻ thù",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn lao ra gạt phăng thanh gươm, kéo {rival} thoát khỏi lưỡi hái tử thần. Hắn nhìn bạn, ánh mắt phức tạp chưa từng thấy.",
+      "effects": {
+       "AGI": 2,
+       "fame": 10,
+       "flags": [
+        "rival_a_3_debt"
+       ],
+       "castBond": {
+        "rival": 20
+       }
+      }
+     },
+     "fail": {
+      "text": "Bạn tới quá chậm, {rival} bị chém đứt một cánh tay trước khi bạn kịp lôi hắn chạy trốn.",
+      "effects": {
+       "health": -15,
+       "flags": [
+        "rival_a_3_cripple"
+       ],
+       "castBond": {
+        "rival": 10
+       }
+      }
+     }
+    },
+    {
+     "label": "Mỉm cười quay đi",
+     "text": "Bạn đứng trong bóng tối, lạnh lùng nhìn {rival} bị bắt làm tù binh, trả lại những gì hắn từng làm với bạn.",
+     "effects": {
+      "joy": 10,
+      "fame": -5,
+      "flags": [
+       "rival_a_3_abandon"
+      ],
+      "castBond": {
+       "rival": -20
+      }
+     }
+    }
+   ],
+   "moment": "Quyết định số phận của {rival} trong trận chiến với Giáo hội."
+  },
+  {
+   "id": "demon_cast_rival_a_4",
+   "text": "Gia tộc của {rival} vướng vào một âm mưu phản nghịch. Quân đoàn Ma Vương mở phiên tòa dị giáo. Bạn được gọi lên làm nhân chứng chính để quyết định sự sống chết của gia tộc hắn. Hắn lén dúi cho bạn một khế ước máu, cầu xin sự khoan hồng.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "arc": "rival_a",
+   "recall": [
+    {
+     "flags": [
+      "rival_a_4_bankrupt"
+     ],
+     "text": "Gia tộc của {rival} giờ chỉ là cái vỏ rỗng vì lòng tham của bạn."
+    },
+    {
+     "flags": [
+      "rival_a_4_busted"
+     ],
+     "text": "Cú lừa tại phiên tòa đã khiến cả bạn và {rival} mất trắng."
+    },
+    {
+     "flags": [
+      "rival_a_4_ruined"
+     ],
+     "text": "{rival} giờ chỉ là một tên lính quèn dưới đáy xã hội Demon."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "rival_a_3_debt",
+     "rival_a_3_cripple",
+     "rival_a_3_abandon"
+    ],
+    "cast": "rival_a",
+    "castAlive": "rival"
+   },
+   "choices": [
+    {
+     "label": "Tống tiền đến cùng",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn dùng lời khai khéo léo để cứu mạng hắn nhưng bòn rút toàn bộ gia sản của gia tộc hắn thông qua khế ước, biến hắn thành kẻ trắng tay.",
+      "effects": {
+       "wealth": 40,
+       "fame": 10,
+       "flags": [
+        "rival_a_4_bankrupt"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Quan tòa phát hiện bạn khai man, tịch thu luôn tài sản của bạn để cảnh cáo.",
+      "effects": {
+       "health": -10,
+       "wealth": -30,
+       "flags": [
+        "rival_a_4_busted"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Dìm hắn xuống đáy vực",
+     "text": "Bạn giao khế ước máu ra, tố cáo toàn bộ tội ác. Gia tộc hắn bị tước quyền, {rival} bị đày làm lính tiên phong hèn mọn.",
+     "effects": {
+      "wealth": 10,
+      "fame": 15,
+      "flags": [
+       "rival_a_4_ruined"
+      ]
+     }
+    }
+   ],
+   "moment": "Đứng trước phiên tòa phán quyết số phận gia tộc của {rival}."
+  },
+  {
+   "id": "demon_cast_rival_a_5",
+   "text": "Rất nhiều năm trôi qua. {rival} tìm đến gặp bạn trong một quán rượu tồi tàn ở Cửa Ngục Than Khóc. Kẻ quý tộc kiêu ngạo năm xưa giờ tàn tạ, dọn ra hai ly rượu và rủ bạn uống cạn chén ân oán cuối cùng. Hắn bảo một ly có độc.",
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "arc": "rival_a",
+   "recall": [
+    {
+     "flags": [
+      "rival_a_5_peace"
+     ],
+     "text": "Ân oán với {rival} đã tan theo những ly rượu ở Cửa Ngục Than Khóc."
+    },
+    {
+     "flags": [
+      "rival_a_5_poisoned"
+     ],
+     "text": "Chất độc của {rival} vẫn bào mòn sinh lực bạn mỗi ngày."
+    },
+    {
+     "flags": [
+      "rival_a_5_slain"
+     ],
+     "text": "Máu của {rival} lạnh ngắt vấy trên tay bạn trong quán rượu tồi tàn."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "rival_a_4_bankrupt",
+     "rival_a_4_busted",
+     "rival_a_4_ruined"
+    ],
+    "cast": "rival_a",
+    "castAlive": "rival"
+   },
+   "choices": [
+    {
+     "label": "Nhìn thấu tâm can",
+     "check": {
+      "stat": "INT",
+      "target": 10
+     },
+     "success": {
+      "text": "Bạn nhận ra cả hai ly đều không có độc. Hắn chỉ muốn tìm một cái cớ để thừa nhận sự thất bại và buông bỏ oán hận một đời với bạn. Hai người uống cạn, mỉm cười cay đắng.",
+      "effects": {
+       "joy": 20,
+       "flags": [
+        "rival_a_5_peace"
+       ],
+       "castBond": {
+        "rival": 30
+       }
+      }
+     },
+     "fail": {
+      "text": "Bạn chọn sai, uống phải ly có độc thật do hắn thù hận đến cùng. Bạn gục ngã ôm cổ họng trong khi hắn cười điên dại rồi tự sát theo.",
+      "effects": {
+       "health": -80,
+       "flags": [
+        "rival_a_5_poisoned"
+       ],
+       "castDie": [
+        "rival"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Rút kiếm kết liễu",
+     "text": "Bạn gạt đổ hai ly rượu, vung vũ khí kết liễu hắn ngay tại chỗ, chấm dứt vĩnh viễn mối phiền phức kéo dài cả đời này.",
+     "effects": {
+      "STR": 2,
+      "health": -10,
+      "flags": [
+       "rival_a_5_slain"
+      ],
+      "castDie": [
+       "rival"
+      ]
+     }
+    }
+   ],
+   "moment": "Kết thúc ân oán một đời với {rival}."
+  },
+  {
+   "id": "demon_cast_rival_b_1",
+   "text": "Lần đầu tham gia cướp phá một ngôi làng Human. Giữa biển lửa, một cậu bé mặt lấm lem ôm chặt thanh gươm gỗ, run rẩy cản đường bạn để bảo vệ xác mẹ. Cậu ta gào lên đòi giết bạn.",
+   "stages": [
+    "child",
+    "teen"
+   ],
+   "arc": "rival_b",
+   "recall": [
+    {
+     "flags": [
+      "rival_b_1_scar"
+     ],
+     "text": "Vết sẹo chữ thập bạn rạch lên trán đứa trẻ năm xưa đã trở thành nỗi ám ảnh."
+    },
+    {
+     "flags": [
+      "rival_b_1_bite"
+     ],
+     "text": "Vết sẹo do đứa trẻ Human cắn ở chân bạn thỉnh thoảng lại nhói đau."
+    },
+    {
+     "flags": [
+      "rival_b_1_ignore"
+     ],
+     "text": "Bạn đã quay lưng tha mạng cho một mầm mống tai họa của loài người."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "rival_b",
+    "castAlive": "rival"
+   },
+   "choices": [
+    {
+     "label": "Dẫm nát hy vọng",
+     "check": {
+      "stat": "STR",
+      "target": 4
+     },
+     "success": {
+      "text": "Bạn đá văng cậu bé, giẫm gãy thanh gươm gỗ và để lại một vết sẹo hình chữ thập trên trán nó như một trò đùa tàn ác, rồi cười lớn bỏ đi.",
+      "effects": {
+       "STR": 1,
+       "fame": 5,
+       "flags": [
+        "rival_b_1_scar"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Cậu bé cắn chặt vào chân bạn xé thịt, buộc bạn phải đá nó ra và vội vàng rút lui khi viện binh của Giáo hội đuốc sáng rực trời kéo đến.",
+      "effects": {
+       "health": -10,
+       "fame": -5,
+       "flags": [
+        "rival_b_1_bite"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Làm lơ bỏ đi",
+     "text": "Ánh mắt thù hận của giống loài tuổi thọ ngắn ngủi chẳng đáng để tâm. Bạn nhếch mép quay lưng, bỏ mặc nó trong đống đổ nát.",
+     "effects": {
+      "joy": 5,
+      "wealth": -5,
+      "flags": [
+       "rival_b_1_ignore"
+      ]
+     }
+    }
+   ],
+   "moment": "Chạm trán đứa trẻ mang lòng thù hận trong ngôi làng cháy."
+  },
+  {
+   "id": "demon_cast_rival_b_2",
+   "text": "Khi đang rong chơi gần biên giới, bạn bị phục kích. Kẻ thù là {rival}, đứa trẻ năm xưa nay đã trưởng thành, khoác trên mình áo choàng tập sự của Thánh Kỵ Sĩ Đoàn. Thanh gươm của hắn tỏa ra thứ ánh sáng thiêu đốt.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "arc": "rival_b",
+   "recall": [
+    {
+     "flags": [
+      "rival_b_2_humiliate"
+     ],
+     "text": "Bạn đã từng bóp cổ và vứt {rival} xuống vực như một rác rưởi."
+    },
+    {
+     "flags": [
+      "rival_b_2_wounded"
+     ],
+     "text": "Vết chém ánh sáng của {rival} tập sự vẫn để lại sẹo trên tay bạn."
+    },
+    {
+     "flags": [
+      "rival_b_2_flee"
+     ],
+     "text": "Lời chế giễu của bạn đã thổi bùng ngọn lửa cực đoan trong tim {rival}."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "rival_b_1_scar",
+     "rival_b_1_bite",
+     "rival_b_1_ignore"
+    ],
+    "cast": "rival_b",
+    "castAlive": "rival"
+   },
+   "choices": [
+    {
+     "label": "Phản công sỉ nhục",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn né được nhát chém, đánh bật vũ khí và dùng ma thuật bóp nghẹt cổ hắn. Bạn ném hắn xuống vực cạn, chế nhạo sự yếu kém của loài người.",
+      "effects": {
+       "AGI": 2,
+       "fame": 10,
+       "flags": [
+        "rival_b_2_humiliate"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Ánh sáng từ thanh gươm làm bạn lóa mắt. Hắn chém một nhát sâu vào cánh tay bạn, buộc bạn phải gầm lên và dùng bom khói tẩu thoát.",
+      "effects": {
+       "health": -20,
+       "fame": -10,
+       "flags": [
+        "rival_b_2_wounded"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Không thèm chấp vặt",
+     "text": "Bạn dựng một bức tường hắc ám chặn đòn, để lại lời chế giễu và bay khuất vào màn đêm.",
+     "effects": {
+      "INT": 1,
+      "wealth": -5,
+      "flags": [
+       "rival_b_2_flee"
+      ]
+     }
+    }
+   ],
+   "moment": "Bị Thánh Kỵ Sĩ tập sự {rival} truy sát lần đầu."
+  },
+  {
+   "id": "demon_cast_rival_b_3",
+   "text": "Chỉ vài chục năm trôi qua, đối với Demon chỉ như chớp mắt, nhưng {rival} giờ đã là một thống soái trung niên với mái tóc điểm bạc, dẫn theo tinh anh của Giáo hội bao vây hang ổ của bạn.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "arc": "rival_b",
+   "recall": [
+    {
+     "flags": [
+      "rival_b_3_broke"
+     ],
+     "text": "Thanh gươm của {rival} vĩnh viễn mang vết mẻ do đòn phá vây của bạn."
+    },
+    {
+     "flags": [
+      "rival_b_3_crushed"
+     ],
+     "text": "Lần bị {rival} ép chạy qua cống ngầm là nỗi nhục lớn nhất đời bạn."
+    },
+    {
+     "flags": [
+      "rival_b_3_traitor"
+     ],
+     "text": "Bọn ma tộc vẫn thì thầm về việc bạn bán đứng đồng loại cho {rival}."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "rival_b_2_humiliate",
+     "rival_b_2_wounded",
+     "rival_b_2_flee"
+    ],
+    "cast": "rival_b",
+    "castAlive": "rival"
+   },
+   "choices": [
+    {
+     "label": "Phá vây bằng máu",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bằng sức mạnh cơ bắp thuần túy, bạn đấm vỡ khiên của {rival}, chém mẻ thanh gươm của hắn và khoét một đường máu dẫn đồng bọn thoát thân.",
+      "effects": {
+       "STR": 3,
+       "health": -15,
+       "fame": 15,
+       "flags": [
+        "rival_b_3_broke"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Kết giới quá mạnh. Bạn trúng ba mũi tên ánh sáng và đành phải hy sinh cứ điểm, vứt bỏ mọi tài sản để đào tẩu qua đường cống ngầm.",
+      "effects": {
+       "health": -30,
+       "wealth": -40,
+       "fame": -15,
+       "flags": [
+        "rival_b_3_crushed"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hòa đàm giả tạo",
+     "text": "Biết không thể đánh bạo lực, bạn đưa ra một bản đồ căn cứ của phe phái Demon đối nghịch để đổi lấy con đường sống. Hắn nhận lấy đầy khinh bỉ.",
+     "effects": {
+      "INT": 2,
+      "fame": -20,
+      "flags": [
+       "rival_b_3_traitor"
+      ]
+     }
+    }
+   ],
+   "moment": "Chật vật đối phó với cuộc càn quét của {rival} lúc hắn đang ở đỉnh cao."
+  },
+  {
+   "id": "demon_cast_rival_b_4",
+   "text": "{rival} đã già yếu. Hắn dùng chút sinh mệnh cuối cùng, triệu hồi một thiên thần ánh sáng thiêu đốt thẳng vào linh hồn bạn để cùng chết tại vùng hoang mạc.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "arc": "rival_b",
+   "recall": [
+    {
+     "flags": [
+      "rival_b_4_absorb"
+     ],
+     "text": "Năng lượng ánh sáng từ đòn hy sinh của {rival} đang chảy trong huyết mạch bạn."
+    },
+    {
+     "flags": [
+      "rival_b_4_burned"
+     ],
+     "text": "Di chứng từ đòn tấn công tuyệt mệnh của {rival} làm linh hồn bạn rách nát."
+    },
+    {
+     "flags": [
+      "rival_b_4_coward"
+     ],
+     "text": "Ánh mắt ghê tởm của đồng loại khi bạn dùng người khác đỡ đòn cho mình."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "rival_b_3_broke",
+     "rival_b_3_crushed",
+     "rival_b_3_traitor"
+    ],
+    "cast": "rival_b",
+    "castAlive": "rival"
+   },
+   "choices": [
+    {
+     "label": "Cắn nuốt ánh sáng",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn mạo hiểm hấp thụ năng lượng của thiên thần đang vỡ nát, dùng máu Demon dung hòa thứ ánh sáng chết chóc. Bạn bước ra từ biển lửa vô sự, còn hắn chết trong tuyệt vọng.",
+      "effects": {
+       "STR": 2,
+       "LUCK": 3,
+       "flags": [
+        "rival_b_4_absorb"
+       ],
+       "castDie": [
+        "rival"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Linh hồn bạn bị đốt cháy một nửa. Bạn gào thét bỏ chạy, mang theo những di chứng không bao giờ chữa khỏi. Hắn mỉm cười nhắm mắt.",
+      "effects": {
+       "STR": -2,
+       "health": -50,
+       "flags": [
+        "rival_b_4_burned"
+       ],
+       "castDie": [
+        "rival"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Dùng kẻ khác làm khiên",
+     "text": "Bạn tóm lấy một tên lính Demon ném vào luồng sáng để cản đòn. Bạn sống sót vô sự nhưng bị mọi người xa lánh.",
+     "effects": {
+      "health": -5,
+      "fame": -30,
+      "flags": [
+       "rival_b_4_coward"
+      ],
+      "castDie": [
+       "rival"
+      ]
+     }
+    }
+   ],
+   "moment": "Đón nhận đòn tử uyên của {rival} trước khi hắn trút hơi thở cuối cùng."
+  },
+  {
+   "id": "demon_cast_rival_b_5",
+   "text": "Đã hàng thập kỷ kể từ ngày {rival} chết. Một đội kỵ sĩ trẻ tuổi xông vào lãnh địa của bạn. Kẻ đi đầu mang khuôn mặt y hệt {rival}, hét lên đòi lại danh dự cho ông nội mình bằng thanh gươm sứt mẻ năm xưa.",
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "arc": "rival_b",
+   "recall": [
+    {
+     "flags": [
+      "rival_b_5_endline"
+     ],
+     "text": "Huyết mạch của {rival} đã hoàn toàn bị bạn xóa sổ khỏi cõi đời."
+    },
+    {
+     "flags": [
+      "rival_b_5_hunted"
+     ],
+     "text": "Bạn vẫn phải tiếp tục sống chui lủi trước sự truy lùng của con cháu {rival}."
+    },
+    {
+     "flags": [
+      "rival_b_5_mercy"
+     ],
+     "text": "Bạn đã buông tha cho hậu duệ của {rival}, chứng minh sự cao ngạo của Demon."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "rival_b_4_absorb",
+     "rival_b_4_burned",
+     "rival_b_4_coward"
+    ],
+    "cast": "rival_b",
+    "castAlive": "rival"
+   },
+   "choices": [
+    {
+     "label": "Chôn vùi tất cả",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn vung tay tạo ra một cơn bão ma thuật, dễ dàng nghiền nát đám hậu duệ và bẻ gãy thanh gươm di kỷ, xóa sổ hoàn toàn gia tộc của {rival}.",
+      "effects": {
+       "STR": 2,
+       "joy": 10,
+       "fame": 20,
+       "flags": [
+        "rival_b_5_endline"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Tuổi tác làm bạn chậm chạp. Mũi giáo của kẻ hậu duệ đâm xuyên vai bạn. Bạn phải lệnh khóa chặt cổng lâu đài, chấp nhận nhượng bộ một phần lãnh thổ.",
+      "effects": {
+       "health": -30,
+       "wealth": -20,
+       "flags": [
+        "rival_b_5_hunted"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Trả lại thanh gươm",
+     "text": "Bạn dùng ma lực tước và ném trả thanh gươm xuống chân kẻ hậu duệ, mỉm cười nói về sự vô nghĩa của tuổi thọ con người. Kẻ đó run rẩy nhặt gươm rút lui.",
+     "effects": {
+      "INT": 2,
+      "joy": 20,
+      "fame": 10,
+      "flags": [
+       "rival_b_5_mercy"
+      ]
+     }
+    }
+   ],
+   "moment": "Chạm trán di sản thù hận do {rival} để lại."
+  },
+  {
+   "id": "demon_cast_rival_c_1",
+   "text": "Cha bạn mang về một con Hellhound quý hiếm để làm linh thú khế ước. Đêm trước ngày quyết định, {rival} lẻn vào phòng bạn cầm theo một bình thuốc xổ hòng loại bạn khỏi cuộc chơi.",
+   "stages": [
+    "child",
+    "teen"
+   ],
+   "arc": "rival_c",
+   "recall": [
+    {
+     "flags": [
+      "rival_c_1_hound"
+     ],
+     "text": "Con Hellhound bạn cướp tay trên luôn gầm gừ mỗi khi thấy {rival}."
+    },
+    {
+     "flags": [
+      "rival_c_1_lost"
+     ],
+     "text": "Ký trong trận thuốc xổ làm bạn mất con Hellhound vào tay {rival} vẫn âm ỉ."
+    },
+    {
+     "flags": [
+      "rival_c_1_yield"
+     ],
+     "text": "Sự nhún nhường của bạn đã dung túng cho thói kiêu ngạo của {rival}."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "cast": "rival_c",
+    "castAlive": "rival"
+   },
+   "choices": [
+    {
+     "label": "Tương kế tựu kế",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn lén tráo đổi đồ uống trong bữa sáng. {rival} ôm bụng quằn quại trong khi bạn ung dung lập khế ước với con Hellhound.",
+      "effects": {
+       "STR": 2,
+       "INT": 2,
+       "fame": 5,
+       "flags": [
+        "rival_c_1_hound"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Chị ta quá nhanh tay chuốc thuốc bạn. Hôm sau bạn nằm bẹp trên giường, cay đắng nghe tiếng Hellhound tru lên thừa nhận {rival} làm chủ nhân.",
+      "effects": {
+       "health": -10,
+       "joy": -10,
+       "flags": [
+        "rival_c_1_lost"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Nhường nhịn vì gia đình",
+     "text": "Bạn vứt bỏ sự kiêu hãnh, chủ động nhường con linh thú. Chị ta cười khẩy, vỗ má bạn mỉa mai sự yếu đuối.",
+     "effects": {
+      "joy": -5,
+      "flags": [
+       "rival_c_1_yield"
+      ],
+      "castBond": {
+       "rival": 10
+      }
+     }
+    }
+   ],
+   "moment": "Tranh giành linh thú khế ước đầu đời với {rival}."
+  },
+  {
+   "id": "demon_cast_rival_c_2",
+   "text": "{rival} bí mật cấu kết với quản đốc mỏ, đổ tội cho bạn làm thất thoát quỹ Huyết Kim của gia tộc để chị ta độc chiếm quyền lợi trước hội đồng trưởng lão.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "arc": "rival_c",
+   "recall": [
+    {
+     "flags": [
+      "rival_c_2_whipped"
+     ],
+     "text": "Vết roi da trên lưng {rival} là cái giá cho việc vu oan giá họa bạn."
+    },
+    {
+     "flags": [
+      "rival_c_2_framed"
+     ],
+     "text": "Bạn luôn bị hội đồng trưởng lão dò xét vì mưu hèn của {rival}."
+    },
+    {
+     "flags": [
+      "rival_c_2_exiled"
+     ],
+     "text": "Những năm tháng lao động khổ sai trong hầm ngục vì {rival} làm bạn chai sạn."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "rival_c_1_hound",
+     "rival_c_1_lost",
+     "rival_c_1_yield"
+    ],
+    "cast": "rival_c",
+    "castAlive": "rival"
+   },
+   "choices": [
+    {
+     "label": "Lật tẩy bằng chứng",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn ăn cắp cuốn sổ ghi chép mật của tên quản đốc và ném nó ra giữa hội đồng. {rival} tái mặt, chịu hình phạt roi da đau đớn.",
+      "effects": {
+       "AGI": 2,
+       "wealth": 20,
+       "fame": 10,
+       "flags": [
+        "rival_c_2_whipped"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn bị lính canh bắt quả tang khi đang lục lọi. Lời buộc tội của {rival} thành sự thật. Hội đồng cắt xén toàn bộ chu cấp của bạn trong mười năm.",
+      "effects": {
+       "wealth": -30,
+       "fame": -15,
+       "flags": [
+        "rival_c_2_framed"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Ngậm đắng nuốt cay",
+     "text": "Biết phe cánh của chị ta quá mạnh, bạn im lặng gánh tội và bị đày đi lao động khổ sai ở hầm ngục một thời gian.",
+     "effects": {
+      "health": -20,
+      "wealth": -10,
+      "fame": -10,
+      "flags": [
+       "rival_c_2_exiled"
+      ]
+     }
+    }
+   ],
+   "moment": "Bị {rival} gài bẫy tranh giành quyền quản lý mỏ Huyết Kim."
+  },
+  {
+   "id": "demon_cast_rival_c_3",
+   "text": "{father} qua đời đột ngột. Trong đám tang, {rival} ngang nhiên rút chiếc nhẫn gia huy từ tay người chết đeo vào tay mình, tuyên bố phong tỏa quyền thừa kế của bạn bằng lực lượng thân tín.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "arc": "rival_c",
+   "recall": [
+    {
+     "flags": [
+      "rival_c_3_usurper"
+     ],
+     "text": "Ngón tay cụt của {rival} là chiến tích đẫm máu khi bạn giành lại quyền lực."
+    },
+    {
+     "flags": [
+      "rival_c_3_fugitive"
+     ],
+     "text": "Bạn là kẻ lưu vong, bị chính chị ruột {rival} săn lùng ráo riết."
+    },
+    {
+     "flags": [
+      "rival_c_3_vassal"
+     ],
+     "text": "Nhẫn nhịn làm tay sai cho {rival} là nỗi nhục mà bạn nuốt vào bụng mỗi ngày."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "rival_c_2_whipped",
+     "rival_c_2_framed",
+     "rival_c_2_exiled"
+    ],
+    "cast": "rival_c",
+    "castAlive": "rival"
+   },
+   "choices": [
+    {
+     "label": "Phát động binh biến",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn xông vào đại sảnh tắm máu phe cánh của {rival}, chém đứt ngón tay đeo nhẫn của chị ta và giành lại toàn bộ quyền lực gia tộc.",
+      "effects": {
+       "STR": 3,
+       "wealth": 50,
+       "fame": 20,
+       "flags": [
+        "rival_c_3_usurper"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Lực lượng của {rival} áp đảo. Bạn bị chém trọng thương, phải liều chết phá vòng vây trốn khỏi lãnh địa mang theo hai bàn tay trắng.",
+      "effects": {
+       "health": -40,
+       "wealth": -50,
+       "fame": -20,
+       "flags": [
+        "rival_c_3_fugitive"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Chấp nhận phận bầy tớ",
+     "text": "Bạn quỳ xuống hôn lên chiếc nhẫn trên tay {rival}, thề trung thành với tân gia chủ để bảo toàn mạng sống và chút của cải.",
+     "effects": {
+      "joy": -20,
+      "wealth": 10,
+      "flags": [
+       "rival_c_3_vassal"
+      ],
+      "castBond": {
+       "rival": 15
+      }
+     }
+    }
+   ],
+   "moment": "Huynh đệ tương tàn trong đám tang của {father}."
+  },
+  {
+   "id": "demon_cast_rival_c_4",
+   "text": "{rival} tìm mọi cách đẩy bạn vào tế đàn, lập một khế ước giam cầm với một tên Warlock hắc ám để hiến tế bạn củng cố kết giới cho Quân đoàn Ma Vương.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "arc": "rival_c",
+   "recall": [
+    {
+     "flags": [
+      "rival_c_4_reversal"
+     ],
+     "text": "Trận hiến tế hụt đã khiến {rival} mang thương tật ma thuật vĩnh viễn."
+    },
+    {
+     "flags": [
+      "rival_c_4_cursed"
+     ],
+     "text": "Một nửa linh hồn bạn đã mất trong trận pháp hiến tế do {rival} giăng ra."
+    },
+    {
+     "flags": [
+      "rival_c_4_pitied"
+     ],
+     "text": "Lòng thương hại hiếm hoi của {rival} đã cứu vãn sinh mạng rẻ mạt của bạn."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "rival_c_3_usurper",
+     "rival_c_3_fugitive",
+     "rival_c_3_vassal"
+    ],
+    "cast": "rival_c",
+    "castAlive": "rival"
+   },
+   "choices": [
+    {
+     "label": "Đảo ngược khế ước",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn nhỏ máu, đọc ngược thần chú và trói buộc ngược lại tên Warlock, khiến ma pháp dội ngược làm {rival} hộc máu tàn phế.",
+      "effects": {
+       "STR": 2,
+       "LUCK": 3,
+       "fame": 20,
+       "flags": [
+        "rival_c_4_reversal"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn phải cắn nát một nửa linh hồn mình hiến tế cho Vực Thẳm để phá vỡ trận pháp, lết ra ngoài trong cơn đau thấu xương.",
+      "effects": {
+       "INT": -2,
+       "health": -50,
+       "wealth": -20,
+       "flags": [
+        "rival_c_4_cursed"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Cầu xin lòng thương xót",
+     "text": "Bạn gợi lại kỷ niệm tuổi thơ. Chị ta khựng lại, thay đổi ý định phút chót và ném tên Warlock vào tế đàn thế mạng bạn.",
+     "effects": {
+      "joy": 10,
+      "fame": -30,
+      "flags": [
+       "rival_c_4_pitied"
+      ],
+      "castBond": {
+       "rival": 20
+      }
+     }
+    }
+   ],
+   "moment": "Thoát khỏi tế đàn sinh tử do chị ruột {rival} sắp đặt."
+  },
+  {
+   "id": "demon_cast_rival_c_5",
+   "text": "Cả bạn và {rival} đều đã già. Chị ta mang bạo bệnh, gọi bạn đến giường bệnh. Chiếc nhẫn gia huy lấp lánh trên chiếc bàn nhỏ. Chị ta thều thào hỏi liệu bạn có hối hận vì sinh ra làm chị em không.",
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "arc": "rival_c",
+   "recall": [
+    {
+     "flags": [
+      "rival_c_5_forgiven"
+     ],
+     "text": "Sự thanh thản của {rival} phút cuối đời mang lại bình yên cho linh hồn bạn."
+    },
+    {
+     "flags": [
+      "rival_c_5_brokenring"
+     ],
+     "text": "Chiếc nhẫn gia huy vỡ nát là di sản cuối cùng {rival} để lại cho bạn."
+    },
+    {
+     "flags": [
+      "rival_c_5_murderer"
+     ],
+     "text": "Cảm giác chiếc gối lịm đi dưới tay khi bạn kết liễu {rival} vẫn lạnh lẽo trong tim."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "rival_c_4_reversal",
+     "rival_c_4_cursed",
+     "rival_c_4_pitied"
+    ],
+    "cast": "rival_c",
+    "castAlive": "rival"
+   },
+   "choices": [
+    {
+     "label": "Giọt nước mắt của Vực Thẳm",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn dùng ma lực xoa dịu cơn đau của chị ta. {rival} mỉm cười nhẹ nhõm, tự tay đeo chiếc nhẫn cho bạn rồi thanh thản nhắm mắt.",
+      "effects": {
+       "joy": 30,
+       "wealth": 40,
+       "fame": 10,
+       "flags": [
+        "rival_c_5_forgiven"
+       ],
+       "castDie": [
+        "rival"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Lời nói đầy gai góc của bạn làm chị ta tức giận. {rival} gom chút sức tàn, dùng phép bóp nát chiếc nhẫn gia huy vỡ vụn thành bột trước khi chết.",
+      "effects": {
+       "joy": -20,
+       "wealth": -30,
+       "flags": [
+        "rival_c_5_brokenring"
+       ],
+       "castDie": [
+        "rival"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Bóp chết kẻ yếu đuối",
+     "text": "Bạn không nói lời nào, lạnh lùng đè gối lên mặt chị ta cho đến khi tắt thở, tự mình lấy chiếc nhẫn củng cố ngai vị duy nhất.",
+     "effects": {
+      "STR": 1,
+      "health": 5,
+      "fame": 10,
+      "flags": [
+       "rival_c_5_murderer"
+      ],
+      "castDie": [
+       "rival"
+      ]
+     }
+    }
+   ],
+   "moment": "Đối mặt với giây phút cuối đời của chị ruột {rival}."
   }
  ],
  "deaths": [],
@@ -20741,6 +21983,39 @@
      "Tiếng chuông đồng gọi hồn của {friend} luôn là giai điệu báo trước sự sống và cái chết.",
      "Niềm tin mù quáng của {friend} vào ác ma lại là thứ chân thành hiếm hoi bạn nhận được.",
      "Tuổi thọ ngắn ngủi của loài người là bức tường ngăn cách phũ phàng giữa bạn và {friend}."
+    ]
+   },
+   "rival_a": {
+    "id": "rival_a",
+    "role": "rival",
+    "title": "ÁC MA QUÝ TỘC CÙNG LỨA",
+    "desc": "Nam, Demon. Kẻ ngậm thìa Huyết Kim từ lúc sinh ra, luôn phe phẩy chiếc quạt lông quạ. Hắn thường vỗ vai bạn và gọi bạn là \"kẻ hạ đẳng\".",
+    "recall": [
+     "Tiếng cười khẩy và cái nhìn nửa con mắt của {rival} luôn ám ảnh bạn.",
+     "Bạn nhận ra mình luôn phải sống dưới cái bóng quyền lực của gia tộc {rival}.",
+     "Vết sẹo trên mặt {rival} do bạn gây ra là minh chứng cho sự phản kháng."
+    ]
+   },
+   "rival_b": {
+    "id": "rival_b",
+    "role": "rival",
+    "title": "THÁNH KỴ SĨ SĂN ĐUỔI",
+    "desc": "Nam, Human. Thánh Kỵ Sĩ với vết sẹo hình chữ thập trên trán và thanh kiếm ánh sáng nham nhở vết mẻ do những lần đụng độ với bạn.",
+    "recall": [
+     "Ánh sáng chói lòa từ thanh gươm của {rival} luôn rình rập trong bóng tối.",
+     "{rival} già đi quá nhanh so với bạn, nhưng thù hận trong mắt hắn càng thêm rực rỡ.",
+     "Lời thề diệt ma của {rival} dường như đã lây lan sang cả huyết mạch của hắn."
+    ]
+   },
+   "rival_c": {
+    "id": "rival_c",
+    "role": "rival",
+    "title": "HUYẾT NHỤC TƯƠNG TÀN",
+    "desc": "Nữ, Demon. Chị gái ruột của bạn, mặc bộ giáp màu đỏ máu. Chị ta có thói quen mân mê chiếc nhẫn gia huy mỗi khi tính toán mưu hèn kế bẩn.",
+    "recall": [
+     "Dòng máu chung đang sục sôi đòi quyền thống trị duy nhất.",
+     "Tiếng lách cách từ chiếc nhẫn gia huy của {rival} báo hiệu một âm mưu mới.",
+     "Sự cạnh tranh với {rival} để lại một khoảng trống lạnh lẽo trong gia tộc."
     ]
    }
   },

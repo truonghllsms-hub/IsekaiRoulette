@@ -13860,6 +13860,1928 @@
     }
    ],
    "moment": "Đứng giữa vẻ ngoài nhân loại và linh hồn của hầm ngục."
+  },
+  {
+   "id": "slime_arc_demon_1",
+   "text": "Ngay cạnh nơi bạn sinh ra, có một chiếc huy hiệu phát sáng do Thánh Kỵ Sĩ đánh rơi. Ánh sáng của nó chiếu vào màng nhầy khiến dòng máu quỷ trong bạn sôi lên đau đớn.",
+   "stages": [
+    "child",
+    "teen"
+   ],
+   "arc": "demon",
+   "recall": [
+    {
+     "flags": [
+      "demon_1_holy"
+     ],
+     "text": "Luồng thánh khí mỏng manh thỉnh thoảng vẫn phản ứng với dòng máu ác quỷ làm bạn nấc cụt."
+    },
+    {
+     "flags": [
+      "demon_1_burn"
+     ],
+     "text": "Vết sẹo thánh giá luôn đau nhức mỗi khi bạn tiếp xúc với thứ gì phát sáng."
+    },
+    {
+     "flags": [
+      "demon_1_fear"
+     ],
+     "text": "Cảm giác sợ hãi ánh sáng ăn sâu vào tiềm thức khiến bạn ghét những nơi quang đãng."
+    }
+   ],
+   "weight": 100,
+   "require": {
+    "flags": [
+     "blood_slime"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Gồng mình nuốt chửng huy hiệu",
+     "check": {
+      "stat": "health",
+      "target": 35
+     },
+     "success": {
+      "text": "Bạn dằn vặt tiêu hóa luồng thánh khí, trung hòa nó vào máu thịt ác quỷ, khiến bề mặt ánh lên sắc vàng nhạt kháng lại ánh sáng.",
+      "effects": {
+       "health": 5,
+       "fame": 2,
+       "flags": [
+        "demon_1_holy"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Ánh sáng thánh thiêu đốt bạn bốc khói khét lẹt, làm bốc hơi một phần tư cơ thể và để lại một vết lõm sâu hoắm.",
+      "effects": {
+       "health": -10,
+       "flags": [
+        "demon_1_burn"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Lẩn trốn vào khe tối",
+     "text": "Bạn chấp nhận bản năng sợ hãi ánh sáng của loài quỷ, lạch bạch lủi vào khe nứt tăm tối nhất để bảo toàn mạng sống.",
+     "effects": {
+      "AGI": 2,
+      "joy": -5,
+      "flags": [
+       "demon_1_fear"
+      ]
+     }
+    }
+   ],
+   "moment": "Đối mặt với tàn dư của kẻ đã tàn sát nguồn cội mình."
+  },
+  {
+   "id": "slime_arc_demon_2",
+   "text": "Một nhóm tín đồ tà giáo phát hiện ra bạn mang dòng máu của {maker}. Chúng vẽ một vòng tròn ma thuật, định hiến tế bạn để triệu hồi ác quỷ cấp cao hơn.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "arc": "demon",
+   "recall": [
+    {
+     "flags": [
+      "demon_2_reverse"
+     ],
+     "text": "Lũ tà giáo trong hầm ngục luôn sợ hãi truyền tai nhau về con Slime biết phá ấn."
+    },
+    {
+     "flags": [
+      "demon_2_shock"
+     ],
+     "text": "Ấn ký tà giáo in hằn trên lưng bạn thỉnh thoảng lại co giật."
+    },
+    {
+     "flags": [
+      "demon_2_bribe"
+     ],
+     "text": "Bạn mang một màu nhợt nhạt vĩnh viễn do mất đi lượng lớn máu quỷ."
+    }
+   ],
+   "weight": 100,
+   "require": {
+    "anyFlags": [
+     "demon_1_holy",
+     "demon_1_burn",
+     "demon_1_fear"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Đảo ngược vòng tròn ma thuật",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn tiết dịch axit phá hỏng một đường nét của pháp trận, làm ma lực dội ngược khiến lũ tín đồ nổ tung, bạn nuốt chửng tàn dư ma lực của chúng.",
+      "effects": {
+       "INT": 5,
+       "wealth": 10,
+       "flags": [
+        "demon_2_reverse"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Pháp trận kích hoạt, giật điện bạn cháy xém toàn thân. Bạn phải phân ly cắt đứt phần cơ thể dính pháp trận mới lết ra ngoài thoát chết.",
+      "effects": {
+       "health": -15,
+       "fame": -5,
+       "flags": [
+        "demon_2_shock"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Chủ động dâng máu",
+     "text": "Bạn khôn khéo nôn ra một nửa lượng máu quỷ cho chúng tế lễ, đánh đổi sự suy yếu để lũ tín đồ buông tha và rời đi.",
+     "effects": {
+      "health": -10,
+      "joy": 5,
+      "flags": [
+       "demon_2_bribe"
+      ]
+     }
+    }
+   ],
+   "moment": "Chạm trán với những kẻ cuồng tín tôn thờ bóng tối."
+  },
+  {
+   "id": "slime_arc_demon_3",
+   "text": "Gã Thánh Kỵ Sĩ năm xưa đã quay lại để thanh tẩy hoàn toàn khu vực. Hắn giơ cao thanh kiếm rực lửa, định xóa sổ bạn - mầm mống cuối cùng của {maker}.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "arc": "demon",
+   "recall": [
+    {
+     "flags": [
+      "demon_3_blind"
+     ],
+     "text": "Tiếng gầm thét cay cú của gã Kỵ sĩ mù luôn là bản nhạc vui tai đối với bạn."
+    },
+    {
+     "flags": [
+      "demon_3_cut"
+     ],
+     "text": "Lưỡi kiếm thánh để lại một dải phân cách không bao giờ liền lặn trên màng nhầy của bạn."
+    },
+    {
+     "flags": [
+      "demon_3_hide"
+     ],
+     "text": "Nỗi nhục nhã khi bị kẻ thù dẫm lên đầu vẫn âm ỉ trong cốt lõi của bạn."
+    }
+   ],
+   "weight": 100,
+   "require": {
+    "anyFlags": [
+     "demon_2_reverse",
+     "demon_2_shock",
+     "demon_2_bribe"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Phun nọc máu mù mắt",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn bắn một tia máu đen đặc thẳng vào mắt gã, làm gã mù tạm thời và rớt kiếm. Bạn cuỗm luôn thanh gươm rồi trườn xuống cống ngầm.",
+      "effects": {
+       "wealth": 15,
+       "fame": 15,
+       "flags": [
+        "demon_3_blind"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Gã dễ dàng chém đứt tia máu, bồi thêm một kiếm cắt đôi cơ thể bạn. Bạn phải vờ chết, đợi gã đi khuất mới từ từ dính các mảnh thân thể lại với nhau.",
+      "effects": {
+       "health": -25,
+       "joy": -10,
+       "flags": [
+        "demon_3_cut"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Ép xác vào vách đá ngụy trang",
+     "text": "Bạn nén dòng máu quỷ xuống tận cùng, đổi màu xám xịt tiệp vào vách đá, nín thở nhìn gã Thánh Kỵ Sĩ dẫm qua người mà không hay biết.",
+     "effects": {
+      "AGI": 5,
+      "fame": -10,
+      "flags": [
+       "demon_3_hide"
+      ]
+     }
+    }
+   ],
+   "moment": "Lừa gạt hoặc đối đầu với kẻ thù không đội trời chung."
+  },
+  {
+   "id": "slime_arc_demon_4",
+   "text": "Hấp thụ quá nhiều ma lực, ý chí tàn dư của {maker} bất ngờ trỗi dậy trong đầu bạn. Nó gào thét đòi chiếm đoạt thể xác dẻo này để tái sinh, làm bạn sủi bọt máu liên hồi.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "arc": "demon",
+   "recall": [
+    {
+     "flags": [
+      "demon_4_devour"
+     ],
+     "text": "Giọng nói của ác quỷ giờ chỉ còn là một tiếng vọng yếu ớt cầu xin sự ban ơn từ bạn."
+    },
+    {
+     "flags": [
+      "demon_4_crazy"
+     ],
+     "text": "Những cơn đau đầu thình lình làm bạn thường xuyên cư xử như một kẻ điên."
+    },
+    {
+     "flags": [
+      "demon_4_pure"
+     ],
+     "text": "Khối nhầy của bạn giờ đây trong suốt nhưng trống rỗng, mất đi sức mạnh bóng tối."
+    }
+   ],
+   "weight": 100,
+   "require": {
+    "anyFlags": [
+     "demon_3_blind",
+     "demon_3_cut",
+     "demon_3_hide"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Nghiền nát linh hồn ác quỷ",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn dồn toàn bộ tinh thần lực giam cầm và tiêu hóa ý chí của {maker}, biến phần sức mạnh bóng tối đó thành của riêng mình.",
+      "effects": {
+       "STR": 15,
+       "INT": 10,
+       "flags": [
+        "demon_4_devour"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Linh hồn ác quỷ quá dữ dội, cắn xé tâm trí khiến bạn điên loạn lao đầu vào tường đá. Bạn mất đi một phần trí tuệ mới ép được nó ngủ yên trở lại.",
+      "effects": {
+       "INT": -15,
+       "health": -15,
+       "flags": [
+        "demon_4_crazy"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Cắt bỏ phần cơ thể chứa tà khí",
+     "text": "Bạn cắn răng phân tách hẳn phần lõi đen ngòm chứa linh hồn ác quỷ vứt đi, chấp nhận suy yếu nghiêm trọng nhưng bảo toàn được bản ngã.",
+     "effects": {
+      "health": -25,
+      "joy": 15,
+      "flags": [
+       "demon_4_pure"
+      ]
+     }
+    }
+   ],
+   "moment": "Trận chiến nội tâm giành lại quyền kiểm soát bản thân."
+  },
+  {
+   "id": "slime_arc_demon_5",
+   "text": "Đạt đến đỉnh cao, dòng máu quỷ trong bạn sục sôi đòi một hình hài xứng đáng. Lõi của bạn bốc cháy ngọn lửa hắc ám, thúc ép quá trình tiến hóa cuối cùng tại phòng Lõi.",
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "arc": "demon",
+   "weight": 100,
+   "require": {
+    "anyFlags": [
+     "demon_4_devour",
+     "demon_4_crazy",
+     "demon_4_pure"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Dung hợp hoàn toàn tà thuật",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn hấp thụ trọn vẹn tà khí, lột xác thành Demon Slime khổng lồ tỏa khói đen, sở hữu sức sống bất diệt và ma thuật bóng tối của vực thẳm.",
+      "effects": {
+       "STR": 30,
+       "fame": 20,
+       "flags": [
+        "demon_5_demon"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Lượng ma lực hắc ám vượt quá giới hạn chịu đựng, cơ thể bạn nứt toác, trào ra hàng vũng máu đen rỉ sét, đánh mất vĩnh viễn cơ hội tiến hóa.",
+      "effects": {
+       "health": -40,
+       "fame": -10,
+       "flags": [
+        "demon_5_fail"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hòa tan ngọn lửa bóng tối",
+     "text": "Bạn dùng dịch kiềm trung hòa sức mạnh tà ác, từ chối việc trở thành ác quỷ, chỉ chấp nhận vươn lên thành một Slime King bình thường vĩ đại.",
+     "effects": {
+      "INT": 15,
+      "joy": 10,
+      "flags": [
+       "demon_5_king"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_arc_division_1",
+   "text": "Một con Chuột Khổng Lồ nhổ phẹt một bãi nước bọt chặn đường bạn. Dù cơ thể nhỏ bé, bản năng hoàng tộc kế thừa từ {maker} thôi thúc bạn không được nhún nhường.",
+   "stages": [
+    "child",
+    "teen"
+   ],
+   "arc": "division",
+   "recall": [
+    {
+     "flags": [
+      "division_1_aura"
+     ],
+     "text": "Sự kiêu ngạo của dòng máu hoàng tộc luôn giúp bạn ngẩng cao đầu trước quái vật cấp thấp."
+    },
+    {
+     "flags": [
+      "division_1_slap"
+     ],
+     "text": "Vết bầm trên màng nhầy do cú quất đuôi của con chuột luôn làm bạn thấy nhục nhã."
+    },
+    {
+     "flags": [
+      "division_1_humble"
+     ],
+     "text": "Bạn học được rằng sự nhẫn nhịn đôi khi đáng giá hơn cái sĩ diện hão."
+    }
+   ],
+   "weight": 100,
+   "require": {
+    "flags": [
+     "royal_slime"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Phô diễn uy áp hoàng gia",
+     "check": {
+      "stat": "STR",
+      "target": 3
+     },
+     "success": {
+      "text": "Bạn phình to tỏa ra luồng sát khí vương giả, con chuột hoảng hốt cụp tai, lùi lạch bạch nhường đường cho bạn.",
+      "effects": {
+       "STR": 2,
+       "fame": 5,
+       "flags": [
+        "division_1_aura"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Uy áp của bạn xịt ngóm, con chuột vung đuôi quất bạn dính chặt lên trần đá lạnh buốt, bắt bạn nộp phạt một mẩu rêu.",
+      "effects": {
+       "health": -10,
+       "wealth": -5,
+       "flags": [
+        "division_1_slap"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Dẹp tự ái mà luồn cúi",
+     "text": "Bạn ép mình dẹt như một chiếc lá, ngoan ngoãn bò rạp qua dưới chân con chuột để tránh rắc rối.",
+     "effects": {
+      "AGI": 2,
+      "joy": -5,
+      "flags": [
+       "division_1_humble"
+      ]
+     }
+    }
+   ],
+   "moment": "Lần đầu tiên đối mặt với bài toán giữa danh dự và sinh tồn."
+  },
+  {
+   "id": "slime_arc_division_2",
+   "text": "Một cá thể Slime khác cũng được phân bào từ {maker} trườn tới khiêu chiến. Nó muốn ăn thịt bạn để tích lũy vương khí, trở thành ứng viên duy nhất cho ngôi báu.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "arc": "division",
+   "recall": [
+    {
+     "flags": [
+      "division_2_eat"
+     ],
+     "text": "Cảm giác nuốt chửng kẻ mang cùng dòng máu đem lại cho bạn một sự thỏa mãn đen tối."
+    },
+    {
+     "flags": [
+      "division_2_run"
+     ],
+     "text": "Kẻ đồng loại kiêu ngạo kia thi thoảng vẫn lởn vởn quanh lãnh địa châm chọc bạn."
+    },
+    {
+     "flags": [
+      "division_2_share"
+     ],
+     "text": "Mảng lõi bị khuyết luôn nhắc nhở bạn về sự thỏa hiệp yếu hèn ngày đó."
+    }
+   ],
+   "weight": 100,
+   "require": {
+    "anyFlags": [
+     "division_1_aura",
+     "division_1_slap",
+     "division_1_humble"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Đồng hóa kẻ phản nghịch",
+     "check": {
+      "stat": "health",
+      "target": 55
+     },
+     "success": {
+      "text": "Bạn cuốn chặt lấy nó, tiết axit mạnh hơn dung nạp toàn bộ cấu trúc của nó, hấp thụ thêm một phần sức mạnh nguyên thủy.",
+      "effects": {
+       "health": 10,
+       "wealth": 5,
+       "flags": [
+        "division_2_eat"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Đối thủ quá dai sức, nó nhai đứt một xúc tu của bạn khiến bạn đau đớn tháo chạy, đánh mất đi một phần lãnh thổ.",
+      "effects": {
+       "health": -15,
+       "fame": -10,
+       "flags": [
+        "division_2_run"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Nhượng bộ chia sẻ vương khí",
+     "text": "Bạn phun ra một mẩu lõi nhỏ cho nó ăn để đình chiến, giữ mạng nhưng lại trở thành kẻ yếu thế hơn trong mắt đồng loại.",
+     "effects": {
+      "health": -5,
+      "joy": -10,
+      "flags": [
+       "division_2_share"
+      ]
+     }
+    }
+   ],
+   "moment": "Cuộc nội chiến đầu tiên của những giọt nước hoàng gia."
+  },
+  {
+   "id": "slime_arc_division_3",
+   "text": "{maker} vướng vào trận tử chiến với Dũng Giả và bị thương nặng. Theo bản năng sinh tồn, Quân vương phát ra từ trường hút toàn bộ các giọt phân bào quay về để ăn thịt chữa lành.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "arc": "division",
+   "recall": [
+    {
+     "flags": [
+      "division_3_resist"
+     ],
+     "text": "Bề mặt của bạn trở nên chai sạn và góc cạnh hơn sau khi kháng cự thành công lực hút."
+    },
+    {
+     "flags": [
+      "division_3_burn"
+     ],
+     "text": "Những vệt sẹo xước dọc trên lưng là minh chứng cho chuyến đi cận kề cửa tử."
+    },
+    {
+     "flags": [
+      "division_3_steal"
+     ],
+     "text": "Ma lực trộm được từ Quân vương luôn rực sáng râm ran trong lõi của bạn."
+    }
+   ],
+   "weight": 100,
+   "require": {
+    "anyFlags": [
+     "division_2_eat",
+     "division_2_run",
+     "division_2_share"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Ghì chặt vào vách đá kháng cự",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn hóa cứng bề mặt, cắm sâu vào lớp đá tảng, thành công chống lại lực hút khổng lồ và giữ được mạng sống độc lập.",
+      "effects": {
+       "STR": 15,
+       "fame": 10,
+       "flags": [
+        "division_3_resist"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Lực hút quá dữ dội bẻ gãy lớp phòng ngự, bạn bị kéo tuột đi hàng dặm, ma sát làm cháy xém màng nhầy trước khi may mắn vướng vào một kẽ nứt hẹp.",
+      "effects": {
+       "health": -25,
+       "wealth": -10,
+       "flags": [
+        "division_3_burn"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Thuận theo lực kéo và đánh cắp",
+     "text": "Bạn để mặc lực hút kéo đi, nhưng khi vừa chạm vào viền cơ thể {maker}, bạn đớp nhanh một lượng ma lực lớn rồi lợi dụng phản lực dội ra bỏ trốn.",
+     "effects": {
+      "INT": 15,
+      "joy": -5,
+      "flags": [
+       "division_3_steal"
+      ]
+     }
+    }
+   ],
+   "moment": "Đứng giữa ranh giới hiến tế và sự sinh tồn cá nhân."
+  },
+  {
+   "id": "slime_arc_division_4",
+   "text": "Hiệp hội Tamer tung ra phần thưởng khổng lồ để bắt sống bất cứ Slime nào có dấu ấn royal_slime. Bạn bị ba tên Tamer tinh nhuệ bủa lưới ma thuật chặn không cho đường lùi.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "arc": "division",
+   "recall": [
+    {
+     "flags": [
+      "division_4_break"
+     ],
+     "text": "Những kẻ săn thú cưng luôn rỉ tai nhau về con Slime hoàng tộc không thể bị bắt giữ."
+    },
+    {
+     "flags": [
+      "division_4_shock"
+     ],
+     "text": "Mỗi khi có ma thuật lướt qua, phần cơ thể từng bị giật điện của bạn lại run rẩy."
+    },
+    {
+     "flags": [
+      "division_4_fake"
+     ],
+     "text": "Bạn hay tự cười thầm về vở kịch hóa thân thành bãi nôn hoàn hảo nhất lịch sử."
+    }
+   ],
+   "weight": 100,
+   "require": {
+    "anyFlags": [
+     "division_3_resist",
+     "division_3_burn",
+     "division_3_steal"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Phá vỡ kết giới ma thuật",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn tìm ra điểm yếu của lưới ma thuật, dùng dao động ma lực cộng hưởng làm vỡ nát kết giới, hất văng ba tên Tamer xuống bùn lầy.",
+      "effects": {
+       "INT": 10,
+       "fame": 20,
+       "flags": [
+        "division_4_break"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Kết giới giật điện liên hồi, bạn rách toạc cơ thể mới chui lọt qua một mắt lưới, nhưng một mẩu màng nhầy chứa vương khí đã rơi vào tay bọn chúng.",
+      "effects": {
+       "health": -30,
+       "fame": -15,
+       "flags": [
+        "division_4_shock"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Giả vờ mất trí nhớ để ngụy trang",
+     "text": "Bạn chủ động bóp méo hình dạng, giả làm một bãi nôn thối hoắc. Bọn Tamer bịt mũi ghê tởm đá bạn sang một bên và bỏ đi tìm mục tiêu khác.",
+     "effects": {
+      "joy": 10,
+      "wealth": -5,
+      "flags": [
+       "division_4_fake"
+      ]
+     }
+    }
+   ],
+   "moment": "Bảo vệ sự tự do quý giá khỏi sự thao túng của loài người."
+  },
+  {
+   "id": "slime_arc_division_5",
+   "text": "Tại trung tâm hầm ngục, {maker} già nua đã suy yếu, vương miện trên đỉnh đầu đang nứt nẻ. Quân vương thách thức bạn một trận chiến cuối cùng để chứng minh ai mới là chủ nhân thật sự.",
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "arc": "division",
+   "weight": 100,
+   "require": {
+    "anyFlags": [
+     "division_4_break",
+     "division_4_shock",
+     "division_4_fake"
+    ]
+   },
+   "choices": [
+    {
+     "label": "Nghiền nát nguồn cội",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn nuốt trọn bạo chúa khổng lồ, hấp thụ toàn bộ tinh hoa vương quyền. Bạn tiến hóa thành Slime King tối cao, đội chiếc vương miện mới rực sáng vinh quang.",
+      "effects": {
+       "STR": 30,
+       "flags": [
+        "division_5_king"
+       ],
+       "parentDie": "maker"
+      }
+     },
+     "fail": {
+      "text": "Sức mạnh của bản thể gốc lấn át, bạn bị văng đập vào vách đá trọng thương. Bạn phải lết tấm thân tàn phế bỏ chạy, nhường lại ngôi vị vĩnh viễn cho {maker}.",
+      "effects": {
+       "health": -40,
+       "fame": -20,
+       "flags": [
+        "division_5_fail"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Từ chối ngôi vương và rời đi",
+     "text": "Bạn không thèm tranh giành cái vương miện bùn nhão ấy, quay lưng trườn thẳng ra ngoài, quyết tâm tự mình khám phá thế giới rộng lớn.",
+     "effects": {
+      "INT": 20,
+      "joy": 15,
+      "flags": [
+       "division_5_free"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slime_band_band_d_1",
+   "text": "Bạn trườn tới Đầm Lầy Tử Khí và đụng độ Tox. Hắn phun một bãi độc xanh thẫm xuống đất, ép bạn phải hấp thụ nó để chứng minh bạn đủ tiêu chuẩn gia nhập bộ tộc.",
+   "stages": [
+    "teen",
+    "adult",
+    "middle"
+   ],
+   "arc": "band_d",
+   "recall": [
+    {
+     "flags": [
+      "band_d_1_absorb"
+     ],
+     "text": "Tox thường vỗ bộp bộp vào người bạn kiểm tra độ kháng độc."
+    },
+    {
+     "flags": [
+      "band_d_1_sick"
+     ],
+     "text": "Acidia hay cười mỉa mai mỗi khi thấy bạn chao đảo vì ngửi phải hơi độc."
+    },
+    {
+     "flags": [
+      "band_d_1_spit"
+     ],
+     "text": "Tox luôn giữ khoảng cách để tránh bị dịch kiềm của bạn làm mất mặt lần nữa."
+    }
+   ],
+   "weight": 35,
+   "require": {
+    "noBand": true
+   },
+   "choices": [
+    {
+     "label": "Nuốt chửng bãi độc",
+     "check": {
+      "stat": "health",
+      "target": 35
+     },
+     "success": {
+      "text": "Bạn dằn vặt tiêu hóa lớp độc, biến bề mặt cơ thể thành màu hơi tím. Tox cười lớn tán thưởng và cho bạn vị trí đứng sau lưng Acidia.",
+      "effects": {
+       "health": 1,
+       "flags": [
+        "band_d_1_absorb"
+       ],
+       "joinBand": "band_d"
+      }
+     },
+     "fail": {
+      "text": "Độc tính quá mạnh làm bạn nôn mửa liên hồi. Tox khinh bỉ tát bạn một cú nảy đom đóm mắt, nhưng vẫn cho bạn vào làm chân sai vặt cùng Muck.",
+      "effects": {
+       "health": -10,
+       "flags": [
+        "band_d_1_sick"
+       ],
+       "joinBand": "band_d"
+      }
+     }
+    },
+    {
+     "label": "Nhổ lại bãi axit dằn mặt",
+     "text": "Bạn phun một luồng dịch kiềm làm trung hòa bãi độc của hắn. Tox tức giận nhưng công nhận sức mạnh của bạn, đồng ý cho bạn gia nhập.",
+     "effects": {
+      "fame": 5,
+      "flags": [
+       "band_d_1_spit"
+      ],
+      "joinBand": "band_d"
+     }
+    }
+   ],
+   "moment": "Sống sót qua màn chào sân chết chóc của vùng đầm lầy."
+  },
+  {
+   "id": "slime_band_band_d_2",
+   "text": "Băng tìm thấy xác một con thằn lằn đã thối rữa do trúng độc. Tox định chiếm cả, nhưng Acidia lén xúi bạn cướp phần đuôi thịt ngon nhất trong lúc Tox đang ngủ gật.",
+   "stages": [
+    "teen",
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "band_d",
+   "recall": [
+    {
+     "flags": [
+      "band_d_2_steal"
+     ],
+     "text": "Acidia đôi khi ném cho bạn một ánh mắt đồng lõa đầy nham hiểm."
+    },
+    {
+     "flags": [
+      "band_d_2_caught"
+     ],
+     "text": "Vết sẹo màu tím sẫm do Tox phun độc trừng phạt vẫn in hằn trên màng nhầy của bạn."
+    },
+    {
+     "flags": [
+      "band_d_2_bone"
+     ],
+     "text": "Muck coi bạn như người bạn duy nhất chịu chia sẻ sự hèn kém."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "band_d_1_absorb",
+     "band_d_1_sick",
+     "band_d_1_spit"
+    ],
+    "band": "band_d"
+   },
+   "choices": [
+    {
+     "label": "Hợp tác cướp mồi",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn trườn nhanh xén gọn phần đuôi thằn lằn rồi chia cho Acidia. Cả hai ăn no nê mà Tox vẫn ngáy pho pho không hay biết.",
+      "effects": {
+       "wealth": 10,
+       "flags": [
+        "band_d_2_steal"
+       ],
+       "memberBond": {
+        "Acidia": 15
+       }
+      }
+     },
+     "fail": {
+      "text": "Bạn tạo tiếng sột soạt làm Tox tỉnh giấc. Hắn điên cuồng phun độc trừng phạt, Acidia lật lọng chỉ điểm bạn là kẻ chủ mưu duy nhất.",
+      "effects": {
+       "health": -15,
+       "flags": [
+        "band_d_2_caught"
+       ],
+       "memberBond": {
+        "Acidia": -20
+       }
+      }
+     }
+    },
+    {
+     "label": "Mặc kệ và nhai xương thừa",
+     "text": "Bạn từ chối lời xúi giục, lủi thủi ra nhai phần xương sụn nhạt nhẽo cùng Muck, tránh rắc rối nhưng cái bụng vẫn réo rắt.",
+     "effects": {
+      "INT": 2,
+      "joy": -5,
+      "flags": [
+       "band_d_2_bone"
+      ]
+     }
+    }
+   ],
+   "moment": "Đấu trí giành giật miếng ăn trong thế giới ngập ngụa độc tố."
+  },
+  {
+   "id": "slime_band_band_d_3",
+   "text": "Một pháp sư vô tình ném cầu lửa làm Đầm Lầy bốc cháy dữ dội. Lửa lan nhanh, Muck bị kẹt dưới một cành cây rực lửa. Tox gào lên ra lệnh rút lui ngay lập tức.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "band_d",
+   "recall": [
+    {
+     "flags": [
+      "band_d_3_save"
+     ],
+     "text": "Muck luôn tự nguyện làm lá chắn thịt đỡ đòn thay cho bạn."
+    },
+    {
+     "flags": [
+      "band_d_3_burn"
+     ],
+     "text": "Bạn mang vết phỏng nhiệt vĩnh viễn không thể xóa nhòa do lửa cháy."
+    },
+    {
+     "flags": [
+      "band_d_3_abandon"
+     ],
+     "text": "Tox thỉnh thoảng khen ngợi quyết định máu lạnh của bạn ngày hôm đó."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "band_d_2_steal",
+     "band_d_2_caught",
+     "band_d_2_bone"
+    ],
+    "band": "band_d"
+   },
+   "choices": [
+    {
+     "label": "Phun chất lỏng cứu Muck",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn điều chế một luồng bọt chống cháy xịt vào cành cây, giúp Muck lách ra được. Cả hai cùng tẩu thoát an toàn, Muck rơi nước mắt hàm ơn.",
+      "effects": {
+       "fame": 15,
+       "flags": [
+        "band_d_3_save"
+       ],
+       "memberBond": {
+        "Muck": 20
+       }
+      }
+     },
+     "fail": {
+      "text": "Lửa bùng mạnh làm dịch nhầy của bạn bốc hơi, bạn bị phỏng nặng phải lui bước. Muck bị lửa thiêu rụi, để lại một khoảng lặng đầy tội lỗi.",
+      "effects": {
+       "health": -25,
+       "joy": -10,
+       "flags": [
+        "band_d_3_burn"
+       ],
+       "memberDie": [
+        "Muck"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Chạy theo Tox bỏ mặc Muck",
+     "text": "Bạn quay lưng trườn đi, tuân lệnh thủ lĩnh để bảo toàn mạng sống, bỏ lại Muck giãy giụa trong biển lửa.",
+     "effects": {
+      "health": 5,
+      "fame": -15,
+      "flags": [
+       "band_d_3_abandon"
+      ],
+      "memberDie": [
+       "Muck"
+      ]
+     }
+    }
+   ],
+   "moment": "Quyết định sinh tử trước ngọn lửa phán xét."
+  },
+  {
+   "id": "slime_band_band_d_4",
+   "text": "Acidia bí mật dồn Tox vào một góc hẹp, phun axit ăn mòn diện rộng hòng đoạt quyền. Ả quay sang đề nghị bạn cùng hợp sức tiêu diệt bạo chúa Tox.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "band_d",
+   "recall": [
+    {
+     "flags": [
+      "band_d_4_coup"
+     ],
+     "text": "Acidia hiện giờ thống trị Đầm Lầy bằng những luật lệ axit hà khắc."
+    },
+    {
+     "flags": [
+      "band_d_4_fail"
+     ],
+     "text": "Sự hắt hủi của Tox biến cuộc sống trong băng của bạn thành địa ngục trần gian."
+    },
+    {
+     "flags": [
+      "band_d_4_loyal"
+     ],
+     "text": "Tox chỉ an tâm ngủ khi có bạn đứng gác ngay bên cạnh."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "band_d_3_save",
+     "band_d_3_burn",
+     "band_d_3_abandon"
+    ],
+    "band": "band_d"
+   },
+   "choices": [
+    {
+     "label": "Tấn công Tox",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn bồi thêm một đòn chí mạng đè bẹp Tox. Hắn nổ tung thành vũng độc, Acidia lên ngôi thủ lĩnh và phong bạn làm phó tướng.",
+      "effects": {
+       "fame": 20,
+       "flags": [
+        "band_d_4_coup"
+       ],
+       "memberBond": {
+        "Acidia": 20
+       },
+       "memberDie": [
+        "Tox"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Tox điên cuồng bùng nổ sức mạnh, đánh văng cả bạn và Acidia. Hắn đuổi cổ Acidia khỏi băng, bạn xui xẻo bị đày xuống làm kẻ thấp kém nhất để chịu tội.",
+      "effects": {
+       "health": -30,
+       "fame": -20,
+       "flags": [
+        "band_d_4_fail"
+       ],
+       "memberLeave": [
+        "Acidia"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đứng về phía Tox",
+     "text": "Bạn xoay sang tấn công Acidia để bảo vệ Tox. Ả tức giận phun axit nguyền rủa bạn rồi bỏ trốn. Tox bị thương nhưng giữ được ngai vị, thưởng cho bạn sự tin tưởng tuyệt đối.",
+     "effects": {
+      "health": -10,
+      "flags": [
+       "band_d_4_loyal"
+      ],
+      "memberBond": {
+       "Tox": 30
+      },
+      "memberLeave": [
+       "Acidia"
+      ]
+     }
+    }
+   ],
+   "moment": "Cuộc phản loạn chia năm xẻ bảy liên minh độc tố."
+  },
+  {
+   "id": "slime_band_band_d_5",
+   "text": "Lõi Hầm ngục tỏa ra sóng thanh tẩy, làm khô cạn Đầm Lầy Tử Khí. Thủ lĩnh băng sắp bốc hơi hoàn toàn, thoi thóp yêu cầu bạn hấp thụ chút ma lực độc cuối cùng để duy trì giống nòi.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "band_d",
+   "recall": [
+    {
+     "flags": [
+      "band_d_5_lord"
+     ],
+     "text": "Quyền trượng của vùng đất ngập độc nay nằm trọn trong tay bạn."
+    },
+    {
+     "flags": [
+      "band_d_5_ruin"
+     ],
+     "text": "Cơn đau xé ruột khi chứng kiến đầm lầy biến mất vĩnh viễn ám ảnh tâm trí bạn."
+    },
+    {
+     "flags": [
+      "band_d_5_flee"
+     ],
+     "text": "Không còn là kẻ có tổ chức, bạn lại lang thang một mình mang theo sự hèn nhát."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "band_d_4_coup",
+     "band_d_4_fail",
+     "band_d_4_loyal"
+    ],
+    "band": "band_d"
+   },
+   "choices": [
+    {
+     "label": "Nuốt chửng để tiến hóa",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn dồn lực hấp thụ toàn bộ tinh hoa độc tố của đầm lầy và thủ lĩnh, tiến hóa thành Floor Lord hệ Độc, làm chủ hoàn toàn khu vực mới.",
+      "effects": {
+       "STR": 25,
+       "flags": [
+        "band_d_5_lord"
+       ],
+       "bandLead": true
+      }
+     },
+     "fail": {
+      "text": "Lực thanh tẩy của hầm ngục quá mạnh xé toạc nỗ lực dung hợp của bạn. Bạn trọng thương, trơ mắt nhìn thủ lĩnh và băng nhóm tan thành bọt khí.",
+      "effects": {
+       "health": -35,
+       "flags": [
+        "band_d_5_ruin"
+       ],
+       "leaveBand": true
+      }
+     }
+    },
+    {
+     "label": "Tháo chạy khỏi vùng thanh tẩy",
+     "text": "Bạn từ bỏ đầm lầy, không màng đến lời thỉnh cầu của thủ lĩnh, lủi thật nhanh sang một khu vực khác để bảo toàn tính mạng, bỏ lại phía sau một băng nhóm bị xóa sổ.",
+     "effects": {
+      "joy": 10,
+      "fame": -20,
+      "flags": [
+       "band_d_5_flee"
+      ],
+      "bandGone": true
+     }
+    }
+   ],
+   "moment": "Chấm dứt kỷ nguyên của độc tố dưới sự thanh tẩy của tự nhiên."
+  },
+  {
+   "id": "slime_band_band_d_m1",
+   "text": "Tox ăn phải một loài ếch phát quang làm hắn mất kiểm soát, liên tục phun nọc độc loạn xạ khắp hang ổ, phá hủy luôn cả mảng rêu dự trữ của băng.",
+   "stages": [
+    "teen",
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "band_d",
+   "recall": [
+    {
+     "flags": [
+      "band_d_m1_cure"
+     ],
+     "text": "Tox thi thoảng nhường cho bạn những phần ăn sạch sẽ nhất."
+    },
+    {
+     "flags": [
+      "band_d_m1_crazy"
+     ],
+     "text": "Bạn vẫn hay nổi các đốm sáng lập lòe trên da vào những đêm không trăng."
+    },
+    {
+     "flags": [
+      "band_d_m1_shield"
+     ],
+     "text": "Muck luôn len lén tránh xa bạn mỗi khi có chuyện chẳng lành xảy ra."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "band_d_1_absorb",
+     "band_d_1_sick",
+     "band_d_1_spit"
+    ],
+    "band": "band_d",
+    "bandMember": "Tox"
+   },
+   "choices": [
+    {
+     "label": "Hút bớt độc tính cho Tox",
+     "check": {
+      "stat": "health",
+      "target": 55
+     },
+     "success": {
+      "text": "Bạn dũng cảm tiếp cận, dùng cơ thể lọc bớt chất kịch độc giúp hắn tỉnh lại. Tox gầm gừ nhưng thầm ghi nhận sự trung thành của bạn.",
+      "effects": {
+       "health": 5,
+       "flags": [
+        "band_d_m1_cure"
+       ],
+       "memberBond": {
+        "Tox": 15
+       }
+      }
+     },
+     "fail": {
+      "text": "Nọc độc phát quang làm bạn nhiễm độc lây, cả hai hóa điên phun bọt tím khắp nơi cho đến khi kiệt sức lăn ra ngất.",
+      "effects": {
+       "health": -20,
+       "fame": -5,
+       "flags": [
+        "band_d_m1_crazy"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đẩy Muck ra làm bia đỡ đạn",
+     "text": "Bạn xô Muck lên phía trước để hứng trọn luồng độc, còn mình an toàn nấp sau tảng đá cho đến khi Tox dịu lại.",
+     "effects": {
+      "joy": 5,
+      "flags": [
+       "band_d_m1_shield"
+      ],
+      "memberBond": {
+       "Muck": -20
+      }
+     }
+    }
+   ],
+   "moment": "Đối mặt với sự điên rồ vô cớ của gã bạo chúa kịch độc."
+  },
+  {
+   "id": "slime_band_band_d_m2",
+   "text": "Trong mùa đông giá rét, Acidia bị cạn kiệt axit và màng bọc bắt đầu khô cứng. Ả nhún nhường van xin bạn truyền cho ả một chút ma lực để sống sót qua đêm.",
+   "stages": [
+    "teen",
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "band_d",
+   "recall": [
+    {
+     "flags": [
+      "band_d_m2_help"
+     ],
+     "text": "Acidia luôn coi bạn là đồng minh chiến lược đáng tin cậy nhất."
+    },
+    {
+     "flags": [
+      "band_d_m2_fool"
+     ],
+     "text": "Sự xảo trá của Acidia luôn là bài học đắt giá mà bạn phải khắc cốt ghi tâm."
+    },
+    {
+     "flags": [
+      "band_d_m2_extort"
+     ],
+     "text": "Bạn vẫn thỉnh thoảng nhai viên Tinh Bạc kêu lạo xạo để trêu ngươi ả."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "band_d_1_absorb",
+     "band_d_1_sick",
+     "band_d_1_spit"
+    ],
+    "band": "band_d",
+    "bandMember": "Acidia"
+   },
+   "choices": [
+    {
+     "label": "Truyền ma lực giải cứu",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn căn chuẩn dung lượng truyền đi, giúp ả sống sót mà không tự làm mình nguy hiểm. Acidia cảm kích và hứa sẽ chia sẻ mọi kế hoạch với bạn.",
+      "effects": {
+       "INT": 10,
+       "flags": [
+        "band_d_m2_help"
+       ],
+       "memberBond": {
+        "Acidia": 20
+       }
+      }
+     },
+     "fail": {
+      "text": "Bạn lỡ tay truyền quá nhiều, bị hao hụt sinh lực nghiêm trọng. Acidia khỏe lại liền lật lọng, cười nhạo sự ngây thơ của bạn rồi lờ đi.",
+      "effects": {
+       "health": -20,
+       "fame": -10,
+       "flags": [
+        "band_d_m2_fool"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Cự tuyệt và tống tiền",
+     "text": "Bạn từ chối giúp không công, ép ả phải giao nộp viên Lõi Tinh Bạc ả đang giấu. Ả cắn răng nộp để giữ mạng, nhưng thù bạn đến tận xương tủy.",
+     "effects": {
+      "wealth": 15,
+      "flags": [
+       "band_d_m2_extort"
+      ],
+      "memberBond": {
+       "Acidia": -30
+      }
+     }
+    }
+   ],
+   "moment": "Đứng trước sự yếu đuối giả tạo của con hồ ly axit."
+  },
+  {
+   "id": "slime_band_band_e_1",
+   "text": "Phòng Lõi đang thiếu lính gác. Skel chặn đường bạn, vung thanh kiếm rỉ sét và yêu cầu bạn đỡ được một đòn của Goliath thì mới đủ tư cách đứng trong hàng ngũ cận vệ.",
+   "stages": [
+    "adult",
+    "middle"
+   ],
+   "arc": "band_e",
+   "recall": [
+    {
+     "flags": [
+      "band_e_1_block"
+     ],
+     "text": "Skel thi thoảng lại gõ kiếm vào lớp màng nhầy cứng cáp của bạn để thử độ bền."
+    },
+    {
+     "flags": [
+      "band_e_1_smash"
+     ],
+     "text": "Vết lõm to đùng do nắm đấm của Goliath vẫn in hằn trên lưng bạn."
+    },
+    {
+     "flags": [
+      "band_e_1_dodge"
+     ],
+     "text": "Skel luôn lườm bạn bằng hốc mắt trống rỗng chứa đầy sự khinh bỉ."
+    }
+   ],
+   "weight": 35,
+   "require": {
+    "noBand": true
+   },
+   "choices": [
+    {
+     "label": "Gồng mình hóa cứng chịu đòn",
+     "check": {
+      "stat": "STR",
+      "target": 3
+     },
+     "success": {
+      "text": "Bạn biến bề mặt thành lớp giáp dày, cú đấm của Goliath chỉ làm bạn lõm vào một chút rồi nảy ra. Skel gật gù ghi nhận và kết nạp bạn vào băng.",
+      "effects": {
+       "STR": 2,
+       "flags": [
+        "band_e_1_block"
+       ],
+       "joinBand": "band_e"
+      }
+     },
+     "fail": {
+      "text": "Cú đấm của Golem quá khủng khiếp, bạn bẹp dúm văng dính lên tường, nhưng vì thiếu người nên Skel vẫn kéo bạn vào làm bia đỡ đạn dự bị.",
+      "effects": {
+       "health": -15,
+       "flags": [
+        "band_e_1_smash"
+       ],
+       "joinBand": "band_e"
+      }
+     }
+    },
+    {
+     "label": "Hóa lỏng luồn lách né đòn",
+     "text": "Bạn tan chảy dưới sàn, cú đấm của Goliath sượt qua không chạm được. Skel chê bai bạn là kẻ hèn nhát nhưng vẫn cho bạn vào làm lính thông tin.",
+     "effects": {
+      "AGI": 5,
+      "fame": -5,
+      "flags": [
+       "band_e_1_dodge"
+      ],
+      "joinBand": "band_e"
+     }
+    }
+   ],
+   "moment": "Bước chân vào đội quân tinh nhuệ nhất bảo vệ trái tim hầm ngục."
+  },
+  {
+   "id": "slime_band_band_e_2",
+   "text": "Vex lười biếng bỏ ca gác để ngủ, đùn đẩy trách nhiệm cho bạn. Giữa đêm, một nhóm đạo tặc đánh hơi thấy kho báu và đang lẻn vào vứt dây móc.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "band_e",
+   "recall": [
+    {
+     "flags": [
+      "band_e_2_alert"
+     ],
+     "text": "Skel giao cho bạn vị trí gác chính vì sự nhạy bén của bạn."
+    },
+    {
+     "flags": [
+      "band_e_2_mess"
+     ],
+     "text": "Vex thường xuyên lôi chuyện báo động giả ra châm biếm bạn."
+    },
+    {
+     "flags": [
+      "band_e_2_swallow"
+     ],
+     "text": "Bạn rất thích cảm giác lén lút ăn mảnh trong ca gác đêm vắng vẻ."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "band_e_1_block",
+     "band_e_1_smash",
+     "band_e_1_dodge"
+    ],
+    "band": "band_e"
+   },
+   "choices": [
+    {
+     "label": "Rung chuông báo động diện rộng",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn truyền dao động qua nền đá đánh thức Goliath. Golem thức giấc đập nát bọn đạo tặc. Skel khen ngợi bạn và tước một phần khẩu phần của Vex bù cho bạn.",
+      "effects": {
+       "wealth": 10,
+       "flags": [
+        "band_e_2_alert"
+       ],
+       "memberBond": {
+        "Skel": 15
+       }
+      }
+     },
+     "fail": {
+      "text": "Bạn vô tình làm chập mạch bẫy ma thuật, báo động giả kêu inh ỏi. Skel tức giận vì mất ngủ, phạt bạn phải dọn dẹp phân dơi suốt tuần, còn Vex thì cười hô hố.",
+      "effects": {
+       "health": -10,
+       "fame": -10,
+       "flags": [
+        "band_e_2_mess"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Im lặng nuốt chửng đạo tặc",
+     "text": "Bạn lờ đi báo động, tự mình hóa thành vũng axit nuốt trọn tên đạo tặc đi đầu để cướp tiền, mặc kệ lũ còn lại hoảng sợ bỏ chạy.",
+     "effects": {
+      "joy": 5,
+      "wealth": 15,
+      "flags": [
+       "band_e_2_swallow"
+      ]
+     }
+    }
+   ],
+   "moment": "Sinh tồn trong kỷ luật thép của quân đội quái vật."
+  },
+  {
+   "id": "slime_band_band_e_3",
+   "text": "Một tiểu đội mạo hiểm giả cấp cao xông vào. Goliath bị phép thuật cầm chân, Vex bị bắn trúng cánh rớt xuống. Bạn và Skel đang phải đối mặt với hai tay kiếm tinh nhuệ.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "band_e",
+   "recall": [
+    {
+     "flags": [
+      "band_e_3_team"
+     ],
+     "text": "Skel luôn yêu cầu bạn đánh bóng lại thanh kiếm rỉ sét của hắn trước mỗi trận chiến."
+    },
+    {
+     "flags": [
+      "band_e_3_fail"
+     ],
+     "text": "Sự thảm bại trước loài người luôn là nỗi nhục nhã khó nuốt trôi của đội cận vệ."
+    },
+    {
+     "flags": [
+      "band_e_3_coward"
+     ],
+     "text": "Đội cận vệ mất đi chỉ huy chiến thuật, hoạt động hỗn loạn không có lề lối."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "band_e_2_alert",
+     "band_e_2_mess",
+     "band_e_2_swallow"
+    ],
+    "band": "band_e"
+   },
+   "choices": [
+    {
+     "label": "Phối hợp cùng Skel đánh bật",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn bọc lấy thanh gươm của Skel, cường hóa độ sắc bén giúp hắn chém gãy vũ khí kẻ địch. Bọn mạo hiểm giả hoảng sợ rút lui, Skel cúi đầu công nhận thực lực của bạn.",
+      "effects": {
+       "fame": 20,
+       "flags": [
+        "band_e_3_team"
+       ],
+       "memberBond": {
+        "Skel": 20
+       }
+      }
+     },
+     "fail": {
+      "text": "Thanh gươm rỉ sét của Skel gãy nát, bạn bị chém làm đôi. Skel văng mất một cánh tay xương, cả băng phải lùi tít vào góc sâu nhất của phòng Lõi để trốn.",
+      "effects": {
+       "health": -25,
+       "wealth": -10,
+       "flags": [
+        "band_e_3_fail"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Tan chảy bỏ mặc đồng đội",
+     "text": "Bạn lẩn vào khe nứt trên sàn, mặc kệ Skel bị chém tan xương nát thịt. Goliath cuối cùng cũng phá vây đuổi được kẻ thù, nhưng Skel bị phá hủy hoàn toàn.",
+     "effects": {
+      "joy": -5,
+      "fame": -20,
+      "flags": [
+       "band_e_3_coward"
+      ],
+      "memberDie": [
+       "Skel"
+      ]
+     }
+    }
+   ],
+   "moment": "Ranh giới của lòng dũng cảm và sự phản bội trong chiến trận."
+  },
+  {
+   "id": "slime_band_band_e_4",
+   "text": "Lõi Hầm ngục tỏa ma lực yếu dần. Skel tin rằng đã đến lúc hắn lên nắm quyền và muốn vô hiệu hóa Goliath. Hắn đe dọa bạn phải giúp hắn cài bẫy Golem.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "band_e",
+   "recall": [
+    {
+     "flags": [
+      "band_e_4_leader"
+     ],
+     "text": "Giờ đây, thân hình đồ sộ của Goliath răm rắp tuân theo chỉ thị từ dao động của bạn."
+    },
+    {
+     "flags": [
+      "band_e_4_slave"
+     ],
+     "text": "Dưới quyền Skel, bạn phải chịu đựng sự khinh bỉ và đày đọa mỗi ngày."
+    },
+    {
+     "flags": [
+      "band_e_4_rebel"
+     ],
+     "text": "Lực lượng phòng vệ Cổng Địa Ngục suy yếu đi trông thấy sau cái chết của Golem."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "band_e_3_team",
+     "band_e_3_fail",
+     "band_e_3_coward"
+    ],
+    "bandMember": "Skel",
+    "band": "band_e"
+   },
+   "choices": [
+    {
+     "label": "Lật lọng báo cho Goliath",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn mật báo bằng dao động, Goliath nổi giận đạp nát Skel thành bột xương trắng. Khối Golem vô tri ghi nhận công lao, nhường vị trí chỉ huy lại cho bạn.",
+      "effects": {
+       "fame": 20,
+       "flags": [
+        "band_e_4_leader"
+       ],
+       "bandLead": true,
+       "memberDie": [
+        "Skel"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Skel phát hiện ra mưu đồ, đâm gươm ghim chặt bạn xuống đất rồi tự mình đi kích hoạt bẫy. Goliath bị thương nặng, Skel chiếm quyền và đày bạn làm chân canh cổng bẩn thỉu.",
+      "effects": {
+       "health": -30,
+       "fame": -15,
+       "flags": [
+        "band_e_4_slave"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Giúp Skel hạ bệ Goliath",
+     "text": "Bạn làm kẹt khớp gối của Golem bằng dịch nhầy, Skel đập vỡ lõi điều khiển của Goliath. Băng mất đi chiến lực mạnh nhất, Skel lên ngôi nhưng binh lực suy yếu.",
+     "effects": {
+      "health": -10,
+      "flags": [
+       "band_e_4_rebel"
+      ],
+      "memberBond": {
+       "Skel": 15
+      },
+      "memberDie": [
+       "Goliath"
+      ]
+     }
+    }
+   ],
+   "moment": "Cuộc tranh giành quyền lực tàn khốc bên trong hàng ngũ tận trung."
+  },
+  {
+   "id": "slime_band_band_e_5",
+   "text": "Lõi Hầm Ngục cuối cùng cũng bị Dũng Giả đập vỡ. Căn phòng sụp đổ. Thủ lĩnh băng gục ngã hoặc vỡ nát, hàng phòng ngự cuối cùng bị xuyên thủng. Bạn chỉ còn một cơ hội duy nhất.",
+   "stages": [
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "band_e",
+   "recall": [
+    {
+     "flags": [
+      "band_e_5_lord"
+     ],
+     "text": "Bạn từ một tay sai đã vươn lên thành Vị Vua cai quản toàn bộ phế tích phòng Lõi."
+    },
+    {
+     "flags": [
+      "band_e_5_ruin"
+     ],
+     "text": "Sự thất thủ của Cổng Địa Ngục để lại nỗi cay đắng tột cùng trong ký ức của bạn."
+    },
+    {
+     "flags": [
+      "band_e_5_flee"
+     ],
+     "text": "Không còn là lính cận vệ oai phong, bạn sống lay lắt mang theo bản án của kẻ đào ngũ."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "band_e_4_leader",
+     "band_e_4_slave",
+     "band_e_4_rebel"
+    ],
+    "band": "band_e"
+   },
+   "choices": [
+    {
+     "label": "Nuốt tàn dư Lõi để tiến hóa",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn lao vào hấp thụ mảnh vỡ cuối cùng của Lõi, tỏa sáng rực rỡ và tiến hóa thành Floor Lord mới, sử dụng quyền năng đánh bật Dũng Giả, khôi phục lại trật tự.",
+      "effects": {
+       "STR": 25,
+       "flags": [
+        "band_e_5_lord"
+       ],
+       "bandLead": true
+      }
+     },
+     "fail": {
+      "text": "Ma lực của Lõi quá hung bạo làm bạn nổ tung. Bạn sống sót với vết thương chí mạng, chứng kiến băng Cổng Địa Ngục bị xóa sổ hoàn toàn trong đống đổ nát.",
+      "effects": {
+       "health": -40,
+       "flags": [
+        "band_e_5_ruin"
+       ],
+       "bandGone": true
+      }
+     }
+    },
+    {
+     "label": "Lủi vào khe nứt tẩu thoát",
+     "text": "Bạn bỏ mặc sứ mệnh cận vệ, không quan tâm vinh quang hay trách nhiệm, thu nhỏ hết cỡ lủi qua kẽ nứt bỏ trốn khỏi sự hủy diệt, mang theo sự hổ thẹn vĩnh viễn.",
+     "effects": {
+      "joy": 10,
+      "fame": -30,
+      "flags": [
+       "band_e_5_flee"
+      ],
+      "leaveBand": true
+     }
+    }
+   ],
+   "moment": "Hồi chuông báo tử cho đế chế và cơ hội tái sinh cuối cùng."
+  },
+  {
+   "id": "slime_band_band_e_m1",
+   "text": "Skel vừa tìm thấy một bộ giáp Mithril sáng bóng nhưng hắn không có cơ bắp để mặc. Hắn nhìn bạn, nảy ra ý định bắt bạn làm đệm lót để hắn chui vào bộ giáp mới.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "band_e",
+   "recall": [
+    {
+     "flags": [
+      "band_e_m1_armor"
+     ],
+     "text": "Bạn và Skel phối hợp ăn ý như một cỗ xe tăng bọc thép đáng gờm."
+    },
+    {
+     "flags": [
+      "band_e_m1_fall"
+     ],
+     "text": "Skel luôn lẩm bẩm chửi rủa sự vô dụng của đám quái vật không có xương."
+    },
+    {
+     "flags": [
+      "band_e_m1_eat"
+     ],
+     "text": "Bộ giáp Mithril tiêu hóa dở vẫn ánh lên sắc bạc lấp lánh dưới màng nhầy của bạn."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "band_e_1_block",
+     "band_e_1_smash",
+     "band_e_1_dodge"
+    ],
+    "band": "band_e",
+    "bandMember": "Skel"
+   },
+   "choices": [
+    {
+     "label": "Trở thành lớp lót hoàn hảo",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn dẹt người ra bọc quanh xương của Skel, giúp hắn mặc vừa khít bộ giáp. Hắn tự hào sải bước và hứa sẽ nhường cho bạn những viên ma thạch tốt nhất.",
+      "effects": {
+       "fame": 10,
+       "flags": [
+        "band_e_m1_armor"
+       ],
+       "memberBond": {
+        "Skel": 20
+       }
+      }
+     },
+     "fail": {
+      "text": "Bạn phân bổ không đều làm Skel đi loạng choạng ngã lộn cổ, bộ giáp xước một đường. Skel tức giận lột bạn ra, ném vào đống xương vụn.",
+      "effects": {
+       "health": -15,
+       "flags": [
+        "band_e_m1_fall"
+       ],
+       "memberBond": {
+        "Skel": -15
+       }
+      }
+     }
+    },
+    {
+     "label": "Nhai luôn bộ giáp Mithril",
+     "text": "Bạn tranh thủ lúc hắn không để ý, nuốt chửng bộ giáp để tăng cường lớp phòng ngự bản thân. Skel tức điên nhưng không chém vỡ được bạn.",
+     "effects": {
+      "INT": 15,
+      "flags": [
+       "band_e_m1_eat"
+      ],
+      "memberBond": {
+       "Skel": -30
+      }
+     }
+    }
+   ],
+   "moment": "Thỏa mãn lòng kiêu hãnh của bộ xương khô hay đoạt lợi cho mình."
+  },
+  {
+   "id": "slime_band_band_e_m2",
+   "text": "Vex rủ bạn cùng trốn vào một chiếc vạc ma thuật bỏ hoang để ngủ nướng, hứa sẽ chia cho bạn một nửa số bùa chú ăn trộm được nếu bạn đồng ý.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "band_e",
+   "recall": [
+    {
+     "flags": [
+      "band_e_m2_smart"
+     ],
+     "text": "Vex coi bạn là đồng chí tuyệt vời nhất trong những phi vụ trốn việc."
+    },
+    {
+     "flags": [
+      "band_e_m2_caught"
+     ],
+     "text": "Cơn đau buốt từ vụ bị phạt đứng vẫn luôn làm bạn rùng mình mỗi khi nhớ lại."
+    },
+    {
+     "flags": [
+      "band_e_m2_snitch"
+     ],
+     "text": "Vex thù dai, thường xuyên ném đá giấu tay mỗi khi bạn đi tuần ngang qua."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "band_e_1_block",
+     "band_e_1_smash",
+     "band_e_1_dodge"
+    ],
+    "band": "band_e",
+    "bandMember": "Vex"
+   },
+   "choices": [
+    {
+     "label": "Phân thân để vừa gác vừa ngủ",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn tách một mẩu nhầy nhỏ để báo động, phần lớn cơ thể chui vào vạc ngủ say sưa cùng Vex. Tỉnh dậy, bạn nhận được phần thưởng hậu hĩnh.",
+      "effects": {
+       "wealth": 15,
+       "flags": [
+        "band_e_m2_smart"
+       ],
+       "memberBond": {
+        "Vex": 20
+       }
+      }
+     },
+     "fail": {
+      "text": "Phân thân của bạn bị Goliath dẫm nát, bạn trong vạc đau đớn gào lên làm lộ vị trí. Skel phát hiện và phạt cả hai phải đứng bằng một chân suốt ba ngày.",
+      "effects": {
+       "health": -20,
+       "fame": -10,
+       "flags": [
+        "band_e_m2_caught"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Tố cáo lên Skel",
+     "text": "Bạn ngay lập tức bay đi báo cho Skel. Vex bị xích lại bắt gác đúp, còn bạn được biểu dương là chiến sĩ gương mẫu.",
+     "effects": {
+      "fame": 10,
+      "flags": [
+       "band_e_m2_snitch"
+      ],
+      "memberBond": {
+       "Vex": -30
+      }
+     }
+    }
+   ],
+   "moment": "Lựa chọn giữa kỷ luật quân đội và sự cám dỗ của việc lười biếng."
   }
  ],
  "deaths": [],
@@ -14235,6 +16157,58 @@
       "text": "Không cần đến những trò lừa gạt hèn mọn, bạn dùng sức mạnh áp đảo của Vua Slime để nghiền nát mọi kẻ dám bước chân vào lãnh địa của mình."
      }
     ]
+   },
+   "slime_origin_demon": {
+    "id": "demon",
+    "title": "MÁU THỊT ÁC QUỶ",
+    "opening": "Bạn trườn ra từ vũng máu đen ngòm của {maker} sau nhát chém của Thánh Kỵ Sĩ, mang trong mình câu hỏi liệu dòng máu ác quỷ có định đoạt tương lai của bạn.",
+    "unfinished": "Vũng máu ác quỷ khô cạn, cơ thể bạn tan biến thành lớp bụi đen vô hại vương vãi trên nền đá lạnh lẽo.",
+    "endings": [
+     {
+      "flags": [
+       "demon_5_demon"
+      ],
+      "text": "Với tư cách là Demon Slime, bạn trở thành nỗi khiếp sợ của cả hầm ngục, một tai ương sống mà không Thánh Kỵ Sĩ nào dám đối đầu."
+     },
+     {
+      "flags": [
+       "demon_5_fail"
+      ],
+      "text": "Bị bóng tối từ chối, bạn sống lay lắt với thân hình tàn tạ, mang theo nỗi uất hận của một ác quỷ không bao giờ thành hình."
+     },
+     {
+      "flags": [
+       "demon_5_king"
+      ],
+      "text": "Rũ bỏ lời nguyền dị giáo, bạn chễm chệ trên ngai vàng của bầy bùn nhão, cai trị bằng luật lệ của riêng mình thay vì sự tàn bạo của ác quỷ."
+     }
+    ]
+   },
+   "slime_origin_division": {
+    "id": "division",
+    "title": "PHÂN BÀO TỪ QUÂN VƯƠNG",
+    "opening": "Bị tách ra từ khối cơ thể khổng lồ của {maker}, bạn tự hỏi mình là người kế vị ngai vàng hay chỉ là một giọt mồ hôi vô giá trị.",
+    "unfinished": "Giọt nhầy hoàng gia nổ tung bọt mép, bạn chưa kịp nếm mùi quyền lực đã hóa thành vũng nước nhạt nhòa.",
+    "endings": [
+     {
+      "flags": [
+       "division_5_king"
+      ],
+      "text": "Vượt qua cái bóng của kẻ tạo ra mình, bạn trở thành vị Vua vĩ đại nhất, cai quản hầm ngục với quyền lực tuyệt đối không ai dám thách thức."
+     },
+     {
+      "flags": [
+       "division_5_fail"
+      ],
+      "text": "Cuộc phản nghịch thất bại bỏ lại bạn trong tận cùng của sự nhục nhã, vĩnh viễn chỉ là một giọt mồ hôi dưới gót chân Quân vương."
+     },
+     {
+      "flags": [
+       "division_5_free"
+      ],
+      "text": "Bỏ lại quyền lực ảo tưởng dưới đáy vực sâu, bạn trở thành kẻ lãng khách tự do nhất, rong ruổi khắp chốn mà không vướng bận nguồn cội."
+     }
+    ]
    }
   },
   "cast": {
@@ -14244,7 +16218,9 @@
     "title": "CHIẾN BINH CỐ CHẤP",
     "desc": "Nam, Dwarf. Một mạo hiểm giả mang chiếc búa tạ quá khổ và bộ râu tết ba bím bám đầy bụi, luôn coi việc đập nát bạn là bài kiểm tra danh dự.",
     "recall": [
-     "{rival} vừa hắt xì văng cả bọt mép vì hít phải bụi khi đuổi theo bạn. Tiếng búa tạ lê trên mặt đá của {rival} vang lên từ góc tối. {rival} vuốt vuốt bộ râu tết ba bím, hầm hừ tuyên bố sẽ biến bạn thành nước rửa chân."
+     "{rival} vừa hắt xì văng cả bọt mép vì hít phải bụi khi đuổi theo bạn.",
+     "Tiếng búa tạ lê trên mặt đá của {rival} vang lên từ góc tối.",
+     "{rival} vuốt vuốt bộ râu tết ba bím, hầm hừ tuyên bố sẽ biến bạn thành nước rửa chân."
     ]
    },
    "rival_b": {
@@ -14253,7 +16229,9 @@
     "title": "KẺ THUẦN HÓA ÁM ẢNH",
     "desc": "Nữ, Elf. Tamer cao ngạo với cây roi mây quấn quanh tay phải, mắc bệnh ám ảnh cưỡng chế muốn thu phục bạn làm thú cưng hoàn hảo.",
     "recall": [
-     "Ánh mắt {rival} sáng lên rực rỡ đầy chiếm hữu mỗi khi vô tình chạm mặt bạn. Tiếng quất roi mây vun vút trong không khí báo hiệu {rival} đang tới gần. {rival} lấy ra một cuốn sổ tay nhỏ, lẩm bẩm ghi chép về độ đàn hồi của bạn."
+     "Ánh mắt {rival} sáng lên rực rỡ đầy chiếm hữu mỗi khi vô tình chạm mặt bạn.",
+     "Tiếng quất roi mây vun vút trong không khí báo hiệu {rival} đang tới gần.",
+     "{rival} lấy ra một cuốn sổ tay nhỏ, lẩm bẩm ghi chép về độ đàn hồi của bạn."
     ]
    },
    "rival_c": {
@@ -14262,7 +16240,9 @@
     "title": "BẢN THỂ TÀN BẠO",
     "desc": "Vô tính, Slime. Một cá thể slime đột biến màu đỏ rực tỏa mùi khét lẹt, sinh ra từ cùng một Lõi Hầm ngục, luôn thèm khát nuốt chửng bạn.",
     "recall": [
-     "Khối nhầy đỏ rực của {rival} sủi bọt đe dọa làm bốc hơi một góc vũng nước. {rival} trườn qua vách đá, để lại một vệt cháy xém đen sì. Bạn ngửi thấy mùi khét quen thuộc của {rival} lảng vảng quanh khu vực săn mồi."
+     "Khối nhầy đỏ rực của {rival} sủi bọt đe dọa làm bốc hơi một góc vũng nước.",
+     "{rival} trườn qua vách đá, để lại một vệt cháy xém đen sì.",
+     "Bạn ngửi thấy mùi khét quen thuộc của {rival} lảng vảng quanh khu vực săn mồi."
     ]
    },
    "mentor_a": {
@@ -14271,7 +16251,9 @@
     "title": "TIẾNG VỌNG HẦM NGỤC",
     "desc": "Vô tính, tộc Lõi Mana. Một thực thể ánh sáng ẩn sâu dưới lòng đất, luôn truyền giọng nói ồm ồm như đá lăn vào đầu bạn, thi thoảng tỏa ra ánh sáng xanh nhịp nhàng.",
     "recall": [
-     "Giọng nói ồm ồm của {mentor} vang lên trong đầu, nhắc bạn không được lười biếng. Ánh sáng xanh từ {mentor} soi tỏ một góc tối tăm trong tâm trí bạn. {mentor} thở dài bằng một đợt rung chấn nhẹ lan tỏa khắp mặt đất."
+     "Giọng nói ồm ồm của {mentor} vang lên trong đầu, nhắc bạn không được lười biếng.",
+     "Ánh sáng xanh từ {mentor} soi tỏ một góc tối tăm trong tâm trí bạn.",
+     "{mentor} thở dài bằng một đợt rung chấn nhẹ lan tỏa khắp mặt đất."
     ]
    },
    "mentor_b": {
@@ -14280,7 +16262,9 @@
     "title": "LÃO RƯƠNG THÔNG THÁI",
     "desc": "Nam, Mimic. Một con quái vật ngụy trang thành rương gỗ mục nát, luôn ngậm một chiếc tẩu thuốc không bao giờ cháy, thích gọi bạn là \"cục nhầy ngốc nghếch\".",
     "recall": [
-     "{mentor} phì phò nhả ra một đám khói ảo ảnh từ chiếc tẩu thuốc. Tiếng nắp rương cọt kẹt của {mentor} vang lên kèm theo một tràng ho khụ khụ. {mentor} mắng mỏ bạn là \"cục nhầy ngốc nghếch\" với giọng điệu đầy tự hào."
+     "{mentor} phì phò nhả ra một đám khói ảo ảnh từ chiếc tẩu thuốc.",
+     "Tiếng nắp rương cọt kẹt của {mentor} vang lên kèm theo một tràng ho khụ khụ.",
+     "{mentor} mắng mỏ bạn là \"cục nhầy ngốc nghếch\" với giọng điệu đầy tự hào."
     ]
    },
    "mentor_c": {
@@ -14289,7 +16273,9 @@
     "title": "KÝ ỨC THÁP NGÀ",
     "desc": "Nữ, Human. Ảo ảnh ký ức của một nữ pháp sư Tháp Ngà bị bạn vô tình nuốt xác, luôn hiện ra với mái tóc bạc tết bím và vung vẩy cây đũa phép gãy.",
     "recall": [
-     "Ảo ảnh của {mentor} gõ cây đũa phép gãy vào không khí sột soạt. {mentor} đẩy gọng kính hư ảo lên sống mũi, nhìn bạn chằm chằm đầy phán xét. Giọng nói lanh lảnh của {mentor} văng vẳng bên tai, bắt bẻ cách bạn vận hành mana."
+     "Ảo ảnh của {mentor} gõ cây đũa phép gãy vào không khí sột soạt.",
+     "{mentor} đẩy gọng kính hư ảo lên sống mũi, nhìn bạn chằm chằm đầy phán xét.",
+     "Giọng nói lanh lảnh của {mentor} văng vẳng bên tai, bắt bẻ cách bạn vận hành mana."
     ]
    },
    "friend_a": {
@@ -14298,7 +16284,9 @@
     "title": "KẺ NGỦ KÉ ĐÁNG YÊU",
     "desc": "Nam, Quái thú. Một con chuột hầm ngục béo múp rụng gần hết lông, ôm khư khư một đồng tiền xu rỉ sét và thích cuộn tròn ngủ trên đỉnh đầu bạn.",
     "recall": [
-     "{friend} khẽ ngáy sụt sịt, cựa quậy tìm tư thế thoải mái trên lớp màng nhầy của bạn. Tiếng đồng xu rỉ sét va lách cách khi {friend} lăn lộn trong lúc ngủ. {friend} dụi chiếc mũi ươn ướt vào người bạn, đòi chia sẻ chút hơi ấm hầm ngục."
+     "{friend} khẽ ngáy sụt sịt, cựa quậy tìm tư thế thoải mái trên lớp màng nhầy của bạn.",
+     "Tiếng đồng xu rỉ sét va lách cách khi {friend} lăn lộn trong lúc ngủ.",
+     "{friend} dụi chiếc mũi ươn ướt vào người bạn, đòi chia sẻ chút hơi ấm hầm ngục."
     ]
    },
    "friend_b": {
@@ -14307,7 +16295,9 @@
     "title": "CÔ BÉ LẠC ĐƯỜNG",
     "desc": "Nữ, Elf. Một cô bé lai Elf mạo hiểm giả với đôi tai nhọn lấm lem bùn đất, luôn gọi bạn là \"bé thạch dẻo\" bất chấp kích thước của bạn.",
     "recall": [
-     "Tiếng bước chân nhẹ nhàng của {friend} vang lên cùng tiếng gọi \"bé thạch dẻo\" quen thuộc. {friend} lấy tay áo lau vết bùn trên mặt, nở nụ cười tươi rói khi thấy bạn. Mùi thảo mộc phơi khô thoang thoảng mỗi khi {friend} đến gần."
+     "Tiếng bước chân nhẹ nhàng của {friend} vang lên cùng tiếng gọi \"bé thạch dẻo\" quen thuộc.",
+     "{friend} lấy tay áo lau vết bùn trên mặt, nở nụ cười tươi rói khi thấy bạn.",
+     "Mùi thảo mộc phơi khô thoang thoảng mỗi khi {friend} đến gần."
     ]
    },
    "friend_c": {
@@ -14316,7 +16306,9 @@
     "title": "BẢN SAO NHỎ BÉ",
     "desc": "Vô tính, Slime. Một giọt nhầy trong vắt vô tình tách ra từ chính cơ thể bạn sau một tai nạn, luôn lạch bạch trườn theo sau và cố gắng bắt chước mọi hành động.",
     "recall": [
-     "Tiếng \"bóp bóp\" nhóp nhép vang lên khi {friend} cố gắng trườn nhanh cho kịp bạn. {friend} phình to cơ thể một cách vụng về, cố bắt chước dáng vẻ oai vệ của bạn. {friend} rụt rè cọ cọ lớp màng nhầy mát lạnh vào người bạn để xin ăn."
+     "Tiếng \"bóp bóp\" nhóp nhép vang lên khi {friend} cố gắng trườn nhanh cho kịp bạn.",
+     "{friend} phình to cơ thể một cách vụng về, cố bắt chước dáng vẻ oai vệ của bạn.",
+     "{friend} rụt rè cọ cọ lớp màng nhầy mát lạnh vào người bạn để xin ăn."
     ]
    }
   },
@@ -14724,6 +16716,72 @@
      "Ánh mắt hằn học của băng Vòng Cổ Gãy khiến bất cứ ai đến gần cũng phải chùn bước.",
      "Rolf gầm gừ cào nát nền đá, trút giận lên sự phản bội của nhân loại.",
      "Tiếng thì thầm xúi giục của Mimi vang lên đều đặn xen lẫn tiếng thở dài của Grut."
+    ]
+   },
+   "band_d": {
+    "id": "band_d",
+    "title": "BỘ TỘC KỊCH ĐỘC",
+    "name": "Vũng Độc Xanh",
+    "rule": "Tuyệt đối không được xả chất giải độc vào lãnh thổ chung",
+    "lair": "Đầm Lầy Tử Khí",
+    "members": [
+     {
+      "name": "Tox",
+      "race": "Poison Slime",
+      "position": "đầu băng",
+      "desc": "To lớn, màu tím lịm, tính khí thất thường và thích nhả độc bừa bãi."
+     },
+     {
+      "name": "Acidia",
+      "race": "Poison Slime",
+      "position": "quân sư",
+      "desc": "Màu xanh huỳnh quang, hay ghen tị và âm mưu lật đổ Tox."
+     },
+     {
+      "name": "Muck",
+      "race": "Mud Slime",
+      "position": "tay sai",
+      "desc": "Chậm chạp, chuyên làm lá chắn thịt và phải dọn dẹp bãi chiến trường."
+     }
+    ],
+    "condition": "Slime Trưởng Thành (15–50) hoặc Quái Vật Dẻo (50–200).",
+    "recall": [
+     "Mùi hăng hắc của băng Vũng Độc Xanh làm héo úa cả những cây nấm ma lực cứng cáp nhất.",
+     "Tox sủi những bọt khí tím lịm đầy đe dọa mỗi khi có kẻ đi ngang qua.",
+     "Acidia thì thầm những âm thanh xèo xèo của axit để bàn mưu tính kế."
+    ]
+   },
+   "band_e": {
+    "id": "band_e",
+    "title": "CẬN VỆ PHÒNG LÕI",
+    "name": "Cổng Địa Ngục",
+    "rule": "Tuyệt đối không được lùi bước khi kẻ xâm nhập bước qua ranh giới",
+    "lair": "Bio-Core Sanctum",
+    "members": [
+     {
+      "name": "Goliath",
+      "race": "Golem Đá",
+      "position": "đầu băng",
+      "desc": "Vô tri, khổng lồ, chỉ biết đập nát mọi thứ theo lệnh đã cài đặt."
+     },
+     {
+      "name": "Skel",
+      "race": "Skeleton",
+      "position": "chỉ huy chiến thuật",
+      "desc": "Mặc giáp rỉ sét, hay lách cách rụng xương và khinh thường quái vật dẻo."
+     },
+     {
+      "name": "Vex",
+      "race": "Imp",
+      "position": "lính gác",
+      "desc": "Lười biếng, hay bay lơ lửng ngủ gật nhưng có phép cảnh báo diện rộng."
+     }
+    ],
+    "condition": "Quái Vật Dẻo (50–200) hoặc Slime Khổng Lồ (200–500).",
+    "recall": [
+     "Tiếng bước chân ầm ĩ của Goliath làm rung chuyển cả một khu vực hầm ngục sâu thẳm.",
+     "Skel càu nhàu lắp lại phần xương sườn vừa rơi ra vì di chuyển quá mạnh.",
+     "Tiếng ngáy khò khè của Vex xen lẫn tiếng vỗ cánh đều đặn vang vọng trên trần hang."
     ]
    }
   },

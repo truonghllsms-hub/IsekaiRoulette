@@ -3,6 +3,7 @@ module.exports = {
   race: "orc",
   script: "content/scripts/orc.txt",
   story: "content/scripts/orc_story.txt",
+  exclusive: true,
   useScriptStages: true,
 
   rename: [
@@ -71,6 +72,7 @@ module.exports = {
   ],
 
   systems: {
+    noRecruit: true,
     bandName: "chiến hữu",
     romance: false,
     // the script has child events but no birth event

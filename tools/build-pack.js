@@ -171,6 +171,7 @@ function build(raceId, opts) {
     }
     if (c.lock) { const rq = lockReq(c.lock); if (rq) { ch.require = rq; ch.showLocked = true; } }
     if (c.needFlags) { ch.require = Object.assign(ch.require || {}, { flags: c.needFlags }); ch.showLocked = true; }
+    if (c.needAnyFlags) { ch.require = Object.assign(ch.require || {}, c.needAnyFlags.length > 1 ? { anyFlags: c.needAnyFlags } : { flags: c.needAnyFlags }); }
     if (c.onlyFlags) ch.require = Object.assign(ch.require || {}, { flags: c.onlyFlags }); // hidden without the mark
     if (c.check && c.success && c.fail) {
       ch.check = { stat: c.check.stat, target: target(c.check.stat, c.check.diff) };
