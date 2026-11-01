@@ -2,6 +2,8 @@
 module.exports = {
   race: "slime",
   script: "content/scripts/slime.txt",
+  story: "content/scripts/slime_story.txt",
+  exclusive: true,
 
   // The script's timeline: Khối bùn trượt 5+, Slime trưởng thành 15+, Quái vật dẻo 50+, Slime khổng lồ 200+, Vua Bùn Nhão 500+.
   useScriptStages: true,
@@ -76,6 +78,7 @@ module.exports = {
   ],
 
   systems: {
+    noRecruit: true,
     bandName: "bầy",
     activeFrom: "child",
     jobFrom: "child",

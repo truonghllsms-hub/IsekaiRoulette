@@ -69,7 +69,7 @@ function scanStory(text, stages) {
         band.name = m[1].trim(); band.rule = m[2].trim().replace(/^["“]|["”]$/g, ""); band.lair = m[3].trim(); band.party = true; continue;
       }
       if ((m = raw.match(/^Điều kiện gia nhập:\s*(.+)$/i))) { band.condition = m[1]; continue; }
-      if ((m = raw.match(/^(\p{Lu}[^:·(]{1,20}?):\s*([^·]+)·\s*([^·]+?)\s*(?:·\s*([^.·]+?))?\.\s*(.*)$/)) && !/^(Thành viên|Tên tổ đội|Mô tả)/.test(m[1])) {
+      if ((m = raw.match(/^(\p{Lu}[^:·(]{1,20}?):\s*([^·]+)·\s*([^·]+?)\s*(?:·\s*([^.·]+?))?\.\s*(.*)$/u)) && !/^(Thành viên|Tên tổ đội|Mô tả)/.test(m[1])) {
         // "Kael: Human · Kiếm sĩ (Bậc 1) · Đội trưởng. Lạc quan, ... Bí mật: ... Quan hệ: ..."
         const lead = m[4] && /trưởng|phó|thủ lĩnh|lãnh đạo/i.test(m[4]);
         const pos = lead ? `${m[3]} · ${m[4]}` : m[3];

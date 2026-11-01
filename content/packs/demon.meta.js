@@ -4,6 +4,8 @@ const C = require("./_civil");
 module.exports = {
   race: "demon",
   script: "content/scripts/demon.txt",
+  story: "content/scripts/demon_story.txt",
+  exclusive: true,
   diff: { stat: [3, 4, 6, 8, 10, 12], bar: [20, 35, 55, 70, 85, 95] },
   focusOrder: C.focusOrder,
   focus: Object.assign({}, C.FOCUS, { adventure: Object.assign({}, C.FOCUS.adventure, { tags: null }) }),
@@ -42,6 +44,7 @@ module.exports = {
   }),
   decline: { label: "Thôi, để lần sau", text: "Bạn nghiến răng lùi lại. Ở Ma giới, kẻ kiên nhẫn sống lâu hơn." },
   evos: [],
-  systems: {},
+  systems: {
+    noRecruit: true,},
   overrides: {},
 };

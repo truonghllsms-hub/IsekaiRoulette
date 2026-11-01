@@ -16,7 +16,7 @@ const CHOICE_RE = /(?<=\S)\s+(?=[A-D]\.\s+(?:["“][^"”\n]{2,100}["”]\s*(?:\
 const COND_RE = /(?<=[.!?…"”)]|:)\s+(?=\((?!\d)[^()]{2,80}\)\s)/g;
 // "Barnos: Minotaur (đầu băng). … Gruk: Minotaur (tay chân). …": band members glued together
 const MEMBER_RE = /(?<=\.)\s+(?=\p{Lu}[^\s:.,()]{0,20}(?: [\p{Lu}\p{Ll}][^\s:.,()]{0,20}){0,2}: [^.()]{2,60}\([^)]{2,60}\)[.:])/gu;
-const PARTY_MEMBER_RE = /(?<=\.)\s+(?=[A-ZĐ][^\s:.,()]{1,20}: [^.·()]{2,40} · )/g;
+const PARTY_MEMBER_RE = /(?<=\.)\s+(?=\p{Lu}[^\s:.,()]{0,20}(?: \p{Lu}[^\s:.,()]{0,20})?: [^.·()]{2,40} · )/gu;
 
 function normalizeStory(text) {
   const lines = text.replace(/\r/g, "").split("\n").flatMap((l) => l.replace(MARK_RE, "\n").split("\n"));

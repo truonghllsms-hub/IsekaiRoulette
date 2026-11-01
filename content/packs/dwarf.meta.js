@@ -4,6 +4,8 @@ const C = require("./_civil");
 module.exports = {
   race: "dwarf",
   script: "content/scripts/dwarf.txt",
+  story: "content/scripts/dwarf_story.txt",
+  exclusive: true,
   diff: { stat: [3, 4, 6, 8, 10, 12], bar: [20, 35, 55, 70, 85, 95] },
   focusOrder: C.focusOrder,
   focus: C.FOCUS,
@@ -25,6 +27,7 @@ module.exports = {
   org: C.guildOrg("dwarf_guild"),
   decline: { label: "Thôi, để lần sau", text: "Bạn vuốt râu, nốc cạn vại bia. Việc này để mai tính." },
   evos: [],
-  systems: {},
+  systems: {
+    noRecruit: true,},
   overrides: {},
 };

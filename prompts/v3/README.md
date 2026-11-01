@@ -15,10 +15,10 @@ và `tools/race-profiles-v3.js` (mô tả, giọng văn, thế giới, ví dụ 
 | Human | [human.md](human.md) | 9 | 9 kiểu × 6 | 20 × 5 | tổ đội + tự lập | | đã nhập |
 | Goblin | [goblin.md](goblin.md) | 6 | 6 kiểu × 5 | 7 × 4 | băng | có | đã nhập |
 | Beastman | [beastman.md](beastman.md) | 10 | 9 kiểu × 5 | 23 × 5 | tổ đội |  | chờ Gemini |
-| Dwarf | [dwarf.md](dwarf.md) | 7 | 9 kiểu × 5 | 10 × 5 | tổ đội |  | chờ Gemini |
-| Demon | [demon.md](demon.md) | 7 | 9 kiểu × 5 | 10 × 5 | tổ đội |  | chờ Gemini |
-| Elf | [elf.md](elf.md) | 7 | 9 kiểu × 5 | 10 × 5 | tổ đội |  | chờ Gemini |
-| Slime | [slime.md](slime.md) | 6 | 9 kiểu × 5 | 6 × 5 | bầy | có | chờ Gemini |
+| Dwarf | [dwarf.md](dwarf.md) | 7 | 9 kiểu × 5 | 10 × 5 | tổ đội |  | đã nhập (thiếu {mentor}, {friend}) |
+| Demon | [demon.md](demon.md) | 7 | 9 kiểu × 5 | 10 × 5 | tổ đội |  | đã nhập (thiếu {rival}) |
+| Elf | [elf.md](elf.md) | 7 | 9 kiểu × 5 | 10 × 5 | tổ đội |  | đã nhập |
+| Slime | [slime.md](slime.md) | 6 | 9 kiểu × 5 | 6 × 5 | bầy | có | đã nhập (thiếu mạch demon, division; thiếu bầy band_d, band_e) |
 | Kobold | [kobold.md](kobold.md) | 6 | 6 kiểu × 4 | 6 × 4 | tổ đào | có | đã nhập |
 | Lizardman | [lizardman.md](lizardman.md) | 6 | 9 kiểu × 5 | 6 × 5 | bầy săn | có | đã nhập |
 | Vampire | [vampire.md](vampire.md) | 7 | 9 kiểu × 5 | 6 × 5 | tổ đội | có | đã nhập (thiếu tổ đội party_a, party_b) |
