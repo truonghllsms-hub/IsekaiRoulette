@@ -5,6 +5,7 @@ module.exports = {
   race: "beastman",
   script: "content/scripts/beastman.txt",
   story: "content/scripts/beastman_story.txt",
+  exclusive: true,
   storyStatScale: 0.6,
 
   // nine animal kins, rolled at birth with the script's shares and suggested stats ("Sức khỏe +1" = +5 health)
@@ -46,6 +47,7 @@ module.exports = {
   org: C.guildOrg("bm_guild", { fameToPts: 0.35 }),
   decline: { label: "Thôi, để lần sau", text: "Bạn vẫy đuôi lùi lại. Bản năng mách bảo chưa phải lúc." },
   evos: [],
-  systems: {},
+  systems: {
+    noRecruit: true,},
   overrides: {},
 };

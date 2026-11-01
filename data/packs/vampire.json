@@ -18250,6 +18250,1449 @@
     "elder",
     "ancient"
    ]
+  },
+  {
+   "id": "vampire_party_party_a_join",
+   "text": "Bạn bước vào câu lạc bộ Hắc Khúc để tìm nguồn cung cấp máu giá rẻ. Valerius chặn đường, ném cho bạn một ly rượu pha máu gắt và yêu cầu chứng minh bản lĩnh trước khi được cho phép bước vào hàng ngũ của gã.",
+   "stages": [
+    "child",
+    "teen"
+   ],
+   "arc": "party_a",
+   "recall": [
+    {
+     "flags": [
+      "party_a_join_thang"
+     ],
+     "text": "Bạn đã dùng vũ lực để chen chân vào băng đảng Huyết Hồng Đen."
+    },
+    {
+     "flags": [
+      "party_a_join_tien"
+     ],
+     "text": "Bạn từng dùng Tinh Bạc để mua một vị trí trong tổ đội Huyết Hồng Đen."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "noBand": true
+   },
+   "choices": [
+    {
+     "label": "Đánh gục vệ sĩ",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn hạ gục tên gác cửa chỉ bằng một đòn, khiến Valerius nhếch mép tán thưởng.",
+      "effects": {
+       "fame": 5,
+       "flags": [
+        "party_a_join_thang"
+       ],
+       "joinBand": "party_a"
+      }
+     },
+     "fail": {
+      "text": "Bạn bị đánh bật ra, phải chịu nhục nhã lết khỏi câu lạc bộ.",
+      "effects": {
+       "health": -10
+      }
+     }
+    },
+    {
+     "label": "Dùng tiền mua đường",
+     "text": "Bạn đặt một túi Tinh Bạc lên bàn, chứng minh mình có giá trị tài chính với băng đảng.",
+     "effects": {
+      "wealth": -15,
+      "flags": [
+       "party_a_join_tien"
+      ],
+      "joinBand": "party_a"
+     }
+    }
+   ],
+   "moment": "Bước chân vào thế giới ngầm của những Huyết Tộc trẻ tuổi."
+  },
+  {
+   "id": "vampire_party_party_a_1",
+   "text": "Valerius giao cho tổ đội nhiệm vụ áp tải một chuyến xe chở máu phàm nhân thượng hạng trốn qua trạm kiểm soát của Giáo hội. Gorn cầm lái, còn bạn và Elara làm nhiệm vụ cảnh giới.",
+   "stages": [
+    "child",
+    "teen",
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "party_a",
+   "recall": [
+    {
+     "flags": [
+      "party_a_1_thang"
+     ],
+     "text": "Bạn từng xuất sắc hộ tống chuyến xe buôn lậu máu cho băng đảng."
+    },
+    {
+     "flags": [
+      "party_a_1_thua"
+     ],
+     "text": "Phi vụ buôn lậu máu đầu tiên của bạn kết thúc trong sự thất thoát."
+    },
+    {
+     "flags": [
+      "party_a_1_em"
+     ],
+     "text": "Bạn từng hao tổn ma lực để thôi miên lính gác, che giấu hàng lậu của tổ đội."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "party_a_join_thang",
+     "party_a_join_tien"
+    ],
+    "band": "party_a"
+   },
+   "choices": [
+    {
+     "label": "Đột phá vòng vây",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Khi lính gác nghi ngờ, bạn phản xạ cực nhanh chém đứt càng xe rào chắn, mở đường cho Gorn lao vút qua.",
+      "effects": {
+       "STR": 10,
+       "flags": [
+        "party_a_1_thang"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Một mũi tên bạc sượt qua vai bạn, hàng hóa đổ vỡ một nửa khiến Valerius vô cùng tức giận.",
+      "effects": {
+       "health": -15,
+       "flags": [
+        "party_a_1_thua"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Thôi miên lính gác",
+     "text": "Bạn bỏ ra một lượng lớn ma lực để ru ngủ toán lính, chuyến hàng qua lọt nhưng bạn suy kiệt hoàn toàn.",
+     "effects": {
+      "health": -20,
+      "flags": [
+       "party_a_1_em"
+      ]
+     }
+    }
+   ],
+   "moment": "Nhúng chàm vào đường dây buôn lậu máu dưới lòng đất."
+  },
+  {
+   "id": "vampire_party_party_a_2",
+   "text": "Do áp lực nợ nần, Valerius quát tháo và đánh đập Gorn vô cớ. Elara đứng chắn trước mặt tên Ghoul, bầu không khí trong tầng hầm căng thẳng như dây đàn chực đứt.",
+   "stages": [
+    "teen",
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "party_a",
+   "recall": [
+    {
+     "flags": [
+      "party_a_2_hoa"
+     ],
+     "text": "Bạn từng là người đứng ra hòa giải mâu thuẫn nội bộ của tổ đội."
+    },
+    {
+     "flags": [
+      "party_a_2_tat"
+     ],
+     "text": "Bạn mang vết sẹo do cố gắng ngăn cản cơn thịnh nộ của Valerius."
+    },
+    {
+     "flags": [
+      "party_a_2_theo"
+     ],
+     "text": "Bạn từng nhẫn tâm hùa theo thủ lĩnh chèn ép những thành viên yếu thế hơn."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "party_a_1_thang",
+     "party_a_1_thua",
+     "party_a_1_em"
+    ],
+    "band": "party_a"
+   },
+   "choices": [
+    {
+     "label": "Hòa giải",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn đưa ra một kế hoạch kiếm tiền mới, dập tắt cơn nóng giận của Valerius và xoa dịu đôi bên.",
+      "effects": {
+       "fame": 10,
+       "flags": [
+        "party_a_2_hoa"
+       ],
+       "memberBond": {
+        "Elara": 10
+       }
+      }
+     },
+     "fail": {
+      "text": "Lời lẽ vụng về của bạn làm Valerius chĩa mũi dùi sang bạn, bạn lãnh trọn một cú tát rách môi.",
+      "effects": {
+       "health": -10,
+       "flags": [
+        "party_a_2_tat"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đứng về phe Đội trưởng",
+     "text": "Bạn hùa theo Valerius dằn mặt Gorn, củng cố quyền lực nhưng khiến Elara nhìn bạn bằng ánh mắt thù địch.",
+     "effects": {
+      "flags": [
+       "party_a_2_theo"
+      ],
+      "memberBond": {
+       "Valerius": 15
+      }
+     }
+    }
+   ],
+   "moment": "Đối diện với sự rạn nứt niềm tin trong băng đảng."
+  },
+  {
+   "id": "vampire_party_party_a_3",
+   "text": "Trong một cuộc xô xát ở quán rượu, Elara bị một con dao bạc xẹt qua tay. Dòng máu rỉ ra không mang mùi thối rữa của ác quỷ mà ngọt ngào mùi phàm nhân. Bí mật lai tạp của ả bị lộ.",
+   "stages": [
+    "teen",
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "party_a",
+   "recall": [
+    {
+     "flags": [
+      "party_a_3_giu"
+     ],
+     "text": "Bạn đã tắm máu để che giấu thân phận nửa người nửa quỷ của Elara."
+    },
+    {
+     "flags": [
+      "party_a_3_can"
+     ],
+     "text": "Bạn từng suýt cắn xé đồng đội mình khi đánh hơi thấy dòng máu phàm nhân của ả."
+    },
+    {
+     "flags": [
+      "party_a_3_tien"
+     ],
+     "text": "Bạn mang trái tim xảo trá, từng tống tiền chính đồng đội mang dòng máu lai."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "party_a_2_hoa",
+     "party_a_2_tat",
+     "party_a_2_theo"
+    ],
+    "band": "party_a"
+   },
+   "choices": [
+    {
+     "label": "Bảo vệ bí mật",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Dù cơn khát cào xé, bạn kiềm chế bản năng, nhanh chóng băng bó cho ả và ra tay giết sạch những kẻ đứng gần để bịt đầu mối.",
+      "effects": {
+       "STR": 15,
+       "flags": [
+        "party_a_3_giu"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Mùi máu quá hấp dẫn khiến bạn mất tự chủ lao vào cắn ả, Gorn phải hất văng bạn ra khiến bạn gãy mấy cái xương sườn.",
+      "effects": {
+       "health": -20,
+       "flags": [
+        "party_a_3_can"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Tống tiền",
+     "text": "Bạn mỉm cười giữ im lặng, nhưng sau đó bí mật ép ả phải nộp một nửa số của cải để không báo cho Valerius.",
+     "effects": {
+      "wealth": 25,
+      "flags": [
+       "party_a_3_tien"
+      ]
+     }
+    }
+   ],
+   "moment": "Chạm trán với bí mật lớn nhất của thành viên quyến rũ nhất đội."
+  },
+  {
+   "id": "vampire_party_party_a_4",
+   "text": "Chủ nợ của Valerius - một gia tộc Huyết Vương - phái một toán sát thủ Huyết Tộc bọc thép ập vào câu lạc bộ Hắc Khúc. Trong lúc tháo chạy, Elara bị dồn vào chân tường, Gorn gầm lên định lao ra đỡ đòn.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "party_a",
+   "recall": [
+    {
+     "flags": [
+      "party_a_4_cuu"
+     ],
+     "text": "Bạn từng đột phá vòng vây tử thần để cứu vãn sinh mạng của cả Elara và Gorn."
+    },
+    {
+     "flags": [
+      "party_a_4_mat"
+     ],
+     "text": "Nỗi đau mất đi Gorn vẫn luôn ám ảnh tổ đội Huyết Hồng Đen."
+    },
+    {
+     "flags": [
+      "party_a_4_tron"
+     ],
+     "text": "Bạn từng hèn nhát bỏ mặc đồng đội bị sát thủ tàn sát để ôm tiền bỏ trốn."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "party_a_3_giu",
+     "party_a_3_can",
+     "party_a_3_tien"
+    ],
+    "band": "party_a"
+   },
+   "choices": [
+    {
+     "label": "Xung phong ứng cứu",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Bạn tung đòn kết liễu tên sát thủ thủ lĩnh, chọc thủng vòng vây cứu thoát cả Elara và Gorn, trở thành anh hùng của băng đảng.",
+      "effects": {
+       "fame": 20,
+       "flags": [
+        "party_a_4_cuu"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn không đủ sức, Gorn lao ra che chắn cho Elara và bị chém đứt làm đôi. Tổ đội chìm trong đau thương tột cùng.",
+      "effects": {
+       "health": -20,
+       "flags": [
+        "party_a_4_mat"
+       ],
+       "memberDie": [
+        "Gorn"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Bỏ mặc chạy trốn",
+     "text": "Bạn chớp thời cơ ôm theo rương tiền của câu lạc bộ tẩu thoát bằng cửa hậu, bỏ mặc đồng đội sống chết tự lo.",
+     "effects": {
+      "wealth": 30,
+      "flags": [
+       "party_a_4_tron"
+      ],
+      "memberDie": [
+       "Gorn"
+      ]
+     }
+    }
+   ],
+   "moment": "Đổ máu vì những món nợ ân oán trong thế giới ngầm."
+  },
+  {
+   "id": "vampire_party_party_a_5",
+   "text": "Câu lạc bộ tan hoang. Valerius suy sụp, quỳ gối run rẩy trước viễn cảnh bị giới quý tộc truy sát. Các thành viên còn lại đều hướng mắt về phía bạn, chờ đợi một quyết định dẫn dắt băng đảng.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "party_a",
+   "recall": [
+    {
+     "flags": [
+      "party_a_5_vua"
+     ],
+     "text": "Bạn đã phế truất Đội trưởng cũ để vươn lên nắm quyền thống trị băng đảng."
+    },
+    {
+     "flags": [
+      "party_a_5_noi"
+     ],
+     "text": "Cuộc nội chiến tranh giành quyền lực từng xé nát tổ đội của bạn."
+    },
+    {
+     "flags": [
+      "party_a_5_bo"
+     ],
+     "text": "Bạn đã quay lưng rời bỏ Huyết Hồng Đen khi họ lâm vào bước đường cùng."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "party_a_4_cuu",
+     "party_a_4_mat",
+     "party_a_4_tron"
+    ],
+    "band": "party_a"
+   },
+   "choices": [
+    {
+     "label": "Phế truất Đội trưởng",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn dõng dạc tuyên bố tiếp quản, vực dậy tinh thần mọi người và ép Valerius phải lui xuống làm cấp dưới phục tùng.",
+      "effects": {
+       "fame": 20,
+       "flags": [
+        "party_a_5_vua"
+       ],
+       "bandLead": true
+      }
+     },
+     "fail": {
+      "text": "Valerius nổi điên chống trả, nội chiến nổ ra khiến băng đảng chịu tổn thất nặng nề trước khi hắn bỏ đi.",
+      "effects": {
+       "health": -30,
+       "flags": [
+        "party_a_5_noi"
+       ],
+       "memberLeave": [
+        "Valerius"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Rút lui khỏi bùn lầy",
+     "text": "Nhận thấy con tàu đang chìm, bạn lạnh lùng thu dọn hành trang rời đi, chính thức cắt đứt quan hệ với hội Huyết Hồng Đen.",
+     "effects": {
+      "flags": [
+       "party_a_5_bo"
+      ],
+      "leaveBand": true
+     }
+    }
+   ],
+   "moment": "Thời khắc định đoạt số phận của băng đảng ngõ hẻm."
+  },
+  {
+   "id": "vampire_party_party_a_6",
+   "text": "Trải qua bão táp, băng đảng nay dưới quyền bạn chỉ còn là một nhóm nhỏ. Một Thương hội hắc ám đề nghị mua lại toàn bộ mạng lưới buôn lậu của các bạn với giá khổng lồ, yêu cầu giải tán tổ đội.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "party_a",
+   "recall": [
+    {
+     "flags": [
+      "party_a_6_giu"
+     ],
+     "text": "Dưới sự dẫn dắt của bạn, băng đảng Huyết Hồng Đen trở thành huyền thoại của thế giới ngầm."
+    },
+    {
+     "flags": [
+      "party_a_6_ngheo"
+     ],
+     "text": "Sự cố chấp giữ lại tổ đội đã khiến bạn rơi vào cảnh nghèo đói."
+    },
+    {
+     "flags": [
+      "party_a_6_ban"
+     ],
+     "text": "Bạn đã tự tay bán đứt băng đảng Huyết Hồng Đen để đổi lấy sự giàu sang."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "party_a_5_vua",
+     "party_a_5_noi"
+    ],
+    "band": "party_a"
+   },
+   "choices": [
+    {
+     "label": "Giữ vững đế chế",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn từ chối, dùng sự khôn ngoan bành trướng lãnh thổ, biến Huyết Hồng Đen thành một liên minh tội phạm bất khả xâm phạm.",
+      "effects": {
+       "fame": 30,
+       "flags": [
+        "party_a_6_giu"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Thương hội dùng vũ lực chèn ép, bạn cố giữ băng đảng nhưng kết cục lại rơi vào cảnh khánh kiệt, thoi thóp tồn tại.",
+      "effects": {
+       "wealth": -40,
+       "flags": [
+        "party_a_6_ngheo"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Bán đứt tổ đội",
+     "text": "Bạn đồng ý ký khế ước, nhận lấy một gia tài khổng lồ, chia tiền cho mọi người rồi giải tán băng đảng đường ai nấy đi.",
+     "effects": {
+      "wealth": 50,
+      "flags": [
+       "party_a_6_ban"
+      ],
+      "leaveBand": true
+     }
+    }
+   ],
+   "moment": "Đặt dấu chấm hết cho kỷ nguyên của Huyết Hồng Đen."
+  },
+  {
+   "id": "vampire_party_party_a_m1",
+   "text": "Valerius nghi ngờ bạn đang cố tình quyến rũ Elara để chia rẽ hắn với cô ả. Hắn chặn bạn trong hầm rượu, kề lưỡi dao lạnh buốt vào cổ bạn.",
+   "stages": [
+    "teen",
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "party_a",
+   "weight": 40,
+   "require": {
+    "bandMember": "Valerius",
+    "band": "party_a"
+   },
+   "choices": [
+    {
+     "label": "Áp đảo tinh thần",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn dùng lời lẽ phân tích điểm yếu của hắn, đe dọa ngược lại khiến hắn phải đổ mồ hôi và hạ vũ khí.",
+      "effects": {
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Hắn mất bình tĩnh khứa một đường trên cổ bạn, cảnh cáo bạn không được vượt quá giới hạn.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Nhượng bộ",
+     "text": "Bạn thề độc rằng mình không có ý đồ gì, giữ yên bình nội bộ nhưng đánh mất sĩ diện bản thân.",
+     "effects": {
+      "joy": -10
+     }
+    }
+   ],
+   "moment": "Đối đầu với cơn ghen tuông hoang tưởng của Valerius."
+  },
+  {
+   "id": "vampire_party_party_a_m2",
+   "text": "Elara lên cơn nghiện máu quỷ do đặc tính lai tạp của ả. Ả van xin bạn cho ả uống một ngụm máu Huyết Tộc của bạn để xoa dịu cơn đau đang cào xé lục phủ ngũ tạng.",
+   "stages": [
+    "teen",
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "party_a",
+   "weight": 40,
+   "require": {
+    "bandMember": "Elara",
+    "band": "party_a"
+   },
+   "choices": [
+    {
+     "label": "San sẻ ma lực",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Dòng máu của bạn tương thích, giúp ả bình tâm lại và mang đến cho ả sự phục tùng tuyệt đối với bạn.",
+      "effects": {
+       "memberBond": {
+        "Elara": 20
+       }
+      }
+     },
+     "fail": {
+      "text": "Máu của bạn quá mạnh, làm ả lên cơn co giật và cấu xé làm bạn bị thương nhẹ.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Giam lỏng",
+     "text": "Bạn lạnh lùng nhốt ả vào lồng sắt, để ả tự vượt qua cơn nghiện bằng sự thống khổ.",
+     "effects": {
+      "joy": -15
+     }
+    }
+   ],
+   "moment": "Chứng kiến sự dằn vặt của sinh vật mang dòng máu lai Elara."
+  },
+  {
+   "id": "vampire_party_party_a_m3",
+   "text": "Gorn chạm trán một cựu Thợ săn từng là đồng đội cũ của hắn khi còn là người. Tên Thợ săn chĩa nỏ thánh vào Gorn, gào lên chửi rủa sự tha hóa của hắn.",
+   "stages": [
+    "teen",
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "party_a",
+   "weight": 40,
+   "require": {
+    "bandMember": "Gorn",
+    "band": "party_a"
+   },
+   "choices": [
+    {
+     "label": "Hỗ trợ diệt khẩu",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn bọc hậu, cắt cổ tên Thợ săn trước khi hắn kịp siết cò, giúp Gorn chặt đứt hoàn toàn quá khứ loài người.",
+      "effects": {
+       "memberBond": {
+        "Gorn": 15
+       }
+      }
+     },
+     "fail": {
+      "text": "Mũi tên bạc bắn trúng chân Gorn, bạn phải chật vật kéo hắn trốn thoát khỏi con hẻm.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Để Gorn tự xử",
+     "text": "Bạn đứng khoanh tay quan sát, Gorn phải dùng thân xác Ghoul chống đỡ tên bạc, đánh đổi bằng thương tích nặng nề.",
+     "effects": {
+      "joy": -10
+     }
+    }
+   ],
+   "moment": "Giúp Gorn đối mặt với những tàn dư từ cuộc đời phàm nhân."
+  },
+  {
+   "id": "vampire_party_party_b_join",
+   "text": "Bị truy nã gắt gao, bạn lảo đảo trốn vào một nhà thờ đổ nát. Draven lao ra định xé xác bạn, nhưng Kaelen cất tiếng gọi từ trong bóng tối, yêu cầu bạn chia sẻ chút ma lực để đổi lấy sự tị nạn.",
+   "stages": [
+    "teen",
+    "adult"
+   ],
+   "arc": "party_b",
+   "recall": [
+    {
+     "flags": [
+      "party_b_join_uy"
+     ],
+     "text": "Bạn từng dùng sức mạnh áp đảo để gia nhập hàng ngũ những kẻ lưu vong."
+    },
+    {
+     "flags": [
+      "party_b_join_nhuc"
+     ],
+     "text": "Bạn từng quỳ gối nhục nhã để đổi lấy sự tị nạn trong nhà thờ hoang."
+    },
+    {
+     "flags": [
+      "party_b_join_tien"
+     ],
+     "text": "Bạn đã dùng Tinh Bạc để mua sự bảo vệ từ Giao Ước Bụi Phai."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "noBand": true
+   },
+   "choices": [
+    {
+     "label": "Phô diễn quyền năng",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn gạt phăng Draven, tỏa ra sát khí khiến Kaelen gật đầu hài lòng thu nhận bạn như một chiến lực hữu ích.",
+      "effects": {
+       "fame": 10,
+       "flags": [
+        "party_b_join_uy"
+       ],
+       "joinBand": "party_b"
+      }
+     },
+     "fail": {
+      "text": "Bạn kiệt sức, bị Draven đấm gục và phải quỳ gối thề trung thành mới được cho ở lại.",
+      "effects": {
+       "health": -20,
+       "flags": [
+        "party_b_join_nhuc"
+       ],
+       "joinBand": "party_b"
+      }
+     }
+    },
+    {
+     "label": "Quyên góp tài sản",
+     "text": "Bạn ngoan ngoãn giao ra rương Tinh Bạc mang theo để đổi lấy sự bao bọc của Giao Ước.",
+     "effects": {
+      "wealth": -20,
+      "flags": [
+       "party_b_join_tien"
+      ],
+      "joinBand": "party_b"
+     }
+    }
+   ],
+   "moment": "Trở thành một mảnh ghép của những bóng ma lưu vong."
+  },
+  {
+   "id": "vampire_party_party_b_1",
+   "text": "Lương thực cạn kiệt, Kaelen ra lệnh cho bạn và Silas đột nhập vào một lăng mộ cũ để vơ vét máu khô và cổ vật đem ra chợ đen bán.",
+   "stages": [
+    "teen",
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "party_b",
+   "recall": [
+    {
+     "flags": [
+      "party_b_1_thang"
+     ],
+     "text": "Bạn từng khéo léo khai quật cổ vật để nuôi sống cả tổ đội lưu vong."
+    },
+    {
+     "flags": [
+      "party_b_1_thua"
+     ],
+     "text": "Vết bỏng bạc trên người bạn là hậu quả của lần đột nhập lăng mộ kiếm ăn."
+    },
+    {
+     "flags": [
+      "party_b_1_cuop"
+     ],
+     "text": "Bạn từng phải hạ mình đi cướp giật phàm nhân để nuôi sống Giao Ước."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "party_b_join_uy",
+     "party_b_join_nhuc",
+     "party_b_join_tien"
+    ],
+    "band": "party_b"
+   },
+   "choices": [
+    {
+     "label": "Lẩn tránh bẫy rập",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Nhờ sự khéo léo, bạn vô hiệu hóa hệ thống bẫy bạc, mang về một rương cổ vật nguyên vẹn làm cả nhóm trầm trồ.",
+      "effects": {
+       "wealth": 15,
+       "flags": [
+        "party_b_1_thang"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn giẫm nhầm phiến đá, bị bụi bạc phun đầy người bỏng rát, chỉ đem về được vài đồng xu lẻ.",
+      "effects": {
+       "health": -15,
+       "flags": [
+        "party_b_1_thua"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Cướp giật trên đường",
+     "text": "Bạn từ chối vào lăng mộ, thay vào đó chặn đường cướp xe ngựa của một thương gia phàm nhân đi ngang qua.",
+     "effects": {
+      "fame": -10,
+      "flags": [
+       "party_b_1_cuop"
+      ]
+     }
+    }
+   ],
+   "moment": "Đào bới trong bóng đêm để duy trì sự tồn tại."
+  },
+  {
+   "id": "vampire_party_party_b_2",
+   "text": "Silas hoang tưởng cáo buộc Kaelen đang lén giấu những túi máu chất lượng cao cho riêng mình. Hắn chĩa dao vào Đội trưởng, kích động Draven làm phản.",
+   "stages": [
+    "teen",
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "party_b",
+   "recall": [
+    {
+     "flags": [
+      "party_b_2_minh"
+     ],
+     "text": "Bạn từng dùng trí tuệ vạch trần mưu hèn kế bẩn, bảo vệ danh dự Đội trưởng."
+    },
+    {
+     "flags": [
+      "party_b_2_sap"
+     ],
+     "text": "Sự chia rẽ nội bộ từng khiến nơi trú ẩn của các bạn tan hoang."
+    },
+    {
+     "flags": [
+      "party_b_2_chia"
+     ],
+     "text": "Bạn mang tiếng là kẻ gió chiều nào che chiều ấy khi hùa theo Silas ép uổng Kaelen."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "party_b_1_thang",
+     "party_b_1_thua",
+     "party_b_1_cuop"
+    ],
+    "band": "party_b"
+   },
+   "choices": [
+    {
+     "label": "Dùng lý lẽ phân trần",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn phát hiện dấu vết bùn đất lạ, chứng minh những túi máu đó là của kẻ thù gài vào nhằm chia rẽ nội bộ, giải oan cho Kaelen.",
+      "effects": {
+       "flags": [
+        "party_b_2_minh"
+       ],
+       "memberBond": {
+        "Kaelen": 15
+       }
+      }
+     },
+     "fail": {
+      "text": "Không ai nghe bạn giải thích, cuộc ẩu đả nổ ra khiến nhà thờ sập một góc, tài sản của bạn bị đập nát.",
+      "effects": {
+       "wealth": -20,
+       "flags": [
+        "party_b_2_sap"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đổ thêm dầu vào lửa",
+     "text": "Chán ghét Kaelen, bạn hùa theo Silas, ép Kaelen phải giao nộp kho báu cá nhân ra chia đều.",
+     "effects": {
+      "wealth": 20,
+      "flags": [
+       "party_b_2_chia"
+      ],
+      "memberBond": {
+       "Kaelen": -20
+      }
+     }
+    }
+   ],
+   "moment": "Chống chọi với sự nghi kỵ tàn phá nhóm lưu đày từ bên trong."
+  },
+  {
+   "id": "vampire_party_party_b_3",
+   "text": "Bí mật của Silas bị phơi bày. Lyra dùng ma thuật nghe trộm được tiếng quạ truyền tin của hắn cho Giáo hội, báo điểm trú ẩn của Giao Ước Bụi Phai để đổi lấy lệnh bài ân xá cá nhân.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "party_b",
+   "recall": [
+    {
+     "flags": [
+      "party_b_3_giet"
+     ],
+     "text": "Bạn đã bắt giữ Silas, kẻ mang tội bán đứng Giao Ước Bụi Phai."
+    },
+    {
+     "flags": [
+      "party_b_3_tron"
+     ],
+     "text": "Silas đã trốn thoát nhờ tạt nước thánh vào mặt bạn, mang theo bí mật của tổ đội."
+    },
+    {
+     "flags": [
+      "party_b_3_tan"
+     ],
+     "text": "Bạn đã vứt bỏ Giao Ước Bụi Phai ngay khi biết Giáo hội sắp ập đến."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "party_b_2_minh",
+     "party_b_2_sap",
+     "party_b_2_chia"
+    ],
+    "band": "party_b"
+   },
+   "choices": [
+    {
+     "label": "Bắt sống tên phản bội",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn ra đòn sấm sét đánh gãy chân Silas trước khi hắn tẩu thoát, giao nộp hắn cho Kaelen phán xét.",
+      "effects": {
+       "fame": 15,
+       "flags": [
+        "party_b_3_giet"
+       ],
+       "memberDie": [
+        "Silas"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Silas ném một lọ nước thánh vào mặt bạn, tẩu thoát thành công và để lại cả nhóm trong nỗi kinh hoàng.",
+      "effects": {
+       "health": -25,
+       "flags": [
+        "party_b_3_tron"
+       ],
+       "memberLeave": [
+        "Silas"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Tẩu tán tài sản",
+     "text": "Nhận ra chỗ này đã lộ, bạn không buồn ngăn Silas mà lập tức đóng gói kho báu của mình để chuồn trước.",
+     "effects": {
+      "wealth": 25,
+      "flags": [
+       "party_b_3_tan"
+      ],
+      "leaveBand": true
+     }
+    }
+   ],
+   "moment": "Bị đâm sau lưng bởi kẻ từng nương tựa vào nhau."
+  },
+  {
+   "id": "vampire_party_party_b_4",
+   "text": "Giáo hội ập đến nhà thờ với đội hình Thập Tự Chinh. Lyra, người mù lòa không thể chạy nhanh, quyết định thi triển cấm thuật tự thiêu đốt bản thân để tạo ra một bức màn bóng tối khổng lồ che chở cho các bạn rút lui.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "party_b",
+   "recall": [
+    {
+     "flags": [
+      "party_b_4_cuu"
+     ],
+     "text": "Bạn từng xuất sắc hòa nhịp ma lực, cứu Lyra khỏi án tử hình ánh sáng."
+    },
+    {
+     "flags": [
+      "party_b_4_mat"
+     ],
+     "text": "Sự hy sinh của Lyra trong lửa thánh vẫn luôn cắn rứt lương tâm bạn."
+    },
+    {
+     "flags": [
+      "party_b_4_bo"
+     ],
+     "text": "Bạn đã hèn nhát tháo chạy, dẫm lên sự hy sinh của nữ pháp sư mù lòa."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "party_b_3_giet",
+     "party_b_3_tron"
+    ],
+    "band": "party_b"
+   },
+   "choices": [
+    {
+     "label": "Phối hợp ma pháp",
+     "check": {
+      "stat": "INT",
+      "target": 10
+     },
+     "success": {
+      "text": "Bạn hòa nhịp ma lực với Lyra, giúp cô không phải chết mà vẫn tạo đủ bóng tối để cả nhóm an toàn chui xuống hầm ngầm.",
+      "effects": {
+       "STR": 20,
+       "flags": [
+        "party_b_4_cuu"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Áp lực ma thuật quá lớn đẩy bạn văng ra. Bạn bất lực nhìn Lyra tan thành tro bụi để đổi lấy đường sống cho cả nhóm.",
+      "effects": {
+       "joy": -30,
+       "flags": [
+        "party_b_4_mat"
+       ],
+       "memberDie": [
+        "Lyra"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Chạy trốn trong nước mắt",
+     "text": "Bạn không ngoái đầu lại, lao thẳng vào bóng tối bỏ mặc người đồng đội cao cả làm bia đỡ đạn.",
+     "effects": {
+      "fame": -20,
+      "flags": [
+       "party_b_4_bo"
+      ],
+      "memberDie": [
+       "Lyra"
+      ]
+     }
+    }
+   ],
+   "moment": "Đứng giữa ranh giới sinh tử trong cuộc càn quét của Thập Tự Chinh."
+  },
+  {
+   "id": "vampire_party_party_b_5",
+   "text": "Trốn sâu dưới lòng đất ẩm thấp, Giao Ước Bụi Phai nay đã kiệt quệ. Kaelen giao lại chiếc nhẫn Đội trưởng cho bạn, thở dài thừa nhận ông ta không còn đủ dũng khí để dẫn dắt những kẻ lưu đày nữa.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "party_b",
+   "recall": [
+    {
+     "flags": [
+      "party_b_5_vua"
+     ],
+     "text": "Chiếc nhẫn Đội trưởng lưu vong nay thuộc về bạn, người nắm giữ hy vọng cuối cùng."
+    },
+    {
+     "flags": [
+      "party_b_5_sap"
+     ],
+     "text": "Dù đã cố gắng, bạn không thể giữ cho Giao Ước Bụi Phai khỏi sự sụp đổ tột cùng."
+    },
+    {
+     "flags": [
+      "party_b_5_tu"
+     ],
+     "text": "Bạn đã từ chối chiếc nhẫn Đội trưởng để rũ bỏ gánh nặng của Giao Ước."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "anyFlags": [
+     "party_b_4_cuu",
+     "party_b_4_mat",
+     "party_b_4_bo"
+    ],
+    "band": "party_b"
+   },
+   "choices": [
+    {
+     "label": "Nhận lấy trọng trách",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đeo chiếc nhẫn, truyền cảm hứng cho những thành viên còn lại, hứa hẹn một cuộc trả thù rực lửa trong tương lai.",
+      "effects": {
+       "fame": 25,
+       "flags": [
+        "party_b_5_vua"
+       ],
+       "bandLead": true
+      }
+     },
+     "fail": {
+      "text": "Bạn nhận nhẫn nhưng sự hoang mang lộ rõ, nhóm lưu đày mất đi niềm tin cuối cùng, dần tan rã trong vô vọng.",
+      "effects": {
+       "joy": -25,
+       "flags": [
+        "party_b_5_sap"
+       ],
+       "leaveBand": true
+      }
+     }
+    },
+    {
+     "label": "Từ chối",
+     "text": "Bạn gạt tay ông ta ra, tuyến bố mình chỉ muốn tự do sinh tồn chứ không gánh vác mạng sống của ai khác.",
+     "effects": {
+      "STR": 15,
+      "flags": [
+       "party_b_5_tu"
+      ],
+      "leaveBand": true
+     }
+    }
+   ],
+   "moment": "Đón nhận tàn tích của một tổ đội đã mất hết hy vọng."
+  },
+  {
+   "id": "vampire_party_party_b_6",
+   "text": "Dưới sự thống lĩnh của bạn, nhóm tìm thấy lối vào Hầm Mộ Bạch Ngà từ mảnh bản đồ cổ. Đây là cơ hội để cả nhóm tái lập quyền uy hoàng kim, chấm dứt những tháng ngày chui lủi.",
+   "stages": [
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "party_b",
+   "recall": [
+    {
+     "flags": [
+      "party_b_6_thang"
+     ],
+     "text": "Dưới tay bạn, Giao Ước Bụi Phai đã tiến vào Hầm Mộ Bạch Ngà, tái sinh từ đống tro tàn."
+    },
+    {
+     "flags": [
+      "party_b_6_thua"
+     ],
+     "text": "Sự thất bại trước cổng hầm mộ đã vùi lấp hy vọng hồi sinh của Giao Ước."
+    },
+    {
+     "flags": [
+      "party_b_6_ban"
+     ],
+     "text": "Bạn đã đổi bản đồ Hầm Mộ Bạch Ngà lấy sự giàu sang và giải tán nhóm lưu vong."
+    }
+   ],
+   "weight": 40,
+   "require": {
+    "flags": [
+     "party_b_5_vua"
+    ],
+    "band": "party_b"
+   },
+   "choices": [
+    {
+     "label": "Mở toang phong ấn",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn dồn sức mạnh đập vỡ cổng hầm mộ, giải phóng ma lực khổng lồ, ban cho tổ đội quyền năng mới để vươn lên thành một gia tộc.",
+      "effects": {
+       "fame": 30,
+       "flags": [
+        "party_b_6_thang"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Ma lực dội ngược làm bạn trọng thương, lối vào bị sập vĩnh viễn, chôn vùi hy vọng cuối cùng của Giao Ước Bụi Phai.",
+      "effects": {
+       "health": -40,
+       "flags": [
+        "party_b_6_thua"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Bán bản đồ",
+     "text": "Khôn ngoan hơn, bạn mang bản đồ bán cho một Huyết Vương cổ đại, chia chác tiền bạc và cho các thành viên tự do.",
+     "effects": {
+      "wealth": 40,
+      "flags": [
+       "party_b_6_ban"
+      ],
+      "leaveBand": true
+     }
+    }
+   ],
+   "moment": "Quyết định số phận cuối cùng của những kẻ lưu đày bóng đêm."
+  },
+  {
+   "id": "vampire_party_party_b_m1",
+   "text": "Bạn phát hiện Kaelen lén thắp nến cầu nguyện trước một cây thánh giá hỏng, tự dằn vặt vì từng bán đứng anh em ruột thịt cho Giáo hội để sống sót.",
+   "stages": [
+    "teen",
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "party_b",
+   "weight": 40,
+   "require": {
+    "bandMember": "Kaelen",
+    "band": "party_b"
+   },
+   "choices": [
+    {
+     "label": "Thức tỉnh tinh thần",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Những lời sắc sảo của bạn giúp ông ta nhận ra việc sống sót mới là quan trọng nhất, dẹp bỏ sự hối hận vô ích.",
+      "effects": {
+       "memberBond": {
+        "Kaelen": 15
+       }
+      }
+     },
+     "fail": {
+      "text": "Bạn buông lời mỉa mai làm tổn thương lòng tự trọng của ông ta, khiến Kaelen quay sang cấm đoán bạn can thiệp.",
+      "effects": {
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Uy hiếp",
+     "text": "Bạn dùng bí mật đó để ép Kaelen nhường lại một phần kho báu cá nhân cho bạn.",
+     "effects": {
+      "wealth": 15
+     }
+    }
+   ],
+   "moment": "Khám phá ra bí mật nhơ nhuốc của Đội trưởng uy nghiêm."
+  },
+  {
+   "id": "vampire_party_party_b_m2",
+   "text": "Silas bí mật gặp gỡ một kẻ buôn tin phàm nhân để mua thẻ thông hành giả. Bạn vô tình bắt gặp cuộc giao dịch này trong con hẻm hẹp.",
+   "stages": [
+    "teen",
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "party_b",
+   "weight": 40,
+   "require": {
+    "bandMember": "Silas",
+    "band": "party_b"
+   },
+   "choices": [
+    {
+     "label": "Phá bĩnh",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn lao ra cướp lấy tấm thẻ, dọa tên phàm nhân chạy mất tích, biến Silas thành kẻ hàm ơn bạn.",
+      "effects": {
+       "fame": 10
+      }
+     },
+     "fail": {
+      "text": "Tên phàm nhân hoảng sợ ném lựu đạn bạc, bạn và Silas đều bị phỏng nặng phải lui về trị thương.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Đồng lõa",
+     "text": "Bạn đóng góp thêm Tinh Bạc để mua hai tấm thẻ, chuẩn bị đường lùi cho cả bản thân.",
+     "effects": {
+      "wealth": -15
+     }
+    }
+   ],
+   "moment": "Đối phó với sự lén lút luôn tìm đường lùi của Silas."
+  },
+  {
+   "id": "vampire_party_party_b_m3",
+   "text": "Ma lực từ mảnh bản đồ làm Lyra lên cơn ảo giác, cô gào thét về những ảo ảnh ngập máu trong Hầm Mộ Bạch Ngà khiến hầm trú ẩn rung lắc liên hồi.",
+   "stages": [
+    "teen",
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "party_b",
+   "weight": 40,
+   "require": {
+    "bandMember": "Lyra",
+    "band": "party_b"
+   },
+   "choices": [
+    {
+     "label": "Chấn thủy ma lực",
+     "check": {
+      "stat": "health",
+      "target": 70
+     },
+     "success": {
+      "text": "Bạn dồn sức mạnh chế ngự luồng ma lực bạo loạn, giúp cô bình tâm lại và ghi chép được thêm chi tiết từ ảo ảnh.",
+      "effects": {
+       "STR": 15
+      }
+     },
+     "fail": {
+      "text": "Ảo ảnh bám lấy tâm trí bạn, gây ám ảnh mộng mị trong hàng thập kỷ khiến bạn suy nhược.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Đánh ngất",
+     "text": "Bạn dùng chuôi kiếm gõ mạnh vào gáy Lyra, cách thô bạo nhưng hiệu quả để dập tắt ảo ảnh ngay lập tức.",
+     "effects": {
+      "memberBond": {
+       "Lyra": -15
+      }
+     }
+    }
+   ],
+   "moment": "Hứng chịu dư chấn ma lực từ mảnh bản đồ cổ của Lyra."
+  },
+  {
+   "id": "vampire_party_party_b_m4",
+   "text": "Bản tính Demon của Draven bộc phát, gã không chịu uống máu phàm nhân mà đòi hỏi phải ăn sống một Huyết Tộc khác để thỏa mãn cơn đói khát bạo lực.",
+   "stages": [
+    "teen",
+    "adult",
+    "middle",
+    "elder",
+    "ancient"
+   ],
+   "arc": "party_b",
+   "weight": 40,
+   "require": {
+    "bandMember": "Draven",
+    "band": "party_b"
+   },
+   "choices": [
+    {
+     "label": "Thách đấu áp chế",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Bạn đánh gã nhừ tử, ép gã phải ngoan ngoãn quay về uống máu lợn và phục tùng sự cai quản của bạn.",
+      "effects": {
+       "fame": 15
+      }
+     },
+     "fail": {
+      "text": "Gã trong cơn điên xé rách một cánh tay của bạn, bạn phải vất vả lắm mới trói được gã lại.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Dẫn đường đi săn",
+     "text": "Bạn dẫn gã đi săn một Tân Sinh lang thang ngoài ngõ hẻm, để mặc gã thỏa mãn cơn khát ghê tởm của ác quỷ.",
+     "effects": {
+      "joy": -15
+     }
+    }
+   ],
+   "moment": "Cầm chân cơn đói khát hoang dã của ác quỷ dưới trướng Kaelen."
   }
  ],
  "deaths": [
@@ -19207,6 +20650,79 @@
      }
     ],
     "condition": "tuổi 201–801 · CẦN Nhanh nhẹn > 50 hoặc là Night Blade.",
+    "recall": [],
+    "party": true
+   },
+   "party_a": {
+    "id": "party_a",
+    "title": "HỘI HUYẾT HỒNG ĐEN",
+    "name": "Huyết Hồng Đen",
+    "rule": "Máu tươi, tiền bạc và bóng đêm tự do.",
+    "lair": "Tầng hầm câu lạc bộ Hắc Khúc",
+    "members": [
+     {
+      "name": "Valerius",
+      "race": "Vampire",
+      "position": "Night Blade (Bậc 3) · Đội trưởng",
+      "desc": "Lạnh lùng, tham vọng.",
+      "secret": "Đang nợ một khoản Huyết Kim khổng lồ của giới quý tộc."
+     },
+     {
+      "name": "Elara",
+      "race": "Vampire",
+      "position": "Blood Mage (Bậc 2)",
+      "desc": "Quyến rũ, thất thường.",
+      "secret": "Giấu một nửa dòng máu phàm nhân (Dhampir)."
+     },
+     {
+      "name": "Gorn",
+      "race": "Ghoul",
+      "position": "Night Hunter (Bậc 2)",
+      "desc": "Ít nói, cơ bắp.",
+      "secret": "Từng là Thợ săn Vampire nhưng bị tha hóa."
+     }
+    ],
+    "condition": "tuổi 51–201 · CẦN Sức mạnh > 20 hoặc Danh vọng < 50.",
+    "recall": [],
+    "party": true
+   },
+   "party_b": {
+    "id": "party_b",
+    "title": "GIAO ƯỚC BỤI PHAI",
+    "name": "Giao Ước Bụi Phai",
+    "rule": "Tồn tại trong im lặng, hoặc chết dưới ánh mặt trời.",
+    "lair": "Phế tích nhà thờ bỏ hoang",
+    "members": [
+     {
+      "name": "Kaelen",
+      "race": "Vampire",
+      "position": "Night Noble (Bậc 4) · Đội trưởng",
+      "desc": "Trầm mặc, uy nghiêm.",
+      "secret": "Từng là một Hầu Tước bán đứng gia tộc để sống sót."
+     },
+     {
+      "name": "Silas",
+      "race": "Vampire",
+      "position": "Hidden One (Bậc 3)",
+      "desc": "Hoang tưởng, lén lút.",
+      "secret": "Lén liên lạc với thợ săn để mua đường sống."
+     },
+     {
+      "name": "Lyra",
+      "race": "Vampire",
+      "position": "Blood Mage (Bậc 3)",
+      "desc": "Mù lòa, thông thái.",
+      "secret": "Giữ mảnh bản đồ dẫn đến Hầm Mộ Bạch Ngà."
+     },
+     {
+      "name": "Draven",
+      "race": "Demon",
+      "position": "Night Hunter (Bậc 3)",
+      "desc": "Cục cằn, bạo lực.",
+      "secret": "Bị ràng buộc bằng huyết thệ với Kaelen."
+     }
+    ],
+    "condition": "tuổi 201–801 · CẦN Danh vọng < 30 hoặc mang thương tật.",
     "recall": [],
     "party": true
    }

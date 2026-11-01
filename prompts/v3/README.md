@@ -14,14 +14,14 @@ và `tools/race-profiles-v3.js` (mô tả, giọng văn, thế giới, ví dụ 
 |---|---|---|---|---|---|---|---|
 | Human | [human.md](human.md) | 9 | 9 kiểu × 6 | 20 × 5 | tổ đội + tự lập | | đã nhập |
 | Goblin | [goblin.md](goblin.md) | 6 | 6 kiểu × 5 | 7 × 4 | băng | có | đã nhập |
-| Beastman | [beastman.md](beastman.md) | 10 | 9 kiểu × 5 | 23 × 5 | tổ đội |  | mới có tổ đội (PHẦN 8); thiếu dàn nhân vật, 23 mạch xuất thân, chương đời, tự lập |
+| Beastman | [beastman.md](beastman.md) | 10 | 9 kiểu × 5 | 23 × 5 | tổ đội |  | đã nhập (PHẦN 10 chỉ có 4 nút nối dàn nhân vật, chưa có lập tổ đội và 10 ứng viên) |
 | Dwarf | [dwarf.md](dwarf.md) | 7 | 9 kiểu × 5 | 10 × 5 | tổ đội |  | đã nhập |
 | Demon | [demon.md](demon.md) | 7 | 9 kiểu × 5 | 10 × 5 | tổ đội |  | đã nhập |
 | Elf | [elf.md](elf.md) | 7 | 9 kiểu × 5 | 10 × 5 | tổ đội |  | đã nhập |
 | Slime | [slime.md](slime.md) | 6 | 9 kiểu × 5 | 6 × 5 | bầy | có | đã nhập |
 | Kobold | [kobold.md](kobold.md) | 6 | 6 kiểu × 4 | 6 × 4 | tổ đào | có | đã nhập |
 | Lizardman | [lizardman.md](lizardman.md) | 6 | 9 kiểu × 5 | 6 × 5 | bầy săn | có | đã nhập |
-| Vampire | [vampire.md](vampire.md) | 7 | 9 kiểu × 5 | 6 × 5 | tổ đội | có | đã nhập (thiếu tổ đội party_a, party_b) |
+| Vampire | [vampire.md](vampire.md) | 7 | 9 kiểu × 5 | 6 × 5 | tổ đội | có | đã nhập |
 | Imp | [imp.md](imp.md) | 6 | 6 kiểu × 4 | 6 × 4 | bè lũ | có | đã nhập |
 | Orc | [orc.md](orc.md) | 6 | 6 kiểu × 4 | 6 × 4 | chiến đoàn | có | đã nhập |
 | Minotaur | [minotaur.md](minotaur.md) | 6 | 9 kiểu × 5 | 7 × 5 | bầy | có | đã nhập |

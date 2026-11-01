@@ -98,7 +98,9 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 7vw, 48
 #past-lives li { padding: 4px 0; border-bottom: 1px dashed var(--line); }
 
 /* HUD */
-.hud { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; position: sticky; top: env(safe-area-inset-top, 0px); background: var(--bg); padding: 8px 0; z-index: 2; }
+/* name, age, bars and stats stay pinned at the top while the life scrolls by */
+.hud-wrap { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 2; background: var(--bg); display: flex; flex-direction: column; gap: 8px; padding: 8px 0 10px; margin-top: -8px; border-bottom: 1px solid var(--line); }
+.hud { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; }
 .who { display: flex; flex-direction: column; min-width: 0; }
 .name { font-family: var(--serif); font-size: 22px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .age { text-align: right; display: flex; flex-direction: column; }
@@ -108,7 +110,17 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 7vw, 48
 .bar { font-size: 12px; color: var(--muted); }
 .bar .track { height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; margin-top: 4px; }
 .bar .fill { height: 100%; border-radius: 3px; transition: width .3s ease; }
-.stats { display: flex; gap: 8px; flex-wrap: wrap; }
+.stats { display: flex; gap: 6px 8px; flex-wrap: wrap; }
+@media (max-width: 480px) {
+  .hud-wrap { gap: 6px; padding-bottom: 8px; }
+  .name { font-size: 18px; }
+  .age-num { font-size: 22px; }
+  .bars { gap: 8px; }
+  /* four small cells in one row: name on top, number below */
+  .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; }
+  .stat { display: flex; flex-direction: column; align-items: center; border-radius: 8px; padding: 2px 2px 3px; font-size: 10px; line-height: 1.25; white-space: nowrap; }
+  .stat b { font-size: 13px; }
+}
 .stat { font-size: 12px; border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; color: var(--muted); font-variant-numeric: tabular-nums; }
 .stat b { color: var(--ink); font-weight: 600; }
 
