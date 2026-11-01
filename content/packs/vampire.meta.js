@@ -127,8 +127,16 @@ module.exports = {
       declineText: "Bạn không cần thêm một miệng ăn. Kẻ kia lùi vào bóng tối và biến mất.",
     },
     jobSelect: {
-      teen: ["Gia tộc gọi bạn đến đại sảnh. Một Huyết Tộc không có vị trí chỉ là ký sinh trùng của lâu đài. Đã đến lúc chọn con đường."],
-      adult: ["Hàng thế kỷ đã trôi qua mà bạn vẫn chưa có chỗ đứng. Các trưởng lão bắt đầu nhìn bạn bằng ánh mắt khinh miệt."],
+      // "(origin) …": only for that birth; the others have no clan hall to be called into
+      teen: [
+        "(vampir_bg_castle) Gia tộc gọi bạn đến đại sảnh. Một Huyết Tộc không có vị trí chỉ là ký sinh trùng của lâu đài. Đã đến lúc chọn con đường.",
+        "(vampir_bg_pact) Gia tộc đã ký giao kèo với bạn gọi bạn đến đại sảnh. Một Huyết Tộc không có vị trí chỉ là món hàng trong bản giao kèo. Đã đến lúc chọn con đường.",
+        "Không gia tộc nào dang tay đón một Huyết Tộc vô chủ. Muốn tồn tại giữa thế giới bóng đêm, bạn phải tự chọn lấy một con đường.",
+      ],
+      adult: [
+        "(vampir_bg_castle) Hàng thế kỷ đã trôi qua mà bạn vẫn chưa có chỗ đứng. Các trưởng lão bắt đầu nhìn bạn bằng ánh mắt khinh miệt.",
+        "Hàng thế kỷ đã trôi qua mà bạn vẫn chưa có chỗ đứng trong thế giới bóng đêm. Những Huyết Tộc khác bắt đầu nhìn bạn bằng ánh mắt khinh miệt.",
+      ],
       later: "Lui vào quan tài, để mai tính",
       laterText: "Bạn kéo nắp quan tài lại. Vài chục năm nữa cũng chưa muộn.",
     },

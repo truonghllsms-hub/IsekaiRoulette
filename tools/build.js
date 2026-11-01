@@ -12,9 +12,6 @@ if (errors.length) {
   process.exit(1);
 }
 for (const e of data.events) delete e._file;
-// the look of each trade, for picking a sprite (tools/looks.js)
-const { jobLook } = require("./looks");
-for (const j of data.jobs) j.look = jobLook(j);
 // character sprites present in img/ (see tools/import-images.py)
 const imgDir = path.join(__dirname, "..", "img");
 data.images = fs.existsSync(imgDir) ? fs.readdirSync(imgDir).filter((f) => f.endsWith(".png")).map((f) => f.slice(0, -4)).sort() : [];

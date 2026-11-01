@@ -66,31 +66,25 @@
   const upper = (t) => (t ? t.charAt(0).toUpperCase() + t.slice(1) : "");
 
   // ---------- sprites ----------
-  // img/<who>_<nam|nu|x>_<n>_<look>.png: person n of a race (or race_kin) in one look
-  //   (nho, thuongdan, gia, chienbinh, phapsu, thosan, tho — see tools/looks.js);
-  // img/<who>_<nam|nu|x>_<form>.png: an evolved form. A life keeps one person all its life.
+  // img/<who>_<nam|nu|x>_<n>_<column>.png: person n of a race (or race_kin), as drawn in the
+  // worksheets docs/anh-nhan-vat-*.xlsx. Columns: beti, hoilon, thieunien, nho, thuongdan, gia,
+  // <trade>_moi, <trade>_kycuu, tienhoa_<form>. A life keeps one person all its life.
   const slug = (t) => String(t).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "");
-  const AGE_LOOK = { infant: "nho", child: "nho", elder: "gia", ancient: "gia" };
   let spriteIndex = null;
   function spriteIdx() {
     if (spriteIndex) return spriteIndex;
-    const people = {}, forms = {};
+    const people = {};
     for (const f of D.images || []) {
-      const m = f.match(/^(.+_(?:nam|nu|x))_(\d+)_([a-z]+)$/);
+      const m = f.match(/^(.+_(?:nam|nu|x))_(\d+)_([a-z0-9_]+)$/);
       if (m) ((people[m[1]] = people[m[1]] || {})[m[2]] = people[m[1]][m[2]] || {})[m[3]] = f;
-      else forms[f] = f;
     }
-    return (spriteIndex = { people, forms });
+    return (spriteIndex = people);
   }
   function spriteOf(ch) {
-    const { people, forms } = spriteIdx();
+    const people = spriteIdx();
     const who = ch.subtype ? `${ch.race.id}_${ch.subtype}` : ch.race.id;
     const g = ch.gender === "male" ? "nam" : ch.gender === "female" ? "nu" : "x";
     const og = g === "nam" ? "nu" : g === "nu" ? "nam" : "x";
-    if (ch.form) {
-      const f = forms[`${who}_${g}_${slug(ch.form)}`] || forms[`${who}_${og}_${slug(ch.form)}`];
-      if (f) return `img/${f}.png`;
-    }
     const pool = people[`${who}_${g}`] || people[`${who}_${og}`];
     if (!pool) return null;
     // the same person for the whole life: chosen from the name, which never changes
@@ -98,9 +92,22 @@
     let h = 0;
     for (const x of ch.name) h = (h * 31 + x.charCodeAt(0)) >>> 0;
     const person = pool[ids[h % ids.length]];
-    const job = ch.job && (D.jobs || []).find((j) => j.id === ch.job.id);
-    const look = AGE_LOOK[E.currentStage(ch).id] || (job && job.look) || "thuongdan";
-    const f = person[look] || person.thuongdan || Object.values(person)[0];
+    // what to show now, best first
+    const st = E.currentStage(ch).id;
+    const want = [];
+    if (ch.form) want.push(`tienhoa_${slug(ch.form)}`);
+    if (st === "infant") want.push("beti", "nho", "hoilon");
+    else if (st === "child") want.push("hoilon", "nho", "beti");
+    else if (st === "elder" || st === "ancient") want.push("gia");
+    if (st === "teen" && !ch.job) want.push("thieunien");
+    if (ch.job && !["infant", "child"].includes(st)) {
+      const t = ch.job.id.slice(ch.job.id.indexOf("_") + 1);
+      // newcomer until the veteran mark (rank B of the guild/tribe, or the 4th of 5 trade ranks)
+      const vet = E.isVeteran(ch, D);
+      want.push(`${t}_${vet ? "kycuu" : "moi"}`, `${t}_${vet ? "moi" : "kycuu"}`);
+    }
+    want.push("thuongdan", "thieunien", "gia");
+    const f = want.map((k) => person[k]).find(Boolean) || Object.values(person)[0];
     return `img/${f}.png`;
   }
   function setSprite(id, ch) {

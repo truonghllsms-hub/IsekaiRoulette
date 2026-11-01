@@ -116,6 +116,9 @@ function loadData() {
   data.focusRace = {};
   data.story = {};
   for (const f of jsonFiles(PACK_DIR)) mergePack(data, readJson(path.join(PACK_DIR, f)), f);
+  // the look of each trade (warrior, mage, hunter, worker, plain): picks the sprite and the gear line
+  const { jobLook } = require("./looks");
+  for (const j of data.jobs) j.look = jobLook(j);
   return data;
 }
 

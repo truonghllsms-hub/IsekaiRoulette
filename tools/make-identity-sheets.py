@@ -60,8 +60,8 @@ for r in races:
         cols = [("Thường dân", "Ảnh gốc · tạo trước", "thuongdan", BASE)]
     for jb in r["jobs"]:
         short = jb["id"].split("_", 1)[1]
-        cols.append((jb["name"], f'Mới vào nghề\n{jb["first"]}', f"{short}_moi", IMG))
-        cols.append((jb["name"], f'Kỳ cựu\n{jb["top"]}', f"{short}_kycuu", IMG))
+        cols.append((jb["name"], "Mới vào nghề\nhạng F → C", f"{short}_moi", IMG))
+        cols.append((jb["name"], "Kỳ cựu\nhạng B → S", f"{short}_kycuu", IMG))
     if not FULL:
         cols += [("Lúc nhỏ", "Thơ ấu", "nho", IMG), ("Tuổi già", "Về già", "gia", IMG)]
     for fm in r["forms"]:
@@ -161,7 +161,9 @@ for j in (2, 3, 4, 6):
 notes = [
     "",
     "Số nhân dạng: Human 8 nam + 8 nữ; Slime, Ghoul vô tính; các tộc khác theo tỉ lệ người chơi gặp tộc đó (ít nhất 1 mỗi giới).",
-    "Mới vào nghề = cấp bậc đầu của nghề (đồ nghề đơn sơ). Kỳ cựu = cấp bậc cao nhất (trang bị xịn, khí chất bậc thầy).",
+    "Ảnh Mới vào nghề (tập sự, đồ nghề đơn sơ) dùng từ hạng F đến C. Ảnh Kỳ cựu (trang bị mới, khí chất bậc thầy) dùng từ hạng B trở lên: B, A, S.",
+    "Tộc không dùng F→S thì lấy mốc tương đương: hạng thứ 5 trong 7 của tộc (Goblin Lord, Warlord, Hầu Tước Ma Mị…), hoặc bậc nghề 4/5.",
+    "Lúc lên mốc kỳ cựu, game đổi sang ảnh Kỳ cựu và kể một câu dẫn kiểu: \"Lên hạng B, bạn sắm bộ giáp mới…\".",
     "Tên giai đoạn và độ tuổi ghi theo đúng từng tộc trong game (vd Goblin: Ấu tể 0–2 tuổi). Về già = giai đoạn cuối đời của tộc.",
     "Tộc không có tiến hóa (Demon) thì không có cột tiến hóa.",
     "Ô cam = ảnh gốc của người đó, tạo trước. Ô vàng = các ảnh còn lại, đính kèm ảnh gốc khi tạo để giữ nguyên gương mặt.",

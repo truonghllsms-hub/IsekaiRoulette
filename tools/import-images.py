@@ -13,7 +13,7 @@ For every image it:
   4. trims the palette and writes img/<key>.png (a few KB each).
 Then it prints what is still missing. Re-sending a file with the same name replaces it.
 """
-import io, json, os, re, sys, unicodedata, zipfile
+import glob, io, json, os, re, sys, unicodedata, zipfile
 from collections import Counter
 
 import numpy as np
@@ -21,14 +21,9 @@ from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "img")
-SRC = json.load(open(os.path.join(ROOT, "prompts", "image-rows.json"), encoding="utf8"))
-LOOK_BY_VI = {l["vi"]: l["id"] for l in SRC["looks"]}
-# every picture the worksheet asks for, in the order of the sheet (most seen first)
-KEYS = [f'{x["code"]}_{l}' for x in SRC["identities"] for l in [l["id"] for l in SRC["looks"]] if l in x["looks"]] + [x["code"] for x in SRC["forms"]]
-NEED = set(KEYS)
-ID_CODES = {x["code"] for x in SRC["identities"]}
-FORM_CODES = {x["code"] for x in SRC["forms"]}
 EXTS = (".png", ".jpg", ".jpeg", ".webp")
+# the pictures asked for: every person row × picture column of docs/anh-nhan-vat-*.xlsx
+SHEETS = sorted(glob.glob(os.path.join(ROOT, "docs", "anh-nhan-vat-*.xlsx")))
 
 
 def norm(s):
@@ -38,24 +33,47 @@ def norm(s):
     return re.sub(r"[^a-z0-9]+", "_", s).strip("_")
 
 
+def layout(ws):
+    """(column of the person code, row of the column codes) on a per-race sheet, else None."""
+    for r in range(1, 7):
+        for c in range(1, 6):
+            if str(ws.cell(r, c).value or "").strip() == "Mã nhân dạng":
+                for rr in range(r, r + 4):
+                    if any(str(ws.cell(rr, cc).value or "") == "thuongdan" for cc in range(1, ws.max_column + 1)):
+                        return c, rr
+    return None
+
+
+def sheet_cells(wb):
+    """{(sheet title, row, col): picture key} for every picture cell of a workbook."""
+    cells = {}
+    for ws in wb.worksheets:
+        lay = layout(ws)
+        if not lay:
+            continue
+        pc, cr = lay
+        cols = {c: str(ws.cell(cr, c).value) for c in range(1, ws.max_column + 1) if re.match(r"^[a-z0-9_]+$", str(ws.cell(cr, c).value or ""))}
+        for r in range(cr + 1, ws.max_row + 1):
+            code = str(ws.cell(r, pc).value or "").strip()
+            if re.match(r"^[a-z0-9_]+_(nam|nu|x)_\d+$", code):
+                for c, col in cols.items():
+                    cells[(ws.title, r, c)] = f"{code}_{col}"
+    return cells
+
+
+from openpyxl import load_workbook
+KEYS = []
+for path in SHEETS:
+    KEYS += list(sheet_cells(load_workbook(path)).values())
+NEED = set(KEYS)
+ID_CODES = {k.rsplit("_", 1)[0] for k in KEYS if k.endswith("_thuongdan")}
 LOOKUP = {norm(k): k for k in KEYS}
 
 
 def key_for(name):
-    """The picture a file name stands for: human_nam_3_chienbinh.png, "Human_Nam_3_ChienBinh (1).jpg"…"""
+    """The picture a file name stands for: human_nam_3_swordsman_moi.png, "Human_Nam_3_Swordsman_Moi (1).jpg"…"""
     base = norm(os.path.splitext(os.path.basename(name))[0])
     return LOOKUP.get(base) or LOOKUP.get(re.sub(r"_\d+$", "", base))
-
-
-def cell_key(code, head):
-    """The picture for a worksheet cell: the row's code and the column title."""
-    code = str(code or "").strip()
-    m = re.match(r"Ảnh: (.+?)(?: \(tạo trước\))?$", head or "")
-    if code in ID_CODES and m and m.group(1) in LOOK_BY_VI:
-        return f"{code}_{LOOK_BY_VI[m.group(1)]}"
-    if code in FORM_CODES and (head or "").strip() == "Ảnh":
-        return code
-    return None
 
 
 def remove_background(img, tol=48):
@@ -172,56 +190,42 @@ def process(data, name):
 
 
 def xlsx_images(path):
-    """Images in the worksheet: (code, n, bytes). Floating pictures by the cell they sit on, and
+    """Pictures in a worksheet as (key, bytes): floating pictures by the cell they sit on, and
     Excel's "place in cell" pictures through the rich-value tables."""
-    from openpyxl import load_workbook
     import xml.etree.ElementTree as ET
     wb = load_workbook(path)
+    cells = sheet_cells(wb)
     out = []
     for ws in wb.worksheets:
-        head = {c.column: str(c.value or "") for c in ws[1]}
         for im in getattr(ws, "_images", []):
             a = im.anchor._from
-            k = cell_key(ws.cell(a.row + 1, 1).value, head.get(a.col + 1, ""))
+            k = cells.get((ws.title, a.row + 1, a.col + 1))
             if k:
                 out.append((k, im._data()))
-    # pictures placed in cells (Excel 365): cell vm → rich value → relationship → media file
     z = zipfile.ZipFile(path)
     names = set(z.namelist())
     if "xl/richData/richValueRel.xml" in names:
-        ns = {"m": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
         rels = ET.fromstring(z.read("xl/richData/_rels/richValueRel.xml.rels"))
         rid2t = {r.get("Id"): r.get("Target") for r in rels}
         rel_list = [el.get("{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id") for el in ET.fromstring(z.read("xl/richData/richValueRel.xml"))]
         rv = [int(v.find("{*}v").text) for v in ET.fromstring(z.read("xl/richData/rdrichvalue.xml"))]
-        media = lambda vm: "xl/richData/" + rid2t[rel_list[rv[vm - 1]]] if vm - 1 < len(rv) else None
-        wb_rels = {}
-        for sheet_xml in [n for n in names if re.match(r"xl/worksheets/sheet\d+\.xml$", n)]:
-            root = ET.fromstring(z.read(sheet_xml))
-            cells = {}
-            for c in root.iter("{%s}c" % ns["m"]):
-                cells[c.get("r")] = c
-            def val(ref):
-                c = cells.get(ref)
-                if c is None:
-                    return ""
-                v = c.find("{*}v")
-                if c.get("t") == "s" and v is not None:
-                    return shared[int(v.text)]
-                is_ = c.find("{*}is")
-                return (is_ is not None and "".join(t.text or "" for t in is_.iter("{*}t"))) or (v.text if v is not None else "")
-            shared = []
-            if "xl/sharedStrings.xml" in names:
-                for si in ET.fromstring(z.read("xl/sharedStrings.xml")):
-                    shared.append("".join(t.text or "" for t in si.iter("{*}t")))
-            for ref, c in cells.items():
-                if c.get("vm"):
-                    col, row = re.match(r"([A-Z]+)(\d+)", ref).groups()
-                    k = cell_key(val(f"A{row}"), val(f"{col}1"))
-                    target = media(int(c.get("vm")))
-                    if k and target:
-                        target = os.path.normpath(target).replace("\\", "/")
-                        out.append((k, z.read(target)))
+        for n in sorted(x for x in names if re.match(r"xl/worksheets/sheet\d+\.xml$", x)):
+            idx = int(re.search(r"sheet(\d+)", n).group(1)) - 1
+            if idx >= len(wb.sheetnames):
+                continue
+            title = wb.sheetnames[idx]
+            for c in ET.fromstring(z.read(n)).iter("{*}c"):
+                vm = c.get("vm")
+                if not vm or int(vm) - 1 >= len(rv):
+                    continue
+                col, row = re.match(r"([A-Z]+)(\d+)", c.get("r")).groups()
+                cn = 0
+                for ch in col:
+                    cn = cn * 26 + ord(ch) - 64
+                k = cells.get((title, int(row), cn))
+                if k:
+                    target = os.path.normpath("xl/richData/" + rid2t[rel_list[rv[int(vm) - 1]]]).replace("\\", "/")
+                    out.append((k, z.read(target)))
     return out
 
 

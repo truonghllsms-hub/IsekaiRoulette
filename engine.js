@@ -568,8 +568,9 @@
       if ((m = p.match(/^có \{(rival|mentor|friend)\}$/))) { const x = c.cast && c.cast[m[1]]; return !!x && x.alive && c.used.some((id) => id.includes(`_cast_${x.kind}_`)); }
       if (/đói khổ|nghèo/.test(p)) return c.bars.wealth < 20;
       if (/của ăn của để|giàu/.test(p)) return c.bars.wealth > 50;
-      if (/có vai trò|có nghề/.test(p)) return !!c.job;
+      // "chưa có nghề" first: it contains "có nghề"
       if (/chưa có nghề|chưa có vai trò/.test(p)) return !c.job;
+      if (/có vai trò|có nghề/.test(p)) return !!c.job;
       if (/bậc cao/.test(p)) return !!(c.guild && c.guild.rank >= 2);
       if (/có băng|có tổ đội|có đồng bọn/.test(p)) return !!c.band || aliveParty(c).length > 0;
       // "alone" lines speak of no family either: nobody left at all
@@ -716,11 +717,13 @@
     if (eff.jobPromote && c.job) {
       const j = jobDef(c, data);
       if (j && c.job.rank < j.ranks.length - 1) { c.job.rank++; c.job.xp = 0; }
+      checkVeteran(c, data, rng, "job");
     }
     if (eff.jobRankSet != null && c.job) {
       const j = jobDef(c, data);
       c.job.rank = clamp(eff.jobRankSet, 0, (j ? j.ranks.length : 5) - 1);
       c.job.xp = 0;
+      checkVeteran(c, data, rng, "job");
     }
     if (eff.orgRankUp && c.guild) {
       // "rank up +N" never skips past the ranks that only a story event can give
@@ -1033,6 +1036,7 @@
     if (c.job) c.pastJobs.push(c.job);
     c.job = { id, rank: 0, xp: 0, since: c.age, stat: (data.jobs.find((x) => x.id === id) || {}).stat };
     if (c.focus !== "adventure" || !j.combat) c.focus = "work";
+    checkVeteran(c, data, rng, "take");
   }
 
   function joinGuild(c, data) {
@@ -1041,6 +1045,40 @@
     c.guild = { org: o.id, rank: 0, pts: 0, since: c.age };
     if (o.join && o.join.length) pushLog(c, "milestone", fmt(pick(Math.random, o.join), c, null, data));
     addMoment(c, o.joinMoment || `Gia nhập ${o.name}`, data);
+  }
+
+  // ---------- veteran: the second picture of a trade ----------
+  // A trade is drawn twice: as a newcomer, and as a veteran. The veteran mark is the fifth of the
+  // seven ranks of one's guild or tribe (B in F→S, Goblin Lord, Warlord…), or the fourth of five
+  // ranks of the trade itself. Reaching it is told: new gear for a new standing.
+  const VET_ORG_RANK = 4;
+  const vetJobRank = (j) => Math.ceil(((j && j.ranks.length) || 5) * 0.6);
+  function isVeteran(c, data) {
+    if (!c.job) return false;
+    return (c.guild && c.guild.rank >= VET_ORG_RANK) || c.job.rank >= vetJobRank(jobDef(c, data));
+  }
+  const GEAR = {
+    chienbinh: ["bạn sắm bộ giáp mới rèn riêng cho mình và một món vũ khí xứng tầm. Kẻ tập sự cầm vũ khí gỉ năm nào giờ đã là chiến binh lão luyện.", "bạn thay bộ giáp sứt mẻ bằng giáp tốt nhất từng mặc, vũ khí mới nặng tay mà vừa vặn như sinh ra để dành cho bạn."],
+    phapsu: ["bạn khoác lên tấm áo choàng thêu ấn chú và cầm cây trượng mới khảm tinh thạch. Ma lực quanh bạn giờ dày đặc, ai đứng gần cũng cảm nhận được.", "bạn sắm áo chùng mới và một pháp cụ đắt giá. Những kẻ từng coi bạn là học trò giờ cúi đầu khi bạn đi qua."],
+    thosan: ["bạn sắm bộ giáp da nhẹ mới và món vũ khí được chế tác riêng cho tay mình. Bước chân bạn giờ không còn gây ra một tiếng động thừa.", "bạn thay vũ khí cũ bằng đồ của thợ giỏi nhất vùng. Kẻ săn mồi non tay năm nào đã thành tay lão luyện."],
+    tho: ["bạn sắm bộ đồ nghề tốt nhất, chiếc tạp dề cũ sờn rách được thay bằng tạp dề da mới. Khách tìm đến gọi bạn là bậc thầy.", "bạn tự thưởng cho mình bộ dụng cụ thượng hạng. Đôi tay chai sạn giờ làm ra những thứ người khác chỉ dám mơ."],
+    thuongdan: ["bạn sắm sửa y phục chỉnh tề và vài món đồ quý, phong thái khác hẳn ngày đầu mới vào nghề.", "bạn khoác lên bộ trang phục mới, đắt tiền hơn hẳn. Người ta nhìn bạn bằng ánh mắt khác."],
+  };
+  const GEAR_RACE = {
+    slime: "khối nhầy của bạn đặc lại và ánh lên màu sắc mới, những thứ bạn nuốt vào giờ hiện rõ trong thân như một bộ giáp.",
+    ghoul: "móng vuốt bạn dài và cứng hơn, mớ giáp nhặt từ xác kẻ thù giờ là thứ tốt nhất bạn từng khoác lên người.",
+    dragon: "lớp vảy bạn cứng lại và sẫm màu hơn, những vết sẹo cũ thành dấu ấn của một kẻ đã sống sót qua mọi trận chiến.",
+  };
+  function checkVeteran(c, data, rng, how) {
+    if (!c.job || c.job.vet || !isVeteran(c, data)) return;
+    c.job.vet = c.age;
+    const j = jobDef(c, data) || {};
+    const byOrg = c.guild && c.guild.rank >= VET_ORG_RANK && how !== "job";
+    const rank = byOrg ? orgRankName(c, data) : (j.ranks || [])[c.job.rank];
+    const lead = how === "take" ? `Với danh phận ${rank} sẵn có, ngay khi theo nghề ${j.name}` : byOrg ? `Lên ${/^[A-S]$/.test(rank) ? "hạng " + rank : "hàng " + rank}` : `Lên bậc ${rank} của nghề ${j.name}`;
+    const tail = GEAR_RACE[c.race.id] || pick(rng || Math.random, GEAR[j.look] || GEAR.thuongdan);
+    pushLog(c, "milestone", `${lead}, ${tail}`);
+    addMoment(c, `Thành ${j.name} kỳ cựu`, data);
   }
 
   function setOrgRank(c, data, idx) {
@@ -1055,6 +1093,7 @@
       const text = (o.rankUp && (o.rankUp[idx] || o.rankUp.default)) || `Bạn được thăng lên ${o.ranks[idx]}.`;
       pushLog(c, "milestone", fmt(text, c, null, data));
       addMoment(c, `Trở thành ${o.rankLabel ? o.rankLabel + " " : ""}${o.ranks[idx]}`, data);
+      checkVeteran(c, data, null, "org");
     }
   }
 
@@ -1322,7 +1361,10 @@
     const intro = c.captive
       ? pick(rng, ["Quản đấu trường không nuôi kẻ vô dụng. Bạn phải chọn cách cầm vũ khí để sống sót qua mùa đấu tới.", "Lũ giám thị chia đám nô lệ trẻ theo sức vóc. Đến lượt bạn bị lôi ra giữa sân cát để chọn một lối đánh."])
       : pick(rng, (() => {
-          const lines = [].concat(["infant", "child", "teen"].includes(st) ? s.teen : s.adult);
+          // "(origin_id) line": a line written for one birth only
+          const all = [].concat(["infant", "child", "teen"].includes(st) ? s.teen : s.adult);
+          const own = all.filter((l) => l.startsWith(`(${c.origin.id}) `));
+          const lines = (own.length ? own : all.filter((l) => !/^\([a-z_0-9]+\)\s/.test(l))).map((l) => l.replace(/^\([a-z_0-9]+\)\s/, ""));
           const ok = lines.filter((l) => parentsOk(l, c, {}));
           return ok.length ? ok : ["Đã đến lúc tự kiếm cho mình một cái nghề để sống."];
         })());
@@ -1767,6 +1809,7 @@
         c.job.rank++;
         c.job.xp = 0;
         c.fame = clamp(c.fame + 3 + c.job.rank * 2, 0, 100);
+        checkVeteran(c, data, rng, "job");
         break;
       }
       case "promoteFail":
@@ -1920,6 +1963,7 @@
     aliveParty,
     summary,
     eligible,
+    isVeteran,
     CAPTIVE_WORD,
   };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
