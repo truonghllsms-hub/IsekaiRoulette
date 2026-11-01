@@ -56,12 +56,15 @@ function build(raceId, opts) {
   const ren = (t) => {
     if (typeof t !== "string") return t;
     for (const [a, b] of renames) t = t.split(a).join(b);
+    // "{father} Throk": the placeholder already is the name, a second copy reads "Throk Throk"
+    t = t.replace(/\{(father|mother)\} \p{Lu}[\p{Ll}']+(?=[\s,.!?:;)]|$)/gu, "{$1}");
     // a text written in two versions "(Nếu A) … (Nếu B) …": keep the first, which is the arc's main road
     const COND = /\s*\((?:Nếu|nếu|Chỉ khi|chỉ khi)[^()]{0,160}\)\s*/g;
     const parts = t.split(COND);
     if (parts.length > 2) t = (parts[0] + " " + parts[1]).trim();
-    // conditions the script wrote into the story itself ("(Nếu Kael còn sống, …)") are not read aloud
-    return t.replace(/\s*\((THẮNG NGAY|THẤT BẠI NGAY)[^)]*\)\s*/g, " ").replace(/\s*\((?:Nếu|nếu|Chỉ khi|chỉ khi|khi còn|Khi còn)[^()]{0,160}\)/g, "").replace(/Cậu bé\/cô bé/g, "Nhóc").replace(/cậu bé\/cô bé/g, "nhóc").replace(/\s+/g, " ").trim();
+    // conditions the script wrote into the story itself, and the other choice it left beside a word
+    // ("bộ giáp cũ (hoặc kỷ vật)", "(Nếu Kael còn sống, …)") are not read aloud
+    return t.replace(/\s*\((THẮNG NGAY|THẤT BẠI NGAY)[^)]*\)\s*/g, " ").replace(/\s*\((?:Nếu|nếu|Chỉ khi|chỉ khi|khi còn|Khi còn)[^()]{0,160}\)/g, "").replace(/\s*\((?:hoặc|hay là|hay) [^()]{1,80}\)/g, "").replace(/Cậu bé\/cô bé/g, "Nhóc").replace(/cậu bé\/cô bé/g, "nhóc").replace(/\s+/g, " ").trim().replace(/^[.,;:·]+\s*/, "");
   };
   const target = (stat, diff) => {
     const table = STAT_KEYS.includes(stat) || stat === "best" || stat === "jobstat" ? meta.diff.stat : meta.diff.bar;
@@ -118,9 +121,35 @@ function build(raceId, opts) {
   function deathText(d, fallback) {
     d = ren(d || "").replace(/^[.,;:\s]+/, "");
     if (d === "Bạn chết." || !d || /^chết\.?$/i.test(d)) return ren(fallback || "Bạn chết.");
-    if (/^[a-zà-ỹđ]/.test(d) && d.length < 40) return "Bạn chết " + d;
+    const lowerStart = d.charAt(0) !== d.charAt(0).toUpperCase();
+    if (lowerStart && /^[a-zà-ỹđ]/.test(d) && d.length < 40) return "Bạn chết " + d;
+    // a bare label from the script ("Tử trận", "Đột tử do …", "Đâm lén"): make it a sentence about you
+    d = d.replace(/^["“]\s*(.*?)\s*["”]\.?$/, "$1");
+    if (/^(anh hùng|vinh quang|oanh liệt)\.?$/i.test(d)) return "Bạn ngã xuống như một anh hùng.";
+    if (/^phản bội\.?$/i.test(d)) return "Bạn chết vì bị phản bội.";
+    if (!lowerStart && d.length < 80 && !/(^|\s)bạn\b/i.test(d) && !/[.!?…]\s+\S/.test(d.replace(/[.!?…]$/, ""))) {
+      const low = d.charAt(0).toLowerCase() + d.slice(1).replace(/\.?$/, ".");
+      // only a plain verb is folded into "Bạn …"; any other label stays a line of its own ("Vinh quang muôn đời.")
+      if (/^(tử|đột|kiệt|nổ|bị|mất|chết|đồng quy|hy sinh|tự|trở thành|biến thành|kết thúc|gục|ngã)(\s|\.|$)/i.test(low)) return "Bạn " + low;
+      if (/^(đâm lén|đói khát|trúng độc|trúng tên|trọng thương|trụy tim|vỡ sọ|vỡ ngực|chìm sông|mắc kẹt|hiến tế|kiệt quệ)/i.test(low)) return "Bạn chết vì " + low.replace(/^đâm lén/, "bị đâm lén");
+      return d.replace(/\.?$/, ".");
+    }
     return d;
   }
+  // "CHẾT (Mẹ)", "CHẾT ({spouse})", "CHẾT nếu Sức khỏe dưới 0": someone else dies, or nobody yet
+  function otherDeath(d) {
+    const w = String(d || "").replace(/^\s*(?:bạn\s+)?chết\s*/i, "").replace(/^\(|\)?\.?\s*$/g, "").trim();
+    if (/^nếu |^khi /i.test(w) || /nếu (Sức khỏe|máu|HP)/i.test(d)) return {};
+    if (/^\{spouse\}$/i.test(w)) return { loseSpouse: true };
+    if (/^\{child\}$/i.test(w)) return { loseChild: true };
+    if (/^\{ally\}$/i.test(w)) return { allyDie: true };
+    if ((m = w.match(/^\{(mentor|rival|friend)\}$/))) return { castDie: [m[1]] };
+    if (/^(\{mother\}|mẹ|má)$/i.test(w)) return { parentDie: "mother" };
+    if (/^(\{father\}|cha|bố)$/i.test(w)) return { parentDie: "father" };
+    if (/^(cha mẹ|bố mẹ|\{father\} và \{mother\})$/i.test(w)) return { parentDie: ["father", "mother"] };
+    return null;
+  }
+  let m;
   function outcome(o, ctx) {
     if (!o) return null;
     const r = { text: ren(o.text) };
@@ -135,8 +164,10 @@ function build(raceId, opts) {
       if (!o.eff.death) o.eff.death = note ? note.charAt(0).toUpperCase() + note.slice(1).replace(/\.?$/, ".") : "Bạn chết.";
     }
     const eff = effects(o.eff, ctx);
+    const other = o.eff.death && otherDeath(o.eff.death);
+    if (other) Object.assign(eff, other);
     if (Object.keys(eff).length) r.effects = eff;
-    if (o.eff.death) r.death = deathText(o.eff.death, r.text);
+    if (o.eff.death && !other) r.death = deathText(o.eff.death, r.text);
     if (o.eff.end) r.end = o.eff.end;
     if (o.eff.next != null) r.next = o.eff.next;
     return r;
@@ -499,9 +530,12 @@ function build(raceId, opts) {
       if (ev.choices.length === 1 && ev.choices[0].check && ev.arc) {
         // story node with one risky option: let the player walk away, but the node stays used
         ev.choices.push({ label: "Lờ đi", text: "Bạn quyết định không dính vào chuyện này." });
-      } else if (ev.choices.length === 1 && ev.choices[0].check) {
+      } else if (ev.choices.length === 1 && ev.choices[0].check && ev._ascend) {
         ev.choices.push({ label: (meta.decline && meta.decline.label) || "Kìm nén lại, chờ dịp khác", text: (meta.decline && meta.decline.text) || "Bạn ép mọi thứ lắng xuống. Cơ hội này sẽ còn quay lại." });
         ev.once = false;
+      } else if (ev.choices.length === 1 && ev.choices[0].check) {
+        // an ordinary scene (a fight, a fall, a deal): stepping back is the safe road, not "next time"
+        ev.choices.push({ label: "Không liều lĩnh", text: "Bạn chọn đường an toàn, chấp nhận bỏ lỡ lần này." });
       }
       if (ev._ascend && ev.choices.length >= 2) ev.once = false;
       if (ev.choices.length < 2) {
@@ -520,8 +554,10 @@ function build(raceId, opts) {
       if (/_born|_birth|sinh_con/.test(e.id) && !eff.child) eff.child = true;
       const addFlags = [...(o.addFlags || []), ...(ev._addFlags || [])];
       if (addFlags.length) eff.flags = [...(eff.flags || []), ...addFlags];
+      const other = e.auto.eff.death && otherDeath(e.auto.eff.death);
+      if (other) Object.assign(eff, other);
       if (Object.keys(eff).length) ev.effects = eff;
-      if (e.auto.eff.death) ev.death = deathText(e.auto.eff.death, e.auto.text);
+      if (e.auto.eff.death && !other) ev.death = deathText(e.auto.eff.death, e.auto.text);
     } else if (ev._addFlags) ev.effects = { flags: ev._addFlags };
     delete ev._addFlags;
     delete ev._ascend;
@@ -542,6 +578,11 @@ function build(raceId, opts) {
       // ...and a scene written for a child should not turn up in old age: at most one stage late
       const to = Math.max(...ev.stages.map((x) => ORDER.indexOf(x)));
       if (Number.isFinite(from)) ev.stages = ORDER.slice(Math.max(1, from - shift), to >= ORDER.indexOf("elder") || !/_arc_|_cast_|_join$|_lead_1$|_band_band_[a-z]_1$/.test(ev.id) ? ORDER.length : to + 1 + (meta.storyStageLate || 1));
+    }
+    // nobody signs up with a band or a party while still a child, whatever age the script wrote
+    if (e._story && /_join$|_band_band_[a-z]_1$|_lead_1$|_recruit_\d+$/.test(ev.id)) {
+      const grown = (ev.stages || ["teen", "adult", "middle", "elder", "ancient"]).filter((x) => x !== "infant" && x !== "child");
+      ev.stages = grown.length ? grown : ["teen"];
     }
     events.push(ev);
     report.push(`${e.id.padEnd(34)} ${(ev.stages || ["*"]).join(",").padEnd(22)} ${(ev.focus || ["-"]).join(",").padEnd(9)} ${JSON.stringify(ev.require || {})}${ev.eras ? " eras=" + ev.eras : ""}${ev.choices ? "" : " [không lựa chọn]"}`);

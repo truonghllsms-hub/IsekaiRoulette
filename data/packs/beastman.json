@@ -1997,7 +1997,7 @@
        },
        "fail": {
         "text": "Nó táp đứt cổ họng bạn, máu bạn bốc hơi trước khi kịp rơi xuống đất.",
-        "death": "\"Trở thành đống tro tàn trên thảo nguyên.\""
+        "death": "Bạn trở thành đống tro tàn trên thảo nguyên."
        }
       }
      ]
@@ -2075,7 +2075,7 @@
        },
        "showLocked": true,
        "text": "Bệ đá thực chất là công tắc bẫy. Ngay khi bạn đặt chân lên, sàn nhà mở toang hất bạn xuống hầm chông.",
-       "death": "\"Bị xiên thủng ruột trong hầm mộ cổ đại.\""
+       "death": "Bạn bị xiên thủng ruột trong hầm mộ cổ đại."
       }
      ]
     }
@@ -2577,7 +2577,7 @@
        },
        "fail": {
         "text": "Con quỷ phun ngọn lửa địa ngục. Bạn bị thiêu rụi thành tro cốt không còn một mống xương.",
-        "death": "\"Biến thành tro tàn làm phân bón cho Đầm Lầy Tử Khí.\""
+        "death": "Bạn biến thành tro tàn làm phân bón cho Đầm Lầy Tử Khí."
        }
       }
      ]
@@ -2677,7 +2677,7 @@
        },
        "fail": {
         "text": "Giáo đâm xuyên ngực. Bạn ngã xuống giữa biển người, chứng kiến cuộc khởi nghĩa bị đàn áp đẫm máu.",
-        "death": "\"Trở thành bức tượng đài máu của cuộc khởi nghĩa Huyết Sa thất bại.\""
+        "death": "Bạn trở thành bức tượng đài máu của cuộc khởi nghĩa Huyết Sa thất bại."
        }
       },
       {
@@ -2838,7 +2838,7 @@
        },
        "fail": {
         "text": "Ngọn kích đâm xuyên lồng ngực bạn. Bạn gục ngã trên vũng máu, quân đội Beastman mất đi ngọn cờ đầu và bị tàn sát.",
-        "death": "\"Gục ngã trong trận chiến bảo vệ quê hương, hóa thành cát bụi thảo nguyên.\""
+        "death": "Bạn gục ngã trong trận chiến bảo vệ quê hương, hóa thành cát bụi thảo nguyên."
        }
       },
       {
@@ -2917,7 +2917,7 @@
        },
        "fail": {
         "text": "Sức mạnh của Huyết Ma Thú quá khủng khiếp. Nó đâm xuyên qua tim bạn bằng một xúc tu khổng lồ.",
-        "death": "\"Trở thành một phần của Huyết Ma Thú trong đêm trăng máu kinh hoàng.\""
+        "death": "Bạn trở thành một phần của Huyết Ma Thú trong đêm trăng máu kinh hoàng."
        }
       },
       {
@@ -2965,7 +2965,7 @@
        },
        "fail": {
         "text": "Thiên thạch đập trúng lưng. Bạn ngã xuống vùng dung nham rực cháy.",
-        "death": "\"Bị nung chảy thành tro dưới chân Đỉnh Hỏa Ngục.\""
+        "death": "Bạn bị nung chảy thành tro dưới chân Đỉnh Hỏa Ngục."
        }
       }
      ]
@@ -3008,7 +3008,7 @@
        },
        "fail": {
         "text": "Vảy rồng làm gãy nát vũ khí của bạn. Nó nhe nanh đớp gọn bạn vào bụng.",
-        "death": "\"Kết thúc hành trình kiêu hãnh trong dạ dày Cổ Long.\""
+        "death": "Bạn kết thúc hành trình kiêu hãnh trong dạ dày Cổ Long."
        }
       }
      ]
@@ -3069,7 +3069,7 @@
        },
        "fail": {
         "text": "Cổng quá cứng, trụ gỗ dội ngược lại đè nát tay bạn. Kẻ địch trên tường thành nã tên xuống như mưa.",
-        "death": "\"Chết đứng trước cổng thành với ngực găm đầy cung tên.\""
+        "death": "Bạn chết đứng trước cổng thành với ngực găm đầy cung tên."
        }
       }
      ]
@@ -3195,7 +3195,7 @@
        },
        "fail": {
         "text": "Sức lực loài quỷ quá áp đảo. Bạn bị chẻ làm đôi, máu nhuộm đỏ bãi cỏ khô.",
-        "death": "\"Thân xác đứt làm đôi, nhưng linh hồn ngẩng cao đầu trước Ma Vương.\""
+        "death": "Thân xác đứt làm đôi, nhưng linh hồn ngẩng cao đầu trước Ma Vương."
        }
       }
      ]
@@ -3585,9 +3585,9 @@
       "text": "Bạn trọng thương lết về trắng tay. Mẹ bạn trút hơi thở cuối cùng trong đêm đó.",
       "effects": {
        "health": -20,
-       "joy": -40
-      },
-      "death": "Mẹ"
+       "joy": -40,
+       "parentDie": "mother"
+      }
      }
     },
     {
@@ -3607,9 +3607,9 @@
       "text": "Thương nhân ép giá, bạn hết tiền mà thuốc không đủ liều. Mẹ bạn ra đi trong đau đớn.",
       "effects": {
        "joy": -30,
-       "wealth": -50
-      },
-      "death": "Mẹ"
+       "wealth": -50,
+       "parentDie": "mother"
+      }
      }
     }
    ],
@@ -3855,13 +3855,13 @@
       "effects": {
        "STR": 2,
        "joy": -40,
-       "fame": 15
-      },
-      "death": "Cha"
+       "fame": 15,
+       "parentDie": "father"
+      }
      },
      "fail": {
       "text": "Sự giận dữ mù quáng khiến bạn trúng đòn chí mạng. Cả hai cha con cùng phơi thây trên chiến trường.",
-      "death": "\"Bị băm vằm cùng đấng sinh thành dưới lưỡi rìu Orc.\""
+      "death": "Bạn bị băm vằm cùng đấng sinh thành dưới lưỡi rìu Orc."
      }
     },
     {
@@ -3875,13 +3875,13 @@
       "effects": {
        "AGI": 1,
        "joy": -30,
-       "fame": -15
-      },
-      "death": "Cha"
+       "fame": -15,
+       "parentDie": "father"
+      }
      },
      "fail": {
       "text": "Chạy quá chậm, bạn bị bầy Orc giẫm đạp đến nát bấy.",
-      "death": "\"Trở thành miếng thịt vụn dưới gót giày quân đoàn Orc.\""
+      "death": "Bạn trở thành miếng thịt vụn dưới gót giày quân đoàn Orc."
      }
     }
    ],
@@ -4267,7 +4267,7 @@
      },
      "fail": {
       "text": "Vuốt gãy lìa, bạn rơi thẳng xuống vực sâu tăm tối.",
-      "death": "\"Rơi vỡ sọ dưới đáy Vực Thẳm Phân Tầng.\""
+      "death": "Rơi vỡ sọ dưới đáy Vực Thẳm Phân Tầng."
      }
     }
    ],
@@ -4378,7 +4378,7 @@
      },
      "fail": {
       "text": "Tiếng kêu gào chỉ thu hút bầy nhện hầm ngục nhung nhúc bò tới kết liễu bạn.",
-      "death": "\"Trở thành tổ nhện trong bóng tối vì đặt niềm tin nhầm chỗ.\""
+      "death": "Bạn trở thành tổ nhện trong bóng tối vì đặt niềm tin nhầm chỗ."
      }
     },
     {
@@ -4400,7 +4400,7 @@
      },
      "fail": {
       "text": "Đau đớn tột cùng khiến bạn ngất lịm và chảy máu đến chết.",
-      "death": "\"Mất máu đến chết trong hầm ngục sụp đổ.\""
+      "death": "Bạn mất máu đến chết trong hầm ngục sụp đổ."
      }
     }
    ]
@@ -4748,7 +4748,7 @@
      },
      "fail": {
       "text": "Đau đớn và mất máu quá nhiều, bạn lịm đi giữa nền tuyết vô tình.",
-      "death": "\"Trở thành tấm thảm da sói trong nhà một gã quý tộc.\""
+      "death": "Bạn trở thành tấm thảm da sói trong nhà một gã quý tộc."
      }
     }
    ]
@@ -5250,11 +5250,10 @@
      }
     },
     {
-     "label": "Thôi, để lần sau",
-     "text": "Bạn vẫy đuôi lùi lại. Bản năng mách bảo chưa phải lúc."
+     "label": "Không liều lĩnh",
+     "text": "Bạn chọn đường an toàn, chấp nhận bỏ lỡ lần này."
     }
-   ],
-   "once": false
+   ]
   },
   {
    "id": "bm_tiger_pride",
@@ -5689,11 +5688,10 @@
      }
     },
     {
-     "label": "Thôi, để lần sau",
-     "text": "Bạn vẫy đuôi lùi lại. Bản năng mách bảo chưa phải lúc."
+     "label": "Không liều lĩnh",
+     "text": "Bạn chọn đường an toàn, chấp nhận bỏ lỡ lần này."
     }
-   ],
-   "once": false
+   ]
   },
   {
    "id": "bm_bear_hug",
@@ -6036,7 +6034,7 @@
      },
      "fail": {
       "text": "Không phanh kịp đà, bạn cắm thẳng mặt xuống đất gãy vụn xương cốt, kết thúc một kiếp chim ưng huy hoàng một cách ngu ngốc.",
-      "death": "\"Mặt cày nát nền đất vì phanh lỗi khi bay lượn.\""
+      "death": "Mặt cày nát nền đất vì phanh lỗi khi bay lượn."
      }
     },
     {
@@ -6165,11 +6163,10 @@
      }
     },
     {
-     "label": "Thôi, để lần sau",
-     "text": "Bạn vẫy đuôi lùi lại. Bản năng mách bảo chưa phải lúc."
+     "label": "Không liều lĩnh",
+     "text": "Bạn chọn đường an toàn, chấp nhận bỏ lỡ lần này."
     }
-   ],
-   "once": false
+   ]
   },
   {
    "id": "bm_berserker_frenzy",
@@ -6431,7 +6428,7 @@
      },
      "fail": {
       "text": "Lời van xin bị chôn vùi dưới nhát búa kết liễu.",
-      "death": "\"Trở thành miếng thịt vụn dưới búa Minotaur.\""
+      "death": "Bạn trở thành miếng thịt vụn dưới búa Minotaur."
      }
     }
    ]
@@ -6700,11 +6697,10 @@
      }
     },
     {
-     "label": "Thôi, để lần sau",
-     "text": "Bạn vẫy đuôi lùi lại. Bản năng mách bảo chưa phải lúc."
+     "label": "Không liều lĩnh",
+     "text": "Bạn chọn đường an toàn, chấp nhận bỏ lỡ lần này."
     }
-   ],
-   "once": false
+   ]
   },
   {
    "id": "bm_hunter_save_ally",
@@ -6746,9 +6742,9 @@
       "effects": {
        "STR": 2,
        "joy": -60,
-       "fame": 30
-      },
-      "death": "{ally}"
+       "fame": 30,
+       "allyDie": true
+      }
      },
      "fail": {
       "text": "{ally} ra tay tàn nhẫn hơn. Bạn gục ngã dưới chân bằng hữu, đành chấp nhận định mệnh khắc nghiệt.",
@@ -6776,7 +6772,7 @@
      },
      "fail": {
       "text": "Hàng trăm cung thủ xả tên xuống như mưa. Bạn và {ally} biến thành hai con nhím đẫm máu gục chết trên cát.",
-      "death": "\"Biến thành tấm bia thịt tập bắn của cung thủ đấu trường.\""
+      "death": "Bạn biến thành tấm bia thịt tập bắn của cung thủ đấu trường."
      }
     }
    ]
@@ -6975,7 +6971,7 @@
      },
      "fail": {
       "text": "Bầy Chimera xé xác bạn thành trăm mảnh trước mặt hàng vạn người đang gào thét bỏ chạy.",
-      "death": "\"Biến thành bữa ăn của bầy Chimera trong sự hỗn loạn của Ma Vương.\""
+      "death": "Bạn biến thành bữa ăn của bầy Chimera trong sự hỗn loạn của Ma Vương."
      }
     },
     {
@@ -7694,7 +7690,7 @@
      },
      "fail": {
       "text": "Đang chạy thì bị một kỵ sĩ sọ người quật ngã. Ngựa dẫm nát ngực bạn, trả giá cho sự hèn nhát.",
-      "death": "\"Mất mạng trong lúc đào ngũ hèn hạ khỏi chiến trường.\""
+      "death": "Bạn mất mạng trong lúc đào ngũ hèn hạ khỏi chiến trường."
      }
     },
     {
@@ -7714,7 +7710,7 @@
      },
      "fail": {
       "text": "Lực lượng quá chênh lệch. Bạn bị xé xác bởi binh đoàn tử linh, nhưng hy sinh như một chiến binh thực thụ.",
-      "death": "\"Kiếm gãy, người tàn, nhưng tuyệt đối không lùi nửa bước.\""
+      "death": "Kiếm gãy, người tàn, nhưng tuyệt đối không lùi nửa bước."
      }
     }
    ]
@@ -8302,7 +8298,7 @@
      },
      "fail": {
       "text": "Vài con sói tách đàn đuổi theo, lôi bạn tuột khỏi vách đá và nhai ngấu nghiến.",
-      "death": "\"Biến thành bữa ăn khuya cho bầy Hắc Lang của Ma Vương.\""
+      "death": "Bạn biến thành bữa ăn khuya cho bầy Hắc Lang của Ma Vương."
      }
     }
    ]
@@ -8729,7 +8725,7 @@
      },
      "fail": {
       "text": "Chúng quá mạnh. Bạn lãnh ba nhát dao độc, ngã gục trong vũng máu.",
-      "death": "\"Biến thành cái xác vô danh trong cuộc thanh trừng của thế giới ngầm.\""
+      "death": "Bạn biến thành cái xác vô danh trong cuộc thanh trừng của thế giới ngầm."
      }
     }
    ]
@@ -8877,7 +8873,7 @@
      },
      "fail": {
       "text": "Tấm khiên vỡ nát ngay nhịp đầu. Bạn bị thiên thạch đè bẹp thành đống tro tàn cùng với hàng trăm sinh mạng.",
-      "death": "\"Trở thành tro bụi dưới cơn mưa thiên thạch của Ma Vương.\""
+      "death": "Bạn trở thành tro bụi dưới cơn mưa thiên thạch của Ma Vương."
      }
     },
     {
@@ -9086,7 +9082,7 @@
      },
      "fail": {
       "text": "Đang lao đi thì một lưỡi kích quỷ xuyên thủng ngực bạn. Bản quân lệnh nhuốm máu rơi xuống bùn, toàn quân diệt vong.",
-      "death": "\"Gục ngã mang theo mệnh lệnh chưa kịp trao tay.\""
+      "death": "Bạn gục ngã mang theo mệnh lệnh chưa kịp trao tay."
      }
     },
     {
@@ -9106,7 +9102,7 @@
      },
      "fail": {
       "text": "Kẻ địch đi dọn xác và bồi thêm cho mỗi cái xác một nhát kiếm. Bạn kêu lên một tiếng rồi tắt thở.",
-      "death": "\"Chết vì một nhát đâm bồi hèn hạ của bầy quỷ.\""
+      "death": "Bạn chết vì một nhát đâm bồi hèn hạ của bầy quỷ."
      }
     }
    ]
@@ -10803,9 +10799,9 @@
       "text": "Thòng lọng móc trượt. {ally} rơi thẳng xuống vực sâu hun hút. Bạn gào thét trong tuyệt vọng.",
       "effects": {
        "joy": -60,
-       "fame": -20
-      },
-      "death": "{ally}"
+       "fame": -20,
+       "allyDie": true
+      }
      }
     }
    ],
@@ -13010,9 +13006,9 @@
       "text": "Bạn khánh kiệt nhưng bệnh tình quá nặng. {spouse} trút hơi thở cuối cùng trên tay bạn.",
       "effects": {
        "joy": -60,
-       "wealth": -60
-      },
-      "death": "{spouse}"
+       "wealth": -60,
+       "loseSpouse": true
+      }
      }
     },
     {
@@ -13032,9 +13028,9 @@
       "text": "Bạn trúng độc ngất xỉu trong rừng, may mắn được cứu về nhưng nằm liệt giường. Khi tỉnh lại, {spouse} đã ra đi mãi mãi.",
       "effects": {
        "health": -40,
-       "joy": -80
-      },
-      "death": "{spouse}"
+       "joy": -80,
+       "loseSpouse": true
+      }
      }
     }
    ]
@@ -13069,9 +13065,9 @@
      "fail": {
       "text": "Đòn đánh trượt. Con Gargoyle cắn đứt cổ {spouse} rồi ném xác xuống ngay trước mặt bạn. Bạn gào thét đến rách họng trong sự tuyệt vọng vô bờ.",
       "effects": {
-       "joy": -100
-      },
-      "death": "{spouse}"
+       "joy": -100,
+       "loseSpouse": true
+      }
      }
     },
     {
@@ -13079,9 +13075,9 @@
      "text": "Đôi cánh quái vật khuất dần vào mây đen. Bạn vĩnh viễn mất đi người mình yêu nhất, nỗi ám ảnh đi theo đến cuối đời.",
      "effects": {
       "joy": -80,
-      "fame": -20
-     },
-     "death": "{spouse}"
+      "fame": -20,
+      "loseSpouse": true
+     }
     }
    ]
   },
@@ -13410,9 +13406,9 @@
       "text": "Không đủ tiền, pháp trường vung đao. Bạn tận mắt chứng kiến con mình đền tội, gục ngã tại chỗ.",
       "effects": {
        "health": -30,
-       "joy": -100
-      },
-      "death": "{child}"
+       "joy": -100,
+       "loseChild": true
+      }
      }
     },
     {
@@ -13634,9 +13630,9 @@
    "result": "Trời đất sụp đổ. Tiếng gào khóc của một dã thú mất con vang vọng xé rách màn đêm. Bạn ôm thanh kiếm lạnh lẽo, trái tim hóa thành tro bụi.",
    "effects": {
     "health": -20,
-    "joy": -100
-   },
-   "death": "{child}"
+    "joy": -100,
+    "loseChild": true
+   }
   },
   {
    "id": "bm_child_hunt_lesson",
@@ -13889,7 +13885,7 @@
      },
      "fail": {
       "text": "Tuyết vùi lấp bước chân yếu ớt. Bạn gục ngã lưng chừng núi, thi thể trở về với vòng tay của Đất Mẹ.",
-      "death": "\"Đóng băng trên chặng đường hành hương cuối cùng.\""
+      "death": "Đóng băng trên chặng đường hành hương cuối cùng."
      }
     },
     {
@@ -13928,7 +13924,7 @@
      },
      "fail": {
       "text": "Đưa tay lên thì đã muộn. Mũi tên cắm ngập vào trán, chấm dứt cuộc đời bạn một cách lãng xẹt nhất.",
-      "death": "\"Bị tên lạc bắn chết khi đang phơi nắng tuổi già.\""
+      "death": "Bạn bị tên lạc bắn chết khi đang phơi nắng tuổi già."
      }
     },
     {
@@ -14003,9 +13999,12 @@
      "fail": {
       "text": "Sức nặng khiến bạn vấp ngã. Lính gác lao tới đâm chết cha mẹ bạn ngay trước mắt. Bạn phát điên chém giết rồi bỏ chạy.",
       "effects": {
-       "joy": -80
-      },
-      "death": "Cha Mẹ"
+       "joy": -80,
+       "parentDie": [
+        "father",
+        "mother"
+       ]
+      }
      }
     },
     {
@@ -14028,9 +14027,12 @@
       "text": "Quản ngục tham lam nuốt tiền nhưng không thả người. Bạn buộc phải đánh nhau và vô tình làm sập hầm mỏ, chôn vùi cha mẹ mãi mãi.",
       "effects": {
        "joy": -80,
-       "wealth": -50
-      },
-      "death": "Cha Mẹ"
+       "wealth": -50,
+       "parentDie": [
+        "father",
+        "mother"
+       ]
+      }
      }
     }
    ]
@@ -14410,7 +14412,7 @@
      },
      "fail": {
       "text": "Rễ cây quấn chặt lấy bạn, hút cạn sinh lực.",
-      "death": "\"Biến thành phân bón cho Hạt giống Tuyệt Vọng do chính mình ươm mầm.\""
+      "death": "Bạn biến thành phân bón cho Hạt giống Tuyệt Vọng do chính mình ươm mầm."
      }
     }
    ]
@@ -22267,7 +22269,7 @@
         "forest_5_hien_te"
        ]
       },
-      "death": "Hiến tế"
+      "death": "Bạn chết vì hiến tế."
      },
      "fail": {
       "text": "Cơ thể quá già yếu không đủ sức truyền phép. Bạn chết gục bên rễ cây, khu rừng vãn thoi thóp úa tàn theo cái chết lạnh lẽo của bạn.",
@@ -22278,7 +22280,7 @@
         "forest_5_chet_gia"
        ]
       },
-      "death": "Kiệt sức"
+      "death": "Bạn kiệt sức."
      }
     },
     {
@@ -22308,7 +22310,7 @@
         "forest_5_tham_chet"
        ]
       },
-      "death": "Nổ tung"
+      "death": "Bạn nổ tung."
      }
     },
     {
@@ -22908,7 +22910,7 @@
         "merchant_5_bi_lua"
        ]
       },
-      "death": "Trụy tim"
+      "death": "Bạn chết vì trụy tim."
      }
     },
     {
@@ -22938,7 +22940,7 @@
         "merchant_5_chet_duoi"
        ]
       },
-      "death": "Chìm sông"
+      "death": "Bạn chết vì chìm sông."
      }
     },
     {
@@ -24147,7 +24149,7 @@
         "slum_5_bi_chem"
        ]
       },
-      "death": "Bị chém"
+      "death": "Bạn bị chém."
      }
     },
     {
@@ -24177,7 +24179,7 @@
         "slum_5_phan_boi"
        ]
       },
-      "death": "Phản bội"
+      "death": "Bạn chết vì bị phản bội."
      }
     },
     {
@@ -24805,7 +24807,7 @@
         "darkmoon_5_chet_mau"
        ]
       },
-      "death": "Mất máu"
+      "death": "Bạn mất máu."
      }
     },
     {
@@ -25401,7 +25403,7 @@
         "swamp_5_chet_doc"
        ]
       },
-      "death": "Trúng độc"
+      "death": "Bạn chết vì trúng độc."
      }
     },
     {
@@ -26056,7 +26058,7 @@
         "forge_5_tu_vi_dao"
        ]
       },
-      "death": "Bị chém"
+      "death": "Bạn bị chém."
      }
     },
     {
@@ -26643,7 +26645,7 @@
         "ranger_5_tu_thu"
        ]
       },
-      "death": "Tử thủ"
+      "death": "Bạn tử thủ."
      },
      "fail": {
       "text": "Quân thù quá đông. Bạn bị cưa máy xé xác không còn mảnh vụn. Thánh địa bị tàn phá, cái chết của bạn bi tráng nhưng vô vọng.",
@@ -26654,7 +26656,7 @@
         "ranger_5_chet_tham"
        ]
       },
-      "death": "Tử trận"
+      "death": "Bạn tử trận."
      }
     },
     {
@@ -26684,7 +26686,7 @@
         "ranger_5_chet_chay"
        ]
       },
-      "death": "Mắc kẹt"
+      "death": "Bạn chết vì mắc kẹt."
      }
     },
     {
@@ -27284,7 +27286,7 @@
         "demon_5_no_tung"
        ]
       },
-      "death": "Nổ tung"
+      "death": "Bạn nổ tung."
      }
     },
     {
@@ -27304,7 +27306,7 @@
         "demon_5_phong_an"
        ]
       },
-      "death": "Anh hùng"
+      "death": "Bạn ngã xuống như một anh hùng."
      },
      "fail": {
       "text": "Ma lực quá yếu, phong ấn rạn nứt. Bạn bị hút cạn kiệt sinh khí khô héo như một cành cây mục. Hố Đen vẫn lan rộng, một sự hy sinh vô ích.",
@@ -27315,7 +27317,7 @@
         "demon_5_kho_heo"
        ]
       },
-      "death": "Kiệt sức"
+      "death": "Bạn kiệt sức."
      }
     },
     {
@@ -27912,7 +27914,7 @@
         "lumina_5_nga_chet"
        ]
       },
-      "death": "Vỡ sọ"
+      "death": "Bạn chết vì vỡ sọ."
      }
     },
     {
@@ -27942,7 +27944,7 @@
         "lumina_5_bi_dam"
        ]
       },
-      "death": "Bị đâm lén"
+      "death": "Bạn bị đâm lén."
      }
     },
     {
@@ -28459,7 +28461,7 @@
   },
   {
    "id": "beastman_arc_taboo_5",
-   "text": "Những bộ tộc xung quanh suy tàn, đổ dồn về xin tị nạn dưới lá cờ của bạn. Bạn đứng trên đỉnh đồi tuyết, {mother} (hoặc di vật của bà) lặng lẽ ở bên. Bạn phải đưa ra quyết định: xóa bỏ ranh giới bộ tộc lập nên một liên minh mới, hay trở thành bạo chúa thống trị tất cả bằng gươm đao.",
+   "text": "Những bộ tộc xung quanh suy tàn, đổ dồn về xin tị nạn dưới lá cờ của bạn. Bạn đứng trên đỉnh đồi tuyết, {mother} lặng lẽ ở bên. Bạn phải đưa ra quyết định: xóa bỏ ranh giới bộ tộc lập nên một liên minh mới, hay trở thành bạo chúa thống trị tất cả bằng gươm đao.",
    "stages": [
     "middle",
     "elder"
@@ -28536,7 +28538,7 @@
         "taboo_5_bi_phan"
        ]
       },
-      "death": "Trọng thương"
+      "death": "Bạn chết vì trọng thương."
      }
     },
     {
@@ -28566,7 +28568,7 @@
         "taboo_5_bi_giet"
        ]
       },
-      "death": "Hành quyết"
+      "death": "Hành quyết."
      }
     },
     {
@@ -29165,7 +29167,7 @@
         "halfblood_5_bi_giet"
        ]
       },
-      "death": "Bị ám sát"
+      "death": "Bạn bị ám sát."
      }
     },
     {
@@ -29794,7 +29796,7 @@
         "cat_roof_5_chet_ngam"
        ]
       },
-      "death": "Trúng độc rơi ngã"
+      "death": "Bạn chết vì trúng độc rơi ngã."
      }
     },
     {
@@ -30427,7 +30429,7 @@
         "dog_guard_5_tu_tran"
        ]
       },
-      "death": "Trúng tên"
+      "death": "Bạn chết vì trúng tên."
      }
     },
     {
@@ -30457,7 +30459,7 @@
         "dog_guard_5_thanh_pha"
        ]
       },
-      "death": "Chết cháy"
+      "death": "Bạn chết cháy."
      }
     },
     {
@@ -31045,7 +31047,7 @@
         "wolf_alpha_5_bi_lat"
        ]
       },
-      "death": "Bị phản bội"
+      "death": "Bạn bị phản bội."
      }
     },
     {
@@ -31170,7 +31172,7 @@
         "wolf_alpha_5_chet_tham"
        ]
       },
-      "death": "Tử chiến"
+      "death": "Bạn tử chiến."
      }
     },
     {
@@ -31798,7 +31800,7 @@
         "fox_shrine_5_chet_tham"
        ]
       },
-      "death": "Bị vạch trần"
+      "death": "Bạn bị vạch trần."
      }
     },
     {
@@ -31923,7 +31925,7 @@
         "fox_shrine_5_chet_guc"
        ]
       },
-      "death": "Tử trận"
+      "death": "Bạn tử trận."
      }
     },
     {
@@ -32548,7 +32550,7 @@
         "rabbit_warren_5_chet_anh_dung"
        ]
       },
-      "death": "Hy sinh"
+      "death": "Bạn hy sinh."
      }
     },
     {
@@ -32578,7 +32580,7 @@
         "rabbit_warren_5_bi_tat"
        ]
       },
-      "death": "Vỡ ngực"
+      "death": "Bạn chết vì vỡ ngực."
      }
     },
     {
@@ -32704,7 +32706,7 @@
         "rabbit_warren_5_chet_khat"
        ]
       },
-      "death": "Kiệt sức"
+      "death": "Bạn kiệt sức."
      }
     },
     {
@@ -33298,7 +33300,7 @@
         "tiger_peak_5_bi_xe"
        ]
       },
-      "death": "Bị xé xác"
+      "death": "Bạn bị xé xác."
      }
     },
     {
@@ -33329,7 +33331,7 @@
         "tiger_peak_5_bi_dam"
        ]
       },
-      "death": "Bạn chết Đâm lén"
+      "death": "Bạn chết vì bị đâm lén."
      }
     },
     {
@@ -33425,7 +33427,7 @@
         "tiger_peak_5_chet_tham"
        ]
       },
-      "death": "Tử trận"
+      "death": "Bạn tử trận."
      }
     },
     {
@@ -34049,7 +34051,7 @@
         "bear_cave_5_chet_tham"
        ]
       },
-      "death": "Tử trận"
+      "death": "Bạn tử trận."
      }
     },
     {
@@ -34079,7 +34081,7 @@
         "bear_cave_5_dot_quy"
        ]
       },
-      "death": "Bạn chết Đột quỵ"
+      "death": "Bạn đột quỵ."
      }
     },
     {
@@ -34675,7 +34677,7 @@
         "rat_sewer_5_chet_tham"
        ]
       },
-      "death": "Tử trận"
+      "death": "Bạn tử trận."
      }
     },
     {
@@ -34706,7 +34708,7 @@
         "rat_sewer_5_chet_doi"
        ]
       },
-      "death": "Bạn chết Đói khát"
+      "death": "Bạn chết vì đói khát."
      }
     },
     {
@@ -35299,7 +35301,7 @@
         "hawk_cliff_5_chet_roi"
        ]
       },
-      "death": "Tử chiến"
+      "death": "Bạn tử chiến."
      }
     },
     {
@@ -37470,7 +37472,7 @@
   },
   {
    "id": "beastman_party_party_b_4",
-   "text": "Vane (hoặc Tanya nếu Vane chết) tìm thấy tệp hồ sơ mật trong xác một thợ săn bị giết. Giấy tờ chứng minh kẻ đã báo điểm trốn chạy của một nhóm nô lệ á nhân năm xưa để đổi tự do chính là Lykos. Grom gầm lên giận dữ rút gươm, Lykos cũng gầm gừ thủ thế không hối lỗi. Nội chiến bùng nổ.",
+   "text": "Vane tìm thấy tệp hồ sơ mật trong xác một thợ săn bị giết. Giấy tờ chứng minh kẻ đã báo điểm trốn chạy của một nhóm nô lệ á nhân năm xưa để đổi tự do chính là Lykos. Grom gầm lên giận dữ rút gươm, Lykos cũng gầm gừ thủ thế không hối lỗi. Nội chiến bùng nổ.",
    "stages": [
     "adult",
     "middle",
@@ -37692,7 +37694,7 @@
         "party_b_5_hi_sinh"
        ]
       },
-      "death": "Tử chiến"
+      "death": "Bạn tử chiến."
      }
     },
     {
@@ -39933,7 +39935,7 @@
       }
      },
      "fail": {
-      "text": "Phép thuật thiêu rụi đùi bạn. Bạn ngã gục. Skye (hoặc Rhino) liều chết cản hậu để bạn lết trốn đi, bị ánh sáng thiêu thành tro bụi. Bạn sống sót tàn tật cô độc tột cùng.",
+      "text": "Phép thuật thiêu rụi đùi bạn. Bạn ngã gục. Skye liều chết cản hậu để bạn lết trốn đi, bị ánh sáng thiêu thành tro bụi. Bạn sống sót tàn tật cô độc tột cùng.",
       "effects": {
        "health": -45,
        "joy": -60,
@@ -40072,7 +40074,7 @@
         "party_d_5_chet_sach"
        ]
       },
-      "death": "Tử trận"
+      "death": "Bạn tử trận."
      }
     },
     {
@@ -40103,7 +40105,7 @@
         "party_d_5_phi_nho"
        ]
       },
-      "death": "Bị băm vằm"
+      "death": "Bạn bị băm vằm."
      }
     },
     {
@@ -41143,7 +41145,7 @@
         "party_e_5_bi_lat"
        ]
       },
-      "death": "Mất máu"
+      "death": "Bạn mất máu."
      }
     },
     {
@@ -42157,7 +42159,7 @@
         "party_f_5_chet_tham"
        ]
       },
-      "death": "Bị phanh thây"
+      "death": "Bạn bị phanh thây."
      }
     },
     {
@@ -42290,7 +42292,7 @@
         "party_f_6_benh_tat"
        ]
       },
-      "death": "Bệnh tật"
+      "death": "Bệnh tật."
      }
     },
     {

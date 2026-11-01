@@ -63,7 +63,7 @@ function validate(data) {
       if (!EFFECT_KEYS.has(k)) err(where, `effect lạ "${k}"`);
       else if (k === "flags" || k === "unflags") { if (!Array.isArray(eff[k])) err(where, `${k} phải là mảng`); }
       else if (BOOL_EFFECTS.has(k)) { if (eff[k] !== true) err(where, `${k} phải là true`); }
-      else if (STR_EFFECTS.has(k)) { if (typeof eff[k] !== "string") err(where, `${k} phải là chuỗi`); }
+      else if (STR_EFFECTS.has(k)) { if (typeof eff[k] !== "string" && !(k === "parentDie" && Array.isArray(eff[k]))) err(where, `${k} phải là chuỗi`); }
       else if (STORY_EFFECTS.has(k)) { /* free-form story values: true, ids, lists, objects */ }
       else if (["orgRank", "jobRankSet", "orgRankUp"].includes(k)) { if (typeof eff[k] !== "number") err(where, `${k} phải là số`); }
       else if (typeof eff[k] !== "number" || Math.abs(eff[k]) > 100) err(where, `${k} phải là số trong khoảng -100..100`);
