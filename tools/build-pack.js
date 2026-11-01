@@ -56,7 +56,12 @@ function build(raceId, opts) {
   const ren = (t) => {
     if (typeof t !== "string") return t;
     for (const [a, b] of renames) t = t.split(a).join(b);
-    return t.replace(/\s*\((THẮNG NGAY|THẤT BẠI NGAY)[^)]*\)\s*/g, " ").replace(/Cậu bé\/cô bé/g, "Nhóc").replace(/cậu bé\/cô bé/g, "nhóc").replace(/\s+/g, " ").trim();
+    // a text written in two versions "(Nếu A) … (Nếu B) …": keep the first, which is the arc's main road
+    const COND = /\s*\((?:Nếu|nếu|Chỉ khi|chỉ khi)[^()]{0,160}\)\s*/g;
+    const parts = t.split(COND);
+    if (parts.length > 2) t = (parts[0] + " " + parts[1]).trim();
+    // conditions the script wrote into the story itself ("(Nếu Kael còn sống, …)") are not read aloud
+    return t.replace(/\s*\((THẮNG NGAY|THẤT BẠI NGAY)[^)]*\)\s*/g, " ").replace(/\s*\((?:Nếu|nếu|Chỉ khi|chỉ khi|khi còn|Khi còn)[^()]{0,160}\)/g, "").replace(/Cậu bé\/cô bé/g, "Nhóc").replace(/cậu bé\/cô bé/g, "nhóc").replace(/\s+/g, " ").trim();
   };
   const target = (stat, diff) => {
     const table = STAT_KEYS.includes(stat) || stat === "best" || stat === "jobstat" ? meta.diff.stat : meta.diff.bar;
@@ -396,6 +401,14 @@ function build(raceId, opts) {
       // v3 prompts for other races: <race>_minion_f<n>_<k>, f1 = the first evolution of the pack
       else if ((sm = e.id.match(/_minion_f(\d+)_/))) { const f = (meta.evos || [])[Number(sm[1]) - 1]; if (f) req.form = f.name || f.form || f; }
       if ((sm = (e.when || "").match(/\{(rival|mentor|friend)\} còn sống/))) req.castAlive = sm[1];
+      // an origin's arc belongs to that origin only (some origins give no mark of their own)
+      if ((sm = e.id.match(/_arc_(.+?)_\d+[a-z]?$/))) {
+        let codes = {};
+        try { codes = JSON.parse(fs.readFileSync(path.join(ROOT, "prompts", "v3", "arc-codes.json"), "utf8"))[raceId] || {}; } catch (err) {}
+        const code = sm[1];
+        const o = (meta.storyOrigins && meta.storyOrigins[code]) || codes[code] || (origins.find((x) => x.id === code || x.id.endsWith("_" + code)) || {}).id;
+        if (o) req.origin = o;
+      }
       // a node must not be missed for want of the right "việc chính": the activity is only flavour
       delete ev.focus;
       // scripts sometimes use the Human stat scale (Sức mạnh > 15); bring it to this race's scale

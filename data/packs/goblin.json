@@ -5337,7 +5337,7 @@
      }
     },
     {
-     "label": "Dùng khiên nạm Tinh Bạc (nếu có) để đỡ",
+     "label": "Dùng khiên nạm Tinh Bạc để đỡ",
      "require": {
       "wealth": 40
      },
@@ -5697,11 +5697,6 @@
     },
     {
      "label": "Sủa như chó để qua",
-     "require": {
-      "flags": [
-       "rival_a_1_submissive"
-      ]
-     },
      "text": "Bạn chấp nhận sỉ nhục làm trò vui cho hắn. Hắn cười ném cho bạn mẩu bánh mì mốc.",
      "effects": {
       "health": 10,
@@ -5845,11 +5840,6 @@
     },
     {
      "label": "Yêu cầu chia quyền lợi",
-     "require": {
-      "flags": [
-       "rival_a_3_saved"
-      ]
-     },
      "text": "Bịnn nhắc lại mạng sống năm xưa. Hắn gật đầu, hứa cho bạn làm phó tướng. Cuộc đảo chính đẫm máu bắt đầu.",
      "effects": {
       "health": -20,
@@ -6046,11 +6036,6 @@
     },
     {
      "label": "Đòi món nợ bình rượu",
-     "require": {
-      "flags": [
-       "rival_b_1_debt"
-      ]
-     },
      "text": "{rival} bĩu môi, giữ thể diện sai đàn em lùi lại, chia cho bạn một nửa số tiền vàng.",
      "effects": {
       "INT": 1,
@@ -6233,11 +6218,6 @@
     },
     {
      "label": "Mua chuộc Kỵ sĩ bằng vàng",
-     "require": {
-      "flags": [
-       "rival_b_4_blackmail"
-      ]
-     },
      "text": "Bạn lôi số đá quý từng tống tiền {rival} ra hối lộ tên chỉ huy. Cả bộ lạc được tha, nhưng {rival} gào thét vì mất hết tài sản. Bạn trở thành anh hùng.",
      "effects": {
       "wealth": -40,
@@ -6523,11 +6503,6 @@
     },
     {
      "label": "Lão đánh thay bạn",
-     "require": {
-      "flags": [
-       "mentor_a_3_healed"
-      ]
-     },
      "text": "Để trả ơn cứu mạng, lão cầm gậy xương đùi nhảy ra thách đấu. Lão bị Hobgoblin xé xác nhưng câu đủ thời gian cho bạn đâm lén từ sau lưng. Hắn chết. Lão cũng đi.",
      "effects": {
       "fame": 20,
@@ -6543,7 +6518,7 @@
   },
   {
    "id": "goblin_cast_mentor_a_5",
-   "text": "Bầu trời nhuốm đỏ rực. Ký ức về cuộc tàn sát 10 năm trước lặp lại: Thánh Kỵ Sĩ Đoàn giáng lâm thảm sát hầm ngục. (Nếu {mentor} còn sống, lão khóc nghẹn ôm lấy bạn). Lối thoát duy nhất là cống ngầm sục sôi nham thạch.",
+   "text": "Bầu trời nhuốm đỏ rực. Ký ức về cuộc tàn sát 10 năm trước lặp lại: Thánh Kỵ Sĩ Đoàn giáng lâm thảm sát hầm ngục.. Lối thoát duy nhất là cống ngầm sục sôi nham thạch.",
    "stages": [
     "middle",
     "elder",
@@ -6562,7 +6537,7 @@
    },
    "choices": [
     {
-     "label": "(Nếu {mentor} còn sống) Cõng lão chạy qua cống ngầm",
+     "label": "Cõng lão chạy qua cống ngầm",
      "check": {
       "stat": "STR",
       "target": 9
@@ -6592,7 +6567,7 @@
      }
     },
     {
-     "label": "(Nếu mentor_a_4_sacrifice) Áp dụng bài học giả chết",
+     "label": "Áp dụng bài học giả chết",
      "text": "Nhớ lời lão dạy, bạn lại vùi mình dưới lớp xác đồng loại bốc mùi bôi tro nham thạch, nín thở nhìn kỵ sĩ lướt qua. Bạn là kẻ duy nhất sống sót.",
      "effects": {
       "LUCK": 3,
@@ -6852,11 +6827,6 @@
    "choices": [
     {
      "label": "Cùng mụ kiềm chế ngọn lửa",
-     "require": {
-      "flags": [
-       "mentor_b_3_rescue"
-      ]
-     },
      "check": {
       "stat": "INT",
       "target": 9
@@ -7090,11 +7060,6 @@
     },
     {
      "label": "Đẩy lùi một con sói để nó tự bò dậy",
-     "require": {
-      "flags": [
-       "friend_a_1_share"
-      ]
-     },
      "text": "Bạn ném đá mù mắt con sói đi đầu, tạo cơ hội cho {friend} lết theo. Hai đứa xơ xác về tới lều.",
      "effects": {
       "STR": 1,
@@ -7684,7 +7649,8 @@
    "require": {
     "flags": [
      "forest_goblin"
-    ]
+    ],
+    "origin": "goblin_origin_forest"
    },
    "choices": [
     {
@@ -7775,7 +7741,8 @@
      "forest_1_maimed",
      "forest_1_fast",
      "forest_1_crippled"
-    ]
+    ],
+    "origin": "goblin_origin_forest"
    },
    "choices": [
     {
@@ -7849,7 +7816,8 @@
      "forest_2_thief",
      "forest_2_thrown",
      "forest_2_hated"
-    ]
+    ],
+    "origin": "goblin_origin_forest"
    },
    "choices": [
     {
@@ -7882,11 +7850,6 @@
     },
     {
      "label": "Tự tay băm vằm Grel và đám con",
-     "require": {
-      "flags": [
-       "forest_2_hated"
-      ]
-     },
      "text": "Bạn mỉm cười xách dao tiến lại gần. Sự tàn nhẫn tột cùng khiến bạn được băng đảng tôn lên làm thủ lĩnh.",
      "effects": {
       "joy": 10,
@@ -7918,7 +7881,8 @@
      "forest_3_cannibal",
      "forest_3_sick",
      "forest_3_slayer"
-    ]
+    ],
+    "origin": "goblin_origin_forest"
    },
    "choices": [
     {
@@ -7950,11 +7914,6 @@
     },
     {
      "label": "Một mình lao ra nghiền nát chúng",
-     "require": {
-      "flags": [
-       "forest_3_cannibal"
-      ]
-     },
      "text": "Với sức mạnh Hobgoblin, bạn cầm thân cây làm chùy, đập nát cả bầy sói. Kẻ thù khiếp sợ quỳ rạp. Bạn là bạo chúa tuyệt đối của khu rừng.",
      "effects": {
       "STR": 3,
@@ -7995,7 +7954,8 @@
    "require": {
     "flags": [
      "dungeon_scavenger"
-    ]
+    ],
+    "origin": "goblin_origin_dungeon"
    },
    "choices": [
     {
@@ -8070,7 +8030,8 @@
      "dungeon_1_swallowed",
      "dungeon_1_choked",
      "dungeon_1_submissive"
-    ]
+    ],
+    "origin": "goblin_origin_dungeon"
    },
    "choices": [
     {
@@ -8150,16 +8111,12 @@
      "dungeon_2_saved",
      "dungeon_2_crushed",
      "dungeon_2_looted"
-    ]
+    ],
+    "origin": "goblin_origin_dungeon"
    },
    "choices": [
     {
      "label": "Ném mẹ Snik vào lõi tinh thể",
-     "require": {
-      "flags": [
-       "dungeon_2_saved"
-      ]
-     },
      "check": {
       "stat": "INT",
       "target": 5
@@ -8221,7 +8178,8 @@
      "dungeon_3_sacrifice",
      "dungeon_3_halfsacrifice",
      "dungeon_3_bloodpact"
-    ]
+    ],
+    "origin": "goblin_origin_dungeon"
    },
    "choices": [
     {
@@ -8292,7 +8250,8 @@
    "require": {
     "flags": [
      "hated"
-    ]
+    ],
+    "origin": "goblin_origin_chief"
    },
    "choices": [
     {
@@ -8383,7 +8342,8 @@
      "chief_1_bitten",
      "chief_1_sneaky",
      "chief_1_starved"
-    ]
+    ],
+    "origin": "goblin_origin_chief"
    },
    "choices": [
     {
@@ -8419,11 +8379,6 @@
     },
     {
      "label": "Bôi nọc độc sắn dây vào lưỡi dao",
-     "require": {
-      "flags": [
-       "chief_1_poisoner"
-      ]
-     },
      "text": "Chẳng cần tốn sức, bạn chỉ cần sượt qua đùi nó một nhát. Lát sau nó sùi bọt mép chết. Ragnok nhìn bạn với ánh mắt vừa tán thưởng vừa dè chừng.",
      "effects": {
       "INT": 2,
@@ -8466,7 +8421,8 @@
      "chief_2_killer",
      "chief_2_humiliated",
      "chief_2_venom"
-    ]
+    ],
+    "origin": "goblin_origin_chief"
    },
    "choices": [
     {
@@ -8520,7 +8476,7 @@
   },
   {
    "id": "goblin_arc_chief_4",
-   "text": "(Nếu làm Vua) Mùa đông khăc nghiệt, bộ lạc chết đói phân nửa. Thương hội Sói Bạc đến gõ cửa, đề nghị mua 50 ấu tể Goblin đổi lấy thịt muối và vũ khí ấm áp.",
+   "text": "Mùa đông khăc nghiệt, bộ lạc chết đói phân nửa. Thương hội Sói Bạc đến gõ cửa, đề nghị mua 50 ấu tể Goblin đổi lấy thịt muối và vũ khí ấm áp.",
    "stages": [
     "adult",
     "middle",
@@ -8534,7 +8490,8 @@
      "chief_3_usurper",
      "chief_3_exiled",
      "chief_3_loyalist"
-    ]
+    ],
+    "origin": "goblin_origin_chief"
    },
    "choices": [
     {
@@ -8565,11 +8522,6 @@
     },
     {
      "label": "Gầm lên lãnh đạo cuộc tấn công Thương hội",
-     "require": {
-      "flags": [
-       "chief_3_loyalist"
-      ]
-     },
      "text": "Với sức mạnh Hobgoblin, bạn dẫn đầu đoàn quân đói khát phục kích đâm chết bọn Sói Bạc, cướp luôn kho lương của chúng. Lịch sử suy tôn bạn là Vua vĩ đại nhất!",
      "effects": {
       "STR": 2,
@@ -8611,7 +8563,8 @@
    "require": {
     "flags": [
      "orphan"
-    ]
+    ],
+    "origin": "goblin_origin_orphan"
    },
    "choices": [
     {
@@ -8702,7 +8655,8 @@
      "orphan_1_madness",
      "orphan_1_defiant",
      "orphan_1_gutted"
-    ]
+    ],
+    "origin": "goblin_origin_orphan"
    },
    "choices": [
     {
@@ -8776,16 +8730,12 @@
      "orphan_2_blademaster",
      "orphan_2_disarmed",
      "orphan_2_coward"
-    ]
+    ],
+    "origin": "goblin_origin_orphan"
    },
    "choices": [
     {
      "label": "Phục kích găm kiếm gỉ vào cổ họng cô ả",
-     "require": {
-      "flags": [
-       "orphan_2_blademaster"
-      ]
-     },
      "check": {
       "stat": "AGI",
       "target": 7
@@ -8840,7 +8790,8 @@
      "orphan_3_avenger",
      "orphan_3_amputee",
      "orphan_3_trickster"
-    ]
+    ],
+    "origin": "goblin_origin_orphan"
    },
    "choices": [
     {
@@ -8912,7 +8863,8 @@
    "require": {
     "flags": [
      "shaman_apprentice"
-    ]
+    ],
+    "origin": "goblin_origin_shaman"
    },
    "choices": [
     {
@@ -8987,7 +8939,8 @@
      "shaman_1_fake",
      "shaman_1_forced",
      "shaman_1_drinker"
-    ]
+    ],
+    "origin": "goblin_origin_shaman"
    },
    "choices": [
     {
@@ -9063,11 +9016,12 @@
      "shaman_2_thief",
      "shaman_2_beaten",
      "shaman_2_heir"
-    ]
+    ],
+    "origin": "goblin_origin_shaman"
    },
    "choices": [
     {
-     "label": "(Nếu Zikzak còn sống) Giúp oán linh Nyla kết liễu Zikzak",
+     "label": "Giúp oán linh Nyla kết liễu Zikzak",
      "check": {
       "stat": "INT",
       "target": 5
@@ -9128,7 +9082,8 @@
      "shaman_3_matricide",
      "shaman_3_exiled",
      "shaman_3_sealed"
-    ]
+    ],
+    "origin": "goblin_origin_shaman"
    },
    "choices": [
     {
@@ -9201,7 +9156,8 @@
    "require": {
     "flags": [
      "hobgoblin_blood"
-    ]
+    ],
+    "origin": "goblin_origin_mutant"
    },
    "choices": [
     {
@@ -9276,7 +9232,8 @@
      "mutant_1_killer",
      "mutant_1_beaten",
      "mutant_1_patient"
-    ]
+    ],
+    "origin": "goblin_origin_mutant"
    },
    "choices": [
     {
@@ -9351,7 +9308,8 @@
      "mutant_2_escaped",
      "mutant_2_caged",
      "mutant_2_merc"
-    ]
+    ],
+    "origin": "goblin_origin_mutant"
    },
    "choices": [
     {
@@ -9410,7 +9368,8 @@
      "mutant_3_awakened",
      "mutant_3_failed",
      "mutant_3_sealed"
-    ]
+    ],
+    "origin": "goblin_origin_mutant"
    },
    "choices": [
     {
@@ -9442,11 +9401,6 @@
     },
     {
      "label": "Thách đấu thủ lĩnh Orc",
-     "require": {
-      "flags": [
-       "mutant_3_awakened"
-      ]
-     },
      "text": "Bạn bỏ qua bọn Goblin rác rưởi, tiến thẳng tới trại Orc gầm lên thách đấu gã Chieftain to như tòa nhà. Trận chiến rung chuyển Đầm Lầy, bạn chặt đầu hắn, ép tộc Orc phải cúi đầu trước một Hobgoblin!",
      "effects": {
       "STR": 3,
@@ -9487,7 +9441,8 @@
    "require": {
     "flags": [
      "orc_slave"
-    ]
+    ],
+    "origin": "goblin_origin_slave"
    },
    "choices": [
     {
@@ -9562,7 +9517,8 @@
      "slave_1_thief",
      "slave_1_bitten",
      "slave_1_dog"
-    ]
+    ],
+    "origin": "goblin_origin_slave"
    },
    "choices": [
     {
@@ -9640,7 +9596,8 @@
      "slave_2_shield",
      "slave_2_orphan",
      "slave_2_grinder"
-    ]
+    ],
+    "origin": "goblin_origin_slave"
    },
    "choices": [
     {
@@ -9689,7 +9646,7 @@
   },
   {
    "id": "goblin_arc_slave_4",
-   "text": "(Nếu trốn thoát) Thủ lĩnh Orc dẫn quân tinh nhuệ lùng sục xuống tận sâu Đầm Lầy để đòi lại bầy nô lệ. Hàng trăm Goblin trốn chạy đang kêu gào tuyệt vọng, dồn mắt nhìn về phía bạn - kẻ đã thắp lên ngọn lửa hy vọng của chúng.",
+   "text": "Thủ lĩnh Orc dẫn quân tinh nhuệ lùng sục xuống tận sâu Đầm Lầy để đòi lại bầy nô lệ. Hàng trăm Goblin trốn chạy đang kêu gào tuyệt vọng, dồn mắt nhìn về phía bạn - kẻ đã thắp lên ngọn lửa hy vọng của chúng.",
    "stages": [
     "adult",
     "middle",
@@ -9703,7 +9660,8 @@
      "slave_3_rebel",
      "slave_3_crippled",
      "slave_3_traitor"
-    ]
+    ],
+    "origin": "goblin_origin_slave"
    },
    "choices": [
     {
@@ -9736,11 +9694,6 @@
     },
     {
      "label": "Dẫn quân Orc vây bắt đồng loại",
-     "require": {
-      "flags": [
-       "slave_3_traitor"
-      ]
-     },
      "text": "Bạn không còn đường lui, tiếp tục làm con chó ngoan dẫn đường cho Orc tàn sát bầy đàn. Cuối trận đánh, gã thủ lĩnh Orc đâm xuyên qua lưng bạn với nụ cười nhạt: \"Kẻ phản bội đồng loại không bao giờ đáng tin\".",
      "effects": {
       "flags": [
@@ -9812,7 +9765,7 @@
   },
   {
    "id": "goblin_band_band_a_2",
-   "text": "Băng trộm được một bao thịt lợn mặn từ nhà bếp Dwarf. Ruk tự chia cho mình và bạn (nếu bạn từng thắng Blor), ném cho Sniv một miếng da, còn Blor không có gì. Blor gầm gừ phẫn nộ.",
+   "text": "Băng trộm được một bao thịt lợn mặn từ nhà bếp Dwarf. Ruk tự chia cho mình và bạn, ném cho Sniv một miếng da, còn Blor không có gì. Blor gầm gừ phẫn nộ.",
    "arc": "band_a",
    "weight": 40,
    "require": {
@@ -9948,11 +9901,6 @@
    "choices": [
     {
      "label": "Ra hiệu cho Blor xé xác Ruk",
-     "require": {
-      "flags": [
-       "band_a_allyblor"
-      ]
-     },
      "text": "Blor lao tới cắn đứt cổ họng Ruk. Bạn ngồi lên hòn đá cao nhất, tuyên bố mình là đầu băng.",
      "effects": {
       "fame": 20,
@@ -11195,11 +11143,6 @@
     },
     {
      "label": "Tẩm thuốc sổ vào mồi của Huyết Tinh",
-     "require": {
-      "flags": [
-       "band_d_stolenmeat"
-      ]
-     },
      "text": "Sói của Rida đang chạy thì ôm bụng lăn lộn sùi bọt. Ả ngã dập mặt, bạn thắng dễ dàng và chiếm lấy đàn sói.",
      "effects": {
       "INT": 2,
@@ -11541,11 +11484,6 @@
    "choices": [
     {
      "label": "Ra hiệu Brak bóp cổ Vurn",
-     "require": {
-      "flags": [
-       "band_e_savedbrak"
-      ]
-     },
      "text": "Với thân hình đồ sộ, Brak dễ dàng nhấc bổng Vurn lên và bóp gãy cổ lão. Bạn danh chính ngôn thuận tiếp quản băng Sẹo Đỏ.",
      "effects": {
       "fame": 30,

@@ -63,6 +63,8 @@
     show("screen-start");
   }
 
+  const upper = (t) => (t ? t.charAt(0).toUpperCase() + t.slice(1) : "");
+
   function startLife() {
     c = E.createCharacter(D);
     rendered = 0;
@@ -100,7 +102,7 @@
   function renderHud() {
     const genderTxt = c.gender === "male" ? "Nam" : c.gender === "female" ? "Nữ" : "Vô tính";
     $("hud-name").textContent = c.name;
-    $("hud-meta").textContent = `${E.raceTitle(c)} · ${genderTxt} · ${c.era ? c.era.name : c.origin.name}`;
+    $("hud-meta").textContent = `${E.raceTitle(c)} · ${genderTxt} · ${c.captive ? upper(E.CAPTIVE_WORD[c.captive.kind]) : c.era ? c.era.name : c.origin.name}`;
     $("hud-age").textContent = fmtAge(c.age);
     $("hud-stage").textContent = E.currentStage(c).name;
 

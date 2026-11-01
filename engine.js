@@ -325,6 +325,7 @@
     pushLog(c, "birth", fmt(origin.text, c, null, data));
     makeCast(c, data, rng);
     c.minions = [];
+    if (CAPTIVE[origin.id]) c.captive = { kind: CAPTIVE[origin.id], since: 0 };
     const st = storyOf(c, data);
     const arc = st && st.arcs && st.arcs[origin.id];
     if (arc && arc.opening) pushLog(c, "story", fmt(arc.opening, c, null, data));
@@ -383,6 +384,45 @@
       for (let i = 0; i < 20 && taken.includes(name); i++) name = randomName(data, rng, c.race.id, null).split(" ")[0];
       c.cast[role] = { role, kind: k.id, name, alive: true, left: false, bond: 0 };
     }
+  }
+
+  // ---------- captivity: lives that begin in chains ----------
+  // Origins where the character is born a slave, a prisoner or bound by a contract. Until freed, the life
+  // cannot roam (no adventuring, no Guild, no free-world scenes), and only fighters' trades are open in an arena.
+  const CAPTIVE = {
+    bm_bg_arena: "arena", human_bg_gladiator: "arena", dwarf_bg_4: "arena", orc_origin_3: "arena", minota_origin_arena: "arena", troll_origin_arena: "arena",
+    goblin_origin_slave: "slave", kobold_bg_slave: "slave", demon_origin_forge: "slave", minota_origin_torture: "slave",
+    demon_origin_prisoner: "prison", dwarf_bg_7: "prison", dragon_origin_stolen: "prison",
+    imp_origin_summon: "bound", imp_origin_cult: "bound", demon_origin_contract: "bound",
+  };
+  const CAPTIVE_WORD = { arena: "nô lệ đấu trường", slave: "nô lệ", prison: "bị giam cầm", bound: "bị khế ước trói buộc" };
+  const FREE_FOCUS = ["adventure", "social"];
+  const FREE_WORLD = /Guild Bình Minh|bảng nhiệm vụ|nhận nhiệm vụ|quán rượu|quán trọ|tửu quán|phiên chợ|khu chợ|mạo hiểm giả hạng|lữ hành|du ngoạn|buổi tuyển chọn|dạ tiệc|vũ hội|học viện|trường học|thuê một căn|mua một căn|dọn ra ở riêng|tổ đội của bạn|hộ tống|đoàn xe|thương đoàn|lên đường|chuyến đi|tiền lương|trừ (?:tiền|lương)|tiền công|chủ xưởng|làm thuê|phường hội|học việc|mời (?:đại )?tư tế|mua sắm|cửa hàng|tiệm/i;
+  const FREED = /(?:chém|cắt|tháo|bẻ|đập|giật) (?:đứt |gãy |vỡ |tung )?(?:xiềng|gông|còng|vòng cổ)|thoát thân|phá sập cổng|hệ thống nô lệ|trốn thoát|thoát khỏi|phá (?:tan |nát |vỡ )?(?:xiềng|gông|cũi|lồng|ngục)|chặt đứt (?:xiềng|gông)|chuộc (?:thân|lại tự do)|được thả|trả tự do|giải phóng|vượt ngục|phá ngục|bỏ trốn|tự do/i;
+  const NOT_FREED = /không (?:thể|bao giờ|được|kịp|còn)[^.]{0,25}(?:tự do|trốn|thoát)|mất (?:đi )?tự do|bị bắt lại|giấc mơ tự do|khao khát tự do|mơ (?:về|tới) tự do/i;
+  const FIGHTER_JOB = /gladiator|đấu sĩ|giác đấu|berserker|fodder|smash|brute|meat shield|scrapper|pit|arena/i;
+  const originFlags = (c) => (c.origin.effects && c.origin.effects.flags) || [];
+  const designedFor = (e, c) => { const r = e.require || {}; const f = [...(r.flags || []), ...(r.anyFlags || [])]; return f.some((x) => originFlags(c).includes(x)); };
+  function captiveJobs(c, data) {
+    const jobs = jobsFor(c, data);
+    if (!c.captive) return jobs;
+    return c.captive.kind === "arena" ? jobs.filter((j) => FIGHTER_JOB.test(`${j.id} ${j.name}`)) : [];
+  }
+  function setFree(c, data, why) {
+    if (!c.captive) return;
+    const kind = c.captive.kind;
+    c.captive = null;
+    c.freedAt = c.age;
+    addMoment(c, "Thoát khỏi kiếp " + CAPTIVE_WORD[kind], data);
+    if (why) pushLog(c, "story", why);
+  }
+  // after a scene: did this outcome set the character free?
+  function freedomCheck(c, data, eventId, text) {
+    if (!c.captive || !eventId) return;
+    const e = data.events.find((x) => x.id === eventId);
+    if (!e || !e.arc) return;
+    const ownLine = /_arc_/.test(e.id) || designedFor(e, c);
+    if (ownLine && text && FREED.test(text) && !NOT_FREED.test(text)) setFree(c, data, "Từ ngày đó, không còn sợi xích nào trói buộc bạn.");
   }
 
   // ---------- telling the group's story: who they are, how long you have walked with them ----------
@@ -683,7 +723,7 @@
     for (const name of [].concat(eff.memberDie || [])) {
       const p = findPerson(c, name);
       if (p && p.kind === "member") { p.m.alive = false; p.m.died = c.age; }
-      if (p && p.kind === "leader") c.band.leaderName = null;
+      if (p && p.kind === "leader") { c.band.leaderGone = c.band.leaderName; c.band.leaderName = null; }
     }
     for (const name of [].concat(eff.memberLeave || [])) { const p = findPerson(c, name); if (p && p.kind === "member") { p.m.left = true; p.m.alive = false; } }
     if (eff.memberBond) for (const [name, v] of Object.entries(eff.memberBond)) { const p = findPerson(c, name); if (p && p.kind === "member") p.m.bond = clamp(p.m.bond + v, 0, 100); }
@@ -792,6 +832,7 @@
     if (req.makerAlive != null && !!(c.parents && c.parents.maker && c.parents.maker.alive) !== req.makerAlive) return false;
     if (req.cast && !(c.cast && Object.values(c.cast).some((x) => x.kind === req.cast))) return false;
     if (req.castAlive && !(c.cast && c.cast[req.castAlive] && c.cast[req.castAlive].alive && !c.cast[req.castAlive].left)) return false;
+    if (req.origin && c.origin.id !== req.origin) return false;
     if (req.noBand && c.band) return false;
     if (req.bandLead && !(c.band && c.band.lead)) return false;
     if (req.bandLead === false && c.band && c.band.lead) return false;
@@ -833,7 +874,39 @@
     if (e.maxAge != null && c.age > e.maxAge) return false;
     if (e.once !== false && c.used.includes(e.id)) return false;
     if (e.focus && !(c.focus && e.focus.includes(c.focus))) return false;
+    if (!implicitOk(e, c)) return false;
     return meets(c, e.require, data);
+  }
+
+  // What a scene takes for granted without saying so in its conditions: a parent who is in the room,
+  // a companion at your side, a life that is free to walk into a tavern.
+  const REMEMBERS = /mộ|di vật|di ảnh|đã mất|qua đời|đã chết|cái chết|tang lễ|ký ức|kỷ vật|hồn ma|linh hồn|vong hồn|bóng ma|năm xưa|ngày xưa|thuở|nhớ (?:về|lại|tới|đến)|tưởng nhớ|nấm mồ|tro cốt|báo thù cho|trả thù cho|kẻ đã giết|bỏ rơi|bỏ đi|biệt tăm|mất tích|không rõ/i;
+  function implicitOk(e, c) {
+    const t = e.text || "";
+    const r = e.require || {};
+    if (t.indexOf("{") >= 0) {
+      for (const who of ["father", "mother"]) {
+        const key = who + "Alive";
+        if (r[key] === undefined && t.includes(`{${who}}`) && !REMEMBERS.test(t)) {
+          const p = c.parents && c.parents[who];
+          if (p && !p.alive) return false;
+        }
+      }
+      if (t.includes("{ally}") && !r.party && !r.bandLead && !r.band && !aliveParty(c).length) return false;
+    }
+    // a scene of the group may not lean on someone of that group who is gone
+    if (c.band && e.arc && /_band_band_|_party_party_/.test(e.id)) {
+      for (const m of c.party) if (m.band === c.band.id && (!m.alive || m.left) && t.includes(m.name)) return false;
+      if (c.band.leaderGone && t.includes(c.band.leaderGone)) return false;
+    }
+    // scenes that may come back (a sign, a trial) come back twice at most
+    if (e.once === false && c.used.filter((id) => id === e.id).length >= 2) return false;
+    if (c.captive && !/_arc_/.test(e.id)) {
+      if (e.focus && e.focus.some((f) => FREE_FOCUS.includes(f))) return false;
+      if (FREE_WORLD.test(t)) return false;
+      if (/_band_band_[a-z]_1$|_party_party_[a-z]_join$|_lead_|_recruit_/.test(e.id) && !designedFor(e, c)) return false;
+    }
+    return true;
   }
 
   // ---------- jobs, organisations, party, family ----------
@@ -1000,6 +1073,7 @@
         if (f.stages && !f.stages.includes(st) && !(isLast && f.stages.includes("elder"))) return false;
         if (f.tags && !(c.race.tags || []).some((t) => f.tags.includes(t))) return false;
         if (f.id === "adventure" && !c.guild && !orgFor(c, data)) return false;
+        if (c.captive && FREE_FOCUS.includes(f.id)) return false;
         if (f.id === "work" && !c.job && !["child", "teen"].includes(st) && !jobsFor(c, data).length) return false;
         return true;
       });
@@ -1108,7 +1182,7 @@
 
   function jobScene(c, data, rng) {
     const s = sys(c, data, "jobSelect");
-    const choices = jobsFor(c, data).map((j) => {
+    const choices = captiveJobs(c, data).map((j) => {
       const ok = canTakeJob(c, j, data);
       return {
         label: j.name,
@@ -1122,7 +1196,10 @@
     });
     choices.push({ label: s.later, text: s.laterText, act: { type: "jobLater" } });
     const st = currentStage(c).id;
-    scene(c, "job", fmt(pick(rng, ["infant", "child", "teen"].includes(st) ? s.teen : s.adult), c, null, data), choices);
+    const intro = c.captive
+      ? pick(rng, ["Quản đấu trường không nuôi kẻ vô dụng. Bạn phải chọn cách cầm vũ khí để sống sót qua mùa đấu tới.", "Lũ giám thị chia đám nô lệ trẻ theo sức vóc. Đến lượt bạn bị lôi ra giữa sân cát để chọn một lối đánh."])
+      : pick(rng, ["infant", "child", "teen"].includes(st) ? s.teen : s.adult);
+    scene(c, "job", fmt(intro, c, null, data), choices);
   }
 
   function promotionScene(c, data, rng) {
@@ -1277,7 +1354,7 @@
   // taking up a trade and rising in it: these come before any story beat
   function careerScene(c, data, rng) {
     const st = currentStage(c).id;
-    const jobs = jobsFor(c, data);
+    const jobs = captiveJobs(c, data);
     const st0 = stagesOf(c.race);
     const i = stageIndex(c);
 
@@ -1342,7 +1419,7 @@
     c.used.push(e.id);
     const party = aliveParty(c);
     const fits = e.require && e.require.allyTrait ? party.filter((m) => m.trait === e.require.allyTrait) : party;
-    c.ctx = { ally: fits.length ? pick(rng, fits) : null };
+    c.ctx = { ally: fits.length ? pick(rng, fits) : null, eventId: e.id };
     // Events about winning a mate name the one being courted.
     if (!c.spouse && /\{spouse\}/.test(e.text)) c.ctx.partner = makePartner(c, data, rng);
     if (e.choices && e.choices.length) {
@@ -1480,6 +1557,16 @@
         const stageId = currentStage(c).id;
         if (stageId !== c.stageId) {
           c.stageId = stageId;
+          // no life stays in chains forever: by middle age the chance to walk out comes
+          if (c.captive && ["middle", "elder", "ancient"].includes(stageId)) {
+            const LINES = {
+              arena: ["Một đêm đấu trường bốc cháy sau cuộc nổi loạn của nô lệ. Bạn bước qua cánh cổng sắt đổ sập, lần đầu tiên không có ai cầm roi phía sau.", "Ông chủ đấu trường chết vì nợ nần, đám nô lệ bị bán tháo. Không ai đủ tiền mua một kẻ đã quá tuổi như bạn, và bạn cứ thế bước ra đường."],
+              slave: ["Chủ nô bị đánh bại trong một cuộc tranh giành lãnh địa. Trong lúc hỗn loạn, bạn gỡ được chiếc vòng sắt và lẩn vào bóng tối.", "Năm ấy, trại nô lệ tan rã vì dịch bệnh. Những kẻ còn sống, trong đó có bạn, tản đi mỗi người một ngả."],
+              prison: ["Ngục tù đổi chủ, sổ sách thất lạc. Một sáng nọ, cánh cửa phòng giam không còn ai khóa lại.", "Sau ngần ấy năm, kẻ giam giữ bạn đã chết. Không ai còn nhớ vì sao bạn bị nhốt, và bạn tự bước ra ngoài."],
+              bound: ["Khế ước trói buộc bạn mục dần theo năm tháng rồi đứt hẳn. Lần đầu tiên, bạn có thể đi đâu tùy ý.", "Kẻ nắm khế ước của bạn qua đời. Sợi dây vô hình quấn quanh linh hồn bạn tan biến."],
+            };
+            setFree(c, data, pick(rng, LINES[c.captive.kind] || LINES.slave));
+          }
           const s = sys(c, data, "stageEnter");
           const chapter = chapterLine(c, data, rng, stageId);
           pushLog(c, "stage", fmt(chapter || s[stageId] || s.default || data.systems.stageEnter.default, c, null, data));
@@ -1619,6 +1706,10 @@
     }
 
     applyEffects(c, outcome.effects, data, rng);
+    if (c.captive && p.kind === "event") {
+      if (outcome.effects && outcome.effects.joinBand) setFree(c, data, "Đi theo nhóm mới, bạn bỏ lại sau lưng xiềng xích cũ.");
+      else freedomCheck(c, data, c.ctx && c.ctx.eventId, outcome.text);
+    }
     runAct(c, data, outcome.act || ch.act, rng);
     const moment = outcome.moment || ch.moment;
     if (moment) addMoment(c, moment, data);
@@ -1686,6 +1777,7 @@
     aliveParty,
     summary,
     eligible,
+    CAPTIVE_WORD,
   };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   else root.Engine = api;
