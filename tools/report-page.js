@@ -70,6 +70,27 @@ ${deathBar(r)}
 </tr>`;
 }).join("\n");
 
+// ---------- story layer ----------
+const nodeCount = (id) => data.events.filter((e) => e.arc && e.races && e.races.includes(id)).length;
+const GROUP_WORD = { human: "tổ đội", elf: "tổ đội", dwarf: "tổ đội", beastman: "tổ đội", demon: "tiểu đội", vampire: "đoàn tùy tùng", dragon: "—", high_demon: "—" };
+const storyRows = rows.map((r) => {
+  const groupKind = GROUP_WORD[r.id] || "băng / bầy";
+  const noGroup = groupKind === "—";
+  const hasOwn = ["human", "elf", "dwarf", "beastman", "demon", "vampire"].includes(r.id);
+  const hasMinion = r.minion > 0;
+  return `<tr>
+<th scope="row"><span class="race">${esc(r.name)}</span><span class="birth">${fmt(r.birth)}% đầu thai</span></th>
+<td class="n">${nodeCount(r.id)}</td>
+${pctCell(r.story)}${pctCell(r.arcEnd)}${pctCell(r.cast)}
+<td>${esc(groupKind)}</td>
+${noGroup ? '<td class="n">—</td>' : pctCell(r.group)}
+${hasOwn ? pctCell(r.ownGroup) : '<td class="n">—</td>'}
+${hasMinion ? pctCell(r.minion) : '<td class="n">—</td>'}
+</tr>`;
+}).join("\n");
+const totalNodes = data.events.filter((e) => e.arc).length;
+
+const top = (k, n = 2) => rows.slice().sort((a, b) => b[k] - a[k]).slice(0, n);
 const beast = rows.find((r) => r.id === "beastman");
 const kinRows = Object.entries(beast.subtypes).sort((a, b) => b[1] - a[1]).map(([k, v]) => `<li><span>${esc(k.replace("tộc ", ""))}</span><span class="n">${fmt(v)}%</span></li>`).join("");
 
@@ -85,38 +106,30 @@ const picRows = pics.map((p) => `<tr>
 const sum = (k) => pics.reduce((s, p) => s + p[k], 0);
 
 const TODO = [
-  ["Nội dung và tên gọi", [
-    ["Cao", "Rà chính tả và lỗi của Gemini trong cả 17 kịch bản. Đã bắt được một chữ tiếng Trung lẫn vào kịch bản Lizardman; có thể còn lỗi khác chưa lộ ra khi mô phỏng."],
-    ["Cao", "Chốt quy ước tên nghề: hiện có chỗ dùng Hán Việt (Kiếm sĩ, Chấp Sự Ma Giới, Thánh Kỵ Sĩ), có chỗ dùng tiếng Anh (Rune Smith, Night Blade)."],
-    ["Vừa", "Quyết định giữ hay bỏ nội dung cũ làm trước khi có kịch bản (data/events/<tộc>.json, <tộc>_gen.json). Hiện vẫn chạy song song, kịch bản được ưu tiên gấp 3."],
+  ["Nội dung", [
+    ["Cao", "Chơi thử tay mỗi tộc vài đời, ghi lại chỗ lời kể vô lý hoặc lặp. Kịch bản v3 còn vài câu điều kiện viết thẳng vào lời kể (ví dụ “Nếu bạn đã tự do…” ở Dragon)."],
+    ["Vừa", "Viết thêm câu kể theo quãng nhiều năm cho từng việc chính của mỗi tộc, để những năm yên ả đọc mượt hơn (hiện ghép từ câu một năm của kịch bản cũ)."],
+    ["Vừa", "Chốt quy ước tên nghề: chỗ dùng Hán Việt (Kiếm sĩ, Thánh Kỵ Sĩ), chỗ dùng tiếng Anh (Rune Smith, Night Blade)."],
     ["Thấp", "Đổi tên “Metal Slime” (thuật ngữ của Dragon Quest) nếu muốn tránh trùng thương hiệu."],
   ]],
   ["Cân bằng (theo bảng tỉ lệ)", [
-    ["Cao", "Đạt bậc nghề cao nhất chỉ 0–13% số đời: cân nhắc giảm kinh nghiệm cần để thăng bậc hoặc hạ độ khó thử thách."],
-    ["Vừa", "Goblin, Imp, Orc, Minotaur, High Demon gần như không có con; Slime không có bạn đời. Xác nhận đây là chủ ý của kịch bản."],
-    ["Vừa", "Ghoul tiến hóa 42% số đời, các tộc khác 1–17%. Bạn đã chọn giữ tỉ lệ cũ; ghi lại để xem lại sau khi chơi thử."],
-    ["Vừa", "Demon và High Demon gặp sự kiện phản bội hơn 50% số đời (do giọng văn Ma giới). Xem lại nếu thấy quá dày."],
-    ["Thấp", "Human chết do kiệt sức khỏe 15%, cao hơn hẳn trước khi có kịch bản (4%). Có thể giảm vài sự kiện trừ Sức khỏe."],
+    ["Cao", "Đạt bậc nghề cao nhất chỉ 0–24% số đời: cân nhắc giảm kinh nghiệm cần để thăng bậc hoặc hạ độ khó thử thách."],
+    ["Vừa", "Goblin, Kobold, Imp đi đến kết mạch xuất thân 14–38%: có thể rút mạch còn 3 nút hoặc dồn sớm hơn."],
+    ["Vừa", "Lizardman chết sớm (tuổi TB khoảng 28): kịch bản có nhiều kết cục CHẾT nhất trong các tộc."],
+    ["Vừa", "Demon, Elf, Vampire gặp sự kiện phản bội trên 45% số đời. Xem lại nếu thấy quá dày."],
   ]],
   ["Engine", [
-    ["Vừa", "Chết có điều kiện (“CHẾT nếu Sức khỏe dưới 50”) và hình phạt kéo dài (“mất quyền làm việc chính 3 năm”): hiện đã đổi tạm thành trừ chỉ số."],
-    ["Vừa", "Đồng đội trở thành bạn đời (kịch bản Human): hiện tạo bạn đời mới thay vì chuyển đúng người."],
+    ["Vừa", "Đồng đội trở thành bạn đời: hiện tạo bạn đời mới thay vì chuyển đúng người trong tổ đội."],
     ["Vừa", "Lưu đời đang chơi dở để quay lại sau; hiện chỉ lưu danh sách các kiếp đã kết thúc."],
-    ["Thấp", "Bộ sưu tập: các tộc, dạng thú, tiến hóa, nghề đã từng đạt; thành tựu cho người chơi lâu dài."],
+    ["Thấp", "Bộ sưu tập: các tộc, dạng thú, tiến hóa, nghề, tổ đội đã từng gia nhập; thành tựu cho người chơi lâu dài."],
   ]],
   ["Hình ảnh", [
     ["Cao", "Chốt phong cách bằng prompt thử của Goblin, rồi viết prompt cho các tộc còn lại theo bảng ảnh."],
-    ["Cao", "Công cụ làm sạch ảnh (tools/pixelize.js): thu về lưới 64×64, ép bảng màu chung, xóa nền."],
+    ["Vừa", "Chân dung thành viên các tổ đội và băng có sẵn (khoảng 3–4 người × 5–6 nhóm × 17 tộc), có thể làm sau."],
     ["Vừa", "Ghép lớp trong game: thân theo tộc/tuổi/giới + trang phục nghề, để không phải vẽ mọi tổ hợp."],
-    ["Vừa", "Khung chân dung ở màn đầu thai, thanh trạng thái và màn tổng kết; ảnh dự phòng khi thiếu."],
-  ]],
-  ["Giao diện và trải nghiệm", [
-    ["Vừa", "Màn hình mở đầu, hướng dẫn ngắn cho lần chơi đầu."],
-    ["Thấp", "Âm thanh, hiệu ứng chuyển cảnh, tùy chọn tốc độ chữ."],
   ]],
   ["Kiểm thử và phát hành", [
     ["Cao", "Đẩy mã lên GitHub: hiện mọi commit chỉ nằm trên máy ảo và sẽ mất nếu máy bị thu hồi."],
-    ["Cao", "Chơi thử tay ít nhất 3 đời mỗi tộc, ghi lại câu chữ lạ và lựa chọn vô lý."],
     ["Vừa", "Chọn nơi đăng (GitHub Pages hoặc itch.io) và mở chia sẻ trang chơi (hiện đang riêng tư)."],
   ]],
 ];
@@ -206,7 +219,7 @@ code { font-size: 12.5px; }
 </style>
 <main>
 <header>
-  <span class="kicker">Luân Hồi Dị Giới · số liệu sau khi nhập đủ 17 kịch bản</span>
+  <span class="kicker">Luân Hồi Dị Giới · số liệu sau khi nhập mạch truyện v3 cho 17 tộc</span>
   <h1>Sổ Cái Luân Hồi</h1>
   <p class="lede">Mỗi tộc được chơi tự động ${big(stats.lives)} đời với lựa chọn ngẫu nhiên, như một người chơi bấm bừa. Người chơi chủ động (đi làm, tìm thăng tiến, tìm tiến hóa) sẽ có tỉ lệ thăng tiến và tiến hóa cao hơn các con số dưới đây.</p>
   <div class="facts"><span><b>17</b>tộc</span><span><b>${big(totalEvents)}</b>sự kiện</span><span><b>${data.origins.length}</b>xuất thân</span><span><b>${data.jobs.filter((j) => j.races).length}</b>nghề và vai trò</span><span><b>${data.quests.length}</b>nhiệm vụ</span></div>
@@ -239,11 +252,30 @@ ${rateRows}
   <div class="two">
     <div class="block"><h3>Beastman theo dạng thú</h3><ul class="kins">${kinRows}</ul></div>
     <div class="block"><h3>Đọc nhanh</h3><ul class="notes">
-      <li>Đời nhiều lựa chọn nhất: Human (khoảng ${fmt(rows.find((r) => r.id === "human").clicks)} lượt bấm), ít nhất: Goblin và Kobold (khoảng 11).</li>
-      <li>Tiến hóa nhiều nhất: Ghoul thành Ghast (${fmt(rows.find((r) => r.id === "ghoul").evo)}%). Các tộc có trí tuệ chọn nghề không có nhánh tiến hóa trong kịch bản.</li>
-      <li>Dễ mồ côi nhất: High Demon và Goblin (khoảng ${fmt(rows.find((r) => r.id === "high_demon").orphan)}% và ${fmt(rows.find((r) => r.id === "goblin").orphan)}%).</li>
+      <li>Đời nhiều lựa chọn nhất: Human (khoảng ${fmt(rows.find((r) => r.id === "human").clicks)} lượt bấm), ít nhất: Goblin và Kobold (khoảng ${fmt(Math.round((rows.find((r) => r.id === "goblin").clicks + rows.find((r) => r.id === "kobold").clicks) / 2))}).</li>
+      <li>Tiến hóa nhiều nhất: ${top("evo").map((r) => `${esc(r.name)} (${fmt(r.evo)}%)`).join(", ")}. Human, Elf, Dwarf, Beastman, Demon không có nhánh tiến hóa trong kịch bản.</li>
+      <li>Dễ mồ côi nhất: ${top("orphan").map((r) => `${esc(r.name)} (${fmt(r.orphan)}%)`).join(", ")}.</li>
+      <li>Mạch truyện chiếm nhiều nhất: ${top("story").map((r) => `${esc(r.name)} (${fmt(r.story)}%)`).join(", ")}; đi đến kết mạch nhiều nhất: ${top("arcEnd").map((r) => `${esc(r.name)} (${fmt(r.arcEnd)}%)`).join(", ")}.</li>
     </ul></div>
   </div>
+</section>
+
+<section class="block" id="mach-truyen">
+  <h2>Mạch truyện</h2>
+  <div class="intro"><p>Lớp cốt truyện v3: dàn nhân vật đi cùng suốt đời (kẻ thù, người dẫn dắt, tri kỷ), mạch theo xuất thân, băng nhóm hoặc tổ đội có sẵn, thuộc hạ. Tổng cộng ${big(totalNodes)} nút truyện. Cùng ${big(stats.lives)} đời mỗi tộc như bảng trên.</p></div>
+  <div class="frame"><table>
+    <thead>
+      <tr><th>Tộc</th><th>Nút truyện</th><th>Sự kiện thuộc mạch</th><th>Đi đến kết mạch xuất thân</th><th>Gặp dàn nhân vật</th><th>Kiểu nhóm</th><th>Vào nhóm có sẵn</th><th>Tự lập nhóm</th><th>Có thuộc hạ</th></tr>
+    </thead>
+    <tbody>
+${storyRows}
+    </tbody>
+  </table></div>
+  <ul class="notes">
+    <li>“Sự kiện thuộc mạch”: phần trăm sự kiện trong một đời đến từ mạch truyện, phần còn lại là sự kiện rời của kịch bản cũ.</li>
+    <li>“Đi đến kết mạch xuất thân”: nhân vật sống tới nút cuối của mạch xuất thân và chọn một kết. Tộc đời ngắn (Goblin, Kobold, Imp) thấp vì phần lớn chết trước.</li>
+    <li>Beastman vào tổ đội thấp hơn vì mỗi tổ đội chỉ nhận người có đúng xuất thân.</li>
+  </ul>
 </section>
 
 <section class="block" id="anh">

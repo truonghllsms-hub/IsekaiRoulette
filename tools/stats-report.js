@@ -18,11 +18,13 @@ const pct = (n, d) => (d ? Math.round((n / d) * 1000) / 10 : 0);
 const median = (a) => { const s = a.slice().sort((x, y) => x - y); return s.length ? s[Math.floor(s.length / 2)] : 0; };
 const avg = (a) => (a.length ? Math.round((a.reduce((x, y) => x + y, 0) / a.length) * 10) / 10 : 0);
 
+const storyIds = new Set(data.events.filter((e) => e.arc).map((e) => e.id));
 const totalWeight = data.races.reduce((s, r) => s + r.weight, 0);
 const rows = [];
 for (const race of data.races) {
   const ages = [], clicks = [], choices = [], kids = [], fame = [], wealth = [], quests = [];
   const n = { job: 0, jobTop: 0, jobMid: 0, org: 0, orgTop: 0, orgMid: 0, evo: 0, mate: 0, mateLost: 0, child: 0, childLost: 0,
+    storyEv: 0, allEv: 0, arcEnd: 0, group: 0, ownGroup: 0, cast: 0, minion: 0,
     party: 0, allyDead: 0, allyLeft: 0, betrayed: 0, orphan: 0, old: 0, health: 0, violent: 0, event: 0, reachElder: 0 };
   const forms = {};
   const subtypes = {};
@@ -67,6 +69,17 @@ for (const race of data.races) {
     if (c.party.some((m) => m.left)) n.allyLeft++;
     if (c.party.some((m) => m.left) || c.used.some((id) => BETRAY.test(id)) || c.log.some((e) => (e.kind === "result" || e.kind === "event" || e.kind === "loss") && BETRAY_TEXT.test(e.text))) n.betrayed++;
     if (parentLostYoung) n.orphan++;
+    // story layer (prompts v3)
+    const evs = c.used.filter((id) => !id.startsWith("quest:"));
+    n.allEv += evs.length;
+    n.storyEv += evs.filter((id) => storyIds.has(id)).length;
+    const st = data.story && data.story[race.id];
+    const arc = st && st.arcs && st.arcs[c.origin.id];
+    if (arc && arc.endings.some((e) => e.flags.some((f) => c.flags.includes(f)))) n.arcEnd++;
+    if (c.used.some((id) => /_band_band_[a-z]_1$|_party_party_[a-z]_join$/.test(id)) && (c.band || (c.formerBands && c.formerBands.length))) n.group++;
+    if (c.used.some((id) => /_lead_1$/.test(id))) n.ownGroup++;
+    if (c.used.some((id) => /_cast_/.test(id))) n.cast++;
+    if (c.minions && c.minions.length) n.minion++;
     if (E.currentStage(c).id === "elder" || E.currentStage(c).id === "ancient") n.reachElder++;
     n[c.causeKind] = (n[c.causeKind] || 0) + 1;
   }
@@ -79,6 +92,7 @@ for (const race of data.races) {
     org: pct(n.org, LIVES), orgMid: pct(n.orgMid, LIVES), orgTop: pct(n.orgTop, LIVES), quests: avg(quests),
     evo: pct(n.evo, LIVES), forms: Object.fromEntries(Object.entries(forms).map(([k, v]) => [k, pct(v, LIVES)])),
     mate: pct(n.mate, LIVES), mateLost: pct(n.mateLost, LIVES), child: pct(n.child, LIVES), kidsAvg: avg(kids), childLost: pct(n.childLost, LIVES),
+    story: pct(n.storyEv, n.allEv), arcEnd: pct(n.arcEnd, LIVES), group: pct(n.group, LIVES), ownGroup: pct(n.ownGroup, LIVES), cast: pct(n.cast, LIVES), minion: pct(n.minion, LIVES),
     party: pct(n.party, LIVES), allyDead: pct(n.allyDead, LIVES), allyLeft: pct(n.allyLeft, LIVES), betrayed: pct(n.betrayed, LIVES),
     orphan: pct(n.orphan, LIVES), reachElder: pct(n.reachElder, LIVES),
     deathOld: pct(n.old, LIVES), deathHealth: pct(n.health, LIVES), deathViolent: pct(n.violent, LIVES), deathEvent: pct(n.event, LIVES),
@@ -89,6 +103,6 @@ for (const race of data.races) {
 }
 process.stderr.write("\n");
 if (jsonOut) fs.writeFileSync(jsonOut, JSON.stringify({ lives: LIVES, rows }, null, 1));
-const cols = ["id", "birth", "lifespan", "ageAvg", "ageMedian", "clicks", "job", "jobTop", "org", "orgTop", "evo", "mate", "child", "kidsAvg", "party", "allyDead", "betrayed", "orphan", "deathOld", "deathHealth", "deathViolent", "deathEvent"];
+const cols = ["id", "story", "arcEnd", "group", "ownGroup", "cast", "minion", "birth", "lifespan", "ageAvg", "ageMedian", "clicks", "job", "jobTop", "org", "orgTop", "evo", "mate", "child", "kidsAvg", "party", "allyDead", "betrayed", "orphan", "deathOld", "deathHealth", "deathViolent", "deathEvent"];
 console.log(cols.join("\t"));
 for (const r of rows) console.log(cols.map((k) => r[k]).join("\t"));
