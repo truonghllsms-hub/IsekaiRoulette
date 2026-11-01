@@ -385,6 +385,45 @@
     }
   }
 
+  // ---------- telling the group's story: who they are, how long you have walked with them ----------
+  const firstSentence = (t) => ((t || "").trim().match(/^[^.!?]*[.!?]?/) || [""])[0].trim().replace(/[.!?]$/, "");
+  const lowerFirst = (t) => (t ? t.charAt(0).toLowerCase() + t.slice(1) : t);
+  const upperFirst = (t) => (t ? t.charAt(0).toUpperCase() + t.slice(1) : t);
+  const cleanEnd = (t) => (t || "").trim().replace(/^["“]|["”]$/g, "").replace(/[.\s"”]+$/, "");
+  function groupWord(c, data) {
+    if (!c.band) return "";
+    return c.band.party ? "tổ đội" : sys(c, data, "bandName") || "băng";
+  }
+  function groupName(c, data) {
+    return c.band ? `${groupWord(c, data)} ${c.band.name}` : "";
+  }
+  function memberLine(m) {
+    const pos = (m.position || "").split("·").map((x) => x.trim()).filter(Boolean);
+    const who = [m.race, ...pos].filter(Boolean).join(", ");
+    const desc = firstSentence(m.desc);
+    return `${m.name} (${who})${desc ? ": " + lowerFirst(desc) : ""}`;
+  }
+  function bandIntro(c, data, b) {
+    let t = `Từ đây bạn là người của ${groupName(c, data)}.`;
+    if (b.rule) t += ` Luật của họ chỉ có một: “${upperFirst(cleanEnd(b.rule))}.”`;
+    if (b.lair) t += ` Nơi tụ họp: ${upperFirst(cleanEnd(b.lair))}.`;
+    pushLog(c, "story", t);
+    if (b.members && b.members.length) pushLog(c, "story", "Những gương mặt bạn sẽ đi cùng: " + b.members.map(memberLine).join(" · ") + ".");
+  }
+  // a short lead-in before a scene of the group, so it does not start out of nowhere
+  function groupBridge(c, data, e, rng) {
+    if (!c.band || !e.arc || !/_band_band_|_party_party_|_lead_|_recruit_/.test(e.id) || /_join$|_band_band_[a-z]_1$|_lead_1$/.test(e.id)) return;
+    const n = Math.round(c.age - (c.band.since || c.age));
+    const g = groupName(c, data);
+    let t;
+    if (/_recruit_/.test(e.id)) t = pick(rng, [`Tin ${g} đang tìm thêm người lan ra khắp nơi.`, `Ghế trống quanh đống lửa của ${g} khiến bạn để mắt tới những kẻ lạ.`, `Bạn đi tìm thêm người cho ${g}.`]);
+    else if (n < 1) t = pick(rng, [`Chưa được bao lâu kể từ ngày bạn theo ${g}.`, `Những ngày đầu cùng ${g} chưa kịp quen thì chuyện đã tới.`]);
+    else t = pick(rng, [`Đã ${n} năm bạn đi cùng ${g}.`, `Năm thứ ${n} theo ${g}.`, `${upperFirst(String(n))} năm qua, ${g} gần như đã là nhà của bạn.`]);
+    if (c.band.lastBridge === c.age) return;
+    c.band.lastBridge = c.age;
+    pushLog(c, "story", t);
+  }
+
   function joinBand(c, data, id) {
     const st = storyOf(c, data);
     const b = st && st.bands && st.bands[id];
@@ -399,6 +438,7 @@
         stat: "STR", power: 4, trait: traitFrom(m.desc), bond: 30, alive: true, since: c.age, band: id });
     }
     addMoment(c, `Gia nhập ${c.band.party ? "tổ đội" : "băng"} ${c.band.name}`, data);
+    bandIntro(c, data, b);
   }
 
   function leaveBand(c, wiped) {
@@ -623,6 +663,8 @@
       c.band = { id: "own", party: true, name: pick(rng, ["Hắc Ưng", "Sao Băng Đỏ", "Ngọn Đuốc Cuối", "Kiếm Gió Đông", "Lam Thạch", "Sói Bạc Tự Do"]), leaderName: c.name, lead: true, gone: false, since: c.age, own: true };
       for (const m of c.party) if (m.alive && !m.left) m.band = "own";
       addMoment(c, `Lập tổ đội ${c.band.name} của riêng mình`, data);
+      const with_ = aliveParty(c).map((m) => m.name);
+      pushLog(c, "story", `Bạn dựng ngọn cờ của riêng mình: tổ đội ${c.band.name}. ` + (with_.length ? `Bên bạn lúc này có ${with_.join(", ")}.` : "Lúc này mới chỉ có một mình bạn, phải đi tìm thêm người."));
     }
     if (eff.memberJoin && aliveParty(c).length < MAX_PARTY) {
       const st = storyOf(c, data);
@@ -630,6 +672,12 @@
       if (r && !c.party.some((m) => m.name === r.name)) {
         c.party.push({ name: r.name, race: r.race, gender: genderGuess(r.name, r.desc + " " + r.race), job: "band", jobName: r.position, stat: "STR", power: 6, trait: traitFrom(r.desc), bond: 30, alive: true, since: c.age, band: c.band ? c.band.id : null });
         addMoment(c, `${r.name} gia nhập tổ đội`, data);
+        let t = `${r.name} (${r.race}, ${r.position}) chính thức theo bạn.`;
+        if (r.desc) t += ` Người này ${lowerFirst(cleanEnd(r.desc))}.`;
+        if (r.ask) t += ` Điều duy nhất ${r.name} đòi ở ${c.band ? groupName(c, data) : "bạn"}: ${lowerFirst(cleanEnd(r.ask))}.`;
+        const now = aliveParty(c).map((m) => m.name);
+        if (now.length > 1) t += ` Đội hình giờ có ${now.join(", ")}.`;
+        pushLog(c, "story", t);
       }
     }
     for (const name of [].concat(eff.memberDie || [])) {
@@ -1290,6 +1338,7 @@
 
   // ---------- random events ----------
   function resolveEvent(c, data, e, rng) {
+    groupBridge(c, data, e, rng);
     c.used.push(e.id);
     const party = aliveParty(c);
     const fits = e.require && e.require.allyTrait ? party.filter((m) => m.trait === e.require.allyTrait) : party;
@@ -1346,6 +1395,31 @@
     return pick(rng, list);
   }
 
+  // Several quiet years told as a stretch of life: how long, what filled the days, who was there, one detail.
+  function spanText(c, data, rng, years, memory) {
+    const stageId = currentStage(c).id;
+    const flavor = quietText(c, data, rng, stageId);
+    const n = Math.round(years);
+    if (n < 2) return memory || flavor;
+    const f = c.focus ? focusDef(c, data, c.focus) : null;
+    const j = jobDef(c, data);
+    let act = f && f.name ? lowerFirst(f.name) : "những việc thường ngày";
+    if (c.focus === "work" && j) act = `công việc ${j.name}`;
+    let with_ = "";
+    if (c.band && aliveParty(c).length) with_ = ` cùng ${groupName(c, data)}`;
+    else if (c.spouse) with_ = ` bên ${c.spouse.name}`;
+    const span = n <= 4 ? pick(rng, ["Vài năm sau đó", "Mấy năm tiếp theo"]) : `${n} năm sau đó`;
+    const lead = pick(rng, [
+      `${span} trôi qua không có biến cố lớn; phần lớn thời gian bạn dành cho ${act}${with_}.`,
+      `${span}, ngày nào của bạn cũng xoay quanh ${act}${with_}.`,
+      `${span} là chuỗi ngày ${act}${with_}, đều đặn và lặng lẽ.`,
+    ]);
+    const parts = [lead, flavor];
+    if (memory) parts.push(memory);
+    else if (n >= 6) { const more = quietText(c, data, rng, stageId); if (more !== flavor) parts.push(more); }
+    return parts.map((x) => upperFirst(x.trim()).replace(/([^.!?…”"])$/, "$1.")).join(" ");
+  }
+
   function gainsText(g) {
     const parts = Object.keys(g).filter((k) => g[k]).map((k) => `${STAT_LABEL[k]} +${g[k]}`);
     return parts.length ? parts.join(" · ") : "";
@@ -1369,7 +1443,7 @@
         const now = c.age;
         c.age = quiet.to;
         const memory = rng() < 0.4 ? memoryLine(c, data, rng) : null;
-        const entry = pushLog(c, "quiet", fmt(memory || quietText(c, data, rng, currentStage(c).id), c, null, data), quiet.from + 1);
+        const entry = pushLog(c, "quiet", fmt(spanText(c, data, rng, quiet.to - quiet.from, memory), c, null, data), quiet.from + 1);
         c.age = now;
         const g = gainsText(quiet.gains);
         if (g) entry.gains = g;

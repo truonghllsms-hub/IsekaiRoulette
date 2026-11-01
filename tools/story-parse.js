@@ -43,7 +43,8 @@ function scanStory(text, stages) {
     }
     // "Ứng viên: Garr · Beastman tộc Sói · Gladiator (Bậc 3) · Tính cách: Cuồng bạo, khát máu. Yêu cầu: ..."
     if ((m = raw.match(/^Ứng viên:\s*([^·]+)·\s*([^·]+)·\s*([^·]+?)\s*·\s*Tính cách:\s*([^.]+)/i))) {
-      out.recruits[m[1].trim()] = { name: m[1].trim(), race: m[2].trim(), position: m[3].trim(), desc: m[4].trim() };
+      const ask = (raw.match(/Yêu cầu:\s*(.+?)\.?\s*$/i) || [])[1] || "";
+      out.recruits[m[1].trim()] = { name: m[1].trim(), race: m[2].trim(), position: m[3].trim(), desc: m[4].trim(), ask };
       continue;
     }
     if (/^Dưới đây là/i.test(raw)) { if (mode === "memory") mode = null; continue; }
