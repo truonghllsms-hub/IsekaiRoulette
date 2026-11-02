@@ -759,7 +759,10 @@
     const st = storyOf(c, data);
     const list = st && st.chapters && st.chapters[stageId];
     if (!list || !list.length) return null;
-    const fit = list.filter((x) => storyCond(c, data, x.cond) && ageFits(x.text, c) && (!c.captive || captiveOk(x.text, c)));
+    // "mồ côi" also covers a parent who walked away: a line about their DEATH needs one who really died
+    const someDead = ["father", "mother"].some((w) => c.parents && c.parents[w] && c.parents[w].status === "dead" || (c.parents && c.parents[w] && c.parents[w].diedAt != null));
+    const KIN_DEATH = /cái chết|qua đời|đã mất|nấm mồ|ngôi mộ|chôn cất|tang lễ|đã khuất|tử trận/i;
+    const fit = list.filter((x) => storyCond(c, data, x.cond) && ageFits(x.text, c) && (!c.captive || captiveOk(x.text, c)) && !(/mồ côi/i.test(x.cond || "") && KIN_DEATH.test(x.text) && !someDead));
     return fit.length ? pick(rng, fit).text : null;
   }
 
@@ -2095,7 +2098,9 @@
     const OLD = /già nua|tuổi già|xế chiều|tóc bạc|râu bạc|lưng còng|răng rụng|gậy chống|chống gậy|tuổi xế/i;
     const YOUNG = /chập chững|bập bẹ|tập đi|bú mớm|đứa trẻ con|lũ trẻ con/i;
     const late = ["middle", "elder", "ancient"].includes(stageId), early = ["infant", "child"].includes(stageId);
-    const fit = list.filter((t) => (late || !OLD.test(t)) && (early || !YOUNG.test(t)) && parentsOk(t, c, {}) && ageFits(t, c) && (!c.captive || captiveOk(t, c)));
+    // "vài chục năm trôi qua" cannot be said of an eight-year-old
+    const LONG_TIME = /(?:vài|hàng|mấy|nhiều) (?:chục|trăm|ngàn|nghìn) năm|(?:một|vài|nhiều) thế kỷ|thập kỷ/i;
+    const fit = list.filter((t) => (late || !OLD.test(t)) && (early || !YOUNG.test(t)) && parentsOk(t, c, {}) && ageFits(t, c) && (!c.captive || captiveOk(t, c)) && !(LONG_TIME.test(t) && c.age < 40));
     if (!fit.length && ["infant", "child"].includes(stageId)) return "Những năm thơ ấu trôi qua quanh nơi bạn chào đời, giữa những thứ quen thuộc nhất.";
     return pick(rng, fit.length ? fit : list);
   }
