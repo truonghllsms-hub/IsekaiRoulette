@@ -54,7 +54,9 @@ for r in races:
         def sc(sid, vi, code, fill=IMG, extra=""):
             x = st.get(sid)
             return (vi, f'{x["name"]}\n{x["ages"]}{extra}' if x else vi, code, fill)
-        cols = [sc("infant", "Bé tí", "beti"), sc("child", "Hơi lớn", "hoilon"), sc("teen", "Thiếu niên", "thieunien"),
+        # each young stage with the human age it looks like, then the race's own name and ages
+        cols = [sc("infant", "Bé tí", "beti", IMG, "\n(như người 1–4 tuổi)"), sc("child", "Hơi lớn", "hoilon", IMG, "\n(như người 5–10 tuổi)"),
+                sc("teen", "Thiếu niên", "thieunien", IMG, "\n(như người 10–15 tuổi)"),
                 sc("adult", "Trưởng thành", "thuongdan", BASE, "\nẢnh gốc · tạo trước"), (f"Về già", f'{old["name"]}\n{old["ages"]}', "gia", IMG)]
     else:
         cols = [("Thường dân", "Ảnh gốc · tạo trước", "thuongdan", BASE)]
@@ -106,7 +108,7 @@ for r in races:
     for rr in (H1, H2, H3):
         for cc in range(1, c0 + len(cols)):
             ws.cell(rr, cc).border = BOX
-    ws.row_dimensions[H2].height = 44 if FULL else 30
+    ws.row_dimensions[H2].height = 58 if FULL else 30
     row = H3 + 1
     for n, (code, kin, gvi, i) in enumerate(people, start=1):
         vals = [n, code] + ([kin] if r["kins"] else []) + [gvi]

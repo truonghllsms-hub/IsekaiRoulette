@@ -16,7 +16,7 @@ const races = ids.map((id) => {
     jobs: jobs.map((j) => ({ id: j.id, name: j.name, look: LOOKS[jobLook(j)].vi, desc: short(j.desc), first: j.ranks[0], top: j.ranks[j.ranks.length - 1], n: j.ranks.length })),
     // evolved forms: the race's list plus any form a scene can turn you into
     forms: [...new Set([...Object.values(packs[id].forms || {}).map((f) => f.name), ...[...JSON.stringify(packs[id]).matchAll(/"evolve":\s*"([^"]+)"/g)].map((m) => m[1])])].map((name) => ({ name })),
-    stages: require("../engine").stagesOf(r).map((s, i, all) => ({ id: s.id, name: s.name, ages: all[i + 1] ? `${s.start}–${all[i + 1].start} tuổi` : `${s.start}+ tuổi` })),
+    stages: require("../engine").stagesOf(r).map((s, i, all) => ({ id: s.id, name: s.name, ages: all[i + 1] ? `${Math.round(s.start)}–${Math.round(all[i + 1].start)} tuổi` : `${Math.round(s.start)}+ tuổi` })),
   };
 });
 fs.writeFileSync(out, JSON.stringify(races, null, 1));

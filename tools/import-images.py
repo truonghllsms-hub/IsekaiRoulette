@@ -65,6 +65,7 @@ from openpyxl import load_workbook
 KEYS = []
 for path in SHEETS:
     KEYS += list(sheet_cells(load_workbook(path)).values())
+KEYS = list(dict.fromkeys(KEYS))  # the same person may appear in two worksheets
 NEED = set(KEYS)
 ID_CODES = {k.rsplit("_", 1)[0] for k in KEYS if k.endswith("_thuongdan")}
 LOOKUP = {norm(k): k for k in KEYS}
