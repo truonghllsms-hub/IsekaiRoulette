@@ -52,6 +52,8 @@ for r in races:
         st = {x["id"]: x for x in r["stages"]}
         old = r["stages"][-1]
         def sc(sid, vi, code, fill=IMG, extra=""):
+            if r["id"] == "human" and extra.startswith("\n(như người"):
+                extra = ""  # people need no comparison with people
             x = st.get(sid)
             return (vi, f'{x["name"]}\n{x["ages"]}{extra}' if x else vi, code, fill)
         # each young stage with the human age it looks like, then the race's own name and ages
