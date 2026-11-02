@@ -66,62 +66,88 @@
   const upper = (t) => (t ? t.charAt(0).toUpperCase() + t.slice(1) : "");
 
   // ---------- sprites ----------
-  // img/<who>_<nam|nu|x>_<n>_<column>.png: person n of a race (or race_kin), as drawn in the
-  // worksheets docs/anh-nhan-vat-*.xlsx. Columns: beti, hoilon, thieunien, nho, thuongdan, gia,
-  // <trade>_moi, <trade>_kycuu, tienhoa_<form>. A life keeps one person all its life.
+  // One atlas per person (img/<person>.png, frames in D.sprites[person]): person n of a race or
+  // Beastman kin and gender, drawn as baby, child, teen, adult, old, each trade new (moi) and veteran
+  // (kycuu), each evolution. A life keeps one person; a Human is picked by where they were born.
   const slug = (t) => String(t).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "");
-  let spriteIndex = null;
-  function spriteIdx() {
-    if (spriteIndex) return spriteIndex;
-    const people = {};
-    for (const f of D.images || []) {
-      const m = f.match(/^(.+_(?:nam|nu|x))_(\d+)_([a-z0-9_]+)$/);
-      if (m) ((people[m[1]] = people[m[1]] || {})[m[2]] = people[m[1]][m[2]] || {})[m[3]] = f;
-    }
-    return (spriteIndex = people);
-  }
-  function spriteOf(ch) {
-    const people = spriteIdx();
+  // Human people by background (the design sheets): men 1 village, 2 street, 3 noble, 4 highland,
+  // 5 scholarly, 6 harbour, 7 nomad, 8 townsfolk; women 1 townsfolk, 2 scholarly, 3 noble,
+  // 4 merchant, 5 convent, 6 harbour, 7 street, 8 highland
+  const HUMAN_BG = {
+    nam: { thonque: 1, duongpho: 2, quytoc: 3, soncuoc: 4, thuhuong: 5, haicang: 6, dumuc: 7, thidan: 8 },
+    nu: { thidan: 1, thuhuong: 2, quytoc: 3, thuonggia: 4, tuvien: 5, haicang: 6, duongpho: 7, soncuoc: 8 },
+  };
+  const HUMAN_ORIGIN = {
+    thief: ["duongpho"], hunter: ["soncuoc", "thonque"], servant: ["thidan", "duongpho"], soldier: ["thidan", "thonque"],
+    mercenary: ["dumuc", "haicang"], gladiator: ["duongpho", "dumuc"], merchant: ["thuonggia", "thidan", "haicang"],
+    knight_orphan: ["tuvien", "thuhuong"], half_beast: ["soncuoc", "dumuc"], hero_descendant: ["quytoc", "thonque"],
+    blacksmith: ["thidan", "soncuoc"], refugee: ["thonque", "dumuc", "duongpho"], noble_bastard: ["duongpho", "quytoc"],
+    half_elf: ["dumuc", "soncuoc"], scholar: ["thuhuong"], cultist: ["duongpho", "tuvien"], priest_sin: ["tuvien", "thuhuong"],
+    harlot: ["duongpho", "haicang"], farmer: ["thonque", "soncuoc"], alchemist: ["thuhuong", "thidan"],
+  };
+  const hashName = (t) => { let h = 0; for (const x of t) h = (h * 31 + x.charCodeAt(0)) >>> 0; return h; };
+  function personOf(ch) {
+    const S = D.sprites || {};
     const who = ch.subtype ? `${ch.race.id}_${ch.subtype}` : ch.race.id;
     const g = ch.gender === "male" ? "nam" : ch.gender === "female" ? "nu" : "x";
-    const og = g === "nam" ? "nu" : g === "nu" ? "nam" : "x";
-    const pool = people[`${who}_${g}`] || people[`${who}_${og}`];
-    if (!pool) return null;
-    // the same person for the whole life: chosen from the name, which never changes
-    const ids = Object.keys(pool).sort((a, b) => a - b);
-    let h = 0;
-    for (const x of ch.name) h = (h * 31 + x.charCodeAt(0)) >>> 0;
-    const person = pool[ids[h % ids.length]];
-    // what to show now, best first
+    const og = g === "nam" ? "nu" : "nam";
+    let pool = Object.keys(S).filter((p) => p.startsWith(`${who}_${g}_`));
+    if (!pool.length) pool = Object.keys(S).filter((p) => p.startsWith(`${who}_${og}_`) || p.startsWith(`${who}_x_`));
+    if (!pool.length) return null;
+    pool.sort();
+    if (ch.race.id === "human" && HUMAN_BG[g]) {
+      const bgs = HUMAN_ORIGIN[ch.origin.id.replace(/^human_(bg|origin)_/, "")] || [];
+      const fit = bgs.map((b) => HUMAN_BG[g][b]).filter(Boolean).map((n) => `human_${g}_${n}`).filter((p) => S[p]);
+      if (fit.length) return fit[hashName(ch.name) % fit.length];
+    }
+    return pool[hashName(ch.name) % pool.length];
+  }
+  function spriteOf(ch) {
+    const person = personOf(ch);
+    if (!person) return null;
+    const P = D.sprites[person];
     const st = E.currentStage(ch).id;
     const want = [];
     if (ch.form) want.push(`tienhoa_${slug(ch.form)}`);
-    if (st === "infant") want.push("beti", "nho", "hoilon");
-    else if (st === "child") want.push("hoilon", "nho", "beti");
+    if (st === "infant") want.push("beti", "hoilon");
+    else if (st === "child") want.push("hoilon", "beti");
     else if (st === "elder" || st === "ancient") want.push("gia");
     if (st === "teen" && !ch.job) want.push("thieunien");
     if (ch.job && !["infant", "child"].includes(st)) {
       const t = ch.job.id.slice(ch.job.id.indexOf("_") + 1);
-      // newcomer until the veteran mark (rank B of the guild/tribe, or the 4th of 5 trade ranks)
+      // newcomer until the veteran mark (rank B of the guild or tribe, or the 4th of 5 trade ranks)
       const vet = E.isVeteran(ch, D);
       want.push(`${t}_${vet ? "kycuu" : "moi"}`, `${t}_${vet ? "moi" : "kycuu"}`);
     }
     want.push("thuongdan", "thieunien", "gia");
-    const f = want.map((k) => person[k]).find(Boolean) || Object.values(person)[0];
-    return `img/${f}.png`;
+    const col = want.find((k) => P[k]);
+    return col ? { person, rect: P[col], size: P._size } : null;
   }
   function setSprite(id, ch) {
-    const el = $(id);
-    if (!el) return;
-    const src = spriteOf(ch);
-    el.hidden = !src;
-    if (src && el.getAttribute("src") !== src) el.setAttribute("src", src);
+    const box = $(id);
+    if (!box) return;
+    const s = spriteOf(ch);
+    box.hidden = !s;
+    if (!s) return;
+    const el = box.firstElementChild;
+    // one scale for the whole person: a child is drawn smaller than the adult it becomes
+    // the adult frame fills the box; a big veteran or an evolution may grow a little past it
+    const P = D.sprites[s.person];
+    const boxH = box.clientHeight || 52;
+    const ref = (P.thuongdan || P.thieunien || s.rect)[3];
+    const k = Math.min(boxH / ref, (boxH * 1.25) / s.rect[3]);
+    const [x, y, w, h] = s.rect;
+    el.style.width = `${Math.round(w * k)}px`;
+    el.style.height = `${Math.round(h * k)}px`;
+    el.style.backgroundImage = `url(img/${s.person}.png)`;
+    el.style.backgroundSize = `${Math.round(s.size[0] * k)}px ${Math.round(s.size[1] * k)}px`;
+    el.style.backgroundPosition = `${-Math.round(x * k)}px ${-Math.round(y * k)}px`;
   }
+
 
   function startLife() {
     c = E.createCharacter(D);
     rendered = 0;
-    setSprite("reveal-sprite", c);
     $("reveal-name").textContent = c.name;
     $("reveal-race").textContent = c.subtypeName ? `${c.race.name} ${c.subtypeName}` : c.race.name;
     $("reveal-gloss").textContent = c.race.gloss ? `(${c.race.gloss})` : "";
@@ -295,7 +321,6 @@
   // ---------- death ----------
   function renderDeath() {
     const s = E.summary(c, D);
-    setSprite("death-sprite", c);
     $("death-name").textContent = c.name;
     $("death-meta").textContent = `${E.raceTitle(c)} · ${fmtAge(c.age)} tuổi · ${c.origin.name}`;
     $("death-cause").textContent = c.cause;
