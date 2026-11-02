@@ -159,6 +159,40 @@
     return p.name;
   }
 
+  // ---------- a mage does not swing a sword ----------
+  // Scenes are written for anyone; when YOU strike with a blade and your trade is a spellcaster,
+  // the blade becomes a staff and a spell. Only what you hold changes: the enemy's sword stays a sword.
+  const MAGE_WORDS = [
+    [/rút (kiếm|gươm)/, "giương trượng phép"], [/vung (kiếm|gươm)/, "phóng phép"], [/tra (kiếm|gươm)/, "thu trượng"],
+    [/(thanh|cây) (kiếm|gươm)/, "cây trượng phép"], [/(lưỡi|mũi) (kiếm|gươm)/, "luồng phép"], [/(nhát|đường) (kiếm|gươm)|nhát chém/, "đòn phép"],
+    [/chuôi (kiếm|gươm)/, "cán trượng"], [/kiếm (thuật|pháp)/, "phép thuật"], [/múa (kiếm|gươm)/, "luyện phép"],
+    [/chém đứt/, "dùng lưỡi phép cắt đứt"], [/chém/, "dùng phép đánh"],
+  ];
+  const keepCase = (from, to) => (from.charAt(0) === from.charAt(0).toUpperCase() ? to.charAt(0).toUpperCase() + to.slice(1) : to);
+  function casterWords(text, c, data, isLabel) {
+    const j = c.job && data && jobDef(c, data);
+    if (!j || j.look !== "phapsu" || !/kiếm|gươm|chém/i.test(text)) return text;
+    return String(text).split(/(?<=[.!?…;])\s+/).map((sent, si) => {
+      let out = sent;
+      for (const [re, to] of MAGE_WORDS) {
+        const g = new RegExp(`(?<!\\p{L})(${re.source})(?!\\p{L})`, "giu");
+        out = out.replace(g, (m, _1, ...rest) => {
+          const at = rest[rest.length - 2], whole = rest[rest.length - 1];
+          const before = whole.slice(Math.max(0, at - 28), at);
+          const after = whole.slice(at + m.length, at + m.length + 12);
+          // you hold it: "bạn rút kiếm", "thanh kiếm của bạn", or a choice that starts with the act
+          // a sword as a thing (picked up, sold, forged) stays; a sword in use becomes the staff
+          const noun = /^(thanh|cây|lưỡi|mũi|chuôi)\s/i.test(m);
+          if (noun) return /^\s*(của bạn|trong tay bạn)/.test(after) || /(?<!\p{L})(vung|rút|giơ|cầm|siết|nắm|đâm|giương|tung|chĩa|vác)\s*$/iu.test(before) && /(?<!\p{L})bạn(?!\p{L})/iu.test(before) ? keepCase(m, to) : m;
+          const mine = /(?<!\p{L})bạn(?:\s+\p{L}+){0,3}\s*$/iu.test(before) && !/(?<!\p{L})(hắn|nó|gã|ả|y|chúng|họ|kẻ|tên|lão|mụ)(?!\p{L})[^,]*$/u.test(before.split(/bạn/i).pop())
+            || /^\s*(của bạn|trong tay bạn)/.test(after) || (isLabel && si === 0 && at <= 2);
+          return mine ? keepCase(m, to) : m;
+        });
+      }
+      return out;
+    }).join(" ");
+  }
+
   function fmt(text, c, extra, data) {
     const ctx = c.ctx || {};
     const j = data ? jobDef(c, data) : null;
@@ -193,11 +227,11 @@
       extra || {}
     );
     // a placeholder that starts a sentence ("kẻ đã tạo ra bạn ra lệnh…") gets a capital letter
-    return String(text).replace(/([.!?…:]\s+|["“]\s*|)\{(\w+)\}/g, (m, pre, k, at) => {
+    return casterWords(String(text).replace(/([.!?…:]\s+|["“]\s*|)\{(\w+)\}/g, (m, pre, k, at) => {
       if (!(k in vars)) return m;
       const v = String(vars[k]);
       return pre || at === 0 ? pre + v.charAt(0).toUpperCase() + v.slice(1) : v;
-    });
+    }), c, data);
   }
 
   function randomName(data, rng, raceId, gender) {
@@ -453,6 +487,51 @@
     addMoment(c, "Thoát khỏi kiếp " + CAPTIVE_WORD[kind], data);
     if (why) pushLog(c, "story", why);
   }
+  // ---------- jail and slavery in the middle of a life ----------
+  // A scene can end with you thrown in a cell or sold as a slave. Then you are kept for a while
+  // (no adventuring, no free-world scenes, no trials), the years in between are told as such, and
+  // you come out with a line saying how. A few days in the cells is told at once.
+  const JAIL = /bị bắt giam|tống (?:bạn )?vào (?:ngục|tù|đại lao|nhà lao|ngục tối|hầm ngục)|tống giam|bị giam (?:vào|trong|cầm)|nhốt (?:bạn )?vào (?:ngục|tù|lồng sắt|hầm)|ngồi tù|bị bắt vào tù|(?:bán|bắt) (?:bạn )?làm nô lệ|bị xích vào/i;
+  const JAIL_OUT = /trốn thoát|thoát ra|chạy trốn|bỏ trốn|được thả|vượt ngục|phá ngục|chuộc (?:bạn|ra)|tha bổng|thả bạn|thả ra/i;
+  // what can still happen while you are kept: your own origin chain, and scenes of cells and chains
+  const KEPT_THEME = /ngục|tù|cai ngục|song sắt|xiềng|xích|nô lệ|giam|chủ nô|khổ sai|đấu trường|lồng/i;
+  const JAIL_SHORT = /vài ngày|vài hôm|mấy ngày|ba ngày|qua đêm|một đêm|một tuần/i;
+  function jailCheck(c, data, text, rng) {
+    if (!text || c.captive || !c.alive) return;
+    for (const sent of String(text).split(/(?<=[.!?…])\s+/)) {
+      const m = sent.match(JAIL);
+      if (!m || JAIL_OUT.test(sent)) continue;
+      const before = sent.slice(0, m.index), after = sent.slice(m.index + m[0].length, m.index + m[0].length + 14);
+      // it is you who is taken, not your friend or the one you caught
+      const you = /(?<!\p{L})bạn(?!\p{L})/u.test(before) || /bạn/.test(m[0]) || /^\s*Bị\s/.test(sent);
+      if (!you || /^\s*(bà|ông|hắn|cô|anh|chúng|họ|nó|\{)/.test(after) || /\{\w+\}\s*(bị|cũng bị)\s*$/.test(before)) continue;
+      if (JAIL_SHORT.test(sent)) {
+        pushLog(c, "story", pick(rng || Math.random, ["Vài ngày sau, bạn được thả ra với người đầy vết bầm và một bài học khó quên.", "Mấy hôm sau, cửa ngục mở. Bạn bước ra, nheo mắt trước ánh nắng, thề sẽ không quay lại chốn này."]));
+        return;
+      }
+      const slave = /nô lệ/.test(m[0]) || /nô lệ/.test(sent);
+      const kind = slave ? (/giác đấu|đấu trường/.test(sent) ? "arena" : "slave") : "prison";
+      const years = Math.max(1, Math.round(tickYears(c) * (1.5 + (rng || Math.random)() * 2)));
+      c.captive = { kind, since: c.age, until: c.age + years, temp: true };
+      if (["adventure", "social"].includes(c.focus)) {
+        const opts = focusOptions(c, data).filter((f) => !["adventure", "social"].includes(f.id));
+        c.focus = opts.length ? opts[0].id : null;
+      }
+      addMoment(c, kind === "prison" ? "Vào ngục" : "Bị bắt làm nô lệ", data);
+      return;
+    }
+  }
+  function jailTick(c, data, rng) {
+    if (!c.captive || !c.captive.temp || c.age < c.captive.until) return;
+    const n = Math.max(1, Math.round(c.age - c.captive.since));
+    const LINES = {
+      prison: [`Sau ${n} năm sau song sắt, bạn mãn hạn tù. Cánh cổng ngục mở ra, thế giới ngoài kia vẫn ồn ào như chưa từng chờ ai.`, `${n} năm trong ngục rồi cũng hết. Bạn bước ra với đôi mắt quen bóng tối và một trái tim chai sạn hơn trước.`, `Một người quen cũ đút lót cai ngục chuộc bạn ra sau ${n} năm. Bạn không hỏi họ đã phải trả bao nhiêu.`],
+      slave: [`Sau ${n} năm làm nô lệ, một đêm mưa bạn phá được chiếc vòng sắt và trốn vào bóng tối, không ngoảnh lại.`, `${n} năm khổ sai rồi cũng kết thúc khi chủ nô phá sản. Bạn được bán rẻ, rồi tự chuộc mình bằng số tiền góp nhặt từng đồng.`],
+      arena: [`Sau ${n} năm sống chết trên cát đấu trường, bạn thắng đủ trận để mua lại tự do của chính mình.`, `${n} năm làm nô lệ giác đấu, bạn tìm được kẽ hở trong một đêm hỗn loạn và trốn khỏi đấu trường.`],
+    };
+    setFree(c, data, pick(rng, LINES[c.captive.kind] || LINES.prison));
+  }
+
   // after a scene: did this outcome set the character free?
   function freedomCheck(c, data, eventId, text) {
     if (!c.captive || !eventId) return;
@@ -1007,6 +1086,7 @@
     if ((st === "infant" || st === "child") && (/uống rượu|nốc cạn|say khướt|say mèm|thanh lâu|kỹ viện|cụng ly/i.test(t) || (c.race.id !== "dwarf" && /quán rượu|tửu quán/i.test(t)))) return false;
     // "your party", "your band": only once there is one
     if (/(?<!\p{L})(tổ đội|băng săn|bầy săn|băng|đội) của bạn(?!\p{L})/iu.test(t) && !c.band && !aliveParty(c).length && !r.band && !r.bandLead && !r.party) return false;
+    if (c.captive && c.captive.temp && !/_arc_/.test(e.id) && !KEPT_THEME.test(t)) return false;
     // ...and the reverse: a free life does not wake up already in chains
     if (!c.captive && !/_arc_/.test(e.id) && /^(Bị giam|Bị xích|Bị cùm|Trong phòng giam|Trong ngục|Bị nhốt)|nới lỏng xiềng xích|xiềng xích trên (cổ|tay|chân) bạn/i.test(t) && !(r.flags || r.anyFlags)) return false;
     if (c.captive && !/_arc_/.test(e.id)) {
@@ -1318,7 +1398,7 @@
 
   // ---------- system scenes (built by the engine, worded in data/systems.json) ----------
   function scene(c, kind, text, choices, extra, data) {
-    if (data) choices = choices.map((ch) => (/\{\w+\}/.test(ch.label) ? Object.assign({}, ch, { label: fmt(ch.label, c, null, data) }) : ch));
+    if (data) choices = choices.map((ch) => (ch.label ? Object.assign({}, ch, { label: casterWords(fmt(ch.label, c, null, data), c, data, true) }) : ch));
     c.pending = Object.assign({ kind, text, choices }, extra || {});
     pushLog(c, "choice", text);
   }
@@ -1331,7 +1411,7 @@
     }
     const cr = sys(c, data, "crossroads");
     let raw = cr[currentStage(c).id] || cr.default || data.systems.crossroads.default;
-    if (c.captive && !captiveOk(raw, c)) raw = "Bạn vẫn chưa thoát khỏi xiềng xích. Những năm tới, bạn sẽ bám víu vào điều gì để sống sót?";
+    if (c.captive && (c.captive.temp || !captiveOk(raw, c))) raw = "Bạn vẫn chưa thoát khỏi xiềng xích. Những năm tới, bạn sẽ bám víu vào điều gì để sống sót?";
     const text = fmt(raw, c, null, data);
     scene(
       c,
@@ -1529,6 +1609,7 @@
 
   // taking up a trade and rising in it: these come before any story beat
   function careerScene(c, data, rng) {
+    if (c.captive && c.captive.temp) return false; // no trial or trade offer in a cell
     const st = currentStage(c).id;
     const jobs = captiveJobs(c, data);
     const st0 = stagesOf(c.race);
@@ -1612,6 +1693,7 @@
     applyEffects(c, e.effects, data, rng);
     if (e.moment) addMoment(c, e.moment, data);
     if (e.death) die(c, data, e.death);
+    else jailCheck(c, data, `${e.text} ${e.result || ""}`, rng);
     c.ctx = null;
   }
 
@@ -1635,6 +1717,14 @@
   }
 
   function quietText(c, data, rng, stageId) {
+    if (c.captive && c.captive.temp) {
+      const L = {
+        prison: ["Những ngày trong ngục trôi qua chậm chạp, chỉ có tiếng xích sắt, bữa cháo loãng và vệt nắng nhỏ qua song cửa.", "Bạn đếm từng vết khắc trên tường đá, mỗi vết là một ngày dài vô tận sau song sắt.", "Cai ngục thay ca, tù nhân đến rồi đi. Bạn học cách ngủ giữa tiếng rên rỉ và mùi ẩm mốc."],
+        slave: ["Ngày nào cũng như ngày nào: roi da, gánh nặng và bữa ăn không đủ no.", "Bạn cúi đầu làm lụng dưới ánh mắt chủ nô, giấu kín ý nghĩ về ngày được tự do."],
+        arena: ["Mỗi mùa đấu là một lần đặt cược mạng sống trên cát đỏ, trước tiếng gào của khán đài.", "Giữa các trận đấu, bạn băng bó vết thương trong chuồng giam và mài lại vũ khí cũ."],
+      };
+      return pick(rng, L[c.captive.kind] || L.prison);
+    }
     const f = c.focus ? focusDef(c, data, c.focus) : null;
     const j = jobDef(c, data);
     let list = null;
@@ -1662,9 +1752,11 @@
     const f = c.focus ? focusDef(c, data, c.focus) : null;
     const j = jobDef(c, data);
     let act = f && f.name ? lowerFirst(f.name) : "những việc thường ngày";
+    if (c.captive && c.captive.temp) act = { prison: "những ngày ngồi tù", slave: "kiếp làm nô lệ", arena: "những trận đấu sống còn nơi đấu trường" }[c.captive.kind] || "những ngày bị giam cầm";
     if (c.focus === "work" && j) act = `công việc ${j.name}`;
     let with_ = "";
-    if (c.band && aliveParty(c).length) with_ = ` cùng ${groupName(c, data)}`;
+    if (c.captive && c.captive.temp) with_ = "";
+    else if (c.band && aliveParty(c).length) with_ = ` cùng ${groupName(c, data)}`;
     else if (c.spouse) with_ = ` bên ${c.spouse.name}`;
     const span = n <= 4 ? pick(rng, ["Vài năm sau đó", "Mấy năm tiếp theo"]) : `${n} năm sau đó`;
     const lead = pick(rng, [
@@ -1730,6 +1822,7 @@
 
       liveFocus(c, data, rng, years, quiet);
       parentsTick(c, data, rng);
+      jailTick(c, data, rng);
       checkDeath(c, data, rng, years);
 
       let stop = !c.alive;
@@ -1751,7 +1844,7 @@
           const s = sys(c, data, "stageEnter");
           const chapter = chapterLine(c, data, rng, stageId);
           let line = chapter || s[stageId] || s.default || data.systems.stageEnter.default;
-          if (c.captive && !chapter && !captiveOk(line, c)) line = `Năm tháng trôi qua, bạn lớn thêm một vòng, nhưng thế giới của bạn vẫn chỉ rộng bằng ${CAPTIVE_PLACE[c.captive.kind] || "chốn giam cầm"}.`;
+          if (c.captive && (c.captive.temp || (!chapter && !captiveOk(line, c)))) line = `Năm tháng trôi qua, bạn lớn thêm một vòng, nhưng thế giới của bạn vẫn chỉ rộng bằng ${CAPTIVE_PLACE[c.captive.kind] || "chốn giam cầm"}.`;
           pushLog(c, "stage", fmt(line, c, null, data));
           stop = crossroads(c, data);
         } else {
@@ -1894,8 +1987,9 @@
     applyEffects(c, outcome.effects, data, rng);
     if (c.captive && p.kind === "event") {
       if (outcome.effects && outcome.effects.joinBand) setFree(c, data, "Đi theo nhóm mới, bạn bỏ lại sau lưng xiềng xích cũ.");
+      else if (c.captive.temp && outcome.text && JAIL_OUT.test(outcome.text)) setFree(c, data, "Từ ngày đó, bạn không còn là kẻ bị giam cầm.");
       else freedomCheck(c, data, c.ctx && c.ctx.eventId, outcome.text);
-    }
+    } else if (!outcome.death) jailCheck(c, data, outcome.text, rng);
     runAct(c, data, outcome.act || ch.act, rng);
     const moment = outcome.moment || ch.moment;
     if (moment) addMoment(c, moment, data);
