@@ -159,39 +159,106 @@
     return p.name;
   }
 
-  // ---------- a mage does not swing a sword ----------
-  // Scenes are written for anyone; when YOU strike with a blade and your trade is a spellcaster,
-  // the blade becomes a staff and a spell. Only what you hold changes: the enemy's sword stays a sword.
-  const MAGE_WORDS = [
-    [/rút (kiếm|gươm)/, "giương trượng phép"], [/vung (kiếm|gươm)/, "phóng phép"], [/tra (kiếm|gươm)/, "thu trượng"],
-    [/(thanh|cây) (kiếm|gươm)/, "cây trượng phép"], [/(lưỡi|mũi) (kiếm|gươm)/, "luồng phép"], [/(nhát|đường) (kiếm|gươm)|nhát chém/, "đòn phép"],
-    [/chuôi (kiếm|gươm)/, "cán trượng"], [/kiếm (thuật|pháp)/, "phép thuật"], [/múa (kiếm|gươm)/, "luyện phép"],
-    [/chém đứt/, "dùng lưỡi phép cắt đứt"], [/chém/, "dùng phép đánh"],
+  // ---------- you fight with your trade's weapon ----------
+  // Scenes are written for anyone ("bạn rút kiếm…"). When YOU strike, the weapon becomes the one
+  // your trade carries: an archer draws a bow, a mage a staff, a berserker an axe. Only what you
+  // hold changes: the enemy's sword stays a sword, a sword picked up or sold stays a sword.
+  const WEAPON_KINDS = {
+    sword: { noun: "thanh kiếm", short: "kiếm", draw: "rút kiếm", swing: "vung kiếm", blow: "nhát kiếm", art: "kiếm thuật", cut: "chém đứt", strike: "chém" },
+    axe: { noun: "cây rìu", short: "rìu", draw: "rút rìu", swing: "vung rìu", blow: "nhát rìu", art: "rìu pháp", cut: "bổ đứt", strike: "bổ" },
+    spear: { noun: "ngọn giáo", short: "giáo", draw: "giương giáo", swing: "vung giáo", blow: "mũi giáo", art: "thương pháp", cut: "đâm xuyên", strike: "đâm" },
+    bow: { noun: "cây cung", short: "cung", draw: "giương cung", swing: "buông tên", blow: "mũi tên", art: "cung thuật", cut: "bắn xuyên", strike: "bắn", cutShort: "xuyên", strikeShort: "trúng" },
+    dagger: { noun: "con dao găm", short: "dao găm", draw: "rút dao găm", swing: "vung dao găm", blow: "nhát dao", art: "thuật ám sát", cut: "cắt đứt", strike: "đâm" },
+    hammer: { noun: "cây búa", short: "búa", draw: "nhấc búa", swing: "vung búa", blow: "nhát búa", art: "búa pháp", cut: "đập nát", strike: "nện" },
+    mace: { noun: "cây chùy", short: "chùy", draw: "nhấc chùy", swing: "vung chùy", blow: "nhát chùy", art: "chùy pháp", cut: "đập nát", strike: "nện" },
+    magic: { noun: "cây trượng phép", short: "trượng phép", draw: "giương trượng phép", swing: "phóng phép", blow: "đòn phép", art: "phép thuật", cut: "dùng lưỡi phép cắt đứt", strike: "dùng phép đánh", cutShort: "cắt đứt", strikeShort: "đánh" },
+    claw: { noun: "móng vuốt", short: "móng vuốt", draw: "giương móng vuốt", swing: "vung móng vuốt", blow: "nhát cào", art: "vuốt pháp", cut: "cào đứt", strike: "cào" },
+  };
+  // trade → weapon (first match), then the trade's look, then the race
+  const WEAPON_RULES = [
+    ["magic", /pháp sư|mage|priest|shaman|warlock|caller|scribe|scholar|học giả|archmage|sage|envoy|chấp sự|awakened|serpent priest|venom master|magic slime|blood mage/i],
+    ["bow", /ranger|hunter|archer|cung|scout|tamer|sniffer|night hunter/i],
+    ["dagger", /assassin|thief|spy|stalker|blade|trickster|messenger|courier|hidden|poison slime|trapper/i],
+    ["spear", /rider|lizardman warrior|yggdrasil|guardian|sentinel|labyrinth guardian/i],
+    ["axe", /berserker|leatherworker|herder|orc|goblin warrior|troll/i],
+    ["hammer", /smith|rèn|miner|carver|engineer|tinker|drudge|shield warrior|mountain guard|brewmaster|woodcarver/i],
+    ["mace", /paladin|thánh kỵ sĩ|overseer/i],
+    ["claw", /dragon|slime|familiar|pet/i],
+    ["sword", /kiếm sĩ|swordsman|gladiator|mercenary|lính|knight|general|abyssal lord|merc/i],
   ];
-  const keepCase = (from, to) => (from.charAt(0) === from.charAt(0).toUpperCase() ? to.charAt(0).toUpperCase() + to.slice(1) : to);
-  function casterWords(text, c, data, isLabel) {
+  const LOOK_WEAPON = { phapsu: "magic", thosan: "bow", chienbinh: "sword" };
+  function weaponOf(c, data) {
     const j = c.job && data && jobDef(c, data);
-    if (!j || j.look !== "phapsu" || !/kiếm|gươm|chém/i.test(text)) return text;
-    return String(text).split(/(?<=[.!?…;])\s+/).map((sent, si) => {
-      let out = sent;
-      for (const [re, to] of MAGE_WORDS) {
+    if (!j) return null;
+    if (j.weapon) return j.weapon;
+    const t = `${j.id} ${j.name}`;
+    for (const [k, re] of WEAPON_RULES) if (re.test(t)) return k;
+    return LOOK_WEAPON[j.look] || null; // nobles, bards, farmers: no weapon of their own
+  }
+  // a dagger anyone may carry: it is never changed
+  const W_ANY = "trượng phép|kiếm|gươm|đao|rìu|búa|chùy|giáo|cung|nỏ|trượng";
+  const WEAPON_PATTERNS = [
+    [new RegExp(`(?:rút|tuốt) (?:${W_ANY}|vũ khí)`), "draw"],
+    [new RegExp(`giương (?:cung|nỏ|giáo|trượng)`), "draw"],
+    [new RegExp(`(?:vung|múa) (?:${W_ANY}|vũ khí)`), "swing"],
+    [/tra (?:kiếm|gươm|đao)(?: vào vỏ)?/, "sheathe"],
+    [new RegExp(`(?:thanh|cây|ngọn|con|lưỡi) (?:${W_ANY})`), "noun"],
+    [new RegExp(`(?:nhát|đường) (?:kiếm|gươm|đao|rìu|búa|chùy|dao)|nhát chém|mũi (?:tên|giáo|kiếm)`), "blow"],
+    [/(?:kiếm|đao) (?:thuật|pháp)/, "art"],
+    [/chém đứt/, "cut"],
+    [/chém|bổ vào|nện vào/, "strike"],
+    [/bắn(?= (?:vào|trúng|hạ|xuyên|tỉa|thẳng|trượt|gục|vỡ))/, "strikeSp"],
+    [new RegExp(`(?:${W_ANY})`), "short"],
+  ];
+  const ENEMY = /(?<!\p{L})(hắn|nó|gã|ả|y|chúng|họ|kẻ|tên|lão|mụ|đối thủ|kẻ địch|quân địch|con quái|lũ|bọn|đám)(?!\p{L})/u;
+  const keepCase = (from, to) => (from.charAt(0) === from.charAt(0).toUpperCase() ? to.charAt(0).toUpperCase() + to.slice(1) : to);
+  function weaponWords(text, c, data, isLabel) {
+    const kind = weaponOf(c, data);
+    if (!kind || !text) return text;
+    const W = WEAPON_KINDS[kind];
+    if (!new RegExp(W_ANY + "|vũ khí|chém|bắn|mũi tên").test(text)) return text;
+    const ownRe = new RegExp(`^(?:${W.short}|${W.noun})`, "i");
+    return String(text).split(/(?<=[.!?…;])\s+/).map((sent) => {
+      // every match is decided on the sentence as written; the first pattern to claim a stretch wins
+      const edits = [];
+      const free = (a, b) => edits.every((e) => b <= e.a || a >= e.b);
+      for (const [re, part] of WEAPON_PATTERNS) {
         const g = new RegExp(`(?<!\\p{L})(${re.source})(?!\\p{L})`, "giu");
-        out = out.replace(g, (m, _1, ...rest) => {
-          const at = rest[rest.length - 2], whole = rest[rest.length - 1];
-          const before = whole.slice(Math.max(0, at - 28), at);
-          const after = whole.slice(at + m.length, at + m.length + 12);
-          // you hold it: "bạn rút kiếm", "thanh kiếm của bạn", or a choice that starts with the act
-          // a sword as a thing (picked up, sold, forged) stays; a sword in use becomes the staff
-          const noun = /^(thanh|cây|lưỡi|mũi|chuôi)\s/i.test(m);
-          if (noun) return /^\s*(của bạn|trong tay bạn)/.test(after) || /(?<!\p{L})(vung|rút|giơ|cầm|siết|nắm|đâm|giương|tung|chĩa|vác)\s*$/iu.test(before) && /(?<!\p{L})bạn(?!\p{L})/iu.test(before) ? keepCase(m, to) : m;
-          const mine = /(?<!\p{L})bạn(?:\s+\p{L}+){0,3}\s*$/iu.test(before) && !/(?<!\p{L})(hắn|nó|gã|ả|y|chúng|họ|kẻ|tên|lão|mụ)(?!\p{L})[^,]*$/u.test(before.split(/bạn/i).pop())
-            || /^\s*(của bạn|trong tay bạn)/.test(after) || (isLabel && si === 0 && at <= 2);
-          return mine ? keepCase(m, to) : m;
-        });
+        let mm;
+        while ((mm = g.exec(sent))) {
+          const m = mm[0], at = mm.index;
+          if (!free(at, at + m.length)) continue;
+          const before = sent.slice(Math.max(0, at - 30), at);
+          const after = sent.slice(at + m.length, at + m.length + 14);
+          const to = part === "sheathe" ? (kind === "magic" ? "thu trượng" : kind === "bow" ? "hạ cung" : null) : part === "strikeSp" ? (kind === "bow" ? null : W.strike) : W[part];
+          const bare = m.replace(/^(thanh|cây|ngọn|con|lưỡi|rút|tuốt|vung|múa|giương|nhát|đường) /i, "");
+          if (!to || to.toLowerCase() === m.toLowerCase()) continue;
+          if (part !== "strike" && part !== "cut" && part !== "strikeSp" && ownRe.test(bare)) { edits.push({ a: at, b: at + m.length, t: m }); continue; }
+          if ((part === "strike" || part === "cut") && (kind === "sword" || (kind === "axe" && /bổ/.test(m)))) continue;
+          const noun = part === "noun" || part === "short";
+          let mine;
+          if (isLabel) mine = !ENEMY.test(before.split(/[,:]/).pop());
+          else {
+            mine = (/(?<!\p{L})bạn(?:\s+\p{L}+){0,3}\s*$/iu.test(before) && !ENEMY.test(before.split(/bạn/i).pop() || ""))
+              || /^\s*(của bạn|trong tay bạn)/.test(after);
+            if (noun && !/^\s*(của bạn|trong tay bạn)/.test(after)) mine = mine && /(?<!\p{L})(vung|rút|giơ|cầm|siết|nắm|giương|tung|chĩa|vác|bằng)\s*$/iu.test(before);
+          }
+          // right after the weapon phrase just changed: "phóng phép cắt đứt", not "phóng phép dùng phép cắt đứt"
+          let t = to;
+          if (/^(strike|cut|strikeSp)$/.test(part) && edits.some((e) => (e.part === "swing" || (kind === "magic" && e.part === "draw")) && e.b <= at && at - e.b <= 2))
+            t = (part === "cut" ? W.cutShort : W.strikeShort) || to;
+          if (mine) edits.push({ a: at, b: at + m.length, t: keepCase(m, t), part });
+          else if (noun) edits.push({ a: at, b: at + m.length, t: m }); // someone else's: hold it, no smaller pattern may touch it
+        }
       }
+      let out = sent;
+      for (const e of edits.sort((x, y) => y.a - x.a)) out = out.slice(0, e.a) + e.t + out.slice(e.b);
       return out;
     }).join(" ");
   }
+  const WEAPON_STAT = { sword: "STR", axe: "STR", spear: "STR", hammer: "STR", mace: "STR", claw: "STR", bow: "AGI", dagger: "AGI", magic: "INT" };
+  // kept for older callers
+  const casterWords = weaponWords;
 
   function fmt(text, c, extra, data) {
     const ctx = c.ctx || {};
@@ -470,7 +537,7 @@
   const TRIBE_LIFE = /bộ lạc|bãi lều|lều trại|trong lều|lều của|khu trại|lửa trại|bầy đàn của bạn|cả tộc|Warchief|tù trưởng/i;
   const captiveOk = (t, c) => !FREE_WORLD.test(t) && !CAPTIVE_OUT.test(t) && !(c && c.captive && ["arena", "prison"].includes(c.captive.kind) && TRIBE_LIFE.test(t));
   const CAPTIVE_PLACE = { arena: "hầm ngục dưới đấu trường", slave: "trại nô lệ", prison: "bốn bức tường ngục tối", bound: "sợi dây khế ước" };
-  const FREE_WORLD = /Guild Bình Minh|Dawnbreak Guild|bảng nhiệm vụ|nhận nhiệm vụ|quán rượu|quán trọ|tửu quán|phiên chợ|khu chợ|mạo hiểm giả hạng|lữ hành|du ngoạn|buổi tuyển chọn|dạ tiệc|vũ hội|học viện|trường học|thuê một căn|mua một căn|dọn ra ở riêng|tổ đội của bạn|hộ tống|đoàn xe|thương đoàn|lên đường|chuyến đi|tiền lương|trừ (?:tiền|lương)|tiền công|chủ xưởng|làm thuê|phường hội|học việc|mời (?:đại )?tư tế|mua sắm|cửa hàng|tiệm/i;
+  const FREE_WORLD = /Guild Bình Minh|Dawnbreak Guild|bảng nhiệm vụ|nhận nhiệm vụ|quán rượu|quán trọ|tửu quán|phiên chợ|khu chợ|mạo hiểm giả hạng|lữ hành|du ngoạn|buổi tuyển chọn|dạ tiệc|vũ hội|học viện|trường học|thuê một căn|mua một căn|dọn ra ở riêng|tổ đội của bạn|hộ tống|đoàn xe|thương đoàn|lên đường|chuyến đi|tiền lương|trừ (?:tiền|lương)|tiền công|chủ xưởng|làm thuê|phường hội|học việc|mời (?:đại )?tư tế|mua sắm|cửa hàng|tiệm|(?:một |con |ngõ )hẻm|hẻm tối|góc phố|đường phố/i;
   const FREED = /(?:chém|cắt|tháo|bẻ|đập|giật) (?:đứt |gãy |vỡ |tung )?(?:xiềng|gông|còng|vòng cổ)|thoát thân|phá sập cổng|hệ thống nô lệ|trốn thoát|thoát khỏi|phá (?:tan |nát |vỡ )?(?:xiềng|gông|cũi|lồng|ngục)|chặt đứt (?:xiềng|gông)|chuộc (?:thân|lại tự do)|được thả|trả tự do|giải phóng|vượt ngục|phá ngục|bỏ trốn|tự do/i;
   const NOT_FREED = /không (?:thể|bao giờ|được|kịp|còn)[^.]{0,25}(?:tự do|trốn|thoát)|mất (?:đi )?tự do|bị bắt lại|giấc mơ tự do|khao khát tự do|mơ (?:về|tới) tự do/i;
   const FIGHTER_JOB = /gladiator|đấu sĩ|giác đấu|berserker|fodder|smash|brute|meat shield|scrapper|pit|arena/i;
@@ -1476,6 +1543,7 @@
     const isLast = stageIndex(c) === stagesOf(c.race).length - 1;
     return (data.focus || [])
       .map((f) => focusDef(c, data, f.id))
+      .map((f) => (f && DRINK.test(f.name || "") && ["infant", "child", "teen"].includes(st) ? Object.assign({}, f, { name: "Nghỉ ngơi", desc: (f.desc || "").replace(/[^.]*(rượu|say)[^.]*\.?/gi, "").trim() || "Hồi sức, ngủ cho đã" }) : f))
       .filter((f) => {
         if (f.hidden) return false;
         if (f.stages && !f.stages.includes(st) && !(isLast && f.stages.includes("elder"))) return false;
@@ -1532,7 +1600,10 @@
     let t = fmt(causeText, c, null, data).trim();
     if (t && !/[.!?…]$/.test(t)) t += ".";
     c.cause = t;
-    pushLog(c, "death", c.cause);
+    // the scene that killed you already told it: no second copy of the same line
+    const last = c.log[c.log.length - 1];
+    if (last && last.text && last.text.trim().replace(/\.$/, "") === t.replace(/\.$/, "")) last.kind = "death";
+    else pushLog(c, "death", c.cause);
     c.biography = biography(c, data);
   }
 
@@ -1571,7 +1642,17 @@
 
   // ---------- system scenes (built by the engine, worded in data/systems.json) ----------
   function scene(c, kind, text, choices, extra, data) {
-    if (data) choices = choices.map((ch) => (ch.label ? Object.assign({}, ch, { label: casterWords(fmt(ch.label, c, null, data), c, data, true) }) : ch));
+    if (data)
+      choices = choices.map((ch) => {
+        if (!ch.label) return ch;
+        const raw = fmt(ch.label, c, null, data);
+        const label = weaponWords(raw, c, data, true);
+        const out = Object.assign({}, ch, { label });
+        // you fight with your trade's weapon, so its stat decides: a mage's spell is Trí tuệ, not Sức mạnh
+        const ws = WEAPON_STAT[weaponOf(c, data)];
+        if (label !== raw && ws && ch.check && ["STR", "AGI"].includes(ch.check.stat) && ch.check.stat !== ws && !/thể lực|sức mạnh|sức vóc|cơ bắp/i.test(label)) out.check = Object.assign({}, ch.check, { stat: ws });
+        return out;
+      });
     c.pending = Object.assign({ kind, text, choices }, extra || {});
     pushLog(c, "choice", text);
   }
@@ -2030,6 +2111,8 @@
     let act = f && f.name ? lowerFirst(f.name) : "những việc thường ngày";
     if (c.captive && c.captive.temp) act = { prison: "những ngày ngồi tù", slave: "kiếp làm nô lệ", arena: "những trận đấu sống còn nơi đấu trường" }[c.captive.kind] || "những ngày bị giam cầm";
     if (c.focus === "work" && j) act = `công việc ${j.name}`;
+    // a child does not drink: "uống rượu nghỉ ngơi" at eight is just rest
+    if (DRINK.test(act) && ["infant", "child", "teen"].includes(stageId)) act = "những ngày nghỉ ngơi";
     let with_ = "";
     if (c.captive && c.captive.temp) with_ = "";
     else if (c.band && aliveParty(c).length) with_ = ` cùng ${groupName(c, data)}`;
@@ -2368,6 +2451,8 @@
   }
 
   const api = {
+    weaponWords,
+    weaponOf,
     STAT_KEYS,
     BAR_KEYS,
     STAT_LABEL,

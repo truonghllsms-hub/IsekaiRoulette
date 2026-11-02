@@ -32,7 +32,7 @@ module.exports = {
     elf: [["Mũi Tên Xanh", "Green Arrow"], ["Lữ Đoàn Chạng Vạng", "Twilight Brigade"], ["Bạch Ngọc", "White Jade"], ["Quạ Đen", "Black Raven"], ["Suối Tơ", "Silkstream"], ["Chân Trời Cũ", "Old Horizon"]],
     ghoul: [["Bầy Hắc Cốt", "Blackbone Pack"], ["Đội Quân Sương Mù", "Mist Legion"], ["Nhóm Khất Thực", "The Beggars"], ["Thực Khách Chiến Trường", "Battlefield Diners"], ["Hội Ái Tử", "Necrophile Society"]],
     goblin: [["Đuôi Chuột Cháy", "Burnt Rat-Tail"], ["Rìu Máu", "Blood Axe"], ["Mắt Trắng", "White Eye"], ["Nanh Cuồng", "Mad Fang"], ["Sẹo Đỏ", "Red Scar"]],
-    human: [["Đuốc Bình Minh", "Dawn Torch"], ["Thiết Huyết Đoàn", "Iron Blood Company"], ["Hắc Kim", "Black Gold"], ["Dạ Hành", "Nightwalkers"], ["Hoa Hồng Vàng", "Golden Rose"], ["Bức Tường Hoàng Hôn", "Dusk Wall"]],
+    human: [["Đuốc Bình Minh", "Dawn Torch"], ["Thiết Huyết Đoàn", "Iron Blood Company"], ["Thiết Huyết", "Iron Blood"], ["Hắc Kim", "Black Gold"], ["Dạ Hành", "Nightwalkers"], ["Hoa Hồng Vàng", "Golden Rose"], ["Bức Tường Hoàng Hôn", "Dusk Wall"]],
     imp: [["Hội Đổ Xỉ", "Slag Dumpers' Club"], ["Cánh Lủng", "Torn Wings"], ["Móng Chồn", "Weasel Claw"], ["Hội Đội Bình", "Jar Bearers' Club"], ["Liên Minh Cắt Xích", "Chainbreaker Alliance"]],
     kobold: [["Đội Xuyên Sơn", "Mountain Borers"], ["Nhóm Chuột Trắng", "White Rats"], ["Hội Mầm Mống", "The Seedlings"], ["Bóng Đêm Sườn Núi", "Ridge Shadows"], ["Vảy Bụi Than", "Coal-Dust Scales"]],
     lizardman: [["Nanh Lởm Chởm", "Jagged Fang"], ["Nọc Xanh", "Green Venom"], ["Vuốt Tự Do", "Free Claw"], ["Vảy Huyết", "Blood Scale"], ["Bùn Đen", "Black Mud"]],
