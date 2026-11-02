@@ -124,14 +124,14 @@ def sprite_from(a, face, bg, boxes):
     First the inside of the tile, background peeled off from its edge; if the figure runs into
     that edge (it spills over its tile), the whole figure is taken around the tile instead."""
     x0 = min(b[0] for b in boxes); y0 = min(b[1] for b in boxes); x1 = max(b[2] for b in boxes); y1 = max(b[3] for b in boxes)
-    ins = max(2, int(min(x1 - x0, y1 - y0) * 0.06))
+    ins = max(2, int(min(x1 - x0, y1 - y0) * 0.035))
     inner = a[y0 + ins:y1 - ins, x0 + ins:x1 - ins]
     if inner.shape[0] > 20 and inner.shape[1] > 20:
         rgba = ii.remove_background(Image.fromarray(inner), tol=36)
         al = clean(rgba[:, :, 3])
         op = al > 0
         edge = np.concatenate([op[0], op[-1], op[:, 0], op[:, -1]]).mean()
-        if op.mean() > 0.02 and edge < 0.06 and op.mean() < 0.75:
+        if op.mean() > 0.02 and edge < 0.012 and op.mean() < 0.75:
             ys, xs = np.where(op)
             first = np.dstack([inner[ys.min():ys.max() + 1, xs.min():xs.max() + 1], al[ys.min():ys.max() + 1, xs.min():xs.max() + 1]])
             # the peel can eat into a figure the colour of its tile: the other way may keep more of it
@@ -240,6 +240,10 @@ def sprite_around(a, face, bg, boxes):
 
 
 def clean(alpha):
+    return regrow(alpha, _clean(alpha))
+
+
+def _clean(alpha):
     """Keep the figure: drop thin strokes (rims, brackets, letters) and specks away from it."""
     # 1-2 pixel strokes (a tile rim touching the figure) go first; sprite pixels are wider
     m = ndimage.binary_opening(alpha > 0, structure=np.ones((3, 3)))
@@ -262,8 +266,57 @@ def clean(alpha):
         h_, w_ = o[0].stop - o[0].start, o[1].stop - o[1].start
         return h_ < 0.3 * mh and w_ > 1.8 * h_ and (o[0].stop <= my0 + 0.15 * mh or o[0].start >= my1 - 0.15 * mh)
 
-    keep = [main] + [i + 1 for i in range(n) if i + 1 != main and size[i] >= size[main - 1] * 0.02 and thick[i] >= size[i] * 0.35 and not label_like(i)]
+    keep = [main] + [i + 1 for i in range(n) if i + 1 != main and size[i] >= size[main - 1] * 0.006 and thick[i] >= size[i] * 0.2 and not label_like(i)]
     return np.where(np.isin(lab, keep), alpha, 0).astype(np.uint8)
+
+
+def regrow(orig, kept):
+    """Pixels of the original lying right next to what clean() kept: the edges the opening shaved off."""
+    grown = ndimage.binary_dilation(kept > 0, structure=np.ones((3, 3)), iterations=2)
+    return np.where(grown & (orig > 0), 255, 0).astype(np.uint8)
+
+
+def unrim(alpha):
+    """Drop tile rims: long straight strokes only a few pixels thick (a figure is never that)."""
+    m = alpha > 0
+    h, w = m.shape
+    kill = np.zeros_like(m)
+    for horiz in (True, False):
+        mm = m if horiz else m.T
+        H, W = mm.shape
+        for y in range(H):
+            row = mm[y]
+            x = 0
+            while x < W:
+                if not row[x]:
+                    x += 1
+                    continue
+                e = x
+                while e < W and row[e]:
+                    e += 1
+                if e - x >= max(12, 0.3 * W):
+                    # thickness of this run: how many rows around it share most of it
+                    t = 1
+                    for d in (-4, -3, -2, -1, 1, 2, 3, 4):
+                        yy = y + d
+                        if 0 <= yy < H and mm[yy, x:e].mean() > 0.8:
+                            t += 1
+                    if t <= 4:
+                        if horiz:
+                            kill[y, x:e] = True
+                        else:
+                            kill[x:e, y] = True
+                x = e
+    if not kill.any():
+        return alpha
+    a2 = np.where(kill, 0, alpha).astype(np.uint8)
+    # bits of rim left hanging after the cut go too
+    lab, n = ndimage.label(a2 > 0, structure=np.ones((3, 3)))
+    if n > 1:
+        size = ndimage.sum(a2 > 0, lab, range(1, n + 1))
+        big = size.max()
+        a2 = np.where(np.isin(lab, [i + 1 for i in range(n) if size[i] >= big * 0.006]), a2, 0).astype(np.uint8)
+    return a2
 
 
 def page_images(pdf, folder):
@@ -337,6 +390,11 @@ def main(src, out_dir, report=None):
                         if not len(ys):
                             break
                         arr = arr[ys.min():ys.max() + 1, xs.min():xs.max() + 1]
+                    arr = arr.copy()
+                    arr[:, :, 3] = unrim(arr[:, :, 3])
+                    ys, xs = np.where(arr[:, :, 3] > 0)
+                    if len(ys):
+                        arr = arr[ys.min():ys.max() + 1, xs.min():xs.max() + 1]
                     im = Image.fromarray(arr, "RGBA")
                     im = im.resize((max(1, round(im.width * scale)), max(1, round(im.height * scale))), Image.LANCZOS)
                     # crisp edge after the shrink: alpha is on or off
@@ -362,6 +420,8 @@ def main(src, out_dir, report=None):
     json.dump(atlas, open(os.path.join(out_dir, "atlas.json"), "w"), separators=(",", ":"))
     size = sum(os.path.getsize(os.path.join(out_dir, p + ".png")) for p in atlas)
     print(f"{len(atlas)} người, {sum(len(v) - 1 for v in atlas.values())} ảnh, {size // 1024} KB")
+    # second pass: tile faces left behind a figure, stray specks
+    subprocess.run([sys.executable, os.path.join(ROOT, "tools", "tidy-atlas.py"), out_dir], check=True)
     for p in problems:
         print("  ! " + p)
 

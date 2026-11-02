@@ -83,10 +83,11 @@ function mergePack(data, p, file) {
   for (const d of p.deaths || []) data.deaths.push(Object.assign({ races: [p.race] }, d));
   if (p.focus) data.focusRace[p.race] = p.focus;
   if (p.story) data.story[p.race] = p.story;
-  // a race whose life is fully written: older and shared events step aside
+  // a race whose life is fully written: older and shared events step aside (the roads opened by
+  // what you spend your years on, e.path, stay for everyone)
   if (p.exclusive)
     for (const e of data.events)
-      if (!e.pack && (!e.races || e.races.includes(p.race)))
+      if (!e.pack && !e.path && (!e.races || e.races.includes(p.race)))
         e.excludeRaces = [...new Set([...(e.excludeRaces || []), p.race])];
   if (p.systems) data.systems.race[p.race] = p.systems;
 }
@@ -110,6 +111,7 @@ function loadData() {
     focus: one("focus"),
     quests: one("quests"),
     systems: one("systems"),
+    items: one("items"),
     events,
   };
   for (const f of jsonFiles(PROFILE_DIR)) mergeProfile(data, readJson(path.join(PROFILE_DIR, f)), f);

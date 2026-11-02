@@ -368,6 +368,8 @@
     pushLog(c, "intro", introLine(c));
     pushLog(c, "birth", fmt(origin.text, c, null, data));
     if (CAPTIVE[origin.id]) c.captive = { kind: CAPTIVE[origin.id], since: 0 };
+    c.items = [];
+    heirloomAtBirth(c, data, rng);
     makeCast(c, data, rng);
     c.minions = [];
     const st = storyOf(c, data);
@@ -681,14 +683,16 @@
         if (k && x.alive && !x.left && c.used.some((id) => id.includes(`_cast_${x.kind}_`))) pool.push(...k.recall);
       }
     if (c.band && st.bands && st.bands[c.band.id]) pool.push(...st.bands[c.band.id].recall);
-    return pool.length ? pick(rng, pool) : null;
+    for (const f of c.fallen || []) if (f.bond >= 45) pool.push(pick(rng, [`Đôi khi bạn vẫn quay sang định nói gì đó với ${f.name}, rồi mới nhớ ra.`, `Bạn mang theo một kỷ vật nhỏ của ${f.name}, chưa bao giờ rời người.`, `Mỗi lần ngang qua một đống lửa trại, bạn lại nhớ tiếng cười của ${f.name}.`]));
+    const fit = pool.filter((t) => ageFits(t, c));
+    return fit.length ? pick(rng, fit) : null;
   }
 
   function chapterLine(c, data, rng, stageId) {
     const st = storyOf(c, data);
     const list = st && st.chapters && st.chapters[stageId];
     if (!list || !list.length) return null;
-    const fit = list.filter((x) => storyCond(c, data, x.cond) && (!c.captive || captiveOk(x.text, c)));
+    const fit = list.filter((x) => storyCond(c, data, x.cond) && ageFits(x.text, c) && (!c.captive || captiveOk(x.text, c)));
     return fit.length ? pick(rng, fit).text : null;
   }
 
@@ -843,6 +847,11 @@
       const with_ = aliveParty(c).map((m) => m.name);
       pushLog(c, "story", `Bạn dựng ngọn cờ của riêng mình: tổ đội ${c.band.name}. ` + (with_.length ? `Bên bạn lúc này có ${with_.join(", ")}.` : "Lúc này mới chỉ có một mình bạn, phải đi tìm thêm người."));
     }
+    if (eff.item) {
+      const R = (data.items && data.items.relics) || {};
+      const it = typeof eff.item === "string" ? R[eff.item] : eff.item;
+      if (it) giveItem(c, data, Object.assign({ from: "reward" }, it));
+    }
     if (eff.memberJoin && aliveParty(c).length < MAX_PARTY) {
       const st = storyOf(c, data);
       const r = st && st.recruits && st.recruits[eff.memberJoin];
@@ -903,6 +912,10 @@
     if (eff.marry && !c.spouse) {
       const p = (c.ctx && c.ctx.partner) || makePartner(c, data, rng);
       c.spouse = { name: p.name, race: p.race || c.race.name, since: c.age };
+      // whoever you marry is named and told, so later scenes about them are not about a stranger
+      const last = c.log[c.log.length - 1];
+      if (!last || !last.text.includes(p.name)) pushLog(c, "story", `Người cùng bạn nên duyên là ${p.name}${p.race && p.race !== c.race.name ? ` (${p.race})` : ""}. Từ đó, hai người chung một mái nhà.`);
+      addMoment(c, `Kết duyên với ${p.name}`, data);
     }
     if (eff.child) addChild(c, data, rng);
     if (eff.loseChild && c.children.length) {
@@ -1032,6 +1045,53 @@
   // What a scene takes for granted without saying so in its conditions: a parent who is in the room,
   // a companion at your side, a life that is free to walk into a tavern.
   const REMEMBERS = /mộ|di vật|tưởng niệm|di thư|thi hài|thi thể|hài cốt|di ảnh|đã mất|qua đời|đã chết|cái chết|tang lễ|ký ức|kỷ vật|hồn ma|linh hồn|vong hồn|bóng ma|năm xưa|ngày xưa|thuở|nhớ (?:về|lại|tới|đến)|tưởng nhớ|nấm mồ|tro cốt|báo thù cho|trả thù cho|kẻ đã giết|bỏ rơi|bỏ đi|biệt tăm|mất tích|không rõ/i;
+  // ---------- a childhood happens where you were born ----------
+  // a child born in a dungeon or a city does not grow up playing under the World Tree: before the
+  // teens, a line that names a kind of place must name one the birth names too
+  const PLACES = {
+    forest: /Đại Ngàn|cây thế giới|Yggdrasil|cổ thụ|tán cây|rừng thiêng|khu rừng|bìa rừng|rừng sâu|thảm rêu/i,
+    city: /thành phố|thủ đô|Sanctus|đường phố|khu ổ chuột|ngõ hẻm|con hẻm|phiên chợ|khu chợ|kinh thành|lâu đài|dinh thự|thị trấn/i,
+    dungeon: /hầm ngục|ngục tối|tầng hầm/i,
+    mountain: /ngọn núi|dãy núi|lòng núi|sườn núi|hang động|mỏ quặng|hầm mỏ|vách đá/i,
+    swamp: /đầm lầy/i,
+    sea: /bến cảng|hải cảng|bờ biển|biển cả|con thuyền/i,
+    steppe: /thảo nguyên/i,
+    abyss: /vực thẳm|ma giới|hỏa ngục/i,
+    village: /ngôi làng|làng quê|cánh đồng|nông trại/i,
+    caravan: /cỗ xe|đoàn xe|thương đoàn|thương hội|giao thương|đồng bằng/i,
+  };
+  const placesIn = (t) => Object.keys(PLACES).filter((k) => PLACES[k].test(t || ""));
+  function birthPlaces(c) {
+    if (!c._birthPlaces) c._birthPlaces = placesIn(`${c.origin.name || ""} ${c.origin.text || ""} ${c.origin.home || ""}`);
+    return c._birthPlaces;
+  }
+  function placeFits(t, c) {
+    const st = currentStage(c).id;
+    if (st !== "infant" && st !== "child") return true;
+    const home = birthPlaces(c);
+    if (!home.length) return true;
+    const here = placesIn(t);
+    return !here.length || here.some((k) => home.includes(k));
+  }
+
+  // ---------- what a child cannot be doing ----------
+  // drinking, taverns, love and the marriage bed wait for the teens (drink) and adulthood (love)
+  const DRINK = /uống rượu|nốc cạn|nốc rượu|say khướt|say mèm|say xỉn|cụng ly|chén rượu|vò rượu|bình rượu|quán rượu|tửu quán|thanh lâu|kỹ viện/i;
+  const LOVE = /âu yếm|ân ái|chăn gối|người tình|tình nhân|người yêu của bạn|bạn đời|vợ bạn|chồng bạn|đêm tân hôn|nụ hôn|hôn môi|cầu hôn|tán tỉnh/i;
+  function ageFitsNoPlace(t, c) {
+    const st = currentStage(c).id;
+    if ((st === "infant" || st === "child") && (DRINK.test(t) || LOVE.test(t))) return false;
+    if (st === "teen" && /âu yếm|ân ái|chăn gối|đêm tân hôn|vợ bạn|chồng bạn/i.test(t)) return false;
+    return !(!c.spouse && /vợ bạn|chồng bạn|\{spouse\}/i.test(t));
+  }
+  function ageFits(t, c) {
+    const st = currentStage(c).id;
+    if ((st === "infant" || st === "child") && (DRINK.test(t) || LOVE.test(t))) return false;
+    if (st === "teen" && /âu yếm|ân ái|chăn gối|đêm tân hôn|vợ bạn|chồng bạn/i.test(t)) return false;
+    if (!c.spouse && /vợ bạn|chồng bạn|\{spouse\}/i.test(t)) return false;
+    return placeFits(t, c);
+  }
+
   // "Cha mang về…", "Mẹ bạn gọi…", or the parent's own name: a scene leaning on a parent this life no longer has
   // only your own parent: "cha bạn", "mẹ của bạn", or "Cha …"/"Mẹ …" opening a sentence; not "cha Elara", "Rồng mẹ", "tuyên bố"
   const OWN = (w) => new RegExp(`(?<!\\p{L})(?:${w})(?: của)? bạn(?!\\p{L})|(?:^|[.!?…"“]\\s*)(?:${w.replace(/(^|\|)(\p{Ll})/gu, (m, a, b) => a + b.toUpperCase())}) (?!\\p{Lu})(?!mình|nó|hắn|của|cô|anh|ông|họ|ta\\b)`, "u");
@@ -1058,6 +1118,8 @@
     const t = e.text || "";
     const r = e.require || {};
     if (!parentsOk(t, c, r, /_arc_/.test(e.id))) return false;
+    // an origin chain is written for its own birthplace: only the age rules apply to it
+    if (!r.spouse && !(/_arc_/.test(e.id) ? ageFitsNoPlace(t, c) : ageFits(t, c))) return false;
     if (t.indexOf("{") >= 0) {
       for (const who of ["father", "mother"]) {
         const key = who + "Alive";
@@ -1080,7 +1142,7 @@
       if (c.band.leaderGone && t.includes(c.band.leaderGone)) return false;
     }
     // scenes that may come back (a sign, a trial) come back twice at most
-    if (e.once === false && c.used.filter((id) => id === e.id).length >= 2) return false;
+    if (e.once === false && c.used.filter((id) => id === e.id).length >= (/_evo_|_ascend|evolve/.test(e.id) ? 4 : 2)) return false;
     // a child does not sit drinking in a tavern (a Dwarf child may at least be in one)
     const st = currentStage(c).id;
     if ((st === "infant" || st === "child") && (/uống rượu|nốc cạn|say khướt|say mèm|thanh lâu|kỹ viện|cụng ly/i.test(t) || (c.race.id !== "dwarf" && /quán rượu|tửu quán/i.test(t)))) return false;
@@ -1127,6 +1189,90 @@
     addMoment(c, o.joinMoment || `Gia nhập ${o.name}`, data);
   }
 
+  // ---------- gear: weapon, armour, up to three keepsakes ----------
+  // Things you own come from the story itself (picked up, given, won), from your family, from
+  // reaching veteran rank, and from dungeons and studies. Each adds to checks of its stat.
+  const ITEM_MAX_CHARMS = 3;
+  const SLOT_WORD = { weapon: "Vũ khí", armor: "Giáp/y phục", charm: "Bảo vật" };
+  function itemBonus(c, stat) {
+    let n = 0;
+    for (const it of c.items || []) n += (it.bonus && it.bonus[stat]) || 0;
+    return n;
+  }
+  function giveItem(c, data, item, why) {
+    if (!item || !item.name) return;
+    c.items = c.items || [];
+    if (c.items.some((x) => x.name === item.name)) return;
+    const it = Object.assign({ since: c.age }, item);
+    let swapped = null;
+    if (it.slot === "charm") {
+      const charms = c.items.filter((x) => x.slot === "charm");
+      if (charms.length >= ITEM_MAX_CHARMS) { swapped = charms[0]; c.items.splice(c.items.indexOf(swapped), 1); }
+    } else {
+      swapped = c.items.find((x) => x.slot === it.slot) || null;
+      const worth = (x) => Object.values(x.bonus || {}).reduce((a, b) => a + b, 0);
+      // a weaker piece does not push out a better one (the family sword stays if it is as good)
+      if (swapped && worth(swapped) >= worth(it) && it.from !== "story") return;
+      if (swapped) c.items.splice(c.items.indexOf(swapped), 1);
+    }
+    c.items.push(it);
+    const bonus = Object.entries(it.bonus || {}).map(([k, v]) => `${STAT_LABEL[k] || k} +${v}`).join(", ");
+    pushLog(c, "item", `${why ? why + " " : ""}${SLOT_WORD[it.slot] || "Vật phẩm"} mới: ${it.name}${bonus ? ` (${bonus})` : ""}.${swapped ? ` ${swapped.name} được cất đi.` : ""}`);
+  }
+  function loseItem(c, it, how) {
+    c.items = (c.items || []).filter((x) => x !== it);
+    pushLog(c, "item", `Mất ${it.name}${how ? ` (${how})` : ""}.`);
+  }
+  // nouns that make a thing worth keeping, and what they help with
+  const ITEM_NOUNS = [
+    [/(?:thanh |cây |chiếc |lưỡi )?(?:trường kiếm|đoản kiếm|kiếm|gươm|đao|rìu|búa chiến|chùy|giáo|thương|ngọn giáo)/i, "weapon", "STR"],
+    [/(?:cây |chiếc )?(?:cung|nỏ|dao găm|phi đao)/i, "weapon", "AGI"],
+    [/(?:cây |chiếc )?(?:trượng|quyền trượng|gậy phép|đũa phép)/i, "weapon", "INT"],
+    [/(?:bộ |tấm |chiếc )?(?:giáp|khiên|áo giáp|áo choàng)/i, "armor", "STR"],
+    [/(?:chiếc |viên |cái |mảnh |cuốn |quyển )?(?:nhẫn|bùa hộ mệnh|bùa|ngọc|bảo châu|lõi ma lực|lõi mana|tinh thạch|mặt dây chuyền|vòng cổ|vòng tay|huy hiệu|cổ thư|ma đạo thư|bí kíp|kỷ vật)/i, "charm", null],
+  ];
+  const GET = /(?:bạn |)(?:nhặt được|nhận được|được tặng|được trao|tìm thấy|tìm được|đoạt được|cướp được|giành được|rèn được|mua được|lấy được|thu được)|(?:trao|tặng|đưa|ném) cho bạn|(?:trao|tặng) bạn/i;
+  const LOST = /gãy|vỡ nát|vỡ vụn|vỡ tan|bị cướp|bị đánh cắp|đánh rơi|đánh mất|bị tịch thu|tan thành|nứt toác|bán (?:đi|rẻ|mất)/i;
+  function itemsFromText(c, data, text) {
+    if (!text || !c.alive) return;
+    for (const sent of String(text).split(/(?<=[.!?…])\s+/)) {
+      // losing a thing you carry
+      if (LOST.test(sent) && /bạn/i.test(sent))
+        for (const it of (c.items || []).slice()) {
+          // the thing named by its first two words after the classifier: "lá bạc", "kiếm gia truyền"
+          const words = it.name.toLowerCase().replace(/^(chiếc|thanh|cây|bộ|viên|cuốn|tấm|mảnh|quyển|lưỡi|cái)\s+/, "").split(/\s+/);
+          const key = words.slice(0, Math.min(2, words.length)).join(" ");
+          if (key.length > 3 && sent.toLowerCase().includes(key) && !GET.test(sent)) { loseItem(c, it, "trong biến cố năm ấy"); break; }
+        }
+      const g = sent.match(GET);
+      if (!g) continue;
+      const giving = /cho bạn|bạn$/.test(g[0].trim());
+      const mine = giving || /(?<!\p{L})bạn(?!\p{L})/iu.test(sent.slice(Math.max(0, g.index - 30), g.index + g[0].length));
+      if (!mine) continue;
+      const rest = sent.slice(g.index + g[0].length, g.index + g[0].length + 70);
+      for (const [re, slot, stat] of ITEM_NOUNS) {
+        const m = rest.match(re);
+        if (!m || m.index > 18) continue;
+        // the thing and a few words describing it: "một thanh kiếm cổ khắc rune" → "Thanh kiếm cổ khắc rune"
+        let name = rest.slice(m.index).split(/[,.;:!?]|\s(?:và|rồi|nhưng|để|cho|từ|của hắn|của ả|bèn|mà)\s/)[0].trim().split(/\s+/).slice(0, 6).join(" ");
+        name = name.replace(/\s+(bạn|nó|mình)$/i, "");
+        if (name.length < 3 || /^(?:kiếm|tiền)$/i.test(name)) continue;
+        const strong = /cổ|huyền thoại|thần|thánh|ma |hắc|rồng|long|kim cương|huyết kim|tinh bạc|rune|ma thuật|bảo/i.test(name);
+        const k = stat || (/(cổ thư|ma đạo thư|bí kíp|lõi|tinh thạch|ngọc)/i.test(name) ? "INT" : "LUCK");
+        giveItem(c, data, { name: name.charAt(0).toUpperCase() + name.slice(1), slot, bonus: { [k]: strong ? 2 : 1 }, from: "story" });
+        break;
+      }
+    }
+  }
+  function heirloomAtBirth(c, data, rng) {
+    const H = data.items && data.items.heirlooms;
+    if (!H) return;
+    const list = H[c.race.id] || (["human", "beastman", "dwarf", "elf"].includes(c.race.id) ? H.default : null);
+    if (!list || rng() > 0.35) return;
+    const it = pick(rng, list);
+    giveItem(c, data, Object.assign({ from: "heirloom" }, it), "Thứ duy nhất gia đình để lại cho bạn mang theo suốt đời.");
+  }
+
   // ---------- veteran: the second picture of a trade ----------
   // A trade is drawn twice: as a newcomer, and as a veteran. The veteran mark is the fifth of the
   // seven ranks of one's guild or tribe (B in F→S, Goblin Lord, Warlord…), or the fourth of five
@@ -1159,6 +1305,11 @@
     const tail = GEAR_RACE[c.race.id] || pick(rng || Math.random, GEAR[j.look] || GEAR.thuongdan);
     pushLog(c, "milestone", `${lead}, ${tail}`);
     addMoment(c, `Thành ${j.name} kỳ cựu`, data);
+    const V = data.items && data.items.veteran;
+    if (V && !GEAR_RACE[c.race.id]) {
+      giveItem(c, data, Object.assign({ from: "veteran" }, V[j.look] || V.thuongdan));
+      if (j.look === "chienbinh") giveItem(c, data, Object.assign({ from: "veteran" }, V.chienbinh_armor));
+    }
   }
 
   function setOrgRank(c, data, idx) {
@@ -1185,6 +1336,15 @@
     }
   }
 
+  // what each kind of companion lives for: told when they join, and their own little road later
+  const WISH = {
+    brave: ["được khắc tên lên bảng vàng của Hội ở thủ đô"],
+    loyal: ["tìm lại người thân thất lạc từ ngày làng bị đốt"],
+    greedy: ["tìm ra kho báu mà cha mình mất cả đời để tìm"],
+    cold: ["trả thù kẻ đã thiêu rụi quê nhà"],
+    cheerful: ["mở một quán rượu nhỏ có lò sưởi thật ấm"],
+    timid: ["một lần dám về nhà đối mặt với người cha khắc nghiệt"],
+  };
   function makeCompanion(c, data, rng) {
     const traits = data.systems.traits;
     const custom = sys(c, data, "companions");
@@ -1223,6 +1383,7 @@
       stat,
       power: clamp(randInt(rng, 2, 6) + rank + (trait === "brave" ? 1 : 0), 1, 15),
       trait,
+      wish: pick(rng, WISH[trait] || WISH.brave),
       bond: randInt(rng, 25, 45),
       alive: true,
       since: c.age,
@@ -1278,6 +1439,15 @@
     m.diedAt = c.age;
     c.bars.joy = clamp(c.bars.joy - 15 - Math.round(m.bond / 5), 0, 100);
     pushLog(c, "loss", fmt(pick(rng, sys(c, data, "allyDie")), c, { ally: m.name }, data));
+    // a companion is mourned, the closer the longer; no stranger takes the place at once
+    const years = Math.round(c.age - (m.since != null ? m.since : c.age));
+    let mourn = m.bond >= 60
+      ? `Bạn tự tay đắp mộ cho ${m.name}${years >= 1 ? `, người đã đi cùng bạn ${years} năm` : ""}. Suốt nhiều đêm sau, chỗ ngồi bên đống lửa vẫn để trống.`
+      : `Bạn chôn ${m.name} ở nơi họ ngã xuống, khắc tên lên một phiến đá.`;
+    if (m.wish) mourn += ` Ước nguyện ${m.wish} của ${m.name} sẽ mãi dang dở.`;
+    pushLog(c, "story", mourn);
+    c.fallen = (c.fallen || []).concat({ name: m.name, bond: m.bond, wish: m.wish, at: c.age });
+    c.mourning = { name: m.name, until: c.age + tickYears(c) * (m.bond >= 60 ? 2 : 1) };
     addMoment(c, `Mất đi ${m.name}`, data);
   }
 
@@ -1294,7 +1464,7 @@
 
   // Stats (about 1–15) move the odds 8% per point; bars and fame (0–100) about 1.5% per point.
   function successChance(c, check) {
-    const v = statValue(c, check.stat);
+    const v = statValue(c, check.stat) + (STAT_KEYS.includes(check.stat) ? itemBonus(c, check.stat) : 0);
     const slope = STAT_KEYS.includes(check.stat) || check.stat === "best" || check.stat === "jobstat" ? 0.08 : 0.015;
     const base = 0.5 + (v - check.target) * slope + (c.stats.LUCK - 5) * 0.02;
     return clamp(base + partyBonus(c, check), 0.05, 0.95);
@@ -1376,8 +1546,11 @@
     );
     // a captive dies where it is kept, not on a road or in a forest
     if (c.captive) { const inside = pool.filter((d) => captiveOk(d.text, c) && !/mạo hiểm giả|đi ngang qua|Rừng Tân Thủ/i.test(d.text)); if (inside.length) pool.splice(0, pool.length, ...inside); }
+    // dragons, demon lords, demons and vampires do not die of a fever or a roadside robbery
+    const mythic = ["dragon", "high_demon", "demon", "vampire"].includes(c.race.id);
+    if (mythic) { const grand = pool.filter((d) => !/vô duyên|đạo chích|cơn sốt|cảm lạnh|bọn cướp|ngủ quên quá giờ/i.test(d.text)); if (grand.length) pool.splice(0, pool.length, ...grand); }
     const specific = pool.filter((d) => d.races && d.races.length);
-    const d = weightedPick(specific.length && rng() < 0.7 ? specific : pool, rng);
+    const d = weightedPick(specific.length && (mythic || rng() < 0.7) ? specific : pool, rng);
     return d ? d.text : "Bạn qua đời.";
   }
 
@@ -1436,6 +1609,8 @@
         moment: `Trở thành ${j.name}`,
       };
     });
+    // trades you are not fit for are not shown at all
+    for (let k = choices.length - 1; k >= 0; k--) if (choices[k].disabled) choices.splice(k, 1);
     choices.push({ label: s.later, text: s.laterText, act: { type: "jobLater" } });
     const st = currentStage(c).id;
     const intro = c.captive
@@ -1642,7 +1817,8 @@
     // raids and companions start from the teens, or from systems.race[id].activeFrom
     const activeFrom = st0.findIndex((s) => s.id === (sys(c, data, "activeFrom") || "teen"));
     const active = activeFrom >= 0 ? i >= activeFrom : !["infant", "child"].includes(st);
-    if (c.guild && !sys(c, data, "noRecruit") && aliveParty(c).length < MAX_PARTY && ["adventure", "social"].includes(c.focus) && active) {
+    const mourning = c.mourning && c.age < c.mourning.until;
+    if (c.guild && !sys(c, data, "noRecruit") && !mourning && aliveParty(c).length < MAX_PARTY && ["adventure", "social"].includes(c.focus) && active) {
       const p = aliveParty(c).length === 0 ? 0.5 : 0.15;
       if (rng() < Math.min(0.9, p * Math.min(per, 2))) {
         recruitScene(c, data, rng);
@@ -1693,7 +1869,7 @@
     applyEffects(c, e.effects, data, rng);
     if (e.moment) addMoment(c, e.moment, data);
     if (e.death) die(c, data, e.death);
-    else jailCheck(c, data, `${e.text} ${e.result || ""}`, rng);
+    else { jailCheck(c, data, `${e.text} ${e.result || ""}`, rng); itemsFromText(c, data, e.result || ""); }
     c.ctx = null;
   }
 
@@ -1709,11 +1885,91 @@
 
   function pickEvent(c, data, rng, stageId) {
     const all = data.events.filter((e) => !e.arc && eligible(e, c, stageId, data));
+    // what you spend your years on opens its own road: dungeons, study, politics, the martial way,
+    // a hermit's lake. A step of that road comes first more often than not.
+    const paths = all.filter((e) => e.path);
+    if (paths.length && rng() < (c.focus === "adventure" ? 0.7 : 0.55)) return weightedPick(paths, rng, (e) => e.weight || 10);
     const focused = all.filter((e) => e.focus);
     const general = all.filter((e) => !e.focus);
     // Race-made events (from a pack) are favoured over the old generic pool.
     const pool = focused.length && (rng() < 0.6 || !general.length) ? focused : general;
     return weightedPick(pool, rng, (e) => (e.weight == null ? 1 : e.weight) * (e.pack ? 3 : 1));
+  }
+
+  // ---------- deep time and short lives ----------
+  const DEEP = {
+    dragon: [
+      "Lớp rêu trên vảy bạn dày thêm một tấc.",
+      "Dòng sông dưới chân núi đổi dòng hai lần. Bạn chỉ trở mình một lần.",
+      "Đống vàng trong hang nguội dần. Bạn nằm trên nó và nghe tiếng gió đổi mùa.",
+      "Những ngôi làng dưới thung lũng mọc lên, cháy rụi, rồi lại mọc lên. Bạn không còn nhớ tên chúng.",
+      "Một hiệp sĩ trẻ leo đến cửa hang, nhìn bạn rất lâu, rồi quay về. Có lẽ cháu chắt hắn giờ cũng đã thành tro.",
+    ],
+    high_demon: [
+      "Ngọn lửa Vực Thẳm đổi màu ba lần. Những kẻ từng quỳ trước bạn, không còn ai sống sót.",
+      "Bạn ngủ một giấc dài. Khi mở mắt, ngôn ngữ của loài người đã khác hẳn.",
+      "Các lãnh chúa trẻ tranh nhau những mảnh đất mà bạn từng chán chẳng buồn giữ.",
+    ],
+    demon: [
+      "Ma Giới đổi chủ vài lần. Bạn học được rằng kẻ sống lâu là kẻ biết lúc nào nên im lặng.",
+      "Những vết sẹo cũ trên sừng mờ dần. Những gương mặt cũ cũng vậy.",
+    ],
+    elf: [
+      "Cây sồi bạn trồng năm nào giờ đã che bóng cả một khoảng rừng.",
+      "Những người bạn loài người bạn từng quen, giờ chỉ còn là những cái tên trên bia đá phủ rêu.",
+      "Đại Ngàn vẫn thế. Chỉ có tiếng chuông từ thành phố loài người phía xa là mỗi lúc một khác.",
+      "Bạn đi qua một ngôi làng, gặp một bé gái có đôi mắt giống hệt người bạn cũ. Bạn không hỏi.",
+    ],
+    vampire: [
+      "Thành phố bên dưới tháp chuông thay đổi đến mức bạn phải học lại đường về nhà.",
+      "Người tình cuối cùng của bạn đã già và nằm xuống. Bạn vẫn giữ chiếc khăn tay của họ trong ngăn kéo.",
+      "Thời trang đổi, ngôn ngữ đổi, giá bánh mì đổi. Chỉ cơn khát là không.",
+    ],
+    ghoul: ["Nghĩa địa bạn trú ngụ được mở rộng ba lần. Bạn biết tên tất cả những người nằm dưới đó."],
+    slime: ["Hang động nhỏ giọt từng chút một. Bạn lớn lên cùng nhịp với những thạch nhũ."],
+    default: [
+      "Ba đời vua loài người lên ngôi rồi nằm xuống. Bạn vẫn ở đây.",
+      "Những gương mặt quen thuộc cứ thưa dần, rồi biến mất hẳn.",
+      "Thế giới đổi thay theo cách của nó. Bạn đổi thay theo cách của bạn, chậm hơn nhiều.",
+    ],
+  };
+  function deepTime(c, rng, n, memory) {
+    const span = n >= 200 ? `${Math.round(n / 100)} thế kỷ trôi qua.` : n >= 95 ? "Một thế kỷ trôi qua." : `${Math.round(n / 10) * 10} năm trôi qua.`;
+    const pool = (DEEP[c.race.id] || []).concat(DEEP.default);
+    const a = pick(rng, pool);
+    let b = pick(rng, pool);
+    if (b === a) b = "";
+    const parts = [span, a];
+    if (memory) parts.push(memory);
+    else if (b && n >= 100) parts.push(b);
+    return parts.filter(Boolean).map((x) => upperFirst(x.trim()).replace(/([^.!?…”"])$/, "$1.")).join(" ");
+  }
+  // a short, hungry life: every year is a fight for scraps
+  const SHORT_LIFE = {
+    infant: [
+      "Bạn giành được miếng thịt cuối cùng trong ổ. Anh em bạn thì không.",
+      "Đêm ấy hang ổ ngập nước. Bạn bám vào lưng một đứa lớn hơn và sống sót.",
+      "Bạn học được rằng khóc to quá thì bị đánh, còn im quá thì bị bỏ quên.",
+    ],
+    child: [
+      "Mùa đông năm ấy thiếu ăn. Bạn gặm vỏ cây và nhìn đứa em nhỏ nhất không dậy nữa.",
+      "Bạn lần đầu ăn trộm được một con gà. Cả đêm bạn ôm nó ngủ, sợ đứa khác giật mất.",
+      "Một con sói lảng vảng quanh hang ba ngày liền. Không ai dám ra ngoài kiếm ăn.",
+      "Bạn có một vết sẹo mới trên trán. Bạn không nhớ nó từ đâu ra, chỉ nhớ hôm đó được ăn no.",
+    ],
+    teen: [
+      "Đứa bạn thân nhất của bạn không trở về sau chuyến đi săn. Bạn giữ con dao cùn của nó.",
+      "Bạn đã sống lâu hơn một nửa số đứa cùng lứa. Bạn bắt đầu thấy sợ.",
+    ],
+    adult: [
+      "Lại một mùa đói. Bạn chia phần ăn cho đứa nhỏ nhất, rồi tự hỏi vì sao mình làm thế.",
+      "Năm nay bầy mất bốn đứa. Bạn đào hố chôn từng đứa một.",
+    ],
+  };
+  function shortLifeLine(c, rng, stageId) {
+    if (c.maxAge == null || c.maxAge > 30 || !(c.race.tags || []).includes("monster")) return null;
+    const list = SHORT_LIFE[stageId] || SHORT_LIFE.adult;
+    return rng() < 0.45 ? pick(rng, list) : null;
   }
 
   function quietText(c, data, rng, stageId) {
@@ -1725,6 +1981,8 @@
       };
       return pick(rng, L[c.captive.kind] || L.prison);
     }
+    const sl = shortLifeLine(c, rng, stageId);
+    if (sl) return sl;
     const f = c.focus ? focusDef(c, data, c.focus) : null;
     const j = jobDef(c, data);
     let list = null;
@@ -1739,7 +1997,8 @@
     const OLD = /già nua|tuổi già|xế chiều|tóc bạc|râu bạc|lưng còng|răng rụng|gậy chống|chống gậy|tuổi xế/i;
     const YOUNG = /chập chững|bập bẹ|tập đi|bú mớm|đứa trẻ con|lũ trẻ con/i;
     const late = ["middle", "elder", "ancient"].includes(stageId), early = ["infant", "child"].includes(stageId);
-    const fit = list.filter((t) => (late || !OLD.test(t)) && (early || !YOUNG.test(t)) && parentsOk(t, c, {}) && (!c.captive || captiveOk(t, c)));
+    const fit = list.filter((t) => (late || !OLD.test(t)) && (early || !YOUNG.test(t)) && parentsOk(t, c, {}) && ageFits(t, c) && (!c.captive || captiveOk(t, c)));
+    if (!fit.length && ["infant", "child"].includes(stageId)) return "Những năm thơ ấu trôi qua quanh nơi bạn chào đời, giữa những thứ quen thuộc nhất.";
     return pick(rng, fit.length ? fit : list);
   }
 
@@ -1758,11 +2017,12 @@
     if (c.captive && c.captive.temp) with_ = "";
     else if (c.band && aliveParty(c).length) with_ = ` cùng ${groupName(c, data)}`;
     else if (c.spouse) with_ = ` bên ${c.spouse.name}`;
+    // a long life told in centuries: the world below moves, you barely do
+    if (n >= 40 && !(c.captive && c.captive.temp)) return deepTime(c, rng, n, memory);
     const span = n <= 4 ? pick(rng, ["Vài năm sau đó", "Mấy năm tiếp theo"]) : `${n} năm sau đó`;
     const lead = pick(rng, [
-      `${span} trôi qua không có biến cố lớn; phần lớn thời gian bạn dành cho ${act}${with_}.`,
-      `${span}, ngày nào của bạn cũng xoay quanh ${act}${with_}.`,
-      `${span} là chuỗi ngày ${act}${with_}, đều đặn và lặng lẽ.`,
+      `${span}, vẫn là ${act}${with_}.`,
+      `${span} trôi đi trong ${act}${with_}.`,
     ]);
     const parts = [lead, flavor];
     if (memory) parts.push(memory);
@@ -1803,7 +2063,9 @@
       quiet = { from: c.age, to: c.age, ticks: 0, gains: {} };
     };
 
-    for (let t = 0; t < MAX_TICKS_PER_CLICK; t++) {
+    // a short life is lived year by year: a Goblin's twelve years should not pass in two clicks
+    const maxTicks = c.maxAge != null && c.maxAge <= 30 ? 2 : c.maxAge != null && c.maxAge <= 45 ? 4 : MAX_TICKS_PER_CLICK;
+    for (let t = 0; t < maxTicks; t++) {
       const mark = c.log.length;
       const years = tickYears(c);
       c.age += years;
@@ -1850,7 +2112,24 @@
         } else {
           // a story node whose time has come goes before anything random
           // short lives get a story beat more often, or the threads never meet
-          const node = careerScene(c, data, rng) ? null : rng() < (lifePace(c.race) > 1 ? 0.85 : 0.6) ? storyNode(c, data, rng, stageId) : null;
+          let node = careerScene(c, data, rng) ? null : null;
+          // the omen has come: the change of form goes before the rest of the story
+          if (!c.pending && !c.form && c.flags.some((f) => /^evo_sign/.test(f)) && rng() < 0.7) {
+            const asc = data.events.filter((e) => e.races && e.races.includes(c.race.id) && /"evolve"/.test(JSON.stringify(e.choices || e.effects || "")) && eligible(e, c, stageId, data));
+            if (asc.length) node = weightedPick(asc, rng, (e) => e.weight || 10);
+          }
+          if (!node && !c.pending) node = rng() < (lifePace(c.race) > 1 ? 0.85 : 0.6) ? storyNode(c, data, rng, stageId) : null;
+          // a monster's evolution is the turning point of its life: when the body is ready, it comes
+          if (!node && !c.pending && !c.form && c.race.tags && c.race.tags.includes("monster")) {
+            const evo = data.events.filter((e) => e.races && e.races.includes(c.race.id) && /"evolve"|evo_sign/.test(JSON.stringify(e.choices || e.effects || "")) && eligible(e, c, stageId, data));
+            if (evo.length && rng() < 0.6) node = weightedPick(evo, rng, (e) => e.weight || 10);
+          }
+          // a road already begun (the next floor of the dungeon, the next step of a career in the
+          // tower) goes on before anything else turns up, as long as you keep at it
+          if (!node && !c.pending) {
+            const next = data.events.filter((e) => e.path && e.require && e.require.flags && eligible(e, c, stageId, data));
+            if (next.length && rng() < 0.65) node = weightedPick(next, rng, (e) => e.weight || 10);
+          }
           const sch = c.pending ? true : node ? (resolveEvent(c, data, node, rng), c.pending ? true : "logged") : scheduled(c, data, rng, years);
           if (sch === true) stop = true;
           else if (!sch) {
@@ -1913,9 +2192,12 @@
         c.job.xp = (jobDef(c, data).promoXp[c.job.rank] || 3) * 0.7;
         c.nextPromo = c.age + tickYears(c) * 2;
         break;
-      case "recruit":
+      case "recruit": {
         c.party.push(act.member);
+        const m = act.member, tr = (data.systems.traits || {})[m.trait];
+        pushLog(c, "story", `${m.name} (${m.race}, ${m.jobName}) là người ${tr ? tr.name.toLowerCase() + ", " + tr.desc : "khó đoán"}.${m.wish ? ` Bên đống lửa đêm đầu tiên, ${m.name} kể rằng cả đời chỉ mong ${m.wish}.` : ""}`);
         break;
+      }
       case "quest": {
         const q = data.quests.find((x) => x.id === act.id);
         c.used.push("quest:" + q.id);
@@ -1968,7 +2250,9 @@
     let outcome = ch;
     let succeeded = true;
     if (ch.check) {
-      succeeded = rng() < successChance(c, ch.check);
+      // the step into a new form is hard, but not hopeless: a body that is ready gets a push
+      const ascending = ch.success && ch.success.effects && ch.success.effects.evolve;
+      succeeded = rng() < Math.min(0.95, successChance(c, ch.check) + (ascending ? 0.2 : 0));
       outcome = succeeded ? ch.success : ch.fail;
     }
     pushLog(c, "picked", ch.label);
@@ -1990,6 +2274,7 @@
       else if (c.captive.temp && outcome.text && JAIL_OUT.test(outcome.text)) setFree(c, data, "Từ ngày đó, bạn không còn là kẻ bị giam cầm.");
       else freedomCheck(c, data, c.ctx && c.ctx.eventId, outcome.text);
     } else if (!outcome.death) jailCheck(c, data, outcome.text, rng);
+    if (!outcome.death) itemsFromText(c, data, outcome.text);
     runAct(c, data, outcome.act || ch.act, rng);
     const moment = outcome.moment || ch.moment;
     if (moment) addMoment(c, moment, data);
@@ -2015,7 +2300,21 @@
     rng = rng || Math.random;
     const totalW = data.races.reduce((s, r) => s + r.weight, 0);
     const pct = Math.round((c.race.weight / totalW) * 1000) / 10;
-    const ep = weightedPick(data.epitaphs.filter((e) => !e.races || e.races.includes(c.race.id)), rng);
+    const j0 = jobDef(c, data);
+    const look = j0 && j0.look;
+    const WHEN = {
+      young: c.maxAge != null ? c.age < c.maxAge * 0.35 : c.age < 30,
+      long: c.age >= 300,
+      spouse: !!c.spouse,
+      children: (c.children || []).length > 0,
+      alone: !c.spouse && !(c.children || []).length && c.age >= 25,
+      captive: !!c.captive,
+      warrior: look === "chienbinh" || look === "thosan",
+      mage: look === "phapsu",
+      worker: look === "tho" || look === "thuongdan",
+    };
+    const eps = data.epitaphs.filter((e) => (!e.races || e.races.includes(c.race.id)) && (!e.when || WHEN[e.when]));
+    const ep = weightedPick(eps, rng, (e) => e.weight || (e.when || e.races ? 6 : 2));
     const profile = [];
     if (c.form) profile.push(`Tiến hóa: ${c.form}`);
     if (c.job) profile.push(jobTitle(c, data));
@@ -2024,9 +2323,28 @@
     if (c.spouse) profile.push(`Bạn đời: ${c.spouse.name}` + (c.children.length ? ` · ${c.children.length} người con` : ""));
     if (c.party.length) profile.push("Đồng đội: " + c.party.map((m) => m.name + (m.alive ? "" : m.left ? " (đã rời)" : " †")).join(", "));
     if (c.fame) profile.push(`Danh vọng ${c.fame}`);
+    // the life card: three marks a stranger would remember
+    const marks = [];
+    if (c.form) marks.push(c.form);
+    else if (c.job) marks.push(jobTitle(c, data));
+    else if (o) marks.push(orgRankName(c, data));
+    const seen = new Set(marks.map((m) => m.toLowerCase()));
+    const big = (c.moments || []).filter((m) => m.text && m.text.length <= 70 && !/^Kết duyên|^Sinh |^Chào đời|chào đời|qua đời|^Trở thành|gia nhập|^Thu phục|^Đứa con/i.test(m.text));
+    for (const m of big.slice().reverse()) {
+      if (marks.length >= 2) break;
+      if (!seen.has(m.text.toLowerCase())) { marks.push(m.text); seen.add(m.text.toLowerCase()); }
+    }
+    if (c.spouse) marks.push(`Bạn đời: ${c.spouse.name}` + (c.children.length ? ` · ${c.children.length} người con` : ""));
+    else if ((c.children || []).length) marks.push(`${c.children.length} người con`);
+    else if ((c.race.tags || []).includes("civil") && c.age >= 25) marks.push("Chưa từng có bạn đời");
+    if (marks.length < 3 && c.questsDone) marks.push(`${c.questsDone} ${(o && o.missionWord) || "nhiệm vụ"} hoàn thành`);
+    if (marks.length < 3 && c.fame >= 30) marks.push(`Danh vọng ${c.fame}`);
+    if (!marks.length) marks.push(c.maxAge != null && c.age < c.maxAge * 0.2 ? "Ra đi khi còn chưa kịp lớn" : `Một đời ${Math.floor(c.age)} năm lặng lẽ`);
+    const epitaph = ep ? fmt(ep.text, c, { pct, cause: c.cause }, data) : "";
     return {
       pct,
-      epitaph: ep ? fmt(ep.text, c, { pct, cause: c.cause }, data) : "",
+      card: { name: c.name, line: `${raceTitle(c)} · ${Math.floor(c.age)} tuổi`, origin: c.origin.name, marks: marks.slice(0, 3), cause: c.cause, epitaph },
+      epitaph,
       moments: c.moments.slice(-10),
       profile,
     };

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "cq_brave_1", "path": "companion", "tags": ["humanoid"], "stages": ["teen", "adult", "middle"], "weight": 30, "require": { "allyTrait": "brave" },
+    "text": "{ally} dán một tờ cáo thị lên bàn: Hội treo thưởng cho ai dẹp được toán cướp núi Răng Cưa. \"Ta muốn tên mình được khắc lên bảng vàng. Đi cùng ta chứ?\"",
+    "choices": [
+      { "label": "Đi cùng {ally}", "check": { "stat": "STR", "target": 8 },
+        "success": { "text": "Hai người đánh tan toán cướp ngay trong hang ổ của chúng. {ally} cười như trẻ con khi nhận tiền thưởng, và lần đầu tiên gọi bạn là anh em.", "effects": { "fame": 10, "bond": 20, "flags": ["cq_brave_1"] } },
+        "fail": { "text": "Toán cướp đông hơn tin đồn. Cả hai rút chạy, {ally} mang một vết chém dài trên vai và một nỗi nhục còn dài hơn.", "effects": { "allyHurt": true, "bond": 5, "flags": ["cq_brave_1"] } } },
+      { "label": "Khuyên {ally} đợi thời", "text": "{ally} cau mày nhưng nghe lời. Tờ cáo thị nằm lại trên bàn, rồi bị người khác xé đi.", "effects": { "bond": -10 } }
+    ]
+  },
+  {
+    "id": "cq_brave_2", "path": "companion", "tags": ["humanoid"], "stages": ["adult", "middle"], "weight": 40, "require": { "allyTrait": "brave", "flags": ["cq_brave_1"] },
+    "text": "Hội gửi thư mời {ally} lên thủ đô nhận vinh danh. Nhưng cùng ngày, một ngôi làng gần đó cầu cứu vì bầy sói ma tràn xuống. {ally} nhìn bạn, chờ một câu trả lời.",
+    "choices": [
+      { "label": "Cùng {ally} cứu làng", "check": { "stat": "best", "target": 9 },
+        "success": { "text": "Làng được cứu. {ally} lỡ buổi vinh danh, nhưng dân làng khắc tên {ally} lên cổng làng. \"Thế này còn hơn bảng vàng,\" {ally} nói.", "effects": { "fame": 12, "bond": 20, "joy": 10 }, "moment": "Cùng {ally} cứu một ngôi làng" },
+        "fail": { "text": "Bầy sói quá đông. {ally} chặn hậu cho dân làng chạy thoát, và không bao giờ trở về.", "effects": { "allyDie": true, "fame": 8 } } },
+      { "label": "Để {ally} đi nhận vinh danh", "text": "{ally} lên đường. Vài tuần sau, bạn nghe tin tên {ally} đã được khắc lên bảng vàng ở thủ đô, đúng như ước nguyện cả đời.", "effects": { "bond": 10, "joy": 6 }, "moment": "{ally} được khắc tên lên bảng vàng" }
+    ]
+  },
+  {
+    "id": "cq_loyal_1", "path": "companion", "tags": ["humanoid"], "stages": ["teen", "adult", "middle"], "weight": 30, "require": { "allyTrait": "loyal" },
+    "text": "Ở một phiên chợ, {ally} đứng sững trước một tấm khăn thêu. Hoa văn ấy chỉ mẹ của {ally} biết thêu. Người bán nói nó đến từ một trại lao dịch ở phía nam.",
+    "choices": [
+      { "label": "Cùng {ally} lần theo manh mối", "check": { "stat": "INT", "target": 8 },
+        "success": { "text": "Hai người hỏi ra tên trại và tên người thêu: đúng là người thân của {ally}, vẫn còn sống. {ally} ôm tấm khăn suốt đêm không ngủ.", "effects": { "bond": 20, "flags": ["cq_loyal_1"] } },
+        "fail": { "text": "Manh mối đứt ở một quán trọ đổ nát. {ally} không nói gì, chỉ gấp tấm khăn cất vào ngực áo.", "effects": { "bond": 8 } } },
+      { "label": "Bảo {ally} đừng hy vọng hão", "text": "{ally} gật đầu, nhưng bạn thấy rõ ánh mắt ấy tắt đi một chút.", "effects": { "bond": -12 } }
+    ]
+  },
+  {
+    "id": "cq_loyal_2", "path": "companion", "tags": ["humanoid"], "stages": ["adult", "middle"], "weight": 40, "require": { "allyTrait": "loyal", "flags": ["cq_loyal_1"] },
+    "text": "Trại lao dịch phía nam hiện ra sau màn mưa. Người thân của {ally} ở bên trong, sau hàng rào gỗ và hai tháp canh.",
+    "choices": [
+      { "label": "Đột nhập ban đêm", "check": { "stat": "AGI", "target": 9 },
+        "success": { "text": "Bạn mở khóa, {ally} cõng người thân chạy qua bãi bùn. Sáng hôm sau, trước đống lửa, {ally} thề sẽ theo bạn đến cuối đời.", "effects": { "bond": 30, "joy": 12 }, "moment": "Giúp {ally} đoàn tụ người thân" },
+        "fail": { "text": "Tháp canh thổi tù và. {ally} bị bắt lại cùng người thân, còn bạn phải bỏ chạy một mình.", "effects": { "allyLeave": true, "joy": -15 } } },
+      { "label": "Chuộc bằng tiền", "check": { "stat": "LUCK", "target": 7 },
+        "success": { "text": "Tên quản trại đếm đủ tiền rồi thả người. Túi bạn nhẹ hẳn, nhưng {ally} nhìn bạn như nhìn một người thân.", "effects": { "wealth": -40, "bond": 25 }, "moment": "Chuộc người thân cho {ally}" },
+        "fail": { "text": "Hắn nhận tiền rồi trở mặt, đòi gấp đôi. Hai người ra về tay trắng.", "effects": { "wealth": -30, "joy": -10 } } }
+    ]
+  },
+  {
+    "id": "cq_greedy_1", "path": "companion", "tags": ["humanoid"], "stages": ["teen", "adult", "middle"], "weight": 30, "require": { "allyTrait": "greedy" },
+    "text": "{ally} trải ra một tấm bản đồ rách nát: \"Kho báu của cha ta. Ông mất cả đời đi tìm. Chia đôi, ta thề.\"",
+    "choices": [
+      { "label": "Cùng {ally} đi tìm", "check": { "stat": "LUCK", "target": 8 },
+        "success": { "text": "Dưới gốc cây sét đánh là một rương sắt mục. Bên trong không nhiều như mơ, nhưng {ally} khóc khi thấy dòng chữ cha khắc trên nắp rương.", "effects": { "wealth": 30, "bond": 18, "flags": ["cq_greedy_1"] } },
+        "fail": { "text": "Bản đồ dẫn tới một cái hố trống rỗng, ai đó đã đào trước. {ally} chửi thề suốt đường về.", "effects": { "bond": 5, "flags": ["cq_greedy_1"] } } },
+      { "label": "Từ chối, quá viển vông", "text": "{ally} cuộn bản đồ lại, lầm bầm rằng sẽ tự đi một mình vào mùa sau.", "effects": { "bond": -10 } }
+    ]
+  },
+  {
+    "id": "cq_greedy_2", "path": "companion", "tags": ["humanoid"], "stages": ["adult", "middle"], "weight": 40, "require": { "allyTrait": "greedy", "flags": ["cq_greedy_1"] },
+    "text": "Một thương nhân trả {ally} số tiền đủ mua cả con phố, chỉ cần {ally} tiết lộ đường đi của đoàn hộ tống mà bạn đang dẫn.",
+    "choices": [
+      { "label": "Nói chuyện thẳng với {ally}", "check": { "stat": "INT", "target": 8 },
+        "success": { "text": "{ally} im lặng rất lâu, rồi xé tờ khế ước. \"Một con phố không đáng giá bằng một người tin mình.\"", "effects": { "bond": 25, "joy": 8 }, "moment": "{ally} chọn bạn thay vì vàng" },
+        "fail": { "text": "Sáng hôm sau, chỗ ngủ của {ally} trống không. Đoàn hộ tống bị phục kích đúng ở khúc quanh mà chỉ hai người biết.", "effects": { "allyLeave": true, "wealth": -30, "joy": -12 } } },
+      { "label": "Đề nghị chia phần lớn hơn", "text": "{ally} nhận lời ngay, cười toe. Nhưng từ đó, bạn luôn ngủ với một mắt mở.", "effects": { "wealth": -20, "bond": 5 } }
+    ]
+  },
+  {
+    "id": "cq_cold_1", "path": "companion", "tags": ["humanoid"], "stages": ["teen", "adult", "middle"], "weight": 30, "require": { "allyTrait": "cold" },
+    "text": "{ally} bỗng đứng khựng lại giữa đường, tay siết chặt vũ khí. Gã đàn ông cưỡi ngựa vừa đi qua có một vết sẹo hình móc câu. \"Chính hắn. Kẻ đã đốt làng ta.\"",
+    "choices": [
+      { "label": "Giúp {ally} bám theo hắn", "check": { "stat": "AGI", "target": 8 },
+        "success": { "text": "Hai người lần ra nơi hắn trú: một pháo đài nhỏ của bọn lính đánh thuê. {ally} lần đầu tiên nói nhiều hơn ba câu, toàn là về ngày làng cháy.", "effects": { "bond": 18, "flags": ["cq_cold_1"] } },
+        "fail": { "text": "Hắn biến mất trong đám đông chợ phiên. {ally} không nói gì cả ngày hôm đó.", "effects": { "bond": 5, "flags": ["cq_cold_1"] } } },
+      { "label": "Kéo {ally} đi, thù hận không đáng", "text": "{ally} giật tay ra, nhìn bạn một cái lạnh như băng, rồi đi theo bạn.", "effects": { "bond": -15 } }
+    ]
+  },
+  {
+    "id": "cq_cold_2", "path": "companion", "tags": ["humanoid"], "stages": ["adult", "middle"], "weight": 40, "require": { "allyTrait": "cold", "flags": ["cq_cold_1"] },
+    "text": "Đêm không trăng. {ally} đứng dưới chân pháo đài của kẻ thù, vũ khí đã tuốt. \"Ngươi không cần vào. Đây là chuyện của ta.\"",
+    "choices": [
+      { "label": "Vào cùng {ally}", "check": { "stat": "STR", "target": 9 },
+        "success": { "text": "Kẻ có vết sẹo móc câu ngã xuống dưới lưỡi vũ khí của {ally}. Lần đầu tiên bạn thấy {ally} mỉm cười, rất khẽ.", "effects": { "bond": 25, "fame": 6 }, "moment": "Cùng {ally} báo thù cho quê nhà" },
+        "fail": { "text": "Bọn lính đánh thuê đông hơn dự tính. {ally} đẩy bạn ra cửa sau rồi quay lại một mình. Bạn chỉ còn nghe tiếng kim loại va nhau.", "effects": { "allyDie": true, "joy": -10 } } },
+      { "label": "Để {ally} đi một mình", "text": "Sáng hôm sau {ally} trở về, áo nhuộm máu, không nói một lời. Nhưng từ đó {ally} không còn đi theo bạn nữa.", "effects": { "allyLeave": true } }
+    ]
+  },
+  {
+    "id": "cq_cheerful_1", "path": "companion", "tags": ["humanoid"], "stages": ["teen", "adult", "middle"], "weight": 30, "require": { "allyTrait": "cheerful" },
+    "text": "{ally} kéo bạn vào một quán rượu bỏ hoang bên đường: \"Nhìn xem, lò sưởi còn tốt, mái chỉ dột chút xíu. Đây chính là quán rượu của đời ta!\"",
+    "choices": [
+      { "label": "Góp tiền sửa quán", "check": { "stat": "LUCK", "target": 7 },
+        "success": { "text": "Hai người sửa xong mái trước mùa mưa. Đêm khai trương chỉ có ba vị khách, nhưng {ally} hát đến khản giọng.", "effects": { "wealth": -20, "bond": 20, "joy": 12, "flags": ["cq_cheerful_1"] } },
+        "fail": { "text": "Chủ đất cũ xuất hiện đòi giấy tờ. {ally} cười xòa, nhưng bạn thấy {ally} ngoái lại nhìn cái lò sưởi rất lâu.", "effects": { "wealth": -10, "bond": 8 } } },
+      { "label": "Cười bảo {ally} mơ mộng", "text": "{ally} cười theo, nhưng từ đó không nhắc lại chuyện quán rượu nữa.", "effects": { "bond": -8 } }
+    ]
+  },
+  {
+    "id": "cq_cheerful_2", "path": "companion", "tags": ["humanoid"], "stages": ["adult", "middle", "elder"], "weight": 40, "require": { "allyTrait": "cheerful", "flags": ["cq_cheerful_1"] },
+    "text": "Quán rượu của {ally} giờ đã đông khách. Một đêm, {ally} rót cho bạn chén rượu ngon nhất rồi hỏi: \"Ta có nên ở lại đây luôn không?\"",
+    "choices": [
+      { "label": "Bảo {ally} ở lại", "text": "{ally} ôm chầm lấy bạn. Từ đó, mỗi lần bạn ghé ngang, chiếc ghế cạnh lò sưởi luôn được giữ sẵn.", "effects": { "allyLeave": true, "joy": 12 }, "moment": "{ally} ở lại với quán rượu của mình" },
+      { "label": "Rủ {ally} đi thêm một chuyến", "text": "{ally} giao chìa khóa cho người làm, khoác ba lô lên vai. \"Chuyến cuối nhé.\" Cả hai đều biết đó không phải chuyến cuối.", "effects": { "bond": 15 } }
+    ]
+  },
+  {
+    "id": "cq_timid_1", "path": "companion", "tags": ["humanoid"], "stages": ["teen", "adult", "middle"], "weight": 30, "require": { "allyTrait": "timid" },
+    "text": "Một con quái nhỏ chặn đường, và lần này bạn bị kẹt sau tảng đá. Chỉ còn {ally} đứng đối diện nó, tay run bần bật.",
+    "choices": [
+      { "label": "Hét lời cổ vũ {ally}", "check": { "stat": "LUCK", "target": 7 },
+        "success": { "text": "{ally} nhắm mắt lao lên. Con quái bỏ chạy. {ally} ngồi bệt xuống đất, vừa cười vừa khóc: \"Ta làm được rồi.\"", "effects": { "bond": 20, "flags": ["cq_timid_1"] } },
+        "fail": { "text": "{ally} bỏ chạy. Bạn tự thoát ra được, người đầy vết cào. Đêm đó {ally} không dám nhìn mặt bạn.", "effects": { "health": -12, "bond": 4, "flags": ["cq_timid_1"] } } },
+      { "label": "Tự xoay xở, không trông vào {ally}", "text": "Bạn vật lộn thoát ra một mình. {ally} lí nhí xin lỗi, và bạn biết nỗi sợ ấy vẫn còn nguyên.", "effects": { "health": -8, "bond": -5 } }
+    ]
+  },
+  {
+    "id": "cq_timid_2", "path": "companion", "tags": ["humanoid"], "stages": ["adult", "middle"], "weight": 40, "require": { "allyTrait": "timid", "flags": ["cq_timid_1"] },
+    "text": "Đường đi ngang qua quê của {ally}. Người cha khắc nghiệt vẫn sống trong căn nhà đá đầu làng. {ally} đứng trước cổng rất lâu mà không dám gõ cửa.",
+    "choices": [
+      { "label": "Đứng cạnh {ally} gõ cửa", "check": { "stat": "INT", "target": 7 },
+        "success": { "text": "Người cha nhìn {ally} từ đầu đến chân, rồi nói câu mà {ally} chờ cả đời: \"Con đã lớn rồi.\" Đêm đó {ally} ngủ ngon lần đầu sau nhiều năm.", "effects": { "bond": 25, "joy": 10 }, "moment": "Giúp {ally} đối mặt với cha" },
+        "fail": { "text": "Ông ta đóng sầm cửa. {ally} cười gượng, nói không sao. Nhưng suốt chặng đường sau, {ally} lặng thinh.", "effects": { "bond": 10, "joy": -6 } } },
+      { "label": "Kéo {ally} đi tiếp", "text": "{ally} thở phào nhẹ nhõm, rồi cả ngày hôm đó cứ ngoái lại nhìn con đường về làng.", "effects": { "bond": -5 } }
+    ]
+  }
+]

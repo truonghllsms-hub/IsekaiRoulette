@@ -1,0 +1,659 @@
+[
+ {
+  "id": "moral_goblin_child",
+  "path": "moral",
+  "stages": [
+   "child",
+   "teen",
+   "adult"
+  ],
+  "weight": 30,
+  "text": "Bầy kéo về sau trận cướp làng, mang theo một đứa trẻ loài người bị trói. Đêm ấy chỉ có bạn canh nó. Nó không khóc, chỉ nhìn bạn.",
+  "choices": [
+   {
+    "label": "Giữ nó lại cho bầy",
+    "text": "Sáng hôm sau, bầy chia nhau chiến lợi phẩm. Bạn được phần nhiều hơn mọi khi, và cố không nghĩ đến đôi mắt ấy.",
+    "effects": {
+     "wealth": 10,
+     "STR": 1,
+     "flags": [
+      "moral_cruel"
+     ]
+    },
+    "moment": "Giữ đứa trẻ loài người lại cho bầy"
+   },
+   {
+    "label": "Cắt dây, chỉ đường cho nó chạy",
+    "text": "Nó chạy về phía bìa rừng, không ngoảnh lại. Sáng hôm sau, thủ lĩnh đánh bạn đến gãy hai cái răng. Bạn không hối hận.",
+    "effects": {
+     "health": -15,
+     "LUCK": 1,
+     "flags": [
+      "moral_mercy"
+     ]
+    },
+    "moment": "Thả một đứa trẻ loài người chạy trốn"
+   }
+  ],
+  "races": [
+   "goblin"
+  ]
+ },
+ {
+  "id": "moral_elf_mortal",
+  "path": "moral",
+  "stages": [
+   "adult"
+  ],
+  "weight": 30,
+  "text": "Người con gái loài người hay ra bìa rừng hái thuốc đã thuộc tên bạn. Nàng hỏi bạn có muốn cùng nàng về làng không. Bạn biết nàng sẽ già đi, còn bạn thì không.",
+  "choices": [
+   {
+    "label": "Ở lại Đại Ngàn",
+    "text": "Bạn không ra bìa rừng nữa. Nhiều năm sau, có một bà lão chống gậy đứng đó rất lâu, rồi quay về.",
+    "effects": {
+     "INT": 1,
+     "joy": -8,
+     "flags": [
+      "moral_stay"
+     ]
+    },
+    "moment": "Chọn ở lại Đại Ngàn"
+   },
+   {
+    "label": "Bước ra thế giới phàm trần",
+    "text": "Bạn sống bên nàng bốn mươi năm. Tóc nàng bạc dần, còn bạn vẫn như ngày đầu. Ngày nàng nằm xuống, bạn ngồi bên mộ suốt một mùa đông.",
+    "effects": {
+     "joy": 10,
+     "LUCK": 1,
+     "flags": [
+      "moral_leave"
+     ]
+    },
+    "moment": "Sống trọn một đời người bên người mình yêu"
+   }
+  ],
+  "races": [
+   "elf"
+  ]
+ },
+ {
+  "id": "moral_vampire_thirst",
+  "path": "moral",
+  "stages": [
+   "teen",
+   "adult",
+   "middle"
+  ],
+  "weight": 30,
+  "text": "Cơn khát kéo dài ba tuần. Trong con hẻm, một gã say nằm gục, mạch máu nơi cổ đập đều đặn. Không ai nhìn thấy.",
+  "choices": [
+   {
+    "label": "Uống",
+    "text": "Máu ấm. Sức mạnh trở lại trong từng thớ thịt. Sáng hôm sau, bạn đọc tin về một xác chết vô danh và lật sang trang khác.",
+    "effects": {
+     "STR": 1,
+     "health": 15,
+     "flags": [
+      "moral_cruel"
+     ]
+    },
+    "moment": "Lần đầu uống máu một kẻ vô tội"
+   },
+   {
+    "label": "Bỏ đi, chịu đựng cơn khát",
+    "text": "Bạn về nhà, khóa cửa, nằm co ro đến sáng. Người bạn gầy rộc đi, nhưng bạn vẫn nhìn thẳng được vào gương — dù gương chẳng phản chiếu gì.",
+    "effects": {
+     "health": -18,
+     "INT": 1,
+     "flags": [
+      "moral_mercy"
+     ]
+    },
+    "moment": "Chịu khát thay vì giết người vô tội"
+   }
+  ],
+  "races": [
+   "vampire"
+  ]
+ },
+ {
+  "id": "moral_human_sibling",
+  "path": "moral",
+  "stages": [
+   "teen"
+  ],
+  "weight": 30,
+  "text": "Cha ngã bệnh, nhà hết gạo. Thầy đồ bảo bạn có khiếu, nếu theo học thêm vài năm sẽ thi được vào Học viện. Đứa em nhỏ nhất vẫn đang đói.",
+  "choices": [
+   {
+    "label": "Bỏ học, đi làm nuôi em",
+    "text": "Bạn gánh thuê ở bến sông. Mỗi tối về, em chạy ra đón. Bạn không bao giờ biết mình sẽ thành người thế nào nếu được học tiếp.",
+    "effects": {
+     "STR": 1,
+     "wealth": 10,
+     "joy": -4
+    },
+    "moment": "Bỏ học đi làm nuôi em"
+   },
+   {
+    "label": "Đi học, gửi em cho họ hàng",
+    "text": "Bạn học đến khuya dưới ngọn đèn dầu. Em viết thư cho bạn, chữ nguệch ngoạc, mỗi năm một thưa dần.",
+    "effects": {
+     "INT": 2,
+     "joy": -6
+    },
+    "moment": "Rời nhà đi học, để lại đứa em nhỏ"
+   }
+  ],
+  "races": [
+   "human"
+  ],
+  "require": {
+   "fatherAlive": true
+  }
+ },
+ {
+  "id": "moral_human_leave",
+  "path": "moral",
+  "stages": [
+   "teen",
+   "adult"
+  ],
+  "weight": 30,
+  "text": "Mất mùa năm thứ ba. Đoàn thương nhân đi về phương Nam thiếu người khuân vác. Mẹ bạn không nói gì, chỉ gói cho bạn một nắm cơm.",
+  "choices": [
+   {
+    "label": "Theo đoàn tha hương",
+    "text": "Bạn đi. Phương Nam ấm hơn, gạo rẻ hơn. Nhưng đêm nào bạn cũng mơ thấy mùi khói bếp nhà mình.",
+    "effects": {
+     "wealth": 15,
+     "LUCK": 1,
+     "joy": -5
+    },
+    "moment": "Tha hương cầu thực"
+   },
+   {
+    "label": "Ở lại quê nhà",
+    "text": "Bạn ở lại, cày lại mảnh ruộng nứt nẻ. Năm sau trời mưa. Mẹ bạn cười lần đầu tiên sau ba năm.",
+    "effects": {
+     "joy": 8,
+     "STR": 1
+    },
+    "moment": "Ở lại với quê nhà nghèo khó"
+   }
+  ],
+  "races": [
+   "human"
+  ],
+  "require": {
+   "motherAlive": true
+  }
+ },
+ {
+  "id": "moral_dwarf_oath",
+  "path": "moral",
+  "stages": [
+   "adult",
+   "middle"
+  ],
+  "weight": 30,
+  "text": "Mỏ sập. Người anh em kết nghĩa của bạn bị kẹt ở tầng dưới, còn đội cứu hộ thì chỉ đủ người để giữ cho trần hầm không đổ thêm.",
+  "choices": [
+   {
+    "label": "Xuống một mình",
+    "text": "Bạn đào bằng tay suốt hai ngày. Bạn đưa được anh ấy lên. Hai ngón tay của bạn thì ở lại dưới đó.",
+    "effects": {
+     "health": -20,
+     "fame": 6,
+     "STR": 1
+    },
+    "moment": "Một mình đào bới cứu người anh em kết nghĩa"
+   },
+   {
+    "label": "Giữ trần hầm cùng mọi người",
+    "text": "Mười hai người khác được sống. Tên anh ấy được khắc lên bức tường đá của tổ tiên. Bạn là người khắc.",
+    "effects": {
+     "INT": 1,
+     "joy": -12
+    },
+    "moment": "Chọn cứu mười hai người thay vì một"
+   }
+  ],
+  "races": [
+   "dwarf"
+  ]
+ },
+ {
+  "id": "moral_orc_elder",
+  "path": "moral",
+  "stages": [
+   "adult",
+   "middle"
+  ],
+  "weight": 30,
+  "text": "Theo luật bộ tộc, kẻ già yếu không đi theo nổi cuộc di cư phải ở lại. Năm nay, kẻ đó là người thầy đầu tiên của bạn.",
+  "choices": [
+   {
+    "label": "Tuân theo luật",
+    "text": "Bạn để lại cho ông con dao tốt nhất của mình. Ông gật đầu. Cả hai đều không nói gì.",
+    "effects": {
+     "STR": 1,
+     "joy": -8
+    },
+    "moment": "Bỏ lại người thầy già theo luật bộ tộc"
+   },
+   {
+    "label": "Cõng ông theo",
+    "text": "Bạn cõng ông suốt mười ngày đường. Cả bộ tộc chế giễu. Đến ngày thứ mười một, ông dạy bạn đọc dấu chân của bầy thú mà không ai khác biết.",
+    "effects": {
+     "INT": 1,
+     "health": -8,
+     "LUCK": 1
+    },
+    "moment": "Cõng người thầy già qua cuộc di cư"
+   }
+  ],
+  "races": [
+   "orc"
+  ]
+ },
+ {
+  "id": "moral_beast_hunt",
+  "path": "moral",
+  "stages": [
+   "teen",
+   "adult"
+  ],
+  "weight": 30,
+  "text": "Lần đầu đi săn một mình, bạn dồn được một con nai mẹ vào khe đá. Sau lưng nó, một con nai con run rẩy.",
+  "choices": [
+   {
+    "label": "Ra tay",
+    "text": "Bộ tộc ăn no ba ngày. Họ gọi bạn là thợ săn. Bạn nhớ mãi tiếng kêu của con nai nhỏ.",
+    "effects": {
+     "STR": 1,
+     "fame": 3,
+     "wealth": 5
+    },
+    "moment": "Lần săn đầu tiên"
+   },
+   {
+    "label": "Hạ cung xuống",
+    "text": "Bạn trở về tay không, bị cười suốt mùa. Mùa sau, rừng đầy nai.",
+    "effects": {
+     "LUCK": 1,
+     "joy": 3
+    },
+    "moment": "Tha cho mẹ con con nai"
+   }
+  ],
+  "races": [
+   "beastman"
+  ]
+ },
+ {
+  "id": "moral_demon_contract",
+  "path": "moral",
+  "stages": [
+   "adult",
+   "middle"
+  ],
+  "weight": 30,
+  "text": "Một người phàm quỳ trước vòng triệu hồi, xin bạn cứu đứa con đang hấp hối. Cái giá theo luật cũ là linh hồn của chính hắn.",
+  "choices": [
+   {
+    "label": "Lấy cái giá đúng luật",
+    "text": "Đứa trẻ khỏi bệnh. Người cha đi theo bạn xuống Vực Thẳm, mắt vẫn ngoái lại phía căn nhà nhỏ.",
+    "effects": {
+     "INT": 1,
+     "wealth": 20,
+     "flags": [
+      "moral_cruel"
+     ]
+    },
+    "moment": "Nhận một linh hồn đổi lấy một mạng sống"
+   },
+   {
+    "label": "Chữa cho đứa trẻ, không lấy gì",
+    "text": "Kẻ trên bạn biết chuyện và trừng phạt bạn. Còn người cha thì khắc hình bạn lên cửa nhà, như khắc hình một vị thần.",
+    "effects": {
+     "health": -15,
+     "LUCK": 2,
+     "flags": [
+      "moral_mercy"
+     ]
+    },
+    "moment": "Cứu một đứa trẻ loài người mà không đòi giá"
+   }
+  ],
+  "races": [
+   "demon",
+   "imp"
+  ]
+ },
+ {
+  "id": "moral_dragon_village",
+  "path": "moral",
+  "stages": [
+   "adult",
+   "middle"
+  ],
+  "weight": 30,
+  "text": "Dân làng dưới chân núi dâng lễ vật mỗi năm để bạn không xuống. Năm nay họ mất mùa, mang đến một cô gái thay cho bò cừu.",
+  "choices": [
+   {
+    "label": "Nhận lễ vật",
+    "text": "Cô gái ở lại hang của bạn, lau chùi kho báu, rồi già đi giữa những đồng vàng. Bạn không bao giờ hỏi tên cô.",
+    "effects": {
+     "wealth": 30,
+     "fame": 5,
+     "flags": [
+      "moral_cruel"
+     ]
+    },
+    "moment": "Nhận một con người làm lễ vật"
+   },
+   {
+    "label": "Thả cô về, tự đi săn",
+    "text": "Bạn bay về hướng Bắc săn bò rừng suốt mùa đông. Dân làng thôi dâng lễ. Trẻ con dưới làng bắt đầu vẽ hình bạn lên tường.",
+    "effects": {
+     "LUCK": 1,
+     "joy": 6,
+     "flags": [
+      "moral_mercy"
+     ]
+    },
+    "moment": "Trả cô gái về làng"
+   }
+  ],
+  "races": [
+   "dragon"
+  ]
+ },
+ {
+  "id": "moral_high_demon_throne",
+  "path": "moral",
+  "stages": [
+   "adult",
+   "middle"
+  ],
+  "weight": 30,
+  "text": "Kẻ phản bội bạn nằm dưới chân, cầu xin. Hắn từng là người duy nhất dám nói thật với bạn.",
+  "choices": [
+   {
+    "label": "Kết liễu hắn",
+    "text": "Ngai vàng yên ổn trở lại. Từ đó, không ai dám nói thật với bạn nữa.",
+    "effects": {
+     "STR": 1,
+     "fame": 8,
+     "flags": [
+      "moral_cruel"
+     ]
+    },
+    "moment": "Giết kẻ phản bội từng là bạn"
+   },
+   {
+    "label": "Đày hắn đi",
+    "text": "Cả triều cười sau lưng bạn. Nhiều thế kỷ sau, chính hắn là kẻ duy nhất đến dự lễ an táng của bạn.",
+    "effects": {
+     "INT": 1,
+     "LUCK": 1,
+     "flags": [
+      "moral_mercy"
+     ]
+    },
+    "moment": "Tha cho kẻ phản bội"
+   }
+  ],
+  "races": [
+   "high_demon"
+  ]
+ },
+ {
+  "id": "moral_kobold_master",
+  "path": "moral",
+  "stages": [
+   "child",
+   "teen",
+   "adult"
+  ],
+  "weight": 30,
+  "text": "Con rồng mà bầy bạn thờ phụng ra lệnh dâng lên một nửa số trứng của mùa này. Trứng của bạn nằm trong số đó.",
+  "choices": [
+   {
+    "label": "Dâng lên",
+    "text": "Rồng hài lòng. Bầy được yên ổn thêm một năm. Bạn không bao giờ đếm lại số trứng nữa.",
+    "effects": {
+     "fame": 4,
+     "joy": -10
+    },
+    "moment": "Dâng trứng của mình cho rồng"
+   },
+   {
+    "label": "Giấu đi một quả",
+    "text": "Bạn giấu nó trong khe đá ấm, đêm nào cũng lén đến xem. Nó nở vào một đêm không trăng.",
+    "effects": {
+     "LUCK": 2,
+     "joy": 6
+    },
+    "moment": "Giấu một quả trứng khỏi mắt rồng"
+   }
+  ],
+  "races": [
+   "kobold"
+  ]
+ },
+ {
+  "id": "moral_lizard_egg",
+  "path": "moral",
+  "stages": [
+   "adult",
+   "middle"
+  ],
+  "weight": 30,
+  "text": "Đầm lầy cạn dần. Bộ tộc chỉ đủ nước cho một nửa ổ trứng. Trưởng lão để bạn chọn.",
+  "choices": [
+   {
+    "label": "Chọn những quả khỏe nhất",
+    "text": "Thế hệ sau to khỏe, ít nói. Bạn nhìn chúng lớn lên mà không biết đứa nào lẽ ra là của ai.",
+    "effects": {
+     "INT": 1,
+     "joy": -8
+    },
+    "moment": "Chọn trứng cho mùa hạn"
+   },
+   {
+    "label": "Dẫn một nửa ổ đi tìm đầm mới",
+    "text": "Bạn đi bốn mươi ngày. Ba quả nở dọc đường. Bạn đặt tên cho cả ba.",
+    "effects": {
+     "health": -12,
+     "LUCK": 1,
+     "fame": 4
+    },
+    "moment": "Đi tìm đầm mới cho những quả trứng bị bỏ lại"
+   }
+  ],
+  "races": [
+   "lizardman"
+  ]
+ },
+ {
+  "id": "moral_troll_bridge",
+  "path": "moral",
+  "stages": [
+   "adult",
+   "middle"
+  ],
+  "weight": 30,
+  "text": "Một bà lão nghèo không có tiền qua cầu của bạn. Bà đưa ra một chiếc bánh mì khô, đó là tất cả những gì bà có.",
+  "choices": [
+   {
+    "label": "Đòi đủ phí",
+    "text": "Bà quay về. Tối đó bạn ăn tối một mình, ngon miệng như mọi khi.",
+    "effects": {
+     "wealth": 3
+    }
+   },
+   {
+    "label": "Cho qua, không lấy gì",
+    "text": "Mùa đông năm ấy, sáng nào đầu cầu cũng có một chiếc bánh mì còn ấm.",
+    "effects": {
+     "joy": 8,
+     "LUCK": 1
+    },
+    "moment": "Cho một bà lão qua cầu miễn phí"
+   }
+  ],
+  "races": [
+   "troll"
+  ]
+ },
+ {
+  "id": "moral_minotaur_maze",
+  "path": "moral",
+  "stages": [
+   "adult",
+   "middle"
+  ],
+  "weight": 30,
+  "text": "Một kẻ lạc trong mê cung của bạn đã ba ngày. Hắn khóc gọi tên ai đó. Bạn biết lối ra.",
+  "choices": [
+   {
+    "label": "Để mê cung làm việc của nó",
+    "text": "Tiếng khóc tắt dần vào ngày thứ năm. Mê cung lại yên tĩnh như cũ.",
+    "effects": {
+     "STR": 1,
+     "flags": [
+      "moral_cruel"
+     ]
+    }
+   },
+   {
+    "label": "Gõ lên tường, dẫn đường cho hắn",
+    "text": "Hắn thoát ra mà không bao giờ biết ai đã dẫn đường. Bạn ngồi trong bóng tối, lần đầu thấy mê cung rộng đến thế.",
+    "effects": {
+     "joy": 6,
+     "INT": 1,
+     "flags": [
+      "moral_mercy"
+     ]
+    },
+    "moment": "Lặng lẽ dẫn một kẻ lạc ra khỏi mê cung"
+   }
+  ],
+  "races": [
+   "minotaur"
+  ]
+ },
+ {
+  "id": "moral_ghoul_grave",
+  "path": "moral",
+  "stages": [
+   "teen",
+   "adult",
+   "middle"
+  ],
+  "weight": 30,
+  "text": "Cơn đói lại đến. Ngôi mộ mới nhất ở nghĩa địa là của một đứa bé. Mẹ nó vẫn đến thắp nến mỗi tối.",
+  "choices": [
+   {
+    "label": "Đào lên",
+    "text": "Cơn đói dịu đi. Tối hôm sau, người mẹ vẫn đến thắp nến. Bạn không dám ra khỏi hang suốt một tuần.",
+    "effects": {
+     "health": 15,
+     "joy": -12
+    }
+   },
+   {
+    "label": "Đi xa hơn tìm thứ khác",
+    "text": "Bạn lang thang qua ba ngọn đồi mới tìm được xác một con nai. Người mẹ vẫn đến thắp nến. Bạn đứng xa nhìn ánh lửa.",
+    "effects": {
+     "health": -8,
+     "INT": 1
+    },
+    "moment": "Không đụng đến ngôi mộ của đứa bé"
+   }
+  ],
+  "races": [
+   "ghoul"
+  ]
+ },
+ {
+  "id": "moral_slime_child",
+  "path": "moral",
+  "stages": [
+   "teen",
+   "adult",
+   "middle"
+  ],
+  "weight": 30,
+  "text": "Một đứa trẻ loài người đi lạc vào hang, mệt lả và ngủ thiếp đi ngay cạnh bạn. Bạn có thể nuốt chửng nó. Bạn cũng có thể không.",
+  "choices": [
+   {
+    "label": "Nuốt",
+    "text": "Bạn lớn thêm một chút. Thế thôi.",
+    "effects": {
+     "STR": 1,
+     "health": 10,
+     "flags": [
+      "moral_cruel"
+     ]
+    }
+   },
+   {
+    "label": "Bao quanh nó cho ấm đến sáng",
+    "text": "Sáng ra, nó tỉnh dậy, cười khúc khích và chọc tay vào bạn. Rồi nó chạy về. Từ đó, thỉnh thoảng có ai đó để lại một quả táo ở cửa hang.",
+    "effects": {
+     "joy": 10,
+     "LUCK": 1,
+     "flags": [
+      "moral_mercy"
+     ]
+    },
+    "moment": "Ủ ấm một đứa trẻ lạc suốt đêm"
+   }
+  ],
+  "races": [
+   "slime"
+  ]
+ },
+ {
+  "id": "moral_imp_master",
+  "path": "moral",
+  "stages": [
+   "teen",
+   "adult"
+  ],
+  "weight": 30,
+  "text": "Chủ nhân của bạn sai bạn đầu độc giếng nước của một ngôi làng. Ngôi làng nơi có đứa bé từng cho bạn một miếng bánh.",
+  "choices": [
+   {
+    "label": "Làm theo lệnh",
+    "text": "Bạn được thưởng. Bạn không bao giờ bay ngang qua làng ấy nữa.",
+    "effects": {
+     "wealth": 10,
+     "fame": 3,
+     "flags": [
+      "moral_cruel"
+     ]
+    }
+   },
+   {
+    "label": "Đổ thuốc độc xuống sông",
+    "text": "Chủ nhân không bao giờ biết. Nhưng bạn biết, và từ đó bạn bắt đầu tự hỏi mình còn làm theo lệnh được bao lâu.",
+    "effects": {
+     "INT": 1,
+     "LUCK": 1,
+     "flags": [
+      "moral_mercy"
+     ]
+    },
+    "moment": "Lén phá lệnh đầu độc một ngôi làng"
+   }
+  ],
+  "races": [
+   "imp"
+  ]
+ }
+]

@@ -2,6 +2,16 @@
 const C = require("./_civil");
 
 module.exports = {
+  // a dwarf child grows like a human one; the long years come after
+  scriptStages: "engine", // the script was written with the old, lifespan-based ages
+  stages: [
+    { id: "infant", name: "Sơ sinh", start: 0 },
+    { id: "child", name: "Thơ ấu", start: 3 },
+    { id: "teen", name: "Thiếu niên", start: 13 },
+    { id: "adult", name: "Trưởng thành", start: 25 },
+    { id: "middle", name: "Trung niên", start: 96 },
+    { id: "elder", name: "Tuổi già", start: 140 },
+  ],
   race: "dwarf",
   script: "content/scripts/dwarf.txt",
   story: "content/scripts/dwarf_story.txt",

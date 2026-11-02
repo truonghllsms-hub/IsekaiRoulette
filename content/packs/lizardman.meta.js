@@ -134,6 +134,9 @@ module.exports = {
   // the first hunt needs rank 2 in the script; open it from rank 1 so a new Lizardman has something to do
   questOverrides: { cuoc_san_moi_da_xanh_bat_goblin_lac_dan: { minRank: 0 } },
   overrides: {
+    // the omens of evolution: stats or a sign of the blood, not both
+    lizard_evo_dragon_1: { require: { any: [{ STR: 9, health: 50 }, { anyFlags: ["ancient_blood", "dragon_slayer", "dragon_dreamer"] }], form: "none", notFlags: ["evo_sign_dragon"] }, unrequire: { STR: 1, health: 1 } },
+    lizard_evo_priest_1: { require: { any: [{ INT: 9 }, { anyFlags: ["snake_blessed", "abyss_watcher"] }], form: "none", notFlags: ["evo_sign_priest"] }, unrequire: { INT: 1, fame: 1 } },
     lizard_rank_warchief: { require: { guildRank: 5 }, unrequire: { job: true, jobRank: true }, choiceEffects: { 0: { success: { orgRank: 6 } }, 1: { success: { orgRank: 6 } }, 2: { success: { orgRank: 6 } } } },
     lizard_old_4: { asDeath: "old" },
   },

@@ -1,20 +1,323 @@
 [
-  { "id": "old_generic", "kind": "old", "text": "Bạn ra đi trong giấc ngủ, ở tuổi {age}. Không đau đớn gì." },
-  { "id": "old_generic2", "kind": "old", "text": "Một sáng mùa thu, bạn không dậy nữa. Bạn {age} tuổi." },
-  { "id": "old_human", "kind": "old", "races": ["human"], "text": "Bạn mất ở tuổi {age}, trên chiếc giường đã nằm suốt ba mươi năm." },
-  { "id": "old_goblin", "kind": "old", "races": ["goblin"], "text": "Bạn chết già ở tuổi {age}. Với một goblin, đó là một kỳ tích." },
-  { "id": "old_dragon", "kind": "old", "races": ["dragon"], "text": "Bạn chìm vào giấc ngủ đông cuối cùng. Ngọn núi bạn nằm vẫn ấm thêm một nghìn năm nữa." },
-
-  { "id": "health_generic", "kind": "health", "text": "Cơ thể bạn không chịu được nữa. Bạn mất ở tuổi {age}." },
-  { "id": "health_fever", "kind": "health", "text": "Một cơn sốt kéo dài ba ngày. Đến ngày thứ tư, bạn không tỉnh lại." },
-  { "id": "health_slime", "kind": "health", "races": ["slime"], "text": "Cơ thể bạn khô dần rồi vỡ thành bột. Gió thổi bay bạn đi." },
-
-  { "id": "violent_generic", "kind": "violent", "text": "Bạn gặp tai nạn và qua đời ở tuổi {age}." },
-  { "id": "violent_bandit", "kind": "violent", "races": ["human", "beastman", "dwarf", "elf", "goblin", "kobold", "orc", "imp", "lizardman"], "text": "Bọn cướp chặn đường bạn. Bạn không về nhà nữa." },
-  { "id": "violent_monster", "kind": "violent", "races": ["human", "beastman", "dwarf", "elf"], "text": "Một con ma thú xuất hiện ở bìa rừng. Người ta chỉ tìm thấy đôi giày của bạn." },
-  { "id": "violent_hero", "kind": "violent", "races": ["goblin", "kobold", "orc", "imp", "slime", "ghoul", "troll", "minotaur", "lizardman"], "text": "Một mạo hiểm giả đi ngang qua. Họ được thêm điểm kinh nghiệm. Bạn thì không còn gì." },
-  { "id": "violent_goblin_kin", "kind": "violent", "races": ["goblin"], "text": "Anh em trong hang đánh nhau giành một miếng thịt. Bạn đứng quá gần." },
-  { "id": "violent_slime_boot", "kind": "violent", "races": ["slime"], "stages": ["infant", "child", "teen"], "text": "Một chiếc ủng da giẫm thẳng lên bạn. Chủ nhân của nó còn không nhìn xuống." },
-  { "id": "violent_slime_fire", "kind": "violent", "races": ["slime"], "text": "Một pháp sư dùng cầu lửa. Bạn bốc hơi trước khi kịp hiểu chuyện gì." },
-  { "id": "violent_vampire", "kind": "violent", "races": ["vampire"], "text": "Bạn ngủ quên quá giờ. Ánh mặt trời tràn vào qua khe cửa." }
+  {
+    "id": "old_generic",
+    "kind": "old",
+    "text": "Bạn ra đi trong giấc ngủ, ở tuổi {age}. Không đau đớn gì."
+  },
+  {
+    "id": "old_generic2",
+    "kind": "old",
+    "text": "Một sáng mùa thu, bạn không dậy nữa. Bạn {age} tuổi."
+  },
+  {
+    "id": "old_human",
+    "kind": "old",
+    "races": [
+      "human"
+    ],
+    "text": "Bạn mất ở tuổi {age}, trên chiếc giường đã nằm suốt ba mươi năm."
+  },
+  {
+    "id": "old_goblin",
+    "kind": "old",
+    "races": [
+      "goblin"
+    ],
+    "text": "Bạn chết già ở tuổi {age}. Với một goblin, đó là một kỳ tích."
+  },
+  {
+    "id": "old_dragon",
+    "kind": "old",
+    "races": [
+      "dragon"
+    ],
+    "text": "Bạn chìm vào giấc ngủ đông cuối cùng. Ngọn núi bạn nằm vẫn ấm thêm một nghìn năm nữa."
+  },
+  {
+    "id": "health_generic",
+    "kind": "health",
+    "text": "Cơ thể bạn không chịu được nữa. Bạn mất ở tuổi {age}."
+  },
+  {
+    "id": "health_fever",
+    "kind": "health",
+    "text": "Một cơn sốt kéo dài ba ngày. Đến ngày thứ tư, bạn không tỉnh lại."
+  },
+  {
+    "id": "health_slime",
+    "kind": "health",
+    "races": [
+      "slime"
+    ],
+    "text": "Cơ thể bạn khô dần rồi vỡ thành bột. Gió thổi bay bạn đi."
+  },
+  {
+    "id": "violent_generic",
+    "kind": "violent",
+    "text": "Bạn gặp tai nạn và qua đời ở tuổi {age}."
+  },
+  {
+    "id": "violent_bandit",
+    "kind": "violent",
+    "races": [
+      "human",
+      "beastman",
+      "dwarf",
+      "elf",
+      "goblin",
+      "kobold",
+      "orc",
+      "imp",
+      "lizardman"
+    ],
+    "text": "Bọn cướp chặn đường bạn. Bạn không về nhà nữa."
+  },
+  {
+    "id": "violent_monster",
+    "kind": "violent",
+    "races": [
+      "human",
+      "beastman",
+      "dwarf",
+      "elf"
+    ],
+    "text": "Một con ma thú xuất hiện ở bìa rừng. Người ta chỉ tìm thấy đôi giày của bạn."
+  },
+  {
+    "id": "violent_hero",
+    "kind": "violent",
+    "races": [
+      "goblin",
+      "kobold",
+      "orc",
+      "imp",
+      "slime",
+      "ghoul",
+      "troll",
+      "minotaur",
+      "lizardman"
+    ],
+    "text": "Một mạo hiểm giả đi ngang qua. Họ được thêm điểm kinh nghiệm. Bạn thì không còn gì."
+  },
+  {
+    "id": "violent_goblin_kin",
+    "kind": "violent",
+    "races": [
+      "goblin"
+    ],
+    "text": "Anh em trong hang đánh nhau giành một miếng thịt. Bạn đứng quá gần."
+  },
+  {
+    "id": "violent_slime_boot",
+    "kind": "violent",
+    "races": [
+      "slime"
+    ],
+    "stages": [
+      "infant",
+      "child",
+      "teen"
+    ],
+    "text": "Một chiếc ủng da giẫm thẳng lên bạn. Chủ nhân của nó còn không nhìn xuống."
+  },
+  {
+    "id": "violent_slime_fire",
+    "kind": "violent",
+    "races": [
+      "slime"
+    ],
+    "text": "Một pháp sư dùng cầu lửa. Bạn bốc hơi trước khi kịp hiểu chuyện gì."
+  },
+  {
+    "id": "violent_vampire",
+    "kind": "violent",
+    "races": [
+      "vampire"
+    ],
+    "text": "Bạn ngủ quên quá giờ. Ánh mặt trời tràn vào qua khe cửa."
+  },
+  {
+    "id": "health_dragon_0",
+    "kind": "health",
+    "races": [
+      "dragon"
+    ],
+    "text": "Lõi rồng trong lồng ngực bạn nứt vỡ sau hàng nghìn năm gồng gánh ma lực. Ngọn lửa trong mắt bạn lụi dần, và ngọn núi bạn nằm nguội lạnh lần đầu tiên sau vạn năm."
+  },
+  {
+    "id": "health_dragon_1",
+    "kind": "health",
+    "races": [
+      "dragon"
+    ],
+    "text": "Ma lực nguyên tố cạn kiệt như mạch nước ngầm khô hạn. Thân thể khổng lồ của bạn hóa đá ngay trên đống vàng, thành một ngọn đồi mới cho thế gian đặt tên."
+  },
+  {
+    "id": "health_dragon_2",
+    "kind": "health",
+    "races": [
+      "dragon"
+    ],
+    "text": "Thiên kiếp giáng xuống khi bạn chạm ngưỡng thăng thiên. Chín đạo lôi đình xé toạc đôi cánh, và tiếng gầm cuối cùng của bạn vang vọng khắp Dãy Núi Răng Cưa."
+  },
+  {
+    "id": "violent_dragon_3",
+    "kind": "violent",
+    "races": [
+      "dragon"
+    ],
+    "text": "Một liên minh Đồ Long dũng giả mang thánh kiếm và trận pháp phong ấn vây công hang ổ. Bạn kéo theo nửa đạo quân xuống mồ trước khi lưỡi thánh kiếm xuyên qua tim."
+  },
+  {
+    "id": "violent_dragon_4",
+    "kind": "violent",
+    "races": [
+      "dragon"
+    ],
+    "text": "Trận chiến tranh giành lãnh thổ với một Cổ Long khác kéo dài bảy ngày bảy đêm. Bầu trời bốc cháy, và đến bình minh ngày thứ tám, chỉ một con rồng còn bay được: không phải bạn."
+  },
+  {
+    "id": "violent_dragon_5",
+    "kind": "violent",
+    "races": [
+      "dragon"
+    ],
+    "text": "Giáo hội Thánh Quang hiến tế cả một thành để kích hoạt trận phong ấn cổ. Xiềng xích ánh sáng siết chặt bạn xuống lòng đất, và giấc ngủ ấy không có ngày tỉnh lại."
+  },
+  {
+    "id": "old_dragon_6",
+    "kind": "old",
+    "races": [
+      "dragon"
+    ],
+    "text": "Bạn chìm vào giấc ngủ đông cuối cùng ở tuổi {age}. Hơi thở chậm dần thành gió núi, và những kẻ hành hương vẫn đến thắp hương trước hang ổ của bạn nhiều thế kỷ sau."
+  },
+  {
+    "id": "health_high_demon_7",
+    "kind": "health",
+    "races": [
+      "high_demon"
+    ],
+    "text": "Ma lực Vực Thẳm trong bạn mất cân bằng và tự nuốt lấy chủ nhân. Thân xác bạn tan thành một cơn bão hắc ám rồi biến mất, để lại ngai vàng trống rỗng."
+  },
+  {
+    "id": "health_high_demon_8",
+    "kind": "health",
+    "races": [
+      "high_demon"
+    ],
+    "text": "Khế ước cổ xưa giữ linh hồn bạn với Vực Thẳm đến hạn đòi nợ. Bóng tối mà bạn từng sai khiến quay lại nuốt chửng bạn trong một đêm không trăng."
+  },
+  {
+    "id": "violent_high_demon_9",
+    "kind": "violent",
+    "races": [
+      "high_demon"
+    ],
+    "text": "Liên quân Thánh Quang mở trận phong ấn vạn người tế. Ánh sáng thiêu cháy đôi cánh rồi trói bạn vào lòng núi, vĩnh viễn không còn thấy Ma giới."
+  },
+  {
+    "id": "violent_high_demon_10",
+    "kind": "violent",
+    "races": [
+      "high_demon"
+    ],
+    "text": "Một Dũng giả được Nữ thần chọn bước vào tầng sâu nhất của cung điện. Trận chiến làm sụp đổ cả tầng Vực Thẳm, và thánh kiếm cuối cùng chạm tới tim bạn."
+  },
+  {
+    "id": "violent_high_demon_11",
+    "kind": "violent",
+    "races": [
+      "high_demon"
+    ],
+    "text": "Những Ma Tướng thân tín nhất chờ đúng lúc bạn suy yếu sau đại chiến. Ngai vàng đổi chủ trong một đêm, và đầu bạn được treo trước cổng thành như một lời tuyên bố."
+  },
+  {
+    "id": "old_high_demon_12",
+    "kind": "old",
+    "races": [
+      "high_demon"
+    ],
+    "text": "Sau {age} năm thống trị, ma lực của bạn tản vào Vực Thẳm như dòng sông đổ về biển. Ma giới chìm vào im lặng một trăm ngày để tiễn biệt."
+  },
+  {
+    "id": "health_demon_13",
+    "kind": "health",
+    "races": [
+      "demon"
+    ],
+    "text": "Ma lực trong huyết quản cạn kiệt sau quá nhiều trận chiến. Lớp sừng bạn nứt toác, thân thể hóa tro bụi lưu huỳnh bay về Vực Thẳm."
+  },
+  {
+    "id": "health_demon_14",
+    "kind": "health",
+    "races": [
+      "demon"
+    ],
+    "text": "Một lời nguyền thánh quang găm vào bạn từ nhiều năm trước âm thầm lan khắp linh hồn. Đến một ngày, bóng tối trong bạn không còn đủ sức chống lại nó nữa."
+  },
+  {
+    "id": "violent_demon_15",
+    "kind": "violent",
+    "races": [
+      "demon"
+    ],
+    "text": "Một đội Thánh Kỵ Sĩ dồn bạn vào trận phong ấn. Bạn chém gục ba kẻ trước khi những sợi xích ánh sáng siết chặt và thiêu rụi bạn."
+  },
+  {
+    "id": "violent_demon_16",
+    "kind": "violent",
+    "races": [
+      "demon"
+    ],
+    "text": "Bạn ngã xuống trong một trận chiến phong ấn nơi biên giới Ma giới, giữa tiếng tù và của đạo quân Thánh Quang."
+  },
+  {
+    "id": "old_demon_17",
+    "kind": "old",
+    "races": [
+      "demon"
+    ],
+    "text": "Ở tuổi {age}, ngọn lửa Vực Thẳm trong bạn lụi dần. Bạn ngồi lặng trên đỉnh tháp đá cho đến khi thân xác hóa tro, gió lưu huỳnh mang bạn về nơi bắt đầu."
+  },
+  {
+    "id": "health_vampire_18",
+    "kind": "health",
+    "races": [
+      "vampire"
+    ],
+    "text": "Cơn khát máu không còn được thỏa mãn suốt nhiều thập kỷ. Huyết mạch Chân Tổ trong bạn khô cạn, và thân thể bất tử rã thành tro dưới lớp áo nhung."
+  },
+  {
+    "id": "health_vampire_19",
+    "kind": "health",
+    "races": [
+      "vampire"
+    ],
+    "text": "Lời nguyền bất tử cuối cùng cũng mỏi mệt. Một đêm, trái tim đã ngừng đập từ lâu của bạn không còn giữ nổi linh hồn nữa."
+  },
+  {
+    "id": "violent_vampire_20",
+    "kind": "violent",
+    "races": [
+      "vampire"
+    ],
+    "text": "Một đội Thợ Săn Bóng Đêm phá cửa hầm mộ lúc chính ngọ. Cọc bạc xuyên tim, ánh mặt trời tràn vào, và bạn tan thành tro trong tiếng kinh cầu."
+  },
+  {
+    "id": "violent_vampire_21",
+    "kind": "violent",
+    "races": [
+      "vampire"
+    ],
+    "text": "Cuộc chiến huyết tộc giữa các gia tộc ma cà rồng kết thúc bằng sự phản bội. Bạn bị xé xác và ném ra giữa sân lúc bình minh."
+  },
+  {
+    "id": "old_vampire_22",
+    "kind": "old",
+    "races": [
+      "vampire"
+    ],
+    "text": "Sau {age} năm sống trong bóng đêm, bạn tự bước ra đón bình minh lần cuối. Ánh nắng đầu tiên sau nhiều thế kỷ ấm hơn bạn tưởng."
+  }
 ]

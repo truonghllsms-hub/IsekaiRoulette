@@ -43,6 +43,9 @@ function build(raceId, opts) {
   // no stages written anywhere: the engine's default ones (shares of the average lifespan)
   const stageList = meta.stages || profile.stages || race.stages || require("../engine").stagesOf(race);
   const stages = stageList.map((s) => ({ id: s.id, start: s.start, name: (meta.stageNames && meta.stageNames[s.id]) || s.name }));
+  // the ages written in the script follow the stages it was written for: a race whose stages
+  // changed later (Elf, Dwarf, Demon) keeps reading "tuổi 60–225" with the old ones
+  const scriptStages = meta.scriptStages ? meta.scriptStages === "engine" ? require("../engine").stagesOf(Object.assign({}, race, { stages: null })) : meta.scriptStages : stages;
   const parsed = parse(fs.readFileSync(path.join(ROOT, meta.script), "utf8"));
   // the story layer (prompts/v3): arcs, recurring cast, bands, minions — nodes join the events
   let story = null;
@@ -243,8 +246,8 @@ function build(raceId, opts) {
       else ranges.push([num(m[2]), Infinity]);
     }
     for (const [a, b] of ranges) {
-      stages.forEach((s, i) => {
-        const end = stages[i + 1] ? stages[i + 1].start : Infinity;
+      scriptStages.forEach((s, i) => {
+        const end = scriptStages[i + 1] ? scriptStages[i + 1].start : Infinity;
         if (s.start < b && end > a) set.add(s.id);
       });
     }

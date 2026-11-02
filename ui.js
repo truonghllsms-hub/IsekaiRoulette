@@ -204,6 +204,13 @@
     if (c.party.length)
       out.push(`<span>Tổ đội ${c.party.filter((m) => !m.left).map((m) => `<b class="${m.alive ? "" : "dead"}" title="${esc(m.race + ", " + m.jobName)}">${esc(m.name)}</b>`).join(", ")}</span>`);
     if (c.spouse) out.push(`<span>Bạn đời <b>${esc(c.spouse.name)}</b>${c.children.length ? ` · ${c.children.length} con` : ""}</span>`);
+    // what you carry: weapon, armour, keepsakes (hover for what it is and what it adds)
+    if (c.items && c.items.length) {
+      const order = { weapon: 0, armor: 1, charm: 2 };
+      const items = c.items.slice().sort((a, b) => order[a.slot] - order[b.slot]);
+      const bonus = (it) => Object.entries(it.bonus || {}).map(([k, v]) => `${STAT_LABEL[k] || k} +${v}`).join(", ");
+      out.push(`<span>Trang bị ${items.map((it) => `<b class="item ${it.slot}" title="${esc((it.desc ? it.desc + " " : "") + "(" + bonus(it) + ")")}">${esc(it.name)}</b>`).join(", ")}</span>`);
+    }
     return out.join("");
   }
 
@@ -275,8 +282,12 @@
         b.disabled = true;
         note(ch.reason || "Chưa đủ điều kiện", "locked");
       } else if (ch.check) {
-        const pb = Math.round(E.partyBonus(c, ch.check) * 100);
-        note(`Dựa vào ${E.STAT_LABEL[ch.check.stat] || ch.check.stat} · khoảng ${Math.round(E.successChance(c, ch.check) * 100)}% thành công` + (pb ? ` (đồng đội +${pb}%)` : ""));
+        // the odds in words, not numbers
+        const ascending = ch.success && ch.success.effects && ch.success.effects.evolve;
+        const p = Math.min(0.95, E.successChance(c, ch.check) + (ascending ? 0.2 : 0));
+        const word = p >= 0.8 ? "rất cao" : p >= 0.62 ? "cao" : p >= 0.42 ? "vừa phải" : p >= 0.25 ? "thấp" : "rất thấp";
+        const pb = E.partyBonus(c, ch.check) > 0.02;
+        note(`Dựa vào ${E.STAT_LABEL[ch.check.stat] || ch.check.stat} · tỉ lệ thành công ${word}` + (pb ? " (có đồng đội trợ giúp)" : ""), "odds odds-" + word.replace(/\s/g, "-"));
       }
       b.onclick = () => {
         E.choose(c, D, i);
@@ -349,9 +360,105 @@
       li.lastElementChild.textContent = m.text;
       ul.appendChild(li);
     }
+    renderCard(s.card);
     store.add({ name: c.name, race: E.raceTitle(c), age: c.age });
     show("screen-death");
   }
+
+  // ---------- the life card (to copy or save and show around) ----------
+  let card = null;
+  function renderCard(k) {
+    card = k;
+    $("lc-name").textContent = k.name;
+    $("lc-line").textContent = k.line + (k.origin ? " · " + k.origin : "");
+    const ul = $("lc-marks");
+    ul.innerHTML = "";
+    for (const m of k.marks) {
+      const li = document.createElement("li");
+      li.textContent = m;
+      ul.appendChild(li);
+    }
+    $("lc-epitaph").textContent = k.epitaph ? `“${k.epitaph}”` : "";
+    $("lc-cause").textContent = k.cause || "";
+    $("lc-note").hidden = true;
+    const old = $("lc-image");
+    if (old) old.remove();
+  }
+  function cardText(k) {
+    return [`${k.name} — ${k.line}`, k.marks.join(" · "), k.epitaph ? `“${k.epitaph}”` : "", k.cause, "— Luân Hồi Dị Giới"].filter(Boolean).join("\n");
+  }
+  function say(t) { const n = $("lc-note"); n.textContent = t; n.hidden = false; }
+  $("btn-copy-life").onclick = () => {
+    if (!card) return;
+    const t = cardText(card);
+    const done = () => say("Đã sao chép. Dán vào đâu cũng được.");
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done, () => fallbackCopy(t, done));
+    else fallbackCopy(t, done);
+  };
+  function fallbackCopy(t, done) {
+    const ta = document.createElement("textarea");
+    ta.value = t; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); done(); } catch (e) { say("Trình duyệt chặn sao chép."); }
+    ta.remove();
+  }
+  function wrap(ctx, text, maxW) {
+    const words = text.split(/\s+/), lines = [];
+    let line = "";
+    for (const w of words) {
+      const tryL = line ? line + " " + w : w;
+      if (ctx.measureText(tryL).width > maxW && line) { lines.push(line); line = w; } else line = tryL;
+    }
+    if (line) lines.push(line);
+    return lines;
+  }
+  function cardImage(k) {
+    const W = 1080, pad = 90, inner = W - pad * 2;
+    const cv = document.createElement("canvas");
+    const ctx = cv.getContext("2d");
+    const serif = '"Noto Serif", Georgia, serif', sans = '"Be Vietnam Pro", system-ui, sans-serif';
+    // measure first, then draw
+    const plan = [];
+    let y = pad + 20;
+    const add = (font, color, text, gap, lh, align) => {
+      ctx.font = font;
+      for (const l of wrap(ctx, text, inner)) { plan.push({ font, color, text: l, y, align }); y += lh; }
+      y += gap;
+    };
+    add(`500 30px ${sans}`, "#a88fd8", "LUÂN HỒI DỊ GIỚI · MỘT KIẾP NGƯỜI", 40, 40, "center");
+    add(`600 76px ${serif}`, "#f3ead8", k.name, 10, 88, "center");
+    add(`400 34px ${sans}`, "#c9bfae", k.line + (k.origin ? " · " + k.origin : ""), 50, 46, "center");
+    for (const m of k.marks) add(`400 36px ${sans}`, "#efe6d4", "✦  " + m, 6, 48, "left");
+    y += 30;
+    if (k.epitaph) add(`italic 400 40px ${serif}`, "#f3ead8", `“${k.epitaph}”`, 30, 56, "center");
+    if (k.cause) add(`400 30px ${sans}`, "#a49a8a", k.cause, 0, 42, "center");
+    cv.width = W; cv.height = Math.max(W, y + pad);
+    const g = ctx.createLinearGradient(0, 0, 0, cv.height);
+    g.addColorStop(0, "#221d2e"); g.addColorStop(1, "#14121a");
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, cv.height);
+    ctx.strokeStyle = "#5a4a7a"; ctx.lineWidth = 3; ctx.strokeRect(36, 36, W - 72, cv.height - 72);
+    ctx.textBaseline = "top";
+    for (const p of plan) {
+      ctx.font = p.font; ctx.fillStyle = p.color; ctx.textAlign = p.align;
+      ctx.fillText(p.text, p.align === "center" ? W / 2 : pad, p.y);
+    }
+    return cv;
+  }
+  $("btn-save-card").onclick = () => {
+    if (!card) return;
+    const cv = cardImage(card);
+    const url = cv.toDataURL("image/png");
+    try {
+      const a = document.createElement("a");
+      a.href = url; a.download = `luan-hoi-${card.name.replace(/\s+/g, "-")}.png`;
+      document.body.appendChild(a); a.click(); a.remove();
+    } catch (e) {}
+    // also shown here, for when the download is blocked: hold or right-click to save
+    let img = $("lc-image");
+    if (!img) { img = document.createElement("img"); img.id = "lc-image"; img.className = "lc-image"; img.alt = "Thẻ cuộc đời"; $("lc-note").after(img); }
+    img.src = url;
+    say("Nếu ảnh chưa tải về, nhấn giữ hoặc chuột phải vào ảnh bên dưới để lưu.");
+  };
 
   $("btn-start").onclick = startLife;
   $("btn-begin").onclick = beginLife;
@@ -367,4 +474,27 @@
   });
 
   renderStart();
+})();
+
+// Background music: "Adventure" by Alexander Nakarada (royalty-free). Browsers block autoplay,
+// so it starts on the first click anywhere unless the player turned it off before.
+(function () {
+  const audio = document.getElementById("bgm");
+  const btn = document.getElementById("btn-music");
+  if (!audio || !btn) return;
+  audio.volume = 0.4;
+  let on = true;
+  try { on = localStorage.getItem("lhdg-music") !== "off"; } catch (e) {}
+  const show = () => { btn.classList.toggle("off", !on); btn.title = on ? "Tắt nhạc nền (Adventure – Alexander Nakarada)" : "Bật nhạc nền"; };
+  const play = () => { if (on) audio.play().catch(() => {}); };
+  btn.onclick = (ev) => {
+    ev.stopPropagation();
+    on = !on;
+    try { localStorage.setItem("lhdg-music", on ? "on" : "off"); } catch (e) {}
+    if (on) play(); else audio.pause();
+    show();
+  };
+  const first = () => { play(); document.removeEventListener("click", first, true); };
+  document.addEventListener("click", first, true);
+  show();
 })();

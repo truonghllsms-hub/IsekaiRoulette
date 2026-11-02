@@ -10,6 +10,8 @@
 </head>
 <body>
   <main id="app">
+    <audio id="bgm" src="audio/bgm.mp3" loop preload="none"></audio>
+    <button id="btn-music" class="music-toggle" type="button" title="Nhạc nền: Adventure – Alexander Nakarada (royalty-free)" aria-label="Bật/tắt nhạc nền">♪</button>
     <!-- Start -->
     <section id="screen-start" class="screen">
       <p class="eyebrow">Một linh hồn vừa rời khỏi thế giới cũ</p>
@@ -64,11 +66,24 @@
 
     <!-- Death -->
     <section id="screen-death" class="screen" hidden>
-      <p class="eyebrow">Cuộc đời kết thúc</p>
-      <h1 id="death-name"></h1>
-      <p id="death-meta" class="meta center"></p>
-      <p id="death-cause" class="cause"></p>
-      <blockquote id="death-epitaph" class="epitaph"></blockquote>
+      <figure id="life-card" class="life-card">
+        <p class="lc-eyebrow">Luân Hồi Dị Giới · một kiếp người</p>
+        <h2 id="lc-name"></h2>
+        <p id="lc-line" class="lc-line"></p>
+        <ul id="lc-marks" class="lc-marks"></ul>
+        <blockquote id="lc-epitaph" class="lc-epitaph"></blockquote>
+        <p id="lc-cause" class="lc-cause"></p>
+      </figure>
+      <div class="row lc-actions">
+        <button id="btn-copy-life" class="btn" type="button">Sao chép cuộc đời</button>
+        <button id="btn-save-card" class="btn" type="button">Lưu ảnh</button>
+      </div>
+      <p id="lc-note" class="meta center" hidden></p>
+      <p class="eyebrow" hidden>Cuộc đời kết thúc</p>
+      <h1 id="death-name" hidden></h1>
+      <p id="death-meta" class="meta center" hidden></p>
+      <p id="death-cause" class="cause" hidden></p>
+      <blockquote id="death-epitaph" class="epitaph" hidden></blockquote>
       <div id="death-bio" class="bio" hidden></div>
       <ul id="death-profile" class="death-profile"></ul>
       <h2 class="small-head">Những khoảnh khắc</h2>

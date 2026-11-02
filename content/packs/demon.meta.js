@@ -2,6 +2,16 @@
 const C = require("./_civil");
 
 module.exports = {
+  // demons grow up fast; their long life is spent grown
+  scriptStages: "engine", // the script was written with the old, lifespan-based ages
+  stages: [
+    { id: "infant", name: "Sơ sinh", start: 0 },
+    { id: "child", name: "Thơ ấu", start: 3 },
+    { id: "teen", name: "Thiếu niên", start: 12 },
+    { id: "adult", name: "Trưởng thành", start: 22 },
+    { id: "middle", name: "Trung niên", start: 220 },
+    { id: "elder", name: "Tuổi già", start: 320 },
+  ],
   race: "demon",
   script: "content/scripts/demon.txt",
   story: "content/scripts/demon_story.txt",

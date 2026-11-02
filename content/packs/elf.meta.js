@@ -2,6 +2,16 @@
 const C = require("./_civil");
 
 module.exports = {
+  // Elves grow up about as fast as people, then stay young for centuries
+  scriptStages: "engine", // the script was written with the old, lifespan-based ages
+  stages: [
+    { id: "infant", name: "Sơ sinh", start: 0 },
+    { id: "child", name: "Thơ ấu", start: 4 },
+    { id: "teen", name: "Thiếu niên", start: 14 },
+    { id: "adult", name: "Trưởng thành", start: 30 },
+    { id: "middle", name: "Trung niên", start: 700 },
+    { id: "elder", name: "Tuổi già", start: 1200 },
+  ],
   race: "elf",
   script: "content/scripts/elf.txt",
   story: "content/scripts/elf_story.txt",
