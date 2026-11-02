@@ -102,12 +102,23 @@
     }
     return pool[hashName(ch.name) % pool.length];
   }
-  function spriteOf(ch) {
+  // peak: the strongest look of a whole life (evolved form, veteran gear) instead of the present one
+  function spriteOf(ch, peak) {
     const person = personOf(ch);
     if (!person) return null;
     const P = D.sprites[person];
     const st = E.currentStage(ch).id;
     const want = [];
+    if (peak) {
+      if (ch.form) want.push(`tienhoa_${slug(ch.form)}`);
+      for (const j of [ch.job, ...(ch.pastJobs || []).slice().reverse()].filter(Boolean)) {
+        const t = j.id.slice(j.id.indexOf("_") + 1);
+        want.push(`${t}_kycuu`, `${t}_moi`);
+      }
+      want.push("thuongdan", "thieunien", "hoilon", "beti");
+      const col = want.find((k) => P[k]);
+      return col ? { person, rect: P[col], size: P._size } : null;
+    }
     if (ch.form) want.push(`tienhoa_${slug(ch.form)}`);
     if (st === "infant") want.push("beti", "hoilon");
     else if (st === "child") want.push("hoilon", "beti");
@@ -123,10 +134,10 @@
     const col = want.find((k) => P[k]);
     return col ? { person, rect: P[col], size: P._size } : null;
   }
-  function setSprite(id, ch) {
+  function setSprite(id, ch, peak) {
     const box = $(id);
     if (!box) return;
-    const s = spriteOf(ch);
+    const s = spriteOf(ch, peak);
     box.hidden = !s;
     if (!s) return;
     const el = box.firstElementChild;
@@ -363,12 +374,17 @@
     renderCard(s.card);
     store.add({ name: c.name, race: E.raceTitle(c), age: c.age });
     show("screen-death");
+    setSprite("lc-sprite", c, true); // after show: the box needs its real height
   }
 
   // ---------- the life card (to copy or save and show around) ----------
   let card = null;
+  let cardSprite = null;
   function renderCard(k) {
     card = k;
+    const sp = spriteOf(c, true);
+    cardSprite = null;
+    if (sp) { const im = new Image(); im.onload = () => { cardSprite = { im, rect: sp.rect }; }; im.src = `img/${sp.person}.png`; }
     $("lc-name").textContent = k.name;
     $("lc-line").textContent = k.line + (k.origin ? " · " + k.origin : "");
     const ul = $("lc-marks");
@@ -425,7 +441,15 @@
       for (const l of wrap(ctx, text, inner)) { plan.push({ font, color, text: l, y, align }); y += lh; }
       y += gap;
     };
-    add(`500 30px ${sans}`, "#a88fd8", "LUÂN HỒI DỊ GIỚI · MỘT KIẾP NGƯỜI", 40, 40, "center");
+    add(`500 30px ${sans}`, "#a88fd8", "LUÂN HỒI DỊ GIỚI · MỘT KIẾP NGƯỜI", 30, 40, "center");
+    // the character at the height of their life
+    let spr = null;
+    if (cardSprite) {
+      const [, , sw, sh] = cardSprite.rect;
+      const k = Math.min(300 / sh, 360 / sw);
+      spr = { y, w: Math.round(sw * k), h: Math.round(sh * k) };
+      y += spr.h + 30;
+    }
     add(`600 76px ${serif}`, "#f3ead8", k.name, 10, 88, "center");
     add(`400 34px ${sans}`, "#c9bfae", k.line + (k.origin ? " · " + k.origin : ""), 50, 46, "center");
     for (const m of k.marks) add(`400 36px ${sans}`, "#efe6d4", "✦  " + m, 6, 48, "left");
@@ -437,6 +461,11 @@
     g.addColorStop(0, "#221d2e"); g.addColorStop(1, "#14121a");
     ctx.fillStyle = g; ctx.fillRect(0, 0, W, cv.height);
     ctx.strokeStyle = "#5a4a7a"; ctx.lineWidth = 3; ctx.strokeRect(36, 36, W - 72, cv.height - 72);
+    if (spr) {
+      const [sx, sy, sw, sh] = cardSprite.rect;
+      ctx.imageSmoothingEnabled = false;
+      ctx.drawImage(cardSprite.im, sx, sy, sw, sh, Math.round((W - spr.w) / 2), spr.y, spr.w, spr.h);
+    }
     ctx.textBaseline = "top";
     for (const p of plan) {
       ctx.font = p.font; ctx.fillStyle = p.color; ctx.textAlign = p.align;
@@ -455,9 +484,13 @@
   }
   $("btn-save-card").onclick = () => {
     if (!card) return;
-    const cv = cardImage(card);
+    let cv = cardImage(card);
     const name = `luan-hoi-${card.name.replace(/\s+/g, "-")}.png`;
-    const url = cv.toDataURL("image/png");
+    let url;
+    try { url = cv.toDataURL("image/png"); } catch (e) {
+      // the browser would not let the picture of the character out: the card without it
+      cardSprite = null; cv = cardImage(card); url = cv.toDataURL("image/png");
+    }
     const fallback = "Nhấn giữ hoặc chuột phải vào ảnh bên dưới để lưu.";
     if (dl) {
       cv.toBlob((blob) => {

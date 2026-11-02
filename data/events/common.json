@@ -1,115 +1,767 @@
 [
-  { "id": "c_first_word", "tags": ["humanoid"], "excludeRaces": ["vampire", "ghoul"], "stages": ["infant"], "weight": 10,
-    "text": "Bạn nói được từ đầu tiên. Không ai đồng ý đó là từ gì.", "effects": { "INT": 1 } },
-  { "id": "c_first_steps", "tags": ["humanoid"], "excludeRaces": ["vampire", "ghoul"], "stages": ["infant"], "weight": 10,
-    "text": "Bạn tự đứng dậy và đi được bốn bước. Rồi ngã.", "effects": { "AGI": 1 } },
-  { "id": "c_sick_child", "stages": ["infant", "child"], "weight": 6,
-    "text": "Bạn ốm một trận nặng. Có ai đó thức trắng ba đêm bên bạn.", "effects": { "health": -12, "joy": 3 } },
-  { "id": "c_past_life", "stages": ["child", "teen"], "weight": 4,
+  {
+    "id": "c_first_word",
+    "tags": [
+      "humanoid"
+    ],
+    "excludeRaces": [
+      "vampire",
+      "ghoul"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "weight": 10,
+    "text": "Bạn nói được từ đầu tiên. Không ai đồng ý đó là từ gì.",
+    "effects": {
+      "INT": 1
+    }
+  },
+  {
+    "id": "c_first_steps",
+    "tags": [
+      "humanoid"
+    ],
+    "excludeRaces": [
+      "vampire",
+      "ghoul"
+    ],
+    "stages": [
+      "infant"
+    ],
+    "weight": 10,
+    "text": "Bạn tự đứng dậy và đi được bốn bước. Rồi ngã.",
+    "effects": {
+      "AGI": 1
+    }
+  },
+  {
+    "id": "c_sick_child",
+    "stages": [
+      "infant",
+      "child"
+    ],
+    "weight": 6,
+    "text": "Bạn ốm một trận nặng. Có ai đó thức trắng ba đêm bên bạn.",
+    "effects": {
+      "health": -12,
+      "joy": 3
+    }
+  },
+  {
+    "id": "c_past_life",
+    "stages": [
+      "child",
+      "teen"
+    ],
+    "weight": 4,
     "text": "Bạn mơ thấy một thế giới có những cỗ xe sắt chạy không cần ngựa. Tỉnh dậy, bạn thấy nhớ nơi đó lạ lùng.",
-    "effects": { "INT": 1 }, "moment": "Mơ về kiếp trước" },
-  { "id": "c_friend", "tags": ["humanoid"], "stages": ["child"], "weight": 8,
+    "effects": {
+      "INT": 1
+    },
+    "moment": "Mơ về kiếp trước"
+  },
+  {
+    "id": "c_friend",
+    "tags": [
+      "humanoid"
+    ],
+    "stages": [
+      "child"
+    ],
+    "weight": 8,
     "text": "Bạn có một người bạn thân. Hai đứa chia nhau mọi thứ, kể cả những trận đòn.",
-    "effects": { "joy": 10, "flags": ["has_friend"] } },
-  { "id": "c_friend_leave", "stages": ["teen", "adult"], "weight": 6, "require": { "flags": ["has_friend"] },
+    "effects": {
+      "joy": 10,
+      "flags": [
+        "has_friend"
+      ]
+    }
+  },
+  {
+    "id": "c_friend_leave",
+    "stages": [
+      "teen",
+      "adult"
+    ],
+    "weight": 6,
+    "require": {
+      "flags": [
+        "has_friend"
+      ]
+    },
     "text": "Người bạn thân của bạn chuyển đi nơi khác. Bạn đứng nhìn theo đến khi không thấy nữa.",
-    "effects": { "joy": -10, "unflags": ["has_friend"] } },
-  { "id": "c_read", "tags": ["civil"], "stages": ["child", "teen"], "weight": 6,
-    "text": "Bạn học được cách đọc. Chữ đầu tiên bạn tự đọc là tên một quán rượu.", "effects": { "INT": 2 } },
-  { "id": "c_coin", "stages": ["child", "teen", "adult"], "weight": 4,
-    "text": "Bạn nhặt được một đồng xu khắc hình lạ. Bạn giữ nó rất lâu.", "effects": { "LUCK": 1, "wealth": 2 } },
-  { "id": "c_winter", "once": false, "weight": 2,
-    "text": "Mùa đông năm ấy dài bất thường. Ai cũng gầy đi.", "effects": { "health": -5 } },
-  { "id": "c_quiet_year", "once": false, "weight": 3,
-    "text": "Một năm êm ả. Bạn gần như không nhớ gì về nó, và đó là điều tốt.", "effects": { "joy": 4 } },
-  { "id": "c_rest", "once": false, "weight": 6, "require": { "below": { "health": 55 } },
-    "text": "Bạn nghỉ ngơi suốt một mùa. Cơ thể hồi lại dần.", "effects": { "health": 12 } },
-  { "id": "c_storm", "tags": ["humanoid"], "stages": ["child", "teen", "adult", "middle"], "weight": 3,
-    "text": "Một cơn bão đi qua. Bạn mất vài thứ, nhưng người vẫn nguyên vẹn.", "effects": { "wealth": -5 } },
-  { "id": "c_injury", "stages": ["adult", "middle"], "once": false, "weight": 2,
-    "text": "Bạn bị thương ở chân. Vết thương lành, nhưng trời trở lạnh là lại nhức.", "effects": { "health": -8, "AGI": -1 } },
-  { "id": "c_plague", "stages": ["child", "adult", "middle"], "eras": ["dark_age"], "excludeRaces": ["slime", "ghoul", "vampire", "lizardman"], "weight": 8,
-    "text": "Dịch bệnh lan tới nơi bạn sống. Ngày nào cũng có tiếng chuông báo tang.", "effects": { "health": -20, "joy": -10 } },
-  { "id": "c_cave", "tags": ["humanoid"], "stages": ["teen", "adult"], "weight": 5,
+    "effects": {
+      "joy": -10,
+      "unflags": [
+        "has_friend"
+      ]
+    }
+  },
+  {
+    "id": "c_read",
+    "tags": [
+      "civil"
+    ],
+    "stages": [
+      "child",
+      "teen"
+    ],
+    "weight": 6,
+    "text": "Bạn học được cách đọc. Chữ đầu tiên bạn tự đọc là tên một quán rượu.",
+    "effects": {
+      "INT": 2
+    }
+  },
+  {
+    "id": "c_coin",
+    "stages": [
+      "child",
+      "teen",
+      "adult"
+    ],
+    "weight": 4,
+    "text": "Bạn nhặt được một đồng xu khắc hình lạ. Bạn giữ nó rất lâu.",
+    "effects": {
+      "LUCK": 1,
+      "wealth": 2
+    }
+  },
+  {
+    "id": "c_winter",
+    "once": false,
+    "weight": 2,
+    "text": "Mùa đông năm ấy dài bất thường. Ai cũng gầy đi.",
+    "effects": {
+      "health": -5
+    }
+  },
+  {
+    "id": "c_quiet_year",
+    "once": false,
+    "weight": 3,
+    "text": "Một năm êm ả. Bạn gần như không nhớ gì về nó, và đó là điều tốt.",
+    "effects": {
+      "joy": 4
+    }
+  },
+  {
+    "id": "c_rest",
+    "once": false,
+    "weight": 6,
+    "require": {
+      "below": {
+        "health": 55
+      }
+    },
+    "text": "Bạn nghỉ ngơi suốt một mùa. Cơ thể hồi lại dần.",
+    "effects": {
+      "health": 12
+    }
+  },
+  {
+    "id": "c_storm",
+    "tags": [
+      "humanoid"
+    ],
+    "stages": [
+      "child",
+      "teen",
+      "adult",
+      "middle"
+    ],
+    "weight": 3,
+    "text": "Một cơn bão đi qua. Bạn mất vài thứ, nhưng người vẫn nguyên vẹn.",
+    "effects": {
+      "wealth": -5
+    }
+  },
+  {
+    "id": "c_injury",
+    "stages": [
+      "adult",
+      "middle"
+    ],
+    "once": false,
+    "weight": 2,
+    "text": "Bạn bị thương ở chân. Vết thương lành, nhưng trời trở lạnh là lại nhức.",
+    "effects": {
+      "health": -8,
+      "AGI": -1
+    }
+  },
+  {
+    "id": "c_plague",
+    "stages": [
+      "child",
+      "adult",
+      "middle"
+    ],
+    "eras": [
+      "dark_age"
+    ],
+    "excludeRaces": [
+      "slime",
+      "ghoul",
+      "vampire",
+      "lizardman"
+    ],
+    "weight": 8,
+    "text": "Dịch bệnh lan tới nơi bạn sống. Ngày nào cũng có tiếng chuông báo tang.",
+    "effects": {
+      "health": -20,
+      "joy": -10
+    }
+  },
+  {
+    "id": "c_cave",
+    "tags": [
+      "humanoid"
+    ],
+    "stages": [
+      "teen",
+      "adult"
+    ],
+    "weight": 5,
     "text": "Bạn tìm thấy lối vào một hang động lạ. Bên trong có ánh sáng le lói.",
     "choices": [
-      { "label": "Bước vào", "check": { "stat": "AGI", "target": 6 },
-        "success": { "text": "Bạn lách qua những tảng đá và tìm thấy một chiếc rương cũ. Bên trong có vàng.", "effects": { "wealth": 25 }, "moment": "Tìm thấy kho báu trong hang" },
-        "fail": { "text": "Đá dưới chân bạn sụt xuống. Bạn bò ra được sau hai ngày.", "effects": { "health": -25 } } },
-      { "label": "Bỏ đi", "text": "Bạn quay về. Cả đời bạn vẫn tự hỏi trong đó có gì.", "effects": { "joy": -3 } }
-    ] },
-  { "id": "c_love", "tags": ["humanoid"], "stages": ["teen", "adult"], "weight": 7, "require": { "notFlags": ["partner"] },
+      {
+        "label": "Bước vào",
+        "check": {
+          "stat": "AGI",
+          "target": 6
+        },
+        "success": {
+          "text": "Bạn lách qua những tảng đá và tìm thấy một chiếc rương cũ. Bên trong có vàng.",
+          "effects": {
+            "wealth": 25
+          },
+          "moment": "Tìm thấy kho báu trong hang"
+        },
+        "fail": {
+          "text": "Đá dưới chân bạn sụt xuống. Bạn bò ra được sau hai ngày.",
+          "effects": {
+            "health": -25
+          }
+        }
+      },
+      {
+        "label": "Bỏ đi",
+        "text": "Bạn quay về. Cả đời bạn vẫn tự hỏi trong đó có gì.",
+        "effects": {
+          "joy": -3
+        }
+      }
+    ]
+  },
+  {
+    "id": "c_love",
+    "tags": [
+      "humanoid"
+    ],
+    "stages": [
+      "teen",
+      "adult"
+    ],
+    "weight": 7,
+    "require": {
+      "notFlags": [
+        "partner"
+      ]
+    },
     "text": "Có một người luôn đứng ở chỗ bạn hay đi qua. Họ nhìn bạn lâu hơn mức bình thường.",
     "choices": [
-      { "label": "Bắt chuyện", "check": { "stat": "LUCK", "target": 5 },
-        "success": { "text": "Hai người nói chuyện đến tận tối. Rồi rất nhiều buổi tối sau đó.", "effects": { "joy": 15, "flags": ["partner"] }, "moment": "Gặp người thương" },
-        "fail": { "text": "Hóa ra họ đang đợi người khác.", "effects": { "joy": -5 } } },
-      { "label": "Lặng lẽ đi qua", "text": "Bạn đi qua. Ngày mai bạn cũng sẽ đi qua.", "effects": { "joy": -2 } }
-    ] },
-  { "id": "c_marry", "stages": ["adult", "middle"], "weight": 9, "require": { "flags": ["partner"], "notFlags": ["married"] },
+      {
+        "label": "Bắt chuyện",
+        "check": {
+          "stat": "LUCK",
+          "target": 5
+        },
+        "success": {
+          "text": "Hai người nói chuyện đến tận tối. Rồi rất nhiều buổi tối sau đó.",
+          "effects": {
+            "joy": 15,
+            "flags": [
+              "partner"
+            ]
+          },
+          "moment": "Gặp người thương"
+        },
+        "fail": {
+          "text": "Hóa ra họ đang đợi người khác.",
+          "effects": {
+            "joy": -5
+          }
+        }
+      },
+      {
+        "label": "Lặng lẽ đi qua",
+        "text": "Bạn đi qua. Ngày mai bạn cũng sẽ đi qua.",
+        "effects": {
+          "joy": -2
+        }
+      }
+    ]
+  },
+  {
+    "id": "c_marry",
+    "stages": [
+      "adult",
+      "middle"
+    ],
+    "weight": 9,
+    "require": {
+      "flags": [
+        "partner"
+      ],
+      "notFlags": [
+        "married"
+      ]
+    },
     "text": "Bạn và người ấy quyết định sống cùng nhau. Không có nhẫn, chỉ có một lời hứa.",
-    "effects": { "joy": 15, "flags": ["married"] }, "moment": "Kết đôi" },
-  { "id": "c_child", "stages": ["adult", "middle"], "weight": 8, "require": { "flags": ["married"] },
+    "effects": {
+      "joy": 15,
+      "flags": [
+        "married"
+      ]
+    },
+    "moment": "Kết đôi"
+  },
+  {
+    "id": "c_child",
+    "stages": [
+      "adult",
+      "middle"
+    ],
+    "weight": 8,
+    "require": {
+      "flags": [
+        "married"
+      ]
+    },
     "text": "Bạn có một đứa con. Nó khóc to hơn bạn tưởng.",
-    "effects": { "joy": 12, "wealth": -5, "flags": ["parent"] }, "moment": "Lần đầu làm cha mẹ" },
-  { "id": "c_partner_dies", "stages": ["middle", "elder", "ancient"], "weight": 5, "require": { "flags": ["married"] },
+    "effects": {
+      "joy": 12,
+      "wealth": -5,
+      "flags": [
+        "parent"
+      ]
+    },
+    "moment": "Lần đầu làm cha mẹ"
+  },
+  {
+    "id": "c_partner_dies",
+    "stages": [
+      "middle",
+      "elder",
+      "ancient"
+    ],
+    "weight": 5,
+    "require": {
+      "flags": [
+        "married"
+      ]
+    },
     "text": "Người bạn đời của bạn ra đi trước. Căn nhà bỗng trở nên quá rộng.",
-    "effects": { "joy": -25, "unflags": ["married"], "flags": ["widowed"] }, "moment": "Mất người bạn đời" },
-  { "id": "c_grandchild", "stages": ["elder"], "weight": 6, "require": { "flags": ["parent"] },
-    "text": "Con bạn dẫn về một đứa bé. Nó có đôi mắt giống hệt bạn.", "effects": { "joy": 15 }, "moment": "Được bế cháu" },
-  { "id": "c_war", "tags": ["civil"], "stages": ["adult"], "eras": ["holy_war", "demon_lord"], "weight": 10,
+    "effects": {
+      "joy": -25,
+      "unflags": [
+        "married"
+      ],
+      "flags": [
+        "widowed"
+      ]
+    },
+    "moment": "Mất người bạn đời"
+  },
+  {
+    "id": "c_grandchild",
+    "stages": [
+      "elder"
+    ],
+    "weight": 6,
+    "require": {
+      "flags": [
+        "parent"
+      ]
+    },
+    "text": "Con bạn dẫn về một đứa bé. Nó có đôi mắt giống hệt bạn.",
+    "effects": {
+      "joy": 15
+    },
+    "moment": "Được bế cháu"
+  },
+  {
+    "id": "c_war",
+    "tags": [
+      "civil"
+    ],
+    "stages": [
+      "adult"
+    ],
+    "eras": [
+      "holy_war",
+      "demon_lord"
+    ],
+    "weight": 10,
     "text": "Chiến tranh nổ ra. Lính chiêu mộ đi gõ cửa từng nhà.",
     "choices": [
-      { "label": "Nhập ngũ", "check": { "stat": "STR", "target": 6 },
-        "success": { "text": "Bạn trở về sau hai năm, với một huân chương và ít lời hơn trước.", "effects": { "wealth": 20, "STR": 1, "flags": ["veteran"] }, "moment": "Trở về từ chiến trận" },
-        "fail": { "text": "Bạn trở về với một vết sẹo dài và những giấc mơ không yên.", "effects": { "health": -35, "joy": -10, "flags": ["veteran"] } } },
-      { "label": "Trốn lính", "check": { "stat": "AGI", "target": 5 },
-        "success": { "text": "Bạn trốn dưới hầm suốt hai mùa. Khi bạn chui ra, chiến tranh đã hết.", "effects": { "joy": -5 } },
-        "fail": { "text": "Bạn bị bắt và phải lao dịch một năm.", "effects": { "health": -10, "wealth": -10 } } }
-    ] },
-  { "id": "c_elder_tales", "stages": ["elder", "ancient"], "once": false, "weight": 2, "tags": ["humanoid"],
-    "text": "Lũ trẻ quanh đây hay đến nghe bạn kể chuyện. Mỗi lần kể, câu chuyện lại hay hơn một chút.", "effects": { "joy": 5 } },
-  { "id": "c_cough", "stages": ["elder"], "weight": 5,
-    "text": "Mùa đông nào bạn cũng ho nhiều hơn mùa trước.", "effects": { "health": -10 } },
-  { "id": "c_kingdom_falls", "stages": ["ancient", "middle", "elder"], "require": { "flags": [] }, "races": ["slime", "vampire", "ghoul", "dragon", "high_demon", "elf"], "weight": 4,
-    "text": "Một vương quốc gần đó sụp đổ. Bạn vẫn nhớ ngày nó được dựng lên.", "effects": { "INT": 1 }, "moment": "Chứng kiến một vương quốc sụp đổ" },
-  { "id": "c_world_changes", "stages": ["ancient"], "once": false, "weight": 3,
-    "text": "Thế giới thay đổi. Bạn thì không thay đổi nhiều lắm.", "effects": { "joy": -1 } },
-
-  { "id": "era_peace_festival", "eras": ["peace"], "tags": ["humanoid"], "stages": ["child", "teen", "adult"], "weight": 5,
-    "text": "Mùa Lửa Trại năm ấy, lễ hội được tổ chức khắp các làng mạc. Dưới ánh đuốc bập bùng, bạn nhảy múa cho đến khi trăng lặn.", "effects": { "joy": 10, "wealth": -3 } },
-  { "id": "era_peace_trade", "eras": ["peace"], "stages": ["adult", "middle"], "weight": 5,
-    "text": "Thương lộ thông suốt, hàng hóa từ khắp Aethelgard đổ về. Một năm sung túc hiếm hoi trong đời bạn.", "effects": { "wealth": 10, "joy": 3 } },
-  { "id": "era_war_refugee", "eras": ["holy_war"], "stages": ["child", "teen", "adult"], "weight": 6,
-    "text": "Khói lửa chiến tranh tràn đến quê hương bạn. Bạn cùng hàng ngàn kẻ khác lê bước trên con đường chạy nạn, mang theo những gì có thể.", "effects": { "health": -10, "wealth": -10, "joy": -10 }, "moment": "Chạy nạn chiến tranh" },
-  { "id": "era_dark_famine", "eras": ["dark_age"], "once": false, "weight": 4,
-    "text": "Nạn đói siết chặt lấy vùng đất. Bạn đã quên mất cảm giác no bụng là như thế nào.", "effects": { "health": -10, "joy": -5 } },
-  { "id": "era_dark_cult", "eras": ["dark_age"], "tags": ["humanoid"], "stages": ["teen", "adult"], "weight": 6,
+      {
+        "label": "Nhập ngũ",
+        "check": {
+          "stat": "STR",
+          "target": 6
+        },
+        "success": {
+          "text": "Bạn trở về sau hai năm, với một huân chương và ít lời hơn trước.",
+          "effects": {
+            "wealth": 20,
+            "STR": 1,
+            "flags": [
+              "veteran"
+            ]
+          },
+          "moment": "Trở về từ chiến trận"
+        },
+        "fail": {
+          "text": "Bạn trở về với một vết sẹo dài và những giấc mơ không yên.",
+          "effects": {
+            "health": -35,
+            "joy": -10,
+            "flags": [
+              "veteran"
+            ]
+          }
+        }
+      },
+      {
+        "label": "Trốn lính",
+        "check": {
+          "stat": "AGI",
+          "target": 5
+        },
+        "success": {
+          "text": "Bạn trốn dưới hầm suốt hai mùa. Khi bạn chui ra, chiến tranh đã hết.",
+          "effects": {
+            "joy": -5
+          }
+        },
+        "fail": {
+          "text": "Bạn bị bắt và phải lao dịch một năm.",
+          "effects": {
+            "health": -10,
+            "wealth": -10
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "c_elder_tales",
+    "stages": [
+      "elder",
+      "ancient"
+    ],
+    "once": false,
+    "weight": 2,
+    "tags": [
+      "humanoid"
+    ],
+    "text": "Lũ trẻ quanh đây hay đến nghe bạn kể chuyện. Mỗi lần kể, câu chuyện lại hay hơn một chút.",
+    "effects": {
+      "joy": 5
+    }
+  },
+  {
+    "id": "c_cough",
+    "stages": [
+      "elder"
+    ],
+    "weight": 5,
+    "text": "Mùa đông nào bạn cũng ho nhiều hơn mùa trước.",
+    "effects": {
+      "health": -10
+    }
+  },
+  {
+    "id": "c_kingdom_falls",
+    "stages": [
+      "ancient",
+      "middle",
+      "elder"
+    ],
+    "require": {
+      "flags": []
+    },
+    "races": [
+      "slime",
+      "vampire",
+      "ghoul",
+      "dragon",
+      "high_demon",
+      "elf"
+    ],
+    "weight": 4,
+    "text": "Một vương quốc gần đó sụp đổ. Bạn vẫn nhớ ngày nó được dựng lên.",
+    "effects": {
+      "INT": 1
+    },
+    "moment": "Chứng kiến một vương quốc sụp đổ"
+  },
+  {
+    "id": "c_world_changes",
+    "stages": [
+      "ancient"
+    ],
+    "once": false,
+    "weight": 3,
+    "text": "Thế giới thay đổi. Bạn thì không thay đổi nhiều lắm.",
+    "effects": {
+      "joy": -1
+    }
+  },
+  {
+    "id": "era_peace_festival",
+    "eras": [
+      "peace"
+    ],
+    "tags": [
+      "humanoid"
+    ],
+    "stages": [
+      "child",
+      "teen",
+      "adult"
+    ],
+    "weight": 5,
+    "text": "Mùa Lửa Trại năm ấy, lễ hội được tổ chức khắp các làng mạc. Dưới ánh đuốc bập bùng, bạn nhảy múa cho đến khi trăng lặn.",
+    "effects": {
+      "joy": 10,
+      "wealth": -3
+    }
+  },
+  {
+    "id": "era_peace_trade",
+    "eras": [
+      "peace"
+    ],
+    "stages": [
+      "adult",
+      "middle"
+    ],
+    "weight": 5,
+    "text": "Thương lộ thông suốt, hàng hóa từ khắp Aethelgard đổ về. Một năm sung túc hiếm hoi trong đời bạn.",
+    "effects": {
+      "wealth": 10,
+      "joy": 3
+    }
+  },
+  {
+    "id": "era_war_refugee",
+    "eras": [
+      "holy_war"
+    ],
+    "stages": [
+      "child",
+      "teen",
+      "adult"
+    ],
+    "weight": 6,
+    "text": "Khói lửa chiến tranh tràn đến quê hương bạn. Bạn cùng hàng ngàn kẻ khác lê bước trên con đường chạy nạn, mang theo những gì có thể.",
+    "effects": {
+      "health": -10,
+      "wealth": -10,
+      "joy": -10
+    },
+    "moment": "Chạy nạn chiến tranh"
+  },
+  {
+    "id": "era_dark_famine",
+    "eras": [
+      "dark_age"
+    ],
+    "once": false,
+    "weight": 4,
+    "text": "Nạn đói siết chặt lấy vùng đất. Bạn đã quên mất cảm giác no bụng là như thế nào.",
+    "effects": {
+      "health": -10,
+      "joy": -5
+    }
+  },
+  {
+    "id": "era_dark_cult",
+    "eras": [
+      "dark_age"
+    ],
+    "tags": [
+      "humanoid"
+    ],
+    "stages": [
+      "teen",
+      "adult"
+    ],
+    "weight": 6,
     "text": "Giữa đêm tối, một kẻ trùm áo choàng đen tìm đến bạn. Hắn thì thầm về Hắc Nguyệt Hội, về con đường thoát khỏi sinh lão bệnh tử.",
     "choices": [
-      { "label": "Gia nhập Hắc Nguyệt Hội", "text": "Bạn nhỏ máu lên vầng trăng đen khắc trên tế đàn. Những bí mật của Vực Thẳm Cổ Thần dần hé mở trước mắt bạn.", "effects": { "INT": 2, "joy": -5, "flags": ["cultist"] }, "moment": "Gia nhập Hắc Nguyệt Hội" },
-      { "label": "Tố giác hắn", "check": { "stat": "LUCK", "target": 5 },
-        "success": { "text": "Thánh Kỵ Sĩ Đoàn bắt gọn cả giáo đoàn nhờ lời khai của bạn. Bạn nhận được một túi bạc và ánh mắt căm hờn từ bóng tối.", "effects": { "wealth": 15 } },
-        "fail": { "text": "Giáo đoàn biết bạn là kẻ tố giác trước cả Thánh Kỵ Sĩ Đoàn.", "effects": { "health": -25 } } }
-    ] },
-  { "id": "era_demon_lord_heroes", "eras": ["demon_lord"], "tags": ["civil"], "stages": ["teen", "adult"], "weight": 10,
+      {
+        "label": "Gia nhập Hắc Nguyệt Hội",
+        "text": "Bạn nhỏ máu lên vầng trăng đen khắc trên tế đàn. Những bí mật của Vực Thẳm Cổ Thần dần hé mở trước mắt bạn.",
+        "effects": {
+          "INT": 2,
+          "joy": -5,
+          "flags": [
+            "cultist"
+          ]
+        },
+        "moment": "Gia nhập Hắc Nguyệt Hội"
+      },
+      {
+        "label": "Tố giác hắn",
+        "check": {
+          "stat": "LUCK",
+          "target": 5
+        },
+        "success": {
+          "text": "Order of Holy Knights bắt gọn cả giáo đoàn nhờ lời khai của bạn. Bạn nhận được một túi bạc và ánh mắt căm hờn từ bóng tối.",
+          "effects": {
+            "wealth": 15
+          }
+        },
+        "fail": {
+          "text": "Giáo đoàn biết bạn là kẻ tố giác trước cả Order of Holy Knights.",
+          "effects": {
+            "health": -25
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "era_demon_lord_heroes",
+    "eras": [
+      "demon_lord"
+    ],
+    "tags": [
+      "civil"
+    ],
+    "stages": [
+      "teen",
+      "adult"
+    ],
+    "weight": 10,
     "text": "Chuông nhà thờ vang lên khắp lục địa. Giáo hội Thánh Quang hiệu triệu mọi chiến binh tập kết dưới ngọn cờ Anh hùng để chống lại Ma Vương.",
     "choices": [
-      { "label": "Gia nhập đoàn Anh hùng", "check": { "stat": "STR", "target": 8 },
-        "success": { "text": "Bạn sát cánh cùng các Anh hùng qua trăm trận chiến. Tên bạn được khắc lên tượng đài giữa Thủ đô Sanctus.", "effects": { "wealth": 30, "joy": 15, "flags": ["hero"] }, "moment": "Chiến đấu cùng đoàn Anh hùng chống Ma Vương" },
-        "fail": { "text": "Quân đoàn quỷ tràn qua chiến tuyến như một cơn lũ đen.", "death": "Bạn ngã xuống trong cuộc chiến chống Ma Vương ở tuổi {age}, một trong vạn cái tên không ai kịp khắc lên bia đá." } },
-      { "label": "Ở lại bảo vệ quê nhà", "text": "Bạn ở lại, dựng hàng rào gỗ quanh làng và canh gác mỗi đêm. Ngôi làng của bạn là một trong số ít nơi còn đứng vững.", "effects": { "health": -10, "joy": 5 } }
-    ] },
-  { "id": "era_demon_lord_legion", "eras": ["demon_lord"], "tags": ["monster"], "stages": ["teen", "adult", "middle"], "weight": 10,
-    "text": "Tiếng tù và của Ma Vương vang vọng từ Cửa Ngục Than Khóc. Quân đoàn Ma Vương đang chiêu mộ mọi ma vật để tràn lên mặt đất.",
+      {
+        "label": "Gia nhập đoàn Anh hùng",
+        "check": {
+          "stat": "STR",
+          "target": 8
+        },
+        "success": {
+          "text": "Bạn sát cánh cùng các Anh hùng qua trăm trận chiến. Tên bạn được khắc lên tượng đài giữa Thủ đô Sanctus.",
+          "effects": {
+            "wealth": 30,
+            "joy": 15,
+            "flags": [
+              "hero"
+            ]
+          },
+          "moment": "Chiến đấu cùng đoàn Anh hùng chống Ma Vương"
+        },
+        "fail": {
+          "text": "Quân đoàn quỷ tràn qua chiến tuyến như một cơn lũ đen.",
+          "death": "Bạn ngã xuống trong cuộc chiến chống Ma Vương ở tuổi {age}, một trong vạn cái tên không ai kịp khắc lên bia đá."
+        }
+      },
+      {
+        "label": "Ở lại bảo vệ quê nhà",
+        "text": "Bạn ở lại, dựng hàng rào gỗ quanh làng và canh gác mỗi đêm. Ngôi làng của bạn là một trong số ít nơi còn đứng vững.",
+        "effects": {
+          "health": -10,
+          "joy": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "era_demon_lord_legion",
+    "eras": [
+      "demon_lord"
+    ],
+    "tags": [
+      "monster"
+    ],
+    "stages": [
+      "teen",
+      "adult",
+      "middle"
+    ],
+    "weight": 10,
+    "text": "Tiếng tù và của Ma Vương vang vọng từ Cửa Ngục Than Khóc. Demon Lord's Legion đang chiêu mộ mọi ma vật để tràn lên mặt đất.",
     "choices": [
-      { "label": "Gia nhập Quân Đoàn", "check": { "stat": "STR", "target": 7 },
-        "success": { "text": "Bạn hành quân dưới lá cờ đen, tàn sát những thành trì loài người từng khinh miệt giống loài của bạn.", "effects": { "wealth": 25, "STR": 1, "flags": ["demon_army"] }, "moment": "Gia nhập Quân đoàn Ma Vương" },
-        "fail": { "text": "Bạn bị đẩy lên tuyến đầu làm bia đỡ đạn.", "death": "Bạn chết trong đợt xung phong đầu tiên của Quân đoàn Ma Vương, ở tuổi {age}." } },
-      { "label": "Lẩn trốn", "check": { "stat": "AGI", "target": 5 },
-        "success": { "text": "Bạn trốn sâu trong lòng đất cho đến khi tiếng tù và tắt hẳn.", "effects": { "joy": -5 } },
-        "fail": { "text": "Lũ đốc binh quỷ lôi bạn ra và đánh đập vì tội đào ngũ.", "effects": { "health": -30 } } }
-    ] },
-  { "id": "era_hero_summoned", "eras": ["demon_lord", "holy_war"], "tags": ["monster"], "stages": ["child", "teen", "adult"], "weight": 4,
-    "text": "Giáo hội triệu hồi những \"Người được chọn\" từ một thế giới khác. Họ mang theo những sức mạnh phi lý, và quét sạch ma vật cấp thấp như quét lá rụng.", "effects": { "health": -20, "joy": -10 }, "moment": "Sống sót qua cuộc tàn sát của Người được chọn" }
+      {
+        "label": "Gia nhập Quân Đoàn",
+        "check": {
+          "stat": "STR",
+          "target": 7
+        },
+        "success": {
+          "text": "Bạn hành quân dưới lá cờ đen, tàn sát những thành trì loài người từng khinh miệt giống loài của bạn.",
+          "effects": {
+            "wealth": 25,
+            "STR": 1,
+            "flags": [
+              "demon_army"
+            ]
+          },
+          "moment": "Gia nhập Demon Lord's Legion"
+        },
+        "fail": {
+          "text": "Bạn bị đẩy lên tuyến đầu làm bia đỡ đạn.",
+          "death": "Bạn chết trong đợt xung phong đầu tiên của Demon Lord's Legion, ở tuổi {age}."
+        }
+      },
+      {
+        "label": "Lẩn trốn",
+        "check": {
+          "stat": "AGI",
+          "target": 5
+        },
+        "success": {
+          "text": "Bạn trốn sâu trong lòng đất cho đến khi tiếng tù và tắt hẳn.",
+          "effects": {
+            "joy": -5
+          }
+        },
+        "fail": {
+          "text": "Lũ đốc binh quỷ lôi bạn ra và đánh đập vì tội đào ngũ.",
+          "effects": {
+            "health": -30
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "era_hero_summoned",
+    "eras": [
+      "demon_lord",
+      "holy_war"
+    ],
+    "tags": [
+      "monster"
+    ],
+    "stages": [
+      "child",
+      "teen",
+      "adult"
+    ],
+    "weight": 4,
+    "text": "Giáo hội triệu hồi những \"Người được chọn\" từ một thế giới khác. Họ mang theo những sức mạnh phi lý, và quét sạch ma vật cấp thấp như quét lá rụng.",
+    "effects": {
+      "health": -20,
+      "joy": -10
+    },
+    "moment": "Sống sót qua cuộc tàn sát của Người được chọn"
+  }
 ]

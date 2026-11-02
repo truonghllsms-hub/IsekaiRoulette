@@ -675,7 +675,7 @@ function build(raceId, opts) {
   for (const d of evoDefs) forms[d.name] = { name: d.name, life: d.life || 0 };
   for (const f of Object.values(meta.forms || {})) forms[f.name] = f;
 
-  const pack = { race: raceId, stageNames: meta.stageNames, forms, origins, jobs, orgs: [org], quests, events, deaths, focus, systems };
+  let pack = { race: raceId, stageNames: meta.stageNames, forms, origins, jobs, orgs: [org], quests, events, deaths, focus, systems };
   if (meta.useScriptStages || meta.stages) pack.stages = stages;
   if (story) {
     // arc codes the v3 prompts gave (prompts/v3/arc-codes.json) when the origin id is only a number
@@ -691,6 +691,8 @@ function build(raceId, opts) {
   }
   if (meta.exclusive) pack.exclusive = true;
   for (const k of ["tags", "lifespan", "hazard", "yearScale", "noChildhood", "subtypes"]) if (meta[k] !== undefined) pack[k] = meta[k];
+  // names of groups, guilds and people in English (content/english-names.js)
+  pack = require("./english-names").englishPack(raceId, pack);
   fs.writeFileSync(path.join(ROOT, "data", "packs", raceId + ".json"), JSON.stringify(pack, null, 1), "utf8");
   console.log(`Đã tạo data/packs/${raceId}.json: ${origins.length} xuất thân, ${jobs.length} vai trò, ${events.length} sự kiện, ${quests.length} ${org.missionWord || "nhiệm vụ"}, ${deaths.length} cái chết riêng.`);
   if (opts.report) console.log(report.join("\n"));

@@ -1,52 +1,318 @@
 [
-  { "id": "kb_first_pick", "races": ["kobold"], "stages": ["child"], "weight": 10,
-    "text": "Chiếc cuốc chim được đặt vào đôi tay bé nhỏ của bạn, nặng hơn cả thân mình. Từ hôm nay, lòng đất là định mệnh của bạn.", "effects": { "STR": 1 }, "moment": "Cầm cuốc chim lần đầu" },
-  { "id": "kb_ore_nose", "races": ["kobold"], "stages": ["child", "teen"], "weight": 7,
-    "text": "Chiếc mũi của bạn bắt được một mùi hương kim loại lạnh lẽo sau vách đá. Bạn đào suốt đêm và chạm tới một mạch bạc lấp lánh.", "effects": { "wealth": 10, "LUCK": 1 } },
-  { "id": "kb_dragon_idol", "races": ["kobold"], "stages": ["teen", "adult"], "weight": 5,
-    "text": "Bạn quỳ trước Tượng Rồng thô kệch của bầy, dâng lên mẩu quặng đẹp nhất. Bạn thề rằng một ngày nào đó sẽ được chiêm ngưỡng Rồng thật.", "effects": { "joy": 5 } },
-  { "id": "kb_ms_collapse", "races": ["kobold"], "stages": ["child", "teen", "adult"], "weight": 9,
+  {
+    "id": "kb_first_pick",
+    "races": [
+      "kobold"
+    ],
+    "stages": [
+      "child"
+    ],
+    "weight": 10,
+    "text": "Chiếc cuốc chim được đặt vào đôi tay bé nhỏ của bạn, nặng hơn cả thân mình. Từ hôm nay, lòng đất là định mệnh của bạn.",
+    "effects": {
+      "STR": 1
+    },
+    "moment": "Cầm cuốc chim lần đầu"
+  },
+  {
+    "id": "kb_ore_nose",
+    "races": [
+      "kobold"
+    ],
+    "stages": [
+      "child",
+      "teen"
+    ],
+    "weight": 7,
+    "text": "Chiếc mũi của bạn bắt được một mùi hương kim loại lạnh lẽo sau vách đá. Bạn đào suốt đêm và chạm tới một mạch bạc lấp lánh.",
+    "effects": {
+      "wealth": 10,
+      "LUCK": 1
+    }
+  },
+  {
+    "id": "kb_dragon_idol",
+    "races": [
+      "kobold"
+    ],
+    "stages": [
+      "teen",
+      "adult"
+    ],
+    "weight": 5,
+    "text": "Bạn quỳ trước Tượng Rồng thô kệch của bầy, dâng lên mẩu quặng đẹp nhất. Bạn thề rằng một ngày nào đó sẽ được chiêm ngưỡng Rồng thật.",
+    "effects": {
+      "joy": 5
+    }
+  },
+  {
+    "id": "kb_ms_collapse",
+    "races": [
+      "kobold"
+    ],
+    "stages": [
+      "child",
+      "teen",
+      "adult"
+    ],
+    "weight": 9,
     "text": "Một tiếng rắc khô khốc vọng xuống từ trần đá. Chỉ trong chớp mắt, cả đường hầm rung chuyển như một con quái thú đang trở mình.",
     "choices": [
-      { "label": "Chống đỡ xà nhà", "check": { "stat": "STR", "target": 6 },
-        "success": { "text": "Bạn gồng mình đỡ lấy thanh xà mục cho đến khi con Kobold cuối cùng thoát ra. Từ đó, bầy đàn gọi tên bạn với sự kính nể.", "effects": { "STR": 1, "joy": 10, "flags": ["respected"] }, "moment": "Cứu cả bầy khỏi sập hầm" },
-        "fail": { "text": "Thanh xà gãy đôi, đè nát một bên vai bạn.", "effects": { "health": -30, "STR": -1 } } },
-      { "label": "Tự đào lối thoát", "check": { "stat": "AGI", "target": 5 },
-        "success": { "text": "Móng vuốt của bạn cào xé đất đá như điên dại. Bạn trồi lên giữa ánh trăng, một mình.", "effects": { "AGI": 1 } },
-        "fail": { "text": "Đường hầm nhỏ sập theo, vùi bạn trong bóng tối suốt ba ngày ròng.", "effects": { "health": -25 } } },
-      { "label": "Gào khóc gọi Mẹ", "text": "Tiếng gọi của bạn chìm giữa tiếng đá đổ ầm ầm.", "death": "Không ai đến. Bạn yên nghỉ dưới lòng mỏ ở tuổi {age}." }
-    ] },
-  { "id": "kb_ms_merchant", "races": ["kobold"], "stages": ["adult", "middle"], "weight": 8,
-    "text": "Một đoàn xe của Thương hội Sói Bạc chở đầy quặng quý băng qua cửa mỏ, hộ tống bởi những tay lính đánh thuê mặt sẹo.",
+      {
+        "label": "Chống đỡ xà nhà",
+        "check": {
+          "stat": "STR",
+          "target": 6
+        },
+        "success": {
+          "text": "Bạn gồng mình đỡ lấy thanh xà mục cho đến khi con Kobold cuối cùng thoát ra. Từ đó, bầy đàn gọi tên bạn với sự kính nể.",
+          "effects": {
+            "STR": 1,
+            "joy": 10,
+            "flags": [
+              "respected"
+            ]
+          },
+          "moment": "Cứu cả bầy khỏi sập hầm"
+        },
+        "fail": {
+          "text": "Thanh xà gãy đôi, đè nát một bên vai bạn.",
+          "effects": {
+            "health": -30,
+            "STR": -1
+          }
+        }
+      },
+      {
+        "label": "Tự đào lối thoát",
+        "check": {
+          "stat": "AGI",
+          "target": 5
+        },
+        "success": {
+          "text": "Móng vuốt của bạn cào xé đất đá như điên dại. Bạn trồi lên giữa ánh trăng, một mình.",
+          "effects": {
+            "AGI": 1
+          }
+        },
+        "fail": {
+          "text": "Đường hầm nhỏ sập theo, vùi bạn trong bóng tối suốt ba ngày ròng.",
+          "effects": {
+            "health": -25
+          }
+        }
+      },
+      {
+        "label": "Gào khóc gọi Mẹ",
+        "text": "Tiếng gọi của bạn chìm giữa tiếng đá đổ ầm ầm.",
+        "death": "Không ai đến. Bạn yên nghỉ dưới lòng mỏ ở tuổi {age}."
+      }
+    ]
+  },
+  {
+    "id": "kb_ms_merchant",
+    "races": [
+      "kobold"
+    ],
+    "stages": [
+      "adult",
+      "middle"
+    ],
+    "weight": 8,
+    "text": "Một đoàn xe của Silver Wolf Company chở đầy quặng quý băng qua cửa mỏ, hộ tống bởi những tay lính đánh thuê mặt sẹo.",
     "choices": [
-      { "label": "Ném bom khói rồi chạy", "check": { "stat": "AGI", "target": 5 },
-        "success": { "text": "Màn khói đen phủ kín con đường. Khi nó tan đi, bạn đã ở sâu trong địa đạo cùng một túi lương khô.", "effects": { "wealth": 10, "AGI": 1 } },
-        "fail": { "text": "Một mũi tên xuyên qua màn khói, cắm vào đùi bạn.", "effects": { "health": -20 } } },
-      { "label": "Dụ vào bãi mìn", "check": { "stat": "INT", "target": 6 },
-        "success": { "text": "Từng cỗ xe nổ tung giữa trận địa bẫy bạn dày công sắp đặt. Kho báu của Thương Đoàn giờ thuộc về bầy Kobold.", "effects": { "wealth": 30, "joy": 10 }, "moment": "Phục kích Thương hội Sói Bạc" },
-        "fail": { "text": "Chúng phát hiện dây kích nổ và lần theo nó đến tận chỗ bạn nấp.", "effects": { "health": -30 } } },
-      { "label": "Đầu hàng làm cu li", "text": "Bạn khuân vác cho Thương Đoàn suốt một năm. Đổi lại, bạn được thấy thế giới bên ngoài hầm mỏ.", "effects": { "wealth": 5, "joy": -5, "INT": 1, "flags": ["porter"] } }
-    ] },
-  { "id": "kb_ms_scale", "races": ["kobold"], "stages": ["teen", "adult"], "weight": 6,
+      {
+        "label": "Ném bom khói rồi chạy",
+        "check": {
+          "stat": "AGI",
+          "target": 5
+        },
+        "success": {
+          "text": "Màn khói đen phủ kín con đường. Khi nó tan đi, bạn đã ở sâu trong địa đạo cùng một túi lương khô.",
+          "effects": {
+            "wealth": 10,
+            "AGI": 1
+          }
+        },
+        "fail": {
+          "text": "Một mũi tên xuyên qua màn khói, cắm vào đùi bạn.",
+          "effects": {
+            "health": -20
+          }
+        }
+      },
+      {
+        "label": "Dụ vào bãi mìn",
+        "check": {
+          "stat": "INT",
+          "target": 6
+        },
+        "success": {
+          "text": "Từng cỗ xe nổ tung giữa trận địa bẫy bạn dày công sắp đặt. Kho báu của Thương Đoàn giờ thuộc về bầy Kobold.",
+          "effects": {
+            "wealth": 30,
+            "joy": 10
+          },
+          "moment": "Phục kích Silver Wolf Company"
+        },
+        "fail": {
+          "text": "Chúng phát hiện dây kích nổ và lần theo nó đến tận chỗ bạn nấp.",
+          "effects": {
+            "health": -30
+          }
+        }
+      },
+      {
+        "label": "Đầu hàng làm cu li",
+        "text": "Bạn khuân vác cho Thương Đoàn suốt một năm. Đổi lại, bạn được thấy thế giới bên ngoài hầm mỏ.",
+        "effects": {
+          "wealth": 5,
+          "joy": -5,
+          "INT": 1,
+          "flags": [
+            "porter"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "kb_ms_scale",
+    "races": [
+      "kobold"
+    ],
+    "stages": [
+      "teen",
+      "adult"
+    ],
+    "weight": 6,
     "text": "Giữa đống đá vụn, một mảnh vảy Rồng rụng lấp lánh như than hồng. Hơi ấm từ nó khiến máu trong huyết quản bạn sôi lên.",
     "choices": [
-      { "label": "Nuốt để tiến hóa", "check": { "stat": "STR", "target": 6 },
-        "success": { "text": "Mảnh vảy tan chảy trong bụng bạn như dung nham. Khi cơn đau qua đi, lớp vảy của bạn đã nhuốm sắc đỏ của Rồng.", "effects": { "STR": 2, "INT": 1, "flags": ["dragonkin"] }, "moment": "Thức tỉnh Huyết thống Rồng" },
-        "fail": { "text": "Mảnh vảy cứa nát nội tạng. Bạn nằm thoi thóp suốt một mùa.", "effects": { "health": -40 } } },
-      { "label": "Hiến cho Tù trưởng", "text": "Tù trưởng nâng mảnh vảy lên cao giữa tiếng reo hò. Bạn được phong làm Giám sát mỏ.", "effects": { "wealth": 10, "flags": ["overseer"] }, "moment": "Được phong làm Giám sát mỏ" },
-      { "label": "Giấu làm của riêng", "text": "Bạn giấu mảnh vảy dưới ổ rơm. Đêm nào nó cũng sưởi ấm giấc ngủ của bạn.", "effects": { "wealth": 15, "LUCK": 1 } }
-    ] },
-  { "id": "kb_ms_purge", "races": ["kobold"], "stages": ["teen", "adult", "middle"], "weight": 7,
-    "text": "Tiếng tù và của Thánh Kỵ Sĩ Đoàn vang dội khắp hầm mỏ. Cuộc Đại Thanh Trừng đã giáng xuống bầy Kobold, và lưỡi gươm Thánh Quang không chừa một ai.",
+      {
+        "label": "Nuốt để tiến hóa",
+        "check": {
+          "stat": "STR",
+          "target": 6
+        },
+        "success": {
+          "text": "Mảnh vảy tan chảy trong bụng bạn như dung nham. Khi cơn đau qua đi, lớp vảy của bạn đã nhuốm sắc đỏ của Rồng.",
+          "effects": {
+            "STR": 2,
+            "INT": 1,
+            "flags": [
+              "dragonkin"
+            ]
+          },
+          "moment": "Thức tỉnh Huyết thống Rồng"
+        },
+        "fail": {
+          "text": "Mảnh vảy cứa nát nội tạng. Bạn nằm thoi thóp suốt một mùa.",
+          "effects": {
+            "health": -40
+          }
+        }
+      },
+      {
+        "label": "Hiến cho Tù trưởng",
+        "text": "Tù trưởng nâng mảnh vảy lên cao giữa tiếng reo hò. Bạn được phong làm Giám sát mỏ.",
+        "effects": {
+          "wealth": 10,
+          "flags": [
+            "overseer"
+          ]
+        },
+        "moment": "Được phong làm Giám sát mỏ"
+      },
+      {
+        "label": "Giấu làm của riêng",
+        "text": "Bạn giấu mảnh vảy dưới ổ rơm. Đêm nào nó cũng sưởi ấm giấc ngủ của bạn.",
+        "effects": {
+          "wealth": 15,
+          "LUCK": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "kb_ms_purge",
+    "races": [
+      "kobold"
+    ],
+    "stages": [
+      "teen",
+      "adult",
+      "middle"
+    ],
+    "weight": 7,
+    "text": "Tiếng tù và của Order of Holy Knights vang dội khắp hầm mỏ. Cuộc Đại Thanh Trừng đã giáng xuống bầy Kobold, và lưỡi gươm Thánh Quang không chừa một ai.",
     "choices": [
-      { "label": "Bỏ chạy một mình", "text": "Bạn cắm đầu chạy vào địa đạo sâu nhất, mặc tiếng kêu thảm thiết của đồng loại sau lưng. Bạn sống, nhưng mang vết nhơ của kẻ hèn nhát.", "effects": { "joy": -10, "flags": ["coward"] } },
-      { "label": "Nấp dưới xác đồng bọn", "check": { "stat": "LUCK", "target": 6 },
-        "success": { "text": "Bạn nằm im dưới lớp xác lạnh ngắt suốt một ngày một đêm. Khi bình minh lên, cả hầm mỏ chỉ còn mình bạn.", "effects": { "joy": -10 } },
-        "fail": { "text": "Một mũi giáo dò xét đâm xuyên lớp xác và cắm sâu vào sườn bạn.", "effects": { "health": -35 } } },
-      { "label": "Thức tỉnh máu Rồng", "check": { "stat": "STR", "target": 9 },
-        "success": { "text": "Máu Rồng trong huyết quản bạn bùng cháy. Lớp vảy đỏ rực phủ kín toàn thân, và bạn đứng sừng sững giữa tro tàn của những kẻ đi săn.", "effects": { "STR": 3, "health": 10, "flags": ["dragonkin"] }, "moment": "Hóa thành Kobold Long Huyết" },
-        "fail": { "text": "Ngọn lửa trong huyết quản thiêu rụi chính bạn trước khi kịp chạm tới kẻ thù.", "death": "Bạn hóa thành tro giữa cuộc Đại Thanh Trừng, ở tuổi {age}." } }
-    ] },
-  { "id": "kb_elder_map", "races": ["kobold"], "stages": ["elder"], "weight": 8,
-    "text": "Đôi tay run rẩy, bạn vạch lại bản đồ bãi bẫy lên vách hang cho lũ trẻ. Đó là di sản duy nhất mà một Kobold có thể để lại.", "effects": { "joy": 8, "INT": 1 }, "moment": "Truyền lại bản đồ bẫy" }
+      {
+        "label": "Bỏ chạy một mình",
+        "text": "Bạn cắm đầu chạy vào địa đạo sâu nhất, mặc tiếng kêu thảm thiết của đồng loại sau lưng. Bạn sống, nhưng mang vết nhơ của kẻ hèn nhát.",
+        "effects": {
+          "joy": -10,
+          "flags": [
+            "coward"
+          ]
+        }
+      },
+      {
+        "label": "Nấp dưới xác đồng bọn",
+        "check": {
+          "stat": "LUCK",
+          "target": 6
+        },
+        "success": {
+          "text": "Bạn nằm im dưới lớp xác lạnh ngắt suốt một ngày một đêm. Khi bình minh lên, cả hầm mỏ chỉ còn mình bạn.",
+          "effects": {
+            "joy": -10
+          }
+        },
+        "fail": {
+          "text": "Một mũi giáo dò xét đâm xuyên lớp xác và cắm sâu vào sườn bạn.",
+          "effects": {
+            "health": -35
+          }
+        }
+      },
+      {
+        "label": "Thức tỉnh máu Rồng",
+        "check": {
+          "stat": "STR",
+          "target": 9
+        },
+        "success": {
+          "text": "Máu Rồng trong huyết quản bạn bùng cháy. Lớp vảy đỏ rực phủ kín toàn thân, và bạn đứng sừng sững giữa tro tàn của những kẻ đi săn.",
+          "effects": {
+            "STR": 3,
+            "health": 10,
+            "flags": [
+              "dragonkin"
+            ]
+          },
+          "moment": "Hóa thành Kobold Long Huyết"
+        },
+        "fail": {
+          "text": "Ngọn lửa trong huyết quản thiêu rụi chính bạn trước khi kịp chạm tới kẻ thù.",
+          "death": "Bạn hóa thành tro giữa cuộc Đại Thanh Trừng, ở tuổi {age}."
+        }
+      }
+    ]
+  },
+  {
+    "id": "kb_elder_map",
+    "races": [
+      "kobold"
+    ],
+    "stages": [
+      "elder"
+    ],
+    "weight": 8,
+    "text": "Đôi tay run rẩy, bạn vạch lại bản đồ bãi bẫy lên vách hang cho lũ trẻ. Đó là di sản duy nhất mà một Kobold có thể để lại.",
+    "effects": {
+      "joy": 8,
+      "INT": 1
+    },
+    "moment": "Truyền lại bản đồ bẫy"
+  }
 ]

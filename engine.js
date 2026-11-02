@@ -470,7 +470,7 @@
   const TRIBE_LIFE = /bộ lạc|bãi lều|lều trại|trong lều|lều của|khu trại|lửa trại|bầy đàn của bạn|cả tộc|Warchief|tù trưởng/i;
   const captiveOk = (t, c) => !FREE_WORLD.test(t) && !CAPTIVE_OUT.test(t) && !(c && c.captive && ["arena", "prison"].includes(c.captive.kind) && TRIBE_LIFE.test(t));
   const CAPTIVE_PLACE = { arena: "hầm ngục dưới đấu trường", slave: "trại nô lệ", prison: "bốn bức tường ngục tối", bound: "sợi dây khế ước" };
-  const FREE_WORLD = /Guild Bình Minh|bảng nhiệm vụ|nhận nhiệm vụ|quán rượu|quán trọ|tửu quán|phiên chợ|khu chợ|mạo hiểm giả hạng|lữ hành|du ngoạn|buổi tuyển chọn|dạ tiệc|vũ hội|học viện|trường học|thuê một căn|mua một căn|dọn ra ở riêng|tổ đội của bạn|hộ tống|đoàn xe|thương đoàn|lên đường|chuyến đi|tiền lương|trừ (?:tiền|lương)|tiền công|chủ xưởng|làm thuê|phường hội|học việc|mời (?:đại )?tư tế|mua sắm|cửa hàng|tiệm/i;
+  const FREE_WORLD = /Guild Bình Minh|Dawnbreak Guild|bảng nhiệm vụ|nhận nhiệm vụ|quán rượu|quán trọ|tửu quán|phiên chợ|khu chợ|mạo hiểm giả hạng|lữ hành|du ngoạn|buổi tuyển chọn|dạ tiệc|vũ hội|học viện|trường học|thuê một căn|mua một căn|dọn ra ở riêng|tổ đội của bạn|hộ tống|đoàn xe|thương đoàn|lên đường|chuyến đi|tiền lương|trừ (?:tiền|lương)|tiền công|chủ xưởng|làm thuê|phường hội|học việc|mời (?:đại )?tư tế|mua sắm|cửa hàng|tiệm/i;
   const FREED = /(?:chém|cắt|tháo|bẻ|đập|giật) (?:đứt |gãy |vỡ |tung )?(?:xiềng|gông|còng|vòng cổ)|thoát thân|phá sập cổng|hệ thống nô lệ|trốn thoát|thoát khỏi|phá (?:tan |nát |vỡ )?(?:xiềng|gông|cũi|lồng|ngục)|chặt đứt (?:xiềng|gông)|chuộc (?:thân|lại tự do)|được thả|trả tự do|giải phóng|vượt ngục|phá ngục|bỏ trốn|tự do/i;
   const NOT_FREED = /không (?:thể|bao giờ|được|kịp|còn)[^.]{0,25}(?:tự do|trốn|thoát)|mất (?:đi )?tự do|bị bắt lại|giấc mơ tự do|khao khát tự do|mơ (?:về|tới) tự do/i;
   const FIGHTER_JOB = /gladiator|đấu sĩ|giác đấu|berserker|fodder|smash|brute|meat shield|scrapper|pit|arena/i;
@@ -841,7 +841,7 @@
         leaveBand(c, false);
         if (close && close.bond >= 60) { close.alive = true; close.left = false; }
       }
-      c.band = { id: "own", party: true, name: pick(rng, ["Hắc Ưng", "Sao Băng Đỏ", "Ngọn Đuốc Cuối", "Kiếm Gió Đông", "Lam Thạch", "Sói Bạc Tự Do"]), leaderName: c.name, lead: true, gone: false, since: c.age, own: true };
+      c.band = { id: "own", party: true, name: pick(rng, ["Black Hawks", "Red Meteor", "Last Torch", "East Wind Blades", "Bluestone", "Free Silver Wolves"]), leaderName: c.name, lead: true, gone: false, since: c.age, own: true };
       for (const m of c.party) if (m.alive && !m.left) m.band = "own";
       addMoment(c, `Lập tổ đội ${c.band.name} của riêng mình`, data);
       const with_ = aliveParty(c).map((m) => m.name);
@@ -1611,6 +1611,23 @@
     });
     // trades you are not fit for are not shown at all
     for (let k = choices.length - 1; k >= 0; k--) if (choices[k].disabled) choices.splice(k, 1);
+    // and of those you could take, only the ones your gifts point to: two, one more for each stat
+    // you are strong in (8+), four at most. A trade your birth opened (a soldier's child, a merchant's)
+    // is always there besides.
+    const jobsById = new Map((data.jobs || []).map((j) => [j.id, j]));
+    const strong = STAT_KEYS.filter((k) => (c.stats[k] || 0) >= 8).length;
+    const room = Math.max(2, Math.min(4, 2 + strong));
+    const born = (j) => j.alt && j.alt.anyFlags && meets(c, j.alt, data) && !meets(c, j.require, data);
+    const fit = (j) => {
+      const req = j.require || {};
+      const main = j.stat && STAT_KEYS.includes(j.stat) ? (c.stats[j.stat] || 0) - (req[j.stat] || 0) : -3;
+      const others = STAT_KEYS.filter((k) => k !== j.stat && req[k]).reduce((a, k) => a + Math.min(0, (c.stats[k] || 0) - req[k] - 2), 0);
+      return main + others * 0.5 + rng() * 0.5;
+    };
+    const jobChoices = choices.filter((ch) => ch.act.type === "job").map((ch) => ({ ch, j: jobsById.get(ch.act.id) })).filter((x) => x.j);
+    const keep = new Set(jobChoices.filter((x) => born(x.j)).map((x) => x.ch));
+    jobChoices.filter((x) => !keep.has(x.ch)).map((x) => ({ ch: x.ch, f: fit(x.j) })).sort((a, b) => b.f - a.f).slice(0, room).forEach((x) => keep.add(x.ch));
+    for (let k = choices.length - 1; k >= 0; k--) if (choices[k].act.type === "job" && !keep.has(choices[k])) choices.splice(k, 1);
     choices.push({ label: s.later, text: s.laterText, act: { type: "jobLater" } });
     const st = currentStage(c).id;
     const intro = c.captive

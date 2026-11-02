@@ -1,1176 +1,1176 @@
 [
- {
-  "id": "path_dungeon_1",
-  "path": "dungeon",
-  "tags": [
-   "humanoid"
-  ],
-  "stages": [
-   "teen",
-   "adult",
-   "middle"
-  ],
-  "focus": [
-   "adventure"
-  ],
-  "weight": 40,
-  "text": "Tin đồn lan khắp vùng: sau trận động đất, một hầm ngục cổ lộ cửa dưới chân đồi đá, người ta gọi nó là Hầm Ngục Than Khóc. Kẻ liều mạng đã kéo đến, kẻ khôn ngoan đang đứng nhìn.",
-  "choices": [
-   {
-    "label": "Xuống tầng thứ nhất",
-    "check": {
-     "stat": "AGI",
-     "target": 6
-    },
-    "success": {
-     "text": "Bạn lách qua hành lang đầy bẫy gai, hạ gục hai con dơi máu và tìm thấy cầu thang dẫn xuống sâu hơn. Hầm ngục này còn nhiều tầng nữa.",
-     "effects": {
-      "fame": 4,
-      "wealth": 10,
-      "flags": [
-       "dg_1"
-      ]
-     }
-    },
-    "fail": {
-     "text": "Một phiến đá sập xuống ngay lối vào. Bạn bò ra ngoài với cái chân rách toạc, nhìn kẻ khác đi tiếp vào bóng tối.",
-     "effects": {
-      "health": -18,
-      "flags": [
-       "dg_end"
-      ]
-     }
-    }
-   },
-   {
-    "label": "Chờ người khác dò đường trước",
-    "text": "Bạn ngồi ở quán gần đó nghe ngóng. Đến khi bạn quyết định, hầm ngục đã bị một đoàn khác vét sạch tầng đầu.",
-    "effects": {
-     "INT": 1,
-     "flags": [
-      "dg_end"
-     ]
-    }
-   }
-  ]
- },
- {
-  "id": "path_dungeon_2",
-  "path": "dungeon",
-  "tags": [
-   "humanoid"
-  ],
-  "stages": [
-   "teen",
-   "adult",
-   "middle"
-  ],
-  "focus": [
-   "adventure"
-  ],
-  "weight": 60,
-  "require": {
-   "flags": [
-    "dg_1"
-   ]
+  {
+    "id": "path_dungeon_1",
+    "path": "dungeon",
+    "tags": [
+      "humanoid"
+    ],
+    "stages": [
+      "teen",
+      "adult",
+      "middle"
+    ],
+    "focus": [
+      "adventure"
+    ],
+    "weight": 40,
+    "text": "Tin đồn lan khắp vùng: sau trận động đất, một hầm ngục cổ lộ cửa dưới chân đồi đá, người ta gọi nó là Hầm Ngục Than Khóc. Kẻ liều mạng đã kéo đến, kẻ khôn ngoan đang đứng nhìn.",
+    "choices": [
+      {
+        "label": "Xuống tầng thứ nhất",
+        "check": {
+          "stat": "AGI",
+          "target": 6
+        },
+        "success": {
+          "text": "Bạn lách qua hành lang đầy bẫy gai, hạ gục hai con dơi máu và tìm thấy cầu thang dẫn xuống sâu hơn. Hầm ngục này còn nhiều tầng nữa.",
+          "effects": {
+            "fame": 4,
+            "wealth": 10,
+            "flags": [
+              "dg_1"
+            ]
+          }
+        },
+        "fail": {
+          "text": "Một phiến đá sập xuống ngay lối vào. Bạn bò ra ngoài với cái chân rách toạc, nhìn kẻ khác đi tiếp vào bóng tối.",
+          "effects": {
+            "health": -18,
+            "flags": [
+              "dg_end"
+            ]
+          }
+        }
+      },
+      {
+        "label": "Chờ người khác dò đường trước",
+        "text": "Bạn ngồi ở quán gần đó nghe ngóng. Đến khi bạn quyết định, hầm ngục đã bị một đoàn khác vét sạch tầng đầu.",
+        "effects": {
+          "INT": 1,
+          "flags": [
+            "dg_end"
+          ]
+        }
+      }
+    ]
   },
-  "text": "Tầng hai của Hầm Ngục Than Khóc là một mê cung hành lang đá. Trước mặt bạn là cánh cửa sắt khắc rune, bên cạnh là một khe hẹp ẩm ướt có tiếng nước chảy.",
-  "choices": [
-   {
-    "label": "Giải mã rune mở cửa",
-    "check": {
-     "stat": "INT",
-     "target": 7
-    },
-    "success": {
-     "text": "Bạn ghép đúng chuỗi rune. Cánh cửa mở ra một kho chứa bỏ hoang, vài đồng Tinh Bạc và lối đi xuống tầng ba.",
-     "effects": {
-      "INT": 1,
-      "wealth": 20,
+  {
+    "id": "path_dungeon_2",
+    "path": "dungeon",
+    "tags": [
+      "humanoid"
+    ],
+    "stages": [
+      "teen",
+      "adult",
+      "middle"
+    ],
+    "focus": [
+      "adventure"
+    ],
+    "weight": 60,
+    "require": {
       "flags": [
-       "dg_2"
+        "dg_1"
       ]
-     }
     },
-    "fail": {
-     "text": "Rune phát sáng đỏ rực rồi phun lửa. Bạn lăn ra kịp, nửa người bỏng rát, rồi tìm được lối vòng qua khe đá.",
-     "effects": {
-      "health": -22,
-      "flags": [
-       "dg_2"
-      ]
-     }
-    }
-   },
-   {
-    "label": "Lách qua khe nước",
-    "check": {
-     "stat": "AGI",
-     "target": 7
-    },
-    "success": {
-     "text": "Bạn trườn qua khe đá lạnh buốt và trồi lên ngay sau cánh cửa. Lối xuống tầng ba mở ra trước mắt.",
-     "effects": {
-      "AGI": 1,
-      "flags": [
-       "dg_2"
-      ]
-     }
-    },
-    "fail": {
-     "text": "Nước dâng nhanh hơn bạn tưởng. Bạn sặc nước, mất hết đồ ăn mang theo, nhưng cuối cùng cũng trồi lên được bên kia.",
-     "effects": {
-      "health": -15,
-      "flags": [
-       "dg_2"
-      ]
-     }
-    }
-   }
-  ]
- },
- {
-  "id": "path_dungeon_3",
-  "path": "dungeon",
-  "tags": [
-   "humanoid"
-  ],
-  "stages": [
-   "teen",
-   "adult",
-   "middle"
-  ],
-  "focus": [
-   "adventure"
-  ],
-  "weight": 60,
-  "require": {
-   "flags": [
-    "dg_2"
-   ]
+    "text": "Tầng hai của Hầm Ngục Than Khóc là một mê cung hành lang đá. Trước mặt bạn là cánh cửa sắt khắc rune, bên cạnh là một khe hẹp ẩm ướt có tiếng nước chảy.",
+    "choices": [
+      {
+        "label": "Giải mã rune mở cửa",
+        "check": {
+          "stat": "INT",
+          "target": 7
+        },
+        "success": {
+          "text": "Bạn ghép đúng chuỗi rune. Cánh cửa mở ra một kho chứa bỏ hoang, vài đồng Tinh Bạc và lối đi xuống tầng ba.",
+          "effects": {
+            "INT": 1,
+            "wealth": 20,
+            "flags": [
+              "dg_2"
+            ]
+          }
+        },
+        "fail": {
+          "text": "Rune phát sáng đỏ rực rồi phun lửa. Bạn lăn ra kịp, nửa người bỏng rát, rồi tìm được lối vòng qua khe đá.",
+          "effects": {
+            "health": -22,
+            "flags": [
+              "dg_2"
+            ]
+          }
+        }
+      },
+      {
+        "label": "Lách qua khe nước",
+        "check": {
+          "stat": "AGI",
+          "target": 7
+        },
+        "success": {
+          "text": "Bạn trườn qua khe đá lạnh buốt và trồi lên ngay sau cánh cửa. Lối xuống tầng ba mở ra trước mắt.",
+          "effects": {
+            "AGI": 1,
+            "flags": [
+              "dg_2"
+            ]
+          }
+        },
+        "fail": {
+          "text": "Nước dâng nhanh hơn bạn tưởng. Bạn sặc nước, mất hết đồ ăn mang theo, nhưng cuối cùng cũng trồi lên được bên kia.",
+          "effects": {
+            "health": -15,
+            "flags": [
+              "dg_2"
+            ]
+          }
+        }
+      }
+    ]
   },
-  "text": "Tầng ba có một kẻ gác ngục: bộ giáp xích rỉ sét tự đứng dậy khi bạn bước vào, bên trong không có ai, chỉ có ánh lửa xanh lập lòe.",
-  "choices": [
-   {
-    "label": "Đối đầu trực diện",
-    "check": {
-     "stat": "STR",
-     "target": 8
-    },
-    "success": {
-     "text": "Bạn đánh văng chiếc mũ trụ, ngọn lửa xanh tắt phụt. Bộ giáp đổ sụp xuống, vẫn còn tốt đến lạ. Bạn khoác nó lên người.",
-     "effects": {
-      "STR": 1,
-      "fame": 8,
+  {
+    "id": "path_dungeon_3",
+    "path": "dungeon",
+    "tags": [
+      "humanoid"
+    ],
+    "stages": [
+      "teen",
+      "adult",
+      "middle"
+    ],
+    "focus": [
+      "adventure"
+    ],
+    "weight": 60,
+    "require": {
       "flags": [
-       "dg_3"
-      ],
-      "item": "dungeon_chain"
-     }
-    },
-    "fail": {
-     "text": "Lưỡi rìu của nó sượt qua vai bạn. Bạn băng bó vết thương bằng vạt áo, nghiến răng đi tiếp xuống dưới.",
-     "effects": {
-      "health": -28,
-      "flags": [
-       "dg_3"
+        "dg_2"
       ]
-     }
-    }
-   },
-   {
-    "label": "Tìm điểm yếu của ngọn lửa",
-    "check": {
-     "stat": "INT",
-     "target": 8
     },
-    "success": {
-     "text": "Bạn nhận ra ngọn lửa xanh được nuôi bằng một bùa chú khắc sau lưng giáp. Một nhát cạo, kẻ gác ngục đứng im mãi mãi, và bộ giáp thành của bạn.",
-     "effects": {
-      "INT": 1,
-      "fame": 8,
-      "flags": [
-       "dg_3"
-      ],
-      "item": "dungeon_chain"
-     }
-    },
-    "fail": {
-     "text": "Bạn đoán sai. Kẻ gác ngục dồn bạn vào góc, bạn đập vỡ bức tường mục và lọt xuống một hành lang sâu hơn.",
-     "effects": {
-      "health": -25,
-      "flags": [
-       "dg_3"
-      ]
-     }
-    }
-   }
-  ]
- },
- {
-  "id": "path_dungeon_4",
-  "path": "dungeon",
-  "tags": [
-   "humanoid"
-  ],
-  "stages": [
-   "adult",
-   "middle"
-  ],
-  "focus": [
-   "adventure"
-  ],
-  "weight": 60,
-  "require": {
-   "flags": [
-    "dg_3"
-   ]
+    "text": "Tầng ba có một kẻ gác ngục: bộ giáp xích rỉ sét tự đứng dậy khi bạn bước vào, bên trong không có ai, chỉ có ánh lửa xanh lập lòe.",
+    "choices": [
+      {
+        "label": "Đối đầu trực diện",
+        "check": {
+          "stat": "STR",
+          "target": 8
+        },
+        "success": {
+          "text": "Bạn đánh văng chiếc mũ trụ, ngọn lửa xanh tắt phụt. Bộ giáp đổ sụp xuống, vẫn còn tốt đến lạ. Bạn khoác nó lên người.",
+          "effects": {
+            "STR": 1,
+            "fame": 8,
+            "flags": [
+              "dg_3"
+            ],
+            "item": "dungeon_chain"
+          }
+        },
+        "fail": {
+          "text": "Lưỡi rìu của nó sượt qua vai bạn. Bạn băng bó vết thương bằng vạt áo, nghiến răng đi tiếp xuống dưới.",
+          "effects": {
+            "health": -28,
+            "flags": [
+              "dg_3"
+            ]
+          }
+        }
+      },
+      {
+        "label": "Tìm điểm yếu của ngọn lửa",
+        "check": {
+          "stat": "INT",
+          "target": 8
+        },
+        "success": {
+          "text": "Bạn nhận ra ngọn lửa xanh được nuôi bằng một bùa chú khắc sau lưng giáp. Một nhát cạo, kẻ gác ngục đứng im mãi mãi, và bộ giáp thành của bạn.",
+          "effects": {
+            "INT": 1,
+            "fame": 8,
+            "flags": [
+              "dg_3"
+            ],
+            "item": "dungeon_chain"
+          }
+        },
+        "fail": {
+          "text": "Bạn đoán sai. Kẻ gác ngục dồn bạn vào góc, bạn đập vỡ bức tường mục và lọt xuống một hành lang sâu hơn.",
+          "effects": {
+            "health": -25,
+            "flags": [
+              "dg_3"
+            ]
+          }
+        }
+      }
+    ]
   },
-  "text": "Tầng bốn là một hồ ngầm phát sáng. Giữa hồ, trên một bệ đá, một khối tinh thể đập nhịp chậm rãi như trái tim của cả hầm ngục.",
-  "choices": [
-   {
-    "label": "Bơi ra lấy khối tinh thể",
-    "check": {
-     "stat": "LUCK",
-     "target": 7
-    },
-    "success": {
-     "text": "Bạn gỡ được khối tinh thể. Cả hầm ngục rung lên một nhịp, rồi im lặng. Trong tay bạn là Lõi ma lực của Tầng Sâu.",
-     "effects": {
-      "fame": 6,
+  {
+    "id": "path_dungeon_4",
+    "path": "dungeon",
+    "tags": [
+      "humanoid"
+    ],
+    "stages": [
+      "adult",
+      "middle"
+    ],
+    "focus": [
+      "adventure"
+    ],
+    "weight": 60,
+    "require": {
       "flags": [
-       "dg_4"
-      ],
-      "item": "dungeon_core"
-     }
-    },
-    "fail": {
-     "text": "Những bóng đen dưới đáy hồ quấn lấy chân bạn. Bạn giãy thoát được, khối tinh thể vẫn nằm đó, nhưng bậc thang xuống tầng năm đã hiện ra bên bờ hồ.",
-     "effects": {
-      "health": -20,
-      "flags": [
-       "dg_4"
+        "dg_3"
       ]
-     }
-    }
-   },
-   {
-    "label": "Để nó yên, đi tiếp",
-    "text": "Có những thứ không nên chạm vào. Bạn men theo bờ hồ, tìm thấy bậc thang xoáy xuống tầng cuối.",
-    "effects": {
-     "INT": 1,
-     "flags": [
-      "dg_4"
-     ]
-    }
-   }
-  ]
- },
- {
-  "id": "path_dungeon_5",
-  "path": "dungeon",
-  "tags": [
-   "humanoid"
-  ],
-  "stages": [
-   "adult",
-   "middle"
-  ],
-  "focus": [
-   "adventure"
-  ],
-  "weight": 70,
-  "require": {
-   "flags": [
-    "dg_4"
-   ]
+    },
+    "text": "Tầng bốn là một hồ ngầm phát sáng. Giữa hồ, trên một bệ đá, một khối tinh thể đập nhịp chậm rãi như trái tim của cả hầm ngục.",
+    "choices": [
+      {
+        "label": "Bơi ra lấy khối tinh thể",
+        "check": {
+          "stat": "LUCK",
+          "target": 7
+        },
+        "success": {
+          "text": "Bạn gỡ được khối tinh thể. Cả hầm ngục rung lên một nhịp, rồi im lặng. Trong tay bạn là Lõi ma lực của Tầng Sâu.",
+          "effects": {
+            "fame": 6,
+            "flags": [
+              "dg_4"
+            ],
+            "item": "dungeon_core"
+          }
+        },
+        "fail": {
+          "text": "Những bóng đen dưới đáy hồ quấn lấy chân bạn. Bạn giãy thoát được, khối tinh thể vẫn nằm đó, nhưng bậc thang xuống tầng năm đã hiện ra bên bờ hồ.",
+          "effects": {
+            "health": -20,
+            "flags": [
+              "dg_4"
+            ]
+          }
+        }
+      },
+      {
+        "label": "Để nó yên, đi tiếp",
+        "text": "Có những thứ không nên chạm vào. Bạn men theo bờ hồ, tìm thấy bậc thang xoáy xuống tầng cuối.",
+        "effects": {
+          "INT": 1,
+          "flags": [
+            "dg_4"
+          ]
+        }
+      }
+    ]
   },
-  "text": "Tầng năm. Trên ngai đá phủ rêu, Vua Hầm Ngục mở mắt: một bộ xương cao gấp đôi người thường, ôm thanh kiếm đen như đá vỏ chai. Đây là trận chiến mà bạn đã đi qua bốn tầng để đến.",
-  "choices": [
-   {
-    "label": "Lao vào tử chiến",
-    "check": {
-     "stat": "best",
-     "target": 9
-    },
-    "success": {
-     "text": "Thanh kiếm đen gãy đôi ý chí của nó trước khi gãy được bạn. Vua Hầm Ngục sụp xuống thành tro, và thanh kiếm ấy giờ nằm trong tay bạn. Tên bạn được khắc lên bảng của Hội.",
-     "effects": {
-      "STR": 2,
-      "fame": 25,
-      "wealth": 40,
+  {
+    "id": "path_dungeon_5",
+    "path": "dungeon",
+    "tags": [
+      "humanoid"
+    ],
+    "stages": [
+      "adult",
+      "middle"
+    ],
+    "focus": [
+      "adventure"
+    ],
+    "weight": 70,
+    "require": {
       "flags": [
-       "dg_done"
-      ],
-      "item": "dungeon_blade"
-     },
-     "moment": "Chinh phục Hầm Ngục Than Khóc"
-    },
-    "fail": {
-     "text": "Một đòn của nó hất bạn văng vào vách đá. Bạn tỉnh dậy ở tầng bốn, không nhớ mình đã bò lên bằng cách nào. Cửa xuống tầng năm đã đóng lại mãi mãi.",
-     "effects": {
-      "health": -40,
-      "joy": -10,
-      "flags": [
-       "dg_end"
+        "dg_4"
       ]
-     }
-    }
-   },
-   {
-    "label": "Phá phong ấn trên ngai",
-    "check": {
-     "stat": "INT",
-     "target": 9
     },
-    "success": {
-     "text": "Bạn đọc ra dòng phong ấn khắc dưới chân ngai và xóa một nét. Vua Hầm Ngục tan rã trong tiếng thét dài. Bạn nhặt lấy thanh kiếm đen của nó.",
-     "effects": {
-      "INT": 2,
-      "fame": 25,
-      "wealth": 40,
-      "flags": [
-       "dg_done"
-      ],
-      "item": "dungeon_blade"
-     },
-     "moment": "Chinh phục Hầm Ngục Than Khóc"
-    },
-    "fail": {
-     "text": "Phong ấn đổi hướng, giam chính bạn trong vòng sáng suốt một ngày đêm. Khi nó tắt, ngai đá đã trống không, kẻ ngồi trên đó biến mất cùng lối xuống.",
-     "effects": {
-      "health": -30,
-      "flags": [
-       "dg_end"
-      ]
-     }
-    }
-   }
-  ]
- },
- {
-  "id": "path_study_1",
-  "path": "study",
-  "tags": [
-   "civil"
-  ],
-  "stages": [
-   "teen",
-   "adult"
-  ],
-  "focus": [
-   "study"
-  ],
-  "weight": 45,
-  "text": "Thầy dạy của bạn gọi riêng bạn lại sau giờ học: \"Ngươi có đầu óc. Tháp Ngà đang nhận học trò ma pháp, còn Giáo hội Thánh Quang đang tìm người theo đường tu. Ta viết thư giới thiệu được một nơi.\"",
-  "choices": [
-   {
-    "label": "Tháp Ngà: con đường ma pháp",
-    "text": "Bạn ôm lá thư đến chân Tháp Ngà. Cánh cổng đồng nặng nề mở ra một thế giới của sách cấm và những câu chú chưa ai dám đọc.",
-    "effects": {
-     "INT": 1,
-     "flags": [
-      "st_magic"
-     ]
-    }
-   },
-   {
-    "label": "Giáo hội: con đường chức sắc",
-    "text": "Bạn khoác áo chủng sinh, quỳ trước tượng Nữ thần Lumina trong buổi lễ nhập môn. Từ nay sáng nào cũng bắt đầu bằng kinh cầu.",
-    "effects": {
-     "LUCK": 1,
-     "flags": [
-      "st_faith"
-     ]
-    }
-   }
-  ]
- },
- {
-  "id": "path_study_m2",
-  "path": "study",
-  "tags": [
-   "civil"
-  ],
-  "stages": [
-   "teen",
-   "adult",
-   "middle"
-  ],
-  "focus": [
-   "study"
-  ],
-  "weight": 60,
-  "require": {
-   "flags": [
-    "st_magic"
-   ]
+    "text": "Tầng năm. Trên ngai đá phủ rêu, Vua Hầm Ngục mở mắt: một bộ xương cao gấp đôi người thường, ôm thanh kiếm đen như đá vỏ chai. Đây là trận chiến mà bạn đã đi qua bốn tầng để đến.",
+    "choices": [
+      {
+        "label": "Lao vào tử chiến",
+        "check": {
+          "stat": "best",
+          "target": 9
+        },
+        "success": {
+          "text": "Thanh kiếm đen gãy đôi ý chí của nó trước khi gãy được bạn. Vua Hầm Ngục sụp xuống thành tro, và thanh kiếm ấy giờ nằm trong tay bạn. Tên bạn được khắc lên bảng của Hội.",
+          "effects": {
+            "STR": 2,
+            "fame": 25,
+            "wealth": 40,
+            "flags": [
+              "dg_done"
+            ],
+            "item": "dungeon_blade"
+          },
+          "moment": "Chinh phục Hầm Ngục Than Khóc"
+        },
+        "fail": {
+          "text": "Một đòn của nó hất bạn văng vào vách đá. Bạn tỉnh dậy ở tầng bốn, không nhớ mình đã bò lên bằng cách nào. Cửa xuống tầng năm đã đóng lại mãi mãi.",
+          "effects": {
+            "health": -40,
+            "joy": -10,
+            "flags": [
+              "dg_end"
+            ]
+          }
+        }
+      },
+      {
+        "label": "Phá phong ấn trên ngai",
+        "check": {
+          "stat": "INT",
+          "target": 9
+        },
+        "success": {
+          "text": "Bạn đọc ra dòng phong ấn khắc dưới chân ngai và xóa một nét. Vua Hầm Ngục tan rã trong tiếng thét dài. Bạn nhặt lấy thanh kiếm đen của nó.",
+          "effects": {
+            "INT": 2,
+            "fame": 25,
+            "wealth": 40,
+            "flags": [
+              "dg_done"
+            ],
+            "item": "dungeon_blade"
+          },
+          "moment": "Chinh phục Hầm Ngục Than Khóc"
+        },
+        "fail": {
+          "text": "Phong ấn đổi hướng, giam chính bạn trong vòng sáng suốt một ngày đêm. Khi nó tắt, ngai đá đã trống không, kẻ ngồi trên đó biến mất cùng lối xuống.",
+          "effects": {
+            "health": -30,
+            "flags": [
+              "dg_end"
+            ]
+          }
+        }
+      }
+    ]
   },
-  "text": "Trong kho lưu trữ tầng hầm của Tháp Ngà, bạn tìm thấy một ma đạo thư bị xích. Những trang giấy tự lật khi bạn đến gần, như đang chờ ai đó đọc nó.",
-  "choices": [
-   {
-    "label": "Mở khóa và đọc",
-    "check": {
-     "stat": "INT",
-     "target": 9
-    },
-    "success": {
-     "text": "Bạn hiểu được ba câu chú đầu tiên và giữ được tâm trí tỉnh táo. Cuốn sách ngừng run rẩy, như đã chọn bạn làm chủ.",
-     "effects": {
-      "INT": 2,
-      "flags": [
-       "st_m2"
-      ],
-      "item": "grimoire"
-     }
-    },
-    "fail": {
-     "text": "Chữ trên trang sách bò lên tay bạn như kiến lửa. Bạn quẳng nó đi, nằm sốt mê man suốt một tuần.",
-     "effects": {
-      "health": -20,
-      "flags": [
-       "st_m2"
-      ]
-     }
-    }
-   },
-   {
-    "label": "Báo cho thầy giám thị",
-    "text": "Ông ta khen bạn biết điều, rồi khóa cuốn sách vào một nơi sâu hơn. Bạn không bao giờ quên được tiếng lật trang ấy.",
-    "effects": {
-     "fame": 4,
-     "flags": [
-      "st_m2"
-     ]
-    }
-   }
-  ]
- },
- {
-  "id": "path_study_m3",
-  "path": "study",
-  "tags": [
-   "civil"
-  ],
-  "stages": [
-   "adult",
-   "middle"
-  ],
-  "focus": [
-   "study"
-  ],
-  "weight": 60,
-  "require": {
-   "flags": [
-    "st_m2"
-   ]
+  {
+    "id": "path_study_1",
+    "path": "study",
+    "tags": [
+      "civil"
+    ],
+    "stages": [
+      "teen",
+      "adult"
+    ],
+    "focus": [
+      "study"
+    ],
+    "weight": 45,
+    "text": "Thầy dạy của bạn gọi riêng bạn lại sau giờ học: \"Ngươi có đầu óc. Tháp Ngà đang nhận học trò ma pháp, còn Giáo hội Thánh Quang đang tìm người theo đường tu. Ta viết thư giới thiệu được một nơi.\"",
+    "choices": [
+      {
+        "label": "Tháp Ngà: con đường ma pháp",
+        "text": "Bạn ôm lá thư đến chân Tháp Ngà. Cánh cổng đồng nặng nề mở ra một thế giới của sách cấm và những câu chú chưa ai dám đọc.",
+        "effects": {
+          "INT": 1,
+          "flags": [
+            "st_magic"
+          ]
+        }
+      },
+      {
+        "label": "Giáo hội: con đường chức sắc",
+        "text": "Bạn khoác áo chủng sinh, quỳ trước tượng Nữ thần Lumina trong buổi lễ nhập môn. Từ nay sáng nào cũng bắt đầu bằng kinh cầu.",
+        "effects": {
+          "LUCK": 1,
+          "flags": [
+            "st_faith"
+          ]
+        }
+      }
+    ]
   },
-  "text": "Hội đồng Tháp Ngà triệu tập bạn để bảo vệ luận văn về sự cộng hưởng giữa các tầng ma lực. Bảy vị pháp sư già ngồi sau bàn đá, không ai mỉm cười.",
-  "choices": [
-   {
-    "label": "Trình bày và biểu diễn",
-    "check": {
-     "stat": "INT",
-     "target": 10
-    },
-    "success": {
-     "text": "Câu chú cuối cùng của bạn làm mọi ngọn nến trong phòng bùng lên cùng lúc. Hội đồng đứng dậy. Từ hôm nay, bạn là pháp sư được Tháp Ngà công nhận.",
-     "effects": {
-      "INT": 1,
-      "fame": 20,
+  {
+    "id": "path_study_m2",
+    "path": "study",
+    "tags": [
+      "civil"
+    ],
+    "stages": [
+      "teen",
+      "adult",
+      "middle"
+    ],
+    "focus": [
+      "study"
+    ],
+    "weight": 60,
+    "require": {
       "flags": [
-       "title_mage"
+        "st_magic"
       ]
-     },
-     "moment": "Được Tháp Ngà công nhận là pháp sư"
     },
-    "fail": {
-     "text": "Ma lực đổi hướng giữa chừng, thiêu cháy góc bàn của vị trưởng hội đồng. Luận văn bị hoãn vô thời hạn.",
-     "effects": {
-      "fame": -8,
-      "joy": -10
-     }
-    }
-   },
-   {
-    "label": "Xin hoãn thêm một năm",
-    "text": "Bạn rút luận văn về để sửa. Hội đồng gật đầu lạnh nhạt; cửa vẫn mở, nhưng không mở mãi.",
-    "effects": {
-     "INT": 1
-    }
-   }
-  ]
- },
- {
-  "id": "path_study_f2",
-  "path": "study",
-  "tags": [
-   "civil"
-  ],
-  "stages": [
-   "teen",
-   "adult",
-   "middle"
-  ],
-  "focus": [
-   "study"
-  ],
-  "weight": 60,
-  "require": {
-   "flags": [
-    "st_faith"
-   ]
+    "text": "Trong kho lưu trữ tầng hầm của Tháp Ngà, bạn tìm thấy một ma đạo thư bị xích. Những trang giấy tự lật khi bạn đến gần, như đang chờ ai đó đọc nó.",
+    "choices": [
+      {
+        "label": "Mở khóa và đọc",
+        "check": {
+          "stat": "INT",
+          "target": 9
+        },
+        "success": {
+          "text": "Bạn hiểu được ba câu chú đầu tiên và giữ được tâm trí tỉnh táo. Cuốn sách ngừng run rẩy, như đã chọn bạn làm chủ.",
+          "effects": {
+            "INT": 2,
+            "flags": [
+              "st_m2"
+            ],
+            "item": "grimoire"
+          }
+        },
+        "fail": {
+          "text": "Chữ trên trang sách bò lên tay bạn như kiến lửa. Bạn quẳng nó đi, nằm sốt mê man suốt một tuần.",
+          "effects": {
+            "health": -20,
+            "flags": [
+              "st_m2"
+            ]
+          }
+        }
+      },
+      {
+        "label": "Báo cho thầy giám thị",
+        "text": "Ông ta khen bạn biết điều, rồi khóa cuốn sách vào một nơi sâu hơn. Bạn không bao giờ quên được tiếng lật trang ấy.",
+        "effects": {
+          "fame": 4,
+          "flags": [
+            "st_m2"
+          ]
+        }
+      }
+    ]
   },
-  "text": "Đêm canh thức trước lễ thụ phong, bạn ở một mình trong thánh đường. Gần nửa đêm, ngọn nến trước tượng Nữ thần bỗng cháy thành màu đen, và có tiếng thì thầm sau lưng bạn.",
-  "choices": [
-   {
-    "label": "Cầu nguyện, không quay lại",
-    "check": {
-     "stat": "LUCK",
-     "target": 8
-    },
-    "success": {
-     "text": "Bạn đọc kinh đến khi trời sáng. Ngọn nến trở lại màu vàng, và dưới chân tượng có một thánh tích mà không ai nhớ đã đặt ở đó.",
-     "effects": {
-      "LUCK": 1,
+  {
+    "id": "path_study_m3",
+    "path": "study",
+    "tags": [
+      "civil"
+    ],
+    "stages": [
+      "adult",
+      "middle"
+    ],
+    "focus": [
+      "study"
+    ],
+    "weight": 60,
+    "require": {
       "flags": [
-       "st_f2"
-      ],
-      "item": "holy_symbol"
-     }
-    },
-    "fail": {
-     "text": "Bạn quay lại. Không có gì cả, chỉ có cơn lạnh ngấm vào xương suốt nhiều ngày sau.",
-     "effects": {
-      "health": -12,
-      "joy": -8,
-      "flags": [
-       "st_f2"
+        "st_m2"
       ]
-     }
-    }
-   },
-   {
-    "label": "Truy tìm tiếng thì thầm",
-    "check": {
-     "stat": "INT",
-     "target": 9
     },
-    "success": {
-     "text": "Bạn lần ra một tên tà giáo trốn trong hầm mộ thánh đường. Hắn bị bắt, còn bạn được Giám mục để mắt tới.",
-     "effects": {
-      "fame": 10,
-      "flags": [
-       "st_f2"
-      ]
-     }
-    },
-    "fail": {
-     "text": "Bạn lạc trong hầm mộ đến sáng. Lễ thụ phong phải dời lại một mùa.",
-     "effects": {
-      "joy": -10,
-      "flags": [
-       "st_f2"
-      ]
-     }
-    }
-   }
-  ]
- },
- {
-  "id": "path_study_f3",
-  "path": "study",
-  "tags": [
-   "civil"
-  ],
-  "stages": [
-   "adult",
-   "middle"
-  ],
-  "focus": [
-   "study"
-  ],
-  "weight": 60,
-  "require": {
-   "flags": [
-    "st_f2"
-   ]
+    "text": "Hội đồng Tháp Ngà triệu tập bạn để bảo vệ luận văn về sự cộng hưởng giữa các tầng ma lực. Bảy vị pháp sư già ngồi sau bàn đá, không ai mỉm cười.",
+    "choices": [
+      {
+        "label": "Trình bày và biểu diễn",
+        "check": {
+          "stat": "INT",
+          "target": 10
+        },
+        "success": {
+          "text": "Câu chú cuối cùng của bạn làm mọi ngọn nến trong phòng bùng lên cùng lúc. Hội đồng đứng dậy. Từ hôm nay, bạn là pháp sư được Tháp Ngà công nhận.",
+          "effects": {
+            "INT": 1,
+            "fame": 20,
+            "flags": [
+              "title_mage"
+            ]
+          },
+          "moment": "Được Tháp Ngà công nhận là pháp sư"
+        },
+        "fail": {
+          "text": "Ma lực đổi hướng giữa chừng, thiêu cháy góc bàn của vị trưởng hội đồng. Luận văn bị hoãn vô thời hạn.",
+          "effects": {
+            "fame": -8,
+            "joy": -10
+          }
+        }
+      },
+      {
+        "label": "Xin hoãn thêm một năm",
+        "text": "Bạn rút luận văn về để sửa. Hội đồng gật đầu lạnh nhạt; cửa vẫn mở, nhưng không mở mãi.",
+        "effects": {
+          "INT": 1
+        }
+      }
+    ]
   },
-  "text": "Giám mục đặt tay lên đầu bạn trước toàn thể giáo đoàn. Chỉ cần bạn nhận lời thề, bạn sẽ thành chức sắc của Giáo hội Thánh Quang, với tất cả quyền hạn và xiềng xích đi kèm.",
-  "choices": [
-   {
-    "label": "Nhận lời thề",
-    "text": "Tiếng chuông vang lên chín hồi. Bạn đứng dậy trong chiếc áo chức sắc, và cả giáo đoàn cúi đầu trước bạn.",
-    "effects": {
-     "fame": 18,
-     "LUCK": 1,
-     "flags": [
-      "title_cleric"
-     ]
-    },
-    "moment": "Được thụ phong chức sắc Giáo hội"
-   },
-   {
-    "label": "Từ chối, giữ đức tin riêng",
-    "text": "Bạn cúi chào rồi bước ra khỏi thánh đường. Đức tin của bạn không cần một tấm áo.",
-    "effects": {
-     "joy": 8,
-     "INT": 1
-    }
-   }
-  ]
- },
- {
-  "id": "path_politics_1",
-  "path": "politics",
-  "tags": [
-   "civil"
-  ],
-  "stages": [
-   "adult",
-   "middle"
-  ],
-  "focus": [
-   "social"
-  ],
-  "weight": 45,
-  "text": "Bạn nhận được thiệp mời dự dạ tiệc của Bá tước vùng Đông. Một người quen thì thầm: \"Ở đó mỗi câu chào là một bản giao kèo. Nói sai một câu, cả đời không ngóc đầu lên được.\"",
-  "choices": [
-   {
-    "label": "Đến và kết giao",
-    "check": {
-     "stat": "LUCK",
-     "target": 7
-    },
-    "success": {
-     "text": "Một câu đùa đúng lúc của bạn khiến vị Bá tước bật cười. Cuối buổi, ba gia tộc mời bạn ghé thăm.",
-     "effects": {
-      "fame": 6,
+  {
+    "id": "path_study_f2",
+    "path": "study",
+    "tags": [
+      "civil"
+    ],
+    "stages": [
+      "teen",
+      "adult",
+      "middle"
+    ],
+    "focus": [
+      "study"
+    ],
+    "weight": 60,
+    "require": {
       "flags": [
-       "pol_1"
+        "st_faith"
       ]
-     }
     },
-    "fail": {
-     "text": "Bạn đứng nhầm chỗ, nói nhầm người. Cả buổi tiệc bạn chỉ là cái bóng bên cạnh bàn rượu.",
-     "effects": {
-      "joy": -6,
-      "flags": [
-       "pol_1"
-      ]
-     }
-    }
-   },
-   {
-    "label": "Từ chối, không dây vào",
-    "text": "Bạn đốt tấm thiệp. Có những bàn tiệc mà ai đã ngồi vào thì không đứng dậy được nữa.",
-    "effects": {
-     "INT": 1
-    }
-   }
-  ]
- },
- {
-  "id": "path_politics_2",
-  "path": "politics",
-  "tags": [
-   "civil"
-  ],
-  "stages": [
-   "adult",
-   "middle"
-  ],
-  "focus": [
-   "social"
-  ],
-  "weight": 60,
-  "require": {
-   "flags": [
-    "pol_1"
-   ]
+    "text": "Đêm canh thức trước lễ thụ phong, bạn ở một mình trong thánh đường. Gần nửa đêm, ngọn nến trước tượng Nữ thần bỗng cháy thành màu đen, và có tiếng thì thầm sau lưng bạn.",
+    "choices": [
+      {
+        "label": "Cầu nguyện, không quay lại",
+        "check": {
+          "stat": "LUCK",
+          "target": 8
+        },
+        "success": {
+          "text": "Bạn đọc kinh đến khi trời sáng. Ngọn nến trở lại màu vàng, và dưới chân tượng có một thánh tích mà không ai nhớ đã đặt ở đó.",
+          "effects": {
+            "LUCK": 1,
+            "flags": [
+              "st_f2"
+            ],
+            "item": "holy_symbol"
+          }
+        },
+        "fail": {
+          "text": "Bạn quay lại. Không có gì cả, chỉ có cơn lạnh ngấm vào xương suốt nhiều ngày sau.",
+          "effects": {
+            "health": -12,
+            "joy": -8,
+            "flags": [
+              "st_f2"
+            ]
+          }
+        }
+      },
+      {
+        "label": "Truy tìm tiếng thì thầm",
+        "check": {
+          "stat": "INT",
+          "target": 9
+        },
+        "success": {
+          "text": "Bạn lần ra một tên tà giáo trốn trong hầm mộ thánh đường. Hắn bị bắt, còn bạn được Giám mục để mắt tới.",
+          "effects": {
+            "fame": 10,
+            "flags": [
+              "st_f2"
+            ]
+          }
+        },
+        "fail": {
+          "text": "Bạn lạc trong hầm mộ đến sáng. Lễ thụ phong phải dời lại một mùa.",
+          "effects": {
+            "joy": -10,
+            "flags": [
+              "st_f2"
+            ]
+          }
+        }
+      }
+    ]
   },
-  "text": "Ba phe đang giành ảnh hưởng trong thành: Hoàng gia muốn siết thuế, Thương hội Sói Bạc muốn mở đường buôn, Giáo hội muốn quyền xét xử. Cả ba đều ngỏ lời với bạn.",
-  "choices": [
-   {
-    "label": "Theo Hoàng gia",
-    "text": "Bạn nhận huy hiệu của một gia tộc thân vương. Cửa dinh thự mở ra, nhưng phố chợ bắt đầu nhìn bạn khác đi.",
-    "effects": {
-     "fame": 6,
-     "flags": [
-      "pol_2",
-      "pol_crown"
-     ]
-    }
-   },
-   {
-    "label": "Theo Thương hội",
-    "text": "Bạn ký vào sổ cái của Thương hội Sói Bạc. Vàng chảy vào nhanh, và những lời mời cũng thế.",
-    "effects": {
-     "wealth": 25,
-     "flags": [
-      "pol_2",
-      "pol_guild"
-     ]
-    }
-   },
-   {
-    "label": "Theo Giáo hội",
-    "text": "Bạn quỳ nhận lời chúc của Giám mục trước đám đông. Từ nay lời bạn nói có thêm sức nặng của thánh đường.",
-    "effects": {
-     "LUCK": 1,
-     "flags": [
-      "pol_2",
-      "pol_church"
-     ]
-    }
-   }
-  ]
- },
- {
-  "id": "path_politics_3",
-  "path": "politics",
-  "tags": [
-   "civil"
-  ],
-  "stages": [
-   "adult",
-   "middle"
-  ],
-  "focus": [
-   "social"
-  ],
-  "weight": 60,
-  "require": {
-   "flags": [
-    "pol_2"
-   ]
+  {
+    "id": "path_study_f3",
+    "path": "study",
+    "tags": [
+      "civil"
+    ],
+    "stages": [
+      "adult",
+      "middle"
+    ],
+    "focus": [
+      "study"
+    ],
+    "weight": 60,
+    "require": {
+      "flags": [
+        "st_f2"
+      ]
+    },
+    "text": "Giám mục đặt tay lên đầu bạn trước toàn thể giáo đoàn. Chỉ cần bạn nhận lời thề, bạn sẽ thành chức sắc của Giáo hội Thánh Quang, với tất cả quyền hạn và xiềng xích đi kèm.",
+    "choices": [
+      {
+        "label": "Nhận lời thề",
+        "text": "Tiếng chuông vang lên chín hồi. Bạn đứng dậy trong chiếc áo chức sắc, và cả giáo đoàn cúi đầu trước bạn.",
+        "effects": {
+          "fame": 18,
+          "LUCK": 1,
+          "flags": [
+            "title_cleric"
+          ]
+        },
+        "moment": "Được thụ phong chức sắc Giáo hội"
+      },
+      {
+        "label": "Từ chối, giữ đức tin riêng",
+        "text": "Bạn cúi chào rồi bước ra khỏi thánh đường. Đức tin của bạn không cần một tấm áo.",
+        "effects": {
+          "joy": 8,
+          "INT": 1
+        }
+      }
+    ]
   },
-  "text": "Một thư tín vô danh đặt trên bàn bạn: phe đối địch đang dựng chứng cứ giả để buộc tội bạn tham ô. Phiên điều trần sẽ diễn ra trong ba ngày nữa.",
-  "choices": [
-   {
-    "label": "Lật tẩy kẻ dựng chuyện",
-    "check": {
-     "stat": "INT",
-     "target": 9
-    },
-    "success": {
-     "text": "Bạn lần theo dấu mực trên tờ chứng cứ đến tận phòng làm việc của kẻ chủ mưu. Phiên điều trần biến thành phiên xử hắn.",
-     "effects": {
-      "fame": 15,
-      "wealth": 15,
-      "flags": [
-       "pol_3"
-      ]
-     }
-    },
-    "fail": {
-     "text": "Bạn đến phiên điều trần tay trắng. Lính gác tống bạn vào ngục chờ xét xử, và đồng minh của bạn lặng lẽ quay đi.",
-     "effects": {
-      "fame": -20,
-      "joy": -15,
-      "flags": [
-       "pol_end"
-      ]
-     }
-    }
-   },
-   {
-    "label": "Mua chuộc nhân chứng",
-    "check": {
-     "stat": "LUCK",
-     "target": 8
-    },
-    "success": {
-     "text": "Nhân chứng chính đổi lời vào phút chót. Vụ án đổ bể, nhưng bạn biết mình vừa nợ một ân huệ không rẻ.",
-     "effects": {
-      "wealth": -30,
-      "flags": [
-       "pol_3"
-      ]
-     }
-    },
-    "fail": {
-     "text": "Kẻ nhận tiền lại khai ra chính việc bạn đút lót. Danh tiếng bạn rơi xuống bùn.",
-     "effects": {
-      "fame": -25,
-      "wealth": -30,
-      "flags": [
-       "pol_end"
-      ]
-     }
-    }
-   }
-  ]
- },
- {
-  "id": "path_politics_4",
-  "path": "politics",
-  "tags": [
-   "civil"
-  ],
-  "stages": [
-   "adult",
-   "middle",
-   "elder"
-  ],
-  "focus": [
-   "social"
-  ],
-  "weight": 60,
-  "require": {
-   "flags": [
-    "pol_3"
-   ]
+  {
+    "id": "path_politics_1",
+    "path": "politics",
+    "tags": [
+      "civil"
+    ],
+    "stages": [
+      "adult",
+      "middle"
+    ],
+    "focus": [
+      "social"
+    ],
+    "weight": 45,
+    "text": "Bạn nhận được thiệp mời dự dạ tiệc của Bá tước vùng Đông. Một người quen thì thầm: \"Ở đó mỗi câu chào là một bản giao kèo. Nói sai một câu, cả đời không ngóc đầu lên được.\"",
+    "choices": [
+      {
+        "label": "Đến và kết giao",
+        "check": {
+          "stat": "LUCK",
+          "target": 7
+        },
+        "success": {
+          "text": "Một câu đùa đúng lúc của bạn khiến vị Bá tước bật cười. Cuối buổi, ba gia tộc mời bạn ghé thăm.",
+          "effects": {
+            "fame": 6,
+            "flags": [
+              "pol_1"
+            ]
+          }
+        },
+        "fail": {
+          "text": "Bạn đứng nhầm chỗ, nói nhầm người. Cả buổi tiệc bạn chỉ là cái bóng bên cạnh bàn rượu.",
+          "effects": {
+            "joy": -6,
+            "flags": [
+              "pol_1"
+            ]
+          }
+        }
+      },
+      {
+        "label": "Từ chối, không dây vào",
+        "text": "Bạn đốt tấm thiệp. Có những bàn tiệc mà ai đã ngồi vào thì không đứng dậy được nữa.",
+        "effects": {
+          "INT": 1
+        }
+      }
+    ]
   },
-  "text": "Một ghế trong Hội đồng thành bỏ trống. Đồng minh của bạn đếm phiếu suốt đêm: thiếu đúng một lá.",
-  "choices": [
-   {
-    "label": "Thuyết phục lá phiếu cuối",
-    "check": {
-     "stat": "INT",
-     "target": 10
-    },
-    "success": {
-     "text": "Bạn ngồi với vị nghị viên già đến khi nến tàn, nói về con cháu ông ta chứ không về chính trị. Sáng hôm sau, bạn có ghế trong Hội đồng.",
-     "effects": {
-      "fame": 30,
+  {
+    "id": "path_politics_2",
+    "path": "politics",
+    "tags": [
+      "civil"
+    ],
+    "stages": [
+      "adult",
+      "middle"
+    ],
+    "focus": [
+      "social"
+    ],
+    "weight": 60,
+    "require": {
       "flags": [
-       "title_council"
-      ],
-      "item": "seal_of_council"
-     },
-     "moment": "Có ghế trong Hội đồng thành"
-    },
-    "fail": {
-     "text": "Lá phiếu cuối nghiêng về phía kia. Bạn mỉm cười chúc mừng kẻ thắng, rồi về nhà đập vỡ chén rượu.",
-     "effects": {
-      "joy": -12,
-      "fame": 5
-     }
-    }
-   },
-   {
-    "label": "Nhường ghế cho đồng minh",
-    "text": "Bạn rút tên, để người cùng phe ngồi vào ghế. Ông ta nợ bạn một ân tình lớn, và cả thành biết điều đó.",
-    "effects": {
-     "fame": 10,
-     "wealth": 15
-    }
-   }
-  ]
- },
- {
-  "id": "path_martial_1",
-  "path": "martial",
-  "tags": [
-   "humanoid"
-  ],
-  "stages": [
-   "teen",
-   "adult"
-  ],
-  "focus": [
-   "train"
-  ],
-  "weight": 40,
-  "text": "Ở bãi tập ven làng, một lão già cụt tay đứng xem bạn luyện suốt một buổi chiều, rồi nói: \"Sức có thừa, đường đi thì sai hết. Muốn học thật thì sáng mai lên núi tìm ta.\"",
-  "choices": [
-   {
-    "label": "Lên núi theo lão",
-    "check": {
-     "stat": "STR",
-     "target": 7
-    },
-    "success": {
-     "text": "Lão bắt bạn gánh nước lên đỉnh núi trăm lần mới chịu dạy chiêu đầu tiên. Bạn gánh đủ trăm lần.",
-     "effects": {
-      "STR": 1,
-      "flags": [
-       "tr_1"
+        "pol_1"
       ]
-     }
     },
-    "fail": {
-     "text": "Đến lần gánh thứ ba mươi, chân bạn khuỵu xuống. Lão lắc đầu, nhưng vẫn cho bạn ở lại.",
-     "effects": {
-      "health": -10,
-      "flags": [
-       "tr_1"
-      ]
-     }
-    }
-   },
-   {
-    "label": "Tự luyện theo cách của mình",
-    "text": "Bạn không tin những lão già bí ẩn. Bãi tập vẫn là của bạn, và những vết chai cũng thế.",
-    "effects": {
-     "STR": 1
-    }
-   }
-  ]
- },
- {
-  "id": "path_martial_2",
-  "path": "martial",
-  "tags": [
-   "humanoid"
-  ],
-  "stages": [
-   "teen",
-   "adult",
-   "middle"
-  ],
-  "focus": [
-   "train"
-  ],
-  "weight": 60,
-  "require": {
-   "flags": [
-    "tr_1"
-   ]
+    "text": "Ba phe đang giành ảnh hưởng trong thành: Hoàng gia muốn siết thuế, Silver Wolf Company muốn mở đường buôn, Giáo hội muốn quyền xét xử. Cả ba đều ngỏ lời với bạn.",
+    "choices": [
+      {
+        "label": "Theo Hoàng gia",
+        "text": "Bạn nhận huy hiệu của một gia tộc thân vương. Cửa dinh thự mở ra, nhưng phố chợ bắt đầu nhìn bạn khác đi.",
+        "effects": {
+          "fame": 6,
+          "flags": [
+            "pol_2",
+            "pol_crown"
+          ]
+        }
+      },
+      {
+        "label": "Theo Thương hội",
+        "text": "Bạn ký vào sổ cái của Silver Wolf Company. Vàng chảy vào nhanh, và những lời mời cũng thế.",
+        "effects": {
+          "wealth": 25,
+          "flags": [
+            "pol_2",
+            "pol_guild"
+          ]
+        }
+      },
+      {
+        "label": "Theo Giáo hội",
+        "text": "Bạn quỳ nhận lời chúc của Giám mục trước đám đông. Từ nay lời bạn nói có thêm sức nặng của thánh đường.",
+        "effects": {
+          "LUCK": 1,
+          "flags": [
+            "pol_2",
+            "pol_church"
+          ]
+        }
+      }
+    ]
   },
-  "text": "Thầy bảo bạn bế quan trong hang núi chín mươi ngày, không ra ngoài, không nói chuyện với ai, chỉ có thanh vũ khí và bức vách đá.",
-  "choices": [
-   {
-    "label": "Bế quan đủ chín mươi ngày",
-    "check": {
-     "stat": "STR",
-     "target": 8
-    },
-    "success": {
-     "text": "Ngày thứ chín mươi, bạn bước ra khỏi hang. Thầy chỉ nhìn bước chân bạn một lần rồi gật đầu: \"Được rồi.\"",
-     "effects": {
-      "STR": 1,
-      "AGI": 1,
+  {
+    "id": "path_politics_3",
+    "path": "politics",
+    "tags": [
+      "civil"
+    ],
+    "stages": [
+      "adult",
+      "middle"
+    ],
+    "focus": [
+      "social"
+    ],
+    "weight": 60,
+    "require": {
       "flags": [
-       "tr_2"
+        "pol_2"
       ]
-     }
     },
-    "fail": {
-     "text": "Đến ngày thứ sáu mươi, tâm trí bạn bắt đầu nói chuyện với bức vách. Thầy kéo bạn ra, mắng một trận, rồi bắt làm lại từ đầu vào năm sau.",
-     "effects": {
-      "joy": -10,
-      "flags": [
-       "tr_2"
-      ]
-     }
-    }
-   },
-   {
-    "label": "Xin thầy cho luyện ngoài trời",
-    "text": "Thầy thở dài, cho bạn luyện ngoài trời dưới mưa tuyết. Tiến bộ chậm hơn, nhưng ít ra bạn vẫn còn nói chuyện được với người.",
-    "effects": {
-     "STR": 1,
-     "flags": [
-      "tr_2"
-     ]
-    }
-   }
-  ]
- },
- {
-  "id": "path_martial_3",
-  "path": "martial",
-  "tags": [
-   "humanoid"
-  ],
-  "stages": [
-   "adult",
-   "middle"
-  ],
-  "focus": [
-   "train"
-  ],
-  "weight": 60,
-  "require": {
-   "flags": [
-    "tr_2"
-   ]
+    "text": "Một thư tín vô danh đặt trên bàn bạn: phe đối địch đang dựng chứng cứ giả để buộc tội bạn tham ô. Phiên điều trần sẽ diễn ra trong ba ngày nữa.",
+    "choices": [
+      {
+        "label": "Lật tẩy kẻ dựng chuyện",
+        "check": {
+          "stat": "INT",
+          "target": 9
+        },
+        "success": {
+          "text": "Bạn lần theo dấu mực trên tờ chứng cứ đến tận phòng làm việc của kẻ chủ mưu. Phiên điều trần biến thành phiên xử hắn.",
+          "effects": {
+            "fame": 15,
+            "wealth": 15,
+            "flags": [
+              "pol_3"
+            ]
+          }
+        },
+        "fail": {
+          "text": "Bạn đến phiên điều trần tay trắng. Lính gác tống bạn vào ngục chờ xét xử, và đồng minh của bạn lặng lẽ quay đi.",
+          "effects": {
+            "fame": -20,
+            "joy": -15,
+            "flags": [
+              "pol_end"
+            ]
+          }
+        }
+      },
+      {
+        "label": "Mua chuộc nhân chứng",
+        "check": {
+          "stat": "LUCK",
+          "target": 8
+        },
+        "success": {
+          "text": "Nhân chứng chính đổi lời vào phút chót. Vụ án đổ bể, nhưng bạn biết mình vừa nợ một ân huệ không rẻ.",
+          "effects": {
+            "wealth": -30,
+            "flags": [
+              "pol_3"
+            ]
+          }
+        },
+        "fail": {
+          "text": "Kẻ nhận tiền lại khai ra chính việc bạn đút lót. Danh tiếng bạn rơi xuống bùn.",
+          "effects": {
+            "fame": -25,
+            "wealth": -30,
+            "flags": [
+              "pol_end"
+            ]
+          }
+        }
+      }
+    ]
   },
-  "text": "Võ đài lớn mười năm một lần mở ra ở thủ đô. Thầy đưa cho bạn chiếc đai lưng cũ của lão: \"Đánh thắng thì giữ lấy. Thua thì trả lại.\"",
-  "choices": [
-   {
-    "label": "Lên võ đài",
-    "check": {
-     "stat": "best",
-     "target": 10
-    },
-    "success": {
-     "text": "Bạn đánh bại người cuối cùng khi mặt trời vừa lặn. Cả khán đài đứng dậy. Bạn thắt chặt chiếc đai lưng của thầy, lần này là của bạn.",
-     "effects": {
-      "fame": 25,
+  {
+    "id": "path_politics_4",
+    "path": "politics",
+    "tags": [
+      "civil"
+    ],
+    "stages": [
+      "adult",
+      "middle",
+      "elder"
+    ],
+    "focus": [
+      "social"
+    ],
+    "weight": 60,
+    "require": {
       "flags": [
-       "title_master"
-      ],
-      "item": "master_belt"
-     },
-     "moment": "Vô địch võ đài lớn ở thủ đô"
-    },
-    "fail": {
-     "text": "Bạn thua ở trận bán kết, gãy hai xương sườn. Trả lại chiếc đai cho thầy, lão chỉ nói: \"Mười năm nữa.\"",
-     "effects": {
-      "health": -25,
-      "fame": 6
-     }
-    }
-   },
-   {
-    "label": "Ở lại xem các cao thủ đấu",
-    "text": "Bạn ngồi khán đài suốt bảy ngày, ghi nhớ từng thế đánh. Thầy không nói gì, chỉ bảo mười năm nữa lão vẫn còn sống.",
-    "effects": {
-     "AGI": 1,
-     "INT": 1
-    }
-   }
-  ]
- },
- {
-  "id": "path_rest_1",
-  "path": "hermit",
-  "tags": [
-   "humanoid"
-  ],
-  "stages": [
-   "adult",
-   "middle",
-   "elder"
-  ],
-  "focus": [
-   "rest"
-  ],
-  "weight": 35,
-  "text": "Bạn tìm được một căn am bỏ hoang bên hồ núi. Mặt nước lặng đến mức nhìn thấy cả những đám mây đang trôi qua.",
-  "choices": [
-   {
-    "label": "Ở lại một thời gian",
-    "text": "Bạn sửa lại mái am, trồng vài luống rau. Những đêm đầu không ngủ được vì quá yên tĩnh.",
-    "effects": {
-     "joy": 10,
-     "health": 10,
-     "flags": [
-      "rest_1"
-     ]
-    }
-   },
-   {
-    "label": "Ghé lại rồi đi",
-    "text": "Bạn ngồi bên hồ một buổi chiều rồi quay về. Đôi khi vẫn nhớ màu nước ấy.",
-    "effects": {
-     "joy": 4
-    }
-   }
-  ]
- },
- {
-  "id": "path_rest_2",
-  "path": "hermit",
-  "tags": [
-   "humanoid"
-  ],
-  "stages": [
-   "adult",
-   "middle",
-   "elder"
-  ],
-  "focus": [
-   "rest"
-  ],
-  "weight": 55,
-  "require": {
-   "flags": [
-    "rest_1"
-   ]
-  },
-  "text": "Một người hành hương lạc đường gõ cửa am trong đêm bão, ướt sũng và sốt cao. Trên cổ ông ta là một chuỗi hạt gỗ đã mòn nhẵn.",
-  "choices": [
-   {
-    "label": "Chăm sóc ông ta",
-    "check": {
-     "stat": "LUCK",
-     "target": 7
-    },
-    "success": {
-     "text": "Ba ngày sau ông khỏi bệnh. Trước khi đi, ông đặt chuỗi hạt vào tay bạn: \"Ta đã đi đủ đường rồi. Giờ đến lượt người.\"",
-     "effects": {
-      "joy": 10,
-      "flags": [
-       "rest_2"
-      ],
-      "item": "hermit_beads"
-     }
-    },
-    "fail": {
-     "text": "Bạn thức trắng ba đêm bên ông, nhưng sáng thứ tư ông không dậy nữa. Bạn chôn ông bên hồ, giữ lại chuỗi hạt làm kỷ niệm.",
-     "effects": {
-      "joy": -8,
-      "flags": [
-       "rest_2"
+        "pol_3"
       ]
-     }
-    }
-   },
-   {
-    "label": "Chỉ đường rồi đóng cửa",
-    "text": "Bạn chỉ cho ông ta hướng xuống làng rồi cài then. Cả đêm tiếng bão không át được tiếng ho xa dần của người lạ.",
-    "effects": {
-     "joy": -6
-    }
-   }
-  ]
- },
- {
-  "id": "path_rest_3",
-  "path": "hermit",
-  "tags": [
-   "humanoid"
-  ],
-  "stages": [
-   "middle",
-   "elder"
-  ],
-  "focus": [
-   "rest"
-  ],
-  "weight": 55,
-  "require": {
-   "flags": [
-    "rest_2"
-   ]
+    },
+    "text": "Một ghế trong Hội đồng thành bỏ trống. Đồng minh của bạn đếm phiếu suốt đêm: thiếu đúng một lá.",
+    "choices": [
+      {
+        "label": "Thuyết phục lá phiếu cuối",
+        "check": {
+          "stat": "INT",
+          "target": 10
+        },
+        "success": {
+          "text": "Bạn ngồi với vị nghị viên già đến khi nến tàn, nói về con cháu ông ta chứ không về chính trị. Sáng hôm sau, bạn có ghế trong Hội đồng.",
+          "effects": {
+            "fame": 30,
+            "flags": [
+              "title_council"
+            ],
+            "item": "seal_of_council"
+          },
+          "moment": "Có ghế trong Hội đồng thành"
+        },
+        "fail": {
+          "text": "Lá phiếu cuối nghiêng về phía kia. Bạn mỉm cười chúc mừng kẻ thắng, rồi về nhà đập vỡ chén rượu.",
+          "effects": {
+            "joy": -12,
+            "fame": 5
+          }
+        }
+      },
+      {
+        "label": "Nhường ghế cho đồng minh",
+        "text": "Bạn rút tên, để người cùng phe ngồi vào ghế. Ông ta nợ bạn một ân tình lớn, và cả thành biết điều đó.",
+        "effects": {
+          "fame": 10,
+          "wealth": 15
+        }
+      }
+    ]
   },
-  "text": "Một buổi sáng, ngồi trước mặt hồ, bạn chợt thấy mọi thứ đã qua trong đời mình hiện ra rõ như những viên sỏi dưới đáy nước.",
-  "choices": [
-   {
-    "label": "Ngồi yên với nó",
-    "check": {
-     "stat": "INT",
-     "target": 8
-    },
-    "success": {
-     "text": "Bạn không nghĩ gì cả, chỉ nhìn. Đến trưa, bạn đứng dậy, nhẹ hơn cả mười năm trước. Người trong vùng bắt đầu gọi bạn là ẩn sĩ bên hồ.",
-     "effects": {
-      "INT": 2,
-      "joy": 20,
+  {
+    "id": "path_martial_1",
+    "path": "martial",
+    "tags": [
+      "humanoid"
+    ],
+    "stages": [
+      "teen",
+      "adult"
+    ],
+    "focus": [
+      "train"
+    ],
+    "weight": 40,
+    "text": "Ở bãi tập ven làng, một lão già cụt tay đứng xem bạn luyện suốt một buổi chiều, rồi nói: \"Sức có thừa, đường đi thì sai hết. Muốn học thật thì sáng mai lên núi tìm ta.\"",
+    "choices": [
+      {
+        "label": "Lên núi theo lão",
+        "check": {
+          "stat": "STR",
+          "target": 7
+        },
+        "success": {
+          "text": "Lão bắt bạn gánh nước lên đỉnh núi trăm lần mới chịu dạy chiêu đầu tiên. Bạn gánh đủ trăm lần.",
+          "effects": {
+            "STR": 1,
+            "flags": [
+              "tr_1"
+            ]
+          }
+        },
+        "fail": {
+          "text": "Đến lần gánh thứ ba mươi, chân bạn khuỵu xuống. Lão lắc đầu, nhưng vẫn cho bạn ở lại.",
+          "effects": {
+            "health": -10,
+            "flags": [
+              "tr_1"
+            ]
+          }
+        }
+      },
+      {
+        "label": "Tự luyện theo cách của mình",
+        "text": "Bạn không tin những lão già bí ẩn. Bãi tập vẫn là của bạn, và những vết chai cũng thế.",
+        "effects": {
+          "STR": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "path_martial_2",
+    "path": "martial",
+    "tags": [
+      "humanoid"
+    ],
+    "stages": [
+      "teen",
+      "adult",
+      "middle"
+    ],
+    "focus": [
+      "train"
+    ],
+    "weight": 60,
+    "require": {
       "flags": [
-       "title_hermit"
+        "tr_1"
       ]
-     },
-     "moment": "Khai ngộ bên hồ núi"
     },
-    "fail": {
-     "text": "Những ký ức cũ kéo đến cùng lúc. Bạn khóc như một đứa trẻ, lần đầu tiên sau rất nhiều năm. Có lẽ như vậy cũng là đủ.",
-     "effects": {
-      "joy": 6
-     }
-    }
-   },
-   {
-    "label": "Đứng dậy đi tiếp công việc",
-    "text": "Bạn gạt ý nghĩ ấy đi, xách nước tưới rau. Có những điều để dành cho ngày khác.",
-    "effects": {
-     "health": 4
-    }
-   }
-  ]
- }
+    "text": "Thầy bảo bạn bế quan trong hang núi chín mươi ngày, không ra ngoài, không nói chuyện với ai, chỉ có thanh vũ khí và bức vách đá.",
+    "choices": [
+      {
+        "label": "Bế quan đủ chín mươi ngày",
+        "check": {
+          "stat": "STR",
+          "target": 8
+        },
+        "success": {
+          "text": "Ngày thứ chín mươi, bạn bước ra khỏi hang. Thầy chỉ nhìn bước chân bạn một lần rồi gật đầu: \"Được rồi.\"",
+          "effects": {
+            "STR": 1,
+            "AGI": 1,
+            "flags": [
+              "tr_2"
+            ]
+          }
+        },
+        "fail": {
+          "text": "Đến ngày thứ sáu mươi, tâm trí bạn bắt đầu nói chuyện với bức vách. Thầy kéo bạn ra, mắng một trận, rồi bắt làm lại từ đầu vào năm sau.",
+          "effects": {
+            "joy": -10,
+            "flags": [
+              "tr_2"
+            ]
+          }
+        }
+      },
+      {
+        "label": "Xin thầy cho luyện ngoài trời",
+        "text": "Thầy thở dài, cho bạn luyện ngoài trời dưới mưa tuyết. Tiến bộ chậm hơn, nhưng ít ra bạn vẫn còn nói chuyện được với người.",
+        "effects": {
+          "STR": 1,
+          "flags": [
+            "tr_2"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "path_martial_3",
+    "path": "martial",
+    "tags": [
+      "humanoid"
+    ],
+    "stages": [
+      "adult",
+      "middle"
+    ],
+    "focus": [
+      "train"
+    ],
+    "weight": 60,
+    "require": {
+      "flags": [
+        "tr_2"
+      ]
+    },
+    "text": "Võ đài lớn mười năm một lần mở ra ở thủ đô. Thầy đưa cho bạn chiếc đai lưng cũ của lão: \"Đánh thắng thì giữ lấy. Thua thì trả lại.\"",
+    "choices": [
+      {
+        "label": "Lên võ đài",
+        "check": {
+          "stat": "best",
+          "target": 10
+        },
+        "success": {
+          "text": "Bạn đánh bại người cuối cùng khi mặt trời vừa lặn. Cả khán đài đứng dậy. Bạn thắt chặt chiếc đai lưng của thầy, lần này là của bạn.",
+          "effects": {
+            "fame": 25,
+            "flags": [
+              "title_master"
+            ],
+            "item": "master_belt"
+          },
+          "moment": "Vô địch võ đài lớn ở thủ đô"
+        },
+        "fail": {
+          "text": "Bạn thua ở trận bán kết, gãy hai xương sườn. Trả lại chiếc đai cho thầy, lão chỉ nói: \"Mười năm nữa.\"",
+          "effects": {
+            "health": -25,
+            "fame": 6
+          }
+        }
+      },
+      {
+        "label": "Ở lại xem các cao thủ đấu",
+        "text": "Bạn ngồi khán đài suốt bảy ngày, ghi nhớ từng thế đánh. Thầy không nói gì, chỉ bảo mười năm nữa lão vẫn còn sống.",
+        "effects": {
+          "AGI": 1,
+          "INT": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "path_rest_1",
+    "path": "hermit",
+    "tags": [
+      "humanoid"
+    ],
+    "stages": [
+      "adult",
+      "middle",
+      "elder"
+    ],
+    "focus": [
+      "rest"
+    ],
+    "weight": 35,
+    "text": "Bạn tìm được một căn am bỏ hoang bên hồ núi. Mặt nước lặng đến mức nhìn thấy cả những đám mây đang trôi qua.",
+    "choices": [
+      {
+        "label": "Ở lại một thời gian",
+        "text": "Bạn sửa lại mái am, trồng vài luống rau. Những đêm đầu không ngủ được vì quá yên tĩnh.",
+        "effects": {
+          "joy": 10,
+          "health": 10,
+          "flags": [
+            "rest_1"
+          ]
+        }
+      },
+      {
+        "label": "Ghé lại rồi đi",
+        "text": "Bạn ngồi bên hồ một buổi chiều rồi quay về. Đôi khi vẫn nhớ màu nước ấy.",
+        "effects": {
+          "joy": 4
+        }
+      }
+    ]
+  },
+  {
+    "id": "path_rest_2",
+    "path": "hermit",
+    "tags": [
+      "humanoid"
+    ],
+    "stages": [
+      "adult",
+      "middle",
+      "elder"
+    ],
+    "focus": [
+      "rest"
+    ],
+    "weight": 55,
+    "require": {
+      "flags": [
+        "rest_1"
+      ]
+    },
+    "text": "Một người hành hương lạc đường gõ cửa am trong đêm bão, ướt sũng và sốt cao. Trên cổ ông ta là một chuỗi hạt gỗ đã mòn nhẵn.",
+    "choices": [
+      {
+        "label": "Chăm sóc ông ta",
+        "check": {
+          "stat": "LUCK",
+          "target": 7
+        },
+        "success": {
+          "text": "Ba ngày sau ông khỏi bệnh. Trước khi đi, ông đặt chuỗi hạt vào tay bạn: \"Ta đã đi đủ đường rồi. Giờ đến lượt người.\"",
+          "effects": {
+            "joy": 10,
+            "flags": [
+              "rest_2"
+            ],
+            "item": "hermit_beads"
+          }
+        },
+        "fail": {
+          "text": "Bạn thức trắng ba đêm bên ông, nhưng sáng thứ tư ông không dậy nữa. Bạn chôn ông bên hồ, giữ lại chuỗi hạt làm kỷ niệm.",
+          "effects": {
+            "joy": -8,
+            "flags": [
+              "rest_2"
+            ]
+          }
+        }
+      },
+      {
+        "label": "Chỉ đường rồi đóng cửa",
+        "text": "Bạn chỉ cho ông ta hướng xuống làng rồi cài then. Cả đêm tiếng bão không át được tiếng ho xa dần của người lạ.",
+        "effects": {
+          "joy": -6
+        }
+      }
+    ]
+  },
+  {
+    "id": "path_rest_3",
+    "path": "hermit",
+    "tags": [
+      "humanoid"
+    ],
+    "stages": [
+      "middle",
+      "elder"
+    ],
+    "focus": [
+      "rest"
+    ],
+    "weight": 55,
+    "require": {
+      "flags": [
+        "rest_2"
+      ]
+    },
+    "text": "Một buổi sáng, ngồi trước mặt hồ, bạn chợt thấy mọi thứ đã qua trong đời mình hiện ra rõ như những viên sỏi dưới đáy nước.",
+    "choices": [
+      {
+        "label": "Ngồi yên với nó",
+        "check": {
+          "stat": "INT",
+          "target": 8
+        },
+        "success": {
+          "text": "Bạn không nghĩ gì cả, chỉ nhìn. Đến trưa, bạn đứng dậy, nhẹ hơn cả mười năm trước. Người trong vùng bắt đầu gọi bạn là ẩn sĩ bên hồ.",
+          "effects": {
+            "INT": 2,
+            "joy": 20,
+            "flags": [
+              "title_hermit"
+            ]
+          },
+          "moment": "Khai ngộ bên hồ núi"
+        },
+        "fail": {
+          "text": "Những ký ức cũ kéo đến cùng lúc. Bạn khóc như một đứa trẻ, lần đầu tiên sau rất nhiều năm. Có lẽ như vậy cũng là đủ.",
+          "effects": {
+            "joy": 6
+          }
+        }
+      },
+      {
+        "label": "Đứng dậy đi tiếp công việc",
+        "text": "Bạn gạt ý nghĩ ấy đi, xách nước tưới rau. Có những điều để dành cho ngày khác.",
+        "effects": {
+          "health": 4
+        }
+      }
+    ]
+  }
 ]
