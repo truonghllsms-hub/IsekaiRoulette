@@ -444,20 +444,38 @@
     }
     return cv;
   }
-  $("btn-save-card").onclick = () => {
-    if (!card) return;
-    const cv = cardImage(card);
-    const url = cv.toDataURL("image/png");
-    try {
-      const a = document.createElement("a");
-      a.href = url; a.download = `luan-hoi-${card.name.replace(/\s+/g, "-")}.png`;
-      document.body.appendChild(a); a.click(); a.remove();
-    } catch (e) {}
-    // also shown here, for when the download is blocked: hold or right-click to save
+  // the artifact viewer saves files through its downloads capability; elsewhere a plain link works
+  let dl = null;
+  try { if (window.claude && window.claude.use) window.claude.use("downloads").then((d) => { dl = d; }, () => {}); } catch (e) {}
+  function showCardImage(url, msg) {
     let img = $("lc-image");
     if (!img) { img = document.createElement("img"); img.id = "lc-image"; img.className = "lc-image"; img.alt = "Thẻ cuộc đời"; $("lc-note").after(img); }
     img.src = url;
-    say("Nếu ảnh chưa tải về, nhấn giữ hoặc chuột phải vào ảnh bên dưới để lưu.");
+    say(msg);
+  }
+  $("btn-save-card").onclick = () => {
+    if (!card) return;
+    const cv = cardImage(card);
+    const name = `luan-hoi-${card.name.replace(/\s+/g, "-")}.png`;
+    const url = cv.toDataURL("image/png");
+    const fallback = "Nhấn giữ hoặc chuột phải vào ảnh bên dưới để lưu.";
+    if (dl) {
+      cv.toBlob((blob) => {
+        dl.save({ filename: name, data: blob }).then(
+          () => say("Đã lưu ảnh thẻ cuộc đời."),
+          (err) => { if (!err || err.code !== "declined") showCardImage(url, fallback); }
+        );
+      }, "image/png");
+      return;
+    }
+    if (!window.claude) {
+      try {
+        const a = document.createElement("a");
+        a.href = url; a.download = name;
+        document.body.appendChild(a); a.click(); a.remove();
+      } catch (e) {}
+    }
+    showCardImage(url, window.claude ? fallback : "Nếu ảnh chưa tải về: " + fallback.toLowerCase());
   };
 
   $("btn-start").onclick = startLife;
