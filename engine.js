@@ -1300,6 +1300,19 @@
   // only your own parent: "cha bạn", "mẹ của bạn", or "Cha …"/"Mẹ …" opening a sentence; not "cha Elara", "Rồng mẹ", "tuyên bố"
   const OWN = (w) => new RegExp(`(?<!\\p{L})(?:${w})(?: của)? bạn(?!\\p{L})|(?:^|[.!?…"“]\\s*)(?:${w.replace(/(^|\|)(\p{Ll})/gu, (m, a, b) => a + b.toUpperCase())}) (?!\\p{Lu})(?!mình|nó|hắn|của|cô|anh|ông|họ|ta\\b)`, "u");
   const FATHER_W = OWN("cha|bố"), MOTHER_W = OWN("mẹ|má"), BOTH_W = /(?<!\p{L})(cha mẹ|bố mẹ)(?!\p{L})(?! của (?!bạn)| nó| hắn| cô| mình| họ)/iu;
+  // A parent who is not at your side (dead, walked away, never known) does not walk into a scene. Two
+  // exceptions for one who LEFT: a scene written for their return (require.parentGone), and the origin's
+  // own chain when it is the story of that absent parent. The dead never come back.
+  function parentAway(c, w, r, eventId) {
+    const p = c.parents && c.parents[w];
+    if (!p || p.alive) return false;
+    if (p.status === "dead") return true;
+    if (r && (r.parentGone === w || r.parentGone === true)) return false;
+    const born = c.origin && c.origin[w];
+    if (eventId && /_arc_/.test(eventId) && born && born.status !== "alive") return false;
+    return true;
+  }
+
   function parentsOk(t, c, r, arc) {
     if (!c.parents || REMEMBERS.test(t)) return true;
     const gone = (w) => c.parents[w] && !c.parents[w].alive;
@@ -1310,6 +1323,8 @@
       if (r.fatherAlive === undefined && gone("father") && FATHER_W.test(t)) return false;
       if (r.motherAlive === undefined && gone("mother") && MOTHER_W.test(t)) return false;
     }
+    // the raw placeholder too: "Lắng nghe {mother} kể chuyện" is not filled in yet when lines are sorted
+    for (const w of ["father", "mother"]) if (r[w + "Alive"] === undefined && t.includes(`{${w}}`) && parentAway(c, w, r, arc ? "_arc_" : null)) return false;
     for (const w of ["father", "mother"]) {
       const p = c.parents[w];
       const first = p && properName(p.name);
@@ -1350,7 +1365,8 @@
   }
   function deadParentsQuiet(e, c) {
     if (!c.parents) return true;
-    const dead = ["father", "mother"].map((w) => [w, c.parents[w]]).filter(([, p]) => p && !p.alive && p.status === "dead");
+    const r = e.require || {};
+    const dead = ["father", "mother"].map((w) => [w, c.parents[w]]).filter(([w, p]) => p && r[w + "Alive"] === undefined && parentAway(c, w, r, e.id));
     if (!dead.length) return true;
     const outs = [e.text];
     for (const ch of e.choices || []) { if (ch.label) outs.push(ch.label); for (const o of [ch, ch.success, ch.fail]) if (o && o.text) outs.push(o.text); }
@@ -1377,10 +1393,7 @@
       for (const who of ["father", "mother"]) {
         const key = who + "Alive";
         // an origin chain written for parents dead from the start speaks of them as the dead they are
-        if (r[key] === undefined && t.includes(`{${who}}`) && !REMEMBERS.test(t)) {
-          const p = c.parents && c.parents[who];
-          if (p && !p.alive && p.status === "dead") return false;
-        }
+        if (r[key] === undefined && t.includes(`{${who}}`) && !REMEMBERS.test(t) && parentAway(c, who, r, e.id)) return false;
       }
       for (const role of ["rival", "mentor", "friend"]) {
         const x = c.cast && c.cast[role];
@@ -2294,7 +2307,7 @@
     }
     // a line about an aging body waits for old age, one about a small child does not come back at forty
     const OLD = /già nua|tuổi già|xế chiều|tóc bạc|râu bạc|lưng còng|răng rụng|gậy chống|chống gậy|tuổi xế/i;
-    const YOUNG = /chập chững|bập bẹ|tập đi|bú mớm|đứa trẻ con|lũ trẻ con/i;
+    const YOUNG = /chập chững|bập bẹ|tập đi|bú mớm|đứa trẻ con|lũ trẻ con|kể (?:câu )?chuyện[^.]{0,90}(?:chìm vào giấc ngủ|ngủ thiếp)|ru bạn ngủ|dỗ bạn ngủ|tập viết chữ bằng que/i;
     const late = ["middle", "elder", "ancient"].includes(stageId), early = ["infant", "child"].includes(stageId);
     // "vài chục năm trôi qua" cannot be said of an eight-year-old
     const LONG_TIME = /(?:vài|hàng|mấy|nhiều) (?:chục|trăm|ngàn|nghìn) năm|(?:một|vài|nhiều) thế kỷ|thập kỷ/i;

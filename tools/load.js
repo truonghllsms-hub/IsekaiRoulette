@@ -124,6 +124,18 @@ function loadData() {
     data.systems.race[race] = data.systems.race[race] || {};
     if (!data.systems.race[race].romance) data.systems.race[race].romance = r;
   }
+  // a scene about the father that checks the mother is alive (or the other way round) was a slip when the
+  // script was turned into data: the parent the scene speaks of is the one who must be there
+  for (const e of data.events) {
+    const r = e.require;
+    if (!r) continue;
+    const s = JSON.stringify([e.text, e.choices || null]);
+    const f = s.includes("{father}"), m = s.includes("{mother}");
+    if (r.motherAlive !== undefined && r.fatherAlive === undefined && f && !m) { r.fatherAlive = r.motherAlive; delete r.motherAlive; }
+    else if (r.fatherAlive !== undefined && r.motherAlive === undefined && m && !f) { r.motherAlive = r.fatherAlive; delete r.fatherAlive; }
+    // both asked for, one never mentioned: only the one in the scene matters
+    else if (r.fatherAlive === true && r.motherAlive === true && f !== m) { if (f) delete r.motherAlive; else delete r.fatherAlive; }
+  }
   // the look of each trade (warrior, mage, hunter, worker, plain): picks the sprite and the gear line
   const { jobLook } = require("./looks");
   for (const j of data.jobs) j.look = jobLook(j);
