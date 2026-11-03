@@ -246,8 +246,49 @@
     }
   }
 
+  // ---------- who is who: hover (or tap) a name in the story to be reminded ----------
+  const ROLE_WORD = { rival: "Đối thủ", mentor: "Người thầy", friend: "Bạn thân" };
+  function whoIndex() {
+    const idx = new Map();
+    const add = (name, text) => { if (name && String(name).length > 1 && !idx.has(name) && name !== c.name.split(" ")[0]) idx.set(String(name), text); };
+    const P = c.parents || {};
+    const PW = { father: "Cha của bạn", mother: "Mẹ của bạn", maker: "Kẻ tạo ra bạn" };
+    for (const w of ["father", "mother", "maker"]) {
+      const p = P[w];
+      if (!p || !p.name) continue;
+      const st = p.alive ? "" : p.status === "dead" ? " · đã mất" : p.status === "gone" ? " · đã bỏ đi" : p.status === "unknown" ? " · không rõ tung tích" : "";
+      add(p.name.split(" ")[0], `${PW[w]}${p.role ? " · " + p.role : ""}${st}`);
+    }
+    const story = (D.story || {})[c.race.id];
+    for (const x of Object.values(c.cast || {})) {
+      const def = story && story.cast && story.cast[x.kind];
+      const title = def && def.title ? def.title.charAt(0) + def.title.slice(1).toLowerCase() : "";
+      add(x.name, `${ROLE_WORD[x.role] || "Người quen"}${title ? " · " + title : ""}${x.mortal ? " · " + x.mortal.race : ""}${!x.alive ? " · đã mất" : x.left ? " · đã rời xa" : ""}`);
+    }
+    if (c.spouse) add(c.spouse.name, `Bạn đời của bạn · nên duyên năm ${Math.floor(c.spouse.since)} tuổi`);
+    for (const n of c.formerSpouses || []) add(n, "Người bạn đời cũ");
+    for (const k of c.children || []) add(k.name, `Con của bạn · chào đời khi bạn ${Math.floor(k.born)} tuổi`);
+    for (const m of c.party || []) add(m.name, `Đồng đội · ${[m.race, m.jobName].filter(Boolean).join(" · ")}${!m.alive ? " · đã mất" : m.left ? " · đã rời đi" : ""}`);
+    for (const f of c.fallen || []) add(f.name, `Đồng đội đã khuất · mất khi bạn ${Math.floor(f.at)} tuổi`);
+    if (c.band && c.band.name) add(c.band.name, `Tổ đội của bạn · từ năm ${Math.floor(c.band.since)} tuổi`);
+    return idx;
+  }
+  // the text with each known name wrapped in a note; everything else stays plain text
+  function setRich(el, text, idx) {
+    const names = [...idx.keys()].sort((a, b) => b.length - a.length).map((n) => n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+    if (!names.length) { el.textContent = text; return; }
+    const re = new RegExp(`(?<!\\p{L})(${names.join("|")})(?!\\p{L})`, "gu");
+    let html = "", last = 0, m;
+    while ((m = re.exec(text))) {
+      html += esc(text.slice(last, m.index)) + `<span class="npc" tabindex="0" data-who="${esc(idx.get(m[1]))}">${esc(m[1])}</span>`;
+      last = m.index + m[1].length;
+    }
+    el.innerHTML = html + esc(text.slice(last));
+  }
+
   function renderLog() {
     const log = $("log");
+    const idx = whoIndex();
     for (; rendered < c.log.length; rendered++) {
       const e = c.log[rendered];
       const prev = log.lastElementChild;
@@ -255,7 +296,7 @@
       if ((e.kind === "picked" || e.kind === "result") && prev) {
         const p = document.createElement("p");
         if (e.kind === "picked") p.className = "picked";
-        p.textContent = e.text;
+        setRich(p, e.text, idx);
         prev.querySelector(".text").appendChild(p);
         continue;
       }
@@ -263,7 +304,7 @@
       li.className = "entry kind-" + e.kind;
       const when = e.ageFrom != null ? `${fmtAge(e.ageFrom)}–${fmtAge(e.age)}` : fmtAge(e.age);
       li.innerHTML = `<div class="when"><b>${when}</b>${e.stage}</div><div class="text"><p></p></div>`;
-      li.querySelector(".text p").textContent = e.text;
+      setRich(li.querySelector(".text p"), e.text, idx);
       if (e.gains) {
         const g = document.createElement("p");
         g.className = "gains";

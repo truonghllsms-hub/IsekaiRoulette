@@ -237,19 +237,31 @@
           if ((part === "strike" || part === "cut") && (kind === "sword" || (kind === "axe" && /bổ/.test(m)))) continue;
           const noun = part === "noun" || part === "short";
           let mine;
-          if (isLabel) mine = !ENEMY.test(before.split(/[,:]/).pop());
+          if (isLabel) {
+            mine = !ENEMY.test(before.split(/[,:]/).pop());
+            // "Cướp thanh kiếm", "Chôn vùi thanh đại kiếm": a sword you take or bury is someone else's
+            if (noun) mine = mine && /(?<!\p{L})(vung|rút|giơ|cầm|siết|nắm|giương|tung|chĩa|vác|bằng|dùng)\s*$/iu.test(before);
+          }
           else {
             mine = (/(?<!\p{L})bạn(?:\s+\p{L}+){0,3}\s*$/iu.test(before) && !ENEMY.test(before.split(/bạn/i).pop() || ""))
               || /^\s*(của bạn|trong tay bạn)/.test(after);
-            if (noun && !/^\s*(của bạn|trong tay bạn)/.test(after)) mine = mine && /(?<!\p{L})(vung|rút|giơ|cầm|siết|nắm|giương|tung|chĩa|vác|bằng)\s*$/iu.test(before);
+            if (noun && !/^\s*(của bạn|trong tay bạn)/.test(after)) mine = mine && /(?<!\p{L})(vung|rút|giơ|cầm|siết|nắm|giương|tung|chĩa|vác|bằng|dùng)\s*$/iu.test(before);
           }
           // right after the weapon phrase just changed: "phóng phép cắt đứt", not "phóng phép dùng phép cắt đứt"
           let t = to;
-          if (/^(strike|cut|strikeSp)$/.test(part) && edits.some((e) => (e.part === "swing" || (kind === "magic" && e.part === "draw")) && e.b <= at && at - e.b <= 2))
+          if (/^(strike|cut|strikeSp)$/.test(part) && edits.some((e) => (e.part === "swing" || (kind === "magic" && /^(draw|noun|short)$/.test(e.part))) && e.b <= at && at - e.b <= 2))
             t = (part === "cut" ? W.cutShort : W.strikeShort) || to;
           if (mine) edits.push({ a: at, b: at + m.length, t: keepCase(m, t), part });
           else if (noun) edits.push({ a: at, b: at + m.length, t: m }); // someone else's: hold it, no smaller pattern may touch it
         }
+      }
+      // a strike right after the weapon just named: "phóng phép cắt đứt", "dùng trượng phép đánh"
+      const changed = edits.filter((e) => e.part && e.t !== sent.slice(e.a, e.b));
+      for (const e of changed) {
+        if (!/^(strike|cut|strikeSp)$/.test(e.part)) continue;
+        const prev = changed.find((p) => p !== e && p.b <= e.a && e.a - p.b <= 2 && (p.part === "swing" || (kind === "magic" && /^(draw|noun|short)$/.test(p.part))));
+        const short = e.part === "cut" ? W.cutShort : W.strikeShort;
+        if (prev && short) e.t = keepCase(sent.slice(e.a, e.b), short);
       }
       let out = sent;
       for (const e of edits.sort((x, y) => y.a - x.a)) out = out.slice(0, e.a) + e.t + out.slice(e.b);
@@ -294,11 +306,38 @@
       extra || {}
     );
     // a placeholder that starts a sentence ("kẻ đã tạo ra bạn ra lệnh…") gets a capital letter
-    return casterWords(String(text).replace(/([.!?…:]\s+|["“]\s*|)\{(\w+)\}/g, (m, pre, k, at) => {
+    return casterWords(writerChoices(String(text).replace(/([.!?…:]\s+|["“]\s*|)\{(\w+)\}/g, (m, pre, k, at) => {
       if (!(k in vars)) return m;
       const v = String(vars[k]);
       return pre || at === 0 ? pre + v.charAt(0).toUpperCase() + v.slice(1) : v;
-    }), c, data);
+    }), c, data), c, data);
+  }
+
+  // The script sometimes left both options for the reader to pick ("Rồng cái/đực (tùy vào bạn)",
+  // "vợ/chồng", "con trai/con gái") or a note to the writer ("(tùy theo nghề của bạn)"). The life
+  // being told knows the answer: your gender, your partner's, your child's, your trade.
+  function writerChoices(t, c, data) {
+    if (!/\/|\((?:tùy|tuỳ)/.test(t)) return t;
+    const male = c.gender === "male", female = c.gender === "female";
+    const kidName = c.ctx && c.ctx.child;
+    const kid = (c.children || []).find((k) => k.name === kidName) || (c.children || [])[c.children.length - 1];
+    const kidMale = kid && kid.gender ? kid.gender === "male" : null;
+    const j = data ? jobDef(c, data) : null;
+    const W = "(?<!\\p{L})", E = "(?!\\p{L})";
+    const rules = [
+      [/vợ\/chồng|chồng\/vợ/, female ? "chồng" : "vợ"],
+      [/cái\/đực|đực\/cái/, female ? "đực" : "cái"],
+      [/em\/anh|anh\/em/, female ? "em" : "anh"],
+      [/chị\/anh|anh\/chị/, female ? "chị" : "anh"],
+      [/cô\/cậu|cậu\/cô/, female ? "cô" : "cậu"],
+      [/nàng\/chàng|chàng\/nàng/, female ? "nàng" : "chàng"],
+      [/con trai\/con gái|con gái\/con trai/, kidMale === false ? "con gái" : kidMale === true ? "con trai" : "đứa con"],
+      [/Nam\/Nữ|Nữ\/Nam/, female ? "Nữ" : "Nam"],
+    ];
+    for (const [re, to] of rules) t = t.replace(new RegExp(W + "(?:" + re.source + ")" + E, "gu"), (m) => (m.charAt(0) === m.charAt(0).toUpperCase() && m.charAt(0) !== m.charAt(0).toLowerCase() ? to.charAt(0).toUpperCase() + to.slice(1) : to));
+    return t
+      .replace(/\s*\((?:tùy|tuỳ) (?:theo|vào) nghề(?: nghiệp)? của bạn\)/gi, j ? ` dành cho một ${j.name}` : "")
+      .replace(/\s*\((?:tùy|tuỳ) (?:theo|vào) [^()]{1,40}\)/gi, "");
   }
 
   function randomName(data, rng, raceId, gender) {
@@ -323,7 +362,11 @@
     for (const who of ["father", "mother", "maker"]) {
       const p = o[who];
       if (p) {
-        out[who] = Object.assign({}, p, { alive: p.status === "alive", dieAt: p.status === "alive" ? lifeLeft() : null });
+        // a "maker" that is a corpse, a dungeon core, a trap or a curse never lived the way a parent does
+        let status = p.status;
+        if (/^(?:Xác|Thi thể|Hài cốt|Bộ xương)/i.test(p.name || "")) status = "dead";
+        else if (/^(?:Lõi|Bẫy|Lời nguyền|Tà khí|Oán khí|Ma khí|Khối|Vết nứt|Cổng|Luồng|Dòng|Ma lực|Năng lượng|Huyết trận|Trận pháp)/i.test(p.name || "")) status = "thing";
+        out[who] = Object.assign({}, p, { status, alive: status === "alive", dieAt: status === "alive" ? lifeLeft() : null });
         // the script left the name to the game ("{father} · Vampire · Bá tước"): give one from that parent's race
         if (!p.name && p.status !== "unknown") {
           const pr = (data.races || []).find((r) => p.race && (r.name.toLowerCase() === p.race.toLowerCase() || r.id === p.race.toLowerCase()));
@@ -514,9 +557,76 @@
       for (const b of Object.values(st.bands || {})) for (const m of b.members || []) taken.push(m.name);
       // the name follows who the script describes: "một nữ tu già" is not called Edwin
       const g = castGender(k, data, c);
-      let name = randomName(data, rng, c.race.id, g).split(" ")[0];
-      for (let i = 0; i < 20 && nameClash(name, taken); i++) name = randomName(data, rng, c.race.id, g).split(" ")[0];
+      // a Dwarf friend has a Dwarf name, a Human mentor a Human one
+      const kr = raceInText(k.desc, data, true);
+      const nameRace = kr && data.names[kr.id] ? kr.id : c.race.id;
+      let name = randomName(data, rng, nameRace, g).split(" ")[0];
+      for (let i = 0; i < 20 && nameClash(name, taken); i++) name = randomName(data, rng, nameRace, g).split(" ")[0];
       c.cast[role] = { role, kind: k.id, name, gender: g, alive: true, left: false, bond: 0 };
+      const mortal = mortalSpan(c, data, kr, k.desc);
+      if (mortal) c.cast[role].mortal = mortal;
+    }
+  }
+
+  // ---------- mortals beside a long life ----------
+  // An Elf's human friend, a Dragon's human king, a Dwarf's orc companion: they age at their own
+  // pace. Once met, they have the years their race gives them; then they are gone (or, for a line
+  // the script wrote as a dynasty, an heir takes the name's place).
+  // "Nữ, Human. Cô bé…" → Human; "Beastman tộc Sói" → Beastman; "Lich (vốn là Human)" → none
+  function raceInText(text, data, afterGender) {
+    let t = String(text || "").trim();
+    if (afterGender) { const m = t.match(/^[^,.]{0,50},\s*([^,.(]+)/); if (!m) return null; t = m[1].trim(); }
+    return data.races.find((r) => t === r.name || t.startsWith(r.name + " ")) || null;
+  }
+  function mortalSpan(c, data, race, desc) {
+    if (!race || !race.lifespan || race.id === c.race.id) return null;
+    const mine = c.race.lifespan ? c.race.lifespan[1] : 1e6;
+    const theirs = race.lifespan[1];
+    if (mine < theirs * 2) return null; // close enough: they keep pace with you
+    const d = String(desc || "");
+    // one who bargained with death, a lich, a spirit: not bound to a mortal span
+    if (/đánh đổi|từ chối tử thần|tử linh|(?<!\p{L})lich(?!\p{L})|tàn hồn|bóng ma|không phải thực thể sống/iu.test(d)) return null;
+    const share = /già|lão|lưng còng|tóc bạc|râu bạc|cao niên/i.test(d) ? 0.3 : /cô bé|cậu bé|bé con|nhóc|trẻ mồ côi|đứa trẻ|thiếu nữ|thiếu niên|hoàng tử bé/i.test(d) ? 0.85 : 0.55;
+    return { years: Math.max(10, Math.round(theirs * share)), race: race.name, dynasty: /hậu duệ|thế hệ|con cháu|luân phiên|kế vị/i.test(d) };
+  }
+  const MORTAL_END = {
+    friend: (n, r) => `Tin báo đến muộn: ${n}, người bạn ${r} của bạn, đã nhắm mắt vì tuổi già. Với bạn, dường như họ chỉ vừa mới lớn.`,
+    mentor: (n, r) => `${n}, người thầy ${r} của bạn, đã ra đi vì tuổi già. Những gì họ muốn dạy, bạn mới học được một phần.`,
+    rival: (n, r) => `${n}, kẻ thù ${r} năm xưa, đã chết già trên giường. Mối thù chưa kịp ngã ngũ, còn bạn vẫn như ngày đầu.`,
+  };
+  function mortalsTick(c, data, rng) {
+    for (const x of Object.values(c.cast || {})) {
+      const m = x.mortal;
+      if (!m || !x.alive || x.left) continue;
+      if (m.metAt == null) { if (c.used.some((id) => id.includes(`_cast_${x.kind}_`))) m.metAt = c.age; continue; }
+      if (c.age - m.metAt < m.years) continue;
+      if (m.dynasty) {
+        const old = x.name;
+        let nm = randomName(data, rng, (data.races.find((r) => r.name === m.race) || c.race).id, x.gender).split(" ")[0];
+        if (nm === old) nm = randomName(data, rng, c.race.id, x.gender).split(" ")[0];
+        x.name = nm;
+        m.metAt = c.age;
+        pushLog(c, "story", `${old} đã khuất bóng theo năm tháng. Người nối dõi, ${nm}, vẫn giữ lời ước cũ của dòng họ với bạn.`);
+        continue;
+      }
+      x.alive = false;
+      x.diedAt = c.age;
+      pushLog(c, "loss", (MORTAL_END[x.role] || MORTAL_END.friend)(x.name, m.race));
+      addMoment(c, `${x.name} qua đời vì tuổi già`, data);
+    }
+    // a companion of a short-lived race walks beside you for the years they have
+    if (!c.race.lifespan || c.race.lifespan[1] >= 300) {
+      for (const p of c.party || []) {
+        if (!p.alive || p.left || p.since == null) continue;
+        const race = raceInText(p.race, data);
+        if (!race || !race.lifespan || race.id === c.race.id || (c.race.lifespan ? c.race.lifespan[1] : 1e6) < race.lifespan[1] * 2) continue;
+        if (c.age - p.since < race.lifespan[1] * 0.5) continue;
+        p.alive = false;
+        p.diedAt = c.age;
+        pushLog(c, "loss", `Năm tháng không chờ ai. ${p.name} (${p.race}) đã già và ra đi thanh thản, sau ${Math.round(c.age - p.since)} năm đồng hành cùng bạn. Tóc họ bạc trắng, còn bạn vẫn như ngày gặp nhau.`);
+        c.fallen = (c.fallen || []).concat({ name: p.name, bond: p.bond, wish: p.wish, at: c.age });
+        addMoment(c, `${p.name} qua đời vì tuổi già`, data);
+      }
     }
   }
 
@@ -1192,10 +1302,33 @@
     return true;
   }
 
+  // ---------- a child's age ----------
+  // "{child} lost money gambling", "{child} gets married": your child has to be old enough.
+  // "{child} takes first steps": young enough. The child named is the one who fits.
+  const KID_ADULT = /cá độ|nợ|két sắt|cưới|lấy chồng|lấy vợ|kết hôn|người yêu|tình nhân|rượu|cờ bạc|đánh bạc|thua bạc|thừa kế|gia sản|cháu nội|cháu ngoại|đảo chính|nối ngôi|kế vị|ra trận|nhập ngũ|đi lính|thủ cấp|mưu toan/i;
+  const KID_TEEN = /ăn trộm|trộm lấy|lấy trộm|bỏ nhà|bỏ đi|nổi loạn|cãi lời|học viện|bùa chú|bọn giang hồ|đánh nhau|bị bắt/i;
+  const KID_BABY = /sơ sinh|tập đi|chập chững|bập bẹ|tập nói|quấy khóc|cho bú|bú mớm|tã lót|địu/i;
+  function childFor(c, t) {
+    const kids = c.children || [];
+    if (!kids.length || !/\{child\}|con bạn|con trai|con gái|đứa con/i.test(t)) return { ok: true, name: null };
+    const st = stagesOf(c.race);
+    const at = (id) => (st.find((x) => x.id === id) || {}).start;
+    const ageOf = (k) => c.age - (k.born != null ? k.born : c.age);
+    // a newborn grandchild in the arms of your child: the baby words are about the grandchild
+    const needAdult = KID_ADULT.test(t), needTeen = !needAdult && KID_TEEN.test(t), needBaby = !needAdult && !needTeen && KID_BABY.test(t);
+    if (!needAdult && !needTeen && !needBaby) return { ok: true, name: null };
+    const min = needAdult ? at("adult") : needTeen ? at("teen") : 0;
+    const max = needBaby ? (at("child") || 3) : 1e9;
+    const fit = kids.filter((k) => ageOf(k) >= (min || 0) && ageOf(k) < max);
+    if (!fit.length) return { ok: false, name: null };
+    return { ok: true, name: (needBaby ? fit[fit.length - 1] : fit[0]).name };
+  }
+
   function implicitOk(e, c) {
     const t = e.text || "";
     const r = e.require || {};
     if (!parentsOk(t, c, r, /_arc_/.test(e.id))) return false;
+    if (!childFor(c, t).ok) return false;
     // an origin chain is written for its own birthplace: only the age rules apply to it
     if (!r.spouse && !(/_arc_/.test(e.id) ? ageFitsNoPlace(t, c) : ageFits(t, c))) return false;
     if (t.indexOf("{") >= 0) {
@@ -1496,7 +1629,7 @@
   function addChild(c, data, rng) {
     const g = rng() < 0.5 ? "male" : "female";
     const name = freshName(c, data, rng, g);
-    c.children.push({ name, born: c.age });
+    c.children.push({ name, born: c.age, gender: g });
     if (c.ctx) c.ctx.child = name;
     addMoment(c, `Đứa con ${name} chào đời`, data);
     return name;
@@ -1962,6 +2095,8 @@
     const party = aliveParty(c);
     const fits = e.require && e.require.allyTrait ? party.filter((m) => m.trait === e.require.allyTrait) : party;
     c.ctx = { ally: fits.length ? pick(rng, fits) : null, eventId: e.id };
+    const kidFit = childFor(c, e.text || "");
+    if (kidFit.name) c.ctx.child = kidFit.name;
     // Events about winning a mate name the one being courted.
     if (!c.spouse && /\{spouse\}/.test(e.text)) c.ctx.partner = makePartner(c, data, rng);
     if (e.choices && e.choices.length) {
@@ -2197,6 +2332,7 @@
 
       liveFocus(c, data, rng, years, quiet);
       parentsTick(c, data, rng);
+      mortalsTick(c, data, rng);
       jailTick(c, data, rng);
       checkDeath(c, data, rng, years);
 
@@ -2450,7 +2586,8 @@
     }
     if (c.spouse) marks.push(`Bạn đời: ${c.spouse.name}` + (c.children.length ? ` · ${c.children.length} người con` : ""));
     else if ((c.children || []).length) marks.push(`${c.children.length} người con`);
-    else if ((c.race.tags || []).includes("civil") && c.age >= 25) marks.push("Chưa từng có bạn đời");
+    // a life that loved someone without marrying them is not "never had a partner"
+    else if ((c.race.tags || []).includes("civil") && c.age >= 25 && !(c.moments || []).some((m) => /người mình yêu|người thương|kết duyên|nên duyên|cưới|bên người|chung sống|tình yêu/i.test(m.text || ""))) marks.push("Chưa từng có bạn đời");
     if (marks.length < 3 && c.questsDone) marks.push(`${c.questsDone} ${(o && o.missionWord) || "nhiệm vụ"} hoàn thành`);
     if (marks.length < 3 && c.fame >= 30) marks.push(`Danh vọng ${c.fame}`);
     if (!marks.length) marks.push(c.maxAge != null && c.age < c.maxAge * 0.2 ? "Ra đi khi còn chưa kịp lớn" : `Một đời ${Math.floor(c.age)} năm lặng lẽ`);
@@ -2466,6 +2603,7 @@
 
   const api = {
     weaponWords,
+    fmt,
     weaponOf,
     STAT_KEYS,
     BAR_KEYS,

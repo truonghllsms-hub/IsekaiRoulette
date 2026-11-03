@@ -224,3 +224,15 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 7vw, 48
 .life-card .lc-cause { font-size: 13px; color: #a49a8a; margin: 0; }
 .lc-actions { justify-content: center; margin-bottom: 8px; }
 .lc-image { display: block; max-width: 100%; margin: 8px auto 16px; border-radius: 10px; }
+
+/* names in the story: hover or tap to be reminded who they are */
+.npc { border-bottom: 1px dotted var(--accent, #7a4fd0); cursor: help; position: relative; outline: none; }
+.npc:hover::after, .npc:focus::after {
+  content: attr(data-who);
+  position: absolute; left: 0; top: calc(100% + 6px); z-index: 20;
+  width: max-content; max-width: min(260px, 70vw);
+  padding: 6px 9px; border-radius: 8px;
+  background: var(--ink, #23201c); color: var(--bg, #f6f3ee);
+  font: 500 12px/1.4 var(--sans, system-ui, sans-serif); white-space: normal;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .18); pointer-events: none;
+}
