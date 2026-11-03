@@ -55,6 +55,17 @@ module.exports = {
   decline: { label: "Thôi, để lần sau", text: "Bạn nghiến răng lùi lại. Ở Ma giới, kẻ kiên nhẫn sống lâu hơn." },
   evos: [],
   systems: {
+    // the Legion recruits from the Abyss, not from the Church's knights
+    companions: [
+      { race: "Demon", names: "demon", job: "Dark Knight", stat: "STR", weight: 4 },
+      { race: "Demon", names: "demon", job: "Warlock", stat: "INT", weight: 2 },
+      { race: "Demon", names: "demon", job: "Bounty Hunter", stat: "AGI", weight: 2 },
+      { race: "Imp", names: "imp", job: "Imp Trickster", stat: "AGI", weight: 3 },
+      { race: "Imp", names: "imp", job: "Familiar", stat: "LUCK", weight: 1 },
+      { race: "Orc", names: "orc", job: "Orc Berserker", stat: "STR", weight: 2 },
+      { race: "Goblin", names: "goblin", job: "Goblin Shaman", stat: "INT", weight: 1 },
+      { race: "Ghoul", names: "ghoul", job: "Grave Sentinel", stat: "STR", weight: 1 },
+    ],
     noRecruit: true,},
   overrides: {},
 };

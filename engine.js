@@ -371,6 +371,8 @@
     };
     for (const who of ["father", "mother", "maker"]) {
       const p = o[who];
+      // "Không có." written as a name: there is no such parent
+      if (p && /^(?:không có|không|none|n\/a)\.?$/i.test(String(p.name || "").trim())) continue;
       if (p) {
         // a "maker" that is a corpse, a dungeon core, a trap or a curse never lived the way a parent does
         let status = p.status;
@@ -1234,19 +1236,19 @@
 
   // What a scene takes for granted without saying so in its conditions: a parent who is in the room,
   // a companion at your side, a life that is free to walk into a tavern.
-  const REMEMBERS = /mộ|di vật|tưởng niệm|di thư|thi hài|thi thể|hài cốt|di ảnh|đã mất|qua đời|đã chết|cái chết|tang lễ|ký ức|kỷ vật|hồn ma|linh hồn|vong hồn|bóng ma|năm xưa|ngày xưa|thuở|nhớ (?:về|lại|tới|đến)|tưởng nhớ|nấm mồ|tro cốt|báo thù cho|trả thù cho|kẻ đã giết|bỏ rơi|bỏ đi|biệt tăm|mất tích|không rõ/i;
+  const REMEMBERS = /mộ|di vật|tưởng niệm|di thư|thi hài|thi thể|hài cốt|di ảnh|đã mất|qua đời|đã chết|cái chết|tang lễ|ký ức|kỷ vật|hồn ma|linh hồn|vong hồn|bóng ma|năm xưa|ngày xưa|thuở|nhớ (?:về|lại|tới|đến)|tưởng nhớ|nấm mồ|tro cốt|báo thù cho|trả thù cho|kẻ đã giết|bỏ rơi|bỏ đi|biệt tăm|mất tích|không rõ|tử trận|hồ sơ|bộ giáp|vinh danh|bị ám sát|lăng mộ|bia đá|di hài/i;
   // ---------- a childhood happens where you were born ----------
   // a child born in a dungeon or a city does not grow up playing under the World Tree: before the
   // teens, a line that names a kind of place must name one the birth names too
   const PLACES = {
     forest: /Đại Ngàn|cây thế giới|Yggdrasil|cổ thụ|tán cây|rừng thiêng|khu rừng|bìa rừng|rừng sâu|thảm rêu/i,
     city: /thành phố|thủ đô|Sanctus|đường phố|khu ổ chuột|ngõ hẻm|con hẻm|phiên chợ|khu chợ|kinh thành|lâu đài|dinh thự|thị trấn/i,
-    dungeon: /hầm ngục|ngục tối|tầng hầm/i,
-    mountain: /ngọn núi|dãy núi|lòng núi|sườn núi|hang động|mỏ quặng|hầm mỏ|vách đá/i,
+    dungeon: /hầm ngục|ngục tối|tầng hầm|hang ổ|mê cung|hầm mộ|lõi hầm|ngục giam|chuồng giam|hầm ngầm|cống ngầm/i,
+    mountain: /ngọn núi|dãy núi|lòng núi|sườn núi|hang động|mỏ quặng|hầm mỏ|vách đá|mỏ đá|lòng đất|dưới lòng đất|đường hầm|khe núi|hang sâu/i,
     swamp: /đầm lầy/i,
     sea: /bến cảng|hải cảng|bờ biển|biển cả|con thuyền/i,
     steppe: /thảo nguyên/i,
-    abyss: /vực thẳm|ma giới|hỏa ngục/i,
+    abyss: /vực thẳm|ma giới|hỏa ngục|địa ngục|huyết trận|lò luyện ngục/i,
     village: /ngôi làng|làng quê|cánh đồng|nông trại/i,
     caravan: /cỗ xe|đoàn xe|thương đoàn|thương hội|giao thương|đồng bằng/i,
   };
@@ -1261,8 +1263,12 @@
     const home = birthPlaces(c);
     if (!home.length) return true;
     const here = placesIn(t);
+    // a child of the dark (a dungeon, a mine, the Abyss) does not chase butterflies by a stream
+    const underground = home.every((k) => ["dungeon", "mountain", "abyss"].includes(k));
+    if (underground && OUTDOOR.test(t) && !here.some((k) => home.includes(k))) return false;
     return !here.length || here.some((k) => home.includes(k));
   }
+  const OUTDOOR = /bờ suối|con suối|dòng suối|trèo cây|leo cây|vạt cỏ|bãi cỏ|đồng cỏ|thảm cỏ|đuổi bướm|thả diều|tắm sông|bờ sông|ruộng|cánh đồng|hoa dại|nắng sớm|bầu trời xanh|dưới bóng cây|gốc cây/i;
 
   // ---------- what a child cannot be doing ----------
   // drinking, taverns, love and the marriage bed wait for the teens (drink) and adulthood (love)
@@ -1306,8 +1312,8 @@
     }
     for (const w of ["father", "mother"]) {
       const p = c.parents[w];
-      const first = p && p.name && p.name.split(" ")[0];
-      if (first && first.length > 2 && gone(w) && p.status === "dead" && r[w + "Alive"] === undefined && new RegExp(`(?<!\\p{L})${first}(?!\\p{L})`, "u").test(t)) return false;
+      const first = p && properName(p.name);
+      if (first && gone(w) && p.status === "dead" && r[w + "Alive"] === undefined && new RegExp(`(?<!\\p{L})${first}(?!\\p{L})`, "u").test(t)) return false;
     }
     return true;
   }
@@ -1334,21 +1340,46 @@
     return { ok: true, name: (needBaby ? fit[fit.length - 1] : fit[0]).name };
   }
 
+  // what follows a choice can bring a parent back too ("Roland cầm đuốc chạy đến bế bạn"): a parent who
+  // died is only remembered, never seen acting
+  // "Malakor", "Tuka Blacktooth" are names; "Chiến binh vô danh", "Khuyết danh" are descriptions
+  function properName(n) {
+    if (!n || !/^\p{Lu}[\p{Ll}']+(?:[ -]\p{Lu}[\p{L}']*)*$/u.test(n.trim())) return null;
+    const first = n.trim().split(/[ -]/)[0];
+    return first.length > 2 ? first : null;
+  }
+  function deadParentsQuiet(e, c) {
+    if (!c.parents) return true;
+    const dead = ["father", "mother"].map((w) => [w, c.parents[w]]).filter(([, p]) => p && !p.alive && p.status === "dead");
+    if (!dead.length) return true;
+    const outs = [e.text];
+    for (const ch of e.choices || []) { if (ch.label) outs.push(ch.label); for (const o of [ch, ch.success, ch.fail]) if (o && o.text) outs.push(o.text); }
+    for (const o of outs) {
+      if (!o || REMEMBERS.test(o)) continue;
+      for (const [w, p] of dead) {
+        if (o.includes(`{${w}}`)) return false;
+        const first = properName(p.name);
+        if (first && new RegExp(`(?<!\\p{L})${first}(?!\\p{L})`, "u").test(o)) return false;
+      }
+    }
+    return true;
+  }
+
   function implicitOk(e, c) {
     const t = e.text || "";
     const r = e.require || {};
     if (!parentsOk(t, c, r, /_arc_/.test(e.id))) return false;
     if (!childFor(c, t).ok) return false;
+    if (!deadParentsQuiet(e, c)) return false;
     // an origin chain is written for its own birthplace: only the age rules apply to it
     if (!r.spouse && !(/_arc_/.test(e.id) ? ageFitsNoPlace(t, c) : ageFits(t, c))) return false;
     if (t.indexOf("{") >= 0) {
       for (const who of ["father", "mother"]) {
         const key = who + "Alive";
         // an origin chain written for parents dead from the start speaks of them as the dead they are
-        const bornWithout = /_arc_/.test(e.id) && c.origin && c.origin[who] && c.origin[who].status !== "alive";
-        if (r[key] === undefined && t.includes(`{${who}}`) && !REMEMBERS.test(t) && !bornWithout) {
+        if (r[key] === undefined && t.includes(`{${who}}`) && !REMEMBERS.test(t)) {
           const p = c.parents && c.parents[who];
-          if (p && !p.alive) return false;
+          if (p && !p.alive && p.status === "dead") return false;
         }
       }
       for (const role of ["rival", "mentor", "friend"]) {
@@ -2019,12 +2050,12 @@
     const bonus = partner.bond ? Math.round((partner.bond - 50) / 10) : 0;
     scene(c, "romance", fmt(text, c, null, data), [
       {
-        label: s.confess,
+        label: fmt(s.confess, c, null, data),
         check: { stat: "LUCK", target: 5 - bonus },
         success: { text: fmt(pick(rng, s.yes), c, null, data), act: { type: "marry", partner }, effects: { joy: 20 }, moment: `Kết duyên cùng ${partner.name}` },
         fail: { text: fmt(pick(rng, s.no), c, null, data), effects: { joy: -10 } },
       },
-      { label: s.pass, text: fmt(s.passText, c, null, data) },
+      { label: fmt(s.pass, c, null, data), text: fmt(s.passText, c, null, data) },
     ]);
   }
 
@@ -2189,7 +2220,9 @@
   };
   function deepTime(c, rng, n, memory) {
     const span = n >= 200 ? `${Math.round(n / 100)} thế kỷ trôi qua.` : n >= 95 ? "Một thế kỷ trôi qua." : `${Math.round(n / 10) * 10} năm trôi qua.`;
-    const pool = (DEEP[c.race.id] || []).concat(DEEP.default);
+    // "your last lover grew old and died" only in a life that had one
+    const loved = !!(c.spouse || (c.formerSpouses || []).length || (c.moments || []).some((m) => /kết duyên|nên duyên|người mình yêu|người thương/i.test(m.text || "")));
+    const pool = (DEEP[c.race.id] || []).concat(DEEP.default).filter((t) => loved || !/người tình|người yêu|bạn đời/i.test(t));
     const a = pick(rng, pool);
     let b = pick(rng, pool);
     if (b === a) b = "";

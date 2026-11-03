@@ -118,6 +118,12 @@ function loadData() {
   data.focusRace = {};
   data.story = {};
   for (const f of jsonFiles(PACK_DIR)) mergePack(data, readJson(path.join(PACK_DIR, f)), f);
+  // love for the races whose packs left it out (their "social" focus promises a mate): data/romance.json
+  const romance = fs.existsSync(path.join(DATA_DIR, "romance.json")) ? readJson(path.join(DATA_DIR, "romance.json")) : {};
+  for (const [race, r] of Object.entries(romance)) {
+    data.systems.race[race] = data.systems.race[race] || {};
+    if (!data.systems.race[race].romance) data.systems.race[race].romance = r;
+  }
   // the look of each trade (warrior, mage, hunter, worker, plain): picks the sprite and the gear line
   const { jobLook } = require("./looks");
   for (const j of data.jobs) j.look = jobLook(j);
