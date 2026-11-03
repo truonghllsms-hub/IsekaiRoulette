@@ -111,10 +111,15 @@
     const want = [];
     if (peak) {
       if (ch.form) want.push(`tienhoa_${slug(ch.form)}`);
-      for (const j of [ch.job, ...(ch.pastJobs || []).slice().reverse()].filter(Boolean)) {
+      // the veteran look only for a trade the life truly reached it in (rank B of the guild or the
+      // veteran trade rank); a life that stopped at rank C keeps the newcomer gear on its card
+      const jobs = [ch.job, ...(ch.pastJobs || []).slice().reverse()].filter(Boolean);
+      const vetOf = (j) => j.vet != null || (j === ch.job && E.isVeteran(ch, D));
+      for (const j of jobs) {
         const t = j.id.slice(j.id.indexOf("_") + 1);
-        want.push(`${t}_kycuu`, `${t}_moi`);
+        if (vetOf(j)) want.push(`${t}_kycuu`);
       }
+      for (const j of jobs) want.push(`${j.id.slice(j.id.indexOf("_") + 1)}_moi`);
       want.push("thuongdan", "thieunien", "hoilon", "beti");
       const col = want.find((k) => P[k]);
       return col ? { person, rect: P[col], size: P._size } : null;

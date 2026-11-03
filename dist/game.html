@@ -1033,7 +1033,7 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 7vw, 48
   const CAPTIVE_WORD = { arena: "nô lệ đấu trường", slave: "nô lệ", prison: "bị giam cầm", bound: "bị khế ước trói buộc" };
   const FREE_FOCUS = ["adventure", "social"];
   // the open world a captive cannot reach: swamps, bridges, forests, travellers, raids
-  const CAPTIVE_OUT = /đầm lầy|gầm cầu|cây cầu|qua cầu|đầu cầu|thu phí|lữ khách|khu rừng|bìa rừng|rừng sâu|thảo nguyên|đỉnh núi|sườn núi|phá phách khắp|lang thang khắp|rong ruổi|cướp bóc|cướp cả|xe hàng|thương nhân|ngôi làng|làng mạc|chuyến săn|cuộc săn|giữa cầu|chắn cầu|lợn lòi|trèo cây|thân cây|con suối|xuống suối|dinh thự|di chúc|thừa kế/i;
+  const CAPTIVE_OUT = /đầm lầy|gầm cầu|cây cầu|qua cầu|đầu cầu|thu phí|lữ khách|khu rừng|bìa rừng|rừng sâu|thảo nguyên|đỉnh núi|sườn núi|lên núi|hang núi|chân núi|ven làng|bãi tập|phá phách khắp|lang thang khắp|rong ruổi|cướp bóc|cướp cả|xe hàng|thương nhân|ngôi làng|làng mạc|chuyến săn|cuộc săn|giữa cầu|chắn cầu|lợn lòi|trèo cây|thân cây|con suối|xuống suối|dinh thự|di chúc|thừa kế/i;
   // an arena slave or a prisoner is not living in the tribe's camp either (a slave of a tribe is)
   const TRIBE_LIFE = /bộ lạc|bãi lều|lều trại|trong lều|lều của|khu trại|lửa trại|bầy đàn của bạn|cả tộc|Warchief|tù trưởng/i;
   const captiveOk = (t, c) => !FREE_WORLD.test(t) && !CAPTIVE_OUT.test(t) && !(c && c.captive && ["arena", "prison"].includes(c.captive.kind) && TRIBE_LIFE.test(t));
@@ -1796,6 +1796,9 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 7vw, 48
     // ...and the reverse: a free life does not wake up already in chains
     if (!c.captive && !/_arc_/.test(e.id) && /^(Bị giam|Bị xích|Bị cùm|Trong phòng giam|Trong ngục|Bị nhốt)|nới lỏng xiềng xích|xiềng xích trên (cổ|tay|chân) bạn/i.test(t) && !(r.flags || r.anyFlags)) return false;
     if (c.captive && !/_arc_/.test(e.id)) {
+      // path chains (martial master on the mountain, the count's banquet, ruins, the ivory tower...)
+      // are written for someone free to walk the world: a slave or prisoner cannot follow them
+      if (e.path) return false;
       if (e.focus && e.focus.some((f) => FREE_FOCUS.includes(f))) return false;
       if (!captiveOk(t, c)) return false;
       if (/_band_band_[a-z]_1$|_party_party_[a-z]_join$|_lead_|_recruit_/.test(e.id) && !designedFor(e, c)) return false;
@@ -3276,10 +3279,15 @@ window.GAME_DATA = {"races":[{"id":"human","name":"Human","gloss":"loài ngườ
     const want = [];
     if (peak) {
       if (ch.form) want.push(`tienhoa_${slug(ch.form)}`);
-      for (const j of [ch.job, ...(ch.pastJobs || []).slice().reverse()].filter(Boolean)) {
+      // the veteran look only for a trade the life truly reached it in (rank B of the guild or the
+      // veteran trade rank); a life that stopped at rank C keeps the newcomer gear on its card
+      const jobs = [ch.job, ...(ch.pastJobs || []).slice().reverse()].filter(Boolean);
+      const vetOf = (j) => j.vet != null || (j === ch.job && E.isVeteran(ch, D));
+      for (const j of jobs) {
         const t = j.id.slice(j.id.indexOf("_") + 1);
-        want.push(`${t}_kycuu`, `${t}_moi`);
+        if (vetOf(j)) want.push(`${t}_kycuu`);
       }
+      for (const j of jobs) want.push(`${j.id.slice(j.id.indexOf("_") + 1)}_moi`);
       want.push("thuongdan", "thieunien", "hoilon", "beti");
       const col = want.find((k) => P[k]);
       return col ? { person, rect: P[col], size: P._size } : null;
