@@ -415,6 +415,20 @@
   }
 
   // ---------- character ----------
+  // ---------- money ----------
+  const POOR_BIRTH = /nô lệ|ăn mày|ăn xin|mồ côi|cô nhi|ổ chuột|bị bỏ rơi|vứt bỏ|bỏ rơi|tù nhân|ngục|chuồng|xiềng|phế thải|bãi rác|lang thang|hầm ngục|đấu trường|tế phẩm|vật hiến tế|bị bắt/i;
+  const RICH_BIRTH = /quý tộc|hoàng tộc|hoàng gia|vương tộc|thương nhân|thương hội|thương gia|giàu|lãnh chúa|công tước|bá tước|hầu tước|nam tước|dinh thự|lâu đài|gia tộc lớn|thế gia|trưởng tộc|tù trưởng|thủ lĩnh/i;
+  function familyWealth(origin, rng) {
+    const t = `${origin.name || ""} ${origin.text || ""}`;
+    const own = (origin.effects && origin.effects.wealth) || 0;
+    if (POOR_BIRTH.test(t) && !RICH_BIRTH.test(origin.name || "")) return 0;
+    if (/sa sút|sa cơ|phá sản|nghèo|túng quẫn|lụn bại/i.test(t)) return own > 0 ? 10 : 5;
+    if (RICH_BIRTH.test(t) || own >= 30) return randInt(rng, 40, 60);
+    return 10;
+  }
+  // a child has no purse of its own: coins only start to add up in the teens
+  const ownsMoney = (c) => !["infant", "child"].includes(currentStage(c).id);
+
   function createCharacter(data, rng, raceId) {
     rng = rng || Math.random;
     const race = raceId ? data.races.find((r) => r.id === raceId) : weightedPick(data.races, rng);
@@ -480,7 +494,10 @@
       stageId: "infant",
       clicks: 0,
     };
-    applyEffects(c, origin.effects, data, rng);
+    applyEffects(c, Object.assign({}, origin.effects, { wealth: 0 }), data, rng);
+    // what the family owns, not the child: nothing in chains or on the street, a little for common folk,
+    // a house's fortune for nobles and merchants
+    c.bars.wealth = familyWealth(origin, rng);
     c.parents = makeParents(c, data, rng);
     const org = orgFor(c, data);
     if (org && org.auto) c.guild = { org: org.id, rank: 0, pts: 0, since: 0 };
@@ -950,7 +967,7 @@
     if (!eff) return;
     rng = rng || Math.random;
     for (const k of STAT_KEYS) if (eff[k]) c.stats[k] = clamp(c.stats[k] + eff[k], 0, 99);
-    for (const k of BAR_KEYS) if (eff[k]) c.bars[k] = clamp(c.bars[k] + eff[k], 0, 100);
+    for (const k of BAR_KEYS) if (eff[k] && !(k === "wealth" && eff[k] > 0 && !ownsMoney(c))) c.bars[k] = clamp(c.bars[k] + eff[k], 0, 100);
     if (eff.fame) c.fame = clamp(c.fame + eff.fame, 0, 100);
     // In some organisations (a Goblin tribe) any renown also climbs the ladder.
     if (eff.fame > 0 && data && c.guild) {
@@ -1728,11 +1745,31 @@
   }
 
   // Stats (about 1–15) move the odds 8% per point; bars and fame (0–100) about 1.5% per point.
+  // years with no joy at all: the end comes from inside
+  function despairDeath(c, rng) {
+    const monster = (c.race.tags || []).includes("monster") || /demon|vampire|ghoul|dragon|slime/.test(c.race.id);
+    const human = [
+      "Năm {age} tuổi, sau nhiều năm không còn thấy lý do để thức dậy, bạn bước xuống dòng sông lạnh và không quay lên nữa.",
+      "Bạn buông xuôi tất cả ở tuổi {age}. Một buổi sáng, người ta thấy bạn ngồi bất động bên cửa sổ, ánh mắt đã tắt từ lâu.",
+      "Nỗi u uất gặm nhấm bạn từng ngày. Năm {age} tuổi, bạn nằm xuống và không muốn đứng dậy nữa.",
+    ];
+    const beast = [
+      "Năm {age} tuổi, bóng tối trong lòng nuốt chửng phần lý trí cuối cùng. Bạn hóa điên, lao vào rừng sâu và không ai còn thấy bạn nữa.",
+      "Nỗi tuyệt vọng kéo dài quá lâu biến bạn thành một con ma vật vô tri. Những kẻ từng biết bạn đã phải tự tay kết liễu bạn ở tuổi {age}.",
+    ];
+    return pick(rng, monster ? beast : human);
+  }
+
+  // a light heart steadies the hand; a dark one shakes it
+  function moodBonus(c) {
+    const j = c.bars.joy;
+    return j > 70 ? 0.07 : j < 20 ? -0.1 : 0;
+  }
   function successChance(c, check) {
     const v = statValue(c, check.stat) + (STAT_KEYS.includes(check.stat) ? itemBonus(c, check.stat) : 0);
     const slope = STAT_KEYS.includes(check.stat) || check.stat === "best" || check.stat === "jobstat" ? 0.08 : 0.015;
     const base = 0.5 + (v - check.target) * slope + (c.stats.LUCK - 5) * 0.02;
-    return clamp(base + partyBonus(c, check), 0.05, 0.95);
+    return clamp(base + partyBonus(c, check) + moodBonus(c), 0.05, 0.95);
   }
 
   // ---------- focus (what you spend your years on) ----------
@@ -1783,7 +1820,10 @@
         quiet.gains[k] = (quiet.gains[k] || 0) + n;
       }
     }
-    for (const k of Object.keys(bars)) c.bars[k] = clamp(c.bars[k] + bars[k] * Math.min(per, 6), 0, 100);
+    for (const k of Object.keys(bars)) {
+      if (k === "wealth" && bars[k] > 0 && !ownsMoney(c)) continue; // a child earns nothing of its own
+      c.bars[k] = clamp(c.bars[k] + bars[k] * Math.min(per, 6), 0, 100);
+    }
     // Married life warms the heart; living costs money once grown.
     if (c.spouse) c.bars.joy = clamp(c.bars.joy + Math.min(per, 4), 0, 100);
     if (["adult", "middle", "elder"].includes(currentStage(c).id) && c.focus !== "work") c.bars.wealth = clamp(c.bars.wealth - Math.min(per, 6), 0, 100);
@@ -2124,7 +2164,7 @@
     if (c.focus === "adventure" && c.guild && active && rng() < Math.min(0.85, 0.4 * Math.min(per, 2))) {
       if (boardScene(c, data, rng)) return true;
     }
-    if (sys(c, data, "romance") && !c.spouse && c.gender && ["adult", "middle"].includes(st) && rng() < (c.focus === "social" ? 0.25 : 0.04) * Math.min(per, 2)) {
+    if (sys(c, data, "romance") && !c.spouse && c.gender && ["adult", "middle"].includes(st) && rng() < (c.focus === "social" ? 0.25 : 0.04) * Math.min(per, 2) * (c.bars.joy > 70 ? 1.5 : 1)) {
       romanceScene(c, data, rng);
       return true;
     }
@@ -2399,6 +2439,19 @@
       // aging: recovery while young, decline near the end of a mortal life
       if (c.maxAge != null && c.age > c.maxAge * 0.75) c.bars.health = clamp(c.bars.health - randInt(rng, 1, 4) * Math.min(years, 5), 0, 100);
       else c.bars.health = clamp(c.bars.health + 3, 0, 100);
+      // sorrow wears the body down; years at the very bottom can end a life
+      if (c.bars.joy < 20) c.bars.health = clamp(c.bars.health - Math.min(6, 2 * Math.max(1, years / yearScale(c.race))), 0, 100);
+      c.joyLog = c.joyLog || { sum: 0, years: 0 };
+      c.joyLog.sum += c.bars.joy * years;
+      c.joyLog.years += years;
+      c.despair = c.bars.joy <= 0 ? (c.despair || 0) + years / yearScale(c.race) : 0;
+      // the player is warned once the bottom is reached, and has a few years to turn it around
+      if (c.bars.joy <= 5 && !c.despairWarned) {
+        c.despairWarned = true;
+        pushLog(c, "story", "Một nỗi u uất nặng nề đè lên ngực bạn. Những ngày gần đây, bạn chẳng còn thiết ăn, thiết ngủ. (Hạnh phúc đã chạm đáy: nghỉ ngơi hay giao du có thể kéo bạn lên.)");
+      }
+      if (c.bars.joy > 30) c.despairWarned = false;
+      if (c.despair >= 3 && c.alive && rng() < 0.15) die(c, data, despairDeath(c, rng), "despair");
 
       liveFocus(c, data, rng, years, quiet);
       parentsTick(c, data, rng);
@@ -2616,6 +2669,22 @@
     return c;
   }
 
+  // a grade for the life: how long, how known, how happy, how far it went
+  function lifeRating(c, data, joyAvg) {
+    const j = jobDef(c, data);
+    const share = c.maxAge ? Math.min(1, c.age / c.maxAge) : 1;
+    let score = share * 25 + (c.fame / 100) * 30 + (joyAvg / 100) * 20;
+    if (c.form) score += 10;
+    if (j && c.job) score += (c.job.rank / Math.max(1, j.ranks.length - 1)) * 10;
+    if (c.guild) score += Math.min(5, c.guild.rank);
+    if (c.spouse || (c.children || []).length) score += 5;
+    const young = ["infant", "child", "teen"].includes(currentStage(c).id);
+    if (score >= 84) return { grade: "S", title: "Huyền Thoại Đại Lục" };
+    if (score >= 60) return { grade: "A", title: "Một Đời Oanh Liệt" };
+    if (score >= 36) return { grade: "B", title: "Bình Yên Thanh Thản" };
+    return { grade: "C", title: young ? "Chết Yểu" : "Một Kiếp Cơ Cực" };
+  }
+
   function summary(c, data, rng) {
     rng = rng || Math.random;
     const totalW = data.races.reduce((s, r) => s + r.weight, 0);
@@ -2623,7 +2692,7 @@
     const j0 = jobDef(c, data);
     const look = j0 && j0.look;
     const WHEN = {
-      young: c.maxAge != null ? c.age < c.maxAge * 0.35 : c.age < 30,
+      young: ["infant", "child", "teen"].includes(currentStage(c).id),
       long: c.age >= 300,
       spouse: !!c.spouse,
       children: (c.children || []).length > 0,
@@ -2649,22 +2718,40 @@
     else if (c.job) marks.push(jobTitle(c, data));
     else if (o) marks.push(orgRankName(c, data));
     const seen = new Set(marks.map((m) => m.toLowerCase()));
-    const big = (c.moments || []).filter((m) => m.text && m.text.length <= 70 && !/^Kết duyên|^Sinh |^Chào đời|chào đời|qua đời|^Trở thành|gia nhập|^Thu phục|^Đứa con/i.test(m.text));
+    const formWord = c.form ? c.form.toLowerCase() : null;
+    // not the trade or form already shown, not a parting, not a birth
+    const SKIP = /^Kết duyên|^Sinh |^Chào đời|chào đời|qua đời|^Trở thành|gia nhập|^Thu phục|^Đứa con|tiến hóa|rời đội|rời xa|rời bỏ|bỏ đi|tử trận|^Mất |mất đi|chia tay|phản bội|vì tuổi già/i;
+    const big = (c.moments || []).filter((m) => m.text && m.text.length <= 70 && !SKIP.test(m.text) && !(formWord && m.text.toLowerCase().includes(formWord)));
     for (const m of big.slice().reverse()) {
       if (marks.length >= 2) break;
       if (!seen.has(m.text.toLowerCase())) { marks.push(m.text); seen.add(m.text.toLowerCase()); }
     }
     if (c.spouse) marks.push(`Bạn đời: ${c.spouse.name}` + (c.children.length ? ` · ${c.children.length} người con` : ""));
     else if ((c.children || []).length) marks.push(`${c.children.length} người con`);
-    // a life that loved someone without marrying them is not "never had a partner"
-    else if ((c.race.tags || []).includes("civil") && c.age >= 25 && !(c.moments || []).some((m) => /người mình yêu|người thương|kết duyên|nên duyên|cưới|bên người|chung sống|tình yêu/i.test(m.text || ""))) marks.push("Chưa từng có bạn đời");
-    if (marks.length < 3 && c.questsDone) marks.push(`${c.questsDone} ${(o && o.missionWord) || "nhiệm vụ"} hoàn thành`);
-    if (marks.length < 3 && c.fame >= 30) marks.push(`Danh vọng ${c.fame}`);
-    if (!marks.length) marks.push(c.maxAge != null && c.age < c.maxAge * 0.2 ? "Ra đi khi còn chưa kịp lớn" : `Một đời ${Math.floor(c.age)} năm lặng lẽ`);
+    // the rest is filled with what the life achieved, best first
+    const joyAvg = c.joyLog && c.joyLog.years ? c.joyLog.sum / c.joyLog.years : c.bars.joy;
+    const topStat = STAT_KEYS.slice().sort((a, b) => c.stats[b] - c.stats[a])[0];
+    const STAT_GLORY = { STR: "Sức mạnh đạt đỉnh", INT: "Trí tuệ uyên bác", AGI: "Thân thủ nhanh như gió", LUCK: "Được vận may chở che" };
+    const fill = [
+      c.questsDone ? `${c.questsDone} ${(o && o.missionWord) || "nhiệm vụ"} hoàn thành` : null,
+      c.fame >= 30 ? `Danh vọng ${c.fame}${c.fame >= 80 ? " · Huyền thoại" : ""}` : null,
+      c.age >= 200 ? `Sống qua ${Math.floor(c.age / 100)} thế kỷ` : null,
+      c.stats[topStat] >= 10 ? `${STAT_GLORY[topStat]} (${STAT_LABEL[topStat]} ${c.stats[topStat]})` : null,
+      joyAvg < 25 ? (c.bars.wealth >= 60 ? "Kẻ giàu có cô độc" : "Một đời cay đắng") : joyAvg > 70 ? "Một đời an vui" : null,
+      c.bars.wealth >= 60 ? `Gia tài ${Math.round(c.bars.wealth)}` : null,
+      !c.spouse && !(c.formerSpouses || []).length && (c.race.tags || []).includes("civil") && c.age >= 25 ? "Một đời tiêu dao độc hành" : null,
+      c.fame > 0 && c.fame < 30 ? `Danh vọng ${c.fame}` : null,
+    ].filter(Boolean);
+    for (const f of fill) { if (marks.length >= 3) break; if (!seen.has(f.toLowerCase())) { marks.push(f); seen.add(f.toLowerCase()); } }
+    for (const f of [["infant", "child"].includes(currentStage(c).id) ? "Ra đi khi còn chưa kịp lớn" : `Một đời ${Math.floor(c.age)} năm`, `Xuất thân: ${c.origin.name}`])
+      if (marks.length < 3 && !seen.has(f.toLowerCase())) { marks.push(f); seen.add(f.toLowerCase()); }
+    // the numbers of the life, for the card
+    const stats = STAT_KEYS.map((k) => `${STAT_LABEL[k]} ${c.stats[k]}`).join(" · ") + ` · Tài sản ${Math.round(c.bars.wealth)} · Danh vọng ${Math.round(c.fame)}`;
+    const rating = lifeRating(c, data, joyAvg);
     const epitaph = ep ? fmt(ep.text, c, { pct, cause: c.cause }, data) : "";
     return {
       pct,
-      card: { name: c.name, line: `${raceTitle(c)} · ${Math.floor(c.age)} tuổi`, origin: c.origin.name, marks: marks.slice(0, 3), cause: c.cause, epitaph },
+      card: { name: c.name, line: `${raceTitle(c)} · ${Math.floor(c.age)} tuổi`, origin: c.origin.name, marks: marks.slice(0, 3), cause: c.cause, epitaph, stats, rating },
       epitaph,
       moments: c.moments.slice(-10),
       profile,
@@ -2688,6 +2775,7 @@
     advance,
     choose,
     successChance,
+    moodBonus,
     partyBonus,
     focusOptions,
     setFocus,

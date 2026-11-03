@@ -242,6 +242,33 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 7vw, 48
   box-shadow: 0 4px 14px rgba(0, 0, 0, .18); pointer-events: none;
 }
 
+/* the age of the world, beside your own age */
+.age .era { font-size: 11px; white-space: nowrap; border-bottom: 0; }
+.age .era:hover::after, .age .era:focus::after { left: auto; right: 0; }
+.log .entry .odds-sure, .choices .odds-sure { color: var(--good, #3f8f5a); }
+.choices .odds-slim { color: var(--bad, #b84a4a); }
+
+/* the life card: numbers of the life and its grade, stamped like a seal */
+.life-card { position: relative; }
+.life-card .lc-stats { font-size: 12px; color: #a88fd8; margin: -6px 0 14px; letter-spacing: .02em; }
+.lc-stamp {
+  position: absolute; top: 14px; right: 14px; width: 74px; height: 74px; border-radius: 50%;
+  border: 3px solid currentColor; box-shadow: inset 0 0 0 2px #14121a, inset 0 0 0 3px currentColor;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  transform: rotate(-12deg); color: #d9534f; opacity: .92; pointer-events: none;
+}
+.lc-stamp b { font-family: var(--serif); font-size: 32px; line-height: 1; }
+.lc-stamp span { font-size: 6.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .02em; text-align: center; max-width: 54px; line-height: 1.15; margin-top: 2px; }
+.lc-stamp.grade-S { color: #e2b34a; }
+.lc-stamp.grade-B { color: #7aa6c2; }
+.lc-stamp.grade-C { color: #8d8578; }
+@media (max-width: 400px) { .lc-stamp { width: 60px; height: 60px; top: 10px; right: 10px; } .lc-stamp b { font-size: 26px; } .lc-stamp span { font-size: 6.5px; } }
+.life-card .lc-eyebrow { text-align: left; padding-right: 84px; }
+.hud .age { max-width: 38%; min-width: 0; }
+.hud .age .meta { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hud .age .era { overflow: visible; }
+.hud .age .era { display: block; max-width: 100%; text-overflow: ellipsis; }
+
 </style>
 <main id="app">
     <audio id="bgm" src="audio/bgm.mp3" loop preload="none"></audio>
@@ -284,6 +311,7 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 7vw, 48
         <div class="age">
           <span id="hud-age" class="age-num"></span>
           <span id="hud-stage" class="meta"></span>
+          <span id="hud-era" class="meta era npc" tabindex="0" hidden></span>
         </div>
       </header>
       <div class="bars" id="hud-bars"></div>
@@ -305,6 +333,8 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 7vw, 48
         <div id="lc-sprite" class="sprite-hud lc-sprite" aria-hidden="true" hidden><div class="sprite-frame"></div></div>
         <h2 id="lc-name"></h2>
         <p id="lc-line" class="lc-line"></p>
+        <p id="lc-stats" class="lc-stats"></p>
+        <div id="lc-stamp" class="lc-stamp" hidden><b></b><span></span></div>
         <ul id="lc-marks" class="lc-marks"></ul>
         <blockquote id="lc-epitaph" class="lc-epitaph"></blockquote>
         <p id="lc-cause" class="lc-cause"></p>
@@ -747,6 +777,20 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 7vw, 48
   }
 
   // ---------- character ----------
+  // ---------- money ----------
+  const POOR_BIRTH = /nô lệ|ăn mày|ăn xin|mồ côi|cô nhi|ổ chuột|bị bỏ rơi|vứt bỏ|bỏ rơi|tù nhân|ngục|chuồng|xiềng|phế thải|bãi rác|lang thang|hầm ngục|đấu trường|tế phẩm|vật hiến tế|bị bắt/i;
+  const RICH_BIRTH = /quý tộc|hoàng tộc|hoàng gia|vương tộc|thương nhân|thương hội|thương gia|giàu|lãnh chúa|công tước|bá tước|hầu tước|nam tước|dinh thự|lâu đài|gia tộc lớn|thế gia|trưởng tộc|tù trưởng|thủ lĩnh/i;
+  function familyWealth(origin, rng) {
+    const t = `${origin.name || ""} ${origin.text || ""}`;
+    const own = (origin.effects && origin.effects.wealth) || 0;
+    if (POOR_BIRTH.test(t) && !RICH_BIRTH.test(origin.name || "")) return 0;
+    if (/sa sút|sa cơ|phá sản|nghèo|túng quẫn|lụn bại/i.test(t)) return own > 0 ? 10 : 5;
+    if (RICH_BIRTH.test(t) || own >= 30) return randInt(rng, 40, 60);
+    return 10;
+  }
+  // a child has no purse of its own: coins only start to add up in the teens
+  const ownsMoney = (c) => !["infant", "child"].includes(currentStage(c).id);
+
   function createCharacter(data, rng, raceId) {
     rng = rng || Math.random;
     const race = raceId ? data.races.find((r) => r.id === raceId) : weightedPick(data.races, rng);
@@ -812,7 +856,10 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 7vw, 48
       stageId: "infant",
       clicks: 0,
     };
-    applyEffects(c, origin.effects, data, rng);
+    applyEffects(c, Object.assign({}, origin.effects, { wealth: 0 }), data, rng);
+    // what the family owns, not the child: nothing in chains or on the street, a little for common folk,
+    // a house's fortune for nobles and merchants
+    c.bars.wealth = familyWealth(origin, rng);
     c.parents = makeParents(c, data, rng);
     const org = orgFor(c, data);
     if (org && org.auto) c.guild = { org: org.id, rank: 0, pts: 0, since: 0 };
@@ -1282,7 +1329,7 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 7vw, 48
     if (!eff) return;
     rng = rng || Math.random;
     for (const k of STAT_KEYS) if (eff[k]) c.stats[k] = clamp(c.stats[k] + eff[k], 0, 99);
-    for (const k of BAR_KEYS) if (eff[k]) c.bars[k] = clamp(c.bars[k] + eff[k], 0, 100);
+    for (const k of BAR_KEYS) if (eff[k] && !(k === "wealth" && eff[k] > 0 && !ownsMoney(c))) c.bars[k] = clamp(c.bars[k] + eff[k], 0, 100);
     if (eff.fame) c.fame = clamp(c.fame + eff.fame, 0, 100);
     // In some organisations (a Goblin tribe) any renown also climbs the ladder.
     if (eff.fame > 0 && data && c.guild) {
@@ -2060,11 +2107,31 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 7vw, 48
   }
 
   // Stats (about 1–15) move the odds 8% per point; bars and fame (0–100) about 1.5% per point.
+  // years with no joy at all: the end comes from inside
+  function despairDeath(c, rng) {
+    const monster = (c.race.tags || []).includes("monster") || /demon|vampire|ghoul|dragon|slime/.test(c.race.id);
+    const human = [
+      "Năm {age} tuổi, sau nhiều năm không còn thấy lý do để thức dậy, bạn bước xuống dòng sông lạnh và không quay lên nữa.",
+      "Bạn buông xuôi tất cả ở tuổi {age}. Một buổi sáng, người ta thấy bạn ngồi bất động bên cửa sổ, ánh mắt đã tắt từ lâu.",
+      "Nỗi u uất gặm nhấm bạn từng ngày. Năm {age} tuổi, bạn nằm xuống và không muốn đứng dậy nữa.",
+    ];
+    const beast = [
+      "Năm {age} tuổi, bóng tối trong lòng nuốt chửng phần lý trí cuối cùng. Bạn hóa điên, lao vào rừng sâu và không ai còn thấy bạn nữa.",
+      "Nỗi tuyệt vọng kéo dài quá lâu biến bạn thành một con ma vật vô tri. Những kẻ từng biết bạn đã phải tự tay kết liễu bạn ở tuổi {age}.",
+    ];
+    return pick(rng, monster ? beast : human);
+  }
+
+  // a light heart steadies the hand; a dark one shakes it
+  function moodBonus(c) {
+    const j = c.bars.joy;
+    return j > 70 ? 0.07 : j < 20 ? -0.1 : 0;
+  }
   function successChance(c, check) {
     const v = statValue(c, check.stat) + (STAT_KEYS.includes(check.stat) ? itemBonus(c, check.stat) : 0);
     const slope = STAT_KEYS.includes(check.stat) || check.stat === "best" || check.stat === "jobstat" ? 0.08 : 0.015;
     const base = 0.5 + (v - check.target) * slope + (c.stats.LUCK - 5) * 0.02;
-    return clamp(base + partyBonus(c, check), 0.05, 0.95);
+    return clamp(base + partyBonus(c, check) + moodBonus(c), 0.05, 0.95);
   }
 
   // ---------- focus (what you spend your years on) ----------
@@ -2115,7 +2182,10 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 7vw, 48
         quiet.gains[k] = (quiet.gains[k] || 0) + n;
       }
     }
-    for (const k of Object.keys(bars)) c.bars[k] = clamp(c.bars[k] + bars[k] * Math.min(per, 6), 0, 100);
+    for (const k of Object.keys(bars)) {
+      if (k === "wealth" && bars[k] > 0 && !ownsMoney(c)) continue; // a child earns nothing of its own
+      c.bars[k] = clamp(c.bars[k] + bars[k] * Math.min(per, 6), 0, 100);
+    }
     // Married life warms the heart; living costs money once grown.
     if (c.spouse) c.bars.joy = clamp(c.bars.joy + Math.min(per, 4), 0, 100);
     if (["adult", "middle", "elder"].includes(currentStage(c).id) && c.focus !== "work") c.bars.wealth = clamp(c.bars.wealth - Math.min(per, 6), 0, 100);
@@ -2456,7 +2526,7 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 7vw, 48
     if (c.focus === "adventure" && c.guild && active && rng() < Math.min(0.85, 0.4 * Math.min(per, 2))) {
       if (boardScene(c, data, rng)) return true;
     }
-    if (sys(c, data, "romance") && !c.spouse && c.gender && ["adult", "middle"].includes(st) && rng() < (c.focus === "social" ? 0.25 : 0.04) * Math.min(per, 2)) {
+    if (sys(c, data, "romance") && !c.spouse && c.gender && ["adult", "middle"].includes(st) && rng() < (c.focus === "social" ? 0.25 : 0.04) * Math.min(per, 2) * (c.bars.joy > 70 ? 1.5 : 1)) {
       romanceScene(c, data, rng);
       return true;
     }
@@ -2731,6 +2801,19 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 7vw, 48
       // aging: recovery while young, decline near the end of a mortal life
       if (c.maxAge != null && c.age > c.maxAge * 0.75) c.bars.health = clamp(c.bars.health - randInt(rng, 1, 4) * Math.min(years, 5), 0, 100);
       else c.bars.health = clamp(c.bars.health + 3, 0, 100);
+      // sorrow wears the body down; years at the very bottom can end a life
+      if (c.bars.joy < 20) c.bars.health = clamp(c.bars.health - Math.min(6, 2 * Math.max(1, years / yearScale(c.race))), 0, 100);
+      c.joyLog = c.joyLog || { sum: 0, years: 0 };
+      c.joyLog.sum += c.bars.joy * years;
+      c.joyLog.years += years;
+      c.despair = c.bars.joy <= 0 ? (c.despair || 0) + years / yearScale(c.race) : 0;
+      // the player is warned once the bottom is reached, and has a few years to turn it around
+      if (c.bars.joy <= 5 && !c.despairWarned) {
+        c.despairWarned = true;
+        pushLog(c, "story", "Một nỗi u uất nặng nề đè lên ngực bạn. Những ngày gần đây, bạn chẳng còn thiết ăn, thiết ngủ. (Hạnh phúc đã chạm đáy: nghỉ ngơi hay giao du có thể kéo bạn lên.)");
+      }
+      if (c.bars.joy > 30) c.despairWarned = false;
+      if (c.despair >= 3 && c.alive && rng() < 0.15) die(c, data, despairDeath(c, rng), "despair");
 
       liveFocus(c, data, rng, years, quiet);
       parentsTick(c, data, rng);
@@ -2948,6 +3031,22 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 7vw, 48
     return c;
   }
 
+  // a grade for the life: how long, how known, how happy, how far it went
+  function lifeRating(c, data, joyAvg) {
+    const j = jobDef(c, data);
+    const share = c.maxAge ? Math.min(1, c.age / c.maxAge) : 1;
+    let score = share * 25 + (c.fame / 100) * 30 + (joyAvg / 100) * 20;
+    if (c.form) score += 10;
+    if (j && c.job) score += (c.job.rank / Math.max(1, j.ranks.length - 1)) * 10;
+    if (c.guild) score += Math.min(5, c.guild.rank);
+    if (c.spouse || (c.children || []).length) score += 5;
+    const young = ["infant", "child", "teen"].includes(currentStage(c).id);
+    if (score >= 84) return { grade: "S", title: "Huyền Thoại Đại Lục" };
+    if (score >= 60) return { grade: "A", title: "Một Đời Oanh Liệt" };
+    if (score >= 36) return { grade: "B", title: "Bình Yên Thanh Thản" };
+    return { grade: "C", title: young ? "Chết Yểu" : "Một Kiếp Cơ Cực" };
+  }
+
   function summary(c, data, rng) {
     rng = rng || Math.random;
     const totalW = data.races.reduce((s, r) => s + r.weight, 0);
@@ -2955,7 +3054,7 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 7vw, 48
     const j0 = jobDef(c, data);
     const look = j0 && j0.look;
     const WHEN = {
-      young: c.maxAge != null ? c.age < c.maxAge * 0.35 : c.age < 30,
+      young: ["infant", "child", "teen"].includes(currentStage(c).id),
       long: c.age >= 300,
       spouse: !!c.spouse,
       children: (c.children || []).length > 0,
@@ -2981,22 +3080,40 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 7vw, 48
     else if (c.job) marks.push(jobTitle(c, data));
     else if (o) marks.push(orgRankName(c, data));
     const seen = new Set(marks.map((m) => m.toLowerCase()));
-    const big = (c.moments || []).filter((m) => m.text && m.text.length <= 70 && !/^Kết duyên|^Sinh |^Chào đời|chào đời|qua đời|^Trở thành|gia nhập|^Thu phục|^Đứa con/i.test(m.text));
+    const formWord = c.form ? c.form.toLowerCase() : null;
+    // not the trade or form already shown, not a parting, not a birth
+    const SKIP = /^Kết duyên|^Sinh |^Chào đời|chào đời|qua đời|^Trở thành|gia nhập|^Thu phục|^Đứa con|tiến hóa|rời đội|rời xa|rời bỏ|bỏ đi|tử trận|^Mất |mất đi|chia tay|phản bội|vì tuổi già/i;
+    const big = (c.moments || []).filter((m) => m.text && m.text.length <= 70 && !SKIP.test(m.text) && !(formWord && m.text.toLowerCase().includes(formWord)));
     for (const m of big.slice().reverse()) {
       if (marks.length >= 2) break;
       if (!seen.has(m.text.toLowerCase())) { marks.push(m.text); seen.add(m.text.toLowerCase()); }
     }
     if (c.spouse) marks.push(`Bạn đời: ${c.spouse.name}` + (c.children.length ? ` · ${c.children.length} người con` : ""));
     else if ((c.children || []).length) marks.push(`${c.children.length} người con`);
-    // a life that loved someone without marrying them is not "never had a partner"
-    else if ((c.race.tags || []).includes("civil") && c.age >= 25 && !(c.moments || []).some((m) => /người mình yêu|người thương|kết duyên|nên duyên|cưới|bên người|chung sống|tình yêu/i.test(m.text || ""))) marks.push("Chưa từng có bạn đời");
-    if (marks.length < 3 && c.questsDone) marks.push(`${c.questsDone} ${(o && o.missionWord) || "nhiệm vụ"} hoàn thành`);
-    if (marks.length < 3 && c.fame >= 30) marks.push(`Danh vọng ${c.fame}`);
-    if (!marks.length) marks.push(c.maxAge != null && c.age < c.maxAge * 0.2 ? "Ra đi khi còn chưa kịp lớn" : `Một đời ${Math.floor(c.age)} năm lặng lẽ`);
+    // the rest is filled with what the life achieved, best first
+    const joyAvg = c.joyLog && c.joyLog.years ? c.joyLog.sum / c.joyLog.years : c.bars.joy;
+    const topStat = STAT_KEYS.slice().sort((a, b) => c.stats[b] - c.stats[a])[0];
+    const STAT_GLORY = { STR: "Sức mạnh đạt đỉnh", INT: "Trí tuệ uyên bác", AGI: "Thân thủ nhanh như gió", LUCK: "Được vận may chở che" };
+    const fill = [
+      c.questsDone ? `${c.questsDone} ${(o && o.missionWord) || "nhiệm vụ"} hoàn thành` : null,
+      c.fame >= 30 ? `Danh vọng ${c.fame}${c.fame >= 80 ? " · Huyền thoại" : ""}` : null,
+      c.age >= 200 ? `Sống qua ${Math.floor(c.age / 100)} thế kỷ` : null,
+      c.stats[topStat] >= 10 ? `${STAT_GLORY[topStat]} (${STAT_LABEL[topStat]} ${c.stats[topStat]})` : null,
+      joyAvg < 25 ? (c.bars.wealth >= 60 ? "Kẻ giàu có cô độc" : "Một đời cay đắng") : joyAvg > 70 ? "Một đời an vui" : null,
+      c.bars.wealth >= 60 ? `Gia tài ${Math.round(c.bars.wealth)}` : null,
+      !c.spouse && !(c.formerSpouses || []).length && (c.race.tags || []).includes("civil") && c.age >= 25 ? "Một đời tiêu dao độc hành" : null,
+      c.fame > 0 && c.fame < 30 ? `Danh vọng ${c.fame}` : null,
+    ].filter(Boolean);
+    for (const f of fill) { if (marks.length >= 3) break; if (!seen.has(f.toLowerCase())) { marks.push(f); seen.add(f.toLowerCase()); } }
+    for (const f of [["infant", "child"].includes(currentStage(c).id) ? "Ra đi khi còn chưa kịp lớn" : `Một đời ${Math.floor(c.age)} năm`, `Xuất thân: ${c.origin.name}`])
+      if (marks.length < 3 && !seen.has(f.toLowerCase())) { marks.push(f); seen.add(f.toLowerCase()); }
+    // the numbers of the life, for the card
+    const stats = STAT_KEYS.map((k) => `${STAT_LABEL[k]} ${c.stats[k]}`).join(" · ") + ` · Tài sản ${Math.round(c.bars.wealth)} · Danh vọng ${Math.round(c.fame)}`;
+    const rating = lifeRating(c, data, joyAvg);
     const epitaph = ep ? fmt(ep.text, c, { pct, cause: c.cause }, data) : "";
     return {
       pct,
-      card: { name: c.name, line: `${raceTitle(c)} · ${Math.floor(c.age)} tuổi`, origin: c.origin.name, marks: marks.slice(0, 3), cause: c.cause, epitaph },
+      card: { name: c.name, line: `${raceTitle(c)} · ${Math.floor(c.age)} tuổi`, origin: c.origin.name, marks: marks.slice(0, 3), cause: c.cause, epitaph, stats, rating },
       epitaph,
       moments: c.moments.slice(-10),
       profile,
@@ -3020,6 +3137,7 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 7vw, 48
     advance,
     choose,
     successChance,
+    moodBonus,
     partyBonus,
     focusOptions,
     setFocus,
@@ -3241,7 +3359,17 @@ window.GAME_DATA = {"races":[{"id":"human","name":"Human","gloss":"loài ngườ
     const genderTxt = c.gender === "male" ? "Nam" : c.gender === "female" ? "Nữ" : "Vô tính";
     setSprite("hud-sprite", c);
     $("hud-name").textContent = c.name;
-    $("hud-meta").textContent = `${E.raceTitle(c)} · ${genderTxt} · ${c.captive ? upper(E.CAPTIVE_WORD[c.captive.kind]) : c.era ? c.era.name : c.origin.name}`;
+    // who you are; the age of the world is shown apart, by the age column
+    const jt = E.jobTitle(c, D);
+    $("hud-meta").textContent = `${E.raceTitle(c)} · ${genderTxt} · ${c.captive ? upper(E.CAPTIVE_WORD[c.captive.kind]) : jt ? jt.split(" · ")[0] : c.origin.name}`;
+    const era = $("hud-era");
+    if (era) {
+      era.hidden = !c.era;
+      if (c.era) {
+        era.textContent = `🌍 ${c.era.name}`;
+        era.dataset.who = `Thời đại: ${c.era.name}. ${ERA_TIP[c.era.id] || ""}`.trim();
+      }
+    }
     $("hud-age").textContent = fmtAge(c.age);
     $("hud-stage").textContent = E.currentStage(c).name;
 
@@ -3333,6 +3461,13 @@ window.GAME_DATA = {"races":[{"id":"human","name":"Human","gloss":"loài ngườ
     el.innerHTML = html + esc(text.slice(last));
   }
 
+  const ERA_TIP = {
+    peace: "Thương lộ rộn ràng, ít chiến loạn: đời sống an toàn hơn.",
+    holy_war: "Các vương quốc giao tranh ở tuyến đầu: nhiều hiểm nguy, cũng nhiều cơ hội lập công.",
+    dark_age: "Dịch bệnh và nạn đói phủ khắp lục địa: cái chết rình rập mọi nơi.",
+    demon_lord: "Ma Vương dẫn quân đoàn bóng tối càn quét lục địa: thời kỳ nguy hiểm nhất.",
+  };
+
   function renderLog() {
     const log = $("log");
     const idx = whoIndex();
@@ -3384,9 +3519,11 @@ window.GAME_DATA = {"races":[{"id":"human","name":"Human","gloss":"loài ngườ
         // the odds in words, not numbers
         const ascending = ch.success && ch.success.effects && ch.success.effects.evolve;
         const p = Math.min(0.95, E.successChance(c, ch.check) + (ascending ? 0.2 : 0));
-        const word = p >= 0.8 ? "rất cao" : p >= 0.62 ? "cao" : p >= 0.42 ? "vừa phải" : p >= 0.25 ? "thấp" : "rất thấp";
+        const [word, cls] = p >= 0.8 ? ["Nắm chắc", "sure"] : p >= 0.62 ? ["Khả quan", "good"] : p >= 0.42 ? ["Bấp bênh", "even"] : ["Mong manh", "slim"];
         const pb = E.partyBonus(c, ch.check) > 0.02;
-        note(`Dựa vào ${E.STAT_LABEL[ch.check.stat] || ch.check.stat} · tỉ lệ thành công ${word}` + (pb ? " (có đồng đội trợ giúp)" : ""), "odds odds-" + word.replace(/\s/g, "-"));
+        const mood = E.moodBonus(c);
+        const extra = [pb ? "có đồng đội trợ giúp" : "", mood > 0 ? "tinh thần phấn chấn" : mood < 0 ? "tâm trí u uất" : ""].filter(Boolean);
+        note(`Dựa vào ${E.STAT_LABEL[ch.check.stat] || ch.check.stat} · ${word}` + (extra.length ? ` (${extra.join(", ")})` : ""), "odds odds-" + cls);
       }
       b.onclick = () => {
         E.choose(c, D, i);
@@ -3475,6 +3612,14 @@ window.GAME_DATA = {"races":[{"id":"human","name":"Human","gloss":"loài ngườ
     if (sp) { const im = new Image(); im.onload = () => { cardSprite = { im, rect: sp.rect }; }; im.src = `img/${sp.person}.png`; }
     $("lc-name").textContent = k.name;
     $("lc-line").textContent = k.line + (k.origin ? " · " + k.origin : "");
+    $("lc-stats").textContent = k.stats || "";
+    const stamp = $("lc-stamp");
+    stamp.hidden = !k.rating;
+    if (k.rating) {
+      stamp.className = "lc-stamp grade-" + k.rating.grade;
+      stamp.querySelector("b").textContent = k.rating.grade;
+      stamp.querySelector("span").textContent = k.rating.title;
+    }
     const ul = $("lc-marks");
     ul.innerHTML = "";
     for (const m of k.marks) {
@@ -3539,7 +3684,8 @@ window.GAME_DATA = {"races":[{"id":"human","name":"Human","gloss":"loài ngườ
       y += spr.h + 30;
     }
     add(`600 76px ${serif}`, "#f3ead8", k.name, 10, 88, "center");
-    add(`400 34px ${sans}`, "#c9bfae", k.line + (k.origin ? " · " + k.origin : ""), 50, 46, "center");
+    add(`400 34px ${sans}`, "#c9bfae", k.line + (k.origin ? " · " + k.origin : ""), 14, 46, "center");
+    if (k.stats) add(`500 26px ${sans}`, "#a88fd8", k.stats, 40, 36, "center");
     for (const m of k.marks) add(`400 36px ${sans}`, "#efe6d4", "✦  " + m, 6, 48, "left");
     y += 30;
     if (k.epitaph) add(`italic 400 40px ${serif}`, "#f3ead8", `“${k.epitaph}”`, 30, 56, "center");
@@ -3555,6 +3701,21 @@ window.GAME_DATA = {"races":[{"id":"human","name":"Human","gloss":"loài ngườ
       ctx.drawImage(cardSprite.im, sx, sy, sw, sh, Math.round((W - spr.w) / 2), spr.y, spr.w, spr.h);
     }
     ctx.textBaseline = "top";
+    // the grade, stamped in the corner like a seal
+    if (k.rating) {
+      const col = { S: "#e2b34a", A: "#d9534f", B: "#7aa6c2", C: "#8d8578" }[k.rating.grade] || "#d9534f";
+      ctx.save();
+      ctx.translate(W - 150, 150);
+      ctx.rotate(-0.22);
+      ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = 6;
+      ctx.beginPath(); ctx.arc(0, 0, 92, 0, Math.PI * 2); ctx.stroke();
+      ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(0, 0, 80, 0, Math.PI * 2); ctx.stroke();
+      ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.font = `700 84px ${serif}`; ctx.fillText(k.rating.grade, 0, -12);
+      ctx.font = `600 17px ${sans}`; ctx.fillText(k.rating.title.toUpperCase(), 0, 48);
+      ctx.restore();
+      ctx.textBaseline = "top";
+    }
     for (const p of plan) {
       ctx.font = p.font; ctx.fillStyle = p.color; ctx.textAlign = p.align;
       ctx.fillText(p.text, p.align === "center" ? W / 2 : pad, p.y);

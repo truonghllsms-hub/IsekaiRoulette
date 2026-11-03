@@ -194,7 +194,17 @@
     const genderTxt = c.gender === "male" ? "Nam" : c.gender === "female" ? "Nữ" : "Vô tính";
     setSprite("hud-sprite", c);
     $("hud-name").textContent = c.name;
-    $("hud-meta").textContent = `${E.raceTitle(c)} · ${genderTxt} · ${c.captive ? upper(E.CAPTIVE_WORD[c.captive.kind]) : c.era ? c.era.name : c.origin.name}`;
+    // who you are; the age of the world is shown apart, by the age column
+    const jt = E.jobTitle(c, D);
+    $("hud-meta").textContent = `${E.raceTitle(c)} · ${genderTxt} · ${c.captive ? upper(E.CAPTIVE_WORD[c.captive.kind]) : jt ? jt.split(" · ")[0] : c.origin.name}`;
+    const era = $("hud-era");
+    if (era) {
+      era.hidden = !c.era;
+      if (c.era) {
+        era.textContent = `🌍 ${c.era.name}`;
+        era.dataset.who = `Thời đại: ${c.era.name}. ${ERA_TIP[c.era.id] || ""}`.trim();
+      }
+    }
     $("hud-age").textContent = fmtAge(c.age);
     $("hud-stage").textContent = E.currentStage(c).name;
 
@@ -286,6 +296,13 @@
     el.innerHTML = html + esc(text.slice(last));
   }
 
+  const ERA_TIP = {
+    peace: "Thương lộ rộn ràng, ít chiến loạn: đời sống an toàn hơn.",
+    holy_war: "Các vương quốc giao tranh ở tuyến đầu: nhiều hiểm nguy, cũng nhiều cơ hội lập công.",
+    dark_age: "Dịch bệnh và nạn đói phủ khắp lục địa: cái chết rình rập mọi nơi.",
+    demon_lord: "Ma Vương dẫn quân đoàn bóng tối càn quét lục địa: thời kỳ nguy hiểm nhất.",
+  };
+
   function renderLog() {
     const log = $("log");
     const idx = whoIndex();
@@ -337,9 +354,11 @@
         // the odds in words, not numbers
         const ascending = ch.success && ch.success.effects && ch.success.effects.evolve;
         const p = Math.min(0.95, E.successChance(c, ch.check) + (ascending ? 0.2 : 0));
-        const word = p >= 0.8 ? "rất cao" : p >= 0.62 ? "cao" : p >= 0.42 ? "vừa phải" : p >= 0.25 ? "thấp" : "rất thấp";
+        const [word, cls] = p >= 0.8 ? ["Nắm chắc", "sure"] : p >= 0.62 ? ["Khả quan", "good"] : p >= 0.42 ? ["Bấp bênh", "even"] : ["Mong manh", "slim"];
         const pb = E.partyBonus(c, ch.check) > 0.02;
-        note(`Dựa vào ${E.STAT_LABEL[ch.check.stat] || ch.check.stat} · tỉ lệ thành công ${word}` + (pb ? " (có đồng đội trợ giúp)" : ""), "odds odds-" + word.replace(/\s/g, "-"));
+        const mood = E.moodBonus(c);
+        const extra = [pb ? "có đồng đội trợ giúp" : "", mood > 0 ? "tinh thần phấn chấn" : mood < 0 ? "tâm trí u uất" : ""].filter(Boolean);
+        note(`Dựa vào ${E.STAT_LABEL[ch.check.stat] || ch.check.stat} · ${word}` + (extra.length ? ` (${extra.join(", ")})` : ""), "odds odds-" + cls);
       }
       b.onclick = () => {
         E.choose(c, D, i);
@@ -428,6 +447,14 @@
     if (sp) { const im = new Image(); im.onload = () => { cardSprite = { im, rect: sp.rect }; }; im.src = `img/${sp.person}.png`; }
     $("lc-name").textContent = k.name;
     $("lc-line").textContent = k.line + (k.origin ? " · " + k.origin : "");
+    $("lc-stats").textContent = k.stats || "";
+    const stamp = $("lc-stamp");
+    stamp.hidden = !k.rating;
+    if (k.rating) {
+      stamp.className = "lc-stamp grade-" + k.rating.grade;
+      stamp.querySelector("b").textContent = k.rating.grade;
+      stamp.querySelector("span").textContent = k.rating.title;
+    }
     const ul = $("lc-marks");
     ul.innerHTML = "";
     for (const m of k.marks) {
@@ -492,7 +519,8 @@
       y += spr.h + 30;
     }
     add(`600 76px ${serif}`, "#f3ead8", k.name, 10, 88, "center");
-    add(`400 34px ${sans}`, "#c9bfae", k.line + (k.origin ? " · " + k.origin : ""), 50, 46, "center");
+    add(`400 34px ${sans}`, "#c9bfae", k.line + (k.origin ? " · " + k.origin : ""), 14, 46, "center");
+    if (k.stats) add(`500 26px ${sans}`, "#a88fd8", k.stats, 40, 36, "center");
     for (const m of k.marks) add(`400 36px ${sans}`, "#efe6d4", "✦  " + m, 6, 48, "left");
     y += 30;
     if (k.epitaph) add(`italic 400 40px ${serif}`, "#f3ead8", `“${k.epitaph}”`, 30, 56, "center");
@@ -508,6 +536,21 @@
       ctx.drawImage(cardSprite.im, sx, sy, sw, sh, Math.round((W - spr.w) / 2), spr.y, spr.w, spr.h);
     }
     ctx.textBaseline = "top";
+    // the grade, stamped in the corner like a seal
+    if (k.rating) {
+      const col = { S: "#e2b34a", A: "#d9534f", B: "#7aa6c2", C: "#8d8578" }[k.rating.grade] || "#d9534f";
+      ctx.save();
+      ctx.translate(W - 150, 150);
+      ctx.rotate(-0.22);
+      ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = 6;
+      ctx.beginPath(); ctx.arc(0, 0, 92, 0, Math.PI * 2); ctx.stroke();
+      ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(0, 0, 80, 0, Math.PI * 2); ctx.stroke();
+      ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.font = `700 84px ${serif}`; ctx.fillText(k.rating.grade, 0, -12);
+      ctx.font = `600 17px ${sans}`; ctx.fillText(k.rating.title.toUpperCase(), 0, 48);
+      ctx.restore();
+      ctx.textBaseline = "top";
+    }
     for (const p of plan) {
       ctx.font = p.font; ctx.fillStyle = p.color; ctx.textAlign = p.align;
       ctx.fillText(p.text, p.align === "center" ? W / 2 : pad, p.y);

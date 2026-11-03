@@ -236,3 +236,30 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 7vw, 48
   font: 500 12px/1.4 var(--sans, system-ui, sans-serif); white-space: normal;
   box-shadow: 0 4px 14px rgba(0, 0, 0, .18); pointer-events: none;
 }
+
+/* the age of the world, beside your own age */
+.age .era { font-size: 11px; white-space: nowrap; border-bottom: 0; }
+.age .era:hover::after, .age .era:focus::after { left: auto; right: 0; }
+.log .entry .odds-sure, .choices .odds-sure { color: var(--good, #3f8f5a); }
+.choices .odds-slim { color: var(--bad, #b84a4a); }
+
+/* the life card: numbers of the life and its grade, stamped like a seal */
+.life-card { position: relative; }
+.life-card .lc-stats { font-size: 12px; color: #a88fd8; margin: -6px 0 14px; letter-spacing: .02em; }
+.lc-stamp {
+  position: absolute; top: 14px; right: 14px; width: 74px; height: 74px; border-radius: 50%;
+  border: 3px solid currentColor; box-shadow: inset 0 0 0 2px #14121a, inset 0 0 0 3px currentColor;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  transform: rotate(-12deg); color: #d9534f; opacity: .92; pointer-events: none;
+}
+.lc-stamp b { font-family: var(--serif); font-size: 32px; line-height: 1; }
+.lc-stamp span { font-size: 6.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .02em; text-align: center; max-width: 54px; line-height: 1.15; margin-top: 2px; }
+.lc-stamp.grade-S { color: #e2b34a; }
+.lc-stamp.grade-B { color: #7aa6c2; }
+.lc-stamp.grade-C { color: #8d8578; }
+@media (max-width: 400px) { .lc-stamp { width: 60px; height: 60px; top: 10px; right: 10px; } .lc-stamp b { font-size: 26px; } .lc-stamp span { font-size: 6.5px; } }
+.life-card .lc-eyebrow { text-align: left; padding-right: 84px; }
+.hud .age { max-width: 38%; min-width: 0; }
+.hud .age .meta { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hud .age .era { overflow: visible; }
+.hud .age .era { display: block; max-width: 100%; text-overflow: ellipsis; }
