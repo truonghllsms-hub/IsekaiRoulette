@@ -1147,18 +1147,26 @@
   // ---------- what a child cannot be doing ----------
   // drinking, taverns, love and the marriage bed wait for the teens (drink) and adulthood (love)
   const DRINK = /uống rượu|nốc cạn|nốc rượu|say khướt|say mèm|say xỉn|cụng ly|chén rượu|vò rượu|bình rượu|quán rượu|tửu quán|thanh lâu|kỹ viện/i;
+  // a husband, a wife, "bạn đời": only in a life that has one. A spouse who died is spoken of only
+  // after you lost one; "tìm bạn đời" (looking for one) is fine for anyone.
+  function spouseFits(t, c) {
+    if (/bạn đời (?:đã khuất|đã mất|quá cố)|(?:mộ|nấm mồ|ngôi mộ) của (?:người )?bạn đời|nhớ về (?:người )?bạn đời/i.test(t))
+      return !c.spouse && !!(c.formerSpouses && c.formerSpouses.length);
+    const lone = t.replace(/(?:tìm|kiếm|chọn|chưa có|không có|chẳng có|một người|làm|cưới) (?:được )?(?:một )?(?:người )?bạn đời/gi, "");
+    return !(!c.spouse && /vợ bạn|chồng bạn|bạn đời|\{spouse\}/i.test(lone));
+  }
   const LOVE = /âu yếm|ân ái|chăn gối|người tình|tình nhân|người yêu của bạn|bạn đời|vợ bạn|chồng bạn|đêm tân hôn|nụ hôn|hôn môi|cầu hôn|tán tỉnh/i;
   function ageFitsNoPlace(t, c) {
     const st = currentStage(c).id;
     if ((st === "infant" || st === "child") && (DRINK.test(t) || LOVE.test(t))) return false;
     if (st === "teen" && /âu yếm|ân ái|chăn gối|đêm tân hôn|vợ bạn|chồng bạn/i.test(t)) return false;
-    return !(!c.spouse && /vợ bạn|chồng bạn|\{spouse\}/i.test(t));
+    return spouseFits(t, c);
   }
   function ageFits(t, c) {
     const st = currentStage(c).id;
     if ((st === "infant" || st === "child") && (DRINK.test(t) || LOVE.test(t))) return false;
     if (st === "teen" && /âu yếm|ân ái|chăn gối|đêm tân hôn|vợ bạn|chồng bạn/i.test(t)) return false;
-    if (!c.spouse && /vợ bạn|chồng bạn|\{spouse\}/i.test(t)) return false;
+    if (!spouseFits(t, c)) return false;
     return placeFits(t, c);
   }
 
@@ -2289,13 +2297,14 @@
         checkVeteran(c, data, rng, "job");
         break;
       }
+      // after a failed or postponed trial the rest of life gets room before the same trial comes back
       case "promoteFail":
-        c.job.xp = (jobDef(c, data).promoXp[c.job.rank] || 3) * 0.5;
-        c.nextPromo = c.age + tickYears(c);
+        c.job.xp = 0;
+        c.nextPromo = c.age + tickYears(c) * 4;
         break;
       case "promoteWait":
-        c.job.xp = (jobDef(c, data).promoXp[c.job.rank] || 3) * 0.7;
-        c.nextPromo = c.age + tickYears(c) * 2;
+        c.job.xp = (jobDef(c, data).promoXp[c.job.rank] || 3) * 0.3;
+        c.nextPromo = c.age + tickYears(c) * 5;
         break;
       case "recruit": {
         c.party.push(act.member);

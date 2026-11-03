@@ -56,6 +56,9 @@ function validate(data) {
   const checkText = (where, text) => {
     if (typeof text !== "string" || !text.trim()) return err(where, "thiếu text");
     for (const m of text.matchAll(/\{(\w+)\}/g)) if (!PLACEHOLDERS.has(m[1])) err(where, `placeholder lạ {${m[1]}}`);
+    // "{mentor vào nửa đêm": an open brace the game would print as it is
+    for (const m of text.matchAll(/\{(\w+)(?![\w}])/g)) err(where, `thiếu dấu } sau {${m[1]}`);
+    if (/[.!?…]\s+\.(?!\.)/.test(text)) err(where, "dấu chấm kép");
   };
   const checkEffects = (where, eff) => {
     if (!eff) return;

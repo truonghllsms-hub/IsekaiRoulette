@@ -12,6 +12,12 @@ if (errors.length) {
   process.exit(1);
 }
 for (const e of data.events) delete e._file;
+// an event every race it was written for has stepped away from (a race pack replaced it) can never
+// happen: it stays in data/ but not in the game file
+const raceIds = data.races.map((r) => r.id);
+const before = data.events.length;
+data.events = data.events.filter((e) => raceIds.some((r) => (!e.races || e.races.includes(r)) && !(e.excludeRaces || []).includes(r)));
+if (before > data.events.length) console.log(`Bỏ ${before - data.events.length} sự kiện không tộc nào gặp được.`);
 // character sprites: one atlas per person (tools/import-sheets.py) with the frame of every column
 const atlasFile = path.join(__dirname, "..", "img", "atlas.json");
 data.sprites = fs.existsSync(atlasFile) ? JSON.parse(fs.readFileSync(atlasFile, "utf8")) : {};

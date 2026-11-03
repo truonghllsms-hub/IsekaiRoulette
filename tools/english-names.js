@@ -15,6 +15,9 @@ function textRules(race) {
   return rules;
 }
 
+// "… thổi bay đầu bạn. ." (a sentence end the script wrote twice): one stop is enough
+const tidyDots = (t) => t.replace(/([.!?…])\s+\.(?!\.)/g, "$1");
+
 function renameText(t, rules) {
   for (const [re, b] of rules) t = t.replace(re, b);
   return t;
@@ -43,7 +46,7 @@ function englishPack(race, pack) {
     if (EN.orgs[race]) o.name = EN.orgs[race];
     if (EN.ranks[race] && o.ranks && o.ranks.length === EN.ranks[race].length) o.ranks = EN.ranks[race].slice();
   }
-  return deep(pack, (s) => renameText(s, rules));
+  return deep(pack, (s) => tidyDots(renameText(s, rules)));
 }
 
 // a hand-written data file shared by all races: only the global names
