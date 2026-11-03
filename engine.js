@@ -218,6 +218,10 @@
     const W = WEAPON_KINDS[kind];
     if (!new RegExp(W_ANY + "|vũ khí|chém|bắn|mũi tên").test(text)) return text;
     const ownRe = new RegExp(`^(?:${W.short}|${W.noun})`, "i");
+    // the people of this life: a sentence that names one of them before the weapon is about them
+    const names = [...Object.values(c.cast || {}).map((x) => x.name), ...(c.party || []).map((m) => m.name), c.spouse && c.spouse.name,
+      ...["father", "mother", "maker"].map((w) => c.parents && c.parents[w] && c.parents[w].name && c.parents[w].name.split(" ")[0])].filter((n) => n && n.length > 1);
+    const others = names.length ? new RegExp(`(?<!\\p{L})(?:${names.map((n) => n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})(?!\\p{L})`, "u") : null;
     return String(text).split(/(?<=[.!?…;])\s+/).map((sent) => {
       // every match is decided on the sentence as written; the first pattern to claim a stretch wins
       const edits = [];
@@ -243,8 +247,14 @@
             if (noun) mine = mine && /(?<!\p{L})(vung|rút|giơ|cầm|siết|nắm|giương|tung|chĩa|vác|bằng|dùng)\s*$/iu.test(before);
           }
           else {
-            mine = (/(?<!\p{L})bạn(?:\s+\p{L}+){0,3}\s*$/iu.test(before) && !ENEMY.test(before.split(/bạn/i).pop() || ""))
-              || /^\s*(của bạn|trong tay bạn)/.test(after);
+            // you are the subject: "bạn" just before, or a sentence that starts with you and brings in
+            // nobody else before the weapon ("Bạn thức dậy từ lúc sương chưa tan, vung kiếm 1000 lần")
+            const lead = sent.slice(0, at);
+            const youLead = /^[\s"“'(]*(?:Ngày qua ngày,\s*|Mỗi ngày,\s*|Hằng ngày,\s*)?bạn(?!\p{L})/iu.test(lead) && !ENEMY.test(lead.replace(/^.*?(?<!\p{L})bạn(?!\p{L})/iu, "")) && !(others && others.test(lead));
+            // "Tiếng vung kiếm xé gió … cho đến khi tay bạn rướm máu": your own training, told by its sound
+            const yourSound = /^[\s"“]*Tiếng\s/u.test(sent) && /(?<!\p{L})bạn(?!\p{L})/iu.test(sent) && !ENEMY.test(sent) && !(others && others.test(sent));
+            mine = yourSound || (/(?<!\p{L})bạn(?:\s+\p{L}+){0,3}\s*$/iu.test(before) && !ENEMY.test(before.split(/bạn/i).pop() || ""))
+              || /^\s*(của bạn|trong tay bạn)/.test(after) || youLead;
             if (noun && !/^\s*(của bạn|trong tay bạn)/.test(after)) mine = mine && /(?<!\p{L})(vung|rút|giơ|cầm|siết|nắm|giương|tung|chĩa|vác|bằng|dùng)\s*$/iu.test(before);
           }
           // right after the weapon phrase just changed: "phóng phép cắt đứt", not "phóng phép dùng phép cắt đứt"
@@ -2216,7 +2226,18 @@
     return rng() < 0.45 ? pick(rng, list) : null;
   }
 
+  // a childhood in chains has no oak shade, village lanes or festival days
+  const IDYLL = /bóng cây|cây sồi|gốc cây|đồng lúa|cánh đồng|ruộng|xóm|làng|hội hè|lễ hội|bầu trời xanh|rong chơi|thả diều|bờ sông|tắm sông|đồng cỏ|vườn|bãi cỏ|chạy nhảy|vô lo|êm đềm|bình yên/i;
+  const captiveLine = (t, c) => !c.captive || (captiveOk(t, c) && !IDYLL.test(t));
+  const CAPTIVE_CHILD = {
+    prison: ["Tuổi thơ của bạn là bốn bức tường đá và một ô cửa sổ có song sắt. Bạn thuộc lòng tiếng bước chân của từng cai ngục.", "Bạn lớn lên trong ngục, học đếm bằng những vết khắc trên tường."],
+    slave: ["Đứa trẻ nô lệ nào cũng phải làm việc từ khi biết đi. Bạn khuân đá, nhặt quặng, và học cách không khóc trước mặt chủ nô.", "Bữa ăn của bạn là nửa bát cháo loãng. Bạn học cách giấu một mẩu bánh trong áo cho ngày mai."],
+    arena: ["Bạn lớn lên trong chuồng giam dưới đấu trường, ngủ giữa mùi máu và tiếng gầm của khán đài phía trên.", "Lũ trẻ trong chuồng tập đánh nhau bằng gậy gỗ từ khi lên năm. Đứa nào thua thì nhịn ăn."],
+    bound: ["Sợi dây khế ước vô hình kéo bạn đi theo ý kẻ khác từ khi còn nhỏ xíu. Bạn chưa bao giờ biết tự chọn một ngày của mình."],
+  };
   function quietText(c, data, rng, stageId) {
+    // born in chains: the years pass in chains too
+    if (c.captive && !c.captive.temp && ["infant", "child", "teen"].includes(stageId) && rng() < 0.6) return pick(rng, CAPTIVE_CHILD[c.captive.kind] || CAPTIVE_CHILD.slave);
     if (c.captive && c.captive.temp) {
       const L = {
         prison: ["Những ngày trong ngục trôi qua chậm chạp, chỉ có tiếng xích sắt, bữa cháo loãng và vệt nắng nhỏ qua song cửa.", "Bạn đếm từng vết khắc trên tường đá, mỗi vết là một ngày dài vô tận sau song sắt.", "Cai ngục thay ca, tù nhân đến rồi đi. Bạn học cách ngủ giữa tiếng rên rỉ và mùi ẩm mốc."],
@@ -2233,7 +2254,8 @@
     if (c.focus === "work" && j && j.quiet && ["teen", "adult", "middle", "elder", "ancient"].includes(stageId)) list = j.quiet;
     else if (f && f.quiet) list = f.quiet[stageId] || f.quiet.default;
     if (!list || !list.length) {
-      const pool = data.fillers.filter((x) => (!x.stages || x.stages.includes(stageId)) && (!x.races || x.races.includes(c.race.id)));
+      const pool = data.fillers.filter((x) => (!x.stages || x.stages.includes(stageId)) && (!x.races || x.races.includes(c.race.id)) && captiveLine(x.text, c));
+      if (!pool.length && c.captive) return pick(rng, CAPTIVE_CHILD[c.captive.kind] || CAPTIVE_CHILD.slave);
       const x = weightedPick(pool, rng);
       return x ? x.text : "Thời gian lặng lẽ trôi qua.";
     }
@@ -2243,7 +2265,8 @@
     const late = ["middle", "elder", "ancient"].includes(stageId), early = ["infant", "child"].includes(stageId);
     // "vài chục năm trôi qua" cannot be said of an eight-year-old
     const LONG_TIME = /(?:vài|hàng|mấy|nhiều) (?:chục|trăm|ngàn|nghìn) năm|(?:một|vài|nhiều) thế kỷ|thập kỷ/i;
-    const fit = list.filter((t) => (late || !OLD.test(t)) && (early || !YOUNG.test(t)) && parentsOk(t, c, {}) && ageFits(t, c) && (!c.captive || captiveOk(t, c)) && !(LONG_TIME.test(t) && c.age < 40));
+    const fit = list.filter((t) => (late || !OLD.test(t)) && (early || !YOUNG.test(t)) && parentsOk(t, c, {}) && ageFits(t, c) && captiveLine(t, c) && !(LONG_TIME.test(t) && c.age < 40));
+    if (!fit.length && c.captive) return pick(rng, CAPTIVE_CHILD[c.captive.kind] || CAPTIVE_CHILD.slave);
     if (!fit.length && ["infant", "child"].includes(stageId)) return "Những năm thơ ấu trôi qua quanh nơi bạn chào đời, giữa những thứ quen thuộc nhất.";
     return pick(rng, fit.length ? fit : list);
   }
@@ -2257,7 +2280,8 @@
     const f = c.focus ? focusDef(c, data, c.focus) : null;
     const j = jobDef(c, data);
     let act = f && f.name ? lowerFirst(f.name) : "những việc thường ngày";
-    if (c.captive && c.captive.temp) act = { prison: "những ngày ngồi tù", slave: "kiếp làm nô lệ", arena: "những trận đấu sống còn nơi đấu trường" }[c.captive.kind] || "những ngày bị giam cầm";
+    if (c.captive && (c.captive.temp || /rong chơi|nghỉ ngơi|an dưỡng|giao du|học hành|mạo hiểm/i.test(act)))
+      act = { prison: "những ngày sau song sắt", slave: "kiếp làm nô lệ", arena: "những ngày trong chuồng giam đấu trường", bound: "những ngày bị khế ước trói buộc" }[c.captive.kind] || "những ngày bị giam cầm";
     if (c.focus === "work" && j) act = `công việc ${j.name}`;
     // a child does not drink: "uống rượu nghỉ ngơi" at eight is just rest
     if (DRINK.test(act) && ["infant", "child", "teen"].includes(stageId)) act = "những ngày nghỉ ngơi";
