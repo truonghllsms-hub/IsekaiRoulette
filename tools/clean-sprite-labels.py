@@ -5,6 +5,7 @@ The coordinate list is OCR-assisted and stored in sprite-labels.json, so no OCR
 software or model is needed to reproduce a build.
 """
 import argparse
+import importlib.util
 import json
 from pathlib import Path
 
@@ -13,11 +14,15 @@ from PIL import Image
 from scipy import ndimage
 
 ROOT=Path(__file__).resolve().parent.parent
+_overlay_spec=importlib.util.spec_from_file_location("reviewed_overlays", ROOT/"tools/sprite-overlay-cleanup.py")
+_overlay=importlib.util.module_from_spec(_overlay_spec)
+_overlay_spec.loader.exec_module(_overlay)
 
 def clean(images, only=None):
     atlas=json.loads((images/'atlas.json').read_text())
     provenance=json.loads((images/'sprite-provenance.json').read_text())
     captions=json.loads((ROOT/'tools/sprite-labels.json').read_text())
+    reviewed=json.loads((ROOT/"tools/sprite-overlay-fixes.json").read_text())["frames"]
     removed=0
     for person,frames in atlas.items():
         if only and person not in only:continue
@@ -94,6 +99,10 @@ def clean(images, only=None):
                 seed=alpha==0
                 seed[0]=seed[-1]=True;seed[:,0]=seed[:,-1]=True
                 alpha[ndimage.binary_propagation(seed&rim,mask=rim)]=0
+            # Review overrides run after the legacy masks and before component
+            # filtering so restored faces/props stay connected to their bodies.
+            if column in reviewed.get(person, {}):
+                _overlay.apply(patch, [sx,sy,sw,sh], reviewed[person][column])
             # A caption may have joined a border to the sprite. Once the letters
             # are cleared, discard detached page furniture outside the figure.
             labels,n=ndimage.label(alpha>0,structure=np.ones((3,3)))
@@ -110,10 +119,14 @@ def clean(images, only=None):
                     frame=cx.max()-cx.min()>w*.7 and cy.max()-cy.min()>h*.7
                     footer=person.startswith('dwarf_') and cy.mean()>yy.max()-2
                     if outside or frame or footer:alpha[labels==component]=0
+            # Reviewed native repairs are authoritative, including detached
+            # prop details which the older component heuristic may discard.
+            if column in reviewed.get(person, {}):
+                _overlay.apply(patch, [sx,sy,sw,sh], reviewed[person][column])
             assert np.count_nonzero(alpha)>16,(person,column,'empty after caption cleanup')
             removed+=before-np.count_nonzero(alpha)
         im=Image.fromarray(sheet,'RGBA')
-        if path.suffix=='.webp':im.save(path,lossless=True,quality=100,method=4)
+        if path.suffix=='.webp':im.save(path,lossless=True,quality=100,method=4,exact=True)
         else:im.save(path,optimize=True)
     print(f'Cleared {removed} caption/background pixels; preserved native frame sizes and foreground RGB.')
 
@@ -146,7 +159,7 @@ def repack(images, only=None):
             frames[column]=[cursor,yy,pic.width,pic.height]
             cursor+=pic.width+4
         frames['_size']=[width,height]
-        if path.suffix=='.webp':packed.save(path,lossless=True,quality=100,method=4)
+        if path.suffix=='.webp':packed.save(path,lossless=True,quality=100,method=4,exact=True)
         else:packed.save(path,optimize=True)
     (images/'atlas.json').write_text(json.dumps(atlas,separators=(',',':')))
     (images/'sprite-provenance.json').write_text(json.dumps(provenance,ensure_ascii=False,separators=(',',':'))+'\n')

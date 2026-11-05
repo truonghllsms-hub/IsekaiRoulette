@@ -34,3 +34,36 @@ chỉ xóa alpha ở những vùng này, không vẽ lại hình.
 Kiểm tra có nguồn còn đối chiếu mã băm 64 JPEG và RGB của từng pixel hiển thị.
 Kiểm tra pixel không thay thế việc rà hình trực quan: vùng alpha cần được xem
 trên cả nền sáng và tối để nhận ra viền nền hay chi tiết bị mất.
+
+## Rà chữ và phục hồi chi tiết lần hai
+
+Đã rà toàn bộ 1.588 khung bằng bảng ảnh trên nền sáng/tối, kết hợp OCR phóng lớn.
+Đợt sửa có **38 khung trong 17 atlas**: 15 khung nhãn chữ, 12 khung lọt mảnh hình
+của ô bên cạnh và 11 khung bị bộ lọc nền/chữ cũ xóa nhầm chi tiết. Ví dụ: các nhãn
+“Cuồng chiến”, “Đạo tặc”, “Tuổi (44+)”, “KHÔNG”, “Tiến”, số trang 24 và chữ dưới
+chân ảnh Dwarf; các dải trên mặt/mũ, pháp trượng, vạt áo và thú đi cùng Beastman.
+
+`tools/sprite-overlay-fixes.json` lưu vùng đã kiểm tra theo tọa độ JPEG nguồn.
+`tools/sprite-repairs/*.png` chỉ chứa pixel gốc cần phục hồi cùng alpha, không
+chứa một hình minh họa thay thế. Các điểm này có tọa độ nguồn riêng, nên atlas có
+thể đóng gói lại mà bản vá vẫn đặt đúng chỗ. Không dùng kết quả OCR mới để tự động
+xóa một hình chữ nhật xuyên qua nhân vật.
+
+`clean-sprite-labels.py` áp dụng các vùng sửa sau lớp lọc cũ, giữ bản phục hồi làm
+kết quả cuối. Có thể áp dụng lại trên atlas hiện tại bằng:
+
+```sh
+python3 tools/fix-reviewed-sprite-overlays.py
+python3 tools/validate-sprites.py --originals /duong/dan/source-sheets
+node tools/build.js
+node tools/bundle.js
+```
+
+Validator kiểm tra vùng nhãn đã xóa không trở lại và từng pixel phục hồi còn đúng
+màu/alpha, ngoài kiểm tra tọa độ của toàn bộ khung. Kiểm tra với nguồn đã đối chiếu
+64 mã băm JPEG và mọi pixel RGB còn hiển thị. Bản làm sạch cũng đã được chạy lại
+trên bản sao atlas để xác nhận không xóa mất các chi tiết phục hồi.
+
+Build gắn SHA-256 rút gọn vào URL từng atlas (`?v=...`). Khi ảnh thay đổi, URL đổi
+theo để trình duyệt tải đúng ảnh mới dù tên tệp giữ nguyên. Mỗi URL đã được kiểm
+tra trong trình duyệt với byte ảnh tải về và kích thước trong atlas.
