@@ -87,7 +87,7 @@ function mergePack(data, p, file) {
   // what you spend your years on, e.path, stay for everyone)
   if (p.exclusive)
     for (const e of data.events)
-      if (!e.pack && !e.path && (!e.races || e.races.includes(p.race)))
+      if (!e.pack && !e.path && !(p.keepEvents || []).includes(e.id) && (!e.races || e.races.includes(p.race)))
         e.excludeRaces = [...new Set([...(e.excludeRaces || []), p.race])];
   if (p.systems) data.systems.race[p.race] = p.systems;
 }

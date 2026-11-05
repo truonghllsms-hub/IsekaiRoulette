@@ -48,8 +48,11 @@ module.exports = {
   decline: { label: "Thôi, để lần sau", text: "Bạn vẫy đuôi lùi lại. Bản năng mách bảo chưa phải lúc." },
   evos: [],
   systems: {
+    earlyHazard: 0.025,
+    earlyUntil: "teen",
     noRecruit: true,},
   overrides: {
+    bm_play_tooth: { require: { notSubtypes: ["rabbit", "rat", "hawk"] } },
     bm_parent_missing_return: { require: { parentGone: "father" } },
   },
 };

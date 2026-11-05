@@ -5,7 +5,7 @@ const BARS = ["health", "joy", "wealth"];
 const EFFECT_KEYS = new Set([...STATS, ...BARS, "flags", "unflags", "fame", "jobXp", "guildPts", "bond", "partyBond", "allyHurt", "allyDie", "allyLeave", "loseJob", "setJob", "joinGuild", "focus", "recruit", "marry", "child", "loseChild", "demote", "orgRank", "orgRankName", "evolve", "era", "jobRankSet", "jobPromote", "orgRankUp", "loseSpouse", "parentDie", "castDie", "castJoin", "castLeave", "castBond", "joinBand", "leaveBand", "bandGone", "bandLead", "minionAdd", "minionLose", "minionRevolt", "minionLoyal", "memberBond", "memberDie", "memberLeave", "memberJoin", "foundBand", "item"]);
 const BOOL_EFFECTS = new Set(["allyHurt", "allyDie", "allyLeave", "loseJob", "joinGuild", "recruit", "marry", "child", "loseChild", "demote", "jobPromote", "loseSpouse"]);
 const STR_EFFECTS = new Set(["item", "setJob", "focus", "orgRankName", "evolve", "era", "parentDie"]);
-const REQ_KEYS = new Set(["parentGone", "parentDead", "free", ...STATS, ...BARS, "fame", "below", "flags", "anyFlags", "notFlags", "flagHint", "gender", "job", "jobRank", "jobRankMax", "guild", "guildRank", "guildRankMax", "party", "noParty", "allyTrait", "spouse", "children", "noChildren", "focus", "hint", "any", "fatherAlive", "motherAlive", "makerAlive", "form", "subtype", "cast", "castAlive", "noBand", "band", "bandMember", "minionOk", "minions", "bandLead", "partyMax", "origin"]);
+const REQ_KEYS = new Set(["parentGone", "parentDead", "free", ...STATS, ...BARS, "fame", "below", "flags", "anyFlags", "notFlags", "flagHint", "gender", "job", "jobRank", "jobRankMax", "guild", "guildRank", "guildRankMax", "party", "noParty", "allyTrait", "spouse", "children", "noChildren", "focus", "hint", "any", "fatherAlive", "motherAlive", "makerAlive", "form", "subtype", "notSubtypes", "cast", "castAlive", "noBand", "band", "bandMember", "minionOk", "minions", "bandLead", "partyMax", "origin"]);
 const STORY_EFFECTS = new Set(["castDie", "castJoin", "castLeave", "castBond", "joinBand", "leaveBand", "bandGone", "bandLead", "minionAdd", "minionLose", "minionRevolt", "minionLoyal", "memberBond", "memberDie", "memberLeave", "memberJoin", "foundBand"]);
 const EVENT_KEYS = new Set(["path", "_file", "id", "races", "excludeRaces", "tags", "stages", "eras", "minAge", "maxAge", "once", "weight", "require", "text", "effects", "choices", "moment", "death", "focus", "result", "pack", "arc", "recall"]);
 const PLACEHOLDERS = new Set(["name", "race", "age", "origin", "stage", "pct", "cause", "ally", "allyJob", "partner", "child", "job", "rank", "guild", "spouse", "quest", "next", "father", "mother", "maker", "who", "rival", "mentor", "friend", "party", "leader", "member", "minion"]);
@@ -75,6 +75,11 @@ function validate(data) {
   const checkReq = (where, req) => {
     if (!req) return;
     for (const k of Object.keys(req)) if (!REQ_KEYS.has(k)) err(where, `require lạ "${k}"`);
+    if (req.notSubtypes !== undefined) {
+      if (!Array.isArray(req.notSubtypes)) err(where, "notSubtypes phải là mảng");
+      else for (const id of req.notSubtypes)
+        if (!data.races.some((r) => (r.subtypes || []).some((s) => s.id === id))) err(where, `phân loài không tồn tại "${id}"`);
+    }
     for (const r of req.any || []) checkReq(where + " (any)", r);
   };
   const checkRaces = (where, list) => {
@@ -116,6 +121,7 @@ function validate(data) {
       e.choices.forEach((ch, i) => {
         const cw = `${w} lựa chọn ${i + 1}`;
         if (!ch.label) err(cw, "thiếu label");
+        if (ch.risk != null && ch.risk !== "lethal") err(cw, "risk phải là lethal");
         checkReq(cw, ch.require);
         if (ch.check) {
           if (![...STATS, ...BARS, "fame", "best", "jobstat"].includes(ch.check.stat)) err(cw, `check.stat lạ "${ch.check.stat}"`);
@@ -184,6 +190,7 @@ function validate(data) {
       (st.choices || []).forEach((ch, i) => {
         const cw = `${sw} lựa chọn ${i + 1}`;
         if (!ch.label) err(cw, "thiếu label");
+        if (ch.risk != null && ch.risk !== "lethal") err(cw, "risk phải là lethal");
         checkReq(cw, ch.require);
         for (const o of ch.check ? [ch.success, ch.fail] : [ch]) {
           if (o && o.end && !["fail", "win"].includes(o.end)) err(cw, "end phải là fail hoặc win");
@@ -211,7 +218,11 @@ function validate(data) {
   for (const kind of ["old", "health", "violent"])
     if (!data.deaths.some((d) => d.kind === kind && (!d.races || !d.races.length))) err("deaths.json", `cần một cái chết chung loại ${kind}`);
 
-  for (const ep of data.epitaphs) checkText(`epitaphs.json [${ep.id}]`, ep.text);
+  for (const ep of data.epitaphs) {
+    checkText(`epitaphs.json [${ep.id}]`, ep.text);
+    checkRaces("epitaphs.json", ep.races);
+    checkRaces("epitaphs.json", ep.excludeRaces);
+  }
   for (const f of data.fillers) checkText("fillers.json", f.text);
   for (const s of stageIds)
     if (!data.fillers.some((f) => (!f.stages || f.stages.includes(s)) && !f.races)) err("fillers.json", `thiếu câu lấp chỗ cho stage "${s}"`);

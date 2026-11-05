@@ -7,6 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;1,400&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>
+    try { var theme = localStorage.getItem("lhdg-theme"); if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme; } catch (e) {}
+  </script>
   <!-- Vercel Web Analytics: page views, only when served by Vercel (GitHub Pages and the offline zip skip it) -->
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -21,9 +24,16 @@
 <body>
   <main id="app">
     <audio id="bgm" src="audio/bgm.mp3" loop preload="none"></audio>
-    <button id="btn-music" class="music-toggle" type="button" title="Nhạc nền: Adventure – Alexander Nakarada (royalty-free)" aria-label="Bật/tắt nhạc nền">♪</button>
+    <header class="app-toolbar">
+      <a class="world-brand" href="#app" aria-label="Luân Hồi Dị Giới"><span aria-hidden="true">✦</span> AETHELGARD</a>
+      <div class="utility-controls">
+        <button id="btn-theme" class="theme-toggle" type="button" title="Đổi giao diện sáng/tối" aria-label="Đổi giao diện sáng/tối">☾</button>
+        <button id="btn-music" class="music-toggle" type="button" title="Nhạc nền: Adventure – Alexander Nakarada (royalty-free)" aria-label="Bật/tắt nhạc nền">♪</button>
+      </div>
+    </header>
     <!-- Start -->
     <section id="screen-start" class="screen">
+      <div class="portal-mark" aria-hidden="true"><span>✦</span></div>
       <p class="eyebrow">Một linh hồn vừa rời khỏi thế giới cũ</p>
       <h1>Luân Hồi Dị Giới</h1>
       <p class="lede">Bạn không được chọn mình sẽ là ai. Bạn chỉ được chọn mình sẽ sống thế nào.</p>
@@ -38,6 +48,7 @@
     <!-- Reveal -->
     <section id="screen-reveal" class="screen" hidden>
       <p class="eyebrow">Bạn là</p>
+      <button id="reveal-sprite" class="sprite-hud reveal-sprite sprite-open" type="button" aria-label="Xem chân dung nhân vật" hidden><div class="sprite-frame"></div></button>
       <h1 id="reveal-name"></h1>
       <p class="race-line">thuộc chủng tộc <b id="reveal-race"></b></p>
       <p id="reveal-gloss" class="gloss"></p>
@@ -52,7 +63,7 @@
     <section id="screen-life" class="screen" hidden>
       <div class="hud-wrap" id="hud-wrap">
       <header class="hud">
-        <div id="hud-sprite" class="sprite-hud" aria-hidden="true" hidden><div class="sprite-frame"></div></div>
+        <button id="hud-sprite" class="sprite-hud sprite-open" type="button" aria-label="Xem chân dung nhân vật" hidden><div class="sprite-frame"></div></button>
         <div class="who">
           <span id="hud-name" class="name"></span>
           <span id="hud-meta" class="meta"></span>
@@ -79,7 +90,7 @@
     <section id="screen-death" class="screen" hidden>
       <figure id="life-card" class="life-card">
         <p class="lc-eyebrow">Luân Hồi Dị Giới · một kiếp người</p>
-        <div id="lc-sprite" class="sprite-hud lc-sprite" aria-hidden="true" hidden><div class="sprite-frame"></div></div>
+        <button id="lc-sprite" class="sprite-hud lc-sprite sprite-open" type="button" aria-label="Xem chân dung trong thẻ cuộc đời" hidden><div class="sprite-frame"></div></button>
         <h2 id="lc-name"></h2>
         <p id="lc-line" class="lc-line"></p>
         <p id="lc-stats" class="lc-stats"></p>
@@ -107,6 +118,13 @@
         <button id="btn-review" class="btn">Xem lại cuộc đời</button>
       </div>
     </section>
+  <dialog id="portrait-dialog" class="portrait-dialog" aria-labelledby="portrait-name">
+    <button id="portrait-close" class="portrait-close" type="button" aria-label="Đóng chân dung">×</button>
+    <p class="eyebrow">Chân dung linh hồn</p>
+    <h2 id="portrait-name"></h2>
+    <div id="portrait-sprite" class="sprite-hud portrait-large" aria-hidden="true"><div class="sprite-frame"></div></div>
+    <p id="portrait-meta" class="meta"></p>
+  </dialog>
   </main>
 
   <script src="engine.js"></script>

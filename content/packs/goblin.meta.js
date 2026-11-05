@@ -1,5 +1,7 @@
 // Goblin pack: what the approved Gemini script (content/scripts/goblin.txt) cannot say by itself.
 // tools/build-pack.js combines the two into data/packs/goblin.json.
+const scriptStages = require("../races/goblin.json").stages;
+
 module.exports = {
   race: "goblin",
   script: "content/scripts/goblin.txt",
@@ -7,6 +9,9 @@ module.exports = {
   story: "content/scripts/goblin_story.txt",
   // only this race's own events: no old pre-script events, no shared filler
   exclusive: true,
+  lifespan: [8, 12],
+  scriptStages,
+  stages: scriptStages.map((s, i) => ({ ...s, start: [0, 1, 2, 4, 7, 9][i] })),
   // the story script asks "Sức mạnh > 15" on a race that usually has 2–10
   storyStatScale: 0.6,
   storyStageShift: 1,
@@ -99,12 +104,14 @@ module.exports = {
 
   // Evolution branches, in the order the script lists them.
   evos: [
-    { key: "hob", name: "Hobgoblin", life: 6, minAge: 6, require: { any: [{ STR: 6, health: 40 }, { flags: ["hobgoblin_blood"], STR: 4 }, { job: "goblin_warrior", jobRank: 1 }] } },
-    { key: "shaman", name: "Goblin Shaman Lord", life: 8, minAge: 8, require: { any: [{ INT: 7 }, { job: "goblin_shaman", jobRank: 1 }, { flags: ["dark_pact"] }] } },
-    { key: "king", name: "Goblin King", life: 10, minAge: 13, require: { fame: 30, wealth: 50, guildRank: 4 } },
+    { key: "hob", name: "Hobgoblin", life: 6, minAge: 4, require: { any: [{ STR: 6, health: 40 }, { flags: ["hobgoblin_blood"], STR: 4 }, { job: "goblin_warrior", jobRank: 1 }] } },
+    { key: "shaman", name: "Goblin Shaman Lord", life: 8, minAge: 6, require: { any: [{ INT: 7 }, { job: "goblin_shaman", jobRank: 1 }, { flags: ["dark_pact"] }] } },
+    { key: "king", name: "Goblin King", life: 10, minAge: 8, require: { fame: 30, wealth: 50, guildRank: 4 } },
   ],
 
   systems: {
+    earlyHazard: 0.285,
+    earlyUntil: "adult",
     bandName: "băng nhóm",
     // companions come from bands (and later minions), not from strangers met on the road
     noRecruit: true,

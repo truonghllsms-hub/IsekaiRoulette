@@ -364,24 +364,26 @@
     const o = c.origin;
     const out = {};
     const famName = (c.name.split(" ").slice(1).join(" ") || "").trim();
-    const lifeLeft = () => {
-      if (!c.race.lifespan) return null;
-      const parentAge = adultStart(c.race) * (1 + rng() * 0.6);
-      return Math.max(1, randInt(rng, c.race.lifespan[0], c.race.lifespan[1]) - parentAge);
+    const lifeLeft = (parentRace) => {
+      const race = parentRace || c.race;
+      if (!race.lifespan) return null;
+      const parentAge = adultStart(race) * (1 + rng() * 0.6);
+      return Math.max(1, randInt(rng, race.lifespan[0], race.lifespan[1]) - parentAge);
     };
     for (const who of ["father", "mother", "maker"]) {
       const p = o[who];
       // "Không có." written as a name: there is no such parent
       if (p && /^(?:không có|không|none|n\/a)\.?$/i.test(String(p.name || "").trim())) continue;
       if (p) {
+        const parentRaceName = String(p.race || "").trim().toLowerCase();
+        const pr = (data.races || []).find((r) => parentRaceName === r.id || parentRaceName === r.name.toLowerCase() || parentRaceName.startsWith(r.name.toLowerCase() + " "));
         // a "maker" that is a corpse, a dungeon core, a trap or a curse never lived the way a parent does
         let status = p.status;
         if (/^(?:Xác|Thi thể|Hài cốt|Bộ xương)/i.test(p.name || "")) status = "dead";
         else if (/^(?:Lõi|Bẫy|Lời nguyền|Tà khí|Oán khí|Ma khí|Khối|Vết nứt|Cổng|Luồng|Dòng|Ma lực|Năng lượng|Huyết trận|Trận pháp)/i.test(p.name || "")) status = "thing";
-        out[who] = Object.assign({}, p, { status, alive: status === "alive", dieAt: status === "alive" ? lifeLeft() : null });
+        out[who] = Object.assign({}, p, { status, alive: status === "alive", dieAt: status === "alive" ? lifeLeft(pr) : null });
         // the script left the name to the game ("{father} · Vampire · Bá tước"): give one from that parent's race
         if (!p.name && p.status !== "unknown") {
-          const pr = (data.races || []).find((r) => p.race && (r.name.toLowerCase() === p.race.toLowerCase() || r.id === p.race.toLowerCase()));
           const g = who === "father" ? "male" : who === "mother" ? "female" : null;
           const used = [c.name.split(" ")[0], ...Object.values(out).map((x) => x && x.name && x.name.split(" ")[0])].filter(Boolean);
           let first = randomName(data, rng, pr ? pr.id : c.race.id, g).split(" ")[0];
@@ -494,7 +496,7 @@
       stageId: "infant",
       clicks: 0,
     };
-    applyEffects(c, Object.assign({}, origin.effects, { wealth: 0 }), data, rng);
+    applyEffects(c, Object.assign({}, origin.effects, { wealth: 0 }), data, rng, "origin");
     // what the family owns, not the child: nothing in chains or on the street, a little for common folk,
     // a house's fortune for nobles and merchants
     c.bars.wealth = familyWealth(origin, rng);
@@ -623,6 +625,10 @@
     mentor: (n, r) => `${n}, người thầy ${r} của bạn, đã ra đi vì tuổi già. Những gì họ muốn dạy, bạn mới học được một phần.`,
     rival: (n, r) => `${n}, kẻ thù ${r} năm xưa, đã chết già trên giường. Mối thù chưa kịp ngã ngũ, còn bạn vẫn như ngày đầu.`,
   };
+  const MORTAL_BODY_END = {
+    ghoul: (name) => `Thân xác của ${name} mục rữa hoàn toàn, ngọn lửa linh hồn tắt ngấm.`,
+    slime: (name) => `Lõi ma lực của ${name} cạn kiệt, khối nhầy hòa tan vào đất cát.`,
+  };
   function mortalsTick(c, data, rng) {
     for (const x of Object.values(c.cast || {})) {
       const m = x.mortal;
@@ -640,8 +646,10 @@
       }
       x.alive = false;
       x.diedAt = c.age;
-      pushLog(c, "loss", (MORTAL_END[x.role] || MORTAL_END.friend)(x.name, m.race));
-      addMoment(c, `${x.name} qua đời vì tuổi già`, data);
+      const race = data.races.find((r) => r.name === m.race);
+      const bodyEnd = MORTAL_BODY_END[race && race.id];
+      pushLog(c, "loss", bodyEnd ? bodyEnd(x.name) : (MORTAL_END[x.role] || MORTAL_END.friend)(x.name, m.race));
+      addMoment(c, bodyEnd ? `${x.name} đã tàn lụi` : `${x.name} qua đời vì tuổi già`, data);
     }
     // a companion of a short-lived race walks beside you for the years they have
     if (!c.race.lifespan || c.race.lifespan[1] >= 300) {
@@ -652,9 +660,14 @@
         if (c.age - p.since < race.lifespan[1] * 0.5) continue;
         p.alive = false;
         p.diedAt = c.age;
-        pushLog(c, "loss", `Năm tháng không chờ ai. ${p.name} (${p.race}) đã già và ra đi thanh thản, sau ${Math.round(c.age - p.since)} năm đồng hành cùng bạn. Tóc họ bạc trắng, còn bạn vẫn như ngày gặp nhau.`);
+        const years = Math.round(c.age - p.since);
+        const bodyEnd = MORTAL_BODY_END[race.id];
+        const farewell = bodyEnd
+          ? `${bodyEnd(`${p.name} (${p.race})`)} Cuộc đồng hành ${years} năm cùng bạn khép lại.`
+          : `Năm tháng không chờ ai. ${p.name} (${p.race}) đã già và ra đi thanh thản, sau ${years} năm đồng hành cùng bạn.` + (["human", "elf", "dwarf"].includes(race.id) ? " Tóc họ bạc trắng, còn bạn vẫn như ngày gặp nhau." : "");
+        pushLog(c, "loss", farewell);
         c.fallen = (c.fallen || []).concat({ name: p.name, bond: p.bond, wish: p.wish, at: c.age });
-        addMoment(c, `${p.name} qua đời vì tuổi già`, data);
+        addMoment(c, bodyEnd ? `${p.name} đã tàn lụi` : `${p.name} qua đời vì tuổi già`, data);
       }
     }
   }
@@ -963,11 +976,18 @@
   }
 
   // ---------- effects and requirements ----------
-  function applyEffects(c, eff, data, rng) {
+  function eventDamage(c, damage) {
+    return Math.ceil(damage * ((c.era && c.era.damageMultiplier) || 1));
+  }
+
+  function applyEffects(c, eff, data, rng, source = "event") {
     if (!eff) return;
     rng = rng || Math.random;
     for (const k of STAT_KEYS) if (eff[k]) c.stats[k] = clamp(c.stats[k] + eff[k], 0, 99);
-    for (const k of BAR_KEYS) if (eff[k] && !(k === "wealth" && eff[k] > 0 && !ownsMoney(c))) c.bars[k] = clamp(c.bars[k] + eff[k], 0, 100);
+    for (const k of BAR_KEYS) if (eff[k] && !(k === "wealth" && eff[k] > 0 && !ownsMoney(c))) {
+      const delta = k === "health" && eff[k] < 0 && source === "event" ? -eventDamage(c, -eff[k]) : eff[k];
+      c.bars[k] = clamp(c.bars[k] + delta, 0, 100);
+    }
     if (eff.fame) c.fame = clamp(c.fame + eff.fame, 0, 100);
     // In some organisations (a Goblin tribe) any renown also climbs the ladder.
     if (eff.fame > 0 && data && c.guild) {
@@ -1156,6 +1176,7 @@
 
   function meets(c, req, data) {
     if (req && req.subtype && c.subtype !== req.subtype) return false;
+    if (req && req.notSubtypes && req.notSubtypes.includes(c.subtype)) return false;
     if (!req) return true;
     if (req.any && !req.any.some((r) => meets(c, r, data))) return false;
     for (const k of STAT_KEYS) if (req[k] != null && c.stats[k] < req[k]) return false;
@@ -1432,7 +1453,7 @@
     if (/(?<!\p{L})(tổ đội|băng săn|bầy săn|băng|đội) của bạn(?!\p{L})/iu.test(t) && !c.band && !aliveParty(c).length && !r.band && !r.bandLead && !r.party) return false;
     if (c.captive && c.captive.temp && !/_arc_/.test(e.id) && !KEPT_THEME.test(t)) return false;
     // ...and the reverse: a free life does not wake up already in chains
-    if (!c.captive && !/_arc_/.test(e.id) && /^(Bị giam|Bị xích|Bị cùm|Trong phòng giam|Trong ngục|Bị nhốt)|nới lỏng xiềng xích|xiềng xích trên (cổ|tay|chân) bạn/i.test(t) && !(r.flags || r.anyFlags)) return false;
+    if (!c.captive && !/_arc_/.test(e.id) && /^(Bị giam|Bị xích|Bị cùm|Bị bắt cóc|Trong phòng giam|Trong ngục|Bị nhốt)|nới lỏng xiềng xích|xiềng xích trên (cổ|tay|chân) bạn/i.test(t) && !(r.flags || r.anyFlags)) return false;
     if (c.captive && !/_arc_/.test(e.id)) {
       // path chains (martial master on the mountain, the count's banquet, ruins, the ivory tower...)
       // are written for someone free to walk the world: a slave or prisoner cannot follow them
@@ -1807,6 +1828,12 @@
     const f = c.focus ? focusDef(c, data, c.focus) : null;
     const gains = Object.assign({}, f ? f.gains : {});
     const bars = Object.assign({}, f ? f.bars : {});
+    // Ordinary work/play no longer heals injuries. Rest is an explicit choice;
+    // poverty and captivity reduce its recovery without making it unavailable.
+    if (bars.health > 0) {
+      if (c.focus !== "rest") delete bars.health;
+      else if (c.bars.wealth <= 5 || c.captive) bars.health = Math.min(1, bars.health);
+    }
     const j = jobDef(c, data);
     if (c.focus === "work" && j) {
       for (const k of Object.keys(j.gains || {})) gains[k] = (gains[k] || 0) + j.gains[k];
@@ -1858,8 +1885,8 @@
     );
     // a captive dies where it is kept, not on a road or in a forest
     if (c.captive) { const inside = pool.filter((d) => captiveOk(d.text, c) && !/mạo hiểm giả|đi ngang qua|Rừng Tân Thủ/i.test(d.text)); if (inside.length) pool.splice(0, pool.length, ...inside); }
-    // dragons, demon lords, demons and vampires do not die of a fever or a roadside robbery
-    const mythic = ["dragon", "high_demon", "demon", "vampire"].includes(c.race.id);
+    // Ancient magical races do not die of a fever or a roadside robbery.
+    const mythic = ["dragon", "high_demon", "demon", "vampire", "elf"].includes(c.race.id);
     if (mythic) { const grand = pool.filter((d) => !/vô duyên|đạo chích|cơn sốt|cảm lạnh|bọn cướp|ngủ quên quá giờ/i.test(d.text)); if (grand.length) pool.splice(0, pool.length, ...grand); }
     const specific = pool.filter((d) => d.races && d.races.length);
     const d = weightedPick(specific.length && (mythic || rng() < 0.7) ? specific : pool, rng);
@@ -1873,11 +1900,15 @@
     if (!years) return;
     const j = jobDef(c, data);
     let h = (c.race.hazard || 0) * (c.era ? c.era.hazard : 1);
+    const earlyUntil = sys(c, data, "earlyUntil");
+    const earlyEnd = earlyUntil && stagesOf(c.race).find((s) => s.id === earlyUntil);
+    const earlyHazard = sys(c, data, "earlyHazard");
+    if (h > 0 && earlyEnd && c.age < earlyEnd.start && earlyHazard != null) h = earlyHazard * (c.era ? c.era.hazard : 1);
     if (c.focus === "work" && j && j.hazard) h *= j.hazard;
     if (c.focus === "adventure") h *= 1.4;
     if (c.focus === "rest") h *= 0.7;
     const luckGuard = clamp(1 - (c.stats.LUCK - 5) * 0.04, 0.4, 1.4);
-    const p = 1 - Math.pow(1 - h * luckGuard, years);
+    const p = 1 - Math.pow(1 - clamp(h * luckGuard, 0, 0.95), years);
     if (rng() < p) die(c, data, pickDeath(c, data, rng, "violent"), "violent");
   }
 
@@ -2200,7 +2231,7 @@
       const open = e.choices
         .filter((ch) => meets(c, ch.require, data) || ch.showLocked)
         .map((ch) => (meets(c, ch.require, data) ? ch : Object.assign({}, ch, { disabled: true, reason: unmetReason(c, ch.require, data) })));
-      if (open.filter((ch) => !ch.disabled).length >= 1 && open.length >= 2) {
+      if (open.some((ch) => !ch.disabled)) {
         scene(c, "event", fmt(e.text, c, null, data), open, null, data);
         return;
       }
@@ -2437,11 +2468,11 @@
         c.eraUntil = c.age + randInt(rng, 30, 120) * Math.max(1, yearScale(c.race) / 2);
         pushLog(c, "era", c.era.change);
       }
-      if (c.era) applyEffects(c, c.era.perTurn);
+      if (c.era) applyEffects(c, c.era.perTurn, data, rng, "era");
 
-      // aging: recovery while young, decline near the end of a mortal life
+      // Aging and malnutrition persist; quiet years do not erase injuries.
       if (c.maxAge != null && c.age > c.maxAge * 0.75) c.bars.health = clamp(c.bars.health - randInt(rng, 1, 4) * Math.min(years, 5), 0, 100);
-      else c.bars.health = clamp(c.bars.health + 3, 0, 100);
+      if (c.focus !== "rest" && (c.bars.wealth <= 5 || c.captive)) c.bars.health = clamp(c.bars.health - Math.min(2, years / yearScale(c.race)), 0, 100);
       // sorrow wears the body down; years at the very bottom can end a life
       if (c.bars.joy < 20) c.bars.health = clamp(c.bars.health - Math.min(6, 2 * Math.max(1, years / yearScale(c.race))), 0, 100);
       c.joyLog = c.joyLog || { sum: 0, years: 0 };
@@ -2603,7 +2634,7 @@
       if (r.joy == null) r.joy = 5;
       r.partyBond = 6;
       pushLog(c, "result", fmt(q.complete, c, null, data));
-      applyEffects(c, r, data, rng);
+      applyEffects(c, r, data, rng, "reward");
       if (c.guild) addGuildPoints(c, data, pts);
       c.questsDone++;
       if (q.moment) addMoment(c, q.moment, data);
@@ -2682,9 +2713,10 @@
     if (c.guild) score += Math.min(5, c.guild.rank);
     if (c.spouse || (c.children || []).length) score += 5;
     const young = ["infant", "child", "teen"].includes(currentStage(c).id);
-    if (score >= 84) return { grade: "S", title: "Huyền Thoại Đại Lục" };
-    if (score >= 60) return { grade: "A", title: "Một Đời Oanh Liệt" };
-    if (score >= 36) return { grade: "B", title: "Bình Yên Thanh Thản" };
+    const hasAchievement = (c.job && c.job.rank >= 2) || c.form || c.questsDone >= 2 || c.fame >= 60;
+    if (score >= 90 && (c.fame >= 80 || c.form || c.questsDone >= 4)) return { grade: "S", title: "Huyền Thoại Đại Lục" };
+    if (score >= 72 && hasAchievement) return { grade: "A", title: "Một Đời Oanh Liệt" };
+    if (score >= 40) return { grade: "B", title: "Bình Yên Thanh Thản" };
     return { grade: "C", title: young ? "Chết Yểu" : "Một Kiếp Cơ Cực" };
   }
 
@@ -2705,7 +2737,7 @@
       mage: look === "phapsu",
       worker: look === "tho" || look === "thuongdan",
     };
-    const eps = data.epitaphs.filter((e) => (!e.races || e.races.includes(c.race.id)) && (!e.when || WHEN[e.when]));
+    const eps = data.epitaphs.filter((e) => (!e.races || e.races.includes(c.race.id)) && !(e.excludeRaces || []).includes(c.race.id) && (!e.when || WHEN[e.when]));
     const ep = weightedPick(eps, rng, (e) => e.weight || (e.when || e.races ? 6 : 2));
     const profile = [];
     if (c.form) profile.push(`Tiến hóa: ${c.form}`);
@@ -2738,7 +2770,7 @@
     const fill = [
       c.questsDone ? `${c.questsDone} ${(o && o.missionWord) || "nhiệm vụ"} hoàn thành` : null,
       c.fame >= 30 ? `Danh vọng ${c.fame}${c.fame >= 80 ? " · Huyền thoại" : ""}` : null,
-      c.age >= 200 ? `Sống qua ${Math.floor(c.age / 100)} thế kỷ` : null,
+      c.age >= 10000 ? "Thực thể thái cổ chứng kiến vạn vật khởi sinh" : c.age >= 1000 ? "Tồn tại qua hàng thiên niên kỷ" : c.age >= 200 ? `Sống qua ${Math.floor(c.age / 100)} thế kỷ` : null,
       c.stats[topStat] >= 10 ? `${STAT_GLORY[topStat]} (${STAT_LABEL[topStat]} ${c.stats[topStat]})` : null,
       joyAvg < 25 ? (c.bars.wealth >= 60 ? "Kẻ giàu có cô độc" : "Một đời cay đắng") : joyAvg > 70 ? "Một đời an vui" : null,
       c.bars.wealth >= 60 ? `Gia tài ${Math.round(c.bars.wealth)}` : null,
@@ -2778,6 +2810,7 @@
     advance,
     choose,
     successChance,
+    eventDamage,
     moodBonus,
     partyBonus,
     focusOptions,

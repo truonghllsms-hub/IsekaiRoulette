@@ -7,7 +7,11 @@
     "build": "node tools/build-pack.js && node tools/build.js",
     "validate": "node tools/validate.js",
     "simulate": "node tools/simulate.js",
-    "test": "node tools/build-pack.js && node tools/validate.js && node tools/simulate.js && node tools/build.js",
-    "packs": "node tools/build-pack.js"
+    "simulate:ratings": "node tools/simulate-ratings.js",
+    "test": "node tools/build-pack.js && node tools/validate.js && node tools/test-story-regressions.js && node tools/simulate.js && node tools/build.js",
+    "test:stories": "node tools/build-pack.js && node tools/test-story-regressions.js",
+    "packs": "node tools/build-pack.js",
+    "simulate:survival": "node tools/simulate-survival.js",
+    "validate:sprites": "python3 tools/validate-sprites.py"
   }
 }

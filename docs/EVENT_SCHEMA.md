@@ -28,7 +28,7 @@ Kiểm tra bằng `node tools/validate.js`.
 | `minAge`, `maxAge` | | giới hạn tuổi thực |
 | `weight` | | độ hay xảy ra, mặc định 1. Thường 2–12 |
 | `once` | | mặc định `true` (mỗi đời 1 lần). `false` cho sự kiện lặp lại |
-| `require` | | chỉ số tối thiểu, `below` (phải thấp hơn), `flags`, `notFlags`, `gender` |
+| `require` | | chỉ số tối thiểu, `below` (phải thấp hơn), `flags`, `notFlags`, `gender`; `subtype` chỉ phân loài được gặp, `notSubtypes` là mảng phân loài bị loại trừ |
 | `text` | có | 1–2 câu, ngôi thứ hai. Được dùng `{name}` `{race}` `{age}` `{origin}` `{stage}` |
 | `effects` | | `STR` `INT` `AGI` `LUCK` (thường ±1..3), `health` `joy` `wealth` (±5..30), `flags`, `unflags` |
 | `moment` | | dòng ngắn ghi vào màn tổng kết cuộc đời |

@@ -11,7 +11,7 @@
       { "label": "Xin đi học", "text": "Bạn ngồi bàn cuối. Bạn học nhanh hơn bạn bàn đầu.", "effects": { "INT": 2, "wealth": -8, "flags": ["educated"] }, "moment": "Được đi học" },
       { "label": "Ở nhà phụ việc", "text": "Bạn ở nhà phụ cha mẹ. Đôi tay bạn chai sớm.", "effects": { "STR": 1, "wealth": 3 } }
     ] },
-  { "id": "h_tutor", "races": ["human"], "stages": ["child"], "weight": 10, "require": { "flags": ["noble"] },
+  { "id": "h_tutor", "races": ["human"], "stages": ["child"], "weight": 10, "require": { "anyFlags": ["noble", "bastard_blood"] },
     "text": "Gia đình thuê cho bạn ba gia sư. Bạn ghét cả ba.", "effects": { "INT": 2, "joy": -3, "flags": ["educated"] } },
   { "id": "h_academy", "races": ["human"], "stages": ["teen"], "weight": 8, "require": { "INT": 7 },
     "text": "Học viện Ma pháp Hoàng gia mở kỳ tuyển sinh.",
@@ -46,7 +46,7 @@
     "text": "Bạn thi triển được phép dịch chuyển. Bạn lệch mục tiêu ba dặm.", "effects": { "INT": 1, "joy": 5 } },
   { "id": "h_tax_hike", "races": ["human"], "stages": ["adult", "middle"], "once": false, "weight": 2,
     "text": "Lãnh chúa lại tăng thuế. Năm nay bữa ăn mỏng hơn.", "effects": { "wealth": -6 } },
-  { "id": "h_arranged", "races": ["human"], "stages": ["teen"], "weight": 12, "require": { "flags": ["noble"] },
+  { "id": "h_arranged", "races": ["human"], "stages": ["teen"], "weight": 12, "require": { "anyFlags": ["noble", "bastard_blood"] },
     "text": "Gia đình sắp đặt cho bạn một cuộc hôn nhân chính trị với nhà bên kia sông.",
     "choices": [
       { "label": "Chấp nhận", "text": "Đám cưới kéo dài ba ngày. Bạn chỉ nhớ mình rất mệt.", "effects": { "wealth": 30, "joy": -5, "flags": ["partner", "married"] }, "moment": "Hôn nhân chính trị" },

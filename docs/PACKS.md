@@ -8,6 +8,14 @@
    `--report` in điều kiện của từng sự kiện để rà.
 5. `npm test`: dựng gói, kiểm tra dữ liệu, mô phỏng hàng nghìn kiếp, build.
 
+`npm run test:stories` dựng lại các gói và kiểm tra các nhánh nhân quả qua engine: dấu ấn nối chuỗi,
+kết cục sống/chết, lựa chọn chỉ còn một nhánh hợp lệ và điều kiện người thân/thuộc hạ.
+Sau khi sửa kịch bản, chạy `npm run build` để cập nhật dữ liệu dùng bởi `index.html`.
+
+`npm run simulate:ratings -- 300 12345` đo phân phối Hạng S/A/B/C trên 300 vòng đời,
+với seed cố định và tỉ lệ đầu thai thật. Bot chọn ngẫu nhiên trong các lựa chọn mở;
+kết quả này không đại diện cho chiến thuật tối ưu hay tỉ lệ của người chơi thực tế.
+
 Gói tộc mang theo: xuất thân kèm cha mẹ, vai trò (nghề), tổ chức với các bậc (Guild, bộ lạc...), nhiệm vụ / cướp phá
 nhiều cảnh có rẽ nhánh, sự kiện, cái chết riêng, tên và câu "năm yên ả" của việc chính, câu chữ cho đồng đội.
 

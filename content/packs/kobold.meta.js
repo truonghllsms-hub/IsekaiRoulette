@@ -1,9 +1,14 @@
 // Kobold pack: what the approved Gemini script (content/scripts/kobold.txt) cannot say by itself.
+const scriptStages = require("../races/kobold.json").stages;
+
 module.exports = {
   race: "kobold",
   script: "content/scripts/kobold.txt",
   story: "content/scripts/kobold_story.txt",
   exclusive: true,
+  lifespan: [8, 12],
+  scriptStages,
+  stages: scriptStages.map((s, i) => ({ ...s, start: [0, 1, 2, 4, 7, 9][i] })),
   useScriptStages: true,
 
   rename: [
@@ -74,11 +79,13 @@ module.exports = {
   decline: { label: "Kìm nén lại, chờ dịp khác", text: "Bạn ép cơn nóng rực dưới lớp vảy lắng xuống. Cơ hội này sẽ quay lại." },
 
   evos: [
-    { key: "elite", name: "Kobold Elite", match: ["elite", "vảy sừng"], life: 8, minAge: 10, require: { STR: 10, AGI: 8 } },
-    { key: "dragon", name: "Dragonblood Kobold", match: ["dragonblood", "huyết mạch rồng"], life: 15, minAge: 12, require: { INT: 10, anyFlags: ["dragon_blessed", "blood_sword", "dragon_scale"] } },
+    { key: "elite", name: "Kobold Elite", match: ["elite", "vảy sừng"], life: 8, minAge: 6, require: { STR: 10, AGI: 8 } },
+    { key: "dragon", name: "Dragonblood Kobold", match: ["dragonblood", "huyết mạch rồng"], life: 15, minAge: 8, require: { INT: 10, anyFlags: ["dragon_blessed", "blood_sword", "dragon_scale"] } },
   ],
 
   systems: {
+    earlyHazard: 0.285,
+    earlyUntil: "adult",
     noRecruit: true,
     bandName: "tổ đào",
     romance: false,

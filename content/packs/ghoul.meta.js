@@ -138,6 +138,11 @@ module.exports = {
     parentDeath: ["Bạn nghe tin {who} đã chết. Ký ức về con người đó chỉ còn là một vệt mờ trong đầu bạn.", "{who} đã qua đời. Bạn đứng lặng một lúc, rồi quay lại với cơn đói."],
   },
 
+  // The parser caps generated slugs at 40 characters. Keep this quest's full ID
+  // explicit without renaming every other long quest in existing packs.
+  questOverrides: {
+    cot_truyen_3_cuoc_tuan_hanh_cua_vua_kho_: { id: "ghoul_q_cot_truyen_3_cuoc_tuan_hanh_cua_vua_kho_cot" },
+  },
   overrides: {
     ghoul_action_serve_defend: { keep: true },
     ghoul_rank_sovereign: { require: { guildRank: 5 }, unrequire: { job: true }, choiceEffects: { 0: { success: { orgRank: 6 } }, 1: { success: { orgRank: 6 } }, 2: { success: { orgRank: 6 } } } },

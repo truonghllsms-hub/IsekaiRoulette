@@ -1,9 +1,14 @@
 // Imp pack: what the approved Gemini script (content/scripts/imp.txt) cannot say by itself.
+const scriptStages = require("../races/imp.json").stages;
+
 module.exports = {
   race: "imp",
   script: "content/scripts/imp.txt",
   story: "content/scripts/imp_story.txt",
   exclusive: true,
+  lifespan: [8, 12],
+  scriptStages,
+  stages: scriptStages.map((s, i) => ({ ...s, start: [0, 1, 2, 4, 7, 9][i] })),
 
   rename: [
     ["{maker} của bạn", "{maker}"],
@@ -84,11 +89,13 @@ module.exports = {
   decline: { label: "Kìm nén lại, chờ dịp khác", text: "Bạn nghiến răng ép luồng lửa trong người lắng xuống. Thân Imp nhỏ bé vẫn còn nguyên. Cơ hội này sẽ quay lại." },
 
   evos: [
-    { key: "demon", name: "Greater Demon", match: ["ác ma", "greater"], life: 10, minAge: 25, require: { any: [{ STR: 8, health: 40 }, { anyFlags: ["lava_skin", "abyssal_champion"] }] } },
-    { key: "free", name: "Free Imp", match: ["tự do", "free"], life: 5, minAge: 18, require: { INT: 8, AGI: 8, anyFlags: ["familiar_pet", "merchant_scum"] } },
+    { key: "demon", name: "Greater Demon", match: ["ác ma", "greater"], life: 10, minAge: 8, require: { any: [{ STR: 8, health: 40 }, { anyFlags: ["lava_skin", "abyssal_champion"] }] } },
+    { key: "free", name: "Free Imp", match: ["tự do", "free"], life: 5, minAge: 6, require: { INT: 8, AGI: 8, anyFlags: ["familiar_pet", "merchant_scum"] } },
   ],
 
   systems: {
+    earlyHazard: 0.285,
+    earlyUntil: "adult",
     noRecruit: true,
     bandName: "bè lũ",
     romance: false,

@@ -76,6 +76,8 @@ module.exports = {
   ],
 
   systems: {
+    earlyHazard: 3e-06,
+    earlyUntil: "adult",
     noRecruit: true,
     activeFrom: "child",
     jobFrom: "child",

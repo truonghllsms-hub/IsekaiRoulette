@@ -66,7 +66,7 @@
   const upper = (t) => (t ? t.charAt(0).toUpperCase() + t.slice(1) : "");
 
   // ---------- sprites ----------
-  // One atlas per person (img/<person>.png, frames in D.sprites[person]): person n of a race or
+  // One atlas per person (source path and frames in D.sprites[person]): person n of a race or
   // Beastman kin and gender, drawn as baby, child, teen, adult, old, each trade new (moi) and veteran
   // (kycuu), each evolution. A life keeps one person; a Human is picked by where they were born.
   const slug = (t) => String(t).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "");
@@ -147,18 +147,49 @@
     if (!s) return;
     const el = box.firstElementChild;
     // one scale for the whole person: a child is drawn smaller than the adult it becomes
-    // the adult frame fills the box; a big veteran or an evolution may grow a little past it
+    // fit the full frame inside the box, including wide weapons, wings and tails
     const P = D.sprites[s.person];
     const boxH = box.clientHeight || 52;
     const ref = (P.thuongdan || P.thieunien || s.rect)[3];
-    const k = Math.min(boxH / ref, (boxH * 1.25) / s.rect[3]);
+    const boxW = box.clientWidth || 72;
+    const k = Math.min(boxH / ref, (boxH * 0.9) / s.rect[3], (boxW * 0.9) / s.rect[2]);
     const [x, y, w, h] = s.rect;
-    el.style.width = `${Math.round(w * k)}px`;
-    el.style.height = `${Math.round(h * k)}px`;
-    el.style.backgroundImage = `url(img/${s.person}.png)`;
-    el.style.backgroundSize = `${Math.round(s.size[0] * k)}px ${Math.round(s.size[1] * k)}px`;
-    el.style.backgroundPosition = `${-Math.round(x * k)}px ${-Math.round(y * k)}px`;
+    el.style.width = `${w * k}px`;
+    el.style.height = `${h * k}px`;
+    el.style.backgroundImage = `url(${P._src || `img/${s.person}.png`})`;
+    el.style.backgroundSize = `${s.size[0] * k}px ${s.size[1] * k}px`;
+    el.style.backgroundPosition = `${-x * k}px ${-y * k}px`;
+    const key = `${P._src || s.person}:${s.rect.join(",")}`;
+    if (el.dataset.sprite !== key && !matchMedia("(prefers-reduced-motion: reduce)").matches && el.animate) {
+      el.animate([{ opacity: 0.4, transform: "translateY(3px)" }, { opacity: 1, transform: "translateY(0)" }], { duration: 180, easing: "ease-out" });
+    }
+    el.dataset.sprite = key;
   }
+
+  const portraitDialog = $("portrait-dialog");
+  function openPortrait(peak) {
+    if (!c) return;
+    $("portrait-name").textContent = c.name;
+    $("portrait-meta").textContent = [E.raceTitle(c), c.form || E.jobTitle(c, D)].filter(Boolean).join(" · ");
+    portraitDialog.showModal();
+    setSprite("portrait-sprite", c, peak);
+  }
+  $("hud-sprite").onclick = () => openPortrait(false);
+  $("reveal-sprite").onclick = () => openPortrait(false);
+  $("lc-sprite").onclick = () => openPortrait(true);
+  $("portrait-close").onclick = () => portraitDialog.close();
+  portraitDialog.addEventListener("click", (e) => { if (e.target === portraitDialog) { const r = portraitDialog.getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) portraitDialog.close(); } });
+
+  function isDarkTheme() { return document.documentElement.dataset.theme ? document.documentElement.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; }
+  function renderThemeButton() { $("btn-theme").textContent = isDarkTheme() ? "☀" : "☾"; $("btn-theme").setAttribute("aria-label", isDarkTheme() ? "Chuyển sang giao diện sáng" : "Chuyển sang giao diện tối"); }
+  $("btn-theme").onclick = () => {
+    const next = isDarkTheme() ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem("lhdg-theme", next); } catch (e) {}
+    renderThemeButton();
+  };
+  try { const savedTheme = localStorage.getItem("lhdg-theme"); if (savedTheme === "light" || savedTheme === "dark") document.documentElement.dataset.theme = savedTheme; } catch (e) {}
+  renderThemeButton();
 
 
   function startLife() {
@@ -172,6 +203,7 @@
     renderFamily();
     $("reveal-desc").textContent = c.race.desc || "";
     show("screen-reveal");
+    setSprite("reveal-sprite", c);
   }
 
   // Parents (or whoever made you), siblings and home, shown when you are born.
@@ -214,7 +246,7 @@
     $("hud-stage").textContent = E.currentStage(c).name;
 
     $("hud-bars").innerHTML = E.BAR_KEYS.map(
-      (k) => `<div class="bar">${BAR_LABEL[k]}<div class="track"><div class="fill" style="width:${c.bars[k]}%;background:${BAR_COLOR[k]}"></div></div></div>`
+      (k) => `<div class="bar${k === "health" && c.bars[k] <= 30 ? " bar-critical" : ""}"><span class="bar-label">${BAR_LABEL[k]}<b>${Math.round(c.bars[k])}</b></span><div class="track" role="progressbar" aria-label="${BAR_LABEL[k]}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(c.bars[k])}"><div class="fill" style="width:${c.bars[k]}%;background:${BAR_COLOR[k]}"></div></div></div>`
     ).join("");
     $("hud-stats").innerHTML = E.STAT_KEYS.map((k) => `<span class="stat">${STAT_LABEL[k]} <b>${c.stats[k]}</b></span>`).join("");
     $("hud-profile").innerHTML = profileHtml();
@@ -344,6 +376,7 @@
     c.pending.choices.forEach((ch, i) => {
       const b = document.createElement("button");
       b.className = "btn choice";
+      if (ch.risk === "lethal") b.classList.add("choice-danger");
       b.textContent = ch.label;
       const note = (text, cls) => {
         const s = document.createElement("small");
@@ -364,6 +397,10 @@
         const mood = E.moodBonus(c);
         const extra = [pb ? "có đồng đội trợ giúp" : "", mood > 0 ? "tinh thần phấn chấn" : mood < 0 ? "tâm trí u uất" : ""].filter(Boolean);
         note(`Dựa vào ${E.STAT_LABEL[ch.check.stat] || ch.check.stat} · ${word}` + (extra.length ? ` (${extra.join(", ")})` : ""), "odds odds-" + cls);
+        if (ch.risk === "lethal") {
+          const damage = ch.fail.effects?.health < 0 ? E.eventDamage(c, -ch.fail.effects.health) : 0;
+          note(ch.fail.death ? "Sinh tử · thất bại có thể tử trận" : `Sinh tử · thất bại mất ${damage} máu` + (damage >= c.bars.health ? " · có thể tử trận" : ""), "odds odds-slim");
+        }
       }
       b.onclick = () => {
         E.choose(c, D, i);
@@ -374,6 +411,7 @@
   }
 
   function render() {
+    const hasNewEntries = c.log.length > rendered;
     renderHud();
     renderLog();
     renderChoices();
@@ -389,7 +427,10 @@
       btn.textContent = c.quest ? "Tiếp tục nhiệm vụ" : "Sống tiếp";
       btn.disabled = false;
     }
-    requestAnimationFrame(() => window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" }));
+    if (hasNewEntries) requestAnimationFrame(() => {
+      const target = c.pending ? $("choices") : $("log").lastElementChild;
+      target?.scrollIntoView({ block: "nearest", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    });
   }
 
   function beginLife() {
@@ -449,7 +490,14 @@
     card = k;
     const sp = spriteOf(c, true);
     cardSprite = null;
-    if (sp) { const im = new Image(); im.onload = () => { cardSprite = { im, rect: sp.rect }; }; im.src = `img/${sp.person}.png`; }
+    const thisCard = card;
+    $("btn-save-card").disabled = !!sp;
+    if (sp) {
+      const im = new Image();
+      im.onload = () => { if (card === thisCard) { cardSprite = { im, rect: sp.rect }; $("btn-save-card").disabled = false; } };
+      im.onerror = () => { if (card === thisCard) $("btn-save-card").disabled = false; };
+      im.src = D.sprites[sp.person]._src || `img/${sp.person}.png`;
+    }
     $("lc-name").textContent = k.name;
     $("lc-line").textContent = k.line + (k.origin ? " · " + k.origin : "");
     $("lc-stats").textContent = k.stats || "";
@@ -537,7 +585,8 @@
     ctx.strokeStyle = "#5a4a7a"; ctx.lineWidth = 3; ctx.strokeRect(36, 36, W - 72, cv.height - 72);
     if (spr) {
       const [sx, sy, sw, sh] = cardSprite.rect;
-      ctx.imageSmoothingEnabled = false;
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = "high";
       ctx.drawImage(cardSprite.im, sx, sy, sw, sh, Math.round((W - spr.w) / 2), spr.y, spr.w, spr.h);
     }
     ctx.textBaseline = "top";

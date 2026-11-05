@@ -35,6 +35,8 @@ module.exports = {
   decline: { label: "Thôi, để lần sau", text: "Bạn khẽ lắc đầu. Với một Elf, cơ hội luôn có thể chờ thêm vài thập kỷ." },
   evos: [],
   systems: {
+    earlyHazard: 4e-05,
+    earlyUntil: "adult",
     noRecruit: true,},
   overrides: {
     elf_evt_lost_parent: { require: { parentGone: "any" } },
