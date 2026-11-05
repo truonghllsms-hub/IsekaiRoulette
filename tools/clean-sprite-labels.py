@@ -36,6 +36,25 @@ def clean(images, only=None):
                 x0,y0=max(0,tx-sx-1),max(0,ty-sy-1)
                 x1,y1=min(w,tx+tw-sx+1),min(h,ty+th-sy+1)
                 if x0<x1 and y0<y1:alpha[y0:y1,x0:x1]=0
+            # Demon life-stage headers overhang the original picture tiles.
+            # Source coordinates stop above the child's horns; do not crop art.
+            demon_headers={
+                ('demon_nam_2','hoilon'):[224,531,169,24],
+                ('demon_nam_2','thieunien'):[418,531,168,12],
+                ('demon_nam_2','thuongdan'):[602,517,75,32],
+            }
+            if (person,column) in demon_headers:
+                tx,ty,tw,th=demon_headers[person,column]
+                x0,y0=max(0,tx-sx),max(0,ty-sy)
+                x1,y1=min(w,tx+tw-sx),min(h,ty+th-sy)
+                if x0<x1 and y0<y1:alpha[y0:y1,x0:x1]=0
+            if person=='demon_nam_2' and column=='thieunien':
+                x0,y0=max(0,418-sx),max(0,548-sy)
+                x1,y1=min(w,586-sx),min(h,555-sy)
+                if x0<x1 and y0<y1:
+                    ink=patch[y0:y1,x0:x1,:3].astype(np.int16)
+                    rim=(ink[:,:,2]>ink[:,:,0]+5)&(ink[:,:,1]>ink[:,:,0]+4)&(ink.max(axis=2)-ink.min(axis=2)<35)&(ink.mean(axis=2)>65)
+                    alpha[y0:y1,x0:x1][rim]=0
             # Source labels attached to a picture panel, reviewed at native size.
             printed_panels={
                 ('dragon_nu_1','hoard_kycuu'):[149,444,128,43],

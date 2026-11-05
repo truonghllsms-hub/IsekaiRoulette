@@ -501,6 +501,7 @@ function build(raceId, opts) {
     // events the script gives no stage for skip stages where the race cannot act yet (a dragon egg)
     if (!ev.stages && meta.defaultStages && !/_evo_|_post_/.test(e.id)) ev.stages = meta.defaultStages;
     if (o.stages) ev.stages = o.stages;
+    if (o.npcs) ev.npcs = o.npcs;
     if (o.focus) ev.focus = o.focus;
     if (o.eras) ev.eras = o.eras;
     if (o.minAge != null) ev.minAge = o.minAge;

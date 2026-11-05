@@ -40,6 +40,9 @@ for person,columns in atlas.items():
         rgba=np.asarray(sheet.crop((x,y,x+w,y+h)))
         opaque=rgba[:,:,3]>0
         assert opaque.sum()>16 and (~opaque).any(),(person,column,"empty or opaque block")
+        if person=="demon_nam_2" and column=="hoilon":
+            source_y=provenance[person]["frames"][column][1]
+            assert np.where(opaque)[0].min()+source_y>=555,"Demon childhood frame still includes the printed header"
         info=provenance[person]
         sx,sy,sw,sh=info["frames"][column]
         assert [sw,sh]==[w,h],(person,column,"resized image")

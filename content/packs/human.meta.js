@@ -8,6 +8,9 @@ module.exports = {
   script: "content/scripts/human.txt",
   story: "content/scripts/human_story.txt",
   exclusive: true,
+  questOverrides: {
+    human_story_arena_ghost: { npcs: [{ name: "Dorian", race: "Human", position: "Bá tước, người thuê bạn điều tra đấu trường" }] },
+  },
   keepEvents: ["h_tutor", "h_arranged", "human_child_noble_etiquette"],
   // which biography opening ("con hoang", "thợ rèn"...) fits each origin
   storyBioOpen: { harlot: "con hoang", noble_bastard: "con hoang", priest_sin: "tội lỗi", cultist: "tà giáo", hero_descendant: "anh hùng", knight_orphan: "anh hùng",

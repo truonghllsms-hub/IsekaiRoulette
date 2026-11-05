@@ -15,23 +15,41 @@ Không nhân lại sát thương xuất thân, hao mòn thời đại hay phần
 Goblin/Kobold/Imp có tuổi thọ tự nhiên 8–12, trưởng thành ở 4; tiến hóa có thể
 kéo dài đời. Tuổi thọ tự nhiên khác tuổi chết trung bình khi có tai nạn.
 
-## Mẫu đo
+## Tai nạn có lựa chọn sinh tồn
+
+`earlyHazard` của Goblin/Kobold/Imp là **0,05** (cũ: 0,285); Human giữ 0,02,
+Beastman giữ 0,025. Đây là xác suất tai nạn nền mỗi năm, còn được điều chỉnh theo
+thời đại, focus và may mắn; không phải xác suất chết trực tiếp.
+
+Khi trúng tai nạn, lượt dừng ở cảnh `crisis`. Người chơi chọn né/trốn (AGI),
+kêu cứu (LUCK khi nhỏ, INT khi lớn) hoặc mở đường thoát thân (STR). Engine chỉ có
+STR/INT/AGI/LUCK, nên không tạo thêm chỉ số CHA/WIL không tồn tại. Kêu cứu chỉ mở
+khi có phụ huynh/đồng đội còn sống có thể hỗ trợ; cha mẹ không xuất hiện để giải
+cứu từ bên ngoài nơi giam giữ. Thất bại mới gây tử vong do bạo lực. Thành công
+không tăng tuổi; một mốc tuổi bị ngắt sẽ tiếp tục ở đúng tuổi đó.
+
+Chết do cạn máu, tuổi già và kết quả tử vong viết sẵn trong kịch bản vẫn được giữ.
+Nội dung cảnh phân biệt trẻ nhỏ, giam giữ, chiến loạn và tai họa ma pháp.
+
+## Mẫu đo sau điều chỉnh
 
 `npm run simulate:survival -- 200 12345`: 1.600 cuộc đời, 200/chủng tộc.
 Bot chọn ngẫu nhiên phương án mở, có 5% cơ hội đổi focus mỗi bước thời gian.
 
 | Tộc | Chết trước thiếu niên | Chết trước trưởng thành | Tuổi chết TB |
 |---|---:|---:|---:|
-| Goblin | 36% | 66% | 4,3 |
-| Kobold | 40% | 70,5% | 4,0 |
-| Imp | 37% | 70% | 4,2 |
-| Human | 21% | 30,5% | 32,6 |
-| Beastman | 27,5% | 36% | 19,2 |
-| Elf | 0,5% | 10% | 610,2 |
-| Dragon | 3,5% | 31% | 3.639,3 |
-| High Demon | 1,5% | 18,5% | 6.339,6 |
+| Goblin | 1.5% | 6.5% | 9.2 |
+| Kobold | 1.5% | 3.5% | 9.7 |
+| Imp | 2.5% | 7.5% | 9.3 |
+| Human | 7.5% | 18% | 39.5 |
+| Beastman | 5.5% | 17% | 25.2 |
+| Elf | 0.5% | 8% | 798.7 |
+| Dragon | 1.5% | 24% | 4983.1 |
+| High Demon | 1.5% | 21% | 6284.5 |
 
-Chỉ 0–1,5% Goblin/Kobold/Imp vượt 15 tuổi trong mẫu này. Dragon trưởng thành ở
-2.000, High Demon ở 5.000: cột trước trưởng thành bao gồm thời thiếu niên dài,
-không đồng nghĩa chết sơ sinh. Đây là mô phỏng một seed/chiến thuật, không phải
-thống kê người chơi và không đảm bảo các tỉ lệ này cho mọi lần chơi.
+Trước thay đổi này, cùng công cụ/seed cho mẫu 200 đời mỗi tộc có 66% Goblin,
+70,5% Kobold và 70% Imp chết trước trưởng thành; mẫu mới lần lượt 6,5%, 3,5%,
+7,5%. Các lần chạy không giữ cùng từng cuộc đời vì cơ chế mới tiêu thụ RNG khác.
+Dragon trưởng thành ở 2.000, High Demon ở 5.000: cột trước trưởng thành bao gồm
+thời thiếu niên dài, không đồng nghĩa chết sơ sinh. Đây là mô phỏng một seed và
+chiến thuật, không phải thống kê người chơi hay tỉ lệ được đảm bảo.

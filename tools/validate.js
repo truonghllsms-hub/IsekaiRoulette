@@ -7,8 +7,8 @@ const BOOL_EFFECTS = new Set(["allyHurt", "allyDie", "allyLeave", "loseJob", "jo
 const STR_EFFECTS = new Set(["item", "setJob", "focus", "orgRankName", "evolve", "era", "parentDie"]);
 const REQ_KEYS = new Set(["parentGone", "parentDead", "free", ...STATS, ...BARS, "fame", "below", "flags", "anyFlags", "notFlags", "flagHint", "gender", "job", "jobRank", "jobRankMax", "guild", "guildRank", "guildRankMax", "party", "noParty", "allyTrait", "spouse", "children", "noChildren", "focus", "hint", "any", "fatherAlive", "motherAlive", "makerAlive", "form", "subtype", "notSubtypes", "cast", "castAlive", "noBand", "band", "bandMember", "minionOk", "minions", "bandLead", "partyMax", "origin"]);
 const STORY_EFFECTS = new Set(["castDie", "castJoin", "castLeave", "castBond", "joinBand", "leaveBand", "bandGone", "bandLead", "minionAdd", "minionLose", "minionRevolt", "minionLoyal", "memberBond", "memberDie", "memberLeave", "memberJoin", "foundBand"]);
-const EVENT_KEYS = new Set(["path", "_file", "id", "races", "excludeRaces", "tags", "stages", "eras", "minAge", "maxAge", "once", "weight", "require", "text", "effects", "choices", "moment", "death", "focus", "result", "pack", "arc", "recall"]);
-const PLACEHOLDERS = new Set(["name", "race", "age", "origin", "stage", "pct", "cause", "ally", "allyJob", "partner", "child", "job", "rank", "guild", "spouse", "quest", "next", "father", "mother", "maker", "who", "rival", "mentor", "friend", "party", "leader", "member", "minion"]);
+const EVENT_KEYS = new Set(["path", "_file", "id", "races", "excludeRaces", "tags", "stages", "eras", "minAge", "maxAge", "once", "weight", "require", "text", "effects", "choices", "moment", "death", "focus", "result", "pack", "arc", "recall", "npcs"]);
+const PLACEHOLDERS = new Set(["name", "race", "age", "origin", "stage", "pct", "cause", "ally", "allyJob", "partner", "child", "job", "rank", "guild", "spouse", "quest", "next", "father", "mother", "maker", "who", "rival", "mentor", "friend", "party", "leader", "member", "minion", "place"]);
 
 function validate(data) {
   const errors = [];
@@ -92,6 +92,18 @@ function validate(data) {
     checkEffects(where, o.effects);
   };
 
+  const checkNpcs = (where, list) => {
+    if (list == null) return;
+    if (!Array.isArray(list)) return err(where, "npcs phải là một mảng");
+    const seen = new Set();
+    for (const npc of list) {
+      if (!npc || typeof npc.name !== "string" || !npc.name.trim()) { err(where, "NPC phải có name"); continue; }
+      if (seen.has(npc.name)) err(where, `NPC trùng tên "${npc.name}"`);
+      seen.add(npc.name);
+      if (!(typeof npc.race === "string" && npc.race.trim()) || !(typeof npc.position === "string" && npc.position.trim())) err(where, `NPC ${npc.name} cần race và position`);
+    }
+  };
+
   const ids = new Set();
   for (const e of data.events) {
     const w = `events/${e._file} [${e.id}]`;
@@ -99,6 +111,7 @@ function validate(data) {
     if (!/^[a-z0-9_]+$/.test(e.id || "")) err(w, "id phải viết thường, không dấu");
     if (ids.has(e.id)) err(w, "trùng id");
     ids.add(e.id);
+    checkNpcs(w, e.npcs);
     checkRaces(w, e.races);
     checkRaces(w, e.excludeRaces);
     for (const t of e.tags || []) if (!tags.has(t)) err(w, `tag không tồn tại "${t}"`);
@@ -178,6 +191,7 @@ function validate(data) {
       if (q.maxRank != null && !(q.maxRank >= 0 && q.maxRank < o.ranks.length)) err(w, "maxRank ngoài phạm vi");
     }
     for (const x of q.eras || []) if (!eraIds.has(x)) err(w, `thời đại không tồn tại "${x}"`);
+    checkNpcs(w, q.npcs);
     checkText(w, q.intro);
     checkText(w, q.complete);
     if (!(q.steps && q.steps.length)) err(w, "cần ít nhất 1 cảnh (steps)");

@@ -67,3 +67,21 @@ Bỏ trống = mọi thời đại. Thời đại được bốc lúc sinh (40/3
 - 1–2 câu chau chuốt; câu sau là hình ảnh hoặc chi tiết định mệnh.
 - Dùng địa danh và tổ chức của Aethelgard (xem `content/WORLD.md`).
 - Không dùng tên riêng, câu chữ hay tình huống của game/truyện có thật.
+
+## NPC xuất hiện lần đầu
+
+Sự kiện có `{rival}`, `{mentor}`, `{friend}` tự thêm lời diện kiến lấy từ Cast
+`desc`/`title` trước phần tình huống, chỉ một lần cho mỗi vai trò. Việc kiểm tra
+điều kiện hoặc gọi `fmt()` để xem trước không đánh dấu đã gặp. Tên NPC tuyển mộ,
+thành viên tổ đội có race/position trong metadata sẽ được định danh ngay lần
+nhắc đầu. Nội dung đã có ngoặc giới thiệu không bị thêm ngoặc lặp.
+
+NPC mới ngoài các danh sách này cần khai báo trên event hoặc quest:
+
+```json
+"npcs": [{ "name": "Garosh", "race": "Beastman tộc Sói", "position": "Thợ săn kỳ cựu" }]
+```
+
+Lần đầu sẽ hiển thị `Garosh (Beastman tộc Sói, Thợ săn kỳ cựu)`. Những lần sau
+chỉ dùng tên. Đặt NPC nhiệm vụ trong `questOverrides` của pack để giữ sau build;
+NPC riêng của event đặt trong `overrides` tương ứng.

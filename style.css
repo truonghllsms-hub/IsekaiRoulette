@@ -146,7 +146,7 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 7vw, 48
 .entry .when { font-size: 12px; color: var(--muted); text-align: right; padding-top: 3px; font-variant-numeric: tabular-nums; }
 .entry .when b { display: block; color: var(--ink); font-size: 15px; font-family: var(--serif); white-space: nowrap; }
 .entry .text { font-family: var(--serif); font-size: 17px; }
-.entry .text p { margin: 0 0 4px; }
+.entry .text p { margin: 0 0 4px; white-space: pre-line; }
 .entry .picked { font-family: var(--sans); font-size: 13px; color: var(--accent); }
 .entry .picked::before { content: "→ "; }
 .entry.kind-death .text { color: var(--bad); }
@@ -282,7 +282,7 @@ body { background: radial-gradient(ellipse at 15% 0%, rgba(122,79,208,.08), tran
 .btn, .chip { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 .btn { min-height: 48px; transition: transform .16s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease; }
 .btn.primary { box-shadow: 0 5px 18px rgba(122,79,208,.16); }
-.btn:focus-visible, .chip:focus-visible, .utility-controls button:focus-visible, .sprite-open:focus-visible, .portrait-close:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.btn:focus-visible, .chip:focus-visible, .utility-controls button:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 #screen-start { min-height: min(700px, calc(100svh - 140px)); justify-content: center; padding-top: 12px; padding-bottom: 36px; gap: 22px; }
 #screen-start h1 { letter-spacing: -.04em; }
 #screen-start .lede { line-height: 1.85; }
@@ -305,8 +305,6 @@ body { background: radial-gradient(ellipse at 15% 0%, rgba(122,79,208,.08), tran
 .sprite-hud { width: 84px; height: 100px; align-items: flex-end; justify-content: center; position: relative; padding: 5px; border: 1px solid var(--line); border-radius: 15px; background: radial-gradient(ellipse at 50% 45%, var(--choice), transparent 75%); overflow: hidden; }
 .sprite-hud::before { content: ''; position: absolute; bottom: 7px; left: 18%; right: 18%; height: 9%; border-radius: 50%; background: rgba(80,60,110,.11); filter: blur(3px); }
 .sprite-frame { position: relative; z-index: 1; background-repeat: no-repeat; image-rendering: auto; filter: drop-shadow(0 4px 3px rgba(0,0,0,.1)); }
-.sprite-open { cursor: zoom-in; font: inherit; color: inherit; transition: border-color .18s ease, box-shadow .18s ease; }
-.sprite-open:hover { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(122,79,208,.07); }
 .sprite-hud[hidden] { display: none; }
 .reveal-sprite { width: 164px; height: 174px; margin: 2px auto 8px; border-radius: 24px; }
 .bar-label { display: flex; align-items: baseline; justify-content: space-between; gap: 6px; }
@@ -334,11 +332,23 @@ body { background: radial-gradient(ellipse at 15% 0%, rgba(122,79,208,.08), tran
 .life-card { width: 100%; border-radius: 22px; padding: 26px 28px; box-shadow: inset 0 0 0 1px #655077, 0 16px 50px rgba(20,12,30,.13); }
 .life-card .lc-sprite { width: 220px; height: 196px; margin: 16px auto; align-self: center; border: 1px solid rgba(169,139,240,.18); border-radius: 22px; background: radial-gradient(ellipse,rgba(169,139,240,.13),transparent 75%); }
 .life-card .lc-sprite::before { background: rgba(169,139,240,.12); }
-.portrait-dialog { width: min(460px,calc(100vw - 28px)); max-height: 90svh; padding: 28px 24px; border: 1px solid var(--line); border-radius: 24px; color: var(--ink); background: var(--surface); text-align: center; box-shadow: 0 24px 100px rgba(0,0,0,.25); }
-.portrait-dialog::backdrop { background: rgba(15,10,24,.65); backdrop-filter: blur(6px); }
-.portrait-dialog h2 { font: 600 25px/1.35 var(--serif); margin: 10px 25px 16px; }
-.portrait-large { width: min(330px,70vw); height: min(360px,55svh); margin: 0 auto; border-radius: 20px; }
-.portrait-close { position: absolute; right: 12px; top: 10px; width: 36px; height: 36px; border: 0; border-radius: 50%; background: var(--choice); color: var(--ink); font: 24px/1 var(--sans); cursor: pointer; }
+.people-dialog { width: min(560px,calc(100vw - 28px)); max-height: 88svh; padding: 28px 24px; border: 1px solid var(--line); border-radius: 24px; color: var(--ink); background: var(--surface); box-shadow: 0 24px 100px rgba(0,0,0,.25); }
+.people-dialog::backdrop { background: rgba(15,10,24,.65); backdrop-filter: blur(6px); }
+.people-dialog h2 { font: 600 25px/1.35 var(--serif); margin: 10px 30px 16px 0; }
+.dialog-close { position: absolute; right: 12px; top: 10px; width: 36px; height: 36px; border: 0; border-radius: 50%; background: var(--choice); color: var(--ink); font: 24px/1 var(--sans); cursor: pointer; }
+#roster-summary { white-space: pre-line; }
+.roster-members { display: grid; gap: 12px; }
+.member-card { padding: 16px; border: 1px solid var(--line); border-radius: 14px; background: var(--bg); }
+.member-card h3 { margin: 0 0 8px; }
+.member-card p { margin: 7px 0 0; font-size: 13px; line-height: 1.75; }
+.member-name-link, .band-offer { color: var(--accent); cursor: pointer; font: inherit; border: 0; background: none; padding: 0; text-align: left; }
+.member-name-link { text-decoration: underline; text-underline-offset: 3px; }
+.band-offer { padding: 12px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); font-size: 14px; }
+.member-dialog { text-align: center; }
+.member-portrait { width: min(300px,68vw); height: min(330px,48svh); margin: 0 auto; border-radius: 20px; }
+.member-info { font-size: 14px; line-height: 1.75; }
+.npc[data-band], .npc[data-member] { cursor: pointer; }
+.member-name-link:focus-visible, .band-offer:focus-visible, .dialog-close:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 @media (max-width:480px) {
   #app { padding-top: 12px; padding-bottom: 26px; }
   .app-toolbar { margin-bottom: 18px; }

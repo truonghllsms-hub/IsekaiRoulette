@@ -140,9 +140,11 @@
     return col ? { person, rect: P[col], size: P._size } : null;
   }
   function setSprite(id, ch, peak) {
+    paintSprite(id, spriteOf(ch, peak));
+  }
+  function paintSprite(id, s) {
     const box = $(id);
     if (!box) return;
-    const s = spriteOf(ch, peak);
     box.hidden = !s;
     if (!s) return;
     const el = box.firstElementChild;
@@ -166,19 +168,84 @@
     el.dataset.sprite = key;
   }
 
-  const portraitDialog = $("portrait-dialog");
-  function openPortrait(peak) {
-    if (!c) return;
-    $("portrait-name").textContent = c.name;
-    $("portrait-meta").textContent = [E.raceTitle(c), c.form || E.jobTitle(c, D)].filter(Boolean).join(" · ");
-    portraitDialog.showModal();
-    setSprite("portrait-sprite", c, peak);
+  function storyBands() {
+    return Object.entries(D.story?.[c.race.id]?.bands || {}).map(([id, b]) => ({ ...b, id }));
   }
-  $("hud-sprite").onclick = () => openPortrait(false);
-  $("reveal-sprite").onclick = () => openPortrait(false);
-  $("lc-sprite").onclick = () => openPortrait(true);
-  $("portrait-close").onclick = () => portraitDialog.close();
-  portraitDialog.addEventListener("click", (e) => { if (e.target === portraitDialog) { const r = portraitDialog.getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) portraitDialog.close(); } });
+  function invitedBandIds() {
+    const ids = new Set();
+    for (const ch of c.pending?.choices || []) for (const outcome of [ch, ch.success, ch.fail]) {
+      const id = outcome?.effects?.joinBand;
+      if (typeof id === "string") ids.add(id);
+    }
+    return ids;
+  }
+  function bandNamed(name) {
+    return storyBands().find(b => name === b.name || name === b.title) || (c.band?.name === name ? c.band : null);
+  }
+  function memberNamed(name, bandId) {
+    const companion = c.party.find(m => m.name === name && !m.band);
+    if (companion && !bandId) return companion;
+    const bands = storyBands();
+    const invited = invitedBandIds();
+    const preferred = bandId || [...invited][0] || c.band?.id;
+    bands.sort((a, b) => Number(b.id === preferred) - Number(a.id === preferred));
+    for (const b of bands) {
+      const m = (b.members || []).find(m => m.name === name);
+      if (m) return { ...m, ...c.party.find(p => p.name === name && p.band === b.id), bandId: b.id };
+    }
+    const m = c.party.find(m => m.name === name);
+    return m || Object.values(D.story?.[c.race.id]?.recruits || {}).find(m => m.name === name);
+  }
+  function openMember(name, bandId) {
+    const m = memberNamed(name, bandId);
+    if (!m || m.name === c.name) return;
+    $("member-name").textContent = m.name;
+    $("member-info").textContent = [m.race, m.jobName || m.position, m.desc].filter(Boolean).join(" · ");
+    const sprite = window.Portraits.npcSprite(m, D);
+    $("member-no-art").hidden = !!sprite;
+    $("member-art-note").hidden = !sprite;
+    if (!$("member-dialog").open) $("member-dialog").showModal();
+    paintSprite("member-portrait", sprite);
+  }
+  function openBand(id) {
+    const b = storyBands().find(b => b.id === id) || (c.band?.id === id ? c.band : null);
+    if (!b) return;
+    $("roster-name").textContent = b.name || b.title;
+    $("roster-summary").textContent = [b.rule && `Nguyên tắc: ${b.rule}`, b.lair && `Nơi tụ họp: ${b.lair}`].filter(Boolean).join("\n");
+    const list = $("roster-members");
+    list.replaceChildren();
+    const members = b.members || c.party.filter(m => m.band === id);
+    for (const original of members) {
+      const m = { ...original, ...c.party.find(p => p.name === original.name && p.band === id) };
+      const card = document.createElement("article");card.className = "member-card";
+      const heading = document.createElement("h3");
+      const name = document.createElement("button");name.type = "button";name.className = "member-name-link";
+      name.textContent = m.name;name.dataset.member = m.name;name.dataset.memberBand = id;
+      name.setAttribute("aria-haspopup", "dialog");name.setAttribute("aria-label", `Xem ảnh ${m.name}`);
+      heading.appendChild(name);card.appendChild(heading);
+      const lines = [[m.race, m.jobName || m.position].filter(Boolean).join(" · "), m.desc, m.secret && `Bí mật: ${m.secret}`, m.bond != null && `Thân thiết: ${m.bond}/100`, m.left ? "Đã rời đội" : m.alive === false ? "Đã qua đời" : null];
+      for (const text of lines.filter(Boolean)) { const p = document.createElement("p");p.textContent = text;card.appendChild(p); }
+      list.appendChild(card);
+    }
+    if (!$("roster-dialog").open) $("roster-dialog").showModal();
+  }
+  $("app").addEventListener("click", e => {
+    const close = e.target.closest("[data-close]");
+    if (close) { $(close.dataset.close)?.close(); return; }
+    const member = e.target.closest("[data-member]");
+    if (member) { openMember(member.dataset.member, member.dataset.memberBand); return; }
+    const band = e.target.closest("[data-band]");
+    if (band) openBand(band.dataset.band);
+  });
+  $("app").addEventListener("keydown", e => {
+    if (!["Enter", " "].includes(e.key) || !e.target.matches(".npc[data-member], .npc[data-band]")) return;
+    e.preventDefault();e.target.click();
+  });
+  for (const id of ["roster-dialog", "member-dialog"]) $(id).addEventListener("click", e => {
+    if (e.target !== $(id)) return;
+    const r = $(id).getBoundingClientRect();
+    if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) $(id).close();
+  });
 
   function isDarkTheme() { return document.documentElement.dataset.theme ? document.documentElement.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; }
   function renderThemeButton() { $("btn-theme").textContent = isDarkTheme() ? "☀" : "☾"; $("btn-theme").setAttribute("aria-label", isDarkTheme() ? "Chuyển sang giao diện sáng" : "Chuyển sang giao diện tối"); }
@@ -260,7 +327,7 @@
     if (org) out.push(`<span>${esc(org.name)} <b>${esc(E.orgRankName(c, D))}</b></span>`);
     if (c.fame) out.push(`<span>Danh vọng <b>${c.fame}</b></span>`);
     if (c.party.length)
-      out.push(`<span>Tổ đội ${c.party.filter((m) => !m.left).map((m) => `<b class="${m.alive ? "" : "dead"}" title="${esc(m.race + ", " + m.jobName)}">${esc(m.name)}</b>`).join(", ")}</span>`);
+      out.push(`<span>Tổ đội ${c.party.filter((m) => !m.left).map((m) => `<button type="button" class="member-name-link ${m.alive ? "" : "dead"}" data-member="${esc(m.name)}" aria-haspopup="dialog" title="${esc(m.race + ", " + m.jobName)}">${esc(m.name)}</button>`).join(", ")}</span>`);
     if (c.spouse) out.push(`<span>Bạn đời <b>${esc(c.spouse.name)}</b>${c.children.length ? ` · ${c.children.length} con` : ""}</span>`);
     // what you carry: weapon, armour, keepsakes (hover for what it is and what it adds)
     if (c.items && c.items.length) {
@@ -318,6 +385,11 @@
     for (const m of c.party || []) add(m.name, `Đồng đội · ${[m.race, m.jobName].filter(Boolean).join(" · ")}${!m.alive ? " · đã mất" : m.left ? " · đã rời đi" : ""}`);
     for (const f of c.fallen || []) add(f.name, `Đồng đội đã khuất · mất khi bạn ${Math.floor(f.at)} tuổi`);
     if (c.band && c.band.name) add(c.band.name, `Tổ đội của bạn · từ năm ${Math.floor(c.band.since)} tuổi`);
+    for (const b of storyBands()) {
+      add(b.name || b.title, "Xem hồ sơ và toàn bộ thành viên tổ đội");
+      for (const m of b.members || []) add(m.name, [m.race, m.position, m.desc].filter(Boolean).join(" · "));
+    }
+    for (const m of Object.values(story?.recruits || {})) add(m.name, [m.race, m.position, m.desc].filter(Boolean).join(" · "));
     return idx;
   }
   // the text with each known name wrapped in a note; everything else stays plain text
@@ -327,7 +399,10 @@
     const re = new RegExp(`(?<!\\p{L})(${names.join("|")})(?!\\p{L})`, "gu");
     let html = "", last = 0, m;
     while ((m = re.exec(text))) {
-      html += esc(text.slice(last, m.index)) + `<span class="npc" tabindex="0" data-who="${esc(idx.get(m[1]))}">${esc(m[1])}</span>`;
+      const band = bandNamed(m[1]);
+      const member = !band && memberNamed(m[1]);
+      const action = band ? ` data-band="${esc(band.id)}"` : member ? ` data-member="${esc(member.name)}"${member.bandId ? ` data-member-band="${esc(member.bandId)}"` : ""}` : "";
+      html += esc(text.slice(last, m.index)) + `<span class="npc" tabindex="0" data-who="${esc(idx.get(m[1]))}"${action}${action ? ' role="button" aria-haspopup="dialog"' : ""}>${esc(m[1])}</span>`;
       last = m.index + m[1].length;
     }
     el.innerHTML = html + esc(text.slice(last));
@@ -373,6 +448,13 @@
     const box = $("choices");
     box.innerHTML = "";
     if (!c.pending) return;
+    for (const id of invitedBandIds()) {
+      const band = storyBands().find(b => b.id === id);
+      if (!band) continue;
+      const info = document.createElement("button");info.type = "button";info.className = "band-offer";
+      info.textContent = `Xem thành viên ${band.name || band.title}`;info.dataset.band = id;
+      info.setAttribute("aria-haspopup", "dialog");box.appendChild(info);
+    }
     c.pending.choices.forEach((ch, i) => {
       const b = document.createElement("button");
       b.className = "btn choice";
@@ -399,7 +481,8 @@
         note(`Dựa vào ${E.STAT_LABEL[ch.check.stat] || ch.check.stat} · ${word}` + (extra.length ? ` (${extra.join(", ")})` : ""), "odds odds-" + cls);
         if (ch.risk === "lethal") {
           const damage = ch.fail.effects?.health < 0 ? E.eventDamage(c, -ch.fail.effects.health) : 0;
-          note(ch.fail.death ? "Sinh tử · thất bại có thể tử trận" : `Sinh tử · thất bại mất ${damage} máu` + (damage >= c.bars.health ? " · có thể tử trận" : ""), "odds odds-slim");
+          const deathRisk = c.pending.kind === "crisis" ? "Sinh tử · thất bại mất mạng" : "Sinh tử · thất bại có thể tử trận";
+          note(ch.fail.death ? deathRisk : `Sinh tử · thất bại mất ${damage} máu` + (damage >= c.bars.health ? " · có thể tử trận" : ""), "odds odds-slim");
         }
       }
       b.onclick = () => {

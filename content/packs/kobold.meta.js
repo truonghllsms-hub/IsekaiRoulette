@@ -84,7 +84,7 @@ module.exports = {
   ],
 
   systems: {
-    earlyHazard: 0.285,
+    earlyHazard: 0.05,
     earlyUntil: "adult",
     noRecruit: true,
     bandName: "tổ đào",

@@ -7,7 +7,8 @@ Game mô phỏng một cuộc đời tại Aethelgard: quay chủng tộc, chọ
 
 Giải nén toàn bộ thư mục, rồi mở `index.html` bằng Chrome, Edge hoặc Firefox mới.
 Giữ nguyên thư mục `img/` và `audio/` cạnh trang HTML.
-Bấm ảnh nhân vật để xem lớn; nút mặt trăng/mặt trời chuyển giao diện tối/sáng.
+Bấm tên tổ đội trong lời mời để xem hồ sơ đầy đủ; bấm tên thành viên để xem ảnh.
+Nút mặt trăng/mặt trời chuyển giao diện tối/sáng.
 
 Để lưu ảnh thẻ ổn định và tránh giới hạn của trình duyệt với file cục bộ,
 cài Node.js rồi chạy từ thư mục game:

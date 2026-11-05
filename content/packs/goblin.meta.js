@@ -110,7 +110,7 @@ module.exports = {
   ],
 
   systems: {
-    earlyHazard: 0.285,
+    earlyHazard: 0.05,
     earlyUntil: "adult",
     bandName: "băng nhóm",
     // companions come from bands (and later minions), not from strangers met on the road

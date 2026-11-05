@@ -28,6 +28,9 @@ ${safeJs(read("engine.js"))}
 ${safeJs(read("data.js"))}
 </script>
 <script>
+${safeJs(read("portraits.js"))}
+</script>
+<script>
 ${safeJs(read("ui.js"))}
 </script>
 `;

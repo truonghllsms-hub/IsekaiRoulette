@@ -48,7 +48,7 @@
     <!-- Reveal -->
     <section id="screen-reveal" class="screen" hidden>
       <p class="eyebrow">Bạn là</p>
-      <button id="reveal-sprite" class="sprite-hud reveal-sprite sprite-open" type="button" aria-label="Xem chân dung nhân vật" hidden><div class="sprite-frame"></div></button>
+      <div id="reveal-sprite" class="sprite-hud reveal-sprite" aria-hidden="true" hidden><div class="sprite-frame"></div></div>
       <h1 id="reveal-name"></h1>
       <p class="race-line">thuộc chủng tộc <b id="reveal-race"></b></p>
       <p id="reveal-gloss" class="gloss"></p>
@@ -63,7 +63,7 @@
     <section id="screen-life" class="screen" hidden>
       <div class="hud-wrap" id="hud-wrap">
       <header class="hud">
-        <button id="hud-sprite" class="sprite-hud sprite-open" type="button" aria-label="Xem chân dung nhân vật" hidden><div class="sprite-frame"></div></button>
+        <div id="hud-sprite" class="sprite-hud" aria-hidden="true" hidden><div class="sprite-frame"></div></div>
         <div class="who">
           <span id="hud-name" class="name"></span>
           <span id="hud-meta" class="meta"></span>
@@ -90,7 +90,7 @@
     <section id="screen-death" class="screen" hidden>
       <figure id="life-card" class="life-card">
         <p class="lc-eyebrow">Luân Hồi Dị Giới · một kiếp người</p>
-        <button id="lc-sprite" class="sprite-hud lc-sprite sprite-open" type="button" aria-label="Xem chân dung trong thẻ cuộc đời" hidden><div class="sprite-frame"></div></button>
+        <div id="lc-sprite" class="sprite-hud lc-sprite" aria-hidden="true" hidden><div class="sprite-frame"></div></div>
         <h2 id="lc-name"></h2>
         <p id="lc-line" class="lc-line"></p>
         <p id="lc-stats" class="lc-stats"></p>
@@ -118,17 +118,27 @@
         <button id="btn-review" class="btn">Xem lại cuộc đời</button>
       </div>
     </section>
-  <dialog id="portrait-dialog" class="portrait-dialog" aria-labelledby="portrait-name">
-    <button id="portrait-close" class="portrait-close" type="button" aria-label="Đóng chân dung">×</button>
-    <p class="eyebrow">Chân dung linh hồn</p>
-    <h2 id="portrait-name"></h2>
-    <div id="portrait-sprite" class="sprite-hud portrait-large" aria-hidden="true"><div class="sprite-frame"></div></div>
-    <p id="portrait-meta" class="meta"></p>
+  <dialog id="roster-dialog" class="people-dialog" aria-labelledby="roster-name">
+    <button class="dialog-close" type="button" data-close="roster-dialog" aria-label="Đóng thông tin tổ đội">×</button>
+    <p class="eyebrow">Hồ sơ tổ đội</p>
+    <h2 id="roster-name"></h2>
+    <p id="roster-summary" class="meta"></p>
+    <div id="roster-members" class="roster-members"></div>
+  </dialog>
+  <dialog id="member-dialog" class="people-dialog member-dialog" aria-labelledby="member-name">
+    <button class="dialog-close" type="button" data-close="member-dialog" aria-label="Đóng chân dung thành viên">×</button>
+    <p class="eyebrow">Thành viên tổ đội</p>
+    <h2 id="member-name"></h2>
+    <div id="member-portrait" class="sprite-hud member-portrait" aria-hidden="true"><div class="sprite-frame"></div></div>
+    <p id="member-no-art" class="meta" hidden>Kho ảnh hiện chưa có chân dung phù hợp với loài này.</p>
+    <p id="member-info" class="member-info"></p>
+    <p id="member-art-note" class="meta">Ảnh minh họa theo chủng tộc và vai trò.</p>
   </dialog>
   </main>
 
   <script src="engine.js"></script>
   <script src="data.js"></script>
+  <script src="portraits.js"></script>
   <script src="ui.js"></script>
 </body>
 </html>

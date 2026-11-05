@@ -4,7 +4,10 @@
 Giữ độ phân giải gốc, tách nền sang alpha, xuất WebP lossless; không thu nhỏ về
 96px, giảm bảng màu hoặc vẽ lại. Giữ màu RGB gốc ở mọi pixel còn hiển thị.
 Khung giao diện tính theo cả chiều rộng và chiều cao để chứa đủ vũ khí, cánh,
-đuôi; bấm chân dung để phóng lớn. Có giao diện sáng/tối và giảm chuyển động.
+đuôi. Chân dung nhân vật chính không có thao tác phóng to. Tên thành viên trong
+hồ sơ tổ đội mở ảnh minh họa từ atlas theo tộc, giới tính và nghề/bậc. Loài không
+có ảnh phù hợp trong bộ gốc hiển thị thông báo, không gán bừa hình loài khác.
+Có giao diện sáng/tối và giảm chuyển động.
 
 ## Tạo lại ảnh
 

@@ -473,6 +473,8 @@
       used: [],
       log: [],
       moments: [],
+      castMet: {},
+      npcMet: {},
       pending: null,
       alive: true,
       cause: null,
@@ -515,7 +517,7 @@
     c.minions = [];
     const st = storyOf(c, data);
     const arc = st && st.arcs && st.arcs[origin.id];
-    if (arc && arc.opening) pushLog(c, "story", fmt(arc.opening, c, null, data));
+    if (arc && arc.opening) pushLog(c, "story", storyText(c, data, arc.opening));
     return c;
   }
 
@@ -593,10 +595,64 @@
       const nameRace = kr && data.names[kr.id] ? kr.id : c.race.id;
       let name = randomName(data, rng, nameRace, g).split(" ")[0];
       for (let i = 0; i < 20 && nameClash(name, taken); i++) name = randomName(data, rng, nameRace, g).split(" ")[0];
-      c.cast[role] = { role, kind: k.id, name, gender: g, alive: true, left: false, bond: 0 };
+      c.cast[role] = { role, kind: k.id, name, race: kr ? kr.name : c.race.name, gender: g, alive: true, left: false, bond: 0 };
       const mortal = mortalSpan(c, data, kr, k.desc);
       if (mortal) c.cast[role].mortal = mortal;
     }
+  }
+
+  // Unlike fmt(), these helpers run only when narration is actually committed.
+  // Formatting a preview, checking eligibility or summarizing must not meet NPCs.
+  function introduceNpcs(c, data, text) {
+    const st = storyOf(c, data);
+    const ctx = c.ctx || {};
+    const people = [
+      ...(ctx.npcs || []), ...((ctx.quest && ctx.quest.npcs) || []),
+      ...(ctx.ally ? [ctx.ally] : []), ...(c.party || []),
+      ...Object.values((st && st.recruits) || {}),
+      ...Object.values((st && st.bands) || {}).flatMap((b) => b.members || []),
+    ];
+    c.npcMet = c.npcMet || {};
+    for (const p of people.sort((a, b) => (b.name || "").length - (a.name || "").length)) {
+      if (!p.name || c.npcMet[p.name]) continue;
+      const escaped = p.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      const re = new RegExp(`(?<![\\p{L}\\p{N}_])${escaped}(?![\\p{L}\\p{N}_])`, "u");
+      const m = re.exec(text);
+      if (!m) continue;
+      const detail = [p.race, p.position || p.jobName || p.role].filter(Boolean).join(", ");
+      if (!detail) continue;
+      c.npcMet[p.name] = true;
+      // Source prose may already carry a race/role in parentheses.
+      if (/^\s*\(/.test(text.slice(m.index + m[0].length))) continue;
+      text = text.slice(0, m.index) + `${m[0]} (${detail})` + text.slice(m.index + m[0].length);
+    }
+    return text;
+  }
+
+  function storyText(c, data, rawText, visibleChoices = []) {
+    const st = storyOf(c, data);
+    const references = [rawText || "", ...visibleChoices.map((ch) => ch.label || "")].join("\n");
+    const prefixes = [];
+    c.castMet = c.castMet || {};
+    for (const role of CAST_ROLES) {
+      if (!references.includes(`{${role}}`)) continue;
+      const x = c.cast && c.cast[role];
+      if (!x || c.castMet[role]) continue;
+      // Support characters whose first meeting was already recorded by a save.
+      if (x.metAt != null || (x.mortal && x.mortal.metAt != null)) { c.castMet[role] = true; continue; }
+      const k = st && st.cast && st.cast[x.kind];
+      const desc = k && k.desc ? fmt(k.desc, c, null, data).trim() : "";
+      const title = k && k.title ? lowerFirst(k.title.toLocaleLowerCase("vi")) : CAST_WORD[role];
+      const lead = x.alive && !x.left ? `Hôm ấy, bạn gặp ${x.name}` : `Bạn nghe kể về ${x.name}`;
+      const startsWithName = desc.startsWith(x.name + ",");
+      const detail = startsWithName ? lowerFirst(desc.slice(x.name.length + 1).trim()) : desc;
+      prefixes.push(startsWithName ? `${lead} — ${cleanEnd(detail)}.` : `${lead} (${title}).${detail ? " " + cleanEnd(detail) + "." : ""}`);
+      c.castMet[role] = true;
+      x.metAt = c.age;
+      if (x.mortal) x.mortal.metAt = c.age;
+    }
+    const text = introduceNpcs(c, data, fmt(rawText || "", c, null, data));
+    return [...prefixes, text].filter(Boolean).join("\n\n");
   }
 
   // ---------- mortals beside a long life ----------
@@ -785,7 +841,7 @@
     if (b.rule) t += ` Luật của họ chỉ có một: “${upperFirst(cleanEnd(b.rule))}.”`;
     if (b.lair) t += ` Nơi tụ họp: ${upperFirst(cleanEnd(b.lair))}.`;
     pushLog(c, "story", t);
-    if (b.members && b.members.length) pushLog(c, "story", "Những gương mặt bạn sẽ đi cùng: " + b.members.map(memberLine).join(" · ") + ".");
+    if (b.members && b.members.length) pushLog(c, "story", storyText(c, data, "Những gương mặt bạn sẽ đi cùng: " + b.members.map(memberLine).join(" · ") + "."));
   }
   // a short lead-in before a scene of the group, so it does not start out of nowhere
   function groupBridge(c, data, e, rng) {
@@ -1019,6 +1075,7 @@
     if (eff.recruit && aliveParty(c).length < MAX_PARTY) {
       const m = makeCompanion(c, data, rng);
       c.party.push(m);
+      pushLog(c, "story", storyText(c, data, `${m.name} (${m.race}, ${m.jobName}) gia nhập ${sys(c, data, "bandName") || "tổ đội"} của bạn.`));
       addMoment(c, `${m.name} gia nhập ${sys(c, data, "bandName") || "tổ đội"}`, data);
     }
     if (eff.loseJob && c.job) {
@@ -1056,7 +1113,7 @@
       if (eff.castBond) for (const [role, v] of Object.entries(eff.castBond)) if (c.cast[role]) c.cast[role].bond += v;
       if (eff.castJoin && c.cast[eff.castJoin] && c.cast[eff.castJoin].alive && !c.party.some((m) => m.cast === eff.castJoin) && aliveParty(c).length < MAX_PARTY) {
         const x = c.cast[eff.castJoin];
-        c.party.push({ name: x.name, race: c.race.name, job: "cast", jobName: CAST_WORD[eff.castJoin], stat: "STR", power: 5, trait: "loyal", bond: 60, alive: true, since: c.age, cast: eff.castJoin });
+        c.party.push({ name: x.name, race: x.race || c.race.name, job: "cast", jobName: CAST_WORD[eff.castJoin], stat: "STR", power: 5, trait: "loyal", bond: 60, alive: true, since: c.age, cast: eff.castJoin });
       }
     }
     if (eff.joinBand) joinBand(c, data, eff.joinBand);
@@ -1092,7 +1149,7 @@
         if (r.ask) t += ` Điều duy nhất ${r.name} đòi ở ${c.band ? groupName(c, data) : "bạn"}: ${lowerFirst(cleanEnd(r.ask))}.`;
         const now = aliveParty(c).map((m) => m.name);
         if (now.length > 1) t += ` Đội hình giờ có ${now.join(", ")}.`;
-        pushLog(c, "story", t);
+        pushLog(c, "story", storyText(c, data, t));
       }
     }
     for (const name of [].concat(eff.memberDie || [])) {
@@ -1909,15 +1966,42 @@
     if (c.focus === "rest") h *= 0.7;
     const luckGuard = clamp(1 - (c.stats.LUCK - 5) * 0.04, 0.4, 1.4);
     const p = 1 - Math.pow(1 - clamp(h * luckGuard, 0, 0.95), years);
-    if (rng() < p) die(c, data, pickDeath(c, data, rng, "violent"), "violent");
+    if (rng() < p) crisisScene(c, data, rng);
   }
 
   // ---------- system scenes (built by the engine, worded in data/systems.json) ----------
+  function crisisScene(c, data, rng) {
+    const s = sys(c, data, "crisis");
+    const stage = currentStage(c).id;
+    const young = ["infant", "child", "teen"].includes(stage);
+    const mythic = ["dragon", "high_demon", "elf", "demon", "vampire"].includes(c.race.id);
+    const war = c.era && ["dark_age", "demon_lord"].includes(c.era.id);
+    const key = c.captive ? "captive" : mythic ? "mythic" : war ? "war" : young ? "young" : "road";
+    const place = c.captive && CAPTIVE_PLACE[c.captive.kind];
+    const text = fmt(pick(rng, s.text[key]), c, { place: place || "nơi giam giữ" }, data);
+    const target = ({ infant: 2, child: 3, teen: 4, adult: 6, middle: 7, elder: 7, ancient: 9 })[stage] || 6;
+    const parent = !c.captive && young && ["father", "mother", "maker"].map((who) => c.parents && c.parents[who]).find((p) => p && p.alive);
+    const ally = !c.captive && aliveParty(c)[0];
+    const helper = parent || ally;
+    const choices = [
+      { label: s.hide, stat: "AGI", target, success: s.hideSuccess, fail: s.hideFail },
+      { label: helper ? `${s.call} ${helper.name}` : s.callAlone, stat: young ? "LUCK" : "INT", target: Math.max(1, target - 1), success: s.callSuccess, fail: s.callFail, disabled: !helper, reason: s.noHelper },
+      { label: s.fight, stat: "STR", target: target + 1, success: s.fightSuccess, fail: s.fightFail },
+    ].map((ch) => ({
+      label: ch.label, risk: "lethal", disabled: !!ch.disabled, reason: ch.reason,
+      check: { stat: ch.stat, target: ch.target },
+      success: { text: ch.success, effects: { joy: -2 } },
+      fail: { text: ch.fail, death: ch.fail },
+    }));
+    // Preserve the setting and react at this age; no other scene may replace it.
+    scene(c, "crisis", text, choices);
+  }
+
   function scene(c, kind, text, choices, extra, data) {
     if (data)
       choices = choices.map((ch) => {
         if (!ch.label) return ch;
-        const raw = fmt(ch.label, c, null, data);
+        const raw = introduceNpcs(c, data, fmt(ch.label, c, null, data));
         const label = weaponWords(raw, c, data, true);
         const out = Object.assign({}, ch, { label });
         // you fight with your trade's weapon, so its stat decides: a mage's spell is Trí tuệ, not Sức mạnh
@@ -2083,8 +2167,8 @@
     c.ctx = Object.assign(c.ctx || {}, { quest: q, ally: party.length ? pick(rng, party) : null });
     // A scene with no choice simply happens, then the story moves on.
     if (step.auto) {
-      if (step.text) pushLog(c, "quest", fmt(step.text, c, null, data));
-      if (step.auto.text) pushLog(c, "result", fmt(step.auto.text, c, null, data));
+      if (step.text) pushLog(c, "quest", storyText(c, data, step.text));
+      if (step.auto.text) pushLog(c, "result", storyText(c, data, step.auto.text));
       applyEffects(c, step.auto.effects, data, rng);
       return questAdvance(c, data, rng, step.auto, true, null);
     }
@@ -2101,7 +2185,7 @@
         return out;
       });
     if (!choices.some((ch) => !ch.disabled)) return finishQuest(c, data, rng, false);
-    scene(c, "quest", fmt(step.text, c, null, data), choices, { quest: q.name }, data);
+    scene(c, "quest", storyText(c, data, step.text, choices), choices, { quest: q.name }, data);
   }
 
   // Move a quest on after a scene: explicit jump, instant win or loss, or the next scene.
@@ -2222,7 +2306,7 @@
     c.used.push(e.id);
     const party = aliveParty(c);
     const fits = e.require && e.require.allyTrait ? party.filter((m) => m.trait === e.require.allyTrait) : party;
-    c.ctx = { ally: fits.length ? pick(rng, fits) : null, eventId: e.id };
+    c.ctx = { ally: fits.length ? pick(rng, fits) : null, eventId: e.id, npcs: e.npcs || [] };
     const kidFit = childFor(c, e.text || "");
     if (kidFit.name) c.ctx.child = kidFit.name;
     // Events about winning a mate name the one being courted.
@@ -2232,12 +2316,12 @@
         .filter((ch) => meets(c, ch.require, data) || ch.showLocked)
         .map((ch) => (meets(c, ch.require, data) ? ch : Object.assign({}, ch, { disabled: true, reason: unmetReason(c, ch.require, data) })));
       if (open.some((ch) => !ch.disabled)) {
-        scene(c, "event", fmt(e.text, c, null, data), open, null, data);
+        scene(c, "event", storyText(c, data, e.text, open), open, null, data);
         return;
       }
     }
-    pushLog(c, "event", fmt(e.text, c, null, data));
-    if (e.result) pushLog(c, "result", fmt(e.result, c, null, data));
+    pushLog(c, "event", storyText(c, data, e.text));
+    if (e.result) pushLog(c, "result", storyText(c, data, e.result));
     applyEffects(c, e.effects, data, rng);
     if (e.moment) addMoment(c, e.moment, data);
     if (e.death) die(c, data, e.death);
@@ -2428,10 +2512,33 @@
   }
 
   // ---------- the main loop ----------
+  function enterLifeStage(c, data, rng) {
+    const stageId = currentStage(c).id;
+    if (stageId === c.stageId) return false;
+    c.stageId = stageId;
+    // no life stays in chains forever: by middle age the chance to walk out comes
+    if (c.captive && ["middle", "elder", "ancient"].includes(stageId)) {
+      const LINES = {
+        arena: ["Một đêm đấu trường bốc cháy sau cuộc nổi loạn của nô lệ. Bạn bước qua cánh cổng sắt đổ sập, lần đầu tiên không có ai cầm roi phía sau.", "Ông chủ đấu trường chết vì nợ nần, đám nô lệ bị bán tháo. Không ai đủ tiền mua một kẻ đã quá tuổi như bạn, và bạn cứ thế bước ra đường."],
+        slave: ["Chủ nô bị đánh bại trong một cuộc tranh giành lãnh địa. Trong lúc hỗn loạn, bạn gỡ được chiếc vòng sắt và lẩn vào bóng tối.", "Năm ấy, trại nô lệ tan rã vì dịch bệnh. Những kẻ còn sống, trong đó có bạn, tản đi mỗi người một ngả."],
+        prison: ["Ngục tù đổi chủ, sổ sách thất lạc. Một sáng nọ, cánh cửa phòng giam không còn ai khóa lại.", "Sau ngần ấy năm, kẻ giam giữ bạn đã chết. Không ai còn nhớ vì sao bạn bị nhốt, và bạn tự bước ra ngoài."],
+        bound: ["Khế ước trói buộc bạn mục dần theo năm tháng rồi đứt hẳn. Lần đầu tiên, bạn có thể đi đâu tùy ý.", "Kẻ nắm khế ước của bạn qua đời. Sợi dây vô hình quấn quanh linh hồn bạn tan biến."],
+      };
+      setFree(c, data, pick(rng, LINES[c.captive.kind] || LINES.slave));
+    }
+    const s = sys(c, data, "stageEnter");
+    const chapter = chapterLine(c, data, rng, stageId);
+    let line = chapter || s[stageId] || s.default || data.systems.stageEnter.default;
+    if (c.captive && (c.captive.temp || (!chapter && !captiveOk(line, c)))) line = `Năm tháng trôi qua, bạn lớn thêm một vòng, nhưng thế giới của bạn vẫn chỉ rộng bằng ${CAPTIVE_PLACE[c.captive.kind] || "chốn giam cầm"}.`;
+    pushLog(c, "stage", storyText(c, data, line));
+    return crossroads(c, data);
+  }
+
   function advance(c, data, rng) {
     rng = rng || Math.random;
     if (!c.alive || c.pending) return c;
     c.clicks++;
+    if (enterLifeStage(c, data, rng)) return c;
     if (c.quest) {
       questStepScene(c, data, rng);
       return c;
@@ -2493,28 +2600,12 @@
       jailTick(c, data, rng);
       checkDeath(c, data, rng, years);
 
-      let stop = !c.alive;
+      let stop = !c.alive || !!c.pending;
       if (!stop) {
         // A new stage of life is a natural place to stop and choose a direction.
         const stageId = currentStage(c).id;
         if (stageId !== c.stageId) {
-          c.stageId = stageId;
-          // no life stays in chains forever: by middle age the chance to walk out comes
-          if (c.captive && ["middle", "elder", "ancient"].includes(stageId)) {
-            const LINES = {
-              arena: ["Một đêm đấu trường bốc cháy sau cuộc nổi loạn của nô lệ. Bạn bước qua cánh cổng sắt đổ sập, lần đầu tiên không có ai cầm roi phía sau.", "Ông chủ đấu trường chết vì nợ nần, đám nô lệ bị bán tháo. Không ai đủ tiền mua một kẻ đã quá tuổi như bạn, và bạn cứ thế bước ra đường."],
-              slave: ["Chủ nô bị đánh bại trong một cuộc tranh giành lãnh địa. Trong lúc hỗn loạn, bạn gỡ được chiếc vòng sắt và lẩn vào bóng tối.", "Năm ấy, trại nô lệ tan rã vì dịch bệnh. Những kẻ còn sống, trong đó có bạn, tản đi mỗi người một ngả."],
-              prison: ["Ngục tù đổi chủ, sổ sách thất lạc. Một sáng nọ, cánh cửa phòng giam không còn ai khóa lại.", "Sau ngần ấy năm, kẻ giam giữ bạn đã chết. Không ai còn nhớ vì sao bạn bị nhốt, và bạn tự bước ra ngoài."],
-              bound: ["Khế ước trói buộc bạn mục dần theo năm tháng rồi đứt hẳn. Lần đầu tiên, bạn có thể đi đâu tùy ý.", "Kẻ nắm khế ước của bạn qua đời. Sợi dây vô hình quấn quanh linh hồn bạn tan biến."],
-            };
-            setFree(c, data, pick(rng, LINES[c.captive.kind] || LINES.slave));
-          }
-          const s = sys(c, data, "stageEnter");
-          const chapter = chapterLine(c, data, rng, stageId);
-          let line = chapter || s[stageId] || s.default || data.systems.stageEnter.default;
-          if (c.captive && (c.captive.temp || (!chapter && !captiveOk(line, c)))) line = `Năm tháng trôi qua, bạn lớn thêm một vòng, nhưng thế giới của bạn vẫn chỉ rộng bằng ${CAPTIVE_PLACE[c.captive.kind] || "chốn giam cầm"}.`;
-          pushLog(c, "stage", fmt(line, c, null, data));
-          stop = crossroads(c, data);
+          stop = enterLifeStage(c, data, rng);
         } else {
           // a story node whose time has come goes before anything random
           // short lives get a story beat more often, or the threads never meet
@@ -2611,7 +2702,7 @@
         c.questLast[q.id] = c.age;
         c.quest = { id: q.id, step: 0 };
         c.ctx = { quest: q };
-        pushLog(c, "quest", fmt(q.intro, c, null, data));
+        pushLog(c, "quest", storyText(c, data, q.intro));
         questStepScene(c, data, rng);
         break;
       }
@@ -2633,7 +2724,7 @@
       if (r.wealth > 0) r.wealth = Math.round(r.wealth * scale);
       if (r.joy == null) r.joy = 5;
       r.partyBond = 6;
-      pushLog(c, "result", fmt(q.complete, c, null, data));
+      pushLog(c, "result", storyText(c, data, q.complete));
       applyEffects(c, r, data, rng, "reward");
       if (c.guild) addGuildPoints(c, data, pts);
       c.questsDone++;
@@ -2663,7 +2754,7 @@
       outcome = succeeded ? ch.success : ch.fail;
     }
     pushLog(c, "picked", ch.label);
-    if (outcome.text) pushLog(c, "result", fmt(outcome.text, c, null, data));
+    if (outcome.text) pushLog(c, "result", storyText(c, data, outcome.text));
 
     // A quest scene that goes badly can wound or kill a companion.
     if (p.kind === "quest" && ch.check && !succeeded && c.ctx && c.ctx.ally && !(outcome.effects && (outcome.effects.allyDie || outcome.effects.allyHurt))) {
@@ -2694,7 +2785,7 @@
         healer.bond = clamp(healer.bond + 15, 0, 100);
         pushLog(c, "result", fmt(pick(rng, data.systems.saved), c, { ally: healer.name }, data));
         if (c.quest) finishQuest(c, data, rng, false);
-      } else die(c, data, outcome.death);
+      } else die(c, data, outcome.death, p.kind === "crisis" ? "violent" : undefined);
     }
 
     if (c.alive && p.kind === "quest" && c.quest) questAdvance(c, data, rng, outcome, succeeded, ch);
