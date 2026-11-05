@@ -31,7 +31,7 @@ module.exports = {
     ["guard", "Mountain Guard", "STR", true, null, "Sức mạnh và Nhanh nhẹn. Lính gác cổng núi"],
     ["hunter", "Treasure Hunter", "AGI", true, null, "Nhanh nhẹn. Thợ săn kho báu hầm ngục"],
   ]).map((r) => (r.ranks ? r : (delete r.ranks, r))),
-  promoXp: [5, 6, 8, 10],
+  promoXp: [4, 8, 14, 22],
   roleByPrefix: { dwarf_runesmith_: "dwarf_runesmith", dwarf_miner_: "dwarf_miner", dwarf_shield_: "dwarf_shield", dwarf_brew_: "dwarf_brew", dwarf_eng_: "dwarf_eng", dwarf_carver_: "dwarf_carver", dwarf_merchant_: "dwarf_merchant", dwarf_guard_: "dwarf_guard", dwarf_hunter_: "dwarf_hunter" },
   focusByPrefix: { dwarf_play_: "play", dwarf_study_: "study", dwarf_train_: "train", dwarf_work_: "work", dwarf_adv_: "adventure", dwarf_social_: "social", dwarf_rest_: "rest" },
   org: C.guildOrg("dwarf_guild"),

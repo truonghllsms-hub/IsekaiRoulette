@@ -521,7 +521,7 @@
     c.minions = [];
     const st = storyOf(c, data);
     const arc = st && st.arcs && st.arcs[origin.id];
-    if (arc && arc.opening) pushLog(c, "story", storyText(c, data, arc.opening));
+    if (arc && arc.opening && castTextPresent(c, arc.opening) && (!c.captive || !castRolesIn(arc.opening).length)) pushLog(c, "story", storyText(c, data, arc.opening));
     return c;
   }
 
@@ -545,6 +545,35 @@
   const CAST_ROLES = ["rival", "mentor", "friend"];
   const CAST_WORD = { rival: "kẻ thù cũ", mentor: "người dẫn dắt", friend: "đồng bọn thân nhất" };
   const storyOf = (c, data) => (data && data.story && data.story[c.race.id]) || null;
+  const castRolesIn = (text) => CAST_ROLES.filter(role => String(text || "").includes(`{${role}}`));
+  const castTextPresent = (c, text) => castRolesIn(text).every(role => !!c.cast?.[role]);
+  const PRISON_CAST = /bạn tù|cùng (?:xà lim|buồng giam)|cai ngục|chủ nô|nô lệ|lão tù|tù nhân|giám thị/i;
+  function castContexts(k) { return k.contexts || ["free"]; }
+  function solitaryBirth(c, data) {
+    return (sys(c, data, "solitaryOrigins") || []).includes(c.origin.id) || sys(c, data, "solitaryCast") === true;
+  }
+  const castEventRoles = new WeakMap(), castChoiceRoles = new WeakMap(), eventChoices = new WeakMap();
+  function choicesOf(e) {
+    if (!eventChoices.has(e)) eventChoices.set(e, [...(e.choices || []), ...(e.jobChoices || [])]);
+    return eventChoices.get(e);
+  }
+  function castRolesFit(c, data, roles, requirement) {
+    return roles.every(role => {
+      const actor = c.cast?.[role];
+      if (!actor) return false;
+      if (!c.captive) return true;
+      const definition = storyOf(c, data)?.cast?.[actor.kind];
+      return castContexts(definition || actor).includes(c.captive.kind) && (requirement?.captiveKinds || []).includes(c.captive.kind);
+    });
+  }
+  function castSceneFits(c, data, e) {
+    if (!castEventRoles.has(e)) castEventRoles.set(e, [...new Set([...castRolesIn((e.text || "") + " " + (e.result || "")), e.require?.castAlive, String(e.require?.cast || "").split("_")[0], e.id?.match(/_cast_(rival|mentor|friend)_/)?.[1]].filter(Boolean))]);
+    return castRolesFit(c, data, castEventRoles.get(e), e.require);
+  }
+  function castChoiceFits(c, data, ch, e) {
+    if (!castChoiceRoles.has(ch)) castChoiceRoles.set(ch, castRolesIn(JSON.stringify(ch)));
+    return castRolesFit(c, data, castChoiceRoles.get(ch), e.require);
+  }
 
   // "Hèn nhát, gầy trơ xương…" → a companion trait the engine knows
   function genderGuess(name, text) {
@@ -578,16 +607,22 @@
   }
 
   function makeCast(c, data, rng) {
+    c.cast = {};
     const st = storyOf(c, data);
     if (!st || !st.cast) return;
-    c.cast = {};
+    const chances = { friend: 0.5, rival: 0.4, mentor: 0.3, ...data.systems.castChances, ...data.systems.race?.[c.race.id]?.castChances };
     for (const role of CAST_ROLES) {
       let kinds = Object.values(st.cast).filter((k) => k.role === role);
-      if (!kinds.length) continue;
-      // a jailer or slave master only belongs in a life that starts in chains
-      const KEEPER = /gác ngục|cai ngục|quản ngục|giám thị|chủ nô|quản đốc nô lệ/i;
-      const free = kinds.filter((k) => !KEEPER.test(k.desc || ""));
-      if (!c.captive && free.length) kinds = free;
+      if (c.captive) {
+        kinds = kinds.filter(k => castContexts(k).includes(c.captive.kind) && PRISON_CAST.test(`${k.title || ""} ${k.desc || ""}`));
+      } else {
+        kinds = kinds.filter(k => castContexts(k).includes("free") && !/gác ngục|cai ngục|quản ngục|giám thị|chủ nô|quản đốc nô lệ/i.test(k.desc || ""));
+      }
+      if (solitaryBirth(c, data)) kinds = kinds.filter(k => {
+        const other = raceInText(k.desc, data, true);
+        return !other || other.id === c.race.id || !(other.tags || []).includes("humanoid");
+      });
+      if (!kinds.length || rng() >= chances[role]) continue;
       const k = pick(rng, kinds);
       // a name nobody else in this life already carries
       const taken = [c.name.split(" ")[0], ...Object.values(c.cast).map((x) => x.name), ...Object.values(c.parents || {}).map((p) => p && p.name)].filter(Boolean).map((x) => x.split(" ")[0]);
@@ -599,7 +634,7 @@
       const nameRace = kr && data.names[kr.id] ? kr.id : c.race.id;
       let name = randomName(data, rng, nameRace, g).split(" ")[0];
       for (let i = 0; i < 20 && nameClash(name, taken); i++) name = randomName(data, rng, nameRace, g).split(" ")[0];
-      c.cast[role] = { role, kind: k.id, name, race: kr ? kr.name : c.race.name, gender: g, alive: true, left: false, bond: 0 };
+      c.cast[role] = { role, kind: k.id, name, race: kr ? kr.name : c.race.name, contexts: castContexts(k), gender: g, alive: true, left: false, bond: 0 };
       const mortal = mortalSpan(c, data, kr, k.desc);
       if (mortal) c.cast[role].mortal = mortal;
     }
@@ -645,7 +680,7 @@
       // Support characters whose first meeting was already recorded by a save.
       if (x.metAt != null || (x.mortal && x.mortal.metAt != null)) { c.castMet[role] = true; continue; }
       const k = st && st.cast && st.cast[x.kind];
-      const desc = k && k.desc ? fmt(k.desc, c, null, data).trim() : "";
+      const desc = k && k.desc && castTextPresent(c, k.desc) ? fmt(k.desc, c, null, data).trim() : "";
       const title = k && k.title ? lowerFirst(k.title.toLocaleLowerCase("vi")) : CAST_WORD[role];
       const lead = x.alive && !x.left ? `Hôm ấy, bạn gặp ${x.name}` : `Bạn nghe kể về ${x.name}`;
       const startsWithName = desc.startsWith(x.name + ",");
@@ -963,7 +998,7 @@
       }
     if (c.band && st.bands && st.bands[c.band.id]) pool.push(...st.bands[c.band.id].recall);
     for (const f of c.fallen || []) if (f.bond >= 45) pool.push(pick(rng, [`Đôi khi bạn vẫn quay sang định nói gì đó với ${f.name}, rồi mới nhớ ra.`, `Bạn mang theo một kỷ vật nhỏ của ${f.name}, chưa bao giờ rời người.`, `Mỗi lần ngang qua một đống lửa trại, bạn lại nhớ tiếng cười của ${f.name}.`]));
-    const fit = pool.filter((t) => ageFits(t, c));
+    const fit = pool.filter((t) => ageFits(t, c) && castTextPresent(c, t) && (!c.captive || !castRolesIn(t).length));
     return fit.length ? pick(rng, fit) : null;
   }
 
@@ -974,7 +1009,7 @@
     // "mồ côi" also covers a parent who walked away: a line about their DEATH needs one who really died
     const someDead = ["father", "mother"].some((w) => c.parents && c.parents[w] && c.parents[w].status === "dead" || (c.parents && c.parents[w] && c.parents[w].diedAt != null));
     const KIN_DEATH = /cái chết|qua đời|đã mất|nấm mồ|ngôi mộ|chôn cất|tang lễ|đã khuất|tử trận/i;
-    const fit = list.filter((x) => storyCond(c, data, x.cond) && ageFits(x.text, c) && (!c.captive || captiveOk(x.text, c)) && !(/mồ côi/i.test(x.cond || "") && KIN_DEATH.test(x.text) && !someDead));
+    const fit = list.filter((x) => castTextPresent(c, x.text) && (!c.captive || !castRolesIn(x.text).length) && storyCond(c, data, x.cond) && ageFits(x.text, c) && (!c.captive || captiveOk(x.text, c)) && !(/mồ côi/i.test(x.cond || "") && KIN_DEATH.test(x.text) && !someDead));
     return fit.length ? pick(rng, fit).text : null;
   }
 
@@ -1093,12 +1128,14 @@
     }
     if (eff.jobPromote && c.job) {
       const j = jobDef(c, data);
-      if (j && c.job.rank < j.ranks.length - 1) { c.job.rank++; c.job.xp = 0; }
+      if (j && c.job.rank < j.ranks.length - 1) { c.job.rank++; c.job.xp = 0; promotionCooldown(c); }
       checkVeteran(c, data, rng, "job");
     }
     if (eff.jobRankSet != null && c.job) {
       const j = jobDef(c, data);
+      const previousRank = c.job.rank;
       c.job.rank = clamp(eff.jobRankSet, 0, (j ? j.ranks.length : 5) - 1);
+      if (c.job.rank > previousRank) promotionCooldown(c);
       c.job.xp = 0;
       checkVeteran(c, data, rng, "job");
     }
@@ -1287,6 +1324,7 @@
       if (!who.some((w) => test(ps[w]))) return false;
     }
     if (req.free && c.captive) return false;
+    if (req.captiveKinds && (!c.captive || !req.captiveKinds.includes(c.captive.kind))) return false;
     if (req.fatherAlive != null && !!(c.parents && c.parents.father && c.parents.father.alive) !== req.fatherAlive) return false;
     if (req.motherAlive != null && !!(c.parents && c.parents.mother && c.parents.mother.alive) !== req.motherAlive) return false;
     if (req.makerAlive != null && !!(c.parents && c.parents.maker && c.parents.maker.alive) !== req.makerAlive) return false;
@@ -1325,6 +1363,9 @@
   }
 
   function eligible(e, c, stageId, data) {
+    if (!castSceneFits(c, data, e)) return false;
+    const choices = choicesOf(e);
+    if (choices.length && !choices.some(ch => castChoiceFits(c, data, ch, e))) return false;
     if (eventHasChild(e) && !c.race.genderless && !canHaveChild(c) && !(matingEvent(e) && oppositeGender(c.gender))) return false;
     if (!c.race.genderless && c.spouse && !canHaveChild(c) && /\{spouse\}/.test(e.text || "") && /mang thai|sinh hạ|sinh con|ấp nở/.test(e.text || "")) return false;
     if (e.races && e.races.length && !e.races.includes(c.race.id)) return false;
@@ -1523,6 +1564,7 @@
     // ...and the reverse: a free life does not wake up already in chains
     if (!c.captive && !/_arc_/.test(e.id) && /^(Bị giam|Bị xích|Bị cùm|Bị bắt cóc|Trong phòng giam|Trong ngục|Bị nhốt)|nới lỏng xiềng xích|xiềng xích trên (cổ|tay|chân) bạn/i.test(t) && !(r.flags || r.anyFlags)) return false;
     if (c.captive && !/_arc_/.test(e.id)) {
+      if (r.job && !(r.captiveKinds || []).includes(c.captive.kind)) return false;
       // path chains (martial master on the mountain, the count's banquet, ruins, the ivory tower...)
       // are written for someone free to walk the world: a slave or prisoner cannot follow them
       if (e.path) return false;
@@ -1544,6 +1586,13 @@
   }
   function canTakeJob(c, j, data) {
     return meets(c, j.require, data) || (j.alt && meets(c, j.alt, data));
+  }
+
+  function promotionCooldown(c) {
+    c.nextPromo = c.age + tickYears(c) * (4 + c.job.rank * 2);
+    c.nextCareer = c.age + tickYears(c) * 2;
+    c.nextPromoClick = c.clicks + 3;
+    c.nextCareerClick = c.clicks + 2;
   }
 
   function takeJob(c, data, id, rng) {
@@ -1934,6 +1983,9 @@
     if (c.focus === "work" && j) {
       for (const k of Object.keys(j.gains || {})) gains[k] = (gains[k] || 0) + j.gains[k];
       c.job.xp += per * (0.8 + statValue(c, j.stat) / 25);
+      if (j.progression === "commerce" && !c.captive && ownsMoney(c) && c.bars.wealth > 30) {
+        bars.wealth = (bars.wealth || 0) + Math.floor(c.bars.wealth * 0.05);
+      }
       bars.wealth = (bars.wealth || 0) + j.income[c.job.rank];
     }
     for (const k of Object.keys(gains)) {
@@ -2072,6 +2124,7 @@
   }
 
   function jobScene(c, data, rng) {
+    if (c.captive) return;
     const s = sys(c, data, "jobSelect");
     const choices = captiveJobs(c, data).map((j) => {
       const ok = canTakeJob(c, j, data);
@@ -2120,9 +2173,10 @@
   }
 
   function promotionScene(c, data, rng) {
+    if (c.captive) return;
     const j = jobDef(c, data);
     const r = c.job.rank;
-    const s = sys(c, data, "promotion");
+    const s = j.promotionCopy || sys(c, data, "promotion");
     const winLine = c.captive && !captiveOk(s.success, c) ? "Từ nay, bạn là {next}." : s.success;
     const next = rankNames(c, j)[r + 1];
     // a trial that comes back says so, instead of reading word for word like the first time
@@ -2189,7 +2243,7 @@
       hint: q.hint,
       act: { type: "quest", id: q.id },
     }));
-    choices.push({ label: s.skip, text: fmt(s.skipText, c, null, data) });
+    choices.push({ label: s.skip, text: fmt(s.skipText, c, null, data), act: { type: "boardWait" } });
     scene(c, "board", fmt(pick(rng, s.text), c, null, data), choices);
     return true;
   }
@@ -2202,7 +2256,14 @@
 
   function questStepScene(c, data, rng) {
     const q = (data.quests || []).find((x) => x.id === c.quest.id);
-    if (q.career && c.job?.id !== q.career.job) return finishQuest(c, data, rng, false);
+    if (c.captive && !(q.require?.captiveKinds || []).includes(c.captive.kind)) {
+      c.quest = null;
+      c.pending = null;
+      c.ctx = null;
+      pushLog(c, "story", "Xiềng xích buộc bạn dừng nhiệm vụ đang theo đuổi. Lúc này, sống sót ở nơi giam giữ quan trọng hơn mọi lời hẹn ngoài kia.");
+      return;
+    }
+    if (q.career && (c.captive || c.job?.id !== q.career.job)) return finishQuest(c, data, rng, false);
     const step = q.steps[c.quest.step];
     const party = aliveParty(c);
     c.ctx = Object.assign(c.ctx || {}, { quest: q, ally: party.length ? pick(rng, party) : null });
@@ -2280,7 +2341,7 @@
 
   // taking up a trade and rising in it: these come before any story beat
   function careerScene(c, data, rng) {
-    if (c.captive && c.captive.temp) return false; // no trial or trade offer in a cell
+    if (c.captive) return false; // neither birth captivity nor temporary imprisonment permits civil careers
     const st = currentStage(c).id;
     const jobs = captiveJobs(c, data);
     const st0 = stagesOf(c.race);
@@ -2298,7 +2359,7 @@
     }
     const j = jobDef(c, data);
     if (j && careerQuestScene(c, data, rng)) return true;
-    if (j && c.job.rank < j.ranks.length - 1 && c.job.xp >= j.promoXp[c.job.rank] && c.age >= (c.nextPromo || 0)) {
+    if (j && c.job.rank < j.ranks.length - 1 && c.job.xp >= j.promoXp[c.job.rank] && c.age >= (c.nextPromo || 0) && c.clicks >= (c.nextPromoClick || 0)) {
       promotionScene(c, data, rng);
       return true;
     }
@@ -2306,6 +2367,7 @@
   }
 
   function careerQuestScene(c, data, rng) {
+    if (c.captive || c.age < (c.nextCareer || 0) || c.clicks < (c.nextCareerClick || 0)) return false;
     c.careerLast = c.careerLast || {};
     const q = (data.quests || []).filter(q => q.career && q.career.job === c.job.id && meets(c, q.require, data) && !c.used.includes("quest:" + q.id) && (c.careerLast[q.id] == null || c.age - c.careerLast[q.id] >= tickYears(c) * 2)).sort((a, b) => a.career.rank - b.career.rank)[0];
     if (!q) return false;
@@ -2318,6 +2380,7 @@
   }
 
   function scheduled(c, data, rng, years) {
+    if (c.captive) return false;
     const st = currentStage(c).id;
     const per = (years / yearScale(c.race)) * lifePace(c.race);
     const st0 = stagesOf(c.race);
@@ -2334,7 +2397,7 @@
         return true;
       }
     }
-    if (c.focus === "adventure" && c.guild && active && rng() < Math.min(0.85, 0.4 * Math.min(per, 2))) {
+    if (c.focus === "adventure" && c.guild && active && c.age >= (c.nextQuestBoard || 0) && c.clicks >= (c.nextQuestBoardClick || 0) && rng() < 0.3) {
       if (boardScene(c, data, rng)) return true;
     }
     if (sys(c, data, "romance") && !c.spouse && c.gender && ["adult", "middle"].includes(st) && rng() < (c.focus === "social" ? 0.25 : 0.04) * Math.min(per, 2) * (c.bars.joy > 70 ? 1.5 : 1)) {
@@ -2368,7 +2431,8 @@
     if (!c.spouse && /\{spouse\}/.test(e.text)) c.ctx.partner = makePartner(c, data, rng);
     if (matingEvent(e) && eventHasChild(e)) c.ctx.partner = makePartner(c, data, rng);
     if ((e.choices && e.choices.length) || e.jobChoices?.length) {
-      const open = [...(e.choices || []), ...(e.jobChoices || [])]
+      const open = choicesOf(e)
+        .filter(ch => castChoiceFits(c, data, ch, e))
         .filter((ch) => meets(c, ch.require, data) || ch.showLocked)
         .map((ch) => (meets(c, ch.require, data) ? ch : Object.assign({}, ch, { disabled: true, reason: unmetReason(c, ch.require, data) })));
       if (open.some((ch) => !ch.disabled)) {
@@ -2739,14 +2803,17 @@
         setFocus(c, data, act.id);
         break;
       case "job":
+        if (c.captive) break;
         takeJob(c, data, act.id, rng);
         break;
       case "jobLater":
         c.nextJobOffer = c.age + tickYears(c) * 3;
         break;
       case "promote": {
+        if (c.captive) break;
         c.job.rank++;
         c.job.xp = 0;
+        promotionCooldown(c);
         c.fame = clamp(c.fame + 3 + c.job.rank * 2, 0, 100);
         checkVeteran(c, data, rng, "job");
         break;
@@ -2760,6 +2827,10 @@
         c.job.xp = (jobDef(c, data).promoXp[c.job.rank] || 3) * 0.3;
         c.nextPromo = c.age + tickYears(c) * 5;
         break;
+      case "boardWait":
+        c.nextQuestBoard = c.age + tickYears(c) * 2;
+        c.nextQuestBoardClick = c.clicks + 2;
+        break;
       case "recruit": {
         c.party.push(act.member);
         const m = act.member, tr = (data.systems.traits || {})[m.trait];
@@ -2768,7 +2839,7 @@
       }
       case "quest": {
         const q = data.quests.find((x) => x.id === act.id);
-        if (!q || (q.career && !meets(c, q.require, data))) break;
+        if (!q || (c.captive && !(q.require?.captiveKinds || []).includes(c.captive.kind)) || (q.career && !meets(c, q.require, data))) break;
         c.used.push("quest:" + q.id);
         c.questLast[q.id] = c.age;
         c.quest = { id: q.id, step: 0 };
@@ -2780,6 +2851,8 @@
       case "careerLater":
         c.careerLast = c.careerLast || {};
         c.careerLast[act.id] = c.age;
+        c.nextCareerClick = c.clicks + 2;
+        c.nextCareer = c.age + tickYears(c) * 2;
         break;
       case "marry":
         marry(c, act.partner);
@@ -2808,6 +2881,10 @@
       const o = orgDef(c, data);
       pushLog(c, "result", fmt(q.failText || (o && o.failText) || data.systems.questFail, c, null, data));
     }
+    c.nextQuestBoard = c.age + tickYears(c) * 2;
+    c.nextQuestBoardClick = c.clicks + 2;
+    c.nextCareer = c.age + tickYears(c) * 2;
+    c.nextCareerClick = c.clicks + 2;
     c.quest = null;
     c.ctx = null;
   }
@@ -2816,6 +2893,16 @@
     rng = rng || Math.random;
     if (!c.pending) return c;
     const p = c.pending;
+    if (c.captive && p.kind === "quest" && c.quest) {
+      const q = data.quests.find(q => q.id === c.quest.id);
+      if (q && !(q.require?.captiveKinds || []).includes(c.captive.kind)) { questStepScene(c, data, rng); return c; }
+    }
+    if (c.captive && ["job", "promotion", "career"].includes(p.kind)) {
+      c.pending = null;
+      c.ctx = null;
+      pushLog(c, "story", "Chừng nào còn bị giam giữ, bạn chưa thể nhận lời mời hay dự bài thi nghề ngoài xã hội.");
+      return c;
+    }
     const ch = p.choices[index];
     if (!ch || ch.disabled) return c;
     c.pending = null;

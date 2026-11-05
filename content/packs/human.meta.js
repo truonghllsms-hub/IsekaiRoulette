@@ -8,6 +8,7 @@ module.exports = {
   script: "content/scripts/human.txt",
   story: "content/scripts/human_story.txt",
   exclusive: true,
+  castContexts: { friend_b: ["free", "slave"] },
   questOverrides: {
     human_story_arena_ghost: { npcs: [{ name: "Dorian", race: "Human", position: "Bá tước, người thuê bạn điều tra đấu trường" }] },
   },
@@ -89,7 +90,7 @@ module.exports = {
       require: { STR: 4 }, alt: { anyFlags: ["mercenary_camp", "gladiator_seed"], hint: "lớn lên ở trại lính đánh thuê hoặc đấu trường" },
       desc: "Sức mạnh. Lưỡi gươm vô chủ, chém giết vì tiền", income: [1, 1.6, 2.4, 3.4, 4.4], hazard: 2, gains: { STR: 0.3, AGI: 0.1 } },
   ],
-  promoXp: [5, 6, 8, 10],
+  promoXp: [4, 8, 14, 22],
   roleByPrefix: {
     human_job_swordsman_: "human_swordsman", human_job_mage_: "human_mage", human_job_assassin_: "human_assassin", human_job_priest_: "human_priest",
     human_job_merchant_: "human_merchant", human_job_smith_: "human_smith", human_job_ranger_: "human_ranger", human_job_gladiator_: "human_gladiator",
@@ -113,6 +114,7 @@ module.exports = {
     earlyUntil: "teen",},
 
   overrides: {
+    human_cast_friend_b_1: { require: { captiveKinds: ["slave"] } },
     human_parent_return: { require: { parentGone: "any" } },
     human_parent_heirloom: { require: { parentDead: "any" } },
     human_parent_mausoleum: { require: { parentDead: "any" } },

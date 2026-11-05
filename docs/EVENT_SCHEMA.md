@@ -97,3 +97,14 @@ mọi nhân vật. Cấu trúc check/success/fail giống lựa chọn thường
 `yearScale` của tộc. Nó giảm `maxAge`, không được hồi lại bằng an dưỡng. Đốt hết
 phần đời còn lại gây tử vong do cấm thuật. Xem [nghề nghiệp](PROFESSIONS.md) để
 biên tập nhiệm vụ tại hai mốc bậc nghề.
+
+## Cảnh Cast và giam giữ
+
+`require.free: true` chỉ cho người tự do. `require.captiveKinds` là mảng không
+rỗng trong `prison`, `slave`, `arena`, `bound`, chỉ cho đúng loại giam giữ; không
+khai báo đồng thời với `free`. Điều kiện này dùng được cho sự kiện và nhiệm vụ.
+
+Các cảnh Cast thông thường mặc định yêu cầu tự do khi build pack. Muốn viết
+cảnh bạn tù phải khai báo context của Cast trong metadata **và** `captiveKinds`
+của sự kiện; chỉ sửa mô tả thành “bạn tù” chưa đủ. Xem
+[quy tắc Cast theo xuất thân](CAST_CONTEXT.md) để biết nguồn cấu hình và ngoại lệ.

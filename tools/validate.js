@@ -5,7 +5,7 @@ const BARS = ["health", "joy", "wealth"];
 const EFFECT_KEYS = new Set([...STATS, ...BARS, "flags", "unflags", "fame", "lifeCost", "jobXp", "guildPts", "bond", "partyBond", "allyHurt", "allyDie", "allyLeave", "loseJob", "setJob", "joinGuild", "focus", "recruit", "marry", "child", "loseChild", "demote", "orgRank", "orgRankName", "evolve", "era", "jobRankSet", "jobPromote", "orgRankUp", "loseSpouse", "parentDie", "castDie", "castJoin", "castLeave", "castBond", "joinBand", "leaveBand", "bandGone", "bandLead", "minionAdd", "minionLose", "minionRevolt", "minionLoyal", "memberBond", "memberDie", "memberLeave", "memberJoin", "foundBand", "item"]);
 const BOOL_EFFECTS = new Set(["allyHurt", "allyDie", "allyLeave", "loseJob", "joinGuild", "recruit", "marry", "child", "loseChild", "demote", "jobPromote", "loseSpouse"]);
 const STR_EFFECTS = new Set(["item", "setJob", "focus", "orgRankName", "evolve", "era", "parentDie"]);
-const REQ_KEYS = new Set(["parentGone", "parentDead", "free", ...STATS, ...BARS, "fame", "below", "flags", "anyFlags", "notFlags", "flagHint", "gender", "job", "jobRank", "jobRankMax", "guild", "guildRank", "guildRankMax", "party", "noParty", "allyTrait", "spouse", "children", "noChildren", "focus", "hint", "any", "fatherAlive", "motherAlive", "makerAlive", "form", "subtype", "notSubtypes", "cast", "castAlive", "noBand", "band", "bandMember", "minionOk", "minions", "bandLead", "partyMax", "origin"]);
+const REQ_KEYS = new Set(["parentGone", "parentDead", "free", "captiveKinds", ...STATS, ...BARS, "fame", "below", "flags", "anyFlags", "notFlags", "flagHint", "gender", "job", "jobRank", "jobRankMax", "guild", "guildRank", "guildRankMax", "party", "noParty", "allyTrait", "spouse", "children", "noChildren", "focus", "hint", "any", "fatherAlive", "motherAlive", "makerAlive", "form", "subtype", "notSubtypes", "cast", "castAlive", "noBand", "band", "bandMember", "minionOk", "minions", "bandLead", "partyMax", "origin"]);
 const STORY_EFFECTS = new Set(["castDie", "castJoin", "castLeave", "castBond", "joinBand", "leaveBand", "bandGone", "bandLead", "minionAdd", "minionLose", "minionRevolt", "minionLoyal", "memberBond", "memberDie", "memberLeave", "memberJoin", "foundBand"]);
 const EVENT_KEYS = new Set(["path", "_file", "id", "races", "excludeRaces", "tags", "stages", "eras", "minAge", "maxAge", "once", "weight", "require", "text", "effects", "choices", "moment", "death", "focus", "result", "pack", "arc", "recall", "npcs", "jobChoices"]);
 const PLACEHOLDERS = new Set(["name", "race", "age", "origin", "stage", "pct", "cause", "ally", "allyJob", "partner", "child", "job", "rank", "guild", "spouse", "quest", "next", "father", "mother", "maker", "who", "rival", "mentor", "friend", "party", "leader", "member", "minion", "place"]);
@@ -75,6 +75,10 @@ function validate(data) {
   };
   const checkReq = (where, req) => {
     if (!req) return;
+    if (req.captiveKinds != null) {
+      if (!Array.isArray(req.captiveKinds) || !req.captiveKinds.length || req.captiveKinds.some(k => !["prison","slave","arena","bound"].includes(k))) err(where, "captiveKinds cần loại giam giữ hợp lệ");
+      if (req.free) err(where, "không dùng free cùng captiveKinds");
+    }
     for (const k of Object.keys(req)) if (!REQ_KEYS.has(k)) err(where, `require lạ "${k}"`);
     if (req.notSubtypes !== undefined) {
       if (!Array.isArray(req.notSubtypes)) err(where, "notSubtypes phải là mảng");
@@ -148,6 +152,16 @@ function validate(data) {
       });
       if (e.effects) err(w, "sự kiện có lựa chọn không dùng effects; đặt effects trong từng lựa chọn");
     }
+  }
+
+  const contexts = ["free", "prison", "slave", "arena", "bound"];
+  for (const [race, story] of Object.entries(data.story || {})) for (const k of Object.values(story.cast || {})) {
+    if (!Array.isArray(k.contexts) || !k.contexts.length || k.contexts.some(x => !contexts.includes(x))) err(`story ${race}/${k.id}`, "Cast cần contexts hợp lệ");
+  }
+  const probabilities = [["global", data.systems.castChances], ...Object.entries(data.systems.race || {}).filter(([,s])=>s.castChances).map(([id,s])=>[id,s.castChances])];
+  for (const [id, values] of probabilities) {
+    if (!values || typeof values !== "object" || Array.isArray(values)) { err(`castChances ${id}`, "cần object xác suất"); continue; }
+    for (const [role,p] of Object.entries(values)) if (!["friend","mentor","rival"].includes(role) || typeof p !== "number" || !Number.isFinite(p) || p<0 || p>1) err(`castChances ${id}`, "vai và xác suất phải hợp lệ (0..1)");
   }
 
   const focusIds = new Set((data.focus || []).map((f) => f.id));

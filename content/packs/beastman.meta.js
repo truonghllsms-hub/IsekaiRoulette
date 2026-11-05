@@ -40,7 +40,7 @@ module.exports = {
     ["mage", "Tribal Mage", "INT", true, ["Rune Initiate", "Tribal Mage", "Hexer", "Wild Elemental Master", "Mountain Sage"], "Trí tuệ. Pháp sư chú thuật"],
     ["courier", "Courier", "AGI", false, ["Flag Runner", "Steppe Courier", "Cross-line Carrier", "Stormwing", "Divine Runner"], "Nhanh nhẹn. Người đưa tin xuyên lục địa"],
   ]),
-  promoXp: [5, 6, 8, 10],
+  promoXp: [4, 8, 14, 22],
   roleByPrefix: { bm_berserker_: "bm_berserker", bm_hunter_: "bm_hunter", bm_gladiator_: "bm_gladiator", bm_scout_: "bm_scout", bm_shaman_: "bm_shaman", bm_merc_: "bm_merc", bm_leather_: "bm_leather", bm_herder_: "bm_herder", bm_thief_: "bm_thief", bm_mage_: "bm_mage", bm_courier_: "bm_courier" },
   focusByPrefix: { bm_play_: "play", bm_study_: "study", bm_train_: "train", bm_work_: "work", bm_adv_: "adventure", bm_soc_: "social", bm_rest_: "rest" },
   // the script's missions give no rank points: fame does the climbing

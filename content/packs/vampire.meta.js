@@ -58,7 +58,7 @@ module.exports = {
       require: { INT: 4, LUCK: 4 }, alt: { anyFlags: ["noble_pact", "pure_blood"], hint: "xuất thân Giao kèo quý tộc hoặc Hầm Mộ Bạch Ngà" },
       desc: "Trí tuệ và May mắn. Trà trộn vào giới quý tộc Human", income: [1, 1.5, 2.3, 3.2, 4.2], hazard: 1.2, gains: { INT: 0.2, LUCK: 0.15 } },
   ],
-  promoXp: [5, 6, 8, 10],
+  promoXp: [4, 8, 14, 22],
   roleByPrefix: { vampir_noble_: "vampire_noble", vampir_blade_: "vampire_blade", vampir_mage_: "vampire_mage", vampir_hunter_: "vampire_hunter", vampir_hidden_: "vampire_hidden" },
   focusByPrefix: { vampir_study_: "study", vampir_train_: "train", vampir_hunt_: "adventure", vampir_social_: "social", vampir_intrigue_: "work", vampir_sleep_: "rest" },
 

@@ -28,7 +28,7 @@ module.exports = {
     ["bh", "Bounty Hunter", "AGI", true, ["Tracker", "Night Hunter", "Exiled Assassin", "Abyss Phantom", "Reaper on the Hunt"], "Nhanh nhẹn. Săn tiền thưởng của Ma Vương"],
     ["spy", "Parasite Spy", "AGI", false, ["Village Shade", "Impostor", "Infiltrated Noble", "Spy of Light", "Master Parasite"], "Nhanh nhẹn. Điệp viên nằm vùng trong lốt Human"],
   ]),
-  promoXp: [5, 6, 8, 10],
+  promoXp: [4, 8, 14, 22],
   roleByPrefix: { demon_dk_: "demon_dk", demon_wl_: "demon_wl", demon_bu_: "demon_bu", demon_me_: "demon_me", demon_bs_: "demon_bs", demon_bh_: "demon_bh", demon_spy_: "demon_spy" },
   focusByPrefix: { demon_play_: "play", demon_study_: "study", demon_train_: "train", demon_work_: "work", demon_adv_: "adventure", demon_soc_: "social", demon_rest_: "rest" },
   org: C.guildOrg("demon_army", {

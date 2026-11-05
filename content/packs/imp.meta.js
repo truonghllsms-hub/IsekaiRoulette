@@ -64,7 +64,7 @@ module.exports = {
       require: { INT: 4, AGI: 4 },
       desc: "Trí tuệ và Nhanh nhẹn. Lừa đảo, giăng bẫy", income: [0.8, 1.3, 2, 2.8, 3.6], hazard: 1.5, gains: { INT: 0.2, AGI: 0.2 } },
   ],
-  promoXp: [5, 6, 8, 10],
+  promoXp: [4, 8, 14, 22],
   roleByPrefix: { imp_job_custodian: "imp_custodian", imp_job_messenger: "imp_messenger", imp_job_secretary: "imp_secretary", imp_job_familiar: "imp_familiar", imp_job_trickster: "imp_trickster" },
   focusByPrefix: { imp_act_prank: "play", imp_act_eavesdrop: "study", imp_act_train: "train", imp_act_serve: "work", imp_act_havoc: "adventure", imp_act_flatter: "social", imp_act_slack: "rest" },
 

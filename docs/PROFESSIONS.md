@@ -23,7 +23,7 @@ vẫn dùng nó, không tạo lượt rỗng. Đây là xác suất chọn ưu t
 
 `content/careers.js` là nguồn biên tập xung đột và mốc nghề;
 `tools/professions.js` gắn chúng với ID nghề thật sau khi tải các pack. 98 nghề
-đang khả dụng có 196 biến cố công việc/hậu quả và 196 nhiệm vụ nghề. Các nhóm
+đang khả dụng có 196 biến cố công việc/hậu quả, 8 thương vụ và 196 nhiệm vụ nghề. Các nhóm
 chuyên môn dùng chung khung xung đột; 14 nghề Human có lời dẫn hai mốc riêng biệt.
 Kiếm sĩ, đấu sĩ và lính đánh thuê có xung đột tương ứng về danh dự/chấn thương,
 đấu dàn xếp và trách nhiệm trong hợp đồng.
@@ -47,3 +47,46 @@ Ví dụ: Ma pháp sư tìm Mảnh vỡ Thần Khí rồi khám phá Di tích Đ
 rồi thiết lập thương lộ xuyên lục địa. Lựa chọn cấm thuật dùng `lifeCost`, làm mất
 thọ nguyên thật và có thể gây tử vong vì ma thuật nếu thiêu hết phần đời còn lại.
 Giao diện báo số năm phải trả theo chủng tộc trước khi người chơi chọn.
+
+## Khi bị giam giữ
+
+Mọi `c.captive` đều chặn nhận nghề, thăng bậc và nhiệm vụ nghề, bao gồm nô lệ
+đấu trường từ xuất thân. Nghề và kinh nghiệm đã có được giữ để tiếp tục sau khi
+tự do. Nhiệm vụ ngoài xã hội đang chạy sẽ dừng khi bị bắt; lựa chọn nghề đang mở
+trong bản lưu cũng bị chặn. Xem [Cast và bối cảnh giam giữ](CAST_CONTEXT.md).
+
+## Nhịp thăng tiến và bảng nhiệm vụ
+
+Mốc XP của nghề được cập nhật ở cả dữ liệu chung và metadata các pack thành
+`[4, 8, 14, 22]`. Thăng bậc thành công (kể cả qua sự kiện cấp bậc) đặt
+`nextPromo = age + tickYears * (4 + rank * 2)`, đồng thời buộc qua **hai lượt bấm**
+trước bài thi kế tiếp. Một lượt bấm có thể gộp nhiều nhịp năm nên cần kiểm tra
+cả tuổi và số lượt; chỉ dùng mốc tuổi chưa bảo đảm khoảng nghỉ cho người chơi.
+
+Sau nhiệm vụ thành công hoặc thất bại, bảng nhiệm vụ nghỉ ít nhất một lượt bấm,
+cùng mốc `age + tickYears * 2`. Từ chối bảng cũng áp dụng khoảng nghỉ này.
+Tỷ lệ mở bảng khi đủ điều kiện là **30% mỗi nhịp xét lịch**, không nhân theo số
+năm hay độ trường thọ. Đây không phải cam kết 30% toàn bộ lần bấm, vì mỗi lần
+bấm có thể gộp nhiều nhịp xét lịch. Lời mời nhiệm vụ nghề cũng có khoảng nghỉ
+chung sau thăng bậc, hoãn hoặc kết thúc nhiệm vụ.
+
+## Buôn bán và thăng tiến tư nhân
+
+Tám nghề thuộc nhóm thương mại có thêm thương vụ khi focus `work`: đầu tư 20
+tài sản, kiểm tra INT để thu về 60 (lãi ròng 40), hoặc mất 20 nếu thất bại.
+Yêu cầu vốn được hiển thị và khóa khi không đủ; lựa chọn môi giới nhận 5, còn
+bỏ qua không tốn tiền. Cả vốn lẫn doanh thu được quyết toán trong một kết quả,
+không cộng 60 rồi quên trừ 20. Tài sản là thanh 0–100 nên vẫn chịu giới hạn 100.
+
+Khi làm việc trong tự do, vốn hiện có trên 30 sinh thêm `floor(wealth * 0.05)`
+mỗi năm quy đổi của engine, tính trên vốn trước thu nhập nhịp đó. Tiền lời dùng
+cùng thang thời gian và giới hạn gộp như thu nhập, tránh nhân hàng nghìn năm thực
+của Elf/Rồng vào tài sản. Không sinh lời khi an dưỡng hoặc bị giam.
+
+`content/progression.js` là nguồn lời dẫn và kết quả thăng tiến của nhóm thương
+mại, nghề ngầm và thủ công: thương vụ/mở rộng cơ ngơi, phi vụ tự thực hiện, đơn
+hàng thử tay nghề. Các nghề tổ chức vẫn dùng bài thi đã biên tập. Các mốc tư nhân
+này không tự trừ thêm vốn ngoài những gì giao diện thông báo.
+
+Kiểm tra: `node tools/test-career-pacing.js` bao phủ khoảng nghỉ theo lượt/tuổi,
+biên thời gian, thăng bậc qua sự kiện, lãi vốn, lời/lỗ thương vụ và lời văn từng nhóm.

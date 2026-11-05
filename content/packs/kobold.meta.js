@@ -53,7 +53,7 @@ module.exports = {
       require: { any: [{ STR: 6 }, { AGI: 5 }] },
       desc: "Sức mạnh hoặc Nhanh nhẹn. Giám sát mỏ cầm roi", income: [0.8, 1.3, 2, 2.8, 3.8], hazard: 1.3, gains: { STR: 0.2, AGI: 0.15 } },
   ],
-  promoXp: [5, 6, 8, 10],
+  promoXp: [4, 8, 14, 22],
   roleByPrefix: { kobold_miner_: "kobold_miner", kobold_trapper_: "kobold_trapper", kobold_sniffer_: "kobold_sniffer", kobold_priest_: "kobold_priest", kobold_overseer_: "kobold_overseer" },
   focusByPrefix: { kobold_mine_: "play", kobold_learn_: "study", kobold_train_: "train", kobold_serve_: "work", kobold_trap_: "adventure", kobold_power_: "social", kobold_nosleep_: "rest" },
 

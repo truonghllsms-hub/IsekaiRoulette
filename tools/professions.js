@@ -1,6 +1,7 @@
 // Expand authored family conflicts into exact-job events and two three-step
 // career quests per available profession. Used by every loader, not just build.
 const content = require('../content/careers');
+const progression = require('../content/progression');
 const fam = (job) => {
   const suffix=job.id.replace(/^[a-z]+_/, '');
   const exact=Object.entries(content.families).find(([,p])=>p.jobs.includes(suffix));
@@ -19,17 +20,24 @@ function installProfessions(data) {
  const families=new Map(jobs.map(j=>[j.id,fam(j)]));
  for(const j of jobs){
   const family=families.get(j.id),p={...content.families[family],...content.overrides[j.id]};
+  const style=family==='merchant'?'commerce':family==='assassin'?'independent':family==='smith'?'craft':null;
+  if(style){j.progression=style;j.promo=progression[style].promo.slice(0,j.ranks.length-1);j.promotionCopy=progression[style];}
   const races=j.races||data.races.filter(r=>!(j.excludeRaces||[]).includes(r.id)).map(r=>r.id);
   const patron=content.patrons[j.id]||'những người cùng nghề';
   const fill=t=>{const v=t.replaceAll('[[patron]]',patron);return v.charAt(0).toUpperCase()+v.slice(1);};
   const integrity=`${j.id}_professional_integrity`,compromise=`${j.id}_professional_compromise`;
-  data.events.push({id:`professional_${j.id}_dilemma`,_file:'careers',pack:true,races,focus:['work'],stages:['teen','adult','middle','elder','ancient'],once:false,weight:35,require:{job:j.id},text:`Trong công việc của một ${j.name}, bạn gặp một lựa chọn khó khăn. ${fill(p.dilemma)}`,choices:[
+  data.events.push({id:`professional_${j.id}_dilemma`,_file:'careers',pack:true,races,focus:['work'],stages:['teen','adult','middle','elder','ancient'],once:false,weight:35,require:{job:j.id,free:true},text:`Trong công việc của một ${j.name}, bạn gặp một lựa chọn khó khăn. ${fill(p.dilemma)}`,choices:[
    {label:p.safe,check:{stat:j.stat,target:6},success:{text:p.good,effects:{jobXp:2,fame:4,flags:[integrity]}},fail:{text:p.bad,effects:{health:-8,wealth:-5,flags:[integrity]}}},
    {label:p.tempt,check:{stat:j.stat,target:5},success:{text:p.temptGood,effects:{wealth:15,jobXp:2,joy:-5,...p.temptEffects,flags:[compromise]}},fail:{text:p.temptBad,effects:{...p.loss,flags:[compromise]}}},
   ]});
-  data.events.push({id:`professional_${j.id}_fallout`,_file:'careers',pack:true,races,focus:['work'],stages:['teen','adult','middle','elder','ancient'],once:false,weight:45,require:{job:j.id,flags:[p.falloutOn==='integrity'?integrity:compromise]},text:fill(p.fallout),choices:[
+  data.events.push({id:`professional_${j.id}_fallout`,_file:'careers',pack:true,races,focus:['work'],stages:['teen','adult','middle','elder','ancient'],once:false,weight:45,require:{job:j.id,free:true,flags:[p.falloutOn==='integrity'?integrity:compromise]},text:fill(p.fallout),choices:[
    {label:'Dùng chuyên môn lật lại tình thế',check:{stat:j.stat,target:8},success:{text:`Kinh nghiệm ${j.name} giúp bạn khắc phục hậu quả và lấy lại uy tín.`,effects:{jobXp:3,fame:6}},fail:{text:'Bạn không kiểm soát được tình hình, buộc phải trả giá để kết thúc tranh chấp.',effects:{health:-15,wealth:-15,joy:-5}}},
    {label:'Nhận trách nhiệm và chịu bồi thường',text:'Bạn chấp nhận tổn thất để không kéo thêm người khác vào hậu quả.',effects:{wealth:-12,fame:-3}},
+  ]});
+  if(family==='merchant') data.events.push({id:`professional_${j.id}_trade`,_file:'careers',pack:true,races,focus:['work'],stages:['teen','adult','middle','elder','ancient'],once:false,weight:55,require:{job:j.id,free:true},text:'Một nguồn hàng hương liệu đang hạ giá trước mùa vận chuyển. Bạn có thể tự bỏ vốn buôn chuyến hoặc nhận môi giới để giữ tiền an toàn.',choices:[
+   {label:'Đầu tư 20 tài sản: thu về 60 nếu bán được hàng',require:{wealth:20},showLocked:true,check:{stat:'INT',target:8},success:{text:'Bạn bỏ 20 vốn, thu về 60 sau chi phí vận chuyển; tài sản tăng ròng 40.',effects:{wealth:40,jobXp:1,fame:3}},fail:{text:'Chuyến hàng thất bại. Bạn mất 20 vốn nhưng không vay thêm để gỡ gạc.',effects:{wealth:-20,joy:-5}}},
+   {label:'Chỉ môi giới, nhận phí nhỏ và không ôm hàng',text:'Bạn nối hai đầu mua bán và nhận phí, giữ nguyên vốn cho dịp khác.',effects:{wealth:5,jobXp:0.5}},
+   {label:'Không tham gia thương vụ',text:'Bạn bỏ qua lô hàng, tiếp tục công việc thường ngày.'}
   ]});
   for(const [index,arc] of p.arcs.entries()){
    const visibleRank=index===0?2:4,rank=visibleRank-1,id=`career_${j.id}_r${visibleRank}`;
@@ -45,7 +53,7 @@ function installProfessions(data) {
     {label:'Giữ nguyên tắc, tìm con đường khó hơn',check:{stat:j.stat,target:target+1},success:{text:'Bạn giữ được giới hạn đã đặt ra và tìm ra một phương án không phải hy sinh người khác.',effects:{fame:5,flags:[integrity]}},fail:{text:'Lựa chọn đúng đắn không khiến con đường dễ dàng hơn. Bạn chịu tổn thất để giữ nguyên tắc.',effects:{health:-10,wealth:-8,flags:[integrity]}}},
     {label:family==='mage'?'Thiêu thọ nguyên để cưỡng ép trận pháp':'Chấp nhận thỏa hiệp để giành lợi thế',check:{stat:j.stat,target:target-1},success:{text:family==='mage'?'Trận pháp phục tùng, nhưng một phần thọ nguyên đã cháy thành năng lượng.':'Bạn đạt lợi thế bằng một thỏa hiệp sẽ còn để lại hậu quả.',effects:{joy:-8,...(family==='mage'?{lifeCost:3}:{}),flags:[compromise]}},fail:{text:family==='mage'?'Cấm thuật phản phệ, cướp đi sức lực cùng nhiều năm thọ nguyên.':'Thỏa hiệp phản tác dụng, khiến bạn tổn thất cả nguồn lực lẫn uy tín.',effects:{health:-20,wealth:-12,...(family==='mage'?{lifeCost:6}:{}),flags:[compromise]}}},
    ];
-   data.quests.push({id,org:org.id,name:`${j.name} · ${title}`,minRank:0,career:{job:j.id,rank:visibleRank},require:{job:j.id,jobRank:rank},hint:`Thử thách bậc ${visibleRank}, ba chặng; không cần gia nhập hội.`,intro:fill(arc[1]),steps,complete:`Bạn hoàn tất “${title}”. Những người cùng nghề ghi nhận dấu ấn ${j.name} của bạn.`,failText:`Thử thách “${title}” khép lại với tổn thất. Bạn giữ lấy những điều đã học để tiếp tục hành nghề.`,reward:{fame:visibleRank===2?8:15,jobXp:visibleRank===2?5:10,flags:[`${id}_complete`]},weight:1});
+   data.quests.push({id,org:org.id,name:`${j.name} · ${title}`,minRank:0,career:{job:j.id,rank:visibleRank},require:{job:j.id,jobRank:rank,free:true},hint:`Thử thách bậc ${visibleRank}, ba chặng; không cần gia nhập hội.`,intro:fill(arc[1]),steps,complete:`Bạn hoàn tất “${title}”. Những người cùng nghề ghi nhận dấu ấn ${j.name} của bạn.`,failText:`Thử thách “${title}” khép lại với tổn thất. Bạn giữ lấy những điều đã học để tiếp tục hành nghề.`,reward:{fame:visibleRank===2?8:15,jobXp:visibleRank===2?5:10,flags:[`${id}_complete`]},weight:1});
   }
  }
  const group=family=>jobs.filter(j=>families.get(j.id)===family).map(j=>j.id);

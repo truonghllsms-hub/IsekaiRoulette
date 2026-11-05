@@ -77,7 +77,7 @@ module.exports = {
       require: { STR: 3, AGI: 3 }, alt: { anyFlags: ["hobgoblin_blood", "chief_son"], hint: "dòng máu Hobgoblin hoặc con của Goblin Chief" },
       desc: "Nhanh nhẹn và Sức mạnh. Kỵ binh cưỡi sói", income: [0.8, 1.2, 1.8, 2.6, 3.4], hazard: 2, gains: { AGI: 0.2, STR: 0.2 } },
   ],
-  promoXp: [5, 6, 8, 10],
+  promoXp: [4, 8, 14, 22],
 
   org: {
     id: "goblin_tribe",

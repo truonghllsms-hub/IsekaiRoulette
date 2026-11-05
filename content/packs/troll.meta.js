@@ -40,7 +40,7 @@ module.exports = {
       require: { INT: 6 }, alt: { anyFlags: ["magic_resist", "cave_troll"], hint: "xuất thân Rừng sâu tĩnh lặng hoặc Hang động ẩm mốc" },
       desc: "Trí tuệ. Troll giả danh trí thức", income: [0.5, 0.9, 1.5, 2.3, 3.2], hazard: 1, gains: { INT: 0.3 } },
   ],
-  promoXp: [5, 6, 8, 10],
+  promoXp: [4, 8, 14, 22],
   roleByPrefix: { troll_role_bridge: "troll_bridge", troll_role_merc: "troll_merc", troll_role_scholar: "troll_scholar" },
   focusByPrefix: { troll_act_mud: "play", troll_act_eat: "study", troll_act_train: "train", troll_act_bridge: "work", troll_act_wander: "adventure", troll_act_sleep: "rest" },
 

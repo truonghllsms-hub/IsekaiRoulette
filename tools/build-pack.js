@@ -423,7 +423,7 @@ function build(raceId, opts) {
     // story nodes: who they are about, and they come first when due
     if (e._story) {
       let sm;
-      if ((sm = e.id.match(/_cast_(rival|mentor|friend)_([a-z])_\d/))) { req.cast = `${sm[1]}_${sm[2]}`; req.castAlive = sm[1]; }
+      if ((sm = e.id.match(/_cast_(rival|mentor|friend)_([a-z])_\d/))) { req.cast = `${sm[1]}_${sm[2]}`; req.castAlive = sm[1]; req.free = true; }
       else if ((sm = e.id.match(/_band_(band_[a-z])_(m?\d+)$/))) {
         if (sm[2] === "1") req.noBand = true;
         else {
@@ -490,6 +490,7 @@ function build(raceId, opts) {
     if (o.require && (o.require.any || o.require.flags || o.require.anyFlags)) { delete req.flags; delete req.anyFlags; }
     if (o.require && o.require.any) { delete req.fame; delete req.wealth; }
     Object.assign(req, o.require || {});
+    if (req.captiveKinds) delete req.free;
     for (const k of Object.keys(o.unrequire || {})) delete req[k];
     if (Object.keys(req).length) ev.require = req;
     // "{child} ở giai đoạn Troll nhí" is the child's age, not yours: child events follow your own life
@@ -699,6 +700,7 @@ function build(raceId, opts) {
       bands: story.bands, minions: story.minions, recruits: story.recruits, bioMap: meta.storyBioOpen || null,
     });
   }
+  for (const k of Object.values(pack.story?.cast || {})) k.contexts = (meta.castContexts || {})[k.id] || ["free"];
   if (meta.exclusive) pack.exclusive = true;
   if (meta.keepEvents) pack.keepEvents = meta.keepEvents;
   for (const k of ["tags", "lifespan", "hazard", "yearScale", "noChildhood", "subtypes"]) if (meta[k] !== undefined) pack[k] = meta[k];
