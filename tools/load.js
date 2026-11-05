@@ -139,6 +139,7 @@ function loadData() {
   // the look of each trade (warrior, mage, hunter, worker, plain): picks the sprite and the gear line
   const { jobLook } = require("./looks");
   for (const j of data.jobs) j.look = jobLook(j);
+  require("./professions").installProfessions(data);
   return data;
 }
 

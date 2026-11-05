@@ -459,6 +459,7 @@
       const b = document.createElement("button");
       b.className = "btn choice";
       if (ch.risk === "lethal") b.classList.add("choice-danger");
+      if (ch.require?.job) b.classList.add("choice-specialist");
       b.textContent = ch.label;
       const note = (text, cls) => {
         const s = document.createElement("small");
@@ -467,6 +468,14 @@
         b.appendChild(s);
       };
       if (ch.hint) note(ch.hint);
+      if (ch.require?.job) note(`Chuyên môn · ${E.jobTitle(c, D)}`, "specialist-note");
+      const burns = [ch.success?.effects?.lifeCost || 0, ch.fail?.effects?.lifeCost || 0];
+      if (burns.some(Boolean)) {
+        const years = burns.map(n => n * E.yearScale(c.race));
+        b.classList.add("choice-danger");
+        note(`Đổi thọ nguyên: thành công mất ${fmtAge(years[0])} năm, thất bại mất ${fmtAge(years[1])} năm.`, "odds odds-slim");
+        if (c.maxAge != null && Math.max(...years) >= c.maxAge - c.age) note("Cấm thuật có thể thiêu rụi phần đời còn lại.", "odds odds-slim");
+      }
       if (ch.disabled) {
         b.disabled = true;
         note(ch.reason || "Chưa đủ điều kiện", "locked");

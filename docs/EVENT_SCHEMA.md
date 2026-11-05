@@ -85,3 +85,15 @@ NPC mới ngoài các danh sách này cần khai báo trên event hoặc quest:
 Lần đầu sẽ hiển thị `Garosh (Beastman tộc Sói, Thợ săn kỳ cựu)`. Những lần sau
 chỉ dùng tên. Đặt NPC nhiệm vụ trong `questOverrides` của pack để giữ sau build;
 NPC riêng của event đặt trong `overrides` tương ứng.
+
+## Chuyên môn và thọ nguyên
+
+`jobChoices` chứa tối đa bốn lựa chọn bổ sung, mỗi lựa chọn bắt buộc có
+`require.job` trỏ đến ID nghề thật (hoặc danh sách ID). Chúng chỉ xuất hiện khi
+đúng nghề, cùng các lựa chọn thường, nên không tạo một bảng lựa chọn dài cho
+mọi nhân vật. Cấu trúc check/success/fail giống lựa chọn thường.
+
+`lifeCost` trong effects là số năm thọ nguyên chuẩn bị tiêu hao, nhân với
+`yearScale` của tộc. Nó giảm `maxAge`, không được hồi lại bằng an dưỡng. Đốt hết
+phần đời còn lại gây tử vong do cấm thuật. Xem [nghề nghiệp](PROFESSIONS.md) để
+biên tập nhiệm vụ tại hai mốc bậc nghề.

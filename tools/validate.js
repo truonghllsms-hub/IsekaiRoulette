@@ -2,12 +2,12 @@
 // Run: node tools/validate.js   (exit code 1 when anything is wrong)
 const STATS = ["STR", "INT", "AGI", "LUCK"];
 const BARS = ["health", "joy", "wealth"];
-const EFFECT_KEYS = new Set([...STATS, ...BARS, "flags", "unflags", "fame", "jobXp", "guildPts", "bond", "partyBond", "allyHurt", "allyDie", "allyLeave", "loseJob", "setJob", "joinGuild", "focus", "recruit", "marry", "child", "loseChild", "demote", "orgRank", "orgRankName", "evolve", "era", "jobRankSet", "jobPromote", "orgRankUp", "loseSpouse", "parentDie", "castDie", "castJoin", "castLeave", "castBond", "joinBand", "leaveBand", "bandGone", "bandLead", "minionAdd", "minionLose", "minionRevolt", "minionLoyal", "memberBond", "memberDie", "memberLeave", "memberJoin", "foundBand", "item"]);
+const EFFECT_KEYS = new Set([...STATS, ...BARS, "flags", "unflags", "fame", "lifeCost", "jobXp", "guildPts", "bond", "partyBond", "allyHurt", "allyDie", "allyLeave", "loseJob", "setJob", "joinGuild", "focus", "recruit", "marry", "child", "loseChild", "demote", "orgRank", "orgRankName", "evolve", "era", "jobRankSet", "jobPromote", "orgRankUp", "loseSpouse", "parentDie", "castDie", "castJoin", "castLeave", "castBond", "joinBand", "leaveBand", "bandGone", "bandLead", "minionAdd", "minionLose", "minionRevolt", "minionLoyal", "memberBond", "memberDie", "memberLeave", "memberJoin", "foundBand", "item"]);
 const BOOL_EFFECTS = new Set(["allyHurt", "allyDie", "allyLeave", "loseJob", "joinGuild", "recruit", "marry", "child", "loseChild", "demote", "jobPromote", "loseSpouse"]);
 const STR_EFFECTS = new Set(["item", "setJob", "focus", "orgRankName", "evolve", "era", "parentDie"]);
 const REQ_KEYS = new Set(["parentGone", "parentDead", "free", ...STATS, ...BARS, "fame", "below", "flags", "anyFlags", "notFlags", "flagHint", "gender", "job", "jobRank", "jobRankMax", "guild", "guildRank", "guildRankMax", "party", "noParty", "allyTrait", "spouse", "children", "noChildren", "focus", "hint", "any", "fatherAlive", "motherAlive", "makerAlive", "form", "subtype", "notSubtypes", "cast", "castAlive", "noBand", "band", "bandMember", "minionOk", "minions", "bandLead", "partyMax", "origin"]);
 const STORY_EFFECTS = new Set(["castDie", "castJoin", "castLeave", "castBond", "joinBand", "leaveBand", "bandGone", "bandLead", "minionAdd", "minionLose", "minionRevolt", "minionLoyal", "memberBond", "memberDie", "memberLeave", "memberJoin", "foundBand"]);
-const EVENT_KEYS = new Set(["path", "_file", "id", "races", "excludeRaces", "tags", "stages", "eras", "minAge", "maxAge", "once", "weight", "require", "text", "effects", "choices", "moment", "death", "focus", "result", "pack", "arc", "recall", "npcs"]);
+const EVENT_KEYS = new Set(["path", "_file", "id", "races", "excludeRaces", "tags", "stages", "eras", "minAge", "maxAge", "once", "weight", "require", "text", "effects", "choices", "moment", "death", "focus", "result", "pack", "arc", "recall", "npcs", "jobChoices"]);
 const PLACEHOLDERS = new Set(["name", "race", "age", "origin", "stage", "pct", "cause", "ally", "allyJob", "partner", "child", "job", "rank", "guild", "spouse", "quest", "next", "father", "mother", "maker", "who", "rival", "mentor", "friend", "party", "leader", "member", "minion", "place"]);
 
 function validate(data) {
@@ -69,6 +69,7 @@ function validate(data) {
       else if (STR_EFFECTS.has(k)) { if (typeof eff[k] !== "string" && !(k === "parentDie" && Array.isArray(eff[k]))) err(where, `${k} phải là chuỗi`); }
       else if (STORY_EFFECTS.has(k)) { /* free-form story values: true, ids, lists, objects */ }
       else if (["orgRank", "jobRankSet", "orgRankUp"].includes(k)) { if (typeof eff[k] !== "number") err(where, `${k} phải là số`); }
+      else if (k === "lifeCost" && (typeof eff[k] !== "number" || !Number.isFinite(eff[k]) || eff[k] < 0 || eff[k] > 100)) err(where, "lifeCost phải là số trong khoảng 0..100");
       else if (typeof eff[k] !== "number" || Math.abs(eff[k]) > 100) err(where, `${k} phải là số trong khoảng -100..100`);
     }
   };
@@ -129,9 +130,11 @@ function validate(data) {
     checkText(w, e.text);
     checkEffects(w, e.effects);
     checkReq(w, e.require);
+    if (e.jobChoices && !e.choices) err(w, "jobChoices cần các lựa chọn chung trong choices");
+    if (e.jobChoices && (!Array.isArray(e.jobChoices) || e.jobChoices.length > 4)) err(w, "jobChoices cần tối đa 4 lựa chọn");
     if (e.choices) {
       if (e.choices.length < 2 || e.choices.length > 4) err(w, "cần 2–4 lựa chọn");
-      e.choices.forEach((ch, i) => {
+      [...e.choices, ...(Array.isArray(e.jobChoices) ? e.jobChoices : [])].forEach((ch, i) => {
         const cw = `${w} lựa chọn ${i + 1}`;
         if (!ch.label) err(cw, "thiếu label");
         if (ch.risk != null && ch.risk !== "lethal") err(cw, "risk phải là lethal");
@@ -152,6 +155,10 @@ function validate(data) {
   for (const e of data.events) {
     const w = `events/${e._file} [${e.id}]`;
     for (const f of e.focus || []) if (!focusIds.has(f)) err(w, `focus không tồn tại "${f}"`);
+    for (const choice of Array.isArray(e.jobChoices) ? e.jobChoices : []) {
+      if (!choice.require?.job || ![].concat(choice.require.job).length) err(w, "lựa chọn nghề cần require.job");
+      for (const id of [].concat(choice.require?.job || [])) if (!jobIds.has(id)) err(w, `nghề lựa chọn không tồn tại "${id}"`);
+    }
     const rj = e.require && e.require.job;
     for (const j of rj == null ? [] : [].concat(rj)) if (!jobIds.has(j) && j !== "any" && j !== "none") err(w, `nghề không tồn tại "${j}"`);
   }
@@ -191,6 +198,11 @@ function validate(data) {
       if (q.maxRank != null && !(q.maxRank >= 0 && q.maxRank < o.ranks.length)) err(w, "maxRank ngoài phạm vi");
     }
     for (const x of q.eras || []) if (!eraIds.has(x)) err(w, `thời đại không tồn tại "${x}"`);
+    checkReq(w, q.require);
+    if (q.career) {
+      if (!jobIds.has(q.career.job)) err(w, "nghề career không tồn tại");
+      if (![2,4].includes(q.career.rank) || q.steps?.length !== 3) err(w, "career cần mốc 2/4 và ba chặng");
+    }
     checkNpcs(w, q.npcs);
     checkText(w, q.intro);
     checkText(w, q.complete);

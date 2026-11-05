@@ -31,7 +31,7 @@ không tăng tuổi; một mốc tuổi bị ngắt sẽ tiếp tục ở đúng
 Chết do cạn máu, tuổi già và kết quả tử vong viết sẵn trong kịch bản vẫn được giữ.
 Nội dung cảnh phân biệt trẻ nhỏ, giam giữ, chiến loạn và tai họa ma pháp.
 
-## Mẫu đo sau điều chỉnh
+## Mẫu đo sau điều chỉnh sinh tồn, trước bản nhiệm vụ nghề
 
 `npm run simulate:survival -- 200 12345`: 1.600 cuộc đời, 200/chủng tộc.
 Bot chọn ngẫu nhiên phương án mở, có 5% cơ hội đổi focus mỗi bước thời gian.

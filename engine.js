@@ -315,6 +315,9 @@
       },
       extra || {}
     );
+    if (c.gender === "female" && partnerGender(c, c.spouse) === "male") {
+      text = String(text).replace(/\{spouse\}(?: của bạn)?(?=\s+(?:(?:vừa|đang|sắp|đã)\s+)?(?:mang thai|sinh hạ|sinh con|đẻ|ấp nở))/g, (m, at) => at === 0 ? "Bạn" : "bạn");
+    }
     // a placeholder that starts a sentence ("kẻ đã tạo ra bạn ra lệnh…") gets a capital letter
     return casterWords(writerChoices(String(text).replace(/([.!?…:]\s+|["“]\s*|)\{(\w+)\}/g, (m, pre, k, at) => {
       if (!(k in vars)) return m;
@@ -494,6 +497,7 @@
       quest: null,
       questsDone: 0,
       questLast: {},
+      careerLast: {},
       ctx: null,
       stageId: "infant",
       clicks: 0,
@@ -1045,6 +1049,10 @@
       c.bars[k] = clamp(c.bars[k] + delta, 0, 100);
     }
     if (eff.fame) c.fame = clamp(c.fame + eff.fame, 0, 100);
+    if (eff.lifeCost > 0 && c.maxAge != null) {
+      c.maxAge = Math.max(0, c.maxAge - eff.lifeCost * yearScale(c.race));
+      c.lifeBurnedAt = c.age;
+    }
     // In some organisations (a Goblin tribe) any renown also climbs the ladder.
     if (eff.fame > 0 && data && c.guild) {
       const o = orgDef(c, data);
@@ -1197,11 +1205,12 @@
     if (eff.orgRank != null && c.guild) setOrgRank(c, data, eff.orgRank);
     if (eff.marry && !c.spouse) {
       const p = (c.ctx && c.ctx.partner) || makePartner(c, data, rng);
-      c.spouse = { name: p.name, race: p.race || c.race.name, since: c.age };
-      // whoever you marry is named and told, so later scenes about them are not about a stranger
-      const last = c.log[c.log.length - 1];
-      if (!last || !last.text.includes(p.name)) pushLog(c, "story", `Người cùng bạn nên duyên là ${p.name}${p.race && p.race !== c.race.name ? ` (${p.race})` : ""}. Từ đó, hai người chung một mái nhà.`);
-      addMoment(c, `Kết duyên với ${p.name}`, data);
+      if (marry(c, p)) {
+        // whoever you marry is named and told, so later scenes about them are not about a stranger
+        const last = c.log[c.log.length - 1];
+        if (!last || !last.text.includes(p.name)) pushLog(c, "story", `Người cùng bạn nên duyên là ${p.name}${p.race && p.race !== c.race.name ? ` (${p.race})` : ""}. Từ đó, hai người chung một mái nhà.`);
+        addMoment(c, `Kết duyên với ${p.name}`, data);
+      }
     }
     if (eff.child) addChild(c, data, rng);
     if (eff.loseChild && c.children.length) {
@@ -1316,6 +1325,8 @@
   }
 
   function eligible(e, c, stageId, data) {
+    if (eventHasChild(e) && !c.race.genderless && !canHaveChild(c) && !(matingEvent(e) && oppositeGender(c.gender))) return false;
+    if (!c.race.genderless && c.spouse && !canHaveChild(c) && /\{spouse\}/.test(e.text || "") && /mang thai|sinh hạ|sinh con|ấp nở/.test(e.text || "")) return false;
     if (e.races && e.races.length && !e.races.includes(c.race.id)) return false;
     if (e.excludeRaces && e.excludeRaces.includes(c.race.id)) return false;
     if (e.tags && e.tags.length && !(c.race.tags || []).some((t) => e.tags.includes(t))) return false;
@@ -1775,13 +1786,41 @@
 
   function makePartner(c, data, rng) {
     const g = c.gender === "male" ? "female" : c.gender === "female" ? "male" : null;
-    return { name: freshName(c, data, rng, g), race: c.race.name };
+    return { name: freshName(c, data, rng, g), race: c.race.name, gender: g };
   }
 
+  const oppositeGender = (gender) => gender === "male" ? "female" : gender === "female" ? "male" : null;
+  function partnerGender(c, partner) {
+    if (!partner) return null;
+    if (partner.gender === "male" || partner.gender === "female") return partner.gender;
+    const known = (c.party || []).find((m) => m.name === partner.name);
+    return known && (known.gender || (known.cast && c.cast?.[known.cast]?.gender)) || null;
+  }
+  function marry(c, partner) {
+    const gender = partnerGender(c, partner);
+    if (oppositeGender(c.gender) && gender !== oppositeGender(c.gender)) return false;
+    c.spouse = { name: partner.name, race: partner.race || c.race.name, gender, since: c.age };
+    if (partner.bond != null) partner.spouse = true;
+    return true;
+  }
+  function canHaveChild(c) {
+    return !!oppositeGender(c.gender) && partnerGender(c, c.ctx?.partner || c.spouse) === oppositeGender(c.gender);
+  }
+  function hasChildEffect(value) {
+    return !!value && typeof value === "object" && (!!value.effects?.child || Object.values(value).some((v) => v && typeof v === "object" && hasChildEffect(v)));
+  }
+  const birthCache = new WeakMap();
+  function eventHasChild(e) {
+    if (!birthCache.has(e)) birthCache.set(e, hasChildEffect(e));
+    return birthCache.get(e);
+  }
+  const matingEvent = (e) => /mating/.test(e.id || "");
   function addChild(c, data, rng) {
+    // Slime division is scripted asexual reproduction, not pregnancy in a couple.
+    if (!c.race.genderless && !canHaveChild(c)) return null;
     const g = rng() < 0.5 ? "male" : "female";
     const name = freshName(c, data, rng, g);
-    c.children.push({ name, born: c.age, gender: g });
+    c.children.push({ name, born: c.age, gender: c.race.genderless ? null : g });
     if (c.ctx) c.ctx.child = name;
     addMoment(c, `Đứa con ${name} chào đời`, data);
     return name;
@@ -1953,7 +1992,7 @@
   function checkDeath(c, data, rng, years) {
     if (!c.alive) return;
     if (c.bars.health <= 0) return die(c, data, pickDeath(c, data, rng, "health"), "health");
-    if (c.maxAge != null && c.age >= c.maxAge) return die(c, data, pickDeath(c, data, rng, "old"), "old");
+    if (c.maxAge != null && c.age >= c.maxAge) return die(c, data, c.lifeBurnedAt === c.age ? "Cấm thuật đã thiêu rụi chút thọ nguyên cuối cùng. Linh hồn bạn tan biến khi trận pháp khép lại." : pickDeath(c, data, rng, "old"), c.lifeBurnedAt === c.age ? "event" : "old");
     if (!years) return;
     const j = jobDef(c, data);
     let h = (c.race.hazard || 0) * (c.era ? c.era.hazard : 1);
@@ -2121,6 +2160,7 @@
   function questPool(c, data) {
     return (data.quests || []).filter(
       (q) =>
+        !q.career &&
         (q.org || "guild") === c.guild.org &&
         (q.repeat ? !(c.questLast[q.id] != null && c.age - c.questLast[q.id] < (3 * yearScale(c.race)) / lifePace(c.race)) : !c.used.includes("quest:" + q.id)) &&
         (q.minRank || 0) <= c.guild.rank &&
@@ -2162,6 +2202,7 @@
 
   function questStepScene(c, data, rng) {
     const q = (data.quests || []).find((x) => x.id === c.quest.id);
+    if (q.career && c.job?.id !== q.career.job) return finishQuest(c, data, rng, false);
     const step = q.steps[c.quest.step];
     const party = aliveParty(c);
     c.ctx = Object.assign(c.ctx || {}, { quest: q, ally: party.length ? pick(rng, party) : null });
@@ -2207,7 +2248,8 @@
 
   function romanceScene(c, data, rng) {
     const s = sys(c, data, "romance");
-    const close = aliveParty(c).filter((m) => m.bond >= 55);
+    const opposite = oppositeGender(c.gender);
+    const close = aliveParty(c).filter((m) => m.bond >= 55 && (!opposite || partnerGender(c, m) === opposite));
     let partner;
     let text;
     if (close.length) {
@@ -2255,11 +2297,24 @@
       return true;
     }
     const j = jobDef(c, data);
+    if (j && careerQuestScene(c, data, rng)) return true;
     if (j && c.job.rank < j.ranks.length - 1 && c.job.xp >= j.promoXp[c.job.rank] && c.age >= (c.nextPromo || 0)) {
       promotionScene(c, data, rng);
       return true;
     }
     return false;
+  }
+
+  function careerQuestScene(c, data, rng) {
+    c.careerLast = c.careerLast || {};
+    const q = (data.quests || []).filter(q => q.career && q.career.job === c.job.id && meets(c, q.require, data) && !c.used.includes("quest:" + q.id) && (c.careerLast[q.id] == null || c.age - c.careerLast[q.id] >= tickYears(c) * 2)).sort((a, b) => a.career.rank - b.career.rank)[0];
+    if (!q) return false;
+    const rank = rankNames(c, jobDef(c, data))[c.job.rank];
+    scene(c, "career", `Ở bậc ${rank}, một thử thách nghề nghiệp đang chờ bạn: ${q.name}. ${q.hint}`, [
+      { label: "Nhận thử thách nghề", act: { type: "quest", id: q.id } },
+      { label: "Chuẩn bị thêm rồi quay lại", text: "Bạn dành thêm thời gian chuẩn bị, chưa nhận thử thách này.", act: { type: "careerLater", id: q.id } },
+    ]);
+    return true;
   }
 
   function scheduled(c, data, rng, years) {
@@ -2289,7 +2344,7 @@
     const childStages = sys(c, data, "childStages") || ["adult", "middle"];
     const childRate = sys(c, data, "childRate") || 0.12;
     const maxChildren = sys(c, data, "maxChildren") || 5;
-    if (sys(c, data, "autoChildren") !== false && c.spouse && childStages.includes(st) && c.children.length < maxChildren && rng() < childRate * Math.min(per, 3)) {
+    if (sys(c, data, "autoChildren") !== false && c.spouse && canHaveChild(c) && childStages.includes(st) && c.children.length < maxChildren && rng() < childRate * Math.min(per, 3)) {
       c.ctx = {};
       addChild(c, data, rng);
       pushLog(c, "milestone", fmt(pick(rng, sys(c, data, "child")), c, null, data));
@@ -2311,8 +2366,9 @@
     if (kidFit.name) c.ctx.child = kidFit.name;
     // Events about winning a mate name the one being courted.
     if (!c.spouse && /\{spouse\}/.test(e.text)) c.ctx.partner = makePartner(c, data, rng);
-    if (e.choices && e.choices.length) {
-      const open = e.choices
+    if (matingEvent(e) && eventHasChild(e)) c.ctx.partner = makePartner(c, data, rng);
+    if ((e.choices && e.choices.length) || e.jobChoices?.length) {
+      const open = [...(e.choices || []), ...(e.jobChoices || [])]
         .filter((ch) => meets(c, ch.require, data) || ch.showLocked)
         .map((ch) => (meets(c, ch.require, data) ? ch : Object.assign({}, ch, { disabled: true, reason: unmetReason(c, ch.require, data) })));
       if (open.some((ch) => !ch.disabled)) {
@@ -2339,8 +2395,20 @@
     return due.length ? weightedPick(due, rng, (e) => e.weight || 10) : null;
   }
 
-  function pickEvent(c, data, rng, stageId) {
-    const all = data.events.filter((e) => !e.arc && eligible(e, c, stageId, data));
+  function pickWorkEvent(c, data, rng, stageId) {
+    if (c.focus !== "work" || !c.job) return null;
+    const own = data.events.filter(e => !e.arc && e.require && [].concat(e.require.job || []).includes(c.job.id) && eligible(e, c, stageId, data));
+    return own.length && rng() < 0.75 ? weightedPick(own, rng, e => e.weight || 10) : null;
+  }
+  function pickEvent(c, data, rng, stageId, workBias = true) {
+    const jobEvent = workBias && pickWorkEvent(c, data, rng, stageId);
+    if (jobEvent) return jobEvent;
+    let all = data.events.filter((e) => !e.arc && eligible(e, c, stageId, data));
+    if (c.focus === "work" && c.job) {
+      const other = all.filter(e => ![].concat(e.require?.job || []).includes(c.job.id));
+      // After the 75% roll misses, use a different thread when one exists.
+      if (other.length) all = other;
+    }
     // what you spend your years on opens its own road: dungeons, study, politics, the martial way,
     // a hermit's lake. A step of that road comes first more often than not.
     const paths = all.filter((e) => e.path);
@@ -2610,11 +2678,13 @@
           // a story node whose time has come goes before anything random
           // short lives get a story beat more often, or the threads never meet
           let node = careerScene(c, data, rng) ? null : null;
+          let workConsidered = false;
           // the omen has come: the change of form goes before the rest of the story
           if (!c.pending && !c.form && c.flags.some((f) => /^evo_sign/.test(f)) && rng() < 0.7) {
             const asc = data.events.filter((e) => e.races && e.races.includes(c.race.id) && /"evolve"/.test(JSON.stringify(e.choices || e.effects || "")) && eligible(e, c, stageId, data));
             if (asc.length) node = weightedPick(asc, rng, (e) => e.weight || 10);
           }
+          if (!node && !c.pending && c.focus === "work" && c.job) { workConsidered = true; node = pickWorkEvent(c, data, rng, stageId); }
           if (!node && !c.pending) node = rng() < (lifePace(c.race) > 1 ? 0.85 : 0.6) ? storyNode(c, data, rng, stageId) : null;
           // a monster's evolution is the turning point of its life: when the body is ready, it comes
           if (!node && !c.pending && !c.form && c.race.tags && c.race.tags.includes("monster")) {
@@ -2637,7 +2707,7 @@
             const rolls = lifePace(c.race);
             for (let r = 0; r < rolls && !c.pending && c.alive; r++) {
               if (rng() < density) {
-                const e = (r > 0 && rng() < 0.5 && storyNode(c, data, rng, stageId)) || pickEvent(c, data, rng, stageId);
+                const e = (r > 0 && rng() < 0.5 && storyNode(c, data, rng, stageId)) || pickEvent(c, data, rng, stageId, !workConsidered);
                 if (e) resolveEvent(c, data, e, rng);
               }
             }
@@ -2698,6 +2768,7 @@
       }
       case "quest": {
         const q = data.quests.find((x) => x.id === act.id);
+        if (!q || (q.career && !meets(c, q.require, data))) break;
         c.used.push("quest:" + q.id);
         c.questLast[q.id] = c.age;
         c.quest = { id: q.id, step: 0 };
@@ -2706,9 +2777,12 @@
         questStepScene(c, data, rng);
         break;
       }
+      case "careerLater":
+        c.careerLast = c.careerLast || {};
+        c.careerLast[act.id] = c.age;
+        break;
       case "marry":
-        c.spouse = { name: act.partner.name, race: act.partner.race, since: c.age };
-        if (act.partner.bond != null) act.partner.spouse = true;
+        marry(c, act.partner);
         break;
     }
   }
@@ -2893,6 +2967,7 @@
     STAT_LABEL,
     makeRng,
     weightedPick,
+    pickEvent,
     stagesOf,
     currentStage,
     tickYears,
