@@ -322,7 +322,12 @@
 
   function profileHtml() {
     const out = [];
-    if (c.job) out.push(`<span>Nghề <b>${esc(E.jobTitle(c, D))}</b></span>`);
+    if (c.job) {
+      const progress = E.jobProgress(c, D);
+      const number = n => Number(n.toFixed(1)).toLocaleString("vi-VN");
+      const meter = progress && !progress.maxed ? `<span class="career-xp-value">${number(progress.xp)}/${number(progress.target)} XP</span><span class="career-xp-track" role="progressbar" aria-label="Kinh nghiệm nghề" aria-valuemin="0" aria-valuemax="${progress.target}" aria-valuenow="${Math.min(progress.xp, progress.target)}" aria-valuetext="${esc(`${number(progress.xp)}/${number(progress.target)} XP · ${progress.status}`)}"><span style="width:${progress.ratio * 100}%"></span></span>` : "";
+      out.push(`<span class="career-progress"><span>Nghề <b>${esc(E.jobTitle(c, D))}</b></span>${meter}${progress ? `<span class="career-xp-status">${esc(progress.status)}</span>` : ""}</span>`);
+    }
     const org = E.orgDef(c, D);
     if (org) out.push(`<span>${esc(org.name)} <b>${esc(E.orgRankName(c, D))}</b></span>`);
     if (c.fame) out.push(`<span>Danh vọng <b>${c.fame}</b></span>`);

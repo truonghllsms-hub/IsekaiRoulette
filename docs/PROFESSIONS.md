@@ -90,3 +90,19 @@ này không tự trừ thêm vốn ngoài những gì giao diện thông báo.
 
 Kiểm tra: `node tools/test-career-pacing.js` bao phủ khoảng nghỉ theo lượt/tuổi,
 biên thời gian, thăng bậc qua sự kiện, lãi vốn, lời/lỗ thương vụ và lời văn từng nhóm.
+
+## Theo dõi tiến độ và sức khỏe
+
+Hồ sơ nghề có thanh XP, số điểm hiện tại/mốc kế tiếp và trạng thái tích lũy.
+Đủ XP nhưng còn thời gian chờ sẽ hiện “Đang làm quen bậc mới”; hết thời gian chờ
+hiện “Chờ cơ hội thăng bậc”. Bậc cao nhất có thông báo riêng, không hiện mốc XP
+không tồn tại. Nhân vật bị giam vẫn thấy XP cùng thông báo tạm dừng thăng tiến.
+Thanh có nhãn cho trình đọc màn hình, giới hạn phần tô ở 100% dù XP dư, hỗ trợ
+màn hình nhỏ và giảm chuyển động.
+
+Human còn sống có máu trong khoảng `(0, 20)` được cảnh báo trong nhật ký. Nếu
+đang làm việc ở tuổi trưởng thành, lời cảnh báo nêu lao lực; trường hợp khác dùng
+lời suy kiệt chung. Cảnh báo mới dừng gộp thời gian để có thể chọn An dưỡng trước
+nhịp tiếp theo. Không lặp khi vẫn yếu; sau khi hồi lên ít nhất 30, lần suy kiệt mới
+có thể cảnh báo lại. Cờ này được giữ khi lưu/tải. Máu bằng 0, chết theo kịch bản và
+hết tuổi thọ vẫn được xử lý bình thường.

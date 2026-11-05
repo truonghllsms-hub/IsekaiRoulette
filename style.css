@@ -376,3 +376,12 @@ body { background: radial-gradient(ellipse at 15% 0%, rgba(122,79,208,.08), tran
 }
 .choice-specialist { border-color: var(--accent); }
 .choice .specialist-note { color: var(--accent); font-weight: 600; }
+
+/* Career progress stays readable alongside the wrapping profile chips. */
+.profile .career-progress { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; flex-basis: 100%; min-width: 0; }
+.career-xp-value { color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.career-xp-track { flex: 0 1 110px; min-width: 70px; height: 6px; border-radius: 6px; overflow: hidden; background: var(--line); }
+.career-xp-track > span { display: block; height: 100%; background: var(--accent); border-radius: inherit; transition: width .3s ease; }
+.career-xp-status { flex-basis: 100%; font-size: 11px; }
+.entry.kind-warning .text { color: var(--bad); border-left: 3px solid var(--bad); padding-left: 12px; font-weight: 600; }
+@media (prefers-reduced-motion: reduce) { .career-xp-track > span { transition: none; } }

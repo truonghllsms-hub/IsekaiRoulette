@@ -142,6 +142,17 @@
   function rankNames(c, j) {
     return c.gender === "female" && j.ranksF ? j.ranksF : j.ranks;
   }
+  function jobProgress(c, data) {
+    const j = jobDef(c, data);
+    if (!j || !c.job) return null;
+    const xp = Math.max(0, Number(c.job.xp) || 0);
+    const maxed = c.job.rank >= j.ranks.length - 1;
+    const target = maxed ? null : j.promoXp[c.job.rank];
+    const waiting = c.age < (c.nextPromo || 0) || c.clicks < (c.nextPromoClick || 0);
+    const status = maxed ? "Đã đạt bậc cao nhất" : c.captive ? "Tạm dừng thăng tiến khi bị giam" : xp < target ? "Đang tích lũy công trạng" : waiting ? "Đủ XP · Đang làm quen bậc mới" : "Đủ XP · Chờ cơ hội thăng bậc";
+    return { xp, target, maxed, status, ratio: maxed ? 1 : Math.min(1, xp / target) };
+  }
+
   function jobTitle(c, data) {
     const j = jobDef(c, data);
     return j ? `${j.name} · ${rankNames(c, j)[c.job.rank]}` : "";
@@ -307,6 +318,7 @@
         maker: parentName(c, "maker"),
         rival: c.cast && c.cast.rival ? c.cast.rival.name : CAST_WORD.rival,
         mentor: c.cast && c.cast.mentor ? c.cast.mentor.name : CAST_WORD.mentor,
+        mentorPronoun: c.cast?.mentor?.gender === "female" ? "bà ta" : c.cast?.mentor?.gender === "male" ? "lão ta" : "người ấy",
         friend: c.cast && c.cast.friend ? c.cast.friend.name : CAST_WORD.friend,
         party: c.band ? c.band.name : "băng",
         leader: c.band ? (c.band.lead ? "bạn" : c.band.leaderName || "đầu băng") : "đầu băng",
@@ -330,6 +342,7 @@
   // "vợ/chồng", "con trai/con gái") or a note to the writer ("(tùy theo nghề của bạn)"). The life
   // being told knows the answer: your gender, your partner's, your child's, your trade.
   function writerChoices(t, c, data) {
+    t = t.replace(/Lão\/Cô ta/giu, c.cast?.mentor?.gender === "female" ? "Bà ta" : c.cast?.mentor?.gender === "male" ? "Lão ta" : "Người ấy");
     if (!/\/|\((?:tùy|tuỳ)/.test(t)) return t;
     const male = c.gender === "male", female = c.gender === "female";
     const kidName = c.ctx && c.ctx.child;
@@ -642,6 +655,13 @@
 
   // Unlike fmt(), these helpers run only when narration is actually committed.
   // Formatting a preview, checking eligibility or summarizing must not meet NPCs.
+  function narrativeRole(text) {
+    return String(text || "").replace(/[()]/g, "").replace(/Bậc/g, "bậc").replace(/\s*·\s*/g, ", ").replace(/\s+/g, " ").trim();
+  }
+  function cleanProse(text) {
+    return String(text || "").trim().replace(/[ \t]+([,.;:!?])/g, "$1")
+      .replace(/(^|[.!?]\s+|\n\s*)([“"']?)(\p{Ll})/gu, (_, pre, quote, letter) => pre + quote + letter.toLocaleUpperCase("vi"));
+  }
   function introduceNpcs(c, data, text) {
     const st = storyOf(c, data);
     const ctx = c.ctx || {};
@@ -651,14 +671,16 @@
       ...Object.values((st && st.recruits) || {}),
       ...Object.values((st && st.bands) || {}).flatMap((b) => b.members || []),
     ];
+    const familyNames = [c.name, ...Object.values(c.parents || {}).map(p => p?.name), c.spouse?.name, ...Object.values(c.cast || {}).map(p => p?.name)].filter(Boolean);
+    const protectedNames = new Set(familyNames.flatMap(name => [name, name.split(" ")[0]]).map(name => name.normalize("NFC").trim().toLocaleLowerCase("vi")));
     c.npcMet = c.npcMet || {};
     for (const p of people.sort((a, b) => (b.name || "").length - (a.name || "").length)) {
-      if (!p.name || c.npcMet[p.name]) continue;
+      if (!p.name || c.npcMet[p.name] || protectedNames.has(p.name.normalize("NFC").trim().toLocaleLowerCase("vi"))) continue;
       const escaped = p.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
       const re = new RegExp(`(?<![\\p{L}\\p{N}_])${escaped}(?![\\p{L}\\p{N}_])`, "u");
       const m = re.exec(text);
       if (!m) continue;
-      const detail = [p.race, p.position || p.jobName || p.role].filter(Boolean).join(", ");
+      const detail = [p.race, narrativeRole(p.position || p.jobName || p.role)].filter(Boolean).join(", ");
       if (!detail) continue;
       c.npcMet[p.name] = true;
       // Source prose may already carry a race/role in parentheses.
@@ -691,7 +713,7 @@
       if (x.mortal) x.mortal.metAt = c.age;
     }
     const text = introduceNpcs(c, data, fmt(rawText || "", c, null, data));
-    return [...prefixes, text].filter(Boolean).join("\n\n");
+    return [...prefixes, text].filter(Boolean).map(cleanProse).join("\n\n");
   }
 
   // ---------- mortals beside a long life ----------
@@ -870,7 +892,7 @@
     return c.band ? `${groupWord(c, data)} ${c.band.name}` : "";
   }
   function memberLine(m) {
-    const pos = (m.position || "").split("·").map((x) => x.trim()).filter(Boolean);
+    const pos = narrativeRole(m.position).split(",").map((x) => x.trim()).filter(Boolean);
     const who = [m.race, ...pos].filter(Boolean).join(", ");
     const desc = firstSentence(m.desc);
     return `${m.name} (${who})${desc ? ": " + lowerFirst(desc) : ""}`;
@@ -1002,6 +1024,10 @@
     return fit.length ? pick(rng, fit) : null;
   }
 
+  function childhoodHardship(c) {
+    const parents = Object.values(c.parents || {}).filter(p => p && p.alive);
+    return !!c.captive || c.bars.wealth <= 5 || !parents.length || (c.bars.wealth < 20 && POOR_BIRTH.test(c.origin.name + " " + c.origin.text));
+  }
   function chapterLine(c, data, rng, stageId) {
     const st = storyOf(c, data);
     const list = st && st.chapters && st.chapters[stageId];
@@ -1009,7 +1035,7 @@
     // "mồ côi" also covers a parent who walked away: a line about their DEATH needs one who really died
     const someDead = ["father", "mother"].some((w) => c.parents && c.parents[w] && c.parents[w].status === "dead" || (c.parents && c.parents[w] && c.parents[w].diedAt != null));
     const KIN_DEATH = /cái chết|qua đời|đã mất|nấm mồ|ngôi mộ|chôn cất|tang lễ|đã khuất|tử trận/i;
-    const fit = list.filter((x) => castTextPresent(c, x.text) && (!c.captive || !castRolesIn(x.text).length) && storyCond(c, data, x.cond) && ageFits(x.text, c) && (!c.captive || captiveOk(x.text, c)) && !(/mồ côi/i.test(x.cond || "") && KIN_DEATH.test(x.text) && !someDead));
+    const fit = list.filter((x) => !(c.captive && ["infant", "child", "teen"].includes(stageId) && !(x.require?.captiveKinds || []).includes(c.captive.kind)) && !(stageId === "child" && childhoodHardship(c) && (x.requiresShelter || /chưa có (nghề|vai trò)/i.test(x.cond || "") || /êm đềm|vô lo|bao bọc|nhung lụa/i.test(x.text))) && castTextPresent(c, x.text) && (!c.captive || !castRolesIn(x.text).length) && storyCond(c, data, x.cond) && ageFits(x.text, c) && (!c.captive || captiveOk(x.text, c)) && !(/mồ côi/i.test(x.cond || "") && KIN_DEATH.test(x.text) && !someDead));
     return fit.length ? pick(rng, fit).text : null;
   }
 
@@ -2041,11 +2067,21 @@
     return d ? d.text : "Bạn qua đời.";
   }
 
+  function warnLowHealth(c) {
+    if (c.race.id !== "human" || !c.alive) return false;
+    if (c.bars.health >= 30) c.lowHealthWarned = false;
+    if (c.bars.health <= 0 || c.bars.health >= 20 || c.lowHealthWarned) return false;
+    c.lowHealthWarned = true;
+    const overwork = c.focus === "work" && ["adult", "middle", "elder"].includes(currentStage(c).id);
+    pushLog(c, "warning", `Cơ thể bạn ngày càng suy kiệt${overwork ? " vì lao lực" : ""}. Nếu không dành thời gian an dưỡng nghỉ ngơi, e rằng khó lòng qua khỏi mùa đông này.`);
+    return true;
+  }
+
   function checkDeath(c, data, rng, years) {
     if (!c.alive) return;
     if (c.bars.health <= 0) return die(c, data, pickDeath(c, data, rng, "health"), "health");
     if (c.maxAge != null && c.age >= c.maxAge) return die(c, data, c.lifeBurnedAt === c.age ? "Cấm thuật đã thiêu rụi chút thọ nguyên cuối cùng. Linh hồn bạn tan biến khi trận pháp khép lại." : pickDeath(c, data, rng, "old"), c.lifeBurnedAt === c.age ? "event" : "old");
-    if (!years) return;
+    if (warnLowHealth(c) || !years) return;
     const j = jobDef(c, data);
     let h = (c.race.hazard || 0) * (c.era ? c.era.hazard : 1);
     const earlyUntil = sys(c, data, "earlyUntil");
@@ -2571,19 +2607,26 @@
     arena: ["Bạn lớn lên trong chuồng giam dưới đấu trường, ngủ giữa mùi máu và tiếng gầm của khán đài phía trên.", "Lũ trẻ trong chuồng tập đánh nhau bằng gậy gỗ từ khi lên năm. Đứa nào thua thì nhịn ăn."],
     bound: ["Sợi dây khế ước vô hình kéo bạn đi theo ý kẻ khác từ khi còn nhỏ xíu. Bạn chưa bao giờ biết tự chọn một ngày của mình."],
   };
-  function quietText(c, data, rng, stageId) {
+  function freshQuiet(c, rng, list, avoid = []) {
+    const recent = new Set([c.lastQuiet, ...(c.quietRecent || []), ...avoid].filter(Boolean));
+    const fresh = list.filter(t => !recent.has(t));
+    if (fresh.length) return pick(rng, fresh);
+    const fallback = ["Bạn lặng lẽ quan sát những đổi thay nhỏ quanh mình.", "Một ngày nữa qua đi, để lại thêm một điều bạn học được.", "Bạn giữ lấy những điều quen thuộc để đi tiếp qua ngày tháng.", "Nhịp sống chậm lại, đủ để bạn nhìn rõ những gì đang ở bên mình."];
+    return pick(rng, fallback.filter(t => !recent.has(t)));
+  }
+  function quietText(c, data, rng, stageId, avoid = []) {
     // born in chains: the years pass in chains too
-    if (c.captive && !c.captive.temp && ["infant", "child", "teen"].includes(stageId) && rng() < 0.6) return pick(rng, CAPTIVE_CHILD[c.captive.kind] || CAPTIVE_CHILD.slave);
+    if (c.captive && !c.captive.temp && ["infant", "child", "teen"].includes(stageId) && rng() < 0.6) return freshQuiet(c, rng, CAPTIVE_CHILD[c.captive.kind] || CAPTIVE_CHILD.slave, avoid);
     if (c.captive && c.captive.temp) {
       const L = {
         prison: ["Những ngày trong ngục trôi qua chậm chạp, chỉ có tiếng xích sắt, bữa cháo loãng và vệt nắng nhỏ qua song cửa.", "Bạn đếm từng vết khắc trên tường đá, mỗi vết là một ngày dài vô tận sau song sắt.", "Cai ngục thay ca, tù nhân đến rồi đi. Bạn học cách ngủ giữa tiếng rên rỉ và mùi ẩm mốc."],
         slave: ["Ngày nào cũng như ngày nào: roi da, gánh nặng và bữa ăn không đủ no.", "Bạn cúi đầu làm lụng dưới ánh mắt chủ nô, giấu kín ý nghĩ về ngày được tự do."],
         arena: ["Mỗi mùa đấu là một lần đặt cược mạng sống trên cát đỏ, trước tiếng gào của khán đài.", "Giữa các trận đấu, bạn băng bó vết thương trong chuồng giam và mài lại vũ khí cũ."],
       };
-      return pick(rng, L[c.captive.kind] || L.prison);
+      return freshQuiet(c, rng, L[c.captive.kind] || L.prison, avoid);
     }
     const sl = shortLifeLine(c, rng, stageId);
-    if (sl) return sl;
+    if (sl && ![c.lastQuiet, ...(c.quietRecent || []), ...avoid].includes(sl)) return sl;
     const f = c.focus ? focusDef(c, data, c.focus) : null;
     const j = jobDef(c, data);
     let list = null;
@@ -2591,9 +2634,8 @@
     else if (f && f.quiet) list = f.quiet[stageId] || f.quiet.default;
     if (!list || !list.length) {
       const pool = data.fillers.filter((x) => (!x.stages || x.stages.includes(stageId)) && (!x.races || x.races.includes(c.race.id)) && captiveLine(x.text, c));
-      if (!pool.length && c.captive) return pick(rng, CAPTIVE_CHILD[c.captive.kind] || CAPTIVE_CHILD.slave);
-      const x = weightedPick(pool, rng);
-      return x ? x.text : "Thời gian lặng lẽ trôi qua.";
+      if (!pool.length && c.captive) return freshQuiet(c, rng, CAPTIVE_CHILD[c.captive.kind] || CAPTIVE_CHILD.slave, avoid);
+      return freshQuiet(c, rng, pool.map(x => x.text), avoid);
     }
     // a line about an aging body waits for old age, one about a small child does not come back at forty
     const OLD = /già nua|tuổi già|xế chiều|tóc bạc|râu bạc|lưng còng|răng rụng|gậy chống|chống gậy|tuổi xế/i;
@@ -2602,17 +2644,19 @@
     // "vài chục năm trôi qua" cannot be said of an eight-year-old
     const LONG_TIME = /(?:vài|hàng|mấy|nhiều) (?:chục|trăm|ngàn|nghìn) năm|(?:một|vài|nhiều) thế kỷ|thập kỷ/i;
     const fit = list.filter((t) => (late || !OLD.test(t)) && (early || !YOUNG.test(t)) && parentsOk(t, c, {}) && ageFits(t, c) && captiveLine(t, c) && !(LONG_TIME.test(t) && c.age < 40));
-    if (!fit.length && c.captive) return pick(rng, CAPTIVE_CHILD[c.captive.kind] || CAPTIVE_CHILD.slave);
-    if (!fit.length && ["infant", "child"].includes(stageId)) return "Những năm thơ ấu trôi qua quanh nơi bạn chào đời, giữa những thứ quen thuộc nhất.";
-    return pick(rng, fit.length ? fit : list);
+    if (!fit.length && c.captive) return freshQuiet(c, rng, CAPTIVE_CHILD[c.captive.kind] || CAPTIVE_CHILD.slave, avoid);
+    if (!fit.length && ["infant", "child"].includes(stageId)) return freshQuiet(c, rng, ["Những năm thơ ấu trôi qua quanh nơi bạn chào đời, giữa những thứ quen thuộc nhất."], avoid);
+    return freshQuiet(c, rng, fit.length ? fit : list, avoid);
   }
 
   // Several quiet years told as a stretch of life: how long, what filled the days, who was there, one detail.
   function spanText(c, data, rng, years, memory) {
     const stageId = currentStage(c).id;
+    if ([c.lastQuiet, ...(c.quietRecent || [])].includes(memory)) memory = null;
     const flavor = quietText(c, data, rng, stageId);
     const n = Math.round(years);
-    if (n < 2) return memory || flavor;
+    const remember = (text, details) => { c.lastQuiet = details[0]; c.quietRecent = details; return text; };
+    if (n < 2) return remember(memory || flavor, [memory || flavor]);
     const f = c.focus ? focusDef(c, data, c.focus) : null;
     const j = jobDef(c, data);
     let act = f && f.name ? lowerFirst(f.name) : "những việc thường ngày";
@@ -2626,7 +2670,7 @@
     else if (c.band && aliveParty(c).length) with_ = ` cùng ${groupName(c, data)}`;
     else if (c.spouse) with_ = ` bên ${c.spouse.name}`;
     // a long life told in centuries: the world below moves, you barely do
-    if (n >= 40 && !(c.captive && c.captive.temp)) return deepTime(c, rng, n, memory);
+    if (n >= 40 && !(c.captive && c.captive.temp)) { const text = deepTime(c, rng, n, memory); return remember(text, [text]); }
     const span = n <= 4 ? pick(rng, ["Vài năm sau đó", "Mấy năm tiếp theo"]) : `${n} năm sau đó`;
     const lead = pick(rng, [
       `${span}, vẫn là ${act}${with_}.`,
@@ -2634,8 +2678,8 @@
     ]);
     const parts = [lead, flavor];
     if (memory) parts.push(memory);
-    else if (n >= 6) { const more = quietText(c, data, rng, stageId); if (more !== flavor) parts.push(more); }
-    return parts.map((x) => upperFirst(x.trim()).replace(/([^.!?…”"])$/, "$1.")).join(" ");
+    else if (n >= 6) { const more = quietText(c, data, rng, stageId, [flavor]); if (more !== flavor) parts.push(more); }
+    return remember(parts.map((x) => upperFirst(x.trim()).replace(/([^.!?…”"])$/, "$1.")).join(" "), parts.slice(1));
   }
 
   function gainsText(g) {
@@ -2661,7 +2705,8 @@
     const s = sys(c, data, "stageEnter");
     const chapter = chapterLine(c, data, rng, stageId);
     let line = chapter || s[stageId] || s.default || data.systems.stageEnter.default;
-    if (c.captive && (c.captive.temp || (!chapter && !captiveOk(line, c)))) line = `Năm tháng trôi qua, bạn lớn thêm một vòng, nhưng thế giới của bạn vẫn chỉ rộng bằng ${CAPTIVE_PLACE[c.captive.kind] || "chốn giam cầm"}.`;
+    if (!chapter && stageId === "child" && childhoodHardship(c)) line = "Bạn bước vào tuổi thơ, sớm học cách giữ gìn những thứ ít ỏi mình có giữa một thế giới đầy bất trắc.";
+    if (c.captive && (c.captive.temp || (!chapter && (["infant", "child", "teen"].includes(stageId) || !captiveOk(line, c))))) line = `Năm tháng trôi qua, bạn lớn thêm một vòng, nhưng thế giới của bạn vẫn chỉ rộng bằng ${CAPTIVE_PLACE[c.captive.kind] || "chốn giam cầm"}.`;
     pushLog(c, "stage", storyText(c, data, line));
     return crossroads(c, data);
   }
@@ -2670,6 +2715,8 @@
     rng = rng || Math.random;
     if (!c.alive || c.pending) return c;
     c.clicks++;
+    if (c.maxAge != null && c.age >= c.maxAge) { checkDeath(c, data, rng, 0); return c; }
+    if (warnLowHealth(c)) return c;
     if (enterLifeStage(c, data, rng)) return c;
     if (c.quest) {
       questStepScene(c, data, rng);
@@ -2730,9 +2777,10 @@
       parentsTick(c, data, rng);
       mortalsTick(c, data, rng);
       jailTick(c, data, rng);
+      const wasWarned = c.lowHealthWarned;
       checkDeath(c, data, rng, years);
 
-      let stop = !c.alive || !!c.pending;
+      let stop = !c.alive || !!c.pending || (!wasWarned && c.lowHealthWarned);
       if (!stop) {
         // A new stage of life is a natural place to stop and choose a direction.
         const stageId = currentStage(c).id;
@@ -3069,6 +3117,7 @@
     focusOptions,
     setFocus,
     jobTitle,
+    jobProgress,
     introLine,
     raceTitle,
     orgDef,

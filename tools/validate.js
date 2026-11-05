@@ -8,7 +8,7 @@ const STR_EFFECTS = new Set(["item", "setJob", "focus", "orgRankName", "evolve",
 const REQ_KEYS = new Set(["parentGone", "parentDead", "free", "captiveKinds", ...STATS, ...BARS, "fame", "below", "flags", "anyFlags", "notFlags", "flagHint", "gender", "job", "jobRank", "jobRankMax", "guild", "guildRank", "guildRankMax", "party", "noParty", "allyTrait", "spouse", "children", "noChildren", "focus", "hint", "any", "fatherAlive", "motherAlive", "makerAlive", "form", "subtype", "notSubtypes", "cast", "castAlive", "noBand", "band", "bandMember", "minionOk", "minions", "bandLead", "partyMax", "origin"]);
 const STORY_EFFECTS = new Set(["castDie", "castJoin", "castLeave", "castBond", "joinBand", "leaveBand", "bandGone", "bandLead", "minionAdd", "minionLose", "minionRevolt", "minionLoyal", "memberBond", "memberDie", "memberLeave", "memberJoin", "foundBand"]);
 const EVENT_KEYS = new Set(["path", "_file", "id", "races", "excludeRaces", "tags", "stages", "eras", "minAge", "maxAge", "once", "weight", "require", "text", "effects", "choices", "moment", "death", "focus", "result", "pack", "arc", "recall", "npcs", "jobChoices"]);
-const PLACEHOLDERS = new Set(["name", "race", "age", "origin", "stage", "pct", "cause", "ally", "allyJob", "partner", "child", "job", "rank", "guild", "spouse", "quest", "next", "father", "mother", "maker", "who", "rival", "mentor", "friend", "party", "leader", "member", "minion", "place"]);
+const PLACEHOLDERS = new Set(["name", "race", "age", "origin", "stage", "pct", "cause", "ally", "allyJob", "partner", "child", "job", "rank", "guild", "spouse", "quest", "next", "father", "mother", "maker", "who", "rival", "mentor", "mentorPronoun", "friend", "party", "leader", "member", "minion", "place"]);
 
 function validate(data) {
   const errors = [];
@@ -56,6 +56,7 @@ function validate(data) {
   const checkText = (where, text) => {
     if (typeof text !== "string" || !text.trim()) return err(where, "thiếu text");
     for (const m of text.matchAll(/\{(\w+)\}/g)) if (!PLACEHOLDERS.has(m[1])) err(where, `placeholder lạ {${m[1]}}`);
+    if (/Lão\/Cô ta/i.test(text)) err(where, "đại từ biên tập chưa được thay bằng mentorPronoun");
     // "{mentor vào nửa đêm": an open brace the game would print as it is
     for (const m of text.matchAll(/\{(\w+)(?![\w}])/g)) err(where, `thiếu dấu } sau {${m[1]}`);
     if (/[.!?…]\s+\.(?!\.)/.test(text)) err(where, "dấu chấm kép");
@@ -157,6 +158,10 @@ function validate(data) {
   const contexts = ["free", "prison", "slave", "arena", "bound"];
   for (const [race, story] of Object.entries(data.story || {})) for (const k of Object.values(story.cast || {})) {
     if (!Array.isArray(k.contexts) || !k.contexts.length || k.contexts.some(x => !contexts.includes(x))) err(`story ${race}/${k.id}`, "Cast cần contexts hợp lệ");
+  }
+  for (const [race, story] of Object.entries(data.story || {})) for (const [stage, list] of Object.entries(story.chapters || {})) for (const chapter of list) {
+    checkText(`chapter ${race}/${stage}`, chapter.text);
+    if (chapter.requiresShelter != null && typeof chapter.requiresShelter !== "boolean") err(`chapter ${race}/${stage}`, "requiresShelter phải là boolean");
   }
   const probabilities = [["global", data.systems.castChances], ...Object.entries(data.systems.race || {}).filter(([,s])=>s.castChances).map(([id,s])=>[id,s.castChances])];
   for (const [id, values] of probabilities) {

@@ -33,6 +33,7 @@ npm test                 # Kiểm tra dữ liệu và mô phỏng 1.000 đời m
 - [Sinh tồn và số liệu mô phỏng](docs/SURVIVAL.md)
 - [Nghề nghiệp, nhiệm vụ thăng tiến và gia đình](docs/PROFESSIONS.md)
 - [Cast theo xuất thân và giam giữ](docs/CAST_CONTEXT.md)
+- [Định danh NPC, câu đệm và lời kể tuổi thơ](docs/NARRATION.md)
 - [Xếp hạng cuộc đời](docs/RATINGS.md)
 - [Cách viết pack](docs/PACKS.md)
 

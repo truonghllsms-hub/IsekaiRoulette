@@ -700,6 +700,12 @@ function build(raceId, opts) {
       bands: story.bands, minions: story.minions, recruits: story.recruits, bioMap: meta.storyBioOpen || null,
     });
   }
+  for (const x of pack.story?.chapters?.child || []) if (/chưa có (nghề|vai trò)/i.test(x.cond || "")) x.requiresShelter = true;
+  const childhood = require("../content/childhood");
+  for (const id of ["play", "rest"]) if (pack.focus?.[id]) {
+    const quiet = pack.focus[id].quiet || (pack.focus[id].quiet = {});
+    for (const [stage, extra] of Object.entries(childhood)) quiet[stage] = [...new Set([...(quiet[stage] || quiet.default || []), ...extra])];
+  }
   for (const k of Object.values(pack.story?.cast || {})) k.contexts = (meta.castContexts || {})[k.id] || ["free"];
   if (meta.exclusive) pack.exclusive = true;
   if (meta.keepEvents) pack.keepEvents = meta.keepEvents;
