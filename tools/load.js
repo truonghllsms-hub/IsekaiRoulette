@@ -112,6 +112,7 @@ function loadData() {
     quests: one("quests"),
     systems: one("systems"),
     items: one("items"),
+    chronology: one("chronology"),
     events,
   };
   for (const f of jsonFiles(PROFILE_DIR)) mergeProfile(data, readJson(path.join(PROFILE_DIR, f)), f);
@@ -139,7 +140,9 @@ function loadData() {
   // the look of each trade (warrior, mage, hunter, worker, plain): picks the sprite and the gear line
   const { jobLook } = require("./looks");
   for (const j of data.jobs) j.look = jobLook(j);
+  for (const race of data.races) if (data.chronology[race.id]) race.pacing = data.chronology[race.id];
   require("./professions").installProfessions(data);
+  require("../content/epoch-events").install(data);
   return data;
 }
 

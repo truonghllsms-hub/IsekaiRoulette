@@ -2,12 +2,12 @@
 // Run: node tools/validate.js   (exit code 1 when anything is wrong)
 const STATS = ["STR", "INT", "AGI", "LUCK"];
 const BARS = ["health", "joy", "wealth"];
-const EFFECT_KEYS = new Set([...STATS, ...BARS, "flags", "unflags", "fame", "lifeCost", "jobXp", "guildPts", "bond", "partyBond", "allyHurt", "allyDie", "allyLeave", "loseJob", "setJob", "joinGuild", "focus", "recruit", "marry", "child", "loseChild", "demote", "orgRank", "orgRankName", "evolve", "era", "jobRankSet", "jobPromote", "orgRankUp", "loseSpouse", "parentDie", "castDie", "castJoin", "castLeave", "castBond", "joinBand", "leaveBand", "bandGone", "bandLead", "minionAdd", "minionLose", "minionRevolt", "minionLoyal", "memberBond", "memberDie", "memberLeave", "memberJoin", "foundBand", "item"]);
+const EFFECT_KEYS = new Set([...STATS, ...BARS, "flags", "unflags", "fame", "lifeCost", "epochChange", "jobXp", "guildPts", "bond", "partyBond", "allyHurt", "allyDie", "allyLeave", "loseJob", "setJob", "joinGuild", "focus", "recruit", "marry", "child", "loseChild", "demote", "orgRank", "orgRankName", "evolve", "era", "jobRankSet", "jobPromote", "orgRankUp", "loseSpouse", "parentDie", "castDie", "castJoin", "castLeave", "castBond", "joinBand", "leaveBand", "bandGone", "bandLead", "minionAdd", "minionLose", "minionRevolt", "minionLoyal", "memberBond", "memberDie", "memberLeave", "memberJoin", "foundBand", "item"]);
 const BOOL_EFFECTS = new Set(["allyHurt", "allyDie", "allyLeave", "loseJob", "joinGuild", "recruit", "marry", "child", "loseChild", "demote", "jobPromote", "loseSpouse"]);
 const STR_EFFECTS = new Set(["item", "setJob", "focus", "orgRankName", "evolve", "era", "parentDie"]);
 const REQ_KEYS = new Set(["parentGone", "parentDead", "free", "captiveKinds", ...STATS, ...BARS, "fame", "below", "flags", "anyFlags", "notFlags", "flagHint", "gender", "job", "jobRank", "jobRankMax", "guild", "guildRank", "guildRankMax", "party", "noParty", "allyTrait", "spouse", "children", "noChildren", "focus", "hint", "any", "fatherAlive", "motherAlive", "makerAlive", "form", "subtype", "notSubtypes", "cast", "castAlive", "noBand", "band", "bandMember", "minionOk", "minions", "bandLead", "partyMax", "origin"]);
 const STORY_EFFECTS = new Set(["castDie", "castJoin", "castLeave", "castBond", "joinBand", "leaveBand", "bandGone", "bandLead", "minionAdd", "minionLose", "minionRevolt", "minionLoyal", "memberBond", "memberDie", "memberLeave", "memberJoin", "foundBand"]);
-const EVENT_KEYS = new Set(["path", "_file", "id", "races", "excludeRaces", "tags", "stages", "eras", "minAge", "maxAge", "once", "weight", "require", "text", "effects", "choices", "moment", "death", "focus", "result", "pack", "arc", "recall", "npcs", "jobChoices"]);
+const EVENT_KEYS = new Set(["epoch", "variants", "cooldownYears", "path", "_file", "id", "races", "excludeRaces", "tags", "stages", "eras", "minAge", "maxAge", "once", "weight", "require", "text", "effects", "choices", "moment", "death", "focus", "result", "pack", "arc", "recall", "npcs", "jobChoices"]);
 const PLACEHOLDERS = new Set(["name", "race", "age", "origin", "stage", "pct", "cause", "ally", "allyJob", "partner", "child", "job", "rank", "guild", "spouse", "quest", "next", "father", "mother", "maker", "who", "rival", "mentor", "mentorPronoun", "friend", "party", "leader", "member", "minion", "place"]);
 
 function validate(data) {
@@ -70,6 +70,7 @@ function validate(data) {
       else if (STR_EFFECTS.has(k)) { if (typeof eff[k] !== "string" && !(k === "parentDie" && Array.isArray(eff[k]))) err(where, `${k} phải là chuỗi`); }
       else if (STORY_EFFECTS.has(k)) { /* free-form story values: true, ids, lists, objects */ }
       else if (["orgRank", "jobRankSet", "orgRankUp"].includes(k)) { if (typeof eff[k] !== "number") err(where, `${k} phải là số`); }
+      else if (k === "epochChange") { if (!eff[k] || typeof eff[k] !== "object" || Object.entries(eff[k]).some(([key,v])=>!["domain","ruin","insight","legacy"].includes(key)||!Number.isFinite(v)||Math.abs(v)>20)) err(where,"epochChange cần chỉ số kỷ nguyên hợp lệ"); }
       else if (k === "lifeCost" && (typeof eff[k] !== "number" || !Number.isFinite(eff[k]) || eff[k] < 0 || eff[k] > 100)) err(where, "lifeCost phải là số trong khoảng 0..100");
       else if (typeof eff[k] !== "number" || Math.abs(eff[k]) > 100) err(where, `${k} phải là số trong khoảng -100..100`);
     }
@@ -133,6 +134,9 @@ function validate(data) {
     }
     if (e.weight != null && !(e.weight > 0)) err(w, "weight phải > 0");
     checkText(w, e.text);
+    if (e.cooldownYears!=null && (!Number.isFinite(e.cooldownYears)||e.cooldownYears<0)) err(w,"cooldownYears cần số năm không âm");
+    if (e.epoch!=null && typeof e.epoch!=="boolean") err(w,"epoch cần boolean");
+    if (e.variants!=null) { if (!Array.isArray(e.variants)||!e.variants.length) err(w,"variants cần các đoạn kể");else for(const t of e.variants)checkText(w+" variant",t); }
     checkEffects(w, e.effects);
     checkReq(w, e.require);
     if (e.jobChoices && !e.choices) err(w, "jobChoices cần các lựa chọn chung trong choices");
@@ -155,6 +159,9 @@ function validate(data) {
     }
   }
 
+  for (const [id,p] of Object.entries(data.chronology||{})) {
+    if (!data.races.some(r=>r.id===id) || !["generations","epoch"].includes(p.mode) || !Number.isFinite(p.minStep) || !Number.isFinite(p.maxStep) || p.minStep<1 || p.maxStep<p.minStep || p.maxTicks!==1 || !(p.period>0)) err(`chronology ${id}`,"nhịp thời gian không hợp lệ");
+  }
   const contexts = ["free", "prison", "slave", "arena", "bound"];
   for (const [race, story] of Object.entries(data.story || {})) for (const k of Object.values(story.cast || {})) {
     if (!Array.isArray(k.contexts) || !k.contexts.length || k.contexts.some(x => !contexts.includes(x))) err(`story ${race}/${k.id}`, "Cast cần contexts hợp lệ");

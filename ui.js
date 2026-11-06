@@ -248,6 +248,38 @@
   });
 
   function isDarkTheme() { return document.documentElement.dataset.theme ? document.documentElement.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; }
+  // The map is a reference view: it never advances a life or consumes a choice.
+  const mapDialog = $("world-map-dialog"), mapViewport = $("map-viewport");
+  if (D.worldMap?.src) $("world-map-image").src=D.worldMap.src;
+  let mapZoom = 1;
+  function zoomMap(value, center = true) {
+    const oldWidth = $("map-canvas").offsetWidth || mapViewport.clientWidth;
+    const cx = (mapViewport.scrollLeft + mapViewport.clientWidth / 2) / oldWidth;
+    const cy = (mapViewport.scrollTop + mapViewport.clientHeight / 2) / Math.max(1, $("map-canvas").offsetHeight);
+    mapZoom = Math.max(1, Math.min(4, value));
+    mapViewport.classList.toggle("is-zoomed",mapZoom>1);
+    const fitWidth = Math.min(mapViewport.clientWidth, mapViewport.clientHeight * 1536 / 1024);
+    $("map-canvas").style.width = `${fitWidth * mapZoom}px`;
+    $("map-zoom-level").textContent = `${Math.round(mapZoom * 100)}%`;
+    $("map-zoom-out").disabled = mapZoom <= 1;
+    $("map-zoom-in").disabled = mapZoom >= 4;
+    if (mapZoom === 1) { mapViewport.scrollLeft = 0; mapViewport.scrollTop = 0; }
+    else if (center) { mapViewport.scrollLeft = cx * $("map-canvas").offsetWidth - mapViewport.clientWidth / 2; mapViewport.scrollTop = cy * $("map-canvas").offsetHeight - mapViewport.clientHeight / 2; }
+  }
+  $("btn-map").onclick = () => { mapDialog.showModal(); zoomMap(1, false); };
+  $("btn-map-close").onclick = () => mapDialog.close();
+  $("map-zoom-in").onclick = () => zoomMap(mapZoom + 0.5);
+  $("map-zoom-out").onclick = () => zoomMap(mapZoom - 0.5);
+  $("map-zoom-reset").onclick = () => zoomMap(1, false);
+  mapDialog.addEventListener("click", e => { if (e.target !== mapDialog) return; const r = mapDialog.getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) mapDialog.close(); });
+  mapDialog.addEventListener("close", () => $("btn-map").focus());
+  let mapDrag = null;
+  mapViewport.addEventListener("pointerdown", e => { if(e.pointerType!=="mouse"||e.button!==0||mapZoom<=1)return;mapDrag={x:e.clientX,y:e.clientY,left:mapViewport.scrollLeft,top:mapViewport.scrollTop};mapViewport.setPointerCapture(e.pointerId);mapViewport.classList.add("is-dragging");e.preventDefault(); });
+  mapViewport.addEventListener("pointermove", e => { if(!mapDrag)return;mapViewport.scrollLeft=mapDrag.left-(e.clientX-mapDrag.x);mapViewport.scrollTop=mapDrag.top-(e.clientY-mapDrag.y); });
+  for(const type of ["pointerup","pointercancel","lostpointercapture"])mapViewport.addEventListener(type,()=>{mapDrag=null;mapViewport.classList.remove("is-dragging");});
+  mapViewport.addEventListener("keydown", e => { if(["+","=","-","0"].includes(e.key)){e.preventDefault();zoomMap(e.key==="0"?1:mapZoom+(e.key==="-"?-.5:.5));} });
+  window.addEventListener("resize", () => { if (mapDialog.open) zoomMap(mapZoom, false); });
+
   function renderThemeButton() { $("btn-theme").textContent = isDarkTheme() ? "☀" : "☾"; $("btn-theme").setAttribute("aria-label", isDarkTheme() ? "Chuyển sang giao diện sáng" : "Chuyển sang giao diện tối"); }
   $("btn-theme").onclick = () => {
     const next = isDarkTheme() ? "light" : "dark";
@@ -326,7 +358,7 @@
       const progress = E.jobProgress(c, D);
       const number = n => Number(n.toFixed(1)).toLocaleString("vi-VN");
       const meter = progress && !progress.maxed ? `<span class="career-xp-value">${number(progress.xp)}/${number(progress.target)} XP</span><span class="career-xp-track" role="progressbar" aria-label="Kinh nghiệm nghề" aria-valuemin="0" aria-valuemax="${progress.target}" aria-valuenow="${Math.min(progress.xp, progress.target)}" aria-valuetext="${esc(`${number(progress.xp)}/${number(progress.target)} XP · ${progress.status}`)}"><span style="width:${progress.ratio * 100}%"></span></span>` : "";
-      out.push(`<span class="career-progress"><span>Nghề <b>${esc(E.jobTitle(c, D))}</b></span>${meter}${progress ? `<span class="career-xp-status">${esc(progress.status)}</span>` : ""}</span>`);
+      out.push(`<span class="career-progress"><span>${c.race.pacing?.mode === "epoch" ? "Đạo thống" : "Nghề"} <b>${esc(E.jobTitle(c, D))}</b></span>${meter}${progress ? `<span class="career-xp-status">${esc(progress.status)}</span>` : ""}</span>`);
     }
     const org = E.orgDef(c, D);
     if (org) out.push(`<span>${esc(org.name)} <b>${esc(E.orgRankName(c, D))}</b></span>`);
@@ -334,6 +366,11 @@
     if (c.party.length)
       out.push(`<span>Tổ đội ${c.party.filter((m) => !m.left).map((m) => `<button type="button" class="member-name-link ${m.alive ? "" : "dead"}" data-member="${esc(m.name)}" aria-haspopup="dialog" title="${esc(m.race + ", " + m.jobName)}">${esc(m.name)}</button>`).join(", ")}</span>`);
     if (c.spouse) out.push(`<span>Bạn đời <b>${esc(c.spouse.name)}</b>${c.children.length ? ` · ${c.children.length} con` : ""}</span>`);
+    if (c.spouse?.age != null) out.push(`<span>Tuổi bạn đời <b>${Math.floor(c.spouse.age)}</b> · ${esc(c.spouse.race || "")}</span>`);
+    if (c.children?.length) out.push(`<span>Hậu duệ ${c.children.map(k => k.kind === "egg" ? `${esc(k.name)} (trứng, còn ${Math.max(0,Math.ceil(k.hatchAt-c.age))} năm)` : `${esc(k.name)} (${Math.max(0,Math.floor(c.age-(k.born??c.age)))} tuổi${k.kind === "emanation" ? ", phân thân" : ""})`).join(", ")}</span>`);
+    if (c.familyHistory?.length) out.push(`<span class="family-remembrance">Tưởng nhớ ${c.familyHistory.map(p => `${esc(p.name)} (${p.relation === "spouse" ? "bạn đời" : "người con"})`).join(", ")}</span>`);
+    if (c.race.pacing && c.alive) out.push(`<span>Nhịp thời gian <b>${E.tickYears(c)} năm/lượt</b></span>`);
+    if (c.epoch && c.race.pacing) out.push(`<span>${c.race.pacing.mode === "epoch" ? "Dấu ấn kỷ nguyên" : "Di sản thế hệ"} · Lãnh địa <b>${c.epoch.domain||0}</b> · Ngộ đạo <b>${c.epoch.insight||0}</b> · Di sản <b>${c.epoch.legacy||0}</b> · Tàn phá <b>${c.epoch.ruin||0}</b></span>`);
     // what you carry: weapon, armour, keepsakes (hover for what it is and what it adds)
     if (c.items && c.items.length) {
       const order = { weapon: 0, armor: 1, charm: 2 };
@@ -752,6 +789,7 @@
   $("btn-again").onclick = startLife;
   $("btn-review").onclick = () => show("screen-life");
   document.addEventListener("keydown", (ev) => {
+    if (document.querySelector("dialog[open]")) return;
     if (ev.key !== " " && ev.key !== "Enter") return;
     if ($("screen-life").hidden || (c && c.pending)) return;
     if (document.activeElement && document.activeElement.tagName === "BUTTON") return;

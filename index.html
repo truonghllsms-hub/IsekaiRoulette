@@ -27,6 +27,7 @@
     <header class="app-toolbar">
       <a class="world-brand" href="#app" aria-label="Luân Hồi Dị Giới"><span aria-hidden="true">✦</span> AETHELGARD</a>
       <div class="utility-controls">
+        <button id="btn-map" class="map-toggle" type="button" aria-haspopup="dialog" aria-controls="world-map-dialog" title="Xem bản đồ Aethelgard"><span aria-hidden="true">♧</span><span class="map-button-label">Bản đồ</span></button>
         <button id="btn-theme" class="theme-toggle" type="button" title="Đổi giao diện sáng/tối" aria-label="Đổi giao diện sáng/tối">☾</button>
         <button id="btn-music" class="music-toggle" type="button" title="Nhạc nền: Adventure – Alexander Nakarada (royalty-free)" aria-label="Bật/tắt nhạc nền">♪</button>
       </div>
@@ -118,6 +119,13 @@
         <button id="btn-review" class="btn">Xem lại cuộc đời</button>
       </div>
     </section>
+  <dialog id="world-map-dialog" class="world-map-dialog" aria-labelledby="world-map-title">
+    <header class="map-heading"><div><p class="eyebrow">Biên niên cổ đồ</p><h2 id="world-map-title">Thế giới Aethelgard</h2></div><button id="btn-map-close" class="dialog-close" type="button" aria-label="Đóng bản đồ">×</button></header>
+    <div class="map-controls" role="group" aria-label="Độ phóng đại bản đồ"><button id="map-zoom-out" type="button" aria-label="Thu nhỏ bản đồ">−</button><output id="map-zoom-level" aria-live="polite">100%</output><button id="map-zoom-in" type="button" aria-label="Phóng to bản đồ">+</button><button id="map-zoom-reset" type="button">Xem toàn cảnh</button></div>
+    <p id="map-hint" class="meta">Phóng to rồi kéo thanh cuộn hoặc vuốt để xem từng miền đất.</p>
+    <div id="map-viewport" class="map-viewport" tabindex="0" aria-label="Bản đồ thế giới có thể cuộn" aria-describedby="map-hint"><div id="map-canvas" class="map-canvas"><img id="world-map-image" draggable="false" src="img/maps/aethelgard-01.png" width="1536" height="1024" loading="lazy" decoding="async" alt="Cổ đồ Aethelgard: Dãy Núi Răng Cưa ở tây bắc, Vực Thẳm Phân Tầng ở phía bắc, Đại Ngàn ở đông bắc; Sanctus nằm giữa Đồng Bằng Thánh Quang, Tháp Ngà ở tây nam và Thảo Nguyên Gió Hú ở phía đông."></div></div>
+    <details class="map-places"><summary>Các miền đất trên bản đồ</summary><p>Dãy Núi Răng Cưa · Vực Thẳm Phân Tầng · Đại Ngàn · Đồng Bằng Thánh Quang · Sanctus · Tháp Ngà · Thảo Nguyên Gió Hú</p></details>
+  </dialog>
   <dialog id="roster-dialog" class="people-dialog" aria-labelledby="roster-name">
     <button class="dialog-close" type="button" data-close="roster-dialog" aria-label="Đóng thông tin tổ đội">×</button>
     <p class="eyebrow">Hồ sơ tổ đội</p>

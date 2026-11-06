@@ -108,3 +108,15 @@ Các cảnh Cast thông thường mặc định yêu cầu tự do khi build pac
 cảnh bạn tù phải khai báo context của Cast trong metadata **và** `captiveKinds`
 của sự kiện; chỉ sửa mô tả thành “bạn tù” chưa đủ. Xem
 [quy tắc Cast theo xuất thân](CAST_CONTEXT.md) để biết nguồn cấu hình và ngoại lệ.
+
+## Biến cố kỷ nguyên
+
+`epoch: true` đánh dấu cảnh được ghi vào bộ nhớ ba cảnh gần nhất.
+`once: false` cho phép gặp lại; `cooldownYears` là số năm thực tối thiểu giữa
+hai lần xuất hiện. `variants` là mảng lời dẫn thay thế cho `text`, được chọn
+khi mở cảnh. Cả `text` và các biến thể đều phải giữ đúng bối cảnh, điều kiện.
+
+Effect `epochChange` là object với các khóa `domain`, `insight`, `legacy`,
+`ruin`; giá trị là thay đổi trong khoảng −20..20. Các dấu ấn được lưu trong
+`c.epoch` và giới hạn 0–100. Xem `content/epoch-events.js` và
+[Nhịp kỷ nguyên](CHRONOLOGY.md) để biên tập nội dung tái diễn.

@@ -23,8 +23,9 @@ vẫn dùng nó, không tạo lượt rỗng. Đây là xác suất chọn ưu t
 
 `content/careers.js` là nguồn biên tập xung đột và mốc nghề;
 `tools/professions.js` gắn chúng với ID nghề thật sau khi tải các pack. 98 nghề
-đang khả dụng có 196 biến cố công việc/hậu quả, 8 thương vụ và 196 nhiệm vụ nghề. Các nhóm
-chuyên môn dùng chung khung xung đột; 14 nghề Human có lời dẫn hai mốc riêng biệt.
+đang khả dụng có 196 biến cố công việc/hậu quả, 3 thương vụ và 196 nhiệm vụ nghề. Các nhóm
+chuyên môn có khung xung đột theo nghề; 14 nghề Human có lời dẫn hai mốc riêng biệt.
+34 nghề trường thọ có nội dung bản địa và đạo thống riêng, xem [Kỷ nguyên](CHRONOLOGY.md).
 Kiếm sĩ, đấu sĩ và lính đánh thuê có xung đột tương ứng về danh dự/chấn thương,
 đấu dàn xếp và trách nhiệm trong hợp đồng.
 
@@ -72,7 +73,7 @@ chung sau thăng bậc, hoãn hoặc kết thúc nhiệm vụ.
 
 ## Buôn bán và thăng tiến tư nhân
 
-Tám nghề thuộc nhóm thương mại có thêm thương vụ khi focus `work`: đầu tư 20
+Ba nghề Human merchant, Imp secretary và Kobold overseer có thêm thương vụ khi focus `work`: đầu tư 20
 tài sản, kiểm tra INT để thu về 60 (lãi ròng 40), hoặc mất 20 nếu thất bại.
 Yêu cầu vốn được hiển thị và khóa khi không đủ; lựa chọn môi giới nhận 5, còn
 bỏ qua không tốn tiền. Cả vốn lẫn doanh thu được quyết toán trong một kết quả,
@@ -106,3 +107,6 @@ lời suy kiệt chung. Cảnh báo mới dừng gộp thời gian để có th�
 nhịp tiếp theo. Không lặp khi vẫn yếu; sau khi hồi lên ít nhất 30, lần suy kiệt mới
 có thể cảnh báo lại. Cờ này được giữ khi lưu/tải. Máu bằng 0, chết theo kịch bản và
 hết tuổi thọ vẫn được xử lý bình thường.
+
+Tuổi thọ bạn đời, con lai, trứng Rồng và phân thân được mô tả trong
+[Trường thọ, kỷ nguyên và gia đình](CHRONOLOGY.md).

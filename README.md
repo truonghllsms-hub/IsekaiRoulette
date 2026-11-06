@@ -29,6 +29,8 @@ npm run validate:sprites  # Python + Pillow + NumPy
 npm test                 # Kiểm tra dữ liệu và mô phỏng 1.000 đời mỗi tộc
 ```
 
+- [Bản đồ thế giới và cách xem](docs/MAP.md)
+- [Nhịp kỷ nguyên và tuổi thọ gia đình](docs/CHRONOLOGY.md)
 - [Ảnh gốc, tách nền và kiểm tra pixel](docs/SPRITES.md)
 - [Sinh tồn và số liệu mô phỏng](docs/SURVIVAL.md)
 - [Nghề nghiệp, nhiệm vụ thăng tiến và gia đình](docs/PROFESSIONS.md)

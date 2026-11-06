@@ -1,0 +1,23 @@
+// These are paths of mastery and sovereignty, never civil shop/exam templates.
+const domains={
+ dwarf:{place:'Dãy Núi Răng Cưa',craft:'cổ ngữ khắc trong ký ức đá',wealth:'khế ước Huyết Kim giữa các thành trì',legacy:'thư khố Rune của các gia tộc',threat:'mạch quặng và lời thề tổ tiên'},
+ demon:{place:'Vực Thẳm Phân Tầng',craft:'lò Hắc Diễm giam giữ ấn linh hồn',wealth:'khế ước ma tinh giữa các pháo đài',legacy:'ấn ký truyền đời của Quân đoàn',threat:'ma triều và các thế lực phản khế'},
+ elf:{place:'Đại Ngàn',craft:'sinh mạch của Cây Thế Giới',wealth:'giao ước bảo hộ giữa Đại Ngàn và các vương quốc',legacy:'ký ức Yggdrasil của nhiều thế hệ',threat:'sự lụi tàn của rừng thiêng'},
+ dragon:{place:'long mạch Aethelgard',craft:'lõi ma lực hành tinh',wealth:'kho báu và các vương quốc cống nạp',legacy:'long ngữ lưu giữ lịch sử đại lục',threat:'các thế hệ Dũng Giả và ý chí Cổ Thần'},
+ high_demon:{place:'triều đình Vực Thẳm',craft:'pháp tắc linh hồn',wealth:'lời thề của các vương hầu cùng lãnh địa',legacy:'chân danh được khắc qua nhiều kỷ nguyên',threat:'chiến tranh giữa các thần linh'},
+ vampire:{place:'những huyết tộc cổ',craft:'bí thuật ký ức trong huyết mạch',wealth:'lãnh địa và các dòng họ phụng sự',legacy:'huyết khế vượt qua các triều đại',threat:'giáo đoàn thảo phạt và mặt trời thiêng'}
+};
+function path(j,family,race){if(/sage|archmage|mage/.test(j.id))return 'genesis';if(/war|general|blade|hunter/.test(j.id))return 'cataclysm';return 'dominion';}
+function profile(j,race,family){
+ const d=domains[race];if(!d)return null;const epic=['dragon','high_demon','vampire'].includes(race),way=path(j,family,race);
+ const core=epic?(way==='genesis'?d.craft:way==='cataclysm'?d.threat:d.wealth):(family==='smith'?d.craft:family==='merchant'?d.wealth:d.legacy);
+ const noun=epic?'đạo thống':'di sản';
+ const titles=epic?{dominion:['Lời thề của các vương quốc','Vương quyền qua các triều đại'],cataclysm:['Ngọn cờ Dũng Giả kế tiếp','Phán quyết giữa các Cổ Thần'],genesis:['Tiếng vọng từ lõi thế giới','Khởi nguyên của một pháp tắc']}[way]:['Người giữ di sản','Công trình của nhiều thế hệ'];
+ const arcs=titles.map((t,i)=>[t,`Dấu hiệu biến động tại ${d.place} buộc bạn xét lại ${core}. ${i?'Một thế hệ mới đã tiếp nhận lời hứa cũ, nhưng cách thực hiện đang chia rẽ những người kế thừa.':'Bạn phải tự quyết định điều gì đáng được giữ lại khi thời thế đổi thay.'}`,`Bạn lần theo sử liệu và dấu vết quyền năng liên quan đến ${core}, phân biệt lời thề thật với điều bị đời sau sửa lại.`,`Một phe muốn độc chiếm ${core}, đổi sự ổn định trước mắt lấy món nợ để lại cho thế hệ sau. Bạn phải chọn giới hạn của quyền lực.`,`Tại ${d.place}, bạn đứng trước nghi thức quyết định tương lai ${core}. Thành tựu sẽ được đo bằng điều còn tồn tại sau biến động này.`]);
+ return {epic,way,progression:epic?'epoch':'heritage',
+  promotionCopy:{try:epic?'Khắc dấu đạo thống':'Hoàn thiện công trình truyền đời',wait:'Tích lũy thêm trải nghiệm',waitText:`Bạn trở về ${d.place}, giữ ý định này cho đến khi hiểu rõ cái giá của nó.`,success:`Thành tựu của bạn đã để lại dấu ấn trong ${d.legacy}. Danh xưng {next} từ đây có trọng lượng của một lời thề.`,fail:[`Quyền năng chưa ổn định. Bạn dừng lại trước khi tổn hại đến ${d.legacy}.`,`Một mắt xích trong ${core} chưa được thấu hiểu. Bạn giữ những gì đã học thay vì đánh đổi tất cả để giành danh xưng.`]},
+  promo:[`Bạn cần đặt nền móng bền vững cho ${core} tại ${d.place} để xứng với danh xưng {next}.`,`Một biến động đe dọa ${core}. Bạn phải tự ổn định nó và chứng minh rằng {next} là trách nhiệm có thể gánh vác.`,`Di sản ${d.legacy} đang đứng trước nguy cơ đứt đoạn. Bạn cần nối lại những phần thất truyền bằng kinh nghiệm ${j.name}.`,`Để trở thành {next}, bạn phải hoàn tất một công trình có thể tiếp tục bảo vệ ${d.place} khi thế hệ người chứng kiến hôm nay đã khuất.`],
+  dilemma:`Người kế thừa tại ${d.place} muốn sửa bỏ một giao ước liên quan đến ${core}. Họ chỉ biết kết quả, không còn hiểu cái giá mà người đi trước đã trả.`,
+  safe:'Giải thích di sản và tìm một giao ước mới',tempt:'Dùng quyền uy ép giữ nguyên lời thề',good:`Bạn nối lại ký ức bị đứt đoạn. ${d.legacy} có thêm người hiểu và tự nguyện gìn giữ.`,bad:'Bất đồng chưa chấm dứt; bạn dành thêm quyền năng và nguồn lực để ngăn xung đột lan rộng.',temptGood:'Mệnh lệnh được tuân theo, nhưng sự im lặng của người kế thừa cho thấy một món nợ đang hình thành.',temptBad:`Lời cưỡng ép phản tác dụng, khiến ${core} mất ổn định.`,loss:{health:-25,joy:-10,wealth:-10},fallout:`Những người kế thừa phản kháng cách bạn can thiệp vào ${core}. Một quyết định hôm nay có thể trở thành lời nguyền trong ký ức đời sau.`,arcs};
+}
+module.exports={domains,profile,path};
