@@ -285,7 +285,8 @@ test("aging companions receive a farewell appropriate to their race", () => {
     c.maxAge = 10400;
     c.party = [{ name: "Kael", race: race.name, alive: true, since: 0, bond: 70, wish: "" }];
     E.advance(c, { ...data, events: [] }, E.makeRng(42));
-    assert.equal(c.party[0].alive, false, raceId);
+    assert.equal(c.party.length, 0, raceId);
+    assert.equal(c.fallen.find(p=>p.name==="Kael").alive,false);
     assert.equal(c.fallen.filter((p) => p.name === "Kael").length, 1);
     const loss = c.log.find((e) => e.kind === "loss" && e.text.includes("Kael"));
     assert.ok(loss, raceId);

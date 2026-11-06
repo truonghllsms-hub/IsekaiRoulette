@@ -60,7 +60,7 @@ trong bản lưu cũng bị chặn. Xem [Cast và bối cảnh giam giữ](CAST_
 
 Mốc XP của nghề được cập nhật ở cả dữ liệu chung và metadata các pack thành
 `[4, 8, 14, 22]`. Thăng bậc thành công (kể cả qua sự kiện cấp bậc) đặt
-`nextPromo = age + tickYears * (4 + rank * 2)`, đồng thời buộc qua **hai lượt bấm**
+`nextPromo = age + tickYears * (1 + rank)` cho nhóm không dùng epoch, đồng thời buộc qua **hai lượt bấm**
 trước bài thi kế tiếp. Một lượt bấm có thể gộp nhiều nhịp năm nên cần kiểm tra
 cả tuổi và số lượt; chỉ dùng mốc tuổi chưa bảo đảm khoảng nghỉ cho người chơi.
 
@@ -108,3 +108,15 @@ hết tuổi thọ vẫn được xử lý bình thường.
 
 Tuổi thọ bạn đời, con lai, trứng Rồng và phân thân được mô tả trong
 [Trường thọ, kỷ nguyên và gia đình](CHRONOLOGY.md).
+
+## Nhóm chuyên môn và XP thực hành
+
+`content/career-corrections.js` ưu tiên ID chính xác cho 14 nghề dễ bị phân nhóm
+nhầm: giao liên, bí thư/giám sát, shaman, Ghoul thức tỉnh, độc tố và Mimic Slime.
+Hai mốc giao liên không còn dùng khúc hát hay trường ca. Nhóm kỷ nguyên vẫn có
+khoảng nghỉ thăng bậc `tickYears * (4 + rank * 2)` và ba lượt bấm.
+
+Ngoài focus Làm việc, các lựa chọn tăng chỉ số chuyên môn hoặc vượt kiểm tra
+bằng đúng chỉ số nghề có thể cho 0,5 XP thực hành, tối đa 1 XP mỗi lượt. Không
+cộng trùng phần thưởng `jobXp`, không cộng vì chỉ an dưỡng và không áp dụng khi
+bị giam. Xem [đợt sửa nội dung](CONTENT_AUDIT.md) và [prompt mở rộng](gemini-prompts/README.md).

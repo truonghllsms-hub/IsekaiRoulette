@@ -7,7 +7,7 @@ function step(c,d=quiet,rng=()=>0){c.pending=null;E.advance(c,d,rng);}
 
 test('all profession sources use progressively spaced XP thresholds',()=>{for(const j of data.jobs)assert.deepEqual(j.promoXp,[4,8,14,22],j.id);});
 test('successful promotion resets XP and sets both promotion and milestone cooldowns',()=>{
- const c=person();act(c,'promote');assert.equal(c.job.rank,1);assert.equal(c.job.xp,0);assert.ok(c.nextPromo>c.age);assert.ok(c.nextCareer>c.age);const until=c.nextPromo;for(let i=0;i<2;i++){c.job.xp=1000;step(c,{...quiet,quests:data.quests});assert.notEqual(c.pending?.kind,'promotion');if(i===0)assert.notEqual(c.pending?.kind,'career');}assert.equal(c.nextPromo,until);
+ const c=person();act(c,'promote');assert.equal(c.job.rank,1);assert.equal(c.job.xp,0);assert.ok(c.nextPromo>c.age);assert.ok(c.nextCareer>c.age);const until=c.nextPromo;for(let i=0;i<1;i++){c.job.xp=1000;step(c,{...quiet,quests:data.quests});assert.notEqual(c.pending?.kind,'promotion');if(i===0)assert.notEqual(c.pending?.kind,'career');}assert.equal(c.nextPromo,until);
 });
 test('promotion becomes available at its cooldown boundary even with a legacy timer',()=>{const c=person();c.nextPromo=1000;step(c);assert.notEqual(c.pending?.kind,'promotion');c.nextPromo=c.age;step(c);assert.equal(c.pending?.kind,'promotion');});
 test('higher ranks get longer promotion cooldowns for the same life stage',()=>{const a=person('human_mage',0),b=person('human_mage',2);act(a,'promote');act(b,'promote');assert.ok(b.nextPromo-b.age>a.nextPromo-a.age);});

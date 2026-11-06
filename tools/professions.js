@@ -4,13 +4,15 @@ const content = require('../content/careers');
 const progression = require('../content/progression');
 const longLives = require('../content/long-lives');
 const fam = (job) => {
+  if(content.jobFamilies?.[job.id])return content.jobFamilies[job.id];
   const suffix=job.id.replace(/^[a-z]+_/, '');
   const exact=Object.entries(content.families).find(([,p])=>p.jobs.includes(suffix));
   if(exact)return exact[0];
   const text=job.name+' '+job.desc;
   if(/merchant|thương|ngân|thuế|kho báu/i.test(text))return 'merchant';
   if(/rèn|chế tạo|kỹ sư|khắc|nấu rượu/i.test(text))return 'smith';
-  if(/đưa tin|sứ giả|bí thư/i.test(text))return 'bard';
+  if(/đưa tin|đưa thư|giao liên|courier|messenger/i.test(text))return 'courier';
+  if(/bí thư|giám sát|secretary|overseer/i.test(text))return 'administrator';
   if(/tư tế|priest|shaman/i.test(text))return 'priest';
   if(/thuần|ấp trứng|chăn|cưỡi/i.test(text))return 'tamer';
   return job.look==='phapsu'?'mage':job.look==='tho'?'smith':job.stat==='STR'?'warrior':job.stat==='AGI'?'ranger':job.stat==='LUCK'?'bard':'scholar';
@@ -20,7 +22,7 @@ function installProfessions(data) {
  const jobs=data.jobs.filter(j=>data.races.some(r=>(!j.races||j.races.includes(r.id))&&!(j.excludeRaces||[]).includes(r.id)));
  const families=new Map(jobs.map(j=>[j.id,fam(j)]));
  for(const j of jobs){
-  const family=families.get(j.id);
+  const family=families.get(j.id);j.family=family;
   const long=longLives.profile(j,(j.races||[])[0],family);
   const p={...content.families[family],...content.overrides[j.id],...(long||{})};
   const style=family==='merchant'?'commerce':family==='assassin'?'independent':family==='smith'?'craft':null;

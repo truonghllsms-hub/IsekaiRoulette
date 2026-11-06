@@ -1,7 +1,8 @@
 # Schema sự kiện
 
-Mỗi file trong `data/events/` là một mảng JSON. Gemini phải trả về đúng dạng này.
-Kiểm tra bằng `node tools/validate.js`.
+Mỗi file nguồn trong `data/events/` là một mảng JSON; kiểm tra game bằng
+`node tools/validate.js`. Khi nhận bản thảo từ Gemini, dùng wrapper
+`{"origins": [], "events": []}` và `tools/check-content-draft.js` theo hướng dẫn cuối tài liệu.
 
 ## Sự kiện thường
 
@@ -128,3 +129,21 @@ Mặc định là thưởng thường. Thương vụ cần nghề đủ điều 
 phần tăng; kho báu một lần và hoàn vốn có thể vượt trần tích lũy thường.
 Giá mua và phần trừ tài sản không bị nhân giảm. Xem [Kinh tế](ECONOMY.md)
 và `tools/economy.js` về cách đánh dấu dữ liệu có sẵn khi build.
+
+## Thoát khỏi giam giữ và bản thảo bổ sung
+
+`effects.setFree: true` chỉ đặt trên kết quả thực sự thoát thân. Engine xóa
+`c.captive` và ghi nhận tự do; không cần gắn đúng cụm từ để bộ đoán văn bản
+nhận ra. Event mở đầu vẫn cần `require.captiveKinds` đúng loại.
+
+`require.form: "none"` yêu cầu chưa tiến hóa; `"any"` yêu cầu đã có hình thái;
+các chuỗi còn lại khớp đúng tên form. Không có `noForm`.
+
+An dưỡng không kích hoạt các cảnh tạo/gia nhập nhóm mới, dù hiệu ứng nằm trong
+nhánh `success`/`fail`. Cảnh chăm sóc đồng đội hiện có vẫn dùng `partyBond` và
+các token có điều kiện phù hợp. Đồng đội đã mất không còn là đối tượng `{ally}`.
+
+Bản thảo Gemini dùng wrapper `{ "origins": [], "events": [] }` để trao đổi,
+**không** phải file tự nạp. Kiểm tra bằng
+`node tools/check-content-draft.js /đường/dẫn/ban-thao.json`, sau đó đọc và
+tích hợp vào nguồn chuẩn. Xem [bộ prompt](gemini-prompts/README.md).

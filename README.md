@@ -29,6 +29,8 @@ npm run validate:sprites  # Python + Pillow + NumPy
 npm test                 # Kiểm tra dữ liệu và mô phỏng 1.000 đời mỗi tộc
 ```
 
+- [Đợt sửa nội dung và cơ chế](docs/CONTENT_AUDIT.md)
+- [8 prompt Gemini để viết thêm kịch bản](docs/gemini-prompts/README.md)
 - [Giao diện chính Biên niên cổ thư](docs/HOMEPAGE.md)
 - [Giao diện chơi, tổ đội và khung ảnh nhân vật](docs/INTERFACE.md)
 - [Tài sản và bốn thanh trạng thái](docs/ECONOMY.md)

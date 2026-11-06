@@ -166,7 +166,73 @@
     return j ? `${j.name} · ${rankNames(c, j)[c.job.rank]}` : "";
   }
   function aliveParty(c) {
-    return c.party.filter((m) => m.alive);
+    return (c.party || []).filter((m) => m.alive && !m.left);
+  }
+  function currentAlly(c) {
+    const x=c.ctx?.ally;
+    return x ? aliveParty(c).find(m=>m===x || (m.name===x.name && (!x.band||m.band===x.band))) || null : null;
+  }
+  function archiveDeadParty(c) {
+    c.party=c.party||[];
+    for(const m of c.party) {
+      const cast=m.cast&&c.cast?.[m.cast];
+      if(cast && !cast.alive && !cast.left){m.alive=false;m.left=false;m.diedAt=cast.diedAt??cast.died??c.age;}
+      if(m.alive || m.left)continue;
+      const at=m.diedAt??m.died??c.age;m.diedAt=at;
+      c.fallen=c.fallen||[];
+      const old=c.fallen.find(x=>x.name===m.name);
+      if(old)Object.assign(old,{...m,at:old.at??at,alive:false});else c.fallen.push({...m,at,alive:false});
+      if(c.spouse?.name===m.name){
+        c.familyHistory=(c.familyHistory||[]).concat({...c.spouse,alive:false,diedAt:at,relation:'spouse'});
+        c.formerSpouses=(c.formerSpouses||[]).concat(m.name);c.spouse=null;
+        if(!c.flags.includes('bereaved_spouse'))c.flags.push('bereaved_spouse');
+      }
+      if(c.ctx?.partner?.name===m.name)c.ctx.partner.alive=false;
+    }
+    c.party=c.party.filter(m=>m.alive || m.left);
+    if(c.ctx?.ally)c.ctx.ally=currentAlly(c);
+  }
+  function wasCompanionKilled(c,name) {return (c.fallen||[]).some(m=>m.name===name) || (c.party||[]).some(m=>m.name===name&&!m.alive&&!m.left);}
+  const narrativeCache=new WeakMap(),deadNameCache=new WeakMap();
+  function sceneText(value) {
+    if(!value||typeof value!=='object')return '';
+    if(narrativeCache.has(value))return narrativeCache.get(value);
+    const parts=[];
+    for(const [key,v]of Object.entries(value)){
+      if(['text','result','label','hint'].includes(key)&&typeof v==='string')parts.push(v);
+      else if(key==='variants'&&Array.isArray(v))parts.push(...v);
+      else if(['choices','jobChoices','success','fail','auto'].includes(key)&&v&&typeof v==='object')parts.push(...(Array.isArray(v)?v:[v]).map(sceneText));
+    }
+    const text=parts.join('\n');narrativeCache.set(value,text);return text;
+  }
+  function unavailableCompanion(c,value) {
+    const text=typeof value==='string'?value:sceneText(value);
+    if(/\{ally(?:Job)?\}/.test(text)&&!aliveParty(c).length)return true;
+    if(!(c.fallen||[]).length && !(c.party||[]).some(m=>!m.alive&&!m.left))return false;
+    const pending=(c.party||[]).filter(m=>!m.alive&&!m.left).map(m=>m.name).join('|');
+    const family=[c.name,c.spouse?.name,...Object.values(c.parents||{}).filter(p=>p?.alive).map(p=>p.name)].filter(Boolean);
+    const signature=family.join('|')+'::'+pending;
+    let entry=deadNameCache.get(c);
+    if(!entry||entry.history!==c.fallen||entry.length!==(c.fallen||[]).length||entry.signature!==signature){
+      const names=[...new Set([...(c.fallen||[]).map(m=>m.name),...(c.party||[]).filter(m=>!m.alive&&!m.left).map(m=>m.name)])].filter(n=>n&&n.length>1&&!family.includes(n));
+      const escaped=names.map(n=>n.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'));
+      entry={history:c.fallen,length:(c.fallen||[]).length,signature,pattern:escaped.length?new RegExp('(?<![\\p{L}\\p{N}_])(?:'+escaped.join('|')+')(?![\\p{L}\\p{N}_])','u'):null};deadNameCache.set(c,entry);
+    }
+    return !!entry.pattern?.test(text);
+  }
+  const membershipCache=new WeakMap();
+  function createsParty(value) {
+    if(!value||typeof value!=='object')return false;
+    if(membershipCache.has(value))return membershipCache.get(value);
+    const found=!!(value.recruit||value.joinBand||value.foundBand||value.bandLead||value.memberJoin||value.castJoin||value.act?.type==='recruit'||Object.values(value).some(v=>v&&typeof v==='object'&&createsParty(v)));
+    membershipCache.set(value,found);return found;
+  }
+  function practiceXp(c,data,amount=0.5) {
+    if(!c.job||c.captive)return;
+    if(c.practiceXpClick!==c.clicks){c.practiceXpClick=c.clicks;c.practiceXpEarned=0;}
+    const earned=Math.min(amount,Math.max(0,1-(c.practiceXpEarned||0)));
+    c.job.xp+=earned;c.practiceXpEarned=(c.practiceXpEarned||0)+earned;
+    if(earned&&c.log.length){const last=c.log[c.log.length-1];last.gains=[last.gains,`Kinh nghiệm nghề +${String(earned).replace('.',',')}`].filter(Boolean).join(' · ');}
   }
   function raceTitle(c) {
     const base = c.subtypeName ? `${c.race.name} ${c.subtypeName}` : c.race.name;
@@ -303,6 +369,7 @@
 
   function fmt(text, c, extra, data) {
     const ctx = c.ctx || {};
+    const activeAlly = currentAlly(c);
     const j = data ? jobDef(c, data) : null;
     const kid = ctx.child || livingChildren(c).slice(-1)[0]?.name || "đứa con";
     const vars = Object.assign(
@@ -312,8 +379,8 @@
         age: c.age,
         origin: c.origin ? c.origin.name : "",
         stage: currentStage(c).name,
-        ally: ctx.ally ? ctx.ally.name : "kẻ đồng hành",
-        allyJob: ctx.ally ? ctx.ally.jobName : "",
+        ally: activeAlly ? activeAlly.name : "người đồng hành",
+        allyJob: activeAlly ? activeAlly.jobName : "",
         partner: ctx.partner ? ctx.partner.name : "",
         child: kid,
         job: j ? j.name : "kẻ lang bạt",
@@ -330,7 +397,7 @@
         friend: c.cast && c.cast.friend ? c.cast.friend.name : CAST_WORD.friend,
         party: c.band ? c.band.name : "băng",
         leader: c.band ? (c.band.lead ? "bạn" : c.band.leaderName || "đầu băng") : "đầu băng",
-        member: ctx.ally ? ctx.ally.name : c.party.find((m) => m.alive && !m.left) ? c.party.find((m) => m.alive && !m.left).name : "một đồng bọn",
+        member: activeAlly ? activeAlly.name : c.party.find((m) => m.alive && !m.left) ? c.party.find((m) => m.alive && !m.left).name : "một đồng bọn",
         minion: c.minions && c.minions.length ? c.minions[c.minions.length - 1].name : "đám thuộc hạ",
       },
       extra || {}
@@ -843,6 +910,7 @@
       }
     }
     c.children=(c.children||[]).filter(k=>k.alive!==false);
+    archiveDeadParty(c);
   }
   function mortalsTick(c, data, rng) {
     familyTick(c,data,rng);
@@ -886,6 +954,7 @@
         addMoment(c, bodyEnd ? `${p.name} đã tàn lụi` : `${p.name} qua đời vì tuổi già`, data);
       }
     }
+    archiveDeadParty(c);
   }
 
   // ---------- captivity: lives that begin in chains ----------
@@ -1001,7 +1070,7 @@
     if (b.rule) t += ` Luật của họ chỉ có một: “${upperFirst(cleanEnd(b.rule))}.”`;
     if (b.lair) t += ` Nơi tụ họp: ${upperFirst(cleanEnd(b.lair))}.`;
     pushLog(c, "story", t);
-    if (b.members && b.members.length) pushLog(c, "story", storyText(c, data, "Những gương mặt bạn sẽ đi cùng: " + b.members.map(memberLine).join(" · ") + "."));
+    if (b.members && b.members.length) pushLog(c, "story", storyText(c, data, "Những gương mặt bạn sẽ đi cùng: " + b.members.filter(m=>!wasCompanionKilled(c,m.name)).map(memberLine).join(" · ") + "."));
   }
   // a short lead-in before a scene of the group, so it does not start out of nowhere
   function groupBridge(c, data, e, rng) {
@@ -1028,12 +1097,14 @@
   function joinBand(c, data, id) {
     const st = storyOf(c, data);
     const b = st && st.bands && st.bands[id];
-    if (!b) return;
+    if (!b || c.focus === "rest") return;
+    archiveDeadParty(c);
     leaveBand(c, false);
-    const leader = b.members.find((m) => /đầu băng|đội trưởng|thủ lĩnh/i.test(m.position)) || b.members[0];
+    const available = b.members.filter(m=>!wasCompanionKilled(c,m.name));
+    const leader = available.find((m) => /đầu băng|đội trưởng|thủ lĩnh/i.test(m.position)) || available[0];
     c.band = { id, name: b.name || b.title, leaderName: leader ? leader.name : null, lead: false, gone: false, since: c.age, party: !!b.party };
     for (const m of b.members) {
-      if (m === leader) continue;
+      if (m === leader || wasCompanionKilled(c,m.name)) continue;
       if (aliveParty(c).length >= MAX_PARTY) break;
       c.party.push({ name: m.name, race: m.race, gender: genderGuess(m.name, [m.race, m.position, m.desc, m.secret].join(" ")), job: "band", jobName: m.position,
         stat: "STR", power: 4, trait: traitFrom(m.desc), bond: 30, alive: true, since: c.age, band: id });
@@ -1052,7 +1123,7 @@
 
   // The person a name in the script points at: a band member, the band leader, or one of the cast.
   function findPerson(c, name) {
-    const m = c.party.find((x) => x.name === name);
+    const m = aliveParty(c).find((x) => x.name === name) || c.party.find((x) => x.name === name && !x.left);
     if (m) return { kind: "member", m };
     if (c.band && c.band.leaderName === name) return { kind: "leader" };
     // a parent or a cast person written by name in a designed scene ("Snik CHẾT")
@@ -1226,9 +1297,14 @@
     if (eff.flags) for (const f of eff.flags) if (!c.flags.includes(f)) c.flags.push(f);
     if (eff.unflags) c.flags = c.flags.filter((f) => !eff.unflags.includes(f));
     if (!data) return;
+    if ((c.focus==='rest'||eff.focus==='rest') && createsParty(eff)) {
+      eff={...eff};for(const key of ['recruit','joinBand','foundBand','bandLead','memberJoin','castJoin'])delete eff[key];
+    }
+    if (eff.setFree && c.captive) setFree(c,data,'Bạn đã giành lại tự do và rời khỏi nơi giam giữ.');
     if (eff.jobXp && c.job) c.job.xp += eff.jobXp;
+    if (source==='event' && !eff.jobXp && !eff.jobPromote && eff.jobRankSet==null && !eff.setJob && c.job && eff[jobDef(c,data)?.stat]>0) practiceXp(c,data);
     if (eff.guildPts && c.guild) addGuildPoints(c, data, eff.guildPts);
-    const ally = c.ctx && c.ctx.ally;
+    const ally = currentAlly(c);
     if (eff.bond && ally) ally.bond = clamp(ally.bond + eff.bond, 0, 100);
     if (eff.partyBond) for (const m of aliveParty(c)) m.bond = clamp(m.bond + eff.partyBond, 0, 100);
     if (eff.allyHurt && ally) {
@@ -1286,7 +1362,7 @@
       for (const role of [].concat(eff.castDie || [])) if (c.cast[role] && c.cast[role].alive) { c.cast[role].alive = false; c.cast[role].died = c.age; }
       if (eff.castLeave && c.cast[eff.castLeave]) c.cast[eff.castLeave].left = true;
       if (eff.castBond) for (const [role, v] of Object.entries(eff.castBond)) if (c.cast[role]) c.cast[role].bond += v;
-      if (eff.castJoin && c.cast[eff.castJoin] && c.cast[eff.castJoin].alive && !c.party.some((m) => m.cast === eff.castJoin) && aliveParty(c).length < MAX_PARTY) {
+      if (eff.castJoin && c.cast[eff.castJoin] && c.cast[eff.castJoin].alive && !wasCompanionKilled(c,c.cast[eff.castJoin].name) && !c.party.some((m) => m.cast === eff.castJoin) && aliveParty(c).length < MAX_PARTY) {
         const x = c.cast[eff.castJoin];
         c.party.push({ name: x.name, race: x.race || c.race.name, job: "cast", jobName: CAST_WORD[eff.castJoin], stat: "STR", power: 5, trait: "loyal", bond: 60, alive: true, since: c.age, cast: eff.castJoin });
       }
@@ -1316,7 +1392,7 @@
     if (eff.memberJoin && aliveParty(c).length < MAX_PARTY) {
       const st = storyOf(c, data);
       const r = st && st.recruits && st.recruits[eff.memberJoin];
-      if (r && !c.party.some((m) => m.name === r.name)) {
+      if (r && !wasCompanionKilled(c,r.name) && !c.party.some((m) => m.name === r.name)) {
         c.party.push({ name: r.name, race: r.race, gender: genderGuess(r.name, r.desc + " " + r.race), job: "band", jobName: r.position, stat: "STR", power: 6, trait: traitFrom(r.desc), bond: 30, alive: true, since: c.age, band: c.band ? c.band.id : null });
         addMoment(c, `${r.name} gia nhập tổ đội`, data);
         let t = `${r.name} (${r.race}, ${r.position}) chính thức theo bạn.`;
@@ -1330,7 +1406,12 @@
     for (const name of [].concat(eff.memberDie || [])) {
       const p = findPerson(c, name);
       if (p && p.kind === "member") { p.m.alive = false; p.m.died = c.age; }
-      if (p && p.kind === "leader") { c.band.leaderGone = c.band.leaderName; c.band.leaderName = null; }
+      if (p && p.kind === "leader") {
+        const original=storyOf(c,data)?.bands?.[c.band.id]?.members?.find(m=>m.name===name);
+        c.fallen=c.fallen||[];
+        if(!c.fallen.some(m=>m.name===name))c.fallen.push({...original,name,band:c.band.id,alive:false,leader:true,at:c.age,diedAt:c.age});
+        c.band.leaderGone = c.band.leaderName; c.band.leaderName = null;
+      }
       if (p && p.kind === "parent" && p.p.alive) { p.p.alive = false; p.p.status = "dead"; addMoment(c, `${p.who === "father" ? "Cha" : "Mẹ"} qua đời`, data); }
       if (p && p.kind === "cast" && p.p.alive) { p.p.alive = false; p.p.died = c.age; }
     }
@@ -1395,6 +1476,7 @@
       }
     }
     if (eff.focus) c.focus = eff.focus;
+    archiveDeadParty(c);
   }
 
   function statValue(c, k) {
@@ -1493,11 +1575,13 @@
   }
 
   function eligible(e, c, stageId, data) {
+    if(c.focus==='rest' && (createsParty(e)||/_party_party_[a-z]_join$|_band_band_[a-z]_1$|_recruit_/.test(e.id)))return false;
+    if(unavailableCompanion(c,e.text) || unavailableCompanion(c,e.result) || (e.variants||[]).some(t=>unavailableCompanion(c,t)))return false;
     if (e.cooldownYears && c.eventLast?.[e.id] != null && c.age-c.eventLast[e.id]<e.cooldownYears) return false;
     if (e.epoch && c.epoch?.recent?.includes(e.id)) return false;
     if (!castSceneFits(c, data, e)) return false;
     const choices = choicesOf(e);
-    if (choices.length && !choices.some(ch => castChoiceFits(c, data, ch, e))) return false;
+    if (choices.length && !choices.some(ch => castChoiceFits(c, data, ch, e) && !unavailableCompanion(c,ch))) return false;
     if (eventHasChild(e) && !c.race.genderless && c.race.id!=="high_demon" && !canHaveChild(c) && !(matingEvent(e) && oppositeGender(c.gender))) return false;
     if (!c.race.genderless && c.spouse && !canHaveChild(c) && /\{spouse\}/.test(e.text || "") && /mang thai|sinh hạ|sinh con|ấp nở/.test(e.text || "")) return false;
     if (e.races && e.races.length && !e.races.includes(c.race.id)) return false;
@@ -1680,7 +1764,7 @@
         const x = c.cast && c.cast[role];
         if (t.includes(`{${role}}`) && x && (!x.alive || x.left) && !REMEMBERS.test(t)) return false;
       }
-      if (t.includes("{ally}") && !r.party && !r.bandLead && !r.band && !aliveParty(c).length) return false;
+      if ((t.includes("{ally}") || t.includes("{allyJob}")) && !aliveParty(c).length) return false;
     }
     // a scene of the group may not lean on someone of that group who is gone
     if (c.band && e.arc && /_band_band_|_party_party_/.test(e.id)) {
@@ -1723,9 +1807,9 @@
   }
 
   function promotionCooldown(c) {
-    c.nextPromo = c.age + tickYears(c) * (4 + c.job.rank * 2);
+    c.nextPromo = c.age + tickYears(c) * (c.race.pacing?.mode==='epoch' ? 4+c.job.rank*2 : 1+c.job.rank);
     c.nextCareer = c.age + tickYears(c) * 2;
-    c.nextPromoClick = c.clicks + 3;
+    c.nextPromoClick = c.clicks + (c.race.pacing?.mode==='epoch'?3:2);
     c.nextCareerClick = c.clicks + 2;
   }
 
@@ -1928,9 +2012,15 @@
     const rank = c.guild ? c.guild.rank : 0;
     return {
       name: (() => {
-        const used = [c.name, ...c.party.map((m) => m.name), ...Object.values(c.parents || {}).map((p) => p && p.name), ...Object.values(c.cast || {}).map((x) => x.name)].filter(Boolean).map((x) => String(x).split(" ")[0]);
+        const used = [c.name, ...c.party.map((m) => m.name), ...(c.fallen||[]).map(m=>m.name), ...Object.values(c.parents || {}).map((p) => p && p.name), ...Object.values(c.cast || {}).map((x) => x.name)].filter(Boolean).map((x) => String(x).split(" ")[0]);
         let n = randomName(data, rng, raceId, gender).split(" ")[0];
         for (let i = 0; i < 20 && nameClash(n, used); i++) n = randomName(data, rng, raceId, gender).split(" ")[0];
+        if(nameClash(n,used)) {
+          const names=data.names[raceId]||data.names.default;
+          const list=names[gender]||names.any||names.male||[];
+          n=list.find(x=>!nameClash(x,used));
+          if(!n){let serial=1;do{n=`Lữ Khách Số ${serial++}`;}while([c.name,...c.party.map(m=>m.name),...(c.fallen||[]).map(m=>m.name)].includes(n));}
+        }
         return n;
       })(),
       race: raceName,
@@ -2045,6 +2135,7 @@
     c.fallen = (c.fallen || []).concat({ name: m.name, bond: m.bond, wish: m.wish, at: c.age });
     c.mourning = { name: m.name, until: c.age + tickYears(c) * (m.bond >= 60 ? 2 : 1) };
     addMoment(c, `Mất đi ${m.name}`, data);
+    archiveDeadParty(c);
   }
 
   // Bonus a party gives to a check: everyone helps a little, those whose craft fits help a lot.
@@ -2376,6 +2467,7 @@
     return (data.quests || []).filter(
       (q) =>
         !q.career &&
+        !unavailableCompanion(c,q.intro) &&
         (q.org || "guild") === c.guild.org &&
         (q.repeat ? !(c.questLast[q.id] != null && c.age - c.questLast[q.id] < (3 * yearScale(c.race)) / lifePace(c.race)) : !c.used.includes("quest:" + q.id)) &&
         (q.minRank || 0) <= c.guild.rank &&
@@ -2417,6 +2509,7 @@
 
   function questStepScene(c, data, rng) {
     const q = (data.quests || []).find((x) => x.id === c.quest.id);
+    if (!q) { c.quest=null;c.ctx=null;c.pending=null;return; }
     if (c.captive && !(q.require?.captiveKinds || []).includes(c.captive.kind)) {
       c.quest = null;
       c.pending = null;
@@ -2427,6 +2520,7 @@
     if (q.career && (c.captive || c.job?.id !== q.career.job)) return finishQuest(c, data, rng, false);
     const step = q.steps[c.quest.step];
     const party = aliveParty(c);
+    if(unavailableCompanion(c,step.text) || unavailableCompanion(c,step.auto) || (c.focus==='rest'&&createsParty(step.auto)) || (!party.length && /\{ally(?:Job)?\}/.test(step.text||'')))return finishQuest(c,data,rng,false);
     c.ctx = Object.assign(c.ctx || {}, { quest: q, ally: party.length ? pick(rng, party) : null });
     // A scene with no choice simply happens, then the story moves on.
     if (step.auto) {
@@ -2436,6 +2530,7 @@
       return questAdvance(c, data, rng, step.auto, true, null);
     }
     const choices = step.choices
+      .filter((ch) => !unavailableCompanion(c,ch) && !(c.focus==='rest'&&createsParty(ch)))
       .filter((ch) => !ch.require || meets(c, ch.require, data) || ch.showLocked)
       .map((ch) => {
         const out = Object.assign({}, ch);
@@ -2596,7 +2691,7 @@
     if (matingEvent(e) && eventHasChild(e)) c.ctx.partner = makePartner(c, data, rng);
     if ((e.choices && e.choices.length) || e.jobChoices?.length) {
       const open = choicesOf(e)
-        .filter(ch => castChoiceFits(c, data, ch, e))
+        .filter(ch => castChoiceFits(c, data, ch, e) && !unavailableCompanion(c,ch))
         .filter((ch) => meets(c, ch.require, data) || ch.showLocked)
         .map((ch) => (meets(c, ch.require, data) ? ch : Object.assign({}, ch, { disabled: true, reason: unmetReason(c, ch.require, data) })));
       if (open.some((ch) => !ch.disabled)) {
@@ -2841,6 +2936,7 @@
 
   function advance(c, data, rng) {
     rng = rng || Math.random;
+    archiveDeadParty(c);
     if (!c.alive || c.pending) return c;
     if(data.chronology?.[c.race.id])c.race={...c.race,pacing:data.chronology[c.race.id]};
     if(data.economy?.races?.[c.race.id])c.race={...c.race,economy:data.economy.races[c.race.id]};
@@ -3016,11 +3112,11 @@
       // after a failed or postponed trial the rest of life gets room before the same trial comes back
       case "promoteFail":
         c.job.xp = 0;
-        c.nextPromo = c.age + tickYears(c) * 4;
+        c.nextPromo = c.age + tickYears(c) * (c.race.pacing?.mode==='epoch'?4:2);
         break;
       case "promoteWait":
         c.job.xp = (jobDef(c, data).promoXp[c.job.rank] || 3) * 0.3;
-        c.nextPromo = c.age + tickYears(c) * 5;
+        c.nextPromo = c.age + tickYears(c) * (c.race.pacing?.mode==='epoch'?5:3);
         break;
       case "boardWait":
         c.nextQuestBoard = c.age + tickYears(c) * 2;
@@ -3086,6 +3182,7 @@
 
   function choose(c, data, index, rng) {
     rng = rng || Math.random;
+    archiveDeadParty(c);
     if (!c.pending) return c;
     if(data.chronology?.[c.race.id])c.race={...c.race,pacing:data.chronology[c.race.id]};
     if(data.economy?.races?.[c.race.id])c.race={...c.race,economy:data.economy.races[c.race.id]};
@@ -3110,6 +3207,11 @@
     }
     const ch = p.choices[index];
     if (!ch || ch.disabled) return c;
+    if((c.focus==='rest' && createsParty(ch)) || unavailableCompanion(c,p.text) || (/\{ally(?:Job)?\}/.test(p.text||'')&&!currentAlly(c)) || unavailableCompanion(c,ch)) {
+      c.pending=null;
+      if(p.kind==='quest'&&c.quest)finishQuest(c,data,rng,false);
+      c.ctx=null;pushLog(c,'story',c.focus==='rest'&&createsParty(ch)?'Bạn đang an dưỡng nên để lời mời lập đội lại cho một dịp khác.':'Người từng cùng bạn bước trên hành trình này đã không còn. Bạn khép lại lời hẹn cũ và chọn hướng đi khác.');return c;
+    }
     c.pending = null;
     let outcome = ch;
     let succeeded = true;
@@ -3132,7 +3234,9 @@
       }
     }
 
+    const practicedJob=c.job?.id;
     applyEffects(c, outcome.effects, data, rng);
+    if(succeeded && p.kind==='event' && ch.check && practicedJob===c.job?.id && !outcome.effects?.jobXp && !(outcome.effects?.[jobDef(c,data)?.stat]>0) && ['jobstat',jobDef(c,data)?.stat].includes(ch.check.stat))practiceXp(c,data);
     if (c.captive && p.kind === "event") {
       if (outcome.effects && outcome.effects.joinBand) setFree(c, data, "Đi theo nhóm mới, bạn bỏ lại sau lưng xiềng xích cũ.");
       else if (c.captive.temp && outcome.text && JAIL_OUT.test(outcome.text)) setFree(c, data, "Từ ngày đó, bạn không còn là kẻ bị giam cầm.");
@@ -3210,6 +3314,7 @@
     if (c.spouse) profile.push(`Bạn đời: ${c.spouse.name}` + (c.children.length ? ` · ${c.children.length} người con` : ""));
     if ((c.familyHistory||[]).some(p=>p.relation==="spouse")) profile.push(`Bạn đời đã khuất: ${c.familyHistory.filter(p=>p.relation==="spouse").map(p=>p.name).join(", ")}`);
     if (familyCount(c)) profile.push(`Hậu duệ: ${familyCount(c)} · đang sống ${livingChildren(c).length}`);
+    if ((c.fallen||[]).length) profile.push("Đồng đội đã khuất: " + c.fallen.map(m=>m.name).join(", "));
     if (c.party.length) profile.push("Đồng đội: " + c.party.map((m) => m.name + (m.alive ? "" : m.left ? " (đã rời)" : " †")).join(", "));
     if (c.fame) profile.push(`${fameLabel(c)} ${c.fame}`);
     if (epochAchievement(c)) profile.push(`Cống hiến kỷ nguyên: ${epochAchievement(c)}`);
@@ -3301,6 +3406,7 @@
     orgDef,
     orgRankName,
     aliveParty,
+    archiveDeadParty,
     summary,
     eligible,
     isVeteran,

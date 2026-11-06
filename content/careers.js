@@ -118,7 +118,7 @@ module.exports = {
       ]
     },
     bard:{
-      jobs:['bard','messenger','courier','trickster','mimic'],
+      jobs:['bard','trickster'],
       dilemma:'Một câu chuyện bạn sắp kể có thể khơi lại hy vọng, nhưng người trả tiền muốn biến nó thành lời vu cáo một cộng đồng yếu thế.',
       safe:'Giữ sự thật dù mất người bảo trợ',tempt:'Đổi lời để nhận thù lao cao hơn',good:'Câu chuyện được truyền đi vì chạm đúng những điều người nghe đã trải qua.',bad:'Buổi diễn bị cản trở; bạn ra về mà không nhận được thù lao.',temptGood:'Bạn nhận một túi tiền nặng, cùng sự nghi kỵ của những người bị lời ca làm tổn thương.',temptBad:'Người nghe phát hiện điều bịa đặt. Danh tiếng mất nhanh hơn tiền công kiếm được.',loss:{fame:-20,joy:-10},falloutOn:'compromise',
       fallout:'Một người trong câu chuyện bị bóp méo tìm tới, mang theo chứng cứ và yêu cầu bạn đính chính trước công chúng.',
@@ -128,7 +128,7 @@ module.exports = {
       ]
     },
     miner:{
-      jobs:['miner','venom','poison','custodian'],
+      jobs:['miner','custodian'],
       dilemma:'Một khoang nguyên liệu mới vừa lộ ra dấu bất ổn. Người quản việc muốn tiếp tục khai thác trước khi giá thị trường hạ xuống.',
       safe:'Dừng công việc để kiểm tra và gia cố',tempt:'Tăng sản lượng bất chấp cảnh báo',good:'Bạn phát hiện điểm nguy hiểm trước khi có người bị kẹt bên trong.',bad:'Ca làm bị hủy và tiền công giảm, nhưng khu vực đã được giữ an toàn.',temptGood:'Nguyên liệu được đưa ra nhanh. Những vết bất ổn vẫn lan rộng trong im lặng.',temptBad:'Sự cố cuốn đi phần lớn sản lượng và khiến bạn trọng thương.',loss:{health:-35,wealth:-15},
       fallout:'Khu khai thác cũ xuất hiện dấu sụp đổ và rò rỉ. Những người còn làm việc ở đó cần được đưa ra.',
@@ -162,3 +162,8 @@ module.exports = {
   },
   patrons:{human_mage:'Tháp Ngà',human_scholar:'Tháp Ngà',human_assassin:'Umbra Guild',human_priest:'Giáo hội Lumina',human_smith:'Phường thợ rèn',human_farmer:'Hội nông dân',human_merchant:'Thương hội'},
 };
+
+const corrections = require('./career-corrections');
+Object.assign(module.exports.families,corrections.families);
+module.exports.jobFamilies=corrections.jobFamilies;
+Object.assign(module.exports.overrides,corrections.overrides);

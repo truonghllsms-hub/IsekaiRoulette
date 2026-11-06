@@ -196,7 +196,7 @@
     return storyBands().find(b => name === b.name || name === b.title) || (c.band?.name === name ? c.band : null);
   }
   function memberNamed(name, bandId) {
-    const companion = c.party.find(m => m.name === name && !m.band);
+    const companion = c.party.find(m => m.name === name && !m.band && m.alive && !m.left);
     if (companion && !bandId) return companion;
     const bands = storyBands();
     const invited = invitedBandIds();
@@ -204,9 +204,9 @@
     bands.sort((a, b) => Number(b.id === preferred) - Number(a.id === preferred));
     for (const b of bands) {
       const m = (b.members || []).find(m => m.name === name);
-      if (m) return { ...m, ...c.party.find(p => p.name === name && p.band === b.id), bandId: b.id };
+      if (m) return { ...m, ...c.party.find(p => p.name === name && p.band === b.id && p.alive && !p.left), ...c.fallen?.find(p => p.name === name), bandId: b.id };
     }
-    const m = c.party.find(m => m.name === name);
+    const m = c.party.find(m => m.name === name && m.alive && !m.left) || c.fallen?.find(m => m.name === name);
     return m || Object.values(D.story?.[c.race.id]?.recruits || {}).find(m => m.name === name);
   }
   function openMember(name, bandId) {
@@ -230,7 +230,8 @@
     const members = b.members || c.party.filter(m => m.band === id);
     const portraits=[];
     for (const [i,original] of members.entries()) {
-      const m = { ...original, ...c.party.find(p => p.name === original.name && p.band === id) };
+      const lost=c.fallen?.find(p=>p.name===original.name);
+      const m = { ...original, ...c.party.find(p => p.name === original.name && p.band === id && !p.left), ...lost };
       const card = document.createElement("article");card.className = "member-card";
       const art=document.createElement("div");art.id=`roster-sprite-${i}`;art.className="sprite-hud roster-portrait";art.setAttribute("aria-hidden","true");art.innerHTML='<div class="sprite-frame"></div>';card.appendChild(art);
       portraits.push([art.id,window.Portraits.npcSprite(m,D)]);
@@ -377,7 +378,7 @@
   $("party-heading").addEventListener("click",()=>{partyManuallySet=true;});
   compactParty.addEventListener("change",e=>{if(!partyManuallySet)$("party-panel").open=!e.matches;});
   function renderParty() {
-    const list=$("party-list"),members=c.party.filter(m=>!m.left),panel=$("party-panel");
+    const list=$("party-list"),members=c.party.filter(m=>m.alive&&!m.left),panel=$("party-panel");
     if(!panel.dataset.initialized){panel.open=!compactParty.matches;panel.dataset.initialized="true";}
     panel.hidden=!members.length;$("party-heading").textContent=`Đồng hành · ${members.length}`;list.replaceChildren();
     for(const [i,m] of members.entries()) {
@@ -401,6 +402,7 @@
     if (c.spouse) out.push(`<span>Bạn đời <b>${esc(c.spouse.name)}</b>${c.children.length ? ` · ${c.children.length} con` : ""}</span>`);
     if (c.spouse?.age != null) out.push(`<span>Tuổi bạn đời <b>${Math.floor(c.spouse.age)}</b> · ${esc(c.spouse.race || "")}</span>`);
     if (c.children?.length) out.push(`<span>Hậu duệ ${c.children.map(k => k.kind === "egg" ? `${esc(k.name)} (trứng, còn ${Math.max(0,Math.ceil(k.hatchAt-c.age))} năm)` : `${esc(k.name)} (${Math.max(0,Math.floor(c.age-(k.born??c.age)))} tuổi${k.kind === "emanation" ? ", phân thân" : ""})`).join(", ")}</span>`);
+    if (c.fallen?.length) out.push(`<span class="family-remembrance">Tưởng nhớ đồng đội ${c.fallen.map(m=>esc(m.name)).join(", ")}</span>`);
     if (c.familyHistory?.length) out.push(`<span class="family-remembrance">Tưởng nhớ ${c.familyHistory.map(p => `${esc(p.name)} (${p.relation === "spouse" ? "bạn đời" : "người con"})`).join(", ")}</span>`);
     if (c.race.pacing && c.alive) out.push(`<span>Nhịp thời gian <b>${E.tickYears(c)} năm/lượt</b></span>`);
     if (c.epoch && c.race.pacing) out.push(`<span>${c.race.pacing.mode === "epoch" ? "Dấu ấn kỷ nguyên" : "Di sản thế hệ"} · Lãnh địa <b>${c.epoch.domain||0}</b> · Ngộ đạo <b>${c.epoch.insight||0}</b> · Di sản <b>${c.epoch.legacy||0}</b> · Tàn phá <b>${c.epoch.ruin||0}</b></span>`);
@@ -457,7 +459,7 @@
     if (c.spouse) add(c.spouse.name, `Bạn đời của bạn · nên duyên năm ${Math.floor(c.spouse.since)} tuổi`);
     for (const n of c.formerSpouses || []) add(n, "Người bạn đời cũ");
     for (const k of c.children || []) add(k.name, `Con của bạn · chào đời khi bạn ${Math.floor(k.born)} tuổi`);
-    for (const m of c.party || []) add(m.name, `Đồng đội · ${[m.race, m.jobName].filter(Boolean).join(" · ")}${!m.alive ? " · đã mất" : m.left ? " · đã rời đi" : ""}`);
+    for (const m of c.party || []) add(m.name, `Đồng đội · ${[m.race, m.jobName].filter(Boolean).join(" · ")}${m.left ? " · đã rời đi" : !m.alive ? " · đã mất" : ""}`);
     for (const f of c.fallen || []) add(f.name, `Đồng đội đã khuất · mất khi bạn ${Math.floor(f.at)} tuổi`);
     if (c.band && c.band.name) add(c.band.name, `Tổ đội của bạn · từ năm ${Math.floor(c.band.since)} tuổi`);
     for (const b of storyBands()) {
