@@ -26,6 +26,7 @@
 
   function show(id) {
     for (const s of document.querySelectorAll(".screen")) s.hidden = s.id !== id;
+    if (id !== "screen-start") $("world-map-dialog")?.close();
     window.scrollTo(0, 0);
   }
 
@@ -250,7 +251,7 @@
   function isDarkTheme() { return document.documentElement.dataset.theme ? document.documentElement.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; }
   // The map is a reference view: it never advances a life or consumes a choice.
   const mapDialog = $("world-map-dialog"), mapViewport = $("map-viewport");
-  if (D.worldMap?.src) $("world-map-image").src=D.worldMap.src;
+  if (D.worldMap?.src) { $("world-map-image").src=D.worldMap.src; $("start-map-image").src=D.worldMap.src; }
   let mapZoom = 1;
   function zoomMap(value, center = true) {
     const oldWidth = $("map-canvas").offsetWidth || mapViewport.clientWidth;
@@ -266,13 +267,13 @@
     if (mapZoom === 1) { mapViewport.scrollLeft = 0; mapViewport.scrollTop = 0; }
     else if (center) { mapViewport.scrollLeft = cx * $("map-canvas").offsetWidth - mapViewport.clientWidth / 2; mapViewport.scrollTop = cy * $("map-canvas").offsetHeight - mapViewport.clientHeight / 2; }
   }
-  $("btn-map").onclick = () => { mapDialog.showModal(); zoomMap(1, false); };
+  $("btn-map").onclick = () => { if ($("screen-start").hidden) return; mapDialog.showModal(); zoomMap(1, false); };
   $("btn-map-close").onclick = () => mapDialog.close();
   $("map-zoom-in").onclick = () => zoomMap(mapZoom + 0.5);
   $("map-zoom-out").onclick = () => zoomMap(mapZoom - 0.5);
   $("map-zoom-reset").onclick = () => zoomMap(1, false);
   mapDialog.addEventListener("click", e => { if (e.target !== mapDialog) return; const r = mapDialog.getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) mapDialog.close(); });
-  mapDialog.addEventListener("close", () => $("btn-map").focus());
+  mapDialog.addEventListener("close", () => { if (!$("screen-start").hidden) $("btn-map").focus(); });
   let mapDrag = null;
   mapViewport.addEventListener("pointerdown", e => { if(e.pointerType!=="mouse"||e.button!==0||mapZoom<=1)return;mapDrag={x:e.clientX,y:e.clientY,left:mapViewport.scrollLeft,top:mapViewport.scrollTop};mapViewport.setPointerCapture(e.pointerId);mapViewport.classList.add("is-dragging");e.preventDefault(); });
   mapViewport.addEventListener("pointermove", e => { if(!mapDrag)return;mapViewport.scrollLeft=mapDrag.left-(e.clientX-mapDrag.x);mapViewport.scrollTop=mapDrag.top-(e.clientY-mapDrag.y); });

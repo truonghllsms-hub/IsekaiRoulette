@@ -392,7 +392,11 @@ body { background: radial-gradient(ellipse at 15% 0%, rgba(122,79,208,.08), tran
 .entry.kind-warning .text { color: var(--bad); border-left: 3px solid var(--bad); padding-left: 12px; font-weight: 600; }
 @media (prefers-reduced-motion: reduce) { .career-xp-track > span { transition: none; } }
 
-.utility-controls .map-toggle { width: auto; display: inline-flex; gap: 6px; padding: 0 11px; font-size: 12px; }
+.start-map { display: block; width: min(100%, 560px); padding: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); color: var(--ink); cursor: pointer; text-align: left; }
+.start-map img { display: block; width: 100%; height: auto; }
+.start-map > span { display: flex; justify-content: space-between; padding: 12px 16px; font: 600 14px/1.4 var(--serif); }
+.start-map:hover { border-color: var(--accent); }
+.start-map:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 .world-map-dialog { width: min(1440px,96vw); max-width: 96vw; max-height: 94svh; box-sizing: border-box; overflow: auto; padding: 20px; border: 1px solid var(--line); border-radius: 20px; background: var(--surface); color: var(--ink); }
 .world-map-dialog::backdrop { background: rgba(12,10,20,.8); backdrop-filter: blur(5px); }
 .map-heading { position: relative; display: flex; justify-content: space-between; padding-right: 40px; }
@@ -409,7 +413,6 @@ body { background: radial-gradient(ellipse at 15% 0%, rgba(122,79,208,.08), tran
 .map-places { margin-top: 12px; font-size: 13px; color: var(--muted); }
 .map-places summary { cursor: pointer; }
 @media (max-width:480px) { .world-map-dialog { padding: 14px; } .map-heading h2 { font-size: 21px; } .map-viewport { height: 58svh; } }
-@media (max-width:360px) { .map-button-label { display:none; } }
 
 .map-viewport.is-zoomed { cursor: grab; }
 .map-viewport.is-dragging { cursor: grabbing; user-select: none; }
@@ -421,7 +424,6 @@ body { background: radial-gradient(ellipse at 15% 0%, rgba(122,79,208,.08), tran
     <header class="app-toolbar">
       <a class="world-brand" href="#app" aria-label="Luân Hồi Dị Giới"><span aria-hidden="true">✦</span> AETHELGARD</a>
       <div class="utility-controls">
-        <button id="btn-map" class="map-toggle" type="button" aria-haspopup="dialog" aria-controls="world-map-dialog" title="Xem bản đồ Aethelgard"><span aria-hidden="true">♧</span><span class="map-button-label">Bản đồ</span></button>
         <button id="btn-theme" class="theme-toggle" type="button" title="Đổi giao diện sáng/tối" aria-label="Đổi giao diện sáng/tối">☾</button>
         <button id="btn-music" class="music-toggle" type="button" title="Nhạc nền: Adventure – Alexander Nakarada (royalty-free)" aria-label="Bật/tắt nhạc nền">♪</button>
       </div>
@@ -433,6 +435,10 @@ body { background: radial-gradient(ellipse at 15% 0%, rgba(122,79,208,.08), tran
       <h1>Luân Hồi Dị Giới</h1>
       <p class="lede">Bạn không được chọn mình sẽ là ai. Bạn chỉ được chọn mình sẽ sống thế nào.</p>
       <button id="btn-start" class="btn primary">Đầu thai</button>
+      <button id="btn-map" class="start-map" type="button" aria-haspopup="dialog" aria-controls="world-map-dialog" aria-label="Xem bản đồ Aethelgard">
+        <img id="start-map-image" src="img/maps/aethelgard-01.png" width="1536" height="1024" decoding="async" alt="Bản đồ thế giới Aethelgard">
+        <span>Thế giới Aethelgard <span aria-hidden="true">↗</span></span>
+      </button>
       <details class="odds">
         <summary>Tỉ lệ đầu thai</summary>
         <ul id="odds-list"></ul>
@@ -3880,6 +3886,7 @@ window.GAME_DATA = {"races":[{"id":"human","name":"Human","gloss":"loài ngườ
 
   function show(id) {
     for (const s of document.querySelectorAll(".screen")) s.hidden = s.id !== id;
+    if (id !== "screen-start") $("world-map-dialog")?.close();
     window.scrollTo(0, 0);
   }
 
@@ -4104,7 +4111,7 @@ window.GAME_DATA = {"races":[{"id":"human","name":"Human","gloss":"loài ngườ
   function isDarkTheme() { return document.documentElement.dataset.theme ? document.documentElement.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; }
   // The map is a reference view: it never advances a life or consumes a choice.
   const mapDialog = $("world-map-dialog"), mapViewport = $("map-viewport");
-  if (D.worldMap?.src) $("world-map-image").src=D.worldMap.src;
+  if (D.worldMap?.src) { $("world-map-image").src=D.worldMap.src; $("start-map-image").src=D.worldMap.src; }
   let mapZoom = 1;
   function zoomMap(value, center = true) {
     const oldWidth = $("map-canvas").offsetWidth || mapViewport.clientWidth;
@@ -4120,13 +4127,13 @@ window.GAME_DATA = {"races":[{"id":"human","name":"Human","gloss":"loài ngườ
     if (mapZoom === 1) { mapViewport.scrollLeft = 0; mapViewport.scrollTop = 0; }
     else if (center) { mapViewport.scrollLeft = cx * $("map-canvas").offsetWidth - mapViewport.clientWidth / 2; mapViewport.scrollTop = cy * $("map-canvas").offsetHeight - mapViewport.clientHeight / 2; }
   }
-  $("btn-map").onclick = () => { mapDialog.showModal(); zoomMap(1, false); };
+  $("btn-map").onclick = () => { if ($("screen-start").hidden) return; mapDialog.showModal(); zoomMap(1, false); };
   $("btn-map-close").onclick = () => mapDialog.close();
   $("map-zoom-in").onclick = () => zoomMap(mapZoom + 0.5);
   $("map-zoom-out").onclick = () => zoomMap(mapZoom - 0.5);
   $("map-zoom-reset").onclick = () => zoomMap(1, false);
   mapDialog.addEventListener("click", e => { if (e.target !== mapDialog) return; const r = mapDialog.getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) mapDialog.close(); });
-  mapDialog.addEventListener("close", () => $("btn-map").focus());
+  mapDialog.addEventListener("close", () => { if (!$("screen-start").hidden) $("btn-map").focus(); });
   let mapDrag = null;
   mapViewport.addEventListener("pointerdown", e => { if(e.pointerType!=="mouse"||e.button!==0||mapZoom<=1)return;mapDrag={x:e.clientX,y:e.clientY,left:mapViewport.scrollLeft,top:mapViewport.scrollTop};mapViewport.setPointerCapture(e.pointerId);mapViewport.classList.add("is-dragging");e.preventDefault(); });
   mapViewport.addEventListener("pointermove", e => { if(!mapDrag)return;mapViewport.scrollLeft=mapDrag.left-(e.clientX-mapDrag.x);mapViewport.scrollTop=mapDrag.top-(e.clientY-mapDrag.y); });

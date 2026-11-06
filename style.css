@@ -386,7 +386,11 @@ body { background: radial-gradient(ellipse at 15% 0%, rgba(122,79,208,.08), tran
 .entry.kind-warning .text { color: var(--bad); border-left: 3px solid var(--bad); padding-left: 12px; font-weight: 600; }
 @media (prefers-reduced-motion: reduce) { .career-xp-track > span { transition: none; } }
 
-.utility-controls .map-toggle { width: auto; display: inline-flex; gap: 6px; padding: 0 11px; font-size: 12px; }
+.start-map { display: block; width: min(100%, 560px); padding: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); color: var(--ink); cursor: pointer; text-align: left; }
+.start-map img { display: block; width: 100%; height: auto; }
+.start-map > span { display: flex; justify-content: space-between; padding: 12px 16px; font: 600 14px/1.4 var(--serif); }
+.start-map:hover { border-color: var(--accent); }
+.start-map:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 .world-map-dialog { width: min(1440px,96vw); max-width: 96vw; max-height: 94svh; box-sizing: border-box; overflow: auto; padding: 20px; border: 1px solid var(--line); border-radius: 20px; background: var(--surface); color: var(--ink); }
 .world-map-dialog::backdrop { background: rgba(12,10,20,.8); backdrop-filter: blur(5px); }
 .map-heading { position: relative; display: flex; justify-content: space-between; padding-right: 40px; }
@@ -403,7 +407,6 @@ body { background: radial-gradient(ellipse at 15% 0%, rgba(122,79,208,.08), tran
 .map-places { margin-top: 12px; font-size: 13px; color: var(--muted); }
 .map-places summary { cursor: pointer; }
 @media (max-width:480px) { .world-map-dialog { padding: 14px; } .map-heading h2 { font-size: 21px; } .map-viewport { height: 58svh; } }
-@media (max-width:360px) { .map-button-label { display:none; } }
 
 .map-viewport.is-zoomed { cursor: grab; }
 .map-viewport.is-dragging { cursor: grabbing; user-select: none; }
