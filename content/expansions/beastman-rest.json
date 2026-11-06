@@ -1,0 +1,434 @@
+{
+  "origins": [],
+  "events": [
+    {
+      "id": "gm_beastman_an_duong_on_dinh_hoi_tho",
+      "pack": true,
+      "races": [
+        "beastman"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "focus": [
+        "rest"
+      ],
+      "once": false,
+      "weight": 7,
+      "require": {
+        "free": true
+      },
+      "text": "Tiếng gió lùa qua cọc lều khiến bạn nhận ra mình vẫn giữ nhịp thở gấp của cuộc chạy đường dài. Hôm nay, không có ai thúc bạn phải lên đường.",
+      "choices": [
+        {
+          "label": "Thả lỏng theo từng nhịp thở",
+          "text": "Bạn đặt vũ khí sang bên và chờ nhịp thở chậm lại. Sự căng cứng ở vai dịu xuống, vừa đủ để nhận ra cơn mệt mình đã bỏ qua.",
+          "effects": {
+            "health": 4,
+            "joy": 3
+          }
+        },
+        {
+          "label": "Lắng nghe âm thanh quanh trại",
+          "text": "Bạn phân biệt tiếng bánh xe với tiếng cỏ và tiếng người trở về lều. Thế giới dần trở lại gần gũi, thay vì chỉ toàn dấu hiệu nguy hiểm.",
+          "effects": {
+            "joy": 5
+          }
+        }
+      ],
+      "variants": [
+        "Tiếng gió lùa qua cọc lều khiến bạn nhận ra mình vẫn giữ nhịp thở gấp của cuộc chạy đường dài. Hôm nay, không có ai thúc bạn phải lên đường.",
+        "Sau một đêm chập chờn, bạn ngồi ở mép trại nhìn cỏ nghiêng theo gió. Cơ thể cần học lại cách nghỉ thay vì chờ tiếng còi báo động.",
+        "Một người coi trại chỉ cho bạn khoảng đất khuất gió để ngồi yên. Nhịp tim vẫn dồn dập dù cuộc hành trình đã tạm dừng."
+      ],
+      "cooldownYears": 2
+    },
+    {
+      "id": "gm_beastman_an_duong_bang_vet_thuong",
+      "pack": true,
+      "races": [
+        "beastman"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "focus": [
+        "rest"
+      ],
+      "once": false,
+      "weight": 7,
+      "require": {
+        "free": true
+      },
+      "text": "Mép băng trên một vết xước cũ đã cứng vì bụi đường. Người chữa thương trong trại đặt nước sạch và một cuộn vải mới trước mặt bạn.",
+      "choices": [
+        {
+          "label": "Trả phần vật tư để làm sạch và thay băng",
+          "text": "Bạn chịu chút xót rát khi lớp bụi được rửa sạch. Miếng băng mới không chữa mọi tổn thương, nhưng giúp vết thương thôi bị cọ xát mỗi khi cử động.",
+          "effects": {
+            "wealth": -3,
+            "health": 6,
+            "joy": 1
+          },
+          "require": {
+            "wealth": 3
+          },
+          "showLocked": true
+        },
+        {
+          "label": "Dùng nước sạch và giữ vết thương khô",
+          "text": "Bạn cẩn thận rửa phần bụi ngoài da, tránh chạm sâu vào vết rách. Phần còn lại sẽ cần thời gian và thêm những ngày nghỉ.",
+          "effects": {
+            "health": 3,
+            "joy": 2
+          }
+        }
+      ],
+      "variants": [
+        "Mép băng trên một vết xước cũ đã cứng vì bụi đường. Người chữa thương trong trại đặt nước sạch và một cuộn vải mới trước mặt bạn.",
+        "Một chỗ da bị cọ rát khiến bạn khó tìm tư thế ngủ. Trạm nghỉ có người biết thay băng, nhưng cần một ít vật tư để làm sạch vết thương.",
+        "Bạn dừng lại ở lều cứu thương, mang theo những vết trầy chưa kịp chăm sóc từ chuyến đi. Người trực lều chỉ còn đủ thuốc cho một lần thay băng."
+      ],
+      "cooldownYears": 2
+    },
+    {
+      "id": "gm_beastman_an_duong_bua_an_am",
+      "pack": true,
+      "races": [
+        "beastman"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "focus": [
+        "rest"
+      ],
+      "once": false,
+      "weight": 7,
+      "require": {
+        "free": true
+      },
+      "text": "Mùi cháo ngũ cốc từ bếp trại thoảng qua khi trời trở lạnh. Bạn có thể mua một phần nóng hoặc ở lại chia sẻ củi với người coi bếp.",
+      "choices": [
+        {
+          "label": "Mua một phần nóng và ăn chậm rãi",
+          "text": "Bạn đặt bát xuống giữa từng miếng, để hơi ấm lan dần trong cơ thể. Bữa ăn nhỏ trở thành một khoảng nghỉ có thể nhớ tới.",
+          "effects": {
+            "wealth": -3,
+            "health": 4,
+            "joy": 4
+          },
+          "require": {
+            "wealth": 3
+          },
+          "showLocked": true
+        },
+        {
+          "label": "Chia chút củi, ngồi cùng những người đang nghỉ",
+          "text": "Bạn góp phần củi nhặt được cho bếp và ở lại nghe chuyện đường xa. Không có chuyến đi nào bắt đầu từ những câu chuyện ấy hôm nay.",
+          "effects": {
+            "joy": 5
+          }
+        }
+      ],
+      "variants": [
+        "Mùi cháo ngũ cốc từ bếp trại thoảng qua khi trời trở lạnh. Bạn có thể mua một phần nóng hoặc ở lại chia sẻ củi với người coi bếp.",
+        "Mưa khiến người qua đường tụ lại quanh mái bếp. Một nồi canh rau đang sôi, cùng mấy chỗ ngồi khô ráo chưa có người.",
+        "Buổi chiều lặng gió, người bán thức ăn ở trạm nghỉ mở nắp nồi. Bạn chợt nhận ra đã lâu mình không ăn một bữa mà không vội vã."
+      ],
+      "cooldownYears": 2
+    },
+    {
+      "id": "gm_beastman_an_duong_ngu_tron_giac",
+      "pack": true,
+      "races": [
+        "beastman"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "focus": [
+        "rest"
+      ],
+      "once": false,
+      "weight": 7,
+      "require": {
+        "free": true
+      },
+      "text": "Chủ trạm nghỉ đã sửa xong tấm phên chắn gió. Một chỗ nằm yên tĩnh đang chờ, cùng lời nhắc rằng bạn có thể ngủ mà không phải tới lượt gác.",
+      "choices": [
+        {
+          "label": "Gác hành lý lại và ngủ trọn một giấc",
+          "text": "Bạn để cơ thể tự chọn lúc tỉnh dậy. Khi mở mắt, cảm giác mệt vẫn còn nhưng không còn đè nặng lên từng cử động.",
+          "effects": {
+            "health": 6,
+            "joy": 2
+          }
+        },
+        {
+          "label": "Nằm yên nghe mưa rồi mới ngủ",
+          "text": "Bạn không ép mình phải ngủ ngay. Những âm thanh đều đặn giúp tâm trí rời khỏi các lo toan, cho đến khi giấc ngủ tự tìm tới.",
+          "effects": {
+            "health": 3,
+            "joy": 4
+          }
+        }
+      ],
+      "variants": [
+        "Chủ trạm nghỉ đã sửa xong tấm phên chắn gió. Một chỗ nằm yên tĩnh đang chờ, cùng lời nhắc rằng bạn có thể ngủ mà không phải tới lượt gác.",
+        "Cơn mưa đều đặn che khuất mọi tiếng động xa. Bạn cuộn tấm chăn quanh mình, thử buông thói quen thức dậy sau mỗi tiếng bước chân.",
+        "Người cùng trạm khép cửa lều sớm để giữ ấm. Hành lý đã được đặt vào góc khô, chẳng còn việc gì buộc bạn phải thức."
+      ],
+      "cooldownYears": 2
+    },
+    {
+      "id": "gm_beastman_an_duong_di_bo_nhe",
+      "pack": true,
+      "races": [
+        "beastman"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "focus": [
+        "rest"
+      ],
+      "once": false,
+      "weight": 7,
+      "require": {
+        "free": true
+      },
+      "text": "Một lối đất bằng men theo rìa trạm nghỉ vừa ráo sau mưa. Bạn có thể đi vài bước mà không cần vác theo hành lý hay đuổi kịp ai.",
+      "choices": [
+        {
+          "label": "Đi một vòng ngắn, dừng ngay khi thấy mỏi",
+          "text": "Bạn chậm rãi kiểm tra từng cử động rồi quay về trước khi kiệt sức. Việc biết dừng đúng lúc trở thành một phần của quá trình hồi phục.",
+          "effects": {
+            "health": 3,
+            "joy": 3
+          }
+        },
+        {
+          "label": "Ở lại giãn nhẹ các khớp",
+          "text": "Bạn chọn những động tác không làm căng chỗ đau. Nhìn bóng nắng đổi hướng trên nền đất cũng đủ để ngày nghỉ không còn nặng nề.",
+          "effects": {
+            "health": 2,
+            "joy": 4
+          }
+        }
+      ],
+      "variants": [
+        "Một lối đất bằng men theo rìa trạm nghỉ vừa ráo sau mưa. Bạn có thể đi vài bước mà không cần vác theo hành lý hay đuổi kịp ai.",
+        "Bóng chiều phủ lên hàng cọc đánh dấu đường đi quanh trại. Cơ bắp đang hồi phục cần vận động nhẹ, thay vì một lần gắng sức nữa.",
+        "Gió sớm thổi mát lối đi ngắn giữa những lều nghỉ. Người chữa thương dặn bạn thử cử động rồi dừng trước khi cơn đau trở lại."
+      ],
+      "cooldownYears": 2
+    },
+    {
+      "id": "gm_beastman_an_duong_chieu_yen",
+      "pack": true,
+      "races": [
+        "beastman"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "focus": [
+        "rest"
+      ],
+      "once": false,
+      "weight": 7,
+      "require": {
+        "free": true
+      },
+      "text": "Tiếng chuông tre ở trạm nghỉ ngân lên khi đoàn người cuối ngày đã qua. Bạn còn cả buổi chiều để làm một điều chẳng nhằm kiếm sống hay lập công.",
+      "choices": [
+        {
+          "label": "Ngắm mây và để đầu óc được nghỉ",
+          "text": "Bạn không cố tìm ý nghĩa trong từng hình mây đổi dạng. Một buổi chiều trôi qua bình thường cũng có thể là điều đáng giữ gìn.",
+          "effects": {
+            "joy": 6
+          }
+        },
+        {
+          "label": "Vẽ lại đường gió trên mảnh gỗ vụn",
+          "text": "Bạn dùng than ghi những đường nét rồi xóa đi khi chúng không còn giống bầu trời. Mảnh gỗ chẳng trở thành món hàng hay bản đồ cho một chuyến đi mới.",
+          "effects": {
+            "joy": 4
+          }
+        }
+      ],
+      "variants": [
+        "Tiếng chuông tre ở trạm nghỉ ngân lên khi đoàn người cuối ngày đã qua. Bạn còn cả buổi chiều để làm một điều chẳng nhằm kiếm sống hay lập công.",
+        "Một đám mây dài trôi qua Thảo Nguyên Gió Hú. Bạn ngồi dưới mái hiên, nhận ra không phải khoảng lặng nào cũng báo trước hiểm họa.",
+        "Người giữ trạm đặt một ấm nước bên bậc cửa rồi quay về việc riêng. Bạn được để yên với bầu trời rộng và nhịp sống chậm quanh mình."
+      ],
+      "cooldownYears": 2
+    },
+    {
+      "id": "gm_beastman_an_duong_ky_hieu_duong_cu",
+      "pack": true,
+      "races": [
+        "beastman"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "focus": [
+        "rest"
+      ],
+      "once": true,
+      "weight": 7,
+      "require": {
+        "free": true
+      },
+      "text": "Trong đồ đạc cũ, bạn tìm thấy một mảnh gỗ khắc dấu chỉ đường của Thảo Nguyên Gió Hú. Những nét khắc đã mòn, gợi lại người đi trước thay vì một lời giục lên đường.",
+      "choices": [
+        {
+          "label": "Giữ nó ở cạnh chỗ nghỉ",
+          "text": "Bạn lau sạch lớp bụi rồi đặt mảnh gỗ vào góc lều. Nó nhắc bạn rằng hành trình cũng có những đoạn cần dừng lại.",
+          "effects": {
+            "joy": 5
+          }
+        },
+        {
+          "label": "Trao lại cho nơi lưu giữ chuyện đường xa",
+          "text": "Bạn kể rõ điều mình biết về dấu khắc, để người giữ chuyện bổ sung vào những ghi chép chung. Không có chiến công nào được nhận thay cho người khác.",
+          "effects": {
+            "joy": 3,
+            "fame": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_beastman_an_duong_loi_moi_san",
+      "pack": true,
+      "races": [
+        "beastman"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "focus": [
+        "rest"
+      ],
+      "once": true,
+      "weight": 7,
+      "require": {
+        "free": true,
+        "party": 1
+      },
+      "text": "Người đồng hành {ally} ghé nơi bạn đang nghỉ, mang tin về một chuyến săn sắp khởi hành. {ally} chờ câu trả lời trước khi mang hành lý đi tiếp.",
+      "choices": [
+        {
+          "label": "Giữ lịch nghỉ, chúc {ally} thượng lộ an toàn",
+          "text": "Bạn nói rõ mình cần hồi phục và không nhận phần việc mới. {ally} hiểu lời từ chối, hai người hẹn sẽ gặp lại khi sức khỏe cho phép.",
+          "effects": {
+            "joy": 5,
+            "bond": 1
+          }
+        },
+        {
+          "label": "Giúp kiểm tra dây buộc hành lý rồi ở lại",
+          "text": "Bạn chỉ ra một mối buộc sắp tuột và giúp chỉnh lại. Việc hỗ trợ nhỏ kết thúc ngay ở cửa lều, trước khi bạn trở về với ngày nghỉ của mình.",
+          "effects": {
+            "joy": 3,
+            "bond": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_beastman_an_duong_choi_nho",
+      "pack": true,
+      "races": [
+        "beastman"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "focus": [
+        "rest"
+      ],
+      "once": true,
+      "weight": 7,
+      "require": {
+        "free": true
+      },
+      "text": "Vài đứa trẻ trong trại đang xếp đá thành những cột nhỏ, rồi tranh cãi xem cột nào chịu được gió. Chúng nhường bạn một chỗ ngồi và một nắm đá nhẵn.",
+      "choices": [
+        {
+          "label": "Xếp một cột thấp để cùng thử sức gió",
+          "text": "Bạn giữ đế rộng thay vì cố xây thật cao. Khi gió tới, cả nhóm cùng cười trước những cột đá đổ nghiêng; chẳng có ai phải chứng minh mình mạnh nhất.",
+          "effects": {
+            "joy": 6
+          }
+        },
+        {
+          "label": "Ngồi xem và cổ vũ những lần làm lại",
+          "text": "Bạn nhặt giúp các viên đá lăn xa rồi để bọn trẻ tự quyết định cách xếp. Buổi chơi kết thúc khi trời tối, mang lại một ký ức nhẹ nhàng hiếm có.",
+          "effects": {
+            "joy": 5
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_beastman_an_duong_noi_lai_tam_phen",
+      "pack": true,
+      "races": [
+        "beastman"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "focus": [
+        "rest"
+      ],
+      "once": true,
+      "weight": 7,
+      "require": {
+        "free": true
+      },
+      "text": "Tấm phên chắn gió ở góc trạm nghỉ bị bung một sợi dây. Người giữ trạm đang bận chăm người bệnh, còn gió cứ lùa vào chỗ nằm trống bên cạnh bạn.",
+      "choices": [
+        {
+          "label": "Buộc lại sợi dây ở độ cao vừa tầm",
+          "text": "Bạn chọn một mối buộc đơn giản, không gắng nâng cả tấm phên nặng. Gió dịu xuống trong góc nghỉ, đủ để người nằm đó ngủ yên hơn.",
+          "effects": {
+            "joy": 4,
+            "fame": 1
+          }
+        },
+        {
+          "label": "Báo người giữ trạm và chia lại chỗ khuất gió",
+          "text": "Bạn dọn hành lý sang một bên, nhường phần nền khô cho người đang mệt. Tấm phên sẽ được sửa sau; tối nay mọi người vẫn có chỗ tránh gió.",
+          "effects": {
+            "joy": 5
+          }
+        }
+      ]
+    }
+  ]
+}

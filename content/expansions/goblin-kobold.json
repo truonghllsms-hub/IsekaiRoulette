@@ -1,0 +1,1714 @@
+{
+  "origins": [],
+  "events": [
+    {
+      "id": "gm_goblin_early_swamp_hunt",
+      "pack": true,
+      "races": [
+        "goblin"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 8,
+      "text": "Bụng đói cồn cào rít lên từng hồi. Trước mặt bạn, một con Ếch Đầm Lầy khổng lồ đang say ngủ bên bờ Sông Bùn Nhão.",
+      "choices": [
+        {
+          "label": "Nhảy xổ ra cắn vào yết hầu con mồi",
+          "check": {
+            "stat": "AGI",
+            "target": 5
+          },
+          "success": {
+            "text": "Bộ hàm sắc nhọn của bạn cắm phập vào cổ sinh vật. Máu tanh tràn ngập khoang miệng, mang lại bữa no nê đầu tiên cho kẻ săn mồi trẻ tuổi.",
+            "effects": {
+              "health": 10,
+              "STR": 1,
+              "joy": 3
+            }
+          },
+          "fail": {
+            "text": "Con ếch bừng tỉnh, quật cái lưỡi đầy nhớt văng bạn vào thân cây mục. Bạn phải lê lết rút lui với cái bụng rỗng và toàn thân bầm dập.",
+            "effects": {
+              "health": -10,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Ăn rong rêu quanh bờ, bỏ qua con ếch",
+          "text": "Rong rêu đắng ngắt và đầy sạn cát, nhưng ít ra bạn giữ được cái mạng quèn của mình để sống qua ngày.",
+          "effects": {
+            "joy": -2
+          }
+        }
+      ],
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_goblin_early_alpha_fight",
+      "pack": true,
+      "races": [
+        "goblin"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 8,
+      "text": "Một tên Goblin cơ bắp sẹo vằn vện xô ngã bạn, định cướp lấy miếng thịt lợn rừng bạn vừa nhặt được. Bầy đàn đang hò reo chờ xem máu đổ.",
+      "choices": [
+        {
+          "label": "Cầm hòn đá đập thẳng vào đầu hắn",
+          "check": {
+            "stat": "STR",
+            "target": 6
+          },
+          "success": {
+            "text": "Hòn đá vỡ nát cùng tiếng rú thảm thiết của kẻ bắt nạt. Ánh mắt bầy đàn nhìn bạn bằng sự kính sợ mới mẻ, miếng thịt vẫn thuộc về bạn.",
+            "effects": {
+              "fame": 1,
+              "STR": 1,
+              "joy": 5
+            }
+          },
+          "fail": {
+            "text": "Tên to xác dễ dàng bẻ gãy tay bạn và giẫm lên ngực bạn cười man rợ. Miếng thịt bị cướp mất, để lại nỗi nhục nhã ê chề.",
+            "effects": {
+              "health": -15,
+              "joy": -5
+            }
+          }
+        },
+        {
+          "label": "Cống nạp miếng thịt và cúi đầu",
+          "text": "Bạn run rẩy dâng miếng thịt lên. Hắn cười nhạo đá bạn một cú, nhưng bạn giữ được mạng sống trong trật tự bầy đàn tàn nhẫn này.",
+          "effects": {
+            "health": -5,
+            "joy": -5
+          }
+        }
+      ],
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_goblin_tinker_weapon",
+      "pack": true,
+      "races": [
+        "goblin"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 6,
+      "require": {
+        "job": "goblin_tinker",
+        "free": true
+      },
+      "text": "Bạn vấp phải một thanh kiếm hiệp sĩ bị gãy đôi trong bùn rỉ. Lưỡi thép cong queo, nhưng chất liệu vẫn còn rất tốt để chế tác.",
+      "choices": [
+        {
+          "label": "Đập mỏng và chế thành dao găm sắc lẹm",
+          "check": {
+            "stat": "INT",
+            "target": 6
+          },
+          "success": {
+            "text": "Kỹ năng khéo léo giúp bạn gọt giũa khối thép gỉ thành một lưỡi dao găm chết chóc. Các thợ rèn Goblin khác phải ghen tị với bạn.",
+            "effects": {
+              "INT": 1,
+              "jobXp": 1,
+              "wealth": 3
+            }
+          },
+          "fail": {
+            "text": "Lưỡi kiếm gãy vụn khi bạn dùng đá đập sai thế. Một mảnh thép văng vào tay khiến bạn rách da chảy máu, món đồ chơi trở thành đồ bỏ.",
+            "effects": {
+              "health": -5,
+              "joy": -2
+            }
+          }
+        },
+        {
+          "label": "Giấu thanh thép đi chờ dịp khác",
+          "text": "Bạn chôn thanh kiếm gỉ dưới đống rác của hang động, hy vọng sau này có đủ kinh nghiệm để xử lý loại thép của loài người.",
+          "effects": {
+            "joy": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_goblin_shaman_ritual",
+      "pack": true,
+      "races": [
+        "goblin"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 6,
+      "require": {
+        "job": "goblin_shaman",
+        "free": true
+      },
+      "text": "Một cái rễ cây héo úa phát ra ánh sáng tím nhạt từ Đầm Lầy Tử Khí. Linh cảm của một pháp sư mách bảo bạn đây là vật mang ma lực tà ác.",
+      "choices": [
+        {
+          "label": "Nghiền nát và hấp thụ ma lực qua vết thương",
+          "check": {
+            "stat": "INT",
+            "target": 6
+          },
+          "success": {
+            "text": "Máu đen sôi lên trong tĩnh mạch, nhưng bạn đã chế ngự được dòng ma lực hỗn loạn. Một phần ký ức tà ác của đầm lầy mở ra trong tâm trí bạn.",
+            "effects": {
+              "INT": 2,
+              "jobXp": 2,
+              "health": -5
+            }
+          },
+          "fail": {
+            "text": "Chất độc từ rễ cây tàn phá cơ thể gầy gò của bạn. Ảo giác kinh hoàng bao trùm, bạn phải mất nhiều ngày sốt mê man mới tỉnh lại.",
+            "effects": {
+              "health": -20,
+              "INT": -1
+            }
+          }
+        },
+        {
+          "label": "Vứt cái rễ đi, thứ này quá nguy hiểm",
+          "text": "Sự cẩn trọng cứu mạng bạn, nhưng bạn đánh mất cơ hội tiếp xúc với nguồn ma lực nguyên thủy. Trở thành một pháp sư nhát gan chẳng hay ho gì.",
+          "effects": {
+            "joy": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_goblin_rider_tame",
+      "pack": true,
+      "races": [
+        "goblin"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 6,
+      "require": {
+        "job": "goblin_rider",
+        "free": true
+      },
+      "text": "Bạn tìm thấy một con Sói Sừng ngắc ngoải vì dính bẫy gấu của thợ săn. Ánh mắt nó hoang dã nhưng đầy tuyệt vọng.",
+      "choices": [
+        {
+          "label": "Gỡ bẫy và dùng máu mình để lập giao ước",
+          "check": {
+            "stat": "AGI",
+            "target": 7
+          },
+          "success": {
+            "text": "Con sói liếm máu trên tay bạn thay vì cắn đứt nó. Một liên kết linh hồn hình thành, bạn đã có một thú cưỡi trung thành cho riêng mình.",
+            "effects": {
+              "AGI": 2,
+              "jobXp": 2,
+              "fame": 1
+            }
+          },
+          "fail": {
+            "text": "Vừa được thả, con sói hoảng loạn ngoạm một cú vào vai bạn rồi bỏ chạy vào rừng thẳm. Lòng tốt không phải lúc nào cũng được đền đáp ở Aethelgard.",
+            "effects": {
+              "health": -15,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Giết con sói lấy thịt, không liều lĩnh",
+          "text": "Bạn đâm chết con sói tội nghiệp và mang thịt về bầy. Bữa ăn ngon, nhưng bạn mãi mãi lỡ mất một người bạn đồng hành.",
+          "effects": {
+            "health": 5,
+            "wealth": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_goblin_warrior_skirmish",
+      "pack": true,
+      "races": [
+        "goblin"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 6,
+      "require": {
+        "job": "goblin_warrior",
+        "free": true
+      },
+      "text": "Lính canh gác của loài người đang lùng sục rìa rừng thưa. Một tên lính tân binh tụt lại phía sau đội hình, liên tục nhìn quanh run rẩy.",
+      "choices": [
+        {
+          "label": "Phục kích giết chết tên tân binh",
+          "check": {
+            "stat": "STR",
+            "target": 6
+          },
+          "success": {
+            "text": "Lưỡi gươm gỉ của bạn chém trúng cổ tên lính trước khi hắn kịp hét lên. Bạn lột giáp và vũ khí của hắn, cảm nhận dòng máu chiến binh sục sôi.",
+            "effects": {
+              "STR": 1,
+              "jobXp": 1,
+              "wealth": 5
+            }
+          },
+          "fail": {
+            "text": "Hắn vung kiếm loạn xạ trong cơn hoảng loạn, chém trúng ngực bạn. Bạn phải ôm vết thương lẩn vào bụi rậm, máu chảy ròng rã trên lá khô.",
+            "effects": {
+              "health": -20,
+              "joy": -2
+            }
+          }
+        },
+        {
+          "label": "Nằm im dưới bùn chờ chúng đi qua",
+          "text": "Bạn lún sâu vào vũng bùn hôi hám. Toán lính đi khuất, bạn sống sót nhưng không thu được chiến lợi phẩm nào ngoài bùn đất.",
+          "effects": {
+            "joy": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_goblin_arc_lair_find",
+      "pack": true,
+      "races": [
+        "goblin"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 10,
+      "text": "Dưới một gốc rễ Cây Thế Giới mục nát ở Đại Ngàn Lục Bảo, bạn phát hiện một hang động thiên nhiên đủ lớn cho cả một bầy. Nơi này là cơ hội để bạn xây dựng sào huyệt riêng.",
+      "choices": [
+        {
+          "label": "Khảo sát và đánh dấu lãnh thổ bằng máu thú",
+          "check": {
+            "stat": "INT",
+            "target": 5
+          },
+          "success": {
+            "text": "Bạn vẽ những ký tự đe dọa bằng máu đỏ tươi quanh cửa hang, tuyên bố chủ quyền trước lũ ma thú nhỏ. Nền móng đầu tiên của sào huyệt đã được đặt.",
+            "effects": {
+              "fame": 1,
+              "flags": [
+                "gm_gob_lair_started"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Lũ dơi hút máu trong hang bâu vào cắn xé khi bạn tiến sâu. Dù bỏ chạy, bạn vẫn ghi nhớ tọa độ hang để quay lại sau.",
+            "effects": {
+              "health": -10,
+              "flags": [
+                "gm_gob_lair_started"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Làm ngơ, sống lang bạt khỏe hơn",
+          "text": "Việc quản lý một cái hang tốn quá nhiều sức lực. Bạn quay lưng đi, tiếp tục cuộc sống nay đây mai đó.",
+          "effects": {
+            "joy": 2
+          }
+        }
+      ],
+      "require": {
+        "free": true,
+        "notFlags": [
+          "gm_gob_lair_done"
+        ]
+      },
+      "arc": true
+    },
+    {
+      "id": "gm_goblin_arc_lair_defend",
+      "pack": true,
+      "races": [
+        "goblin"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 10,
+      "require": {
+        "flags": [
+          "gm_gob_lair_started"
+        ],
+        "free": true,
+        "notFlags": [
+          "gm_gob_lair_done"
+        ]
+      },
+      "text": "Một toán Lizardman đi săn vô tình phát hiện cửa hang động bạn đang xây dựng. Bọn chúng khịt mũi thèm khát và rút vũ khí định cướp lấy nơi này.",
+      "choices": [
+        {
+          "label": "Kích hoạt bẫy chông và lãnh đạo bầy đàn tử chiến",
+          "check": {
+            "stat": "STR",
+            "target": 7
+          },
+          "success": {
+            "text": "Bẫy sập đè nát hai tên Lizardman đầu tiên. Dưới sự chỉ huy dũng mãnh của bạn, lũ quái vật đầm lầy bỏ chạy. Sào huyệt giờ đây bất khả xâm phạm.",
+            "effects": {
+              "fame": 2,
+              "STR": 1,
+              "flags": [
+                "gm_gob_lair_secured"
+              ],
+              "unflags": [
+                "gm_gob_lair_started"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Lizardman quá dai sức. Chúng phá tan hàng rào gỗ, đánh bạn trọng thương. Bạn phải dốc hết tài sản đút lót để cầu hòa và giữ lại hang.",
+            "effects": {
+              "health": -20,
+              "wealth": -10,
+              "flags": [
+                "gm_gob_lair_secured"
+              ],
+              "unflags": [
+                "gm_gob_lair_started"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Khúm núm dâng nạp một phần lương thực để đuổi khéo",
+          "text": "Lũ Lizardman lấy đi một nửa số thịt dự trữ rồi hậm hực rời đi. Bạn giữ được sào huyệt, nhưng uy tín trong bầy giảm sút nghiêm trọng.",
+          "effects": {
+            "wealth": -5,
+            "joy": -4,
+            "flags": [
+              "gm_gob_lair_secured"
+            ],
+            "unflags": [
+              "gm_gob_lair_started"
+            ]
+          },
+          "require": {
+            "wealth": 5
+          },
+          "showLocked": true
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_goblin_arc_lair_rule",
+      "pack": true,
+      "races": [
+        "goblin"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 12,
+      "require": {
+        "flags": [
+          "gm_gob_lair_secured"
+        ],
+        "free": true,
+        "form": "none",
+        "notFlags": [
+          "gm_gob_lair_done"
+        ]
+      },
+      "text": "Sào huyệt đã vững chãi, bầy đàn ngày càng đông đúc. Tới lúc bạn quyết định cách dẫn dắt bầy, thiết lập luật lệ máu để biến chúng thành một đội quân thực sự.",
+      "choices": [
+        {
+          "label": "Tuyên bố tàn sát kẻ chống đối, tự lập làm Vua",
+          "check": {
+            "stat": "STR",
+            "target": 8
+          },
+          "success": {
+            "text": "Kẻ cắn lén bị bạn phanh thây trước toàn bầy. Từ trong máu thịt và sự tôn sùng tột độ, sức mạnh tiến hóa bùng nổ, biến bạn thành một cá thể thượng cấp.",
+            "effects": {
+              "fame": 5,
+              "joy": 10,
+              "evolve": "Hobgoblin",
+              "epochChange": {
+                "domain": 1
+              },
+              "unflags": [
+                "gm_gob_lair_secured",
+                "gm_gob_lair_started"
+              ],
+              "flags": [
+                "gm_gob_lair_done"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Một cuộc bạo loạn nổ ra. Bạn dẹp loạn thành công nhưng cơ thể chịu vết thương chí mạng, lần biến đổi này bị dập tắt, chỉ còn lại sự sinh tồn khắc nghiệt.",
+            "effects": {
+              "health": -25,
+              "fame": -1,
+              "unflags": [
+                "gm_gob_lair_secured",
+                "gm_gob_lair_started"
+              ],
+              "flags": [
+                "gm_gob_lair_done"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Dùng nghi thức cúng tế Vực Thẳm để thống trị",
+          "check": {
+            "stat": "INT",
+            "target": 8
+          },
+          "success": {
+            "text": "Lửa ma trơi rực cháy quanh bạn. Bầy đàn rạp mình trước quyền năng tà ác. Sự khai sáng từ bóng tối giúp bạn tiến hóa thành hình thái pháp sư tối cao.",
+            "effects": {
+              "INT": 2,
+              "fame": 3,
+              "evolve": "Goblin Shaman Lord",
+              "epochChange": {
+                "insight": 1
+              },
+              "unflags": [
+                "gm_gob_lair_secured",
+                "gm_gob_lair_started"
+              ],
+              "flags": [
+                "gm_gob_lair_done"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Nghi thức vượt ngoài tầm kiểm soát. Ngọn lửa thiêu rụi phần lớn kho báu của bạn trước khi bạn kịp dập tắt nó. Đám Goblin vẫn tuân lệnh, nhưng không có phép màu nào xảy ra.",
+            "effects": {
+              "wealth": -10,
+              "health": -15,
+              "unflags": [
+                "gm_gob_lair_secured",
+                "gm_gob_lair_started"
+              ],
+              "flags": [
+                "gm_gob_lair_done"
+              ]
+            }
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_goblin_late_scout",
+      "pack": true,
+      "races": [
+        "goblin"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 8,
+      "require": {
+        "job": "goblin_scout",
+        "free": true
+      },
+      "text": "Đoàn xe thương hội Sói Bạc đi ngang qua hẻm núi hẹp. Bánh xe trượt xuống hố sụt do bạn giăng sẵn từ đêm trước.",
+      "choices": [
+        {
+          "label": "Leo lên thùng xe cuỗm đồ rồi bỏ trốn",
+          "check": {
+            "stat": "AGI",
+            "target": 7
+          },
+          "success": {
+            "text": "Giống như một cái bóng màu xanh lục lướt qua, bạn nẫng gọn túi tiền lấp lánh rồi biến mất trước khi lính đánh thuê kịp rút kiếm.",
+            "effects": {
+              "AGI": 1,
+              "wealth": 8,
+              "jobXp": 1
+            }
+          },
+          "fail": {
+            "text": "Tên lính canh giương nỏ bắn một mũi tên sượt qua chân bạn. Bạn ngã lăn xuống vách đá, tay trắng và đau đớn.",
+            "effects": {
+              "health": -15,
+              "joy": -4
+            }
+          }
+        },
+        {
+          "label": "Nhát gan hủy bỏ kế hoạch, lẩn vào bóng tối",
+          "text": "Nhìn bọn lính gác vũ trang hạng nặng, bạn quyết định mạng sống quý hơn vài đồng Tinh Bạc. Bạn im lặng rời đi.",
+          "effects": {
+            "joy": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_goblin_late_hoard",
+      "pack": true,
+      "races": [
+        "goblin"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 6,
+      "text": "Trong những cuộc càn quét, bạn thu thập được một lượng lớn vũ khí gỉ và áo giáp vỡ nát. Tới lúc quyết định phải làm gì với đống rác quý giá này.",
+      "choices": [
+        {
+          "label": "Đem phân phát cho đàn em thân tín",
+          "check": {
+            "stat": "LUCK",
+            "target": 6
+          },
+          "success": {
+            "text": "Đám lâu la cảm kích thề sống chết phục vụ bạn. Chúng mang về cho bạn những chiến lợi phẩm còn giá trị hơn từ cuộc đi săn ngày hôm sau.",
+            "effects": {
+              "fame": 3,
+              "wealth": 5,
+              "joy": 4
+            }
+          },
+          "fail": {
+            "text": "Lũ quỷ nhỏ tham lam tranh giành vũ khí đâm chém lẫn nhau. Bạn phải tự tay đánh gục vài tên để lập lại trật tự, phung phí cả đống đồ nghề.",
+            "effects": {
+              "health": -5,
+              "wealth": -5
+            }
+          }
+        },
+        {
+          "label": "Chôn giấu làm của riêng",
+          "text": "Sự ích kỷ là bản năng sinh tồn. Bạn có thêm chút tài sản bí mật dưới đáy hang ngập nước.",
+          "effects": {
+            "wealth": 3
+          }
+        }
+      ],
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_goblin_late_poison",
+      "pack": true,
+      "races": [
+        "goblin"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 7,
+      "text": "Nọc độc Bọ Cạp Băng ngầm hiếm có vừa được bạn chiết xuất thành công. Loại độc này đủ sức hạ gục một con quái vật cấp cao.",
+      "choices": [
+        {
+          "label": "Thử tẩm lên vũ khí cá nhân",
+          "check": {
+            "stat": "INT",
+            "target": 8
+          },
+          "success": {
+            "text": "Bạn chế tác ra thanh đoản kiếm tẩm độc hoàn hảo. Cảm giác quyền lực chết chóc nắm trong tay khiến linh hồn ma vật của bạn thỏa mãn tột độ.",
+            "effects": {
+              "INT": 1,
+              "STR": 1,
+              "joy": 5
+            }
+          },
+          "fail": {
+            "text": "Lóng ngóng làm rớt bình độc, khói bốc lên đốt cháy khoang mũi bạn. Phổi đau nhói, sức khỏe suy giảm đáng kể vì trúng độc nhẹ.",
+            "effects": {
+              "health": -15,
+              "INT": -1
+            }
+          }
+        },
+        {
+          "label": "Bán chui cho thương nhân chợ đen",
+          "text": "Một tên buôn lậu lùn ưng ý mua lại nọc độc và trả cho bạn một món hậu hĩnh. Bạn giàu lên nhưng mất đi vũ khí bí mật.",
+          "effects": {
+            "wealth": 10,
+            "joy": 2
+          }
+        }
+      ],
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_goblin_recur_ambush",
+      "pack": true,
+      "races": [
+        "goblin"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": false,
+      "cooldownYears": 2,
+      "weight": 8,
+      "variants": [
+        "Một gã thương nhân béo phì bị lạc ngựa đang thở dốc bên đường mòn bụi bặm.",
+        "Kẻ hành hương rách rưới đang cầu nguyện trước miếu thờ hoang phế của Giáo hội Thánh Quang.",
+        "Một tên trộm nghiệp dư vừa vấp ngã làm rơi chiếc túi vải leng keng tiếng xu."
+      ],
+      "choices": [
+        {
+          "label": "Tiến lên tập kích đoạt lấy tài sản",
+          "check": {
+            "stat": "AGI",
+            "target": 6
+          },
+          "success": {
+            "text": "Cú vồ ếch nhạy bén của bạn đã hạ gục con mồi trước khi hắn kịp phản ứng. Túi tiền đẫm máu giờ là của bạn.",
+            "effects": {
+              "wealth": 5,
+              "joy": 3,
+              "AGI": 1
+            }
+          },
+          "fail": {
+            "text": "Con mồi phản kháng mạnh hơn vẻ bề ngoài. Hắn đạp bạn một cú nổ đom đóm mắt rồi chạy biến đi mất, để lại bạn lăn lóc dưới đất.",
+            "effects": {
+              "health": -10,
+              "joy": -2
+            }
+          }
+        },
+        {
+          "label": "Rình rập quan sát rồi bỏ đi",
+          "text": "Dù đói khát, bạn vẫn nghi ngờ đây là một cái bẫy mồi. Sự cẩn thận giúp bạn sống sót lâu hơn đồng loại.",
+          "effects": {
+            "joy": -1
+          }
+        }
+      ],
+      "text": "Một gã thương nhân béo phì bị lạc ngựa đang thở dốc bên đường mòn bụi bặm.",
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_goblin_recur_scavenge",
+      "pack": true,
+      "races": [
+        "goblin"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": false,
+      "cooldownYears": 2,
+      "weight": 8,
+      "variants": [
+        "Sau trận chiến đẫm máu của loài người, xác chết và chiến lợi phẩm ngổn ngang trên bãi cỏ bốc mùi hôi thối.",
+        "Mưa lớn làm xói mòn khu mộ cổ, để lộ ra những rương gỗ mục nát dưới lớp bùn lầy.",
+        "Một hầm ngục vừa bị sập, khói bụi mịt mù che giấu đi vô số vật phẩm mà bọn thám hiểm bỏ lại."
+      ],
+      "choices": [
+        {
+          "label": "Lục lọi tìm kiếm đồ vật có giá trị",
+          "check": {
+            "stat": "LUCK",
+            "target": 6
+          },
+          "success": {
+            "text": "Trời độ kẻ hèn. Dưới đống xác thối hay gạch đá vỡ nát, bạn vớ được vài đồng Tinh Bạc và một mẩu bánh mì còn chưa mốc.",
+            "effects": {
+              "wealth": 4,
+              "health": 5
+            }
+          },
+          "fail": {
+            "text": "Khốn kiếp! Chẳng có gì ngoài rác rưởi và máu khô. Bạn bới móc đến gãy cả móng tay mà trắng tay ra về.",
+            "effects": {
+              "health": -5,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Nhặt nhạnh chút thịt vụn rồi rút lui",
+          "text": "Tham lam sinh tai họa. Bạn chỉ gặm nhấm một chút thức ăn thừa thãi rồi vội lỉnh đi trước khi ác thú ngửi thấy mùi máu.",
+          "effects": {
+            "health": 3
+          }
+        }
+      ],
+      "text": "Sau trận chiến đẫm máu của loài người, xác chết và chiến lợi phẩm ngổn ngang trên bãi cỏ bốc mùi hôi thối.",
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_goblin_recur_feast",
+      "pack": true,
+      "races": [
+        "goblin"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": false,
+      "cooldownYears": 2,
+      "weight": 8,
+      "variants": [
+        "Dưới ánh trăng huyết nguyệt, bầy đàn nổi lửa nhảy múa quanh một đống thịt tươi khổng lồ.",
+        "Chiến thắng sau một đợt cướp bóc, bầy Goblin đập vỡ thùng rượu của con người để ăn mừng cuồng loạn.",
+        "Đêm tế lễ mùa săn bão, con mồi lớn nhất được xẻ thịt chia cho những kẻ mạnh mẽ nhất."
+      ],
+      "choices": [
+        {
+          "label": "Lao vào tranh cướp phần thịt ngon nhất",
+          "check": {
+            "stat": "STR",
+            "target": 7
+          },
+          "success": {
+            "text": "Cơ bắp và móng vuốt của bạn đẩy lùi những kẻ yếu hơn. Bạn cắn ngập răng vào miếng thịt mềm nhất, thỏa mãn cơn khát máu bạo tàn.",
+            "effects": {
+              "health": 15,
+              "joy": 6,
+              "STR": 1
+            }
+          },
+          "fail": {
+            "text": "Bạn bị xô ngã, dẫm đạp trong cơn say máu của bầy. Kẻ khác cuỗm mất miếng thịt, còn bạn mang theo những vết bầm tím về góc tối.",
+            "effects": {
+              "health": -10,
+              "joy": -4
+            }
+          }
+        },
+        {
+          "label": "Nhặt nhạnh phần xương xẩu ở ngoài rìa",
+          "text": "Không cần thiết phải đổ máu vì một bữa ăn. Bạn lặng lẽ gặm nốt phần xương tủy dư thừa, no bụng mà an toàn.",
+          "effects": {
+            "health": 5,
+            "joy": 1
+          }
+        }
+      ],
+      "text": "Dưới ánh trăng huyết nguyệt, bầy đàn nổi lửa nhảy múa quanh một đống thịt tươi khổng lồ.",
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_kobold_early_cave_in",
+      "pack": true,
+      "races": [
+        "kobold"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 8,
+      "text": "Trần hang phía trên khu mỏ Pha Lê Đen rung chuyển dữ dội. Bụi đá lả tả rơi xuống, báo hiệu một vụ sập hầm chớp nhoáng.",
+      "choices": [
+        {
+          "label": "Dùng cái cuốc chống đỡ cột chống yếu nhất",
+          "check": {
+            "stat": "STR",
+            "target": 5
+          },
+          "success": {
+            "text": "Cơ bắp nứt nẻ của bạn căng lên cực độ. Chiếc cuốc cắm chặt vào nền đá, giữ vững kết cấu hầm mỏ đủ lâu để đồng loại chạy thoát thân.",
+            "effects": {
+              "STR": 1,
+              "fame": 2,
+              "joy": 3
+            }
+          },
+          "fail": {
+            "text": "Cột gỗ gãy nát, đá tảng rơi thẳng xuống vai bạn. Bạn lết ra khỏi đống đổ nát với những mảnh xương rạn nứt đau điếng.",
+            "effects": {
+              "health": -15,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Vứt cuốc bỏ chạy một mình",
+          "text": "Bản năng sinh tồn chiến thắng. Bạn lao ra ngoài an toàn, nhưng những tiếng kêu cứu nghẹt thở đằng sau ám ảnh bạn một thời gian.",
+          "effects": {
+            "joy": -5,
+            "fame": -1
+          }
+        }
+      ],
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_kobold_early_shiny",
+      "pack": true,
+      "races": [
+        "kobold"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 8,
+      "text": "Giữa đống xỉ than bỏ đi của lũ lùn Dwarf, bạn tinh mắt nhìn thấy một viên Ngọc Nham Thạch chưa được mài giũa tỏa nhiệt ấm áp.",
+      "choices": [
+        {
+          "label": "Lén lút nhặt lấy giấu vào lớp vảy",
+          "check": {
+            "stat": "LUCK",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn cuỗm viên ngọc không một ai hay biết. Hơi ấm của nó giúp bạn xua tan cái lạnh lẽo dưới hầm sâu và làm giàu túi tiền của bạn.",
+            "effects": {
+              "wealth": 6,
+              "joy": 4
+            }
+          },
+          "fail": {
+            "text": "Một tên lính gác lùn phát hiện. Hắn quật báng súng điểu thương vào sườn bạn, tịch thu viên ngọc và ném bạn xuống vũng bùn.",
+            "effects": {
+              "health": -10,
+              "joy": -4
+            }
+          }
+        },
+        {
+          "label": "Đem nộp cho quản đốc mỏ để tâng công",
+          "text": "Tên quản đốc ném cho bạn một đồng cắc lẻ và cười khinh bỉ. Bạn được coi là kẻ ngoan ngoãn nhưng thấy thảm hại tột cùng.",
+          "effects": {
+            "wealth": 1,
+            "joy": -2
+          }
+        }
+      ],
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_kobold_trapper_pit",
+      "pack": true,
+      "races": [
+        "kobold"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 6,
+      "require": {
+        "job": "kobold_trapper",
+        "free": true
+      },
+      "text": "Lối vào hẻm núi có một khoảng nứt tự nhiên tuyệt đẹp để giăng bẫy lũ quái vật lớn. Bạn có một chùm dây gai ma thuật trong túi.",
+      "choices": [
+        {
+          "label": "Tính toán độ căng để làm bẫy dây thòng lọng",
+          "check": {
+            "stat": "INT",
+            "target": 6
+          },
+          "success": {
+            "text": "Kỹ thuật thắt nút hoàn hảo. Hôm sau, một con sói lớn đã dính bẫy treo ngược lên không trung, mang lại thịt tươi và kinh nghiệm quý giá.",
+            "effects": {
+              "INT": 1,
+              "jobXp": 2,
+              "wealth": 4
+            }
+          },
+          "fail": {
+            "text": "Bạn lỡ tay kéo quá mạnh, dây gai bật ngược lại quất rách mặt bạn. Bẫy hỏng, bạn ôm mặt chảy máu lủi thủi quay về.",
+            "effects": {
+              "health": -10,
+              "joy": -2
+            }
+          }
+        },
+        {
+          "label": "Cất dây đi, đào hố chông thô sơ là đủ",
+          "text": "Hố chông tuy an toàn để làm nhưng hiệu quả kém cỏi. Nó chỉ bắt được vài con chuột nhắt ranh mãnh.",
+          "effects": {
+            "joy": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_kobold_sniffer_gas",
+      "pack": true,
+      "races": [
+        "kobold"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 6,
+      "require": {
+        "job": "kobold_sniffer",
+        "free": true
+      },
+      "text": "Mũi của bạn co giật liên tục. Trong gió có mùi lưu huỳnh nồng nặc xen lẫn mùi xác thối, báo hiệu túi khí độc ngầm sắp bục.",
+      "choices": [
+        {
+          "label": "Đánh hơi tìm mạch khí và lấp kín nó",
+          "check": {
+            "stat": "LUCK",
+            "target": 7
+          },
+          "success": {
+            "text": "Khứu giác tuyệt vời dẫn bạn đến đúng khe hở rò rỉ. Bạn dùng bùn nhão bít kín lại, cứu sống hàng chục thợ mỏ đang say ngủ.",
+            "effects": {
+              "LUCK": 1,
+              "jobXp": 2,
+              "fame": 3
+            }
+          },
+          "fail": {
+            "text": "Khí độc xì ra quá nhanh phun thẳng vào mặt bạn. Bạn ho sù sụ và ngất lịm đi, may mắn được đồng loại lôi ra ngoài nhưng phổi tổn thương trầm trọng.",
+            "effects": {
+              "health": -20,
+              "joy": -4
+            }
+          }
+        },
+        {
+          "label": "Bịt mũi chạy trốn khỏi khu vực",
+          "text": "Túi khí nổ tung khiến vài thợ mỏ bỏ mạng. Dù bạn an toàn, bạn cảm thấy xấu hổ với chức nghiệp Người Ngửi Mùi của mình.",
+          "effects": {
+            "joy": -3
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_kobold_overseer_whip",
+      "pack": true,
+      "races": [
+        "kobold"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 6,
+      "require": {
+        "job": "kobold_overseer",
+        "free": true
+      },
+      "text": "Một thợ mỏ già cố tình lãn công, ngồi thở phì phò bên xe gòong trống không. Công việc đang đình trệ, ánh mắt các thợ mỏ khác đang nhìn bạn chờ xem phản ứng.",
+      "choices": [
+        {
+          "label": "Vung roi da quất thẳng tay để thị uy",
+          "check": {
+            "stat": "STR",
+            "target": 6
+          },
+          "success": {
+            "text": "Tiếng roi vun vút vang vọng xé tan sự im lặng. Lão thợ mỏ hoảng hốt cắm cúi đẩy xe, tiến độ công việc tăng vọt. Sự bạo ngược củng cố quyền lực của bạn.",
+            "effects": {
+              "STR": 1,
+              "jobXp": 2,
+              "fame": 1
+            }
+          },
+          "fail": {
+            "text": "Lão già bất ngờ chụp được ngọn roi và xô bạn ngã chỏng vó. Uy quyền của một quản đốc bị chà đạp tơi bời giữa những tiếng cười nhạo.",
+            "effects": {
+              "health": -5,
+              "joy": -5,
+              "fame": -2
+            }
+          }
+        },
+        {
+          "label": "Trừ khẩu phần ăn thay vì dùng bạo lực",
+          "text": "Một hình phạt khô khan. Lão già lầm bầm làm tiếp, mỏ không bị bạo động nhưng bạn bị coi là một quản đốc quá mềm mỏng.",
+          "effects": {
+            "joy": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_kobold_priest_whispers",
+      "pack": true,
+      "races": [
+        "kobold"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 6,
+      "require": {
+        "job": "kobold_priest",
+        "free": true
+      },
+      "text": "Bên cạnh suối dung nham sục sôi, bạn nghe thấy tiếng thì thầm bằng ngôn ngữ kỳ lạ vang lên từ ngọn lửa. Thần linh của đất sâu đang gọi.",
+      "choices": [
+        {
+          "label": "Nhắm mắt và tụng niệm phản hồi tiếng gọi",
+          "check": {
+            "stat": "INT",
+            "target": 7
+          },
+          "success": {
+            "text": "Ngọn lửa bừng sáng rực rỡ, truyền vào tâm trí bạn một mảnh kiến thức cổ xưa của long tộc. Khả năng ngoại cảm ma thuật của bạn đột phá.",
+            "effects": {
+              "INT": 2,
+              "jobXp": 2,
+              "joy": 3
+            }
+          },
+          "fail": {
+            "text": "Tiếng thì thầm hóa thành tiếng gầm đinh tai nhức óc của rồng. Đầu óc bạn như vỡ tung, mắt túa máu vì áp lực linh hồn quá lớn.",
+            "effects": {
+              "health": -15,
+              "joy": -4,
+              "INT": -1
+            }
+          }
+        },
+        {
+          "label": "Bịt tai bỏ đi, sợ hãi bóng tối",
+          "text": "Tâm trí chưa đủ kiên định để tiếp xúc với thần linh. Bạn bỏ lỡ một cơ hội giác ngộ ma pháp, tiếp tục làm một tư tế vô danh.",
+          "effects": {
+            "joy": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_kobold_arc_dragon_meet",
+      "pack": true,
+      "races": [
+        "kobold"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 10,
+      "require": {
+        "origin": "kobold_bg_dragon",
+        "free": true,
+        "notFlags": [
+          "gm_kobold_dragon_done"
+        ]
+      },
+      "text": "Trên Đảo Tro Tàn, một Hỏa Long non vừa tỉnh giấc rống lên đòi ăn. Là một Kobold sinh ra từ tàn tro, định mệnh buộc bạn phải phục tùng sinh vật vĩ đại này.",
+      "choices": [
+        {
+          "label": "Quỳ lạy và dâng nạp khối quặng quý nhất của mình",
+          "check": {
+            "stat": "LUCK",
+            "target": 6
+          },
+          "success": {
+            "text": "Con rồng hếch mũi ngửi khối quặng rồi nuốt chửng nó. Nó liếc nhìn bạn bằng đôi mắt bò sát rực lửa, ngầm chấp nhận bạn là kẻ hầu hạ.",
+            "effects": {
+              "fame": 1,
+              "wealth": -5,
+              "flags": [
+                "gm_kobold_dragon_servant"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Món quà không làm nó hài lòng. Một luồng khói nóng hổi phụt ra từ mũi rồng làm bạn bỏng nhẹ, nhưng nó vẫn cho phép bạn đi theo làm cu li.",
+            "effects": {
+              "health": -10,
+              "wealth": -5,
+              "flags": [
+                "gm_kobold_dragon_servant"
+              ]
+            }
+          },
+          "require": {
+            "wealth": 5
+          },
+          "showLocked": true
+        },
+        {
+          "label": "Giấu quặng, bắt một con dê núi dâng lên",
+          "text": "Con rồng xé xác con dê béo ngậy. Nó không chú ý đến bạn lắm, đủ để bạn gia nhập hàng ngũ nô bộc rồng mà không mất tài sản.",
+          "effects": {
+            "joy": 1,
+            "flags": [
+              "gm_kobold_dragon_servant"
+            ]
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_kobold_arc_dragon_learn",
+      "pack": true,
+      "races": [
+        "kobold"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 10,
+      "require": {
+        "flags": [
+          "gm_kobold_dragon_servant"
+        ],
+        "free": true,
+        "notFlags": [
+          "gm_kobold_dragon_done"
+        ]
+      },
+      "text": "Trong những đêm dọn dẹp hang rồng, bạn vô tình nghe lỏm Hỏa Long lẩm bẩm những âm tiết Long Ngữ chứa đựng ma lực nguyên thủy.",
+      "choices": [
+        {
+          "label": "Tập trung ghi nhớ và lén mô phỏng Long Ngữ",
+          "check": {
+            "stat": "INT",
+            "target": 8
+          },
+          "success": {
+            "text": "Cổ họng bạn phát ra một âm thanh rung động không khí. Hỏa Long nhận ra sự nỗ lực đó và thưởng cho bạn một vệt máu rồng, nâng bạn lên hàng ngũ thân tín.",
+            "effects": {
+              "INT": 2,
+              "joy": 5,
+              "flags": [
+                "gm_kobold_dragon_trusted"
+              ],
+              "unflags": [
+                "gm_kobold_dragon_servant"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Âm thanh phát ra sai lệch, trở thành một câu chửi thề cổ đại. Hỏa Long giận dữ quất đuôi hất văng bạn vào vách đá. Bạn suýt mất mạng vì âm tiết xúc phạm ấy.",
+            "effects": {
+              "health": -25,
+              "joy": -5,
+              "flags": [
+                "gm_kobold_dragon_trusted"
+              ],
+              "unflags": [
+                "gm_kobold_dragon_servant"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Bịt tai lau dọn chăm chỉ, không lo chuyện bao đồng",
+          "text": "Rồng chủ ngáp dài hài lòng với sự tận tụy thầm lặng của bạn. Bạn dần trở thành một tay sai tin cẩn mà không cần rủi ro học phép.",
+          "effects": {
+            "joy": 2,
+            "flags": [
+              "gm_kobold_dragon_trusted"
+            ],
+            "unflags": [
+              "gm_kobold_dragon_servant"
+            ]
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_kobold_arc_dragon_test",
+      "pack": true,
+      "races": [
+        "kobold"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 12,
+      "require": {
+        "flags": [
+          "gm_kobold_dragon_trusted"
+        ],
+        "free": true,
+        "form": "none",
+        "notFlags": [
+          "gm_kobold_dragon_done"
+        ]
+      },
+      "text": "Một nhóm anh hùng của loài người mang theo ấn chú diệt rồng đã phá vỡ tuyến phòng thủ. Hỏa Long đang bị trọng thương. Vận mệnh của kẻ bề tôi nằm trong tay bạn.",
+      "choices": [
+        {
+          "label": "Kích hoạt toàn bộ bẫy, liều chết bảo vệ Rồng",
+          "check": {
+            "stat": "STR",
+            "target": 8
+          },
+          "success": {
+            "text": "Bẫy sập đè nát pháp sư loài người, tạo cơ hội cho Hỏa Long tung hơi thở thiêu rụi kẻ địch. Cảm kích trước lòng trung thành, nó truyền long huyết chân chính cho bạn.",
+            "effects": {
+              "fame": 5,
+              "joy": 10,
+              "evolve": "Dragonblood Kobold",
+              "epochChange": {
+                "legacy": 1
+              },
+              "unflags": [
+                "gm_kobold_dragon_trusted",
+                "gm_kobold_dragon_servant"
+              ],
+              "flags": [
+                "gm_kobold_dragon_done"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Lũ dũng giả dễ dàng xuyên thủng bẫy rập và chém bạn một kiếm chí mạng. Bạn gục ngã trước khi nhìn thấy Rồng chủ bị tàn sát.",
+            "effects": {
+              "health": -40,
+              "fame": -1,
+              "epochChange": {
+                "ruin": 1
+              },
+              "unflags": [
+                "gm_kobold_dragon_trusted",
+                "gm_kobold_dragon_servant"
+              ],
+              "flags": [
+                "gm_kobold_dragon_done"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Trộm một món báu vật rồi lẻn đi trong hỗn loạn",
+          "check": {
+            "stat": "AGI",
+            "target": 8
+          },
+          "success": {
+            "text": "Bạn cuỗm chiếc chén thánh bằng Huyết Kim và chuồn êm khỏi hang hỏa ngục. Rồng bị giết, bạn trở nên cực kỳ giàu có nhưng mang danh kẻ phản bội hèn nhát.",
+            "effects": {
+              "wealth": 15,
+              "joy": -5,
+              "epochChange": {
+                "ruin": 1
+              },
+              "unflags": [
+                "gm_kobold_dragon_trusted",
+                "gm_kobold_dragon_servant"
+              ],
+              "flags": [
+                "gm_kobold_dragon_done"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Vừa chạm tay vào báu vật, ma pháp phòng ngự của rồng phản pháo thiêu cháy tay bạn. Bạn phải bỏ chạy tay trắng trong tận cùng nhục nhã.",
+            "effects": {
+              "health": -20,
+              "joy": -10,
+              "unflags": [
+                "gm_kobold_dragon_trusted",
+                "gm_kobold_dragon_servant"
+              ],
+              "flags": [
+                "gm_kobold_dragon_done"
+              ]
+            }
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_kobold_late_deep_vein",
+      "pack": true,
+      "races": [
+        "kobold"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 8,
+      "require": {
+        "job": "kobold_miner",
+        "free": true
+      },
+      "text": "Dưới tầng hầm mỏ âm u, cuốc của bạn chạm phải một mạch quặng Tinh Kim quý giá phát sáng lấp lánh.",
+      "choices": [
+        {
+          "label": "Dốc toàn lực đập vỡ lớp đá cứng bao quanh",
+          "check": {
+            "stat": "STR",
+            "target": 7
+          },
+          "success": {
+            "text": "Đá vỡ tung, khối Tinh Kim nguyên chất nằm gọn trong tay bạn. Bạn bán nó đi, đổi lấy một lượng của cải đủ để uống say bét nhè nửa năm.",
+            "effects": {
+              "wealth": 10,
+              "STR": 1,
+              "joy": 5
+            }
+          },
+          "fail": {
+            "text": "Cuốc gãy đôi vì phản lực mạnh mẽ. Mảnh sắt ghim vào chân khiến bạn đau đớn không thể bước đi, mỏ Tinh Kim đành nhường cho kẻ khác.",
+            "effects": {
+              "health": -10,
+              "joy": -4
+            }
+          }
+        },
+        {
+          "label": "Che lấp quặng đi, không đủ sức đào lúc này",
+          "text": "Bạn lấp bùn lên để giấu diếm, hy vọng ngày mai có công cụ tốt hơn. Ít ra cuốc của bạn vẫn còn nguyên vẹn.",
+          "effects": {
+            "joy": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_kobold_late_thieves",
+      "pack": true,
+      "races": [
+        "kobold"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 7,
+      "text": "Hai tên trộm cắp tộc Imp đang lẻn vào kho lương thực của bộ lạc. Chúng mang theo bọc độc dược định hạ độc nguồn nước.",
+      "choices": [
+        {
+          "label": "Rút dao găm, tiêu diệt hai tên trộm",
+          "check": {
+            "stat": "AGI",
+            "target": 7
+          },
+          "success": {
+            "text": "Động tác chớp nhoáng của bạn cắt đứt yết hầu lũ ác ma nhỏ nhoi. Lương thực an toàn, bạn được bộ lạc tôn vinh như người hùng bóng đêm.",
+            "effects": {
+              "fame": 3,
+              "AGI": 1,
+              "joy": 4
+            }
+          },
+          "fail": {
+            "text": "Lũ Imp ném bọc độc vào mắt bạn, gây ra cơn đau rát kinh khủng. Chúng trốn thoát, bạn phải tự mình bấu víu rửa nước để không mù lòa.",
+            "effects": {
+              "health": -15,
+              "joy": -5
+            }
+          }
+        },
+        {
+          "label": "Hô hoán gọi lính gác tới cứu viện",
+          "text": "Lính gác tới nơi đuổi bọn trộm đi, nhưng nước thì đã bị nhiễm bẩn một phần. Không ai trách bạn, nhưng cũng chẳng ai nể trọng bạn.",
+          "effects": {
+            "joy": -1
+          }
+        }
+      ],
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_kobold_late_ritual",
+      "pack": true,
+      "races": [
+        "kobold"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 7,
+      "text": "Ngày lễ thay vảy, Tế Đàn Xương Cốt mở ra cơ hội hấp thụ Tinh Huyết Thú để gia cường lớp vảy cứng cáp cho tộc Kobold.",
+      "choices": [
+        {
+          "label": "Nằm vào bồn máu sục sôi để hấp thụ",
+          "check": {
+            "stat": "LUCK",
+            "target": 8
+          },
+          "success": {
+            "text": "Nhiệt lượng hun đúc từng lớp vảy thành màu đỏ thẫm. Bạn bước ra với cơ thể rắn rỏi tựa thép nguội, sức chịu đựng tăng vọt.",
+            "effects": {
+              "health": 15,
+              "STR": 2,
+              "joy": 5
+            }
+          },
+          "fail": {
+            "text": "Cơ thể bạn bài xích máu thú bẩn thỉu. Bạn nôn thốc nôn tháo, lớp vảy cũ rụng lả tả mang theo cảm giác bỏng rát đau đớn nhiều ngày.",
+            "effects": {
+              "health": -20,
+              "joy": -4
+            }
+          }
+        },
+        {
+          "label": "Bôi bùn ướt cho an toàn, bỏ qua nghi lễ",
+          "text": "Bùn ướt giúp lớp vảy cũ rụng đi một cách tự nhiên. Dù không mạnh mẽ hơn, bạn tránh được mọi rủi ro nhiễm trùng.",
+          "effects": {
+            "joy": 2
+          }
+        }
+      ],
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_kobold_recur_mine",
+      "pack": true,
+      "races": [
+        "kobold"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": false,
+      "cooldownYears": 2,
+      "weight": 8,
+      "variants": [
+        "Vỉa quặng trước mắt là khối đá granit vô cùng rắn chắc, đòi hỏi sức lực bền bỉ.",
+        "Bạn tìm thấy một khe đá pha lê nhỏ xíu lấp lánh phản chiếu ánh đèn hầm lò.",
+        "Đất đá ẩm ướt và mềm nhão, dễ đào nhưng ẩn chứa nguy cơ sạt lở rất cao."
+      ],
+      "choices": [
+        {
+          "label": "Tập trung đào sâu bằng mọi giá",
+          "check": {
+            "stat": "STR",
+            "target": 6
+          },
+          "success": {
+            "text": "Âm thanh cuốc đập đá đều đặn như nhịp tim. Bạn khai thác được một giỏ quặng đầy đặn, đem lại chút thù lao xứng đáng cho ngày lao động.",
+            "effects": {
+              "wealth": 4,
+              "jobXp": 1,
+              "joy": 2
+            }
+          },
+          "fail": {
+            "text": "Tay run lên vì kiệt sức, bạn lỡ đập cuốc vào chính mũi chân mình. Công việc dang dở, máu đổ thay mồ hôi.",
+            "effects": {
+              "health": -10,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Dọn dẹp đất thừa nhường chỗ cho người khác",
+          "text": "Làm culi xúc đất nhẹ nhàng hơn là tự mình gõ đá. Bạn nhận một đồng bạc lẻ đổi lấy sự an toàn tuyệt đối.",
+          "effects": {
+            "wealth": 1,
+            "joy": 1
+          }
+        }
+      ],
+      "text": "Vỉa quặng trước mắt là khối đá granit vô cùng rắn chắc, đòi hỏi sức lực bền bỉ.",
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_kobold_recur_tribute",
+      "pack": true,
+      "races": [
+        "kobold"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": false,
+      "cooldownYears": 2,
+      "weight": 8,
+      "variants": [
+        "Đến kỳ nộp thuế, trưởng lão yêu cầu mỗi cá nhân đóng góp một lượng bạc ròng rã.",
+        "Bức tượng Nữ Thần Đất Cát cần được trang hoàng bằng vàng vụn từ công sức bầy đàn.",
+        "Một con thú canh gác của bộ lạc đang đói ngấu, chờ đợi thịt tươi từ những kẻ săn bắt."
+      ],
+      "choices": [
+        {
+          "label": "Gian lận tráo đổi cống phẩm bằng đá màu",
+          "check": {
+            "stat": "INT",
+            "target": 6
+          },
+          "success": {
+            "text": "Sự khéo tay đánh lừa được trưởng lão mù lòa. Bạn vượt qua đợt cống nạp mà túi tiền vẫn nguyên vẹn.",
+            "effects": {
+              "joy": 4,
+              "wealth": 2
+            }
+          },
+          "fail": {
+            "text": "Trò lừa đảo bị lật tẩy ngay lập tức. Bạn bị phạt đòn giữa quảng trường, tịch thu gấp đôi tài sản vì tội khinh nhờn quy củ.",
+            "effects": {
+              "health": -10,
+              "wealth": -5,
+              "joy": -5
+            }
+          }
+        },
+        {
+          "label": "Cắn răng nộp đủ cống phẩm",
+          "text": "Luật là luật. Bạn ngoan ngoãn nộp phần của mình. Sự trung thành ngu ngốc giúp bạn không bị gây khó dễ.",
+          "effects": {
+            "wealth": -3,
+            "joy": -1
+          }
+        }
+      ],
+      "text": "Đến kỳ nộp thuế, trưởng lão yêu cầu mỗi cá nhân đóng góp một lượng bạc ròng rã.",
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_kobold_recur_trap_check",
+      "pack": true,
+      "races": [
+        "kobold"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": false,
+      "cooldownYears": 2,
+      "weight": 8,
+      "variants": [
+        "Chông sắt gỉ sét nằm chỏng chơ dưới lớp lá khô chờ ngày làm nhiệm vụ.",
+        "Đoạn dây bẫy vấp đang sờn rách, giăng ngang lối mòn dẫn vào khu ổ chuột của bộ tộc.",
+        "Cơ quan đá tảng treo lơ lửng bằng sợi dây leo, đung đưa cót két trong gió đêm."
+      ],
+      "choices": [
+        {
+          "label": "Bảo trì và thử lại độ nhạy của bẫy",
+          "check": {
+            "stat": "AGI",
+            "target": 6
+          },
+          "success": {
+            "text": "Khéo léo vô cùng, bạn căn chỉnh lại góc độ của bẫy. Tối hôm đó, một con thú hoang mắc bẫy mang đến thịt ngon cho gia đình bạn.",
+            "effects": {
+              "health": 5,
+              "AGI": 1,
+              "joy": 3
+            }
+          },
+          "fail": {
+            "text": "Do bất cẩn, cái bẫy bật ngược đập thẳng vào ống đồng của bạn. Bạn đau thấu trời xanh, nhảy lò cò quay về lều thuốc.",
+            "effects": {
+              "health": -12,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Kiểm tra bằng mắt rồi mặc kệ",
+          "text": "Có vẻ vẫn xài được, bạn tặc lưỡi bỏ đi. Bẫy hỏng nhẹ khiến con mồi thoát được, làm bạn mất đi một bữa ăn ngon.",
+          "effects": {
+            "joy": -1
+          }
+        }
+      ],
+      "text": "Chông sắt gỉ sét nằm chỏng chơ dưới lớp lá khô chờ ngày làm nhiệm vụ.",
+      "require": {
+        "free": true
+      }
+    }
+  ]
+}

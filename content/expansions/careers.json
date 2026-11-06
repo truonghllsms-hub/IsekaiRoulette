@@ -1,0 +1,3589 @@
+{
+  "origins": [],
+  "events": [
+    {
+      "id": "gm_beastman_bao_thao_nguyen",
+      "pack": true,
+      "races": [
+        "beastman"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": false,
+      "cooldownYears": 2,
+      "weight": 8,
+      "require": {
+        "free": true,
+        "job": "bm_courier"
+      },
+      "variants": [
+        "Cơn bão cát đỏ cuộn trào từ Vực Móng Vuốt gầm thét cắt ngang tuyến đường đưa thư của bạn. Bụi mù che khuất tầm nhìn, đe dọa xé toạc lớp da thuộc bảo vệ những phong thư khẩn.",
+        "Mùa Săn Bão mang theo những luồng cuồng phong tàn độc quét qua Thảo Nguyên Gió Hú. Chặng đường giao liên phía trước ngập trong màn cát đá mịt mù, thử thách sức chịu đựng của bạn.",
+        "Trời đột ngột sập tối khi một trận bão thảo nguyên ập tới, chặn đứng tuyến liên lạc dẫn tới Trại Huyết Môn. Những luồng gió sắc như dao cạo đang cố xé rách túi bưu phẩm trên vai bạn."
+      ],
+      "choices": [
+        {
+          "label": "Bất chấp cuồng phong, bứt tốc vượt qua",
+          "check": {
+            "stat": "AGI",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn cuộn tròn người, mượn sức gió để lao vút qua những khe đá lởm chởm. Túi thư an toàn đến trạm tiếp theo trước khi cơn bão đạt đỉnh.",
+            "effects": {
+              "AGI": 1,
+              "jobXp": 1
+            }
+          },
+          "fail": {
+            "text": "Một luồng gió tạt ngang quật ngã bạn xuống bãi đá dăm. Bạn bảo vệ được thư nhưng toàn thân trầy xước, đành lết từng bước đến nơi an toàn.",
+            "effects": {
+              "health": -10,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Tìm hang đá trú ẩn, chấp nhận trễ hẹn",
+          "text": "Bạn lùi vào một hốc đá nấp qua đêm. Tin tức bị chậm trễ khiến quân đoàn gặp chút rắc rối, và lương tâm nghề nghiệp của bạn bị cắn rứt.",
+          "effects": {
+            "joy": -3,
+            "fame": -1
+          }
+        }
+      ],
+      "text": "Cơn bão cát đỏ cuộn trào từ Vực Móng Vuốt gầm thét cắt ngang tuyến đường đưa thư của bạn. Bụi mù che khuất tầm nhìn, đe dọa xé toạc lớp da thuộc bảo vệ những phong thư khẩn.",
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_beastman_thu_ty_nan",
+      "pack": true,
+      "races": [
+        "beastman"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": false,
+      "cooldownYears": 2,
+      "weight": 7,
+      "require": {
+        "free": true,
+        "job": "bm_courier"
+      },
+      "variants": [
+        "Tại một trạm trung chuyển, những người dân tị nạn rách rưới bám lấy chân bạn. Họ cầu xin bạn mang theo những bức thư nhà nhuốm máu vượt qua tiền tuyến, dù điều này vi phạm quân luật.",
+        "Một gia đình Beastman mất quê hương quỳ rạp trước mặt bạn. Họ không có tiền, chỉ có một mảnh vải thô ghi lại di ngôn muốn gửi đến người thân ở Đồng Bằng Thánh Quang.",
+        "Trong màn đêm tĩnh lặng, những bóng ma sống của Kỷ Nguyên Tăm Tối vây lấy bạn. Họ đưa ra những mảnh thư nhàu nát, van nài người giao liên mang theo chút hy vọng cuối cùng của họ."
+      ],
+      "choices": [
+        {
+          "label": "Lén giấu thư tị nạn vào túi công vụ",
+          "check": {
+            "stat": "AGI",
+            "target": 5
+          },
+          "success": {
+            "text": "Với thao tác tay điêu luyện, những bức thư nhà nằm gọn dưới đáy túi công vụ mà không lính gác nào hay biết. Lời cảm tạ đẫm nước mắt của họ tiếp thêm sức mạnh tinh thần cho bạn.",
+            "effects": {
+              "joy": 8,
+              "LUCK": 1
+            }
+          },
+          "fail": {
+            "text": "Lính gác tại trạm kiểm soát phát hiện ra những mảnh vải khả nghi và tịch thu toàn bộ. Bạn bị đánh đập vì vi phạm quy định vận chuyển.",
+            "effects": {
+              "health": -10,
+              "fame": -1
+            }
+          }
+        },
+        {
+          "label": "Từ chối lạnh lùng để bảo vệ vị trí",
+          "text": "Bạn quay mặt đi, chỉ nhận những bưu kiện có dấu mộc chính thức. Sự tuyệt vọng trong ánh mắt họ ám ảnh bạn suốt phần đời còn lại.",
+          "effects": {
+            "joy": -5
+          }
+        }
+      ],
+      "text": "Tại một trạm trung chuyển, những người dân tị nạn rách rưới bám lấy chân bạn. Họ cầu xin bạn mang theo những bức thư nhà nhuốm máu vượt qua tiền tuyến, dù điều này vi phạm quân luật.",
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_beastman_mat_ma_bi_lo",
+      "pack": true,
+      "races": [
+        "beastman"
+      ],
+      "stages": [
+        "adult",
+        "middle"
+      ],
+      "once": true,
+      "weight": 9,
+      "require": {
+        "free": true,
+        "job": "bm_courier",
+        "jobRank": 3
+      },
+      "text": "Một đồng nghiệp tử thương giao lại cho bạn bức mật thư cấp cao của Thương hội Sói Bạc. Lớp sáp niêm phong đã bị nứt, và một phần mã hóa ma thuật đang tự động bốc cháy để hủy tài liệu.",
+      "choices": [
+        {
+          "label": "Dùng kinh nghiệm cấp cao giải trừ tự hủy",
+          "check": {
+            "stat": "INT",
+            "target": 8
+          },
+          "success": {
+            "text": "Vận dụng toàn bộ kiến thức mã thuật, bạn ổn định được lõi ma lực và vá lại niêm phong. Thương hội vô cùng kính trọng tài năng và trao cho bạn đặc quyền tri thức mới.",
+            "effects": {
+              "INT": 1,
+              "jobXp": 2,
+              "fame": 3
+            }
+          },
+          "fail": {
+            "text": "Phản ứng ma lực bùng nổ ngay trên tay bạn. Bức thư cháy thành tro, còn bạn lĩnh trọn ngọn lửa huyễn thuật đốt cháy lớp da thú.",
+            "effects": {
+              "health": -15,
+              "fame": -1
+            }
+          }
+        },
+        {
+          "label": "Chủ động thiêu rụi để bảo mật thông tin",
+          "text": "Tuân thủ triệt để nguyên tắc không để lộ tin tức, bạn vứt thư vào đống lửa. Mặc dù thông tin bị đứt đoạn, sự chuyên nghiệp của bạn cứu thương hội khỏi một vụ rò rỉ trí mạng.",
+          "effects": {
+            "fame": 1,
+            "jobXp": 0.5
+          }
+        }
+      ],
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_beastman_thu_phan_boi",
+      "pack": true,
+      "races": [
+        "beastman"
+      ],
+      "stages": [
+        "adult",
+        "middle"
+      ],
+      "once": true,
+      "weight": 8,
+      "require": {
+        "free": true,
+        "job": "bm_courier"
+      },
+      "text": "Khi băng qua Đầm Lầy Tử Khí, túi hàng của bạn vô tình bị rách, lộ ra một cuộn giấy da. Đó là lệnh đồ sát một ngôi làng Elf vô tội từ một bạo chúa loài người, được ngụy trang dưới danh nghĩa giao thương.",
+      "choices": [
+        {
+          "label": "Xé nát cuộn giấy, từ chối làm kẻ đồng lõa",
+          "check": {
+            "stat": "STR",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn xé vụn tờ lệnh và phi tang xuống Đầm Lầy. Dù mất đi khoản tiền thù lao khổng lồ, linh hồn bạn cảm thấy thanh thản vô cùng, uy danh của bạn vang xa trong cõi ngầm.",
+            "effects": {
+              "joy": 10,
+              "fame": 4
+            }
+          },
+          "fail": {
+            "text": "Cố gắng phá hủy cuộn giấy có phù chú bảo vệ khiến ma thuật phản phệ đả thương bạn. Bạn phải lết về trạm, từ bỏ nhiệm vụ trong tủi nhục.",
+            "effects": {
+              "health": -12,
+              "joy": 2
+            }
+          }
+        },
+        {
+          "label": "Nhắm mắt làm ngơ, hoàn thành nhiệm vụ",
+          "check": {
+            "stat": "LUCK",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn giao thư đúng hạn và nhận được túi tiền đầy ắp. Bạn cố ép mình quên đi tiếng gào thét có thể sẽ vang lên từ ngôi làng đó.",
+            "effects": {
+              "wealth": 15,
+              "joy": -5
+            }
+          },
+          "fail": {
+            "text": "Hành vi của bạn bị quân nổi dậy phát giác. Họ chặn đường tước đoạt thù lao, đồng thời bêu rếu bạn như một kẻ hám tiền bán rẻ lương tâm.",
+            "effects": {
+              "health": -8,
+              "joy": -10,
+              "fame": -4
+            }
+          }
+        }
+      ],
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_beastman_chuoi_1_phuc_kich",
+      "pack": true,
+      "races": [
+        "beastman"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 10,
+      "require": {
+        "free": true,
+        "job": "bm_courier",
+        "notFlags": [
+          "gm_courier_doc_kept",
+          "gm_courier_doc_lost",
+          "gm_courier_chain_done"
+        ]
+      },
+      "text": "Tại hẻm núi Cửa Ngục Than Khóc, ba sát thủ Umbra trồi lên từ bóng tối. Mục tiêu của chúng là phong thư chỉ lệnh di tản quân đội cấp bách mà bạn đang cất giữ trong lồng ngực.",
+      "choices": [
+        {
+          "label": "Liều mạng đột phá vòng vây",
+          "check": {
+            "stat": "AGI",
+            "target": 7
+          },
+          "success": {
+            "text": "Đôi chân cơ bắp của bạn bật nảy trên vách đá, lách qua những lưỡi dao tẩm độc. Bạn thoát khỏi hẻm núi, thư chỉ lệnh vẫn an toàn áp sát nhịp tim đập thình thịch.",
+            "effects": {
+              "jobXp": 1,
+              "flags": [
+                "gm_courier_doc_kept"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Một phi tiêu găm trúng bắp chân khiến bạn ngã quỵ. Bọn sát thủ giật lấy phong thư rồi biến mất, để lại bạn thoi thóp giữa vũng máu.",
+            "effects": {
+              "health": -15,
+              "joy": -5,
+              "flags": [
+                "gm_courier_doc_lost",
+                "gm_beastman_phuc_hoi_danh_du_needed"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Nghênh chiến để bảo vệ thư",
+          "check": {
+            "stat": "STR",
+            "target": 7
+          },
+          "success": {
+            "text": "Bằng một tiếng thét chiến đấu, bạn quật ngã tên đi đầu và đe dọa những kẻ còn lại. Chúng chùn bước lùi vào bóng tối, để bạn tiếp tục hành trình với bức thư nguyên vẹn.",
+            "effects": {
+              "STR": 1,
+              "flags": [
+                "gm_courier_doc_kept"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Kẻ địch quá đông. Chúng đánh gãy tay bạn, lột sạch đồ đạc và lấy đi bức thư quan trọng. Sự thất bại đè nặng lên vai bạn.",
+            "effects": {
+              "health": -18,
+              "flags": [
+                "gm_courier_doc_lost",
+                "gm_beastman_phuc_hoi_danh_du_needed"
+              ]
+            }
+          }
+        }
+      ],
+      "focus": [
+        "work"
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_beastman_chuoi_2_bao_cao",
+      "pack": true,
+      "races": [
+        "beastman"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 12,
+      "require": {
+        "free": true,
+        "job": "bm_courier",
+        "anyFlags": [
+          "gm_courier_doc_kept",
+          "gm_courier_doc_lost"
+        ]
+      },
+      "text": "Đến doanh trại Thánh Kỵ Sĩ, bạn phải đối mặt với Chỉ huy trưởng. Việc bạn mang được bức thư đến hay để mất nó giờ đây quyết định số phận của cả một sư đoàn đang bị cô lập.",
+      "choices": [
+        {
+          "label": "Giao thư tận tay, khẳng định uy tín",
+          "require": {
+            "flags": [
+              "gm_courier_doc_kept"
+            ]
+          },
+          "check": {
+            "stat": "LUCK",
+            "target": 4
+          },
+          "success": {
+            "text": "Bức thư nhuốm mồ hôi được giao tận tay vị Chỉ huy. Ông ta gật đầu tán thưởng sự quả cảm của một giao liên Beastman, mở ra đường lui cho quân sĩ.",
+            "effects": {
+              "fame": 3,
+              "jobXp": 2,
+              "unflags": [
+                "gm_courier_doc_kept"
+              ],
+              "flags": [
+                "gm_courier_honored"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Bức thư an toàn, nhưng sáp niêm phong bị nứt do quá trình vận động mạnh. Dù quân đội thoát nạn, Chỉ huy vẫn nhìn bạn với ánh mắt dè chừng.",
+            "effects": {
+              "fame": -1,
+              "unflags": [
+                "gm_courier_doc_kept"
+              ],
+              "flags": [
+                "gm_courier_suspected",
+                "gm_beastman_phuc_hoi_danh_du_needed"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Thú tội và cung cấp tình báo trí nhớ",
+          "require": {
+            "flags": [
+              "gm_courier_doc_lost"
+            ]
+          },
+          "check": {
+            "stat": "INT",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn miêu tả chi tiết vóc dáng và vũ khí của lũ sát thủ. Chỉ huy nhận ra dấu hiệu của quân địch, lập tức thay đổi mật mã và tha thứ cho bạn vì sự trung thực.",
+            "effects": {
+              "INT": 1,
+              "unflags": [
+                "gm_courier_doc_lost"
+              ],
+              "flags": [
+                "gm_courier_forgiven"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Ký ức mơ hồ của bạn không giúp ích gì. Vị Chỉ huy nổi cơn lôi đình, tống cổ bạn ra khỏi lều và cho rằng bạn đã bán đứng quân đội.",
+            "effects": {
+              "health": -5,
+              "fame": -3,
+              "unflags": [
+                "gm_courier_doc_lost"
+              ],
+              "flags": [
+                "gm_courier_suspected",
+                "gm_beastman_phuc_hoi_danh_du_needed"
+              ]
+            }
+          }
+        }
+      ],
+      "arc": true,
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_beastman_chuoi_3_hau_qua",
+      "pack": true,
+      "races": [
+        "beastman"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 12,
+      "require": {
+        "free": true,
+        "job": "bm_courier",
+        "anyFlags": [
+          "gm_courier_honored",
+          "gm_courier_forgiven",
+          "gm_courier_suspected"
+        ]
+      },
+      "text": "Chiến trường rực lửa bùng lên sau biến cố tình báo. Với vai trò giao liên, bạn đứng trước lựa chọn sinh tử cuối cùng tại tuyến lửa để định hình di sản của mình.",
+      "choices": [
+        {
+          "label": "Dẫn đường quân nhu qua lối mòn bí mật",
+          "check": {
+            "stat": "AGI",
+            "target": 8
+          },
+          "success": {
+            "text": "Dựa vào kiến thức rành rẽ về Thảo Nguyên, bạn đưa đoàn xe quân nhu lách qua vòng vây ma vật an toàn. Tên tuổi của bạn được khắc vào biên niên sử Guild Bình Minh.",
+            "effects": {
+              "fame": 5,
+              "joy": 10,
+              "unflags": [
+                "gm_courier_honored",
+                "gm_courier_forgiven",
+                "gm_courier_suspected"
+              ],
+              "flags": [
+                "gm_courier_chain_done"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Một quả cầu lửa từ trên không nã trúng đoàn xe. Bạn văng xa nhiều thước, gãy mấy chiếc xương sườn nhưng vẫn cố cảnh báo quân đội lui quân.",
+            "effects": {
+              "health": -20,
+              "joy": -5,
+              "unflags": [
+                "gm_courier_honored",
+                "gm_courier_forgiven",
+                "gm_courier_suspected"
+              ],
+              "flags": [
+                "gm_courier_chain_done"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Rút khỏi tiền tuyến, bảo toàn sinh mạng",
+          "text": "Bạn lặng lẽ rời khỏi khu vực giao tranh, gác lại những thị phi quân sự. Bầu trời phương xa dần sáng, kết thúc chuỗi ngày vận chuyển đầy ám ảnh.",
+          "effects": {
+            "joy": 2,
+            "fame": -1,
+            "unflags": [
+              "gm_courier_honored",
+              "gm_courier_forgiven",
+              "gm_courier_suspected"
+            ],
+            "flags": [
+              "gm_courier_chain_done"
+            ]
+          }
+        }
+      ],
+      "arc": true,
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_beastman_phuc_hoi_danh_du",
+      "pack": true,
+      "races": [
+        "beastman"
+      ],
+      "stages": [
+        "adult",
+        "middle"
+      ],
+      "once": true,
+      "weight": 11,
+      "require": {
+        "free": true,
+        "job": "bm_courier",
+        "jobRank": 1,
+        "flags": [
+          "gm_beastman_phuc_hoi_danh_du_needed"
+        ]
+      },
+      "text": "Bạn từng làm hỏng một chuyến thư quan trọng trong quá khứ khiến uy tín sa sút thảm hại. Hôm nay, Guild cần một người tự sát để mang thuốc giải độc vượt qua lãnh địa của loài Rồng lửa.",
+      "choices": [
+        {
+          "label": "Tình nguyện nhận nhiệm vụ tử thần",
+          "check": {
+            "stat": "AGI",
+            "target": 9
+          },
+          "success": {
+            "text": "Bạn trượt qua những cột dung nham và thoát khỏi tầm mắt của Wyvern vây ráp. Lọ thuốc giải tới tay nạn nhân kịp lúc, tên tuổi bạn từ bùn nhơ vụt sáng thành huyền thoại sống.",
+            "effects": {
+              "fame": 5,
+              "joy": 10,
+              "jobXp": 2,
+              "LUCK": 2,
+              "unflags": [
+                "gm_beastman_phuc_hoi_danh_du_needed"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Tro bụi núi lửa làm bạn ngạt thở, một cú quật đuôi của rồng hất bạn văng xuống vách đá. Bạn bò lết giao được thuốc giải nhưng cơ thể tàn tạ không thể phục hồi trọn vẹn, dẫu sao sự dũng cảm cũng được công nhận.",
+            "effects": {
+              "health": -20,
+              "fame": 2,
+              "jobXp": 1,
+              "unflags": [
+                "gm_beastman_phuc_hoi_danh_du_needed"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Ngậm ngùi nhường cơ hội cho kẻ khác",
+          "text": "Sự hèn nhát chiến thắng lòng tự trọng. Bạn cúi đầu nhìn đồng nghiệp nhận lấy túi thuốc giải, biết rằng danh dự của mình vĩnh viễn không thể rửa sạch.",
+          "effects": {
+            "joy": -8,
+            "fame": -2,
+            "unflags": [
+              "gm_beastman_phuc_hoi_danh_du_needed"
+            ]
+          }
+        }
+      ],
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_imp_bao_tro_vuc_tham",
+      "pack": true,
+      "races": [
+        "imp"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": false,
+      "cooldownYears": 2,
+      "weight": 8,
+      "require": {
+        "free": true,
+        "job": "imp_messenger"
+      },
+      "variants": [
+        "Một cơn bão tro tàn bùng nổ từ Cửa Ngục Than Khóc, quét ngang tuyến đường thư của bạn. Bụi lưu huỳnh dày đặc đe dọa thiêu rụi đôi cánh mỏng manh và bức thư da cừu trên tay bạn.",
+        "Gió xoáy mang theo tàn lửa từ dòng sông dung nham gầm rít trên lộ trình giao liên. Bầu trời đỏ rực cảnh báo một chuyến bay đầy rủi ro nếu bạn cố tình băng qua.",
+        "Lưu huỳnh và tro bụi cuộn thành những vòi rồng khổng lồ dọc theo Vực Thẳm Phân Tầng. Nhiệm vụ đưa thư hỏa tốc của bạn đang bị thiên nhiên cõi âm cản bước."
+      ],
+      "choices": [
+        {
+          "label": "Gấp cánh, luồn lách qua những khe nứt",
+          "check": {
+            "stat": "AGI",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn uốn lượn khéo léo qua những dòng không khí nóng bỏng, sử dụng khe nứt vách đá để né bão. Bức thư được giao đúng hẹn, kỹ năng bay lượn của bạn càng thêm điêu luyện.",
+            "effects": {
+              "AGI": 1,
+              "jobXp": 1
+            }
+          },
+          "fail": {
+            "text": "Một đám mây tro nóng ập tới làm bỏng rát màng cánh. Bạn lảo đảo rơi xuống thềm đá, phải lết bộ đoạn đường còn lại trong sự đau đớn.",
+            "effects": {
+              "health": -10,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Trú ẩn chờ bão tan, chấp nhận giao trễ",
+          "text": "Bạn chui vào một hốc đá nồng nặc mùi hôi thối để trốn bão. Thư đến trễ khiến vị chúa tể nổi giận, uy tín của bạn trong nghề giao liên bị sứt mẻ đôi chút.",
+          "effects": {
+            "joy": -3,
+            "fame": -1
+          }
+        }
+      ],
+      "text": "Một cơn bão tro tàn bùng nổ từ Cửa Ngục Than Khóc, quét ngang tuyến đường thư của bạn. Bụi lưu huỳnh dày đặc đe dọa thiêu rụi đôi cánh mỏng manh và bức thư da cừu trên tay bạn.",
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_imp_loi_nhan_ke_tu_toi",
+      "pack": true,
+      "races": [
+        "imp"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": false,
+      "cooldownYears": 2,
+      "weight": 7,
+      "require": {
+        "free": true,
+        "job": "imp_messenger"
+      },
+      "variants": [
+        "Một linh hồn bị xích vào vách đá Huyết Ngục rên rỉ gọi bạn lại. Kẻ đó van xin bạn truyền một thông điệp cuối cùng cho gia đình trên mặt đất, đổi lại là một bí mật cổ xưa.",
+        "Bay ngang qua tháp canh của bọn cai ngục Demon, một bóng ma thoi thóp ném cho bạn một mảnh xương khắc chữ. Lời thỉnh cầu giao mảnh xương này đi kèm lời hứa về tri thức vùi lấp.",
+        "Trong trạm trung chuyển tối tăm, một tù nhân đang chờ bị hiến tế níu lấy chân bạn. Hắn không có tiền, chỉ có thể trả công bằng những mảnh ký ức giá trị nếu bạn chịu truyền tin đi."
+      ],
+      "choices": [
+        {
+          "label": "Dùng mẹo giấu thư, nhận lấy tri thức",
+          "check": {
+            "stat": "INT",
+            "target": 5
+          },
+          "success": {
+            "text": "Bạn giấu thông điệp vào gót giày, qua mặt bọn cai ngục một cách dễ dàng. Linh hồn kia truyền cho bạn một đoạn cổ ngữ, mở mang đầu óc và mang lại sự thỏa mãn kỳ lạ.",
+            "effects": {
+              "INT": 1,
+              "joy": 5
+            }
+          },
+          "fail": {
+            "text": "Lính gác ngục tóm được bạn khi đang trao đổi với tù nhân. Bạn bị quật vài roi oan uổng và bị đuổi khỏi khu vực, bỏ lỡ món hời tri thức.",
+            "effects": {
+              "health": -10,
+              "fame": -1
+            }
+          }
+        },
+        {
+          "label": "Vút bay đi, phớt lờ lời van xin",
+          "text": "Bạn quá bận rộn với những cuộn giấy da chính thức có đóng dấu. Lời kêu gào của kẻ tử tội chìm dần vào bóng tối Vực Thẳm, nhưng ít ra bạn được an toàn.",
+          "effects": {
+            "joy": -2
+          }
+        }
+      ],
+      "text": "Một linh hồn bị xích vào vách đá Huyết Ngục rên rỉ gọi bạn lại. Kẻ đó van xin bạn truyền một thông điệp cuối cùng cho gia đình trên mặt đất, đổi lại là một bí mật cổ xưa.",
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_imp_giao_keo_linh_hon",
+      "pack": true,
+      "races": [
+        "imp"
+      ],
+      "stages": [
+        "adult",
+        "middle"
+      ],
+      "once": true,
+      "weight": 9,
+      "require": {
+        "free": true,
+        "job": "imp_messenger",
+        "jobRank": 3
+      },
+      "text": "Trong túi thư hỏa tốc của bạn có một bản khế ước của Hắc Nguyệt Hội. Khách hàng là một Ma Vương, và cái giá trong khế ước là linh hồn của một đứa trẻ loài người vô tội tại Đồng Bằng Thánh Quang.",
+      "choices": [
+        {
+          "label": "Lén tẩy xóa một điều khoản tạo kẽ hở",
+          "check": {
+            "stat": "INT",
+            "target": 8
+          },
+          "success": {
+            "text": "Bạn dùng ma lực mài mờ một ký tự sinh tử, biến khế ước thành vô hiệu nếu đứa trẻ bước vào thánh đường. Mặc dù mạo hiểm, lương tri của một tiểu quỷ hiếm hoi được thắp sáng, và dân cõi ngầm đồn đại về sự tinh quái của bạn.",
+            "effects": {
+              "joy": 10,
+              "fame": 3,
+              "jobXp": 2
+            }
+          },
+          "fail": {
+            "text": "Ma thuật phòng ngự trên giấy da bùng nổ, thiêu đốt đôi tay bạn. Bạn phải vứt bỏ khế ước cháy dở và chịu sự trừng phạt từ bên gửi vì làm hỏng bưu kiện.",
+            "effects": {
+              "health": -15,
+              "wealth": -10,
+              "fame": -2
+            }
+          }
+        },
+        {
+          "label": "Hoàn thành nhiệm vụ máu lạnh",
+          "check": {
+            "stat": "LUCK",
+            "target": 5
+          },
+          "success": {
+            "text": "Bạn trao khế ước tận tay kẻ nhận và quay lưng đi. Một túi Tinh Bạc nặng trĩu được ném cho bạn, nhưng tiếng khóc của đứa trẻ cứ ám ảnh bạn suốt chuyến bay về.",
+            "effects": {
+              "wealth": 15,
+              "joy": -5
+            }
+          },
+          "fail": {
+            "text": "Giáo hội Thánh Quang phục kích điểm giao dịch. Bạn vất vả mới chạy thoát thân, đánh rơi cả túi tiền thưởng và bị thương nặng bởi thánh quang.",
+            "effects": {
+              "health": -12,
+              "joy": -8,
+              "fame": -2
+            }
+          }
+        }
+      ],
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_imp_thu_thach_long_tham",
+      "pack": true,
+      "races": [
+        "imp"
+      ],
+      "stages": [
+        "adult",
+        "middle"
+      ],
+      "once": true,
+      "weight": 8,
+      "require": {
+        "free": true,
+        "job": "imp_messenger"
+      },
+      "text": "Đang mang bản kế hoạch quân sự của phe cánh này, bạn bị tay sai của một Ma Vương đối địch chặn đường. Chúng hất một chậu đầy Huyết Kim ra trước mặt, yêu cầu bạn giao nộp bức thư để đổi lấy sự giàu sang.",
+      "choices": [
+        {
+          "label": "Khước từ cám dỗ, bứt tốc chạy trốn",
+          "check": {
+            "stat": "AGI",
+            "target": 7
+          },
+          "success": {
+            "text": "Bạn lộn nhào qua đầu lũ quái vật, vỗ cánh lao vút vào màn sương độc. Sự liêm khiết và tốc độ của bạn giúp bạn bảo toàn mạng sống lẫn danh dự nghề nghiệp, tên tuổi được giới giao liên kính nể.",
+            "effects": {
+              "fame": 3,
+              "jobXp": 1,
+              "joy": 5
+            }
+          },
+          "fail": {
+            "text": "Một lưỡi giáo sượt qua cánh khiến bạn rơi tự do. Dù cố gắng lết trốn thoát cùng bức thư, bạn bị thương nặng và tổn thương tinh thần sâu sắc vì suýt mất mạng.",
+            "effects": {
+              "health": -12,
+              "joy": -5
+            }
+          }
+        },
+        {
+          "label": "Bán rẻ thông tin lấy tiền vàng",
+          "check": {
+            "stat": "LUCK",
+            "target": 4
+          },
+          "success": {
+            "text": "Bạn ném cuộn giấy cho chúng, ôm lấy mẻ Huyết Kim và bay thẳng về sào huyệt. Tiền bạc rủng rỉnh, nhưng tiếng xấu về kẻ phản trắc bắt đầu lan truyền.",
+            "effects": {
+              "wealth": 12,
+              "fame": -4,
+              "joy": -2
+            }
+          },
+          "fail": {
+            "text": "Lũ quái vật lật lọng, giật lấy bức thư rồi đánh bạn tơi bời thay vì trả tiền. Bạn tay trắng lết về, mang danh kẻ phản bội mà chẳng được đồng nào.",
+            "effects": {
+              "health": -15,
+              "fame": -5,
+              "joy": -8
+            }
+          }
+        }
+      ],
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_imp_chuoi_1_mat_lenh_khoi_nghia",
+      "pack": true,
+      "races": [
+        "imp"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 10,
+      "require": {
+        "free": true,
+        "job": "imp_messenger",
+        "notFlags": [
+          "gm_imp_revolt_kept",
+          "gm_imp_revolt_lost",
+          "gm_imp_chain_done"
+        ]
+      },
+      "text": "Dọn dẹp hòm thư chết tại Thành Phố Dưới Lòng Đất, bạn phát hiện một chỉ lệnh nổi loạn của tầng lớp quái vật thấp kém nhằm lật đổ Đại Ác Quỷ địa phương. Một đội tuần tra đang tiến tới kiểm tra hòm thư.",
+      "choices": [
+        {
+          "label": "Nhanh tay cất giấu để bảo vệ phe yếu",
+          "check": {
+            "stat": "INT",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn nhét chỉ lệnh vào ngăn bí mật dưới lớp áo choàng. Bọn tuần tra không tìm thấy gì và bỏ đi, để lại bạn mang theo bí mật động trời của quân khởi nghĩa.",
+            "effects": {
+              "jobXp": 1,
+              "flags": [
+                "gm_imp_revolt_kept"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Lóng ngóng khiến tờ giấy rơi ra. Bọn tuần tra tịch thu nó và đánh bạn một trận nhừ tử vì tội tàng trữ tài liệu phản loạn.",
+            "effects": {
+              "health": -15,
+              "joy": -5,
+              "flags": [
+                "gm_imp_revolt_lost",
+                "gm_imp_phuc_hoi_danh_du_needed"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Giành giật lại tài liệu khi bị phát hiện",
+          "check": {
+            "stat": "STR",
+            "target": 5
+          },
+          "success": {
+            "text": "Bằng một cú cắn dữ dội vào tay tên lính, bạn giật lại tờ giấy, nuốt chửng nó rồi bay đi. Thông tin được an toàn trong bụng bạn, chờ ngày truyền đạt lại.",
+            "effects": {
+              "STR": 1,
+              "flags": [
+                "gm_imp_revolt_kept"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Kẻ địch vạm vỡ hơn bạn tưởng. Hắn đá bạn văng vào tường, lấy đi tài liệu phản loạn để dâng lên chúa tể.",
+            "effects": {
+              "health": -18,
+              "flags": [
+                "gm_imp_revolt_lost",
+                "gm_imp_phuc_hoi_danh_du_needed"
+              ]
+            }
+          }
+        }
+      ],
+      "focus": [
+        "work"
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_imp_chuoi_2_tra_khao_huyet_nguc",
+      "pack": true,
+      "races": [
+        "imp"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 11,
+      "require": {
+        "free": true,
+        "job": "imp_messenger",
+        "anyFlags": [
+          "gm_imp_revolt_kept",
+          "gm_imp_revolt_lost"
+        ]
+      },
+      "text": "Tin đồn về cuộc khởi nghĩa râm ran. Một Greater Demon thuộc phe thống trị triệu tập bạn đến điện tra khảo, ánh mắt rực lửa xoáy sâu vào bộ óc nhỏ bé của bạn để tìm kiếm manh mối về chỉ lệnh bị lộ.",
+      "choices": [
+        {
+          "label": "Đánh lừa chúa tể, bảo vệ bí mật",
+          "require": {
+            "flags": [
+              "gm_imp_revolt_kept"
+            ]
+          },
+          "check": {
+            "stat": "INT",
+            "target": 7
+          },
+          "success": {
+            "text": "Sử dụng tài ăn nói khôn khéo, bạn thêu dệt một câu chuyện giả về việc tài liệu đã bị đốt. Greater Demon tin tưởng và thả bạn đi, quân khởi nghĩa nợ bạn một mạng.",
+            "effects": {
+              "joy": 5,
+              "jobXp": 2,
+              "unflags": [
+                "gm_imp_revolt_kept"
+              ],
+              "flags": [
+                "gm_imp_revolt_honored"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Lời nói dối lúng túng của bạn bị vạch trần. Hắn nổi điên bóp nghẹt cổ bạn, cho rằng bạn là kẻ phản trắc tiếp tay cho quân tàn dư.",
+            "effects": {
+              "health": -15,
+              "fame": -2,
+              "unflags": [
+                "gm_imp_revolt_kept"
+              ],
+              "flags": [
+                "gm_imp_revolt_suspected",
+                "gm_imp_phuc_hoi_danh_du_needed"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Khai báo về bọn tuần tra tống tiền",
+          "require": {
+            "flags": [
+              "gm_imp_revolt_lost"
+            ]
+          },
+          "check": {
+            "stat": "LUCK",
+            "target": 5
+          },
+          "success": {
+            "text": "Bạn may mắn đổ lỗi thành công cho nhóm lính gác đã cướp thư của bạn. Chúa tể quay sang trừng phạt chúng, tha bổng cho người giao liên nhỏ bé.",
+            "effects": {
+              "LUCK": 1,
+              "unflags": [
+                "gm_imp_revolt_lost"
+              ],
+              "flags": [
+                "gm_imp_revolt_forgiven"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Greater Demon không bận tâm ai cướp thư, hắn chỉ thấy sự yếu kém của bạn. Hắn quất bạn một roi hỏa ngục, cấm bạn lảng vảng quanh khu trung tâm.",
+            "effects": {
+              "health": -20,
+              "fame": -3,
+              "unflags": [
+                "gm_imp_revolt_lost"
+              ],
+              "flags": [
+                "gm_imp_revolt_suspected",
+                "gm_imp_phuc_hoi_danh_du_needed"
+              ]
+            }
+          }
+        }
+      ],
+      "arc": true,
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_imp_chuoi_3_loi_thoat_dia_nguc",
+      "pack": true,
+      "races": [
+        "imp"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 12,
+      "require": {
+        "free": true,
+        "job": "imp_messenger",
+        "anyFlags": [
+          "gm_imp_revolt_honored",
+          "gm_imp_revolt_forgiven",
+          "gm_imp_revolt_suspected"
+        ]
+      },
+      "text": "Bạo loạn bùng nổ khắp các tầng Vực Thẳm. Phe quái vật cấp thấp đang bị dồn vào chân tường, họ khẩn thiết cần một người dẫn đường hiểu rõ các luồng thư tín bí mật để rút lui khỏi vòng vây.",
+      "choices": [
+        {
+          "label": "Dẫn đường cho tàn quân qua lối mòn thư tín",
+          "check": {
+            "stat": "AGI",
+            "target": 8
+          },
+          "success": {
+            "text": "Bạn bay lượn trên cao, ra hiệu cho hàng trăm quái vật đi qua mạng lưới hầm ngầm mà chỉ có giao liên mới biết. Bạn trở thành ân nhân của họ, để lại một di sản anh hùng nơi đáy ngục.",
+            "effects": {
+              "fame": 5,
+              "joy": 10,
+              "epochChange": {
+                "legacy": 1
+              },
+              "unflags": [
+                "gm_imp_revolt_honored",
+                "gm_imp_revolt_forgiven",
+                "gm_imp_revolt_suspected"
+              ],
+              "flags": [
+                "gm_imp_chain_done"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Một vụ nổ ma thuật hất văng bạn vào vách đá, cánh gãy lìa. Bạn lết thân cứu được một số người, nhưng thương tích quá nặng làm suy kiệt sinh lực vĩnh viễn.",
+            "effects": {
+              "health": -20,
+              "joy": -5,
+              "unflags": [
+                "gm_imp_revolt_honored",
+                "gm_imp_revolt_forgiven",
+                "gm_imp_revolt_suspected"
+              ],
+              "flags": [
+                "gm_imp_chain_done"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Sải cánh bay xa, tự cứu lấy mình",
+          "text": "Bạn khước từ lời kêu gọi, lợi dụng sự hỗn loạn để thoát khỏi vùng chiến sự. Bạn an toàn rời đi, nhưng vĩnh viễn bị những kẻ sống sót coi thường.",
+          "effects": {
+            "joy": 2,
+            "fame": -3,
+            "unflags": [
+              "gm_imp_revolt_honored",
+              "gm_imp_revolt_forgiven",
+              "gm_imp_revolt_suspected"
+            ],
+            "flags": [
+              "gm_imp_chain_done"
+            ]
+          }
+        }
+      ],
+      "arc": true,
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_imp_phuc_hoi_danh_du",
+      "pack": true,
+      "races": [
+        "imp"
+      ],
+      "stages": [
+        "adult",
+        "middle"
+      ],
+      "once": true,
+      "weight": 11,
+      "require": {
+        "free": true,
+        "job": "imp_messenger",
+        "jobRank": 1,
+        "flags": [
+          "gm_imp_phuc_hoi_danh_du_needed"
+        ]
+      },
+      "text": "Sau nhiều tai tiếng yếu kém, bạn được giao một cơ hội cuối để chuộc lỗi: Mang cờ hưu chiến đi qua chiến trường rực lửa nơi hai Quân Đoàn Ma Vương đang tàn sát lẫn nhau.",
+      "choices": [
+        {
+          "label": "Lao thẳng vào trận địa để chuyển cờ",
+          "check": {
+            "stat": "AGI",
+            "target": 9
+          },
+          "success": {
+            "text": "Thân hình bé nhỏ của bạn lách qua mưa ma pháp và giáo mác. Bạn cắm phập lá cờ giữa hai vị chúa tể ngay trước mũi gươm, gầm lên lệnh đình chiến. Danh dự của bạn chói lọi trở lại, tẩy sạch mọi ô nhục quá khứ.",
+            "effects": {
+              "fame": 5,
+              "joy": 10,
+              "jobXp": 2,
+              "AGI": 1,
+              "unflags": [
+                "gm_imp_phuc_hoi_danh_du_needed"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Một quả cầu lửa sượt qua đốt cháy đuôi bạn, bạn ngã xuống giữa trận tuyến. Tuy vẫn giao được cờ, cơ thể tàn tạ của bạn phải mất rất lâu mới phục hồi, dù danh dự đã được cứu vãn.",
+            "effects": {
+              "health": -20,
+              "fame": 2,
+              "jobXp": 1,
+              "unflags": [
+                "gm_imp_phuc_hoi_danh_du_needed"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Chờ đợi chiến sự vãn mới dám ló mặt",
+          "text": "Bạn run rẩy nấp sau tảng đá cho đến khi trận đánh tàn lụi. Cờ hưu chiến đến trễ, hàng vạn sinh mạng vô ích ngã xuống. Sự nghiệp giao liên của bạn vĩnh viễn chìm trong nhục nhã.",
+          "effects": {
+            "joy": -8,
+            "fame": -4,
+            "unflags": [
+              "gm_imp_phuc_hoi_danh_du_needed"
+            ]
+          }
+        }
+      ],
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_slime_dieu_hoa_doc_to",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "ancient"
+      ],
+      "once": false,
+      "cooldownYears": 30,
+      "weight": 8,
+      "require": {
+        "free": true,
+        "job": "slime_poison"
+      },
+      "variants": [
+        "Sông Bùn Nhão bỗng nổi váng sủi bọt vì một đợt bùng phát tảo độc màu tím. Hệ sinh thái đầm lầy đang kêu cứu, đòi hỏi một chuyên gia xử lý độc tố.",
+        "Một luồng khí metan rò rỉ từ Đầm Lầy Tử Khí kết hợp với sương mù tạo ra màn sương độc ăn mòn. Thực vật đang héo úa với tốc độ chóng mặt.",
+        "Dòng nước xiết mang theo xác động vật phân hủy kẹt lại ở vùng nước lợ, làm nồng độ vi khuẩn kịch độc tăng vọt. Mùi xú uế đe dọa toàn bộ vùng đầm lầy."
+      ],
+      "choices": [
+        {
+          "label": "Hút độc tố vào cơ thể để thanh lọc sinh thái",
+          "check": {
+            "stat": "INT",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn phân giải thành công các hợp chất độc hại, cơ thể óng ánh màu tím tuyệt đẹp. Đầm lầy trong xanh trở lại, năng lực kiểm soát độc của bạn thăng tiến rõ rệt.",
+            "effects": {
+              "INT": 1,
+              "jobXp": 1
+            }
+          },
+          "fail": {
+            "text": "Lượng độc vượt quá tải trọng phân giải của lõi, khối nhầy của bạn sưng tấy và bốc mùi khó chịu. Bạn phải lùi lại để tự chữa lành.",
+            "effects": {
+              "health": -10,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Cuộn mình dưới bùn sâu, phớt lờ nguy cơ",
+          "text": "Bạn mặc kệ sinh thái, chui rúc vào bùn để bảo toàn bản thân. Bọn cá mù chết hàng loạt, bốc mùi hôi thối khiến danh tiếng loài Slime càng thêm tồi tệ.",
+          "effects": {
+            "joy": -3,
+            "fame": -1
+          }
+        }
+      ],
+      "text": "Sông Bùn Nhão bỗng nổi váng sủi bọt vì một đợt bùng phát tảo độc màu tím. Hệ sinh thái đầm lầy đang kêu cứu, đòi hỏi một chuyên gia xử lý độc tố.",
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_slime_cuu_ke_san_trom",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": false,
+      "cooldownYears": 30,
+      "weight": 7,
+      "require": {
+        "free": true,
+        "job": "slime_poison"
+      },
+      "variants": [
+        "Một gã mạo hiểm giả xâm nhập đầm lầy để săn lõi Slime, nhưng lại trúng kịch độc từ cây nắp ấm khổng lồ. Hắn thoi thóp bên vũng lầy, ngay trước mặt bạn.",
+        "Một kẻ buôn lậu bị rắn đuôi chuông cắn rách chân, nọc độc nhanh chóng làm hoại tử cơ thể. Hắn ngã quỵ xuống bãi bùn, thoi thóp thở từng nhịp nhọc nhằn.",
+        "Tiếng la hét vang lên khi một thợ săn bị sa lầy vào ổ kiến axit. Cơ thể hắn co giật vì sốc độc, đôi mắt tuyệt vọng nhìn khối nhầy của bạn mờ dần."
+      ],
+      "choices": [
+        {
+          "label": "Tiết dịch trung hòa để cứu mạng kẻ thù",
+          "check": {
+            "stat": "AGI",
+            "target": 5
+          },
+          "success": {
+            "text": "Chất nhầy kiềm tính của bạn bao phủ miệng vết thương, kéo hắn từ cõi chết trở về. Hắn hoảng sợ bỏ chạy nhưng để lại một túi tiền thay cho lời tạ ơn.",
+            "effects": {
+              "joy": 5,
+              "wealth": 5
+            }
+          },
+          "fail": {
+            "text": "Chất trung hòa nhỏ giọt sai vị trí khiến hắn bỏng nhẹ và hoảng loạn tấn công bạn rồi bỏ chạy sâu vào vùng tử địa.",
+            "effects": {
+              "health": -5,
+              "fame": -1
+            }
+          }
+        },
+        {
+          "label": "Hòa tan vào bùn, để mặc hắn chết",
+          "text": "Thiên nhiên có quy luật đào thải riêng. Bạn lặng lẽ quan sát chất độc ăn mòn hắn, chẳng mảy may động lòng trước sinh linh yếu ớt.",
+          "effects": {
+            "joy": -3
+          }
+        }
+      ],
+      "text": "Một gã mạo hiểm giả xâm nhập đầm lầy để săn lõi Slime, nhưng lại trúng kịch độc từ cây nắp ấm khổng lồ. Hắn thoi thóp bên vũng lầy, ngay trước mặt bạn.",
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_slime_tinh_luyen_doc_duoc",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "ancient"
+      ],
+      "once": true,
+      "weight": 9,
+      "require": {
+        "free": true,
+        "job": "slime_poison",
+        "jobRank": 3
+      },
+      "text": "Một ma đạo sĩ hắc ám tìm đến Tế Đàn Xương Cốt, yêu cầu bạn chiết xuất một loại nọc độc bạo phát tinh khiết từ cơ thể để ám sát một mục tiêu quan trọng. Hắn hứa trả công bằng lượng lớn Tinh Bạc.",
+      "choices": [
+        {
+          "label": "Tập trung tinh luyện loại nọc độc tinh khiết nhất",
+          "check": {
+            "stat": "INT",
+            "target": 8
+          },
+          "success": {
+            "text": "Quá trình chiết xuất hoàn hảo, dung dịch rực lên ánh xanh tử thần. Ma đạo sĩ hài lòng rời đi, bạn nhận được khoản tiền kếch xù dù lương tâm có chút gợn sóng.",
+            "effects": {
+              "INT": 1,
+              "wealth": 15,
+              "fame": 2,
+              "jobXp": 2
+            }
+          },
+          "fail": {
+            "text": "Sự phân tách thất bại khiến độc tố mất kiểm soát cắn ngược lại lõi của bạn. Trọng thương và chất lỏng đục ngầu, bạn đánh mất cơ hội kiếm tiền.",
+            "effects": {
+              "health": -15,
+              "fame": -2
+            }
+          }
+        },
+        {
+          "label": "Từ chối và xua đuổi bằng bãi lầy ăn mòn",
+          "text": "Bạn không muốn trở thành công cụ giết chóc. Chất nhầy axit của bạn dâng lên vùi lấp con đường, bảo vệ sự thanh tịnh tăm tối của vùng lầy.",
+          "effects": {
+            "joy": 5,
+            "fame": 1,
+            "jobXp": 0.5
+          }
+        }
+      ],
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_slime_hien_te_nguon_nuoc",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "adult",
+        "middle"
+      ],
+      "once": true,
+      "weight": 8,
+      "require": {
+        "free": true,
+        "job": "slime_poison"
+      },
+      "text": "Một nhóm tà giáo đang chuẩn bị đổ cháo máu nguyền rủa xuống đầu nguồn dòng nước ngầm. Việc này sẽ phá hủy hoàn toàn hệ sinh thái và biến muôn loài thành sinh vật biến dị thèm thịt.",
+      "choices": [
+        {
+          "label": "Lao ra pha loãng và hấp thụ cháo máu",
+          "check": {
+            "stat": "STR",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn căng phồng cơ thể, bao bọc lấy toàn bộ lượng độc nguyền rủa và tiêu hóa nó. Lũ tà giáo kính sợ bỏ đi, sinh thái được bảo toàn và tên bạn vang danh Đầm Lầy.",
+            "effects": {
+              "joy": 10,
+              "fame": 4
+            }
+          },
+          "fail": {
+            "text": "Cháo máu quá đậm đặc, nó thiêu đốt màng nhầy của bạn, ép bạn phải tách cơ thể để bỏ chạy trong đau đớn tột cùng.",
+            "effects": {
+              "health": -12,
+              "joy": -2
+            }
+          }
+        },
+        {
+          "label": "Lẩn trốn, đồng lõa để nhận phần chia",
+          "check": {
+            "stat": "LUCK",
+            "target": 6
+          },
+          "success": {
+            "text": "Nguồn nước hóa đen ngòm. Nhờ hòa vào bùn từ trước, bạn nhặt nhạnh được những trang bị ma thuật quý giá rơi vãi từ các sinh vật chết chìm.",
+            "effects": {
+              "wealth": 15,
+              "joy": -5
+            }
+          },
+          "fail": {
+            "text": "Ma lực nguyền rủa bạo tẩu, cuốn phăng bạn vào dòng xoáy tử khí khiến khối nhầy suy kiệt nghiêm trọng, mất cả chì lẫn chài.",
+            "effects": {
+              "health": -15,
+              "joy": -10,
+              "fame": -3
+            }
+          }
+        }
+      ],
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_slime_chuoi_1_thung_doc",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 10,
+      "require": {
+        "free": true,
+        "job": "slime_poison",
+        "notFlags": [
+          "gm_slime_barrel_kept",
+          "gm_slime_barrel_lost",
+          "gm_slime_chain_done"
+        ]
+      },
+      "text": "Một chiếc thùng giả kim rò rỉ dung môi hắc ám trôi dạt vào lãnh địa Đầm Lầy Tử Khí. Hợp chất này đang phản ứng dữ dội với bùn lầy, tạo ra làn khói tàn phá thảm thực vật xung quanh.",
+      "choices": [
+        {
+          "label": "Bao bọc chiếc thùng, cô lập dung môi",
+          "check": {
+            "stat": "STR",
+            "target": 7
+          },
+          "success": {
+            "text": "Cơ thể dẻo dai của bạn ép chặt mọi khe nứt trên thành thùng, ngăn chặn hoàn toàn rò rỉ. Tuy nhiên, bạn phải giữ trạng thái này để tránh dung môi phát tán.",
+            "effects": {
+              "jobXp": 1,
+              "flags": [
+                "gm_slime_barrel_kept"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Áp suất quá lớn làm vỡ bung nắp thùng, dung môi xịt thẳng vào lõi nhầy. Bạn đau đớn nhả chiếc thùng ra, để mặc độc chất lan tràn vào dòng nước.",
+            "effects": {
+              "health": -15,
+              "joy": -5,
+              "flags": [
+                "gm_slime_barrel_lost",
+                "gm_slime_chuoc_loi_mach_nuoc_needed"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Gồng mình biến đổi chất dịch để cản khói",
+          "check": {
+            "stat": "AGI",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn tung một lớp màng kiềm bao phủ vùng khói độc, tạm thời dập tắt phản ứng hóa học nguy hiểm và giữ an toàn cho khu vực.",
+            "effects": {
+              "AGI": 1,
+              "flags": [
+                "gm_slime_barrel_kept"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Khói độc đâm thủng màng nhầy của bạn, phả thẳng vào hệ thần kinh mỏng manh. Độc chất tiếp tục lan rộng trong sự bất lực của bạn.",
+            "effects": {
+              "health": -18,
+              "flags": [
+                "gm_slime_barrel_lost",
+                "gm_slime_chuoc_loi_mach_nuoc_needed"
+              ]
+            }
+          }
+        }
+      ],
+      "focus": [
+        "work"
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_slime_chuoi_2_phan_ung",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "ancient"
+      ],
+      "once": true,
+      "weight": 11,
+      "require": {
+        "free": true,
+        "job": "slime_poison",
+        "anyFlags": [
+          "gm_slime_barrel_kept",
+          "gm_slime_barrel_lost"
+        ]
+      },
+      "text": "Biến động sinh thái từ chất giả kim thu hút sự chú ý của Hội đồng Shaman Lizardman. Bọn họ kéo đến bãi lầy với vũ khí trong tay, truy tìm kẻ đã gây ra sự xáo trộn này.",
+      "choices": [
+        {
+          "label": "Bàn giao thùng độc, giúp trung hòa",
+          "require": {
+            "flags": [
+              "gm_slime_barrel_kept"
+            ]
+          },
+          "check": {
+            "stat": "INT",
+            "target": 7
+          },
+          "success": {
+            "text": "Nhờ bạn giữ chặt dung môi, các Shaman dễ dàng niệm chú phong ấn vĩnh viễn chiếc thùng. Bạn được vinh danh như một vị cứu tinh kỳ lạ của hệ sinh thái.",
+            "effects": {
+              "fame": 3,
+              "jobXp": 2,
+              "unflags": [
+                "gm_slime_barrel_kept"
+              ],
+              "flags": [
+                "gm_slime_barrel_honored"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Bất đồng ngôn ngữ làm việc phối hợp hỏng bét. Lớp nhầy của bạn trượt ra, một lượng nhỏ độc tố rò rỉ làm chết thảm cỏ lác, khiến các Shaman lắc đầu thất vọng.",
+            "effects": {
+              "fame": -1,
+              "unflags": [
+                "gm_slime_barrel_kept"
+              ],
+              "flags": [
+                "gm_slime_barrel_suspected",
+                "gm_slime_chuoc_loi_mach_nuoc_needed"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Biến hình dọa nạt, xua đuổi tộc Lizardman",
+          "require": {
+            "flags": [
+              "gm_slime_barrel_lost"
+            ]
+          },
+          "check": {
+            "stat": "LUCK",
+            "target": 6
+          },
+          "success": {
+            "text": "Bằng khả năng ngụy trang và may mắn, bạn hóa thành hình thù đáng sợ khiến đám Shaman bỏ chạy tán loạn, không ai còn dám quy trách nhiệm cho bạn.",
+            "effects": {
+              "LUCK": 1,
+              "unflags": [
+                "gm_slime_barrel_lost"
+              ],
+              "flags": [
+                "gm_slime_barrel_forgiven"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Các Shaman nhìn thấu trò lừa bịp thông qua những vết cháy xém trên cơ thể bạn. Họ tấn công bằng ma pháp sét, trục xuất bạn khỏi khu vực an toàn.",
+            "effects": {
+              "health": -10,
+              "fame": -3,
+              "unflags": [
+                "gm_slime_barrel_lost"
+              ],
+              "flags": [
+                "gm_slime_barrel_suspected",
+                "gm_slime_chuoc_loi_mach_nuoc_needed"
+              ]
+            }
+          }
+        }
+      ],
+      "arc": true,
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_slime_chuoi_3_hau_qua",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "ancient"
+      ],
+      "once": true,
+      "weight": 12,
+      "require": {
+        "free": true,
+        "job": "slime_poison",
+        "anyFlags": [
+          "gm_slime_barrel_honored",
+          "gm_slime_barrel_forgiven",
+          "gm_slime_barrel_suspected"
+        ]
+      },
+      "text": "Phần dư thừa của thảm họa giả kim đã ngấm sâu vào mạch nước ngầm. Toàn bộ khu vực Đầm Lầy Tử Khí đứng trước nguy cơ hóa thành đất chết nếu không có một chuyên gia chất độc xả thân thanh lọc lõi bùn.",
+      "choices": [
+        {
+          "label": "Xuyên vào lòng đất, trở thành màng lọc sinh học",
+          "check": {
+            "stat": "AGI",
+            "target": 8
+          },
+          "success": {
+            "text": "Bằng cách len lỏi khắp mạng lưới nước ngầm, cơ thể bạn hút cạn và phân giải các hạt hắc ám. Đầm lầy hồi sinh rực rỡ, bạn vĩnh viễn được tạc tượng trong truyền thuyết vùng lầy.",
+            "effects": {
+              "fame": 5,
+              "joy": 10,
+              "epochChange": {
+                "legacy": 1
+              },
+              "unflags": [
+                "gm_slime_barrel_honored",
+                "gm_slime_barrel_forgiven",
+                "gm_slime_barrel_suspected"
+              ],
+              "flags": [
+                "gm_slime_chain_done"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Áp lực nước ngầm quá mạnh, cộng thêm lượng độc tố dồn dập khiến cơ thể bạn nứt nẻ diện rộng. Bạn cứu được một phần sinh thái nhưng mất đi vĩnh viễn sinh lực cốt lõi.",
+            "effects": {
+              "health": -20,
+              "joy": -5,
+              "unflags": [
+                "gm_slime_barrel_honored",
+                "gm_slime_barrel_forgiven",
+                "gm_slime_barrel_suspected"
+              ],
+              "flags": [
+                "gm_slime_chain_done"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Nổi lên mặt nước, mặc kệ thảm kịch lan rộng",
+          "text": "Bạn thả mình trôi dạt ra xa theo dòng nước lợ. Hệ sinh thái quanh đó sụp đổ thành bình địa đen kịt, nhưng bạn đã sống sót để tìm vùng nước mới.",
+          "effects": {
+            "joy": 2,
+            "fame": -3,
+            "unflags": [
+              "gm_slime_barrel_honored",
+              "gm_slime_barrel_forgiven",
+              "gm_slime_barrel_suspected"
+            ],
+            "flags": [
+              "gm_slime_chain_done"
+            ]
+          }
+        }
+      ],
+      "arc": true,
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_slime_chuoc_loi_mach_nuoc",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "ancient"
+      ],
+      "once": true,
+      "weight": 11,
+      "require": {
+        "free": true,
+        "job": "slime_poison",
+        "jobRank": 1,
+        "flags": [
+          "gm_slime_chuoc_loi_mach_nuoc_needed"
+        ]
+      },
+      "text": "Danh tiếng của bạn từng chạm đáy vì vô tình để lọt nọc độc phá hủy hệ sinh thái. Giờ đây, một ổ trứng Lizardman Hoàng Gia bị loài nấm ký sinh ăn mòn bám chặt, chỉ có loại dịch toan độc quyền của bạn mới đủ khả năng tiêu diệt nấm mà không làm hỏng vỏ trứng.",
+      "choices": [
+        {
+          "label": "Kiểm soát nồng độ axit, rỏ từng giọt để cứu trứng",
+          "check": {
+            "stat": "INT",
+            "target": 9
+          },
+          "success": {
+            "text": "Với sự tinh tế tuyệt đối, lớp axit hòa tan lớp nấm ký sinh hoàn hảo. Bầy Lizardman cúi đầu cảm tạ màng nhầy của bạn, danh dự chuyên gia độc dược được tẩy trắng huy hoàng.",
+            "effects": {
+              "fame": 5,
+              "joy": 10,
+              "jobXp": 2,
+              "INT": 1,
+              "unflags": [
+                "gm_slime_chuoc_loi_mach_nuoc_needed"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Một giọt axit hơi đặc đã ăn lẹm vào một quả trứng. Dù cứu được phần lớn ổ trứng, bạn vẫn bị đánh đuổi tơi bời, chịu tổn thương vật lý nặng nề dẫu danh dự đã được công nhận phần nào.",
+            "effects": {
+              "health": -20,
+              "fame": 2,
+              "jobXp": 1,
+              "unflags": [
+                "gm_slime_chuoc_loi_mach_nuoc_needed"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Từ chối can thiệp vì sợ sai lầm lặp lại",
+          "text": "Sự tự ti lấn át, bạn trượt dài trong tủi hổ và bỏ đi. Ổ trứng dần thối rữa, và cái danh 'kẻ vô tích sự' đóng đinh vào cuộc đời bạn mãi mãi.",
+          "effects": {
+            "joy": -8,
+            "fame": -4,
+            "unflags": [
+              "gm_slime_chuoc_loi_mach_nuoc_needed"
+            ]
+          }
+        }
+      ],
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_ghoul_doc_ky_uc",
+      "pack": true,
+      "races": [
+        "ghoul"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": false,
+      "cooldownYears": 30,
+      "weight": 8,
+      "require": {
+        "free": true,
+        "job": "ghoul_awakened"
+      },
+      "variants": [
+        "Một cái xác chiến binh loài người trôi dạt vào khu mộ hoang. Thể xác hắn đã thối rữa, nhưng bộ não vẫn lưu giữ những đoạn ký ức đứt gãy về một thánh tích thất lạc mà nhiều ma đạo sĩ thèm khát.",
+        "Bạn tìm thấy phần đầu của một học giả Elf bị ám sát tại Rừng Lục Bảo vứt ở bãi rác cõi âm. Những mảnh hồi ức cuối cùng về tri thức cổ đại của nạn nhân đang mờ dần theo sự phân hủy.",
+        "Dưới đáy Hẻm Núi Răng Cưa, một thợ mỏ Dwarf vừa trút hơi thở cuối cùng. Ký ức về vị trí mạch khoáng ma thuật hiếm hoi đang chuẩn bị tan biến cùng linh hồn hắn."
+      ],
+      "choices": [
+        {
+          "label": "Khai thác phần não để chắt lọc hồi ức",
+          "check": {
+            "stat": "INT",
+            "target": 6
+          },
+          "success": {
+            "text": "Xuyên qua mùi tử khí, bạn đồng hóa thành công những tia ý thức cuối cùng của nạn nhân. Tri thức mới tràn vào tâm trí, củng cố bản ngã sắc bén của một Ghoul thức tỉnh.",
+            "effects": {
+              "INT": 1,
+              "jobXp": 1,
+              "joy": 3
+            }
+          },
+          "fail": {
+            "text": "Phần ký ức bị ô nhiễm bởi sự sợ hãi tột cùng trước cái chết. Cảm xúc tiêu cực dội ngược vào tâm trí khiến bạn ôm đầu đau đớn, linh hồn rung chấn dữ dội.",
+            "effects": {
+              "health": -10,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Bỏ qua cái xác, giữ gìn sự thanh tịnh tâm trí",
+          "text": "Bạn lướt qua cái xác với ánh mắt vô cảm. Dù tránh được rủi ro phát điên, việc bỏ lỡ một kho tàng tri thức khiến sự tồn tại vĩnh cửu của bạn thêm phần nhàm chán.",
+          "effects": {
+            "joy": -3
+          }
+        }
+      ],
+      "text": "Một cái xác chiến binh loài người trôi dạt vào khu mộ hoang. Thể xác hắn đã thối rữa, nhưng bộ não vẫn lưu giữ những đoạn ký ức đứt gãy về một thánh tích thất lạc mà nhiều ma đạo sĩ thèm khát.",
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_ghoul_ap_che_ban_nang",
+      "pack": true,
+      "races": [
+        "ghoul"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": false,
+      "cooldownYears": 30,
+      "weight": 7,
+      "require": {
+        "free": true,
+        "job": "ghoul_awakened"
+      },
+      "variants": [
+        "Mùi máu tươi nồng nặc từ trận chiến kề bên xộc vào mũi, đánh thức bản năng dã thú tận sâu trong tủy xương. Từng tế bào thối rữa của bạn đang gào thét đòi xé xác những sinh linh hấp hối.",
+        "Bản ngã lý trí của bạn đang giao tranh dữ dội với cơn đói khát thịt sống. Một đoàn thương nhân đi ngang qua bãi tha ma, mang theo những sinh mệnh sống động mời gọi sự tàn sát.",
+        "Đêm trăng máu chiếu rọi Vực Thẳm, huyết quản đen ngòm của bạn sôi sục. Tiếng rên rỉ của những Ghoul cấp thấp xung quanh đang vẫy gọi bạn từ bỏ lý trí để gia nhập bữa tiệc nhục dục."
+      ],
+      "choices": [
+        {
+          "label": "Ngồi thiền định, dùng ý chí đè bẹp thú tính",
+          "check": {
+            "stat": "STR",
+            "target": 7
+          },
+          "success": {
+            "text": "Bạn cắm những móng vuốt sắc nhọn vào vách đá, ép thân thể phải quỳ rạp dưới sức mạnh của linh hồn. Cơn đói qua đi, bản ngã của bạn càng thêm vững vàng và kiêu hãnh.",
+            "effects": {
+              "STR": 1,
+              "joy": 5,
+              "jobXp": 1
+            }
+          },
+          "fail": {
+            "text": "Bản năng lấn át lý trí trong giây lát, bạn lao ra cắn xé một cái xác động vật dơ bẩn trước khi bừng tỉnh. Sự kinh tởm chính mình cào xé tâm trí bạn.",
+            "effects": {
+              "health": -10,
+              "fame": -1,
+              "joy": -5
+            }
+          }
+        },
+        {
+          "label": "Nhượng bộ đôi chút, chỉ ăn những xác đã chết",
+          "text": "Bạn thỏa hiệp với cơn đói bằng cách nhặt nhạnh những mảnh thịt vụn vô chủ. Dù lấp đầy dạ dày, bạn bị các ma vật có trí tuệ cao hơn khinh thường vì thói quen hạ đẳng.",
+          "effects": {
+            "joy": 3,
+            "fame": -2
+          }
+        }
+      ],
+      "text": "Mùi máu tươi nồng nặc từ trận chiến kề bên xộc vào mũi, đánh thức bản năng dã thú tận sâu trong tủy xương. Từng tế bào thối rữa của bạn đang gào thét đòi xé xác những sinh linh hấp hối.",
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_ghoul_di_vat_tien_kiep",
+      "pack": true,
+      "races": [
+        "ghoul"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 9,
+      "require": {
+        "free": true,
+        "job": "ghoul_awakened",
+        "jobRank": 3
+      },
+      "text": "Một mạo hiểm giả xâm nhập Vực Thẳm vô tình đánh rơi chiếc mề đay bạc. Khi chạm vào, ký ức tiền kiếp của bạn dội về mãnh liệt: đó là gia huy của dòng họ bạn hàng trăm năm trước, nay đã suy tàn và đang bị truy sát.",
+      "choices": [
+        {
+          "label": "Âm thầm trả lại mề đay, ban phước cho hậu duệ",
+          "check": {
+            "stat": "AGI",
+            "target": 7
+          },
+          "success": {
+            "text": "Bạn lướt đi trong sương mù, đặt chiếc mề đay vào túi áo kẻ hậu duệ cùng một bùa chú bảo hộ tử linh. Dù âm dương cách biệt, linh hồn bạn cảm nhận được sự thanh thản vĩ đại.",
+            "effects": {
+              "fame": 3,
+              "joy": 8,
+              "epochChange": {
+                "legacy": 1
+              }
+            }
+          },
+          "fail": {
+            "text": "Bạn bị đội Thánh Kỵ Sĩ hộ tống phát hiện trước khi kịp tiếp cận. Thánh quang chói lòa thiêu đốt cơ thể bạn, buộc bạn phải bỏ trốn, để lại món di vật vĩnh viễn ngoài tầm với.",
+            "effects": {
+              "health": -15,
+              "joy": -5
+            }
+          }
+        },
+        {
+          "label": "Bóp nát chiếc mề đay, cắt đứt duyên trần",
+          "text": "Quá khứ chỉ là gánh nặng của kẻ bất tử. Bạn nghiền nát mảnh bạc thành bụi mịn, chấp nhận sự cô độc tột cùng để đổi lấy sự tập trung tuyệt đối vào con đường tử linh ma pháp.",
+          "effects": {
+            "joy": -5,
+            "INT": 1,
+            "jobXp": 1
+          }
+        }
+      ],
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_ghoul_loi_moi_ta_su",
+      "pack": true,
+      "races": [
+        "ghoul"
+      ],
+      "stages": [
+        "adult",
+        "middle"
+      ],
+      "once": true,
+      "weight": 8,
+      "require": {
+        "free": true,
+        "job": "ghoul_awakened"
+      },
+      "text": "Một Tử Linh Sư xảo quyệt của Hắc Nguyệt Hội phát hiện ra trí tuệ dị biệt của bạn. Hắn đề nghị một khế ước: bạn trở thành vật thí nghiệm sống để hắn nghiên cứu, đổi lại là nguồn cung cấp thi thể chất lượng cao và vỏ bọc an toàn.",
+      "choices": [
+        {
+          "label": "Giao chiến để bảo vệ bản ngã tự do",
+          "check": {
+            "stat": "INT",
+            "target": 8
+          },
+          "success": {
+            "text": "Bằng sự thấu hiểu sâu sắc về tử khí, bạn phản lại ma pháp điều khiển tâm trí của hắn, ép tên pháp sư phải bỏ chạy. Bạn đứng vững trong kiêu hãnh, một xác sống không cúi đầu trước ai.",
+            "effects": {
+              "INT": 1,
+              "fame": 2,
+              "jobXp": 2,
+              "joy": 5
+            }
+          },
+          "fail": {
+            "text": "Ma lực của hắn vượt trội, những xiềng xích vô hình trói buộc linh hồn bạn. Phải đánh đổi một phần cốt nhục và chịu thương tích nặng nề, bạn mới có thể phá vây trốn thoát.",
+            "effects": {
+              "health": -15,
+              "fame": -1,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Giả vờ quy phục để đánh cắp tri thức",
+          "check": {
+            "stat": "LUCK",
+            "target": 6
+          },
+          "success": {
+            "text": "Lợi dụng lúc hắn sơ hở, bạn cuỗm đi túi không gian chứa đầy ngọc ma thuật và tài liệu nghiên cứu. Trở lại bóng tối, bạn rung đùi tận hưởng sự giàu có và tri thức mới.",
+            "effects": {
+              "wealth": 12,
+              "jobXp": 1,
+              "LUCK": 1
+            }
+          },
+          "fail": {
+            "text": "Hắn nhận ra mưu đồ của bạn và kích hoạt trận pháp phong ấn. Chịu sự tra tấn về mặt linh hồn trong nhiều ngày, bạn lết ra được khỏi hang ổ nhưng tâm trí suy kiệt trầm trọng.",
+            "effects": {
+              "health": -18,
+              "joy": -8,
+              "fame": -2
+            }
+          }
+        }
+      ],
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_ghoul_chuoi_1_da_hon",
+      "pack": true,
+      "races": [
+        "ghoul"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": true,
+      "weight": 10,
+      "require": {
+        "free": true,
+        "job": "ghoul_awakened",
+        "notFlags": [
+          "gm_ghoul_soul_kept",
+          "gm_ghoul_soul_lost",
+          "gm_ghoul_chain_done"
+        ]
+      },
+      "text": "Đào bới tại Tế Đàn Xương Cốt, bạn phát hiện một Viên Tinh Thể Hồn chứa đựng mảnh bản ngã của một Lich cổ đại. Ngay khi chạm vào, nó phóng ra những tua tà thuật, cố gắng xâm nhập và chiếm đoạt tâm trí của bạn.",
+      "choices": [
+        {
+          "label": "Dùng rào chắn ý thức để phong ấn viên đá",
+          "check": {
+            "stat": "INT",
+            "target": 7
+          },
+          "success": {
+            "text": "Tâm trí bạn biến thành một pháo đài kiên cố, giam giữ mảnh linh hồn cổ đại vào sâu trong Tinh Thể. Bạn cất giấu nó cẩn thận, biết rằng đây là một cội nguồn sức mạnh lớn.",
+            "effects": {
+              "jobXp": 1,
+              "flags": [
+                "gm_ghoul_soul_kept"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Tua tà thuật chọc thủng phòng tuyến tâm lý, gây ra cơn bạo bệnh linh hồn. Bạn buông tay, viên đá lăn xuống vực sâu, để lại trong bạn một vết nứt ý thức khó lành.",
+            "effects": {
+              "health": -15,
+              "joy": -5,
+              "flags": [
+                "gm_ghoul_soul_lost",
+                "gm_ghoul_chuoc_loi_ban_nga_needed"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Đập vỡ viên đá bằng sức mạnh vật lý",
+          "check": {
+            "stat": "STR",
+            "target": 7
+          },
+          "success": {
+            "text": "Một cú đấm trời giáng làm viên đá nứt toác. Bạn hấp thụ vội vã những mảnh vụn ma lực tràn ra trước khi phong ấn chúng lại trong cơ thể mình.",
+            "effects": {
+              "STR": 1,
+              "flags": [
+                "gm_ghoul_soul_kept"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Phản lực từ viên đá hất văng bạn vào vách đá. Tinh thể bay mất trong màn đêm, còn bạn gãy nát nhiều khúc xương xú uế.",
+            "effects": {
+              "health": -18,
+              "flags": [
+                "gm_ghoul_soul_lost",
+                "gm_ghoul_chuoc_loi_ban_nga_needed"
+              ]
+            }
+          }
+        }
+      ],
+      "focus": [
+        "work"
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_ghoul_chuoi_2_ca_khia",
+      "pack": true,
+      "races": [
+        "ghoul"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 11,
+      "require": {
+        "free": true,
+        "job": "ghoul_awakened",
+        "anyFlags": [
+          "gm_ghoul_soul_kept",
+          "gm_ghoul_soul_lost"
+        ]
+      },
+      "text": "Tàn dư linh hồn Lich cổ đại bắt đầu ăn sâu vào tâm trí bạn. Tiếng thì thầm vang lên không ngừng trong đầu, xúi giục bạn hiến tế những sinh linh quanh mình để đổi lấy cấm thuật thao túng cái chết.",
+      "choices": [
+        {
+          "label": "Tước đoạt kiến thức từ giọng nói",
+          "require": {
+            "flags": [
+              "gm_ghoul_soul_kept"
+            ]
+          },
+          "check": {
+            "stat": "INT",
+            "target": 8
+          },
+          "success": {
+            "text": "Bạn lật ngược thế cờ, sử dụng chính tiếng thì thầm làm tài liệu nghiên cứu ma pháp. Sự kiên cường của bạn khiến giới tử linh sư kinh ngạc, đem lại tiếng tăm lừng lẫy.",
+            "effects": {
+              "fame": 2,
+              "jobXp": 2,
+              "unflags": [
+                "gm_ghoul_soul_kept"
+              ],
+              "flags": [
+                "gm_ghoul_soul_honored"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Giọng nói ngày càng lớn, tẩy não bạn trong những giấc mộng tử khí. Bạn bắt đầu hành xử điên loạn, khiến những sinh vật sống xung quanh ghê tởm xa lánh.",
+            "effects": {
+              "health": -10,
+              "unflags": [
+                "gm_ghoul_soul_kept"
+              ],
+              "flags": [
+                "gm_ghoul_soul_suspected",
+                "gm_ghoul_chuoc_loi_ban_nga_needed"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Thanh tẩy tâm trí tại vùng đất thiêng",
+          "require": {
+            "flags": [
+              "gm_ghoul_soul_lost"
+            ]
+          },
+          "check": {
+            "stat": "LUCK",
+            "target": 5
+          },
+          "success": {
+            "text": "Bạn may mắn tìm được một suối nguồn phai tàn của Nữ thần Lumina. Dòng nước thiêng tuy làm rát da thịt nhưng đã gột rửa hoàn toàn tà niệm của tên Lich khỏi đầu bạn.",
+            "effects": {
+              "joy": 5,
+              "unflags": [
+                "gm_ghoul_soul_lost"
+              ],
+              "flags": [
+                "gm_ghoul_soul_forgiven"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Thánh quang quá mạnh khiến da thịt bạn bốc cháy. Không thể thanh tẩy, bạn phải mang theo mầm mống điên loạn chạy trốn trong sự dằn vặt khôn nguôi.",
+            "effects": {
+              "health": -15,
+              "fame": -2,
+              "unflags": [
+                "gm_ghoul_soul_lost"
+              ],
+              "flags": [
+                "gm_ghoul_soul_suspected",
+                "gm_ghoul_chuoc_loi_ban_nga_needed"
+              ]
+            }
+          }
+        }
+      ],
+      "arc": true,
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_ghoul_chuoi_3_dong_hoa",
+      "pack": true,
+      "races": [
+        "ghoul"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 12,
+      "require": {
+        "free": true,
+        "job": "ghoul_awakened",
+        "anyFlags": [
+          "gm_ghoul_soul_honored",
+          "gm_ghoul_soul_forgiven",
+          "gm_ghoul_soul_suspected"
+        ]
+      },
+      "text": "Cuộc chạm trán ý chí Lich để lại những dấu khắc tử linh trong ký ức của bạn. Dù đã thanh tẩy hay còn giữ mảnh hồn, bạn cần quyết định sẽ giữ điều đã học hay xóa hẳn dấu vết của nó.",
+      "choices": [
+        {
+          "label": "Nhai nuốt và đồng hóa hoàn toàn ý thức cổ đại",
+          "check": {
+            "stat": "INT",
+            "target": 9
+          },
+          "success": {
+            "text": "Như một hố đen tâm lý, bạn cắn xé và nuốt chửng toàn bộ bản ngã của tên Lich. Quyền năng tử linh vô song dung hợp vào cơ thể bạn, biến bạn thành một huyền thoại sống của giới hắc ám.",
+            "effects": {
+              "INT": 2,
+              "fame": 5,
+              "joy": 10,
+              "epochChange": {
+                "legacy": 1
+              },
+              "unflags": [
+                "gm_ghoul_soul_honored",
+                "gm_ghoul_soul_forgiven",
+                "gm_ghoul_soul_suspected"
+              ],
+              "flags": [
+                "gm_ghoul_chain_done"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Sức ép linh hồn vượt quá giới hạn chịu đựng. Trí não bạn nứt vỡ, đánh mất đi phần lớn ký ức quý giá. Kẻ thắng là bạn, nhưng cái giá phải trả là sự suy kiệt tột cùng của một Ghoul thức tỉnh.",
+            "effects": {
+              "health": -20,
+              "joy": -10,
+              "unflags": [
+                "gm_ghoul_soul_honored",
+                "gm_ghoul_soul_forgiven",
+                "gm_ghoul_soul_suspected"
+              ],
+              "flags": [
+                "gm_ghoul_chain_done"
+              ]
+            }
+          },
+          "require": {
+            "anyFlags": [
+              "gm_ghoul_soul_honored",
+              "gm_ghoul_soul_suspected"
+            ]
+          }
+        },
+        {
+          "label": "Khép lại mọi dấu vết ngoại lai",
+          "text": "Bạn xóa những dấu ma văn còn in trong ký ức và trả phần năng lượng ngoại lai về cõi tối. Dù mảnh hồn đã được thanh tẩy từ trước hay vừa bị trục xuất, ranh giới bản ngã của bạn từ đây được khép lại.",
+          "effects": {
+            "joy": 5,
+            "fame": 2,
+            "unflags": [
+              "gm_ghoul_soul_honored",
+              "gm_ghoul_soul_forgiven",
+              "gm_ghoul_soul_suspected"
+            ],
+            "flags": [
+              "gm_ghoul_chain_done"
+            ]
+          }
+        },
+        {
+          "label": "Gìn giữ bài học sau khi đã thanh tẩy",
+          "require": {
+            "flags": [
+              "gm_ghoul_soul_forgiven"
+            ]
+          },
+          "text": "Bạn đã thoát khỏi ý chí cưỡng ép. Điều còn lại chỉ là kinh nghiệm nhận diện cấm thuật; bạn ghi nhớ nó như một giới hạn sẽ không vượt qua lần nữa.",
+          "effects": {
+            "INT": 1,
+            "joy": 5,
+            "flags": [
+              "gm_ghoul_chain_done"
+            ],
+            "unflags": [
+              "gm_ghoul_soul_honored",
+              "gm_ghoul_soul_forgiven",
+              "gm_ghoul_soul_suspected"
+            ]
+          }
+        }
+      ],
+      "arc": true,
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_ghoul_chuoc_loi_ban_nga",
+      "pack": true,
+      "races": [
+        "ghoul"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 11,
+      "require": {
+        "free": true,
+        "job": "ghoul_awakened",
+        "jobRank": 1,
+        "flags": [
+          "gm_ghoul_chuoc_loi_ban_nga_needed"
+        ]
+      },
+      "text": "Lần ý chí Lich xâm lấn đã khiến những cư dân cõi ngầm nghi ngờ khả năng tự chủ của bạn. Nay, con trai một thủ lĩnh Orc trúng kịch độc tử linh; họ buộc phải cân nhắc việc nhờ bạn cứu lấy người đang hấp hối.",
+      "choices": [
+        {
+          "label": "Thi triển cấm thuật kéo hồn cứu người",
+          "check": {
+            "stat": "INT",
+            "target": 9
+          },
+          "success": {
+            "text": "Hai bàn tay xám ngắt của bạn khéo léo gỡ từng sợi chỉ tử khí đang quấn lấy linh hồn nạn nhân. Đứa trẻ tỉnh dậy trong sự sững sờ của mọi người, danh dự và nhân tính của bạn được phục hồi rực rỡ.",
+            "effects": {
+              "fame": 5,
+              "joy": 10,
+              "jobXp": 2,
+              "INT": 1,
+              "unflags": [
+                "gm_ghoul_chuoc_loi_ban_nga_needed"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Tử khí phản phệ dữ dội, cắn nuốt một phần sinh lực của chính bạn. Dù đứa trẻ qua khỏi, cơ thể bạn tàn tạ thê thảm, nhưng ít nhất sự hi sinh đó đã gột rửa được vết nhơ trong quá khứ.",
+            "effects": {
+              "health": -20,
+              "fame": 2,
+              "jobXp": 1,
+              "unflags": [
+                "gm_ghoul_chuoc_loi_ban_nga_needed"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Khước từ vì sợ bản năng trỗi dậy lần nữa",
+          "text": "Bóng ma quá khứ khiến bạn chùn bước. Bạn thu mình vào góc tối, để mặc đứa trẻ trút hơi thở cuối cùng. Tiếng gào khóc của người cha Orc trở thành bản án kết liễu danh dự của bạn mãi mãi.",
+          "effects": {
+            "joy": -8,
+            "fame": -3,
+            "unflags": [
+              "gm_ghoul_chuoc_loi_ban_nga_needed"
+            ]
+          }
+        }
+      ],
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_minotaur_ke_xam_nhap",
+      "pack": true,
+      "races": [
+        "minotaur"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": false,
+      "cooldownYears": 2,
+      "weight": 8,
+      "require": {
+        "free": true,
+        "job": "minotaur_guardian"
+      },
+      "variants": [
+        "Mũi bạn khịt lên khi ngửi thấy mùi mồ hôi và sắt thép vấy bẩn không khí tĩnh lặng của mê cung. Một toán mạo hiểm giả đang lò dò bước vào khu vực canh gác của bạn.",
+        "Tiếng bước chân rón rén vang vọng qua những bức tường đá rêu phong. Một nhóm trộm mộ khờ khạo đã tự nộp mạng vào tầng hầm ngục do bạn kiểm soát.",
+        "Ánh đuốc bập bùng chiếu lên những hình xăm đẫm máu trên cơ thể bạn. Bọn xâm nhập ngu ngốc đang phá vỡ sự tĩnh lặng của Đấu Trường Khổng Lồ, chọc giận một vệ sĩ mê cung."
+      ],
+      "choices": [
+        {
+          "label": "Gầm lên và lao ra nghiền nát chúng",
+          "check": {
+            "stat": "STR",
+            "target": 6
+          },
+          "success": {
+            "text": "Chiếc rìu khổng lồ của bạn bổ đôi tên đi đầu, máu tươi nhuộm đỏ vách đá. Những kẻ sống sót la hét bỏ chạy, sự tàn bạo của bạn trở thành nỗi khiếp sợ răn đe kẻ thù.",
+            "effects": {
+              "STR": 1,
+              "jobXp": 1,
+              "fame": 1
+            }
+          },
+          "fail": {
+            "text": "Bọn chúng phối hợp quá tốt. Lưới thép tung ra quấn chặt sừng bạn, một vài nhát kiếm sượt qua da thịt trước khi bạn kịp vùng vẫy khiến chúng rút lui.",
+            "effects": {
+              "health": -12,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Kích hoạt bẫy sập, tiêu diệt không cần động tay",
+          "text": "Bạn thong thả kéo cần gạt giấu sau tảng đá. Trần nhà đổ sập xuống chôn vùi lũ chuột nhắt. Bạn tận hưởng cảm giác an toàn và uy quyền của kẻ làm chủ mê cung.",
+          "effects": {
+            "joy": 5,
+            "jobXp": 0.5
+          }
+        }
+      ],
+      "text": "Mũi bạn khịt lên khi ngửi thấy mùi mồ hôi và sắt thép vấy bẩn không khí tĩnh lặng của mê cung. Một toán mạo hiểm giả đang lò dò bước vào khu vực canh gác của bạn.",
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_minotaur_ran_nut_tuong",
+      "pack": true,
+      "races": [
+        "minotaur"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": false,
+      "cooldownYears": 2,
+      "weight": 7,
+      "require": {
+        "free": true,
+        "job": "minotaur_guardian"
+      },
+      "variants": [
+        "Một cơn địa chấn nhỏ từ Đỉnh Hỏa Ngục làm sụp đổ bức tường phía đông mê cung, mở ra một khe hở nguy hiểm thông thẳng tới buồng chứa kho báu.",
+        "Ma lực dư thừa từ tầng ngục bên dưới xé toạc một mảng kiến trúc đá. Cấu trúc phòng thủ hoàn hảo của mê cung bị đục khoét, đòi hỏi sự can thiệp lập tức.",
+        "Sự ăn mòn của thời gian làm sập một cột trụ chính, gạch đá ngổn ngang chắn ngang tuyến đường tuần tra của bạn, đồng thời mở ra điểm mù cho kẻ thù."
+      ],
+      "choices": [
+        {
+          "label": "Dùng sức mạnh cơ bắp khiêng đá vá tường",
+          "check": {
+            "stat": "STR",
+            "target": 7
+          },
+          "success": {
+            "text": "Từng khối đá nặng hàng tấn được bạn vác lên vai và xếp lại vuông vức. Kỹ năng am hiểu kiến trúc ngục tối giúp bạn bịt kín lỗ hổng, củng cố danh tiếng người gác cổng mẫn cán.",
+            "effects": {
+              "jobXp": 1,
+              "fame": 1
+            }
+          },
+          "fail": {
+            "text": "Một phiến đá trượt khỏi vai và đè nát bàn chân bạn. Bạn phải kêu gọi đồng loại tới hỗ trợ trong sự đau đớn và xấu hổ.",
+            "effects": {
+              "health": -10,
+              "fame": -1
+            }
+          }
+        },
+        {
+          "label": "Bỏ mặc lỗ hổng, mai phục kẻ tò mò",
+          "text": "Bạn lẩn vào bóng tối, dùng khe hở như một miếng mồi ngon. Tuy nhiên, sự lơ là bảo trì khiến cấu trúc mê cung suy yếu, bạn bị cấp trên quở trách nặng nề.",
+          "effects": {
+            "joy": 2,
+            "jobXp": -1,
+            "fame": -2
+          }
+        }
+      ],
+      "text": "Một cơn địa chấn nhỏ từ Đỉnh Hỏa Ngục làm sụp đổ bức tường phía đông mê cung, mở ra một khe hở nguy hiểm thông thẳng tới buồng chứa kho báu.",
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_minotaur_dan_thuong_lac",
+      "pack": true,
+      "races": [
+        "minotaur"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 9,
+      "require": {
+        "free": true,
+        "job": "minotaur_guardian",
+        "jobRank": 3
+      },
+      "text": "Tiếng khóc thút thít vang lên trong ngõ cụt tăm tối. Bạn vác rìu tiến tới, nhận ra đó không phải dũng giả mà là một nhóm thường dân xui xẻo đi lạc qua cổng không gian lỗi. Bọn họ kinh hãi khi nhìn thấy bóng dáng khổng lồ của bạn.",
+      "choices": [
+        {
+          "label": "Chỉ đường tắt dẫn họ ra ngoài",
+          "check": {
+            "stat": "INT",
+            "target": 7
+          },
+          "success": {
+            "text": "Bằng kiến thức của một vệ binh lão luyện, bạn tháo gỡ các bẫy ngầm và vạch ra con đường sống cho họ. Tin tức về một Minotaur có trái tim nhân từ vang dội ra tận thế giới bên ngoài.",
+            "effects": {
+              "INT": 1,
+              "fame": 4,
+              "joy": 8,
+              "jobXp": 1
+            }
+          },
+          "fail": {
+            "text": "Bạn nhớ nhầm ngã rẽ. Nhóm người rơi thẳng xuống hầm chông, máu bắn tung tóe. Tiếng la hét ám ảnh tâm trí bạn, một vết nhơ trong lương tâm không thể xóa nhòa.",
+            "effects": {
+              "joy": -10,
+              "health": -5
+            }
+          }
+        },
+        {
+          "label": "Gầm rống xua đuổi, để họ tự sinh tự diệt",
+          "text": "Bạn không có nghĩa vụ làm bảo mẫu. Tiếng rống cuồng nộ khiến họ chạy toán loạn sâu vào mê cung. Số phận của họ đã được định đoạt bởi bóng tối.",
+          "effects": {
+            "joy": -2,
+            "fame": -1
+          }
+        }
+      ],
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_minotaur_loi_mua_chuoc",
+      "pack": true,
+      "races": [
+        "minotaur"
+      ],
+      "stages": [
+        "adult",
+        "middle"
+      ],
+      "once": true,
+      "weight": 8,
+      "require": {
+        "free": true,
+        "job": "minotaur_guardian"
+      },
+      "text": "Một vị quý tộc loài người kiêu ngạo mang theo đội lính đánh thuê tinh nhuệ chặn đường bạn. Hắn mở một rương đầy Tinh Bạc, yêu cầu bạn nhắm mắt làm ngơ để hắn tiến vào khu vực cất giấu bảo vật cốt lõi.",
+      "choices": [
+        {
+          "label": "Tử chiến bảo vệ sự tôn nghiêm của mê cung",
+          "check": {
+            "stat": "STR",
+            "target": 8
+          },
+          "success": {
+            "text": "Cơn cuồng nộ ngưu ma trỗi dậy, bạn dùng cặp sừng hất tung tên quý tộc và đập tan đội đánh thuê. Bảo vật được giữ vững, sự trung thành tuyệt đối của bạn được truyền tụng khắp Đảo Tro Tàn.",
+            "effects": {
+              "fame": 4,
+              "joy": 5,
+              "jobXp": 2,
+              "STR": 1
+            }
+          },
+          "fail": {
+            "text": "Lính đánh thuê quá thiện chiến. Chúng chặt gãy một bên sừng và đâm xuyên bả vai bạn. Bạn gục ngã, bất lực nhìn chúng cướp đi bảo vật và ném trả lại vài đồng bạc lẻ như một sự sỉ nhục.",
+            "effects": {
+              "health": -20,
+              "joy": -8,
+              "fame": -3
+            }
+          }
+        },
+        {
+          "label": "Nhận tiền bẩn, phản bội bổn phận",
+          "check": {
+            "stat": "LUCK",
+            "target": 5
+          },
+          "success": {
+            "text": "Bạn vơ vét số tiền và rút vào bóng tối, giả vờ như đã bị đánh gục. Tiền đầy túi, nhưng sự cắn rứt lương tâm và ánh mắt khinh bỉ của các đồng loại khiến bạn cô độc.",
+            "effects": {
+              "wealth": 15,
+              "fame": -5,
+              "joy": -5
+            }
+          },
+          "fail": {
+            "text": "Tên quý tộc tráo trở, hạ lệnh bắn nỏ độc ngay khi bạn chìa tay nhận tiền. Bạn bị lừa, mất máu và bị chính thủ lĩnh mê cung phát giác hành vi nhận hối lộ.",
+            "effects": {
+              "health": -15,
+              "fame": -5,
+              "joy": -8,
+              "wealth": -5
+            }
+          }
+        }
+      ],
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_minotaur_chuoi_1_vet_nut",
+      "pack": true,
+      "races": [
+        "minotaur"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 10,
+      "require": {
+        "free": true,
+        "job": "minotaur_guardian",
+        "notFlags": [
+          "gm_mino_breach_kept",
+          "gm_mino_breach_lost",
+          "gm_mino_chain_done"
+        ]
+      },
+      "text": "Không gian vặn vẹo tại phân khu bạn canh gác. Một Vết Nứt Vực Thẳm xé rách thực tại, bầy quỷ cấp thấp khát máu ùa ra như lũ tràn bờ, đe dọa nuốt chửng toàn bộ tầng mê cung.",
+      "choices": [
+        {
+          "label": "Lấy thân mình chèn ép khe nứt",
+          "check": {
+            "stat": "STR",
+            "target": 7
+          },
+          "success": {
+            "text": "Sức mạnh cơ bắp cuồn cuộn ép chặt tảng đá khổng lồ vào vết nứt, chặn đứng dòng chảy ma vật. Lưng bạn rớm máu, nhưng phòng tuyến được giữ vững tuyệt đối.",
+            "effects": {
+              "jobXp": 1,
+              "flags": [
+                "gm_mino_breach_kept"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Sức mạnh của Vực Thẳm quá lớn hất văng tảng đá và cả cơ thể bạn đi xa hàng chục thước. Bạn trọng thương bất tỉnh, để mặc bầy quỷ tràn vào cướp đi phân khu mê cung.",
+            "effects": {
+              "health": -18,
+              "joy": -5,
+              "flags": [
+                "gm_mino_breach_lost",
+                "gm_minotaur_phuc_hoi_danh_du_needed"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Rút lui chiến thuật, báo động bộ tộc",
+          "check": {
+            "stat": "AGI",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn vứt bỏ phân khu, guồng chân tháo chạy và thổi tù và báo động. Tộc Minotaur biết tin, nhưng mê cung đã rơi vào tay bầy quỷ.",
+            "effects": {
+              "AGI": 1,
+              "flags": [
+                "gm_mino_breach_lost",
+                "gm_minotaur_phuc_hoi_danh_du_needed"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Lũ quái vật bắt kịp và cắn xé đôi chân bạn trước khi bạn lết được tới khu vực an toàn. Bạn truyền được tin báo nhưng lãnh trọn vết thương chí mạng.",
+            "effects": {
+              "health": -15,
+              "flags": [
+                "gm_mino_breach_lost",
+                "gm_minotaur_phuc_hoi_danh_du_needed"
+              ]
+            }
+          }
+        }
+      ],
+      "focus": [
+        "work"
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_minotaur_chuoi_2_phan_cong",
+      "pack": true,
+      "races": [
+        "minotaur"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 11,
+      "require": {
+        "free": true,
+        "job": "minotaur_guardian",
+        "anyFlags": [
+          "gm_mino_breach_kept",
+          "gm_mino_breach_lost"
+        ]
+      },
+      "text": "Tù trưởng Bạo Chúa Mê Cung tập hợp lực lượng. Tùy thuộc vào việc bạn đã giữ được phân khu hay để mất nó, ngài giao cho bạn nhiệm vụ sinh tử để phán quyết lòng dũng cảm.",
+      "choices": [
+        {
+          "label": "Bám trụ phòng tuyến chờ cứu viện",
+          "require": {
+            "flags": [
+              "gm_mino_breach_kept"
+            ]
+          },
+          "check": {
+            "stat": "STR",
+            "target": 8
+          },
+          "success": {
+            "text": "Bạn tử thủ không lùi một bước cho đến khi đội thiết giáp ngưu ma tới nơi. Tù trưởng xưng tụng bạn như bức tường thành bất diệt của mê cung.",
+            "effects": {
+              "fame": 3,
+              "jobXp": 2,
+              "unflags": [
+                "gm_mino_breach_kept"
+              ],
+              "flags": [
+                "gm_mino_breach_honored"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Cơn kiệt sức khiến bạn chùn bước ở phút chót, một vài con quỷ lọt qua ranh giới. Tù trưởng nghi ngờ sự dẻo dai của bạn, giáng chức bạn xuống hàng ngũ dự bị.",
+            "effects": {
+              "fame": -1,
+              "unflags": [
+                "gm_mino_breach_kept"
+              ],
+              "flags": [
+                "gm_mino_breach_suspected",
+                "gm_minotaur_phuc_hoi_danh_du_needed"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Dẫn đầu đội tiên phong chuộc lỗi",
+          "require": {
+            "flags": [
+              "gm_mino_breach_lost"
+            ]
+          },
+          "check": {
+            "stat": "STR",
+            "target": 7
+          },
+          "success": {
+            "text": "Mang theo cơn thịnh nộ, bạn xé toang đội hình ma vật, cắm cờ bộ tộc trở lại vị trí cũ. Lỗi lầm được tha thứ, bạn tắm trong máu và vinh quang.",
+            "effects": {
+              "joy": 5,
+              "fame": 2,
+              "unflags": [
+                "gm_mino_breach_lost"
+              ],
+              "flags": [
+                "gm_mino_breach_forgiven"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Bạn bị bầy quỷ áp đảo và đánh bật trở lại. Thất bại thảm hại lần hai dập tắt mọi hy vọng chuộc lỗi, bạn bị coi là kẻ nhát gan làm ô nhục dòng máu Minotaur.",
+            "effects": {
+              "health": -15,
+              "fame": -3,
+              "unflags": [
+                "gm_mino_breach_lost"
+              ],
+              "flags": [
+                "gm_mino_breach_suspected",
+                "gm_minotaur_phuc_hoi_danh_du_needed"
+              ]
+            }
+          }
+        }
+      ],
+      "arc": true,
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_minotaur_chuoi_3_huyet_chien",
+      "pack": true,
+      "races": [
+        "minotaur"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 12,
+      "require": {
+        "free": true,
+        "job": "minotaur_guardian",
+        "anyFlags": [
+          "gm_mino_breach_honored",
+          "gm_mino_breach_forgiven",
+          "gm_mino_breach_suspected"
+        ]
+      },
+      "text": "Kẻ đứng sau cuộc xâm lăng lộ diện: Một Tướng Quỷ Vực Thẳm khổng lồ, tay cầm đại kiếm cháy rực. Trận chiến cuối cùng này sẽ quyết định số phận của tầng mê cung và khắc tên bạn vào lịch sử hoặc chôn vùi nó mãi mãi.",
+      "choices": [
+        {
+          "label": "Tử chiến tay đôi để bảo vệ vinh quang",
+          "check": {
+            "stat": "STR",
+            "target": 9
+          },
+          "success": {
+            "text": "Hai thứ vũ khí va chạm tạo ra sóng xung kích dữ dội. Bằng một cú đâm sừng hiểm hóc, bạn ghim chặt Tướng Quỷ vào tường đá. Bạn chiến thắng, xác lập di sản của một huyền thoại giữ cửa vô song.",
+            "effects": {
+              "STR": 2,
+              "fame": 5,
+              "joy": 10,
+              "epochChange": {
+                "legacy": 1
+              },
+              "unflags": [
+                "gm_mino_breach_honored",
+                "gm_mino_breach_forgiven",
+                "gm_mino_breach_suspected"
+              ],
+              "flags": [
+                "gm_mino_chain_done"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Đại kiếm của Tướng Quỷ chém rách lồng ngực bạn. Bạn ngã gục trong vũng máu, nhìn kẻ thù tiến sâu vào quê hương. Dù thất bại, bạn đã giữ trọn khí tiết của chiến binh Minotaur.",
+            "effects": {
+              "health": -25,
+              "joy": -5,
+              "unflags": [
+                "gm_mino_breach_honored",
+                "gm_mino_breach_forgiven",
+                "gm_mino_breach_suspected"
+              ],
+              "flags": [
+                "gm_mino_chain_done"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Kích nổ hầm ngục, đồng quy vu tận",
+          "text": "Nhận thấy chênh lệch sức mạnh, bạn giáng búa vào mạch dung nham yếu nhất. Hang động sụp đổ, chôn vùi Tướng Quỷ và một nửa mê cung. Bạn lết ra khỏi đống đổ nát, sống sót nhưng ôm nỗi đau mất đi một phần lãnh thổ.",
+          "effects": {
+            "health": -10,
+            "joy": -5,
+            "fame": 3,
+            "unflags": [
+              "gm_mino_breach_honored",
+              "gm_mino_breach_forgiven",
+              "gm_mino_breach_suspected"
+            ],
+            "flags": [
+              "gm_mino_chain_done"
+            ]
+          }
+        }
+      ],
+      "arc": true,
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_minotaur_phuc_hoi_danh_du",
+      "pack": true,
+      "races": [
+        "minotaur"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 11,
+      "require": {
+        "free": true,
+        "job": "minotaur_guardian",
+        "jobRank": 1,
+        "flags": [
+          "gm_minotaur_phuc_hoi_danh_du_needed"
+        ]
+      },
+      "text": "Sau lần tuyến phòng thủ bị xuyên thủng, bạn mất đi sự tin tưởng của những người giữ mê cung. Một Dũng Giả nay dẫn quân tới đúng hành lang ấy; bảo vệ lối vào là cơ hội để bạn giành lại lòng tin.",
+      "choices": [
+        {
+          "label": "Đập nát huyền thoại, rửa sạch ô nhục",
+          "check": {
+            "stat": "STR",
+            "target": 9
+          },
+          "success": {
+            "text": "Tiếng gầm của bạn làm chấn động cả hầm ngục. Không hề chùn bước trước phép thuật hay giáp trụ, bạn nghiền nát Dũng Giả thành tro bụi, treo đầu hắn lên cổng mê cung. Nỗi nhục năm xưa được rửa sạch hoàn toàn bằng máu.",
+            "effects": {
+              "fame": 5,
+              "joy": 10,
+              "jobXp": 2,
+              "STR": 1,
+              "unflags": [
+                "gm_minotaur_phuc_hoi_danh_du_needed"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Hắn thực sự đã mạnh hơn rất nhiều. Phép thuật chói lòa đánh gãy mọi vũ khí của bạn. Dù liều chết phản công cắn đứt tay hắn, bạn vẫn gục ngã thảm hại, mang theo nỗi uất hận không thể siêu thoát.",
+            "effects": {
+              "health": -20,
+              "fame": 2,
+              "jobXp": 1,
+              "unflags": [
+                "gm_minotaur_phuc_hoi_danh_du_needed"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Lẩn trốn vào bóng tối, để bẫy rập lo liệu",
+          "text": "Nỗi sợ hãi bóng ma quá khứ một lần nữa bóp nghẹt tim bạn. Bạn hèn hạ rút lui, để hắn vượt qua hành lang. Cái tên của bạn vĩnh viễn đồng nghĩa với rác rưởi trong từ điển của bộ tộc.",
+          "effects": {
+            "joy": -10,
+            "fame": -5,
+            "unflags": [
+              "gm_minotaur_phuc_hoi_danh_du_needed"
+            ]
+          }
+        }
+      ],
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_kobold_khi_doc_ham_mo",
+      "pack": true,
+      "races": [
+        "kobold"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": false,
+      "cooldownYears": 2,
+      "weight": 8,
+      "require": {
+        "free": true,
+        "job": "kobold_overseer"
+      },
+      "variants": [
+        "Sâu trong Khu Mỏ Pha Lê Đen, mũi bạn khụt khịt đánh hơi thấy mùi lưu huỳnh khét lẹt. Một mạch khí độc đang rò rỉ từ các khe nứt, đe dọa sinh mạng của hàng chục thợ mỏ bên dưới.",
+        "Tiếng rạn nứt vang lên từ trần hầm mỏ, kèm theo đó là lớp sương mù xám xịt tràn vào. Bằng kinh nghiệm giám sát, bạn nhận ra đây là khí gas dễ cháy tích tụ từ lâu.",
+        "Đèn bão đung đưa rồi vụt tắt, đàn chuột mỏ tháo chạy tán loạn. Dấu hiệu của một vụ xì khí hầm lò đang cận kề, đòi hỏi người quản đốc phải ra quyết định chớp nhoáng."
+      ],
+      "choices": [
+        {
+          "label": "Lao vào xả van thông gió và gia cố cột chống",
+          "check": {
+            "stat": "INT",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn bình tĩnh gạt cần thông gió, điều hướng luồng khí độc ra ngoài hẻm núi. Các thợ mỏ vỗ cuốc ăn mừng, kinh nghiệm quản lý an toàn của bạn ngày càng sắc bén.",
+            "effects": {
+              "INT": 1,
+              "jobXp": 1,
+              "fame": 1
+            }
+          },
+          "fail": {
+            "text": "Van gió bị kẹt do gỉ sét. Bạn hít phải một ngụm khí độc và ho ra máu trước khi kịp lùa thợ mỏ ra ngoài. Việc đình trệ sản xuất khiến bạn bị cấp trên quở trách.",
+            "effects": {
+              "health": -10,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Ra lệnh di tản lập tức, bỏ mặc mẻ quặng quý",
+          "text": "Bạn gõ kẻng báo động, đuổi tất cả ra khỏi hầm. Mạng sống được bảo toàn, nhưng tiến độ khai thác sụt giảm nghiêm trọng khiến bạn mất đi khoản tiền thưởng tháng.",
+          "effects": {
+            "joy": -2,
+            "fame": -1,
+            "wealth": -3
+          }
+        }
+      ],
+      "text": "Sâu trong Khu Mỏ Pha Lê Đen, mũi bạn khụt khịt đánh hơi thấy mùi lưu huỳnh khét lẹt. Một mạch khí độc đang rò rỉ từ các khe nứt, đe dọa sinh mạng của hàng chục thợ mỏ bên dưới.",
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_kobold_phan_phat_khau_phan",
+      "pack": true,
+      "races": [
+        "kobold"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": false,
+      "cooldownYears": 2,
+      "weight": 7,
+      "require": {
+        "free": true,
+        "job": "kobold_overseer"
+      },
+      "variants": [
+        "Nguồn cung cấp nấm mốc và rễ cây từ mặt đất bị cắt đứt do bão tuyết. Hàng trăm thợ mỏ Kobold gầy gò đang gõ nhịp bát không, gầm gừ đòi tăng khẩu phần ăn.",
+        "Mẻ thịt chuột chũi phơi khô vừa bị hỏng một nửa do ẩm thấp. Đám đông thợ đào đang tụ tập trước trạm quản lý, ánh mắt đói khát lườm bạn chằm chằm.",
+        "Tiến độ đào bới quá căng thẳng khiến thể lực thợ mỏ kiệt quệ. Họ bao vây kho lương thực, yêu cầu người giám sát phải mở kho phát thêm khẩu phần ngay lập tức."
+      ],
+      "choices": [
+        {
+          "label": "Đứng ra thuyết phục và chia đều phần ăn ít ỏi",
+          "check": {
+            "stat": "INT",
+            "target": 5
+          },
+          "success": {
+            "text": "Bằng lý lẽ đanh thép và sự công bằng tuyệt đối, bạn tự giảm cả phần ăn của mình để chia đều cho mọi người. Đám đông nguôi giận và nể phục sự hy sinh của vị quản đốc.",
+            "effects": {
+              "joy": 5,
+              "fame": 2,
+              "jobXp": 0.5
+            }
+          },
+          "fail": {
+            "text": "Lời nói của bạn bị chìm trong tiếng la ó. Một cuộc ẩu đả nhỏ nổ ra, bạn bị ném đá trúng đầu và phải bỏ chạy, để mặc chúng cướp phá một góc kho lương.",
+            "effects": {
+              "health": -10,
+              "fame": -2
+            }
+          }
+        },
+        {
+          "label": "Phát nhiều thức ăn cho kẻ khỏe, bỏ mặc kẻ yếu",
+          "text": "Bạn quẳng thức ăn cho những tên to xác nhất để chúng giữ trật tự hộ bạn. Những tiếng khóc thút thít của đám thợ già yếu làm lương tâm bạn nặng nề đôi chút.",
+          "effects": {
+            "joy": -4,
+            "fame": -1
+          }
+        }
+      ],
+      "text": "Nguồn cung cấp nấm mốc và rễ cây từ mặt đất bị cắt đứt do bão tuyết. Hàng trăm thợ mỏ Kobold gầy gò đang gõ nhịp bát không, gầm gừ đòi tăng khẩu phần ăn.",
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_kobold_an_bot_vat_tu",
+      "pack": true,
+      "races": [
+        "kobold"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 9,
+      "require": {
+        "free": true,
+        "job": "kobold_overseer",
+        "jobRank": 3
+      },
+      "text": "Một thương nhân Dwarf bụng phệ mỉm cười xảo trá, dúi vào tay bạn một túi Huyết Kim. Lão yêu cầu bạn rút bớt một nửa số dầm gỗ chống vách hầm để lão mang đi bán chợ đen, bất chấp nguy cơ sập mỏ bủa vây đồng loại của bạn.",
+      "choices": [
+        {
+          "label": "Từ chối thẳng thừng, bảo vệ an toàn hầm lò",
+          "check": {
+            "stat": "STR",
+            "target": 7
+          },
+          "success": {
+            "text": "Bạn hất văng túi tiền, gầm lên và đuổi cổ gã thương nhân khỏi mỏ. Không thu được đồng nào, nhưng sự chính trực của bạn cứu hàng trăm mạng sống, mang lại danh tiếng lẫy lừng trong giới Kobold.",
+            "effects": {
+              "fame": 4,
+              "joy": 8,
+              "jobXp": 2
+            }
+          },
+          "fail": {
+            "text": "Gã Dwarf giận dữ gọi vệ sĩ vào đánh bạn nhừ tử vì tội 'cản trở làm ăn'. Bạn gãy mấy chiếc xương sườn, nhưng ít nhất lương tâm vẫn thanh thản vì không thỏa hiệp.",
+            "effects": {
+              "health": -15,
+              "joy": 2
+            }
+          }
+        },
+        {
+          "label": "Nhắm mắt nhận hối lộ, rút bớt dầm gỗ",
+          "check": {
+            "stat": "LUCK",
+            "target": 6
+          },
+          "success": {
+            "text": "May mắn thay, vách đá vẫn trụ vững hết mùa khai thác. Bạn đút túi một món tiền lớn, nhưng mỗi đêm đều giật mình thon thót vì sợ hầm sập.",
+            "effects": {
+              "wealth": 15,
+              "joy": -5
+            }
+          },
+          "fail": {
+            "text": "Ngay hôm sau, một vụ sập hầm kinh hoàng đã chôn vùi hàng chục thợ mỏ. Tiền hối lộ bị tịch thu, bạn mang danh kẻ sát nhân máu lạnh và bị đuổi khỏi vị trí.",
+            "effects": {
+              "health": -10,
+              "fame": -5,
+              "joy": -10,
+              "wealth": -10
+            }
+          },
+          "require": {
+            "wealth": 10
+          },
+          "showLocked": true
+        }
+      ],
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_kobold_kho_luong_bi_mat",
+      "pack": true,
+      "races": [
+        "kobold"
+      ],
+      "stages": [
+        "adult",
+        "middle"
+      ],
+      "once": true,
+      "weight": 8,
+      "require": {
+        "free": true,
+        "job": "kobold_overseer"
+      },
+      "text": "Trong lúc khảo sát một hầm ngách bỏ hoang, bạn tình cờ phát hiện một kho dự trữ Rượu Nấm Phát Sáng và Thịt Sấy Thượng Hạng từ thời xa xưa, vẫn còn nguyên vẹn. Bên ngoài, những thợ mỏ đang suy kiệt vì thiếu ăn.",
+      "choices": [
+        {
+          "label": "Mang toàn bộ ra chia sẻ cho công nhân",
+          "check": {
+            "stat": "INT",
+            "target": 6
+          },
+          "success": {
+            "text": "Sự phân phối thông minh của bạn tạo ra một bữa tiệc bất ngờ dưới lòng đất. Dù không tư lợi một cắc, niềm hân hoan của đồng loại thắp sáng tâm hồn bạn, uy tín quản đốc tăng vọt.",
+            "effects": {
+              "fame": 3,
+              "joy": 8,
+              "jobXp": 1
+            }
+          },
+          "fail": {
+            "text": "Sự xuất hiện của thức ăn ngon làm đám đông mất kiểm soát. Bọn họ giẫm đạp lên nhau để giành giật, xô ngã bạn tơi bời. Bữa tiệc trở thành một cuộc hỗn chiến đáng buồn.",
+            "effects": {
+              "health": -12,
+              "joy": -5
+            }
+          }
+        },
+        {
+          "label": "Lén lút giữ lại làm của riêng",
+          "check": {
+            "stat": "AGI",
+            "target": 5
+          },
+          "success": {
+            "text": "Bạn bí mật chuyển số hàng này ra chợ đen tiêu thụ, thu về một khoản kha khá. Bữa ăn của thợ mỏ vẫn kham khổ, còn bạn béo mầm trong sự ích kỷ.",
+            "effects": {
+              "wealth": 12,
+              "joy": -4
+            }
+          },
+          "fail": {
+            "text": "Một nhóm thợ mỏ bám theo và bắt quả tang bạn đang ôm thùng rượu tẩu tán. Sự phẫn nộ của kẻ đói giáng xuống đầu bạn, danh tiếng của bạn tụt dốc không phanh.",
+            "effects": {
+              "health": -15,
+              "fame": -4,
+              "joy": -8
+            }
+          }
+        }
+      ],
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_kobold_chuoi_1_mach_pha_le",
+      "pack": true,
+      "races": [
+        "kobold"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 10,
+      "require": {
+        "free": true,
+        "job": "kobold_overseer",
+        "notFlags": [
+          "gm_kob_crystal_sealed",
+          "gm_kob_crystal_mined",
+          "gm_kob_chain_done"
+        ]
+      },
+      "text": "Tiếng cuốc chim vang lên chát chúa, làm lộ ra một Mạch Pha Lê Đen khổng lồ nhưng tỏa ra thứ áp suất ma thuật bất ổn. Nếu tiếp tục đào, khối lượng tài sản thu được sẽ vô tiền khoáng hậu, nhưng nguy cơ sập toàn bộ tầng mỏ là cực cao.",
+      "choices": [
+        {
+          "label": "Đóng cửa khu mỏ, niêm phong mạch khoáng",
+          "check": {
+            "stat": "INT",
+            "target": 7
+          },
+          "success": {
+            "text": "Bằng sự kiên quyết, bạn chỉ huy đội thi công dùng chì và đá tảng lấp kín khu vực bất ổn, cứu hầm mỏ khỏi một thảm họa nhãn tiền, dù tài sản khổng lồ bị chôn vùi.",
+            "effects": {
+              "jobXp": 1,
+              "flags": [
+                "gm_kob_crystal_sealed"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Đám thợ mỏ bị lòng tham làm mờ mắt đã phớt lờ lệnh của bạn, lén lút đào trộm. Mạch ma thuật phản ứng nổ tung, bạn trọng thương còn mạch khoáng bị khai thác trong hỗn loạn.",
+            "effects": {
+              "health": -15,
+              "joy": -5,
+              "flags": [
+                "gm_kob_crystal_mined",
+                "gm_kobold_cuu_nan_chuoc_loi_needed"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Thúc ép nhân công khai thác bằng mọi giá",
+          "check": {
+            "stat": "STR",
+            "target": 6
+          },
+          "success": {
+            "text": "Sức ép bạo lực của bạn buộc công nhân đào bới với tốc độ kinh hoàng. Mạch pha lê bị bóc tách, nhưng cấu trúc địa chất đã bị phá hủy hoàn toàn, chờ ngày sụp đổ.",
+            "effects": {
+              "STR": 1,
+              "wealth": 10,
+              "flags": [
+                "gm_kob_crystal_mined",
+                "gm_kobold_cuu_nan_chuoc_loi_needed"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Sự thô bạo gây ra một vụ sạt lở đá, đè nát một nhóm công nhân. Bạn lết ra khỏi đống đổ nát cùng vài mảnh pha lê, khu mỏ rơi vào trạng thái cực kỳ tồi tệ.",
+            "effects": {
+              "health": -18,
+              "joy": -5,
+              "flags": [
+                "gm_kob_crystal_mined",
+                "gm_kobold_cuu_nan_chuoc_loi_needed"
+              ]
+            }
+          }
+        }
+      ],
+      "focus": [
+        "work"
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_kobold_chuoi_2_thanh_tra",
+      "pack": true,
+      "races": [
+        "kobold"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 11,
+      "require": {
+        "free": true,
+        "job": "kobold_overseer",
+        "anyFlags": [
+          "gm_kob_crystal_sealed",
+          "gm_kob_crystal_mined"
+        ]
+      },
+      "text": "Lãnh chúa rồng cử một Đại diện Thanh tra xuống Khu Mỏ Pha Lê Đen để kiểm tra biến động sản lượng. Vận mệnh của bạn giờ đây phụ thuộc vào cách bạn giải trình sự việc vừa qua.",
+      "choices": [
+        {
+          "label": "Báo cáo lý do an toàn",
+          "require": {
+            "flags": [
+              "gm_kob_crystal_sealed"
+            ]
+          },
+          "check": {
+            "stat": "INT",
+            "target": 7
+          },
+          "success": {
+            "text": "Bạn trình bày chi tiết bản vẽ cấu trúc và chỉ ra nguy cơ sụp đổ. Thanh tra gật đầu công nhận tầm nhìn xa của bạn, ban thưởng danh dự vì đã bảo vệ tài sản lâu dài.",
+            "effects": {
+              "fame": 3,
+              "jobXp": 2,
+              "unflags": [
+                "gm_kob_crystal_sealed"
+              ],
+              "flags": [
+                "gm_kob_crystal_honored"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Lời giải thích ấp úng khiến Thanh tra cho rằng bạn lười biếng và hèn nhát. Hắn phạt bạn bằng roi vọt vì tội làm đình trệ sản lượng khoáng sản của Lãnh chúa.",
+            "effects": {
+              "health": -10,
+              "fame": -2,
+              "unflags": [
+                "gm_kob_crystal_sealed"
+              ],
+              "flags": [
+                "gm_kob_crystal_suspected",
+                "gm_kobold_cuu_nan_chuoc_loi_needed"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Nộp pha lê để chạy tội",
+          "require": {
+            "flags": [
+              "gm_kob_crystal_mined"
+            ]
+          },
+          "check": {
+            "stat": "LUCK",
+            "target": 5
+          },
+          "success": {
+            "text": "Ánh sáng lấp lánh của rổ pha lê khổng lồ làm lóa mắt tên Thanh tra. Hắn nhắm mắt làm ngơ trước những tổn thất nhân mạng và cấu trúc ngầm, tha bổng cho bạn.",
+            "effects": {
+              "LUCK": 1,
+              "joy": 2,
+              "unflags": [
+                "gm_kob_crystal_mined"
+              ],
+              "flags": [
+                "gm_kob_crystal_forgiven"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Lòng tham của Lãnh chúa không đáy, số pha lê bạn nộp không đủ để bù đắp thiệt hại mỏ. Bạn bị tra tấn dã man và bị ghi vào sổ đen những quản đốc tệ hại nhất.",
+            "effects": {
+              "health": -20,
+              "fame": -3,
+              "unflags": [
+                "gm_kob_crystal_mined"
+              ],
+              "flags": [
+                "gm_kob_crystal_suspected",
+                "gm_kobold_cuu_nan_chuoc_loi_needed"
+              ]
+            }
+          }
+        }
+      ],
+      "arc": true,
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_kobold_chuoi_3_tham_hoa",
+      "pack": true,
+      "races": [
+        "kobold"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 12,
+      "require": {
+        "free": true,
+        "job": "kobold_overseer",
+        "anyFlags": [
+          "gm_kob_crystal_honored",
+          "gm_kob_crystal_forgiven",
+          "gm_kob_crystal_suspected"
+        ]
+      },
+      "text": "Dù giải trình thế nào, hậu quả của việc động chạm vào lõi pha lê đã bùng nổ. Một chấn động từ mạch sâu rung chuyển Dãy Núi Răng Cưa, xé toạc Khu Mỏ. Hàng ngàn công nhân đang kêu gào trong bóng tối khi dung nham bắt đầu tràn vào.",
+      "choices": [
+        {
+          "label": "Chỉ huy cuộc đại sơ tán qua đường hầm thoát hiểm",
+          "check": {
+            "stat": "AGI",
+            "target": 8
+          },
+          "success": {
+            "text": "Với trí nhớ siêu phàm về bản đồ mỏ, bạn thoăn thoắt điều hướng dòng người, chạy đua với dòng dung nham nóng chảy. Không một ai bị bỏ lại, tên tuổi bạn được khắc vào đá tảng trường tồn của tộc Kobold.",
+            "effects": {
+              "fame": 5,
+              "joy": 10,
+              "epochChange": {
+                "legacy": 1
+              },
+              "unflags": [
+                "gm_kob_crystal_honored",
+                "gm_kob_crystal_forgiven",
+                "gm_kob_crystal_suspected"
+              ],
+              "flags": [
+                "gm_kob_chain_done"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Sự sụp đổ diễn ra quá nhanh. Một tảng đá đè nát chân bạn, bạn đau đớn bất lực nhìn dung nham nuốt chửng khu mỏ. Sống sót nhưng thương tật vĩnh viễn và linh hồn vỡ nát.",
+            "effects": {
+              "health": -25,
+              "joy": -10,
+              "unflags": [
+                "gm_kob_crystal_honored",
+                "gm_kob_crystal_forgiven",
+                "gm_kob_crystal_suspected"
+              ],
+              "flags": [
+                "gm_kob_chain_done"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Bỏ mặc tất cả, lên xe cút kít tẩu thoát một mình",
+          "text": "Bạn nhảy lên xe goòng, gạt phăng những bàn tay níu kéo để phóng thẳng lên mặt đất. Bạn an toàn rời khỏi địa ngục, nhưng tiếng kêu cứu của đồng loại sẽ ám ảnh bạn đến lúc chết.",
+          "effects": {
+            "joy": 2,
+            "fame": -5,
+            "unflags": [
+              "gm_kob_crystal_honored",
+              "gm_kob_crystal_forgiven",
+              "gm_kob_crystal_suspected"
+            ],
+            "flags": [
+              "gm_kob_chain_done"
+            ]
+          }
+        }
+      ],
+      "arc": true,
+      "focus": [
+        "work"
+      ]
+    },
+    {
+      "id": "gm_kobold_cuu_nan_chuoc_loi",
+      "pack": true,
+      "races": [
+        "kobold"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 11,
+      "require": {
+        "free": true,
+        "job": "kobold_overseer",
+        "jobRank": 1,
+        "flags": [
+          "gm_kobold_cuu_nan_chuoc_loi_needed"
+        ]
+      },
+      "text": "Bạn từng bị tước đi sự tôn trọng vì những quyết định sai lầm trong quá khứ. Giờ đây, một vách hầm bỏ hoang chứa đầy khí độc vừa sập xuống, nhốt kín một nhóm trẻ em Kobold. Không ai dám xuống đó, ngoại trừ bạn - người quản đốc mang đầy tội lỗi.",
+      "choices": [
+        {
+          "label": "Tình nguyện dẫn đầu đội cảm tử cứu viện",
+          "check": {
+            "stat": "STR",
+            "target": 9
+          },
+          "success": {
+            "text": "Quên đi nỗi sợ, bạn tay không bới tung đống đá tảng trong môi trường thiếu dưỡng khí. Lũ trẻ được đưa ra an toàn, những giọt nước mắt cảm kích của bộ tộc đã rửa sạch mọi ô nhục trong cuộc đời bạn.",
+            "effects": {
+              "fame": 5,
+              "joy": 10,
+              "jobXp": 2,
+              "STR": 1,
+              "unflags": [
+                "gm_kobold_cuu_nan_chuoc_loi_needed"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Khí độc tàn phá buồng phổi, đá tảng cứa nát da thịt. Bạn cứu được vài sinh mạng nhưng bản thân gục ngã thê thảm. Dù cái giá phải trả bằng máu và sức khỏe, danh dự của bạn đã được công nhận trở lại.",
+            "effects": {
+              "health": -20,
+              "fame": 2,
+              "jobXp": 1,
+              "unflags": [
+                "gm_kobold_cuu_nan_chuoc_loi_needed"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Rụt rè lùi lại, để mặc số phận định đoạt",
+          "text": "Nhìn miệng hầm tối tăm, sự hèn nhát một lần nữa chiến thắng. Bạn quay lưng bước đi, để lại tiếng khóc tuyệt vọng của lũ trẻ dưới đáy mỏ sâu thẳm. Bạn mãi mãi là kẻ bỏ đi trong mắt bộ tộc.",
+          "effects": {
+            "joy": -8,
+            "fame": -5,
+            "unflags": [
+              "gm_kobold_cuu_nan_chuoc_loi_needed"
+            ]
+          }
+        }
+      ],
+      "focus": [
+        "work"
+      ]
+    }
+  ]
+}

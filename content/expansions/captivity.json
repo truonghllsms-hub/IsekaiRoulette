@@ -1,0 +1,1263 @@
+{
+  "origins": [],
+  "events": [
+    {
+      "id": "gm_human_prison_arc_1",
+      "pack": true,
+      "races": [
+        "human"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": true,
+      "weight": 8,
+      "require": {
+        "captiveKinds": [
+          "prison"
+        ],
+        "notFlags": [
+          "gm_human_prison_done",
+          "gm_human_prison_fail"
+        ]
+      },
+      "npcs": [
+        {
+          "name": "Kord",
+          "race": "Dwarf",
+          "position": "Bạn tù"
+        }
+      ],
+      "text": "Trong hầm ngục tối tăm của Sanctus, bạn phát hiện một vách đá lỏng lẻo. Lão lùn Kord ở xà lim bên cạnh ra hiệu im lặng và đề nghị hợp tác đào một lối nhỏ thông sang đường ống nước.",
+      "choices": [
+        {
+          "label": "Hợp tác đào tường cống",
+          "check": {
+            "stat": "STR",
+            "target": 5
+          },
+          "success": {
+            "text": "Hai người luân phiên khoét rỗng lớp vữa mục. Một lối nhỏ hẹp dẫn sang đường ống ngầm dần thành hình.",
+            "effects": {
+              "flags": [
+                "gm_human_prison_start"
+              ],
+              "joy": 3
+            }
+          },
+          "fail": {
+            "text": "Tiếng động thu hút lính canh đi tuần. Bạn bị lôi ra đánh đập tàn nhẫn và phải dừng việc đào bới.",
+            "effects": {
+              "health": -15,
+              "joy": -5,
+              "flags": [
+                "gm_human_prison_fail"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Từ chối và phớt lờ",
+          "text": "Bạn quay lưng lại, phó mặc lão lùn tự xoay xở. Lão lầm bầm chửi rủa nhưng không làm phiền bạn nữa.",
+          "effects": {
+            "joy": -2,
+            "flags": [
+              "gm_human_prison_fail"
+            ]
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_human_prison_arc_2",
+      "pack": true,
+      "races": [
+        "human"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 8,
+      "require": {
+        "captiveKinds": [
+          "prison"
+        ],
+        "flags": [
+          "gm_human_prison_start"
+        ],
+        "notFlags": [
+          "gm_human_prison_plan",
+          "gm_human_prison_done",
+          "gm_human_prison_fail"
+        ]
+      },
+      "text": "Lối thoát ra đường ống đã mở, nhưng Kord cho biết cần chìa khóa để mở cổng xả. Tên cai ngục say xỉn đang ngủ gật gần song sắt phòng giam.",
+      "choices": [
+        {
+          "label": "Thò tay trộm chùm chìa khóa",
+          "check": {
+            "stat": "AGI",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn cẩn thận gỡ chùm chìa khóa khỏi thắt lưng hắn mà không tạo ra tiếng động. Cơ hội thoát thân đã đến.",
+            "effects": {
+              "flags": [
+                "gm_human_prison_plan"
+              ],
+              "unflags": [
+                "gm_human_prison_start"
+              ],
+              "joy": 5
+            }
+          },
+          "fail": {
+            "text": "Chùm chìa khóa va vào nhau loảng xoảng. Hắn giật mình tỉnh giấc, giáng một cú gậy sắt nảy lửa vào đầu bạn.",
+            "effects": {
+              "health": -20,
+              "joy": -5,
+              "unflags": [
+                "gm_human_prison_start"
+              ],
+              "flags": [
+                "gm_human_prison_fail"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Đợi thời cơ an toàn hơn",
+          "text": "Rủi ro quá lớn, bạn quyết định chờ đợi. Không may, hắn tỉnh dậy và mang theo hy vọng của bạn sang khu vực khác.",
+          "effects": {
+            "joy": -3,
+            "unflags": [
+              "gm_human_prison_start"
+            ],
+            "flags": [
+              "gm_human_prison_fail"
+            ]
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_human_prison_arc_3",
+      "pack": true,
+      "races": [
+        "human"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 8,
+      "require": {
+        "captiveKinds": [
+          "prison"
+        ],
+        "flags": [
+          "gm_human_prison_plan"
+        ],
+        "notFlags": [
+          "gm_human_prison_done",
+          "gm_human_prison_fail"
+        ]
+      },
+      "text": "Cổng xả đã mở, mùi hôi thối xộc vào mũi. Bạn và Kord lao vào cống ngầm, nhưng tiếng còi báo động chói tai bỗng vang lên từ phía sau.",
+      "choices": [
+        {
+          "label": "Chạy nước rút cắt đuôi chó săn",
+          "check": {
+            "stat": "AGI",
+            "target": 7
+          },
+          "success": {
+            "text": "Vượt qua làn nước bẩn, bạn trèo lên miệng cống và đẩy tung nắp sắt. Ánh sáng tự do chói lòa trước mắt, bỏ lại nhà ngục phía sau.",
+            "effects": {
+              "setFree": true,
+              "joy": 10,
+              "health": -5,
+              "unflags": [
+                "gm_human_prison_plan",
+                "gm_human_prison_start"
+              ],
+              "flags": [
+                "gm_human_prison_done"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Chó săn đuổi kịp và cắn xé bắp chân bạn rách nát đến tận xương. Đám lính canh tóm gọn cả hai, ném trở lại hầm giam chờ ngày hành quyết.",
+            "effects": {
+              "health": -45,
+              "joy": -10,
+              "unflags": [
+                "gm_human_prison_plan",
+                "gm_human_prison_start"
+              ],
+              "flags": [
+                "gm_human_prison_fail",
+                "gm_human_prison_done"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Nấp dưới làn nước cống",
+          "check": {
+            "stat": "LUCK",
+            "target": 6
+          },
+          "success": {
+            "text": "Bầy chó mất dấu trong mùi xú uế kinh tởm. Bạn âm thầm trườn ra ngoài khi mọi thứ yên tĩnh trở lại, chính thức trốn thoát.",
+            "effects": {
+              "setFree": true,
+              "joy": 8,
+              "unflags": [
+                "gm_human_prison_plan",
+                "gm_human_prison_start"
+              ],
+              "flags": [
+                "gm_human_prison_done"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Một tên lính nhạy bén chọc giáo mù quáng xuống nước đục, đâm xuyên qua vai bạn. Máu tuôn ra lôi kéo bầy chó tới cắn xé tàn bạo.",
+            "effects": {
+              "health": -40,
+              "joy": -10,
+              "unflags": [
+                "gm_human_prison_plan",
+                "gm_human_prison_start"
+              ],
+              "flags": [
+                "gm_human_prison_fail",
+                "gm_human_prison_done"
+              ]
+            }
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_dwarf_slave_arc_1",
+      "pack": true,
+      "races": [
+        "dwarf"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": true,
+      "weight": 8,
+      "require": {
+        "captiveKinds": [
+          "slave"
+        ],
+        "notFlags": [
+          "gm_dwarf_slave_done",
+          "gm_dwarf_slave_fail"
+        ]
+      },
+      "npcs": [
+        {
+          "name": "Zik",
+          "race": "Kobold",
+          "position": "Nô lệ hầm mỏ"
+        }
+      ],
+      "text": "Trong Khu Mỏ Pha Lê Đen, bạn vô tình tìm thấy một đường hầm sụp lở. Tên kobold gầy gò Zik lén lút chỉ cho bạn mạch quặng nứt nẻ ở cuối đường.",
+      "choices": [
+        {
+          "label": "Khảo sát vách đá lở",
+          "check": {
+            "stat": "INT",
+            "target": 5
+          },
+          "success": {
+            "text": "Bạn nhận ra vách đá này thông thẳng ra sườn núi bên ngoài. Chỉ cần đủ lượng thuốc nổ, một lối thoát sẽ mở ra.",
+            "effects": {
+              "flags": [
+                "gm_dwarf_slave_start"
+              ],
+              "INT": 1,
+              "joy": 3
+            }
+          },
+          "fail": {
+            "text": "Đất đá lở rớt xuống trúng đầu bạn. Chưa kịp xem xét kỹ, bọn cai ngục đã quất roi bắt bạn quay lại làm việc.",
+            "effects": {
+              "health": -15,
+              "flags": [
+                "gm_dwarf_slave_fail"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Bỏ qua hầm cũ",
+          "text": "Phá núi bằng tay không là hành động tự sát. Bạn quay lại khu khai thác chính, để mặc Zik thất vọng.",
+          "effects": {
+            "joy": -2,
+            "flags": [
+              "gm_dwarf_slave_fail"
+            ]
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_dwarf_slave_arc_2",
+      "pack": true,
+      "races": [
+        "dwarf"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 8,
+      "require": {
+        "captiveKinds": [
+          "slave"
+        ],
+        "flags": [
+          "gm_dwarf_slave_start"
+        ],
+        "notFlags": [
+          "gm_dwarf_slave_plan",
+          "gm_dwarf_slave_done",
+          "gm_dwarf_slave_fail"
+        ]
+      },
+      "text": "Để phá vách đá, bạn cần thuốc nổ. Đám lính canh vừa mang vào một thùng bột đen để khai phá hầm mới, tạo ra một cơ hội ngắn ngủi.",
+      "choices": [
+        {
+          "label": "Ra tay lúc lính đổi gác",
+          "check": {
+            "stat": "AGI",
+            "target": 5
+          },
+          "success": {
+            "text": "Bạn múc trộm được đầy hai túi bột đen, cẩn thận giấu kỹ dưới lớp áo giẻ rách quanh người.",
+            "effects": {
+              "flags": [
+                "gm_dwarf_slave_plan"
+              ],
+              "unflags": [
+                "gm_dwarf_slave_start"
+              ],
+              "joy": 3
+            }
+          },
+          "fail": {
+            "text": "Một tia sáng phản chiếu làm lộ bóng bạn. Lính canh nện cán búa vào lưng bạn, tước sạch mọi thứ.",
+            "effects": {
+              "health": -20,
+              "joy": -5,
+              "unflags": [
+                "gm_dwarf_slave_start"
+              ],
+              "flags": [
+                "gm_dwarf_slave_fail"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Đổi khẩu phần lấy thuốc",
+          "check": {
+            "stat": "LUCK",
+            "target": 5
+          },
+          "success": {
+            "text": "Một tay thợ mỏ tham lam đồng ý đổi chỗ bột đen giấu kỹ lấy bánh mì của bạn. Đủ lượng cần thiết cho vụ nổ.",
+            "effects": {
+              "flags": [
+                "gm_dwarf_slave_plan"
+              ],
+              "unflags": [
+                "gm_dwarf_slave_start"
+              ],
+              "health": -5
+            }
+          },
+          "fail": {
+            "text": "Gã tù nhân giật lấy bánh mì rồi la hét báo lính canh để lập công. Bạn bị phạt đòn tàn nhẫn.",
+            "effects": {
+              "health": -30,
+              "joy": -8,
+              "unflags": [
+                "gm_dwarf_slave_start"
+              ],
+              "flags": [
+                "gm_dwarf_slave_fail"
+              ]
+            }
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_dwarf_slave_arc_3",
+      "pack": true,
+      "races": [
+        "dwarf"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 8,
+      "require": {
+        "captiveKinds": [
+          "slave"
+        ],
+        "flags": [
+          "gm_dwarf_slave_plan"
+        ],
+        "notFlags": [
+          "gm_dwarf_slave_done",
+          "gm_dwarf_slave_fail"
+        ]
+      },
+      "text": "Zik đã chôn thuốc nổ vào mạch nứt. Khi mồi lửa được châm, một tiếng nổ rung chuyển khu mỏ, vách đá sụp đổ hé lộ ánh hoàng hôn.",
+      "choices": [
+        {
+          "label": "Lao qua lớp đá đang rơi",
+          "check": {
+            "stat": "STR",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn gạt phăng những tảng đá vụn, cõng Zik lao ra khỏi đám bụi mù. Cả hai hít căng lồng ngực không khí tự do ngoài sườn núi.",
+            "effects": {
+              "setFree": true,
+              "joy": 10,
+              "STR": 1,
+              "unflags": [
+                "gm_dwarf_slave_plan",
+                "gm_dwarf_slave_start"
+              ],
+              "flags": [
+                "gm_dwarf_slave_done"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Một hòn đá tảng rơi trúng chân bạn, đè nát xương. Bọn lính ập tới bắt bạn lại, đánh đập dã man khiến bạn thoi thóp bên bờ vực tử thần.",
+            "effects": {
+              "health": -45,
+              "joy": -10,
+              "unflags": [
+                "gm_dwarf_slave_plan",
+                "gm_dwarf_slave_start"
+              ],
+              "flags": [
+                "gm_dwarf_slave_fail",
+                "gm_dwarf_slave_done"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Đợi khói bụi tan bớt mới chạy",
+          "text": "Chút do dự khiến bạn lỡ nhịp. Đám lính dập tắt bụi mù bằng ma pháp và phong tỏa lỗ hổng, dập tắt hy vọng trốn thoát.",
+          "effects": {
+            "health": -10,
+            "joy": -8,
+            "unflags": [
+              "gm_dwarf_slave_plan",
+              "gm_dwarf_slave_start"
+            ],
+            "flags": [
+              "gm_dwarf_slave_fail",
+              "gm_dwarf_slave_done"
+            ]
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_beastman_arena_arc_1",
+      "pack": true,
+      "races": [
+        "beastman"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": true,
+      "weight": 8,
+      "require": {
+        "captiveKinds": [
+          "arena"
+        ],
+        "notFlags": [
+          "gm_bm_arena_done",
+          "gm_bm_arena_fail"
+        ]
+      },
+      "npcs": [
+        {
+          "name": "Gash",
+          "race": "Orc",
+          "position": "Đấu sĩ"
+        }
+      ],
+      "text": "Trong căn hầm dưới Đấu Trường Khổng Lồ, Gash, một đấu sĩ Orc xăm trổ đầy mình, tiết lộ rằng chốt cửa chuồng dã thú đang bị lỏng lẻo.",
+      "choices": [
+        {
+          "label": "Phá chốt hờ tạo lối thoát",
+          "check": {
+            "stat": "STR",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn bẻ cong then sắt bằng sức mạnh cơ bắp, đủ để có thể tung cửa từ bên trong khi cần. Gash gật gù tán thưởng.",
+            "effects": {
+              "flags": [
+                "gm_bm_arena_start"
+              ],
+              "joy": 3
+            }
+          },
+          "fail": {
+            "text": "Lực quá mạnh làm chốt gãy đôi vang lên tiếng động lớn. Quản ngục lao tới quất roi sắt vào bạn, dập tắt âm mưu.",
+            "effects": {
+              "health": -20,
+              "joy": -3,
+              "flags": [
+                "gm_bm_arena_fail"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Từ chối mạo hiểm",
+          "text": "Chống lại đấu trường là cầm chắc cái chết. Bạn lùi về góc hầm, tập trung mài dũa vũ khí rỉ sét chờ ngày mai.",
+          "effects": {
+            "joy": -2,
+            "flags": [
+              "gm_bm_arena_fail"
+            ]
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_beastman_arena_arc_2",
+      "pack": true,
+      "races": [
+        "beastman"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 8,
+      "require": {
+        "captiveKinds": [
+          "arena"
+        ],
+        "flags": [
+          "gm_bm_arena_start"
+        ],
+        "notFlags": [
+          "gm_bm_arena_plan",
+          "gm_bm_arena_done",
+          "gm_bm_arena_fail"
+        ]
+      },
+      "text": "Cổng đấu trường mở ra, bạn và Gash bị đẩy vào bãi cát đẫm máu. Lũ dã thú lao tới, đây là lúc kích động chúng tấn công khán đài để tạo hỗn loạn.",
+      "choices": [
+        {
+          "label": "Khiêu khích dã thú",
+          "check": {
+            "stat": "AGI",
+            "target": 6
+          },
+          "success": {
+            "text": "Những cú lướt điệu nghệ của bạn khiến đàn quái vật đâm sầm vào hàng rào ma pháp. Lưới chắn rạn nứt, khán giả la hét hoảng loạn bỏ chạy.",
+            "effects": {
+              "flags": [
+                "gm_bm_arena_plan"
+              ],
+              "unflags": [
+                "gm_bm_arena_start"
+              ],
+              "joy": 5
+            }
+          },
+          "fail": {
+            "text": "Quái vật nhanh hơn dự tính, xé rách bắp đùi bạn trước khi kịp nhử chúng. Bạn ngã gục, mất đi cơ hội bỏ trốn.",
+            "effects": {
+              "health": -30,
+              "joy": -5,
+              "unflags": [
+                "gm_bm_arena_start"
+              ],
+              "flags": [
+                "gm_bm_arena_fail"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Giết thú, ném xác phá trận pháp",
+          "check": {
+            "stat": "STR",
+            "target": 5
+          },
+          "success": {
+            "text": "Hai người hạ gục con quái lớn nhất, hất xác nó vào hàng rào. Sự cố làm hỏng trận pháp, mở ra khoảnh khắc hỗn loạn quý giá.",
+            "effects": {
+              "flags": [
+                "gm_bm_arena_plan"
+              ],
+              "unflags": [
+                "gm_bm_arena_start"
+              ],
+              "fame": 2
+            }
+          },
+          "fail": {
+            "text": "Con quái vật quá mạnh, quật ngã cả hai. Bạn phải giả chết để sống sót dưới cơn mưa giáo mác của lính canh.",
+            "effects": {
+              "health": -35,
+              "joy": -8,
+              "unflags": [
+                "gm_bm_arena_start"
+              ],
+              "flags": [
+                "gm_bm_arena_fail"
+              ]
+            }
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_beastman_arena_arc_3",
+      "pack": true,
+      "races": [
+        "beastman"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 8,
+      "require": {
+        "captiveKinds": [
+          "arena"
+        ],
+        "flags": [
+          "gm_bm_arena_plan"
+        ],
+        "notFlags": [
+          "gm_bm_arena_done",
+          "gm_bm_arena_fail"
+        ]
+      },
+      "text": "Khán đài sụp đổ, lính canh hoảng loạn. Gash phá nát cổng ngoài, hàng chục đấu sĩ ùa ra đường phố. Lính bắn tỉa trên tháp cao đang nhắm thẳng vào bạn.",
+      "choices": [
+        {
+          "label": "Chạy lắt léo qua ngõ hẻm",
+          "check": {
+            "stat": "AGI",
+            "target": 7
+          },
+          "success": {
+            "text": "Mũi tên sượt qua vai, nhưng bạn đã kịp lao vào bóng tối của khu ổ chuột, cắt đuôi sự truy nã. Bầu trời tự do mở ra trước mắt.",
+            "effects": {
+              "setFree": true,
+              "joy": 10,
+              "health": -5,
+              "unflags": [
+                "gm_bm_arena_plan",
+                "gm_bm_arena_start"
+              ],
+              "flags": [
+                "gm_bm_arena_done"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Một mũi tên tẩm độc cắm phập vào ngực bạn. Bạn ngã gục, bị lôi xềnh xệch trở lại nhà giam trong tình trạng hấp hối.",
+            "effects": {
+              "health": -45,
+              "joy": -15,
+              "unflags": [
+                "gm_bm_arena_plan",
+                "gm_bm_arena_start"
+              ],
+              "flags": [
+                "gm_bm_arena_fail",
+                "gm_bm_arena_done"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Trốn vào cống ngầm",
+          "check": {
+            "stat": "INT",
+            "target": 6
+          },
+          "success": {
+            "text": "Trí nhớ tuyệt vời giúp bạn tìm thấy miệng cống thoát nước bẩn. Bạn trôi theo dòng nước ra thẳng ngoại ô, giành lại sinh mạng.",
+            "effects": {
+              "setFree": true,
+              "joy": 8,
+              "health": -10,
+              "unflags": [
+                "gm_bm_arena_plan",
+                "gm_bm_arena_start"
+              ],
+              "flags": [
+                "gm_bm_arena_done"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Nắp cống đã bị khóa chặt từ bao giờ. Đội kỵ binh bao vây, giẫm đạp bạn tơi tả trước khi trói lại bằng xích sấm sét.",
+            "effects": {
+              "health": -40,
+              "joy": -10,
+              "unflags": [
+                "gm_bm_arena_plan",
+                "gm_bm_arena_start"
+              ],
+              "flags": [
+                "gm_bm_arena_fail",
+                "gm_bm_arena_done"
+              ]
+            }
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_orc_ration_scuffle",
+      "pack": true,
+      "races": [
+        "orc"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": false,
+      "cooldownYears": 2,
+      "weight": 6,
+      "require": {
+        "captiveKinds": [
+          "prison"
+        ]
+      },
+      "variants": [
+        "Bát cháo loãng hôm nay chỉ toàn cát và cỏ thối. Tên Orc béo ục ịch lén hất phần của hắn sang và cướp mẩu bánh mì của bạn.",
+        "Lính gác cố tình ném phần thịt ôi thiu vào giữa phòng giam. Hàng chục ánh mắt đói khát cùng đổ dồn vào miếng mồi duy nhất.",
+        "Trong lúc nhận phần ăn, một tên bạn tù cố ý huých cùi chỏ làm đổ súp của bạn, cười cợt rồi định chiếm luôn phần nước uống."
+      ],
+      "choices": [
+        {
+          "label": "Dùng bạo lực giành lại thức ăn",
+          "check": {
+            "stat": "STR",
+            "target": 5
+          },
+          "success": {
+            "text": "Một cú đấm trời giáng khiến kẻ nọ gãy răng, ngoan ngoãn giao nộp khẩu phần. Chiếc dạ dày no nước giúp bạn giữ vững nhuệ khí.",
+            "effects": {
+              "joy": 5,
+              "health": -2
+            }
+          },
+          "fail": {
+            "text": "Gã to con hơn bạn nghĩ. Hắn đập đầu bạn vào song sắt, cướp sạch phần ăn khiến bạn lả đi vì đói khát.",
+            "effects": {
+              "health": -15,
+              "joy": -5
+            }
+          }
+        },
+        {
+          "label": "Nhẫn nhịn nuốt giận qua ngày",
+          "text": "Không đáng để đổ máu vì một miếng ăn bẩn. Bạn nhịn đói uống nước lã, cơ thể rã rời nhưng tránh được phiền phức.",
+          "effects": {
+            "health": -5,
+            "joy": -3
+          }
+        }
+      ],
+      "text": "Bát cháo loãng hôm nay chỉ toàn cát và cỏ thối. Tên Orc béo ục ịch lén hất phần của hắn sang và cướp mẩu bánh mì của bạn."
+    },
+    {
+      "id": "gm_human_guard_bribe",
+      "pack": true,
+      "races": [
+        "human"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": false,
+      "cooldownYears": 2,
+      "weight": 6,
+      "require": {
+        "captiveKinds": [
+          "slave"
+        ]
+      },
+      "variants": [
+        "Tên cai ngục trẻ tuổi đang ngáp ngắn ngáp dài. Hắn có vẻ lơ đễnh, để lộ chùm chìa khóa và túi nước sạch bên hông.",
+        "Lính gác khu mỏ tỏ ra bực bội vì tiền lương bị cắt giảm. Đây là cơ hội để đổi những vụn quặng lén giấu lấy chút đặc quyền.",
+        "Trời lạnh buốt, cai ngục co ro bên đống lửa. Một chút tài lẻ có thể giúp bạn đổi lấy chỗ đứng gần nguồn nhiệt."
+      ],
+      "choices": [
+        {
+          "label": "Nịnh bợ, giao kèo ngầm",
+          "check": {
+            "stat": "INT",
+            "target": 5
+          },
+          "success": {
+            "text": "Lời nói khéo léo gãi đúng chỗ ngứa của hắn. Bạn được phép nghỉ tay lâu hơn và có thêm chút nước uống sạch.",
+            "effects": {
+              "joy": 5,
+              "health": -2
+            }
+          },
+          "fail": {
+            "text": "Hắn cho rằng bạn đang cười nhạo mình. Một cú quất roi nứt da được giáng xuống để cảnh cáo thói xấc xược.",
+            "effects": {
+              "health": -15,
+              "joy": -5
+            }
+          }
+        },
+        {
+          "label": "Im lặng tiếp tục công việc",
+          "text": "Bạn cúi gằm mặt, cắn răng chịu đựng sự cực nhọc. Sự an toàn tẻ nhạt không mang lại gì ngoài nỗi mệt mỏi dai dẳng.",
+          "effects": {
+            "joy": -2,
+            "health": -5
+          }
+        }
+      ],
+      "text": "Tên cai ngục trẻ tuổi đang ngáp ngắn ngáp dài. Hắn có vẻ lơ đễnh, để lộ chùm chìa khóa và túi nước sạch bên hông."
+    },
+    {
+      "id": "gm_beastman_sleep_corner",
+      "pack": true,
+      "races": [
+        "beastman"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": false,
+      "cooldownYears": 2,
+      "weight": 6,
+      "require": {
+        "captiveKinds": [
+          "arena"
+        ]
+      },
+      "variants": [
+        "Góc chuồng có lớp rơm khô duy nhất đang bị một nhóm quái nhân nhắm tới. Chúng nhe nanh gầm gừ đe dọa bạn.",
+        "Đêm đông lạnh lẽo, chỗ ngủ gần cống thoát khí ấm là nơi lý tưởng nhất. Một gã nhân mã to xác định hất cẳng bạn khỏi đó.",
+        "Mưa dột nát mái hầm, chỉ còn một rẻo đất khô ráo. Vài tên tù binh khác bắt đầu vây quanh vị trí nghỉ ngơi của bạn."
+      ],
+      "choices": [
+        {
+          "label": "Gầm gừ thị uy bảo vệ lãnh thổ",
+          "check": {
+            "stat": "STR",
+            "target": 6
+          },
+          "success": {
+            "text": "Ánh mắt khát máu của bạn khiến chúng chùn bước. Đêm nay, bạn có được một giấc ngủ tử tế để hồi phục sinh lực.",
+            "effects": {
+              "joy": 5,
+              "health": -2
+            }
+          },
+          "fail": {
+            "text": "Chúng đông hơn và liều lĩnh hơn. Bạn bị đập nhừ tử, ném ra vũng bùn lạnh lẽo chịu trận cả đêm.",
+            "effects": {
+              "health": -20,
+              "joy": -8
+            }
+          }
+        },
+        {
+          "label": "Bỏ đi tìm góc khác",
+          "text": "Bạn cuộn tròn trong một góc ẩm ướt, run rẩy suốt đêm. Giấc ngủ chập chờn vắt kiệt phần lớn sức lực của bạn.",
+          "effects": {
+            "health": -10,
+            "joy": -4
+          }
+        }
+      ],
+      "text": "Góc chuồng có lớp rơm khô duy nhất đang bị một nhóm quái nhân nhắm tới. Chúng nhe nanh gầm gừ đe dọa bạn."
+    },
+    {
+      "id": "gm_dwarf_rest_wounds",
+      "pack": true,
+      "races": [
+        "dwarf"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": true,
+      "weight": 6,
+      "require": {
+        "captiveKinds": [
+          "slave"
+        ],
+        "focus": [
+          "rest"
+        ]
+      },
+      "text": "Ngày nghỉ hiếm hoi dưới khu mỏ. Bạn nằm rên rỉ trên lớp đá lạnh, vết roi sưng tấy sau lưng bắt đầu mưng mủ. Chỉ có một ít rêu ẩm nhặt được để đắp.",
+      "choices": [
+        {
+          "label": "Cắn răng nặn mủ và đắp rêu",
+          "check": {
+            "stat": "LUCK",
+            "target": 5
+          },
+          "success": {
+            "text": "Cơn đau xé ruột qua đi, rêu ẩm phát huy tác dụng làm mát. Vết thương dần khép miệng, giúp bạn vượt qua rủi ro nhiễm trùng.",
+            "effects": {
+              "joy": 4,
+              "health": 5
+            }
+          },
+          "fail": {
+            "text": "Loại rêu bạn hái vô tình mang độc tính nhẹ. Vết thương sưng tấy dữ dội, cơn sốt ập đến hành hạ thân xác còm cõi.",
+            "effects": {
+              "health": -20,
+              "joy": -5
+            }
+          }
+        },
+        {
+          "label": "Cố ngủ quên cơn đau",
+          "text": "Bạn thiếp đi trong cơn mê sảng. Sáng hôm sau, vết thương đau nhức cản trở mọi cử động, nhưng sinh mạng vẫn được giữ lại.",
+          "effects": {
+            "health": -15,
+            "joy": -3
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_human_rest_fever",
+      "pack": true,
+      "races": [
+        "human"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": true,
+      "weight": 6,
+      "require": {
+        "captiveKinds": [
+          "prison"
+        ],
+        "focus": [
+          "rest"
+        ]
+      },
+      "text": "Bệnh dịch lây lan trong ngục. Bạn được đưa vào bệnh xá tồi tàn, nằm chung với những thi thể chưa kịp dọn. Nhiệt độ cơ thể đang tăng cao bừng bừng.",
+      "choices": [
+        {
+          "label": "Pha chế thuốc từ cặn thảo dược thừa",
+          "check": {
+            "stat": "INT",
+            "target": 6
+          },
+          "success": {
+            "text": "Vắt kiệt trí nhớ, bạn tìm đúng loại rễ cây hạ sốt. Cơ thể toát mồ hôi hột, cơn nguy kịch dần lùi xa.",
+            "effects": {
+              "joy": 5,
+              "health": 5
+            }
+          },
+          "fail": {
+            "text": "Chén thuốc đắng ngắt vắt kiệt chút sinh lực cuối cùng. Bạn co giật liên hồi, suýt bước qua cửa tử thần.",
+            "effects": {
+              "health": -30,
+              "joy": -10
+            }
+          }
+        },
+        {
+          "label": "Phó mặc cho số phận",
+          "text": "Bạn nằm bẹp dí, phó thác sinh mạng cho thánh thần. Sau ba ngày sốt miên man, cơn bệnh qua đi để lại một thân thể rã rời.",
+          "effects": {
+            "health": -15,
+            "joy": -5
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_orc_rest_shackles",
+      "pack": true,
+      "races": [
+        "orc"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": true,
+      "weight": 6,
+      "require": {
+        "captiveKinds": [
+          "arena"
+        ],
+        "focus": [
+          "rest"
+        ]
+      },
+      "text": "Sau một ngày kiệt sức, bạn bị tống vào xà lim. Lớp cùm thép ma pháp siết chặt cổ tay, cắn sâu vào da thịt, rút cạn sức lực.",
+      "choices": [
+        {
+          "label": "Vặn khớp để nới lỏng xích",
+          "check": {
+            "stat": "AGI",
+            "target": 5
+          },
+          "success": {
+            "text": "Chịu đựng cơn đau thấu xương, bạn trật khớp ngón tay cái để kéo lỏng vòng cùm, khôi phục tuần hoàn máu và được nghỉ ngơi đôi chút.",
+            "effects": {
+              "joy": 4,
+              "health": 3
+            }
+          },
+          "fail": {
+            "text": "Xương cọ vào thép lạnh tạo ra tiếng thét đau đớn. Ma pháp trên cùm giật tia điện cháy khét lẹt cổ tay bạn.",
+            "effects": {
+              "health": -20,
+              "joy": -6
+            }
+          }
+        },
+        {
+          "label": "Ngồi bất động giữ sức",
+          "text": "Việc vùng vẫy chỉ làm tiêu hao năng lượng vô ích. Bạn thả lỏng tâm trí, nhắm mắt chịu đựng sự siết chặt của gông cùm thô ráp.",
+          "effects": {
+            "health": -10,
+            "joy": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_beastman_hide_medicine",
+      "pack": true,
+      "races": [
+        "beastman"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": true,
+      "weight": 6,
+      "require": {
+        "captiveKinds": [
+          "slave"
+        ]
+      },
+      "text": "Lính canh bất ngờ rà soát lán trại nô lệ. Bạn đang giữ một cuộn băng gạc và lọ thuốc mỡ trộm được, thứ có thể cứu sống bạn vào ngày mai.",
+      "choices": [
+        {
+          "label": "Nhét lọ thuốc xuống bãi phân thú bùn lầy",
+          "check": {
+            "stat": "INT",
+            "target": 5
+          },
+          "success": {
+            "text": "Mùi xú uế khiến bọn lính canh bịt mũi bỏ qua vũng bùn. Chút thuốc quý giá vẫn an toàn nằm đó chờ bạn sử dụng.",
+            "effects": {
+              "joy": 4,
+              "health": -2
+            }
+          },
+          "fail": {
+            "text": "Bạn lóng ngóng làm rơi chiếc lọ ngay dưới gót giày tên cai ngục. Hắn giẫm nát nó và nện cán giáo gãy mấy cái xương sườn của bạn.",
+            "effects": {
+              "health": -15,
+              "joy": -5
+            }
+          }
+        },
+        {
+          "label": "Ném lọ thuốc ra ngoài qua khe ván",
+          "text": "Bạn đành đánh mất món đồ quý giá. Bọn lính rời đi không phát hiện ra điều gì, nhưng nỗi nuối tiếc vẫn còn đó.",
+          "effects": {
+            "joy": -4
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_dwarf_tool_stash",
+      "pack": true,
+      "races": [
+        "dwarf"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": true,
+      "weight": 6,
+      "require": {
+        "captiveKinds": [
+          "prison"
+        ]
+      },
+      "text": "Trong lúc dọn dẹp sân ngục, bạn nhặt được một lưỡi dao cạo rỉ sét. Một công cụ nhỏ nhưng chết người nếu lọt vào tay bạn, hoặc cai ngục phát hiện ra.",
+      "choices": [
+        {
+          "label": "Giấu dưới lưỡi mang qua trạm kiểm tra",
+          "check": {
+            "stat": "AGI",
+            "target": 6
+          },
+          "success": {
+            "text": "Sự khéo léo giúp bạn vượt qua màn lục soát gắt gao. Lưỡi dao được giấu kỹ trong góc xà lim, trở thành công cụ đắc lực sau này.",
+            "effects": {
+              "joy": 5,
+              "health": -2
+            }
+          },
+          "fail": {
+            "text": "Quản ngục phát hiện ra sự bất thường. Hắn tát mạnh khiến lưỡi dao cứa rách khoang miệng bạn, máu chảy ròng ròng.",
+            "effects": {
+              "health": -20,
+              "joy": -5
+            }
+          }
+        },
+        {
+          "label": "Vùi xuống lớp cát, giả vờ không thấy",
+          "text": "Giữ một thứ nguy hiểm như vậy chỉ chuốc lấy tai họa. Bạn hất cát lấp đi, giữ sự an toàn cho bản thân ngày hôm nay.",
+          "effects": {
+            "joy": -2,
+            "health": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_orc_pit_fight",
+      "pack": true,
+      "races": [
+        "orc"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": true,
+      "weight": 6,
+      "require": {
+        "captiveKinds": [
+          "arena"
+        ]
+      },
+      "text": "Vài tên lính say xỉn lôi bạn khỏi cũi lúc nửa đêm, ném vào hố bùn cùng một con sói bị bỏ đói nhiều ngày chỉ để mua vui.",
+      "choices": [
+        {
+          "label": "Khóa cổ con sói bằng tay không",
+          "check": {
+            "stat": "STR",
+            "target": 6
+          },
+          "success": {
+            "text": "Cơ bắp căng phồng, bạn siết cổ con thú hung dữ cho tới khi nó nghẹt thở. Lũ lính ném vài đồng cắc tiền thưởng trong sự hưng phấn.",
+            "effects": {
+              "joy": 5,
+              "wealth": 3,
+              "health": -5
+            }
+          },
+          "fail": {
+            "text": "Sói hoang cắn ngập nanh vào cánh tay bạn. Bạn phải vất vả lắm mới xua được nó đi, toàn thân bê bết máu và bùn nhơ.",
+            "effects": {
+              "health": -25,
+              "joy": -8
+            }
+          }
+        },
+        {
+          "label": "Cuộn tròn chịu đòn",
+          "text": "Thấy bạn không đánh trả, trò vui nhanh chóng tẻ nhạt. Con sói cào rách lưng bạn vài đường trước khi bọn lính lôi nó ra.",
+          "effects": {
+            "health": -15,
+            "joy": -5
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -636,7 +636,8 @@
     if (era) pushLog(c, "era", era.text);
     pushLog(c, "intro", introLine(c));
     pushLog(c, "birth", fmt(origin.text, c, null, data));
-    if (CAPTIVE[origin.id]) c.captive = { kind: CAPTIVE[origin.id], since: 0 };
+    const captiveKind = origin.captiveKind || CAPTIVE[origin.id];
+    if (captiveKind) c.captive = { kind: captiveKind, since: 0 };
     c.items = [];
     heirloomAtBirth(c, data, rng);
     makeCast(c, data, rng);
@@ -1771,17 +1772,18 @@
       for (const m of c.party) if (m.band === c.band.id && (!m.alive || m.left) && t.includes(m.name)) return false;
       if (c.band.leaderGone && t.includes(c.band.leaderGone)) return false;
     }
-    // scenes that may come back (a sign, a trial) come back twice at most
-    if (e.once === false && c.used.filter((id) => id === e.id).length >= (/_evo_|_ascend|evolve/.test(e.id) ? 4 : 2)) return false;
+    // Calendar-paced scenes renew after their cooldown; unpaced legacy scenes keep a visit cap.
+    if (e.once === false && !e.cooldownYears && c.used.filter((id) => id === e.id).length >= (/_evo_|_ascend|evolve/.test(e.id) ? 4 : 2)) return false;
     // a child does not sit drinking in a tavern (a Dwarf child may at least be in one)
     const st = currentStage(c).id;
     if ((st === "infant" || st === "child") && (/uống rượu|nốc cạn|say khướt|say mèm|thanh lâu|kỹ viện|cụng ly/i.test(t) || (c.race.id !== "dwarf" && /quán rượu|tửu quán/i.test(t)))) return false;
     // "your party", "your band": only once there is one
     if (/(?<!\p{L})(tổ đội|băng săn|bầy săn|băng|đội) của bạn(?!\p{L})/iu.test(t) && !c.band && !aliveParty(c).length && !r.band && !r.bandLead && !r.party) return false;
-    if (c.captive && c.captive.temp && !/_arc_/.test(e.id) && !KEPT_THEME.test(t)) return false;
+    const captiveContext = c.captive && (r.captiveKinds || []).includes(c.captive.kind);
+    if (c.captive && c.captive.temp && !captiveContext && !/_arc_/.test(e.id) && !KEPT_THEME.test(t)) return false;
     // ...and the reverse: a free life does not wake up already in chains
     if (!c.captive && !/_arc_/.test(e.id) && /^(Bị giam|Bị xích|Bị cùm|Bị bắt cóc|Trong phòng giam|Trong ngục|Bị nhốt)|nới lỏng xiềng xích|xiềng xích trên (cổ|tay|chân) bạn/i.test(t) && !(r.flags || r.anyFlags)) return false;
-    if (c.captive && !/_arc_/.test(e.id)) {
+    if (c.captive && !captiveContext && !/_arc_/.test(e.id)) {
       if (r.job && !(r.captiveKinds || []).includes(c.captive.kind)) return false;
       // path chains (martial master on the mountain, the count's banquet, ruins, the ivory tower...)
       // are written for someone free to walk the world: a slave or prisoner cannot follow them

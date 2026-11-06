@@ -1,5 +1,7 @@
 # Prompt bổ sung kịch bản cho Gemini
 
+**Ưu tiên hiện tại:** [viết tiếp cho Human và Beastman](09-human-beastman.md). Không cần viết bù nghề cho các tộc khác. Các gói 1–8 bên dưới giữ làm tham khảo cho bản thảo đã gửi; xem [báo cáo tích hợp](../CONTENT_IMPORT.md).
+
 Mở một file bên dưới, sao chép **toàn bộ nội dung**, gửi Gemini. Mỗi prompt đã kèm bối cảnh, luật JSON và danh mục ID của bản hiện tại; không cần ghép thêm prompt chung. Gói nghề và An dưỡng nên chạy từng nghề/tộc một để tránh đầu ra quá dài hoặc văn bản bị rập khuôn. Khi Gemini trả JSON, giữ nguyên file và gửi lại để tích hợp.
 
 | Thứ tự | Prompt | Phạm vi mỗi lần chạy |

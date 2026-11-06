@@ -147,3 +147,14 @@ Bản thảo Gemini dùng wrapper `{ "origins": [], "events": [] }` để trao �
 **không** phải file tự nạp. Kiểm tra bằng
 `node tools/check-content-draft.js /đường/dẫn/ban-thao.json`, sau đó đọc và
 tích hợp vào nguồn chuẩn. Xem [bộ prompt](gemini-prompts/README.md).
+
+## Nguồn bổ sung đã duyệt
+
+`content/expansions/*.json` dùng wrapper `{ "origins": [], "events": [] }`;
+loader nạp sau pack tộc và từ chối ID trùng. Chỉ đưa bản đã đọc, chỉnh và kiểm tra
+vào thư mục này. Đây là nguồn biên tập, không phải tải bản thảo người chơi tự động.
+Xuất thân có `captiveKind` tùy chọn trong `prison`, `slave`, `arena`, `bound`;
+kết quả thoát ràng buộc dùng `setFree:true`.
+
+Sự kiện lặp có `cooldownYears` không còn chịu trần hai lần của cảnh lặp cũ.
+Khi dùng `variants`, mọi chuỗi phải phù hợp cùng tập lựa chọn và kết quả.

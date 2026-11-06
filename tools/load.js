@@ -8,6 +8,7 @@ const ROOT = path.join(__dirname, "..");
 const DATA_DIR = path.join(ROOT, "data");
 const PROFILE_DIR = path.join(ROOT, "content", "races");
 const PACK_DIR = path.join(DATA_DIR, "packs");
+const EXPANSION_DIR = path.join(ROOT, "content", "expansions");
 
 function readJson(file) {
   try {
@@ -120,6 +121,20 @@ function loadData() {
   data.focusRace = {};
   data.story = {};
   for (const f of jsonFiles(PACK_DIR)) mergePack(data, readJson(path.join(PACK_DIR, f)), f);
+  // Reviewed additions are appended after race packs, whose origins replace defaults.
+  // Reject duplicate IDs instead of silently replacing an already authored story.
+  const expansionIds = new Set([...data.origins, ...data.events].map(x => x.id));
+  for (const file of jsonFiles(EXPANSION_DIR)) {
+    const addition = readJson(path.join(EXPANSION_DIR, file));
+    for (const key of ["origins", "events"]) {
+      if (!Array.isArray(addition[key])) throw new Error(`expansions/${file}: ${key} phải là mảng`);
+      for (const item of addition[key]) {
+        if (expansionIds.has(item.id)) throw new Error(`expansions/${file}: trùng ID ${item.id}`);
+        expansionIds.add(item.id);
+        data[key].push(key === "events" ? {...item, pack: true, _file: "expansions/" + file} : item);
+      }
+    }
+  }
   // love for the races whose packs left it out (their "social" focus promises a mate): data/romance.json
   const romance = fs.existsSync(path.join(DATA_DIR, "romance.json")) ? readJson(path.join(DATA_DIR, "romance.json")) : {};
   for (const [race, r] of Object.entries(romance)) {

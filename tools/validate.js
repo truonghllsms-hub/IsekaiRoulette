@@ -263,6 +263,7 @@ function validate(data) {
 
   for (const o of data.origins) {
     const w = `origins.json [${o.id}]`;
+    if (o.captiveKind != null && !["prison", "slave", "arena", "bound"].includes(o.captiveKind)) err(w, "captiveKind không hợp lệ");
     checkRaces(w, o.races);
     checkText(w, o.text);
     checkEffects(w, o.effects);
