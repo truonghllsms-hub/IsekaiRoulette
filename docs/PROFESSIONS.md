@@ -22,10 +22,10 @@ vẫn dùng nó, không tạo lượt rỗng. Đây là xác suất chọn ưu t
 ## Nội dung
 
 `content/careers.js` là nguồn biên tập xung đột và mốc nghề;
-`tools/professions.js` gắn chúng với ID nghề thật sau khi tải các pack. 98 nghề
-đang khả dụng có 196 biến cố công việc/hậu quả, 3 thương vụ và 196 nhiệm vụ nghề. Các nhóm
+`tools/professions.js` gắn chúng với ID nghề thật sau khi tải các pack. 99 nghề
+đang khả dụng có 198 biến cố công việc/hậu quả, 4 thương vụ và 198 nhiệm vụ nghề. Các nhóm
 chuyên môn có khung xung đột theo nghề; 14 nghề Human có lời dẫn hai mốc riêng biệt.
-34 nghề trường thọ có nội dung bản địa và đạo thống riêng, xem [Kỷ nguyên](CHRONOLOGY.md).
+35 nghề trường thọ có nội dung bản địa và đạo thống riêng, xem [Kỷ nguyên](CHRONOLOGY.md).
 Kiếm sĩ, đấu sĩ và lính đánh thuê có xung đột tương ứng về danh dự/chấn thương,
 đấu dàn xếp và trách nhiệm trong hợp đồng.
 
@@ -73,16 +73,14 @@ chung sau thăng bậc, hoãn hoặc kết thúc nhiệm vụ.
 
 ## Buôn bán và thăng tiến tư nhân
 
-Ba nghề Human merchant, Imp secretary và Kobold overseer có thêm thương vụ khi focus `work`: đầu tư 20
-tài sản, kiểm tra INT để thu về 60 (lãi ròng 40), hoặc mất 20 nếu thất bại.
-Yêu cầu vốn được hiển thị và khóa khi không đủ; lựa chọn môi giới nhận 5, còn
-bỏ qua không tốn tiền. Cả vốn lẫn doanh thu được quyết toán trong một kết quả,
-không cộng 60 rồi quên trừ 20. Tài sản là thanh 0–100 nên vẫn chịu giới hạn 100.
+Bốn nghề thương mại thật có thương vụ khi focus `work`: Human merchant,
+Dwarf Gem Merchant, Elf Thương nhân Đại Ngàn và Demon Blood Merchant. Đầu tư
+20 tài sản có thể tăng ròng 40 khi thành công hoặc mất 20 khi thất bại. Giá vốn
+được kiểm tra và khóa khi chưa đủ; phương án môi giới không ôm hàng.
 
-Khi làm việc trong tự do, vốn hiện có trên 30 sinh thêm `floor(wealth * 0.05)`
-mỗi năm quy đổi của engine, tính trên vốn trước thu nhập nhịp đó. Tiền lời dùng
-cùng thang thời gian và giới hạn gộp như thu nhập, tránh nhân hàng nghìn năm thực
-của Elf/Rồng vào tài sản. Không sinh lời khi an dưỡng hoặc bị giam.
+Vai trò thương mại được khai báo qua `finance`, độc lập với lời văn thăng tiến
+`progression`. Lợi tức vốn 2%, tỷ lệ giữ lại thu nhập và trần tài sản theo nghề,
+chủng tộc được mô tả trong [Tài sản và danh vọng](ECONOMY.md).
 
 `content/progression.js` là nguồn lời dẫn và kết quả thăng tiến của nhóm thương
 mại, nghề ngầm và thủ công: thương vụ/mở rộng cơ ngơi, phi vụ tự thực hiện, đơn

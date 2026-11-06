@@ -79,7 +79,7 @@ module.exports = {
   decline: { label: "Kìm nén lại, chờ dịp khác", text: "Bạn ép cơn nóng rực dưới lớp vảy lắng xuống. Cơ hội này sẽ quay lại." },
 
   evos: [
-    { key: "elite", name: "Kobold Elite", match: ["elite", "vảy sừng"], life: 8, minAge: 6, require: { STR: 10, AGI: 8 } },
+    { key: "elite", name: "Kobold Elite", match: ["elite", "vảy sừng"], life: 8, minAge: 3, require: { STR: 10, AGI: 8 } },
     { key: "dragon", name: "Dragonblood Kobold", match: ["dragonblood", "huyết mạch rồng"], life: 15, minAge: 8, require: { INT: 10, anyFlags: ["dragon_blessed", "blood_sword", "dragon_scale"] } },
   ],
 

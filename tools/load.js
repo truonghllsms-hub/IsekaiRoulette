@@ -113,6 +113,7 @@ function loadData() {
     systems: one("systems"),
     items: one("items"),
     chronology: one("chronology"),
+    economy: one("economy"),
     events,
   };
   for (const f of jsonFiles(PROFILE_DIR)) mergeProfile(data, readJson(path.join(PROFILE_DIR, f)), f);
@@ -141,8 +142,10 @@ function loadData() {
   const { jobLook } = require("./looks");
   for (const j of data.jobs) j.look = jobLook(j);
   for (const race of data.races) if (data.chronology[race.id]) race.pacing = data.chronology[race.id];
+  require("./economy").installEconomy(data);
   require("./professions").installProfessions(data);
   require("../content/epoch-events").install(data);
+  require("./economy").annotateRewards(data);
   return data;
 }
 

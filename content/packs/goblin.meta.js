@@ -104,7 +104,7 @@ module.exports = {
 
   // Evolution branches, in the order the script lists them.
   evos: [
-    { key: "hob", name: "Hobgoblin", life: 6, minAge: 4, require: { any: [{ STR: 6, health: 40 }, { flags: ["hobgoblin_blood"], STR: 4 }, { job: "goblin_warrior", jobRank: 1 }] } },
+    { key: "hob", name: "Hobgoblin", life: 6, minAge: 3, require: { any: [{ STR: 6, health: 40 }, { flags: ["hobgoblin_blood"], STR: 4 }, { job: "goblin_warrior", jobRank: 1 }] } },
     { key: "shaman", name: "Goblin Shaman Lord", life: 8, minAge: 6, require: { any: [{ INT: 7 }, { job: "goblin_shaman", jobRank: 1 }, { flags: ["dark_pact"] }] } },
     { key: "king", name: "Goblin King", life: 10, minAge: 8, require: { fame: 30, wealth: 50, guildRank: 4 } },
   ],

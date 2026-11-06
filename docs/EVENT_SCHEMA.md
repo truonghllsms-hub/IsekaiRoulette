@@ -120,3 +120,11 @@ Effect `epochChange` là object với các khóa `domain`, `insight`, `legacy`,
 `ruin`; giá trị là thay đổi trong khoảng −20..20. Các dấu ấn được lưu trong
 `c.epoch` và giới hạn 0–100. Xem `content/epoch-events.js` và
 [Nhịp kỷ nguyên](CHRONOLOGY.md) để biên tập nội dung tái diễn.
+
+## Loại thưởng tài sản
+
+Effect `wealthKind` có thể là `ordinary`, `commerce`, `windfall`, `refund`.
+Mặc định là thưởng thường. Thương vụ cần nghề đủ điều kiện mới nhận nguyên
+phần tăng; kho báu một lần và hoàn vốn có thể vượt trần tích lũy thường.
+Giá mua và phần trừ tài sản không bị nhân giảm. Xem [Kinh tế](ECONOMY.md)
+và `tools/economy.js` về cách đánh dấu dữ liệu có sẵn khi build.

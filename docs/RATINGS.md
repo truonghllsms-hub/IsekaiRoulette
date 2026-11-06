@@ -5,10 +5,21 @@ Các ngưỡng hiện tại: S ≥ 90, A ≥ 72, B ≥ 40; dưới 40 là C.
 tiến hóa, tổ chức và gia đình.
 
 - A cần thêm ít nhất một điều kiện: bậc nghề ≥ 2 (đếm từ 0), có hình thái
-  tiến hóa, hoàn thành ≥ 2 nhiệm vụ hoặc danh vọng ≥ 60.
-- S cần thêm danh vọng ≥ 80, có hình thái tiến hóa hoặc hoàn thành ≥ 4 nhiệm vụ.
+  tiến hóa, hoàn thành ≥ 2 nhiệm vụ, danh vọng ≥ 60 hoặc cống hiến kỷ nguyên ≥ 6.
+- S cần thêm danh vọng ≥ 80, có hình thái tiến hóa, hoàn thành ≥ 4 nhiệm vụ
+  hoặc cống hiến kỷ nguyên ≥ 12.
 - Theo công thức được áp dụng, mọi hình thái tiến hóa đều được tính;
   chưa có phân biệt riêng giữa tiến hóa thường và hình thái tối thượng.
+
+## Cống hiến Đạo Thống
+
+Với Dragon, High Demon và Vampire, cống hiến là `domain + insight + legacy`.
+Tàn phá (`ruin`) không tính. Cống hiến cộng `min(10, tổng / 2)` điểm vào công
+thức. Cần cộng vào điểm lẫn mở điều kiện: nếu chỉ mở điều kiện S mà không thêm
+điểm, một cổ tộc danh vọng 65–70, không tiến hóa vẫn khó chạm mốc 90.
+
+Các tộc khác giữ công thức cũ. Cống hiến không bỏ qua ngưỡng điểm và không tự
+đảm bảo S; tuổi thọ thực, hạnh phúc và những thành tựu khác vẫn có trọng lượng.
 
 ## Mẫu kiểm tra cân bằng
 

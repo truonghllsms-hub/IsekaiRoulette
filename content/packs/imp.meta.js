@@ -89,7 +89,7 @@ module.exports = {
   decline: { label: "Kìm nén lại, chờ dịp khác", text: "Bạn nghiến răng ép luồng lửa trong người lắng xuống. Thân Imp nhỏ bé vẫn còn nguyên. Cơ hội này sẽ quay lại." },
 
   evos: [
-    { key: "demon", name: "Greater Demon", match: ["ác ma", "greater"], life: 10, minAge: 8, require: { any: [{ STR: 8, health: 40 }, { anyFlags: ["lava_skin", "abyssal_champion"] }] } },
+    { key: "demon", name: "Greater Demon", match: ["ác ma", "greater"], life: 10, minAge: 3, require: { any: [{ STR: 8, health: 40 }, { anyFlags: ["lava_skin", "abyssal_champion"] }] } },
     { key: "free", name: "Free Imp", match: ["tự do", "free"], life: 5, minAge: 6, require: { INT: 8, AGI: 8, anyFlags: ["familiar_pet", "merchant_scum"] } },
   ],
 

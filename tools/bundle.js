@@ -38,6 +38,7 @@ ${safeJs(read("ui.js"))}
 fs.mkdirSync(path.join(ROOT, "dist"), { recursive: true });
 fs.writeFileSync(path.join(ROOT, "dist", "game.html"), out, "utf8");
 const atlas = JSON.parse(read("img/atlas.json"));
+if (!fs.existsSync(path.join(ROOT, "img/ui/home-chronicle.png"))) throw new Error("Thiếu nền cổ thư màn hình chính");
 if (!fs.existsSync(path.join(ROOT, "img/maps/aethelgard-01.png"))) throw new Error("Thiếu bản đồ Aethelgard");
 const assets = new Set(Object.entries(atlas).map(([person, frames]) => frames._src || `img/${person}.png`));
 for (const asset of assets) if (!fs.existsSync(path.join(ROOT, asset))) throw new Error(`Thiếu ảnh chân dung: ${asset}`);

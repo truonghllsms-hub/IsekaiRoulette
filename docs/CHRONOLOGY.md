@@ -17,8 +17,8 @@ lời dẫn Elf bị gắn cứng “nửa ngàn năm sau” đã đổi sang c�
 
 ## Đạo thống và di sản
 
-`content/long-lives.js` cung cấp nội dung riêng cho 34 nghề thuộc sáu tộc trên:
-23 nhánh di sản nhân hình và 11 đạo thống cổ tộc. Các nhánh này không dùng
+`content/long-lives.js` cung cấp nội dung riêng cho 35 nghề thuộc sáu tộc trên:
+24 nhánh di sản nhân hình và 11 đạo thống cổ tộc. Các nhánh này không dùng
 `commerce`/`craft` hoặc thương vụ gia vị của người phàm. Rune Dwarf, bí thuật
 Ma tộc và mạch sống Yggdrasil có công trình, xung đột và thăng tiến riêng.
 Cổ tộc không nhận thu nhập tiền công từ nghề hoặc focus làm việc; tài nguyên
@@ -61,3 +61,11 @@ hôn nhân cũ. Nếu thiếu toàn bộ thông tin tộc, dùng tộc nhân v�
 đoán từ tên. Người đã quá hạn sống được ghi nhận một lần, không hồi sinh khi tải.
 
 Kiểm tra: `node tools/test-long-lives.js` và `npm test`.
+
+## Cống hiến và xếp hạng
+
+Chỉ Dragon/High Demon/Vampire cộng `domain + insight + legacy` thành cống hiến
+kỷ nguyên; `ruin` không cộng. Tổng này đem lại tối đa 10 điểm xếp hạng
+(`min(10, tổng / 2)`), mở điều kiện chiến tích A từ 6, S từ 12. Vẫn phải đạt
+ngưỡng tổng điểm 72/90; không có cơ chế tự phong S chỉ vì sống lâu. Xem
+[Xếp hạng](RATINGS.md).

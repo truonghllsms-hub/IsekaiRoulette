@@ -3,6 +3,8 @@
 Ảnh được chọn: phương án 1, Biên niên cổ đồ trên nền giấy da.
 Tệp: `img/maps/aethelgard-01.png`, 1536 × 1024, được xuất từ ảnh đã chọn.
 
+Màn hình chính dùng [phong cách Biên niên cổ thư](HOMEPAGE.md).
+
 Bản đồ chỉ hiển thị ở màn hình chính lúc mới vào game. Bấm ảnh bản đồ để
 mở chế độ xem chi tiết; không có nút bản đồ trên các màn đầu thai, cuộc đời
 hay tổng kết. Có thể phóng

@@ -1,7 +1,8 @@
 # Cân bằng sinh tồn
 
 Không còn hồi +3 máu tự động khi qua năm. Focus An dưỡng là nguồn hồi chủ động;
-nghèo (tài sản ≤ 5) hoặc bị giam giới hạn lượng hồi còn 1 mỗi lượt.
+nghèo ở xã hội dùng tiền (tài sản ≤ 5) hoặc bị giam giới hạn lượng hồi còn 1 mỗi lượt.
+Ma vật hoang dã/tự cấp không bị xem là đói chỉ vì không có tiền người phàm.
 Nếu không an dưỡng, đói nghèo/giam cầm gây hao mòn theo thời gian chuẩn hóa.
 Các nguồn chữa trị từ sự kiện vẫn hoạt động.
 
@@ -53,3 +54,15 @@ Trước thay đổi này, cùng công cụ/seed cho mẫu 200 đời mỗi tộ
 Dragon trưởng thành ở 2.000, High Demon ở 5.000: cột trước trưởng thành bao gồm
 thời thiếu niên dài, không đồng nghĩa chết sơ sinh. Đây là mô phỏng một seed và
 chiến thuật, không phải thống kê người chơi hay tỉ lệ được đảm bảo.
+
+## Cơ hội tiến hóa trong đời ngắn
+
+Ở tuổi 3–6, Goblin/Kobold/Imp chưa có hình thái tiến hóa được xét một nhóm
+biến cố tiến hóa khả dụng với xác suất 35% mỗi nhịp tự do, trước lời mời nghề
+thường. Không thay thế biến cố đang chờ, tai nạn hoặc mốc chuyển giai đoạn.
+Dấu hiệu đầu tiên của Hobgoblin/Kobold Elite/Greater Demon mở từ tuổi 3
+(trước là 4/6/8). Các nhánh hiếm khác giữ tuổi mở cũ.
+
+Điều kiện chỉ số, dấu ấn, lựa chọn và khả năng thất bại vẫn giữ nguyên.
+Không tự cấp tiến hóa, không tự kéo dài tuổi thọ, không thay tuổi trưởng thành
+hay thêm hôn nhân ở tuổi 1–2.

@@ -2,7 +2,7 @@
 // Run: node tools/validate.js   (exit code 1 when anything is wrong)
 const STATS = ["STR", "INT", "AGI", "LUCK"];
 const BARS = ["health", "joy", "wealth"];
-const EFFECT_KEYS = new Set([...STATS, ...BARS, "flags", "unflags", "fame", "lifeCost", "epochChange", "jobXp", "guildPts", "bond", "partyBond", "allyHurt", "allyDie", "allyLeave", "loseJob", "setJob", "joinGuild", "focus", "recruit", "marry", "child", "loseChild", "demote", "orgRank", "orgRankName", "evolve", "era", "jobRankSet", "jobPromote", "orgRankUp", "loseSpouse", "parentDie", "castDie", "castJoin", "castLeave", "castBond", "joinBand", "leaveBand", "bandGone", "bandLead", "minionAdd", "minionLose", "minionRevolt", "minionLoyal", "memberBond", "memberDie", "memberLeave", "memberJoin", "foundBand", "item"]);
+const EFFECT_KEYS = new Set([...STATS, ...BARS, "flags", "unflags", "fame", "lifeCost", "wealthKind", "epochChange", "jobXp", "guildPts", "bond", "partyBond", "allyHurt", "allyDie", "allyLeave", "loseJob", "setJob", "joinGuild", "focus", "recruit", "marry", "child", "loseChild", "demote", "orgRank", "orgRankName", "evolve", "era", "jobRankSet", "jobPromote", "orgRankUp", "loseSpouse", "parentDie", "castDie", "castJoin", "castLeave", "castBond", "joinBand", "leaveBand", "bandGone", "bandLead", "minionAdd", "minionLose", "minionRevolt", "minionLoyal", "memberBond", "memberDie", "memberLeave", "memberJoin", "foundBand", "item"]);
 const BOOL_EFFECTS = new Set(["allyHurt", "allyDie", "allyLeave", "loseJob", "joinGuild", "recruit", "marry", "child", "loseChild", "demote", "jobPromote", "loseSpouse"]);
 const STR_EFFECTS = new Set(["item", "setJob", "focus", "orgRankName", "evolve", "era", "parentDie"]);
 const REQ_KEYS = new Set(["parentGone", "parentDead", "free", "captiveKinds", ...STATS, ...BARS, "fame", "below", "flags", "anyFlags", "notFlags", "flagHint", "gender", "job", "jobRank", "jobRankMax", "guild", "guildRank", "guildRankMax", "party", "noParty", "allyTrait", "spouse", "children", "noChildren", "focus", "hint", "any", "fatherAlive", "motherAlive", "makerAlive", "form", "subtype", "notSubtypes", "cast", "castAlive", "noBand", "band", "bandMember", "minionOk", "minions", "bandLead", "partyMax", "origin"]);
@@ -70,6 +70,7 @@ function validate(data) {
       else if (STR_EFFECTS.has(k)) { if (typeof eff[k] !== "string" && !(k === "parentDie" && Array.isArray(eff[k]))) err(where, `${k} phải là chuỗi`); }
       else if (STORY_EFFECTS.has(k)) { /* free-form story values: true, ids, lists, objects */ }
       else if (["orgRank", "jobRankSet", "orgRankUp"].includes(k)) { if (typeof eff[k] !== "number") err(where, `${k} phải là số`); }
+      else if (k === "wealthKind") { if (!["ordinary","commerce","windfall","refund"].includes(eff[k])) err(where,"wealthKind không hợp lệ"); }
       else if (k === "epochChange") { if (!eff[k] || typeof eff[k] !== "object" || Object.entries(eff[k]).some(([key,v])=>!["domain","ruin","insight","legacy"].includes(key)||!Number.isFinite(v)||Math.abs(v)>20)) err(where,"epochChange cần chỉ số kỷ nguyên hợp lệ"); }
       else if (k === "lifeCost" && (typeof eff[k] !== "number" || !Number.isFinite(eff[k]) || eff[k] < 0 || eff[k] > 100)) err(where, "lifeCost phải là số trong khoảng 0..100");
       else if (typeof eff[k] !== "number" || Math.abs(eff[k]) > 100) err(where, `${k} phải là số trong khoảng -100..100`);
@@ -178,6 +179,13 @@ function validate(data) {
 
   const focusIds = new Set((data.focus || []).map((f) => f.id));
   const jobIds = new Set((data.jobs || []).map((j) => j.id));
+  if (data.economy) {
+    const p=data.economy;
+    if (!(p.ordinaryRewardScale>0&&p.ordinaryRewardScale<=1&&p.capitalRate>=0&&p.capitalRate<=0.1&&p.capitalMinimum>=0&&p.capitalMinimum<=100&&Number.isInteger(p.seniorRank)&&p.seniorRank>=0)) err("economy","tham số kinh tế không hợp lệ");
+    for(const id of p.commercialJobs||[]) if(!jobIds.has(id))err("economy",`nghề thương mại không tồn tại: ${id}`);
+    for(const [id,range] of Object.entries(p.originStarting||{})) if(!data.origins.some(o=>o.id===id)||!Array.isArray(range)||range.length!==2||!range.every(Number.isFinite)||range[0]<0||range[1]<range[0]||range[1]>100)err("economy",`xuất thân/tài sản không hợp lệ: ${id}`);
+    for(const r of data.races){const e=p.races?.[r.id];if(!e||!["currency","wild","barter","mythic"].includes(e.mode)||!Array.isArray(e.start)||e.start.length!==2||!e.start.every(Number.isFinite)||e.start[0]<0||e.start[1]<e.start[0]||e.start[1]>100||!(e.incomeCap>=0&&e.incomeCap<=100))err("economy",`phân tầng tài sản không hợp lệ: ${r.id}`);}
+  }
   for (const e of data.events) {
     const w = `events/${e._file} [${e.id}]`;
     for (const f of e.focus || []) if (!focusIds.has(f)) err(w, `focus không tồn tại "${f}"`);

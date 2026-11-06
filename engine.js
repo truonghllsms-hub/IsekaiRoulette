@@ -444,16 +444,50 @@
   // ---------- money ----------
   const POOR_BIRTH = /nô lệ|ăn mày|ăn xin|mồ côi|cô nhi|ổ chuột|bị bỏ rơi|vứt bỏ|bỏ rơi|tù nhân|ngục|chuồng|xiềng|phế thải|bãi rác|lang thang|hầm ngục|đấu trường|tế phẩm|vật hiến tế|bị bắt/i;
   const RICH_BIRTH = /quý tộc|hoàng tộc|hoàng gia|vương tộc|thương nhân|thương hội|thương gia|giàu|lãnh chúa|công tước|bá tước|hầu tước|nam tước|dinh thự|lâu đài|gia tộc lớn|thế gia|trưởng tộc|tù trưởng|thủ lĩnh/i;
-  function familyWealth(origin, rng) {
-    const t = `${origin.name || ""} ${origin.text || ""}`;
-    const own = (origin.effects && origin.effects.wealth) || 0;
-    if (POOR_BIRTH.test(t) && !RICH_BIRTH.test(origin.name || "")) return 0;
-    if (/sa sút|sa cơ|phá sản|nghèo|túng quẫn|lụn bại/i.test(t)) return own > 0 ? 10 : 5;
-    if (RICH_BIRTH.test(t) || own >= 30) return randInt(rng, 40, 60);
-    return 10;
+  function economyOf(c, data) {
+    return data?.economy?.races?.[c.race.id] || c.race.economy || {mode:"currency",start:[15,25],incomeCap:40};
   }
-  // a child has no purse of its own: coins only start to add up in the teens
+  // Wealth is a 0–100 position in the economy, not a literal count of coins.
   const ownsMoney = (c) => !["infant", "child"].includes(currentStage(c).id);
+  function usesCurrency(c, data) { return economyOf(c,data).mode === "currency"; }
+  function capitalEligible(c, data) {
+    const j = jobDef(c,data);
+    return !!j && ownsMoney(c) && !c.captive && c.race.pacing?.mode !== "epoch" &&
+      (j.finance === "commerce" || (c.job.rank >= (data.economy?.seniorRank ?? 3) && !["elf","demon"].includes(c.race.id)));
+  }
+  function naturalWealthCap(c, data) {
+    const j=jobDef(c,data),p=economyOf(c,data);
+    if (j?.finance === "commerce") return 100;
+    if (capitalEligible(c,data)) return c.job.rank>=4 ? 90 : 75;
+    return Math.min(p.incomeCap, c.job ? 25+c.job.rank*5 : 25);
+  }
+  function wealthGain(c, amount, kind, data) {
+    if (amount <= 0) { c.bars.wealth=clamp(c.bars.wealth+amount,0,100);return; }
+    if (!ownsMoney(c)) return;
+    let cap=100,delta=amount;
+    if (!["windfall","refund"].includes(kind) && !(kind==="commerce" && capitalEligible(c,data))) {
+      delta=Math.max(1,Math.round(amount*(data.economy?.ordinaryRewardScale ?? 0.25)));
+      cap=capitalEligible(c,data)?100:economyOf(c,data).incomeCap;
+    }
+    c.bars.wealth += Math.min(delta,Math.max(0,cap-c.bars.wealth));
+  }
+  function familyWealth(origin, race, rng, data) {
+    const title=origin.name || "", text=`${title} ${origin.text || ""}`;
+    if (CAPTIVE[origin.id]) return 0;
+    if (POOR_BIRTH.test(title)) return randInt(rng,0,5);
+    if (data.economy?.originStarting?.[origin.id]) return randInt(rng,...data.economy.originStarting[origin.id]);
+    if (POOR_BIRTH.test(text) && !RICH_BIRTH.test(title)) return randInt(rng,0,5);
+    if (/sa sút|sa cơ|phá sản|nghèo|túng quẫn|lụn bại/i.test(text)) return randInt(rng,0,5);
+    if (RICH_BIRTH.test(title) || (origin.effects?.wealth||0)>=30) return randInt(rng,40,60);
+    const p=data.economy?.races?.[race.id] || race.economy;
+    return randInt(rng,...(p?.start || [15,25]));
+  }
+  function wealthTier(c, data) {
+    const value=Math.round(c.bars.wealth);
+    return value<=10 ? (economyOf(c,data).mode==="wild"?"Hoang dã":"Cơ hàn") : value<=35?"Bình dân":value<=60?"Khá giả":value<=85?"Phú hào":"Cự phú đại lục";
+  }
+  const fameLabel = c => ["dragon","high_demon","demon","imp","vampire"].includes(c.race.id)?"Uy danh":"Danh vọng";
+  const fameTier = c => c.fame<=10?"Vô danh":c.fame<=35?"Được biết đến":c.fame<=60?"Có tiếng tăm":c.fame<=85?"Lừng danh":"Uy danh đại lục";
 
   function createCharacter(data, rng, raceId) {
     rng = rng || Math.random;
@@ -491,7 +525,7 @@
       age: 0,
       maxAge: race.lifespan ? randInt(rng, race.lifespan[0], race.lifespan[1]) : null,
       stats,
-      bars: { health: clamp(randInt(rng, 75, 95) + ((subtype && subtype.health) || 0), 1, 100), joy: 50, wealth: 20 },
+      bars: { health: clamp(randInt(rng, 75, 95) + ((subtype && subtype.health) || 0), 1, 100), joy: 50, wealth: 0 },
       fame: 0,
       flags: [],
       used: [],
@@ -526,7 +560,7 @@
     applyEffects(c, Object.assign({}, origin.effects, { wealth: 0 }), data, rng, "origin");
     // what the family owns, not the child: nothing in chains or on the street, a little for common folk,
     // a house's fortune for nobles and merchants
-    c.bars.wealth = familyWealth(origin, rng);
+    c.bars.wealth = familyWealth(origin, race, rng, data);
     c.parents = makeParents(c, data, rng);
     const org = orgFor(c, data);
     if (org && org.auto) c.guild = { org: org.id, rank: 0, pts: 0, since: 0 };
@@ -1091,7 +1125,7 @@
 
   function childhoodHardship(c) {
     const parents = Object.values(c.parents || {}).filter(p => p && p.alive);
-    return !!c.captive || c.bars.wealth <= 5 || !parents.length || (c.bars.wealth < 20 && POOR_BIRTH.test(c.origin.name + " " + c.origin.text));
+    return !!c.captive || (usesCurrency(c) && c.bars.wealth <= 5) || !parents.length || (c.bars.wealth < 20 && POOR_BIRTH.test(c.origin.name + " " + c.origin.text));
   }
   function chapterLine(c, data, rng, stageId) {
     const st = storyOf(c, data);
@@ -1152,7 +1186,7 @@
     if (c.form) tags.push("tiến hóa");
     if (c.fame > 70) tags.push("anh hùng");
     if (c.bars.wealth > 60) tags.push("giàu");
-    if (c.bars.wealth < 20) tags.push("nghèo", "đói");
+    if (usesCurrency(c, data) && c.bars.wealth < 20) tags.push("nghèo", "đói");
     if (c.age < stg("adult")) tags.push("chết trẻ", "trước khi kịp lớn");
     let end = null;
     for (const t of tags) if ((end = (st.bio.end || []).find((x) => x.cond.toLowerCase().includes(t)))) break;
@@ -1172,7 +1206,8 @@
     for (const k of STAT_KEYS) if (eff[k]) c.stats[k] = clamp(c.stats[k] + eff[k], 0, 99);
     for (const k of BAR_KEYS) if (eff[k] && !(k === "wealth" && eff[k] > 0 && !ownsMoney(c))) {
       const delta = k === "health" && eff[k] < 0 && source === "event" ? -eventDamage(c, -eff[k]) : eff[k];
-      c.bars[k] = clamp(c.bars[k] + delta, 0, 100);
+      if (k === "wealth") wealthGain(c,delta,eff.wealthKind,data);
+      else c.bars[k] = clamp(c.bars[k] + delta, 0, 100);
     }
     if (eff.epochChange) {
       c.epoch = c.epoch || {domain:0,ruin:0,insight:0,legacy:0,recent:[]};
@@ -2087,17 +2122,19 @@
     // poverty and captivity reduce its recovery without making it unavailable.
     if (bars.health > 0) {
       if (c.focus !== "rest") delete bars.health;
-      else if (c.bars.wealth <= 5 || c.captive) bars.health = Math.min(1, bars.health);
+      else if ((usesCurrency(c,data) && c.bars.wealth <= 5) || c.captive) bars.health = Math.min(1, bars.health);
     }
     const j = jobDef(c, data);
+    if (c.captive && bars.wealth > 0) delete bars.wealth;
     if (c.focus === "work" && c.race.pacing?.mode === "epoch") delete bars.wealth;
     if (c.focus === "work" && j) {
       for (const k of Object.keys(j.gains || {})) gains[k] = (gains[k] || 0) + j.gains[k];
       c.job.xp += per * (0.8 + statValue(c, j.stat) / 25);
-      if (j.progression === "commerce" && !c.captive && ownsMoney(c) && c.bars.wealth > 30) {
-        bars.wealth = (bars.wealth || 0) + Math.floor(c.bars.wealth * 0.05);
-      }
-      if (c.race.pacing?.mode !== "epoch") bars.wealth = (bars.wealth || 0) + j.income[c.job.rank];
+      if (c.race.pacing?.mode !== "epoch" && !c.captive) {
+        const savingsRate=j.finance === "commerce" ? 0.5 : 0.25;
+        bars.wealth = ((bars.wealth || 0) + j.income[c.job.rank]) * savingsRate;
+        if (capitalEligible(c,data) && c.bars.wealth > (data.economy?.capitalMinimum ?? 30)) bars.wealth += c.bars.wealth*(data.economy?.capitalRate ?? 0.02);
+      } else delete bars.wealth;
     }
     for (const k of Object.keys(gains)) {
       const cur = c.stats[k];
@@ -2111,11 +2148,14 @@
     }
     for (const k of Object.keys(bars)) {
       if (k === "wealth" && bars[k] > 0 && !ownsMoney(c)) continue; // a child earns nothing of its own
-      c.bars[k] = clamp(c.bars[k] + bars[k] * Math.min(per, 6), 0, 100);
+      if (k === "wealth" && bars[k] > 0) {
+        const cap=naturalWealthCap(c,data);
+        c.bars.wealth += Math.min(bars[k]*Math.min(per,6),Math.max(0,cap-c.bars.wealth));
+      } else c.bars[k] = clamp(c.bars[k] + bars[k] * Math.min(per, 6), 0, 100);
     }
     // Married life warms the heart; living costs money once grown.
     if (c.spouse) c.bars.joy = clamp(c.bars.joy + Math.min(per, 4), 0, 100);
-    if (["adult", "middle", "elder"].includes(currentStage(c).id) && c.focus !== "work") c.bars.wealth = clamp(c.bars.wealth - Math.min(per, 6), 0, 100);
+    if (["adult", "middle", "elder"].includes(currentStage(c).id) && c.focus !== "work" && usesCurrency(c,data)) c.bars.wealth = clamp(c.bars.wealth - Math.min(per, 6), 0, 100);
   }
 
   // ---------- death ----------
@@ -2803,6 +2843,7 @@
     rng = rng || Math.random;
     if (!c.alive || c.pending) return c;
     if(data.chronology?.[c.race.id])c.race={...c.race,pacing:data.chronology[c.race.id]};
+    if(data.economy?.races?.[c.race.id])c.race={...c.race,economy:data.economy.races[c.race.id]};
     c.clicks++;
     if (c.maxAge != null && c.age >= c.maxAge) { checkDeath(c, data, rng, 0); return c; }
     if (warnLowHealth(c)) return c;
@@ -2852,7 +2893,7 @@
 
       // Aging and malnutrition persist; quiet years do not erase injuries.
       if (c.maxAge != null && c.age > c.maxAge * 0.75) c.bars.health = clamp(c.bars.health - randInt(rng, 1, 4) * Math.min(years, 5), 0, 100);
-      if (c.focus !== "rest" && ((c.bars.wealth <= 5 && c.race.pacing?.mode!=="epoch") || c.captive)) c.bars.health = clamp(c.bars.health - Math.min(2, years / yearScale(c.race)), 0, 100);
+      if (c.focus !== "rest" && ((c.bars.wealth <= 5 && usesCurrency(c,data)) || c.captive)) c.bars.health = clamp(c.bars.health - Math.min(2, years / yearScale(c.race)), 0, 100);
       // sorrow wears the body down; years at the very bottom can end a life
       if (c.bars.joy < 20) c.bars.health = clamp(c.bars.health - Math.min(6, 2 * Math.max(1, years / yearScale(c.race))), 0, 100);
       c.joyLog = c.joyLog || { sum: 0, years: 0 };
@@ -2885,10 +2926,16 @@
         } else {
           // a story node whose time has come goes before anything random
           // short lives get a story beat more often, or the threads never meet
-          let node = careerScene(c, data, rng) ? null : null;
+          let node = null;
+          // A short natural life needs an opportunity before its few adult years run out.
+          if (!c.form && ["goblin","kobold","imp"].includes(c.race.id) && c.age>=3 && c.age<=6 && rng()<0.35) {
+            const pool=data.events.filter(e=>e.races?.includes(c.race.id)&&(/_evo_/.test(e.id))&&eligible(e,c,stageId,data));
+            if(pool.length) node=weightedPick(pool,rng,e=>e.weight||10);
+          }
+          if (!node) careerScene(c, data, rng);
           let workConsidered = false;
           // the omen has come: the change of form goes before the rest of the story
-          if (!c.pending && !c.form && c.flags.some((f) => /^evo_sign/.test(f)) && rng() < 0.7) {
+          if (!node && !c.pending && !c.form && c.flags.some((f) => /^evo_sign/.test(f)) && rng() < 0.7) {
             const asc = data.events.filter((e) => e.races && e.races.includes(c.race.id) && /"evolve"/.test(JSON.stringify(e.choices || e.effects || "")) && eligible(e, c, stageId, data));
             if (asc.length) node = weightedPick(asc, rng, (e) => e.weight || 10);
           }
@@ -3041,6 +3088,7 @@
     rng = rng || Math.random;
     if (!c.pending) return c;
     if(data.chronology?.[c.race.id])c.race={...c.race,pacing:data.chronology[c.race.id]};
+    if(data.economy?.races?.[c.race.id])c.race={...c.race,economy:data.economy.races[c.race.id]};
     const beforeFamily=(c.familyHistory||[]).length;
     familyTick(c,data,rng);
     const p = c.pending;
@@ -3113,6 +3161,10 @@
   }
 
   // a grade for the life: how long, how known, how happy, how far it went
+  function epochAchievement(c) {
+    if (!["dragon","high_demon","vampire"].includes(c.race.id)) return 0;
+    return ["domain","insight","legacy"].reduce((sum,k)=>sum+clamp(Number(c.epoch?.[k])||0,0,100),0);
+  }
   function lifeRating(c, data, joyAvg) {
     const j = jobDef(c, data);
     const share = c.maxAge ? Math.min(1, c.age / c.maxAge) : 1;
@@ -3121,9 +3173,11 @@
     if (j && c.job) score += (c.job.rank / Math.max(1, j.ranks.length - 1)) * 10;
     if (c.guild) score += Math.min(5, c.guild.rank);
     if (c.spouse || familyCount(c) || c.familyHistory?.some(p=>p.relation==="spouse")) score += 5;
+    const epochTotal = epochAchievement(c);
+    score += Math.min(10, epochTotal / 2);
     const young = ["infant", "child", "teen"].includes(currentStage(c).id);
-    const hasAchievement = (c.job && c.job.rank >= 2) || c.form || c.questsDone >= 2 || c.fame >= 60;
-    if (score >= 90 && (c.fame >= 80 || c.form || c.questsDone >= 4)) return { grade: "S", title: "Huyền Thoại Đại Lục" };
+    const hasAchievement = (c.job && c.job.rank >= 2) || c.form || c.questsDone >= 2 || c.fame >= 60 || epochTotal >= 6;
+    if (score >= 90 && (c.fame >= 80 || c.form || c.questsDone >= 4 || epochTotal >= 12)) return { grade: "S", title: "Huyền Thoại Đại Lục" };
     if (score >= 72 && hasAchievement) return { grade: "A", title: "Một Đời Oanh Liệt" };
     if (score >= 40) return { grade: "B", title: "Bình Yên Thanh Thản" };
     return { grade: "C", title: young ? "Chết Yểu" : "Một Kiếp Cơ Cực" };
@@ -3157,7 +3211,8 @@
     if ((c.familyHistory||[]).some(p=>p.relation==="spouse")) profile.push(`Bạn đời đã khuất: ${c.familyHistory.filter(p=>p.relation==="spouse").map(p=>p.name).join(", ")}`);
     if (familyCount(c)) profile.push(`Hậu duệ: ${familyCount(c)} · đang sống ${livingChildren(c).length}`);
     if (c.party.length) profile.push("Đồng đội: " + c.party.map((m) => m.name + (m.alive ? "" : m.left ? " (đã rời)" : " †")).join(", "));
-    if (c.fame) profile.push(`Danh vọng ${c.fame}`);
+    if (c.fame) profile.push(`${fameLabel(c)} ${c.fame}`);
+    if (epochAchievement(c)) profile.push(`Cống hiến kỷ nguyên: ${epochAchievement(c)}`);
     // the life card: three marks a stranger would remember
     const marks = [];
     if (c.form) marks.push(c.form);
@@ -3210,6 +3265,15 @@
     weaponOf,
     STAT_KEYS,
     BAR_KEYS,
+    STATUS_KEYS: [...BAR_KEYS,"fame"],
+    wealthTier,
+    fameLabel,
+    fameTier,
+    capitalEligible,
+    naturalWealthCap,
+    usesCurrency,
+    epochAchievement,
+    lifeRating,
     STAT_LABEL,
     makeRng,
     weightedPick,

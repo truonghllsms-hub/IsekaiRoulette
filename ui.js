@@ -6,8 +6,8 @@
   const $ = (id) => document.getElementById(id);
 
   const STAT_LABEL = { STR: "Sức mạnh", INT: "Trí tuệ", AGI: "Nhanh nhẹn", LUCK: "May mắn" };
-  const BAR_LABEL = { health: "Sức khỏe", joy: "Hạnh phúc", wealth: "Tài sản" };
-  const BAR_COLOR = { health: "var(--good)", joy: "var(--accent)", wealth: "var(--warn)" };
+  const BAR_LABEL = { health: "Sức khỏe", joy: "Hạnh phúc", wealth: "Tài sản", fame: "Danh vọng" };
+  const BAR_COLOR = { health: "#bf594d", joy: "#c3942f", wealth: "#4b8c60", fame: "#9862b5" };
 
   let c = null;
   const esc = (t) => String(t).replace(/[&<>"]/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
@@ -25,6 +25,7 @@
   };
 
   function show(id) {
+    document.body.dataset.screen = id || "";
     for (const s of document.querySelectorAll(".screen")) s.hidden = s.id !== id;
     if (id !== "screen-start") $("world-map-dialog")?.close();
     window.scrollTo(0, 0);
@@ -50,7 +51,7 @@
     }
     const lives = store.get();
     const box = $("past-lives");
-    box.innerHTML = "";
+    box.textContent = "Chưa có trang sử nào được ghi lại. Cuộc đời đầu tiên đang chờ bạn.";
     if (lives.length) {
       box.innerHTML = "<h2>Các kiếp trước</h2>";
       const ul = document.createElement("ul");
@@ -345,9 +346,12 @@
     $("hud-age").textContent = fmtAge(c.age);
     $("hud-stage").textContent = E.currentStage(c).name;
 
-    $("hud-bars").innerHTML = E.BAR_KEYS.map(
-      (k) => `<div class="bar${k === "health" && c.bars[k] <= 30 ? " bar-critical" : ""}"><span class="bar-label">${BAR_LABEL[k]}<b>${Math.round(c.bars[k])}</b></span><div class="track" role="progressbar" aria-label="${BAR_LABEL[k]}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(c.bars[k])}"><div class="fill" style="width:${c.bars[k]}%;background:${BAR_COLOR[k]}"></div></div></div>`
-    ).join("");
+    $("hud-bars").innerHTML = E.STATUS_KEYS.map(k => {
+      const value = Math.max(0,Math.min(100,Number(k === "fame" ? c.fame : c.bars[k]) || 0));
+      const label = k === "fame" ? E.fameLabel(c) : BAR_LABEL[k];
+      const tier = k === "wealth" ? E.wealthTier(c,D) : k === "fame" ? E.fameTier(c) : "";
+      return `<div class="bar${k === "health" && value <= 30 ? " bar-critical" : ""}" data-bar="${k}"><span class="bar-label">${label}<b>${Math.round(value)}</b></span><div class="track" role="progressbar" aria-label="${label}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(value)}" aria-valuetext="${esc(`${Math.round(value)}/100${tier ? ` · ${tier}` : ""}`)}"><div class="fill" style="width:${value}%;background:${BAR_COLOR[k]}"></div></div>${tier ? `<span class="bar-tier">${esc(tier)}</span>` : ""}</div>`;
+    }).join("");
     $("hud-stats").innerHTML = E.STAT_KEYS.map((k) => `<span class="stat">${STAT_LABEL[k]} <b>${c.stats[k]}</b></span>`).join("");
     $("hud-profile").innerHTML = profileHtml();
   }
@@ -363,7 +367,6 @@
     }
     const org = E.orgDef(c, D);
     if (org) out.push(`<span>${esc(org.name)} <b>${esc(E.orgRankName(c, D))}</b></span>`);
-    if (c.fame) out.push(`<span>Danh vọng <b>${c.fame}</b></span>`);
     if (c.party.length)
       out.push(`<span>Tổ đội ${c.party.filter((m) => !m.left).map((m) => `<button type="button" class="member-name-link ${m.alive ? "" : "dead"}" data-member="${esc(m.name)}" aria-haspopup="dialog" title="${esc(m.race + ", " + m.jobName)}">${esc(m.name)}</button>`).join(", ")}</span>`);
     if (c.spouse) out.push(`<span>Bạn đời <b>${esc(c.spouse.name)}</b>${c.children.length ? ` · ${c.children.length} con` : ""}</span>`);
