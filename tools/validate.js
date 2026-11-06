@@ -78,6 +78,7 @@ function validate(data) {
   };
   const checkReq = (where, req) => {
     if (!req) return;
+    if(req.band!=null&&!["string","boolean"].includes(typeof req.band))err(where,"band cần ID hoặc boolean");
     if (req.captiveKinds != null) {
       if (!Array.isArray(req.captiveKinds) || !req.captiveKinds.length || req.captiveKinds.some(k => !["prison","slave","arena","bound"].includes(k))) err(where, "captiveKinds cần loại giam giữ hợp lệ");
       if (req.free) err(where, "không dùng free cùng captiveKinds");
@@ -204,6 +205,7 @@ function validate(data) {
   }
   for (const j of data.jobs || []) {
     const w = `jobs.json [${j.id}]`;
+    if(j.practiceFocus && (typeof j.practiceFocus!=="object"||Array.isArray(j.practiceFocus)||Object.entries(j.practiceFocus).some(([key,value])=>!["adventure","train","study","social"].includes(key)||!Number.isFinite(value)||value<=0||value>1)))err(w,"practiceFocus cần hệ số (0,1] cho hướng chủ động, không có rest/play");
     if (!STATS.includes(j.stat)) err(w, "stat phải là STR/INT/AGI/LUCK");
     if (!(j.ranks && j.ranks.length === 5)) err(w, "cần đúng 5 bậc (ranks)");
     for (const k of ["income"]) if (!(j[k] && j[k].length === 5)) err(w, `${k} cần 5 giá trị`);

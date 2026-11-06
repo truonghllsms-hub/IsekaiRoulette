@@ -6821,7 +6821,12 @@
      },
      "fail": {
       "text": "Hàng trăm cung thủ xả tên xuống như mưa. Bạn và {ally} biến thành hai con nhím đẫm máu gục chết trên cát.",
-      "death": "Bạn biến thành tấm bia thịt tập bắn của cung thủ đấu trường."
+      "death": "Bạn biến thành tấm bia thịt tập bắn của cung thủ đấu trường.",
+      "effects": {
+       "memberDie": [
+        "{ally}"
+       ]
+      }
      },
      "risk": "lethal"
     }
@@ -8668,15 +8673,17 @@
        "joy": -20,
        "wealth": 70,
        "fame": -20,
-       "bond": -100
+       "bond": -100,
+       "allyLeave": true
       }
      },
      "fail": {
-      "text": "Nhảy ra ngoài nhưng rơi trúng xe chở phân hôi thối. Bạn thoát chết nhưng bốc mùi hàng tháng trời.",
+      "text": "Nhảy ra ngoài nhưng rơi trúng xe chở phân hôi thối. Bạn thoát chết nhưng bốc mùi một thời gian; {ally} bị bỏ lại trong tay lính gác, không còn đi cùng bạn.",
       "effects": {
        "health": -10,
        "wealth": 50,
-       "bond": -80
+       "bond": -80,
+       "allyLeave": true
       }
      }
     },
@@ -40281,7 +40288,8 @@
         "party_d_3_rhino_chet"
        ],
        "memberDie": [
-        "Rhino"
+        "Rhino",
+        "Krogar"
        ]
       }
      },
@@ -40340,7 +40348,7 @@
   },
   {
    "id": "beastman_party_party_d_4",
-   "text": "Wild Fang bị liệt vào danh sách Diệt Trừ của Giáo hội. Một đội Kỵ Sĩ Ánh Sáng vây ráp khu trại. Phép thuật chói lòa thiêu rụi màn đêm. Bất kể bạn hay Krogar đang làm đội trưởng, vòng vây thép đang siết chặt cướp đi sinh mệnh của á nhân.",
+   "text": "Wild Fang bị liệt vào danh sách Diệt Trừ của Giáo hội. Một đội Kỵ Sĩ Ánh Sáng vây ráp khu trại. Phép thuật chói lòa thiêu rụi màn đêm. Vòng vây thép siết chặt quanh những thành viên còn sống, đe dọa xóa sổ tổ đội giữa màn đêm.",
    "stages": [
     "adult",
     "middle",
@@ -40457,15 +40465,21 @@
      "risk": "lethal"
     },
     {
-     "label": "Giao nộp thủ cấp đồng đội để xin ân xá",
-     "text": "Ánh sáng quá chói lòa. Bạn quay gươm cắt cổ đồng đội yếu nhất dâng lên cho Kỵ Sĩ. Chúng khinh bỉ tha mạng cho con chó phản chủ. Bạn sống nhục nhã mang danh ác thú cặn bã.",
+     "label": "Giao nộp thủ cấp của {ally} để xin ân xá",
+     "text": "Ánh sáng quá chói lòa. Bạn quay gươm cắt cổ {ally}, dâng thủ cấp cho Kỵ Sĩ. Chúng khinh bỉ tha mạng cho con chó phản chủ. Bạn sống nhục nhã mang danh ác thú cặn bã.",
      "effects": {
       "health": 10,
       "joy": -70,
       "fame": -80,
       "flags": [
        "party_d_4_ban_doi"
+      ],
+      "memberDie": [
+       "{ally}"
       ]
+     },
+     "require": {
+      "party": 1
      }
     }
    ],

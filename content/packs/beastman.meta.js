@@ -52,6 +52,10 @@ module.exports = {
     earlyUntil: "teen",
     noRecruit: true,},
   overrides: {
+    bm_gladiator_kill_friend: { choiceEffects: { 1: { fail: { memberDie: ["{ally}"] } } } },
+    beastman_party_party_d_4: { choicePatch: { 2: { require: { party: 1 } } }, choiceEffects: { 2: { plain: { memberDie: ["{ally}"] } } } },
+    bm_thief_ally_bait: { choiceEffects: { 0: { success: { allyLeave: true }, fail: { allyLeave: true } } } },
+    beastman_party_party_d_3: { choiceEffects: { 0: { fail: { memberDie: ["Rhino", "Krogar"] } } } },
     bm_play_tooth: { require: { notSubtypes: ["rabbit", "rat", "hawk"] } },
     bm_parent_missing_return: { require: { parentGone: "father" } },
   },

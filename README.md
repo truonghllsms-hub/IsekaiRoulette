@@ -42,6 +42,7 @@ npm test                 # Kiểm tra dữ liệu và mô phỏng 1.000 đời m
 - [Ảnh gốc, tách nền và kiểm tra pixel](docs/SPRITES.md)
 - [Sinh tồn và số liệu mô phỏng](docs/SURVIVAL.md)
 - [Nghề nghiệp, nhiệm vụ thăng tiến và gia đình](docs/PROFESSIONS.md)
+- [Giao liên, tử trận tổ đội và An dưỡng](docs/COURIER_PARTY.md)
 - [Cast theo xuất thân và giam giữ](docs/CAST_CONTEXT.md)
 - [Định danh NPC, câu đệm và lời kể tuổi thơ](docs/NARRATION.md)
 - [Xếp hạng cuộc đời](docs/RATINGS.md)

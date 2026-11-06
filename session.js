@@ -21,7 +21,9 @@
     c.race={...race};c.origin=origin;
     if(c.race.genderless)c.gender=null;
     if(c.quest){const q=data.quests.find(q=>q.id===c.quest.id);if(!q||!Number.isInteger(c.quest.step)||c.quest.step<0||!q.steps[c.quest.step])throw Error('incompatible');c.ctx={...c.ctx,quest:q};}
+    engine.reconcileCasualties?.(c,data);
     engine.archiveDeadParty(c);
+    engine.deferRestGroup?.(c,data);
     const member=x=>x&&engine.aliveParty(c).find(p=>p.name===x.name&&(!x.band||p.band===x.band));
     if(c.ctx?.partner)c.ctx.partner=member(c.ctx.partner)||c.ctx.partner;
     function relink(x){if(!x||typeof x!=='object')return;if(x.act?.partner)x.act.partner=member(x.act.partner)||x.act.partner;for(const key of ['choices','success','fail']){const v=x[key];if(Array.isArray(v))v.forEach(relink);else relink(v);}}

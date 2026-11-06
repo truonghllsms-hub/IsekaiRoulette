@@ -158,3 +158,12 @@ kết quả thoát ràng buộc dùng `setFree:true`.
 
 Sự kiện lặp có `cooldownYears` không còn chịu trần hai lần của cảnh lặp cũ.
 Khi dùng `variants`, mọi chuỗi phải phù hợp cùng tập lựa chọn và kết quả.
+
+## Đồng đội và băng nhóm
+
+`require.band` nhận ID nhóm, `true` (đang thuộc một nhóm), hoặc `false`
+(không thuộc nhóm). `memberDie` và `memberLeave` nhận tên hoặc mảng tên;
+`"{ally}"` trỏ đúng đồng đội trong ngữ cảnh hiện tại, không bốc người thay thế
+khi người đó đã mất. Hai hiệu ứng được xử lý trước đổi thủ lĩnh/rời nhóm.
+Sự kiện nhóm trong lúc An dưỡng cần ghi rõ `focus: ["rest"]` nếu thích hợp
+với nghỉ ngơi; không thêm tag này cho trận đánh nhằm vượt bộ lọc.

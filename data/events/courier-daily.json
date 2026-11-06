@@ -1,0 +1,437 @@
+[
+  {
+    "id": "courier_daily_bm_courier_route_marks",
+    "pack": true,
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen",
+      "adult",
+      "middle",
+      "elder"
+    ],
+    "focus": [
+      "work",
+      "adventure",
+      "study",
+      "train",
+      "social"
+    ],
+    "require": {
+      "job": "bm_courier",
+      "free": true
+    },
+    "weight": 12,
+    "once": false,
+    "cooldownYears": 2,
+    "text": "Tại trạm đổi thư ở Thảo Nguyên Gió Hú, một dấu chỉ đường cũ vừa được thay bằng ký hiệu lạ. Bạn nhận ra nó có thể khiến người mang thư sau mình đi nhầm tuyến.",
+    "variants": [
+      "Tại trạm đổi thư ở Thảo Nguyên Gió Hú, một dấu chỉ đường cũ vừa được thay bằng ký hiệu lạ. Bạn nhận ra nó có thể khiến người mang thư sau mình đi nhầm tuyến.",
+      "Một người giữ trạm ở Thảo Nguyên Gió Hú nhờ bạn xem hai bản chỉ đường không khớp nhau. Kinh nghiệm giao liên giúp bạn nhận ra điểm cần kiểm tra.",
+      "Bạn gặp một bảng tuyến thư bị che mất vài nét tại Thảo Nguyên Gió Hú. Việc đọc đúng ký hiệu không đòi hỏi thêm chuyến đi, chỉ cần sự cẩn thận của người làm nghề."
+    ],
+    "choices": [
+      {
+        "label": "Đối chiếu dấu trạm và chỉ ra nét bị sửa",
+        "check": {
+          "stat": "INT",
+          "target": 5
+        },
+        "success": {
+          "text": "Bạn chỉ đúng nét khiến lộ trình đổi hướng. Người giữ trạm sửa lại bảng trước khi giao chuyến thư tiếp theo.",
+          "effects": {
+            "jobXp": 1,
+            "fame": 2
+          }
+        },
+        "fail": {
+          "text": "Bạn chưa đủ chứng cứ để sửa dấu. Bạn đánh dấu điểm nghi ngờ cho người giữ trạm kiểm tra lại, thay vì dẫn người khác đi theo suy đoán.",
+          "effects": {
+            "joy": -3
+          }
+        }
+      },
+      {
+        "label": "Báo trạm kiểm tra lại trước khi dùng tuyến mới",
+        "text": "Bạn để lại lời cảnh báo rõ ràng. Việc chậm một nhịp tốt hơn một bức thư bị dẫn vào ngõ cụt.",
+        "effects": {
+          "jobXp": 0.5,
+          "joy": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "courier_daily_bm_courier_satchel_seal",
+    "pack": true,
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen",
+      "adult",
+      "middle",
+      "elder"
+    ],
+    "focus": [
+      "work",
+      "adventure",
+      "study",
+      "train",
+      "social"
+    ],
+    "require": {
+      "job": "bm_courier",
+      "free": true
+    },
+    "weight": 12,
+    "once": false,
+    "cooldownYears": 2,
+    "text": "Nếp gấp trên túi thư làm một ống đựng mật lệnh cọ vào dấu sáp. Bạn có thể chỉnh lại cách đóng gói trước khi nhận thêm thư.",
+    "variants": [
+      "Nếp gấp trên túi thư làm một ống đựng mật lệnh cọ vào dấu sáp. Bạn có thể chỉnh lại cách đóng gói trước khi nhận thêm thư.",
+      "Sau một lần luyện chạy, bạn nhận ra ống thư bên trong túi bị xô lệch. Chưa có niêm phong nào vỡ, nhưng cách buộc hiện tại không đáng tin.",
+      "Trong lúc kiểm lại đồ dùng nghề, bạn thấy dây giữ ống thư bắt đầu sờn. Một điều chỉnh nhỏ có thể giúp tránh lỗi niêm phong trên đường."
+    ],
+    "choices": [
+      {
+        "label": "Chỉnh trọng tâm túi và cố định ống thư",
+        "check": {
+          "stat": "AGI",
+          "target": 5
+        },
+        "success": {
+          "text": "Bạn đặt lại lớp đệm rồi thử chuyển động từng bước. Ống thư nằm yên, không còn đè lên phần sáp niêm.",
+          "effects": {
+            "jobXp": 1,
+            "joy": 2
+          }
+        },
+        "fail": {
+          "text": "Mối buộc mới vẫn làm túi bị lệch. Bạn tháo ra đánh dấu phần cần sửa, chấp nhận mất thời gian để tránh làm hỏng thư thật.",
+          "effects": {
+            "joy": -3
+          }
+        }
+      },
+      {
+        "label": "Giảm tải, chỉ nhận lượng thư có thể bảo quản",
+        "text": "Bạn chia lại phần chứa, giữ những ống thư tách khỏi vật cứng. Biết giới hạn của túi cũng là một phần của nghề giao liên.",
+        "effects": {
+          "jobXp": 0.5,
+          "joy": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "courier_daily_bm_courier_reply_token",
+    "pack": true,
+    "races": [
+      "beastman"
+    ],
+    "stages": [
+      "teen",
+      "adult",
+      "middle",
+      "elder"
+    ],
+    "focus": [
+      "work",
+      "adventure",
+      "social"
+    ],
+    "require": {
+      "job": "bm_courier",
+      "free": true
+    },
+    "weight": 12,
+    "once": false,
+    "cooldownYears": 2,
+    "text": "Một người chờ thư hỏi bạn cách phân biệt tin đã đến trạm với tin mới được gửi đi. Một mật dấu phản hồi rõ ràng có thể giúp họ bớt lo.",
+    "variants": [
+      "Một người chờ thư hỏi bạn cách phân biệt tin đã đến trạm với tin mới được gửi đi. Một mật dấu phản hồi rõ ràng có thể giúp họ bớt lo.",
+      "Hai người giữ hai nửa dấu nhận thư không khớp nhau. Họ nhờ bạn chỉ cách xác nhận mà không phải mở nội dung riêng tư.",
+      "Trong lúc dừng chân, bạn nghe tranh cãi về một thư lệnh chưa có xác nhận. Kinh nghiệm người đưa tin có thể giúp làm rõ trách nhiệm giữa các trạm."
+    ],
+    "choices": [
+      {
+        "label": "Đối chiếu mật dấu và giải thích quy tắc hồi báo",
+        "check": {
+          "stat": "LUCK",
+          "target": 5
+        },
+        "success": {
+          "text": "Bạn tìm ra dấu của lượt chuyển tiếp và chỉ cách xác nhận với trạm cuối. Nội dung thư vẫn kín, còn người chờ biết phải hỏi đúng nơi.",
+          "effects": {
+            "jobXp": 1,
+            "fame": 2
+          }
+        },
+        "fail": {
+          "text": "Dấu đã mòn quá nhiều để kết luận. Bạn chỉ dẫn cách hỏi lại trạm thay vì hứa một điều không thể xác nhận.",
+          "effects": {
+            "joy": -2
+          }
+        }
+      },
+      {
+        "label": "Chỉ nơi tiếp nhận khiếu nại rồi tiếp tục việc riêng",
+        "text": "Bạn giải thích ai có quyền mở sổ giao nhận và không nhận thêm trách nhiệm thay người giữ trạm. Cuộc trao đổi khép lại rõ ràng.",
+        "effects": {
+          "joy": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "courier_daily_imp_messenger_route_marks",
+    "pack": true,
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "teen",
+      "adult",
+      "middle",
+      "elder"
+    ],
+    "focus": [
+      "work",
+      "adventure",
+      "study",
+      "train",
+      "social"
+    ],
+    "require": {
+      "job": "imp_messenger",
+      "free": true
+    },
+    "weight": 12,
+    "once": false,
+    "cooldownYears": 1,
+    "text": "Tại trạm đổi thư ở Vực Thẳm Phân Tầng, một dấu chỉ đường cũ vừa được thay bằng ký hiệu lạ. Bạn nhận ra nó có thể khiến người mang thư sau mình đi nhầm tuyến.",
+    "variants": [
+      "Tại trạm đổi thư ở Vực Thẳm Phân Tầng, một dấu chỉ đường cũ vừa được thay bằng ký hiệu lạ. Bạn nhận ra nó có thể khiến người mang thư sau mình đi nhầm tuyến.",
+      "Một người giữ trạm ở Vực Thẳm Phân Tầng nhờ bạn xem hai bản chỉ đường không khớp nhau. Kinh nghiệm giao liên giúp bạn nhận ra điểm cần kiểm tra.",
+      "Bạn gặp một bảng tuyến thư bị che mất vài nét tại Vực Thẳm Phân Tầng. Việc đọc đúng ký hiệu không đòi hỏi thêm chuyến đi, chỉ cần sự cẩn thận của người làm nghề."
+    ],
+    "choices": [
+      {
+        "label": "Đối chiếu dấu trạm và chỉ ra nét bị sửa",
+        "check": {
+          "stat": "INT",
+          "target": 5
+        },
+        "success": {
+          "text": "Bạn chỉ đúng nét khiến lộ trình đổi hướng. Người giữ trạm sửa lại bảng trước khi giao chuyến thư tiếp theo.",
+          "effects": {
+            "jobXp": 1,
+            "fame": 2
+          }
+        },
+        "fail": {
+          "text": "Bạn chưa đủ chứng cứ để sửa dấu. Bạn đánh dấu điểm nghi ngờ cho người giữ trạm kiểm tra lại, thay vì dẫn người khác đi theo suy đoán.",
+          "effects": {
+            "joy": -3
+          }
+        }
+      },
+      {
+        "label": "Báo trạm kiểm tra lại trước khi dùng tuyến mới",
+        "text": "Bạn để lại lời cảnh báo rõ ràng. Việc chậm một nhịp tốt hơn một bức thư bị dẫn vào ngõ cụt.",
+        "effects": {
+          "jobXp": 0.5,
+          "joy": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "courier_daily_imp_messenger_satchel_seal",
+    "pack": true,
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "teen",
+      "adult",
+      "middle",
+      "elder"
+    ],
+    "focus": [
+      "work",
+      "adventure",
+      "study",
+      "train",
+      "social"
+    ],
+    "require": {
+      "job": "imp_messenger",
+      "free": true
+    },
+    "weight": 12,
+    "once": false,
+    "cooldownYears": 1,
+    "text": "Nếp gấp trên túi thư làm một ống đựng mật lệnh cọ vào dấu sáp. Bạn có thể chỉnh lại cách đóng gói trước khi nhận thêm thư.",
+    "variants": [
+      "Nếp gấp trên túi thư làm một ống đựng mật lệnh cọ vào dấu sáp. Bạn có thể chỉnh lại cách đóng gói trước khi nhận thêm thư.",
+      "Sau một lần luyện chạy, bạn nhận ra ống thư bên trong túi bị xô lệch. Chưa có niêm phong nào vỡ, nhưng cách buộc hiện tại không đáng tin.",
+      "Trong lúc kiểm lại đồ dùng nghề, bạn thấy dây giữ ống thư bắt đầu sờn. Một điều chỉnh nhỏ có thể giúp tránh lỗi niêm phong trên đường."
+    ],
+    "choices": [
+      {
+        "label": "Chỉnh trọng tâm túi và cố định ống thư",
+        "check": {
+          "stat": "AGI",
+          "target": 5
+        },
+        "success": {
+          "text": "Bạn đặt lại lớp đệm rồi thử chuyển động từng bước. Ống thư nằm yên, không còn đè lên phần sáp niêm.",
+          "effects": {
+            "jobXp": 1,
+            "joy": 2
+          }
+        },
+        "fail": {
+          "text": "Mối buộc mới vẫn làm túi bị lệch. Bạn tháo ra đánh dấu phần cần sửa, chấp nhận mất thời gian để tránh làm hỏng thư thật.",
+          "effects": {
+            "joy": -3
+          }
+        }
+      },
+      {
+        "label": "Giảm tải, chỉ nhận lượng thư có thể bảo quản",
+        "text": "Bạn chia lại phần chứa, giữ những ống thư tách khỏi vật cứng. Biết giới hạn của túi cũng là một phần của nghề giao liên.",
+        "effects": {
+          "jobXp": 0.5,
+          "joy": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "courier_daily_imp_messenger_reply_token",
+    "pack": true,
+    "races": [
+      "imp"
+    ],
+    "stages": [
+      "teen",
+      "adult",
+      "middle",
+      "elder"
+    ],
+    "focus": [
+      "work",
+      "adventure",
+      "social"
+    ],
+    "require": {
+      "job": "imp_messenger",
+      "free": true
+    },
+    "weight": 12,
+    "once": false,
+    "cooldownYears": 1,
+    "text": "Một người chờ thư hỏi bạn cách phân biệt tin đã đến trạm với tin mới được gửi đi. Một mật dấu phản hồi rõ ràng có thể giúp họ bớt lo.",
+    "variants": [
+      "Một người chờ thư hỏi bạn cách phân biệt tin đã đến trạm với tin mới được gửi đi. Một mật dấu phản hồi rõ ràng có thể giúp họ bớt lo.",
+      "Hai người giữ hai nửa dấu nhận thư không khớp nhau. Họ nhờ bạn chỉ cách xác nhận mà không phải mở nội dung riêng tư.",
+      "Trong lúc dừng chân, bạn nghe tranh cãi về một thư lệnh chưa có xác nhận. Kinh nghiệm người đưa tin có thể giúp làm rõ trách nhiệm giữa các trạm."
+    ],
+    "choices": [
+      {
+        "label": "Đối chiếu mật dấu và giải thích quy tắc hồi báo",
+        "check": {
+          "stat": "LUCK",
+          "target": 5
+        },
+        "success": {
+          "text": "Bạn tìm ra dấu của lượt chuyển tiếp và chỉ cách xác nhận với trạm cuối. Nội dung thư vẫn kín, còn người chờ biết phải hỏi đúng nơi.",
+          "effects": {
+            "jobXp": 1,
+            "fame": 2
+          }
+        },
+        "fail": {
+          "text": "Dấu đã mòn quá nhiều để kết luận. Bạn chỉ dẫn cách hỏi lại trạm thay vì hứa một điều không thể xác nhận.",
+          "effects": {
+            "joy": -2
+          }
+        }
+      },
+      {
+        "label": "Chỉ nơi tiếp nhận khiếu nại rồi tiếp tục việc riêng",
+        "text": "Bạn giải thích ai có quyền mở sổ giao nhận và không nhận thêm trách nhiệm thay người giữ trạm. Cuộc trao đổi khép lại rõ ràng.",
+        "effects": {
+          "joy": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "party_rest_correspondence",
+    "pack": true,
+    "races": [
+      "human",
+      "beastman",
+      "dwarf",
+      "elf",
+      "demon",
+      "orc",
+      "goblin",
+      "kobold",
+      "imp",
+      "minotaur",
+      "troll",
+      "lizardman",
+      "vampire",
+      "ghoul",
+      "slime",
+      "dragon",
+      "high_demon"
+    ],
+    "stages": [
+      "adult",
+      "middle",
+      "elder",
+      "ancient"
+    ],
+    "focus": [
+      "rest"
+    ],
+    "require": {
+      "free": true,
+      "band": true
+    },
+    "once": false,
+    "cooldownYears": 5,
+    "weight": 8,
+    "text": "Một lời hỏi thăm từ {party} tới nơi bạn đang an dưỡng. Bạn có thể giữ liên lạc hoặc nói rõ rằng mình muốn khép lại chặng đường cùng họ.",
+    "variants": [
+      "Một lời hỏi thăm từ {party} tới nơi bạn đang an dưỡng. Bạn có thể giữ liên lạc hoặc nói rõ rằng mình muốn khép lại chặng đường cùng họ.",
+      "Tin từ {party} dừng ở những lời hỏi thăm, không kèm lệnh lên đường. Bạn có khoảng yên để cân nhắc quan hệ với nhóm.",
+      "Trong lúc nghỉ, bạn nhận được lời nhắn từ {party}. Họ chờ câu trả lời về việc giữ liên lạc, thay vì đòi bạn trở lại một trận chiến."
+    ],
+    "choices": [
+      {
+        "label": "Giữ liên lạc, tiếp tục an dưỡng",
+        "text": "Bạn gửi lại lời hỏi thăm và nói rõ mình chưa nhận việc mới. Mối liên hệ được giữ bằng sự tôn trọng khoảng nghỉ của nhau.",
+        "effects": {
+          "partyBond": 1,
+          "joy": 3
+        }
+      },
+      {
+        "label": "Rời nhóm trong hòa bình",
+        "text": "Bạn cảm ơn chặng đường đã qua và khép lời hẹn nhận việc cùng nhóm. Cuộc chia tay không cần một trận chiến để trở nên rõ ràng.",
+        "effects": {
+          "leaveBand": true,
+          "joy": 4
+        }
+      }
+    ]
+  }
+]

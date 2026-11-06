@@ -21,3 +21,10 @@ Bản lưu hỏng, sai phiên bản hoặc tham chiếu nội dung không còn t
 ## Kiểm tra
 
 `node tools/test-session.js` kiểm tra lưu/tải, lựa chọn và phần thưởng, nhiệm vụ, tham chiếu đồng đội, dữ liệu hỏng và dung lượng bị chặn. Kiểm tra Chromium tải lại trang thật cho cả trang chính/bản đóng gói, bao gồm màn hé lộ, lựa chọn dở, nhiệm vụ và xóa lượt đã chết.
+
+## Tương thích nội dung cũ
+
+Khi tải, engine đối chiếu sự kiện đã dùng và cờ nhánh riêng để bổ sung trường hợp
+đồng đội đã chết nhưng chưa được ghi vào kỷ niệm. Không đoán từ cờ dùng chung.
+Cảnh chiến đấu tổ đội đang mở trong lúc An dưỡng được gác lại, hoàn dấu đã dùng,
+không áp dụng kết quả. Xem [chi tiết](COURIER_PARTY.md).

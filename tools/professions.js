@@ -25,6 +25,8 @@ function installProfessions(data) {
   const family=families.get(j.id);j.family=family;
   const long=longLives.profile(j,(j.races||[])[0],family);
   const p={...content.families[family],...content.overrides[j.id],...(long||{})};
+  if(p.promoXp)j.promoXp=p.promoXp.slice();
+  if(p.practiceFocus)j.practiceFocus={...p.practiceFocus};
   const style=family==='merchant'?'commerce':family==='assassin'?'independent':family==='smith'?'craft':null;
   if(long){j.progression=long.progression;j.promo=long.promo.slice(0,j.ranks.length-1);j.promotionCopy=long.promotionCopy;
    if(long.epic){j.income=j.income.map(()=>0);j.epochPath=long.way;}

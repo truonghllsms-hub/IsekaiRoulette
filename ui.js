@@ -231,7 +231,7 @@
     bands.sort((a, b) => Number(b.id === preferred) - Number(a.id === preferred));
     for (const b of bands) {
       const m = (b.members || []).find(m => m.name === name);
-      if (m) return { ...m, ...c.party.find(p => p.name === name && p.band === b.id && p.alive && !p.left), ...c.fallen?.find(p => p.name === name), bandId: b.id };
+      if (m) return { ...m, ...(c.party.find(p => p.name === name && p.band === b.id && p.alive && !p.left)||c.party.find(p=>p.name===name&&p.band===b.id&&p.left)), ...(c.band?.id===b.id&&c.band.leaderName===name?{alive:true,left:false}:{}), ...c.fallen?.find(p => p.name === name), bandId: b.id };
     }
     const m = c.party.find(m => m.name === name && m.alive && !m.left) || c.fallen?.find(m => m.name === name);
     return m || Object.values(D.story?.[c.race.id]?.recruits || {}).find(m => m.name === name);
@@ -258,7 +258,7 @@
     const portraits=[];
     for (const [i,original] of members.entries()) {
       const lost=c.fallen?.find(p=>p.name===original.name);
-      const m = { ...original, ...c.party.find(p => p.name === original.name && p.band === id && !p.left), ...lost };
+      const m = { ...original, ...(c.party.find(p => p.name === original.name && p.band === id && p.alive && !p.left)||c.party.find(p=>p.name===original.name&&p.band===id&&p.left)), ...(c.band?.id===id&&c.band.leaderName===original.name?{alive:true,left:false}:{}), ...lost };
       const card = document.createElement("article");card.className = "member-card";
       const art=document.createElement("div");art.id=`roster-sprite-${i}`;art.className="sprite-hud roster-portrait";art.setAttribute("aria-hidden","true");art.innerHTML='<div class="sprite-frame"></div>';card.appendChild(art);
       portraits.push([art.id,window.Portraits.npcSprite(m,D)]);
@@ -492,7 +492,7 @@
     for (const n of c.formerSpouses || []) add(n, "Người bạn đời cũ");
     for (const k of c.children || []) add(k.name, `Con của bạn · chào đời khi bạn ${Math.floor(k.born)} tuổi`);
     for (const m of c.party || []) add(m.name, `Đồng đội · ${[m.race, m.jobName].filter(Boolean).join(" · ")}${m.left ? " · đã rời đi" : !m.alive ? " · đã mất" : ""}`);
-    for (const f of c.fallen || []) add(f.name, `Đồng đội đã khuất · mất khi bạn ${Math.floor(f.at)} tuổi`);
+    for (const f of c.fallen || []) add(f.name, `Đồng đội đã khuất${f.dateUnknown?"":` · mất khi bạn ${Math.floor(f.at)} tuổi`}`);
     if (c.band && c.band.name) add(c.band.name, `Tổ đội của bạn · từ năm ${Math.floor(c.band.since)} tuổi`);
     for (const b of storyBands()) {
       add(b.name || b.title, "Xem hồ sơ và toàn bộ thành viên tổ đội");

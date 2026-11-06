@@ -59,7 +59,7 @@ trong bản lưu cũng bị chặn. Xem [Cast và bối cảnh giam giữ](CAST_
 ## Nhịp thăng tiến và bảng nhiệm vụ
 
 Mốc XP của nghề được cập nhật ở cả dữ liệu chung và metadata các pack thành
-`[4, 8, 14, 22]`. Thăng bậc thành công (kể cả qua sự kiện cấp bậc) đặt
+`[4, 8, 14, 22]`, riêng `bm_courier` và `imp_messenger` dùng `[2, 5, 9, 14]`. Thăng bậc thành công (kể cả qua sự kiện cấp bậc) đặt
 `nextPromo = age + tickYears * (1 + rank)` cho nhóm không dùng epoch, đồng thời buộc qua **hai lượt bấm**
 trước bài thi kế tiếp. Một lượt bấm có thể gộp nhiều nhịp năm nên cần kiểm tra
 cả tuổi và số lượt; chỉ dùng mốc tuổi chưa bảo đảm khoảng nghỉ cho người chơi.
@@ -122,3 +122,19 @@ cộng trùng phần thưởng `jobXp`, không cộng vì chỉ an dưỡng và 
 bị giam. Xem [đợt sửa nội dung](CONTENT_AUDIT.md) và [prompt mở rộng](gemini-prompts/README.md).
 
 Các nhóm thú cưng, linh thú khế ước, lừa lọc, canh trứng, Troll học giả và quý tộc Huyết Tộc được định danh riêng; xem [báo cáo đối chiếu](FOLLOWUP_AUDIT.md).
+
+## Nhịp nghề giao liên
+
+Hai nghề Đưa thư có sáu sự kiện đời thường lặp lại, khả dụng ngay bậc 0.
+Ngoài Làm việc, nhóm sự kiện nghề được ưu tiên 30% khi chọn hướng thực hành
+đã khai báo trong `practiceFocus`; An dưỡng không có ưu tiên này. Đi phượt,
+rèn luyện, học tập và giao lưu cho XP thực hành thụ động với hệ số lần lượt
+0,4 / 0,3 / 0,25 / 0,2, giới hạn 1 XP mỗi nhịp; không có lương Làm việc.
+An dưỡng và giam giữ không được cộng khoản XP thụ động này. Phần thưởng XP
+được viết rõ trong lựa chọn vẫn hoạt động theo quy tắc sẵn có.
+
+Hoãn thi giữ nguyên XP; trượt thi giữ 80% XP. Nhóm không dùng epoch được xét
+lại sau một nhịp năm và ít nhất hai lượt bấm. Khoảng nghỉ sau thi đỗ giữ nguyên.
+Đây là cơ hội tiến bộ sớm hơn, không bảo đảm mọi nhân vật đạt bậc cuối ở cùng tuổi.
+
+Xem [sửa giao liên, tổ đội và an dưỡng](COURIER_PARTY.md).

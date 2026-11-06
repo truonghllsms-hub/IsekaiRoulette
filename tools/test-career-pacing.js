@@ -5,7 +5,7 @@ function person(job='human_mage',rank=0){const c=E.createCharacter(data,E.makeRn
 function act(c,type,effects){c.pending={kind:'event',choices:[{label:'Làm',...(type?{act:{type}}:{}),...(effects?{effects}:{})}]};E.choose(c,quiet,0,()=>0);}
 function step(c,d=quiet,rng=()=>0){c.pending=null;E.advance(c,d,rng);}
 
-test('all profession sources use progressively spaced XP thresholds',()=>{for(const j of data.jobs)assert.deepEqual(j.promoXp,[4,8,14,22],j.id);});
+test('all profession sources use progressively spaced XP thresholds',()=>{for(const j of data.jobs)assert.deepEqual(j.promoXp,['bm_courier','imp_messenger'].includes(j.id)?[2,5,9,14]:[4,8,14,22],j.id);});
 test('successful promotion resets XP and sets both promotion and milestone cooldowns',()=>{
  const c=person();act(c,'promote');assert.equal(c.job.rank,1);assert.equal(c.job.xp,0);assert.ok(c.nextPromo>c.age);assert.ok(c.nextCareer>c.age);const until=c.nextPromo;for(let i=0;i<1;i++){c.job.xp=1000;step(c,{...quiet,quests:data.quests});assert.notEqual(c.pending?.kind,'promotion');if(i===0)assert.notEqual(c.pending?.kind,'career');}assert.equal(c.nextPromo,until);
 });
