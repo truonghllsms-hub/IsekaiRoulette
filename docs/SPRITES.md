@@ -67,3 +67,34 @@ trên bản sao atlas để xác nhận không xóa mất các chi tiết phục
 Build gắn SHA-256 rút gọn vào URL từng atlas (`?v=...`). Khi ảnh thay đổi, URL đổi
 theo để trình duyệt tải đúng ảnh mới dù tên tệp giữ nguyên. Mỗi URL đã được kiểm
 tra trong trình duyệt với byte ảnh tải về và kích thước trong atlas.
+
+## Vùng hiển thị cho giao diện cổ thư
+
+`img/presentation.json` lưu vùng toàn hình và vùng chân dung của 1.588 khung.
+`tools/build-presentation.py` chỉ đọc alpha và ghi JSON; không ghi lại tệp ảnh.
+Hình thái khó cắt an toàn được giữ toàn hình, gồm sừng/cánh lớn, Rồng, Slime,
+quái vật, trẻ nhỏ và tiến hóa. Khung người có vùng chân dung dựa trên vị trí
+khối thân, tránh lấy ngọn vũ khí cao làm tâm khuôn mặt.
+
+`tools/presentation-overrides.json` chứa các khung cần canh tay. Hai khung
+Troll nữ dùng cửa sổ hiển thị hẹp hơn để bỏ mảnh cột/chữ tách rời ở phía trái.
+Tọa độ đều nằm trong khung atlas gốc. Khi chỉnh, cần xem cả toàn thân lẫn hồ sơ
+nhỏ; không bỏ vũ khí, sừng, tai hoặc cánh thuộc về nhân vật.
+
+`presentation.js` tính tỷ lệ đồng nhất theo kích thước khung thật. Vùng chân dung
+phóng tối đa 1,8 lần, toàn hình tối đa 2,4 lần; phần nền giấy lấp khoảng trống.
+Không kéo giãn ngang/dọc, không dùng filter đổi màu nhân vật. UI chờ giải mã ảnh
+và tính lại vị trí khi hộp thoại hoặc kích thước màn hình thay đổi.
+
+Sau khi thay đổi atlas:
+
+```sh
+python3 tools/build-presentation.py
+npm run build
+node tools/bundle.js
+node tools/test-presentation.js
+```
+
+Build kiểm tra SHA-256 của mỗi atlas với metadata và dừng khi vùng hiển thị đã
+lỗi thời. Game chạy từ ZIP vẫn chỉ cần trình duyệt; Python/Pillow/NumPy phục vụ
+bước tạo lại metadata trong môi trường phát triển.

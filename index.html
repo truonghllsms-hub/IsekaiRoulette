@@ -79,6 +79,7 @@
 
     <!-- Life -->
     <section id="screen-life" class="screen" hidden>
+      <aside class="life-sidebar" aria-label="Hồ sơ cuộc đời">
       <div class="hud-wrap" id="hud-wrap">
       <header class="hud">
         <div id="hud-sprite" class="sprite-hud" aria-hidden="true" hidden><div class="sprite-frame"></div></div>
@@ -96,12 +97,18 @@
       <div class="stats" id="hud-stats"></div>
       </div>
       <div class="profile" id="hud-profile"></div>
+      <details id="party-panel" class="party-panel" hidden open><summary id="party-heading">Đồng hành</summary><div id="party-list" class="party-list"></div></details>
+      </aside>
+      <div class="life-chronicle">
+      <header class="journal-heading"><div><p class="eyebrow">Biên niên của một linh hồn</p><h2>Nhật ký cuộc đời</h2></div><span class="journal-seal" aria-hidden="true">✦</span></header>
+      <p id="journal-chapter" class="journal-chapter"></p>
       <ol id="log" class="log" aria-live="polite"></ol>
       <div id="choices" class="choices"></div>
       <footer class="actions">
         <div id="focus-bar" class="focus-bar"></div>
         <button id="btn-next" class="btn primary wide"></button>
       </footer>
+      </div>
     </section>
 
     <!-- Death -->
@@ -164,6 +171,7 @@
   <script src="engine.js"></script>
   <script src="data.js"></script>
   <script src="portraits.js"></script>
+  <script src="presentation.js"></script>
   <script src="ui.js"></script>
 </body>
 </html>

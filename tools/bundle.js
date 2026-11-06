@@ -31,6 +31,9 @@ ${safeJs(read("data.js"))}
 ${safeJs(read("portraits.js"))}
 </script>
 <script>
+${safeJs(read("presentation.js"))}
+</script>
+<script>
 ${safeJs(read("ui.js"))}
 </script>
 `;

@@ -20,3 +20,5 @@ Escape trở về. Tỉ lệ đầu thai và Những kiếp trước có thể m
 ## Điện thoại
 
 ![Màn hình chính trên điện thoại](previews/chronicle-home-mobile.png)
+
+Giao diện bên trong đã được đồng bộ: xem [ảnh chạy thật và cách sử dụng](INTERFACE.md).

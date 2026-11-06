@@ -29,7 +29,8 @@ npm run validate:sprites  # Python + Pillow + NumPy
 npm test                 # Kiểm tra dữ liệu và mô phỏng 1.000 đời mỗi tộc
 ```
 
-- [Giao diện Biên niên cổ thư](docs/HOMEPAGE.md)
+- [Giao diện chính Biên niên cổ thư](docs/HOMEPAGE.md)
+- [Giao diện chơi, tổ đội và khung ảnh nhân vật](docs/INTERFACE.md)
 - [Tài sản và bốn thanh trạng thái](docs/ECONOMY.md)
 - [Bản đồ thế giới và cách xem](docs/MAP.md)
 - [Nhịp kỷ nguyên và tuổi thọ gia đình](docs/CHRONOLOGY.md)

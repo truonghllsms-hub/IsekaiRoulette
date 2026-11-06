@@ -124,7 +124,7 @@
       for (const j of jobs) want.push(`${j.id.slice(j.id.indexOf("_") + 1)}_moi`);
       want.push("thuongdan", "thieunien", "hoilon", "beti");
       const col = want.find((k) => P[k]);
-      return col ? { person, rect: P[col], size: P._size } : null;
+      return col ? { person, column: col, rect: P[col], size: P._size } : null;
     }
     if (ch.form) want.push(`tienhoa_${slug(ch.form)}`);
     if (st === "infant") want.push("beti", "hoilon");
@@ -139,33 +139,44 @@
     }
     want.push("thuongdan", "thieunien", "gia");
     const col = want.find((k) => P[k]);
-    return col ? { person, rect: P[col], size: P._size } : null;
+    return col ? { person, column: col, rect: P[col], size: P._size } : null;
   }
   function setSprite(id, ch, peak) {
-    paintSprite(id, spriteOf(ch, peak));
+    paintSprite(id, spriteOf(ch, peak), id === "hud-sprite" ? "portrait" : "full");
   }
-  function paintSprite(id, s) {
+  const decodedSprites = new Map();
+  function decodeSprite(url) {
+    if (!decodedSprites.has(url)) {
+      const image=new Image();image.decoding="async";image.src=url;
+      const state={ready:false,failed:false};state.promise=image.decode().then(()=>{state.ready=true;},()=>{state.failed=true;});decodedSprites.set(url,state);
+    }
+    return decodedSprites.get(url);
+  }
+  const spriteObserver = typeof ResizeObserver !== "undefined" ? new ResizeObserver(entries => {
+    for(const {target:box} of entries) if(box.isConnected && box._sprite && !box.hidden) paintSprite(box.id,box._sprite,box._spriteMode);
+  }) : null;
+  function paintSprite(id, s, mode = "full") {
     const box = $(id);
     if (!box) return;
-    box.hidden = !s;
+    box.hidden = !s; box._sprite=s; box._spriteMode=mode;
     if (!s) return;
-    const el = box.firstElementChild;
-    // one scale for the whole person: a child is drawn smaller than the adult it becomes
-    // fit the full frame inside the box, including wide weapons, wings and tails
-    const P = D.sprites[s.person];
-    const boxH = box.clientHeight || 52;
-    const ref = (P.thuongdan || P.thieunien || s.rect)[3];
-    const boxW = box.clientWidth || 72;
-    const k = Math.min(boxH / ref, (boxH * 0.9) / s.rect[3], (boxW * 0.9) / s.rect[2]);
-    const [x, y, w, h] = s.rect;
-    el.style.width = `${w * k}px`;
-    el.style.height = `${h * k}px`;
-    el.style.backgroundImage = `url(${P._src || `img/${s.person}.png`})`;
+    if (!box._observed && spriteObserver) {spriteObserver.observe(box);box._observed=true;}
+    if (!box.clientWidth || !box.clientHeight) return;
+    const el = box.firstElementChild, P = D.sprites[s.person];
+    const url=P._src || `img/${s.person}.png`,asset=decodeSprite(url);
+    el.style.visibility=asset.ready?"visible":"hidden";box.dataset.artReady=String(asset.ready);
+    if(!asset.ready&&!asset.failed&&box._decoding!==url){box._decoding=url;asset.promise.then(()=>{box._decoding=null;if(box.isConnected&&box._sprite&&D.sprites[box._sprite.person]._src===url)paintSprite(box.id,box._sprite,box._spriteMode);});}
+    const pose = window.SpritePresentation.layout(s,D,box.clientWidth||80,box.clientHeight||100,mode);
+    const [x,y] = pose.rect, k=pose.scale;
+    box.dataset.presentation=pose.kind;box.dataset.person=s.person;
+    el.style.width = `${pose.width}px`;
+    el.style.height = `${pose.height}px`;
+    el.style.backgroundImage = `url(${url})`;
     el.style.backgroundSize = `${s.size[0] * k}px ${s.size[1] * k}px`;
     el.style.backgroundPosition = `${-x * k}px ${-y * k}px`;
-    const key = `${P._src || s.person}:${s.rect.join(",")}`;
+    const key = `${P._src || s.person}:${pose.rect.join(",")}`;
     if (el.dataset.sprite !== key && !matchMedia("(prefers-reduced-motion: reduce)").matches && el.animate) {
-      el.animate([{ opacity: 0.4, transform: "translateY(3px)" }, { opacity: 1, transform: "translateY(0)" }], { duration: 180, easing: "ease-out" });
+      el.animate([{ opacity: 0.4 }, { opacity: 1 }], { duration: 160, easing: "ease-out" });
     }
     el.dataset.sprite = key;
   }
@@ -217,9 +228,12 @@
     const list = $("roster-members");
     list.replaceChildren();
     const members = b.members || c.party.filter(m => m.band === id);
-    for (const original of members) {
+    const portraits=[];
+    for (const [i,original] of members.entries()) {
       const m = { ...original, ...c.party.find(p => p.name === original.name && p.band === id) };
       const card = document.createElement("article");card.className = "member-card";
+      const art=document.createElement("div");art.id=`roster-sprite-${i}`;art.className="sprite-hud roster-portrait";art.setAttribute("aria-hidden","true");art.innerHTML='<div class="sprite-frame"></div>';card.appendChild(art);
+      portraits.push([art.id,window.Portraits.npcSprite(m,D)]);
       const heading = document.createElement("h3");
       const name = document.createElement("button");name.type = "button";name.className = "member-name-link";
       name.textContent = m.name;name.dataset.member = m.name;name.dataset.memberBand = id;
@@ -230,6 +244,7 @@
       list.appendChild(card);
     }
     if (!$("roster-dialog").open) $("roster-dialog").showModal();
+    for(const [id,s] of portraits)paintSprite(id,s,"portrait");
   }
   $("app").addEventListener("click", e => {
     const close = e.target.closest("[data-close]");
@@ -354,6 +369,22 @@
     }).join("");
     $("hud-stats").innerHTML = E.STAT_KEYS.map((k) => `<span class="stat">${STAT_LABEL[k]} <b>${c.stats[k]}</b></span>`).join("");
     $("hud-profile").innerHTML = profileHtml();
+    $("journal-chapter").textContent = `${fmtAge(c.age)} tuổi · ${E.currentStage(c).name}${c.era ? ` · ${c.era.name}` : ""}`;
+    renderParty();
+  }
+  const compactParty=matchMedia("(max-width:960px)");
+  let partyManuallySet=false;
+  $("party-heading").addEventListener("click",()=>{partyManuallySet=true;});
+  compactParty.addEventListener("change",e=>{if(!partyManuallySet)$("party-panel").open=!e.matches;});
+  function renderParty() {
+    const list=$("party-list"),members=c.party.filter(m=>!m.left),panel=$("party-panel");
+    if(!panel.dataset.initialized){panel.open=!compactParty.matches;panel.dataset.initialized="true";}
+    panel.hidden=!members.length;$("party-heading").textContent=`Đồng hành · ${members.length}`;list.replaceChildren();
+    for(const [i,m] of members.entries()) {
+      const button=document.createElement("button");button.type="button";button.className="companion-card";button.dataset.member=m.name;button.setAttribute("aria-haspopup","dialog");
+      button.innerHTML=`<span id="party-sprite-${i}" class="sprite-hud companion-portrait" aria-hidden="true"><span class="sprite-frame"></span></span><span class="companion-copy"><b>${esc(m.name)}</b><small>${esc([m.race,m.jobName].filter(Boolean).join(" · "))}</small>${m.alive===false?'<small class="fallen-label">Đã qua đời</small>':m.bond!=null?`<small>Thân thiết ${m.bond}/100</small>`:""}</span><span aria-hidden="true">›</span>`;
+      list.appendChild(button);paintSprite(`party-sprite-${i}`,window.Portraits.npcSprite(m,D),"portrait");
+    }
   }
 
 
@@ -367,8 +398,6 @@
     }
     const org = E.orgDef(c, D);
     if (org) out.push(`<span>${esc(org.name)} <b>${esc(E.orgRankName(c, D))}</b></span>`);
-    if (c.party.length)
-      out.push(`<span>Tổ đội ${c.party.filter((m) => !m.left).map((m) => `<button type="button" class="member-name-link ${m.alive ? "" : "dead"}" data-member="${esc(m.name)}" aria-haspopup="dialog" title="${esc(m.race + ", " + m.jobName)}">${esc(m.name)}</button>`).join(", ")}</span>`);
     if (c.spouse) out.push(`<span>Bạn đời <b>${esc(c.spouse.name)}</b>${c.children.length ? ` · ${c.children.length} con` : ""}</span>`);
     if (c.spouse?.age != null) out.push(`<span>Tuổi bạn đời <b>${Math.floor(c.spouse.age)}</b> · ${esc(c.spouse.race || "")}</span>`);
     if (c.children?.length) out.push(`<span>Hậu duệ ${c.children.map(k => k.kind === "egg" ? `${esc(k.name)} (trứng, còn ${Math.max(0,Math.ceil(k.hatchAt-c.age))} năm)` : `${esc(k.name)} (${Math.max(0,Math.floor(c.age-(k.born??c.age)))} tuổi${k.kind === "emanation" ? ", phân thân" : ""})`).join(", ")}</span>`);
@@ -632,7 +661,7 @@
     $("btn-save-card").disabled = !!sp;
     if (sp) {
       const im = new Image();
-      im.onload = () => { if (card === thisCard) { cardSprite = { im, rect: sp.rect }; $("btn-save-card").disabled = false; } };
+      im.onload = () => { if (card === thisCard) { cardSprite = { im, rect: window.SpritePresentation.rectangle(sp,D,"full") }; $("btn-save-card").disabled = false; } };
       im.onerror = () => { if (card === thisCard) $("btn-save-card").disabled = false; };
       im.src = D.sprites[sp.person]._src || `img/${sp.person}.png`;
     }
@@ -700,27 +729,27 @@
       for (const l of wrap(ctx, text, inner)) { plan.push({ font, color, text: l, y, align }); y += lh; }
       y += gap;
     };
-    add(`500 30px ${sans}`, "#a88fd8", "LUÂN HỒI DỊ GIỚI · MỘT KIẾP NGƯỜI", 30, 40, "center");
+    add(`500 30px ${sans}`, "#88632e", "LUÂN HỒI DỊ GIỚI · MỘT KIẾP NGƯỜI", 30, 40, "center");
     // the character at the height of their life
     let spr = null;
     if (cardSprite) {
       const [, , sw, sh] = cardSprite.rect;
-      const k = Math.min(300 / sh, 360 / sw);
+      const k = Math.min(2.4, 300 / sh, 360 / sw);
       spr = { y, w: Math.round(sw * k), h: Math.round(sh * k) };
       y += spr.h + 30;
     }
-    add(`600 76px ${serif}`, "#f3ead8", k.name, 10, 88, "center");
-    add(`400 34px ${sans}`, "#c9bfae", k.line + (k.origin ? " · " + k.origin : ""), 14, 46, "center");
-    if (k.stats) add(`500 26px ${sans}`, "#a88fd8", k.stats, 40, 36, "center");
-    for (const m of k.marks) add(`400 36px ${sans}`, "#efe6d4", "✦  " + m, 6, 48, "left");
+    add(`600 76px ${serif}`, "#472d1b", k.name, 10, 88, "center");
+    add(`400 34px ${sans}`, "#735d42", k.line + (k.origin ? " · " + k.origin : ""), 14, 46, "center");
+    if (k.stats) add(`500 26px ${sans}`, "#88632e", k.stats, 40, 36, "center");
+    for (const m of k.marks) add(`400 36px ${sans}`, "#493323", "✦  " + m, 6, 48, "left");
     y += 30;
-    if (k.epitaph) add(`italic 400 40px ${serif}`, "#f3ead8", `“${k.epitaph}”`, 30, 56, "center");
-    if (k.cause) add(`400 30px ${sans}`, "#a49a8a", k.cause, 0, 42, "center");
+    if (k.epitaph) add(`italic 400 40px ${serif}`, "#472d1b", `“${k.epitaph}”`, 30, 56, "center");
+    if (k.cause) add(`400 30px ${sans}`, "#806e58", k.cause, 0, 42, "center");
     cv.width = W; cv.height = Math.max(W, y + pad);
     const g = ctx.createLinearGradient(0, 0, 0, cv.height);
-    g.addColorStop(0, "#221d2e"); g.addColorStop(1, "#14121a");
+    g.addColorStop(0, "#fcf3df"); g.addColorStop(1, "#e9d5b0");
     ctx.fillStyle = g; ctx.fillRect(0, 0, W, cv.height);
-    ctx.strokeStyle = "#5a4a7a"; ctx.lineWidth = 3; ctx.strokeRect(36, 36, W - 72, cv.height - 72);
+    ctx.strokeStyle = "#af8c50"; ctx.lineWidth = 3; ctx.strokeRect(36, 36, W - 72, cv.height - 72);
     if (spr) {
       const [sx, sy, sw, sh] = cardSprite.rect;
       ctx.imageSmoothingEnabled = true;
@@ -730,7 +759,7 @@
     ctx.textBaseline = "top";
     // the grade, stamped in the corner like a seal
     if (k.rating) {
-      const col = { S: "#e2b34a", A: "#d9534f", B: "#7aa6c2", C: "#8d8578" }[k.rating.grade] || "#d9534f";
+      const col = { S: "#9c7428", A: "#8b4d3f", B: "#54775b", C: "#796b55" }[k.rating.grade] || "#8b4d3f";
       ctx.save();
       ctx.translate(W - 150, 150);
       ctx.rotate(-0.22);
@@ -796,7 +825,7 @@
     if (document.querySelector("dialog[open]")) return;
     if (ev.key !== " " && ev.key !== "Enter") return;
     if ($("screen-life").hidden || (c && c.pending)) return;
-    if (document.activeElement && document.activeElement.tagName === "BUTTON") return;
+    if (ev.defaultPrevented || ev.target.closest?.("button, a, input, textarea, select, summary, [contenteditable], [role=button], [tabindex]")) return;
     ev.preventDefault();
     next();
   });

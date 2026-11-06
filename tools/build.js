@@ -22,10 +22,14 @@ if (before > data.events.length) console.log(`Bỏ ${before - data.events.length
 // character sprites: one atlas per person (tools/import-sheets.py) with the frame of every column
 const atlasFile = path.join(__dirname, "..", "img", "atlas.json");
 data.sprites = fs.existsSync(atlasFile) ? JSON.parse(fs.readFileSync(atlasFile, "utf8")) : {};
+data.spritePresentation = JSON.parse(fs.readFileSync(path.join(__dirname,"..","img/presentation.json"),"utf8"));
 // A new pixel payload gets a new URL, including when the filename is stable.
 for (const sprite of Object.values(data.sprites)) {
   const file = path.join(__dirname, "..", sprite._src);
-  sprite._src += "?v=" + crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex").slice(0,12);
+  const hash=crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
+  const person=Object.keys(data.sprites).find(k=>data.sprites[k]===sprite);
+  if(data.spritePresentation.people[person]?.sha256!==hash)throw new Error(`Stale UI focus metadata: ${person}. Run python3 tools/build-presentation.py`);
+  sprite._src += "?v=" + hash.slice(0,12);
 }
 const worldMap = "img/maps/aethelgard-01.png";
 const mapHash = crypto.createHash("sha256").update(fs.readFileSync(path.join(__dirname,"..",worldMap))).digest("hex").slice(0,12);
