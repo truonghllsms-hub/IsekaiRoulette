@@ -2,6 +2,7 @@
 
 Ảnh được chọn: phương án 1, Biên niên cổ đồ trên nền giấy da.
 Tệp: `img/maps/aethelgard-01.png`, 1536 × 1024, được xuất từ ảnh đã chọn.
+Đã bỏ dòng nhãn phương án “01 · Biên niên cổ đồ” nằm dưới tên Aethelgard trong ảnh.
 
 Màn hình chính dùng [phong cách Biên niên cổ thư](HOMEPAGE.md).
 
