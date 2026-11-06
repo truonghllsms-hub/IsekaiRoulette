@@ -14,6 +14,7 @@ const fontLink = (html.match(/<link href="https:\/\/fonts\.googleapis\.com[^>]+>
 
 const out = `<title>Luân Hồi Dị Giới</title>
 <base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 ${fontLink}
@@ -32,6 +33,9 @@ ${safeJs(read("portraits.js"))}
 </script>
 <script>
 ${safeJs(read("presentation.js"))}
+</script>
+<script>
+${safeJs(read("session.js"))}
 </script>
 <script>
 ${safeJs(read("ui.js"))}

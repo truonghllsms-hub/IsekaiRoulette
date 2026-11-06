@@ -136,6 +136,7 @@ module.exports = {
   },
 
   overrides: {
+    hd_politic_marriage: { stages: ["teen", "adult", "middle"], require: { free: true, spouse: false } },
     hd_parent_test: { require: { any: [{ fatherAlive: true }, { makerAlive: true }] }, unrequire: { makerAlive: true } },
     hd_ally_loot: { require: { party: 1 } },
     hd_ally_past: { require: { party: 1 } },

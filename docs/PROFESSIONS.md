@@ -111,7 +111,7 @@ Tuổi thọ bạn đời, con lai, trứng Rồng và phân thân được mô 
 
 ## Nhóm chuyên môn và XP thực hành
 
-`content/career-corrections.js` ưu tiên ID chính xác cho 14 nghề dễ bị phân nhóm
+`content/career-corrections.js` ưu tiên ID chính xác cho 20 nghề dễ bị phân nhóm
 nhầm: giao liên, bí thư/giám sát, shaman, Ghoul thức tỉnh, độc tố và Mimic Slime.
 Hai mốc giao liên không còn dùng khúc hát hay trường ca. Nhóm kỷ nguyên vẫn có
 khoảng nghỉ thăng bậc `tickYears * (4 + rank * 2)` và ba lượt bấm.
@@ -120,3 +120,5 @@ Ngoài focus Làm việc, các lựa chọn tăng chỉ số chuyên môn hoặc
 bằng đúng chỉ số nghề có thể cho 0,5 XP thực hành, tối đa 1 XP mỗi lượt. Không
 cộng trùng phần thưởng `jobXp`, không cộng vì chỉ an dưỡng và không áp dụng khi
 bị giam. Xem [đợt sửa nội dung](CONTENT_AUDIT.md) và [prompt mở rộng](gemini-prompts/README.md).
+
+Các nhóm thú cưng, linh thú khế ước, lừa lọc, canh trứng, Troll học giả và quý tộc Huyết Tộc được định danh riêng; xem [báo cáo đối chiếu](FOLLOWUP_AUDIT.md).

@@ -1575,7 +1575,16 @@
     return out.length ? "Cần " + out.join(", ") : "";
   }
 
+  const romanceCache=new WeakMap();
+  function romanceOnly(value) {
+    if(!value||typeof value!=="object")return false;
+    if(romanceCache.has(value))return romanceCache.get(value);
+    const yes=!!(value.effects?.marry||value.act?.type==="marry"||Object.values(value).some(v=>v&&typeof v==="object"&&romanceOnly(v)));
+    romanceCache.set(value,yes);return yes;
+  }
+  const asexualLife=c=>c.race.genderless&&c.race.id!=="high_demon";
   function eligible(e, c, stageId, data) {
+    if(asexualLife(c)&&(romanceOnly(e)||e.require?.spouse===true||/\{spouse\}/.test(sceneText(e))))return false;
     if(c.focus==='rest' && (createsParty(e)||/_party_party_[a-z]_join$|_band_band_[a-z]_1$|_recruit_/.test(e.id)))return false;
     if(unavailableCompanion(c,e.text) || unavailableCompanion(c,e.result) || (e.variants||[]).some(t=>unavailableCompanion(c,t)))return false;
     if (e.cooldownYears && c.eventLast?.[e.id] != null && c.age-c.eventLast[e.id]<e.cooldownYears) return false;
@@ -2072,6 +2081,7 @@
     return known && (known.gender || (known.cast && c.cast?.[known.cast]?.gender)) || null;
   }
   function marry(c, partner, data, rng) {
+    if(asexualLife(c)||!partner)return false;
     if(partner.alive===false||partner.left)return false;
     const gender = partnerGender(c, partner);
     if (oppositeGender(c.gender) && gender !== oppositeGender(c.gender)) return false;
@@ -2566,6 +2576,7 @@
   }
 
   function romanceScene(c, data, rng) {
+    if(asexualLife(c))return false;
     const s = sys(c, data, "romance");
     const opposite = oppositeGender(c.gender);
     const close = aliveParty(c).filter((m) => m.bond >= 55 && (!opposite || partnerGender(c, m) === opposite));
@@ -2658,7 +2669,7 @@
     if (c.focus === "adventure" && c.guild && active && c.age >= (c.nextQuestBoard || 0) && c.clicks >= (c.nextQuestBoardClick || 0) && rng() < 0.3) {
       if (boardScene(c, data, rng)) return true;
     }
-    if (sys(c, data, "romance") && !c.spouse && c.gender && ["adult", "middle"].includes(st) && rng() < (c.focus === "social" ? 0.25 : 0.04) * Math.min(per, 2) * (c.bars.joy > 70 ? 1.5 : 1)) {
+    if (!asexualLife(c) && sys(c, data, "romance") && !c.spouse && c.gender && ["adult", "middle"].includes(st) && rng() < (c.focus === "social" ? 0.25 : 0.04) * Math.min(per, 2) * (c.bars.joy > 70 ? 1.5 : 1)) {
       romanceScene(c, data, rng);
       return true;
     }

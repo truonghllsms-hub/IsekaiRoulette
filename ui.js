@@ -12,17 +12,39 @@
   let c = null;
   const esc = (t) => String(t).replace(/[&<>"]/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
   let rendered = 0;
+  let sessionPhase="reveal";
+  const activeRun=window.ActiveRun.createStore(()=>window.localStorage,D,E);
 
   const store = {
-    get() { try { return JSON.parse(localStorage.getItem("lhdg_lives") || "[]"); } catch (e) { return []; } },
+    get() { try { const all=JSON.parse(localStorage.getItem("lhdg_lives") || "[]");return Array.isArray(all)?all.filter(x=>x&&typeof x.name==="string"&&typeof x.race==="string"&&Number.isFinite(x.age)):[]; } catch (e) { return []; } },
     add(life) {
       try {
         const all = store.get();
         all.unshift(life);
         localStorage.setItem("lhdg_lives", JSON.stringify(all.slice(0, 10)));
-      } catch (e) { /* storage unavailable */ }
+        return true;
+      } catch (e) { return false; }
     },
   };
+
+  function archiveLife() {
+    if(c&&!c.alive&&!c.historySaved){c.historySaved=store.add({name:c.name,race:E.raceTitle(c),age:c.age});}
+  }
+  function persistActive() {
+    if(!c)return;
+    if(!c.alive)activeRun.clear();
+    archiveLife();
+    const ok=activeRun.save(c,sessionPhase),status=$("save-status");
+    status.hidden=ok;status.textContent=ok?"":"Chưa tự lưu được lượt này. Hãy kiểm tra dung lượng hoặc quyền lưu dữ liệu của trình duyệt.";
+  }
+  function resumeLife() {
+    const saved=activeRun.read();
+    if(!saved){renderStart();return;}
+    c=saved.character;sessionPhase=saved.phase;rendered=0;
+    if(sessionPhase==="reveal")renderReveal();else beginLife();
+  }
+  window.addEventListener("pagehide",persistActive);
+  document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden")persistActive();});
 
   function show(id) {
     document.body.dataset.screen = id || "";
@@ -42,6 +64,11 @@
 
   // ---------- start ----------
   function renderStart() {
+    const saved=activeRun.read();
+    $("resume-slot").hidden=!saved;
+    if(saved){const x=saved.character;$("btn-resume").textContent=`Tiếp tục hành trình · ${x.name} · ${E.raceTitle(x)} · ${fmtAge(x.age)} tuổi`;}
+    const message=activeRun.error==='unavailable'?'Trình duyệt chưa cho phép lưu lượt chơi trên thiết bị này.':activeRun.error?'Không đọc được hành trình đang lưu; dữ liệu cũ vẫn được giữ để tránh mất bản lưu.':"";
+    $("resume-error").hidden=!message;$("resume-error").textContent=message;
     const list = $("odds-list");
     list.innerHTML = "";
     for (const r of [...D.races].sort((a, b) => b.weight - a.weight)) {
@@ -292,9 +319,9 @@
   mapDialog.addEventListener("click", e => { if (e.target !== mapDialog) return; const r = mapDialog.getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) mapDialog.close(); });
   mapDialog.addEventListener("close", () => { if (!$("screen-start").hidden) $("btn-map").focus(); });
   let mapDrag = null;
-  mapViewport.addEventListener("pointerdown", e => { if(e.pointerType!=="mouse"||e.button!==0||mapZoom<=1)return;mapDrag={x:e.clientX,y:e.clientY,left:mapViewport.scrollLeft,top:mapViewport.scrollTop};mapViewport.setPointerCapture(e.pointerId);mapViewport.classList.add("is-dragging");e.preventDefault(); });
-  mapViewport.addEventListener("pointermove", e => { if(!mapDrag)return;mapViewport.scrollLeft=mapDrag.left-(e.clientX-mapDrag.x);mapViewport.scrollTop=mapDrag.top-(e.clientY-mapDrag.y); });
-  for(const type of ["pointerup","pointercancel","lostpointercapture"])mapViewport.addEventListener(type,()=>{mapDrag=null;mapViewport.classList.remove("is-dragging");});
+  mapViewport.addEventListener("pointerdown", e => { if((e.pointerType==="mouse"&&e.button!==0)||mapZoom<=1||mapDrag)return;mapDrag={id:e.pointerId,x:e.clientX,y:e.clientY,left:mapViewport.scrollLeft,top:mapViewport.scrollTop};mapViewport.setPointerCapture(e.pointerId);mapViewport.classList.add("is-dragging");e.preventDefault(); });
+  mapViewport.addEventListener("pointermove", e => { if(!mapDrag||mapDrag.id!==e.pointerId)return;mapViewport.scrollLeft=mapDrag.left-(e.clientX-mapDrag.x);mapViewport.scrollTop=mapDrag.top-(e.clientY-mapDrag.y); });
+  for(const type of ["pointerup","pointercancel","lostpointercapture"])mapViewport.addEventListener(type,e=>{if(mapDrag&&mapDrag.id!==e.pointerId)return;mapDrag=null;mapViewport.classList.remove("is-dragging");});
   mapViewport.addEventListener("keydown", e => { if(["+","=","-","0"].includes(e.key)){e.preventDefault();zoomMap(e.key==="0"?1:mapZoom+(e.key==="-"?-.5:.5));} });
   window.addEventListener("resize", () => { if (mapDialog.open) zoomMap(mapZoom, false); });
 
@@ -311,6 +338,11 @@
 
   function startLife() {
     c = E.createCharacter(D);
+    sessionPhase="reveal";
+    renderReveal();
+    persistActive();
+  }
+  function renderReveal() {
     rendered = 0;
     $("reveal-name").textContent = c.name;
     $("reveal-race").textContent = c.subtypeName ? `${c.race.name} ${c.subtypeName}` : c.race.name;
@@ -580,6 +612,7 @@
   }
 
   function render() {
+    persistActive();
     const hasNewEntries = c.log.length > rendered;
     renderHud();
     renderLog();
@@ -603,6 +636,7 @@
   }
 
   function beginLife() {
+    sessionPhase="life";
     $("log").innerHTML = "";
     rendered = 0;
     show("screen-life");
@@ -647,7 +681,8 @@
       ul.appendChild(li);
     }
     renderCard(s.card);
-    store.add({ name: c.name, race: E.raceTitle(c), age: c.age });
+    activeRun.clear();
+    archiveLife();
     show("screen-death");
     setSprite("lc-sprite", c, true); // after show: the box needs its real height
   }
@@ -818,6 +853,7 @@
     showCardImage(url, window.claude ? fallback : "Nếu ảnh chưa tải về: " + fallback.toLowerCase());
   };
 
+  $("btn-resume").onclick = resumeLife;
   $("btn-start").onclick = startLife;
   $("btn-begin").onclick = beginLife;
   $("btn-next").onclick = next;

@@ -16,3 +16,5 @@ về nút mở. Danh sách vùng đất nằm dưới ảnh.
 Đây là màn tra cứu thế giới: mở/đóng hoặc thao tác bàn phím trong bản đồ không
 tăng tuổi, dùng lựa chọn hay di chuyển nhân vật. Game từ ZIP cần giữ thư mục
 `img/`. Bản build gắn mã nội dung vào URL ảnh để cập nhật bộ nhớ đệm.
+
+Khi phóng to trên điện thoại, kéo một ngón tay để dịch bản đồ theo cả hai chiều. Ngón tay khác không chiếm thao tác đang kéo; nhấc tay/hủy thao tác sẽ dọn trạng thái. Ở mức toàn cảnh, phần còn lại của trang giữ cuộn thông thường.

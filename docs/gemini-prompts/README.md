@@ -19,7 +19,7 @@ Mở một file bên dưới, sao chép **toàn bộ nội dung**, gửi Gemini.
 
 ## Đã sửa trong code, không giao Gemini sửa lại
 
-- Phân nhóm chính xác 14 nghề; thêm hai tuyến giao liên cùng các tình huống đúng chuyên môn cho bí thư, giám sát mỏ, shaman, Ghoul thức tỉnh, độc và mô phỏng.
+- Phân nhóm chính xác 20 nghề; thêm hai tuyến giao liên cùng các tình huống đúng chuyên môn cho bí thư, giám sát mỏ, shaman, Ghoul thức tỉnh, độc và mô phỏng.
 - Rút thời gian chờ thăng bậc của nhóm không dùng nhịp kỷ nguyên; bổ sung XP thực hành có giới hạn cho những lựa chọn dùng chuyên môn.
 - An dưỡng chặn sự kiện kéo người chơi vào nhóm mới, kể cả hiệu ứng lồng trong nhánh lựa chọn; vẫn chăm sóc được đồng đội đang có.
 - Người đã mất chuyển sang kỷ niệm, không ở danh sách đồng hành; dọn `{ally}`, chặn nhắc tên trong cảnh hành động và chặn tuyển lại chính NPC đã chết.

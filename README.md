@@ -29,6 +29,8 @@ npm run validate:sprites  # Python + Pillow + NumPy
 npm test                 # Kiểm tra dữ liệu và mô phỏng 1.000 đời mỗi tộc
 ```
 
+- [Tự lưu và tiếp tục hành trình](docs/SESSION.md)
+- [Đối chiếu báo cáo rà soát tiếp theo](docs/FOLLOWUP_AUDIT.md)
 - [Bản thảo Gemini đã tích hợp, ưu tiên Human/Beastman](docs/CONTENT_IMPORT.md)
 - [Đợt sửa nội dung và cơ chế](docs/CONTENT_AUDIT.md)
 - [Các prompt Gemini để viết thêm kịch bản](docs/gemini-prompts/README.md)

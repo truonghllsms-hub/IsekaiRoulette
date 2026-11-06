@@ -40,6 +40,11 @@
           <h1 id="start-title">Luân Hồi<br>Dị Giới</h1>
           <div class="chronicle-rule" aria-hidden="true"><span>✦</span></div>
           <p class="lede">Bạn không được chọn mình sẽ là ai.<br>Bạn chỉ được chọn mình sẽ sống thế nào.</p>
+          <div id="resume-slot" class="resume-slot" hidden>
+            <button id="btn-resume" class="btn wide" type="button"></button>
+            <p class="meta">Bắt đầu kiếp mới sẽ thay thế hành trình đang lưu.</p>
+          </div>
+          <p id="resume-error" class="meta" role="status" hidden></p>
           <button id="btn-start" class="btn primary"><span aria-hidden="true">✧</span> Đầu thai <span aria-hidden="true">✧</span></button>
           <div class="start-links">
             <details class="odds">
@@ -105,6 +110,7 @@
       <ol id="log" class="log" aria-live="polite"></ol>
       <div id="choices" class="choices"></div>
       <footer class="actions">
+        <p id="save-status" class="meta save-status" role="status" hidden></p>
         <div id="focus-bar" class="focus-bar"></div>
         <button id="btn-next" class="btn primary wide"></button>
       </footer>
@@ -172,6 +178,7 @@
   <script src="data.js"></script>
   <script src="portraits.js"></script>
   <script src="presentation.js"></script>
+  <script src="session.js"></script>
   <script src="ui.js"></script>
 </body>
 </html>
