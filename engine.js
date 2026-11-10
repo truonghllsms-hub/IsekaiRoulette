@@ -590,7 +590,8 @@
     const pool = raceOrigins.length ? raceOrigins : data.origins.filter((o) => !o.races || !o.races.length);
     const origin = weightedPick(pool, rng);
 
-    const gender = race.genderless ? null : rng() < 0.5 ? "male" : "female";
+    // some races are only ever played as one gender (race.gender in data/races.json)
+    const gender = race.genderless ? null : race.gender || (rng() < 0.5 ? "male" : "female");
     const names = data.names[race.id] || data.names.default;
     const firstList = gender ? names[gender] || names.any : names.any || names.male;
     // not the name of someone the story already has (a party leader called Kael meeting a Kael)

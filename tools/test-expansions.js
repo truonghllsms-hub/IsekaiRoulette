@@ -18,11 +18,11 @@ function play(c,e,index,success=true){
  c.pending={kind:'event',text:E.fmt(e.text,c,null,data),choices:e.choices.map(ch=>({...ch,label:E.fmt(ch.label,c,null,data)}))};c.ctx={eventId:e.id,ally:E.aliveParty(c)[0]||null};
  E.choose(c,data,index,()=>success?0:.99999);return c;
 }
-test('212 reviewed additions and four new origins load once and survive bundling filters',()=>{
- assert.equal(additions.length,212);assert.equal(data.origins.filter(o=>o.id.startsWith('gm_high_demon_origin_')).length,4);
- assert.equal(new Set(additions.map(e=>e.id)).size,212);
+test('204 reviewed additions and four new origins load once and survive bundling filters',()=>{
+ assert.equal(additions.length,204);assert.equal(data.origins.filter(o=>o.id.startsWith('gm_high_demon_origin_')).length,4);
+ assert.equal(new Set(additions.map(e=>e.id)).size,204);
  for(const e of additions)assert.ok(e.pack&&e.races.some(r=>!(e.excludeRaces||[]).includes(r)),e.id);
- assert.equal(data.jobs.filter(j=>data.races.some(r=>(!j.races||j.races.includes(r.id))&&!(j.excludeRaces||[]).includes(r.id))).length,99);
+ assert.equal(data.jobs.filter(j=>data.races.some(r=>(!j.races||j.races.includes(r.id))&&!(j.excludeRaces||[]).includes(r.id))).length,94);
 });
 test('every added event and every variant has a legitimate eligible life context',()=>{
  for(const e of additions){assert.ok(witness(e),e.id);for(const text of e.variants||[])assert.ok(witness({...e,text}),`${e.id}: ${text}`);}

@@ -90,7 +90,6 @@ module.exports = {
     maxChildren: 3,
     child: ["Một hạt giống tai ương mới nảy mầm trong Vực Thẳm: {child}, đứa con mang ma huyết của bạn.", "{child} chào đời giữa tiếng sấm của Ma giới. Các Đại Công Tước gửi quà mừng, và thầm tính chuyện ám sát."],
     companions: [
-      { race: "Imp", names: "imp", job: "Imp Messenger", stat: "AGI", weight: 3 },
       { race: "Demon", names: "demon", job: "Demon Knight", stat: "STR", weight: 3 },
       { race: "Vampire", names: "vampire", job: "Blood Mage", stat: "INT", weight: 1 },
     ],

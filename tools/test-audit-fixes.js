@@ -7,7 +7,7 @@ const scene=(text,choices=[{label:'Tiếp tục',text:'Bạn tiếp tục.'}])=>
 test('fourteen audited careers have explicit families, with courier arcs independent of bard',()=>{
  for(const [id,family]of Object.entries(corrections.jobFamilies)){const j=data.jobs.find(j=>j.id===id);assert.equal(j.family,family,id);const q=data.quests.filter(q=>q.id.startsWith(`career_${id}_`));assert.equal(q.length,2,id);if(family==='courier'){assert.deepEqual(q.map(q=>q.name.split(" · ").at(-1)),['Chuyến thư qua làn tên mũi đạn','Mật ước niêm phong huyết ấn']);assert.doesNotMatch(JSON.stringify(q),/gảy đàn|trường ca|khúc hát|sân khấu/);}}
  assert.equal(data.jobs.find(j=>j.id==='human_bard').family,'bard');assert.equal(data.jobs.find(j=>j.id==='human_priest').family,'priest');
- for(const id of ['imp_secretary','kobold_overseer'])assert.notEqual(data.jobs.find(j=>j.id===id).progression,'commerce');
+ for(const id of ['kobold_overseer'])assert.notEqual(data.jobs.find(j=>j.id===id).progression,'commerce');
 });
 test('mortal promotions keep a short age cooldown plus two-click breathing room',()=>{const c=person();c.focus='work';effect(c,{jobPromote:true});assert.equal(c.job.rank,1);assert.equal(c.nextPromo-c.age,E.tickYears(c)*2);assert.equal(c.nextPromoClick,c.clicks+2);assert.equal(c.job.xp,0);});
 test('epoch promotions retain their slower chronology',()=>{const c=person('dragon');c.race={...c.race,pacing:data.chronology.dragon};c.job={id:data.jobs.find(j=>j.races?.includes('dragon')).id,rank:0,xp:9};c.focus='work';effect(c,{jobPromote:true});assert.equal(c.nextPromo-c.age,E.tickYears(c)*6);assert.equal(c.nextPromoClick,c.clicks+3);});

@@ -25,7 +25,7 @@ const families={
  ['Giữa những kẻ có hình hài','Một khu cư trú dùng phép thử để phát hiện sinh vật giả dạng.','Bạn quan sát tín hiệu nhận diện và chọn lớp vỏ phù hợp.','Bạn có thể đánh lạc hướng bằng một kẻ vô can, hoặc tự gánh rủi ro bị phát hiện.','Bạn vượt phép thử cuối và quyết định tiếp tục ẩn mình hay rời khỏi nơi không chấp nhận bản chất của bạn.']
  ]}
 };
-const jobFamilies={bm_courier:'courier',imp_messenger:'courier',imp_secretary:'administrator',kobold_overseer:'administrator',bm_shaman:'shaman',goblin_shaman:'shaman',kobold_priest:'shaman',lizard_priest:'shaman',minotaur_shaman:'shaman',orc_shaman:'shaman',ghoul_awakened:'memory',lizard_venom:'venom',slime_poison:'venom',slime_mimic:'mimic'};
+const jobFamilies={bm_courier:'courier',kobold_overseer:'administrator',bm_shaman:'shaman',goblin_shaman:'shaman',kobold_priest:'shaman',lizard_priest:'shaman',minotaur_shaman:'shaman',orc_shaman:'shaman',ghoul_awakened:'memory',lizard_venom:'venom',slime_poison:'venom',slime_mimic:'mimic'};
 const overrides={kobold_overseer:{arcs:[['Sổ khẩu phần dưới tầng mỏ','Khẩu phần mất dần dù sổ xuất kho vẫn ghi đủ.','Bạn đối chiếu giờ đổi ca, phiếu nhận và dấu niêm kho.','Một quản đốc muốn quy phần thiếu cho nhóm thợ đào đang kiệt sức.','Bạn giữ sổ gốc qua cuộc kiểm tra và buộc khoản cấp phát trở về đúng người nhận.'],['Lệnh dừng trước vách nứt','Sản lượng bị ép tăng đúng lúc vách chống bắt đầu nứt.','Bạn kiểm tra các báo cáo bị giấu và phương án đưa thợ ra ngoài.','Cấp trên yêu cầu ghi khu vực vẫn an toàn để tiếp tục khai thác.','Bạn thực thi quyết định dừng hay tiếp tục và chịu trách nhiệm trước những người dưới tầng sâu.']]}};
 Object.assign(families,{
  circus_pet:{jobs:[],dilemma:'Người quản đoàn muốn dùng một màn thử lửa nguy hiểm để thu hút khán giả. Bạn có thể phối hợp bằng những hình dạng mình kiểm soát được, hoặc liều để bảo vệ chỗ đứng trong đoàn.',safe:'Chỉ biểu diễn những hình dạng đã kiểm soát',tempt:'Cố vượt giới hạn để làm vừa lòng người xem',good:'Bạn giữ lõi an toàn và hoàn tất tiết mục bằng những chuyển động dẻo khéo léo.',bad:'Một nhịp đổi hình sai khiến bạn mất sức. Buổi diễn dừng lại để bạn hồi phục.',temptGood:'Khán giả tán thưởng, nhưng lớp màng quanh lõi đã bị bào mỏng.',temptBad:'Ngọn lửa xuyên qua lớp ngụy trang, khiến bạn phải rút lõi khỏi sân diễn.',loss:{health:-30,joy:-8},fallout:'Người quản đoàn muốn lặp lại màn nguy hiểm cũ. Bạn phải tự giữ giới hạn để không bị xem như một đạo cụ có thể thay thế.',arcs:[
@@ -50,6 +50,6 @@ Object.assign(families,{
  ]},
  intrigue:{...families.administrator,jobs:[]}
 });
-Object.assign(jobFamilies,{slime_pet:'circus_pet',imp_familiar:'familiar_contract',imp_trickster:'trickster',lizard_egg:'brood_guard',vampire_noble:'intrigue',troll_scholar:'cave_scholar'});
+Object.assign(jobFamilies,{slime_pet:'circus_pet',lizard_egg:'brood_guard',vampire_noble:'intrigue',troll_scholar:'cave_scholar'});
 
 module.exports={families,jobFamilies,overrides};

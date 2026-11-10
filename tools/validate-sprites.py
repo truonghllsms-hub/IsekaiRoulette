@@ -19,7 +19,7 @@ args = parser.parse_args()
 atlas=json.loads((args.images/"atlas.json").read_text())
 provenance=json.loads((args.images/"sprite-provenance.json").read_text())
 sources=json.loads((args.images/"source-sheets.json").read_text())
-assert len(atlas)==69, f"Expected 69 identities, got {len(atlas)}"
+assert len(atlas)==53, f"Expected 53 identities, got {len(atlas)}"
 assert atlas.keys()==provenance.keys()
 originals={}
 if args.originals:
@@ -67,7 +67,7 @@ for person,columns in atlas.items():
             source=np.asarray(originals[info["source"]].crop((sx,sy,sx+sw,sy+sh)))
             assert np.array_equal(rgba[:,:,:3][opaque],source[opaque]),(person,column,"foreground colors changed")
         frames+=1
-assert frames==1588,frames
+assert frames==1262,frames
 assert reviewed_count==sum(map(len,reviewed.values())),"reviewed corrections missing from atlas"
 print(f"PASS: {reviewed_count} reviewed caption/debris/repair frames retain their corrections.")
 print(f"PASS: {len(atlas)} identities, {frames} transparent native-resolution frames, valid bounds.")

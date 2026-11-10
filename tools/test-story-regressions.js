@@ -530,7 +530,7 @@ test("explicit lethal checks deal at least 35 damage and can kill a wounded char
 });
 
 test("short-lived races can mature and evolve within their new natural lifespan", () => {
-  for (const id of ["goblin", "kobold", "imp"]) {
+  for (const id of ["goblin", "kobold"]) {
     const r = data.races.find((r) => r.id === id);
     assert.deepEqual(r.lifespan, [8, 12]);
     assert.ok(E.stagesOf(r).find((s) => s.id === "adult").start < r.lifespan[0]);

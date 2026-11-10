@@ -31,8 +31,8 @@ function cast(c, role, kind, name) {
   c.cast[role] = { role, kind, name, alive: true, left: false, bond: 0, mortal: { race: 'Human', years: 1000 } };
 }
 
-test('Goblin, Kobold and Imp early accident rates are 5%, without changing Human/Beastman', () => {
-  for (const id of ['goblin', 'kobold', 'imp']) assert.equal(data.systems.race[id].earlyHazard, 0.05);
+test('Goblin and Kobold early accident rates are 5%, without changing Human/Beastman', () => {
+  for (const id of ['goblin', 'kobold']) assert.equal(data.systems.race[id].earlyHazard, 0.05);
   assert.equal(data.systems.race.human.earlyHazard, 0.02);
   assert.equal(data.systems.race.beastman.earlyHazard, 0.025);
 });

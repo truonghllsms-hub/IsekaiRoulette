@@ -46,7 +46,7 @@ test('shared encounters reveal only the player’s profession option and preserv
  }
 });
 test('all available careers have exactly two three-step arcs at displayed ranks 2 and 4',()=>{
- const arcs=data.quests.filter(q=>q.career);assert.equal(arcs.length,198);const jobs=[...new Set(arcs.map(q=>q.career.job))];assert.equal(jobs.length,99);for(const job of jobs){const qs=arcs.filter(q=>q.career.job===job);assert.deepEqual(qs.map(q=>q.career.rank),[2,4]);for(const q of qs){assert.equal(q.steps.length,3);assert.equal(q.require.jobRank,q.career.rank-1);}}
+ const arcs=data.quests.filter(q=>q.career);assert.equal(arcs.length,188);const jobs=[...new Set(arcs.map(q=>q.career.job))];assert.equal(jobs.length,94);for(const job of jobs){const qs=arcs.filter(q=>q.career.job===job);assert.deepEqual(qs.map(q=>q.career.rank),[2,4]);for(const q of qs){assert.equal(q.steps.length,3);assert.equal(q.require.jobRank,q.career.rank-1);}}
 });
 test('career milestones are available without a guild, obey ranks and do not repeat after acceptance',()=>{
  const c=person('human_mage',0);c.focus='work';E.advance(c,{...quiet,quests:data.quests},()=>0);assert.notEqual(c.pending?.kind,'career');

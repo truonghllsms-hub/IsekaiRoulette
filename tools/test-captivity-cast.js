@@ -19,7 +19,7 @@ test('Cast probabilities support both zero and one without inventing missing rol
  for(const [chance,size] of [[none,0],[all,3]]){const d=birthData('human',null,simple,chance);for(let s=1;s<=20;s++)assert.equal(Object.keys(E.createCharacter(d,E.makeRng(s),'human').cast).length,size);}
 });
 test('all actual captive origins exclude Cast without matching prison context',()=>{
- const cases=[['human','human_bg_gladiator'],['demon','demon_origin_prisoner'],['goblin','goblin_origin_slave'],['imp','imp_origin_summon']];
+ const cases=[['human','human_bg_gladiator'],['demon','demon_origin_prisoner'],['goblin','goblin_origin_slave']];
  for(const [race,origin] of cases){const d=birthData(race,origin,null,all);for(let s=1;s<=20;s++){const c=E.createCharacter(d,E.makeRng(s),race);assert.ok(c.captive);for(const x of Object.values(c.cast)){assert.ok(x.contexts.includes(c.captive.kind));assert.match(d.story[race].cast[x.kind].desc,/bạn tù|cai ngục|chủ nô|nô lệ|tù nhân/i);}}}
  const d=birthData('human','human_bg_gladiator',null,all);assert.deepEqual(E.createCharacter(d,E.makeRng(7),'human').cast,{});
 });
@@ -57,5 +57,5 @@ test('freedom restores career offers without discarding the existing job or XP',
  const c=person();c.captive={kind:'arena',since:0};const d={...quiet,quests:data.quests};E.advance(c,d,()=>0);const xp=c.job.xp;c.captive=null;E.advance(c,d,()=>0);assert.equal(c.pending?.kind,'career');assert.equal(c.job.id,'human_mage');assert.ok(c.job.xp>=xp);
 });
 test('generated profession events and career quests explicitly require freedom',()=>{
- const events=data.events.filter(e=>e._file==='careers'&&e.require?.job);assert.ok(events.length>=196);for(const e of events)assert.equal(e.require.free,true,e.id);for(const q of data.quests.filter(q=>q.career))assert.equal(q.require.free,true,q.id);
+ const events=data.events.filter(e=>e._file==='careers'&&e.require?.job);assert.ok(events.length>=192);for(const e of events)assert.equal(e.require.free,true,e.id);for(const q of data.quests.filter(q=>q.career))assert.equal(q.require.free,true,q.id);
 });

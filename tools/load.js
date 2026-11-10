@@ -161,7 +161,41 @@ function loadData() {
   require("./professions").installProfessions(data);
   require("../content/epoch-events").install(data);
   require("./economy").annotateRewards(data);
+  pruneRemoved(data);
   return data;
+}
+
+// A race taken out of the game (data/races.json) or a kin line taken out of a race (its subtypes): every
+// piece of content still written for it goes with it, wherever it came from (packs, shared events,
+// expansions, companions). An item written for several races keeps the races that remain.
+function pruneRemoved(data) {
+  const raceIds = new Set(data.races.map((r) => r.id));
+  const keep = (x) => {
+    if (x.excludeRaces) x.excludeRaces = x.excludeRaces.filter((r) => raceIds.has(r));
+    if (!Array.isArray(x.races)) return true;
+    const had = x.races.length;
+    x.races = x.races.filter((r) => raceIds.has(r));
+    return !had || x.races.length > 0;
+  };
+  for (const key of ["events", "origins", "jobs", "deaths", "quests", "orgs", "epitaphs", "fillers"])
+    if (Array.isArray(data[key])) data[key] = data[key].filter(keep);
+  for (const id of Object.keys(data.systems.race || {})) if (!raceIds.has(id)) delete data.systems.race[id];
+  for (const r of Object.values(data.systems.race || {}))
+    if (Array.isArray(r.companions)) r.companions = r.companions.filter((m) => !m.names || raceIds.has(m.names));
+  for (const k of ["story", "focusRace"]) for (const id of Object.keys(data[k] || {})) if (!raceIds.has(id)) delete data[k][id];
+  for (const r of data.races) {
+    if (!r.subtypes) continue;
+    const kin = new Set(r.subtypes.map((s) => s.id));
+    data.origins = data.origins.filter((o) => !(o.subtype && o.races && o.races.includes(r.id) && !kin.has(o.subtype)));
+    data.events = data.events.filter((e) => {
+      const q = e.require;
+      if (!q || !e.races || !e.races.includes(r.id)) return true;
+      // "not for these kin": kin that no longer exist need no excluding
+      if (Array.isArray(q.notSubtypes)) { q.notSubtypes = q.notSubtypes.filter((k) => kin.has(k)); if (!q.notSubtypes.length) delete q.notSubtypes; }
+      if (Array.isArray(q.subtype)) { q.subtype = q.subtype.filter((k) => kin.has(k)); return q.subtype.length > 0; }
+      return !(q.subtype && !kin.has(q.subtype));
+    });
+  }
 }
 
 module.exports = { loadData, DATA_DIR };
