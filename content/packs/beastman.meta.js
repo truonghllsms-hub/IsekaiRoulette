@@ -14,11 +14,7 @@ module.exports = {
     { id: "dog", word: "Chó", name: "tộc Chó", weight: 18, stats: { STR: 1, INT: -1 }, health: 5 },
     { id: "wolf", word: "Sói", name: "tộc Sói", weight: 14, stats: { STR: 1, AGI: 1, INT: -1 } },
     { id: "fox", word: "Cáo", name: "tộc Cáo", weight: 10, stats: { INT: 2, LUCK: 1, STR: -2 } },
-    { id: "rabbit", word: "Thỏ", name: "tộc Thỏ", weight: 10, stats: { AGI: 3, LUCK: 1, STR: -2, INT: -1 } },
-    { id: "tiger", word: "Hổ", name: "tộc Hổ", weight: 8, stats: { STR: 3, INT: -1, AGI: -1 }, health: 5 },
     { id: "bear", word: "Gấu", name: "tộc Gấu", weight: 8, stats: { STR: 2, AGI: -2, INT: -1 }, health: 15 },
-    { id: "rat", word: "Chuột", name: "tộc Chuột", weight: 8, stats: { LUCK: 2, AGI: 2, STR: -2 }, health: -5 },
-    { id: "hawk", word: "Ưng", name: "tộc Ưng", weight: 6, stats: { AGI: 3, LUCK: 1 }, health: -10 },
   ],
 
   rename: [

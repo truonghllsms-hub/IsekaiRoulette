@@ -124,6 +124,13 @@ function loadData() {
     data.systems.race[race] = data.systems.race[race] || {};
     if (!data.systems.race[race].romance) data.systems.race[race].romance = r;
   }
+  // a kin that was cut (a Beastman line no longer played): its births and its scenes go with it
+  for (const r of data.races) {
+    if (!r.subtypes) continue;
+    const kept = new Set(r.subtypes.map((s) => s.id));
+    data.origins = data.origins.filter((o) => !(o.subtype && o.races && o.races.includes(r.id) && !kept.has(o.subtype)));
+    data.events = data.events.filter((e) => !(e.require && e.require.subtype && e.races && e.races.includes(r.id) && !kept.has(e.require.subtype)));
+  }
   // a scene about the father that checks the mother is alive (or the other way round) was a slip when the
   // script was turned into data: the parent the scene speaks of is the one who must be there
   for (const e of data.events) {

@@ -438,7 +438,8 @@
     const pool = raceOrigins.length ? raceOrigins : data.origins.filter((o) => !o.races || !o.races.length);
     const origin = weightedPick(pool, rng);
 
-    const gender = race.genderless ? null : rng() < 0.5 ? "male" : "female";
+    // some races are only ever played as one gender (race.gender in data/races.json)
+    const gender = race.genderless ? null : race.gender || (rng() < 0.5 ? "male" : "female");
     const names = data.names[race.id] || data.names.default;
     const firstList = gender ? names[gender] || names.any : names.any || names.male;
     // not the name of someone the story already has (a party leader called Kael meeting a Kael)
@@ -666,7 +667,7 @@
     bm_bg_arena: "arena", human_bg_gladiator: "arena", dwarf_bg_4: "arena", orc_origin_3: "arena", minota_origin_arena: "arena", troll_origin_arena: "arena",
     goblin_origin_slave: "slave", kobold_bg_slave: "slave", demon_origin_forge: "slave", minota_origin_torture: "slave",
     demon_origin_prisoner: "prison", dwarf_bg_7: "prison", dragon_origin_stolen: "prison",
-    imp_origin_summon: "bound", imp_origin_cult: "bound", demon_origin_contract: "bound",
+    demon_origin_contract: "bound",
   };
   const CAPTIVE_WORD = { arena: "nô lệ đấu trường", slave: "nô lệ", prison: "bị giam cầm", bound: "bị khế ước trói buộc" };
   const FREE_FOCUS = ["adventure", "social"];
