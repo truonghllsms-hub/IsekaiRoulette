@@ -52,7 +52,7 @@ module.exports = {
       require: { INT: 6 }, alt: { anyFlags: ["necromancer_puppet"], hint: "xuất thân Bàn thí nghiệm Tử linh hoặc Tế đàn hắc ám" },
       desc: "Trí tuệ. Ghoul tìm lại được ý thức", income: [0.5, 1, 1.6, 2.4, 3.2], hazard: 1.2, gains: { INT: 0.35 } },
   ],
-  promoXp: [5, 6, 8, 10],
+  promoXp: [4, 8, 14, 22],
   roleByPrefix: { ghoul_job_stalker_: "ghoul_stalker", ghoul_job_sentinel_: "ghoul_sentinel", ghoul_job_awakened_: "ghoul_awakened" },
   focusByPrefix: { ghoul_action_wander_: "adventure", ghoul_action_eat_: "play", ghoul_action_hunt_: "train", ghoul_action_serve_: "work", ghoul_action_hide_: "study", ghoul_action_grave_: "rest" },
 
@@ -82,6 +82,7 @@ module.exports = {
   ],
 
   systems: {
+    solitaryOrigins: ["ghoul_origin_graveyard", "ghoul_origin_massgrave", "ghoul_origin_battlefield", "ghoul_origin_dungeon"],
     noRecruit: true,
     activeFrom: "infant",
     bandName: "bầy",
@@ -138,6 +139,11 @@ module.exports = {
     parentDeath: ["Bạn nghe tin {who} đã chết. Ký ức về con người đó chỉ còn là một vệt mờ trong đầu bạn.", "{who} đã qua đời. Bạn đứng lặng một lúc, rồi quay lại với cơn đói."],
   },
 
+  // The parser caps generated slugs at 40 characters. Keep this quest's full ID
+  // explicit without renaming every other long quest in existing packs.
+  questOverrides: {
+    cot_truyen_3_cuoc_tuan_hanh_cua_vua_kho_: { id: "ghoul_q_cot_truyen_3_cuoc_tuan_hanh_cua_vua_kho_cot" },
+  },
   overrides: {
     ghoul_action_serve_defend: { keep: true },
     ghoul_rank_sovereign: { require: { guildRank: 5 }, unrequire: { job: true }, choiceEffects: { 0: { success: { orgRank: 6 } }, 1: { success: { orgRank: 6 } }, 2: { success: { orgRank: 6 } } } },

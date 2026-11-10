@@ -42,7 +42,7 @@ module.exports = {
       require: { INT: 6 }, alt: { anyFlags: ["half_dragon", "wild_wind", "stolen_egg"], hint: "xuất thân Trứng Rồng Lai, Hơi Thở Đại Ngàn hoặc Bị Đánh Cắp" },
       desc: "Trí tuệ. Đạo Hiền Triết: tri thức cổ đại", income: [1.2, 2, 3, 4.2, 5.5], hazard: 1, gains: { INT: 0.35 } },
   ],
-  promoXp: [5, 6, 8, 10],
+  promoXp: [4, 8, 14, 22],
   roleByPrefix: { dragon_hoard_: "dragon_hoard", dragon_war_: "dragon_war", dragon_sage_: "dragon_sage" },
   focusByPrefix: { dragon_act_hoard_: "work", dragon_act_sleep_: "rest", dragon_act_train_: "train", dragon_act_conquer_: "adventure", dragon_act_magic_: "study", dragon_act_social_: "social" },
 
@@ -72,6 +72,8 @@ module.exports = {
   ],
 
   systems: {
+    earlyHazard: 4e-06,
+    earlyUntil: "adult",
     noRecruit: true,
     activeFrom: "child",
     jobFrom: "teen",

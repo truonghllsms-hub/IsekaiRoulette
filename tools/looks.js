@@ -14,7 +14,7 @@ const LOOKS = {
 // trade → look, by name; the order matters (first match wins)
 const RULES = [
   ["phapsu", /pháp|mage|priest|shaman|warlock|caller|scribe|scholar|học giả|archmage|sage|envoy|chấp sự|awakened|serpent priest|venom master|magic slime/i],
-  ["thosan", /assassin|ranger|scout|thief|hunter|spy|blade|stalker|rider|trapper|sniffer|courier|messenger|trickster|tamer|hidden one|poison slime/i],
+  ["thosan", /assassin|ranger|scout|thief|hunter|spy|blade|stalker|rider|trapper|sniffer|trickster|tamer|hidden one|poison slime/i],
   ["tho", /blacksmith|smith|thương nhân|merchant|nông dân|miner|leatherworker|herder|brewmaster|engineer|carver|herbalist|tinker|drudge|egg watcher/i],
   ["chienbinh", /kiếm sĩ|warrior|berserker|gladiator|knight|kỵ sĩ|lính|mercenary|guard|guardian|general|sentinel|overseer|bridge troll|war dragon|metal slime|abyssal lord/i],
 ];

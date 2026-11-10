@@ -1,0 +1,1992 @@
+{
+  "origins": [
+    {
+      "id": "gm_high_demon_origin_mirror",
+      "races": [
+        "high_demon"
+      ],
+      "name": "Kẻ Cướp Chân Danh",
+      "weight": 10,
+      "home": "Tàn tích Cung Điện Thủy Tinh",
+      "siblings": "Không có anh chị em cùng huyết thống.",
+      "noParents": true,
+      "text": "Sinh ra từ mặt gương hắc ám vỡ nát, bạn không có hình hài cố định. Bạn là một ý chí Vực Thẳm khao khát đoạt lấy chân diện của vạn vật.",
+      "effects": {
+        "flags": [
+          "gm_hd_mirror_start"
+        ],
+        "INT": 2,
+        "AGI": 1
+      },
+      "maker": {
+        "name": "Mảnh Gương Tội Lỗi",
+        "race": "High Demon",
+        "role": "Vật dẫn hình thành",
+        "trait": "Phản chiếu tà niệm",
+        "status": "thing",
+        "note": "Mảnh vỡ duy nhất còn sót lại từ thời Ma Vương đầu tiên."
+      },
+      "captiveKind": "bound"
+    },
+    {
+      "id": "gm_high_demon_origin_chaos",
+      "races": [
+        "high_demon"
+      ],
+      "name": "Mầm Mống Hỗn Mang",
+      "weight": 10,
+      "home": "Biển Bùn Đen Vực Thẳm",
+      "siblings": "Không có anh chị em cùng huyết thống.",
+      "noParents": true,
+      "text": "Một khối hỗn mang nguyên thủy bong ra từ đáy Vực Thẳm, cô đặc lại thành ý thức. Bạn liên tục sôi sục, điên cuồng tìm kiếm sự hoàn hảo trong giới hạn vật lý.",
+      "effects": {
+        "flags": [
+          "gm_hd_chaos_start"
+        ],
+        "STR": 2,
+        "LUCK": 1
+      },
+      "maker": {
+        "name": "Cốt Lõi Vực Thẳm",
+        "race": "High Demon",
+        "role": "Cội nguồn",
+        "trait": "Hỗn loạn vô định",
+        "status": "thing",
+        "note": "Nơi vật chất và linh hồn hòa tan thành hư vô."
+      },
+      "captiveKind": "bound"
+    },
+    {
+      "id": "gm_high_demon_origin_parasite",
+      "races": [
+        "high_demon"
+      ],
+      "name": "Ký Sinh Hắc Ám",
+      "weight": 10,
+      "home": "Tâm trí vật chủ vô danh",
+      "siblings": "Không có anh chị em cùng huyết thống.",
+      "noParents": true,
+      "text": "Bắt nguồn từ một khế ước máu bị nguyền rủa, bạn là thực thể nảy mầm trong tâm trí vật chủ đầu tiên. Sự tồn tại của bạn là cuộc giằng co vĩnh cửu vì quyền tự chủ.",
+      "effects": {
+        "flags": [
+          "gm_hd_parasite_start"
+        ],
+        "INT": 1,
+        "LUCK": 2
+      },
+      "maker": {
+        "name": "Ấn Chú Huyết Lệ",
+        "race": "High Demon",
+        "role": "Khế ước nền tảng",
+        "trait": "Ràng buộc linh hồn",
+        "status": "thing",
+        "note": "Vết ấn rỉ máu không bao giờ khô."
+      },
+      "captiveKind": "bound"
+    },
+    {
+      "id": "gm_high_demon_origin_forgotten_god",
+      "races": [
+        "high_demon"
+      ],
+      "name": "Mảnh Thần Bị Lãng Quên",
+      "weight": 10,
+      "home": "Tế Đàn Hoang Lạnh",
+      "siblings": "Không có anh chị em cùng huyết thống.",
+      "noParents": true,
+      "text": "Từng là một phần của Cổ Thần bị hiến tế thất bại, bạn thức tỉnh trên tế đàn đẫm máu. Mang trong mình mảnh thần quyền rách nát, bạn gánh chịu món nợ đức tin nặng nề.",
+      "effects": {
+        "flags": [
+          "gm_hd_god_start"
+        ],
+        "STR": 1,
+        "INT": 2
+      },
+      "maker": {
+        "name": "Tượng Đá Vỡ Nát",
+        "race": "High Demon",
+        "role": "Tàn tích thần tính",
+        "trait": "Oán hận ngàn năm",
+        "status": "thing",
+        "note": "Những tiếng cầu nguyện tuyệt vọng vẫn văng vẳng từ bức tượng."
+      },
+      "captiveKind": "bound"
+    }
+  ],
+  "events": [
+    {
+      "id": "gm_high_demon_mirror_1",
+      "pack": true,
+      "races": [
+        "high_demon"
+      ],
+      "stages": [
+        "infant",
+        "child",
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "weight": 8,
+      "once": true,
+      "require": {
+        "origin": "gm_high_demon_origin_mirror",
+        "flags": [
+          "gm_hd_mirror_start"
+        ],
+        "captiveKinds": [
+          "bound"
+        ],
+        "notFlags": [
+          "gm_hd_mirror_done"
+        ]
+      },
+      "text": "Một con ma thú cấp thấp vô tình nhìn vào mảnh gương cất giữ ý thức của bạn. Hình dáng mờ nhạt của bạn bắt đầu vặn vẹo, cố gắng bóc tách linh hồn nó để tạo lập chân danh đầu tiên.",
+      "choices": [
+        {
+          "label": "Mô phỏng hình hài và nuốt chửng linh hồn nó",
+          "check": {
+            "stat": "INT",
+            "target": 5
+          },
+          "success": {
+            "text": "Phản chiếu của con quái vật trong gương nhếch mép cười. Bạn kéo tuột linh hồn nó vào thế giới thủy tinh, dùng máu thịt nó làm nền tảng cho sự tồn tại của mình.",
+            "effects": {
+              "INT": 1,
+              "flags": [
+                "gm_hd_mirror_step_2"
+              ],
+              "unflags": [
+                "gm_hd_mirror_start"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Con ma thú hoảng sợ và tát mạnh vào mặt gương, khiến bạn chấn động. Ý thức bạn tạm thời mờ đi, không thể đoạt lấy hình hài này.",
+            "effects": {
+              "health": -10,
+              "joy": -3,
+              "flags": [
+                "gm_hd_mirror_step_2"
+              ],
+              "unflags": [
+                "gm_hd_mirror_start"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Đợi con mồi lớn hơn, chỉ khắc ghi nỗi sợ của nó",
+          "text": "Bạn lẳng lặng hút lấy hoảng loạn của sinh vật kia rồi để nó chạy trốn. Chân danh cần một nền tảng vĩ đại hơn thứ quái thú thấp kém này.",
+          "effects": {
+            "joy": 3,
+            "flags": [
+              "gm_hd_mirror_step_2"
+            ],
+            "unflags": [
+              "gm_hd_mirror_start"
+            ]
+          }
+        },
+        {
+          "label": "Từ bỏ quyền năng hứa hẹn, giữ một hình hài giản dị",
+          "text": "Bạn cắt bỏ phần quyền năng còn phụ thuộc vật dẫn, tự kết lấy một lớp vỏ yếu ớt để rời khỏi ràng buộc. Con đường khởi nguyên khép lại; từ đây bạn sẽ tự gây dựng sức mạnh.",
+          "effects": {
+            "health": -8,
+            "joy": -2,
+            "setFree": true,
+            "flags": [
+              "gm_hd_mirror_done"
+            ],
+            "unflags": [
+              "gm_hd_mirror_start",
+              "gm_hd_mirror_step_2",
+              "gm_hd_mirror_step_3"
+            ]
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_high_demon_mirror_2",
+      "pack": true,
+      "races": [
+        "high_demon"
+      ],
+      "stages": [
+        "child",
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "weight": 8,
+      "once": true,
+      "require": {
+        "flags": [
+          "gm_hd_mirror_step_2"
+        ],
+        "origin": "gm_high_demon_origin_mirror",
+        "captiveKinds": [
+          "bound"
+        ],
+        "notFlags": [
+          "gm_hd_mirror_done"
+        ]
+      },
+      "text": "Mảnh gương giam giữ bạn bắt đầu nứt nẻ do sự bào mòn của thời gian. Nếu lớp kính vỡ vụn trước khi bạn hoàn thiện chân danh, ý chí của bạn sẽ tan biến vào hư không.",
+      "choices": [
+        {
+          "label": "Dùng ma lực Vực Thẳm vá lại vết nứt",
+          "check": {
+            "stat": "LUCK",
+            "target": 6
+          },
+          "success": {
+            "text": "Những sợi chỉ ma thuật đen kịt đan vào nhau, kết dính mặt kính. Bạn củng cố được vỏ bọc, kéo dài thời gian hoàn thiện bản thể.",
+            "effects": {
+              "INT": 1,
+              "flags": [
+                "gm_hd_mirror_step_3"
+              ],
+              "unflags": [
+                "gm_hd_mirror_step_2"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Lực lượng Vực Thẳm quá mạnh làm các vết nứt lan rộng thêm. Vài mảnh linh hồn bạn trào ra ngoài, gây đau đớn tột cùng.",
+            "effects": {
+              "health": -15,
+              "STR": -1,
+              "flags": [
+                "gm_hd_mirror_step_3"
+              ],
+              "unflags": [
+                "gm_hd_mirror_step_2"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Lôi kéo một ác linh khác làm vật thế mạng",
+          "text": "Bạn lừa một ác linh tò mò nhập vào mặt gương, dùng sức mạnh của nó làm keo dán. Nó gào thét trong tuyệt vọng khi bị bạn hiến tế.",
+          "effects": {
+            "joy": 5,
+            "flags": [
+              "gm_hd_mirror_step_3"
+            ],
+            "unflags": [
+              "gm_hd_mirror_step_2"
+            ]
+          }
+        },
+        {
+          "label": "Từ bỏ quyền năng hứa hẹn, giữ một hình hài giản dị",
+          "text": "Bạn cắt bỏ phần quyền năng còn phụ thuộc vật dẫn, tự kết lấy một lớp vỏ yếu ớt để rời khỏi ràng buộc. Con đường khởi nguyên khép lại; từ đây bạn sẽ tự gây dựng sức mạnh.",
+          "effects": {
+            "health": -8,
+            "joy": -2,
+            "setFree": true,
+            "flags": [
+              "gm_hd_mirror_done"
+            ],
+            "unflags": [
+              "gm_hd_mirror_start",
+              "gm_hd_mirror_step_2",
+              "gm_hd_mirror_step_3"
+            ]
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_high_demon_mirror_3",
+      "pack": true,
+      "races": [
+        "high_demon"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "weight": 8,
+      "once": true,
+      "require": {
+        "flags": [
+          "gm_hd_mirror_step_3"
+        ],
+        "origin": "gm_high_demon_origin_mirror",
+        "captiveKinds": [
+          "bound"
+        ],
+        "notFlags": [
+          "gm_hd_mirror_done"
+        ]
+      },
+      "text": "Chân danh của bạn đã thành hình. Đã đến lúc phá vỡ nhà giam thủy tinh, mang thân thể hoàn mỹ bước ra ánh sáng mờ đục của Vực Thẳm.",
+      "choices": [
+        {
+          "label": "Tập trung toàn lực, đập nát mặt kính từ bên trong",
+          "check": {
+            "stat": "STR",
+            "target": 8
+          },
+          "success": {
+            "text": "Mặt gương nổ tung thành ngàn mảnh bụi lấp lánh. Lần đầu tiên, đôi chân bạn chạm vào lớp tuyết đen của Vực Thẳm. Bạn đã được tự do hoàn toàn.",
+            "effects": {
+              "fame": 2,
+              "STR": 1,
+              "epochChange": {
+                "ruin": 1
+              },
+              "unflags": [
+                "gm_hd_mirror_step_3"
+              ],
+              "flags": [
+                "gm_hd_mirror_done"
+              ],
+              "setFree": true
+            }
+          },
+          "fail": {
+            "text": "Lớp kính phản phệ lại cú đánh, găm những mảnh vỡ vào thân thể mới định hình của bạn. Dù thoát ra được, bạn phải mang những vết sẹo thủy tinh vĩnh viễn.",
+            "effects": {
+              "health": -20,
+              "joy": -5,
+              "unflags": [
+                "gm_hd_mirror_step_3"
+              ],
+              "flags": [
+                "gm_hd_mirror_done"
+              ],
+              "setFree": true
+            }
+          }
+        },
+        {
+          "label": "Giữ lại một mảnh vỡ làm vũ khí định danh",
+          "text": "Bạn bước ra chậm rãi, bẻ một mảnh gương nhọn hoắt mang theo. Nó sẽ là lưỡi dao khắc tên bạn lên những kẻ không thần phục.",
+          "effects": {
+            "wealth": 5,
+            "unflags": [
+              "gm_hd_mirror_step_3"
+            ],
+            "flags": [
+              "gm_hd_mirror_done"
+            ],
+            "setFree": true
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_high_demon_chaos_1",
+      "pack": true,
+      "races": [
+        "high_demon"
+      ],
+      "stages": [
+        "infant",
+        "child",
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "weight": 8,
+      "once": true,
+      "require": {
+        "origin": "gm_high_demon_origin_chaos",
+        "flags": [
+          "gm_hd_chaos_start"
+        ],
+        "captiveKinds": [
+          "bound"
+        ],
+        "notFlags": [
+          "gm_hd_chaos_done"
+        ]
+      },
+      "text": "Khối vật chất của bạn bắt đầu tan rã do thiếu sự dung hòa với môi trường. Bạn phải hấp thụ lượng lớn Miasma xung quanh để kết dính lớp vỏ màng mỏng manh.",
+      "choices": [
+        {
+          "label": "Lan tỏa các xúc tu để hút Miasma diện rộng",
+          "check": {
+            "stat": "AGI",
+            "target": 5
+          },
+          "success": {
+            "text": "Bạn vươn rộng bản thể, uống cạn luồng khí độc trong vùng lõm. Khối bùn đen của bạn đặc quánh lại, cảm nhận rõ rệt trọng lực.",
+            "effects": {
+              "AGI": 1,
+              "flags": [
+                "gm_hd_chaos_step_2"
+              ],
+              "unflags": [
+                "gm_hd_chaos_start"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Một cơn bão từ tính Vực Thẳm quét qua, thổi bay một phần cơ thể bạn trước khi bạn kịp thu vòi lại. Bạn yếu đi nhưng vẫn giữ được nhân tâm.",
+            "effects": {
+              "health": -10,
+              "AGI": -1,
+              "flags": [
+                "gm_hd_chaos_step_2"
+              ],
+              "unflags": [
+                "gm_hd_chaos_start"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Cuộn mình lại, giữ vững phần cốt lõi thuần khiết",
+          "text": "Thay vì mạo hiểm, bạn nén chặt khối thể tích lại thành một khối cầu đen nhánh. Tiến trình lớn lên chậm lại, nhưng vô cùng vững chắc.",
+          "effects": {
+            "STR": 1,
+            "health": 5,
+            "flags": [
+              "gm_hd_chaos_step_2"
+            ],
+            "unflags": [
+              "gm_hd_chaos_start"
+            ]
+          }
+        },
+        {
+          "label": "Từ bỏ quyền năng hứa hẹn, giữ một hình hài giản dị",
+          "text": "Bạn cắt bỏ phần quyền năng còn phụ thuộc vật dẫn, tự kết lấy một lớp vỏ yếu ớt để rời khỏi ràng buộc. Con đường khởi nguyên khép lại; từ đây bạn sẽ tự gây dựng sức mạnh.",
+          "effects": {
+            "health": -8,
+            "joy": -2,
+            "setFree": true,
+            "flags": [
+              "gm_hd_chaos_done"
+            ],
+            "unflags": [
+              "gm_hd_chaos_start",
+              "gm_hd_chaos_step_2",
+              "gm_hd_chaos_step_3"
+            ]
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_high_demon_chaos_2",
+      "pack": true,
+      "races": [
+        "high_demon"
+      ],
+      "stages": [
+        "child",
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "weight": 8,
+      "once": true,
+      "require": {
+        "flags": [
+          "gm_hd_chaos_step_2"
+        ],
+        "origin": "gm_high_demon_origin_chaos",
+        "captiveKinds": [
+          "bound"
+        ],
+        "notFlags": [
+          "gm_hd_chaos_done"
+        ]
+      },
+      "text": "Sự biến dị thịt xương vượt quá tầm kiểm soát. Bạn đang liên tục mọc ra rồi tự rụng đi những chi thừa. Bạn cần ép cơ thể theo một khuôn mẫu tiến hóa nhất định.",
+      "choices": [
+        {
+          "label": "Ép cơ thể vào hình dạng giống người",
+          "check": {
+            "stat": "INT",
+            "target": 6
+          },
+          "success": {
+            "text": "Bằng ý chí thép, bạn nặn lại các thớ thịt lổn nhổn thành một thân hình cao lớn mang dáng dấp con người, ẩn chứa vẻ đẹp tà dị.",
+            "effects": {
+              "fame": 1,
+              "INT": 1,
+              "flags": [
+                "gm_hd_chaos_step_3"
+              ],
+              "unflags": [
+                "gm_hd_chaos_step_2"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Hình người quá phức tạp so với lượng vật chất hiện có. Thân thể bạn bị biến dạng nửa vời, đi lại khó khăn và đau đớn.",
+            "effects": {
+              "health": -15,
+              "joy": -3,
+              "flags": [
+                "gm_hd_chaos_step_3"
+              ],
+              "unflags": [
+                "gm_hd_chaos_step_2"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Thuận theo tự nhiên, trở thành quái thú sáu tay",
+          "text": "Bạn để cho sự cuồng loạn dẫn dắt, giải phóng cấu trúc sinh học thành một chiến thú khổng lồ với sáu cánh tay cơ bắp cuồn cuộn.",
+          "effects": {
+            "STR": 2,
+            "INT": -1,
+            "flags": [
+              "gm_hd_chaos_step_3"
+            ],
+            "unflags": [
+              "gm_hd_chaos_step_2"
+            ]
+          }
+        },
+        {
+          "label": "Từ bỏ quyền năng hứa hẹn, giữ một hình hài giản dị",
+          "text": "Bạn cắt bỏ phần quyền năng còn phụ thuộc vật dẫn, tự kết lấy một lớp vỏ yếu ớt để rời khỏi ràng buộc. Con đường khởi nguyên khép lại; từ đây bạn sẽ tự gây dựng sức mạnh.",
+          "effects": {
+            "health": -8,
+            "joy": -2,
+            "setFree": true,
+            "flags": [
+              "gm_hd_chaos_done"
+            ],
+            "unflags": [
+              "gm_hd_chaos_start",
+              "gm_hd_chaos_step_2",
+              "gm_hd_chaos_step_3"
+            ]
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_high_demon_chaos_3",
+      "pack": true,
+      "races": [
+        "high_demon"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "weight": 8,
+      "once": true,
+      "require": {
+        "flags": [
+          "gm_hd_chaos_step_3"
+        ],
+        "origin": "gm_high_demon_origin_chaos",
+        "captiveKinds": [
+          "bound"
+        ],
+        "notFlags": [
+          "gm_hd_chaos_done"
+        ]
+      },
+      "text": "Cội Nguồn Vực Thẳm cất tiếng gọi, muốn kéo hình thể đã hoàn thiện của bạn hòa tan trở lại vào biển bùn nguyên thủy. Đây là bài kiểm tra cuối cùng về tính cá nhân.",
+      "choices": [
+        {
+          "label": "Dùng sức mạnh chống lại lực hút Cội Nguồn",
+          "check": {
+            "stat": "STR",
+            "target": 8
+          },
+          "success": {
+            "text": "Bạn giậm chân xuống mặt đất, gầm lên một tiếng rách toạc cả không gian. Lực hút từ biển bùn đứt đoạn, công nhận sự tồn tại độc lập của một Ma Tướng mới.",
+            "effects": {
+              "fame": 3,
+              "STR": 1,
+              "epochChange": {
+                "domain": 1
+              },
+              "unflags": [
+                "gm_hd_chaos_step_3"
+              ],
+              "flags": [
+                "gm_hd_chaos_done"
+              ],
+              "setFree": true
+            }
+          },
+          "fail": {
+            "text": "Lực kéo quá khủng khiếp. Bạn bị xé rách một mảng cơ thể trước khi trốn thoát được. Bạn giữ được tính cá nhân nhưng mất đi sức mạnh khởi nguyên.",
+            "effects": {
+              "health": -20,
+              "STR": -1,
+              "unflags": [
+                "gm_hd_chaos_step_3"
+              ],
+              "flags": [
+                "gm_hd_chaos_done"
+              ],
+              "setFree": true
+            }
+          }
+        },
+        {
+          "label": "Hiến tế một phần máu thịt để đổi tự do",
+          "text": "Bạn cắt đứt chi dưới, ném nó vào biển bùn sủi bọt như một vật đền bù. Vực Thẳm chấp nhận thỏa thuận và để bạn rời đi bình an.",
+          "effects": {
+            "health": -10,
+            "joy": 5,
+            "unflags": [
+              "gm_hd_chaos_step_3"
+            ],
+            "flags": [
+              "gm_hd_chaos_done"
+            ],
+            "setFree": true
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_high_demon_parasite_1",
+      "pack": true,
+      "races": [
+        "high_demon"
+      ],
+      "stages": [
+        "infant",
+        "child",
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "weight": 8,
+      "once": true,
+      "require": {
+        "origin": "gm_high_demon_origin_parasite",
+        "flags": [
+          "gm_hd_parasite_start"
+        ],
+        "captiveKinds": [
+          "bound"
+        ],
+        "notFlags": [
+          "gm_hd_parasite_done"
+        ]
+      },
+      "text": "Ký sinh trong tâm trí một kiếm sĩ High Demon mang huyết mạch trường thọ, bạn cảm nhận được ý thức của hắn đang chống trả quyết liệt mỗi khi hắn đi vào giấc ngủ, cố gắng khóa chặt bạn lại.",
+      "choices": [
+        {
+          "label": "Thiết lập ảo ảnh, đánh lừa tiềm thức vật chủ",
+          "check": {
+            "stat": "INT",
+            "target": 5
+          },
+          "success": {
+            "text": "Bạn dệt nên một giấc mộng ngọt ngào, ru ngủ ý chí chống đối của hắn. Rễ của bạn cắm sâu hơn vào hệ thần kinh mà hắn không hề hay biết.",
+            "effects": {
+              "INT": 1,
+              "flags": [
+                "gm_hd_parasite_step_2"
+              ],
+              "unflags": [
+                "gm_hd_parasite_start"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Kiếm sĩ vung kiếm ngay trong giấc mơ, chém đứt mảng tinh thần của bạn. Bạn thức tỉnh trong cơn đau nhức nhối, bị đẩy lùi về góc tối nhất.",
+            "effects": {
+              "health": -10,
+              "joy": -3,
+              "flags": [
+                "gm_hd_parasite_step_2"
+              ],
+              "unflags": [
+                "gm_hd_parasite_start"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Lùi lại, chỉ hút năng lượng khi hắn kiệt sức",
+          "text": "Bạn kiên nhẫn chờ đợi sau những trận chiến đẫm máu của hắn. Khi hắn yếu nhất, bạn lén lút ăn mòn từng mảnh ký ức một cách an toàn.",
+          "effects": {
+            "health": 5,
+            "flags": [
+              "gm_hd_parasite_step_2"
+            ],
+            "unflags": [
+              "gm_hd_parasite_start"
+            ]
+          }
+        },
+        {
+          "label": "Từ bỏ quyền năng hứa hẹn, giữ một hình hài giản dị",
+          "text": "Bạn cắt bỏ phần quyền năng còn phụ thuộc vật dẫn, tự kết lấy một lớp vỏ yếu ớt để rời khỏi ràng buộc. Con đường khởi nguyên khép lại; từ đây bạn sẽ tự gây dựng sức mạnh.",
+          "effects": {
+            "health": -8,
+            "joy": -2,
+            "setFree": true,
+            "flags": [
+              "gm_hd_parasite_done"
+            ],
+            "unflags": [
+              "gm_hd_parasite_start",
+              "gm_hd_parasite_step_2",
+              "gm_hd_parasite_step_3"
+            ]
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_high_demon_parasite_2",
+      "pack": true,
+      "races": [
+        "high_demon"
+      ],
+      "stages": [
+        "child",
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "weight": 8,
+      "once": true,
+      "require": {
+        "flags": [
+          "gm_hd_parasite_step_2"
+        ],
+        "origin": "gm_high_demon_origin_parasite",
+        "captiveKinds": [
+          "bound"
+        ],
+        "notFlags": [
+          "gm_hd_parasite_done"
+        ]
+      },
+      "text": "Vật chủ nhận ra sự bất thường và đã bắt giữ một tu sĩ Thánh Quang và ép người ấy thực hiện nghi thức trục xuất. Ánh sáng chói lòa của nghi thức thanh tẩy đang đe dọa thiêu rụi linh hồn ký sinh của bạn.",
+      "choices": [
+        {
+          "label": "Giấu mình vào nhịp đập trái tim hắn",
+          "check": {
+            "stat": "LUCK",
+            "target": 6
+          },
+          "success": {
+            "text": "Ánh sáng quét qua nhưng chỉ thấy một nhịp tim của vật chủ mạnh mẽ. Tu sĩ bối rối dừng phép, cho rằng vật chủ chỉ bị căng thẳng thần kinh.",
+            "effects": {
+              "LUCK": 1,
+              "flags": [
+                "gm_hd_parasite_step_3"
+              ],
+              "unflags": [
+                "gm_hd_parasite_step_2"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Ánh sáng Thánh Quang chọc thủng vỏ bọc của bạn, thiêu đốt lớp hắc ín bao quanh. Bạn đau đớn gào thét, phải dùng sinh lực vật chủ để cản lại, khiến cả hai trọng thương.",
+            "effects": {
+              "health": -15,
+              "STR": -1,
+              "flags": [
+                "gm_hd_parasite_step_3"
+              ],
+              "unflags": [
+                "gm_hd_parasite_step_2"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Kích động cơn điên máu của vật chủ",
+          "text": "Bạn truyền ma khí vào não bộ, khiến hắn phát điên chém gục gã tu sĩ. Lưỡi kiếm nhuốm máu đánh dấu việc hắn không thể quay đầu lại với ánh sáng.",
+          "effects": {
+            "joy": 3,
+            "fame": 1,
+            "flags": [
+              "gm_hd_parasite_step_3"
+            ],
+            "unflags": [
+              "gm_hd_parasite_step_2"
+            ]
+          }
+        },
+        {
+          "label": "Từ bỏ quyền năng hứa hẹn, giữ một hình hài giản dị",
+          "text": "Bạn cắt bỏ phần quyền năng còn phụ thuộc vật dẫn, tự kết lấy một lớp vỏ yếu ớt để rời khỏi ràng buộc. Con đường khởi nguyên khép lại; từ đây bạn sẽ tự gây dựng sức mạnh.",
+          "effects": {
+            "health": -8,
+            "joy": -2,
+            "setFree": true,
+            "flags": [
+              "gm_hd_parasite_done"
+            ],
+            "unflags": [
+              "gm_hd_parasite_start",
+              "gm_hd_parasite_step_2",
+              "gm_hd_parasite_step_3"
+            ]
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_high_demon_parasite_3",
+      "pack": true,
+      "races": [
+        "high_demon"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "weight": 8,
+      "once": true,
+      "require": {
+        "flags": [
+          "gm_hd_parasite_step_3"
+        ],
+        "origin": "gm_high_demon_origin_parasite",
+        "captiveKinds": [
+          "bound"
+        ],
+        "notFlags": [
+          "gm_hd_parasite_done"
+        ]
+      },
+      "text": "Thời cơ đã chín muồi. Trí óc và thân thể vật chủ đã vỡ vụn trước sức ép của bạn. Đã đến lúc nuốt trọn hắn để hiện thế với tư cách một Đại Ma thực thụ.",
+      "choices": [
+        {
+          "label": "Nhai nuốt hoàn toàn, lấy cơ thể hắn làm vỏ bọc mới",
+          "check": {
+            "stat": "STR",
+            "target": 8
+          },
+          "success": {
+            "text": "Mắt hắn đổi sang màu đỏ rực, lớp da nứt nẻ nhường chỗ cho vảy sừng đen bóng. Tiếng thét của hắn lụi tàn, bạn chính thức làm chủ hình hài bất diệt này.",
+            "effects": {
+              "STR": 2,
+              "epochChange": {
+                "ruin": 1
+              },
+              "unflags": [
+                "gm_hd_parasite_step_3"
+              ],
+              "flags": [
+                "gm_hd_parasite_done"
+              ],
+              "setFree": true
+            }
+          },
+          "fail": {
+            "text": "Linh hồn hắn vùng vẫy lần cuối, dùng kiếm tự đâm xuyên ngực. Bạn đoạt được thể xác nhưng đó lại là một cỗ máy đã hư hỏng, tốn một quá trình tái tạo kéo dài.",
+            "effects": {
+              "health": -20,
+              "INT": -1,
+              "unflags": [
+                "gm_hd_parasite_step_3"
+              ],
+              "flags": [
+                "gm_hd_parasite_done"
+              ],
+              "setFree": true
+            }
+          }
+        },
+        {
+          "label": "Đồng hóa dung hợp, giữ lại tri thức của hắn",
+          "text": "Thay vì xóa sổ, bạn hòa làm một với ý chí kiếm sĩ. Bạn mang thân thể bán ma tinh xảo, sở hữu cả kiếm thuật của vật chủ lẫn sức mạnh Vực Thẳm.",
+          "effects": {
+            "INT": 1,
+            "AGI": 1,
+            "unflags": [
+              "gm_hd_parasite_step_3"
+            ],
+            "flags": [
+              "gm_hd_parasite_done"
+            ],
+            "setFree": true
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_high_demon_god_1",
+      "pack": true,
+      "races": [
+        "high_demon"
+      ],
+      "stages": [
+        "infant",
+        "child",
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "weight": 8,
+      "once": true,
+      "require": {
+        "origin": "gm_high_demon_origin_forgotten_god",
+        "flags": [
+          "gm_hd_god_start"
+        ],
+        "captiveKinds": [
+          "bound"
+        ],
+        "notFlags": [
+          "gm_hd_god_done"
+        ]
+      },
+      "text": "Tiếng vọng thì thầm từ một tín đồ Hắc Nguyệt Hội đang hấp hối vang tới tế đàn của bạn. Kẻ đó cầu xin được sống, dâng lên bạn phần hồn rách nát.",
+      "choices": [
+        {
+          "label": "Sử dụng thần quyền, ban cho hắn sự sống tà ác",
+          "check": {
+            "stat": "INT",
+            "target": 5
+          },
+          "success": {
+            "text": "Bạn truyền một tia ma khí vào xác hắn. Kẻ cuồng tín bật dậy, trở thành con rối mù quáng mang sức mạnh bóng đêm. Đức tin của hắn nuôi dưỡng bạn.",
+            "effects": {
+              "INT": 1,
+              "flags": [
+                "gm_hd_god_step_2"
+              ],
+              "unflags": [
+                "gm_hd_god_start"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Sức lực của bạn quá non nớt để xoay chuyển cái chết. Kẻ đó tắt thở, và phản lực từ khế ước thất bại giáng thẳng vào tâm trí bạn.",
+            "effects": {
+              "health": -10,
+              "joy": -3,
+              "flags": [
+                "gm_hd_god_step_2"
+              ],
+              "unflags": [
+                "gm_hd_god_start"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Bỏ ngoài tai, chỉ hấp thụ sinh khí cuối cùng của hắn",
+          "text": "Bạn chẳng bận tâm đến lời thỉnh cầu. Cái chết của phàm nhân là quy luật, bạn chỉ lấy đi phần năng lượng thất thoát để bồi đắp thần cách của mình.",
+          "effects": {
+            "health": 5,
+            "flags": [
+              "gm_hd_god_step_2"
+            ],
+            "unflags": [
+              "gm_hd_god_start"
+            ]
+          }
+        },
+        {
+          "label": "Từ bỏ quyền năng hứa hẹn, giữ một hình hài giản dị",
+          "text": "Bạn cắt bỏ phần quyền năng còn phụ thuộc vật dẫn, tự kết lấy một lớp vỏ yếu ớt để rời khỏi ràng buộc. Con đường khởi nguyên khép lại; từ đây bạn sẽ tự gây dựng sức mạnh.",
+          "effects": {
+            "health": -8,
+            "joy": -2,
+            "setFree": true,
+            "flags": [
+              "gm_hd_god_done"
+            ],
+            "unflags": [
+              "gm_hd_god_start",
+              "gm_hd_god_step_2",
+              "gm_hd_god_step_3"
+            ]
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_high_demon_god_2",
+      "pack": true,
+      "races": [
+        "high_demon"
+      ],
+      "stages": [
+        "child",
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "weight": 8,
+      "once": true,
+      "require": {
+        "flags": [
+          "gm_hd_god_step_2"
+        ],
+        "origin": "gm_high_demon_origin_forgotten_god",
+        "captiveKinds": [
+          "bound"
+        ],
+        "notFlags": [
+          "gm_hd_god_done"
+        ]
+      },
+      "text": "Một đoàn Thánh Kỵ Sĩ đã tìm thấy tế đàn đổ nát của bạn. Họ mang theo búa thánh và đuốc cháy rừng rực, quyết tâm đập vụn bức tượng đá đang che chở bạn.",
+      "choices": [
+        {
+          "label": "Hiện hình từ bóng tối, ám sát kẻ cầm đầu",
+          "check": {
+            "stat": "AGI",
+            "target": 6
+          },
+          "success": {
+            "text": "Với tốc độ kinh hoàng, bạn lao ra ghim móng vuốt vào cổ viên đội trưởng. Lũ Kỵ Sĩ hoảng loạn bỏ chạy khi thấy máu thánh nhuộm đen tế đàn.",
+            "effects": {
+              "fame": 1,
+              "AGI": 1,
+              "flags": [
+                "gm_hd_god_step_3"
+              ],
+              "unflags": [
+                "gm_hd_god_step_2"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Ánh đuốc Thánh Quang làm bạn lóa mắt. Búa thánh nện trúng bức tượng, dư chấn xé rách lớp vỏ tinh thần của bạn khiến bạn phải lẩn trốn nhục nhã.",
+            "effects": {
+              "health": -15,
+              "STR": -1,
+              "flags": [
+                "gm_hd_god_step_3"
+              ],
+              "unflags": [
+                "gm_hd_god_step_2"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Rút toàn bộ tinh hoa, bỏ lại tế đàn rỗng",
+          "text": "Khi tiếng búa vang lên phá nát bức tượng, ý thức của bạn đã theo mạch nước ngầm chuồn xa. Bạn mất đi ngôi nhà nhưng an toàn.",
+          "effects": {
+            "joy": -2,
+            "flags": [
+              "gm_hd_god_step_3"
+            ],
+            "unflags": [
+              "gm_hd_god_step_2"
+            ]
+          }
+        },
+        {
+          "label": "Từ bỏ quyền năng hứa hẹn, giữ một hình hài giản dị",
+          "text": "Bạn cắt bỏ phần quyền năng còn phụ thuộc vật dẫn, tự kết lấy một lớp vỏ yếu ớt để rời khỏi ràng buộc. Con đường khởi nguyên khép lại; từ đây bạn sẽ tự gây dựng sức mạnh.",
+          "effects": {
+            "health": -8,
+            "joy": -2,
+            "setFree": true,
+            "flags": [
+              "gm_hd_god_done"
+            ],
+            "unflags": [
+              "gm_hd_god_start",
+              "gm_hd_god_step_2",
+              "gm_hd_god_step_3"
+            ]
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_high_demon_god_3",
+      "pack": true,
+      "races": [
+        "high_demon"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "weight": 8,
+      "once": true,
+      "require": {
+        "flags": [
+          "gm_hd_god_step_3"
+        ],
+        "origin": "gm_high_demon_origin_forgotten_god",
+        "captiveKinds": [
+          "bound"
+        ],
+        "notFlags": [
+          "gm_hd_god_done"
+        ]
+      },
+      "text": "Dấu ấn nợ nần từ Cổ Thần tiền nhiệm phát sáng, đòi hỏi một sự hiến tế khổng lồ để giải phóng thần quyền thực sự. Bạn phải đưa ra quyết định định hình vận mệnh.",
+      "choices": [
+        {
+          "label": "Hiến tế một thành trì nhỏ, thâu tóm thần quyền",
+          "check": {
+            "stat": "INT",
+            "target": 8
+          },
+          "success": {
+            "text": "Hàng ngàn sinh mạng bị bòn rút qua một vòng tròn ma pháp vĩ đại. Dấu ấn vỡ vụn, bạn hấp thu toàn bộ quyền năng, thức tỉnh như một Tân Thần Vực Thẳm.",
+            "effects": {
+              "fame": 3,
+              "INT": 2,
+              "epochChange": {
+                "legacy": 1
+              },
+              "unflags": [
+                "gm_hd_god_step_3"
+              ],
+              "flags": [
+                "gm_hd_god_done"
+              ],
+              "setFree": true
+            }
+          },
+          "fail": {
+            "text": "Ma pháp thất bại giữa chừng, năng lượng phản phệ thiêu đốt gốc rễ linh hồn bạn. Bạn thoát chết nhưng mãi mãi chỉ là một ngụy thần mang vết thương sâu hoắm.",
+            "effects": {
+              "health": -20,
+              "LUCK": -1,
+              "unflags": [
+                "gm_hd_god_step_3"
+              ],
+              "flags": [
+                "gm_hd_god_done"
+              ],
+              "setFree": true
+            }
+          }
+        },
+        {
+          "label": "Từ bỏ thần quyền, tự mình rèn giũa sức mạnh",
+          "text": "Bạn bóp nát mảnh vụn thần tính trong tay, cắt đứt hoàn toàn vinh quang của quá khứ. Bạn sẽ đi lên đỉnh cao bằng chính đôi tay vấy máu của mình.",
+          "effects": {
+            "STR": 1,
+            "AGI": 1,
+            "unflags": [
+              "gm_hd_god_step_3"
+            ],
+            "flags": [
+              "gm_hd_god_done"
+            ],
+            "setFree": true
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_high_demon_court_rebellion",
+      "pack": true,
+      "races": [
+        "high_demon"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "weight": 6,
+      "once": false,
+      "epoch": true,
+      "cooldownYears": 300,
+      "require": {
+        "free": true
+      },
+      "npcs": [
+        {
+          "name": "Kẻ Thách Thức",
+          "race": "Demon",
+          "position": "Thủ Lĩnh Nổi Loạn"
+        }
+      ],
+      "variants": [
+        "Bầu không khí Vực Thẳm sục sôi khi một chúa tể thuộc hạ vạch trần sự yếu kém của kẻ thống trị và xúi giục phản loạn.",
+        "Tiếng kèn sừng vang dội từ tầng ngục thấp hơn, báo hiệu một cuộc bạo loạn đẫm máu nhằm vào quyền lực của bạn.",
+        "Những kẻ tôn thờ Hắc Nguyệt Hội rỉ tai nhau về một cuộc lật đổ, khi các ma tướng không còn phục tùng mệnh lệnh."
+      ],
+      "choices": [
+        {
+          "label": "Đích thân nghiền nát quân bạo loạn",
+          "check": {
+            "stat": "STR",
+            "target": 9
+          },
+          "success": {
+            "text": "Bạn đáp xuống giữa trận địa như một quả thiên thạch hắc ám. Thủ lĩnh phản quân bị xé xác chỉ bằng một tay, uy quyền của bạn càng thêm bất khả xâm phạm.",
+            "effects": {
+              "fame": 2,
+              "wealth": 5,
+              "epochChange": {
+                "domain": 1
+              }
+            }
+          },
+          "fail": {
+            "text": "Bọn phản loạn quá đông và xảo quyệt. Bạn diệt được kẻ cầm đầu nhưng chịu thương tổn nặng nề từ trận pháp phục kích của chúng.",
+            "effects": {
+              "health": -15,
+              "joy": -3,
+              "epochChange": {
+                "domain": -1
+              }
+            }
+          }
+        },
+        {
+          "label": "Dùng của cải mua chuộc các tướng lĩnh phe địch",
+          "text": "Một vài hòm Huyết Kim được chuyển đi bí mật. Đêm đó, tên thủ lĩnh bị chính thủ hạ của mình dâng đầu lên bậc thềm điện ngọc.",
+          "effects": {
+            "wealth": -10,
+            "joy": 2
+          },
+          "require": {
+            "wealth": 10
+          },
+          "showLocked": true
+        },
+        {
+          "label": "Mở cổng hầm ngục, để chúng tàn sát lẫn nhau",
+          "text": "Bạn lùi lại sâu trong pháo đài, kích hoạt bẫy khóa kín các tầng vực. Đám phản loạn tự cắn xé nhau cho đến khi kiệt quệ.",
+          "effects": {
+            "joy": -2,
+            "fame": -1
+          }
+        }
+      ],
+      "text": "Bầu không khí Vực Thẳm sục sôi khi một chúa tể thuộc hạ vạch trần sự yếu kém của kẻ thống trị và xúi giục phản loạn."
+    },
+    {
+      "id": "gm_high_demon_court_feast",
+      "pack": true,
+      "races": [
+        "high_demon"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "weight": 6,
+      "once": false,
+      "epoch": true,
+      "cooldownYears": 300,
+      "require": {
+        "free": true
+      },
+      "variants": [
+        "Đại Tiệc Máu định kỳ của Vực Thẳm đã bắt đầu. Những chiếc bàn dài ngập ngụa thịt tươi và linh hồn rên rỉ.",
+        "Ma Vương đương nhiệm ban lời mời dự tiệc Trăng Đỏ. Đây là đấu trường chính trị bẩn thỉu nhất của thế giới ma quỷ.",
+        "Tiếng đàn quỷ khóc vang vọng. Các đại ma hội tụ để phô trương sự phồn vinh của lãnh địa thông qua những món ăn quái gở."
+      ],
+      "choices": [
+        {
+          "label": "Giao lưu mưu đồ với các Lãnh chúa khác",
+          "check": {
+            "stat": "INT",
+            "target": 7
+          },
+          "success": {
+            "text": "Những lời thì thầm bên ly rượu máu mang về cho bạn vô số bí mật. Bạn kết thành một liên minh ngầm vững chắc.",
+            "effects": {
+              "fame": 1,
+              "wealth": 5,
+              "joy": 3
+            }
+          },
+          "fail": {
+            "text": "Bạn lỡ lời xúc phạm một Đại Ma nóng tính. Hắn hất ly rượu vào mặt bạn và thách thức, khiến bạn bẽ mặt trước công chúng.",
+            "effects": {
+              "fame": -2,
+              "joy": -5
+            }
+          }
+        },
+        {
+          "label": "Chỉ chuyên tâm hấp thụ linh hồn thượng hạng",
+          "text": "Bạn phớt lờ chuyện chính trị, một lòng vơ vét những phần linh hồn tinh khiết nhất trên bàn tiệc để bồi bổ sức mạnh.",
+          "effects": {
+            "health": 15,
+            "STR": 1
+          }
+        },
+        {
+          "label": "Khinh miệt và rời đi sớm",
+          "text": "Bạn cho rằng tiệc tùng lãng phí thời gian. Sự lạnh nhạt này khiến vài kẻ ghét bạn, nhưng lại tạo nên phong thái bí ẩn khó lường.",
+          "effects": {
+            "joy": 2,
+            "fame": 1
+          }
+        }
+      ],
+      "text": "Đại Tiệc Máu định kỳ của Vực Thẳm đã bắt đầu. Những chiếc bàn dài ngập ngụa thịt tươi và linh hồn rên rỉ."
+    },
+    {
+      "id": "gm_high_demon_court_assassin",
+      "pack": true,
+      "races": [
+        "high_demon"
+      ],
+      "stages": [
+        "adult",
+        "middle"
+      ],
+      "weight": 5,
+      "once": true,
+      "require": {
+        "free": true
+      },
+      "npcs": [
+        {
+          "name": "Bóng Ma Umbra",
+          "race": "Human",
+          "position": "Sát Thủ Đỉnh Cao"
+        }
+      ],
+      "text": "Một bóng đen hòa tan vào vách đá, lách qua mười lớp phòng ngự của điện đài. Lưỡi dao bọc độc Miasma đặc sệt nhắm thẳng vào gáy bạn. Guild Sát thủ Umbra đã được đối thủ của bạn thuê.",
+      "choices": [
+        {
+          "label": "Né tránh và bắt sống kẻ ám sát",
+          "check": {
+            "stat": "AGI",
+            "target": 8
+          },
+          "success": {
+            "text": "Bằng một cú xoay người phi tự nhiên, bạn kẹp chặt lưỡi dao. Sát thủ bị bẻ gãy tay và phải khai ra kẻ chủ mưu trước khi bị vứt cho ngạ quỷ.",
+            "effects": {
+              "fame": 2,
+              "joy": 3,
+              "wealth": 5
+            }
+          },
+          "fail": {
+            "text": "Lưỡi dao xẹt qua vai bạn, để lại chất độc ăn mòn. Sát thủ tan vào bóng tối chạy thoát, để bạn ôm vết thương rỉ máu sủi bọt.",
+            "effects": {
+              "health": -20,
+              "AGI": -1,
+              "joy": -5
+            }
+          }
+        },
+        {
+          "label": "Tự phong bế bản thân trong kén ma lực",
+          "text": "Bạn nhanh chóng dựng khiên ma thuật đen che phủ. Dao găm nảy ra, nhưng sát thủ cũng rút lui an toàn. Lãnh địa của bạn bị coi là lỏng lẻo.",
+          "effects": {
+            "health": -5,
+            "fame": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_high_demon_court_moon_cult",
+      "pack": true,
+      "races": [
+        "high_demon"
+      ],
+      "stages": [
+        "adult",
+        "middle"
+      ],
+      "weight": 5,
+      "once": true,
+      "require": {
+        "free": true
+      },
+      "text": "Đại tư tế của Hắc Nguyệt Hội quỳ rạp trước ngai vàng của bạn, dâng lên hàng trăm thiếu nữ đồng trinh để cầu xin một giao ước bảo hộ cho giáo phái của chúng.",
+      "choices": [
+        {
+          "label": "Chấp thuận cống phẩm, ban ấn bảo hộ",
+          "check": {
+            "stat": "INT",
+            "target": 7
+          },
+          "success": {
+            "text": "Bạn đóng dấu bùa chú vào trán gã tư tế. Mạng lưới tình báo của giáo phái giờ đây nằm trong tay bạn, mở rộng quyền lực lên mặt đất.",
+            "effects": {
+              "fame": 2,
+              "wealth": 8,
+              "epochChange": {
+                "insight": 1
+              }
+            }
+          },
+          "fail": {
+            "text": "Nghi thức trao ấn bị lỗi, khiến một số tín đồ bị phát điên cắn xé lẫn nhau. Bạn thu được ít lợi ích và uy tín của bạn sụt giảm.",
+            "effects": {
+              "health": -5,
+              "wealth": 3,
+              "fame": -1
+            }
+          }
+        },
+        {
+          "label": "Tàn sát toàn bộ, khước từ sự yếu đuối",
+          "text": "Bạn vung tay phóng hỏa ngục, thiêu cháy cả tư tế lẫn vật hiến tế. Bạn không cần lũ ruồi nhặng cản chân trong con đường chinh phạt.",
+          "effects": {
+            "STR": 1,
+            "joy": 2,
+            "epochChange": {
+              "ruin": 1
+            }
+          }
+        },
+        {
+          "label": "Khước từ vật hiến tế, buộc giáo phái thả người",
+          "text": "Bạn từ chối giao ước và buộc gã tư tế đưa những người bị bắt trở về mặt đất. Sự độc lập này khiến Hắc Nguyệt Hội bất mãn, nhưng không còn ai phải trả mạng để mua sự che chở của bạn.",
+          "effects": {
+            "joy": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_high_demon_contract_king",
+      "pack": true,
+      "races": [
+        "high_demon"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "weight": 6,
+      "once": false,
+      "epoch": true,
+      "cooldownYears": 300,
+      "require": {
+        "free": true
+      },
+      "variants": [
+        "Một vị vua phàm nhân mù quáng vẽ trận đồ máu giữa cung điện, gọi tên bạn để xin sức mạnh đánh bại đế quốc đối địch.",
+        "Tiếng khóc của một nữ hoàng mất nước triệu hồi bạn lên trần thế. Bà ta hứa dâng cả linh hồn hoàng gia đổi lấy sự báo thù.",
+        "Giữa chiến trường rực lửa, một bạo chúa tuyệt vọng cầu xin khế ước Vực Thẳm để lật ngược tình thế trước phe Thánh Quang."
+      ],
+      "choices": [
+        {
+          "label": "Trao sức mạnh, lấy vương quốc làm phần thưởng",
+          "check": {
+            "stat": "INT",
+            "target": 8
+          },
+          "success": {
+            "text": "Khế ước rực sáng. Đạo quân ma quỷ của bạn tràn lên mặt đất, quét sạch kẻ thù của hoàng tộc. Sau đó, vương quốc ấy trở thành chư hầu vĩnh viễn của bạn.",
+            "effects": {
+              "fame": 3,
+              "wealth": 15,
+              "epochChange": {
+                "domain": 1
+              },
+              "flags": [
+                "gm_hd_royal_contract"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Vị vua kia lén lút sửa đổi một điều khoản. Bạn vẫn phải tung quân giúp hắn, nhưng linh hồn hắn lại thoát được khỏi sự trừng phạt.",
+            "effects": {
+              "health": -10,
+              "joy": -5,
+              "wealth": -5
+            }
+          }
+        },
+        {
+          "label": "Từ chối khế ước, để mặt đất tự diệt",
+          "text": "Bạn mỉm cười nhạo báng vẫy tay áo biến mất. Sự sụp đổ của một vương triều phàm nhân không đáng để bạn nhúng tay.",
+          "effects": {
+            "joy": 2
+          }
+        }
+      ],
+      "text": "Một vị vua phàm nhân mù quáng vẽ trận đồ máu giữa cung điện, gọi tên bạn để xin sức mạnh đánh bại đế quốc đối địch."
+    },
+    {
+      "id": "gm_high_demon_contract_mage",
+      "pack": true,
+      "races": [
+        "high_demon"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "weight": 6,
+      "once": false,
+      "epoch": true,
+      "cooldownYears": 300,
+      "require": {
+        "free": true
+      },
+      "npcs": [
+        {
+          "name": "Kẻ Triệu Hồi Tháp Ngà",
+          "race": "Human",
+          "position": "Đại Pháp Sư Trắng"
+        }
+      ],
+      "variants": [
+        "Một luồng lực kéo mạnh bạo lôi bạn qua khe nứt không gian. Một pháp sư Tháp Bạch Ngà đang mưu đồ biến bạn thành hộ thần của hắn.",
+        "Vòng tròn triệu hồi rực sáng chói lòa. Một kẻ học giả kiêu ngạo muốn trói buộc sức mạnh Vực Thẳm vào chiếc nhẫn của hắn.",
+        "Mùi hương trầm dịu ngọt nhưng độc hại lan tỏa. Một pháp sư Thánh Quang phản đạo định dùng bạn làm công cụ ám sát Giáo hoàng."
+      ],
+      "choices": [
+        {
+          "label": "Phá vỡ vòng tròn ma pháp, nuốt chửng kẻ triệu hồi",
+          "check": {
+            "stat": "STR",
+            "target": 8
+          },
+          "success": {
+            "text": "Một tiếng gầm xé toạc không gian, trận đồ nổ tung. Pháp sư ngu ngốc chỉ kịp thét lên trước khi bị bạn nhai nuốt trọn vẹn cả thể xác lẫn kiến thức.",
+            "effects": {
+              "INT": 1,
+              "joy": 5,
+              "fame": 1,
+              "epochChange": {
+                "insight": 1
+              }
+            }
+          },
+          "fail": {
+            "text": "Vòng tròn quá kiên cố. Bạn bị luồng ma lực tống ngược về Vực Thẳm, chịu vết bỏng rát sâu tận linh hồn. Danh dự Đại Ma bị bôi nhọ.",
+            "effects": {
+              "health": -20,
+              "LUCK": -1,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Chơi trò hai mặt, giả vờ phục tùng",
+          "text": "Bạn ngoan ngoãn thu mình lại, chờ đợi khoảnh khắc pháp sư kiệt sức trong một trận chiến khác để cắn đứt cổ hắn.",
+          "effects": {
+            "AGI": 1,
+            "joy": 2
+          }
+        },
+        {
+          "label": "Trở lại Vực Thẳm ngay trước khi rào chắn đóng",
+          "text": "Bạn khôn khéo lách qua khe hở cuối cùng của cánh cổng ma pháp. Pháp sư mất trắng tài nguyên mà chẳng thu được gì.",
+          "effects": {
+            "health": 5
+          }
+        }
+      ],
+      "text": "Một luồng lực kéo mạnh bạo lôi bạn qua khe nứt không gian. Một pháp sư Tháp Bạch Ngà đang mưu đồ biến bạn thành hộ thần của hắn."
+    },
+    {
+      "id": "gm_high_demon_contract_paladin",
+      "pack": true,
+      "races": [
+        "high_demon"
+      ],
+      "stages": [
+        "adult",
+        "middle"
+      ],
+      "weight": 5,
+      "once": true,
+      "require": {
+        "free": true
+      },
+      "npcs": [
+        {
+          "name": "Kỵ Sĩ Thánh Khiết",
+          "race": "Human",
+          "position": "Chỉ Huy Cấm Vệ"
+        }
+      ],
+      "text": "Tại Đầm Lầy Tử Khí, một Thánh Kỵ Sĩ trọng thương đã mất đi niềm tin vào Nữ Thần. Anh ta quỳ trước mặt bạn, tình nguyện dâng hiến linh hồn tinh khiết để đổi lấy mạng sống cho đồng đội.",
+      "choices": [
+        {
+          "label": "Bẻ gãy tinh thần anh ta, biến thành Hiệp Sĩ Tử Thần",
+          "check": {
+            "stat": "INT",
+            "target": 7
+          },
+          "success": {
+            "text": "Bạn rót bóng tối vào tim anh ta. Lớp giáp bạc nhuốm màu gỉ sét đen. Một tướng lĩnh mới của Quân Đoàn Ma Vương đã ra đời từ sự tuyệt vọng.",
+            "effects": {
+              "fame": 2,
+              "joy": 5,
+              "epochChange": {
+                "legacy": 1
+              }
+            }
+          },
+          "fail": {
+            "text": "Linh hồn anh ta bừng sáng mãnh liệt lần cuối, tự thiêu rụi chính mình thay vì sa ngã. Lực lượng thần thánh phát nổ, hất văng bạn ra xa.",
+            "effects": {
+              "health": -15,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Giữ đúng giao ước, cứu người và lấy linh hồn",
+          "text": "Bạn phất tay mở đường cho đồng đội anh ta trốn thoát, rồi lạnh lùng thu thập viên ngọc linh hồn rực rỡ nhất trần đời.",
+          "effects": {
+            "wealth": 10,
+            "joy": 2
+          }
+        },
+        {
+          "label": "Cứu người rồi từ chối chiếm đoạt linh hồn",
+          "text": "Bạn mở một lối rút cho nhóm người sống rồi xóa vòng khế ước. Người kỵ sĩ mang món nợ tự nguyện, thay vì trở thành một linh hồn bị giam giữ.",
+          "effects": {
+            "joy": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_high_demon_contract_loophole",
+      "pack": true,
+      "races": [
+        "high_demon"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "weight": 5,
+      "once": true,
+      "require": {
+        "free": true
+      },
+      "text": "Một tên thương nhân nham hiểm từ Thương hội Sói Bạc đã tìm ra một kẽ hở trong bản hợp đồng cổ xưa. Hắn dùng luật Vực Thẳm để ép buộc bạn phải phục vụ hắn trong ba ngày.",
+      "choices": [
+        {
+          "label": "Dùng vận may tìm kẽ hở phản lại hắn",
+          "check": {
+            "stat": "LUCK",
+            "target": 8
+          },
+          "success": {
+            "text": "Bạn phát hiện ra chữ ký của hắn bị nhòe bởi một giọt nước mắt. Hợp đồng vô hiệu. Bạn quay sang lột da tên thương nhân xảo quyệt để làm gương.",
+            "effects": {
+              "wealth": 12,
+              "joy": 5
+            }
+          },
+          "fail": {
+            "text": "Luật lệ Vực Thẳm không chừa một ai. Bạn buộc phải nhẫn nhục làm vệ sĩ cho tên loài người yếu ớt suốt ba ngày, trở thành trò cười trong giới ma vật.",
+            "effects": {
+              "fame": -3,
+              "joy": -8,
+              "health": -10
+            }
+          }
+        },
+        {
+          "label": "Trả một khoản tiền chuộc lớn để hủy hợp đồng",
+          "text": "Thay vì mạo hiểm với luật pháp rườm rà, bạn ném vào mặt hắn một bao tải Huyết Kim. Hắn sáng mắt xé bỏ giao ước.",
+          "effects": {
+            "wealth": -10,
+            "joy": -2
+          },
+          "require": {
+            "wealth": 10
+          },
+          "showLocked": true
+        }
+      ]
+    },
+    {
+      "id": "gm_high_demon_corrupt_bloodline",
+      "pack": true,
+      "races": [
+        "high_demon"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "weight": 6,
+      "once": false,
+      "epoch": true,
+      "cooldownYears": 300,
+      "require": {
+        "free": true,
+        "flags": [
+          "gm_hd_royal_contract"
+        ]
+      },
+      "variants": [
+        "Dòng dõi hoàng tộc mà bạn từng ban khế ước cách đây trăm năm giờ đã sinh ra một hoàng tử mang ấn ký Vực Thẳm. Nó là chìa khóa để tha hóa cả quốc gia.",
+        "Máu của ma quỷ ẩn sâu trong huyết quản nữ vương trẻ bộc phát. Cả triều đình phàm nhân đang che giấu bí mật này bằng những cuộc thanh trừng.",
+        "Một vị công tước ở Đồng Bằng Thánh Quang phát hiện con trai mình có cặp sừng rồng đen. Lời nguyền di truyền của bạn bắt đầu sinh hoa kết trái."
+      ],
+      "choices": [
+        {
+          "label": "Thúc đẩy sự biến dị, biến họ thành bù nhìn ma vật",
+          "check": {
+            "stat": "INT",
+            "target": 8
+          },
+          "success": {
+            "text": "Qua những giấc mơ, bạn hướng dẫn đứa trẻ làm chủ sức mạnh hắc ám. Quốc gia đó nhanh chóng trở thành một căn cứ ngầm cho Quân Đoàn Ma Vương.",
+            "effects": {
+              "fame": 3,
+              "epochChange": {
+                "legacy": 1
+              }
+            }
+          },
+          "fail": {
+            "text": "Giáo hội Thánh Quang phát hiện ra sự thật. Đứa trẻ bị đưa lên giàn thiêu, và sợi dây liên kết tâm trí khiến bạn phải chịu một cơn đau thấu xương.",
+            "effects": {
+              "health": -15,
+              "joy": -3,
+              "epochChange": {
+                "legacy": -1
+              }
+            }
+          }
+        },
+        {
+          "label": "Thu hồi ma máu, phế bỏ đứa trẻ",
+          "text": "Bạn rút sạch ma khí từ xa. Đứa trẻ mất đi ấn ký, trở thành phàm nhân yếu đuối, sống một đời nhạt nhòa, không còn ảnh hưởng đến bạn.",
+          "effects": {
+            "joy": 1
+          }
+        }
+      ],
+      "text": "Dòng dõi hoàng tộc mà bạn từng ban khế ước cách đây trăm năm giờ đã sinh ra một hoàng tử mang ấn ký Vực Thẳm. Nó là chìa khóa để tha hóa cả quốc gia."
+    },
+    {
+      "id": "gm_high_demon_corrupt_miasma",
+      "pack": true,
+      "races": [
+        "high_demon"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "weight": 6,
+      "once": false,
+      "epoch": true,
+      "cooldownYears": 300,
+      "require": {
+        "free": true
+      },
+      "variants": [
+        "Kỷ Nguyên Tăm Tối kéo đến, làn sương độc Miasma len lỏi vào các ngõ ngách của thủ đô Sanctus. Những tà giáo tôn thờ bạn bắt đầu trỗi dậy.",
+        "Bầu trời Đồng Bằng Thánh Quang bị mây đen che phủ dài ngày. Tín đồ Hắc Nguyệt Hội dựng đền thờ ngầm dâng lên bạn những vật hiến tế tươi sống.",
+        "Sự tuyệt vọng bủa vây trần thế. Bạn có cơ hội mở rộng vùng ảnh hưởng trực tiếp của Miasma thông qua các đại diện giáo phái."
+      ],
+      "choices": [
+        {
+          "label": "Khuếch đại Miasma, nhấn chìm nửa thủ đô",
+          "check": {
+            "stat": "STR",
+            "target": 8
+          },
+          "success": {
+            "text": "Độc khí bùng phát dữ dội. Hàng ngàn dân chúng hóa thành quỷ sống. Các kỵ sĩ Thánh Quang bó tay trước sự ô nhiễm diện rộng do bạn gieo rắc.",
+            "effects": {
+              "fame": 2,
+              "wealth": 5,
+              "epochChange": {
+                "ruin": 1
+              }
+            }
+          },
+          "fail": {
+            "text": "Lực lượng bảo hộ Yggdrasil cùng Giáo hội kết hợp thanh tẩy vùng đất. Miasma bị đẩy lùi và bạn tiêu hao một lượng lớn nguyên thần vô ích.",
+            "effects": {
+              "health": -20,
+              "fame": -1,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Âm thầm thao túng tầng lớp quý tộc qua Miasma",
+          "text": "Bạn chỉ để Miasma đầu độc từ từ tâm trí giới cầm quyền. Sự tha hóa diễn ra trong thầm lặng nhưng bám rễ rất sâu.",
+          "effects": {
+            "INT": 1,
+            "joy": 3
+          }
+        },
+        {
+          "label": "Mặc kệ chúng tự tàn sát",
+          "text": "Phàm nhân vốn đã tự mang mầm mống hủy diệt. Bạn chỉ việc ngồi xem chúng cấu xé nhau trong lớp sương độc.",
+          "effects": {
+            "joy": 1
+          }
+        }
+      ],
+      "text": "Kỷ Nguyên Tăm Tối kéo đến, làn sương độc Miasma len lỏi vào các ngõ ngách của thủ đô Sanctus. Những tà giáo tôn thờ bạn bắt đầu trỗi dậy.",
+      "eras": [
+        "dark_age"
+      ]
+    },
+    {
+      "id": "gm_high_demon_corrupt_dwarf",
+      "pack": true,
+      "races": [
+        "high_demon"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "weight": 5,
+      "once": true,
+      "require": {
+        "free": true
+      },
+      "npcs": [
+        {
+          "name": "Búa Tạ Vàng",
+          "race": "Dwarf",
+          "position": "Đại Thợ Rèn"
+        }
+      ],
+      "text": "Trong Khu Mỏ Pha Lê Đen ở Dãy Núi Răng Cưa, một thợ rèn Người Lùn lừng danh đang bế tắc trong việc chế tạo thần khí. Bạn thì thầm vào tai lão phương thức dùng sinh mạng làm chất xúc tác.",
+      "choices": [
+        {
+          "label": "Tiêm nhiễm lòng tham, xui lão đồ sát đồng tộc",
+          "check": {
+            "stat": "INT",
+            "target": 7
+          },
+          "success": {
+            "text": "Lòng tham vượt qua lý trí. Lão đập búa vào đầu những người học việc, ném xác vào lò rèn. Lò Rèn Vĩnh Cửu sinh ra một thanh quỷ kiếm và vĩnh viễn bị nguyền rủa.",
+            "effects": {
+              "fame": 1,
+              "wealth": 10,
+              "epochChange": {
+                "ruin": 1
+              }
+            }
+          },
+          "fail": {
+            "text": "Ý chí kiên định của thợ rèn Người Lùn thức tỉnh. Lão nhận ra tiếng nói của ma quỷ và dùng búa thiêng phong ấn đường truyền âm của bạn, làm bạn ong đầu.",
+            "effects": {
+              "health": -10,
+              "joy": -4
+            }
+          }
+        },
+        {
+          "label": "Đổi kiến thức rèn đúc lấy một nửa linh hồn",
+          "text": "Lão chấp nhận hy sinh nửa sinh mạng của mình. Một món vũ khí tầm trung ra đời, bạn thu về phần hồn ngọt ngào của Người Lùn.",
+          "effects": {
+            "wealth": 5,
+            "joy": 2
+          }
+        },
+        {
+          "label": "Cảnh báo cái giá của cấm thuật rồi rút lui",
+          "text": "Bạn chỉ cho người thợ thấy phần sinh lực sẽ bị thiêu trong lò. Ông đóng sách cấm lại; cuộc rèn thần khí phải chờ một con đường khác.",
+          "effects": {
+            "joy": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_high_demon_corrupt_elf",
+      "pack": true,
+      "races": [
+        "high_demon"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "weight": 5,
+      "once": true,
+      "require": {
+        "free": true
+      },
+      "npcs": [
+        {
+          "name": "Mũi Tên Gãy",
+          "race": "Elf",
+          "position": "Đội Trưởng Ranger"
+        }
+      ],
+      "text": "Bên bờ Hồ Gương Tĩnh Lặng, một Đội trưởng Ranger Tinh Linh đang rơi lệ vì Cây Thế Giới có dấu hiệu héo úa. Bạn thấy cơ hội tuyệt vời để tha hóa sự trong sạch của Đại Ngàn Lục Bảo.",
+      "choices": [
+        {
+          "label": "Lừa anh ta dùng nước hồ hòa máu quỷ tưới cây",
+          "check": {
+            "stat": "LUCK",
+            "target": 8
+          },
+          "success": {
+            "text": "Tinh linh tuyệt vọng cắn răng làm theo. Máu của bạn tưới xuống, làm thối rữa cả một nhánh rễ Yggdrasil. Vùng rừng ấy vĩnh viễn chìm trong bóng tối hắc ám.",
+            "effects": {
+              "fame": 2,
+              "joy": 6,
+              "epochChange": {
+                "domain": 1
+              }
+            }
+          },
+          "fail": {
+            "text": "Tự Nhiên Giáo kịp thời phát hiện và can thiệp. Nguồn năng lượng thuần khiết của Yggdrasil phản kích qua sợi liên kết tâm giao, làm cháy sém linh hồn bạn.",
+            "effects": {
+              "health": -20,
+              "INT": -1,
+              "epochChange": {
+                "domain": -1
+              }
+            }
+          }
+        },
+        {
+          "label": "Rút lui, rừng Elf vẫn còn quá nguy hiểm",
+          "text": "Bạn nhận thấy năng lượng Cây Thế Giới vẫn bảo hộ quá mạnh. Bạn lẳng lặng rút lui, nhường lại mặt trận này cho các đại ma khác.",
+          "effects": {
+            "joy": -1
+          }
+        }
+      ]
+    }
+  ]
+}

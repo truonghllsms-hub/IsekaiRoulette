@@ -45,7 +45,7 @@ module.exports = {
       require: { LUCK: 6 }, alt: { anyFlags: ["royal_demon"], hint: "xuất thân Ngai vàng rỉ máu hoặc Trăng Máu Vực Thẳm" },
       desc: "May mắn. Cai trị một vùng của Vực Thẳm", income: [2, 3, 4.5, 6, 8], hazard: 1.1, gains: { LUCK: 0.2, INT: 0.15 } },
   ],
-  promoXp: [5, 6, 8, 10],
+  promoXp: [4, 8, 14, 22],
   roleByPrefix: { hd_job_: "hd_general", hd_archmage_: "hd_archmage", hd_lord_: "hd_lord" },
   focusByPrefix: { hd_magic_: "study", hd_politic_: "social", hd_train_: "train", hd_conquer_: "adventure", hd_court_: "work", hd_seal_: "rest" },
 
@@ -76,6 +76,8 @@ module.exports = {
   ],
 
   systems: {
+    earlyHazard: 3e-06,
+    earlyUntil: "adult",
     noRecruit: true,
     activeFrom: "child",
     jobFrom: "child",
@@ -133,6 +135,7 @@ module.exports = {
   },
 
   overrides: {
+    hd_politic_marriage: { stages: ["teen", "adult", "middle"], require: { free: true, spouse: false } },
     hd_parent_test: { require: { any: [{ fatherAlive: true }, { makerAlive: true }] }, unrequire: { makerAlive: true } },
     hd_ally_loot: { require: { party: 1 } },
     hd_ally_past: { require: { party: 1 } },

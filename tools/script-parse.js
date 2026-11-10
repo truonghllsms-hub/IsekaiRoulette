@@ -154,6 +154,11 @@ function splitOutcome(s) {
   else {
     const g = tailGroup(s);
     if (g && EFFECT_WORDS.test(g[1])) { text = g[0]; effStr = g[1]; }
+    else if (splitTop(s).every((part) => new RegExp(`^(?:${STAT_RE}\\s*[+-]\\s*\\d+|(?:thêm\\s+)?dấu ấn\\s+["“]?[a-z][a-z0-9_]+["”]?)$`, "i").test(part))) {
+      // Some automatic results list only effects, without a story/arrow prefix.
+      const parsed = parseEffects(s);
+      if (!parsed.notes.length) return { text: "", ...parsed };
+    }
   }
   const { eff, notes } = parseEffects(effStr);
   return { text: text.replace(/\s+/g, " ").trim(), eff, notes };
@@ -162,6 +167,7 @@ function splitOutcome(s) {
 function parseHead(rest) {
   const r = rest.toLowerCase().replace(/[\[\]]/g, "");
   const out = {};
+  if (/sinh tử/.test(r)) out.lethal = true;
   let m;
   // "dựa vào chỉ số cao nhất (hệ thống tự chọn)", "dựa vào chỉ số chính của nghề"
   if (/chỉ số cao nhất|chỉ số chính/.test(r)) {
@@ -353,8 +359,8 @@ function parse(text) {
       if (!opt[key]) opt[key] = splitOutcome(m[3]);
       continue;
     }
-    if (block && !quest && (m = line.match(/^Hệ quả\s*\(nếu có\s*["“]([a-z0-9_]+)["”]\)\s*:\s*(.+)/i))) {
-      (block.variants = block.variants || []).push({ flag: m[1], auto: splitOutcome(m[2]) });
+    if (block && !quest && (m = line.match(/^(?:Hệ quả\s*\(nếu có\s*(?:dấu ấn\s*)?["“]?([a-z0-9_]+)["”]?\)|Nếu có\s*(?:dấu ấn\s*)?["“]?([a-z0-9_]+)["”]?)\s*:\s*(.+)/i))) {
+      (block.variants = block.variants || []).push({ flag: m[1] || m[2], auto: splitOutcome(m[3]) });
       continue;
     }
     if (opt && (m = line.match(/^Thành công\s*:\s*(.+)/i))) { opt.success = splitOutcome(m[1]); continue; }

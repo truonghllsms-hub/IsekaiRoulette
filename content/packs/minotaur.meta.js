@@ -38,7 +38,7 @@ module.exports = {
       require: { INT: 6 }, alt: { anyFlags: ["cult_god"], hint: "xuất thân Tế đàn dị giáo hoặc Tàn tích đền thờ cổ" },
       desc: "Trí tuệ. Vu sư Vực Thẳm", income: [0.6, 1.1, 1.8, 2.8, 3.8], hazard: 1.3, gains: { INT: 0.35 } },
   ],
-  promoXp: [5, 6, 8, 10],
+  promoXp: [4, 8, 14, 22],
   roleByPrefix: { minota_event_guard: "minotaur_guardian", minota_event_glad: "minotaur_gladiator", minota_event_sham: "minotaur_shaman" },
   focusByPrefix: { minota_act_smash: "play", minota_act_train: "train", minota_act_guard: "work", minota_act_duel: "adventure", minota_act_wander: "study", minota_act_sleep: "rest" },
 

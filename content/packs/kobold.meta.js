@@ -1,9 +1,14 @@
 // Kobold pack: what the approved Gemini script (content/scripts/kobold.txt) cannot say by itself.
+const scriptStages = require("../races/kobold.json").stages;
+
 module.exports = {
   race: "kobold",
   script: "content/scripts/kobold.txt",
   story: "content/scripts/kobold_story.txt",
   exclusive: true,
+  lifespan: [8, 12],
+  scriptStages,
+  stages: scriptStages.map((s, i) => ({ ...s, start: [0, 1, 2, 4, 7, 9][i] })),
   useScriptStages: true,
 
   rename: [
@@ -48,7 +53,7 @@ module.exports = {
       require: { any: [{ STR: 6 }, { AGI: 5 }] },
       desc: "Sức mạnh hoặc Nhanh nhẹn. Giám sát mỏ cầm roi", income: [0.8, 1.3, 2, 2.8, 3.8], hazard: 1.3, gains: { STR: 0.2, AGI: 0.15 } },
   ],
-  promoXp: [5, 6, 8, 10],
+  promoXp: [4, 8, 14, 22],
   roleByPrefix: { kobold_miner_: "kobold_miner", kobold_trapper_: "kobold_trapper", kobold_sniffer_: "kobold_sniffer", kobold_priest_: "kobold_priest", kobold_overseer_: "kobold_overseer" },
   focusByPrefix: { kobold_mine_: "play", kobold_learn_: "study", kobold_train_: "train", kobold_serve_: "work", kobold_trap_: "adventure", kobold_power_: "social", kobold_nosleep_: "rest" },
 
@@ -74,11 +79,13 @@ module.exports = {
   decline: { label: "Kìm nén lại, chờ dịp khác", text: "Bạn ép cơn nóng rực dưới lớp vảy lắng xuống. Cơ hội này sẽ quay lại." },
 
   evos: [
-    { key: "elite", name: "Kobold Elite", match: ["elite", "vảy sừng"], life: 8, minAge: 10, require: { STR: 10, AGI: 8 } },
-    { key: "dragon", name: "Dragonblood Kobold", match: ["dragonblood", "huyết mạch rồng"], life: 15, minAge: 12, require: { INT: 10, anyFlags: ["dragon_blessed", "blood_sword", "dragon_scale"] } },
+    { key: "elite", name: "Kobold Elite", match: ["elite", "vảy sừng"], life: 8, minAge: 3, require: { STR: 10, AGI: 8 } },
+    { key: "dragon", name: "Dragonblood Kobold", match: ["dragonblood", "huyết mạch rồng"], life: 15, minAge: 8, require: { INT: 10, anyFlags: ["dragon_blessed", "blood_sword", "dragon_scale"] } },
   ],
 
   systems: {
+    earlyHazard: 0.05,
+    earlyUntil: "adult",
     noRecruit: true,
     bandName: "tổ đào",
     romance: false,

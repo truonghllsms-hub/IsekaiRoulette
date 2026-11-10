@@ -28,13 +28,15 @@ module.exports = {
     ["wood", "Holy Woodcarver", "AGI", false, ["Workshop Apprentice", "Spirit Carver", "Master Woodcarver", "Yggdrasil Artisan", "Hand of the Tree God"], "Nhanh nhẹn. Thợ điêu khắc gỗ thánh"],
     ["envoy", "Nature Envoy", "INT", false, ["Envoy Attendant", "Negotiator", "Ambassador of the Sacred Wood", "Council Advisor", "Voice of Yggdrasil"], "Trí tuệ. Sứ giả ngoại giao của rừng"],
   ]),
-  promoXp: [5, 6, 8, 10],
+  promoXp: [4, 8, 14, 22],
   roleByPrefix: { elf_ranger_: "elf_ranger", elf_spirit_: "elf_spirit", elf_herb_: "elf_herb", elf_bard_: "elf_bard", elf_guard_: "elf_guard", elf_wood_: "elf_wood", elf_envoy_: "elf_envoy" },
   focusByPrefix: { elf_play_: "play", elf_study_: "study", elf_train_: "train", elf_work_: "work", elf_adv_: "adventure", elf_soc_: "social", elf_rest_: "rest" },
   org: C.guildOrg("elf_guild"),
   decline: { label: "Thôi, để lần sau", text: "Bạn khẽ lắc đầu. Với một Elf, cơ hội luôn có thể chờ thêm vài thập kỷ." },
   evos: [],
   systems: {
+    earlyHazard: 4e-05,
+    earlyUntil: "adult",
     noRecruit: true,},
   overrides: {
     elf_evt_lost_parent: { require: { parentGone: "any" } },

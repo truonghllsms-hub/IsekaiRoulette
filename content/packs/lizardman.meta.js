@@ -46,7 +46,7 @@ module.exports = {
       require: {},
       desc: "Không cần chỉ số. Canh giữ bãi trứng của bộ lạc", income: [0.5, 0.9, 1.4, 2.1, 3], hazard: 0.9, gains: { LUCK: 0.15, STR: 0.1 } },
   ],
-  promoXp: [5, 6, 8, 10],
+  promoXp: [4, 8, 14, 22],
   roleByPrefix: { lizard_war_: "lizard_warrior", lizard_hunt_: "lizard_hunter", lizard_priest_: "lizard_priest", lizard_venom_: "lizard_venom", lizard_egg_: "lizard_egg" },
   focusByPrefix: { lizard_swim_: "play", lizard_prophecy_: "study", lizard_train_: "train", lizard_serve_: "work", lizard_manhunt_: "adventure", lizard_power_: "social", lizard_sun_: "rest" },
 

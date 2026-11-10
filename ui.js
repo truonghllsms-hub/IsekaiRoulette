@@ -6,26 +6,50 @@
   const $ = (id) => document.getElementById(id);
 
   const STAT_LABEL = { STR: "Sức mạnh", INT: "Trí tuệ", AGI: "Nhanh nhẹn", LUCK: "May mắn" };
-  const BAR_LABEL = { health: "Sức khỏe", joy: "Hạnh phúc", wealth: "Tài sản" };
-  const BAR_COLOR = { health: "var(--good)", joy: "var(--accent)", wealth: "var(--warn)" };
+  const BAR_LABEL = { health: "Sức khỏe", joy: "Hạnh phúc", wealth: "Tài sản", fame: "Danh vọng" };
+  const BAR_COLOR = { health: "#bf594d", joy: "#c3942f", wealth: "#4b8c60", fame: "#9862b5" };
 
   let c = null;
   const esc = (t) => String(t).replace(/[&<>"]/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
   let rendered = 0;
+  let sessionPhase="reveal";
+  const activeRun=window.ActiveRun.createStore(()=>window.localStorage,D,E);
 
   const store = {
-    get() { try { return JSON.parse(localStorage.getItem("lhdg_lives") || "[]"); } catch (e) { return []; } },
+    get() { try { const all=JSON.parse(localStorage.getItem("lhdg_lives") || "[]");return Array.isArray(all)?all.filter(x=>x&&typeof x.name==="string"&&typeof x.race==="string"&&Number.isFinite(x.age)):[]; } catch (e) { return []; } },
     add(life) {
       try {
         const all = store.get();
         all.unshift(life);
         localStorage.setItem("lhdg_lives", JSON.stringify(all.slice(0, 10)));
-      } catch (e) { /* storage unavailable */ }
+        return true;
+      } catch (e) { return false; }
     },
   };
 
+  function archiveLife() {
+    if(c&&!c.alive&&!c.historySaved){c.historySaved=store.add({name:c.name,race:E.raceTitle(c),age:c.age});}
+  }
+  function persistActive() {
+    if(!c)return;
+    if(!c.alive)activeRun.clear();
+    archiveLife();
+    const ok=activeRun.save(c,sessionPhase),status=$("save-status");
+    status.hidden=ok;status.textContent=ok?"":"Chưa tự lưu được lượt này. Hãy kiểm tra dung lượng hoặc quyền lưu dữ liệu của trình duyệt.";
+  }
+  function resumeLife() {
+    const saved=activeRun.read();
+    if(!saved){renderStart();return;}
+    c=saved.character;sessionPhase=saved.phase;rendered=0;
+    if(sessionPhase==="reveal")renderReveal();else beginLife();
+  }
+  window.addEventListener("pagehide",persistActive);
+  document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden")persistActive();});
+
   function show(id) {
+    document.body.dataset.screen = id || "";
     for (const s of document.querySelectorAll(".screen")) s.hidden = s.id !== id;
+    if (id !== "screen-start") $("world-map-dialog")?.close();
     window.scrollTo(0, 0);
   }
 
@@ -40,6 +64,11 @@
 
   // ---------- start ----------
   function renderStart() {
+    const saved=activeRun.read();
+    $("resume-slot").hidden=!saved;
+    if(saved){const x=saved.character;$("btn-resume").textContent=`Tiếp tục hành trình · ${x.name} · ${E.raceTitle(x)} · ${fmtAge(x.age)} tuổi`;}
+    const message=activeRun.error==='unavailable'?'Trình duyệt chưa cho phép lưu lượt chơi trên thiết bị này.':activeRun.error?'Không đọc được hành trình đang lưu; dữ liệu cũ vẫn được giữ để tránh mất bản lưu.':"";
+    $("resume-error").hidden=!message;$("resume-error").textContent=message;
     const list = $("odds-list");
     list.innerHTML = "";
     for (const r of [...D.races].sort((a, b) => b.weight - a.weight)) {
@@ -49,7 +78,7 @@
     }
     const lives = store.get();
     const box = $("past-lives");
-    box.innerHTML = "";
+    box.textContent = "Chưa có trang sử nào được ghi lại. Cuộc đời đầu tiên đang chờ bạn.";
     if (lives.length) {
       box.innerHTML = "<h2>Các kiếp trước</h2>";
       const ul = document.createElement("ul");
@@ -66,7 +95,7 @@
   const upper = (t) => (t ? t.charAt(0).toUpperCase() + t.slice(1) : "");
 
   // ---------- sprites ----------
-  // One atlas per person (img/<person>.png, frames in D.sprites[person]): person n of a race or
+  // One atlas per person (source path and frames in D.sprites[person]): person n of a race or
   // Beastman kin and gender, drawn as baby, child, teen, adult, old, each trade new (moi) and veteran
   // (kycuu), each evolution. A life keeps one person; a Human is picked by where they were born.
   const slug = (t) => String(t).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "");
@@ -122,7 +151,7 @@
       for (const j of jobs) want.push(`${j.id.slice(j.id.indexOf("_") + 1)}_moi`);
       want.push("thuongdan", "thieunien", "hoilon", "beti");
       const col = want.find((k) => P[k]);
-      return col ? { person, rect: P[col], size: P._size } : null;
+      return col ? { person, column: col, rect: P[col], size: P._size } : null;
     }
     if (ch.form) want.push(`tienhoa_${slug(ch.form)}`);
     if (st === "infant") want.push("beti", "hoilon");
@@ -137,32 +166,183 @@
     }
     want.push("thuongdan", "thieunien", "gia");
     const col = want.find((k) => P[k]);
-    return col ? { person, rect: P[col], size: P._size } : null;
+    return col ? { person, column: col, rect: P[col], size: P._size } : null;
   }
   function setSprite(id, ch, peak) {
+    paintSprite(id, spriteOf(ch, peak), id === "hud-sprite" ? "portrait" : "full");
+  }
+  const decodedSprites = new Map();
+  function decodeSprite(url) {
+    if (!decodedSprites.has(url)) {
+      const image=new Image();image.decoding="async";image.src=url;
+      const state={ready:false,failed:false};state.promise=image.decode().then(()=>{state.ready=true;},()=>{state.failed=true;});decodedSprites.set(url,state);
+    }
+    return decodedSprites.get(url);
+  }
+  const spriteObserver = typeof ResizeObserver !== "undefined" ? new ResizeObserver(entries => {
+    for(const {target:box} of entries) if(box.isConnected && box._sprite && !box.hidden) paintSprite(box.id,box._sprite,box._spriteMode);
+  }) : null;
+  function paintSprite(id, s, mode = "full") {
     const box = $(id);
     if (!box) return;
-    const s = spriteOf(ch, peak);
-    box.hidden = !s;
+    box.hidden = !s; box._sprite=s; box._spriteMode=mode;
     if (!s) return;
-    const el = box.firstElementChild;
-    // one scale for the whole person: a child is drawn smaller than the adult it becomes
-    // the adult frame fills the box; a big veteran or an evolution may grow a little past it
-    const P = D.sprites[s.person];
-    const boxH = box.clientHeight || 52;
-    const ref = (P.thuongdan || P.thieunien || s.rect)[3];
-    const k = Math.min(boxH / ref, (boxH * 1.25) / s.rect[3]);
-    const [x, y, w, h] = s.rect;
-    el.style.width = `${Math.round(w * k)}px`;
-    el.style.height = `${Math.round(h * k)}px`;
-    el.style.backgroundImage = `url(img/${s.person}.png)`;
-    el.style.backgroundSize = `${Math.round(s.size[0] * k)}px ${Math.round(s.size[1] * k)}px`;
-    el.style.backgroundPosition = `${-Math.round(x * k)}px ${-Math.round(y * k)}px`;
+    if (!box._observed && spriteObserver) {spriteObserver.observe(box);box._observed=true;}
+    if (!box.clientWidth || !box.clientHeight) return;
+    const el = box.firstElementChild, P = D.sprites[s.person];
+    const url=P._src || `img/${s.person}.png`,asset=decodeSprite(url);
+    el.style.visibility=asset.ready?"visible":"hidden";box.dataset.artReady=String(asset.ready);
+    if(!asset.ready&&!asset.failed&&box._decoding!==url){box._decoding=url;asset.promise.then(()=>{box._decoding=null;if(box.isConnected&&box._sprite&&D.sprites[box._sprite.person]._src===url)paintSprite(box.id,box._sprite,box._spriteMode);});}
+    const pose = window.SpritePresentation.layout(s,D,box.clientWidth||80,box.clientHeight||100,mode);
+    const [x,y] = pose.rect, k=pose.scale;
+    box.dataset.presentation=pose.kind;box.dataset.person=s.person;
+    el.style.width = `${pose.width}px`;
+    el.style.height = `${pose.height}px`;
+    el.style.backgroundImage = `url(${url})`;
+    el.style.backgroundSize = `${s.size[0] * k}px ${s.size[1] * k}px`;
+    el.style.backgroundPosition = `${-x * k}px ${-y * k}px`;
+    const key = `${P._src || s.person}:${pose.rect.join(",")}`;
+    if (el.dataset.sprite !== key && !matchMedia("(prefers-reduced-motion: reduce)").matches && el.animate) {
+      el.animate([{ opacity: 0.4 }, { opacity: 1 }], { duration: 160, easing: "ease-out" });
+    }
+    el.dataset.sprite = key;
   }
+
+  function storyBands() {
+    return Object.entries(D.story?.[c.race.id]?.bands || {}).map(([id, b]) => ({ ...b, id }));
+  }
+  function invitedBandIds() {
+    const ids = new Set();
+    for (const ch of c.pending?.choices || []) for (const outcome of [ch, ch.success, ch.fail]) {
+      const id = outcome?.effects?.joinBand;
+      if (typeof id === "string") ids.add(id);
+    }
+    return ids;
+  }
+  function bandNamed(name) {
+    return storyBands().find(b => name === b.name || name === b.title) || (c.band?.name === name ? c.band : null);
+  }
+  function memberNamed(name, bandId) {
+    const companion = c.party.find(m => m.name === name && !m.band && m.alive && !m.left);
+    if (companion && !bandId) return companion;
+    const bands = storyBands();
+    const invited = invitedBandIds();
+    const preferred = bandId || [...invited][0] || c.band?.id;
+    bands.sort((a, b) => Number(b.id === preferred) - Number(a.id === preferred));
+    for (const b of bands) {
+      const m = (b.members || []).find(m => m.name === name);
+      if (m) return { ...m, ...(c.party.find(p => p.name === name && p.band === b.id && p.alive && !p.left)||c.party.find(p=>p.name===name&&p.band===b.id&&p.left)), ...(c.band?.id===b.id&&c.band.leaderName===name?{alive:true,left:false}:{}), ...c.fallen?.find(p => p.name === name), bandId: b.id };
+    }
+    const m = c.party.find(m => m.name === name && m.alive && !m.left) || c.fallen?.find(m => m.name === name);
+    return m || Object.values(D.story?.[c.race.id]?.recruits || {}).find(m => m.name === name);
+  }
+  function openMember(name, bandId) {
+    const m = memberNamed(name, bandId);
+    if (!m || m.name === c.name) return;
+    $("member-name").textContent = m.name;
+    $("member-info").textContent = [m.race, m.jobName || m.position, m.desc].filter(Boolean).join(" · ");
+    const sprite = window.Portraits.npcSprite(m, D);
+    $("member-no-art").hidden = !!sprite;
+    $("member-art-note").hidden = !sprite;
+    if (!$("member-dialog").open) $("member-dialog").showModal();
+    paintSprite("member-portrait", sprite);
+  }
+  function openBand(id) {
+    const b = storyBands().find(b => b.id === id) || (c.band?.id === id ? c.band : null);
+    if (!b) return;
+    $("roster-name").textContent = b.name || b.title;
+    $("roster-summary").textContent = [b.rule && `Nguyên tắc: ${b.rule}`, b.lair && `Nơi tụ họp: ${b.lair}`].filter(Boolean).join("\n");
+    const list = $("roster-members");
+    list.replaceChildren();
+    const members = b.members || c.party.filter(m => m.band === id);
+    const portraits=[];
+    for (const [i,original] of members.entries()) {
+      const lost=c.fallen?.find(p=>p.name===original.name);
+      const m = { ...original, ...(c.party.find(p => p.name === original.name && p.band === id && p.alive && !p.left)||c.party.find(p=>p.name===original.name&&p.band===id&&p.left)), ...(c.band?.id===id&&c.band.leaderName===original.name?{alive:true,left:false}:{}), ...lost };
+      const card = document.createElement("article");card.className = "member-card";
+      const art=document.createElement("div");art.id=`roster-sprite-${i}`;art.className="sprite-hud roster-portrait";art.setAttribute("aria-hidden","true");art.innerHTML='<div class="sprite-frame"></div>';card.appendChild(art);
+      portraits.push([art.id,window.Portraits.npcSprite(m,D)]);
+      const heading = document.createElement("h3");
+      const name = document.createElement("button");name.type = "button";name.className = "member-name-link";
+      name.textContent = m.name;name.dataset.member = m.name;name.dataset.memberBand = id;
+      name.setAttribute("aria-haspopup", "dialog");name.setAttribute("aria-label", `Xem ảnh ${m.name}`);
+      heading.appendChild(name);card.appendChild(heading);
+      const lines = [[m.race, m.jobName || m.position].filter(Boolean).join(" · "), m.desc, m.secret && `Bí mật: ${m.secret}`, m.bond != null && `Thân thiết: ${m.bond}/100`, m.left ? "Đã rời đội" : m.alive === false ? "Đã qua đời" : null];
+      for (const text of lines.filter(Boolean)) { const p = document.createElement("p");p.textContent = text;card.appendChild(p); }
+      list.appendChild(card);
+    }
+    if (!$("roster-dialog").open) $("roster-dialog").showModal();
+    for(const [id,s] of portraits)paintSprite(id,s,"portrait");
+  }
+  $("app").addEventListener("click", e => {
+    const close = e.target.closest("[data-close]");
+    if (close) { $(close.dataset.close)?.close(); return; }
+    const member = e.target.closest("[data-member]");
+    if (member) { openMember(member.dataset.member, member.dataset.memberBand); return; }
+    const band = e.target.closest("[data-band]");
+    if (band) openBand(band.dataset.band);
+  });
+  $("app").addEventListener("keydown", e => {
+    if (!["Enter", " "].includes(e.key) || !e.target.matches(".npc[data-member], .npc[data-band]")) return;
+    e.preventDefault();e.target.click();
+  });
+  for (const id of ["roster-dialog", "member-dialog"]) $(id).addEventListener("click", e => {
+    if (e.target !== $(id)) return;
+    const r = $(id).getBoundingClientRect();
+    if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) $(id).close();
+  });
+
+  function isDarkTheme() { return document.documentElement.dataset.theme ? document.documentElement.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; }
+  // The map is a reference view: it never advances a life or consumes a choice.
+  const mapDialog = $("world-map-dialog"), mapViewport = $("map-viewport");
+  if (D.worldMap?.src) { $("world-map-image").src=D.worldMap.src; $("start-map-image").src=D.worldMap.src; }
+  let mapZoom = 1;
+  function zoomMap(value, center = true) {
+    const oldWidth = $("map-canvas").offsetWidth || mapViewport.clientWidth;
+    const cx = (mapViewport.scrollLeft + mapViewport.clientWidth / 2) / oldWidth;
+    const cy = (mapViewport.scrollTop + mapViewport.clientHeight / 2) / Math.max(1, $("map-canvas").offsetHeight);
+    mapZoom = Math.max(1, Math.min(4, value));
+    mapViewport.classList.toggle("is-zoomed",mapZoom>1);
+    const fitWidth = Math.min(mapViewport.clientWidth, mapViewport.clientHeight * 1536 / 1024);
+    $("map-canvas").style.width = `${fitWidth * mapZoom}px`;
+    $("map-zoom-level").textContent = `${Math.round(mapZoom * 100)}%`;
+    $("map-zoom-out").disabled = mapZoom <= 1;
+    $("map-zoom-in").disabled = mapZoom >= 4;
+    if (mapZoom === 1) { mapViewport.scrollLeft = 0; mapViewport.scrollTop = 0; }
+    else if (center) { mapViewport.scrollLeft = cx * $("map-canvas").offsetWidth - mapViewport.clientWidth / 2; mapViewport.scrollTop = cy * $("map-canvas").offsetHeight - mapViewport.clientHeight / 2; }
+  }
+  $("btn-map").onclick = () => { if ($("screen-start").hidden) return; mapDialog.showModal(); zoomMap(1, false); };
+  $("btn-map-close").onclick = () => mapDialog.close();
+  $("map-zoom-in").onclick = () => zoomMap(mapZoom + 0.5);
+  $("map-zoom-out").onclick = () => zoomMap(mapZoom - 0.5);
+  $("map-zoom-reset").onclick = () => zoomMap(1, false);
+  mapDialog.addEventListener("click", e => { if (e.target !== mapDialog) return; const r = mapDialog.getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) mapDialog.close(); });
+  mapDialog.addEventListener("close", () => { if (!$("screen-start").hidden) $("btn-map").focus(); });
+  let mapDrag = null;
+  mapViewport.addEventListener("pointerdown", e => { if((e.pointerType==="mouse"&&e.button!==0)||mapZoom<=1||mapDrag)return;mapDrag={id:e.pointerId,x:e.clientX,y:e.clientY,left:mapViewport.scrollLeft,top:mapViewport.scrollTop};mapViewport.setPointerCapture(e.pointerId);mapViewport.classList.add("is-dragging");e.preventDefault(); });
+  mapViewport.addEventListener("pointermove", e => { if(!mapDrag||mapDrag.id!==e.pointerId)return;mapViewport.scrollLeft=mapDrag.left-(e.clientX-mapDrag.x);mapViewport.scrollTop=mapDrag.top-(e.clientY-mapDrag.y); });
+  for(const type of ["pointerup","pointercancel","lostpointercapture"])mapViewport.addEventListener(type,e=>{if(mapDrag&&mapDrag.id!==e.pointerId)return;mapDrag=null;mapViewport.classList.remove("is-dragging");});
+  mapViewport.addEventListener("keydown", e => { if(["+","=","-","0"].includes(e.key)){e.preventDefault();zoomMap(e.key==="0"?1:mapZoom+(e.key==="-"?-.5:.5));} });
+  window.addEventListener("resize", () => { if (mapDialog.open) zoomMap(mapZoom, false); });
+
+  function renderThemeButton() { $("btn-theme").textContent = isDarkTheme() ? "☀" : "☾"; $("btn-theme").setAttribute("aria-label", isDarkTheme() ? "Chuyển sang giao diện sáng" : "Chuyển sang giao diện tối"); }
+  $("btn-theme").onclick = () => {
+    const next = isDarkTheme() ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem("lhdg-theme", next); } catch (e) {}
+    renderThemeButton();
+  };
+  try { const savedTheme = localStorage.getItem("lhdg-theme"); if (savedTheme === "light" || savedTheme === "dark") document.documentElement.dataset.theme = savedTheme; } catch (e) {}
+  renderThemeButton();
 
 
   function startLife() {
     c = E.createCharacter(D);
+    sessionPhase="reveal";
+    renderReveal();
+    persistActive();
+  }
+  function renderReveal() {
     rendered = 0;
     $("reveal-name").textContent = c.name;
     $("reveal-race").textContent = c.subtypeName ? `${c.race.name} ${c.subtypeName}` : c.race.name;
@@ -172,6 +352,7 @@
     renderFamily();
     $("reveal-desc").textContent = c.race.desc || "";
     show("screen-reveal");
+    setSprite("reveal-sprite", c);
   }
 
   // Parents (or whoever made you), siblings and home, shown when you are born.
@@ -213,23 +394,50 @@
     $("hud-age").textContent = fmtAge(c.age);
     $("hud-stage").textContent = E.currentStage(c).name;
 
-    $("hud-bars").innerHTML = E.BAR_KEYS.map(
-      (k) => `<div class="bar">${BAR_LABEL[k]}<div class="track"><div class="fill" style="width:${c.bars[k]}%;background:${BAR_COLOR[k]}"></div></div></div>`
-    ).join("");
+    $("hud-bars").innerHTML = E.STATUS_KEYS.map(k => {
+      const value = Math.max(0,Math.min(100,Number(k === "fame" ? c.fame : c.bars[k]) || 0));
+      const label = k === "fame" ? E.fameLabel(c) : BAR_LABEL[k];
+      const tier = k === "wealth" ? E.wealthTier(c,D) : k === "fame" ? E.fameTier(c) : "";
+      return `<div class="bar${k === "health" && value <= 30 ? " bar-critical" : ""}" data-bar="${k}"><span class="bar-label">${label}<b>${Math.round(value)}</b></span><div class="track" role="progressbar" aria-label="${label}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(value)}" aria-valuetext="${esc(`${Math.round(value)}/100${tier ? ` · ${tier}` : ""}`)}"><div class="fill" style="width:${value}%;background:${BAR_COLOR[k]}"></div></div>${tier ? `<span class="bar-tier">${esc(tier)}</span>` : ""}</div>`;
+    }).join("");
     $("hud-stats").innerHTML = E.STAT_KEYS.map((k) => `<span class="stat">${STAT_LABEL[k]} <b>${c.stats[k]}</b></span>`).join("");
     $("hud-profile").innerHTML = profileHtml();
+    $("journal-chapter").textContent = `${fmtAge(c.age)} tuổi · ${E.currentStage(c).name}${c.era ? ` · ${c.era.name}` : ""}`;
+    renderParty();
+  }
+  const compactParty=matchMedia("(max-width:960px)");
+  let partyManuallySet=false;
+  $("party-heading").addEventListener("click",()=>{partyManuallySet=true;});
+  compactParty.addEventListener("change",e=>{if(!partyManuallySet)$("party-panel").open=!e.matches;});
+  function renderParty() {
+    const list=$("party-list"),members=c.party.filter(m=>m.alive&&!m.left),panel=$("party-panel");
+    if(!panel.dataset.initialized){panel.open=!compactParty.matches;panel.dataset.initialized="true";}
+    panel.hidden=!members.length;$("party-heading").textContent=`Đồng hành · ${members.length}`;list.replaceChildren();
+    for(const [i,m] of members.entries()) {
+      const button=document.createElement("button");button.type="button";button.className="companion-card";button.dataset.member=m.name;button.setAttribute("aria-haspopup","dialog");
+      button.innerHTML=`<span id="party-sprite-${i}" class="sprite-hud companion-portrait" aria-hidden="true"><span class="sprite-frame"></span></span><span class="companion-copy"><b>${esc(m.name)}</b><small>${esc([m.race,m.jobName].filter(Boolean).join(" · "))}</small>${m.alive===false?'<small class="fallen-label">Đã qua đời</small>':m.bond!=null?`<small>Thân thiết ${m.bond}/100</small>`:""}</span><span aria-hidden="true">›</span>`;
+      list.appendChild(button);paintSprite(`party-sprite-${i}`,window.Portraits.npcSprite(m,D),"portrait");
+    }
   }
 
 
   function profileHtml() {
     const out = [];
-    if (c.job) out.push(`<span>Nghề <b>${esc(E.jobTitle(c, D))}</b></span>`);
+    if (c.job) {
+      const progress = E.jobProgress(c, D);
+      const number = n => Number(n.toFixed(1)).toLocaleString("vi-VN");
+      const meter = progress && !progress.maxed ? `<span class="career-xp-value">${number(progress.xp)}/${number(progress.target)} XP</span><span class="career-xp-track" role="progressbar" aria-label="Kinh nghiệm nghề" aria-valuemin="0" aria-valuemax="${progress.target}" aria-valuenow="${Math.min(progress.xp, progress.target)}" aria-valuetext="${esc(`${number(progress.xp)}/${number(progress.target)} XP · ${progress.status}`)}"><span style="width:${progress.ratio * 100}%"></span></span>` : "";
+      out.push(`<span class="career-progress"><span>${c.race.pacing?.mode === "epoch" ? "Đạo thống" : "Nghề"} <b>${esc(E.jobTitle(c, D))}</b></span>${meter}${progress ? `<span class="career-xp-status">${esc(progress.status)}</span>` : ""}</span>`);
+    }
     const org = E.orgDef(c, D);
     if (org) out.push(`<span>${esc(org.name)} <b>${esc(E.orgRankName(c, D))}</b></span>`);
-    if (c.fame) out.push(`<span>Danh vọng <b>${c.fame}</b></span>`);
-    if (c.party.length)
-      out.push(`<span>Tổ đội ${c.party.filter((m) => !m.left).map((m) => `<b class="${m.alive ? "" : "dead"}" title="${esc(m.race + ", " + m.jobName)}">${esc(m.name)}</b>`).join(", ")}</span>`);
     if (c.spouse) out.push(`<span>Bạn đời <b>${esc(c.spouse.name)}</b>${c.children.length ? ` · ${c.children.length} con` : ""}</span>`);
+    if (c.spouse?.age != null) out.push(`<span>Tuổi bạn đời <b>${Math.floor(c.spouse.age)}</b> · ${esc(c.spouse.race || "")}</span>`);
+    if (c.children?.length) out.push(`<span>Hậu duệ ${c.children.map(k => k.kind === "egg" ? `${esc(k.name)} (trứng, còn ${Math.max(0,Math.ceil(k.hatchAt-c.age))} năm)` : `${esc(k.name)} (${Math.max(0,Math.floor(c.age-(k.born??c.age)))} tuổi${k.kind === "emanation" ? ", phân thân" : ""})`).join(", ")}</span>`);
+    if (c.fallen?.length) out.push(`<span class="family-remembrance">Tưởng nhớ đồng đội ${c.fallen.map(m=>esc(m.name)).join(", ")}</span>`);
+    if (c.familyHistory?.length) out.push(`<span class="family-remembrance">Tưởng nhớ ${c.familyHistory.map(p => `${esc(p.name)} (${p.relation === "spouse" ? "bạn đời" : "người con"})`).join(", ")}</span>`);
+    if (c.race.pacing && c.alive) out.push(`<span>Nhịp thời gian <b>${E.tickYears(c)} năm/lượt</b></span>`);
+    if (c.epoch && c.race.pacing) out.push(`<span>${c.race.pacing.mode === "epoch" ? "Dấu ấn kỷ nguyên" : "Di sản thế hệ"} · Lãnh địa <b>${c.epoch.domain||0}</b> · Ngộ đạo <b>${c.epoch.insight||0}</b> · Di sản <b>${c.epoch.legacy||0}</b> · Tàn phá <b>${c.epoch.ruin||0}</b></span>`);
     // what you carry: weapon, armour, keepsakes (hover for what it is and what it adds)
     if (c.items && c.items.length) {
       const order = { weapon: 0, armor: 1, charm: 2 };
@@ -283,9 +491,14 @@
     if (c.spouse) add(c.spouse.name, `Bạn đời của bạn · nên duyên năm ${Math.floor(c.spouse.since)} tuổi`);
     for (const n of c.formerSpouses || []) add(n, "Người bạn đời cũ");
     for (const k of c.children || []) add(k.name, `Con của bạn · chào đời khi bạn ${Math.floor(k.born)} tuổi`);
-    for (const m of c.party || []) add(m.name, `Đồng đội · ${[m.race, m.jobName].filter(Boolean).join(" · ")}${!m.alive ? " · đã mất" : m.left ? " · đã rời đi" : ""}`);
-    for (const f of c.fallen || []) add(f.name, `Đồng đội đã khuất · mất khi bạn ${Math.floor(f.at)} tuổi`);
+    for (const m of c.party || []) add(m.name, `Đồng đội · ${[m.race, m.jobName].filter(Boolean).join(" · ")}${m.left ? " · đã rời đi" : !m.alive ? " · đã mất" : ""}`);
+    for (const f of c.fallen || []) add(f.name, `Đồng đội đã khuất${f.dateUnknown?"":` · mất khi bạn ${Math.floor(f.at)} tuổi`}`);
     if (c.band && c.band.name) add(c.band.name, `Tổ đội của bạn · từ năm ${Math.floor(c.band.since)} tuổi`);
+    for (const b of storyBands()) {
+      add(b.name || b.title, "Xem hồ sơ và toàn bộ thành viên tổ đội");
+      for (const m of b.members || []) add(m.name, [m.race, m.position, m.desc].filter(Boolean).join(" · "));
+    }
+    for (const m of Object.values(story?.recruits || {})) add(m.name, [m.race, m.position, m.desc].filter(Boolean).join(" · "));
     return idx;
   }
   // the text with each known name wrapped in a note; everything else stays plain text
@@ -295,7 +508,10 @@
     const re = new RegExp(`(?<!\\p{L})(${names.join("|")})(?!\\p{L})`, "gu");
     let html = "", last = 0, m;
     while ((m = re.exec(text))) {
-      html += esc(text.slice(last, m.index)) + `<span class="npc" tabindex="0" data-who="${esc(idx.get(m[1]))}">${esc(m[1])}</span>`;
+      const band = bandNamed(m[1]);
+      const member = !band && memberNamed(m[1]);
+      const action = band ? ` data-band="${esc(band.id)}"` : member ? ` data-member="${esc(member.name)}"${member.bandId ? ` data-member-band="${esc(member.bandId)}"` : ""}` : "";
+      html += esc(text.slice(last, m.index)) + `<span class="npc" tabindex="0" data-who="${esc(idx.get(m[1]))}"${action}${action ? ' role="button" aria-haspopup="dialog"' : ""}>${esc(m[1])}</span>`;
       last = m.index + m[1].length;
     }
     el.innerHTML = html + esc(text.slice(last));
@@ -341,9 +557,18 @@
     const box = $("choices");
     box.innerHTML = "";
     if (!c.pending) return;
+    for (const id of invitedBandIds()) {
+      const band = storyBands().find(b => b.id === id);
+      if (!band) continue;
+      const info = document.createElement("button");info.type = "button";info.className = "band-offer";
+      info.textContent = `Xem thành viên ${band.name || band.title}`;info.dataset.band = id;
+      info.setAttribute("aria-haspopup", "dialog");box.appendChild(info);
+    }
     c.pending.choices.forEach((ch, i) => {
       const b = document.createElement("button");
       b.className = "btn choice";
+      if (ch.risk === "lethal") b.classList.add("choice-danger");
+      if (ch.require?.job) b.classList.add("choice-specialist");
       b.textContent = ch.label;
       const note = (text, cls) => {
         const s = document.createElement("small");
@@ -352,6 +577,14 @@
         b.appendChild(s);
       };
       if (ch.hint) note(ch.hint);
+      if (ch.require?.job) note(`Chuyên môn · ${E.jobTitle(c, D)}`, "specialist-note");
+      const burns = [ch.success?.effects?.lifeCost || 0, ch.fail?.effects?.lifeCost || 0];
+      if (burns.some(Boolean)) {
+        const years = burns.map(n => n * E.yearScale(c.race));
+        b.classList.add("choice-danger");
+        note(`Đổi thọ nguyên: thành công mất ${fmtAge(years[0])} năm, thất bại mất ${fmtAge(years[1])} năm.`, "odds odds-slim");
+        if (c.maxAge != null && Math.max(...years) >= c.maxAge - c.age) note("Cấm thuật có thể thiêu rụi phần đời còn lại.", "odds odds-slim");
+      }
       if (ch.disabled) {
         b.disabled = true;
         note(ch.reason || "Chưa đủ điều kiện", "locked");
@@ -364,6 +597,11 @@
         const mood = E.moodBonus(c);
         const extra = [pb ? "có đồng đội trợ giúp" : "", mood > 0 ? "tinh thần phấn chấn" : mood < 0 ? "tâm trí u uất" : ""].filter(Boolean);
         note(`Dựa vào ${E.STAT_LABEL[ch.check.stat] || ch.check.stat} · ${word}` + (extra.length ? ` (${extra.join(", ")})` : ""), "odds odds-" + cls);
+        if (ch.risk === "lethal") {
+          const damage = ch.fail.effects?.health < 0 ? E.eventDamage(c, -ch.fail.effects.health) : 0;
+          const deathRisk = c.pending.kind === "crisis" ? "Sinh tử · thất bại mất mạng" : "Sinh tử · thất bại có thể tử trận";
+          note(ch.fail.death ? deathRisk : `Sinh tử · thất bại mất ${damage} máu` + (damage >= c.bars.health ? " · có thể tử trận" : ""), "odds odds-slim");
+        }
       }
       b.onclick = () => {
         E.choose(c, D, i);
@@ -374,6 +612,8 @@
   }
 
   function render() {
+    persistActive();
+    const hasNewEntries = c.log.length > rendered;
     renderHud();
     renderLog();
     renderChoices();
@@ -389,10 +629,14 @@
       btn.textContent = c.quest ? "Tiếp tục nhiệm vụ" : "Sống tiếp";
       btn.disabled = false;
     }
-    requestAnimationFrame(() => window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" }));
+    if (hasNewEntries) requestAnimationFrame(() => {
+      const target = c.pending ? $("choices") : $("log").lastElementChild;
+      target?.scrollIntoView({ block: "nearest", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    });
   }
 
   function beginLife() {
+    sessionPhase="life";
     $("log").innerHTML = "";
     rendered = 0;
     show("screen-life");
@@ -437,7 +681,8 @@
       ul.appendChild(li);
     }
     renderCard(s.card);
-    store.add({ name: c.name, race: E.raceTitle(c), age: c.age });
+    activeRun.clear();
+    archiveLife();
     show("screen-death");
     setSprite("lc-sprite", c, true); // after show: the box needs its real height
   }
@@ -449,7 +694,14 @@
     card = k;
     const sp = spriteOf(c, true);
     cardSprite = null;
-    if (sp) { const im = new Image(); im.onload = () => { cardSprite = { im, rect: sp.rect }; }; im.src = `img/${sp.person}.png`; }
+    const thisCard = card;
+    $("btn-save-card").disabled = !!sp;
+    if (sp) {
+      const im = new Image();
+      im.onload = () => { if (card === thisCard) { cardSprite = { im, rect: window.SpritePresentation.rectangle(sp,D,"full") }; $("btn-save-card").disabled = false; } };
+      im.onerror = () => { if (card === thisCard) $("btn-save-card").disabled = false; };
+      im.src = D.sprites[sp.person]._src || `img/${sp.person}.png`;
+    }
     $("lc-name").textContent = k.name;
     $("lc-line").textContent = k.line + (k.origin ? " · " + k.origin : "");
     $("lc-stats").textContent = k.stats || "";
@@ -514,36 +766,37 @@
       for (const l of wrap(ctx, text, inner)) { plan.push({ font, color, text: l, y, align }); y += lh; }
       y += gap;
     };
-    add(`500 30px ${sans}`, "#a88fd8", "LUÂN HỒI DỊ GIỚI · MỘT KIẾP NGƯỜI", 30, 40, "center");
+    add(`500 30px ${sans}`, "#88632e", "LUÂN HỒI DỊ GIỚI · MỘT KIẾP NGƯỜI", 30, 40, "center");
     // the character at the height of their life
     let spr = null;
     if (cardSprite) {
       const [, , sw, sh] = cardSprite.rect;
-      const k = Math.min(300 / sh, 360 / sw);
+      const k = Math.min(2.4, 300 / sh, 360 / sw);
       spr = { y, w: Math.round(sw * k), h: Math.round(sh * k) };
       y += spr.h + 30;
     }
-    add(`600 76px ${serif}`, "#f3ead8", k.name, 10, 88, "center");
-    add(`400 34px ${sans}`, "#c9bfae", k.line + (k.origin ? " · " + k.origin : ""), 14, 46, "center");
-    if (k.stats) add(`500 26px ${sans}`, "#a88fd8", k.stats, 40, 36, "center");
-    for (const m of k.marks) add(`400 36px ${sans}`, "#efe6d4", "✦  " + m, 6, 48, "left");
+    add(`600 76px ${serif}`, "#472d1b", k.name, 10, 88, "center");
+    add(`400 34px ${sans}`, "#735d42", k.line + (k.origin ? " · " + k.origin : ""), 14, 46, "center");
+    if (k.stats) add(`500 26px ${sans}`, "#88632e", k.stats, 40, 36, "center");
+    for (const m of k.marks) add(`400 36px ${sans}`, "#493323", "✦  " + m, 6, 48, "left");
     y += 30;
-    if (k.epitaph) add(`italic 400 40px ${serif}`, "#f3ead8", `“${k.epitaph}”`, 30, 56, "center");
-    if (k.cause) add(`400 30px ${sans}`, "#a49a8a", k.cause, 0, 42, "center");
+    if (k.epitaph) add(`italic 400 40px ${serif}`, "#472d1b", `“${k.epitaph}”`, 30, 56, "center");
+    if (k.cause) add(`400 30px ${sans}`, "#806e58", k.cause, 0, 42, "center");
     cv.width = W; cv.height = Math.max(W, y + pad);
     const g = ctx.createLinearGradient(0, 0, 0, cv.height);
-    g.addColorStop(0, "#221d2e"); g.addColorStop(1, "#14121a");
+    g.addColorStop(0, "#fcf3df"); g.addColorStop(1, "#e9d5b0");
     ctx.fillStyle = g; ctx.fillRect(0, 0, W, cv.height);
-    ctx.strokeStyle = "#5a4a7a"; ctx.lineWidth = 3; ctx.strokeRect(36, 36, W - 72, cv.height - 72);
+    ctx.strokeStyle = "#af8c50"; ctx.lineWidth = 3; ctx.strokeRect(36, 36, W - 72, cv.height - 72);
     if (spr) {
       const [sx, sy, sw, sh] = cardSprite.rect;
-      ctx.imageSmoothingEnabled = false;
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = "high";
       ctx.drawImage(cardSprite.im, sx, sy, sw, sh, Math.round((W - spr.w) / 2), spr.y, spr.w, spr.h);
     }
     ctx.textBaseline = "top";
     // the grade, stamped in the corner like a seal
     if (k.rating) {
-      const col = { S: "#e2b34a", A: "#d9534f", B: "#7aa6c2", C: "#8d8578" }[k.rating.grade] || "#d9534f";
+      const col = { S: "#9c7428", A: "#8b4d3f", B: "#54775b", C: "#796b55" }[k.rating.grade] || "#8b4d3f";
       ctx.save();
       ctx.translate(W - 150, 150);
       ctx.rotate(-0.22);
@@ -600,15 +853,17 @@
     showCardImage(url, window.claude ? fallback : "Nếu ảnh chưa tải về: " + fallback.toLowerCase());
   };
 
+  $("btn-resume").onclick = resumeLife;
   $("btn-start").onclick = startLife;
   $("btn-begin").onclick = beginLife;
   $("btn-next").onclick = next;
   $("btn-again").onclick = startLife;
   $("btn-review").onclick = () => show("screen-life");
   document.addEventListener("keydown", (ev) => {
+    if (document.querySelector("dialog[open]")) return;
     if (ev.key !== " " && ev.key !== "Enter") return;
     if ($("screen-life").hidden || (c && c.pending)) return;
-    if (document.activeElement && document.activeElement.tagName === "BUTTON") return;
+    if (ev.defaultPrevented || ev.target.closest?.("button, a, input, textarea, select, summary, [contenteditable], [role=button], [tabindex]")) return;
     ev.preventDefault();
     next();
   });

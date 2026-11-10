@@ -1,0 +1,1739 @@
+{
+  "origins": [],
+  "events": [
+    {
+      "id": "gm_slime_mimic_chest",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": true,
+      "weight": 8,
+      "require": {
+        "job": "slime_mimic",
+        "free": true
+      },
+      "text": "Sâu trong tàn tích dưới Đồng Bằng Thánh Quang, bạn ngụy trang thành một chiếc rương gỗ bọc sắt. Một nhóm mạo hiểm giả kiệt sức vừa bước vào phòng, kẻ cầm đuốc đang vươn tay định cạy mở lớp vỏ của bạn.",
+      "choices": [
+        {
+          "label": "Hóa lỏng đột ngột để bẫy tay hắn",
+          "check": {
+            "stat": "AGI",
+            "target": 6
+          },
+          "success": {
+            "text": "Lớp 'gỗ' tan chảy ngay khi hắn chạm vào, dính chặt lấy vũ khí và kéo tuột nó vào thân thể bạn. Nhóm người hoảng loạn bỏ chạy, để lại chiến lợi phẩm đắt giá.",
+            "effects": {
+              "jobXp": 1,
+              "wealth": 5,
+              "joy": 4
+            }
+          },
+          "fail": {
+            "text": "Bạn biến đổi quá chậm. Lưỡi dao nạy rương đâm trúng rìa ngoài, khiến bạn đau đớn rỉ dịch trần. Bọn chúng giật mình lùi lại và bắt đầu tấn công.",
+            "effects": {
+              "health": -15,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Căng cứng lớp vỏ, giả vờ khóa kẹt",
+          "check": {
+            "stat": "STR",
+            "target": 7
+          },
+          "success": {
+            "text": "Bạn gồng bề mặt dẻo quánh thành một khối rắn chắc. Tên trộm bẻ gãy cả dụng cụ mà không mở được, đành bực tức bỏ đi. Bạn an toàn giữ nguyên cấu trúc.",
+            "effects": {
+              "STR": 1,
+              "jobXp": 0.5
+            }
+          },
+          "fail": {
+            "text": "Lực ép quá mạnh khiến lớp ngụy trang rạn nứt, lộ ra dung dịch sền sệt bên trong. Bạn vội vã tháo chạy qua khe nứt trên sàn đá, chịu không ít trầy xước.",
+            "effects": {
+              "health": -10,
+              "joy": -2
+            }
+          }
+        },
+        {
+          "label": "Rút lui, rỉ qua khe đá dưới sàn",
+          "text": "Bạn quyết định không mạo hiểm, âm thầm hóa lỏng phần đáy và chảy rọt xuống đường cống ngầm. Bọn chúng chỉ gõ vào một cái vỏ rỗng không trước khi nó sụp xuống.",
+          "effects": {
+            "joy": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_slime_mimic_armor",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "ancient"
+      ],
+      "once": true,
+      "weight": 7,
+      "require": {
+        "job": "slime_mimic",
+        "free": true
+      },
+      "text": "Tại Trại Huyết Môn, bạn uốn nắn cơ thể thành một bộ giáp hiệp sĩ dính đầy máu khô, nằm lăn lóc giữa chiến trường. Một nhóm hôi của của tộc Orc đang tiến lại gần, thu nhặt phế liệu.",
+      "choices": [
+        {
+          "label": "Hấp thụ kim loại xung quanh để gia cố hình dạng",
+          "check": {
+            "stat": "INT",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn khéo léo dùng dịch acid phân giải vũ khí gãy gần đó, trộn vào lớp vỏ ngoài. Tên Orc đá mạnh vào bạn, tưởng là một khối sắt vô dụng liền bỏ qua.",
+            "effects": {
+              "jobXp": 1.5,
+              "STR": 1
+            }
+          },
+          "fail": {
+            "text": "Việc phân giải tạo ra tiếng xèo xèo và bọt khí. Đám Orc phát hiện điểm dị thường bèn dùng rìu đập mạnh, buộc bạn phải vỡ tung hình thái và trườn đi.",
+            "effects": {
+              "health": -18,
+              "joy": -4
+            }
+          }
+        },
+        {
+          "label": "Hóa lỏng, trườn đi trước khi bị chú ý",
+          "text": "Bạn thu hồi kết cấu rắn, biến thành một vũng chất lỏng đục ngầu, hòa lẫn vào máu và bùn trên mặt đất. Đám hôi của dẫm qua mà không hề hay biết.",
+          "effects": {
+            "joy": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_slime_mimic_door",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "adult",
+        "middle"
+      ],
+      "once": true,
+      "weight": 6,
+      "require": {
+        "job": "slime_mimic",
+        "free": true
+      },
+      "text": "Bắt chước một phiến đá phong ấn tại Cửa Ngục Than Khóc, bạn chặn ngang lối đi hẹp. Một giáo đồ Hắc Nguyệt Hội cầm ấn thạch, niệm chú định mở cửa, sóng ma lực đang dò tìm ổ khóa trên thân bạn.",
+      "choices": [
+        {
+          "label": "Dịch chuyển lõi ma lực để đánh lừa thần chú",
+          "check": {
+            "stat": "INT",
+            "target": 8
+          },
+          "success": {
+            "text": "Bạn uốn lượn dòng chảy mana bên trong, tạo ra phản hồi giả lập ổ khóa mở. Tên giáo đồ bước qua mà không biết mình vừa xuyên qua thân thể dẻo của bạn.",
+            "effects": {
+              "jobXp": 1.5,
+              "INT": 1,
+              "joy": 3
+            }
+          },
+          "fail": {
+            "text": "Ma lực của ấn thạch phản ứng dữ dội với dịch nhầy của bạn, gây ra một vụ nổ nhỏ. Bạn bị hất văng vào vách đá, lõi bị chấn động mạnh.",
+            "effects": {
+              "health": -20,
+              "INT": -1
+            }
+          }
+        },
+        {
+          "label": "Bất ngờ sụp đổ khối đá giả, chôn vùi hắn",
+          "check": {
+            "stat": "STR",
+            "target": 7
+          },
+          "success": {
+            "text": "Khối đá giả đột ngột biến thành khối bùn nặng nề, ập xuống đè nát tên giáo đồ. Bạn hấp thụ đồ đạc của hắn và dọn dẹp sạch sẽ hiện trường.",
+            "effects": {
+              "wealth": 4,
+              "joy": 2
+            }
+          },
+          "fail": {
+            "text": "Hắn phản xạ cực nhanh, dựng khiên ma pháp cản lại khối lượng của bạn. Bạn rơi xuống đất thành một đống bùng nhùng, đành lẩn vào kẽ nứt chạy trốn.",
+            "effects": {
+              "health": -12,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Co rút lại, mở lối ngay lập tức",
+          "text": "Không chờ thần chú hoàn tất, bạn hóa lỏng và chảy dạt sang hai bên vách hang. Hắn giật mình nhưng vẫn đi tiếp, để bạn được yên.",
+          "effects": {
+            "joy": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_slime_mimic_detect_magic",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": true,
+      "weight": 7,
+      "require": {
+        "job": "slime_mimic",
+        "free": true
+      },
+      "text": "Đang ẩn mình dưới dạng một bức tượng điêu khắc trong Tháp Ma Pháp Bạch Ngà, bạn cảm nhận được sóng Phép Nhận Diện (Detect Magic) đang quét tới. Lõi ma lực của bạn rất dễ bị lộ sáng dưới loại phép này.",
+      "choices": [
+        {
+          "label": "Tạo lớp màng cách ly sinh học bọc lấy lõi",
+          "check": {
+            "stat": "INT",
+            "target": 7
+          },
+          "success": {
+            "text": "Bạn cô đặc một phần dung dịch thành lớp vỏ cản ma pháp quanh lõi. Sóng quét qua bạn như quét qua một tảng đá vô tri. Kỹ năng ngụy trang đạt đến tầm cao mới.",
+            "effects": {
+              "jobXp": 2,
+              "INT": 1
+            }
+          },
+          "fail": {
+            "text": "Lớp màng không đủ dày. Lõi của bạn phát sáng mờ ảo, đánh động các vệ binh ma pháp. Bạn buộc phải phá vỡ cửa sổ, rơi tự do xuống con kênh bên dưới để thoát thân.",
+            "effects": {
+              "health": -15,
+              "fame": -1,
+              "joy": -4
+            }
+          }
+        },
+        {
+          "label": "Di chuyển lõi liên tục, làm nhiễu tín hiệu",
+          "check": {
+            "stat": "AGI",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn trượt lõi chạy vòng quanh bên trong cơ thể điêu khắc. Pháp sư quét phép nhăn mặt vì tín hiệu chập chờn, cho rằng công cụ của mình hỏng, rồi bỏ qua.",
+            "effects": {
+              "jobXp": 1,
+              "AGI": 1
+            }
+          },
+          "fail": {
+            "text": "Sự di chuyển quá nhanh làm cấu trúc tượng bề mặt biến dạng. Bạn bị phát hiện và dính một quả cầu lửa sượt qua trước khi kịp lăn xuống cống.",
+            "effects": {
+              "health": -20,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Chủ động tản ra, chui xuống khe gạch",
+          "text": "Không thể giấu lõi, bạn lập tức hóa lỏng, bỏ lại hình dáng tượng. Sóng quét không bắt được hình thể cố định, bạn lùi về nơi tối tăm an toàn.",
+          "effects": {
+            "joy": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_slime_mimic_shield",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "child",
+        "teen"
+      ],
+      "once": true,
+      "weight": 5,
+      "require": {
+        "job": "slime_mimic",
+        "free": true
+      },
+      "text": "Tại Vực Móng Vuốt, bạn thử mô phỏng một chiếc khiên kim loại nhỏ. Một chiến binh Beastman trẻ tuổi đi qua, nhặt bạn lên và phấn khích dùng thử ngay trước đòn tấn công của một quái thú.",
+      "choices": [
+        {
+          "label": "Phân bổ tính đàn hồi để dội ngược lực tấn công",
+          "check": {
+            "stat": "LUCK",
+            "target": 5
+          },
+          "success": {
+            "text": "Khi móng vuốt quái thú chạm vào, bạn đàn hồi như cao su, hất văng con vật ra xa. Chiến binh trẻ kinh ngạc ngắm nhìn 'chiếc khiên ma thuật', còn bạn tự hào vì ngụy trang hoàn hảo.",
+            "effects": {
+              "jobXp": 1,
+              "joy": 4
+            }
+          },
+          "fail": {
+            "text": "Cú tát quá mạnh khiến bạn không giữ được hình thái. Bạn vỡ oà thành dung dịch nhầy nhụa bắn tung tóe vào mặt chiến binh, rồi trườn nhanh vào bụi rậm trong cơn đau điếng.",
+            "effects": {
+              "health": -12,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Tan chảy ngay lập tức khỏi tay hắn",
+          "text": "Bạn nhão ra thành chất lỏng, tuột khỏi tay cậu ta ngay trước khi quái thú lao tới. Cậu ta phải tự xoay sở, còn bạn chui xuống lớp lá khô an toàn.",
+          "effects": {
+            "joy": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_slime_mimic_gold_pile",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 6,
+      "require": {
+        "job": "slime_mimic",
+        "free": true
+      },
+      "text": "Bạn phân tách cơ thể thành nhiều hạt tròn nhỏ lấp lánh, ngụy trang thành một đống Tinh Bạc trong khu rừng vắng. Một tên Goblin tham lam phát hiện và nhảy bổ vào, dùng bao tải định xúc bạn đi.",
+      "choices": [
+        {
+          "label": "Bao bọc lấy tay hắn và tiết dịch tê liệt",
+          "check": {
+            "stat": "AGI",
+            "target": 6
+          },
+          "success": {
+            "text": "Những 'đồng tiền' đột ngột dính chặt lại thành khối keo, khóa chặt tay tên Goblin. Hắn hoảng sợ giãy giụa làm rơi một túi đồ thật sự, rồi bỏ chạy thục mạng.",
+            "effects": {
+              "jobXp": 1,
+              "wealth": 4,
+              "joy": 3
+            }
+          },
+          "fail": {
+            "text": "Hắn xúc bạn quá nhanh. Bạn kẹt trong bao tải tối tăm, phải mất rất nhiều công sức tiết acid ăn mòn sợi vải để thoát ra ngoài, cơ thể bị ma sát khô rát.",
+            "effects": {
+              "health": -10,
+              "joy": -4
+            }
+          }
+        },
+        {
+          "label": "Đổi màu thành màu đá xám xịt",
+          "text": "Bạn lập tức chuyển hắc tố, mất đi vẻ lấp lánh. Tên Goblin khựng lại, tưởng mình bị hoa mắt vì đống đá cuội, chửi rủa vài câu rồi rời đi.",
+          "effects": {
+            "jobXp": 0.5,
+            "joy": 1
+          }
+        },
+        {
+          "label": "Tháo chạy dạng lỏng",
+          "text": "Không kịp đối phó, bạn hợp nhất lại và chảy trôi đi như một dòng nước nhỏ. Hắn chỉ kịp thấy 'tiền' của mình bốc hơi.",
+          "effects": {
+            "joy": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_slime_mimic_decoy",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 6,
+      "require": {
+        "job": "slime_mimic",
+        "free": true
+      },
+      "text": "Bạn ngụy trang thành một bệ đá trong đền thờ, vô tình lại nằm ngay cạnh một con Mimic thật (dạng rương). Nhóm mạo hiểm giả đi ngang qua đang nghi ngờ có bẫy và chĩa vũ khí về phía bạn.",
+      "choices": [
+        {
+          "label": "Gợi sự chú ý về phía con Mimic thật",
+          "check": {
+            "stat": "INT",
+            "target": 7
+          },
+          "success": {
+            "text": "Bạn khẽ tạo âm thanh xào xạc và đẩy một luồng khí về phía chiếc rương. Đám mạo hiểm giả lập tức xông vào tấn công con Mimic kia, để bạn yên bình rút lui.",
+            "effects": {
+              "jobXp": 1.5,
+              "INT": 1,
+              "joy": 3
+            }
+          },
+          "fail": {
+            "text": "Mưu mẹo lộ liễu, một mũi tên ma pháp găm thẳng vào vỏ bọc của bạn. Bạn đau đớn hiện nguyên hình và phải trườn qua kẽ đá dưới cơn mưa phép thuật trút xuống.",
+            "effects": {
+              "health": -20,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Đóng băng toàn bộ hoạt động sinh học",
+          "check": {
+            "stat": "STR",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn hạ dao động dịch thể xuống mức nhỏ nhất, triệt tiêu các gợn ma lực trên bề mặt. Kẻ thám thính gõ kiếm vào bạn, thấy âm thanh trầm đục của đá liền bỏ qua, quay sang rương gỗ.",
+            "effects": {
+              "jobXp": 1,
+              "joy": 2
+            }
+          },
+          "fail": {
+            "text": "Sự căng thẳng khiến một giọt nhầy nhỏ xuống sàn đá. Chúng lập tức phát hiện và dùng lửa đốt bệ đá. Bạn bị phỏng nặng trước khi thoát được.",
+            "effects": {
+              "health": -15,
+              "STR": -1
+            }
+          }
+        },
+        {
+          "label": "Trượt đi từ từ trong bóng tối",
+          "text": "Bạn quyết định không thử vận may, lặng lẽ nhão ra và bò sát vách tường chuồn mất trong khi chúng mải bàn bạc.",
+          "effects": {
+            "joy": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_slime_mimic_statue",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "adult",
+        "middle"
+      ],
+      "once": true,
+      "weight": 5,
+      "require": {
+        "job": "slime_mimic",
+        "free": true
+      },
+      "text": "Bạn mô phỏng một bức tượng điêu khắc trên đỉnh lâu đài hoang. Một con Harpy khổng lồ bất ngờ đáp xuống, dùng móng vuốt sắc nhọn bấu chặt vào 'vai' bạn để nghỉ ngơi.",
+      "choices": [
+        {
+          "label": "Chịu đựng áp lực, giữ vững hình thái",
+          "check": {
+            "stat": "STR",
+            "target": 8
+          },
+          "success": {
+            "text": "Lớp biểu bì của bạn rắn chắc như đá tảng. Con Harpy nghỉ ngơi một lát rồi bay đi mà không hề nhận ra sự khác biệt. Khả năng ngụy trang của bạn càng thêm tinh xảo.",
+            "effects": {
+              "jobXp": 1.5,
+              "STR": 1,
+              "joy": 3
+            }
+          },
+          "fail": {
+            "text": "Trọng lượng và móng vuốt của nó quá lớn, đâm xuyên qua lớp vỏ ngụy trang vào tận dịch thể. Bạn rú lên bằng âm thanh rung động màng, khiến nó giật mình quắp bạn quăng xuống đất.",
+            "effects": {
+              "health": -25,
+              "STR": -1
+            }
+          }
+        },
+        {
+          "label": "Hóa lỏng phần bị cắm móng, trượt khỏi vị trí",
+          "check": {
+            "stat": "AGI",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn nhão phần 'vai' ra, khiến con Harpy mất thăng bằng ngã nhoài tới trước. Lợi dụng lúc nó vỗ cánh chới với, bạn trôi tuột xuống ống khói an toàn.",
+            "effects": {
+              "jobXp": 1,
+              "AGI": 1
+            }
+          },
+          "fail": {
+            "text": "Bạn xử lý không đồng bộ, nửa lỏng nửa rắn khiến cơ thể bị vặn xoắn. Con Harpy tức giận dùng mỏ cào xé bạn vài nhát trước khi bay đi.",
+            "effects": {
+              "health": -15,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Rút lui, tan chảy ngay lập tức",
+          "text": "Bạn hoàn toàn hóa lỏng, đổ tràn qua các rãnh ngói. Con Harpy kêu lên một tiếng thất vọng khi chỗ đứng biến mất, còn bạn an toàn rút vào bóng tối.",
+          "effects": {
+            "joy": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_slime_humanoid_market",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 10,
+      "require": {
+        "form": "Humanoid Slime",
+        "free": true,
+        "notFlags": [
+          "gm_slime_arc_society_done"
+        ]
+      },
+      "npcs": [
+        {
+          "name": "Kaelia",
+          "race": "Human",
+          "position": "Thương nhân"
+        }
+      ],
+      "text": "Dưới lốt người, bạn dạo bước trong khu chợ sầm uất tại Sanctus. Kaelia, một thương nhân vội vã, vô tình làm rơi con dao gọt hoa quả sượt qua 'tay' bạn. Lớp da giả bị rách, lộ ra dung dịch xanh nhạt không hề có máu.",
+      "choices": [
+        {
+          "label": "Nhanh chóng ép dịch đóng vảy, giả vờ là bệnh da liễu",
+          "check": {
+            "stat": "INT",
+            "target": 7
+          },
+          "success": {
+            "text": "Bạn lập tức ngưng tụ dịch nhầy thành một vệt sừng tối màu. Kaelia xin lỗi rối rít, tưởng bạn mắc bệnh vảy sừng. Bạn qua mặt được đám đông một cách khéo léo.",
+            "effects": {
+              "INT": 1,
+              "fame": 1,
+              "flags": [
+                "gm_slime_arc_society_suspect"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Bạn không kiểm soát kịp, dịch nhầy nhỏ xuống sàn xèo xèo. Vài ánh mắt kinh hãi nhìn bạn. Bạn phải quấn vội giẻ rách và tháo chạy, nhưng tin đồn về 'quái vật đội lốt người' đã nhen nhóm.",
+            "effects": {
+              "fame": -2,
+              "health": -5,
+              "flags": [
+                "gm_slime_arc_society_suspect"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Giấu ngay tay vào áo choàng, bỏ chạy",
+          "text": "Bạn ôm chặt vết thương, len lỏi qua đám đông chạy biến vào hẻm tối. Không ai kịp nhìn rõ, nhưng sự lẩn khuất của bạn khiến đội dân phòng bắt đầu để mắt.",
+          "effects": {
+            "joy": -2,
+            "flags": [
+              "gm_slime_arc_society_suspect"
+            ]
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_slime_humanoid_inquisition",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "ancient"
+      ],
+      "once": true,
+      "weight": 10,
+      "require": {
+        "form": "Humanoid Slime",
+        "flags": [
+          "gm_slime_arc_society_suspect"
+        ],
+        "free": true,
+        "notFlags": [
+          "gm_slime_arc_society_done"
+        ]
+      },
+      "npcs": [
+        {
+          "name": "Thorne",
+          "race": "Human",
+          "position": "Dân phòng"
+        }
+      ],
+      "text": "Tin đồn râm ran từ vụ ở chợ khiến đội tuần tra tăng cường kiểm tra dị giáo. Thorne, viên dân phòng tinh mắt, chặn bạn lại tại cổng thành, yêu cầu bạn đưa tay chạm vào Thánh Giá Phán Xét để kiểm tra ma khí.",
+      "choices": [
+        {
+          "label": "Dùng lớp da giả cách ly hoàn toàn ma lực bản thân",
+          "check": {
+            "stat": "INT",
+            "target": 8
+          },
+          "success": {
+            "text": "Bạn rút toàn bộ lõi ma lực sâu vào trung tâm cơ thể, để lớp biểu bì ngoài cùng hoàn toàn trơ. Thánh giá không phát sáng, Thorne gật đầu cho bạn đi, xóa bỏ mọi nghi ngờ.",
+            "effects": {
+              "joy": 5,
+              "INT": 1,
+              "unflags": [
+                "gm_slime_arc_society_suspect"
+              ],
+              "flags": [
+                "gm_slime_arc_society_cleared",
+                "gm_slime_arc_society_done"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Sự kiểm soát bất thành, Thánh giá bừng sáng ánh đỏ gay gắt. Thorne rút kiếm hô hoán. Bạn phải cường hóa chân giả, tung một cước hất văng hắn rồi bỏ chạy khỏi thành, chính thức trở thành kẻ bị săn lùng.",
+            "effects": {
+              "fame": -3,
+              "health": -10,
+              "unflags": [
+                "gm_slime_arc_society_suspect"
+              ],
+              "flags": [
+                "gm_slime_arc_society_hunted"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Đánh lạc hướng bằng tiền hối lộ",
+          "check": {
+            "stat": "LUCK",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn lén nhét một nắm Tinh Bạc vào tay Thorne. Hắn liếc nhìn, ho hắng rồi xua tay cho bạn qua, bỏ qua bước chạm Thánh giá. Bạn tạm thời thoát nạn nhưng luôn nơm nớp lo sợ. Đợt kiểm tra qua đi; viên dân phòng không phát lệnh truy nã, dù việc hối lộ vẫn để lại một món nợ ngầm.",
+            "effects": {
+              "wealth": -5,
+              "joy": -2,
+              "unflags": [
+                "gm_slime_arc_society_suspect"
+              ],
+              "flags": [
+                "gm_slime_arc_society_cleared",
+                "gm_slime_arc_society_done"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Thorne liêm khiết gạt phăng túi tiền, ép tay bạn vào Thánh giá. Ánh sáng đỏ báo động vang lên. Bị ăn một đòn chuôi kiếm, bạn lảo đảo trốn vào cống ngầm, mang theo lệnh truy nã.",
+            "effects": {
+              "health": -15,
+              "wealth": -5,
+              "unflags": [
+                "gm_slime_arc_society_suspect"
+              ],
+              "flags": [
+                "gm_slime_arc_society_hunted"
+              ]
+            }
+          },
+          "require": {
+            "wealth": 5
+          },
+          "showLocked": true
+        },
+        {
+          "label": "Lập tức quay đầu chạy trốn",
+          "text": "Bạn không nói không rằng, đẩy ngã vài thùng hàng rồi lao vào màn đêm. Hành động này như một lời thú tội, đội săn tiền thưởng bắt đầu truy vết bạn.",
+          "effects": {
+            "fame": -2,
+            "joy": -3,
+            "unflags": [
+              "gm_slime_arc_society_suspect"
+            ],
+            "flags": [
+              "gm_slime_arc_society_hunted"
+            ]
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_slime_humanoid_hunt",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "ancient"
+      ],
+      "once": true,
+      "weight": 10,
+      "require": {
+        "form": "Humanoid Slime",
+        "flags": [
+          "gm_slime_arc_society_hunted"
+        ],
+        "free": true,
+        "notFlags": [
+          "gm_slime_arc_society_done"
+        ]
+      },
+      "npcs": [
+        {
+          "name": "Ignis",
+          "race": "Human",
+          "position": "Thánh Kỵ Sĩ"
+        }
+      ],
+      "text": "Lệnh truy nã đã mang Thánh Kỵ Sĩ Ignis tới tận nơi ẩn náu của bạn ở ngoại ô. Hắn vung thanh gươm rực lửa, áp sát đường cùng. Bạn không thể duy trì vỏ bọc con người yên bình được nữa.",
+      "choices": [
+        {
+          "label": "Hiện nguyên hình, dùng toàn lực chống trả",
+          "check": {
+            "stat": "STR",
+            "target": 9
+          },
+          "success": {
+            "text": "Bạn vứt bỏ vỏ bọc, phình to thành một khối nhầy khổng lồ quật ngã Ignis. Thanh gươm xèo xèo tắt ngấm trong dịch thể của bạn. Bạn để lại hắn kinh hoàng và tẩu thoát về vùng hoang dã.",
+            "effects": {
+              "STR": 2,
+              "fame": 3,
+              "epochChange": {
+                "legacy": 1
+              },
+              "unflags": [
+                "gm_slime_arc_society_hunted"
+              ],
+              "flags": [
+                "gm_slime_arc_society_done"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Lửa thánh chém toạc khối nhầy của bạn, đốt cháy bề mặt. Bạn bị thương nặng, lõi chấn động dữ dội. Bằng chút sức tàn, bạn hóa lỏng chảy xuống khe nứt địa chất sâu thẳm để bảo toàn mạng sống.",
+            "effects": {
+              "health": -35,
+              "STR": -1,
+              "joy": -5,
+              "unflags": [
+                "gm_slime_arc_society_hunted"
+              ],
+              "flags": [
+                "gm_slime_arc_society_done"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Tạo ảo ảnh con người gục ngã, rút lõi đi",
+          "check": {
+            "stat": "INT",
+            "target": 8
+          },
+          "success": {
+            "text": "Bạn tách lớp da giả thành một hình nhân cạn kiệt, gục xuống dưới lưỡi gươm, trong khi lõi thực sự len lỏi dưới lớp bùn chạy trốn. Ignis tưởng đã thanh tẩy xong quái vật. Cuộc săn lùng kết thúc.",
+            "effects": {
+              "INT": 1,
+              "joy": 2,
+              "unflags": [
+                "gm_slime_arc_society_hunted"
+              ],
+              "flags": [
+                "gm_slime_arc_society_done"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Ảo ảnh tan rã quá sớm trước khi gươm chạm tới. Hắn nhận ra mưu mẹo và truy đuổi sát nút, giáng một đòn sấm sét nướng chín một phần cơ thể bạn trước khi bạn kịp trốn xuống đầm lầy.",
+            "effects": {
+              "health": -25,
+              "AGI": -1,
+              "unflags": [
+                "gm_slime_arc_society_hunted"
+              ],
+              "flags": [
+                "gm_slime_arc_society_done"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Rút lui, nhảy xuống vách đá",
+          "text": "Không chần chừ, bạn lao mình xuống vách đá bên cạnh. Cơ thể dẻo hấp thụ lực va đập, dù nát bươm nhưng vẫn giữ được lõi. Bạn bỏ lại thân phận con người ở thế giới phía trên.",
+          "effects": {
+            "health": -15,
+            "joy": -3,
+            "unflags": [
+              "gm_slime_arc_society_hunted"
+            ],
+            "flags": [
+              "gm_slime_arc_society_done"
+            ]
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_slime_humanoid_expression",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "child",
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 5,
+      "require": {
+        "form": "Humanoid Slime",
+        "free": true
+      },
+      "text": "Dưới hình hài con người, cơ mặt của bạn thực chất chỉ là những khối gel ép lại. Trong một quán trọ nhỏ, bạn nhận ra nụ cười của mình khiến một cô hầu bàn khiếp sợ vì nó cứng đờ như xác chết.",
+      "choices": [
+        {
+          "label": "Tập trung điều chỉnh vi cấu trúc để tạo nụ cười tự nhiên",
+          "check": {
+            "stat": "INT",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn quan sát độ căng của cơ mặt người xung quanh, từ từ bơm thả dịch nhầy dưới 'da'. Nụ cười tiếp theo của bạn mềm mại và ấm áp hơn. Cô hầu bàn thở phào, nghĩ rằng bạn chỉ mệt mỏi.",
+            "effects": {
+              "INT": 1,
+              "joy": 2
+            }
+          },
+          "fail": {
+            "text": "Bạn bơm quá nhiều dịch vào khóe miệng, khiến nó rạch tới tận mang tai như ác quỷ. Cô hầu bàn hét toáng lên, buộc bạn phải vội vã rời khỏi quán trọ, nhịn đói trong đêm.",
+            "effects": {
+              "joy": -3,
+              "health": -5
+            }
+          }
+        },
+        {
+          "label": "Che mặt lại, giả vờ bị đau răng",
+          "text": "Bạn lấy tay ôm mặt, ậm ừ tỏ vẻ đau đớn. Mọi người thương tình không hỏi han thêm. Tuy nhiên, khả năng biểu cảm của bạn không hề tiến bộ.",
+          "effects": {
+            "joy": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_slime_humanoid_voice",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 6,
+      "require": {
+        "form": "Humanoid Slime",
+        "free": true
+      },
+      "npcs": [
+        {
+          "name": "Bolo",
+          "race": "Dwarf",
+          "position": "Lữ khách"
+        }
+      ],
+      "text": "Bạn đang ngồi chung xe ngựa với Bolo, một người lùn nói nhiều. Slime không có thanh quản, nhưng ông ta vừa hỏi bạn một câu và đang chờ đợi câu trả lời.",
+      "choices": [
+        {
+          "label": "Ép bọt khí qua 'cổ họng' để tạo giọng nói",
+          "check": {
+            "stat": "AGI",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn tinh tế rung động các túi khí siêu nhỏ bên trong. Âm thanh vang lên trầm ấm và rõ ràng. Bolo gật gù, tiếp tục huyên thuyên mà không hề nghi ngờ.",
+            "effects": {
+              "AGI": 1,
+              "joy": 3
+            }
+          },
+          "fail": {
+            "text": "Bọt khí vỡ không đúng nhịp, tạo ra tiếng ùng ục nhớp nháp như bùn sôi. Bolo rùng mình, lùi lại góc xe và cầm chắc vũ khí, không khí cực kỳ căng thẳng suốt chuyến đi.",
+            "effects": {
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Dùng ngôn ngữ ký hiệu, vờ bị câm",
+          "check": {
+            "stat": "INT",
+            "target": 5
+          },
+          "success": {
+            "text": "Bạn chỉ tay vào họng, lắc đầu buồn bã. Bolo lập tức đổi thái độ, lấy rượu ra mời bạn bằng ánh mắt thương cảm. Lời nói dối hoàn hảo mang lại bình yên.",
+            "effects": {
+              "joy": 2
+            }
+          },
+          "fail": {
+            "text": "Các ngón tay dẻo của bạn uốn lượn kỳ dị trong lúc diễn đạt, không giống khớp xương người. Bolo nhíu mày nghi ngờ, giữ khoảng cách với bạn đến cuối chặng.",
+            "effects": {
+              "joy": -1
+            }
+          }
+        },
+        {
+          "label": "Im lặng nhắm mắt vờ ngủ",
+          "text": "Bạn gục đầu xuống, mặc kệ lời hỏi han. Bolo lầm bầm vài tiếng chê trách sự thô lỗ rồi quay sang nhìn ra ngoài cửa sổ.",
+          "effects": {
+            "fame": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_slime_humanoid_pulse",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "adult",
+        "middle"
+      ],
+      "once": true,
+      "weight": 7,
+      "require": {
+        "form": "Humanoid Slime",
+        "free": true
+      },
+      "npcs": [
+        {
+          "name": "Dr. Vane",
+          "race": "Human",
+          "position": "Y sĩ"
+        }
+      ],
+      "text": "Tại cửa ngõ thành phố, đang có đợt kiểm dịch Miasma. Dr. Vane nắm lấy cổ tay bạn, nhíu mày định bắt mạch. Cơ thể bạn bên dưới lớp biểu bì hoàn toàn không có tim hay mạch máu.",
+      "choices": [
+        {
+          "label": "Tạo dao động nhịp nhàng dưới lớp da",
+          "check": {
+            "stat": "AGI",
+            "target": 7
+          },
+          "success": {
+            "text": "Bạn đập nhịp nhàng một khối dịch nhỏ ngay cổ tay, giả lập hoàn hảo nhịp tim 70 lần/phút. Vane gật đầu, đóng dấu mộc cho phép bạn qua cổng.",
+            "effects": {
+              "AGI": 1,
+              "joy": 2
+            }
+          },
+          "fail": {
+            "text": "Nhịp đập lộn xộn và lớp da bất ngờ lạnh toát. Vane hoảng hốt la lên, tưởng bạn nhiễm bệnh xác sống. Bạn phải dùng bạo lực xô ngã ông ta và bỏ chạy vào rừng.",
+            "effects": {
+              "fame": -2,
+              "health": -10,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Rụt tay lại, đút tiền mua chuộc",
+          "text": "Bạn ho khụ khụ, dúi vội mấy đồng Tinh Bạc vào túi ông y sĩ, viện cớ nhà có việc gấp. Hắn nhìn quanh rồi lén lút cho bạn đi, bảo toàn được thân phận.",
+          "effects": {
+            "wealth": -4,
+            "joy": 1
+          },
+          "require": {
+            "wealth": 4
+          },
+          "showLocked": true
+        }
+      ]
+    },
+    {
+      "id": "gm_slime_humanoid_rain",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 6,
+      "require": {
+        "form": "Humanoid Slime",
+        "free": true
+      },
+      "text": "Cơn mưa rào lớn ập xuống giữa Quảng Trường Bạch Ngà. Nước mưa đe dọa pha loãng lớp màng keo bề mặt của bạn, làm tan chảy lớp da người nhân tạo nếu bạn cứ đứng lâu ngoài trời.",
+      "choices": [
+        {
+          "label": "Cường hóa sức căng bề mặt để chống nước",
+          "check": {
+            "stat": "STR",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn siết chặt cấu trúc phân tử bề mặt, khiến nước mưa trượt đi như trên lá khoai. Bạn chậm rãi bước đi trong mưa mà không rụng một mảng 'da' nào.",
+            "effects": {
+              "STR": 1,
+              "joy": 2
+            }
+          },
+          "fail": {
+            "text": "Nước ngấm vào làm loãng mảng vai của bạn, lộ ra chất keo nhầy nhụa. Bạn hoảng loạn vớ lấy một cái chăn rách đắp lên, chịu đựng sự lạnh lẽo chạy vội tìm chỗ nấp.",
+            "effects": {
+              "health": -10,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Lao ngay vào quán rượu gần nhất",
+          "check": {
+            "stat": "LUCK",
+            "target": 5
+          },
+          "success": {
+            "text": "May mắn thay, cánh cửa quán rượu mở toang. Bạn chen vào đám đông hôi hám bên trong, bảo vệ được cơ thể khỏi việc bị pha loãng.",
+            "effects": {
+              "joy": 1
+            }
+          },
+          "fail": {
+            "text": "Bạn trượt chân ngã vào một vũng nước lớn. Sự hòa tan khiến một phần tay giả của bạn tuột ra. Bất chấp ánh nhìn của đám chó hoang, bạn phải vội vàng lẩn vào bóng tối để tái tạo.",
+            "effects": {
+              "health": -15,
+              "joy": -4
+            }
+          }
+        },
+        {
+          "label": "Ẩn nấp vào bóng râm hẻm nhỏ",
+          "text": "Bạn nép vào một mái hiên dột nát, run rẩy cố giữ cho cấu trúc không sụp đổ suốt nhiều giờ đồng hồ.",
+          "effects": {
+            "health": -5,
+            "joy": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_slime_humanoid_blind_friend",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 7,
+      "require": {
+        "form": "Humanoid Slime",
+        "free": true
+      },
+      "npcs": [
+        {
+          "name": "Valen",
+          "race": "Human",
+          "position": "Nhạc công mù"
+        }
+      ],
+      "text": "Valen, một nhạc công mù thường chơi đàn cùng bạn ở khu ổ chuột, tình cờ nắm lấy tay bạn khi bạn đỡ ông ta đứng dậy. Cảm giác dẻo quẹo bất thường khiến ông giật mình hỏi bạn thực sự là thứ gì.",
+      "choices": [
+        {
+          "label": "Thành thật thú nhận bản chất",
+          "check": {
+            "stat": "INT",
+            "target": 7
+          },
+          "success": {
+            "text": "Bạn nhỏ giọng kể về hành trình mang lốt người của một ma vật. Valen im lặng một lúc, rồi cười xòa nói rằng quái vật không biết thưởng thức đàn hạc tinh tế như bạn. Một tình bạn vượt biên giới được sinh ra.",
+            "effects": {
+              "joy": 8,
+              "epochChange": {
+                "insight": 1
+              }
+            }
+          },
+          "fail": {
+            "text": "Nghe thấy từ 'Slime', ký ức về đợt quái vật tấn công ùa về khiến Valen hoảng loạn gạt tay bạn ra và vấp ngã. Sự thật phũ phàng đã phá vỡ mối liên kết này mãi mãi.",
+            "effects": {
+              "joy": -6,
+              "fame": -1
+            }
+          }
+        },
+        {
+          "label": "Lấp liếm bằng một căn bệnh kỳ lạ",
+          "check": {
+            "stat": "LUCK",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn bịa ra một căn bệnh phù thũng di truyền từ phương Bắc. Valen thương xót, không hỏi thêm, tiếp tục gảy khúc nhạc buồn tặng bạn.",
+            "effects": {
+              "joy": 2
+            }
+          },
+          "fail": {
+            "text": "Valen tuy mù nhưng giác quan rất nhạy bén, ông nhận ra mùi bùn khoáng đặc trưng và sự không thành thực. Ông lặng lẽ cất đàn rời đi, không bao giờ tin bạn nữa.",
+            "effects": {
+              "joy": -4
+            }
+          }
+        },
+        {
+          "label": "Rút tay lại, bỏ đi không nói lời nào",
+          "text": "Bạn lùi lại, để ông lão đứng chới với. Bạn rời khỏi khu phố, chấp nhận cô độc để bảo vệ bí mật của bản thân.",
+          "effects": {
+            "joy": -3
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_slime_eco_swamp",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "child",
+        "teen",
+        "adult"
+      ],
+      "once": false,
+      "cooldownYears": 30,
+      "weight": 8,
+      "variants": [
+        "Đầm Lầy Tử Khí bắt đầu mùa sủi bọt. Bùn lầy ngập ngụa acid bốc mùi xú uế, nhưng lại là môi trường hoàn hảo để một Slime tái tạo và phát triển.",
+        "Mưa acid rơi nặng hạt tại rìa Tế Đàn Xương Cốt. Các dòng suối bùn độc hại chảy tràn, tạo ra một yến tiệc dinh dưỡng cho giống loài vô định hình.",
+        "Sương mù đặc quánh bao phủ Sông Bùn Nhão. Bạn cảm nhận được nguồn ma lực tự nhiên dồi dào bốc lên từ lớp thảm thực vật mục nát bên dưới."
+      ],
+      "choices": [
+        {
+          "label": "Hòa mình vào dòng bùn, chắt lọc dưỡng chất",
+          "check": {
+            "stat": "STR",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn hấp thụ các khoáng chất tinh khiết nhất, loại bỏ tạp chất. Thể tích cơ thể tăng lên đáng kể, lõi ma lực tỏa sáng khỏe mạnh.",
+            "effects": {
+              "STR": 1,
+              "health": 15,
+              "joy": 3
+            }
+          },
+          "fail": {
+            "text": "Bạn vô tình cuốn theo cả mảnh gai độc của Lizardman. Nó kẹt trong dịch cơ thể bạn, gây ra cơn đau rát từ bên trong trước khi kịp tiêu hóa.",
+            "effects": {
+              "health": -15,
+              "STR": -1
+            }
+          }
+        },
+        {
+          "label": "Bơi sâu xuống đáy đầm lầy, tìm kiếm dị vật",
+          "check": {
+            "stat": "LUCK",
+            "target": 7
+          },
+          "success": {
+            "text": "Dưới lớp trầm tích, bạn chạm vào một chiếc vòng tay của nhà thám hiểm xấu số. Lớp vàng ròng không bị ăn mòn mang lại cho bạn một lượng giá trị nhỏ.",
+            "effects": {
+              "wealth": 5,
+              "LUCK": 1
+            }
+          },
+          "fail": {
+            "text": "Bạn gặp phải dòng xoáy ngầm của đầm lầy, bị cuốn đi tơi tả. Lõi ma lực bị va đập vào rễ cây cổ thụ khiến bạn tổn thương cấu trúc nghiêm trọng.",
+            "effects": {
+              "health": -20,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Giữ mình trên cạn, nghỉ ngơi ven bờ",
+          "text": "Bạn phơi mình dưới ánh trăng mờ, cẩn thận không để bị hòa tan quá sâu vào bùn. Một khoảng thời gian yên bình trôi qua.",
+          "effects": {
+            "joy": 1
+          }
+        }
+      ],
+      "text": "Đầm Lầy Tử Khí bắt đầu mùa sủi bọt. Bùn lầy ngập ngụa acid bốc mùi xú uế, nhưng lại là môi trường hoàn hảo để một Slime tái tạo và phát triển.",
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_slime_eco_metal",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": false,
+      "cooldownYears": 30,
+      "weight": 8,
+      "require": {
+        "job": "slime_metal",
+        "free": true
+      },
+      "variants": [
+        "Tại Dãy Núi Răng Cưa, bạn tìm thấy một quặng kim loại hiếm vừa lộ thiên sau vụ lở đất. Bề mặt kim loại kích thích bản năng đồng hóa của bạn.",
+        "Khu Mỏ Pha Lê Đen rền vang tiếng búa của tộc Dwarf. Bạn lẻn vào các hầm bỏ hoang, nơi xỉ sắt và quặng thô vẫn còn vương vãi.",
+        "Một thanh kiếm rỉ sét cắm trên phiến đá, tàn dư của trận chiến xa xưa. Lõi Metal Slime của bạn đập liên hồi khao khát lượng sắt từ nó."
+      ],
+      "choices": [
+        {
+          "label": "Tiết dịch cường toan, dung hợp kim loại",
+          "check": {
+            "stat": "STR",
+            "target": 7
+          },
+          "success": {
+            "text": "Kim loại tan chảy, hòa vào màng sinh học của bạn. Cơ thể bạn chuyển sang màu xám bạc ánh kim rắn rỏi. Sức phòng thủ tự nhiên được gia tăng tuyệt đối.",
+            "effects": {
+              "jobXp": 1,
+              "STR": 2,
+              "joy": 3
+            }
+          },
+          "fail": {
+            "text": "Dịch toan không đủ mạnh, kim loại tạp chất khiến hệ thống tiêu hóa của bạn tắc nghẽn. Bạn phải nôn phần vụn sắt nhọn ra, chịu đau đớn rách màng bọc ngoài.",
+            "effects": {
+              "health": -15,
+              "joy": -2
+            }
+          }
+        },
+        {
+          "label": "Ép cấu trúc tinh thể dọc theo lõi",
+          "check": {
+            "stat": "INT",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn dùng ma lực sắp xếp cấu trúc vi mô, biến quặng thô thành áo giáp vảy kim bọc sát lõi sinh mệnh. Sự kết hợp hoàn hảo mang lại bước tiến hóa tư duy.",
+            "effects": {
+              "jobXp": 1.5,
+              "INT": 1
+            }
+          },
+          "fail": {
+            "text": "Sự chênh lệch nhiệt độ khiến quặng nứt toác, các mảnh văng sắc lẹm găm ngược vào cơ thể bạn. Việc dung hợp thất bại thảm hại.",
+            "effects": {
+              "health": -18,
+              "INT": -1
+            }
+          }
+        },
+        {
+          "label": "Bỏ qua mảnh kim loại, đi đường khác",
+          "text": "Khối quặng quá rắn, bạn không muốn mạo hiểm hỏng cấu trúc dịch liền bỏ đi, trượt nhẹ qua những phiến đá rêu phong.",
+          "effects": {
+            "joy": -1
+          }
+        }
+      ],
+      "text": "Tại Dãy Núi Răng Cưa, bạn tìm thấy một quặng kim loại hiếm vừa lộ thiên sau vụ lở đất. Bề mặt kim loại kích thích bản năng đồng hóa của bạn."
+    },
+    {
+      "id": "gm_slime_eco_poison",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": false,
+      "cooldownYears": 30,
+      "weight": 8,
+      "require": {
+        "job": "slime_poison",
+        "free": true
+      },
+      "variants": [
+        "Khí Miasma đậm đặc tràn qua Thảo Nguyên Gió Hú. Đối với các sinh vật khác, đây là án tử hình; nhưng với Poison Slime, đây là không khí trong lành nhất.",
+        "Một bụi nấm độc Dạ Quang mọc rộ rỡ trong Vực Thẳm Phân Tầng. Chất độc của chúng có thể nâng cấp cấp độ kịch độc của bạn lên một bậc.",
+        "Hồ nước tím ngắt đầy xác thú thối rữa chắn ngang đường. Nồng độ độc tố hữu cơ ở đây thật quyến rũ."
+      ],
+      "choices": [
+        {
+          "label": "Chưng cất chất độc, hòa vào hệ sinh thái cơ thể",
+          "check": {
+            "stat": "AGI",
+            "target": 7
+          },
+          "success": {
+            "text": "Bạn hấp thu chậm rãi, chọn lọc các phân tử độc tính cao nhất. Cơ thể bạn nay ánh lên sắc tím chết chóc, chỉ một giọt dịch cũng đủ làm héo úa một nhánh cây.",
+            "effects": {
+              "jobXp": 1,
+              "AGI": 2,
+              "joy": 4
+            }
+          },
+          "fail": {
+            "text": "Bạn hấp thu quá tham lam, hai loại độc tố bên trong cơ thể tự phản ứng tiêu diệt lẫn nhau. Nhiệt độ tăng vọt, bạn sôi lên sùng sục và đánh mất một lượng thể tích lớn.",
+            "effects": {
+              "health": -20,
+              "AGI": -1
+            }
+          }
+        },
+        {
+          "label": "Thử nghiệm phun nọc độc cường hóa",
+          "check": {
+            "stat": "INT",
+            "target": 6
+          },
+          "success": {
+            "text": "Dùng dưỡng chất độc, bạn tập trung nén lại và phun một tia độc áp suất cao xuyên thủng đá tảng. Kỹ năng chiến đấu của bạn đạt đến ngưỡng điêu luyện.",
+            "effects": {
+              "jobXp": 1.5,
+              "INT": 1
+            }
+          },
+          "fail": {
+            "text": "Ống phóng nội bào bị vỡ do áp suất nén không đều. Nọc độc chảy ngược vào lõi gây ra cảm giác ngạt thở dữ dội cho chính bạn.",
+            "effects": {
+              "health": -15,
+              "joy": -2
+            }
+          }
+        },
+        {
+          "label": "Chỉ lấy một lượng nhỏ để duy trì",
+          "text": "Biết rõ giới hạn, bạn chỉ lướt nhẹ qua mảng độc, lấy vừa đủ để sạc lại sức mạnh nội tại rồi trườn đi.",
+          "effects": {
+            "joy": 1
+          }
+        }
+      ],
+      "text": "Khí Miasma đậm đặc tràn qua Thảo Nguyên Gió Hú. Đối với các sinh vật khác, đây là án tử hình; nhưng với Poison Slime, đây là không khí trong lành nhất."
+    },
+    {
+      "id": "gm_slime_eco_magic",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle"
+      ],
+      "once": false,
+      "cooldownYears": 30,
+      "weight": 8,
+      "require": {
+        "job": "slime_magic",
+        "free": true
+      },
+      "variants": [
+        "Giao điểm Leyline dưới Tháp Bạch Ngà phát ra những tia lửa mana hoang dã. Bạn lọt vào khu vực này, cảm nhận từng dòng ma lực quất vào thành cơ thể.",
+        "Một tinh thể Mana Core nứt nẻ rơi rớt từ cuộc chiến của các phù thủy. Năng lượng thất thoát đang lan tỏa thành một màn sương màu xanh lam.",
+        "Vòng tròn ma pháp cổ đại kích hoạt do lỗi thời gian. Bầu không khí tràn ngập hạt năng lượng tinh khiết chờ đợi một Magic Slime hấp thu."
+      ],
+      "choices": [
+        {
+          "label": "Mở rộng bề mặt, hấp thụ toàn bộ mana",
+          "check": {
+            "stat": "INT",
+            "target": 8
+          },
+          "success": {
+            "text": "Bạn dàn mỏng cơ thể như một tấm lưới, nuốt chửng từng hạt ma lực. Lõi sinh mệnh của bạn to ra, phát sáng chói lọi, ma pháp cuộn chảy như mạch máu.",
+            "effects": {
+              "jobXp": 1.5,
+              "INT": 2,
+              "joy": 5
+            }
+          },
+          "fail": {
+            "text": "Mana quá tải vượt khả năng dung nạp. Một luồng điện ma thuật giật ngược khiến thân thể bạn nổ tung từng mảnh nhỏ, mất rất lâu mới tái hợp lại được.",
+            "effects": {
+              "health": -25,
+              "INT": -1
+            }
+          }
+        },
+        {
+          "label": "Chiết xuất năng lượng vào tinh thể lõi",
+          "check": {
+            "stat": "AGI",
+            "target": 6
+          },
+          "success": {
+            "text": "Thay vì trữ ở lớp dịch nhầy, bạn dẫn truyền thẳng vào lõi. Sự tinh tế giúp lõi của bạn cứng cáp và sắc bén hơn, sẵn sàng thi triển pháp thuật tốc độ cao.",
+            "effects": {
+              "jobXp": 1,
+              "AGI": 1,
+              "joy": 2
+            }
+          },
+          "fail": {
+            "text": "Mạch dẫn truyền bị rò rỉ, ma lực thất thoát ăn mòn lớp biểu bì từ bên trong. Bạn trải qua cơn đau buốt tủy dù không có xương.",
+            "effects": {
+              "health": -15,
+              "joy": -2
+            }
+          }
+        },
+        {
+          "label": "Né tránh vùng nhiễu động",
+          "text": "Sức mạnh quá hung bạo. Bạn thu nhỏ mình lại, trườn theo kẽ nứt ngoài rìa vùng ảnh hưởng để rời đi một cách an toàn.",
+          "effects": {
+            "joy": -1
+          }
+        }
+      ],
+      "text": "Giao điểm Leyline dưới Tháp Bạch Ngà phát ra những tia lửa mana hoang dã. Bạn lọt vào khu vực này, cảm nhận từng dòng ma lực quất vào thành cơ thể."
+    },
+    {
+      "id": "gm_slime_core_predator",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "infant",
+        "child",
+        "teen"
+      ],
+      "once": true,
+      "weight": 7,
+      "text": "Lõi của Slime là nguồn cung cấp mana tuyệt hảo. Một con quái thú pha lê sáu chân đã khóa mục tiêu vào khối sáng mờ ảo giữa cơ thể dẻo của bạn, móng vuốt của nó sẵn sàng đâm xuyên lớp nhầy.",
+      "choices": [
+        {
+          "label": "Di chuyển lõi liên tục trong cơ thể để né",
+          "check": {
+            "stat": "AGI",
+            "target": 6
+          },
+          "success": {
+            "text": "Quái thú vồ trượt hết lần này tới lần khác, chỉ cắn phải dung dịch trơn tuột. Mệt mỏi và bực bội, nó gầm gừ rồi bỏ đi tìm con mồi dễ nhằn hơn.",
+            "effects": {
+              "AGI": 1,
+              "joy": 2
+            }
+          },
+          "fail": {
+            "text": "Tốc độ của bạn không bắt kịp móng vuốt. Quái thú đâm sượt qua lõi, một phần năng lượng bị hút mất khiến cơ thể bạn teo rút lại đau đớn.",
+            "effects": {
+              "health": -20,
+              "STR": -1,
+              "joy": -4
+            }
+          }
+        },
+        {
+          "label": "Đột ngột chia tách làm đôi, tạo thân ảnh giả",
+          "check": {
+            "stat": "INT",
+            "target": 5
+          },
+          "success": {
+            "text": "Bạn vận dụng ma lực, tách một khối dịch không lõi trượt sang một hướng. Quái thú bị lừa lao theo cái bẫy rỗng, còn thân thật của bạn chui tọt xuống hang sâu.",
+            "effects": {
+              "INT": 1,
+              "joy": 3
+            }
+          },
+          "fail": {
+            "text": "Việc phân tách lỗi khiến cả hai khối bị dính chặt. Quái thú cào một nhát xé rách màng bọc, buộc bạn phải phóng ra một đợt acid để xua đuổi nó và bỏ chạy trong tình trạng thê thảm.",
+            "effects": {
+              "health": -15,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Cuộn mình lẩn xuống khe bùn",
+          "text": "Biết mình quá yếu, bạn vội vã hóa lỏng len lỏi vào lớp bùn đặc của đầm lầy, ẩn đi ánh sáng lõi. Mất mục tiêu, con thú bỏ đi.",
+          "effects": {
+            "joy": -1
+          }
+        }
+      ],
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_slime_magic_unstable",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 6,
+      "require": {
+        "job": "slime_magic",
+        "free": true
+      },
+      "text": "Sau một vụ nổ ma pháp ở Tháp Ngà, mật độ mana trong không khí tăng vọt. Ma lực bên trong bạn cộng hưởng dữ dội, cơ thể bắt đầu sủi bọt và có dấu hiệu mất liên kết, sắp tan rã.",
+      "choices": [
+        {
+          "label": "Áp chế bằng năng lực ý chí",
+          "check": {
+            "stat": "INT",
+            "target": 8
+          },
+          "success": {
+            "text": "Bằng sự kiểm soát hoàn hảo, bạn khóa chặt dòng chảy mana, tạo ra một vòng tuần hoàn khép kín quanh lõi. Cơ thể bạn ổn định lại, ma pháp trong lõi càng thêm tinh thuần.",
+            "effects": {
+              "jobXp": 1.5,
+              "INT": 1,
+              "joy": 3
+            }
+          },
+          "fail": {
+            "text": "Sự cộng hưởng quá mạnh. Một vụ nổ nhỏ từ bên trong xé toạc lớp nhầy của bạn, bắn tung tóe. Lõi của bạn lăn lóc trên đất đá, chịu tổn thương nghiêm trọng.",
+            "effects": {
+              "health": -25,
+              "INT": -1,
+              "joy": -4
+            }
+          }
+        },
+        {
+          "label": "Phóng bớt ma lực thừa ra ngoài không gian",
+          "check": {
+            "stat": "STR",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn bắn ra hàng loạt quả cầu ma pháp ánh sáng mù lòa. Dù lãng phí sức mạnh, nhưng thân thể bạn ngừng sủi bọt và nhanh chóng lấy lại hình hài dẻo dai.",
+            "effects": {
+              "jobXp": 1,
+              "STR": 1
+            }
+          },
+          "fail": {
+            "text": "Sự giải phóng không kiểm soát khiến bạn mất đi lượng lớn sinh lực cùng mana. Bạn mềm oặt ra, nằm bẹp trên mặt đất không thể nhúc nhích trong nhiều giờ.",
+            "effects": {
+              "health": -15,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Rúc vào khu vực đá cách ma thuật",
+          "text": "Bạn lết thân mình mệt mỏi vào sâu trong hầm ngục, tự giam mình trong một hốc đá kháng phép để chờ hiện tượng nhiễu động đi qua.",
+          "effects": {
+            "joy": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_slime_poison_alchemist",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 7,
+      "require": {
+        "job": "slime_poison",
+        "free": true
+      },
+      "text": "Giữa rừng Lục Bảo, một lọ thuốc hóa học to lớn đang tỏa mùi ngọt lịm hấp dẫn. Đây thực chất là bẫy của một thuật giả kim nhằm thu hoạch dịch độc quý hiếm từ cơ thể bạn.",
+      "choices": [
+        {
+          "label": "Lén hút chất ngọt, chừa lại bẫy sập",
+          "check": {
+            "stat": "AGI",
+            "target": 7
+          },
+          "success": {
+            "text": "Với một xúc tu mỏng như sợi chỉ, bạn hút cạn dưỡng chất bên trong mà không kích hoạt van bẫy thủy tinh. Lão giả kim sẽ phải điên đầu vì chiếc bình rỗng.",
+            "effects": {
+              "jobXp": 1.5,
+              "AGI": 1,
+              "joy": 4
+            }
+          },
+          "fail": {
+            "text": "Bạn quá tham lam đẩy cả phần đầu vào hũ. Chiếc hũ sập lại kẹp đứt một phần cơ thể bạn. Chất ngọt kia thực chất là hỗn hợp kiềm làm phỏng rát độc tố của bạn.",
+            "effects": {
+              "health": -20,
+              "joy": -4
+            }
+          }
+        },
+        {
+          "label": "Phun nọc phá vỡ hệ thống bẫy từ xa",
+          "check": {
+            "stat": "INT",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn phun dung dịch acid nồng độ cao vào lẫy sập. Cơ chế bằng đồng bị ăn mòn rụng lả tả, bạn thong thả trườn tới hưởng thụ bữa tiệc hóa học an toàn.",
+            "effects": {
+              "jobXp": 1,
+              "INT": 1
+            }
+          },
+          "fail": {
+            "text": "Nọc không đủ mạnh, bẫy bị kẹt một nửa nhưng lại kích hoạt ma pháp báo động. Ánh sáng chói lóa phát ra, bạn phải vội vã bỏ chạy trước khi thuật sĩ tới bắt.",
+            "effects": {
+              "health": -10,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Cảm giác có nguy hiểm, quay đi",
+          "text": "Mùi hương quá ngọt ngào đến mức phi lý, bạn kiềm chế bản năng của loài Slime và trườn sang hướng khác an toàn hơn.",
+          "effects": {
+            "joy": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_slime_metal_rust",
+      "pack": true,
+      "races": [
+        "slime"
+      ],
+      "stages": [
+        "teen",
+        "adult"
+      ],
+      "once": true,
+      "weight": 7,
+      "require": {
+        "job": "slime_metal",
+        "free": true
+      },
+      "text": "Đang nghỉ ngơi dưới vách đá ẩm ướt, bạn bị dính Rêu Ăn Mòn - một loại thực vật ký sinh chuyên phân giải kim loại. Lớp vỏ Metal Slime của bạn bắt đầu xuất hiện những đốm rỉ sét đau nhức.",
+      "choices": [
+        {
+          "label": "Đẩy màng sinh học rụng ra, lột xác như rắn",
+          "check": {
+            "stat": "STR",
+            "target": 7
+          },
+          "success": {
+            "text": "Bằng một lực gồng mạnh mẽ, bạn tách toàn bộ lớp kim loại bị nhiễm bệnh vứt bỏ đi. Cơ thể bên trong dù nhỏ lại đôi chút nhưng tươi mới và sáng bóng.",
+            "effects": {
+              "jobXp": 1,
+              "STR": 1,
+              "joy": 2
+            }
+          },
+          "fail": {
+            "text": "Rêu đã cắm rễ quá sâu vào dung dịch. Việc lột xác kéo theo vô số mảnh thịt dẻo quánh bị tước đứt, để lại những vết thương rỉ dịch liên tục.",
+            "effects": {
+              "health": -20,
+              "STR": -1
+            }
+          }
+        },
+        {
+          "label": "Lao vào dòng suối ngầm để rửa trôi rêu",
+          "check": {
+            "stat": "LUCK",
+            "target": 6
+          },
+          "success": {
+            "text": "Dòng nước lạnh buốt có chứa nhiều khoáng chất kiềm giúp trung hòa acid của rêu. Các mảng rỉ sét bong ra, trả lại cho bạn vẻ ngoài kim loại cường tráng.",
+            "effects": {
+              "jobXp": 1,
+              "LUCK": 1
+            }
+          },
+          "fail": {
+            "text": "Dòng suối hóa ra là nguồn nước độc ngầm. Nó không rửa được rêu mà còn phản ứng với sắt trong người bạn sủi bọt xèo xèo. Bạn phải bò lên bờ trong bộ dạng rách nát thê thảm.",
+            "effects": {
+              "health": -15,
+              "joy": -4
+            }
+          }
+        },
+        {
+          "label": "Phân bổ lõi, trượt qua lớp cát nhám ma sát",
+          "text": "Bạn cọ xát cơ thể vào đá sa thạch. Rêu bị bong ra phần nào, nhưng lớp vỏ kiêu hãnh của bạn giờ xước xát nghiêm trọng.",
+          "effects": {
+            "health": -5,
+            "joy": -2
+          }
+        }
+      ]
+    }
+  ]
+}

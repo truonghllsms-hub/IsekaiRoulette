@@ -42,7 +42,7 @@ module.exports = {
       require: {},
       desc: "May mắn và Nhanh nhẹn. Kỵ Sĩ Sói Điên, ai cũng có thể gia nhập", income: [0.8, 1.2, 1.8, 2.6, 3.4], hazard: 2, gains: { AGI: 0.2, LUCK: 0.15 } },
   ],
-  promoXp: [5, 6, 8, 10],
+  promoXp: [4, 8, 14, 22],
   roleByPrefix: { orc_job_berserker: "orc_berserker", orc_job_hunter: "orc_ranger", orc_job_shaman: "orc_shaman", orc_job_smith: "orc_smith", orc_job_rider: "orc_rider" },
   focusByPrefix: { orc_act_brawl: "play", orc_act_learn: "study", orc_act_train: "train", orc_act_serve: "work", orc_act_raid: "adventure", orc_act_duel: "social", orc_act_rest: "rest" },
 

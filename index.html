@@ -7,6 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;1,400&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>
+    try { var theme = localStorage.getItem("lhdg-theme"); if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme; } catch (e) {}
+  </script>
   <!-- Vercel Web Analytics: page views, only when served by Vercel (GitHub Pages and the offline zip skip it) -->
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -18,26 +21,57 @@
     }
   </script>
 </head>
-<body>
+<body data-screen="screen-start">
   <main id="app">
     <audio id="bgm" src="audio/bgm.mp3" loop preload="none"></audio>
-    <button id="btn-music" class="music-toggle" type="button" title="Nhạc nền: Adventure – Alexander Nakarada (royalty-free)" aria-label="Bật/tắt nhạc nền">♪</button>
+    <header class="app-toolbar">
+      <a class="world-brand" href="#app" aria-label="Luân Hồi Dị Giới"><span aria-hidden="true">✦</span> AETHELGARD</a>
+      <div class="utility-controls">
+        <button id="btn-theme" class="theme-toggle" type="button" title="Đổi giao diện sáng/tối" aria-label="Đổi giao diện sáng/tối">☾</button>
+        <button id="btn-music" class="music-toggle" type="button" title="Nhạc nền: Adventure – Alexander Nakarada (royalty-free)" aria-label="Bật/tắt nhạc nền">♪</button>
+      </div>
+    </header>
     <!-- Start -->
-    <section id="screen-start" class="screen">
-      <p class="eyebrow">Một linh hồn vừa rời khỏi thế giới cũ</p>
-      <h1>Luân Hồi Dị Giới</h1>
-      <p class="lede">Bạn không được chọn mình sẽ là ai. Bạn chỉ được chọn mình sẽ sống thế nào.</p>
-      <button id="btn-start" class="btn primary">Đầu thai</button>
-      <details class="odds">
-        <summary>Tỉ lệ đầu thai</summary>
-        <ul id="odds-list"></ul>
-      </details>
-      <div id="past-lives"></div>
+    <section id="screen-start" class="screen" aria-labelledby="start-title">
+      <div class="start-hero">
+        <div class="start-copy">
+          <p class="eyebrow">Biên niên của một linh hồn</p>
+          <div class="chronicle-compass" aria-hidden="true">✧</div>
+          <h1 id="start-title">Luân Hồi<br>Dị Giới</h1>
+          <div class="chronicle-rule" aria-hidden="true"><span>✦</span></div>
+          <p class="lede">Bạn không được chọn mình sẽ là ai.<br>Bạn chỉ được chọn mình sẽ sống thế nào.</p>
+          <div id="resume-slot" class="resume-slot" hidden>
+            <button id="btn-resume" class="btn wide" type="button"></button>
+            <p class="meta">Bắt đầu kiếp mới sẽ thay thế hành trình đang lưu.</p>
+          </div>
+          <p id="resume-error" class="meta" role="status" hidden></p>
+          <button id="btn-start" class="btn primary"><span aria-hidden="true">✧</span> Đầu thai <span aria-hidden="true">✧</span></button>
+          <div class="start-links">
+            <details class="odds">
+              <summary>Tỉ lệ đầu thai</summary>
+              <ul id="odds-list"></ul>
+            </details>
+            <span class="start-link-divider" aria-hidden="true">✧</span>
+            <details class="start-history">
+              <summary>Những kiếp trước</summary>
+              <div id="past-lives"></div>
+            </details>
+          </div>
+        </div>
+        <div class="start-atlas">
+          <button id="btn-map" class="start-map" type="button" aria-haspopup="dialog" aria-controls="world-map-dialog" aria-label="Xem bản đồ Aethelgard">
+            <img id="start-map-image" src="img/maps/aethelgard-01.png" width="1536" height="1024" decoding="async" alt="Biên niên cổ đồ Aethelgard: các miền đất của thế giới dị giới">
+            <span>Biên niên cổ đồ <span aria-hidden="true">Khám phá</span></span>
+          </button>
+          <p class="atlas-note">Mỗi miền đất, một số phận. Mỗi cuộc đời, một trang sử.</p>
+        </div>
+      </div>
     </section>
 
     <!-- Reveal -->
     <section id="screen-reveal" class="screen" hidden>
       <p class="eyebrow">Bạn là</p>
+      <div id="reveal-sprite" class="sprite-hud reveal-sprite" aria-hidden="true" hidden><div class="sprite-frame"></div></div>
       <h1 id="reveal-name"></h1>
       <p class="race-line">thuộc chủng tộc <b id="reveal-race"></b></p>
       <p id="reveal-gloss" class="gloss"></p>
@@ -50,6 +84,7 @@
 
     <!-- Life -->
     <section id="screen-life" class="screen" hidden>
+      <aside class="life-sidebar" aria-label="Hồ sơ cuộc đời">
       <div class="hud-wrap" id="hud-wrap">
       <header class="hud">
         <div id="hud-sprite" class="sprite-hud" aria-hidden="true" hidden><div class="sprite-frame"></div></div>
@@ -67,12 +102,19 @@
       <div class="stats" id="hud-stats"></div>
       </div>
       <div class="profile" id="hud-profile"></div>
+      <details id="party-panel" class="party-panel" hidden open><summary id="party-heading">Đồng hành</summary><div id="party-list" class="party-list"></div></details>
+      </aside>
+      <div class="life-chronicle">
+      <header class="journal-heading"><div><p class="eyebrow">Biên niên của một linh hồn</p><h2>Nhật ký cuộc đời</h2></div><span class="journal-seal" aria-hidden="true">✦</span></header>
+      <p id="journal-chapter" class="journal-chapter"></p>
       <ol id="log" class="log" aria-live="polite"></ol>
       <div id="choices" class="choices"></div>
       <footer class="actions">
+        <p id="save-status" class="meta save-status" role="status" hidden></p>
         <div id="focus-bar" class="focus-bar"></div>
         <button id="btn-next" class="btn primary wide"></button>
       </footer>
+      </div>
     </section>
 
     <!-- Death -->
@@ -107,10 +149,36 @@
         <button id="btn-review" class="btn">Xem lại cuộc đời</button>
       </div>
     </section>
+  <dialog id="world-map-dialog" class="world-map-dialog" aria-labelledby="world-map-title">
+    <header class="map-heading"><div><p class="eyebrow">Biên niên cổ đồ</p><h2 id="world-map-title">Thế giới Aethelgard</h2></div><button id="btn-map-close" class="dialog-close" type="button" aria-label="Đóng bản đồ">×</button></header>
+    <div class="map-controls" role="group" aria-label="Độ phóng đại bản đồ"><button id="map-zoom-out" type="button" aria-label="Thu nhỏ bản đồ">−</button><output id="map-zoom-level" aria-live="polite">100%</output><button id="map-zoom-in" type="button" aria-label="Phóng to bản đồ">+</button><button id="map-zoom-reset" type="button">Xem toàn cảnh</button></div>
+    <p id="map-hint" class="meta">Phóng to rồi kéo thanh cuộn hoặc vuốt để xem từng miền đất.</p>
+    <div id="map-viewport" class="map-viewport" tabindex="0" aria-label="Bản đồ thế giới có thể cuộn" aria-describedby="map-hint"><div id="map-canvas" class="map-canvas"><img id="world-map-image" draggable="false" src="img/maps/aethelgard-01.png" width="1536" height="1024" loading="lazy" decoding="async" alt="Cổ đồ Aethelgard: Dãy Núi Răng Cưa ở tây bắc, Vực Thẳm Phân Tầng ở phía bắc, Đại Ngàn ở đông bắc; Sanctus nằm giữa Đồng Bằng Thánh Quang, Tháp Ngà ở tây nam và Thảo Nguyên Gió Hú ở phía đông."></div></div>
+    <details class="map-places"><summary>Các miền đất trên bản đồ</summary><p>Dãy Núi Răng Cưa · Vực Thẳm Phân Tầng · Đại Ngàn · Đồng Bằng Thánh Quang · Sanctus · Tháp Ngà · Thảo Nguyên Gió Hú</p></details>
+  </dialog>
+  <dialog id="roster-dialog" class="people-dialog" aria-labelledby="roster-name">
+    <button class="dialog-close" type="button" data-close="roster-dialog" aria-label="Đóng thông tin tổ đội">×</button>
+    <p class="eyebrow">Hồ sơ tổ đội</p>
+    <h2 id="roster-name"></h2>
+    <p id="roster-summary" class="meta"></p>
+    <div id="roster-members" class="roster-members"></div>
+  </dialog>
+  <dialog id="member-dialog" class="people-dialog member-dialog" aria-labelledby="member-name">
+    <button class="dialog-close" type="button" data-close="member-dialog" aria-label="Đóng chân dung thành viên">×</button>
+    <p class="eyebrow">Thành viên tổ đội</p>
+    <h2 id="member-name"></h2>
+    <div id="member-portrait" class="sprite-hud member-portrait" aria-hidden="true"><div class="sprite-frame"></div></div>
+    <p id="member-no-art" class="meta" hidden>Kho ảnh hiện chưa có chân dung phù hợp với loài này.</p>
+    <p id="member-info" class="member-info"></p>
+    <p id="member-art-note" class="meta">Ảnh minh họa theo chủng tộc và vai trò.</p>
+  </dialog>
   </main>
 
   <script src="engine.js"></script>
   <script src="data.js"></script>
+  <script src="portraits.js"></script>
+  <script src="presentation.js"></script>
+  <script src="session.js"></script>
   <script src="ui.js"></script>
 </body>
 </html>

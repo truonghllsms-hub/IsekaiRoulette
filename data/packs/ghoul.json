@@ -208,10 +208,10 @@
     "AGI": 0.35
    },
    "promoXp": [
-    5,
-    6,
+    4,
     8,
-    10
+    14,
+    22
    ],
    "promoTarget": [
     3,
@@ -272,10 +272,10 @@
     "STR": 0.35
    },
    "promoXp": [
-    5,
-    6,
+    4,
     8,
-    10
+    14,
+    22
    ],
    "promoTarget": [
     3,
@@ -336,10 +336,10 @@
     "INT": 0.35
    },
    "promoXp": [
-    5,
-    6,
+    4,
     8,
-    10
+    14,
+    22
    ],
    "promoTarget": [
     3,
@@ -543,7 +543,7 @@
    "name": "THU GOM TÀN DƯ SLIME",
    "minRank": 2,
    "hint": "",
-   "intro": "{maker} cần nguyên liệu để chế tạo độc dược. Hắn ra lệnh cho bạn dẫn một toán xác sống xuống rìa Đầm Lầy Tử Khí để thu gom Lõi Mana từ những con Acid Slime đã bị Mạo hiểm giả tiêu diệt nhưng vẫn chưa tan rã hoàn toàn.",
+   "intro": "Đại tư tế chiêu hồn cần nguyên liệu để chế tạo độc dược. Hắn ra lệnh cho bạn dẫn một toán xác sống xuống rìa Đầm Lầy Tử Khí để thu gom Lõi Mana từ những con Acid Slime đã bị Mạo hiểm giả tiêu diệt nhưng vẫn chưa tan rã hoàn toàn.",
    "steps": [
     {
      "text": "Một tàn tích khổng lồ của Acid Slime đang phập phồng như nhịp thở cuối cùng. Lõi Mana của nó lấp lánh giữa thứ dịch vị màu xanh lục đang sôi sùng sục.",
@@ -603,10 +603,11 @@
        "fail": {
         "text": "Sức nổ hất tung bạn lên không trung, axit tạt mù cả hai mắt và thiêu rụi nửa phần thân dưới.",
         "effects": {
-         "health": -40,
+         "health": -50,
          "guildPts": -5
         }
-       }
+       },
+       "risk": "lethal"
       },
       {
        "label": "Quay đầu bỏ chạy",
@@ -631,7 +632,8 @@
        "fail": {
         "text": "Trượt chân vì bùn lầy, bạn ngã úp mặt thẳng vào trung tâm vụ nổ. Lõi tử linh của bạn bị axit nung chảy hòa làm một với đầm lầy.",
         "death": "Trượt chân vì bùn lầy, bạn ngã úp mặt thẳng vào trung tâm vụ nổ. Lõi tử linh của bạn bị axit nung chảy hòa làm một với đầm lầy."
-       }
+       },
+       "risk": "lethal"
       }
      ]
     }
@@ -708,9 +710,10 @@
        "fail": {
         "text": "Cuộn giấy bị xé toạc. Một cột sáng khổng lồ xuyên thẳng lên trời, nung chảy lớp da mặt và cánh tay của bạn. Viện binh đang tới.",
         "effects": {
-         "health": -40
+         "health": -50
         }
-       }
+       },
+       "risk": "lethal"
       },
       {
        "label": "Húc văng cả người lẫn phép",
@@ -727,7 +730,8 @@
        "fail": {
         "text": "Hắn kịp xé giấy ngay lúc bạn chạm vào. Ánh sáng cự ly gần xuyên thẳng qua lồng ngực, đánh tan Lõi tử linh của bạn thành mây khói.",
         "death": "Hắn kịp xé giấy ngay lúc bạn chạm vào. Ánh sáng cự ly gần xuyên thẳng qua lồng ngực, đánh tan Lõi tử linh của bạn thành mây khói."
-       }
+       },
+       "risk": "lethal"
       }
      ]
     }
@@ -784,9 +788,10 @@
        "fail": {
         "text": "Bọn xác vô tri tản mác không nghe lệnh. Tên ghim đầy chân khiến bạn gục ngã và bị tổ đội vây bắt.",
         "effects": {
-         "health": -30
+         "health": -35
         }
-       }
+       },
+       "risk": "lethal"
       }
      ]
     },
@@ -827,9 +832,10 @@
        "fail": {
         "text": "Cú lướt hụt đà, bạn bị một kiếm xuyên qua lồng ngực ghim chặt xuống đất.",
         "effects": {
-         "health": -30
+         "health": -35
         }
-       }
+       },
+       "risk": "lethal"
       }
      ]
     },
@@ -941,9 +947,10 @@
         "text": "Thánh quang đốt trụi chân bạn ngay khi vừa bước vào. Bạn ngã quỵ và phải tự cắn đứt chân để bò ra ngoài.",
         "effects": {
          "AGI": -1,
-         "health": -40
+         "health": -45
         }
-       }
+       },
+       "risk": "lethal"
       }
      ]
     },
@@ -966,9 +973,10 @@
        "fail": {
         "text": "Gió đổi chiều, máu độc bay ngược lại phía sau. Các Paladin nhân cơ hội dùng búa tạ quật gãy cột sống của bạn.",
         "effects": {
-         "health": -40
+         "health": -45
         }
-       }
+       },
+       "risk": "lethal"
       },
       {
        "label": "Lấy thịt đè người",
@@ -986,7 +994,8 @@
        "fail": {
         "text": "Búa tạ đập vỡ lõi tử linh của bạn. Xác bạn tan thành tro bụi dưới chân Thánh Kỵ Sĩ.",
         "death": "Búa tạ đập vỡ lõi tử linh của bạn. Xác bạn tan thành tro bụi dưới chân Thánh Kỵ Sĩ."
-       }
+       },
+       "risk": "lethal"
       }
      ]
     },
@@ -1021,9 +1030,10 @@
        "fail": {
         "text": "Hào quang hất văng bãi máu độc ngược trở lại. Cơ thể bạn bị Thánh quang đánh bật ra khỏi đền thờ, xương cốt gãy nát.",
         "effects": {
-         "health": -35
+         "health": -45
         }
-       }
+       },
+       "risk": "lethal"
       }
      ]
     }
@@ -1041,7 +1051,7 @@
    "moment": "Đạp đổ biểu tượng của ánh sáng, khẳng định sự tồn tại của bóng tối."
   },
   {
-   "id": "ghoul_q_cot_truyen_3_cuoc_tuan_hanh_cua_vua_kho_",
+   "id": "ghoul_q_cot_truyen_3_cuoc_tuan_hanh_cua_vua_kho_cot",
    "org": "ghoul_horde",
    "name": "CỐT TRUYỆN 3: CUỘC TUẦN HÀNH CỦA VUA KHÔ CỐT",
    "minRank": 6,
@@ -1105,7 +1115,8 @@
         "effects": {
          "health": -60
         }
-       }
+       },
+       "risk": "lethal"
       },
       {
        "label": "Trận đồ Hắc Ám",
@@ -1125,7 +1136,8 @@
         "effects": {
          "health": -50
         }
-       }
+       },
+       "risk": "lethal"
       }
      ]
     },
@@ -1149,7 +1161,8 @@
        "fail": {
         "text": "Ánh sáng của Thánh Kiếm là tuyệt đối. Nó chẻ đôi cơ thể và đốt cháy cả linh hồn bạn. Kỷ nguyên của vua khô cốt chấm dứt.",
         "death": "Ánh sáng của Thánh Kiếm là tuyệt đối. Nó chẻ đôi cơ thể và đốt cháy cả linh hồn bạn. Kỷ nguyên của vua khô cốt chấm dứt."
-       }
+       },
+       "risk": "lethal"
       },
       {
        "label": "Tế hiến bầy đàn làm cấm chú",
@@ -1168,7 +1181,8 @@
        "fail": {
         "text": "Dũng Giả chém đôi cấm chú trước khi nó hoàn tất, lưỡi kiếm xỏ lụi cả trái tim thối rữa của bạn.",
         "death": "Dũng Giả chém đôi cấm chú trước khi nó hoàn tất, lưỡi kiếm xỏ lụi cả trái tim thối rữa của bạn."
-       }
+       },
+       "risk": "lethal"
       }
      ]
     },
@@ -1225,9 +1239,10 @@
        "fail": {
         "text": "Một quả cầu lửa ma pháp hất văng bạn lên khỏi mặt đất, hứng trọn tia sét cháy đen thui.",
         "effects": {
-         "health": -35
+         "health": -45
         }
-       }
+       },
+       "risk": "lethal"
       },
       {
        "label": "Gào thét lao thẳng vào bão lửa",
@@ -1246,7 +1261,8 @@
        "fail": {
         "text": "Bạn hóa thành tro bụi khi bước vào tâm bão ma pháp của các Đại Ma pháp sư.",
         "death": "Bạn hóa thành tro bụi khi bước vào tâm bão ma pháp của các Đại Ma pháp sư."
-       }
+       },
+       "risk": "lethal"
       }
      ]
     },
@@ -1270,10 +1286,11 @@
        "fail": {
         "text": "Ma lực của bạn quá yếu, kết giới phản phệ đánh tan một cánh tay và ném bạn văng ra ngoài. Tên Demon khinh bỉ bỏ mặc bạn.",
         "effects": {
-         "health": -30,
+         "health": -35,
          "fame": -10
         }
-       }
+       },
+       "risk": "lethal"
       },
       {
        "label": "Lật lọng quay lưng cắn Demon",
@@ -1292,7 +1309,8 @@
        "fail": {
         "text": "High Demon bóp cổ bạn nâng lên không trung, dùng lửa địa ngục nướng chín cái xác của bạn vì tội phản trắc.",
         "death": "High Demon bóp cổ bạn nâng lên không trung, dùng lửa địa ngục nướng chín cái xác của bạn vì tội phản trắc."
-       }
+       },
+       "risk": "lethal"
       }
      ]
     }
@@ -1503,7 +1521,8 @@
      "fail": {
       "text": "Bùa nổ kích hoạt liên hoàn, ánh sáng trắng thiêu rụi toàn bộ tế bào của bạn. Bạn biến thành tro bụi giữa rừng sâu.",
       "death": "Bùa nổ kích hoạt liên hoàn, ánh sáng trắng thiêu rụi toàn bộ tế bào của bạn. Bạn biến thành tro bụi giữa rừng sâu."
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Thu mình rúc vào hang cáo",
@@ -1577,7 +1596,10 @@
    "require": {
     "job": "ghoul_stalker"
    },
-   "result": "Hạnh phúc +10, Danh vọng -1.",
+   "effects": {
+    "joy": 10,
+    "fame": -1
+   },
    "moment": "Một đêm mưa bão gột sạch lớp máu khô, khiến bạn trông gần giống một con người."
   },
   {
@@ -1610,7 +1632,8 @@
      "fail": {
       "text": "Vụ nổ kinh hoàng thổi bay nửa trên cơ thể bạn. Xương sọ vỡ vụn, ngọn lửa ma pháp thiêu rụi cả lõi linh hồn. Bạn trở về với cát bụi.",
       "death": "Vụ nổ kinh hoàng thổi bay nửa trên cơ thể bạn. Xương sọ vỡ vụn, ngọn lửa ma pháp thiêu rụi cả lõi linh hồn. Bạn trở về với cát bụi."
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Hất văng bùa nổ",
@@ -1628,10 +1651,11 @@
      "fail": {
       "text": "Chuyển động chậm chạp khiến bùa nổ ngay trước mặt. Bạn mất đi một cánh tay và bị chôn vùi dưới đống đất đá.",
       "effects": {
-       "health": -30,
+       "health": -45,
        "demote": true
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Lẩn sâu vào huyệt mộ",
@@ -1696,7 +1720,10 @@
    "require": {
     "job": "ghoul_sentinel"
    },
-   "result": "Tài sản +30, Sức khỏe +10.",
+   "effects": {
+    "health": 10,
+    "wealth": 30
+   },
    "moment": "Đạt tới cảnh giới đứng yên làm bức tượng đá hái ra tiền."
   },
   {
@@ -1747,7 +1774,8 @@
      "fail": {
       "text": "Lớp ngụy trang bong ra. Hội Dị Giáo phát hiện ra một con Ghoul đi dạo trong chợ. Bạn bị thiêu sống trên dàn cọc ngay giữa quảng trường.",
       "death": "Lớp ngụy trang bong ra. Hội Dị Giáo phát hiện ra một con Ghoul đi dạo trong chợ. Bạn bị thiêu sống trên dàn cọc ngay giữa quảng trường."
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Im lặng đổi hàng",
@@ -1829,7 +1857,13 @@
    "require": {
     "job": "ghoul_awakened"
    },
-   "result": "Hạnh phúc -20, Trí tuệ +1, thêm dấu ấn \"past_obsession\".",
+   "effects": {
+    "INT": 1,
+    "joy": -20,
+    "flags": [
+     "past_obsession"
+    ]
+   },
    "moment": "Lặng người trước tấm gương vỡ, xót xa cho phần người đã mãi mãi nằm lại kiếp trước."
   },
   {
@@ -1861,7 +1895,8 @@
        "health": -50,
        "fame": -20
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Cắn lén từ bóng tối",
@@ -1882,9 +1917,10 @@
       "text": "Lão Lich có hàng ngàn con mắt vô hình. Hắn tóm được gáy bạn ngay khi bạn vừa trồi lên, giật đứt một cánh tay của bạn làm hình phạt.",
       "effects": {
        "AGI": -2,
-       "health": -30
+       "health": -50
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Thao túng ngược pháp trận",
@@ -1987,7 +2023,14 @@
    "focus": [
     "adventure"
    ],
-   "result": "Sức mạnh +2, Sức khỏe +20, Hạnh phúc +10, thêm dấu ấn \"toxic_claws\".",
+   "effects": {
+    "STR": 2,
+    "health": 20,
+    "joy": 10,
+    "flags": [
+     "toxic_claws"
+    ]
+   },
    "moment": "Biến mầm bệnh của kỷ nguyên tăm tối thành vũ khí chết người."
   },
   {
@@ -2017,9 +2060,10 @@
      "fail": {
       "text": "Axit ăn mòn cuống họng và khoang bụng của bạn, thiêu rụi toàn bộ số thịt bạn vất vả đắp lên mấy năm qua.",
       "effects": {
-       "health": -30
+       "health": -45
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Lọc lấy lõi Slime",
@@ -2072,7 +2116,8 @@
      "fail": {
       "text": "Ánh sáng thần thánh bùng nổ trong lồng ngực, phá nát lõi tử linh của bạn.",
       "death": "Ánh sáng thần thánh bùng nổ trong lồng ngực, phá nát lõi tử linh của bạn."
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Treo xác chờ ánh sáng tắt",
@@ -2138,9 +2183,10 @@
      "fail": {
       "text": "Hắn túm được cổ bạn giữa không trung và quật mạnh xuống đất như ném một con ếch.",
       "effects": {
-       "health": -30
+       "health": -45
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Bỏ cuộc lùi bước",
@@ -2180,10 +2226,11 @@
      "fail": {
       "text": "Ma pháp sư của chúng quá tinh ranh, pháp trận phụ nổ tung ngay dưới chân khiến bạn bỏng rát toàn thân.",
       "effects": {
-       "health": -40,
+       "health": -50,
        "demote": true
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Xé nát ma trận bằng bạo lực",
@@ -2202,9 +2249,10 @@
       "text": "Lưới ma pháp siết chặt, thánh quang thiêu đốt khiến bạn phải cắn đứt một chân để đào tẩu.",
       "effects": {
        "STR": -1,
-       "health": -40
+       "health": -50
       }
-     }
+     },
+     "risk": "lethal"
     }
    ],
    "moment": "Đảo ngược vị thế đi săn, dạy cho lũ Mạo hiểm giả biết thế nào là chúa tể màn đêm."
@@ -2242,10 +2290,11 @@
      "fail": {
       "text": "Dạ dày bạn nổ tung. Bạn nằm co giật trên sàn suốt một tháng trời để cơ thể tự chắp vá lại.",
       "effects": {
-       "health": -30,
+       "health": -45,
        "joy": -20
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Giả vờ điên loạn hất đổ",
@@ -2384,7 +2433,8 @@
        "health": -50,
        "fame": -10
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Vét sạch bãi chiến trường",
@@ -2470,7 +2520,15 @@
    "focus": [
     "rest"
    ],
-   "result": "Sức mạnh +3, Trí tuệ +2, Sức khỏe +50, Danh vọng +10, thêm dấu ấn \"black_bone_evolution\".",
+   "effects": {
+    "STR": 3,
+    "INT": 2,
+    "health": 50,
+    "fame": 10,
+    "flags": [
+     "black_bone_evolution"
+    ]
+   },
    "moment": "Đạt đến cảnh giới nằm không cũng mạnh lên, một đặc quyền của sự bất tử."
   },
   {
@@ -2685,9 +2743,10 @@
      "fail": {
       "text": "Ma lực mất kiểm soát khiến não {ally} bị giật điện. Hắn hét toáng lên, gọi cả bầy chó săn tới xé xác.",
       "effects": {
-       "health": -30
+       "health": -45
       }
-     }
+     },
+     "risk": "lethal"
     }
    ]
   },
@@ -2865,9 +2924,10 @@
      "fail": {
       "text": "Gươm rỉ gãy đôi. Bạn không còn cách nào khác phải tự phế bỏ hai chân để bò ra.",
       "effects": {
-       "health": -30
+       "health": -45
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Hợp lực nâng cột",
@@ -2886,10 +2946,11 @@
      "fail": {
       "text": "Cột đá quá nặng. Bạn cắn chặt răng ra lệnh cho {ally} rút lui để bảo toàn mạng sống trước khi dung nham nuốt chửng cả hai.",
       "effects": {
-       "health": -40,
+       "health": -50,
        "bond": 10
       }
-     }
+     },
+     "risk": "lethal"
     }
    ]
   },
@@ -3156,10 +3217,11 @@
      "fail": {
       "text": "Sức trẻ của {child} áp đảo. Nó cắn xé bạn tơi tả, cướp lấy vị trí thủ lĩnh và đuổi bạn khỏi hang động.",
       "effects": {
-       "health": -30,
+       "health": -35,
        "fame": -20
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Truyền lại ngai vàng",
@@ -3200,11 +3262,12 @@
      "fail": {
       "text": "Thánh quang quá mạnh. Trái tim tử linh của {child} vỡ nát trước mắt bạn. Lửa thánh thiêu luôn cả cánh tay bạn khi cố vươn ra.",
       "effects": {
-       "health": -30,
+       "health": -50,
        "joy": -30,
        "loseChild": true
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Bỏ chạy để bảo toàn lực lượng",
@@ -3231,8 +3294,9 @@
      "evo_sign_ghast"
     ]
    },
-   "result": "Sức mạnh +1, Trí tuệ -1.",
    "effects": {
+    "STR": 1,
+    "INT": -1,
     "flags": [
      "evo_sign_ghast"
     ]
@@ -3272,7 +3336,8 @@
      "fail": {
       "text": "Cơ bắp đứt lìa vì gồng quá sức. Cái kén siết chặt lấy bạn, tiêu hóa bạn thành chất dinh dưỡng cho những cái xác vô tri xung quanh.",
       "death": "Cơ bắp đứt lìa vì gồng quá sức. Cái kén siết chặt lấy bạn, tiêu hóa bạn thành chất dinh dưỡng cho những cái xác vô tri xung quanh."
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Hấp thụ mọi tinh hoa trong kén",
@@ -3295,7 +3360,8 @@
      "fail": {
       "text": "Không gian hẹp khiến bạn tự cào rách động mạch cổ của mình. Khí độc ứ đọng kết liễu cuộc đời bạn trong kén.",
       "death": "Không gian hẹp khiến bạn tự cào rách động mạch cổ của mình. Khí độc ứ đọng kết liễu cuộc đời bạn trong kén."
-     }
+     },
+     "risk": "lethal"
     }
    ],
    "once": false,
@@ -3307,7 +3373,11 @@
    "require": {
     "form": "Ghast"
    },
-   "result": "Sức mạnh +2, Danh vọng +20, Tài sản +30.",
+   "effects": {
+    "STR": 2,
+    "wealth": 30,
+    "fame": 20
+   },
    "moment": "Cái chết đến quá nhanh khiến con mồi chưa kịp khóc lóc."
   },
   {
@@ -3316,7 +3386,12 @@
    "require": {
     "form": "Ghast"
    },
-   "result": "Nhanh nhẹn +3, Danh vọng +15, Tài sản +20, Sức khỏe +20.",
+   "effects": {
+    "AGI": 3,
+    "health": 20,
+    "wealth": 20,
+    "fame": 15
+   },
    "moment": "Máu bò tót tưới đẫm ngọn cỏ vỡ vụn."
   },
   {
@@ -3335,8 +3410,10 @@
      "evo_sign_lich"
     ]
    },
-   "result": "Trí tuệ +2, Sức mạnh -2, Sức khỏe +10.",
    "effects": {
+    "STR": -2,
+    "INT": 2,
+    "health": 10,
     "flags": [
      "evo_sign_lich"
     ]
@@ -3376,7 +3453,8 @@
      "fail": {
       "text": "Lượng mana mất kiểm soát. Lõi tử linh nổ tung giữa không trung, quét sạch cả một vùng thung lũng. Linh hồn bạn vỡ vụn vĩnh viễn.",
       "death": "Lượng mana mất kiểm soát. Lõi tử linh nổ tung giữa không trung, quét sạch cả một vùng thung lũng. Linh hồn bạn vỡ vụn vĩnh viễn."
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Ép hàng vạn oán linh rèn Lõi",
@@ -3399,7 +3477,8 @@
      "fail": {
       "text": "Oán linh phản phệ, xé xác và nuốt chửng ý thức của bạn. Bạn trở thành một bóng ma điên loạn vô tri.",
       "death": "Oán linh phản phệ, xé xác và nuốt chửng ý thức của bạn. Bạn trở thành một bóng ma điên loạn vô tri."
-     }
+     },
+     "risk": "lethal"
     }
    ],
    "once": false,
@@ -3411,7 +3490,11 @@
    "require": {
     "form": "Lich"
    },
-   "result": "Trí tuệ +3, Danh vọng +50, Tài sản +100.",
+   "effects": {
+    "INT": 3,
+    "wealth": 100,
+    "fame": 50
+   },
    "moment": "Khoanh tay nhìn ngọn lửa địa ngục nuốt chửng kẻ thù như một vị thần."
   },
   {
@@ -3420,7 +3503,11 @@
    "require": {
     "form": "Lich"
    },
-   "result": "Trí tuệ +2, Danh vọng +30, Hạnh phúc +50.",
+   "effects": {
+    "INT": 2,
+    "joy": 50,
+    "fame": 30
+   },
    "moment": "Cuộc trò chuyện giữa hai sinh vật đứng trên đỉnh cao của thời gian."
   },
   {
@@ -3452,7 +3539,8 @@
       "effects": {
        "health": -50
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Hòa mình vào đất mẹ",
@@ -3472,7 +3560,11 @@
    "stages": [
     "elder"
    ],
-   "result": "Trí tuệ -5, Hạnh phúc -50, Sức khỏe -20.",
+   "effects": {
+    "INT": -5,
+    "health": -20,
+    "joy": -50
+   },
    "moment": "Khoảng trống đáng sợ nhất của bất tử là khi không còn gì để nhớ."
   },
   {
@@ -3495,7 +3587,8 @@
      "fail": {
       "text": "Bạn đã quá già yếu. Chỉ một vung kiếm, cơ thể bạn vỡ vụn. Bạn chết mà không kịp cảm nhận được khoái cảm của trận chiến cuối cùng.",
       "death": "Bạn đã quá già yếu. Chỉ một vung kiếm, cơ thể bạn vỡ vụn. Bạn chết mà không kịp cảm nhận được khoái cảm của trận chiến cuối cùng."
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Dâng Lõi tử linh cho Dũng Giả",
@@ -3510,7 +3603,8 @@
      "fail": {
       "text": "Dũng Giả không tin bạn, cậu ta lao tới băm vằn bạn ra trước khi bạn kịp đầu hàng.",
       "death": "Dũng Giả không tin bạn, cậu ta lao tới băm vằn bạn ra trước khi bạn kịp đầu hàng."
-     }
+     },
+     "risk": "lethal"
     }
    ],
    "moment": "Lời chào cuối cùng dành cho một thế giới không bao giờ ngừng sinh ra những anh hùng."
@@ -3547,12 +3641,13 @@
      "fail": {
       "text": "Đội hình khiên bạc của chúng quá kiên cố, một ngọn giáo ánh sáng đâm xuyên qua đùi khiến bạn phải tháo chạy trong nhục nhã.",
       "effects": {
-       "health": -30,
+       "health": -45,
        "flags": [
         "shadow_heretic"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Lẩn khuất vào đầm lầy",
@@ -3618,7 +3713,8 @@
      "fail": {
       "text": "Gươm ánh sáng chẻ đôi cơ thể bạn. Cõi chết cũng không có chỗ chứa chấp kẻ báng bổ.",
       "death": "Gươm ánh sáng chẻ đôi cơ thể bạn. Cõi chết cũng không có chỗ chứa chấp kẻ báng bổ."
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Cái bẫy của bóng đêm",
@@ -3646,7 +3742,8 @@
      "fail": {
       "text": "Ma trận bùn lầy bị bốc hơi ngay khi đôi cánh ánh sáng dang rộng. Lưỡi gươm phán xét cắt đứt đầu bạn.",
       "death": "Ma trận bùn lầy bị bốc hơi ngay khi đôi cánh ánh sáng dang rộng. Lưỡi gươm phán xét cắt đứt đầu bạn."
-     }
+     },
+     "risk": "lethal"
     }
    ]
   },
@@ -3753,7 +3850,8 @@
      "fail": {
       "text": "Kiếm thuật của hắn đã đạt đến cảnh giới vô khuyết. Lưỡi kiếm bạc phanh thây bạn làm trăm mảnh.",
       "death": "Kiếm thuật của hắn đã đạt đến cảnh giới vô khuyết. Lưỡi kiếm bạc phanh thây bạn làm trăm mảnh."
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Giọt máu phản trắc",
@@ -3781,7 +3879,8 @@
      "fail": {
       "text": "Thánh Kiếm mang năng lực thanh tẩy vạn vật, đập tan mọi tà khí dịch bệnh của bạn trước khi chẻ đôi ngai vàng.",
       "death": "Thánh Kiếm mang năng lực thanh tẩy vạn vật, đập tan mọi tà khí dịch bệnh của bạn trước khi chẻ đôi ngai vàng."
-     }
+     },
+     "risk": "lethal"
     }
    ]
   },
@@ -3838,12 +3937,13 @@
      "fail": {
       "text": "{maker} phóng sét trấn áp, đánh gãy tứ chi của bạn rồi lạnh lùng hoàn tất nghi thức.",
       "effects": {
-       "health": -30,
+       "health": -45,
        "flags": [
         "maker_seed_accepted"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     }
    ]
   },
@@ -3883,7 +3983,8 @@
      "fail": {
       "text": "Tiếng gào thét của bạn tắt lịm. Đôi mắt bạn lóe lên tia sáng xảo quyệt của {maker}. Bạn không còn là bạn nữa.",
       "death": "Bạn bị đoạt xá."
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Phản phệ từ vết nứt",
@@ -3916,7 +4017,8 @@
    "weight": 40,
    "require": {
     "cast": "rival_a",
-    "castAlive": "rival"
+    "castAlive": "rival",
+    "free": true
    },
    "choices": [
     {
@@ -3983,7 +4085,8 @@
      "rival_a_1_chay"
     ],
     "cast": "rival_a",
-    "castAlive": "rival"
+    "castAlive": "rival",
+    "free": true
    },
    "choices": [
     {
@@ -4049,7 +4152,8 @@
      "rival_a_2_nhin"
     ],
     "cast": "rival_a",
-    "castAlive": "rival"
+    "castAlive": "rival",
+    "free": true
    },
    "choices": [
     {
@@ -4072,12 +4176,13 @@
       "text": "Đám môn đồ vây chặt, {rival} tung một đòn chí mạng khiến bạn phải bẻ gãy tay mình để thoát thân.",
       "effects": {
        "STR": -1,
-       "health": -30,
+       "health": -45,
        "flags": [
         "rival_a_3_cut"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Chế nhạo tuổi tác của ả",
@@ -4117,7 +4222,8 @@
      "rival_a_3_cuoi"
     ],
     "cast": "rival_a",
-    "castAlive": "rival"
+    "castAlive": "rival",
+    "free": true
    },
    "choices": [
     {
@@ -4188,7 +4294,8 @@
      "rival_a_4_bien"
     ],
     "cast": "rival_a",
-    "castAlive": "rival"
+    "castAlive": "rival",
+    "free": true
    },
    "choices": [
     {
@@ -4213,13 +4320,14 @@
      "fail": {
       "text": "Ả cắn xé bạn tơi tả, cướp đi một nửa sinh lực và đá bạn khỏi hầm mộ.",
       "effects": {
-       "health": -40,
+       "health": -50,
        "wealth": -20,
        "flags": [
         "rival_a_5_bai"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Đầu hàng và phục tùng",
@@ -4254,7 +4362,8 @@
    "weight": 40,
    "require": {
     "cast": "rival_b",
-    "castAlive": "rival"
+    "castAlive": "rival",
+    "free": true
    },
    "choices": [
     {
@@ -4321,7 +4430,8 @@
      "rival_b_1_nhuong"
     ],
     "cast": "rival_b",
-    "castAlive": "rival"
+    "castAlive": "rival",
+    "free": true
    },
    "choices": [
     {
@@ -4389,7 +4499,8 @@
      "rival_b_2_dao"
     ],
     "cast": "rival_b",
-    "castAlive": "rival"
+    "castAlive": "rival",
+    "free": true
    },
    "choices": [
     {
@@ -4458,7 +4569,8 @@
      "rival_b_3_cuu"
     ],
     "cast": "rival_b",
-    "castAlive": "rival"
+    "castAlive": "rival",
+    "free": true
    },
    "choices": [
     {
@@ -4481,13 +4593,14 @@
      "fail": {
       "text": "Chó săn cắn xé cả hai, bạn phải bỏ mặc hắn lại làm mồi nhử để mở đường máu.",
       "effects": {
-       "health": -30,
+       "health": -45,
        "fame": -15,
        "flags": [
         "rival_b_4_nhu"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Đâm lén sau lưng",
@@ -4529,7 +4642,8 @@
      "rival_b_4_nhu"
     ],
     "cast": "rival_b",
-    "castAlive": "rival"
+    "castAlive": "rival",
+    "free": true
    },
    "choices": [
     {
@@ -4560,7 +4674,8 @@
         "rival_b_5_le"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Từ chối và nhường ngôi",
@@ -4595,7 +4710,8 @@
    "weight": 40,
    "require": {
     "cast": "rival_c",
-    "castAlive": "rival"
+    "castAlive": "rival",
+    "free": true
    },
    "choices": [
     {
@@ -4662,7 +4778,8 @@
      "rival_c_1_cong"
     ],
     "cast": "rival_c",
-    "castAlive": "rival"
+    "castAlive": "rival",
+    "free": true
    },
    "choices": [
     {
@@ -4730,7 +4847,8 @@
      "rival_c_2_cuop"
     ],
     "cast": "rival_c",
-    "castAlive": "rival"
+    "castAlive": "rival",
+    "free": true
    },
    "choices": [
     {
@@ -4799,7 +4917,8 @@
      "rival_c_3_lot"
     ],
     "cast": "rival_c",
-    "castAlive": "rival"
+    "castAlive": "rival",
+    "free": true
    },
    "choices": [
     {
@@ -4821,13 +4940,14 @@
      "fail": {
       "text": "Lưới ma thuật siết chặt, cả hai bị bắt giam và tra tấn tàn khốc suốt nhiều năm mới tìm được kẽ hở trốn thoát.",
       "effects": {
-       "health": -40,
+       "health": -45,
        "joy": -20,
        "flags": [
         "rival_c_4_tra"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Đẩy hắn vào chỗ chết",
@@ -4869,7 +4989,8 @@
      "rival_c_4_tra"
     ],
     "cast": "rival_c",
-    "castAlive": "rival"
+    "castAlive": "rival",
+    "free": true
    },
    "choices": [
     {
@@ -4894,13 +5015,14 @@
      "fail": {
       "text": "Hắn mạnh mẽ hơn dự kiến, đánh gục bạn nhưng không giết, thất vọng bỏ đi tìm cái chết ở nơi khác.",
       "effects": {
-       "health": -30,
+       "health": -50,
        "fame": -10,
        "flags": [
         "rival_c_5_nhuc"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Từ chối ban ân huệ",
@@ -4935,7 +5057,8 @@
    "weight": 40,
    "require": {
     "cast": "mentor_a",
-    "castAlive": "mentor"
+    "castAlive": "mentor",
+    "free": true
    },
    "choices": [
     {
@@ -5002,7 +5125,8 @@
      "mentor_a_1_doi"
     ],
     "cast": "mentor_a",
-    "castAlive": "mentor"
+    "castAlive": "mentor",
+    "free": true
    },
    "choices": [
     {
@@ -5071,7 +5195,8 @@
      "mentor_a_2_phat"
     ],
     "cast": "mentor_a",
-    "castAlive": "mentor"
+    "castAlive": "mentor",
+    "free": true
    },
    "choices": [
     {
@@ -5094,12 +5219,13 @@
       "text": "Pháp trận khóa chặt, bạn bị rút đi một phần sinh lực lớn, teo tóp lại như một bộ xương khô trước khi lão dừng tay.",
       "effects": {
        "STR": -1,
-       "health": -40,
+       "health": -45,
        "flags": [
         "mentor_a_3_bi"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Cam chịu hiến máu",
@@ -5142,7 +5268,8 @@
      "mentor_a_3_hien"
     ],
     "cast": "mentor_a",
-    "castAlive": "mentor"
+    "castAlive": "mentor",
+    "free": true
    },
    "choices": [
     {
@@ -5165,13 +5292,14 @@
      "fail": {
       "text": "Một mũi lao ánh sáng ghim cả hai xuống đất, bạn đành nghiến răng cắn đứt tay lão để tự giải thoát thân mình.",
       "effects": {
-       "health": -35,
+       "health": -50,
        "wealth": -10,
        "flags": [
         "mentor_a_4_thuong"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Giật cuốn sách và bỏ mặc",
@@ -5214,7 +5342,8 @@
      "mentor_a_4_cuop"
     ],
     "cast": "mentor_a",
-    "castAlive": "mentor"
+    "castAlive": "mentor",
+    "free": true
    },
    "choices": [
     {
@@ -5239,13 +5368,14 @@
      "fail": {
       "text": "Ma thuật của lão quá áp đảo, thiêu rụi nửa thân trí của bạn, biến bạn thành một con rối đần độn mặc sức lão sai khiến.",
       "effects": {
-       "health": -30,
+       "health": -50,
        "joy": -40,
        "flags": [
         "mentor_a_5_no"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Giao nạp ma đạo thư",
@@ -5280,7 +5410,8 @@
    "weight": 40,
    "require": {
     "cast": "mentor_b",
-    "castAlive": "mentor"
+    "castAlive": "mentor",
+    "free": true
    },
    "choices": [
     {
@@ -5348,7 +5479,8 @@
      "mentor_b_1_can"
     ],
     "cast": "mentor_b",
-    "castAlive": "mentor"
+    "castAlive": "mentor",
+    "free": true
    },
    "choices": [
     {
@@ -5415,7 +5547,8 @@
      "mentor_b_2_tron"
     ],
     "cast": "mentor_b",
-    "castAlive": "mentor"
+    "castAlive": "mentor",
+    "free": true
    },
    "choices": [
     {
@@ -5485,7 +5618,8 @@
      "mentor_b_3_cat"
     ],
     "cast": "mentor_b",
-    "castAlive": "mentor"
+    "castAlive": "mentor",
+    "free": true
    },
    "choices": [
     {
@@ -5511,7 +5645,7 @@
       "text": "Cơ thể xác sống của bạn bài xích linh hồn, bùng cháy dữ dội khiến bạn mất đi một tay và lão thì vỡ vụn.",
       "effects": {
        "STR": -1,
-       "health": -35,
+       "health": -45,
        "flags": [
         "mentor_b_4_bong"
        ],
@@ -5519,7 +5653,8 @@
         "mentor"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Chối từ để ông yên nghỉ",
@@ -5562,7 +5697,8 @@
      "mentor_b_4_tu"
     ],
     "cast": "mentor_b",
-    "castAlive": "mentor"
+    "castAlive": "mentor",
+    "free": true
    },
    "choices": [
     {
@@ -5627,7 +5763,8 @@
    "weight": 40,
    "require": {
     "cast": "mentor_c",
-    "castAlive": "mentor"
+    "castAlive": "mentor",
+    "free": true
    },
    "choices": [
     {
@@ -5695,7 +5832,8 @@
      "mentor_c_1_chuot"
     ],
     "cast": "mentor_c",
-    "castAlive": "mentor"
+    "castAlive": "mentor",
+    "free": true
    },
    "choices": [
     {
@@ -5763,7 +5901,8 @@
      "mentor_c_2_hoi"
     ],
     "cast": "mentor_c",
-    "castAlive": "mentor"
+    "castAlive": "mentor",
+    "free": true
    },
    "choices": [
     {
@@ -5789,12 +5928,13 @@
       "text": "Mũi tên phong ma của Elf bắn xuyên vai bạn, ghim chặt bạn vào bia mộ để mặc {mentor} tự sinh tự diệt.",
       "effects": {
        "STR": -1,
-       "health": -30,
+       "health": -45,
        "flags": [
         "mentor_c_3_thuong"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Lủi trốn bỏ mặc sư phụ",
@@ -5834,7 +5974,8 @@
      "mentor_c_3_bo"
     ],
     "cast": "mentor_c",
-    "castAlive": "mentor"
+    "castAlive": "mentor",
+    "free": true
    },
    "choices": [
     {
@@ -5862,7 +6003,8 @@
         "mentor_c_4_liet"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Từ chối và đuổi cô ta đi",
@@ -5905,7 +6047,8 @@
      "mentor_c_4_tu"
     ],
     "cast": "mentor_c",
-    "castAlive": "mentor"
+    "castAlive": "mentor",
+    "free": true
    },
    "choices": [
     {
@@ -5930,7 +6073,7 @@
      "fail": {
       "text": "Bầy nhện cắn nát tuyến độc của bạn, nghi thức bị phá hủy một nửa. Sư phụ bạn kiệt sức, tan biến thành những hạt phấn mốc meo xanh rờn.",
       "effects": {
-       "health": -45,
+       "health": -50,
        "fame": -20,
        "flags": [
         "mentor_c_5_nghi"
@@ -5939,7 +6082,8 @@
         "mentor"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Cướp nuốt Hạt Giống Thối Rữa",
@@ -5978,7 +6122,8 @@
    "weight": 40,
    "require": {
     "cast": "friend_a",
-    "castAlive": "friend"
+    "castAlive": "friend",
+    "free": true
    },
    "choices": [
     {
@@ -6045,7 +6190,8 @@
      "friend_a_1_duoi"
     ],
     "cast": "friend_a",
-    "castAlive": "friend"
+    "castAlive": "friend",
+    "free": true
    },
    "choices": [
     {
@@ -6116,7 +6262,8 @@
      "friend_a_2_trom"
     ],
     "cast": "friend_a",
-    "castAlive": "friend"
+    "castAlive": "friend",
+    "free": true
    },
    "choices": [
     {
@@ -6189,7 +6336,8 @@
      "friend_a_3_nhay"
     ],
     "cast": "friend_a",
-    "castAlive": "friend"
+    "castAlive": "friend",
+    "free": true
    },
    "choices": [
     {
@@ -6262,7 +6410,8 @@
      "friend_a_4_rach"
     ],
     "cast": "friend_a",
-    "castAlive": "friend"
+    "castAlive": "friend",
+    "free": true
    },
    "choices": [
     {
@@ -6285,7 +6434,7 @@
      "fail": {
       "text": "Kết giới vỡ nát, Thánh Quang thiêu rụi {friend} thành tro bụi. Bạn hấp hối bò ra khỏi đống đổ nát, vĩnh viễn mất đi tri kỷ.",
       "effects": {
-       "health": -45,
+       "health": -50,
        "joy": -40,
        "flags": [
         "friend_a_5_tro"
@@ -6294,7 +6443,8 @@
         "friend"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Cản cô lại và đẩy cô xuống hầm sâu",
@@ -6330,7 +6480,8 @@
    "weight": 40,
    "require": {
     "cast": "friend_b",
-    "castAlive": "friend"
+    "castAlive": "friend",
+    "free": true
    },
    "choices": [
     {
@@ -6397,7 +6548,8 @@
      "friend_b_1_bo"
     ],
     "cast": "friend_b",
-    "castAlive": "friend"
+    "castAlive": "friend",
+    "free": true
    },
    "choices": [
     {
@@ -6468,7 +6620,8 @@
      "friend_b_2_ngu"
     ],
     "cast": "friend_b",
-    "castAlive": "friend"
+    "castAlive": "friend",
+    "free": true
    },
    "choices": [
     {
@@ -6492,12 +6645,13 @@
       "text": "Gã pháp sư dùng gậy ma thuật giáng sấm sét khiến bạn cháy đen, bạn đành ôm con quạ cắn răng lăn xuống vách núi.",
       "effects": {
        "AGI": -1,
-       "health": -35,
+       "health": -45,
        "flags": [
         "friend_b_3_set"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Sợ hãi đứng nhìn",
@@ -6539,7 +6693,8 @@
      "friend_b_3_set"
     ],
     "cast": "friend_b",
-    "castAlive": "friend"
+    "castAlive": "friend",
+    "free": true
    },
    "choices": [
     {
@@ -6564,13 +6719,14 @@
      "fail": {
       "text": "Sát khí phản phệ, nó cào mù một bên mắt của bạn trước khi mệt lả gục xuống, quá trình tiến hóa bị đình trệ.",
       "effects": {
-       "health": -30,
+       "health": -45,
        "fame": -10,
        "flags": [
         "friend_b_4_mu"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Nhốt nó vào lồng sắt",
@@ -6610,7 +6766,8 @@
      "friend_b_4_nhot"
     ],
     "cast": "friend_b",
-    "castAlive": "friend"
+    "castAlive": "friend",
+    "free": true
    },
    "choices": [
     {
@@ -6633,7 +6790,7 @@
      "fail": {
       "text": "Hơi nóng thiêu rụi đôi cánh của {friend}. Nó gầm lên, ném bạn lên vách đá an toàn rồi chìm nghỉm vào biển dung nham rực đỏ.",
       "effects": {
-       "health": -30,
+       "health": -50,
        "joy": -50,
        "flags": [
         "friend_b_5_chet"
@@ -6642,7 +6799,8 @@
         "friend"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Đu bám tuyệt vọng không làm gì",
@@ -6678,7 +6836,8 @@
    "weight": 40,
    "require": {
     "cast": "friend_c",
-    "castAlive": "friend"
+    "castAlive": "friend",
+    "free": true
    },
    "choices": [
     {
@@ -6745,7 +6904,8 @@
      "friend_c_1_bo"
     ],
     "cast": "friend_c",
-    "castAlive": "friend"
+    "castAlive": "friend",
+    "free": true
    },
    "choices": [
     {
@@ -6818,7 +6978,8 @@
      "friend_c_2_cuop"
     ],
     "cast": "friend_c",
-    "castAlive": "friend"
+    "castAlive": "friend",
+    "free": true
    },
    "choices": [
     {
@@ -6844,12 +7005,13 @@
       "text": "Đám đạo tặc quá đông, đâm giáo làm bạn trọng thương. Bạn chỉ kịp giật lại hộp sọ rồi ôm nó bỏ chạy, để lại thân thể gã.",
       "effects": {
        "AGI": -1,
-       "health": -30,
+       "health": -45,
        "flags": [
         "friend_c_3_chay"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Nấp im mặc kệ gã bị mang đi",
@@ -6891,7 +7053,8 @@
      "friend_c_3_chay"
     ],
     "cast": "friend_c",
-    "castAlive": "friend"
+    "castAlive": "friend",
+    "free": true
    },
    "choices": [
     {
@@ -6960,7 +7123,8 @@
      "friend_c_4_tu"
     ],
     "cast": "friend_c",
-    "castAlive": "friend"
+    "castAlive": "friend",
+    "free": true
    },
    "choices": [
     {
@@ -6983,7 +7147,7 @@
      "fail": {
       "text": "Vách đá quá cứng, cơ thể {friend} vỡ vụn hoàn toàn khi cố gắng che chắn đá lở cho bạn, chỉ còn lại hộp sọ mỉm cười.",
       "effects": {
-       "health": -40,
+       "health": -50,
        "joy": -40,
        "flags": [
         "friend_c_5_vo"
@@ -6992,7 +7156,8 @@
         "friend"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Bất động chờ chết",
@@ -7189,12 +7354,13 @@
       "text": "Mũi tên phong ma ghim chặt bạn vào bia mộ, bạn đành phải cắt một nửa thân dưới của mình ném xuống đầm lầy để làm dịu cơn giận của nó.",
       "effects": {
        "AGI": -1,
-       "health": -40,
+       "health": -50,
        "flags": [
         "graveyard_3_thieu"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Ném bầy xác sống hoang xuống",
@@ -7256,13 +7422,14 @@
      "fail": {
       "text": "Thánh Quang xé toạc chướng khí, thiêu đốt bạn đến mức lộ cả xương sườn, buộc bạn phải chui sâu xuống lòng đất.",
       "effects": {
-       "health": -35,
+       "health": -45,
        "fame": -15,
        "flags": [
         "graveyard_4_chay"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Cắt đứt liên kết bỏ chạy",
@@ -7322,7 +7489,8 @@
         "graveyard_5_phe"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Đắp đất vùi lấp nó",
@@ -7516,12 +7684,13 @@
       "text": "Thanh kiếm ánh sáng chém đứt gân chân bạn, buộc bạn phải lăn xuống hẻm núi để bảo toàn mạng sống trong nhục nhã.",
       "effects": {
        "AGI": -1,
-       "health": -30,
+       "health": -45,
        "flags": [
         "massgrave_3_dut"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Lẩn trốn bỏ qua thù hận",
@@ -7584,13 +7753,14 @@
      "fail": {
       "text": "Oán khí quá bạo loạn, chúng xé rách màng nhĩ và hủy hoại giọng nói của bạn, biến bạn thành một con quái vật câm điếc.",
       "effects": {
-       "health": -35,
+       "health": -50,
        "joy": -20,
        "flags": [
         "massgrave_4_cam"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Nôn mửa ra oán khí",
@@ -7651,7 +7821,8 @@
         "massgrave_5_nhao"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Châm lửa thiêu rụi hố chôn",
@@ -7846,12 +8017,13 @@
      "fail": {
       "text": "Con rồng thức giấc quật đuôi gãy nát xương sườn bạn, khiến bạn bò lết lượm vài giọt máu rơi vãi rồi trốn thoát.",
       "effects": {
-       "health": -35,
+       "health": -45,
        "flags": [
         "lab_3_gay"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Đào trộm quả trứng rồng",
@@ -7914,12 +8086,13 @@
       "text": "Kẻ thay thế bẻ gãy một tay bạn, ném bạn xuống vực rác của phòng thí nghiệm để làm thức ăn cho giòi bọ.",
       "effects": {
        "AGI": -1,
-       "health": -30,
+       "health": -45,
        "flags": [
         "lab_4_vuc"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Chạy trốn khỏi phòng thí nghiệm",
@@ -7981,7 +8154,8 @@
        ],
        "parentDie": "maker"
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Phá hủy trận pháp rồi bỏ đi",
@@ -8110,12 +8284,13 @@
       "text": "Một mũi giáo ảo ảnh đâm xuyên đùi bạn mang theo lời nguyền rách nát, khiến vết thương đời thực cũng rỉ máu không ngừng.",
       "effects": {
        "AGI": -1,
-       "health": -30,
+       "health": -45,
        "flags": [
         "battlefield_2_giao"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Đào hào chui xuống",
@@ -8178,12 +8353,13 @@
       "text": "Nhóm hậu duệ ập đến dùng ma thuật phong ấn, nổ tung hộp sọ vào mặt bạn, cướp đi một bên mắt của bạn vĩnh viễn.",
       "effects": {
        "AGI": -1,
-       "health": -35,
+       "health": -45,
        "flags": [
         "battlefield_3_mat"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Bán lại hộp sọ đổi lấy vàng",
@@ -8244,13 +8420,14 @@
      "fail": {
       "text": "Rồng xương phun lửa xanh thiêu rụi nửa thân trên, bắt bạn phải vùi mình xuống đất sâu hàng thập kỷ để hồi phục.",
       "effects": {
-       "health": -45,
+       "health": -50,
        "joy": -20,
        "flags": [
         "battlefield_4_bui"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Nhặt nhạnh chiến lợi phẩm rơi vãi",
@@ -8312,7 +8489,8 @@
        ]
       },
       "death": "Bạn bị binh đoàn ma ảnh phanh thây."
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Chôn vùi lời nguyền mãi mãi",
@@ -8441,12 +8619,13 @@
       "text": "Xích sắt quấn chặt lấy cổ chân, thiêu đốt da thịt khiến bạn phải nhai nát bàn chân mình để thoát thân trước khi chúng ập tới.",
       "effects": {
        "AGI": -1,
-       "health": -30,
+       "health": -45,
        "flags": [
         "altar_2_cut"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Lẩn trốn khỏi bệ đá",
@@ -8508,13 +8687,14 @@
      "fail": {
       "text": "Ánh đuốc phát hiện, bạn bị kỵ sĩ chém một nhát kiếm ánh sáng sâu hoắm vào lưng, phải vứt giỏ cống phẩm để đào tẩu.",
       "effects": {
-       "health": -35,
+       "health": -45,
        "fame": -10,
        "flags": [
         "altar_3_chem"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Săn thú hoang tẩm máu",
@@ -8582,7 +8762,8 @@
         "altar_4_rut"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Chấp nhận làm bệ đỡ",
@@ -8637,14 +8818,15 @@
      "fail": {
       "text": "Giáo chủ dùng nguyền rủa cuối cùng phản phệ, thiêu rụi đôi mắt và thanh quản của bạn, biến bạn thành một con quái vật mù câm.",
       "effects": {
-       "health": -40,
+       "health": -50,
        "joy": -30,
        "flags": [
         "altar_5_mu"
        ],
        "parentDie": "maker"
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Đập nát tượng thần bỏ đi",
@@ -8773,12 +8955,13 @@
       "text": "Bức tường đè nát một nửa lồng ngực bạn trước khi dừng lại, để lại những mảnh xương sườn đâm ngược vào trong.",
       "effects": {
        "AGI": -1,
-       "health": -30,
+       "health": -45,
        "flags": [
         "dungeon_2_de"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Lùi lại góc hẹp an toàn",
@@ -8841,13 +9024,14 @@
      "fail": {
       "text": "Hắn húc văng bạn vào vách đá, sừng trâu đâm thủng bụng rách nát khiến bạn phải giả chết mới mong giữ mạng.",
       "effects": {
-       "health": -40,
+       "health": -45,
        "joy": -10,
        "flags": [
         "dungeon_3_thung"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Cống nạp tài sản xin tha",
@@ -8915,7 +9099,8 @@
         "dungeon_4_no"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Vơ vét của cải rồi chuồn",
@@ -8976,7 +9161,8 @@
        ],
        "parentDie": "maker"
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Bỏ đi, để lõi tự chết",
@@ -9182,7 +9368,7 @@
      "fail": {
       "text": "Ánh sáng Thánh Quang hất văng bạn đi, Kik bị nung chảy thành tro trước mắt bạn.",
       "effects": {
-       "health": -30,
+       "health": -45,
        "flags": [
         "band_a_3_chet"
        ],
@@ -9190,7 +9376,8 @@
         "Kik"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Tuân lệnh Garm bỏ chạy",
@@ -9260,14 +9447,15 @@
      "fail": {
       "text": "Garm bẻ gãy hai xương sườn của bạn, đá bạn ra khỏi hầm mộ vĩnh viễn.",
       "effects": {
-       "health": -40,
+       "health": -50,
        "fame": -15,
        "flags": [
         "band_a_4_duoi"
        ],
        "leaveBand": true
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Lén ném thuốc độc vào mồi của Garm",
@@ -9341,7 +9529,8 @@
        ],
        "bandGone": true
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Bỏ mặc bầy, tàng hình rút lui",
@@ -9541,7 +9730,7 @@
      "fail": {
       "text": "Bạn bị chém gục, Caelus phải thả lựu đạn khói lôi bạn đi, để lại Kog bị băm vằm thành trăm mảnh.",
       "effects": {
-       "health": -30,
+       "health": -45,
        "flags": [
         "band_b_3_chet"
        ],
@@ -9549,7 +9738,8 @@
         "Kog"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Lặn xuống nước trốn đi",
@@ -9619,7 +9809,7 @@
      "fail": {
       "text": "Dao găm tẩm độc của Caelus ghim vào ngực bạn, hắn hạ sát Sira rồi thẳng cẳng đá bạn khỏi di tích.",
       "effects": {
-       "health": -45,
+       "health": -50,
        "flags": [
         "band_b_4_thuong"
        ],
@@ -9628,7 +9818,8 @@
         "Sira"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Giúp Caelus diệt trừ Sira",
@@ -9702,7 +9893,8 @@
        ],
        "bandGone": true
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Trốn vào mật thất tự phong ấn",
@@ -9910,7 +10102,7 @@
      "fail": {
       "text": "Tên kỵ sĩ nhận ra sát khí tử linh. Hắn chém một đường ánh sáng khiến bạn đứt lìa một tay, còn Little Bundle thì bị hỏa thiêu.",
       "effects": {
-       "health": -35,
+       "health": -45,
        "flags": [
         "band_c_3_cut"
        ],
@@ -9918,7 +10110,8 @@
         "Little Bundle"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Quay lưng bỏ mặc",
@@ -10063,7 +10256,8 @@
        ],
        "bandGone": true
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Tiếp tục trốn chạy",
@@ -10268,12 +10462,13 @@
      "fail": {
       "text": "Một ngọn giáo lửa xiên thủng cả hai. Bạn phải cắt bỏ một cánh tay để thoát, để mặc Witherweed bị quân thù xé xác.",
       "effects": {
-       "health": -35,
+       "health": -45,
        "flags": [
         "band_d_3_cut"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Đạp Witherweed ra làm mồi nhử",
@@ -10339,14 +10534,15 @@
      "fail": {
       "text": "Thanh đại kiếm chém toạc lồng ngực bạn. Kark gầm lên, ném bạn xuống vực sâu như một thứ phế phẩm nổi loạn.",
       "effects": {
-       "health": -45,
+       "health": -50,
        "joy": -20,
        "flags": [
         "band_d_4_roi"
        ],
        "leaveBand": true
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Câm lặng tuân lệnh tàn sát",
@@ -10417,7 +10613,8 @@
        ],
        "bandGone": true
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Giết sạch đồng bọn để độc chiếm chút mồi còn lại",
@@ -10623,13 +10820,14 @@
      "fail": {
       "text": "Mũi tên bạc bắn thủng phổi bạn. Lilith và toán thợ săn cướp sạch kho báu rồi rút lui, để lại lâu đài hoang tàn.",
       "effects": {
-       "health": -40,
+       "health": -45,
        "wealth": -30,
        "flags": [
         "band_e_3_thung"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Hợp tác với Lilith, đâm lén Bá tước",
@@ -10696,14 +10894,15 @@
      "fail": {
       "text": "Ma thuật Vampire quá ranh ma, đánh bẫy giam bạn vào bức tranh ma thuật. Bạn chật vật phá khung tranh trốn thoát, mất hết địa vị.",
       "effects": {
-       "health": -45,
+       "health": -50,
        "joy": -30,
        "flags": [
         "band_e_4_tu"
        ],
        "leaveBand": true
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Châm ngòi nổ, hủy diệt lâu đài",
@@ -10775,7 +10974,8 @@
        ],
        "bandGone": true
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Giao nộp đồng bọn để mua đường sống",
@@ -11033,13 +11233,14 @@
      "fail": {
       "text": "Vệ binh dinh thự phát hiện, bạn bị dồn ép phải phá cửa sổ trốn chạy, bỏ lỡ cơ ước khế ước với linh hồn.",
       "effects": {
-       "health": -30,
+       "health": -45,
        "fame": -10,
        "flags": [
         "rec_d_tron"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Cưỡng ép thu phục bằng bạo lực",
@@ -11165,13 +11366,14 @@
      "fail": {
       "text": "Nó cắn nát vai bạn, buộc bạn phải vứt lại một nửa số thịt vừa săn được để làm mồi tẩu thoát.",
       "effects": {
-       "health": -35,
+       "health": -45,
        "wealth": -20,
        "flags": [
         "rec_f_nat"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Đút lót bằng một trái tim Human tươi",
@@ -11232,13 +11434,14 @@
      "fail": {
       "text": "Lõi Mana nứt vỡ do bạn thao tác sai, phát nổ hất văng bạn vào vách đá gãy nát mấy cái xương sườn.",
       "effects": {
-       "health": -40,
+       "health": -45,
        "wealth": -30,
        "flags": [
         "rec_g_vo"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Chỉ nhặt chiếc rìu khổng lồ của nó",
@@ -11298,12 +11501,13 @@
       "text": "Nhện Mẹ phát hiện, phóng tơ trói chặt bạn. Bạn phải cắn đứt lớp thịt ngoài cùng của mình để lột xác thoát thân.",
       "effects": {
        "AGI": -1,
-       "health": -40,
+       "health": -45,
        "flags": [
         "rec_h_troi"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Từ bỏ ý định và lùi lại",
@@ -11496,14 +11700,15 @@
      "fail": {
       "text": "Thánh Quang thiêu rụi lũ thuộc hạ ngay lập tức, một ngọn lửa bắt sang đốt cháy một mảng lưng bạn trước khi bạn kịp chui qua lỗ hổng.",
       "effects": {
-       "health": -35,
+       "health": -45,
        "fame": -15,
        "flags": [
         "minion_3_chay"
        ],
        "minionLose": true
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Cùng thuộc hạ phản công",
@@ -11631,14 +11836,15 @@
      "fail": {
       "text": "Chúng đông đảo và hung hãn. Bạn bị chém đứt một tay, phải bỏ lại toàn bộ cơ ngơi và chui lủi trốn đi như một con chuột.",
       "effects": {
-       "health": -45,
+       "health": -50,
        "wealth": -40,
        "flags": [
         "minion_5_bai"
        ],
        "minionLose": true
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Dùng mưu kích động nội chiến",
@@ -11698,14 +11904,15 @@
      "fail": {
       "text": "Lão Lich phát hiện ra trò lừa, thịnh nộ phóng hỏa thiêu rụi nửa hang ổ của bạn, cướp luôn tên thuộc hạ.",
       "effects": {
-       "health": -35,
+       "health": -45,
        "wealth": -20,
        "flags": [
         "minion_6_lua"
        ],
        "minionLose": true
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Cúi đầu dâng nạp",
@@ -11771,7 +11978,8 @@
         "minion_7_bay"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Nhặt nhạnh tàn dư rồi lẩn trốn",
@@ -11832,13 +12040,14 @@
       "text": "Việc truyền ma lực thất bại, nó vỡ vụn thành cát bụi ngay trên tay bạn, để lại cho bạn sự hao hụt năng lượng vĩnh viễn.",
       "effects": {
        "STR": -1,
-       "health": -30,
+       "health": -45,
        "flags": [
         "minion_8_vo"
        ],
        "minionLose": true
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Tự tay kết liễu để nó yên nghỉ",
@@ -11905,7 +12114,8 @@
        ],
        "minionLose": true
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Kìm hãm bản năng, nhịn đói xuất trận",
@@ -11970,7 +12180,8 @@
         "f1_2_chem"
        ]
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Đập nát tế đàn, từ chối xưng thần",
@@ -12036,7 +12247,8 @@
        ],
        "minionLose": true
       }
-     }
+     },
+     "risk": "lethal"
     },
     {
      "label": "Dùng đá quý thay thế linh hồn",
@@ -12164,6 +12376,30 @@
      "Bạn nằm cuộn tròn trong một hốc đá, từ từ nhai nuốt và để dòng máu đen vá lại vết chém trên lồng ngực.",
      "Bạn bắt được một con chuột cống khổng lồ, tiếng xương vỡ vụn dưới hàm răng vang vọng cả hẻm núi.",
      "Bạn ngâm mình dưới đầm lầy, hút lấy dịch nhầy của Slime chết để bôi trơn các khớp xương khô khốc."
+    ],
+    "infant": [
+     "Bạn nằm cuộn tròn trong một hốc đá, từ từ nhai nuốt và để dòng máu đen vá lại vết chém trên lồng ngực.",
+     "Bạn bắt được một con chuột cống khổng lồ, tiếng xương vỡ vụn dưới hàm răng vang vọng cả hẻm núi.",
+     "Bạn ngâm mình dưới đầm lầy, hút lấy dịch nhầy của Slime chết để bôi trơn các khớp xương khô khốc.",
+     "Bạn chăm chú dõi theo một vệt sáng nhỏ dịch chuyển chậm trên mặt đất.",
+     "Một âm thanh lạ làm bạn giật mình; đến lần thứ hai, bạn đã tò mò lắng nghe.",
+     "Bạn nhận ra nhịp điệu quen thuộc của nơi mình sống và yên tâm mỗi khi nó trở lại.",
+     "Những giấc ngủ ngắn xen giữa lúc thức khiến một ngày tưởng chừng dài vô tận.",
+     "Bạn tập phân biệt những mùi quen thuộc với mùi của cơn mưa mới tới.",
+     "Một chiếc bóng đung đưa khiến bạn quan sát rất lâu, như vừa khám phá ra điều kỳ diệu.",
+     "Bạn dần biết thứ gì ở quanh mình ấm áp, thứ gì lạnh và thứ gì nên tránh xa."
+    ],
+    "child": [
+     "Bạn nằm cuộn tròn trong một hốc đá, từ từ nhai nuốt và để dòng máu đen vá lại vết chém trên lồng ngực.",
+     "Bạn bắt được một con chuột cống khổng lồ, tiếng xương vỡ vụn dưới hàm răng vang vọng cả hẻm núi.",
+     "Bạn ngâm mình dưới đầm lầy, hút lấy dịch nhầy của Slime chết để bôi trơn các khớp xương khô khốc.",
+     "Bạn nghĩ ra một trò chơi với những vệt bóng quanh mình, rồi tự thay luật vì thấy quá dễ.",
+     "Bạn khám phá một góc nhỏ trước giờ chưa để ý và coi đó là bí mật của riêng mình.",
+     "Cơn mưa kéo dài khiến bạn ở yên quan sát, đếm từng nhịp nước rơi cho đỡ buồn.",
+     "Bạn dành cả buổi tìm nguồn một tiếng động lạ, cuối cùng phát hiện nó vô hại.",
+     "Một vật nhỏ chẳng có giá trị trở thành kho báu trong câu chuyện bạn tự tưởng tượng.",
+     "Bạn thử ghi nhớ đường đi quanh nơi sống, rồi ngạc nhiên vì mình đã thuộc nhiều đến thế.",
+     "Một ngày bình thường khép lại bằng niềm vui nho nhỏ: bạn tự làm được điều từng khiến mình lúng túng."
     ]
    }
   },
@@ -12245,6 +12481,30 @@
      "Rễ của Cây Thế Giới đâm xuyên qua ván quan tài, quấn chặt lấy xương sườn của bạn trong một giấc ngủ êm đềm.",
      "Lớp đất lạnh lẽo phía trên lấp đi tiếng động của thế giới, bạn trôi dạt trong những mảnh ký ức vụn vỡ của kiếp trước.",
      "Bọn giòi bọ bò lúc nhúc trong hốc mắt bạn, dọn dẹp sạch sẽ những mô thịt đã thối rữa không thể dùng được nữa."
+    ],
+    "infant": [
+     "Rễ của Cây Thế Giới đâm xuyên qua ván quan tài, quấn chặt lấy xương sườn của bạn trong một giấc ngủ êm đềm.",
+     "Lớp đất lạnh lẽo phía trên lấp đi tiếng động của thế giới, bạn trôi dạt trong những mảnh ký ức vụn vỡ của kiếp trước.",
+     "Bọn giòi bọ bò lúc nhúc trong hốc mắt bạn, dọn dẹp sạch sẽ những mô thịt đã thối rữa không thể dùng được nữa.",
+     "Bạn chăm chú dõi theo một vệt sáng nhỏ dịch chuyển chậm trên mặt đất.",
+     "Một âm thanh lạ làm bạn giật mình; đến lần thứ hai, bạn đã tò mò lắng nghe.",
+     "Bạn nhận ra nhịp điệu quen thuộc của nơi mình sống và yên tâm mỗi khi nó trở lại.",
+     "Những giấc ngủ ngắn xen giữa lúc thức khiến một ngày tưởng chừng dài vô tận.",
+     "Bạn tập phân biệt những mùi quen thuộc với mùi của cơn mưa mới tới.",
+     "Một chiếc bóng đung đưa khiến bạn quan sát rất lâu, như vừa khám phá ra điều kỳ diệu.",
+     "Bạn dần biết thứ gì ở quanh mình ấm áp, thứ gì lạnh và thứ gì nên tránh xa."
+    ],
+    "child": [
+     "Rễ của Cây Thế Giới đâm xuyên qua ván quan tài, quấn chặt lấy xương sườn của bạn trong một giấc ngủ êm đềm.",
+     "Lớp đất lạnh lẽo phía trên lấp đi tiếng động của thế giới, bạn trôi dạt trong những mảnh ký ức vụn vỡ của kiếp trước.",
+     "Bọn giòi bọ bò lúc nhúc trong hốc mắt bạn, dọn dẹp sạch sẽ những mô thịt đã thối rữa không thể dùng được nữa.",
+     "Bạn nghĩ ra một trò chơi với những vệt bóng quanh mình, rồi tự thay luật vì thấy quá dễ.",
+     "Bạn khám phá một góc nhỏ trước giờ chưa để ý và coi đó là bí mật của riêng mình.",
+     "Cơn mưa kéo dài khiến bạn ở yên quan sát, đếm từng nhịp nước rơi cho đỡ buồn.",
+     "Bạn dành cả buổi tìm nguồn một tiếng động lạ, cuối cùng phát hiện nó vô hại.",
+     "Một vật nhỏ chẳng có giá trị trở thành kho báu trong câu chuyện bạn tự tưởng tượng.",
+     "Bạn thử ghi nhớ đường đi quanh nơi sống, rồi ngạc nhiên vì mình đã thuộc nhiều đến thế.",
+     "Một ngày bình thường khép lại bằng niềm vui nho nhỏ: bạn tự làm được điều từng khiến mình lúng túng."
     ]
    }
   },
@@ -12253,6 +12513,12 @@
   }
  },
  "systems": {
+  "solitaryOrigins": [
+   "ghoul_origin_graveyard",
+   "ghoul_origin_massgrave",
+   "ghoul_origin_battlefield",
+   "ghoul_origin_dungeon"
+  ],
   "noRecruit": true,
   "activeFrom": "infant",
   "bandName": "bầy",
@@ -12562,6 +12828,9 @@
      "{rival} lẩm bẩm lời cầu nguyện khi đập vỡ sọ một con xác sống.",
      "Tiếng chuông từ cây chùy bạc của {rival} vang lên trong màn đêm.",
      "{rival} nhìn bạn bằng ánh mắt chán ghét của kẻ mang thánh mệnh."
+    ],
+    "contexts": [
+     "free"
     ]
    },
    "rival_b": {
@@ -12573,6 +12842,9 @@
      "{rival} gầm lên một tiếng làm lũ bọ cạp chạy tán loạn.",
      "Mùi thịt thối rữa nồng nặc phát ra từ hàm răng đen kịt của {rival}.",
      "{rival} dùng một khúc xương đùi khổng lồ để xỉa răng."
+    ],
+    "contexts": [
+     "free"
     ]
    },
    "rival_c": {
@@ -12584,6 +12856,9 @@
      "{rival} nhổ nước bọt mỗi khi bước vào bán kính mười bước quanh bạn.",
      "Mũi tên bạc của {rival} luôn nhắm thẳng vào đầu gối.",
      "{rival} uống một ngụm máu tươi từ chiếc bình chạm trổ cầu kỳ."
+    ],
+    "contexts": [
+     "free"
     ]
    },
    "mentor_a": {
@@ -12591,42 +12866,60 @@
     "role": "mentor",
     "title": "KẺ ĐÁNH THỨC",
     "desc": "Nam, Human. Một Necromancer già nua của Hắc Nguyệt Hội, kẻ đã ghép xác và đánh thức bạn ({maker}), luôn gõ cây gậy xương vào sọ bạn mỗi khi giảng bài. {mentor} ho sặc sụa nhưng đôi mắt giấu sau mũ trùm vẫn rực sáng tham vọng hắc ám. Mùi thảo mộc ướp xác nồng nặc phát ra từ lớp áo choàng rách nát của {mentor}. {mentor} lẩm bẩm ghi chép điên cuồng vào cuốn ma đạo thư bọc bằng da người.",
-    "recall": []
+    "recall": [],
+    "contexts": [
+     "free"
+    ]
    },
    "mentor_b": {
     "id": "mentor_b",
     "role": "mentor",
     "title": "GHOUL GIÀ TRÍ TẾ",
     "desc": "Nam, Ghoul. Một con Ghoul cằn cỗi đã sống ngàn năm, giữ được tên thật của mình hồi còn làm người, trên cổ đeo một sợi dây chuyền lồng ảnh đã phai màu. {mentor} nhai một nhánh rễ cây khô thay vì ăn thịt người để giữ cho tâm trí thanh tịnh. Ánh mắt vẩn đục của {mentor} chứa đựng sự u buồn của vô số kiếp nhân sinh. {mentor} thường lẩm nhẩm những bài hát ru từ một vương quốc Human đã sụp đổ.",
-    "recall": []
+    "recall": [],
+    "contexts": [
+     "free"
+    ]
    },
    "mentor_c": {
     "id": "mentor_c",
     "role": "mentor",
     "title": "KẺ KHÂU SẸO TĨNH LẶNG",
     "desc": "Nữ, Elf. Một cựu cung thủ tinh linh bị nguyền rủa thành quái vật ăn xác, giấu khuôn mặt khô héo dưới lớp áo choàng rêu phong và dùng một cây cung gỗ mục nát. {mentor} vuốt ve dây cung làm từ gân quái vật với một sự trân trọng kỳ lạ. Đôi tai nhọn của {mentor} đã sứt mẻ và rỉ ra chất dịch hôi thối màu xanh lục. {mentor} di chuyển không một tiếng động, im lặng như một cái bóng lướt qua các bia mộ.",
-    "recall": []
+    "recall": [],
+    "contexts": [
+     "free"
+    ]
    },
    "friend_a": {
     "id": "friend_a",
     "role": "friend",
     "title": "TINH LINH LƯU VONG",
     "desc": "Nữ, Elf. Một tinh linh bị trục xuất khỏi rừng sâu, đôi tai nhọn bị cắt cụt một nửa, luôn thổi một khúc nhạc buồn bằng chiếc sáo gỗ mục. Tiếng sáo gỗ sầu thảm của {friend} là thứ âm nhạc duy nhất trong đời bạn. {friend} nhìn bạn bằng ánh mắt đồng cảm của một kẻ cũng bị thế giới ruồng bỏ. Khúc nhạc của {friend} có thể xoa dịu cả những linh hồn oán hận nhất.",
-    "recall": []
+    "recall": [],
+    "contexts": [
+     "free"
+    ]
    },
    "friend_b": {
     "id": "friend_b",
     "role": "friend",
     "title": "QUẠ BA MẮT",
     "desc": "Nam, Quái thú. Một con quạ đen có ba mắt, lông rụng lởm chởm, luôn cắp theo một đồng xu gỉ sét và kêu những tiếng quác quác mang âm điệu châm chọc. {friend} thường bay lượn vòng quanh đầu bạn mỗi khi bạn bối rối. Con mắt thứ ba trên trán {friend} luôn rực sáng thứ ánh sáng đỏ quạch của tà thuật. {friend} thích mổ vào hộp sọ trọc lóc của bạn để đòi ăn.",
-    "recall": []
+    "recall": [],
+    "contexts": [
+     "free"
+    ]
    },
    "friend_c": {
     "id": "friend_c",
     "role": "friend",
     "title": "BỘ XƯƠNG HAY NÓI",
     "desc": "Nam, Undead. Một bộ xương khô mặc áo lính gác sờn rách, quai hàm luôn lạch cạch phát ra âm thanh như đang lải nhải kể chuyện tiếu lâm. {friend} luôn gài một nhánh hoa khô cằn cỗi lên kẽ xương sườn của mình. Mỗi khi bước đi, các khớp xương của {friend} kêu răng rắc như một dàn nhạc tồi tệ. {friend} thường lôi xương ngón tay của mình ra để gãi đầu mỗi khi cố nhớ lại kiếp trước.",
-    "recall": []
+    "recall": [],
+    "contexts": [
+     "free"
+    ]
    }
   },
   "chapters": {
@@ -12641,7 +12934,8 @@
     },
     {
      "cond": "chưa có nghề",
-     "text": "Bản năng dã thú là thứ duy nhất dẫn lối khi bạn chưa biết mình phải làm gì giữa thế giới thối rữa này."
+     "text": "Bản năng dã thú là thứ duy nhất dẫn lối khi bạn chưa biết mình phải làm gì giữa thế giới thối rữa này.",
+     "requiresShelter": true
     },
     {
      "cond": "có {mentor}",

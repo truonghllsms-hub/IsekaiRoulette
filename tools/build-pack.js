@@ -216,6 +216,15 @@ function build(raceId, opts) {
       ch.check = { stat: c.check.stat, target: target(c.check.stat, c.check.diff) };
       ch.success = outcome(c.success, ctx);
       ch.fail = outcome(c.fail, ctx);
+      // Mark fatal checks and severe injuries explicitly for the player. Authors
+      // can mark lower-damage combat/escape checks with SINH TỬ in the script.
+      if (c.lethal || ch.fail.death || (ch.fail.effects && ch.fail.effects.health <= -30)) {
+        ch.risk = "lethal";
+        if (!ch.fail.death) {
+          const damage = c.check.diff >= 4 ? 50 : c.check.diff >= 3 ? 45 : 35;
+          ch.fail.effects = Object.assign({}, ch.fail.effects, { health: Math.min(ch.fail.effects?.health || 0, -damage) });
+        }
+      }
     } else {
       const o = outcome(c.plain || c.success, ctx);
       if (!o || !o.text) { report.push(`  ! lựa chọn trống: ${c.label}`); return null; }
@@ -320,7 +329,7 @@ function build(raceId, opts) {
     const p = s.split("·").map((x) => x.trim());
     const unknown = /^không rõ/i.test(p[0]);
     const st = (p.length > 1 ? p[p.length - 1] : p[0]).toLowerCase();
-    const status = /đã chết|đã mất|vừa chết|bị .*giết|tử trận|đã khuất/.test(st) ? "dead" : /bỏ đi|lang thang|không tung tích|biến mất/.test(st) ? "gone" : /còn sống|còn tồn tại/.test(st) ? "alive" : unknown ? "unknown" : "alive";
+    const status = /đã chết|đã mất|vừa chết|bị .*giết|tử trận|đã khuất|đã tự sát|qua đời/.test(st) ? "dead" : /bỏ đi|lang thang|không tung tích|biến mất/.test(st) ? "gone" : /còn sống|còn tồn tại/.test(st) ? "alive" : unknown ? "unknown" : "alive";
     let name = unknown ? null : ren(p[0]).replace(/\{(father|mother|maker)\}\s*/g, "").trim() || null; // "{maker} Xanthus" → "Xanthus"
     if (name && /^\{(father|mother|maker)\}$/.test(name)) name = null; // the script left the name to the game
     if (name && name.length > 40) name = null;
@@ -414,7 +423,7 @@ function build(raceId, opts) {
     // story nodes: who they are about, and they come first when due
     if (e._story) {
       let sm;
-      if ((sm = e.id.match(/_cast_(rival|mentor|friend)_([a-z])_\d/))) { req.cast = `${sm[1]}_${sm[2]}`; req.castAlive = sm[1]; }
+      if ((sm = e.id.match(/_cast_(rival|mentor|friend)_([a-z])_\d/))) { req.cast = `${sm[1]}_${sm[2]}`; req.castAlive = sm[1]; req.free = true; }
       else if ((sm = e.id.match(/_band_(band_[a-z])_(m?\d+)$/))) {
         if (sm[2] === "1") req.noBand = true;
         else {
@@ -431,7 +440,7 @@ function build(raceId, opts) {
       else if (/_lead_(link_)?\d+$/.test(e.id)) { req.bandLead = true; if (!ev.stages) ev.stages = ["adult"]; }
       else if (/_minion_rec_[a-z]$/.test(e.id)) req.minionOk = true;
       else if (/_minion_\d+$/.test(e.id)) req.minions = 1;
-      else if ((sm = e.id.match(/_minion_(hob|sham|king)_/))) { req.form = { hob: "Hobgoblin", sham: "Goblin Shaman Lord", king: "Goblin King" }[sm[1]]; }
+      else if ((sm = e.id.match(/_minion_(hob|sham|king)_/))) { req.form = { hob: "Hobgoblin", sham: "Goblin Shaman Lord", king: "Goblin King" }[sm[1]]; req.minions = 1; }
       // v3 prompts for other races: <race>_minion_f<n>_<k>, f1 = the first evolution of the pack
       else if ((sm = e.id.match(/_minion_f(\d+)_/))) { const f = (meta.evos || [])[Number(sm[1]) - 1]; if (f) req.form = f.name || f.form || f; }
       if ((sm = (e.when || "").match(/\{(rival|mentor|friend)\} còn sống/))) req.castAlive = sm[1];
@@ -481,6 +490,7 @@ function build(raceId, opts) {
     if (o.require && (o.require.any || o.require.flags || o.require.anyFlags)) { delete req.flags; delete req.anyFlags; }
     if (o.require && o.require.any) { delete req.fame; delete req.wealth; }
     Object.assign(req, o.require || {});
+    if (req.captiveKinds) delete req.free;
     for (const k of Object.keys(o.unrequire || {})) delete req[k];
     if (Object.keys(req).length) ev.require = req;
     // "{child} ở giai đoạn Troll nhí" is the child's age, not yours: child events follow your own life
@@ -492,6 +502,7 @@ function build(raceId, opts) {
     // events the script gives no stage for skip stages where the race cannot act yet (a dragon egg)
     if (!ev.stages && meta.defaultStages && !/_evo_|_post_/.test(e.id)) ev.stages = meta.defaultStages;
     if (o.stages) ev.stages = o.stages;
+    if (o.npcs) ev.npcs = o.npcs;
     if (o.focus) ev.focus = o.focus;
     if (o.eras) ev.eras = o.eras;
     if (o.minAge != null) ev.minAge = o.minAge;
@@ -552,7 +563,7 @@ function build(raceId, opts) {
       ev.once = true;
     } else if (e.auto) {
       if (ev.text && e.auto.text && ev.text !== ren(e.auto.text)) ev.result = ren(e.auto.text);
-      else ev.text = ren(e.auto.text);
+      else if (e.auto.text) ev.text = ren(e.auto.text);
       const eff = effects(e.auto.eff, ctx);
       if (/_born|_birth|sinh_con/.test(e.id) && !eff.child) eff.child = true;
       const addFlags = [...(o.addFlags || []), ...(ev._addFlags || [])];
@@ -689,7 +700,15 @@ function build(raceId, opts) {
       bands: story.bands, minions: story.minions, recruits: story.recruits, bioMap: meta.storyBioOpen || null,
     });
   }
+  for (const x of pack.story?.chapters?.child || []) if (/chưa có (nghề|vai trò)/i.test(x.cond || "")) x.requiresShelter = true;
+  const childhood = require("../content/childhood");
+  for (const id of ["play", "rest"]) if (pack.focus?.[id]) {
+    const quiet = pack.focus[id].quiet || (pack.focus[id].quiet = {});
+    for (const [stage, extra] of Object.entries(childhood)) quiet[stage] = [...new Set([...(quiet[stage] || quiet.default || []), ...extra])];
+  }
+  for (const k of Object.values(pack.story?.cast || {})) k.contexts = (meta.castContexts || {})[k.id] || ["free"];
   if (meta.exclusive) pack.exclusive = true;
+  if (meta.keepEvents) pack.keepEvents = meta.keepEvents;
   for (const k of ["tags", "lifespan", "hazard", "yearScale", "noChildhood", "subtypes"]) if (meta[k] !== undefined) pack[k] = meta[k];
   // names of groups, guilds and people in English (content/english-names.js)
   pack = require("./english-names").englishPack(raceId, pack);

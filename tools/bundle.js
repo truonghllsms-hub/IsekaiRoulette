@@ -13,6 +13,8 @@ const body = html.slice(html.indexOf("<main"), html.indexOf("</main>") + "</main
 const fontLink = (html.match(/<link href="https:\/\/fonts\.googleapis\.com[^>]+>/) || [""])[0];
 
 const out = `<title>Luân Hồi Dị Giới</title>
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 ${fontLink}
@@ -27,12 +29,25 @@ ${safeJs(read("engine.js"))}
 ${safeJs(read("data.js"))}
 </script>
 <script>
+${safeJs(read("portraits.js"))}
+</script>
+<script>
+${safeJs(read("presentation.js"))}
+</script>
+<script>
+${safeJs(read("session.js"))}
+</script>
+<script>
 ${safeJs(read("ui.js"))}
 </script>
 `;
 
 fs.mkdirSync(path.join(ROOT, "dist"), { recursive: true });
 fs.writeFileSync(path.join(ROOT, "dist", "game.html"), out, "utf8");
-const imgs = fs.existsSync(path.join(ROOT, "img")) ? fs.readdirSync(path.join(ROOT, "img")).filter((f) => f.endsWith(".png")) : [];
-if (imgs.length) console.log(`Ảnh nhân vật (${imgs.length}) đăng kèm dưới dạng file riêng: img/<tên>.png từ thư mục img/.`);
+const atlas = JSON.parse(read("img/atlas.json"));
+if (!fs.existsSync(path.join(ROOT, "img/ui/home-chronicle.png"))) throw new Error("Thiếu nền cổ thư màn hình chính");
+if (!fs.existsSync(path.join(ROOT, "img/maps/aethelgard-01.png"))) throw new Error("Thiếu bản đồ Aethelgard");
+const assets = new Set(Object.entries(atlas).map(([person, frames]) => frames._src || `img/${person}.png`));
+for (const asset of assets) if (!fs.existsSync(path.join(ROOT, asset))) throw new Error(`Thiếu ảnh chân dung: ${asset}`);
+if (assets.size) console.log(`Ảnh nhân vật: ${assets.size} tệp trong img/. Giữ thư mục này cạnh index.html khi chia sẻ.`);
 console.log(`Đã đóng gói dist/game.html (${(Buffer.byteLength(out) / 1024).toFixed(0)} KB)`);

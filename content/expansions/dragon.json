@@ -1,0 +1,1705 @@
+{
+  "origins": [],
+  "events": [
+    {
+      "id": "gm_dragon_egg_cold",
+      "pack": true,
+      "races": [
+        "dragon"
+      ],
+      "stages": [
+        "infant"
+      ],
+      "once": true,
+      "weight": 6,
+      "text": "Mùa Săn Bão ập đến Đảo Tro Tàn. Hơi lạnh xuyên qua kẽ nứt của hang động, đe dọa dập tắt sinh cơ mỏng manh bên trong lớp vỏ trứng của bạn.",
+      "choices": [
+        {
+          "label": "Đốt cháy ma lực dự trữ để tự sưởi ấm",
+          "check": {
+            "stat": "INT",
+            "target": 5
+          },
+          "success": {
+            "text": "Bạn thành công điều hòa nhiệt độ xung quanh hạch tâm. Lớp vỏ tỏa ra ánh sáng rực rỡ, xua tan cơn giá lạnh tàn khốc.",
+            "effects": {
+              "INT": 1,
+              "health": -5
+            }
+          },
+          "fail": {
+            "text": "Dòng ma lực lưu chuyển không đều khiến hạch tâm tê buốt. Bạn giữ được mạng sống nhưng chịu tổn thương sâu sắc bên trong vỏ.",
+            "effects": {
+              "health": -15,
+              "LUCK": -1
+            }
+          }
+        },
+        {
+          "label": "Thu liễm nhịp đập, tiến vào trạng thái ngủ sâu",
+          "check": {
+            "stat": "AGI",
+            "target": 5
+          },
+          "success": {
+            "text": "Bạn hạ thấp nhịp tim đến mức tĩnh lặng. Cơn bão quét qua mà không thể rút đi chút sinh lực nào từ quả trứng đang ngủ đông.",
+            "effects": {
+              "AGI": 1
+            }
+          },
+          "fail": {
+            "text": "Cái lạnh xâm nhập quá nhanh trước khi bạn kịp làm chậm nhịp tim. Màng bảo vệ bên trong nứt nẻ, cướp đi một phần sức sống.",
+            "effects": {
+              "health": -12
+            }
+          }
+        },
+        {
+          "label": "Giữ ma lực ở lõi và chờ cơn lạnh đi qua",
+          "text": "Bạn thu hẹp dòng ma lực vào quanh lõi, để lớp màng ngoài chống chọi cơn lạnh. Sức lực hao đi đôi chút nhưng hạch tâm vẫn nguyên vẹn.",
+          "effects": {
+            "health": -4,
+            "joy": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_dragon_egg_thief",
+      "pack": true,
+      "races": [
+        "dragon"
+      ],
+      "stages": [
+        "infant"
+      ],
+      "once": true,
+      "weight": 7,
+      "text": "Những bàn tay thô ráp chạm vào vỏ trứng của bạn. Một toán trộm đang cố dùng dây thừng để kéo bạn ra khỏi tổ ấm, nhắm đến giá trị khổng lồ của ngọc rồng.",
+      "choices": [
+        {
+          "label": "Tỏa ra nhiệt lượng thiêu đốt qua lớp vỏ",
+          "check": {
+            "stat": "INT",
+            "target": 6
+          },
+          "success": {
+            "text": "Nhiệt lượng đột ngột bùng phát khiến lũ trộm bỏng nặng và phải buông tay. Quả trứng của bạn an toàn nằm lại trong tổ.",
+            "effects": {
+              "INT": 1,
+              "joy": 5
+            }
+          },
+          "fail": {
+            "text": "Lớp vỏ không đủ khả năng truyền dẫn nhiệt. Bạn bị lũ trộm lăn đi một đoạn xa và va đập mạnh trước khi chúng bỏ cuộc vì quá nặng.",
+            "effects": {
+              "health": -20,
+              "joy": -5
+            }
+          }
+        },
+        {
+          "label": "Làm cứng vỏ trứng, tạo ra sức nặng ngàn cân",
+          "check": {
+            "stat": "STR",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn hấp thụ khoáng chất xung quanh, khiến quả trứng trở nên nặng như một ngọn núi nhỏ. Toán trộm đứt gãy dây thừng và bỏ chạy.",
+            "effects": {
+              "STR": 1
+            }
+          },
+          "fail": {
+            "text": "Quá trình làm cứng bị gián đoạn, khiến vỏ trứng xuất hiện vài vết xước vĩnh viễn. Lũ trộm không mang được bạn đi nhưng đã làm bạn suy yếu.",
+            "effects": {
+              "health": -15
+            }
+          }
+        },
+        {
+          "label": "Bám ma lực vào nền tổ, chờ lũ trộm bỏ cuộc",
+          "text": "Bạn dồn sức giữ vỏ trứng sát nền đá, buộc bọn trộm phải mất quá nhiều công kéo đi. Chúng rời tổ khi nghe tiếng đá vọng từ sâu trong hang.",
+          "effects": {
+            "health": -4,
+            "joy": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_dragon_egg_memory",
+      "pack": true,
+      "races": [
+        "dragon"
+      ],
+      "stages": [
+        "infant"
+      ],
+      "once": true,
+      "weight": 5,
+      "text": "Trong cơn mơ vô tận của phôi thai, dòng ký ức huyết thống cổ xưa bắt đầu tuôn chảy. Bạn nhìn thấy bầu trời đỏ rực bị xé rách bởi những đôi cánh khổng lồ.",
+      "choices": [
+        {
+          "label": "Đón nhận bản năng chiến đấu rực lửa",
+          "check": {
+            "stat": "STR",
+            "target": 5
+          },
+          "success": {
+            "text": "Tiếng gầm ảo ảnh vang vọng trong tâm trí. Huyết quản của bạn sục sôi sức mạnh vô song của các bậc tiền bối chinh phạt bầu trời.",
+            "effects": {
+              "STR": 2
+            }
+          },
+          "fail": {
+            "text": "Bản năng quá cuồng bạo so với hạch tâm chưa hoàn thiện. Bạn trải qua cơn sốt năng lượng tồi tệ, thiêu đốt chút thể lực ít ỏi.",
+            "effects": {
+              "health": -15,
+              "STR": 1
+            }
+          }
+        },
+        {
+          "label": "Khai mở trí tuệ ẩn giấu trong huyết thống",
+          "check": {
+            "stat": "INT",
+            "target": 5
+          },
+          "success": {
+            "text": "Bạn nhìn thấu nguyên lý của ma pháp ngôn từ cổ đại. Một ký tự phát sáng hiện lên trong tâm trí, củng cố nhận thức tinh thần của phôi thai.",
+            "effects": {
+              "INT": 2
+            }
+          },
+          "fail": {
+            "text": "Lượng kiến thức đồ sộ cuốn lấy ý thức nhỏ bé của bạn. Bạn rơi vào trạng thái choáng váng kéo dài một thời gian trong vỏ.",
+            "effects": {
+              "joy": -5
+            }
+          }
+        },
+        {
+          "label": "Khép ký ức lại để bảo toàn ý thức",
+          "text": "Bạn để những bóng hình tổ tiên trôi qua thay vì cố chiếm lấy chúng. Hạch tâm trở về nhịp đập quen thuộc, giữ nguyên phần ý thức vừa thành hình.",
+          "effects": {
+            "health": -4,
+            "joy": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_dragon_egg_quake",
+      "pack": true,
+      "races": [
+        "dragon"
+      ],
+      "stages": [
+        "infant"
+      ],
+      "once": true,
+      "weight": 6,
+      "text": "Đất đá từ trần hang nứt toác vì một trận động đất dữ dội. Một khối đá tảng sắc nhọn đang rơi thẳng xuống vị trí quả trứng của bạn.",
+      "choices": [
+        {
+          "label": "Tỏa ra ma lực đẩy lệch quỹ đạo hòn đá",
+          "check": {
+            "stat": "LUCK",
+            "target": 6
+          },
+          "success": {
+            "text": "Một luồng sáng vô hình bùng ra, khiến tảng đá trượt qua bề mặt trứng trong gang tấc. Bạn hoàn toàn bình yên vô sự.",
+            "effects": {
+              "LUCK": 1,
+              "joy": 3
+            }
+          },
+          "fail": {
+            "text": "Sức mạnh phòng ngự không đủ. Tảng đá sượt qua, để lại một vết nứt sâu trên lớp vỏ và chấn động mạnh đến lõi sinh mệnh của bạn.",
+            "effects": {
+              "health": -20
+            }
+          }
+        },
+        {
+          "label": "Tụ cứng màng bảo vệ để chịu đựng va đập",
+          "check": {
+            "stat": "STR",
+            "target": 5
+          },
+          "success": {
+            "text": "Khối đá vỡ nát khi chạm vào lớp vỏ kiên cố của bạn. Phôi thai bên trong không hề hấn gì trước sức mạnh hủy diệt của tự nhiên.",
+            "effects": {
+              "STR": 1
+            }
+          },
+          "fail": {
+            "text": "Lực va chạm vượt mức chịu đựng của lớp vỏ sơ sinh. Bạn bị ép sâu vào nền đất, phải tốn một quá trình hồi phục kéo dài để tự phục hồi những kẽ nứt.",
+            "effects": {
+              "health": -18
+            }
+          }
+        },
+        {
+          "label": "Giữ ma lực quanh lõi, chấp nhận vỏ ngoài sứt mẻ",
+          "text": "Bạn không cố đẩy tảng đá mà gia cố phần lõi. Sức nặng làm lớp vỏ ngoài sứt mẻ trước khi đá trượt khỏi ổ, để lại một cơn chấn động có thể chịu đựng.",
+          "effects": {
+            "health": -4,
+            "joy": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_dragon_egg_mana",
+      "pack": true,
+      "races": [
+        "dragon"
+      ],
+      "stages": [
+        "infant"
+      ],
+      "once": true,
+      "weight": 5,
+      "text": "Một dòng hải lưu ma lực rò rỉ từ tầng ngầm của Aethelgard tràn qua tổ của bạn. Nguồn năng lượng đậm đặc này vừa là cơ hội vừa là kịch độc.",
+      "choices": [
+        {
+          "label": "Hút dòng ma lực để mở rộng lõi",
+          "check": {
+            "stat": "INT",
+            "target": 6
+          },
+          "success": {
+            "text": "Lõi ma thuật của bạn phình to ra, đồng hóa hoàn toàn dòng năng lượng. Bạn cảm thấy sức mạnh tăng lên đáng kể ngay khi chưa nở.",
+            "effects": {
+              "INT": 1,
+              "STR": 1
+            }
+          },
+          "fail": {
+            "text": "Bạn hấp thụ quá liều. Năng lượng xung đột trong quả trứng tạo ra những cơn bạo loạn ma pháp, bào mòn sinh khí của bạn.",
+            "effects": {
+              "health": -15,
+              "joy": -5
+            }
+          }
+        },
+        {
+          "label": "Chặn đứng sự xâm nhập, giữ vững sự tinh khiết",
+          "check": {
+            "stat": "AGI",
+            "target": 5
+          },
+          "success": {
+            "text": "Bạn đóng kín mọi lỗ chân lông trên vỏ, bảo toàn nguyên vẹn dòng máu cổ xưa. Sự kiên định này giúp hạch tâm trở nên linh hoạt hơn.",
+            "effects": {
+              "AGI": 1,
+              "LUCK": 1
+            }
+          },
+          "fail": {
+            "text": "Dòng ma lực quá mạnh vẫn kịp luồn qua một vài kẽ hở, gây ra sự khó chịu và ngứa ngáy dai dẳng trong một quãng dài.",
+            "effects": {
+              "joy": -5
+            }
+          }
+        },
+        {
+          "label": "Khóa lõi, để năng lượng tràn qua bên ngoài",
+          "text": "Bạn giữ dòng ma lực của mình khép kín, bỏ qua nguồn sức mạnh lạ. Luồng năng lượng quét qua tổ mà không thâm nhập được hạch tâm.",
+          "effects": {
+            "health": -4,
+            "joy": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_dragon_egg_roar",
+      "pack": true,
+      "races": [
+        "dragon"
+      ],
+      "stages": [
+        "infant"
+      ],
+      "once": true,
+      "weight": 6,
+      "text": "Một con quái vật săn mồi khổng lồ bước qua khu vực hang động của bạn. Bước chân của nó làm rung chuyển nền đất và tiếng gừ gừ dò xét vang lên rất gần.",
+      "choices": [
+        {
+          "label": "Phóng thích áp lực bá vương từ trong trứng",
+          "check": {
+            "stat": "INT",
+            "target": 5
+          },
+          "success": {
+            "text": "Dù chưa nở, uy áp của loài rồng đã tỏa ra như một luồng gió lạnh. Quái vật khổng lồ sợ hãi lùi lại và không dám quấy rầy tổ của bạn.",
+            "effects": {
+              "INT": 1,
+              "fame": 1
+            }
+          },
+          "fail": {
+            "text": "Áp lực bạn tạo ra chỉ giống như tiếng gầm gừ của thú nhỏ. Quái thú đánh hơi thấy bạn và cào xé lớp vỏ trước khi bị núi đá làm khó mà bỏ đi.",
+            "effects": {
+              "health": -18,
+              "joy": -5
+            }
+          }
+        },
+        {
+          "label": "Thu lại mọi dấu hiệu sự sống",
+          "check": {
+            "stat": "AGI",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn triệt tiêu hoàn toàn nhịp tim và hơi ấm. Con thú ngửi tới ngửi lui rồi lầm tưởng bạn là một tảng đá vô tri, thản nhiên bỏ đi.",
+            "effects": {
+              "AGI": 2
+            }
+          },
+          "fail": {
+            "text": "Sự tĩnh lặng chưa hoàn hảo, nhịp tim đột ngột tăng vọt vì lo âu. Quái thú chú ý và lăn quả trứng một đoạn, khiến bạn bị choáng váng nặng.",
+            "effects": {
+              "health": -15,
+              "AGI": -1
+            }
+          }
+        },
+        {
+          "label": "Nương theo bóng đá, giảm mọi dao động ma lực",
+          "text": "Bạn giữ dao động thật nhỏ, để mùi đá và hơi ẩm che lấp quả trứng. Con thú rời đi khi không tìm được dấu con mồi rõ rệt.",
+          "effects": {
+            "health": -4,
+            "joy": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_dragon_egg_abyss",
+      "pack": true,
+      "races": [
+        "dragon"
+      ],
+      "stages": [
+        "infant"
+      ],
+      "once": true,
+      "weight": 7,
+      "text": "Một mảnh tàn dư Vực Thẳm trôi dạt đến quả trứng. Bóng tối thì thầm, hứa hẹn sức mạnh hắc ám vô tận nếu bạn để nó ăn mòn hạch tâm.",
+      "choices": [
+        {
+          "label": "Từ chối và thiêu rụi bóng tối",
+          "check": {
+            "stat": "LUCK",
+            "target": 6
+          },
+          "success": {
+            "text": "Một luồng sáng thuần khiết phóng ra từ trứng, đánh tan tàn dư Vực Thẳm. Ý chí của bạn được mài giũa sắc bén hơn.",
+            "effects": {
+              "LUCK": 2,
+              "joy": 5
+            }
+          },
+          "fail": {
+            "text": "Bóng tối quá dai dẳng, một phần nhỏ của nó đã bám rễ vào vỏ. Dù bạn đẩy lùi được phần lớn, cảm giác đau đớn vẫn len lỏi vào phôi thai.",
+            "effects": {
+              "health": -20,
+              "joy": -8
+            }
+          }
+        },
+        {
+          "label": "Cẩn trọng đồng hóa một phần năng lượng",
+          "check": {
+            "stat": "INT",
+            "target": 7
+          },
+          "success": {
+            "text": "Bạn lột bỏ sự tà ác, chỉ giữ lại năng lượng nguyên thủy của bóng tối để nuôi dưỡng cơ thể. Một chiếc vảy hắc ám hình thành trên lớp phôi.",
+            "effects": {
+              "INT": 2,
+              "STR": 1
+            }
+          },
+          "fail": {
+            "text": "Năng lượng Vực Thẳm mất kiểm soát, cắn xé một nửa tinh lực của bạn. Bạn rơi vào tình trạng nguy kịch ngay từ trong trứng.",
+            "effects": {
+              "health": -35,
+              "LUCK": -1
+            }
+          }
+        },
+        {
+          "label": "Thu mình, để lớp màng ngoài đẩy mảnh tà khí ra",
+          "text": "Bạn không tranh giành sức mạnh mà chỉ giữ vững ranh giới lõi. Một phần lớp màng bị ăn mòn trước khi mảnh tà khí trôi khỏi tổ.",
+          "effects": {
+            "health": -4,
+            "joy": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_dragon_egg_beast",
+      "pack": true,
+      "races": [
+        "dragon"
+      ],
+      "stages": [
+        "infant"
+      ],
+      "once": true,
+      "weight": 5,
+      "text": "Một bầy thú ăn xác nhỏ tìm thấy tổ của bạn. Chúng dùng hàm răng sắc nhọn gặm nhấm bề mặt, cố gắng đục thủng lớp vỏ để ăn phôi thai rồng.",
+      "choices": [
+        {
+          "label": "Tạo ra một đợt xung kích phép thuật",
+          "check": {
+            "stat": "INT",
+            "target": 5
+          },
+          "success": {
+            "text": "Làn sóng ma pháp bùng nổ, hất văng bầy thú khỏi quả trứng. Chúng chết ngay tức khắc, máu tẩm ướt và cường hóa nền đất quanh bạn.",
+            "effects": {
+              "INT": 1,
+              "STR": 1
+            }
+          },
+          "fail": {
+            "text": "Bạn phát động ma lực quá chậm. Lũ thú kịp cắn vỡ một góc màng ngoài, gây ra vết thương sâu sắc trước khi hoảng sợ chạy mất.",
+            "effects": {
+              "health": -15
+            }
+          }
+        },
+        {
+          "label": "Chuyển hóa vỏ thành sắt thép",
+          "check": {
+            "stat": "STR",
+            "target": 5
+          },
+          "success": {
+            "text": "Răng của bầy thú gãy nát khi cắn vào bề mặt vỏ trứng. Chúng rên rỉ đau đớn và từ bỏ ý định, không để lại lấy một vết xước.",
+            "effects": {
+              "STR": 1,
+              "AGI": 1
+            }
+          },
+          "fail": {
+            "text": "Quá trình biến đổi không kịp thời. Những vết nứt nhỏ hình thành khiến bạn phải tốn lượng lớn ma lực để vá lại màng sinh mệnh.",
+            "effects": {
+              "health": -10,
+              "INT": -1
+            }
+          }
+        },
+        {
+          "label": "Rút năng lượng về lõi, chờ bầy thú rời đi",
+          "text": "Bạn bảo vệ phần sống sâu nhất, để lũ thú chỉ cạo được lớp vỏ cứng bên ngoài. Chúng mất kiên nhẫn bỏ đi khi tiếng đá lở vọng tới.",
+          "effects": {
+            "health": -4,
+            "joy": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gm_dragon_chain_1",
+      "pack": true,
+      "races": [
+        "dragon"
+      ],
+      "stages": [
+        "child"
+      ],
+      "once": true,
+      "weight": 8,
+      "require": {
+        "notFlags": [
+          "gm_dragon_pact_end"
+        ],
+        "free": true
+      },
+      "text": "Bạn, một con rồng non, bắt gặp một kỵ sĩ phàm nhân trẻ tuổi đang hấp hối gần hang. Bất chấp sự khác biệt giống loài, hắn chia sẻ chút thức ăn cuối cùng và ánh mắt mong mỏi một phép màu.",
+      "choices": [
+        {
+          "label": "Nhận thức ăn và tạo liên kết sinh mệnh",
+          "check": {
+            "stat": "INT",
+            "target": 5
+          },
+          "success": {
+            "text": "Bạn truyền một tia ma lực sưởi ấm vào tim hắn. Vết thương khép miệng, và một liên kết mờ nhạt hình thành giữa hai sinh mệnh chênh lệch tuổi thọ.",
+            "effects": {
+              "INT": 1,
+              "joy": 5,
+              "flags": [
+                "gm_dragon_pact_step1"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Dòng ma lực của rồng quá mạnh so với phàm nhân, khiến hắn ho lên một ngụm máu. Dù sống sót, liên kết giữa cả hai trở nên cực kỳ mong manh.",
+            "effects": {
+              "health": -5,
+              "joy": -3,
+              "flags": [
+                "gm_dragon_pact_step1"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Nuốt chửng thức ăn rồi phớt lờ hắn",
+          "text": "Bạn lạnh lùng ăn phần lương khô rồi bay lên vách đá. Tên phàm nhân gục xuống trong tuyết, và bánh xe vận mệnh của hắn kết thúc tại đó.",
+          "effects": {
+            "joy": -5,
+            "STR": 1,
+            "flags": [
+              "gm_dragon_pact_end"
+            ]
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_dragon_chain_2",
+      "pack": true,
+      "races": [
+        "dragon"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 9,
+      "require": {
+        "anyFlags": [
+          "gm_dragon_pact_step1"
+        ],
+        "notFlags": [
+          "gm_dragon_pact_end"
+        ],
+        "free": true
+      },
+      "text": "Liên kết sinh mệnh năm xưa dẫn một người mang thanh kiếm quen thuộc trở lại hang. Đó có thể là kỵ sĩ đã già hoặc người kế thừa lời thề của ông; họ xin một giọt máu rồng để cứu người đang mang trọng bệnh.",
+      "choices": [
+        {
+          "label": "Cắt vảy, ban giọt máu rồng chữa thương",
+          "check": {
+            "stat": "STR",
+            "target": 6
+          },
+          "success": {
+            "text": "Dòng máu rồng rực lửa nhỏ xuống chiếc cốc của người cầu viện. Ma lực được niêm trong chiếc cốc, đủ để đẩy lùi căn bệnh của người đang chờ ở chân núi.",
+            "effects": {
+              "STR": 1,
+              "health": -10,
+              "unflags": [
+                "gm_dragon_pact_step1"
+              ],
+              "flags": [
+                "gm_dragon_pact_step2"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Vết thương ở vảy của bạn rách sâu hơn dự kiến, gây ra cơn đau nhói. Người mang lời thề lấy được máu nhưng cũng nhận ra sự suy yếu của bạn, mang theo ánh mắt phức tạp rời đi.",
+            "effects": {
+              "health": -20,
+              "unflags": [
+                "gm_dragon_pact_step1"
+              ],
+              "flags": [
+                "gm_dragon_pact_step2"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Từ chối, không dùng long huyết can thiệp",
+          "text": "Bạn nhắm mắt tĩnh lặng, không đáp lại. Người mang lời thề gật đầu hiểu rõ, mỉm cười nhẹ rồi quay lưng xuống núi, đi về phía cái chết tất yếu của giống loài.",
+          "effects": {
+            "INT": 1,
+            "unflags": [
+              "gm_dragon_pact_step1"
+            ],
+            "flags": [
+              "gm_dragon_pact_end"
+            ]
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_dragon_chain_3",
+      "pack": true,
+      "races": [
+        "dragon"
+      ],
+      "stages": [
+        "teen",
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": true,
+      "weight": 9,
+      "require": {
+        "anyFlags": [
+          "gm_dragon_pact_step2"
+        ],
+        "notFlags": [
+          "gm_dragon_pact_end"
+        ],
+        "free": true
+      },
+      "text": "Khi một thế hệ người giữ lời thề đã nằm xuống, hậu duệ của họ mang thanh gươm kỷ vật tới hang. Người mới mong bạn tiếp tục che chở gia tộc, đồng thời hiểu rằng lòng tin phải được gìn giữ qua từng thế hệ.",
+      "choices": [
+        {
+          "label": "Gầm lên, khắc dấu ấn bảo hộ lên kẻ thừa kế",
+          "check": {
+            "stat": "INT",
+            "target": 7
+          },
+          "success": {
+            "text": "Sợi dây liên kết của thời đại trước được tái lập. Thanh gươm bừng sáng với ngọn lửa rồng. Gia tộc phàm nhân trở thành những người đại diện trung thành cho bạn dưới chân núi.",
+            "effects": {
+              "fame": 3,
+              "joy": 10,
+              "unflags": [
+                "gm_dragon_pact_step2"
+              ],
+              "flags": [
+                "gm_dragon_pact_end"
+              ]
+            }
+          },
+          "fail": {
+            "text": "Dấu ấn bị lỗi do khoảng cách huyết thống quá xa. Hậu duệ không chịu nổi sức ép, đành bỏ lại thanh gươm và bỏ chạy trong hoảng sợ.",
+            "effects": {
+              "joy": -5,
+              "unflags": [
+                "gm_dragon_pact_step2"
+              ],
+              "flags": [
+                "gm_dragon_pact_end"
+              ]
+            }
+          }
+        },
+        {
+          "label": "Chỉ lấy thanh gươm cho vào kho báu, kết thúc giao ước",
+          "text": "Bạn vươn móng vuốt cất thanh gươm vào núi vàng của mình, bỏ mặc hậu duệ kia ngơ ngác. Mối duyên với phàm nhân cuối cùng cũng khép lại.",
+          "effects": {
+            "wealth": 5,
+            "unflags": [
+              "gm_dragon_pact_step2"
+            ],
+            "flags": [
+              "gm_dragon_pact_end"
+            ]
+          }
+        }
+      ],
+      "arc": true
+    },
+    {
+      "id": "gm_dragon_fly_lesson",
+      "pack": true,
+      "races": [
+        "dragon"
+      ],
+      "stages": [
+        "child",
+        "teen"
+      ],
+      "once": true,
+      "weight": 8,
+      "text": "Một trận cuồng phong thổi qua vách núi. Đây là lúc bản năng mách bảo bạn tung cánh, vượt qua ranh giới của mặt đất để làm chủ bầu trời rộng lớn.",
+      "choices": [
+        {
+          "label": "Phóng mình trực tiếp vào tâm bão",
+          "check": {
+            "stat": "AGI",
+            "target": 6
+          },
+          "success": {
+            "text": "Đôi cánh non nớt xé toạc luồng gió dữ. Bạn bắt được luồng thăng khí và lướt đi nhẹ nhàng giữa không trung. Bầu trời giờ đây là nhà của bạn.",
+            "effects": {
+              "AGI": 2,
+              "joy": 10
+            }
+          },
+          "fail": {
+            "text": "Cơn gió giật mạnh khiến bạn mất thăng bằng và rơi lộn nhào xuống những tán cây bên dưới. Chuyến bay đầu tiên đầy đau đớn và trầy xước.",
+            "effects": {
+              "health": -15,
+              "AGI": 1
+            }
+          }
+        },
+        {
+          "label": "Leo lên đỉnh vách đá và lướt xuống an toàn",
+          "check": {
+            "stat": "STR",
+            "target": 5
+          },
+          "success": {
+            "text": "Sự thận trọng mang lại kết quả tốt. Bạn dùng sức bám chặt vào đá để leo lên cao nhất, sau đó dang cánh lướt êm ái trên không trung mượt mà.",
+            "effects": {
+              "STR": 1,
+              "INT": 1
+            }
+          },
+          "fail": {
+            "text": "Đá núi vỡ vụn dưới móng vuốt chưa thuần thục. Bạn trượt ngã một đoạn dài, làm xước vảy và đành tạm hoãn giấc mơ bay lượn.",
+            "effects": {
+              "health": -10,
+              "joy": -5
+            }
+          }
+        }
+      ],
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_dragon_lair_search",
+      "pack": true,
+      "races": [
+        "dragon"
+      ],
+      "stages": [
+        "teen"
+      ],
+      "once": true,
+      "weight": 7,
+      "text": "Để trưởng thành, một con rồng phải có lãnh địa. Bạn phát hiện một hang động hoàn hảo tại Dãy Núi Răng Cưa, nhưng bầy Kobold địa phương đang chiếm đóng nơi này.",
+      "choices": [
+        {
+          "label": "Quét sạch bầy Kobold bằng vũ lực",
+          "check": {
+            "stat": "STR",
+            "target": 7
+          },
+          "success": {
+            "text": "Hơi thở của bạn thiêu rụi lũ sinh vật nhỏ bé cứng đầu. Hang động được dọn dẹp sạch sẽ, xương cốt của chúng trở thành tấm thảm lót cho kho báu của bạn.",
+            "effects": {
+              "STR": 1,
+              "wealth": 3
+            }
+          },
+          "fail": {
+            "text": "Bầy Kobold thiết lập bẫy đá từ trước. Dù đánh đuổi được chúng, vảy của bạn bị đá nhọn cắt sâu và bạn phải tốn thời gian dọn dẹp một đống đổ nát.",
+            "effects": {
+              "health": -20,
+              "joy": -5
+            }
+          }
+        },
+        {
+          "label": "Thị uy và ép chúng làm nô bộc",
+          "check": {
+            "stat": "INT",
+            "target": 6
+          },
+          "success": {
+            "text": "Một tiếng gầm kèm áp lực ma pháp khiến toàn bầy Kobold phủ phục sát đất. Chúng trở thành những kẻ hầu hạ trung thành, giúp bạn xây dựng tổ ấm lộng lẫy.",
+            "effects": {
+              "INT": 1,
+              "wealth": 8,
+              "fame": 1
+            }
+          },
+          "fail": {
+            "text": "Việc khống chế tâm trí đàn quái vật khiến bạn kiệt sức. Một vài tên lợi dụng lúc bạn mệt mỏi cướp đi một nhúm vàng rồi tháo chạy.",
+            "effects": {
+              "health": -10,
+              "wealth": -3
+            }
+          }
+        }
+      ],
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_dragon_first_hunt",
+      "pack": true,
+      "races": [
+        "dragon"
+      ],
+      "stages": [
+        "child",
+        "teen"
+      ],
+      "once": true,
+      "weight": 7,
+      "text": "Bụng réo lên cồn cào. Một con Manticore hung hãn đang xâm phạm ranh giới của bạn. Cuộc săn mồi đầu tiên để khẳng định vị thế kẻ săn mồi tối thượng đã bắt đầu.",
+      "choices": [
+        {
+          "label": "Phục kích từ trên cao, kết liễu nhanh",
+          "check": {
+            "stat": "AGI",
+            "target": 7
+          },
+          "success": {
+            "text": "Móng vuốt của bạn găm thẳng vào gáy con Manticore từ điểm mù. Nó gục ngã không kịp phản kháng, mang lại một bữa ăn giàu dinh dưỡng và ma lực.",
+            "effects": {
+              "AGI": 1,
+              "health": -5,
+              "joy": 8
+            }
+          },
+          "fail": {
+            "text": "Hướng gió thay đổi khiến bạn đáp trượt. Con Manticore kịp vung đuôi bọ cạp đâm trúng cánh bạn, tạo ra một trận tử chiến đẫm máu trước khi nó bị xé xác.",
+            "effects": {
+              "health": -25,
+              "STR": 1
+            }
+          }
+        },
+        {
+          "label": "Phun hỏa tiễn thiêu rụi từ xa",
+          "check": {
+            "stat": "INT",
+            "target": 6
+          },
+          "success": {
+            "text": "Ngọn lửa rồng chính xác và rực rỡ biến con quái vật thành một đống tro tàn ngào ngạt mùi khét. Bạn nhấm nháp chiến lợi phẩm một cách đầy kiêu hãnh.",
+            "effects": {
+              "INT": 1,
+              "STR": 1
+            }
+          },
+          "fail": {
+            "text": "Hơi thở của bạn thiếu kiểm soát, thiêu rụi luôn cả phần thịt ngon nhất của con mồi. Bữa ăn trở thành than đá không thể nuốt nổi.",
+            "effects": {
+              "joy": -5
+            }
+          }
+        }
+      ],
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_dragon_molt",
+      "pack": true,
+      "races": [
+        "dragon"
+      ],
+      "stages": [
+        "teen"
+      ],
+      "once": true,
+      "weight": 6,
+      "text": "Sự phát triển thể chất mang đến cơn ngứa ngáy dữ dội khắp cơ thể. Lớp vảy cũ bắt đầu bong tróc, nhường chỗ cho lớp giáp rồng kiên cố của tuổi trưởng thành.",
+      "choices": [
+        {
+          "label": "Ngâm mình trong nham thạch để lột xác",
+          "check": {
+            "stat": "STR",
+            "target": 7
+          },
+          "success": {
+            "text": "Sức nóng của dung nham thiêu đốt lớp vảy cũ, rèn giũa vảy mới rực rỡ và cứng cáp như kim cương đen. Cơ thể bạn vươn dài, uy dũng hơn bao giờ hết.",
+            "effects": {
+              "STR": 2,
+              "health": -5
+            }
+          },
+          "fail": {
+            "text": "Nhiệt độ dung nham vượt quá sức chịu đựng tạm thời, khiến phần da non bị bỏng nặng. Quá trình lột xác diễn ra trong đau đớn tột cùng.",
+            "effects": {
+              "health": -30,
+              "LUCK": -1
+            }
+          }
+        },
+        {
+          "label": "Tìm một hẻm núi kín đáo chờ đợi tự nhiên",
+          "check": {
+            "stat": "LUCK",
+            "target": 6
+          },
+          "success": {
+            "text": "Sự an toàn tuyệt đối giúp bạn bình an trải qua giai đoạn yếu ớt nhất. Lớp vảy mới tuy không trải qua cực khổ nhưng hoàn hảo và mượt mà.",
+            "effects": {
+              "AGI": 1,
+              "joy": 5
+            }
+          },
+          "fail": {
+            "text": "Sự chậm trễ khiến cơ thể cọ xát với đá núi, làm vài chiếc vảy mới mọc bị mẻ vĩnh viễn. Bạn mang theo một vài vết sẹo của sự không hoàn hảo.",
+            "effects": {
+              "joy": -5,
+              "fame": -1
+            }
+          }
+        }
+      ],
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_dragon_breath",
+      "pack": true,
+      "races": [
+        "dragon"
+      ],
+      "stages": [
+        "child"
+      ],
+      "once": true,
+      "weight": 6,
+      "text": "Hạch tâm trong lồng ngực đập liên hồi. Dòng ma lực hỗn loạn tụ tập ở cổ họng, đòi hỏi bạn phải giải phóng nó trước khi tự làm nổ tung chính mình.",
+      "choices": [
+        {
+          "label": "Giải phóng toàn lực vào khoảng không",
+          "check": {
+            "stat": "STR",
+            "target": 5
+          },
+          "success": {
+            "text": "Một cột sáng nguyên tố khổng lồ quét ngang bầu trời, thổi bay mây đen mù mịt. Uy lực của hơi thở rồng khiến muôn loài xung quanh run rẩy.",
+            "effects": {
+              "STR": 1,
+              "fame": 1
+            }
+          },
+          "fail": {
+            "text": "Phản lực quá lớn khiến cổ họng bạn bị rách nhẹ. Một phần ma lực dội ngược lại, tạo thành những cơn ho ra khói đen liên tục.",
+            "effects": {
+              "health": -15,
+              "joy": -3
+            }
+          }
+        },
+        {
+          "label": "Tinh lọc, kiểm soát dòng chảy ma lực",
+          "check": {
+            "stat": "INT",
+            "target": 6
+          },
+          "success": {
+            "text": "Bạn ngậm miệng, ép dòng năng lượng chuyển hóa thành những tinh thể thuần khiết quanh răng. Việc này rèn luyện khả năng kiểm soát phép thuật tuyệt vời.",
+            "effects": {
+              "INT": 2
+            }
+          },
+          "fail": {
+            "text": "Dòng năng lượng chống cự mãnh liệt. Bạn buộc phải mở miệng muộn màng, tạo ra một vụ nổ nhỏ vỡ tan vài cái răng sữa rồng non.",
+            "effects": {
+              "health": -10,
+              "INT": -1
+            }
+          }
+        }
+      ],
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_dragon_epoch_tribute",
+      "pack": true,
+      "races": [
+        "dragon"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": false,
+      "weight": 8,
+      "epoch": true,
+      "cooldownYears": 250,
+      "variants": [
+        "Một tân hoàng đế phàm nhân vừa lên ngôi tại Đồng Bằng Thánh Quang, cử một phái đoàn sứ giả mang ngọc ngà đến đỉnh núi để cầu xin sự che chở của vương triều.",
+        "Liên minh ma pháp sư từ Tháp Ngà tiến vào lãnh địa, mang theo cống phẩm tinh thạch để đổi lấy một hiệp ước đình chiến kéo dài qua nhiều thế hệ.",
+        "Những thủ lĩnh của Thảo Nguyên Gió Hú dâng lên kho báu của các bộ tộc bị chinh phục, hy vọng bạn sẽ làm thần bảo hộ của họ khỏi bão táp kỷ nguyên."
+      ],
+      "choices": [
+        {
+          "label": "Chấp nhận cống phẩm, che chở triều đại này",
+          "check": {
+            "stat": "INT",
+            "target": 7
+          },
+          "success": {
+            "text": "Bạn thu nhận kho báu lấp lánh, vươn vai buông xuống một trận pháp phong tỏa lãnh thổ của họ. Vương triều phàm nhân tôn thờ bạn, khiến tầm ảnh hưởng của bạn trải rộng khắp đại lục.",
+            "effects": {
+              "wealth": 15,
+              "epochChange": {
+                "domain": 2,
+                "legacy": 1
+              }
+            }
+          },
+          "fail": {
+            "text": "Sự kiêu ngạo khiến bạn tính toán sai lầm ma lực phòng hộ. Sứ giả bỏ chạy trong sợ hãi, để lại vài rương vàng nhỏ, còn danh tiếng của bạn bị đồn đại là con quái vật không giữ lời.",
+            "effects": {
+              "wealth": 5,
+              "epochChange": {
+                "ruin": 1
+              }
+            }
+          }
+        },
+        {
+          "label": "Thiêu rụi phái đoàn, chiếm đoạt không nhân nhượng",
+          "check": {
+            "stat": "STR",
+            "target": 8
+          },
+          "success": {
+            "text": "Ngọn lửa rồng rực sáng thiêu rụi toàn bộ phái đoàn phàm nhân. Bạn vơ vét cống phẩm, gieo rắc nỗi kinh hoàng để không kẻ nào dám đến làm phiền sự vĩ đại của bạn.",
+            "effects": {
+              "wealth": 10,
+              "epochChange": {
+                "ruin": 2
+              }
+            }
+          },
+          "fail": {
+            "text": "Một vài pháp sư trong phái đoàn kịp kích hoạt vòng bảo vệ và tẩu thoát, mang theo câu chuyện bạo chúa của bạn. Dù vẫn có vàng, bạn hứng chịu tổn thương nhỏ từ phản lực phép thuật.",
+            "effects": {
+              "health": -15,
+              "wealth": 3,
+              "fame": -1
+            }
+          }
+        },
+        {
+          "label": "Khinh miệt từ chối, nhắm mắt ngủ tiếp",
+          "text": "Một tiếng gầm dài và trầm đục từ cổ họng bạn xé rách mây trời, buộc những kẻ yếu đuối phải tháo chạy. Bạn chìm vào giấc ngủ dài, mặc kệ bánh xe lịch sử phàm nhân.",
+          "effects": {
+            "epochChange": {
+              "insight": 2
+            }
+          }
+        }
+      ],
+      "text": "Một tân hoàng đế phàm nhân vừa lên ngôi tại Đồng Bằng Thánh Quang, cử một phái đoàn sứ giả mang ngọc ngà đến đỉnh núi để cầu xin sự che chở của vương triều.",
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_dragon_epoch_hero",
+      "pack": true,
+      "races": [
+        "dragon"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": false,
+      "weight": 8,
+      "epoch": true,
+      "cooldownYears": 250,
+      "variants": [
+        "Một Dũng Giả mang theo ánh sáng Lumina vượt qua muôn ngàn hiểm nguy để thách thức ngọn núi rồng, mong tìm kiếm danh vọng tột đỉnh.",
+        "Một nhóm mạo hiểm giả huyền thoại được định mệnh dẫn lối, tìm đến hang ổ của bạn để xin một chiếc vảy thiêng đánh bại Ma Vương.",
+        "Nhà vô địch vĩ đại nhất của kỷ nguyên này đến gõ cửa lãnh địa, muốn chứng minh sức mạnh phàm nhân có thể vượt qua Thần thú."
+      ],
+      "choices": [
+        {
+          "label": "Nghiền nát chúng bằng vũ lực tuyệt đối",
+          "check": {
+            "stat": "STR",
+            "target": 9
+          },
+          "success": {
+            "text": "Những kẻ tự xưng là anh hùng tan xác dưới vuốt rồng không kịp trăng trối. Vũ khí huyền thoại của chúng trở thành đồ chơi trang trí thêm vào kho báu rực rỡ của bạn.",
+            "effects": {
+              "wealth": 10,
+              "epochChange": {
+                "ruin": 2,
+                "domain": 1
+              }
+            }
+          },
+          "fail": {
+            "text": "Dũng Giả mang sức mạnh bất ngờ, chém một nhát vào cánh bạn trước khi bỏ mạng. Sự chiến thắng trả giá bằng những vết thương sâu hoắm kéo dài một quá trình hồi phục kéo dài.",
+            "effects": {
+              "health": -35,
+              "epochChange": {
+                "ruin": 1
+              }
+            }
+          }
+        },
+        {
+          "label": "Ban cho một thử thách sinh tử làm di sản",
+          "check": {
+            "stat": "INT",
+            "target": 8
+          },
+          "success": {
+            "text": "Thay vì giết chóc, bạn tạo ra một mê cung ma thuật bóp nghẹt tâm trí. Chúng vượt qua bằng cái giá thảm khốc, nhận lấy sự công nhận của bạn và ghi tên bạn vào sử thi ngàn năm.",
+            "effects": {
+              "fame": 5,
+              "epochChange": {
+                "legacy": 2
+              }
+            }
+          },
+          "fail": {
+            "text": "Thử thách bị lũ phàm nhân phá vỡ nhờ mánh khóe. Chúng cuỗm đi món đồ cần thiết rồi trốn thoát, để lại sự bực tức và một vết nhơ trong uy danh của bạn.",
+            "effects": {
+              "fame": -2,
+              "joy": -10
+            }
+          }
+        },
+        {
+          "label": "Phong ấn ngọn núi, mặc kệ những kẻ phá đám",
+          "text": "Bạn dựng lên một bức tường bão táp vĩnh cửu bao quanh tổ. Bất lực trước quyền năng của tự nhiên, những vị anh hùng hậm hực rút lui mà không thể diện kiến bạn.",
+          "effects": {
+            "epochChange": {
+              "insight": 1,
+              "domain": 1
+            }
+          }
+        }
+      ],
+      "text": "Một Dũng Giả mang theo ánh sáng Lumina vượt qua muôn ngàn hiểm nguy để thách thức ngọn núi rồng, mong tìm kiếm danh vọng tột đỉnh.",
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_dragon_epoch_disaster",
+      "pack": true,
+      "races": [
+        "dragon"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": false,
+      "weight": 8,
+      "epoch": true,
+      "cooldownYears": 250,
+      "variants": [
+        "Một đợt sóng Miasma độc hại từ Đầm Lầy Tử Khí lan rộng, đe dọa biến cả vùng đất dưới chân núi thành bình địa mục nát.",
+        "Khe nứt Vực Thẳm mở rộng dị thường, phun ra hàng ngàn sinh vật bóng tối nhăm nhe xâm lấn bầu trời của bạn.",
+        "Một cơn bão ma lực từ tinh linh giới tràn qua, cuốn phăng những cánh rừng và đe dọa sự cân bằng nguyên tố của tổ rồng."
+      ],
+      "choices": [
+        {
+          "label": "Thổi bùng long hỏa, thanh tẩy lãnh thổ",
+          "check": {
+            "stat": "LUCK",
+            "target": 7
+          },
+          "success": {
+            "text": "Ngọn lửa rồng thuần khiết bốc cao tận chân trời, thiêu rụi mầm mống thiên tai. Bạn trở thành biểu tượng của sự bảo hộ tuyệt đối trong mắt mọi sinh linh sống sót.",
+            "effects": {
+              "fame": 3,
+              "epochChange": {
+                "domain": 2
+              }
+            }
+          },
+          "fail": {
+            "text": "Thiên tai phản ứng dữ dội hơn dự kiến. Dù tiêu diệt được thảm họa, phổi bạn hít phải một lượng lớn độc khí, khiến sinh lực suy giảm trầm trọng.",
+            "effects": {
+              "health": -30,
+              "epochChange": {
+                "domain": 1
+              }
+            }
+          }
+        },
+        {
+          "label": "Để sinh linh tự lo, bình tâm nghiên cứu dị tượng",
+          "check": {
+            "stat": "INT",
+            "target": 8
+          },
+          "success": {
+            "text": "Mặc kệ cái chết chóc của kẻ yếu, bạn dùng thiên nhãn thấu thị bản chất của thảm họa. Trí tuệ của bạn đạt đến ngưỡng thấu hiểu quy luật tận diệt của thế giới.",
+            "effects": {
+              "INT": 2,
+              "epochChange": {
+                "insight": 2
+              }
+            }
+          },
+          "fail": {
+            "text": "Dị tượng quá hỗn loạn, đánh bật ý thức tò mò của bạn. Trong lúc bạn xao nhãng, thiên tai kịp tàn phá một phần sườn núi, làm hỏng lối vào kho báu.",
+            "effects": {
+              "wealth": -5,
+              "joy": -5
+            }
+          }
+        },
+        {
+          "label": "Bỏ mặc lãnh địa, dời tổ đi nơi khác",
+          "text": "Quyền lực không gắn liền với một đỉnh núi cằn cỗi. Bạn vỗ cánh xuyên qua mây mù, để mặc vùng đất này bị hủy diệt trong khi bản thân tìm kiếm một ngai vàng mới nguyên vẹn hơn.",
+          "effects": {
+            "epochChange": {
+              "ruin": 1,
+              "insight": 1
+            }
+          }
+        }
+      ],
+      "text": "Một đợt sóng Miasma độc hại từ Đầm Lầy Tử Khí lan rộng, đe dọa biến cả vùng đất dưới chân núi thành bình địa mục nát.",
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_dragon_epoch_dynasty",
+      "pack": true,
+      "races": [
+        "dragon"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": false,
+      "weight": 8,
+      "epoch": true,
+      "cooldownYears": 250,
+      "variants": [
+        "Vương triều phàm nhân mà bạn từng gián tiếp bảo trợ đang nổ ra nội chiến đẫm máu. Một kẻ thừa kế lưu vong khóc lóc cầu xin dưới vách đá của bạn.",
+        "Hậu duệ của hiệp ước cổ xưa bị một đế chế mới nổi dồn vào đường cùng, mong mỏi Rồng thần giữ lời thề tái lập vinh quang.",
+        "Các thế lực quân phiệt xé nát đất nước, mỗi phe đều cử sứ giả đến dâng vàng ngọc để đổi lấy một lời chúc phúc của bạn."
+      ],
+      "choices": [
+        {
+          "label": "Can thiệp, đưa kẻ bạn chọn lên ngai vàng",
+          "check": {
+            "stat": "INT",
+            "target": 8
+          },
+          "success": {
+            "text": "Một cái bóng khổng lồ giáng lâm trên chiến trường. Tiếng gầm của bạn đè bẹp nhuệ khí quân thù, dễ dàng đưa kẻ bề tôi trung thành lên thống trị vương quốc một lần nữa.",
+            "effects": {
+              "wealth": 15,
+              "epochChange": {
+                "legacy": 2,
+                "domain": 1
+              }
+            }
+          },
+          "fail": {
+            "text": "Trận chiến phàm nhân rắc rối hơn vẻ bề ngoài với những cạm bẫy ma thuật khổng lồ. Dù chiến thắng, vương quốc chỉ còn là tro tàn, không mang lại nhiều ích lợi.",
+            "effects": {
+              "health": -15,
+              "epochChange": {
+                "legacy": 1
+              }
+            }
+          }
+        },
+        {
+          "label": "Hủy diệt thủ đô, xóa sổ toàn bộ các phe phái",
+          "check": {
+            "stat": "STR",
+            "target": 8
+          },
+          "success": {
+            "text": "Bạn quét sạch toàn bộ vương triều, biến các lâu đài thành biển lửa. Nền văn minh sụp đổ, nhường chỗ cho sự tĩnh lặng tuyệt đối dưới sự cai trị hung bạo của bạn.",
+            "effects": {
+              "epochChange": {
+                "ruin": 2
+              }
+            }
+          },
+          "fail": {
+            "text": "Pháo đài của phàm nhân kháng cự mãnh liệt bằng máy móc tiên tiến. Bạn thiêu rụi được thành trì nhưng vảy rồng bị đại bác công thành xé rách một mảng lớn.",
+            "effects": {
+              "health": -25,
+              "epochChange": {
+                "ruin": 1
+              }
+            }
+          }
+        },
+        {
+          "label": "Thu hồi mọi ân điển, cắt đứt giao ước",
+          "text": "Bạn nhắm mắt lại, hoàn toàn phớt lờ tiếng khóc than của huyết mạch xưa. Kỷ nguyên của loài người phải do chính họ tự giải quyết, rồng không cần bận tâm đến ruồi muỗi.",
+          "effects": {
+            "epochChange": {
+              "insight": 2
+            }
+          }
+        }
+      ],
+      "text": "Vương triều phàm nhân mà bạn từng gián tiếp bảo trợ đang nổ ra nội chiến đẫm máu. Một kẻ thừa kế lưu vong khóc lóc cầu xin dưới vách đá của bạn.",
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_dragon_epoch_cult",
+      "pack": true,
+      "races": [
+        "dragon"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": false,
+      "weight": 8,
+      "epoch": true,
+      "cooldownYears": 250,
+      "variants": [
+        "Những kẻ cuồng tín của Hắc Nguyệt Hội dựng đền thờ dưới chân núi, gọi bạn là Hóa Thân Của Vực Thẳm và tổ chức hiến tế man rợ.",
+        "Các bộ tộc người thú suy tôn bạn thành Thần Bầu Trời, nhảy múa quanh đống lửa khổng lồ và hát vang sử thi về đôi cánh của bạn.",
+        "Một giáo phái mới nổi ở vùng ven rừng tự phong là 'Con của Rồng', tụ tập lại để cầu xin sự khai sáng và ma thuật từ bạn."
+      ],
+      "choices": [
+        {
+          "label": "Chấp nhận tôn vinh, bảo vệ giáo phái",
+          "check": {
+            "stat": "INT",
+            "target": 7
+          },
+          "success": {
+            "text": "Dòng tín ngưỡng hội tụ thành một luồng sức mạnh vô hình nâng tầm quyền năng của bạn. Lãnh thổ của bạn được mở rộng bởi hàng ngàn tín đồ sẵn sàng chết vì ngài.",
+            "effects": {
+              "wealth": 10,
+              "fame": 4,
+              "epochChange": {
+                "domain": 2
+              }
+            }
+          },
+          "fail": {
+            "text": "Những lời cầu nguyện hỗn tạp quấy nhiễu tâm trí bạn. Mặc dù nhận được cống phẩm, tinh thần của bạn bị kéo căng và phiền toái vô cùng.",
+            "effects": {
+              "joy": -5,
+              "epochChange": {
+                "domain": 1
+              }
+            }
+          }
+        },
+        {
+          "label": "Ăn thịt những kẻ cuồng tín ồn ào",
+          "check": {
+            "stat": "STR",
+            "target": 7
+          },
+          "success": {
+            "text": "Bạn nhào xuống, vỡ nát các đàn tế và nuốt chửng hàng chục kẻ dị giáo chỉ trong vài hơi thở. Sự im lặng trả lại ngọn núi, kèm theo nỗi sợ hãi tột cùng của lục địa.",
+            "effects": {
+              "health": 5,
+              "epochChange": {
+                "ruin": 2
+              }
+            }
+          },
+          "fail": {
+            "text": "Một số pháp sư cuồng tín mang theo bùa nổ tự sát. Bạn dập tắt được giáo phái nhưng vòm họng bị bỏng rát vì ngậm phải ma thuật phá hoại.",
+            "effects": {
+              "health": -20,
+              "epochChange": {
+                "ruin": 1
+              }
+            }
+          }
+        },
+        {
+          "label": "Cảnh cáo bằng thần giao cách cảm rồi đuổi đi",
+          "text": "Một tiếng thì thầm chấn động tâm trí tản ra, ép buộc đám đông phải giải tán. Bạn để lại một dấu ấn quyền năng vô hình thay vì để tay dính máu.",
+          "effects": {
+            "epochChange": {
+              "legacy": 1,
+              "insight": 1
+            }
+          }
+        }
+      ],
+      "text": "Những kẻ cuồng tín của Hắc Nguyệt Hội dựng đền thờ dưới chân núi, gọi bạn là Hóa Thân Của Vực Thẳm và tổ chức hiến tế man rợ.",
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_dragon_epoch_core",
+      "pack": true,
+      "races": [
+        "dragon"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": false,
+      "weight": 8,
+      "epoch": true,
+      "cooldownYears": 250,
+      "variants": [
+        "Mạch tinh thể của Aethelgard bỗng nhiên lộ ra một nhánh rẽ ngay dưới lòng hang của bạn, phát ra nhịp đập nguyên thủy.",
+        "Rễ của Cây Thế Giới Yggdrasil xuyên thủng qua tầng đá dày, nối liền hang ổ rồng với nguồn nhựa sống của lục địa.",
+        "Một luồng năng lượng hình thành từ kỷ nguyên Khai Hoang tụ lại dưới chân bạn, mang theo lời thì thầm của bản thể hành tinh."
+      ],
+      "choices": [
+        {
+          "label": "Hòa nhịp tâm trí vào lõi hành tinh",
+          "check": {
+            "stat": "LUCK",
+            "target": 8
+          },
+          "success": {
+            "text": "Tâm trí bạn hòa làm một với vòng tuần hoàn vô tận của Aethelgard. Những bí ẩn của sáng thế trải ra trước mắt, đưa trí tuệ của bạn vượt khỏi thực tại.",
+            "effects": {
+              "INT": 2,
+              "epochChange": {
+                "insight": 2
+              }
+            }
+          },
+          "fail": {
+            "text": "Áp lực của thế giới quá lớn đối với ý thức cá nhân. Bạn bị đẩy lùi trong cơn choáng váng kéo dài một thời gian, đánh mất một phần ký ức cốt lõi.",
+            "effects": {
+              "joy": -10,
+              "INT": -1
+            }
+          }
+        },
+        {
+          "label": "Cưỡng đoạt dòng năng lượng để cường hóa lãnh thổ",
+          "check": {
+            "stat": "STR",
+            "target": 8
+          },
+          "success": {
+            "text": "Bằng vũ lực tuyệt đối, bạn cắn nuốt và uốn nắn dòng chảy tự nhiên. Toàn bộ đỉnh núi biến thành một pháo đài tinh thể khổng lồ không thể xuyên thủng.",
+            "effects": {
+              "STR": 1,
+              "epochChange": {
+                "domain": 2
+              }
+            }
+          },
+          "fail": {
+            "text": "Dòng năng lượng thế giới phản kháng, làm nứt vỡ nhiều lớp vảy cổ đại trên ngực bạn. Bạn đoạt được năng lượng nhưng cơ thể tổn thương cực nặng.",
+            "effects": {
+              "health": -40,
+              "epochChange": {
+                "domain": 1
+              }
+            }
+          }
+        },
+        {
+          "label": "Giữ nguyên vẹn tự nhiên, không can thiệp",
+          "text": "Biết rõ tham lam sẽ dẫn đến hủy diệt, bạn lùi lại, để mặc dòng chảy kỷ nguyên tiếp tục công việc vĩ đại của nó. Lòng bạn tĩnh tại như mặt nước hồ thiêng.",
+          "effects": {
+            "epochChange": {
+              "insight": 1,
+              "legacy": 1
+            }
+          }
+        }
+      ],
+      "text": "Mạch tinh thể của Aethelgard bỗng nhiên lộ ra một nhánh rẽ ngay dưới lòng hang của bạn, phát ra nhịp đập nguyên thủy.",
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_dragon_epoch_war",
+      "pack": true,
+      "races": [
+        "dragon"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": false,
+      "weight": 8,
+      "epoch": true,
+      "cooldownYears": 250,
+      "variants": [
+        "Chiến tranh chủng tộc bùng nổ. Quân đội của Elf và Dwarf dàn trận ngay dưới chân núi của bạn, tiếng vũ khí vang vọng tận hang ổ rồng.",
+        "Chiến Dịch Thánh Quang mở rộng, Thánh Kỵ Sĩ Đoàn ép binh đoàn Ma Vật tháo chạy và kéo cả chiến trường vào vùng sinh thái của ngài.",
+        "Liên minh lục địa đánh lẫn nhau vì tài nguyên, hàng vạn lính phàm nhân giày xéo phá vỡ sự tĩnh lặng của thiên nhiên quanh ngọn núi."
+      ],
+      "choices": [
+        {
+          "label": "Ép buộc ngừng chiến bằng khủng bố tuyệt đối",
+          "check": {
+            "stat": "STR",
+            "target": 9
+          },
+          "success": {
+            "text": "Bóng tối từ đôi cánh rồng che lấp mặt trời. Bạn lao xuống giữa hai đạo quân, xé nát cờ hiệu của cả hai bên. Chấn động kinh hoàng buộc tất cả phải vứt vũ khí bỏ chạy.",
+            "effects": {
+              "fame": 5,
+              "epochChange": {
+                "domain": 2
+              }
+            }
+          },
+          "fail": {
+            "text": "Hai đội quân hợp lực tấn công kẻ thù chung là bạn. Hàng ngàn mũi tên nổ và bùa chú vây hãm, khiến bạn phải bay vút lên cao mang theo hàng loạt vết thương tứa máu.",
+            "effects": {
+              "health": -35,
+              "epochChange": {
+                "ruin": 1
+              }
+            }
+          }
+        },
+        {
+          "label": "Bán đặc quyền đi qua lãnh địa với giá cắt cổ",
+          "check": {
+            "stat": "INT",
+            "target": 7
+          },
+          "success": {
+            "text": "Bạn đứng trên cao đưa ra tối hậu thư. Các vua chúa phàm nhân cắn răng chuyển hàng đoàn xe chở vàng vào hang động của bạn chỉ để quân lính không bị thiêu rụi.",
+            "effects": {
+              "wealth": 15,
+              "epochChange": {
+                "legacy": 1
+              }
+            }
+          },
+          "fail": {
+            "text": "Bọn phàm nhân xảo quyệt dùng vàng giả xen lẫn bùa ngải để đánh lừa mắt rồng. Bạn nhận ra quá muộn, vương triều đã hành quân qua mà bạn chẳng thu được lợi ích tương xứng.",
+            "effects": {
+              "joy": -5,
+              "wealth": 3
+            }
+          }
+        },
+        {
+          "label": "Nhắm mắt ngủ qua thế kỷ đẫm máu",
+          "text": "Máu xương phàm nhân đổ xuống không làm rồng bận tâm. Bạn buông rèm đá, chìm vào giấc mơ dài cho đến khi xác của chiến binh mục nát thành đất xốp.",
+          "effects": {
+            "epochChange": {
+              "insight": 2
+            }
+          }
+        }
+      ],
+      "text": "Chiến tranh chủng tộc bùng nổ. Quân đội của Elf và Dwarf dàn trận ngay dưới chân núi của bạn, tiếng vũ khí vang vọng tận hang ổ rồng.",
+      "require": {
+        "free": true
+      }
+    },
+    {
+      "id": "gm_dragon_epoch_slumber",
+      "pack": true,
+      "races": [
+        "dragon"
+      ],
+      "stages": [
+        "adult",
+        "middle",
+        "elder"
+      ],
+      "once": false,
+      "weight": 8,
+      "epoch": true,
+      "cooldownYears": 250,
+      "variants": [
+        "Ma lực của kỷ nguyên bắt đầu suy yếu, thế giới rơi vào trạng thái ngủ đông. Bản năng rồng vĩ đại thúc giục bạn buông bỏ thực tại.",
+        "Một sự im lặng mang tính vũ trụ bao trùm lục địa Aethelgard. Vạn vật tĩnh lặng, và đôi mắt rồng của bạn cũng nặng trĩu sương mù thời gian.",
+        "Sự nhàm chán của những ngàn năm lặp lại khiến vảy rồng mỏi mệt. Tiếng gọi của giấc mơ Nguyên Thủy mời gọi bạn về với Hư Vô tạm thời."
+      ],
+      "choices": [
+        {
+          "label": "Chìm sâu vào lòng đất để mơ về sáng thế",
+          "check": {
+            "stat": "LUCK",
+            "target": 7
+          },
+          "success": {
+            "text": "Cơ thể khổng lồ của bạn từ từ chìm xuống tâm Trái Đất. Tại đây, thời gian ngưng đọng, và bạn thưởng thức những viễn cảnh lộng lẫy khi các vị thần vừa khai sinh lục địa.",
+            "effects": {
+              "joy": 10,
+              "epochChange": {
+                "insight": 2
+              }
+            }
+          },
+          "fail": {
+            "text": "Dòng dung nham bất ổn cắt ngang giấc mơ của bạn, gây ra những cơn đau râm ran. Giấc ngủ đông không trọn vẹn, để lại sự bực tức kéo dài.",
+            "effects": {
+              "health": -15,
+              "joy": -5
+            }
+          }
+        },
+        {
+          "label": "Dựng lên ma trận bảo hộ vĩnh cửu trước khi ngủ",
+          "check": {
+            "stat": "INT",
+            "target": 8
+          },
+          "success": {
+            "text": "Bạn tạo ra một kiệt tác ma pháp, phong ấn toàn bộ lãnh thổ bằng tinh thể. Ngay cả một con rồng khác cũng không thể quấy rầy giấc ngủ của vị vua đích thực.",
+            "effects": {
+              "INT": 1,
+              "epochChange": {
+                "legacy": 2
+              }
+            }
+          },
+          "fail": {
+            "text": "Sự suy kiệt của kỷ nguyên làm đứt gãy mạch ma thuật. Phong ấn bị hở, khiến vài tên trộm mộ lọt vào trong lúc ngủ và cuỗm mất một phần kho báu nhỏ.",
+            "effects": {
+              "wealth": -8,
+              "epochChange": {
+                "legacy": 1
+              }
+            }
+          }
+        },
+        {
+          "label": "Cưỡng lại cơn buồn ngủ, thâu tóm quyền lực",
+          "text": "Thay vì ngủ, bạn quyết tâm giữ đôi mắt mở trừng trừng, tuần tra ranh giới bằng ngọn lửa cuồng bạo. Bạn thách thức cả quy luật tự nhiên bằng sự độc tài của giống loài vĩ đại nhất.",
+          "effects": {
+            "epochChange": {
+              "ruin": 2,
+              "domain": 1
+            }
+          }
+        }
+      ],
+      "text": "Ma lực của kỷ nguyên bắt đầu suy yếu, thế giới rơi vào trạng thái ngủ đông. Bản năng rồng vĩ đại thúc giục bạn buông bỏ thực tại.",
+      "require": {
+        "free": true
+      }
+    }
+  ]
+}

@@ -2,13 +2,13 @@
 // Run: node tools/validate.js   (exit code 1 when anything is wrong)
 const STATS = ["STR", "INT", "AGI", "LUCK"];
 const BARS = ["health", "joy", "wealth"];
-const EFFECT_KEYS = new Set([...STATS, ...BARS, "flags", "unflags", "fame", "jobXp", "guildPts", "bond", "partyBond", "allyHurt", "allyDie", "allyLeave", "loseJob", "setJob", "joinGuild", "focus", "recruit", "marry", "child", "loseChild", "demote", "orgRank", "orgRankName", "evolve", "era", "jobRankSet", "jobPromote", "orgRankUp", "loseSpouse", "parentDie", "castDie", "castJoin", "castLeave", "castBond", "joinBand", "leaveBand", "bandGone", "bandLead", "minionAdd", "minionLose", "minionRevolt", "minionLoyal", "memberBond", "memberDie", "memberLeave", "memberJoin", "foundBand", "item"]);
-const BOOL_EFFECTS = new Set(["allyHurt", "allyDie", "allyLeave", "loseJob", "joinGuild", "recruit", "marry", "child", "loseChild", "demote", "jobPromote", "loseSpouse"]);
+const EFFECT_KEYS = new Set([...STATS, ...BARS, "flags", "unflags", "fame", "lifeCost", "setFree", "wealthKind", "epochChange", "jobXp", "guildPts", "bond", "partyBond", "allyHurt", "allyDie", "allyLeave", "loseJob", "setJob", "joinGuild", "focus", "recruit", "marry", "child", "loseChild", "demote", "orgRank", "orgRankName", "evolve", "era", "jobRankSet", "jobPromote", "orgRankUp", "loseSpouse", "parentDie", "castDie", "castJoin", "castLeave", "castBond", "joinBand", "leaveBand", "bandGone", "bandLead", "minionAdd", "minionLose", "minionRevolt", "minionLoyal", "memberBond", "memberDie", "memberLeave", "memberJoin", "foundBand", "item"]);
+const BOOL_EFFECTS = new Set(["setFree","allyHurt", "allyDie", "allyLeave", "loseJob", "joinGuild", "recruit", "marry", "child", "loseChild", "demote", "jobPromote", "loseSpouse"]);
 const STR_EFFECTS = new Set(["item", "setJob", "focus", "orgRankName", "evolve", "era", "parentDie"]);
-const REQ_KEYS = new Set(["parentGone", "parentDead", "free", ...STATS, ...BARS, "fame", "below", "flags", "anyFlags", "notFlags", "flagHint", "gender", "job", "jobRank", "jobRankMax", "guild", "guildRank", "guildRankMax", "party", "noParty", "allyTrait", "spouse", "children", "noChildren", "focus", "hint", "any", "fatherAlive", "motherAlive", "makerAlive", "form", "subtype", "cast", "castAlive", "noBand", "band", "bandMember", "minionOk", "minions", "bandLead", "partyMax", "origin"]);
+const REQ_KEYS = new Set(["parentGone", "parentDead", "free", "captiveKinds", ...STATS, ...BARS, "fame", "below", "flags", "anyFlags", "notFlags", "flagHint", "gender", "job", "jobRank", "jobRankMax", "guild", "guildRank", "guildRankMax", "party", "noParty", "allyTrait", "spouse", "children", "noChildren", "focus", "hint", "any", "fatherAlive", "motherAlive", "makerAlive", "form", "subtype", "notSubtypes", "cast", "castAlive", "noBand", "band", "bandMember", "minionOk", "minions", "bandLead", "partyMax", "origin"]);
 const STORY_EFFECTS = new Set(["castDie", "castJoin", "castLeave", "castBond", "joinBand", "leaveBand", "bandGone", "bandLead", "minionAdd", "minionLose", "minionRevolt", "minionLoyal", "memberBond", "memberDie", "memberLeave", "memberJoin", "foundBand"]);
-const EVENT_KEYS = new Set(["path", "_file", "id", "races", "excludeRaces", "tags", "stages", "eras", "minAge", "maxAge", "once", "weight", "require", "text", "effects", "choices", "moment", "death", "focus", "result", "pack", "arc", "recall"]);
-const PLACEHOLDERS = new Set(["name", "race", "age", "origin", "stage", "pct", "cause", "ally", "allyJob", "partner", "child", "job", "rank", "guild", "spouse", "quest", "next", "father", "mother", "maker", "who", "rival", "mentor", "friend", "party", "leader", "member", "minion"]);
+const EVENT_KEYS = new Set(["epoch", "variants", "cooldownYears", "path", "_file", "id", "races", "excludeRaces", "tags", "stages", "eras", "minAge", "maxAge", "once", "weight", "require", "text", "effects", "choices", "moment", "death", "focus", "result", "pack", "arc", "recall", "npcs", "jobChoices"]);
+const PLACEHOLDERS = new Set(["name", "race", "age", "origin", "stage", "pct", "cause", "ally", "allyJob", "partner", "child", "job", "rank", "guild", "spouse", "quest", "next", "father", "mother", "maker", "who", "rival", "mentor", "mentorPronoun", "friend", "party", "leader", "member", "minion", "place"]);
 
 function validate(data) {
   const errors = [];
@@ -56,6 +56,7 @@ function validate(data) {
   const checkText = (where, text) => {
     if (typeof text !== "string" || !text.trim()) return err(where, "thiếu text");
     for (const m of text.matchAll(/\{(\w+)\}/g)) if (!PLACEHOLDERS.has(m[1])) err(where, `placeholder lạ {${m[1]}}`);
+    if (/Lão\/Cô ta/i.test(text)) err(where, "đại từ biên tập chưa được thay bằng mentorPronoun");
     // "{mentor vào nửa đêm": an open brace the game would print as it is
     for (const m of text.matchAll(/\{(\w+)(?![\w}])/g)) err(where, `thiếu dấu } sau {${m[1]}`);
     if (/[.!?…]\s+\.(?!\.)/.test(text)) err(where, "dấu chấm kép");
@@ -69,12 +70,25 @@ function validate(data) {
       else if (STR_EFFECTS.has(k)) { if (typeof eff[k] !== "string" && !(k === "parentDie" && Array.isArray(eff[k]))) err(where, `${k} phải là chuỗi`); }
       else if (STORY_EFFECTS.has(k)) { /* free-form story values: true, ids, lists, objects */ }
       else if (["orgRank", "jobRankSet", "orgRankUp"].includes(k)) { if (typeof eff[k] !== "number") err(where, `${k} phải là số`); }
+      else if (k === "wealthKind") { if (!["ordinary","commerce","windfall","refund"].includes(eff[k])) err(where,"wealthKind không hợp lệ"); }
+      else if (k === "epochChange") { if (!eff[k] || typeof eff[k] !== "object" || Object.entries(eff[k]).some(([key,v])=>!["domain","ruin","insight","legacy"].includes(key)||!Number.isFinite(v)||Math.abs(v)>20)) err(where,"epochChange cần chỉ số kỷ nguyên hợp lệ"); }
+      else if (k === "lifeCost" && (typeof eff[k] !== "number" || !Number.isFinite(eff[k]) || eff[k] < 0 || eff[k] > 100)) err(where, "lifeCost phải là số trong khoảng 0..100");
       else if (typeof eff[k] !== "number" || Math.abs(eff[k]) > 100) err(where, `${k} phải là số trong khoảng -100..100`);
     }
   };
   const checkReq = (where, req) => {
     if (!req) return;
+    if(req.band!=null&&!["string","boolean"].includes(typeof req.band))err(where,"band cần ID hoặc boolean");
+    if (req.captiveKinds != null) {
+      if (!Array.isArray(req.captiveKinds) || !req.captiveKinds.length || req.captiveKinds.some(k => !["prison","slave","arena","bound"].includes(k))) err(where, "captiveKinds cần loại giam giữ hợp lệ");
+      if (req.free) err(where, "không dùng free cùng captiveKinds");
+    }
     for (const k of Object.keys(req)) if (!REQ_KEYS.has(k)) err(where, `require lạ "${k}"`);
+    if (req.notSubtypes !== undefined) {
+      if (!Array.isArray(req.notSubtypes)) err(where, "notSubtypes phải là mảng");
+      else for (const id of req.notSubtypes)
+        if (!data.races.some((r) => (r.subtypes || []).some((s) => s.id === id))) err(where, `phân loài không tồn tại "${id}"`);
+    }
     for (const r of req.any || []) checkReq(where + " (any)", r);
   };
   const checkRaces = (where, list) => {
@@ -87,6 +101,18 @@ function validate(data) {
     checkEffects(where, o.effects);
   };
 
+  const checkNpcs = (where, list) => {
+    if (list == null) return;
+    if (!Array.isArray(list)) return err(where, "npcs phải là một mảng");
+    const seen = new Set();
+    for (const npc of list) {
+      if (!npc || typeof npc.name !== "string" || !npc.name.trim()) { err(where, "NPC phải có name"); continue; }
+      if (seen.has(npc.name)) err(where, `NPC trùng tên "${npc.name}"`);
+      seen.add(npc.name);
+      if (!(typeof npc.race === "string" && npc.race.trim()) || !(typeof npc.position === "string" && npc.position.trim())) err(where, `NPC ${npc.name} cần race và position`);
+    }
+  };
+
   const ids = new Set();
   for (const e of data.events) {
     const w = `events/${e._file} [${e.id}]`;
@@ -94,6 +120,7 @@ function validate(data) {
     if (!/^[a-z0-9_]+$/.test(e.id || "")) err(w, "id phải viết thường, không dấu");
     if (ids.has(e.id)) err(w, "trùng id");
     ids.add(e.id);
+    checkNpcs(w, e.npcs);
     checkRaces(w, e.races);
     checkRaces(w, e.excludeRaces);
     for (const t of e.tags || []) if (!tags.has(t)) err(w, `tag không tồn tại "${t}"`);
@@ -109,13 +136,19 @@ function validate(data) {
     }
     if (e.weight != null && !(e.weight > 0)) err(w, "weight phải > 0");
     checkText(w, e.text);
+    if (e.cooldownYears!=null && (!Number.isFinite(e.cooldownYears)||e.cooldownYears<0)) err(w,"cooldownYears cần số năm không âm");
+    if (e.epoch!=null && typeof e.epoch!=="boolean") err(w,"epoch cần boolean");
+    if (e.variants!=null) { if (!Array.isArray(e.variants)||!e.variants.length) err(w,"variants cần các đoạn kể");else for(const t of e.variants)checkText(w+" variant",t); }
     checkEffects(w, e.effects);
     checkReq(w, e.require);
+    if (e.jobChoices && !e.choices) err(w, "jobChoices cần các lựa chọn chung trong choices");
+    if (e.jobChoices && (!Array.isArray(e.jobChoices) || e.jobChoices.length > 4)) err(w, "jobChoices cần tối đa 4 lựa chọn");
     if (e.choices) {
       if (e.choices.length < 2 || e.choices.length > 4) err(w, "cần 2–4 lựa chọn");
-      e.choices.forEach((ch, i) => {
+      [...e.choices, ...(Array.isArray(e.jobChoices) ? e.jobChoices : [])].forEach((ch, i) => {
         const cw = `${w} lựa chọn ${i + 1}`;
         if (!ch.label) err(cw, "thiếu label");
+        if (ch.risk != null && ch.risk !== "lethal") err(cw, "risk phải là lethal");
         checkReq(cw, ch.require);
         if (ch.check) {
           if (![...STATS, ...BARS, "fame", "best", "jobstat"].includes(ch.check.stat)) err(cw, `check.stat lạ "${ch.check.stat}"`);
@@ -128,11 +161,39 @@ function validate(data) {
     }
   }
 
+  for (const [id,p] of Object.entries(data.chronology||{})) {
+    if (!data.races.some(r=>r.id===id) || !["generations","epoch"].includes(p.mode) || !Number.isFinite(p.minStep) || !Number.isFinite(p.maxStep) || p.minStep<1 || p.maxStep<p.minStep || p.maxTicks!==1 || !(p.period>0)) err(`chronology ${id}`,"nhịp thời gian không hợp lệ");
+  }
+  const contexts = ["free", "prison", "slave", "arena", "bound"];
+  for (const [race, story] of Object.entries(data.story || {})) for (const k of Object.values(story.cast || {})) {
+    if (!Array.isArray(k.contexts) || !k.contexts.length || k.contexts.some(x => !contexts.includes(x))) err(`story ${race}/${k.id}`, "Cast cần contexts hợp lệ");
+  }
+  for (const [race, story] of Object.entries(data.story || {})) for (const [stage, list] of Object.entries(story.chapters || {})) for (const chapter of list) {
+    checkText(`chapter ${race}/${stage}`, chapter.text);
+    if (chapter.requiresShelter != null && typeof chapter.requiresShelter !== "boolean") err(`chapter ${race}/${stage}`, "requiresShelter phải là boolean");
+  }
+  const probabilities = [["global", data.systems.castChances], ...Object.entries(data.systems.race || {}).filter(([,s])=>s.castChances).map(([id,s])=>[id,s.castChances])];
+  for (const [id, values] of probabilities) {
+    if (!values || typeof values !== "object" || Array.isArray(values)) { err(`castChances ${id}`, "cần object xác suất"); continue; }
+    for (const [role,p] of Object.entries(values)) if (!["friend","mentor","rival"].includes(role) || typeof p !== "number" || !Number.isFinite(p) || p<0 || p>1) err(`castChances ${id}`, "vai và xác suất phải hợp lệ (0..1)");
+  }
+
   const focusIds = new Set((data.focus || []).map((f) => f.id));
   const jobIds = new Set((data.jobs || []).map((j) => j.id));
+  if (data.economy) {
+    const p=data.economy;
+    if (!(p.ordinaryRewardScale>0&&p.ordinaryRewardScale<=1&&p.capitalRate>=0&&p.capitalRate<=0.1&&p.capitalMinimum>=0&&p.capitalMinimum<=100&&Number.isInteger(p.seniorRank)&&p.seniorRank>=0)) err("economy","tham số kinh tế không hợp lệ");
+    for(const id of p.commercialJobs||[]) if(!jobIds.has(id))err("economy",`nghề thương mại không tồn tại: ${id}`);
+    for(const [id,range] of Object.entries(p.originStarting||{})) if(!data.origins.some(o=>o.id===id)||!Array.isArray(range)||range.length!==2||!range.every(Number.isFinite)||range[0]<0||range[1]<range[0]||range[1]>100)err("economy",`xuất thân/tài sản không hợp lệ: ${id}`);
+    for(const r of data.races){const e=p.races?.[r.id];if(!e||!["currency","wild","barter","mythic"].includes(e.mode)||!Array.isArray(e.start)||e.start.length!==2||!e.start.every(Number.isFinite)||e.start[0]<0||e.start[1]<e.start[0]||e.start[1]>100||!(e.incomeCap>=0&&e.incomeCap<=100))err("economy",`phân tầng tài sản không hợp lệ: ${r.id}`);}
+  }
   for (const e of data.events) {
     const w = `events/${e._file} [${e.id}]`;
     for (const f of e.focus || []) if (!focusIds.has(f)) err(w, `focus không tồn tại "${f}"`);
+    for (const choice of Array.isArray(e.jobChoices) ? e.jobChoices : []) {
+      if (!choice.require?.job || ![].concat(choice.require.job).length) err(w, "lựa chọn nghề cần require.job");
+      for (const id of [].concat(choice.require?.job || [])) if (!jobIds.has(id)) err(w, `nghề lựa chọn không tồn tại "${id}"`);
+    }
     const rj = e.require && e.require.job;
     for (const j of rj == null ? [] : [].concat(rj)) if (!jobIds.has(j) && j !== "any" && j !== "none") err(w, `nghề không tồn tại "${j}"`);
   }
@@ -144,6 +205,7 @@ function validate(data) {
   }
   for (const j of data.jobs || []) {
     const w = `jobs.json [${j.id}]`;
+    if(j.practiceFocus && (typeof j.practiceFocus!=="object"||Array.isArray(j.practiceFocus)||Object.entries(j.practiceFocus).some(([key,value])=>!["adventure","train","study","social"].includes(key)||!Number.isFinite(value)||value<=0||value>1)))err(w,"practiceFocus cần hệ số (0,1] cho hướng chủ động, không có rest/play");
     if (!STATS.includes(j.stat)) err(w, "stat phải là STR/INT/AGI/LUCK");
     if (!(j.ranks && j.ranks.length === 5)) err(w, "cần đúng 5 bậc (ranks)");
     for (const k of ["income"]) if (!(j[k] && j[k].length === 5)) err(w, `${k} cần 5 giá trị`);
@@ -172,6 +234,12 @@ function validate(data) {
       if (q.maxRank != null && !(q.maxRank >= 0 && q.maxRank < o.ranks.length)) err(w, "maxRank ngoài phạm vi");
     }
     for (const x of q.eras || []) if (!eraIds.has(x)) err(w, `thời đại không tồn tại "${x}"`);
+    checkReq(w, q.require);
+    if (q.career) {
+      if (!jobIds.has(q.career.job)) err(w, "nghề career không tồn tại");
+      if (![2,4].includes(q.career.rank) || q.steps?.length !== 3) err(w, "career cần mốc 2/4 và ba chặng");
+    }
+    checkNpcs(w, q.npcs);
     checkText(w, q.intro);
     checkText(w, q.complete);
     if (!(q.steps && q.steps.length)) err(w, "cần ít nhất 1 cảnh (steps)");
@@ -184,6 +252,7 @@ function validate(data) {
       (st.choices || []).forEach((ch, i) => {
         const cw = `${sw} lựa chọn ${i + 1}`;
         if (!ch.label) err(cw, "thiếu label");
+        if (ch.risk != null && ch.risk !== "lethal") err(cw, "risk phải là lethal");
         checkReq(cw, ch.require);
         for (const o of ch.check ? [ch.success, ch.fail] : [ch]) {
           if (o && o.end && !["fail", "win"].includes(o.end)) err(cw, "end phải là fail hoặc win");
@@ -196,6 +265,7 @@ function validate(data) {
 
   for (const o of data.origins) {
     const w = `origins.json [${o.id}]`;
+    if (o.captiveKind != null && !["prison", "slave", "arena", "bound"].includes(o.captiveKind)) err(w, "captiveKind không hợp lệ");
     checkRaces(w, o.races);
     checkText(w, o.text);
     checkEffects(w, o.effects);
@@ -211,7 +281,11 @@ function validate(data) {
   for (const kind of ["old", "health", "violent"])
     if (!data.deaths.some((d) => d.kind === kind && (!d.races || !d.races.length))) err("deaths.json", `cần một cái chết chung loại ${kind}`);
 
-  for (const ep of data.epitaphs) checkText(`epitaphs.json [${ep.id}]`, ep.text);
+  for (const ep of data.epitaphs) {
+    checkText(`epitaphs.json [${ep.id}]`, ep.text);
+    checkRaces("epitaphs.json", ep.races);
+    checkRaces("epitaphs.json", ep.excludeRaces);
+  }
   for (const f of data.fillers) checkText("fillers.json", f.text);
   for (const s of stageIds)
     if (!data.fillers.some((f) => (!f.stages || f.stages.includes(s)) && !f.races)) err("fillers.json", `thiếu câu lấp chỗ cho stage "${s}"`);

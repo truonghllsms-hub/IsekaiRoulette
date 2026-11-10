@@ -48,7 +48,7 @@ module.exports = {
       require: {},
       desc: "Không cần điều kiện. Thú cưng của một Tamer", income: [0.3, 0.6, 1, 1.6, 2.4], hazard: 1, gains: { LUCK: 0.2 } },
   ],
-  promoXp: [5, 6, 8, 10],
+  promoXp: [4, 8, 14, 22],
   focusByPrefix: { slime_absorb_: "work", slime_hide_: "study", slime_train_: "train", slime_wander_: "adventure", slime_hibernate_: "rest" },
 
   org: {
@@ -78,6 +78,7 @@ module.exports = {
   ],
 
   systems: {
+    solitaryCast: true,
     noRecruit: true,
     bandName: "bầy",
     activeFrom: "child",

@@ -8,6 +8,7 @@ const ROOT = path.join(__dirname, "..");
 const DATA_DIR = path.join(ROOT, "data");
 const PROFILE_DIR = path.join(ROOT, "content", "races");
 const PACK_DIR = path.join(DATA_DIR, "packs");
+const EXPANSION_DIR = path.join(ROOT, "content", "expansions");
 
 function readJson(file) {
   try {
@@ -87,7 +88,7 @@ function mergePack(data, p, file) {
   // what you spend your years on, e.path, stay for everyone)
   if (p.exclusive)
     for (const e of data.events)
-      if (!e.pack && !e.path && (!e.races || e.races.includes(p.race)))
+      if (!e.pack && !e.path && !(p.keepEvents || []).includes(e.id) && (!e.races || e.races.includes(p.race)))
         e.excludeRaces = [...new Set([...(e.excludeRaces || []), p.race])];
   if (p.systems) data.systems.race[p.race] = p.systems;
 }
@@ -112,24 +113,33 @@ function loadData() {
     quests: one("quests"),
     systems: one("systems"),
     items: one("items"),
+    chronology: one("chronology"),
+    economy: one("economy"),
     events,
   };
   for (const f of jsonFiles(PROFILE_DIR)) mergeProfile(data, readJson(path.join(PROFILE_DIR, f)), f);
   data.focusRace = {};
   data.story = {};
   for (const f of jsonFiles(PACK_DIR)) mergePack(data, readJson(path.join(PACK_DIR, f)), f);
+  // Reviewed additions are appended after race packs, whose origins replace defaults.
+  // Reject duplicate IDs instead of silently replacing an already authored story.
+  const expansionIds = new Set([...data.origins, ...data.events].map(x => x.id));
+  for (const file of jsonFiles(EXPANSION_DIR)) {
+    const addition = readJson(path.join(EXPANSION_DIR, file));
+    for (const key of ["origins", "events"]) {
+      if (!Array.isArray(addition[key])) throw new Error(`expansions/${file}: ${key} phải là mảng`);
+      for (const item of addition[key]) {
+        if (expansionIds.has(item.id)) throw new Error(`expansions/${file}: trùng ID ${item.id}`);
+        expansionIds.add(item.id);
+        data[key].push(key === "events" ? {...item, pack: true, _file: "expansions/" + file} : item);
+      }
+    }
+  }
   // love for the races whose packs left it out (their "social" focus promises a mate): data/romance.json
   const romance = fs.existsSync(path.join(DATA_DIR, "romance.json")) ? readJson(path.join(DATA_DIR, "romance.json")) : {};
   for (const [race, r] of Object.entries(romance)) {
     data.systems.race[race] = data.systems.race[race] || {};
     if (!data.systems.race[race].romance) data.systems.race[race].romance = r;
-  }
-  // a kin that was cut (a Beastman line no longer played): its births and its scenes go with it
-  for (const r of data.races) {
-    if (!r.subtypes) continue;
-    const kept = new Set(r.subtypes.map((s) => s.id));
-    data.origins = data.origins.filter((o) => !(o.subtype && o.races && o.races.includes(r.id) && !kept.has(o.subtype)));
-    data.events = data.events.filter((e) => !(e.require && e.require.subtype && e.races && e.races.includes(r.id) && !kept.has(e.require.subtype)));
   }
   // a scene about the father that checks the mother is alive (or the other way round) was a slip when the
   // script was turned into data: the parent the scene speaks of is the one who must be there
@@ -146,7 +156,46 @@ function loadData() {
   // the look of each trade (warrior, mage, hunter, worker, plain): picks the sprite and the gear line
   const { jobLook } = require("./looks");
   for (const j of data.jobs) j.look = jobLook(j);
+  for (const race of data.races) if (data.chronology[race.id]) race.pacing = data.chronology[race.id];
+  require("./economy").installEconomy(data);
+  require("./professions").installProfessions(data);
+  require("../content/epoch-events").install(data);
+  require("./economy").annotateRewards(data);
+  pruneRemoved(data);
   return data;
+}
+
+// A race taken out of the game (data/races.json) or a kin line taken out of a race (its subtypes): every
+// piece of content still written for it goes with it, wherever it came from (packs, shared events,
+// expansions, companions). An item written for several races keeps the races that remain.
+function pruneRemoved(data) {
+  const raceIds = new Set(data.races.map((r) => r.id));
+  const keep = (x) => {
+    if (x.excludeRaces) x.excludeRaces = x.excludeRaces.filter((r) => raceIds.has(r));
+    if (!Array.isArray(x.races)) return true;
+    const had = x.races.length;
+    x.races = x.races.filter((r) => raceIds.has(r));
+    return !had || x.races.length > 0;
+  };
+  for (const key of ["events", "origins", "jobs", "deaths", "quests", "orgs", "epitaphs", "fillers"])
+    if (Array.isArray(data[key])) data[key] = data[key].filter(keep);
+  for (const id of Object.keys(data.systems.race || {})) if (!raceIds.has(id)) delete data.systems.race[id];
+  for (const r of Object.values(data.systems.race || {}))
+    if (Array.isArray(r.companions)) r.companions = r.companions.filter((m) => !m.names || raceIds.has(m.names));
+  for (const k of ["story", "focusRace"]) for (const id of Object.keys(data[k] || {})) if (!raceIds.has(id)) delete data[k][id];
+  for (const r of data.races) {
+    if (!r.subtypes) continue;
+    const kin = new Set(r.subtypes.map((s) => s.id));
+    data.origins = data.origins.filter((o) => !(o.subtype && o.races && o.races.includes(r.id) && !kin.has(o.subtype)));
+    data.events = data.events.filter((e) => {
+      const q = e.require;
+      if (!q || !e.races || !e.races.includes(r.id)) return true;
+      // "not for these kin": kin that no longer exist need no excluding
+      if (Array.isArray(q.notSubtypes)) { q.notSubtypes = q.notSubtypes.filter((k) => kin.has(k)); if (!q.notSubtypes.length) delete q.notSubtypes; }
+      if (Array.isArray(q.subtype)) { q.subtype = q.subtype.filter((k) => kin.has(k)); return q.subtype.length > 0; }
+      return !(q.subtype && !kin.has(q.subtype));
+    });
+  }
 }
 
 module.exports = { loadData, DATA_DIR };
