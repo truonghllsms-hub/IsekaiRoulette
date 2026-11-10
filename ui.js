@@ -131,8 +131,65 @@
     }
     return pool[hashName(ch.name) % pool.length];
   }
+  // ---------- illustrated Human portraits ----------
+  // A Human life gets one artbook template (H01-H08, F01-F08) by birth (content/portraits/human.json):
+  // mostly from the templates made for that birth, now and then from those that also suit it. Its looks:
+  // baby, child, teen, adult, old, and each trade at three steps (T1 ranks 1-2, T2 ranks 3-4, T3 rank 5).
+  function portraitTemplate(ch) {
+    const P = D.portraits;
+    if (!P || ch.race.id !== "human" || !ch.gender) return null;
+    if (ch._portrait !== undefined) return ch._portrait;
+    const birth = ch.origin.id.replace(/^human_(bg|origin)_/, "");
+    const own = Object.entries(P.templates).filter(([T, t]) => t.gender === ch.gender && P.looks[T]);
+    const main = own.filter(([, t]) => t.main.includes(birth)).map(([T]) => T);
+    const also = own.filter(([, t]) => t.also.includes(birth)).map(([T]) => T);
+    const h = hashName(ch.name + "|" + birth);
+    const from = main.length && (!also.length || h % 4 !== 0) ? main : also.length ? also : own.map(([T]) => T);
+    ch._portrait = from.length ? from[(h >>> 2) % from.length] : null;
+    return ch._portrait;
+  }
+  // the shared trades a Human can also take, drawn as the artbook trade closest to them
+  const PORTRAIT_TRADE = { warrior: "swordsman", rogue: "assassin", cleric: "priest" };
+  function tierOf(rank, ranks) {
+    const last = Math.max(1, (ranks || 5) - 1);
+    return rank >= last ? 3 : rank >= 2 ? 2 : 1;
+  }
+  function portraitSprite(T, wants) {
+    const look = wants.find((k) => (D.portraits.looks[T] || []).includes(k));
+    if (!look) return null;
+    const key = `pt/${T}/${look}`, S = D.sprites[key];
+    return S ? { person: key, column: look, rect: S[look], size: S._size } : null;
+  }
+  function portraitOf(ch, peak) {
+    const T = portraitTemplate(ch);
+    if (!T) return null;
+    const st = E.currentStage(ch).id;
+    const jobKey = (j) => PORTRAIT_TRADE[j.id] || j.id.replace(/^human_/, "");
+    const ranksOf = (j) => ((D.jobs || []).find((x) => x.id === j.id) || {}).ranks;
+    const trade = (j, tier) => [3, 2, 1].filter((t) => t <= tier).map((t) => `${jobKey(j)}_${t}`);
+    if (peak) {
+      // the card: the furthest a trade went in this life, else the grown-up self
+      const jobs = [ch.job, ...(ch.pastJobs || [])].filter(Boolean).map((j) => ({ j, tier: tierOf(j.rank || 0, (ranksOf(j) || []).length) })).sort((a, b) => b.tier - a.tier);
+      const wants = jobs.flatMap(({ j, tier }) => trade(j, tier));
+      if (st === "infant") wants.push("age1");
+      else if (st === "child") wants.push("age7");
+      wants.push("base", "age15");
+      return portraitSprite(T, wants);
+    }
+    const wants = [];
+    if (st === "infant") wants.push("age1", "age7");
+    else if (st === "child") wants.push("age7", "age1");
+    else if (st === "elder" || st === "ancient") wants.push("age60");
+    if (ch.job && !["infant", "child"].includes(st)) wants.push(...trade(ch.job, tierOf(ch.job.rank || 0, (ranksOf(ch.job) || []).length)));
+    if (st === "teen" && !ch.job) wants.push("age15");
+    wants.push("base", "age15");
+    return portraitSprite(T, wants);
+  }
+
   // peak: the strongest look of a whole life (evolved form, veteran gear) instead of the present one
   function spriteOf(ch, peak) {
+    const portrait = portraitOf(ch, peak);
+    if (portrait) return portrait;
     const person = personOf(ch);
     if (!person) return null;
     const P = D.sprites[person];
