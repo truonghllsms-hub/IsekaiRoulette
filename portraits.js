@@ -10,6 +10,27 @@
     runesmith: ['blacksmith', 'tho_ren', 'rune'], shield: ['chien_binh', 'do_don'], brew: ['nau_ruou'], eng: ['ky_su'], miner: ['tho_mo'], carver: ['tho_cham'], guard: ['ho_ve', 'canh_ve'], spirit: ['ma_phap_su', 'phap_su', 'tinh_linh'], herb: ['thao_duoc'], wood: ['tho_moc'], envoy: ['su_gia'], warrior: ['chien_binh', 'kiem_si'], dk: ['dark_knight', 'hiep_si'], wl: ['warlock', 'phap_su'], stalker: ['san_moi'], sentinel: ['ho_ve'], awakened: ['thuc_tinh'], general: ['tuong_quan'], archmage: ['phap_su'], lord: ['lanh_chua'], hoard: ['kho_bau'], war: ['chien_binh'], sage: ['phap_su', 'hoc_gia'], noble: ['quy_toc'], blade: ['kiem_si'], metal: ['kim_loai'], magic: ['ma_phap'], poison: ['doc'], bridge: ['gac_cau'], guardian: ['ho_ve'], custodian: ['phuc_dich']
   };
   const has = (text, token) => (`_${text}_`).includes(`_${token}_`);
+  // A Human companion is drawn from the illustrated artbook: a template of their gender (fixed by
+  // name), their trade at its step (T1 ranks 1-2, T2 ranks 3-4, T3 rank 5), else their grown-up self.
+  const TRADES = ['swordsman', 'mage', 'assassin', 'priest', 'merchant', 'smith', 'ranger', 'gladiator', 'paladin', 'scholar', 'farmer', 'tamer', 'bard', 'mercenary'];
+  const TRADE_WORDS = { swordsman: ['kiem_si', 'chien_binh', 'warrior', 'kiem_khach', 'kiem_thanh', 'kiem_vuong', 'swordmaster'], paladin: ['thanh_ky_si', 'paladin', 'ky_si', 'hiep_si', 'knight'], assassin: ['sat_thu', 'assassin', 'thief', 'trom', 'rogue'], priest: ['nu_tu', 'cleric', 'herbalist', 'thay_thuoc', 'thanh_quan', 'tri_lieu'], merchant: ['merchant', 'thuong_gia', 'lai_buon'], smith: ['blacksmith', 'smith', 'ren'], ranger: ['ranger', 'tho_san', 'trinh_sat', 'hunter', 'archer', 'xa_thu'], gladiator: ['dau_si'], scholar: ['scholar', 'hoc_si', 'nha_nghien_cuu'], farmer: ['farmer', 'nong_phu'], tamer: ['tamer', 'thuan_thu_su'], bard: ['bard', 'ca_si', 'thi_si', 'nhac_si'], mercenary: ['mercenary', 'ho_ve', 'canh_ve', 'linh', 've_binh', 'guard'], mage: ['mage', 'wizard', 'warlock', 'hien_gia'] };
+  function humanArt(member, data, gender) {
+    const P = data.portraits;
+    const own = Object.keys(P.templates).filter(T => P.templates[T].gender === gender && P.looks[T]).sort();
+    if (!own.length) return null;
+    const h = hash(member.name);
+    const T = own[h % own.length];
+    const role = slug([member.position, member.jobName, member.job].filter(Boolean).join(' '));
+    const trade = TRADES.find(k => has(role, k) || (jobs[k] || []).some(a => has(role, a))) || TRADES.find(k => (TRADE_WORDS[k] || []).some(a => has(role, a)));
+    const rankMatch = role.match(/(?:bac|rank)_(\d+)/);
+    const tier = rankMatch ? (+rankMatch[1] >= 5 ? 3 : +rankMatch[1] >= 3 ? 2 : 1) : member.rank != null ? (member.rank >= 4 ? 3 : member.rank >= 2 ? 2 : 1) : /ky_cuu|lao_luyen|veteran/.test(role) ? 2 : 1;
+    const old = /(?:^|_)(gia|lao|old)(?:_|$)/.test(slug([member.name, member.desc, member.race].join(' ')));
+    const young = /(?:^|_)(be|nhoc|thieu_nien|thieu_nu|tre_con)(?:_|$)/.test(slug(member.desc || member.race));
+    const want = [...(trade ? [3, 2, 1].filter(t => t <= tier).map(t => `${trade}_${t}`) : []), old && 'age60', young && 'age15', 'base', 'age15'];
+    const look = want.find(k => k && P.looks[T].includes(k));
+    const key = `pt/${T}/${look}`, sheet = data.sprites[key];
+    return sheet ? { person: key, column: look, rect: sheet[look], size: sheet._size, raceId: 'human', subtype: null, gender } : null;
+  }
 
   function npcSprite(member, data) {
     const raw = slug(member.race);
@@ -28,6 +49,7 @@
     const declaredGender = has(raw, 'nu') || has(raw, 'cai') ? 'female' : has(raw, 'nam') || has(raw, 'duc') ? 'male' : null;
     const gender = declaredGender || member.gender || (has(genderText, 'nu') || has(genderText, 'cai') ? 'female' : /(?:a|ine)$/i.test(member.name) ? 'female' : 'male');
     const g = race.genderless ? 'x' : gender === 'female' ? 'nu' : 'nam';
+    if (race.id === 'human' && data.portraits) { const art = humanArt(member, data, gender); if (art) return art; }
     const prefix = `${race.id}${subtype ? '_' + subtype : ''}`;
     const atlas = data.sprites || {};
     const own = Object.keys(atlas).filter(p => p.startsWith(`${prefix}_${g}_`)).sort();
