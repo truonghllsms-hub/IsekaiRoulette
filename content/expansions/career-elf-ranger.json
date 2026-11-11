@@ -1,0 +1,1047 @@
+{
+ "_note": "Tuyến truyện Ranger (Elf): 5 chương theo bậc, ba đạo ở Bậc 2 (erg_path_edge / erg_path_guide / erg_path_deep), nhân vật xuyên suốt Sylvara (Ranger 900 tuổi) và Tomas (tiều phu Human).",
+ "origins": [],
+ "events": [
+  {
+   "id": "erg_c1_sylvara",
+   "races": [
+    "elf"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "elf_ranger",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "erg_met_sylvara"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Sylvara",
+     "race": "Elf",
+     "position": "Ranger tuần tra rìa Đại Ngàn chín trăm năm"
+    }
+   ],
+   "text": "Sylvara đã tuần tra rìa Đại Ngàn từ khi Sanctus còn là một làng chài. Bà đưa cho bạn một cây cung chưa căng dây và bảo bạn ngồi dưới gốc sồi cổ thụ: “Khi nào cái cây kể cho ngươi nghe có ai vừa đi qua, ta sẽ cho ngươi dây cung.”",
+   "choices": [
+    {
+     "label": "Ngồi chờ bao lâu cũng được",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Mười một ngày. Đến sáng ngày thứ mười hai, bạn cảm thấy rễ cây rung lên rất khẽ dưới lưng mình: một con nai, ba bước về phía đông. Sylvara ném cho bạn cuộn dây cung, không nói gì. Với Elf, mười một ngày là rất nhanh.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "erg_met_sylvara",
+        "erg_sylvara_respect"
+       ]
+      },
+      "moment": "Nghe được tiếng rễ sồi cổ thụ báo có thú đi qua"
+     },
+     "fail": {
+      "text": "Một mùa trôi qua mà cái cây vẫn im lặng. Sylvara không sốt ruột. Bà có cả thế kỷ.",
+      "effects": {
+       "joy": -3,
+       "flags": [
+        "erg_met_sylvara"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Áp tai xuống đất thay vì ngồi dựa cây",
+     "text": "Sylvara nhướng mày. “Ngươi nghe đất thay vì nghe cây. Không đúng bài, nhưng cũng không sai.” Bà đưa dây cung cho bạn sớm hơn mọi học trò khác, kèm một lời cảnh báo: đất nói nhiều, nhưng cây nói thật.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 1,
+      "flags": [
+       "erg_met_sylvara"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "erg_c1_tomas",
+   "races": [
+    "elf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "elf_ranger",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "erg_met_sylvara"
+    ],
+    "notFlags": [
+     "erg_met_tomas"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Tomas",
+     "race": "Human",
+     "position": "Cậu bé tiều phu ở rìa Đại Ngàn"
+    }
+   ],
+   "text": "Ở rìa rừng, bạn bắt gặp một cậu bé tiều phu Human tên Tomas đang khóc vì lạc đường. Cậu mới mười tuổi, ôm một bó củi to hơn người. Theo luật, bạn phải đuổi cậu ra khỏi lãnh thổ Đại Ngàn.",
+   "choices": [
+    {
+     "label": "Dẫn cậu về tận nhà",
+     "text": "Tomas nói suốt đường về, hỏi bạn đủ thứ về Elf. Ở cửa nhà, mẹ cậu sợ hãi nhìn bạn, rồi mời bạn một bát súp. Từ đó, mỗi mùa thu, Tomas để một giỏ táo ở rìa rừng cho bạn.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 1,
+      "flags": [
+       "erg_met_tomas",
+       "erg_tomas_friend"
+      ]
+     },
+     "moment": "Dẫn cậu bé tiều phu Tomas về nhà"
+    },
+    {
+     "label": "Chỉ đường cho cậu từ xa, không lộ mặt",
+     "text": "Bạn đặt những mũi tên chỉ đường trên thân cây. Tomas đi theo chúng ra khỏi rừng, ngoái lại nhìn mãi. Năm sau, cậu quay lại, để một bức vẽ mũi tên trên gốc cây, kèm dòng chữ nguệch ngoạc: “Cảm ơn”.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "erg_met_tomas"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "erg_c2_first_patrol",
+   "races": [
+    "elf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "elf_ranger",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "erg_first_patrol",
+     "erg_end"
+    ]
+   },
+   "text": "Lần tuần tra một mình đầu tiên, bạn phát hiện một đoàn thợ săn Human đang đặt bẫy thép sâu trong rừng thiêng. Trong đó có Tomas, giờ đã là một chàng trai mười tám tuổi.",
+   "choices": [
+    {
+     "label": "Đuổi cả đoàn ra khỏi rừng",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Mũi tên của bạn cắm sát chân từng người. Đoàn thợ săn bỏ chạy. Tomas đứng lại cuối cùng, nhìn bạn, rồi cúi đầu và đi. Năm ấy, không có giỏ táo nào ở rìa rừng.",
+      "effects": {
+       "AGI": 1,
+       "fame": 3,
+       "jobXp": 2,
+       "flags": [
+        "erg_first_patrol",
+        "erg_tomas_hurt"
+       ]
+      },
+      "moment": "Đuổi đoàn thợ săn Human ra khỏi rừng thiêng"
+     },
+     "fail": {
+      "text": "Một thợ săn bắn trả. Mũi tên sượt qua tai bạn. Đoàn thợ săn chạy thoát, nhưng bẫy vẫn còn đó.",
+      "effects": {
+       "health": -10,
+       "flags": [
+        "erg_first_patrol"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Gọi riêng Tomas ra nói chuyện",
+     "require": {
+      "flags": [
+       "erg_tomas_friend"
+      ]
+     },
+     "text": "Tomas kể: làng cậu đói, và thịt nai rừng thiêng bán được giá. Bạn chỉ cho cậu một khu rừng thường ở phía nam, nơi nai đông mà không thiêng. Đoàn thợ săn đi theo cậu. Không ai bị thương.",
+     "effects": {
+      "INT": 1,
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "erg_first_patrol",
+       "erg_tomas_friend"
+      ]
+     },
+     "moment": "Chỉ đường cho Tomas và đoàn thợ săn đến khu rừng khác"
+    }
+   ]
+  },
+  {
+   "id": "erg_c2_crossroads",
+   "races": [
+    "elf"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "elf_ranger",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "erg_path_edge",
+     "erg_path_guide",
+     "erg_path_deep",
+     "erg_end"
+    ]
+   },
+   "text": "Sylvara nói với bạn: “Mỗi Ranger phải chọn mình đứng ở đâu.” Hội đồng Trưởng Lão muốn tăng gác ở rìa rừng, đẩy lùi những làng Human đang lấn dần. Một số Elf trẻ muốn mở những con đường an toàn để Human đi qua, đổi lấy hòa bình. Và có những Ranger, như Sylvara thời trẻ, đi vào Rừng Sâu Cổ Đại, nơi cây cối còn già hơn cả Elf.",
+   "choices": [
+    {
+     "label": "Giữ rìa rừng: Biên Giới Lá",
+     "text": "Bạn nhận một đoạn rìa rừng dài một ngày đường. Mỗi gốc cây ở đó giờ là của bạn để giữ.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "erg_path_edge"
+      ]
+     },
+     "moment": "Nhận giữ một đoạn rìa Đại Ngàn"
+    },
+    {
+     "label": "Mở đường cho Human: Người Dẫn Lối",
+     "text": "Bạn đánh dấu những lối mòn an toàn bằng những dải lụa xanh. Các Trưởng Lão nhíu mày. Các làng Human bắt đầu gọi bạn là “người lụa xanh”.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "erg_path_guide"
+      ]
+     },
+     "moment": "Bắt đầu mở những lối mòn an toàn cho người Human"
+    },
+    {
+     "label": "Vào Rừng Sâu Cổ Đại: Rừng Sâu",
+     "text": "Sylvara đưa cho bạn một chiếc lá vàng khô. “Khi nó xanh lại, ngươi sẽ biết đường về.” Bạn bước vào nơi ánh mặt trời không chạm đất.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 2,
+      "flags": [
+       "erg_path_deep"
+      ]
+     },
+     "moment": "Bước vào Rừng Sâu Cổ Đại"
+    }
+   ]
+  },
+  {
+   "id": "erg_edge_village",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_ranger",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "erg_path_edge"
+    ],
+    "notFlags": [
+     "erg_end"
+    ]
+   },
+   "text": "Một làng Human đã dựng hàng rào lấn vào rìa Đại Ngàn mười bước. Hội đồng ra lệnh bạn nhổ hàng rào và đốt những căn nhà sát rừng.",
+   "choices": [
+    {
+     "label": "Nhổ hàng rào, nhưng không đốt nhà",
+     "text": "Bạn nhổ từng cọc rào, mang trả lại cho làng. Trưởng làng nhìn bạn, hiểu ý. Mùa sau, làng dời hàng rào lùi lại. Hội đồng khiển trách bạn vì không đốt nhà, nhưng không làm gì hơn.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "erg_edge_mercy"
+      ]
+     }
+    },
+    {
+     "label": "Làm đúng lệnh",
+     "text": "Ba căn nhà cháy. Làng dời đi. Rìa rừng nguyên vẹn. Có một đứa trẻ trong làng ấy đứng nhìn bạn rất lâu, và nhiều năm sau, đứa trẻ ấy cầm rìu quay lại.",
+     "effects": {
+      "fame": 4,
+      "joy": -15,
+      "jobXp": 3,
+      "flags": [
+       "erg_edge_harsh"
+      ]
+     }
+    },
+    {
+     "label": "Thương lượng một ranh giới mới với trưởng làng",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn và trưởng làng cùng đi dọc rìa rừng, đặt những tảng đá trắng làm mốc. Làng được giữ khu vườn, Đại Ngàn được giữ con suối. Hội đồng miễn cưỡng chấp nhận.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "erg_edge_mercy",
+        "erg_white_stones"
+       ]
+      },
+      "moment": "Thương lượng ranh giới đá trắng với một làng Human"
+     },
+     "fail": {
+      "text": "Trưởng làng không tin Elf. Bạn phải nhổ hàng rào theo lệnh.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "erg_edge_axes",
+   "races": [
+    "elf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "elf_ranger",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "erg_path_edge"
+    ],
+    "notFlags": [
+     "erg_end"
+    ]
+   },
+   "text": "Đứa trẻ ngày xưa giờ đã lớn, dẫn ba mươi người mang rìu đến rìa rừng, đòi lại đất của làng. Bạn nhận ra khuôn mặt ấy.",
+   "choices": [
+    {
+     "label": "Giữ rìa rừng bằng cung",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Mũi tên của bạn chặt đứt cán từng chiếc rìu. Không ai bị thương. Họ rút đi. Bạn biết họ sẽ quay lại, vì bạn đã từng cho họ lý do.",
+      "effects": {
+       "AGI": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "erg_edge_held"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Họ quá đông. Mười cây sồi bị đốn trước khi bạn gọi được cứu viện.",
+      "effects": {
+       "joy": -12
+      }
+     }
+    },
+    {
+     "label": "Bước ra, nói với người cầm đầu về đêm năm ấy",
+     "require": {
+      "flags": [
+       "erg_edge_harsh"
+      ]
+     },
+     "text": "Bạn đứng giữa hai bên, không cầm cung. Bạn kể đêm ấy từ phía bên kia. Anh ta nghe, rìu run trong tay. Cuối cùng anh ta hạ rìu, và hai người cùng đặt mốc đá trắng.",
+     "effects": {
+      "joy": 10,
+      "fame": 4,
+      "jobXp": 3,
+      "flags": [
+       "erg_edge_reconciled",
+       "erg_white_stones"
+      ]
+     },
+     "moment": "Hòa giải với đứa trẻ năm xưa giờ cầm rìu quay lại"
+    }
+   ]
+  },
+  {
+   "id": "erg_guide_caravan",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_ranger",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "erg_path_guide"
+    ],
+    "notFlags": [
+     "erg_end"
+    ]
+   },
+   "text": "Một đoàn người tị nạn Human chạy trốn chiến tranh xin đi xuyên Đại Ngàn. Con đường vòng qua rừng có quân Ma tộc chặn. Hội đồng không cho phép.",
+   "choices": [
+    {
+     "label": "Dẫn họ đi trong đêm",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Ba trăm người đi theo dải lụa xanh của bạn suốt ba đêm, không ai đốt lửa, không ai bẻ cành. Họ ra khỏi rừng ở phía bên kia, an toàn. Hội đồng biết, và im lặng.",
+      "effects": {
+       "AGI": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "erg_guide_refugees"
+       ]
+      },
+      "moment": "Dẫn ba trăm người tị nạn xuyên Đại Ngàn trong đêm"
+     },
+     "fail": {
+      "text": "Một đứa trẻ trong đoàn bẻ cành làm đuốc. Các Ranger khác phát hiện. Đoàn người bị đuổi ra, và bạn bị giam một năm.",
+      "effects": {
+       "joy": -10,
+       "fame": -4
+      }
+     }
+    },
+    {
+     "label": "Thuyết phục Hội đồng mở đường",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đứng trước Hội đồng suốt một ngày, kể về những đứa trẻ trong đoàn. Một Trưởng Lão già nhất gật đầu đầu tiên. Đoàn người được đi, có Ranger hộ tống.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "erg_guide_refugees",
+        "erg_council_moved"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Hội đồng không đổi ý. Đoàn người phải đi đường vòng.",
+      "effects": {
+       "joy": -12
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "erg_guide_tomas_old",
+   "races": [
+    "elf"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "elf_ranger",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "erg_path_guide",
+     "erg_met_tomas"
+    ],
+    "notFlags": [
+     "erg_end"
+    ]
+   },
+   "text": "Tomas đến rìa rừng tìm bạn. Anh ta đã năm mươi tuổi, tóc bạc, lưng còng. Bạn trông vẫn như ngày gặp anh ta lần đầu.",
+   "choices": [
+    {
+     "label": "Ngồi với anh ta suốt buổi chiều",
+     "text": "Tomas kể về vợ, về con, về những mùa táo. Rồi anh ta hỏi: “Ngươi có buồn không, khi nhìn bọn ta già đi?” Bạn không biết trả lời thế nào. Anh ta cười, vỗ vai bạn như vỗ vai một đứa em.",
+     "effects": {
+      "joy": 4,
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "erg_tomas_old"
+      ]
+     },
+     "moment": "Ngồi cùng Tomas năm mươi tuổi ở rìa rừng"
+    },
+    {
+     "label": "Dẫn anh ta vào thăm cây sồi cổ thụ",
+     "text": "Lần đầu tiên, một người Human được vào sâu trong Đại Ngàn. Tomas đặt tay lên cây sồi, nước mắt chảy dài. “Nó già hơn cả ông nội ông nội ta,” anh ta thì thầm. “Thế mà nó vẫn đứng.”",
+     "effects": {
+      "joy": 10,
+      "jobXp": 2,
+      "flags": [
+       "erg_tomas_old",
+       "erg_tomas_tree"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "erg_deep_ancient",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_ranger",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "erg_path_deep"
+    ],
+    "notFlags": [
+     "erg_end"
+    ]
+   },
+   "text": "Sâu trong Rừng Cổ Đại, bạn gặp một cây biết đi: một Treant già đến mức rêu đã mọc thành rừng trên lưng nó. Nó đang chết, và nó muốn biết tên của kẻ sẽ chứng kiến điều đó.",
+   "choices": [
+    {
+     "label": "Nói tên mình, và ở lại",
+     "text": "Bạn ở bên nó ba năm. Nó kể cho bạn về những gì đã xảy ra trước khi có Elf, trước khi có Human. Khi nó ngã xuống, từ thân nó mọc ra một mầm cây nhỏ. Bạn đặt tên cho mầm cây ấy.",
+     "effects": {
+      "INT": 2,
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "erg_deep_treant"
+      ]
+     },
+     "moment": "Ở bên một Treant cổ đại trong những năm cuối"
+    },
+    {
+     "label": "Hỏi nó về đường về",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Nó chỉ cho bạn một lối đi mà Elf đã quên: con đường của rễ cây, nối Rừng Sâu với mọi khu rừng của Aethelgard. Chiếc lá vàng của Sylvara xanh lại trong tay bạn.",
+      "effects": {
+       "LUCK": 1,
+       "jobXp": 3,
+       "flags": [
+        "erg_deep_roots"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Nó không trả lời. Nó đã quá mệt. Bạn ngồi cạnh nó cho đến khi nó im hẳn.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "erg_deep_lost",
+   "races": [
+    "elf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "elf_ranger",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "erg_path_deep"
+    ],
+    "notFlags": [
+     "erg_end"
+    ]
+   },
+   "text": "Bạn đã ở trong Rừng Sâu quá lâu. Khi bạn tìm đường ra, bạn không chắc đã bao nhiêu năm trôi qua ở bên ngoài.",
+   "choices": [
+    {
+     "label": "Theo chiếc lá xanh về",
+     "require": {
+      "flags": [
+       "erg_deep_roots"
+      ]
+     },
+     "text": "Chiếc lá dẫn bạn ra đúng gốc sồi nơi Sylvara dạy bạn. Bạn ngồi xuống, và rễ cây kể cho bạn nghe mọi điều đã xảy ra: hai mươi năm. Bạn đã bỏ lỡ hai mươi năm.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "erg_deep_returned"
+      ]
+     }
+    },
+    {
+     "label": "Đi theo hướng mặt trời",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn ra khỏi rừng ở một nơi lạ. Một làng Human mới mọc lên ở đó, không ai biết Elf từng tuần tra vùng này.",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 2,
+       "flags": [
+        "erg_deep_returned"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn lạc thêm một năm.",
+      "effects": {
+       "health": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "erg_c4_tomas",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_ranger",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "erg_met_tomas"
+    ],
+    "notFlags": [
+     "erg_tomas_gone",
+     "erg_end"
+    ]
+   },
+   "text": "Tin báo đến từ làng ven rừng: Tomas sắp mất. Ông ta đã tám mươi tuổi, và ông xin được gặp “người Elf của rìa rừng” lần cuối.",
+   "choices": [
+    {
+     "label": "Đến ngay",
+     "text": "Tomas nằm trên giường, quanh là con cháu ba đời. Ông nhìn bạn, cười móm mém: “Ngươi vẫn chẳng già đi chút nào.” Ông nắm tay bạn, và nhờ bạn chăm sóc cây táo trước nhà. Ông mất đêm ấy. Bạn chăm cây táo ấy suốt ba trăm năm.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "erg_tomas_gone",
+       "erg_apple_tree"
+      ]
+     },
+     "moment": "Tiễn Tomas và nhận chăm cây táo của ông"
+    },
+    {
+     "label": "Đến muộn",
+     "text": "Bạn đến khi đám tang đã xong. Con gái Tomas đưa cho bạn một giỏ táo: “Bố dặn để ở rìa rừng mùa này.” Bạn đặt nó ở rìa rừng, như mọi mùa thu.",
+     "effects": {
+      "joy": -10,
+      "jobXp": 3,
+      "flags": [
+       "erg_tomas_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "erg_c4_fire",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_ranger",
+    "free": true,
+    "jobRank": 3,
+    "notFlags": [
+     "erg_end"
+    ]
+   },
+   "text": "Một đám cháy lớn bùng lên ở rìa Đại Ngàn. Không phải do sét: do Ma tộc. Lửa đang lan về phía Yggdrasil, và gió đang thổi mạnh.",
+   "choices": [
+    {
+     "label": "Dẫn các Ranger chặt một dải rừng chắn lửa",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn chọn những cây sẽ phải hy sinh, và chặt chúng trước khi lửa đến. Dải rừng chắn giữ lửa lại. Bạn hát tiễn từng cây đã chặt. Hội đồng gọi bạn là Master Ranger.",
+      "effects": {
+       "STR": 1,
+       "fame": 10,
+       "jobXp": 4,
+       "flags": [
+        "erg_fire_stopped"
+       ]
+      },
+      "moment": "Chặt dải rừng chắn lửa cứu Yggdrasil"
+     },
+     "fail": {
+      "text": "Lửa nhảy qua dải chắn. Bạn mất một phần rừng già trước khi mưa đến.",
+      "effects": {
+       "health": -15,
+       "joy": -12
+      }
+     }
+    },
+    {
+     "label": "Gọi làng Human ven rừng đến giúp",
+     "require": {
+      "anyFlags": [
+       "erg_tomas_friend",
+       "erg_white_stones",
+       "erg_guide_refugees"
+      ]
+     },
+     "text": "Con cháu Tomas, những người đã đặt đá trắng, những người tị nạn năm xưa, kéo đến với gầu nước và xẻng. Elf và Human cùng dập lửa suốt hai ngày. Lần đầu tiên, họ ăn bữa tối chung trong Đại Ngàn.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "jobXp": 4,
+      "flags": [
+       "erg_fire_stopped",
+       "erg_fire_together"
+      ]
+     },
+     "moment": "Elf và Human cùng dập đám cháy Đại Ngàn"
+    }
+   ]
+  },
+  {
+   "id": "erg_c5_edge",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_ranger",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "erg_path_edge"
+    ],
+    "notFlags": [
+     "erg_end"
+    ]
+   },
+   "text": "Ba trăm năm giữ rìa rừng. Người ta gọi bạn là Legend of the Great Forest. Sylvara đã đi về phía Rừng Sâu từ lâu, và Hội đồng muốn bạn thay bà dạy thế hệ Ranger mới.",
+   "choices": [
+    {
+     "label": "Dạy họ nghe cây",
+     "text": "Bạn đưa cho mỗi Ranger trẻ một cây cung chưa căng dây, và bảo họ ngồi dưới gốc sồi. Một số chờ mười ngày. Một số chờ mười năm. Bạn không vội. Bạn có cả thế kỷ.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "erg_end",
+       "erg_end_teacher"
+      ]
+     },
+     "moment": "Dạy thế hệ Ranger mới nghe tiếng cây"
+    },
+    {
+     "label": "Biến ranh giới đá trắng thành luật của Đại Ngàn",
+     "require": {
+      "flags": [
+       "erg_white_stones"
+      ]
+     },
+     "text": "Hội đồng thông qua: mọi ranh giới giữa Đại Ngàn và các làng Human sẽ được vạch bằng đá trắng, do cả hai bên cùng đặt. Ranh giới ấy giữ được lâu hơn mọi hàng rào.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "erg_end",
+       "erg_end_white_law"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "erg_c5_guide",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_ranger",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "erg_path_guide"
+    ],
+    "notFlags": [
+     "erg_end"
+    ]
+   },
+   "text": "Những dải lụa xanh của bạn giờ dẫn khắp Đại Ngàn. Human đi qua rừng mà không bẻ một cành. Người ta gọi bạn là Legend of the Great Forest. Một cô bé Human, chắt của Tomas, đến xin học làm người dẫn lối.",
+   "choices": [
+    {
+     "label": "Nhận cô bé",
+     "text": "Lần đầu tiên, một Human được dạy làm Ranger của Đại Ngàn. Cô bé học nghe cây trong mười một ngày, đúng như bạn năm xưa. Hội đồng phản đối, rồi im lặng khi cô bé chỉ ra một đám cháy mà không Elf nào thấy.",
+     "effects": {
+      "fame": 15,
+      "joy": 18,
+      "flags": [
+       "erg_end",
+       "erg_end_human_ranger"
+      ]
+     },
+     "moment": "Dạy người Human đầu tiên làm Ranger của Đại Ngàn"
+    },
+    {
+     "label": "Trao những dải lụa xanh cho các làng ven rừng",
+     "text": "Mỗi làng nhận một cuộn lụa xanh, và một Elf trẻ đến sống cùng để dạy họ đi trong rừng. Đại Ngàn không còn đóng cửa nữa.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "erg_end",
+       "erg_end_open_forest"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "erg_c5_deep",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_ranger",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "erg_path_deep"
+    ],
+    "notFlags": [
+     "erg_end"
+    ]
+   },
+   "text": "Bạn đã đi sâu vào Rừng Cổ Đại hơn bất kỳ Elf nào kể từ thời Sylvara. Người ta gọi bạn là Legend of the Great Forest, nhưng ở bên ngoài, ít ai còn nhớ mặt bạn.",
+   "choices": [
+    {
+     "label": "Ở lại Rừng Sâu mãi mãi",
+     "text": "Bạn dựng nhà trên một cành cây già, cạnh mầm cây mọc lên từ Treant. Năm này qua năm khác, bạn nhìn nó lớn lên. Khi nó đủ lớn để đi, bạn đi cùng nó.",
+     "effects": {
+      "joy": 18,
+      "fame": 10,
+      "flags": [
+       "erg_end",
+       "erg_end_deep_forever"
+      ]
+     },
+     "moment": "Ở lại Rừng Sâu Cổ Đại cùng mầm cây của Treant"
+    },
+    {
+     "label": "Mang con đường của rễ ra ngoài",
+     "require": {
+      "flags": [
+       "erg_deep_roots"
+      ]
+     },
+     "text": "Bạn dạy các Ranger con đường của rễ cây. Từ đó, một Ranger ở Đại Ngàn có thể nghe được một đám cháy ở rừng Răng Cưa. Mọi khu rừng của Aethelgard nối với nhau như một.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "erg_end",
+       "erg_end_root_road"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "erg_daily_bowstring",
+   "races": [
+    "elf"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "elf_ranger",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Dây cung bằng tơ nhện tuyết của bạn đã sờn sau năm mươi năm. Đã đến lúc thay.",
+   "choices": [
+    {
+     "label": "Đi tìm nhện tuyết trên núi",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Ba tháng trên núi. Bạn mang về đủ tơ cho một trăm năm nữa.",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 1
+      }
+     },
+     "fail": {
+      "text": "Nhện tuyết cắn bạn. Bạn mang về đủ tơ, và một vết sẹo.",
+      "effects": {
+       "health": -8
+      }
+     }
+    },
+    {
+     "label": "Mua tơ ở chợ Human",
+     "text": "Tơ Human mỏng hơn, đứt nhanh hơn. Bạn sẽ phải thay sau hai mươi năm. Với Elf, chừng đó chẳng là gì.",
+     "effects": {
+      "wealth": -3
+     }
+    }
+   ]
+  },
+  {
+   "id": "erg_daily_human_kids",
+   "races": [
+    "elf"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "elf_ranger",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Lũ trẻ ở làng ven rừng chơi trò “Elf và thợ săn”. Bạn nghe thấy chúng cãi nhau xem ai được làm Elf.",
+   "choices": [
+    {
+     "label": "Bước ra chơi cùng",
+     "text": "Lũ trẻ hét lên, rồi vây quanh bạn. Bạn làm thợ săn, và để chúng bắt được. Đó là buổi chiều vui nhất bạn có trong mười năm.",
+     "effects": {
+      "joy": 10
+     }
+    },
+    {
+     "label": "Đứng xem từ xa",
+     "text": "Đứa làm Elf bắn trúng đứa làm thợ săn bằng một cành cây, và cả bọn cười lăn. Bạn mỉm cười trong bóng lá.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "erg_daily_war_watch",
+   "races": [
+    "elf"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "elf_ranger",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh lan đến rìa Đại Ngàn. Hội đồng ra lệnh: không Ranger nào được rời rừng để giúp loài người.",
+   "choices": [
+    {
+     "label": "Tuân lệnh",
+     "text": "Bạn đứng trên cành cây cao nhất, nhìn khói từ những làng Human bốc lên ở chân trời.",
+     "effects": {
+      "joy": -8,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Lén ra giúp một làng gần nhất",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn dẫn dân làng vào rìa rừng trốn ba ngày, cho đến khi quân địch đi qua.",
+      "effects": {
+       "fame": 4,
+       "joy": 6,
+       "jobXp": 2
+      }
+     },
+     "fail": {
+      "text": "Bạn bị phát hiện và bị giam một năm.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "erg_daily_old_elf",
+   "races": [
+    "elf"
+   ],
+   "stages": [
+    "elder",
+    "ancient"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "elf_ranger",
+    "free": true
+   },
+   "text": "Lần đầu tiên sau năm trăm năm, mũi tên của bạn đi trượt. Đôi mắt Elf cũng có lúc mỏi.",
+   "choices": [
+    {
+     "label": "Bắn lại cho đến khi trúng",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Mũi tên thứ hai trúng. Bạn tự nhủ có lẽ chỉ là gió.",
+      "effects": {
+       "jobXp": 1
+      }
+     },
+     "fail": {
+      "text": "Mũi tên thứ hai cũng trượt. Bạn treo cung lên cành, và nghe cây lâu hơn bắn cung.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    },
+    {
+     "label": "Ngồi dưới gốc sồi, nghe cây như ngày đầu",
+     "text": "Cây vẫn nói. Rễ vẫn rung. Mắt có thể mỏi, nhưng đôi tai Elf thì không.",
+     "effects": {
+      "joy": 8,
+      "INT": 1
+     }
+    }
+   ]
+  }
+ ]
+}
