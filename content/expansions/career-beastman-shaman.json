@@ -1,0 +1,1106 @@
+{
+ "_note": "Tuyến truyện Shaman (Beastman): 5 chương theo bậc, ba đạo ở Bậc 2 (bsm_path_ancestor / bsm_path_tree / bsm_path_storm), nhân vật xuyên suốt bà Rinn (tộc Sói), linh hồn gió Sile và Skarn.",
+ "origins": [],
+ "events": [
+  {
+   "id": "bsm_c1_rinn",
+   "races": [
+    "beastman"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "bm_shaman",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "bsm_met_rinn"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Rinn",
+     "race": "Beastman tộc Sói",
+     "position": "Bà shaman mù của Thảo Nguyên"
+    }
+   ],
+   "text": "Bà Rinn là shaman già nhất Thảo Nguyên, một Beastman tộc Sói mù cả hai mắt nhưng biết trước cơn mưa ba ngày. Bà đưa bạn lên đỉnh đồi trong đêm gió lớn và bảo: “Đừng nghe gió. Nghe xem gió đang nói chuyện với ai.”",
+   "choices": [
+    {
+     "label": "Nhắm mắt lắng nghe suốt đêm",
+     "check": {
+      "stat": "INT",
+      "target": 4
+     },
+     "success": {
+      "text": "Gần sáng, giữa tiếng gió, bạn nghe thấy một giọng nói rất nhỏ, như tiếng trẻ con cười. Bà Rinn mỉm cười: “Đấy là Sile, linh hồn gió của ngọn đồi này. Nó chọn ngươi rồi.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "bsm_met_rinn",
+        "bsm_met_sile"
+       ]
+      },
+      "moment": "Nghe thấy tiếng linh hồn gió Sile lần đầu"
+     },
+     "fail": {
+      "text": "Bạn chỉ nghe thấy gió, và lạnh cóng đến sáng. Bà Rinn không thất vọng: “Gió không vội. Ngươi cũng đừng vội.”",
+      "effects": {
+       "health": -5,
+       "flags": [
+        "bsm_met_rinn"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Tru lên đáp lại gió",
+     "require": {
+      "subtype": "wolf"
+     },
+     "text": "Tiếng tru của bạn hòa vào tiếng gió, và gió tru lại. Bà Rinn bật cười, tiếng cười khàn của một con sói già. “Máu Sói nghe gió bằng cổ họng. Được lắm.”",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 1,
+      "flags": [
+       "bsm_met_rinn",
+       "bsm_met_sile"
+      ]
+     }
+    },
+    {
+     "label": "Hỏi bà vì sao bà mù mà vẫn thấy",
+     "text": "Bà Rinn chạm vào hai mắt mình. “Ta đổi chúng lấy tiếng nói của tổ tiên, năm ta mười bốn tuổi. Mỗi shaman đều phải đổi một thứ. Ngươi sẽ biết ngươi đổi gì.”",
+     "effects": {
+      "joy": -2,
+      "jobXp": 1,
+      "flags": [
+       "bsm_met_rinn"
+      ]
+     },
+     "moment": "Nghe bà Rinn kể về cái giá của một shaman"
+    }
+   ]
+  },
+  {
+   "id": "bsm_c1_skarn",
+   "races": [
+    "beastman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "bm_shaman",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "bsm_met_rinn"
+    ],
+    "notFlags": [
+     "bsm_met_skarn"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Skarn",
+     "race": "Beastman tộc Gấu",
+     "position": "Shaman trẻ của tộc trưởng chiến tranh"
+    }
+   ],
+   "text": "Skarn là shaman trẻ của tộc trưởng chiến tranh, giọng to, trống lớn, và luôn có một đám đông vây quanh. Hắn nói với bạn: “Bà Rinn già rồi. Linh hồn không cần người nghe; linh hồn cần người ra lệnh.”",
+   "choices": [
+    {
+     "label": "Thách hắn gọi một linh hồn ngay tại chỗ",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Skarn gõ trống, hát to, và một cơn gió lốc bùng lên giữa trại. Bạn chỉ đứng im, và gió lốc tan ra quanh bạn như nước chảy qua đá. Đám đông xì xào. Skarn nhìn bạn, lần đầu không cười.",
+      "effects": {
+       "INT": 1,
+       "fame": 3,
+       "jobXp": 1,
+       "flags": [
+        "bsm_met_skarn",
+        "bsm_skarn_rival"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Gió lốc của Skarn hất bạn ngã giữa đám đông. Hắn cười to, và cả trại cười theo.",
+      "effects": {
+       "joy": -6,
+       "flags": [
+        "bsm_met_skarn",
+        "bsm_skarn_rival"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi hắn đã đổi gì để có tiếng nói ấy",
+     "text": "Skarn im lặng. Rồi hắn kéo tay áo lên: cánh tay hắn đầy vết bỏng hình xoắn ốc. “Ta đổi da. Mỗi linh hồn ta ra lệnh để lại một vết.” Từ đó, hắn nói chuyện với bạn như với một người đồng nghiệp, không phải đối thủ.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "bsm_met_skarn",
+       "bsm_skarn_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsm_c2_first_rite",
+   "races": [
+    "beastman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "bm_shaman",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "bsm_first_rite",
+     "bsm_end"
+    ]
+   },
+   "text": "Một đứa trẻ trong trại bị ma nhập sau khi chơi gần một nấm mồ cổ. Nó nói bằng giọng của một ông già, và gọi tên những người đã chết từ trăm năm trước. Bà Rinn đang ở bộ lạc khác. Chỉ còn bạn.",
+   "choices": [
+    {
+     "label": "Nói chuyện với hồn ma",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Hồn ma là một chiến binh cổ, chết không ai chôn cất đúng nghi lễ. Bạn hứa sẽ làm lễ cho ông. Đứa trẻ tỉnh lại, khóc đòi mẹ. Đêm ấy, bạn làm lễ ở nấm mồ cổ, và nghe tiếng cười rất nhỏ trong gió.",
+      "effects": {
+       "INT": 1,
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "bsm_first_rite"
+       ]
+      },
+      "moment": "Siêu thoát cho hồn ma chiến binh cổ"
+     },
+     "fail": {
+      "text": "Hồn ma không nghe. Bạn phải giữ đứa trẻ suốt ba đêm cho đến khi bà Rinn về.",
+      "effects": {
+       "health": -10,
+       "joy": -6,
+       "flags": [
+        "bsm_first_rite"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đánh trống xua đuổi hồn ma",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Tiếng trống của bạn đuổi được hồn ma ra khỏi đứa trẻ. Nhưng gió đêm ấy lạnh và giận dữ, và bạn biết hồn ma vẫn còn đâu đó.",
+      "effects": {
+       "fame": 3,
+       "jobXp": 2,
+       "flags": [
+        "bsm_first_rite",
+        "bsm_angry_ghost"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Hồn ma bám chặt hơn. Đứa trẻ sốt cao suốt một tuần.",
+      "effects": {
+       "joy": -10,
+       "flags": [
+        "bsm_first_rite"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Nhờ Sile dẫn đường",
+     "require": {
+      "flags": [
+       "bsm_met_sile"
+      ]
+     },
+     "text": "Sile thổi qua đứa trẻ như một hơi thở ấm, kéo theo hồn ma ra ngoài. Hồn ma đi theo gió về phía nấm mồ cổ và nằm xuống. Bạn không cần làm gì thêm.",
+     "effects": {
+      "LUCK": 1,
+      "fame": 3,
+      "jobXp": 2,
+      "flags": [
+       "bsm_first_rite"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsm_c2_crossroads",
+   "races": [
+    "beastman"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "bm_shaman",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "bsm_path_ancestor",
+     "bsm_path_tree",
+     "bsm_path_storm",
+     "bsm_end"
+    ]
+   },
+   "text": "Bà Rinn gọi bạn đến lều. Bà đặt trước mặt bạn ba thứ: một chiếc trống da cũ của tổ tiên, một cành cây non từ Đại Ngàn mà bà giữ từ thời trẻ, và một chiếc sừng gọi bão mà bà chưa bao giờ dùng. “Chọn đi. Mỗi thứ đòi một giá khác nhau.”",
+   "choices": [
+    {
+     "label": "Trống tổ tiên: Tiếng Tổ Tiên",
+     "text": "Bạn gõ chiếc trống lần đầu, và nghe thấy tiếng của những người đã chết từ hàng trăm năm. Từ đây, ký ức của cả Thảo Nguyên là của bạn để giữ.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "bsm_path_ancestor"
+      ]
+     },
+     "moment": "Nhận chiếc trống của tổ tiên"
+    },
+    {
+     "label": "Cành cây Đại Ngàn: Đường Yggdrasil",
+     "text": "Cành cây vẫn còn xanh sau năm mươi năm. Bà Rinn dặn: “Đi đến gốc của nó. Cây Thế Giới không thuộc về Elf; nó thuộc về mọi thứ biết lắng nghe.”",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "bsm_path_tree"
+      ]
+     },
+     "moment": "Nhận cành cây Đại Ngàn từ bà Rinn"
+    },
+    {
+     "label": "Sừng gọi bão: Gọi Bão",
+     "text": "Chiếc sừng nặng và lạnh. Khi bạn chạm vào nó, bầu trời trên trại tối sầm lại một khắc. Bà Rinn thở dài: “Ta biết ngươi sẽ chọn nó.”",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "bsm_path_storm"
+      ]
+     },
+     "moment": "Nhận chiếc sừng gọi bão"
+    }
+   ]
+  },
+  {
+   "id": "bsm_ancestor_feud",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_shaman",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bsm_path_ancestor"
+    ],
+    "notFlags": [
+     "bsm_end"
+    ]
+   },
+   "text": "Hai bộ lạc tộc Sói và tộc Gấu sắp đánh nhau vì một mảnh đất. Cả hai đều nói tổ tiên mình đã sống ở đó trước. Họ nhờ bạn hỏi tổ tiên.",
+   "choices": [
+    {
+     "label": "Gõ trống, hỏi tổ tiên thật",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Tổ tiên nói: cả hai bộ lạc từng sống ở đó cùng nhau, cho đến khi một mùa đói chia rẽ họ. Bạn kể lại từng lời. Cả hai bộ lạc im lặng, rồi chia đôi mảnh đất.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "bsm_ancestor_peace"
+       ]
+      },
+      "moment": "Hòa giải hai bộ lạc bằng lời tổ tiên"
+     },
+     "fail": {
+      "text": "Tiếng tổ tiên lẫn lộn. Bạn không nghe rõ. Hai bộ lạc đánh nhau một trận nhỏ trước khi mệt mỏi và thôi.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Nói dối rằng tổ tiên muốn chia đôi",
+     "text": "Không ai biết bạn đã không nghe thấy gì. Mảnh đất được chia đôi. Đêm ấy, chiếc trống của bạn tự rung lên một tiếng, như một lời trách.",
+     "effects": {
+      "fame": 4,
+      "joy": -6,
+      "jobXp": 2,
+      "flags": [
+       "bsm_ancestor_lie"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsm_ancestor_forgotten",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_shaman",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bsm_path_ancestor"
+    ],
+    "notFlags": [
+     "bsm_end"
+    ]
+   },
+   "text": "Chiếc trống tổ tiên bắt đầu đưa đến những giọng nói mà không ai nhớ: những bộ lạc đã biến mất, những ngôn ngữ đã chết. Họ cầu xin được nhớ đến.",
+   "choices": [
+    {
+     "label": "Học thuộc mọi tên tuổi họ nói",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn ghi nhớ mười bảy bộ lạc đã mất, tên của từng người, từng bài hát. Mỗi mùa lễ hội, bạn đọc tên họ lên. Gió đêm ấy luôn ấm hơn.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "bsm_ancestor_keeper"
+       ]
+      },
+      "moment": "Học thuộc tên của mười bảy bộ lạc đã mất"
+     },
+     "fail": {
+      "text": "Quá nhiều giọng nói. Bạn bắt đầu mất ngủ, và mất cả tên của những người còn sống.",
+      "effects": {
+       "health": -15,
+       "INT": -1,
+       "flags": [
+        "bsm_ancestor_overwhelmed"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Tạm cất trống, nghỉ ngơi",
+     "text": "Bạn cất trống vào hộc lều một mùa. Giọng nói vẫn vọng lại trong giấc mơ, nhỏ hơn, kiên nhẫn hơn. Họ đã chờ hàng trăm năm; họ chờ được thêm một mùa.",
+     "effects": {
+      "joy": 4,
+      "health": 5,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsm_tree_elves",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_shaman",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bsm_path_tree"
+    ],
+    "notFlags": [
+     "bsm_end"
+    ]
+   },
+   "text": "Bạn đến rìa Đại Ngàn với cành cây non trong tay. Các Elf chặn lối: Beastman không được bước vào rừng thiêng.",
+   "choices": [
+    {
+     "label": "Cho họ xem cành cây",
+     "text": "Một Elf già nhìn cành cây rất lâu, rồi quỳ xuống. “Cành này là của Yggdrasil, bị gió mang đi năm mươi năm trước. Ai đã giữ nó?” Bạn kể về bà Rinn. Họ mở lối.",
+     "effects": {
+      "fame": 5,
+      "jobXp": 3,
+      "flags": [
+       "bsm_tree_entered"
+      ]
+     },
+     "moment": "Được các Elf mở lối vào Đại Ngàn"
+    },
+    {
+     "label": "Ngồi chờ ở rìa rừng",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn chờ suốt bốn mươi ngày, không ăn gì ngoài lá cây và nước suối. Ngày thứ bốn mươi mốt, chính rễ cây mở ra một lối đi mà Elf không chặn được.",
+      "effects": {
+       "LUCK": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "bsm_tree_entered",
+        "bsm_tree_chosen"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bốn mươi ngày, không có gì. Bạn quay về, gầy rộc, nhưng chưa bỏ cuộc.",
+      "effects": {
+       "health": -20
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsm_tree_rot",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_shaman",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bsm_path_tree"
+    ],
+    "notFlags": [
+     "bsm_end"
+    ]
+   },
+   "text": "Ở sâu trong Đại Ngàn, bạn thấy một nhánh rễ của Yggdrasil đang thối rữa vì tà khí từ Vực Thẳm. Các Elf muốn chặt bỏ nó. Nhưng khi bạn chạm vào, bạn nghe thấy nhánh rễ đang khóc.",
+   "choices": [
+    {
+     "label": "Hút tà khí vào chính mình",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Tà khí chảy vào bạn như nước đen. Bạn sốt mười ngày, và khi tỉnh dậy, một bên lông của bạn đã bạc trắng. Nhánh rễ xanh lại. Các Elf nhìn bạn như nhìn một người của rừng.",
+      "effects": {
+       "STR": 1,
+       "fame": 8,
+       "lifeCost": 3,
+       "jobXp": 3,
+       "flags": [
+        "bsm_tree_healer"
+       ]
+      },
+      "moment": "Hút tà khí cứu một nhánh rễ của Yggdrasil"
+     },
+     "fail": {
+      "text": "Tà khí quá nặng. Bạn phải buông tay trước khi nó nuốt chửng bạn. Các Elf chặt nhánh rễ, và bạn nghe nó khóc lần cuối.",
+      "effects": {
+       "health": -20,
+       "joy": -12
+      }
+     }
+    },
+    {
+     "label": "Để các Elf chặt",
+     "text": "Nhánh rễ bị chặt. Tiếng khóc tắt. Bạn hiểu rằng đôi khi rừng cũng phải mất một phần để sống.",
+     "effects": {
+      "INT": 1,
+      "joy": -6,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsm_storm_war",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_shaman",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bsm_path_storm"
+    ],
+    "notFlags": [
+     "bsm_end"
+    ]
+   },
+   "text": "Tộc trưởng chiến tranh muốn bạn gọi bão vào đạo quân Human đang tiến vào Thảo Nguyên. Đạo quân ấy có lính, nhưng cũng có cả ngàn dân phu kéo xe.",
+   "choices": [
+    {
+     "label": "Gọi bão",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bầu trời vỡ ra. Mưa đá to bằng nắm tay trút xuống đạo quân suốt một đêm. Sáng ra, họ rút lui. Bạn không đếm những người không rút được.",
+      "effects": {
+       "fame": 8,
+       "joy": -12,
+       "jobXp": 3,
+       "flags": [
+        "bsm_storm_war"
+       ]
+      },
+      "moment": "Gọi bão đánh lui đạo quân Human"
+     },
+     "fail": {
+      "text": "Cơn bão quay ngược về phía trại. Bạn mất ba ngày để dập nó, và mất cả lòng tin của tộc trưởng.",
+      "effects": {
+       "health": -15,
+       "fame": -4
+      }
+     }
+    },
+    {
+     "label": "Gọi sương mù thay vì bão",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Sương mù dày đến mức đạo quân lạc đường ba ngày, rồi phải quay về vì hết lương thực. Không ai chết. Tộc trưởng càu nhàu, nhưng không trách bạn được.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "bsm_storm_mist"
+       ]
+      },
+      "moment": "Gọi sương mù khiến đạo quân Human lạc đường quay về"
+     },
+     "fail": {
+      "text": "Sương mù không đủ dày. Đạo quân vẫn đến, và trại phải chiến đấu.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsm_storm_skarn",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_shaman",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bsm_path_storm",
+     "bsm_met_skarn"
+    ],
+    "notFlags": [
+     "bsm_end"
+    ]
+   },
+   "text": "Skarn dùng sừng gọi bão của chính hắn để triệu một cơn bão lớn hơn mọi cơn bão, muốn chứng minh mình mạnh hơn bạn. Cơn bão đã thoát khỏi tay hắn, và đang lao về phía ba bộ lạc.",
+   "choices": [
+    {
+     "label": "Dùng sừng của mình đối chọi",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Hai cơn bão va vào nhau giữa thảo nguyên, và tan ra thành một trận mưa rào ấm. Skarn quỳ xuống trước bạn giữa cơn mưa, không phải vì thua, mà vì kiệt sức và xấu hổ.",
+      "effects": {
+       "STR": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "bsm_skarn_saved",
+        "bsm_skarn_respect"
+       ],
+       "unflags": [
+        "bsm_skarn_rival"
+       ]
+      },
+      "moment": "Dùng bão chặn bão của Skarn"
+     },
+     "fail": {
+      "text": "Bão của bạn yếu hơn. Một bộ lạc bị thiệt hại nặng trước khi cơn bão tự tan.",
+      "effects": {
+       "health": -15,
+       "joy": -12
+      }
+     }
+    },
+    {
+     "label": "Giúp Skarn kéo bão lại",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đứng cạnh Skarn, hai người cùng thổi sừng. Cơn bão nghe lời cả hai, và lặng dần. Skarn không nói gì, chỉ gật đầu. Từ đó hắn không bao giờ gọi bão một mình nữa.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "bsm_skarn_saved",
+        "bsm_skarn_respect"
+       ],
+       "unflags": [
+        "bsm_skarn_rival"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Hai người không đủ. Cơn bão phải tự tan sau khi đã tàn phá một bộ lạc.",
+      "effects": {
+       "joy": -12
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsm_c4_rinn",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_shaman",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "bsm_met_rinn"
+    ],
+    "notFlags": [
+     "bsm_rinn_gone",
+     "bsm_end"
+    ]
+   },
+   "text": "Bà Rinn nói với bạn, bằng giọng bình thản như báo mưa: “Ba ngày nữa ta sẽ chết. Ta muốn ngươi làm lễ cho ta.”",
+   "choices": [
+    {
+     "label": "Làm lễ theo nghi thức tổ tiên",
+     "text": "Bạn gõ trống, hát những bài bà đã dạy. Bà Rinn nằm nghe, mỉm cười, đôi mắt mù hướng về phía gió. Đúng ngày thứ ba, gió đổi chiều, và bà đi theo nó.",
+     "effects": {
+      "joy": -2,
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "bsm_rinn_gone"
+      ]
+     },
+     "moment": "Làm lễ tiễn bà Rinn theo gió"
+    },
+    {
+     "label": "Hỏi bà đã đổi gì cho tiếng nói tổ tiên, và có đáng không",
+     "text": "Bà Rinn cười. “Đôi mắt. Đáng chứ. Ta đã nghe thấy giọng mẹ ta mỗi đêm trong sáu mươi năm.” Bà nắm tay bạn: “Ngươi đã đổi gì, ngươi sẽ biết khi ngươi già.” Bà mất ba ngày sau, đúng như đã nói.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 3,
+      "flags": [
+       "bsm_rinn_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsm_c4_plague_spirit",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_shaman",
+    "free": true,
+    "jobRank": 3,
+    "notFlags": [
+     "bsm_end"
+    ]
+   },
+   "text": "Một linh hồn bệnh dịch đang lang thang khắp Thảo Nguyên, mang theo cơn sốt đen. Nó không ác; nó chỉ đói, và không ai từng cho nó ăn.",
+   "choices": [
+    {
+     "label": "Mời linh hồn bệnh dịch vào lễ cúng",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn bày một mâm cúng chỉ dành cho nó: muối, máu thú và một bài hát. Linh hồn ăn, rồi ngủ. Cơn sốt đen dừng lại. Người ta bắt đầu gọi bạn là Wild High Priest.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "jobXp": 4,
+       "flags": [
+        "bsm_fed_plague"
+       ]
+      },
+      "moment": "Cho linh hồn bệnh dịch ăn và đưa nó vào giấc ngủ"
+     },
+     "fail": {
+      "text": "Linh hồn ăn, nhưng không ngủ. Nó đi tiếp, và bạn đuổi theo nó suốt một mùa.",
+      "effects": {
+       "health": -20,
+       "fame": 4
+      }
+     }
+    },
+    {
+     "label": "Nhờ Sile thổi nó đi xa",
+     "require": {
+      "flags": [
+       "bsm_met_sile"
+      ]
+     },
+     "text": "Sile thổi linh hồn bệnh dịch về phía những ngọn núi không ai sống. Cơn sốt đen dừng lại ở Thảo Nguyên. Bạn không biết nó đã đi đâu tiếp theo.",
+     "effects": {
+      "fame": 6,
+      "jobXp": 3,
+      "flags": [
+       "bsm_blew_plague"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsm_c5_ancestor",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_shaman",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bsm_path_ancestor"
+    ],
+    "notFlags": [
+     "bsm_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Envoy of Yggdrasil, nhưng bạn biết mình chỉ là người giữ trống. Chiếc trống tổ tiên đã nặng hơn, vì có thêm những giọng nói của những người bạn đã tiễn.",
+   "choices": [
+    {
+     "label": "Dạy lại cho một đứa trẻ",
+     "text": "Bạn dẫn một đứa trẻ lên đỉnh đồi trong đêm gió lớn, và nói đúng câu bà Rinn đã nói với bạn. Đứa trẻ nhắm mắt, lắng nghe. Gần sáng, nó cười, vì nghe thấy tiếng ai đó.",
+     "effects": {
+      "joy": 18,
+      "fame": 10,
+      "flags": [
+       "bsm_end",
+       "bsm_end_passed_drum"
+      ]
+     },
+     "moment": "Truyền chiếc trống tổ tiên cho một đứa trẻ"
+    },
+    {
+     "label": "Đọc tên mười bảy bộ lạc đã mất trước Hội đồng Tộc trưởng",
+     "require": {
+      "flags": [
+       "bsm_ancestor_keeper"
+      ]
+     },
+     "text": "Bạn đọc từng tên, từng bài hát, suốt một đêm. Các tộc trưởng ngồi nghe, có người khóc. Họ quyết định dựng một hòn đá ở giữa Thảo Nguyên, khắc tên những bộ lạc ấy.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "bsm_end",
+       "bsm_end_names"
+      ]
+     },
+     "moment": "Đọc tên mười bảy bộ lạc đã mất trước Hội đồng"
+    }
+   ]
+  },
+  {
+   "id": "bsm_c5_tree",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_shaman",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bsm_path_tree"
+    ],
+    "notFlags": [
+     "bsm_end"
+    ]
+   },
+   "text": "Bạn đã ở trong Đại Ngàn ba mươi năm. Các Elf gọi bạn là Envoy of Yggdrasil, danh hiệu chưa từng trao cho một Beastman. Cây Thế Giới muốn bạn mang một điều gì đó về Thảo Nguyên.",
+   "choices": [
+    {
+     "label": "Mang hạt giống của Yggdrasil về Thảo Nguyên",
+     "text": "Bạn trồng nó ở giữa Thảo Nguyên, nơi bà Rinn từng đứng nghe gió. Nó lớn chậm, rất chậm. Nhưng khi bạn mất, nó đã cao bằng một con người, và gió thổi qua nó nghe như tiếng ai đang hát.",
+     "effects": {
+      "fame": 15,
+      "joy": 18,
+      "flags": [
+       "bsm_end",
+       "bsm_end_seed"
+      ]
+     },
+     "moment": "Trồng hạt giống Yggdrasil giữa Thảo Nguyên"
+    },
+    {
+     "label": "Ở lại làm cầu nối giữa Elf và Beastman",
+     "text": "Bạn ở lại, và mỗi năm dẫn một nhóm shaman trẻ của Thảo Nguyên vào Đại Ngàn học. Các Elf cau mày năm đầu, gật đầu năm thứ mười.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "bsm_end",
+       "bsm_end_bridge"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsm_c5_storm",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_shaman",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bsm_path_storm"
+    ],
+    "notFlags": [
+     "bsm_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Envoy of Yggdrasil, nhưng ở Thảo Nguyên, người ta gọi bạn là “Người Cầm Bão”. Không đạo quân nào dám tiến vào Thảo Nguyên nữa. Bầu trời trên đầu bạn chưa bao giờ hoàn toàn quang đãng.",
+   "choices": [
+    {
+     "label": "Phá chiếc sừng gọi bão",
+     "require": {
+      "anyFlags": [
+       "bsm_storm_mist",
+       "bsm_skarn_saved"
+      ]
+     },
+     "text": "Bạn ném chiếc sừng vào lửa trại. Nó nổ ra như sét. Ngày hôm sau, bầu trời trên đầu bạn trong xanh lần đầu tiên sau ba mươi năm. Bạn nằm trên cỏ cả ngày, nhìn mây.",
+     "effects": {
+      "joy": 20,
+      "fame": 10,
+      "flags": [
+       "bsm_end",
+       "bsm_end_clear_sky"
+      ]
+     },
+     "moment": "Phá chiếc sừng gọi bão"
+    },
+    {
+     "label": "Giữ sừng, làm người canh bầu trời đến cuối đời",
+     "text": "Bạn đứng trên đỉnh đồi mỗi đêm, sừng trong tay, nghe xem có đạo quân nào đến. Có những đêm có. Bão của bạn chưa bao giờ để họ qua.",
+     "effects": {
+      "fame": 15,
+      "joy": -4,
+      "flags": [
+       "bsm_end",
+       "bsm_end_storm_keeper"
+      ]
+     }
+    },
+    {
+     "label": "Trao sừng cho Skarn",
+     "require": {
+      "flags": [
+       "bsm_skarn_respect"
+      ]
+     },
+     "text": "Skarn giờ đã già như bạn. Hắn nhận sừng, nhìn những vết bỏng trên tay mình, rồi cười. “Ta sẽ không thổi nó một mình.” Hắn giữ lời.",
+     "effects": {
+      "joy": 15,
+      "fame": 8,
+      "flags": [
+       "bsm_end",
+       "bsm_end_skarn"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsm_daily_herbs",
+   "races": [
+    "beastman"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "bm_shaman",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một người mẹ mang đến đứa con bị ho. Không phải ma nhập, không phải nguyền rủa, chỉ là ho thôi.",
+   "choices": [
+    {
+     "label": "Cho thuốc thảo dược",
+     "text": "Lá bạc hà, mật ong, và một bài hát ru. Đứa trẻ ngủ ngon. Không phải mọi việc của shaman đều liên quan đến linh hồn.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Làm một nghi lễ thật hoành tráng cho người mẹ yên tâm",
+     "text": "Bạn đánh trống, nhảy múa, rồi cho thuốc. Đứa trẻ khỏi, và người mẹ kể khắp trại về phép màu.",
+     "effects": {
+      "fame": 2,
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsm_daily_bear_slumber",
+   "races": [
+    "beastman"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "bm_shaman",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Mùa đông đến, và bạn cảm thấy cơn buồn ngủ mùa đông của tổ tiên tộc Gấu kéo đến.",
+   "choices": [
+    {
+     "label": "Ngủ đông, mơ cùng tổ tiên",
+     "require": {
+      "subtype": "bear"
+     },
+     "text": "Bạn ngủ ba tuần. Trong mơ, bạn đi cùng tổ tiên qua những cánh rừng đã không còn. Khi tỉnh dậy, bạn nhớ được một bài hát chưa ai trong trại biết.",
+     "effects": {
+      "INT": 1,
+      "joy": 8,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Thiền định qua mùa đông",
+     "text": "Bạn ngồi bên lửa, đếm hơi thở, lắng nghe tuyết rơi. Mùa đông trôi qua chậm và bình yên.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsm_daily_war_bless",
+   "races": [
+    "beastman"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "bm_shaman",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh lan đến Thảo Nguyên. Mọi bộ lạc đều cần shaman ban phước cho chiến binh trước trận.",
+   "choices": [
+    {
+     "label": "Ban phước cho tất cả",
+     "text": "Bạn đi từ bộ lạc này sang bộ lạc khác, đặt tay lên đầu từng chiến binh. Một số trở về. Bạn ban phước cho những người không trở về một lần nữa, trong lễ tang.",
+     "effects": {
+      "fame": 5,
+      "joy": -6,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Ban phước, nhưng xin họ đừng đuổi theo kẻ thù bỏ chạy",
+     "text": "Một số tộc trưởng nghe, một số không. Ở những bộ lạc nghe lời bạn, ít người chết hơn.",
+     "effects": {
+      "INT": 1,
+      "fame": 3,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsm_daily_old_price",
+   "races": [
+    "beastman"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "bm_shaman",
+    "free": true
+   },
+   "text": "Tai bạn bắt đầu điếc dần, chỉ trừ tiếng gió và tiếng của những người đã chết. Bạn hiểu ra mình đã đổi gì.",
+   "choices": [
+    {
+     "label": "Chấp nhận",
+     "text": "Bạn không còn nghe được tiếng cười của lũ trẻ trong trại. Nhưng bạn nghe được tiếng của bà Rinn, của những người đã đi trước, mỗi đêm. Bạn mỉm cười.",
+     "effects": {
+      "joy": 6,
+      "INT": 1
+     }
+    },
+    {
+     "label": "Học đọc môi",
+     "text": "Bạn ngồi nhìn môi người khác suốt một mùa. Đến mùa sau, bạn lại nói chuyện được với lũ trẻ. Chúng nghĩ đó là một phép thuật.",
+     "effects": {
+      "INT": 1,
+      "joy": 8
+     }
+    }
+   ]
+  }
+ ]
+}

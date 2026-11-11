@@ -1,0 +1,1135 @@
+{
+ "_note": "Tuyến truyện Gladiator (Beastman): 5 chương theo bậc, ba đạo ở Bậc 2 (bgl_path_monster / bgl_path_pride / bgl_path_home), nhân vật xuyên suốt Sorrel Vane (ông chủ) và Tukka (tộc Chó).",
+ "origins": [],
+ "events": [
+  {
+   "id": "bgl_c1_sorrel",
+   "races": [
+    "beastman"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "bm_gladiator",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "bgl_met_sorrel"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Sorrel Vane",
+     "race": "Human",
+     "position": "Ông chủ lò đấu sĩ Beastman ở Huyết Sa"
+    }
+   ],
+   "text": "Sorrel Vane mua bạn ở chợ nô lệ ven Thảo Nguyên bằng giá của hai con lừa. Ông ta đo răng bạn, kéo tai bạn, rồi viết lên tấm bảng treo trước chuồng: “Dã thú từ Vực Móng Vuốt. Ăn thịt sống.” Bạn chưa từng ăn thịt sống.",
+   "choices": [
+    {
+     "label": "Gầm lên cho đúng tấm bảng",
+     "text": "Sorrel vỗ tay khoái chí. Đám khách đi ngang dừng lại, ném xương vào chuồng. Bạn được ăn no lần đầu tiên từ khi bị bắt, và ghét chính mình vì điều đó.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 1,
+      "flags": [
+       "bgl_met_sorrel",
+       "bgl_played_beast"
+      ]
+     },
+     "moment": "Bị bán vào Huyết Sa với tấm bảng “dã thú”"
+    },
+    {
+     "label": "Ngồi im, nhìn thẳng vào mắt ông ta",
+     "text": "Sorrel nhíu mày. “Thú gì mà nhìn người như người?” Ông ta không cho bạn ăn ba ngày. Đến ngày thứ tư, bạn vẫn nhìn ông ta như thế, và ông ta thay tấm bảng: “Chiến binh bộ lạc. Nguy hiểm.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "bgl_met_sorrel",
+       "bgl_stared_down"
+      ]
+     }
+    },
+    {
+     "label": "Viết lên tấm bảng bằng móng vuốt: “Tôi biết chữ.”",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Sorrel nhìn dòng chữ rất lâu, rồi cười to. “Thú biết chữ! Khán đài sẽ phát điên!” Ông ta đưa bạn ra sân sớm hơn kế hoạch.",
+      "effects": {
+       "INT": 1,
+       "fame": 2,
+       "jobXp": 1,
+       "flags": [
+        "bgl_met_sorrel",
+        "bgl_wrote_board"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Nét chữ méo mó đến mức Sorrel tưởng đó là vết cào. Ông ta đóng thêm một tấm ván che lên.",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "bgl_met_sorrel"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bgl_c1_tukka",
+   "races": [
+    "beastman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "bm_gladiator",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "bgl_met_sorrel"
+    ],
+    "notFlags": [
+     "bgl_met_tukka"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Tukka",
+     "race": "Beastman tộc Chó",
+     "position": "Đấu sĩ cùng dãy chuồng"
+    }
+   ],
+   "text": "Chuồng bên cạnh là Tukka, một Beastman tộc Chó to lớn, cụt đuôi, bị bắt từ một bộ lạc ven sông. Anh ta chia nước uống cho bạn qua song sắt, và mỗi đêm hát một bài hát của bộ lạc mình cho đến khi cả dãy chuồng ngủ.",
+   "choices": [
+    {
+     "label": "Học bài hát của anh ta",
+     "text": "Bài hát có mười hai câu, mỗi câu là tên một khúc sông. Đến đêm thứ mười, bạn hát được cùng anh ta. Tukka cười, cái đuôi cụt ngoe nguẩy: “Giờ ngươi là người sông rồi.”",
+     "effects": {
+      "joy": 8,
+      "jobXp": 1,
+      "flags": [
+       "bgl_met_tukka",
+       "bgl_tukka_brother"
+      ]
+     },
+     "moment": "Học bài hát của bộ lạc Tukka qua song sắt"
+    },
+    {
+     "label": "Kể cho anh ta về bộ lạc của mình",
+     "text": "Tukka nghe, gật gù, hỏi về từng ngọn đồi, từng con suối. Anh ta nhớ hết, kể cả những điều bạn đã quên.",
+     "effects": {
+      "joy": 6,
+      "flags": [
+       "bgl_met_tukka"
+      ]
+     }
+    },
+    {
+     "label": "Chia lại phần thịt của mình",
+     "require": {
+      "subtype": "dog"
+     },
+     "text": "Hai người tộc Chó ở chuồng cạnh nhau. Tukka đánh hơi bạn qua song sắt rồi tru khe khẽ, tiếng tru nhận người cùng tộc. Từ đêm ấy, hai người ngủ dựa lưng vào nhau qua song sắt.",
+     "effects": {
+      "joy": 10,
+      "flags": [
+       "bgl_met_tukka",
+       "bgl_tukka_brother"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bgl_c2_first_match",
+   "races": [
+    "beastman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "bm_gladiator",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "bgl_first_match",
+     "bgl_end"
+    ]
+   },
+   "text": "Trận đầu tiên của bạn: Sorrel thả bạn vào sân cùng với ba con chó săn đói của Human. Khán đài đặt cược xem “con thú Beastman” sống được bao lâu.",
+   "choices": [
+    {
+     "label": "Đánh như một chiến binh",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Ba con chó nằm xuống, không con nào chết. Bạn đứng giữa sân, không gầm, không múa, chỉ đứng. Khán đài im lặng một lúc lâu, rồi có tiếng vỗ tay lẻ tẻ từ những hàng ghế rẻ tiền.",
+      "effects": {
+       "STR": 1,
+       "fame": 3,
+       "jobXp": 2,
+       "flags": [
+        "bgl_first_match",
+        "bgl_fought_clean"
+       ]
+      },
+      "moment": "Sống sót trận đầu ở Huyết Sa như một chiến binh"
+     },
+     "fail": {
+      "text": "Bạn sống sót, nhưng một con chó đã cắn rách bắp chân bạn.",
+      "effects": {
+       "health": -15,
+       "flags": [
+        "bgl_first_match"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đánh như một con thú",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn gầm, cắn, quật. Khán đài phát điên. Sorrel đếm tiền đến khuya, và lần đầu tiên cho bạn ngủ trên rơm sạch.",
+      "effects": {
+       "fame": 5,
+       "jobXp": 2,
+       "flags": [
+        "bgl_first_match",
+        "bgl_played_beast"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn đánh loạn, kiệt sức trước khi hạ được con thứ ba. Lính phải dùng giáo dồn nó ra.",
+      "effects": {
+       "health": -15,
+       "flags": [
+        "bgl_first_match"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Thuần phục ba con chó thay vì đánh",
+     "require": {
+      "subtype": "dog"
+     },
+     "text": "Bạn quỳ xuống, gầm khẽ theo cách của tộc Chó. Ba con chó dừng lại, rồi nằm ép tai xuống trước mặt bạn. Khán đài không hiểu gì, nhưng họ nhớ cảnh ấy.",
+     "effects": {
+      "fame": 6,
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "bgl_first_match",
+       "bgl_fought_clean"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bgl_c2_crossroads",
+   "races": [
+    "beastman"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "bm_gladiator",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "bgl_path_monster",
+     "bgl_path_pride",
+     "bgl_path_home",
+     "bgl_end"
+    ]
+   },
+   "text": "Bạn đã sống qua mười trận. Sorrel muốn biến bạn thành “Quái Vật Thảo Nguyên”, ngôi sao của mùa mới, với áo choàng da sói và răng nanh vẽ thêm. Những đấu sĩ Beastman già thì muốn bạn đấu như tổ tiên, giữ lại chút kiêu hãnh cuối cùng. Và Tukka thì thầm một kế hoạch: đường cống dưới sân đấu dẫn ra sông.",
+   "choices": [
+    {
+     "label": "Làm Quái Vật Thảo Nguyên: Quái Vật",
+     "text": "Áo choàng da sói nặng và hôi. Răng nanh vẽ thêm làm miệng bạn đau. Nhưng khi bạn bước ra, ba vạn người đứng dậy gào tên mà Sorrel đặt cho bạn.",
+     "effects": {
+      "fame": 6,
+      "wealth": 5,
+      "jobXp": 2,
+      "flags": [
+       "bgl_path_monster"
+      ]
+     },
+     "moment": "Trở thành “Quái Vật Thảo Nguyên” của Huyết Sa"
+    },
+    {
+     "label": "Đấu như tổ tiên: Kiêu Hãnh",
+     "text": "Bạn vẽ lên ngực mình dấu của bộ lạc, và chào đối thủ trước mỗi trận theo cách của Thảo Nguyên. Khán đài cười. Rồi họ thôi cười.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "bgl_path_pride"
+      ]
+     },
+     "moment": "Bắt đầu đấu theo nghi thức của bộ lạc"
+    },
+    {
+     "label": "Nghe kế hoạch của Tukka: Về Nhà",
+     "text": "Bạn bắt đầu đếm: bước chân của lính gác, số song sắt, những đêm không trăng. Bạn đấu mỗi trận như một bài tập cho đêm sẽ đến.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 2,
+      "flags": [
+       "bgl_path_home"
+      ]
+     },
+     "moment": "Bắt đầu chuẩn bị trốn về Thảo Nguyên"
+    }
+   ]
+  },
+  {
+   "id": "bgl_monster_child",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_gladiator",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bgl_path_monster"
+    ],
+    "notFlags": [
+     "bgl_end"
+    ]
+   },
+   "text": "Giữa trận đấu, một đứa trẻ Human ngã từ khán đài xuống sân. Đối thủ của bạn là một con Gấu Răng Kiếm đang điên lên. Ba vạn người chờ xem “Quái Vật Thảo Nguyên” sẽ làm gì.",
+   "choices": [
+    {
+     "label": "Bảo vệ đứa trẻ",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đứng chắn trước đứa trẻ suốt trận đấu, nhận từng cú vồ vào lưng. Khi con gấu ngã xuống, bạn bế đứa trẻ lên trả cho mẹ nó. Ba vạn người im lặng. Lần đầu tiên, không ai gọi bạn là quái vật.",
+      "effects": {
+       "STR": 1,
+       "fame": 10,
+       "health": -20,
+       "jobXp": 3,
+       "flags": [
+        "bgl_monster_saved_child"
+       ]
+      },
+      "moment": "Che chắn cho một đứa trẻ Human giữa trận đấu"
+     },
+     "fail": {
+      "text": "Bạn đẩy được đứa trẻ ra xa, nhưng con gấu quật bạn ngã. Lính phải vào cứu cả hai.",
+      "effects": {
+       "health": -30,
+       "fame": 5,
+       "flags": [
+        "bgl_monster_saved_child"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đánh con gấu như kịch bản",
+     "text": "Lính kéo đứa trẻ ra khỏi sân. Bạn hạ con gấu như Sorrel muốn: dã man, đẫm máu. Đứa trẻ khóc trong vòng tay mẹ nó, nhìn bạn như nhìn ác mộng.",
+     "effects": {
+      "fame": 6,
+      "joy": -10,
+      "jobXp": 2,
+      "flags": [
+       "bgl_monster_true"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bgl_monster_mask",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_gladiator",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bgl_path_monster"
+    ],
+    "notFlags": [
+     "bgl_end"
+    ]
+   },
+   "text": "Sorrel muốn bạn mang một chiếc mặt nạ quỷ trong trận đấu với một đấu sĩ Human được yêu mến, để khán đài có “kẻ ác” mà ghét. Hợp đồng ghi rõ: bạn phải thua, ở hiệp ba.",
+   "choices": [
+    {
+     "label": "Làm theo",
+     "text": "Bạn thua đúng hiệp ba. Khán đài ném đá vào bạn khi bạn bị kéo ra khỏi sân. Sorrel trả tiền thưởng gấp đôi.",
+     "effects": {
+      "wealth": 15,
+      "joy": -10,
+      "jobXp": 2,
+      "flags": [
+       "bgl_monster_villain"
+      ]
+     }
+    },
+    {
+     "label": "Tháo mặt nạ giữa trận",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn tháo mặt nạ, ném xuống cát, và chào đối thủ theo cách của Thảo Nguyên. Đấu sĩ kia chào lại. Hai người đánh một trận thật sự, và khán đài, bối rối, vỗ tay cho cả hai.",
+      "effects": {
+       "fame": 8,
+       "joy": 8,
+       "jobXp": 3,
+       "flags": [
+        "bgl_monster_unmasked"
+       ]
+      },
+      "moment": "Tháo mặt nạ quỷ giữa trận và chào đối thủ"
+     },
+     "fail": {
+      "text": "Sorrel cho lính kéo bạn ra ngay. Bạn bị nhốt vào hố đá mười ngày.",
+      "effects": {
+       "health": -15,
+       "joy": -6,
+       "flags": [
+        "bgl_monster_unmasked"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bgl_pride_salute",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_gladiator",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bgl_path_pride"
+    ],
+    "notFlags": [
+     "bgl_end"
+    ]
+   },
+   "text": "Bạn chào đối thủ theo nghi thức Thảo Nguyên trước mỗi trận. Hôm nay, đối thủ của bạn là một Orc từ Thảo Nguyên, cũng bị bắt như bạn. Hắn chào lại, cùng một nghi thức.",
+   "choices": [
+    {
+     "label": "Đề nghị hắn cùng đánh một trận thật",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Hai người đánh như hai chiến binh, không ai muốn giết ai. Khi hắn ngã, bạn giơ tay xin khán đài tha mạng cho hắn. Khán đài đồng ý. Đêm ấy, hắn gửi qua song sắt một chiếc vòng xương của bộ lạc hắn.",
+      "effects": {
+       "STR": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "bgl_pride_orc_friend"
+       ]
+      },
+      "moment": "Đấu trận danh dự với một Orc cũng bị bắt từ Thảo Nguyên"
+     },
+     "fail": {
+      "text": "Hắn thắng. Nhưng hắn cũng giơ tay xin tha mạng cho bạn, và khán đài đồng ý.",
+      "effects": {
+       "health": -20,
+       "fame": 3,
+       "flags": [
+        "bgl_pride_orc_friend"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đề nghị hắn cùng không đánh",
+     "text": "Hai người đứng giữa sân, giáo cắm xuống cát. Khán đài la ó. Lính dùng giáo thúc vào lưng cả hai. Hai người vẫn không đánh. Cuối cùng Sorrel phải kéo cả hai ra, và lần đầu tiên có một trận đấu ở Huyết Sa không có kẻ thắng.",
+     "effects": {
+      "fame": 5,
+      "health": -10,
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "bgl_pride_refused"
+      ]
+     },
+     "moment": "Cùng một Orc từ chối đánh nhau giữa Huyết Sa"
+    }
+   ]
+  },
+  {
+   "id": "bgl_pride_tribes",
+   "races": [
+    "beastman"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "bm_gladiator",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bgl_path_pride"
+    ],
+    "notFlags": [
+     "bgl_end"
+    ]
+   },
+   "text": "Tin về đấu sĩ Beastman chào đối thủ theo nghi thức tổ tiên đã về đến Thảo Nguyên. Một sứ giả các bộ lạc đến Huyết Sa, đề nghị chuộc bạn về, nhưng chỉ đủ tiền cho một người.",
+   "choices": [
+    {
+     "label": "Nhường cho Tukka",
+     "require": {
+      "flags": [
+       "bgl_met_tukka"
+      ]
+     },
+     "text": "Tukka nhìn bạn, lắc đầu, rồi gật đầu. Anh ta đi theo sứ giả, ngoảnh lại ở cổng, hát câu đầu của bài hát mười hai khúc sông. Bạn hát câu thứ hai.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "bgl_tukka_freed"
+      ]
+     },
+     "moment": "Nhường suất chuộc thân cho Tukka"
+    },
+    {
+     "label": "Nhường cho đấu sĩ trẻ nhất",
+     "text": "Đấu sĩ trẻ nhất là một cô bé tộc Mèo mười bốn tuổi. Cô đi theo sứ giả mà không dám nhìn lại. Bạn ở lại thêm một mùa nữa.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "bgl_freed_youngest"
+      ]
+     }
+    },
+    {
+     "label": "Đi",
+     "text": "Bạn được chuộc. Cổng Huyết Sa mở ra, và bạn bước qua mà không ngoảnh lại, vì nếu ngoảnh lại, bạn sẽ thấy những đôi mắt trong các dãy chuồng.",
+     "effects": {
+      "joy": 4,
+      "fame": 4,
+      "jobXp": 2,
+      "flags": [
+       "bgl_ransomed"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bgl_home_tunnel",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_gladiator",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bgl_path_home"
+    ],
+    "notFlags": [
+     "bgl_end"
+    ]
+   },
+   "text": "Đêm không trăng đã đến. Đường cống dưới sân đấu hẹp và ngập nước bẩn. Tukka đi trước. Giữa đường, bạn nghe tiếng một đứa trẻ Beastman đang khóc trong dãy chuồng mà kế hoạch không tính đến.",
+   "choices": [
+    {
+     "label": "Quay lại đón đứa trẻ",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn phá khóa chuồng, bế đứa trẻ lên, và lội ngược đường cống. Ba người ra đến bờ sông lúc trời hửng sáng. Tukka nhìn đứa trẻ, cười: “Giờ thì ta có bộ lạc rồi.”",
+      "effects": {
+       "AGI": 1,
+       "fame": 4,
+       "jobXp": 3,
+       "flags": [
+        "bgl_home_escaped",
+        "bgl_home_child"
+       ]
+      },
+      "moment": "Trốn khỏi Huyết Sa qua đường cống cùng Tukka và một đứa trẻ"
+     },
+     "fail": {
+      "text": "Quay lại khiến bạn chậm. Lính phát hiện ở cửa cống. Tukka thoát. Bạn và đứa trẻ bị bắt lại.",
+      "effects": {
+       "health": -20,
+       "joy": -10,
+       "flags": [
+        "bgl_home_caught"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đi tiếp, hứa sẽ quay lại",
+     "text": "Bạn ra đến sông. Tukka và bạn chạy suốt ba ngày về phía Thảo Nguyên. Tiếng khóc của đứa trẻ theo bạn suốt quãng đường ấy, và bạn biết mình sẽ quay lại.",
+     "effects": {
+      "AGI": 1,
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "bgl_home_escaped",
+       "bgl_home_promise"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bgl_home_return",
+   "races": [
+    "beastman"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "bm_gladiator",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bgl_path_home"
+    ],
+    "notFlags": [
+     "bgl_end"
+    ]
+   },
+   "text": "Bạn đã về đến Thảo Nguyên. Nhưng bộ lạc cũ của bạn không còn nữa; chỉ còn những túp lều cháy và một bãi tha ma. Những người sống sót đã tản đi khắp nơi.",
+   "choices": [
+    {
+     "label": "Đi tìm từng người sống sót",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đi ba năm, hỏi từng bộ lạc, từng chợ phiên. Bạn tìm được hai mươi bảy người. Ở một thung lũng nhỏ, bạn dựng lại túp lều đầu tiên.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "joy": 10,
+       "jobXp": 3,
+       "flags": [
+        "bgl_home_rebuilt"
+       ]
+      },
+      "moment": "Tìm lại hai mươi bảy người sống sót của bộ lạc cũ"
+     },
+     "fail": {
+      "text": "Bạn chỉ tìm được ba người. Nhưng ba người cũng là một bộ lạc.",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "bgl_home_rebuilt"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Gia nhập bộ lạc của Tukka",
+     "require": {
+      "flags": [
+       "bgl_met_tukka"
+      ]
+     },
+     "text": "Bộ lạc ven sông của Tukka nhận bạn như người nhà. Bạn hát bài mười hai khúc sông trong đêm lửa trại đầu tiên, và cả bộ lạc hát theo.",
+     "effects": {
+      "joy": 12,
+      "jobXp": 3,
+      "flags": [
+       "bgl_home_river"
+      ]
+     },
+     "moment": "Được bộ lạc ven sông của Tukka nhận làm người nhà"
+    }
+   ]
+  },
+  {
+   "id": "bgl_c4_sorrel",
+   "races": [
+    "beastman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "bm_gladiator",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "bgl_met_sorrel"
+    ],
+    "notFlags": [
+     "bgl_end"
+    ]
+   },
+   "text": "Sorrel Vane đã già và nợ nần. Lò đấu sĩ của ông ta sắp bị một thương hội mua lại, và ba mươi Beastman trong các dãy chuồng sẽ bị bán sang mỏ đá.",
+   "choices": [
+    {
+     "label": "Mua lại lò đấu sĩ",
+     "require": {
+      "wealth": 30
+     },
+     "showLocked": true,
+     "text": "Bạn đặt túi Huyết Kim lên bàn Sorrel. Ông ta nhìn bạn, nhận ra bạn, và cười như mếu. Ngày hôm sau, bạn mở mọi chuồng. Tấm bảng “Dã thú từ Vực Móng Vuốt” được bạn đem đốt ở giữa sân.",
+     "effects": {
+      "wealth": -30,
+      "fame": 8,
+      "joy": 15,
+      "jobXp": 4,
+      "flags": [
+       "bgl_bought_ludus"
+      ]
+     },
+     "moment": "Mua lại lò đấu sĩ và đốt tấm bảng “dã thú”"
+    },
+    {
+     "label": "Dẫn một cuộc giải cứu trong đêm",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Ba mươi Beastman ra khỏi chuồng trong một đêm. Sorrel đứng ở cửa phòng mình nhìn họ đi, không gọi lính. Có lẽ ông ta đã chán cả nghề lẫn bản thân.",
+      "effects": {
+       "AGI": 1,
+       "fame": 6,
+       "jobXp": 4,
+       "flags": [
+        "bgl_freed_ludus"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Lính phát hiện. Bạn cứu được mười hai người, số còn lại bị đưa đi mỏ đá ngay trong đêm.",
+      "effects": {
+       "health": -15,
+       "joy": -12
+      }
+     }
+    },
+    {
+     "label": "Mặc kệ",
+     "text": "Bạn nghe tin ba mươi Beastman bị đưa đi mỏ đá. Bạn không làm gì. Bạn tự nhủ mình đã thoát, và đó là đủ.",
+     "effects": {
+      "joy": -15
+     }
+    }
+   ]
+  },
+  {
+   "id": "bgl_c4_crowd",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_gladiator",
+    "free": true,
+    "jobRank": 3,
+    "notFlags": [
+     "bgl_end"
+    ]
+   },
+   "text": "Đấu trường Huyết Sa tổ chức trận đấu lớn nhất trăm năm: một Beastman đối đầu với một Thánh Kỵ Sĩ, để “chứng minh loài người hơn hẳn thú”. Họ muốn bạn là Beastman ấy.",
+   "choices": [
+    {
+     "label": "Nhận lời, đánh hết sức",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Trận đấu kéo dài đến hoàng hôn. Khi Thánh Kỵ Sĩ ngã, bạn chìa tay kéo ông ta dậy. Ông ta nắm tay bạn, và cả hai cùng đứng giữa sân. Huyết Sa không còn tổ chức trận “chứng minh” nào nữa.",
+      "effects": {
+       "STR": 1,
+       "fame": 12,
+       "jobXp": 4,
+       "flags": [
+        "bgl_beat_paladin"
+       ]
+      },
+      "moment": "Đánh bại Thánh Kỵ Sĩ rồi kéo ông ta đứng dậy giữa Huyết Sa"
+     },
+     "fail": {
+      "text": "Bạn thua sát nút. Thánh Kỵ Sĩ quỳ xuống trước bạn trước khi rời sân, và khán đài không hiểu vì sao.",
+      "effects": {
+       "health": -25,
+       "fame": 6
+      }
+     }
+    },
+    {
+     "label": "Từ chối",
+     "text": "Bạn nói với người tổ chức: “Ta không đánh để chứng minh điều gì về tộc của mình.” Họ tìm một Beastman khác. Trận đấu diễn ra, và bạn không đến xem.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "bgl_c5_monster",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_gladiator",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bgl_path_monster"
+    ],
+    "notFlags": [
+     "bgl_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Arena King, và hình ảnh Quái Vật Thảo Nguyên được vẽ trên cờ, trên áo, trên cả đồ chơi trẻ con ở Sanctus. Một học giả Tháp Ngà muốn viết sách về bạn.",
+   "choices": [
+    {
+     "label": "Kể cho ông ta nghe sự thật",
+     "require": {
+      "anyFlags": [
+       "bgl_monster_saved_child",
+       "bgl_monster_unmasked"
+      ]
+     },
+     "text": "Bạn kể về chợ nô lệ, về tấm bảng, về răng nanh vẽ thêm. Cuốn sách tên là “Người trong lốt Quái Vật”. Nó được đọc ở Sanctus nhiều hơn mọi cuốn sách về Beastman trước đó.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "bgl_end",
+       "bgl_end_true_story"
+      ]
+     },
+     "moment": "Kể sự thật về Quái Vật Thảo Nguyên cho một cuốn sách"
+    },
+    {
+     "label": "Tiếp tục làm Quái Vật đến trận cuối",
+     "text": "Bạn đấu đến khi không đứng dậy được nữa. Khán đài gào tên Quái Vật Thảo Nguyên lần cuối. Không ai biết tên thật của bạn.",
+     "effects": {
+      "fame": 12,
+      "wealth": 20,
+      "joy": -8,
+      "flags": [
+       "bgl_end",
+       "bgl_end_mask_forever"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bgl_c5_pride",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_gladiator",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bgl_path_pride"
+    ],
+    "notFlags": [
+     "bgl_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Arena King, nhưng giờ những đấu sĩ trẻ ở Huyết Sa, Human cũng như Beastman, đều chào đối thủ theo nghi thức Thảo Nguyên trước mỗi trận.",
+   "choices": [
+    {
+     "label": "Đề nghị Huyết Sa bỏ chế độ nô lệ Beastman",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn đứng giữa sân, nói trước ba vạn người, và họ nghe. Một năm sau, không còn Beastman nào bị bán vào Huyết Sa. Những người còn lại đấu vì tiền công.",
+      "effects": {
+       "fame": 15,
+       "joy": 15,
+       "flags": [
+        "bgl_end",
+        "bgl_end_abolished"
+       ]
+      },
+      "moment": "Thuyết phục Huyết Sa xóa bỏ nô lệ Beastman"
+     },
+     "fail": {
+      "text": "Họ nghe, nhưng không làm. Bạn tiếp tục chào đối thủ trước mỗi trận, chờ ngày họ làm.",
+      "effects": {
+       "fame": 10,
+       "joy": -4,
+       "flags": [
+        "bgl_end",
+        "bgl_end_waiting"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Về Thảo Nguyên dạy lũ trẻ nghi thức cũ",
+     "text": "Bạn về, và ngồi bên lửa trại dạy lũ trẻ chào nhau trước khi tập đánh. Chúng nghĩ đó là trò chơi. Bạn biết đó là thứ duy nhất bạn mang theo được từ Huyết Sa.",
+     "effects": {
+      "joy": 18,
+      "flags": [
+       "bgl_end",
+       "bgl_end_teacher"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bgl_c5_home",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_gladiator",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bgl_path_home"
+    ],
+    "notFlags": [
+     "bgl_end"
+    ]
+   },
+   "text": "Bộ lạc của bạn giờ đã đông lại. Người ta gọi bạn là Arena King, dù bạn đã rời Huyết Sa từ lâu. Một đêm, có tin rằng Huyết Sa vừa mua một lứa Beastman mới từ Thảo Nguyên.",
+   "choices": [
+    {
+     "label": "Quay lại Huyết Sa lần cuối",
+     "require": {
+      "flags": [
+       "bgl_home_promise"
+      ]
+     },
+     "check": {
+      "stat": "AGI",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn trở về đường cống năm xưa, già hơn, chậm hơn, nhưng vẫn nhớ từng khúc quanh. Đêm ấy, mười chín Beastman ra khỏi Huyết Sa. Lời hứa năm xưa đã được giữ.",
+      "effects": {
+       "fame": 15,
+       "joy": 18,
+       "flags": [
+        "bgl_end",
+        "bgl_end_promise_kept"
+       ]
+      },
+      "moment": "Quay lại Huyết Sa giữ lời hứa năm xưa"
+     },
+     "fail": {
+      "text": "Đường cống đã bị bịt. Bạn chỉ cứu được hai người qua cổng chính, trước khi lính đuổi kịp.",
+      "effects": {
+       "health": -25,
+       "fame": 8,
+       "flags": [
+        "bgl_end",
+        "bgl_end_promise_kept"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Dựng hàng rào canh gác quanh Thảo Nguyên",
+     "text": "Bạn lập những đội canh gác ở mọi lối mà bọn buôn nô lệ hay đi. Không có lứa Beastman nào bị bắt từ vùng đất của bạn nữa.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "bgl_end",
+       "bgl_end_watch"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bgl_daily_sand",
+   "races": [
+    "beastman"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "bm_gladiator",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Cát Huyết Sa nóng đến mức phồng chân. Lính quên tưới nước cho dãy chuồng hôm nay.",
+   "choices": [
+    {
+     "label": "Chia nước của mình cho chuồng bên cạnh",
+     "text": "Bạn khát đến sáng. Nhưng chuồng bên cạnh có một người già, và ông ấy sống qua đêm.",
+     "effects": {
+      "health": -4,
+      "joy": 6
+     }
+    },
+    {
+     "label": "Gõ vào song sắt cho đến khi lính đến",
+     "text": "Cả dãy chuồng gõ theo bạn. Lính đến, chửi bới, nhưng mang nước.",
+     "effects": {
+      "joy": 4,
+      "fame": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "bgl_daily_human_kid",
+   "races": [
+    "beastman"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "bm_gladiator",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Một đứa trẻ Human trèo qua hàng rào chuồng, mang cho bạn một quả táo. Nó hỏi bạn có cắn người thật không.",
+   "choices": [
+    {
+     "label": "Cười và nói không",
+     "text": "Đứa trẻ nhìn bạn rất lâu, rồi đưa quả táo qua song sắt. Tuần sau, nó dẫn theo hai đứa bạn.",
+     "effects": {
+      "joy": 8
+     }
+    },
+    {
+     "label": "Gầm khẽ cho nó sợ chạy đi",
+     "text": "Nó chạy, nhưng chạy được mười bước thì quay lại, đặt quả táo xuống đất, rồi mới chạy tiếp.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "bgl_daily_war_pit",
+   "races": [
+    "beastman"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "bm_gladiator",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh khiến Huyết Sa vắng khách. Sorrel thả các đấu sĩ Beastman ra làm quân xung kích cho Tuyến Đầu, hứa trả tự do cho ai sống sót.",
+   "choices": [
+    {
+     "label": "Đi",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn sống sót qua ba trận. Sorrel giữ lời một nửa: tự do được hứa, nhưng phải đợi đến khi chiến tranh kết thúc.",
+      "effects": {
+       "STR": 1,
+       "fame": 4,
+       "health": -15,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Bạn bị thương nặng ở trận đầu tiên và được khiêng về Huyết Sa.",
+      "effects": {
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Từ chối, ở lại",
+     "text": "Sorrel nhốt bạn vào hố đá. Phần lớn những người đi không trở về.",
+     "effects": {
+      "joy": -6,
+      "health": -5
+     }
+    }
+   ]
+  },
+  {
+   "id": "bgl_daily_old_scar",
+   "races": [
+    "beastman"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "bm_gladiator",
+    "free": true
+   },
+   "text": "Những vết sẹo cũ đau nhức mỗi khi trời trở gió. Sáng nay, một đấu sĩ trẻ hỏi bạn làm sao để sống được lâu như vậy ở Huyết Sa.",
+   "choices": [
+    {
+     "label": "Kể thật: may mắn và một người bạn",
+     "text": "Cậu ta có vẻ thất vọng, vì cậu ta muốn nghe về kỹ thuật. Nhiều năm sau, cậu ta hiểu.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Dạy cậu ta cách ngã sao cho khỏi gãy xương",
+     "text": "Cậu ta ngã ba mươi lần trong buổi chiều. Đến tối, cậu ta ngã mà không đau. Bạn bảo đó là kỹ thuật quan trọng nhất ở Huyết Sa.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1
+     }
+    }
+   ]
+  }
+ ]
+}

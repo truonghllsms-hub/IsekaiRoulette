@@ -1,0 +1,1202 @@
+{
+ "_note": "Tuyến truyện Berserker (Beastman): 5 chương theo bậc, ba đạo ở Bậc 2 (bbk_path_rage / bbk_path_chain / bbk_path_exile), nhân vật xuyên suốt Grask (tộc Gấu) và Vela (tộc Sói).",
+ "origins": [],
+ "events": [
+  {
+   "id": "bbk_c1_grask",
+   "races": [
+    "beastman"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "bm_berserker",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "bbk_met_grask"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Grask",
+     "race": "Beastman tộc Gấu",
+     "position": "Berserker già nhất Trại Huyết Môn"
+    }
+   ],
+   "text": "Grask là Berserker già nhất Trại Huyết Môn, một gã tộc Gấu to như tảng đá, khắp người chi chít sẹo, và hai bàn tay luôn quấn vải. Lão không dạy bạn vung rìu. Lão bắt bạn ngồi bên lửa trại, nhìn vào ngọn lửa, và đếm hơi thở cho đến khi lão bảo dừng.",
+   "choices": [
+    {
+     "label": "Ngồi đếm suốt đêm",
+     "check": {
+      "stat": "INT",
+      "target": 4
+     },
+     "success": {
+      "text": "Đến gần sáng, bạn cảm thấy thứ gì đó trong ngực mình, nóng như than hồng, đang ngủ yên. Grask gật đầu: “Đấy là con thú trong ngươi. Phải biết nó ngủ thế nào trước khi biết nó thức dậy ra sao.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "bbk_met_grask",
+        "bbk_grask_respect"
+       ]
+      },
+      "moment": "Lần đầu cảm nhận được con thú trong mình bên lửa trại của Grask"
+     },
+     "fail": {
+      "text": "Đến nửa đêm, bạn đá đổ đống lửa vì sốt ruột. Grask không giận; lão chỉ nhóm lại lửa và bảo bạn đếm lại từ đầu.",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "bbk_met_grask"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi lão vì sao hai tay luôn quấn vải",
+     "text": "Grask tháo vải ra. Bên dưới là những vết sẹo do chính răng của lão cắn. “Mỗi lần cơn điên đến mà không có kẻ thù, ta tự cắn mình để không cắn người khác.” Bạn không hỏi thêm nữa.",
+     "effects": {
+      "joy": -2,
+      "jobXp": 1,
+      "flags": [
+       "bbk_met_grask",
+       "bbk_grask_respect"
+      ]
+     },
+     "moment": "Thấy những vết sẹo dưới lớp vải của Grask"
+    },
+    {
+     "label": "Gầm lên một tiếng, như tổ tiên tộc Gấu",
+     "require": {
+      "subtype": "bear"
+     },
+     "text": "Tiếng gầm của bạn làm lửa trại tạt ngang. Grask bật cười, tiếng cười như đá lở. “Đúng là máu Gấu. Giờ học cách gầm mà không cần đánh ai.”",
+     "effects": {
+      "STR": 1,
+      "jobXp": 1,
+      "flags": [
+       "bbk_met_grask"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bbk_c1_vela",
+   "races": [
+    "beastman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "bm_berserker",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "bbk_met_grask"
+    ],
+    "notFlags": [
+     "bbk_met_vela"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Vela",
+     "race": "Beastman tộc Sói",
+     "position": "Chiến binh trẻ của Trại Huyết Môn"
+    }
+   ],
+   "text": "Vela là chiến binh trẻ tộc Sói nhanh nhất Trại Huyết Môn, và cô ta không giấu việc coi thường những kẻ cần “học” cơn cuồng nộ. Trong buổi tập, cô ta đánh bạn ngã ba lần rồi bỏ đi, đuôi vẫy như chế giễu.",
+   "choices": [
+    {
+     "label": "Đuổi theo đòi đấu lại",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Lần thứ tư, bạn quật được Vela xuống đất. Cô ta nằm đó, thở dốc, rồi bật cười. Từ hôm ấy, Vela không đi tập với ai khác ngoài bạn.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "bbk_met_vela",
+        "bbk_vela_rival"
+       ]
+      },
+      "moment": "Quật ngã Vela trong buổi tập"
+     },
+     "fail": {
+      "text": "Lần thứ tư cũng như ba lần trước. Vela đứng trên bạn, chìa tay kéo bạn dậy: “Ngươi lì đấy. Mai lại đến.”",
+      "effects": {
+       "health": -6,
+       "flags": [
+        "bbk_met_vela",
+        "bbk_vela_rival"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Ngồi xuống đếm hơi thở như Grask dạy",
+     "require": {
+      "flags": [
+       "bbk_met_grask"
+      ]
+     },
+     "text": "Vela dừng lại, nhìn bạn ngồi giữa sân tập. Cô ta ngồi xuống cạnh bạn, lần đầu tiên im lặng. “Lão Gấu già cũng dạy ngươi trò này à? Lão dạy ta từ năm ta lên bảy. Ta chưa bao giờ làm được.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "bbk_met_vela",
+       "bbk_vela_friend"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bbk_c2_first_frenzy",
+   "races": [
+    "beastman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "bm_berserker",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "bbk_first_frenzy",
+     "bbk_end"
+    ]
+   },
+   "text": "Một toán Orc đột kích trại vào lúc nửa đêm. Lần đầu tiên, cơn cuồng nộ thật sự đến với bạn: tầm nhìn đỏ lựng, tai ù đi, và tay bạn tự tìm đến cán rìu.",
+   "choices": [
+    {
+     "label": "Buông mình theo nó",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Khi tỉnh lại, bạn đứng giữa năm xác Orc, rìu còn nhỏ máu. Cả trại reo hò tên bạn. Bạn không nhớ gì, và điều đó khiến bạn sợ hơn mọi tên Orc.",
+      "effects": {
+       "STR": 1,
+       "fame": 5,
+       "jobXp": 2,
+       "flags": [
+        "bbk_first_frenzy",
+        "bbk_frenzy_free"
+       ]
+      },
+      "moment": "Lần đầu chìm vào cơn cuồng nộ trong trận chiến"
+     },
+     "fail": {
+      "text": "Bạn tỉnh lại với một vết rìu trên vai, và một chiến binh cùng trại nằm cạnh bạn, bị thương bởi chính rìu của bạn.",
+      "effects": {
+       "health": -15,
+       "joy": -15,
+       "flags": [
+        "bbk_first_frenzy",
+        "bbk_frenzy_wound"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Ghìm nó lại bằng cách đếm hơi thở",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn đếm đến bảy. Tầm nhìn vẫn đỏ, nhưng bạn nhìn rõ: kẻ thù ở đâu, đồng đội ở đâu. Bạn đánh như một cơn bão có mắt. Grask nhìn bạn từ xa, và lần đầu lão gật đầu với một kẻ trẻ.",
+      "effects": {
+       "INT": 1,
+       "fame": 3,
+       "jobXp": 2,
+       "flags": [
+        "bbk_first_frenzy",
+        "bbk_frenzy_held"
+       ]
+      },
+      "moment": "Giữ được lý trí trong cơn cuồng nộ đầu tiên"
+     },
+     "fail": {
+      "text": "Đếm đến ba thì cơn điên nuốt mất bạn. Bạn tỉnh lại giữa đống đổ nát mà không nhớ gì.",
+      "effects": {
+       "health": -10,
+       "flags": [
+        "bbk_first_frenzy",
+        "bbk_frenzy_free"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Tru gọi bầy trước khi lao vào",
+     "require": {
+      "subtype": "wolf"
+     },
+     "text": "Tiếng tru của bạn kéo theo tiếng tru của mọi chiến binh tộc Sói trong trại. Cả bầy lao vào toán Orc cùng một lúc, và cơn cuồng nộ của bạn chảy theo nhịp của bầy thay vì nuốt chửng bạn.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2,
+      "flags": [
+       "bbk_first_frenzy",
+       "bbk_frenzy_held"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bbk_c2_crossroads",
+   "races": [
+    "beastman"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "bm_berserker",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "bbk_path_rage",
+     "bbk_path_chain",
+     "bbk_path_exile",
+     "bbk_end"
+    ]
+   },
+   "text": "Sau trận đột kích, ba con đường mở ra. Hội Huyết Cuồng, nhóm Berserker thờ cơn điên như một vị thần, mời bạn uống máu thề. Grask muốn bạn ở lại, học cách đeo “xích” vào con thú trong mình. Và đêm ấy, một người trong trại nói khẽ với bạn rằng chiến binh bị thương bởi rìu của bạn đã chết.",
+   "choices": [
+    {
+     "label": "Uống máu thề với Hội Huyết Cuồng: Huyết Cuồng",
+     "text": "Máu đắng và nóng. Hội Huyết Cuồng không đếm hơi thở; họ đánh trống, và để cơn điên đến như mưa giông. Bạn cảm thấy mình mạnh hơn bao giờ hết.",
+     "effects": {
+      "STR": 1,
+      "fame": 3,
+      "jobXp": 2,
+      "flags": [
+       "bbk_path_rage"
+      ]
+     },
+     "moment": "Uống máu thề với Hội Huyết Cuồng"
+    },
+    {
+     "label": "Ở lại học cùng Grask: Xích Tâm",
+     "text": "Grask quấn một sợi xích sắt quanh cổ tay bạn. “Mỗi khi ngươi muốn giết, hãy nhớ sức nặng của nó.” Những năm tiếp theo, bạn học cách đánh mà không mất mình.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "bbk_path_chain"
+      ]
+     },
+     "moment": "Đeo sợi xích sắt của Grask"
+    },
+    {
+     "label": "Rời Trại Huyết Môn: Lưu Vong",
+     "text": "Bạn không đợi ai xử. Bạn để lại rìu ở cổng trại, chỉ mang theo một con dao và một tấm áo, và đi về phía chân trời. Ở đâu đó, có một gia đình đang chôn người đã chết vì bạn.",
+     "effects": {
+      "joy": -10,
+      "jobXp": 2,
+      "flags": [
+       "bbk_path_exile"
+      ]
+     },
+     "moment": "Tự lưu đày khỏi Trại Huyết Môn"
+    }
+   ]
+  },
+  {
+   "id": "bbk_rage_drums",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_berserker",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bbk_path_rage"
+    ],
+    "notFlags": [
+     "bbk_end"
+    ]
+   },
+   "text": "Hội Huyết Cuồng chuẩn bị tập kích một làng Human ở biên giới, nơi họ tin rằng thợ săn đã giết ba trẻ con Beastman. Bằng chứng duy nhất là lời kể của một kẻ say.",
+   "choices": [
+    {
+     "label": "Đi theo trống trận",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Làng cháy. Bạn không nhớ được trẻ con nào đã chạy thoát. Hội Huyết Cuồng tôn bạn làm người cầm trống. Mãi về sau bạn mới biết thợ săn thật sự ở làng khác.",
+      "effects": {
+       "STR": 1,
+       "fame": 5,
+       "joy": -20,
+       "jobXp": 3,
+       "flags": [
+        "bbk_rage_massacre"
+       ]
+      },
+      "moment": "Dẫn Hội Huyết Cuồng tập kích một làng biên giới"
+     },
+     "fail": {
+      "text": "Làng có lính đánh thuê. Hội Huyết Cuồng bị đánh tan, và bạn lết về trại với nửa người đầy máu.",
+      "effects": {
+       "health": -25,
+       "flags": [
+        "bbk_rage_defeat"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đòi đi điều tra trước",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn lẻn vào làng ban đêm và tìm ra sự thật: thợ săn là một băng lính đánh thuê, không phải dân làng. Hội Huyết Cuồng chuyển hướng tấn công băng lính đánh thuê ấy. Lần đầu tiên, trống trận gõ đúng chỗ.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "bbk_rage_just"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Hội Huyết Cuồng không chờ bạn. Khi bạn quay lại, làng đã cháy.",
+      "effects": {
+       "joy": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bbk_rage_blood_moon",
+   "races": [
+    "beastman"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "bm_berserker",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bbk_path_rage"
+    ],
+    "notFlags": [
+     "bbk_end"
+    ]
+   },
+   "text": "Đêm trăng máu, Hội Huyết Cuồng làm lễ “Thả Thú”: mọi Berserker cùng chìm vào cơn điên một lúc, không có kẻ thù, để chứng minh ai là kẻ còn đứng cuối cùng.",
+   "choices": [
+    {
+     "label": "Tham gia",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn là người cuối cùng còn đứng khi trăng lặn. Mười bảy Berserker nằm quanh bạn, bất tỉnh nhưng còn sống. Hội trưởng trao cho bạn chiếc mặt nạ xương của mình.",
+      "effects": {
+       "STR": 1,
+       "fame": 6,
+       "health": -15,
+       "jobXp": 3,
+       "flags": [
+        "bbk_rage_champion"
+       ]
+      },
+      "moment": "Đứng cuối cùng trong lễ Thả Thú đêm trăng máu"
+     },
+     "fail": {
+      "text": "Bạn ngã xuống trước nửa đêm, và có ai đó đã cắn mất một bên tai bạn.",
+      "effects": {
+       "health": -25,
+       "flags": [
+        "bbk_rage_scarred"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Từ chối, đứng canh ngoài vòng lửa",
+     "text": "Bạn đứng canh suốt đêm, kéo từng Berserker gục xuống ra khỏi vòng lửa trước khi họ bị giẫm chết. Hội trưởng gọi bạn là kẻ hèn. Ba người được bạn kéo ra thì không.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "bbk_rage_doubt"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bbk_chain_teach",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_berserker",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bbk_path_chain"
+    ],
+    "notFlags": [
+     "bbk_end"
+    ]
+   },
+   "text": "Grask giao cho bạn dạy một đứa trẻ tộc Mèo mười tuổi, cơn cuồng nộ đã đến với nó quá sớm. Tuần trước, nó cào rách mặt anh trai mình trong một cơn giận vì bị lấy mất miếng thịt.",
+   "choices": [
+    {
+     "label": "Dạy nó đếm hơi thở",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn ngồi với nó mỗi tối, bên lửa trại, như Grask từng ngồi với bạn. Đến tháng thứ ba, khi anh trai nó lại lấy miếng thịt, nó chỉ đếm đến bảy và bỏ đi. Grask nhìn bạn, gật đầu.",
+      "effects": {
+       "INT": 1,
+       "joy": 8,
+       "jobXp": 3,
+       "flags": [
+        "bbk_chain_student"
+       ]
+      },
+      "moment": "Dạy một đứa trẻ cách xích con thú trong mình"
+     },
+     "fail": {
+      "text": "Đứa trẻ không chịu ngồi yên. Một đêm, nó cào vào mặt bạn rồi chạy mất. Bạn mất cả tuần tìm nó trong thảo nguyên.",
+      "effects": {
+       "health": -8,
+       "joy": -6
+      }
+     }
+    },
+    {
+     "label": "Cho nó đánh nhau với bạn đến khi kiệt sức",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Mỗi chiều, nó lao vào bạn đến khi không còn sức. Mỗi tối, nó ngủ như chết. Sau một mùa, cơn cuồng nộ của nó nhạt dần, vì nó đã biết nơi để trút.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 2,
+       "flags": [
+        "bbk_chain_student"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn lỡ tay đánh mạnh. Đứa trẻ khóc, và bạn hiểu ra mình vừa dạy nó điều ngược lại.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bbk_chain_break",
+   "races": [
+    "beastman"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "bm_berserker",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bbk_path_chain",
+     "bbk_met_vela"
+    ],
+    "notFlags": [
+     "bbk_end"
+    ]
+   },
+   "text": "Trong trận chiến với một bầy Huyết Lang, Vela bị cắn ngã, và bầy sói đang xé xác cô ta. Bạn biết chỉ có cơn cuồng nộ hoàn toàn mới cứu được cô ta, và bạn biết nếu tháo xích lúc này, có thể bạn sẽ không đeo lại được nữa.",
+   "choices": [
+    {
+     "label": "Tháo xích",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn không nhớ gì sau đó. Khi tỉnh lại, bầy Huyết Lang đã chết hết, Vela còn sống, và sợi xích của Grask đứt làm đôi dưới chân bạn. Bạn mất ba tháng để nhặt lại được chính mình.",
+      "effects": {
+       "STR": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "bbk_chain_broke",
+        "bbk_vela_saved"
+       ]
+      },
+      "moment": "Tháo xích cơn cuồng nộ để cứu Vela"
+     },
+     "fail": {
+      "text": "Bầy sói chết hết. Vela cũng bị thương thêm, bởi chính rìu của bạn.",
+      "effects": {
+       "joy": -20,
+       "flags": [
+        "bbk_chain_broke",
+        "bbk_vela_hurt"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đánh mà vẫn giữ xích",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đánh chậm hơn, nhưng chính xác hơn. Từng con Huyết Lang ngã xuống. Vela còn sống, và sợi xích trên cổ tay bạn vẫn còn nguyên.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "bbk_vela_saved",
+        "bbk_chain_held"
+       ]
+      },
+      "moment": "Cứu Vela mà vẫn giữ được xích"
+     },
+     "fail": {
+      "text": "Bạn chậm một nhịp. Vela còn sống, nhưng mất một chân.",
+      "effects": {
+       "joy": -15,
+       "flags": [
+        "bbk_vela_hurt"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bbk_exile_road",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_berserker",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bbk_path_exile"
+    ],
+    "notFlags": [
+     "bbk_end"
+    ]
+   },
+   "text": "Đi một mình qua Đầm Lầy Tử Khí, bạn gặp một đoàn người tị nạn Human đang bị một bầy Ghoul bám theo. Họ nhìn đôi tai và móng vuốt của bạn và co cụm lại, sợ bạn hơn sợ Ghoul.",
+   "choices": [
+    {
+     "label": "Chặn bầy Ghoul cho họ chạy",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đứng ở đầu cầu gỗ, rìu trong tay, cơn cuồng nộ được giữ vừa đủ. Bầy Ghoul không qua được. Khi trời sáng, một bà lão trong đoàn để lại cho bạn một miếng bánh trên đầu cầu.",
+      "effects": {
+       "STR": 1,
+       "fame": 3,
+       "joy": 6,
+       "jobXp": 3,
+       "flags": [
+        "bbk_exile_guard"
+       ]
+      },
+      "moment": "Chặn bầy Ghoul ở đầu cầu cho đoàn tị nạn Human"
+     },
+     "fail": {
+      "text": "Bầy Ghoul quá đông. Bạn cầm cự đủ lâu cho đoàn người chạy, rồi phải nhảy xuống sông để thoát.",
+      "effects": {
+       "health": -20,
+       "flags": [
+        "bbk_exile_guard"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đi đường khác",
+     "text": "Bạn lẩn vào sương mù. Đêm ấy, bạn nghe tiếng la hét vọng lại từ phía đoàn người. Bạn không quay lại, và bạn không ngủ được.",
+     "effects": {
+      "joy": -12
+     }
+    }
+   ]
+  },
+  {
+   "id": "bbk_exile_family",
+   "races": [
+    "beastman"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "bm_berserker",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bbk_path_exile"
+    ],
+    "notFlags": [
+     "bbk_end"
+    ]
+   },
+   "text": "Bạn tìm được ngôi làng của gia đình người chiến binh đã chết vì rìu của bạn. Người vợ đang một mình kéo cày, và đứa con trai mười tuổi cầm một khúc gỗ đẽo hình chiếc rìu.",
+   "choices": [
+    {
+     "label": "Gõ cửa, nói ra sự thật",
+     "text": "Người vợ nghe hết, im lặng rất lâu. Rồi cô đưa cho bạn chiếc cày: “Ruộng này cần người.” Bạn ở lại ba mùa, cày ruộng của người mình đã giết. Đứa con trai không bao giờ nói chuyện với bạn, nhưng đến mùa thứ ba, nó đứng nhìn bạn cày.",
+     "effects": {
+      "joy": 4,
+      "STR": 1,
+      "jobXp": 3,
+      "flags": [
+       "bbk_exile_atoned"
+      ]
+     },
+     "moment": "Ở lại cày ruộng cho gia đình người mình đã giết"
+    },
+    {
+     "label": "Để lại tiền trước cửa rồi đi",
+     "text": "Bạn đặt túi tiền xuống bậc cửa lúc nửa đêm. Đứa con trai thức dậy và thấy bạn. Nó không la lên. Nó chỉ nhìn bạn đi, và bạn mang ánh mắt ấy theo suốt con đường.",
+     "effects": {
+      "wealth": -15,
+      "joy": -6,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "bbk_c4_grask",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_berserker",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "bbk_met_grask"
+    ],
+    "notFlags": [
+     "bbk_grask_gone",
+     "bbk_end"
+    ]
+   },
+   "text": "Grask đã quá già để cầm rìu. Một đêm, cơn cuồng nộ cuối cùng đến với lão, không có kẻ thù nào, và lão xích mình vào cột lều, gọi tên bạn.",
+   "choices": [
+    {
+     "label": "Ngồi bên lão, đếm hơi thở cùng lão",
+     "text": "Bạn ngồi xuống, đếm to: một, hai, ba. Grask đếm theo, giọng run. Đến bảy, lão thở dài, và cơn điên lắng xuống. Lão mất trước bình minh, hai tay không quấn vải, lần đầu tiên sau năm mươi năm.",
+     "effects": {
+      "joy": -3,
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "bbk_grask_gone"
+      ]
+     },
+     "moment": "Đếm hơi thở cùng Grask trong cơn cuồng nộ cuối cùng của lão"
+    },
+    {
+     "label": "Tháo xích cho lão, để lão ra đi như một Berserker",
+     "require": {
+      "flags": [
+       "bbk_path_rage"
+      ]
+     },
+     "text": "Grask lao ra khỏi lều, gầm lên một tiếng làm rung cả thảo nguyên, rồi chạy về phía Vực Móng Vuốt. Người ta tìm thấy lão ở đó vào sáng hôm sau, nằm giữa xác của ba con Huyết Lang, mỉm cười.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 3,
+      "flags": [
+       "bbk_grask_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bbk_c4_war",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_berserker",
+    "free": true,
+    "jobRank": 3,
+    "notFlags": [
+     "bbk_end"
+    ]
+   },
+   "text": "Quân đoàn Orc tràn qua Thảo Nguyên, và các bộ lạc Beastman lần đầu tiên sau trăm năm họp lại thành một đạo quân. Họ cần một người dẫn hàng Berserker đi đầu.",
+   "choices": [
+    {
+     "label": "Dẫn đầu và buông mình theo cơn cuồng nộ",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Hàng Berserker của bạn xé toạc đội hình Orc như sóng đập vào cát. Khi trận đánh kết thúc, bạn được gọi là Battlefield Butcher, và không chắc mình có muốn cái tên ấy không.",
+      "effects": {
+       "STR": 1,
+       "fame": 10,
+       "health": -15,
+       "jobXp": 4,
+       "flags": [
+        "bbk_war_butcher"
+       ]
+      },
+      "moment": "Dẫn hàng Berserker phá đội hình Orc"
+     },
+     "fail": {
+      "text": "Bạn lao quá xa. Hàng Berserker bị cắt đứt, và bạn phải được kéo về trên cáng.",
+      "effects": {
+       "health": -30,
+       "fame": 4
+      }
+     }
+    },
+    {
+     "label": "Dẫn đầu, giữ lý trí để chỉ huy",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đánh như một ngọn giáo có mắt. Hàng Berserker xuyên qua đội hình Orc đúng chỗ yếu nhất. Ít người chết hơn mọi trận chiến trước.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "jobXp": 4,
+       "flags": [
+        "bbk_war_general"
+       ]
+      },
+      "moment": "Chỉ huy hàng Berserker mà không mất lý trí"
+     },
+     "fail": {
+      "text": "Giữ lý trí khiến bạn chậm hơn. Hàng Berserker vẫn thắng, nhưng nhiều người ngã xuống hơn.",
+      "effects": {
+       "joy": -10,
+       "fame": 5
+      }
+     }
+    },
+    {
+     "label": "Kêu gọi các bộ lạc cùng xông lên với Vela",
+     "require": {
+      "flags": [
+       "bbk_vela_saved"
+      ]
+     },
+     "text": "Vela, tập tễnh nhưng vẫn cầm giáo, đứng cạnh bạn ở hàng đầu. Hai Berserker cùng gầm lên, và cả đạo quân Beastman lao theo. Quân đoàn Orc rút khỏi Thảo Nguyên trước khi mặt trời lặn.",
+     "effects": {
+      "fame": 10,
+      "joy": 10,
+      "jobXp": 4,
+      "flags": [
+       "bbk_war_general"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bbk_c5_rage",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_berserker",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bbk_path_rage"
+    ],
+    "notFlags": [
+     "bbk_end"
+    ]
+   },
+   "text": "Hội Huyết Cuồng tôn bạn làm Blood General. Mặt nạ xương, trống trận và ba trăm Berserker đi theo tiếng gầm của bạn. Đêm nọ, bạn nhìn vào gương nước và thấy đôi mắt mình đỏ lựng, dù không có kẻ thù nào.",
+   "choices": [
+    {
+     "label": "Dẫn Hội Huyết Cuồng vào cuộc chiến cuối cùng",
+     "text": "Bạn dẫn ba trăm Berserker vào Vực Thẳm Phân Tầng, nơi kẻ thù không bao giờ hết. Không ai trở về để kể chuyện. Thảo Nguyên hát về họ như hát về một cơn bão đã qua.",
+     "effects": {
+      "fame": 15,
+      "lifeCost": 10,
+      "flags": [
+       "bbk_end",
+       "bbk_end_storm"
+      ]
+     },
+     "moment": "Dẫn Hội Huyết Cuồng vào Vực Thẳm"
+    },
+    {
+     "label": "Đập vỡ mặt nạ, giải tán Hội",
+     "require": {
+      "anyFlags": [
+       "bbk_rage_doubt",
+       "bbk_rage_just"
+      ]
+     },
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đập vỡ mặt nạ trước toàn Hội. Một nửa bỏ đi. Nửa còn lại ở lại, và bạn dạy họ đếm hơi thở. Hội Huyết Cuồng trở thành Hội Xích Huyết.",
+      "effects": {
+       "fame": 12,
+       "joy": 15,
+       "flags": [
+        "bbk_end",
+        "bbk_end_reformed"
+       ]
+      },
+      "moment": "Biến Hội Huyết Cuồng thành Hội Xích Huyết"
+     },
+     "fail": {
+      "text": "Hội không nghe. Họ chọn thủ lĩnh mới, và bạn bị đuổi khỏi trại.",
+      "effects": {
+       "joy": -5,
+       "fame": 5,
+       "flags": [
+        "bbk_end",
+        "bbk_end_cast_out"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Tự xích mình như Grask",
+     "text": "Bạn quấn vải quanh hai bàn tay, trao mặt nạ cho người khác, và sống những năm cuối bên lửa trại, dạy lũ trẻ đếm hơi thở.",
+     "effects": {
+      "joy": 12,
+      "flags": [
+       "bbk_end",
+       "bbk_end_chained"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bbk_c5_chain",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_berserker",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bbk_path_chain"
+    ],
+    "notFlags": [
+     "bbk_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Blood General, nhưng không ai thấy bạn mất lý trí trong ba mươi năm. Các bộ lạc gửi những đứa trẻ có cơn cuồng nộ đến lửa trại của bạn, như ngày xưa người ta gửi bạn đến Grask.",
+   "choices": [
+    {
+     "label": "Mở trường xích tâm cho mọi bộ lạc",
+     "text": "Mỗi mùa có hai mươi đứa trẻ, mỗi đứa một sợi xích sắt nhỏ. Lửa trại của bạn không bao giờ tắt. Khi bạn mất, có hai trăm Berserker từng ngồi bên lửa trại ấy đến đưa tiễn, và không ai trong số họ mất lý trí.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "bbk_end",
+       "bbk_end_school"
+      ]
+     },
+     "moment": "Mở trường dạy xích tâm cho trẻ Berserker"
+    },
+    {
+     "label": "Trao sợi xích cho học trò đầu tiên",
+     "require": {
+      "flags": [
+       "bbk_chain_student"
+      ]
+     },
+     "text": "Đứa trẻ tộc Mèo năm nào giờ đã là một chiến binh. Bạn quấn sợi xích của Grask quanh cổ tay nó. “Giờ ngươi dạy.” Nó gật đầu, và bạn thấy trong mắt nó ngọn lửa trại của chính mình.",
+     "effects": {
+      "joy": 18,
+      "fame": 8,
+      "flags": [
+       "bbk_end",
+       "bbk_end_heir"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bbk_c5_exile",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_berserker",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bbk_path_exile"
+    ],
+    "notFlags": [
+     "bbk_end"
+    ]
+   },
+   "text": "Sau ba mươi năm lưu đày, các trưởng lão Trại Huyết Môn gửi người đến tìm bạn. Câu chuyện về Berserker lưu vong đã chặn Ghoul, cày ruộng cho người mình giết, đã về đến trại. Họ muốn bạn trở về.",
+   "choices": [
+    {
+     "label": "Trở về",
+     "text": "Bạn bước qua cổng trại, nơi chiếc rìu của bạn vẫn còn cắm, gỉ sét. Bạn không rút nó lên. Bạn treo lên cạnh nó tấm áo lưu vong của mình, và ngồi xuống bên lửa trại như một người già bình thường.",
+     "effects": {
+      "joy": 18,
+      "fame": 10,
+      "flags": [
+       "bbk_end",
+       "bbk_end_homecoming"
+      ]
+     },
+     "moment": "Trở về Trại Huyết Môn sau ba mươi năm lưu đày"
+    },
+    {
+     "label": "Từ chối, tiếp tục đi",
+     "text": "Con đường đã thành nhà của bạn. Bạn đi tiếp, chặn Ghoul ở đầu những cây cầu khác, giúp những người khác. Người ta kể về một Berserker già không có rìu, xuất hiện khi cần và biến mất khi xong việc.",
+     "effects": {
+      "fame": 12,
+      "joy": 8,
+      "flags": [
+       "bbk_end",
+       "bbk_end_road"
+      ]
+     }
+    },
+    {
+     "label": "Trở về cùng đứa con trai của người đã chết",
+     "require": {
+      "flags": [
+       "bbk_exile_atoned"
+      ]
+     },
+     "text": "Cậu bé năm nào giờ đã là một chiến binh. Cậu đi bên bạn qua cổng trại, và nói trước các trưởng lão: “Người này đã cày ruộng cho mẹ tôi ba mùa. Tôi tha thứ.” Cả trại im lặng.",
+     "effects": {
+      "joy": 20,
+      "fame": 12,
+      "flags": [
+       "bbk_end",
+       "bbk_end_forgiven"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bbk_daily_bite",
+   "races": [
+    "beastman"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "bm_berserker",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Sáng nay bạn tỉnh dậy với vết răng của chính mình trên cánh tay. Bạn không nhớ đêm qua đã mơ thấy gì.",
+   "choices": [
+    {
+     "label": "Quấn vải lại và giấu đi",
+     "text": "Không ai thấy. Nhưng bạn bắt đầu hiểu vì sao Grask luôn quấn vải.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Kể với người ngồi cạnh lửa trại",
+     "text": "Người ấy kể lại rằng mình cũng từng như vậy. Hóa ra bạn không phải người duy nhất.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "bbk_daily_cat_roof",
+   "races": [
+    "beastman"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "bm_berserker",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Một con chim ưng ma thú cướp mất một con dê con từ chuồng của trại, đậu trên vách đá cao.",
+   "choices": [
+    {
+     "label": "Leo vách đá đuổi theo",
+     "require": {
+      "subtype": "cat"
+     },
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Móng vuốt tộc Mèo bám vào đá như bám vào gỗ. Bạn mang con dê con về trước khi con chim ưng kịp ăn. Lũ trẻ trong trại gọi bạn là “Mèo Vách Đá” suốt một mùa.",
+      "effects": {
+       "AGI": 1,
+       "fame": 2,
+       "joy": 6
+      }
+     },
+     "fail": {
+      "text": "Bạn trượt chân ở lưng chừng và tuột xuống trong tiếng cười của cả trại.",
+      "effects": {
+       "health": -8,
+       "joy": -2
+      }
+     }
+    },
+    {
+     "label": "Ném rìu",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Rìu cắm vào vách đá ngay cạnh chân con chim ưng. Nó hoảng hốt bay đi, thả con dê con xuống bụi cây.",
+      "effects": {
+       "STR": 1,
+       "joy": 4
+      }
+     },
+     "fail": {
+      "text": "Rìu bật vào đá rơi xuống vực. Bạn mất cả buổi chiều đi nhặt.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bbk_daily_war_berserk",
+   "races": [
+    "beastman"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "bm_berserker",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh với Ma Vương lan đến Thảo Nguyên. Các tướng lĩnh Human gửi người đến xin Berserker làm quân xung kích, trả bằng lương thực cho cả trại.",
+   "choices": [
+    {
+     "label": "Đi",
+     "text": "Bạn đánh ba trận dưới cờ của loài người. Họ gọi bạn là “quái vật” khi bạn lao lên, và gọi bạn là “anh hùng” khi bạn thắng. Bạn mang lương thực về trại, và không kể với ai về hai cái tên ấy.",
+     "effects": {
+      "STR": 1,
+      "health": -15,
+      "fame": 4,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Từ chối: Berserker không đánh vì lương thực",
+     "text": "Trại đói suốt mùa đông. Nhưng không Berserker nào của trại chết dưới cờ người khác.",
+     "effects": {
+      "joy": -4,
+      "wealth": -5
+     }
+    }
+   ]
+  },
+  {
+   "id": "bbk_daily_old_rage",
+   "races": [
+    "beastman"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "bm_berserker",
+    "free": true
+   },
+   "text": "Về già, cơn cuồng nộ đến thưa hơn, nhưng khi đến thì lâu hơn. Đêm qua, bạn ngồi bên lửa trại cả đêm, đếm hơi thở mà không đếm nổi quá năm.",
+   "choices": [
+    {
+     "label": "Nhờ một người trẻ đếm cùng",
+     "text": "Cậu ta đếm to, bạn đếm theo. Đến bảy, cơn điên lắng xuống. Bạn nhận ra mình đã trở thành Grask.",
+     "effects": {
+      "joy": 6,
+      "INT": 1
+     }
+    },
+    {
+     "label": "Tự xích mình vào cột lều",
+     "text": "Sợi xích lạnh và nặng. Bạn ngồi đó đến sáng, và sáng ra bạn cười với chính mình, vì đã không làm hại ai.",
+     "effects": {
+      "joy": 2,
+      "health": -4
+     }
+    }
+   ]
+  }
+ ]
+}

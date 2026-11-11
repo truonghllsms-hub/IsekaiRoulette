@@ -1,0 +1,1135 @@
+{
+ "_note": "Tuyến truyện Steppe Hunter (Beastman): 5 chương theo bậc, ba đạo ở Bậc 2 (bht_path_feast / bht_path_legend / bht_path_keeper), nhân vật xuyên suốt Yesha (tộc Cáo, một mắt) và Rourke (thủ lĩnh săn trộm).",
+ "origins": [],
+ "events": [
+  {
+   "id": "bht_c1_yesha",
+   "races": [
+    "beastman"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "bm_hunter",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "bht_met_yesha"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Yesha",
+     "race": "Beastman tộc Cáo",
+     "position": "Thợ săn già một mắt"
+    }
+   ],
+   "text": "Yesha là thợ săn già tộc Cáo, mất một mắt từ trước khi bạn ra đời. Bà không dùng cung; bà dùng một cây giáo ngắn và đôi tai. Ngày đầu tiên, bà bịt mắt bạn bằng một dải vải và bảo bạn chỉ ra con thỏ đang trốn trong bụi cỏ.",
+   "choices": [
+    {
+     "label": "Lắng nghe",
+     "check": {
+      "stat": "INT",
+      "target": 4
+     },
+     "success": {
+      "text": "Một tiếng sột soạt rất nhỏ, bên trái, cách hai mươi bước. Bạn chỉ tay. Yesha tháo vải bịt mắt cho bạn: con thỏ đang nhìn bạn từ đúng chỗ ấy. “Mắt nói dối,” bà nói. “Tai thì không.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "bht_met_yesha",
+        "bht_yesha_respect"
+       ]
+      },
+      "moment": "Tìm được con thỏ bằng tai dưới sự chỉ dạy của Yesha"
+     },
+     "fail": {
+      "text": "Bạn chỉ sai ba lần. Lần thứ tư, con thỏ nhảy ra từ ngay dưới chân bạn. Yesha cười khúc khích suốt đường về.",
+      "effects": {
+       "joy": -3,
+       "flags": [
+        "bht_met_yesha"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đánh hơi",
+     "text": "Mùi cỏ, mùi đất, và một mùi ấm, khô, có vị sợ hãi. Bạn chỉ đúng chỗ. Yesha nhướn con mắt còn lại: “Mũi tốt. Nhưng đừng quên con mồi cũng có mũi.”",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 1,
+      "flags": [
+       "bht_met_yesha"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bht_c1_first_trap",
+   "races": [
+    "beastman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "bm_hunter",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "bht_met_yesha"
+    ],
+    "notFlags": [
+     "bht_first_trap"
+    ]
+   },
+   "text": "Yesha giao cho bạn đặt bẫy đầu tiên. Đến sáng, bạn thấy trong bẫy không phải con thỏ mà là một con cáo con, chân kẹt trong thòng lọng, run rẩy.",
+   "choices": [
+    {
+     "label": "Thả nó ra",
+     "text": "Yesha nhìn con cáo con chạy đi, rồi nhìn bạn rất lâu. “Ta cũng từng thả một con. Nó lớn lên và ăn hết gà của cả trại.” Rồi bà cười: “Nhưng ta không hối hận.”",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1,
+      "flags": [
+       "bht_first_trap",
+       "bht_mercy"
+      ]
+     }
+    },
+    {
+     "label": "Mang về làm thịt",
+     "text": "Thịt cáo dai và khét. Yesha ăn hết phần của mình, không nói gì. Đêm đó, bà kể cho bạn nghe luật đầu tiên của thợ săn: không bẫy thứ mình không định ăn.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "bht_first_trap"
+      ]
+     }
+    },
+    {
+     "label": "Chữa chân cho nó rồi nuôi",
+     "require": {
+      "subtype": "fox"
+     },
+     "text": "Một Beastman tộc Cáo nuôi một con cáo thật. Cả trại cười bạn suốt một mùa. Con cáo theo bạn đi săn, và nó tìm ra hang thỏ giỏi hơn bất kỳ con chó nào.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 1,
+      "flags": [
+       "bht_first_trap",
+       "bht_fox_companion"
+      ]
+     },
+     "moment": "Nuôi con cáo bị kẹt bẫy làm bạn săn"
+    }
+   ]
+  },
+  {
+   "id": "bht_c2_first_great_hunt",
+   "races": [
+    "beastman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "bm_hunter",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "bht_first_hunt",
+     "bht_end"
+    ]
+   },
+   "text": "Mùa săn lớn đầu tiên của bạn: đàn bò rừng Thảo Nguyên đi qua thung lũng Gió Hú, và cả bộ lạc trông vào mùa săn này để sống qua mùa đông. Bạn được giao giữ cánh trái.",
+   "choices": [
+    {
+     "label": "Giữ đúng vị trí",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Đàn bò rẽ đúng hướng, chạy vào hẻm núi nơi các thợ săn chờ sẵn. Bộ lạc có đủ thịt cho mùa đông. Yesha gật đầu với bạn qua đống lửa.",
+      "effects": {
+       "AGI": 1,
+       "fame": 3,
+       "jobXp": 2,
+       "flags": [
+        "bht_first_hunt"
+       ]
+      },
+      "moment": "Giữ cánh trái trong cuộc săn bò rừng đầu tiên"
+     },
+     "fail": {
+      "text": "Một con bò đực lao về phía bạn. Bạn né được, nhưng đàn bò rẽ sai hướng và nửa đàn thoát.",
+      "effects": {
+       "health": -12,
+       "joy": -6,
+       "flags": [
+        "bht_first_hunt"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Rời vị trí để cứu một thợ săn bị ngã",
+     "text": "Bạn kéo được anh ta ra khỏi đường chạy của đàn bò. Cánh trái hở, và mùa săn chỉ được một nửa. Trưởng đoàn mắng bạn trước cả trại. Người được bạn cứu thì đêm ấy mang đến lều bạn miếng thịt ngon nhất.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 2,
+      "flags": [
+       "bht_first_hunt",
+       "bht_saved_hunter"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bht_c2_crossroads",
+   "races": [
+    "beastman"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "bm_hunter",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "bht_path_feast",
+     "bht_path_legend",
+     "bht_path_keeper",
+     "bht_end"
+    ]
+   },
+   "text": "Sau mùa săn, ba lối mở ra. Trưởng đoàn muốn bạn dẫn những cuộc săn lớn nuôi cả bộ lạc. Yesha kể cho bạn về Nai Sấm, con thú huyền thoại có gạc phóng sét mà bà đã đuổi theo suốt đời và mất một con mắt vì nó. Và những người chăn bò báo tin: bọn săn trộm Human đang giết bò rừng chỉ để lấy sừng, bỏ xác thối giữa đồng cỏ.",
+   "choices": [
+    {
+     "label": "Dẫn đoàn săn của bộ lạc: Đại Săn",
+     "text": "Bạn nhận cây giáo của trưởng đoàn. Từ nay, mỗi mùa đông của bộ lạc phụ thuộc vào những quyết định của bạn ngoài thảo nguyên.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2,
+      "flags": [
+       "bht_path_feast"
+      ]
+     },
+     "moment": "Nhận cây giáo dẫn đoàn săn của bộ lạc"
+    },
+    {
+     "label": "Đi tìm Nai Sấm: Săn Huyền Thoại",
+     "text": "Yesha trao cho bạn chiếc vòng gạc nai mà bà giữ từ năm mất mắt. “Nó còn sống. Ta biết.” Bạn đi về phía những cơn giông xa nhất.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 2,
+      "flags": [
+       "bht_path_legend"
+      ]
+     },
+     "moment": "Nhận vòng gạc của Yesha và đi tìm Nai Sấm"
+    },
+    {
+     "label": "Săn bọn săn trộm: Kẻ Giữ Đàn",
+     "text": "Bạn đi theo những xác bò rừng thối giữa đồng cỏ, và lần đầu tiên con mồi của bạn là những kẻ có cung.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "bht_path_keeper"
+      ]
+     },
+     "moment": "Bắt đầu săn bọn săn trộm trên Thảo Nguyên"
+    }
+   ]
+  },
+  {
+   "id": "bht_feast_famine",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_hunter",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bht_path_feast"
+    ],
+    "notFlags": [
+     "bht_end"
+    ]
+   },
+   "text": "Mùa đông năm nay đến sớm và đàn bò rừng không đi qua thung lũng. Bộ lạc còn đủ thịt cho một tháng. Phía nam, có một đàn hươu thuộc lãnh địa của bộ lạc tộc Gấu láng giềng.",
+   "choices": [
+    {
+     "label": "Săn trộm trên đất tộc Gấu",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn mang về đủ thịt cho cả mùa đông mà không ai phát hiện. Nhưng bạn biết, và mỗi lần gặp người tộc Gấu ở chợ phiên, bạn nhìn đi chỗ khác.",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 3,
+       "flags": [
+        "bht_feast_poached"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn bị phát hiện. Hai bộ lạc suýt đánh nhau, và cuối cùng bộ lạc bạn phải trả bằng một nửa số lông thú.",
+      "effects": {
+       "fame": -5,
+       "wealth": -10,
+       "flags": [
+        "bht_feast_poached"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đến xin bộ lạc tộc Gấu cho săn chung",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Tộc trưởng tộc Gấu đồng ý, với điều kiện chia đôi. Mùa đông ấy, hai bộ lạc ăn cùng một đàn hươu, và lần đầu tiên trong nhiều năm, họ đốt lửa trại chung.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "bht_feast_shared"
+       ]
+      },
+      "moment": "Săn chung với bộ lạc tộc Gấu trong mùa đói"
+     },
+     "fail": {
+      "text": "Tộc trưởng tộc Gấu từ chối. Bộ lạc bạn phải ăn cả ngựa già để sống qua mùa đông.",
+      "effects": {
+       "joy": -12
+      }
+     }
+    },
+    {
+     "label": "Dẫn đoàn săn đi xa về phía bắc",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Mười ngày trong bão tuyết. Bạn tìm thấy một đàn bò rừng lạc và mang về đủ thịt. Ba thợ săn bị tê cóng ngón chân.",
+      "effects": {
+       "STR": 1,
+       "fame": 5,
+       "health": -10,
+       "jobXp": 3,
+       "flags": [
+        "bht_feast_north"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bão quá lớn. Bạn phải quay về tay trắng, và mùa đông ấy bộ lạc mất hai cụ già.",
+      "effects": {
+       "health": -15,
+       "joy": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bht_feast_white_bison",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_hunter",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bht_path_feast"
+    ],
+    "notFlags": [
+     "bht_end"
+    ]
+   },
+   "text": "Giữa đàn bò rừng, có một con bò trắng toàn thân. Các shaman nói nó là sứ giả của Yggdrasil, và giết nó sẽ mang đến mười năm hạn hán. Nhưng thịt của nó đủ nuôi cả bộ lạc một tháng.",
+   "choices": [
+    {
+     "label": "Để nó đi",
+     "text": "Bạn ra hiệu cho cả đoàn hạ giáo. Con bò trắng đi qua giữa những thợ săn, chậm rãi, như biết mình được tha. Năm ấy mưa đến đúng mùa.",
+     "effects": {
+      "joy": 8,
+      "fame": 3,
+      "jobXp": 2,
+      "flags": [
+       "bht_spared_white"
+      ]
+     }
+    },
+    {
+     "label": "Săn nó",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bộ lạc ăn no một tháng. Năm sau, mưa không đến. Không ai nói ra, nhưng mọi người đều nhìn bạn.",
+      "effects": {
+       "wealth": 10,
+       "joy": -10,
+       "jobXp": 2,
+       "flags": [
+        "bht_killed_white"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Con bò trắng chạy thoát. Có lẽ đó là may mắn.",
+      "effects": {
+       "joy": -2
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bht_legend_storm",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_hunter",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bht_path_legend"
+    ],
+    "notFlags": [
+     "bht_end"
+    ]
+   },
+   "text": "Bạn đi theo những cơn giông suốt hai năm. Cuối cùng, trong một đêm sấm chớp trên đỉnh Vực Móng Vuốt, bạn thấy nó: Nai Sấm, cao gấp đôi ngựa, bộ gạc tóe sét như một cây cổ thụ đang cháy.",
+   "choices": [
+    {
+     "label": "Phóng giáo",
+     "check": {
+      "stat": "AGI",
+      "target": 9
+     },
+     "success": {
+      "text": "Mũi giáo sượt qua vai nó, để lại một vệt máu bạc. Nai Sấm quay lại nhìn bạn, và bạn thề rằng nó đã gật đầu, như một chiến binh công nhận một chiến binh. Rồi nó biến vào cơn giông.",
+      "effects": {
+       "AGI": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "bht_legend_wounded"
+       ]
+      },
+      "moment": "Phóng giáo trúng Nai Sấm trên đỉnh Vực Móng Vuốt"
+     },
+     "fail": {
+      "text": "Một tia sét đánh xuống cách bạn ba bước. Khi bạn tỉnh lại, một bên mắt bạn chỉ còn thấy ánh sáng mờ. Giờ bạn đã hiểu Yesha.",
+      "effects": {
+       "health": -25,
+       "jobXp": 2,
+       "flags": [
+        "bht_legend_eye"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Chỉ nhìn nó",
+     "text": "Bạn hạ giáo xuống. Nai Sấm đứng trên đỉnh vách đá cả một khắc, sét nhảy múa giữa gạc nó. Rồi nó đi. Bạn ngồi đó đến sáng, và không chắc mình đã thua hay đã thắng.",
+     "effects": {
+      "joy": 10,
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "bht_legend_seen"
+      ]
+     },
+     "moment": "Ngắm Nai Sấm mà không phóng giáo"
+    }
+   ]
+  },
+  {
+   "id": "bht_legend_hunters",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_hunter",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bht_path_legend"
+    ],
+    "notFlags": [
+     "bht_end"
+    ]
+   },
+   "text": "Tin đồn về Nai Sấm đã lan đến Sanctus. Một đoàn quý tộc Human treo thưởng một trăm Huyết Kim cho bộ gạc của nó, và họ thuê bạn làm người dẫn đường.",
+   "choices": [
+    {
+     "label": "Nhận lời, dẫn họ đi lạc",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Ba tháng, bạn dẫn họ đi vòng quanh Thảo Nguyên. Họ về Sanctus với vài bộ gạc hươu thường và một câu chuyện phóng đại. Bạn giữ tiền dẫn đường.",
+      "effects": {
+       "INT": 1,
+       "wealth": 15,
+       "jobXp": 3,
+       "flags": [
+        "bht_legend_protected"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Một quý tộc nghi ngờ và thuê người dẫn khác. Bạn phải theo sau họ để phá bẫy của họ suốt một mùa.",
+      "effects": {
+       "health": -10,
+       "joy": -6,
+       "flags": [
+        "bht_legend_protected"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Nhận lời, dẫn họ đến tận nơi",
+     "text": "Họ giăng lưới sắt quanh đỉnh núi. Nai Sấm thoát được, nhưng mất một nhánh gạc. Bạn nhận một phần mười tiền thưởng, và từ đó cơn giông không bao giờ đến gần lều bạn nữa.",
+     "effects": {
+      "wealth": 30,
+      "wealthKind": "windfall",
+      "joy": -15,
+      "jobXp": 2,
+      "flags": [
+       "bht_legend_betrayed"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bht_keeper_rourke",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_hunter",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bht_path_keeper"
+    ],
+    "notFlags": [
+     "bht_end"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Rourke",
+     "race": "Human",
+     "position": "Thủ lĩnh săn trộm trên Thảo Nguyên"
+    }
+   ],
+   "text": "Thủ lĩnh bọn săn trộm là một gã Human tên Rourke, có một vết sẹo ở cổ do móng vuốt Beastman. Hắn để lại một lời nhắn trên xác một con bò rừng: “Đuổi theo ta thì đuổi cho xong.”",
+   "choices": [
+    {
+     "label": "Đặt bẫy cho hắn",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn dùng chính một xác bò làm mồi. Rourke sa vào bẫy thòng lọng, treo ngược trên cây. Hắn cười: “Cuối cùng cũng có kẻ đáng gặp.”",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "bht_rourke_caught"
+       ]
+      },
+      "moment": "Bẫy được Rourke, thủ lĩnh săn trộm"
+     },
+     "fail": {
+      "text": "Rourke đã đoán được bẫy. Bạn bị chính bẫy của mình treo ngược, và hắn để bạn ở đó suốt một đêm trước khi cắt dây.",
+      "effects": {
+       "health": -10,
+       "joy": -8,
+       "flags": [
+        "bht_rourke_rival"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đối mặt trực diện",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Hai người đánh nhau giữa đồng cỏ suốt một buổi chiều. Rourke ngã xuống, giáo của bạn kề cổ. Hắn nói: “Giết ta đi, sẽ có kẻ khác thay. Hoặc nghe ta kể vì sao ta săn.”",
+      "effects": {
+       "STR": 1,
+       "fame": 4,
+       "jobXp": 3,
+       "flags": [
+        "bht_rourke_beaten"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Rourke nhanh hơn bạn tưởng. Hắn để lại cho bạn một vết sẹo trên mặt, giống vết sẹo trên cổ hắn.",
+      "effects": {
+       "health": -20,
+       "flags": [
+        "bht_rourke_rival"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bht_keeper_why",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_hunter",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bht_path_keeper"
+    ],
+    "notFlags": [
+     "bht_end"
+    ]
+   },
+   "text": "Rourke kể: làng của hắn ở biên giới bị một toán Beastman đốt khi hắn mười tuổi. Từ đó hắn săn mọi thứ sống trên Thảo Nguyên, như một cách trả thù.",
+   "choices": [
+    {
+     "label": "Thả hắn, kể cho hắn nghe phía bên kia của câu chuyện",
+     "require": {
+      "anyFlags": [
+       "bht_rourke_caught",
+       "bht_rourke_beaten"
+      ]
+     },
+     "text": "Bạn kể về những ngôi làng Beastman bị lính Human đốt, về những đứa trẻ như bạn mất cha mẹ vì thợ săn. Rourke nghe đến sáng. Hắn rời Thảo Nguyên, và bọn săn trộm tan rã sau khi mất thủ lĩnh.",
+     "effects": {
+      "joy": 10,
+      "fame": 5,
+      "jobXp": 3,
+      "flags": [
+       "bht_rourke_redeemed"
+      ]
+     },
+     "moment": "Đổi một đêm kể chuyện lấy sự ra đi của Rourke"
+    },
+    {
+     "label": "Giao hắn cho Hội đồng Tộc trưởng",
+     "text": "Hội đồng xử hắn theo luật Thảo Nguyên: lưu đày khỏi mọi đồng cỏ. Rourke đi về phía Sanctus, ngoảnh lại một lần, không nói gì.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2,
+      "flags": [
+       "bht_rourke_exiled"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bht_c4_yesha",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_hunter",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "bht_met_yesha"
+    ],
+    "notFlags": [
+     "bht_yesha_gone",
+     "bht_end"
+    ]
+   },
+   "text": "Yesha đã già đến mức không còn ra khỏi lều. Bà gọi bạn đến, đưa cho bạn cây giáo ngắn của mình, và xin bạn đưa bà ra đồng cỏ lần cuối để nghe gió.",
+   "choices": [
+    {
+     "label": "Cõng bà ra đồng cỏ",
+     "text": "Bạn đặt bà ngồi giữa đồng cỏ cao ngang ngực. Bà nhắm con mắt còn lại, nghiêng tai, và kể cho bạn nghe mọi con thú đang di chuyển trong vòng một dặm. Bà mất ở đó, lúc hoàng hôn, vẫn đang nghe.",
+     "effects": {
+      "joy": -2,
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "bht_yesha_gone"
+      ]
+     },
+     "moment": "Đưa Yesha ra đồng cỏ nghe gió lần cuối"
+    },
+    {
+     "label": "Kể cho bà nghe về Nai Sấm",
+     "require": {
+      "anyFlags": [
+       "bht_legend_wounded",
+       "bht_legend_seen",
+       "bht_legend_protected"
+      ]
+     },
+     "text": "Bạn kể mọi điều, từng tia sét trên gạc nó. Yesha cười, nước mắt chảy ra từ con mắt còn lại. “Ta biết nó còn sống.” Bà mất đêm ấy, và đêm ấy có giông.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "bht_yesha_gone",
+       "bht_yesha_peace"
+      ]
+     },
+     "moment": "Kể cho Yesha nghe về Nai Sấm trước khi bà mất"
+    }
+   ]
+  },
+  {
+   "id": "bht_c4_beast_war",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_hunter",
+    "free": true,
+    "jobRank": 3,
+    "notFlags": [
+     "bht_end"
+    ]
+   },
+   "text": "Một con Behemoth Đất thức dậy dưới Thảo Nguyên, và đàn bò rừng đang chạy loạn về phía Trại Huyết Môn. Nếu không đổi hướng được chúng, cả trại sẽ bị giẫm nát.",
+   "choices": [
+    {
+     "label": "Dùng lửa đổi hướng đàn bò",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đốt một dải cỏ dài theo hình vòng cung. Đàn bò rẽ hướng, chạy qua cách trại ba trăm bước. Cả trại đứng trên tường gỗ nhìn chúng đi qua, im lặng như đang cầu nguyện.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "jobXp": 4,
+       "flags": [
+        "bht_saved_camp"
+       ]
+      },
+      "moment": "Đổi hướng đàn bò rừng chạy loạn cứu Trại Huyết Môn"
+     },
+     "fail": {
+      "text": "Gió đổi chiều. Lửa lan về phía trại. Bạn cứu được trại khỏi đàn bò, nhưng mất một nửa đồng cỏ mùa đông.",
+      "effects": {
+       "health": -10,
+       "fame": 4,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Chạy đầu đàn, dẫn chúng đi",
+     "check": {
+      "stat": "AGI",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn chạy trước đàn bò, kêu, vẫy, rẽ. Chúng theo bạn như theo con đầu đàn. Bạn dẫn chúng qua hẻm núi, xa khỏi trại, rồi lăn vào một khe đá khi chúng tràn qua.",
+      "effects": {
+       "AGI": 1,
+       "fame": 10,
+       "jobXp": 4,
+       "flags": [
+        "bht_saved_camp"
+       ]
+      },
+      "moment": "Chạy trước đàn bò rừng dẫn chúng xa khỏi trại"
+     },
+     "fail": {
+      "text": "Bạn ngã. Phải nhờ người kéo ra từ giữa đàn bò.",
+      "effects": {
+       "health": -35,
+       "fame": 4
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bht_c5_feast",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_hunter",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bht_path_feast"
+    ],
+    "notFlags": [
+     "bht_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là King of the Hunt. Không mùa đông nào trong ba mươi năm bộ lạc phải ăn ngựa già. Các bộ lạc khác gửi thợ săn đến học bạn.",
+   "choices": [
+    {
+     "label": "Viết luật săn chung cho mọi bộ lạc",
+     "require": {
+      "anyFlags": [
+       "bht_feast_shared",
+       "bht_spared_white"
+      ]
+     },
+     "text": "Luật chỉ có năm điều, khắc trên một tảng đá ở giữa Thảo Nguyên: không săn con mẹ, không săn con bò trắng, chia đất săn theo mùa, săn chung khi đói, và thả con mồi bị thương nặng không ai ăn kịp. Các bộ lạc giữ nó lâu hơn mọi hiệp ước.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "bht_end",
+       "bht_end_hunt_law"
+      ]
+     },
+     "moment": "Khắc luật săn chung cho mọi bộ lạc"
+    },
+    {
+     "label": "Trao cây giáo, về ngồi bên lửa trại",
+     "text": "Bạn trao giáo cho thợ săn trẻ giỏi nhất, và về ngồi bên lửa trại kể chuyện. Mỗi mùa săn, người ta vẫn hỏi ý bạn trước khi lên đường.",
+     "effects": {
+      "joy": 12,
+      "fame": 10,
+      "flags": [
+       "bht_end",
+       "bht_end_fireside"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bht_c5_legend",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_hunter",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bht_path_legend"
+    ],
+    "notFlags": [
+     "bht_end"
+    ]
+   },
+   "text": "Bạn đã già, và Nai Sấm cũng già. Một đêm giông, nó tự tìm đến lều bạn, đứng ở cửa, bộ gạc chỉ còn tóe vài tia sét yếu ớt.",
+   "choices": [
+    {
+     "label": "Đi theo nó",
+     "text": "Bạn đi theo nó suốt đêm, lên đến đỉnh Vực Móng Vuốt. Nó nằm xuống ở đó, và bạn nằm cạnh nó. Sáng ra, người ta tìm thấy bạn bên một bộ gạc đã hóa đá, mỉm cười như Yesha.",
+     "effects": {
+      "joy": 20,
+      "fame": 12,
+      "flags": [
+       "bht_end",
+       "bht_end_thunder_elk"
+      ]
+     },
+     "moment": "Theo Nai Sấm lên đỉnh Vực Móng Vuốt lần cuối"
+    },
+    {
+     "label": "Bảo vệ con của nó",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn tìm thấy một con nai non có gạc tóe sét trong hẻm núi. Bạn dành những năm cuối canh giữ nó, đến khi nó đủ lớn để tự gọi giông.",
+      "effects": {
+       "fame": 12,
+       "joy": 15,
+       "flags": [
+        "bht_end",
+        "bht_end_new_elk"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn không tìm thấy con non nào. Có lẽ đây là con cuối cùng. Bạn ghi lại mọi điều về nó, để nó sống trong chuyện kể.",
+      "effects": {
+       "fame": 8,
+       "joy": -4,
+       "flags": [
+        "bht_end",
+        "bht_end_last_elk"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bht_c5_keeper",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_hunter",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bht_path_keeper"
+    ],
+    "notFlags": [
+     "bht_end"
+    ]
+   },
+   "text": "Thảo Nguyên không còn săn trộm trong mười năm. Đàn bò rừng đã đông trở lại. Người ta gọi bạn là King of the Hunt, dù con mồi của bạn ba mươi năm qua chỉ là người.",
+   "choices": [
+    {
+     "label": "Lập đội Giữ Đàn từ những thợ săn trẻ",
+     "text": "Mỗi bộ lạc gửi đến hai thợ săn trẻ. Bạn dạy họ đọc dấu chân người như đọc dấu chân thú. Đội Giữ Đàn tiếp tục tuần tra Thảo Nguyên rất lâu sau khi bạn không còn đi được.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "bht_end",
+       "bht_end_keepers"
+      ]
+     },
+     "moment": "Lập đội Giữ Đàn trên Thảo Nguyên"
+    },
+    {
+     "label": "Đi gặp Rourke lần cuối",
+     "require": {
+      "flags": [
+       "bht_rourke_redeemed"
+      ]
+     },
+     "text": "Rourke giờ là người chăn cừu ở một ngôi làng biên giới. Hai người già ngồi trên hàng rào, nhìn đàn cừu, và không ai nhắc đến những năm tháng săn đuổi nhau.",
+     "effects": {
+      "joy": 20,
+      "fame": 8,
+      "flags": [
+       "bht_end",
+       "bht_end_rourke"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bht_daily_bad_wind",
+   "races": [
+    "beastman"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "bm_hunter",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Gió đổi chiều đúng lúc bạn đã bò đến cách con hươu mười bước. Nó ngẩng đầu lên.",
+   "choices": [
+    {
+     "label": "Đứng im như đá",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Con hươu nhìn quanh, không thấy gì, lại cúi xuống ăn cỏ. Bạn lấy lại hơi thở.",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 1
+      }
+     },
+     "fail": {
+      "text": "Nó chạy mất. Bạn nằm trên cỏ cười với chính mình.",
+      "effects": {
+       "joy": 2
+      }
+     }
+    },
+    {
+     "label": "Bỏ cuộc, nằm nhìn mây",
+     "text": "Có những ngày thợ săn thua con mồi. Bạn nằm nhìn mây đến trưa, và đó là một buổi sáng đẹp.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "bht_daily_dog_scent",
+   "races": [
+    "beastman"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "bm_hunter",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Một đứa trẻ trong trại đi lạc từ chiều qua. Trời sắp tối.",
+   "choices": [
+    {
+     "label": "Đánh hơi theo dấu nó",
+     "require": {
+      "subtype": "dog"
+     },
+     "text": "Mũi tộc Chó không bao giờ nhầm. Bạn tìm thấy đứa trẻ trong một hốc đá, đang ôm một con thỏ con. Cả trại gọi bạn là “Mũi Vàng” từ hôm ấy.",
+     "effects": {
+      "fame": 3,
+      "joy": 10,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Đọc dấu chân",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Một vết giày nhỏ, một cành gãy, một sợi len đỏ. Bạn tìm thấy nó trước khi trời tối hẳn.",
+      "effects": {
+       "fame": 2,
+       "joy": 8,
+       "jobXp": 1
+      }
+     },
+     "fail": {
+      "text": "Bạn tìm thấy nó lúc gần sáng, lạnh cóng nhưng còn sống.",
+      "effects": {
+       "joy": 3
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bht_daily_war_hunt",
+   "races": [
+    "beastman"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "bm_hunter",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Quân đội Human hành quân qua Thảo Nguyên và đặt mua thịt khô với giá gấp ba. Nhưng muốn đủ thịt, bạn phải săn quá mức mà đàn bò rừng chịu được.",
+   "choices": [
+    {
+     "label": "Săn đủ cho quân đội",
+     "text": "Bộ lạc giàu lên một mùa. Mùa sau, đàn bò rừng thưa thớt hẳn.",
+     "effects": {
+      "wealth": 20,
+      "joy": -6,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Chỉ săn phần dư",
+     "text": "Quân đội trả ít hơn, càu nhàu. Đàn bò rừng vẫn còn cho mùa sau.",
+     "effects": {
+      "wealth": 6,
+      "joy": 4,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "bht_daily_old_eye",
+   "races": [
+    "beastman"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "bm_hunter",
+    "free": true
+   },
+   "text": "Mắt bạn đã kém như mắt Yesha. Sáng nay bạn phóng giáo trượt một con thỏ chỉ cách mười bước.",
+   "choices": [
+    {
+     "label": "Học nghe như Yesha",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn bịt mắt mình bằng dải vải năm xưa, và lắng nghe. Lần phóng sau trúng.",
+      "effects": {
+       "INT": 1,
+       "joy": 8,
+       "jobXp": 1
+      }
+     },
+     "fail": {
+      "text": "Tai cũng không còn tinh như xưa. Bạn treo giáo lên vách.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    },
+    {
+     "label": "Dạy lũ trẻ bịt mắt nghe thỏ",
+     "text": "Lũ trẻ chơi trò ấy cả buổi chiều. Có một đứa chỉ đúng chỗ con thỏ ngay lần đầu. Bạn thấy Yesha trong ánh mắt nó.",
+     "effects": {
+      "joy": 10
+     }
+    }
+   ]
+  }
+ ]
+}

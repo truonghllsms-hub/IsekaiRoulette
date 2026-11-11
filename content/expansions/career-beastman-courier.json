@@ -1,0 +1,887 @@
+{
+ "_note": "Tuyến truyện Courier (Beastman): 5 chương theo bậc, ba đạo ở Bậc 2 (bcr_path_line / bcr_path_people / bcr_path_storm), nhân vật xuyên suốt bà Orla (tộc Chó, trưởng trạm thư) và Tavi (tộc Mèo).",
+ "origins": [],
+ "events": [
+  {
+   "id": "bcr_c1_orla",
+   "races": [
+    "beastman"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "bm_courier",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "bcr_met_orla"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Orla",
+     "race": "Beastman tộc Chó",
+     "position": "Trưởng trạm thư Trại Huyết Môn"
+    }
+   ],
+   "text": "Trạm thư ở Trại Huyết Môn là một căn lều với một trăm cái túi da treo trên vách, mỗi túi một tên bộ lạc. Bà Orla, trưởng trạm, một Beastman tộc Chó già, đưa bạn một lá thư và chỉ về phía đông: “Trước khi mặt trời lặn. Đừng đọc. Đừng làm mất. Đừng chết.”",
+   "choices": [
+    {
+     "label": "Chạy hết sức",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn đến nơi khi mặt trời còn một ngón tay trên đường chân trời. Người nhận đọc thư, bật khóc: con trai bà đã được thả khỏi ngục. Bạn chạy về trạm với một cảm giác lạ trong ngực. Bà Orla gật đầu: “Giờ ngươi biết vì sao chúng ta chạy.”",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 1,
+       "flags": [
+        "bcr_met_orla",
+        "bcr_orla_respect"
+       ]
+      },
+      "moment": "Đưa lá thư đầu tiên trước khi mặt trời lặn"
+     },
+     "fail": {
+      "text": "Bạn đến nơi khi trời đã tối. Người nhận vẫn cảm ơn, nhưng bà Orla trừ nửa ngày công của bạn.",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "bcr_met_orla"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi bà điều luật thứ tư",
+     "text": "Bà Orla cười. “Điều thứ tư: nhớ mặt người nhận. Có những người chỉ còn ngươi là người mang tin vui cho họ.” Bạn chạy, và bạn nhớ mặt người nhận đến cuối đời.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "bcr_met_orla"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bcr_c1_tavi",
+   "races": [
+    "beastman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "bm_courier",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "bcr_met_orla"
+    ],
+    "notFlags": [
+     "bcr_met_tavi"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Tavi",
+     "race": "Beastman tộc Mèo",
+     "position": "Người đưa thư nhanh nhất trạm"
+    }
+   ],
+   "text": "Tavi là người đưa thư nhanh nhất trạm, một Beastman tộc Mèo chạy trên đá như chạy trên cỏ. Cô ta chạy ngang qua bạn trên đường về, quay đầu lại cười: “Chậm thế thì thư nguội mất.”",
+   "choices": [
+    {
+     "label": "Đuổi theo cô ta",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đuổi kịp cô ta ở chân đồi. Hai người cùng chạm cửa trạm một lúc. Tavi thở hổn hển, nhìn bạn, rồi cười to. Từ đó, mỗi sáng hai người chạy thi trước khi nhận thư.",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 1,
+       "flags": [
+        "bcr_met_tavi",
+        "bcr_tavi_rival"
+       ]
+      },
+      "moment": "Chạy kịp Tavi về đến trạm thư"
+     },
+     "fail": {
+      "text": "Cô ta về trước bạn cả một khắc, và đã ngồi uống nước khi bạn đến.",
+      "effects": {
+       "joy": -3,
+       "flags": [
+        "bcr_met_tavi",
+        "bcr_tavi_rival"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi cô ta cách chạy trên đá",
+     "text": "Tavi ngạc nhiên vì bạn không giận. Cô ta dạy bạn đặt chân lên mép đá thay vì mặt đá. Bạn chạy nhanh hơn, và Tavi có thêm một người bạn.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 1,
+      "flags": [
+       "bcr_met_tavi",
+       "bcr_tavi_friend"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bcr_c2_crossroads",
+   "races": [
+    "beastman"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "bm_courier",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "bcr_path_line",
+     "bcr_path_people",
+     "bcr_path_storm",
+     "bcr_end"
+    ]
+   },
+   "text": "Bà Orla treo ba chiếc túi lên vách. Túi đỏ: thư quân sự, qua chiến tuyến, trả gấp năm. Túi nâu: thư của dân thường, của người tị nạn, không ai trả gì ngoài lời cảm ơn. Túi trắng: cuộc đua đưa thư từ Thảo Nguyên đến Sanctus, kẻ thắng được gọi là Cánh Bão.",
+   "choices": [
+    {
+     "label": "Túi đỏ: Xuyên Chiến Tuyến",
+     "text": "Lá thư đầu tiên trong túi đỏ có dấu máu ở góc. Bạn hiểu: những lá thư này đổi được cả trận đánh.",
+     "effects": {
+      "wealth": 8,
+      "jobXp": 2,
+      "flags": [
+       "bcr_path_line"
+      ]
+     },
+     "moment": "Nhận túi thư đỏ của chiến tuyến"
+    },
+    {
+     "label": "Túi nâu: Bưu Trạm Của Dân",
+     "text": "Túi nâu nặng hơn túi đỏ: thư của những người mẹ, những người con, những người mất nhà. Không ai trả tiền. Nhưng mỗi người nhận đều nhớ mặt bạn.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 2,
+      "flags": [
+       "bcr_path_people"
+      ]
+     },
+     "moment": "Nhận túi thư nâu của dân thường"
+    },
+    {
+     "label": "Túi trắng: Cánh Bão",
+     "text": "Bạn buộc chặt dây giày, nhìn về phía Sanctus. Tavi đứng cạnh bạn ở vạch xuất phát, cười.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 2,
+      "flags": [
+       "bcr_path_storm"
+      ]
+     },
+     "moment": "Đăng ký cuộc đua Cánh Bão"
+    }
+   ]
+  },
+  {
+   "id": "bcr_line_two_letters",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_courier",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bcr_path_line"
+    ],
+    "notFlags": [
+     "bcr_end"
+    ]
+   },
+   "text": "Bạn mang hai lá thư qua chiến tuyến: một lệnh tấn công của tướng Human, và một lá thư cầu hòa của một tướng Ma tộc mà bạn tình cờ được trao giữa đường. Chỉ đủ thời gian đưa một lá đến đúng lúc.",
+   "choices": [
+    {
+     "label": "Đưa lệnh tấn công",
+     "text": "Trận đánh diễn ra đúng kế hoạch. Phe Human thắng. Lá thư cầu hòa đến muộn một ngày, và không còn ai để nhận nó.",
+     "effects": {
+      "fame": 4,
+      "joy": -8,
+      "jobXp": 3,
+      "flags": [
+       "bcr_line_attack"
+      ]
+     }
+    },
+    {
+     "label": "Đưa thư cầu hòa trước",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn chạy suốt đêm, đưa lá thư cầu hòa đến lều tướng Human trước bình minh. Ông ta đọc, im lặng rất lâu, rồi hủy lệnh tấn công. Hai bên ngồi xuống đàm phán.",
+      "effects": {
+       "AGI": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "bcr_line_peace"
+       ]
+      },
+      "moment": "Đưa thư cầu hòa đến trước lệnh tấn công"
+     },
+     "fail": {
+      "text": "Bạn đến muộn. Trận đánh đã bắt đầu. Bạn đứng ở rìa chiến trường, lá thư trong tay.",
+      "effects": {
+       "joy": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bcr_line_captured",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_courier",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bcr_path_line"
+    ],
+    "notFlags": [
+     "bcr_end"
+    ]
+   },
+   "text": "Bạn bị lính Ma tộc bắt ở chiến tuyến. Họ muốn biết nội dung lá thư bạn đang mang. Bạn chưa bao giờ đọc nó.",
+   "choices": [
+    {
+     "label": "Nuốt lá thư",
+     "text": "Lính Ma tộc giữ bạn mười ngày, rồi thả ra, vì không moi được gì. Bạn về trạm, gầy rộc. Bà Orla nghe chuyện, cười: “Điều luật thứ hai. Ngươi giữ đúng.”",
+     "effects": {
+      "health": -15,
+      "fame": 5,
+      "jobXp": 3,
+      "flags": [
+       "bcr_line_loyal"
+      ]
+     },
+     "moment": "Nuốt lá thư để giữ bí mật khi bị bắt"
+    },
+    {
+     "label": "Trốn thoát",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn tuột khỏi dây trói trong đêm, chạy về phía chiến tuyến, lá thư vẫn trong ngực áo. Đến nơi đúng hẹn.",
+      "effects": {
+       "AGI": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "bcr_line_loyal"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn bị bắt lại, và lần này bị giam một tháng.",
+      "effects": {
+       "health": -20
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bcr_people_refugee",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_courier",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bcr_path_people"
+    ],
+    "notFlags": [
+     "bcr_end"
+    ]
+   },
+   "text": "Một bà mẹ Human tị nạn đưa bạn lá thư cho con trai bà, lạc nhau trong chiến tranh. Trên phong bì chỉ có một cái tên và một chữ: “Đâu đó.”",
+   "choices": [
+    {
+     "label": "Tìm cậu ta",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn hỏi ở mọi trạm thư, mọi trại tị nạn, mọi quán trọ suốt nửa năm. Bạn tìm thấy cậu ta ở một làng chài phía nam. Cậu ta khóc khi đọc thư. Bạn chạy ngược về, mang theo thư trả lời.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "joy": 12,
+       "jobXp": 3,
+       "flags": [
+        "bcr_people_found"
+       ]
+      },
+      "moment": "Tìm được người nhận của lá thư gửi “Đâu đó”"
+     },
+     "fail": {
+      "text": "Nửa năm, không tìm được. Bạn giữ lá thư trong túi, chờ.",
+      "effects": {
+       "joy": -6,
+       "flags": [
+        "bcr_people_kept"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Lập một bảng tên ở mọi trạm thư",
+     "text": "Bạn dán tên cậu ta lên vách mọi trạm thư bạn đi qua, kèm tên bà mẹ. Một năm sau, có người đọc được, và hai mẹ con gặp lại nhau ở chợ phiên.",
+     "effects": {
+      "fame": 4,
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "bcr_people_board"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bcr_people_bad_news",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_courier",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bcr_path_people"
+    ],
+    "notFlags": [
+     "bcr_end"
+    ]
+   },
+   "text": "Lá thư bạn đang mang báo tin chồng của một người phụ nữ đã chết ở Tuyến Đầu. Cô ta đang đứng ở cửa, bụng mang thai, vẫy tay chào bạn từ xa.",
+   "choices": [
+    {
+     "label": "Đưa thư và ở lại",
+     "text": "Bạn đưa thư, và ngồi xuống bậc cửa cùng cô ta khi cô ta đọc. Bạn không nói gì. Bạn chỉ ở lại đến khi hàng xóm đến.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 2,
+      "flags": [
+       "bcr_people_stayed"
+      ]
+     },
+     "moment": "Ở lại bên người nhận tin dữ"
+    },
+    {
+     "label": "Đưa thư rồi đi ngay",
+     "text": "Bạn đưa thư, và chạy đi trước khi cô ta mở. Bạn nghe tiếng khóc sau lưng suốt quãng đường xuống đồi.",
+     "effects": {
+      "joy": -10,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "bcr_storm_race",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_courier",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bcr_path_storm"
+    ],
+    "notFlags": [
+     "bcr_end"
+    ]
+   },
+   "text": "Cuộc đua Cánh Bão: từ Trại Huyết Môn đến cổng thành Sanctus, ba ngày đường. Năm mươi người đưa thư nhanh nhất lục địa. Tavi chạy ngay sau bạn.",
+   "choices": [
+    {
+     "label": "Chạy đường thẳng qua đầm lầy",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Đầm lầy nguy hiểm, nhưng ngắn hơn nửa ngày. Bạn đến cổng thành trước tất cả, bùn đến tận cổ. Người ta gọi bạn là Cánh Bão.",
+      "effects": {
+       "AGI": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "bcr_storm_won"
+       ]
+      },
+      "moment": "Thắng cuộc đua Cánh Bão"
+     },
+     "fail": {
+      "text": "Bạn sa lầy. Tavi kéo bạn lên, rồi hai người cùng về đích cuối cùng.",
+      "effects": {
+       "health": -10,
+       "flags": [
+        "bcr_storm_lost",
+        "bcr_tavi_friend"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Chạy cùng Tavi, thay nhau dẫn đầu",
+     "require": {
+      "flags": [
+       "bcr_met_tavi"
+      ]
+     },
+     "text": "Hai người thay nhau cắt gió cho nhau suốt ba ngày. Ở trăm bước cuối, Tavi bứt lên. Cô ta thắng, bạn về nhì. Cô ta nắm tay bạn giơ lên trước đám đông: “Không có kẻ này, ta không thắng được.”",
+     "effects": {
+      "fame": 8,
+      "joy": 10,
+      "jobXp": 3,
+      "flags": [
+       "bcr_storm_second",
+       "bcr_tavi_friend"
+      ]
+     },
+     "moment": "Cùng Tavi thay nhau dẫn đầu cuộc đua Cánh Bão"
+    }
+   ]
+  },
+  {
+   "id": "bcr_storm_wager",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_courier",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bcr_path_storm"
+    ],
+    "notFlags": [
+     "bcr_end"
+    ]
+   },
+   "text": "Một quý tộc cá cược rằng không ai chạy được từ Sanctus đến Tháp Ngà và về trong một ngày. Phần thưởng cho người làm được đủ để nuôi cả trạm thư trong một năm.",
+   "choices": [
+    {
+     "label": "Nhận thách thức",
+     "check": {
+      "stat": "AGI",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn chạy từ lúc trời chưa sáng. Về đến Sanctus khi chuông nửa đêm chưa điểm xong. Quý tộc trả tiền, mặt tái mét. Trạm thư có mái mới.",
+      "effects": {
+       "AGI": 1,
+       "fame": 8,
+       "wealth": 20,
+       "jobXp": 3,
+       "flags": [
+        "bcr_storm_wager"
+       ]
+      },
+      "moment": "Chạy từ Sanctus đến Tháp Ngà và về trong một ngày"
+     },
+     "fail": {
+      "text": "Bạn về muộn một giờ, và nằm liệt ba ngày.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Từ chối: chân của người đưa thư không phải để cá cược",
+     "text": "Quý tộc cười nhạo. Bà Orla nghe chuyện, gật đầu.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "bcr_c4_orla",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_courier",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "bcr_met_orla"
+    ],
+    "notFlags": [
+     "bcr_orla_gone",
+     "bcr_end"
+    ]
+   },
+   "text": "Bà Orla đã quá già để phân thư. Bà ngồi trong lều, mắt mờ, sờ vào những chiếc túi da trên vách, đọc tên các bộ lạc bằng ngón tay.",
+   "choices": [
+    {
+     "label": "Nhận trạm thư từ tay bà",
+     "text": "Bà Orla trao cho bạn chiếc chìa khóa tủ thư, và đọc cho bạn nghe bốn điều luật một lần cuối. Bà mất vào một sáng mùa xuân, khi những người đưa thư đang chạy đi khắp Thảo Nguyên.",
+     "effects": {
+      "joy": -2,
+      "fame": 5,
+      "jobXp": 3,
+      "flags": [
+       "bcr_orla_gone",
+       "bcr_station_heir"
+      ]
+     },
+     "moment": "Nhận trạm thư Trại Huyết Môn từ bà Orla"
+    },
+    {
+     "label": "Mang cho bà lá thư cuối cùng",
+     "text": "Bạn viết một lá thư, kể về mọi người nhận mà bạn còn nhớ mặt. Bạn đọc cho bà nghe. Bà mỉm cười: “Điều luật thứ tư. Ngươi giữ tốt nhất.”",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "bcr_orla_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bcr_c4_last_letter",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_courier",
+    "free": true,
+    "jobRank": 3,
+    "notFlags": [
+     "bcr_end"
+    ]
+   },
+   "text": "Quân đoàn Ma Vương đã bao vây Trại Huyết Môn. Mọi đường đều bị chặn. Chỉ một người đưa thư có thể chạy ra, mang lời cầu cứu đến các bộ lạc.",
+   "choices": [
+    {
+     "label": "Chạy",
+     "check": {
+      "stat": "AGI",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn chạy qua ba vòng vây trong một đêm, qua đầm lầy, qua đèo. Ba ngày sau, bốn bộ lạc kéo đến phá vòng vây. Người ta gọi bạn là Divine Runner.",
+      "effects": {
+       "AGI": 1,
+       "fame": 12,
+       "health": -15,
+       "jobXp": 4,
+       "flags": [
+        "bcr_saved_camp"
+       ]
+      },
+      "moment": "Chạy qua vòng vây mang lời cầu cứu cứu Trại Huyết Môn"
+     },
+     "fail": {
+      "text": "Bạn bị thương ở vòng vây thứ hai, nhưng vẫn lết đến bộ lạc gần nhất. Cứu viện đến muộn hai ngày.",
+      "effects": {
+       "health": -30,
+       "fame": 6
+      }
+     }
+    },
+    {
+     "label": "Để Tavi chạy, bạn dụ lính đuổi",
+     "require": {
+      "flags": [
+       "bcr_tavi_friend"
+      ]
+     },
+     "text": "Bạn chạy về phía đông, hét to, để lính đuổi theo. Tavi lẻn ra phía tây. Bạn bị bắt; Tavi thoát. Cứu viện đến, và bạn được thả ra từ một chiếc lồng giữa trại Ma tộc bị phá.",
+     "effects": {
+      "fame": 10,
+      "joy": 8,
+      "health": -15,
+      "jobXp": 4,
+      "flags": [
+       "bcr_saved_camp"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bcr_c5_line",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_courier",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bcr_path_line"
+    ],
+    "notFlags": [
+     "bcr_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Divine Runner. Không có lá thư nào bạn mang mà không đến nơi. Hội đồng các bộ lạc và triều đình Sanctus đều muốn bạn làm người đưa thư riêng.",
+   "choices": [
+    {
+     "label": "Từ chối cả hai, mở trường đưa thư",
+     "text": "Bạn dạy những người trẻ bốn điều luật của bà Orla, và cách chạy qua chiến tuyến mà không chọn phe. Họ được gọi là “người túi đỏ”, và cả hai phe đều không dám động vào họ.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "bcr_end",
+       "bcr_end_red_school"
+      ]
+     },
+     "moment": "Mở trường dạy người đưa thư qua chiến tuyến"
+    },
+    {
+     "label": "Mang lá thư cuối cùng: hiệp ước hòa bình",
+     "require": {
+      "flags": [
+       "bcr_line_peace"
+      ]
+     },
+     "text": "Lá thư cuối cùng của bạn là bản hiệp ước giữa Sanctus và Thảo Nguyên. Bạn chạy nó đến Hội đồng, chậm rãi, lần đầu tiên không vội. Không cần vội nữa.",
+     "effects": {
+      "fame": 15,
+      "joy": 18,
+      "flags": [
+       "bcr_end",
+       "bcr_end_treaty_carrier"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bcr_c5_people",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_courier",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bcr_path_people"
+    ],
+    "notFlags": [
+     "bcr_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Divine Runner, nhưng ở các trại tị nạn, người ta gọi bạn là “người túi nâu”. Bạn đã mang mười nghìn lá thư không ai trả tiền.",
+   "choices": [
+    {
+     "label": "Lập bưu trạm miễn phí cho người tị nạn",
+     "text": "Mỗi trại tị nạn có một chiếc túi nâu treo ở cổng. Những người đưa thư trẻ chạy qua mỗi tuần. Không ai trả tiền. Không ai cần trả.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "bcr_end",
+       "bcr_end_brown_post"
+      ]
+     },
+     "moment": "Lập bưu trạm miễn phí cho người tị nạn"
+    },
+    {
+     "label": "Trao lá thư “Đâu đó” còn giữ",
+     "require": {
+      "flags": [
+       "bcr_people_kept"
+      ]
+     },
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Hai mươi năm sau, bạn tìm thấy cậu ta: giờ đã là một người đàn ông có tóc bạc. Cậu ta đọc lá thư của mẹ mình, viết hai mươi năm trước, và khóc như một đứa trẻ.",
+      "effects": {
+       "joy": 20,
+       "fame": 10,
+       "flags": [
+        "bcr_end",
+        "bcr_end_somewhere"
+       ]
+      },
+      "moment": "Trao lá thư “Đâu đó” sau hai mươi năm"
+     },
+     "fail": {
+      "text": "Bạn không bao giờ tìm thấy. Bạn trao lá thư cho một người đưa thư trẻ, dặn nó đừng bỏ cuộc.",
+      "effects": {
+       "joy": 4,
+       "flags": [
+        "bcr_end",
+        "bcr_end_somewhere"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bcr_c5_storm",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_courier",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bcr_path_storm"
+    ],
+    "notFlags": [
+     "bcr_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Divine Runner. Không ai chạy nhanh hơn bạn trong ba mươi năm. Giờ chân bạn đã chậm, và một đứa trẻ tộc Mèo vừa chạy nhanh hơn kỷ lục của bạn.",
+   "choices": [
+    {
+     "label": "Đến chúc mừng nó",
+     "text": "Bạn trao cho nó đôi giày chạy cũ của mình. Nó nhìn bạn như nhìn một huyền thoại. Bạn nói: “Huyền thoại thì chạy chậm. Ngươi chạy đi.”",
+     "effects": {
+      "joy": 18,
+      "fame": 10,
+      "flags": [
+       "bcr_end",
+       "bcr_end_passed_shoes"
+      ]
+     },
+     "moment": "Trao đôi giày chạy cho kẻ phá kỷ lục"
+    },
+    {
+     "label": "Chạy với Tavi lần cuối",
+     "require": {
+      "flags": [
+       "bcr_tavi_friend"
+      ]
+     },
+     "text": "Hai người già chạy từ trạm thư đến chân đồi, chậm như đi bộ. Về đích cùng lúc. Lần này không ai nhường ai.",
+     "effects": {
+      "joy": 20,
+      "flags": [
+       "bcr_end",
+       "bcr_end_tavi_race"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bcr_daily_paws",
+   "races": [
+    "beastman"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "bm_courier",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Bàn chân bạn rớm máu sau một tuần chạy liên tục.",
+   "choices": [
+    {
+     "label": "Ngâm chân nước muối và chạy tiếp",
+     "text": "Đau, nhưng thư không chờ.",
+     "effects": {
+      "health": -4,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Nghỉ một ngày, khâu lại đôi giày",
+     "text": "Đôi giày mới khâu vừa khít. Ngày hôm sau, bạn chạy nhanh hơn.",
+     "effects": {
+      "health": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "bcr_daily_old_route",
+   "races": [
+    "beastman"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "bm_courier",
+    "free": true
+   },
+   "text": "Chân bạn không còn chạy được những chặng dài. Trạm thư giao cho bạn chặng ngắn nhất: từ trạm đến làng gần nhất.",
+   "choices": [
+    {
+     "label": "Chạy chặng ngắn, chậm rãi",
+     "text": "Bạn đi bộ chặng đường ấy mỗi ngày, chào từng nhà, nhớ mặt từng người. Chặng ngắn nhất hóa ra lại có nhiều người chờ thư nhất.",
+     "effects": {
+      "joy": 10
+     }
+    },
+    {
+     "label": "Ngồi ở trạm phân thư",
+     "text": "Bạn đọc tên các bộ lạc bằng ngón tay, như những trưởng trạm già ngày xưa.",
+     "effects": {
+      "joy": 6,
+      "INT": 1
+     }
+    }
+   ]
+  }
+ ]
+}
