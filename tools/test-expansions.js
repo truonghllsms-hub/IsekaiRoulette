@@ -7,7 +7,7 @@ function witness(e){
   for(const origin of data.origins.filter(o=>(!o.races?.length||o.races.includes(race))&&(!e.require?.origin||o.id===e.require.origin)))
    for(const stage of E.stagesOf(base.race).filter(s=>!e.stages||e.stages.includes(s.id))){
     const c=JSON.parse(JSON.stringify(base)),r=e.require||{};
-    Object.assign(c,{age:Math.max(stage.start,e.minAge||0),maxAge:1000000,origin,stageId:stage.id,focus:e.focus?.[0]||[].concat(r.focus||'work')[0],used:[],eventLast:{},epoch:{recent:[]},captive:r.captiveKinds?{kind:r.captiveKinds[0],since:0}:null,job:r.job?{id:[].concat(r.job)[0],rank:r.jobRank||0,xp:0}:null,cast:{},party:r.party?[{name:'TestAlly',alive:true,bond:70,race:'Human'}]:[],band:null,parents:{},log:[],moments:[],quest:null,pending:null,stats:{STR:15,INT:15,AGI:15,LUCK:15},bars:{health:100,wealth:85,joy:85},flags:[...new Set([...(r.flags||[]),...(r.anyFlags||[])])].filter(f=>!(r.notFlags||[]).includes(f)),form:r.form==='none'?null:r.form==='any'?Object.keys(base.race.forms||{})[0]:r.form||null});
+    Object.assign(c,{age:Math.max(stage.start,e.minAge||0),maxAge:1000000,origin,stageId:stage.id,focus:e.focus?.[0]||[].concat(r.focus||'work')[0],used:[],eventLast:{},epoch:{recent:[]},captive:r.captiveKinds?{kind:r.captiveKinds[0],since:0}:null,job:r.job?{id:[].concat(r.job)[0],rank:r.jobRank||0,xp:0}:null,cast:{},party:r.party?[{name:'TestAlly',alive:true,bond:70,race:'Human'}]:[],band:null,parents:{},log:[],moments:[],quest:null,pending:null,stats:{STR:15,INT:15,AGI:15,LUCK:15},bars:{health:100,wealth:85,joy:85},fame:r.fame||0,flags:[...new Set([...(r.flags||[]),...(r.anyFlags||[])])].filter(f=>!(r.notFlags||[]).includes(f)),form:r.form==='none'?null:r.form==='any'?Object.keys(base.race.forms||{})[0]:r.form||null});
     if(e.eras)c.era=data.eras.find(x=>x.id===e.eras[0]);
     if(E.eligible(e,c,stage.id,data))return c;
    }
@@ -19,8 +19,9 @@ function play(c,e,index,success=true){
  E.choose(c,data,index,()=>success?0:.99999);return c;
 }
 test('204 reviewed additions and four new origins load once and survive bundling filters',()=>{
- assert.equal(additions.length,204);assert.equal(data.origins.filter(o=>o.id.startsWith('gm_high_demon_origin_')).length,4);
- assert.equal(new Set(additions.map(e=>e.id)).size,204);
+ const reviewed=additions.filter(e=>!e._file.startsWith('expansions/career-'));
+ assert.equal(reviewed.length,204);assert.equal(data.origins.filter(o=>o.id.startsWith('gm_high_demon_origin_')).length,4);
+ assert.equal(new Set(additions.map(e=>e.id)).size,additions.length);
  for(const e of additions)assert.ok(e.pack&&e.races.some(r=>!(e.excludeRaces||[]).includes(r)),e.id);
  assert.equal(data.jobs.filter(j=>data.races.some(r=>(!j.races||j.races.includes(r.id))&&!(j.excludeRaces||[]).includes(r.id))).length,94);
 });

@@ -139,6 +139,17 @@ module.exports = {
     }
   },
   overrides: {
+    human_swordsman: {
+      dilemma:'Viên hầu tước thuê bạn làm thầy dạy kiếm cho con trai, rồi đòi bạn để thằng bé thắng trong buổi so kiếm trước mặt khách quý. Thằng bé chưa đỡ nổi một đường kiếm thật, và tháng sau nó sẽ ra Tuyến Đầu.',
+      safe:'Đánh thật để nó biết mình còn yếu',tempt:'Thua giả cho vừa lòng hầu tước',
+      good:'Thằng bé ngã ba lần, khóc vì nhục, rồi xin bạn dạy thêm một tháng trước khi lên đường. Hầu tước không vui, nhưng không đuổi bạn.',bad:'Hầu tước nổi giận vì con trai bị bẽ mặt trước khách, cắt nửa tiền công và đồn khắp Sanctus rằng bạn dạy không ra gì.',
+      temptGood:'Khách khứa vỗ tay, hầu tước thưởng hậu. Thằng bé tin mình đã giỏi kiếm, và bạn cố không nghĩ đến Tuyến Đầu.',temptBad:'Bạn diễn vụng đến mức khách khứa bật cười. Hầu tước mất mặt, còn thằng bé biết mình được thương hại.',
+      fallout:'Tin từ Tuyến Đầu gửi về: cậu con trai của hầu tước đã gặp chuyện trong trận đầu tiên. Hầu tước cho người gọi bạn đến dinh thự trong đêm.',
+      arcs:[
+        ['Thanh kiếm mượn danh','Một kiếm sĩ lạ mặt đi khắp các làng, xưng tên bạn để nhận tiền bảo vệ rồi bỏ mặc dân làng khi bọn cướp đến.','Bạn lần theo những ngôi làng hắn đã ghé, nghe dân làng tả lại đường kiếm và vết sẹo trên tay hắn.','Hắn đề nghị chia đôi số tiền nếu bạn để hắn tiếp tục dùng tên mình ở các vùng xa.','Bạn đứng chắn trước ngôi làng tiếp theo hắn định lừa, và chờ hắn đến.'],
+        ['Trận đấu giữ cổng thành','Ma vật kéo đến một thị trấn biên giới khi đội lính gác chỉ còn lại người già và trẻ con cầm giáo.','Bạn đi một vòng tường thành, đánh dấu những chỗ đá nứt và những lối mà ma vật có thể leo vào.','Viên trấn trưởng muốn bạn mở cổng phụ để dân giàu chạy trước, bỏ lại khu nghèo ở phía ngoài.','Bạn đứng một mình ở cổng chính khi bình minh lên và đợt tấn công đầu tiên ập tới.']
+      ]
+    },
     human_gladiator: {
       dilemma:'Người quản đấu đưa bạn một kịch bản dàn xếp: trận này phải có người chết để bán đủ vé. Đối thủ đứng bên kia sân là người từng chia nước cho bạn trong phòng chờ.',
       safe:'Phá kịch bản, giữ mạng đối thủ',tempt:'Đánh đến chết để lấy lòng người tổ chức',
