@@ -642,3 +642,11 @@ body[data-screen="screen-life"] #app { max-width:1440px; padding-inline:clamp(16
 .resume-slot .meta { margin:10px 0; font-size:12px; }
 .save-status { color:var(--muted); margin:8px 0; }
 .map-viewport.is-zoomed { touch-action:none; }
+/* renown: the last change beside its number, and the five tiers marked on the bar */
+.bar-label b { margin-left: auto; }
+.bar-delta { font-style: normal; font-size: 11px; font-weight: 600; margin-left: 4px; font-variant-numeric: tabular-nums; }
+.bar-delta.up { color: #4b8c60; }
+.bar-delta.down { color: #bf594d; }
+.track-fame { position: relative; }
+.track-fame::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(90deg, transparent calc(10.5% - 1px), rgba(0,0,0,.25) calc(10.5% - 1px) 10.5%, transparent 10.5% calc(35.5% - 1px), rgba(0,0,0,.25) calc(35.5% - 1px) 35.5%, transparent 35.5% calc(60.5% - 1px), rgba(0,0,0,.25) calc(60.5% - 1px) 60.5%, transparent 60.5% calc(85.5% - 1px), rgba(0,0,0,.25) calc(85.5% - 1px) 85.5%, transparent 85.5%); }

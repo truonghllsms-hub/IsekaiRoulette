@@ -1,0 +1,2149 @@
+{
+ "_note": "Tuyến truyện Kiếm sĩ (human_swordsman): 5 chương theo bậc nghề (jobRank 0-4), rẽ ba đạo ở Bậc 2 (swd_path_law / swd_path_blood / swd_path_wander), ba nhân vật xuyên suốt (Aldous Varn, Cassian Rhee, Mira Thorne) và cảnh đời thường của nghề.",
+ "origins": [],
+ "events": [
+  {
+   "id": "swd_c1_greyiron",
+   "races": [
+    "human"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "swd_met_aldous"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Aldous Varn",
+     "race": "Human",
+     "position": "Kiếm sư già của Võ đường Sắt Xám"
+    }
+   ],
+   "text": "Võ đường Sắt Xám nằm cuối con dốc lò rèn của Sanctus, mái ngói đen bám đầy muội than. Aldous Varn chẳng hỏi tên bạn; lão chỉ đặt một thanh kiếm gỗ nặng như xà nhà vào tay bạn và bảo: “Giữ thế thủ cho đến khi mặt trời lặn.”",
+   "choices": [
+    {
+     "label": "Nghiến răng đứng yên đến khi trời tối",
+     "check": {
+      "stat": "STR",
+      "target": 4
+     },
+     "success": {
+      "text": "Hai cánh tay bạn run như lá trong gió, nhưng mũi kiếm không hạ xuống một tấc. Lúc hoàng hôn tắt, Aldous gật đầu một lần duy nhất, và đó là lời khen đầu tiên bạn nhận được.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "swd_met_aldous",
+        "swd_aldous_respect"
+       ]
+      },
+      "moment": "Đứng thế thủ trọn một ngày trước mặt Aldous Varn"
+     },
+     "fail": {
+      "text": "Gần trưa, thanh kiếm gỗ rơi xuống đánh cộp. Aldous không mắng, lão chỉ nhặt nó lên đặt lại vào tay bạn. Bạn hiểu rằng ngày mai sẽ lại bắt đầu y như hôm nay.",
+      "effects": {
+       "health": -5,
+       "joy": -5,
+       "flags": [
+        "swd_met_aldous"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hạ kiếm, quan sát các đệ tử khác đứng thế",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn nhận ra người đứng lâu nhất không gồng tay mà dồn sức xuống hông. Khi bạn đứng lại theo cách ấy, Aldous nhướng mày: “Kẻ biết nhìn thì sống lâu hơn kẻ chỉ biết gồng.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "swd_met_aldous",
+        "swd_aldous_respect"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Aldous gõ vào gáy bạn bằng chuôi kiếm: “Ta bảo giữ thế, không bảo đi tham quan.” Cả võ đường cười rộ.",
+      "effects": {
+       "joy": -5,
+       "flags": [
+        "swd_met_aldous"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Bỏ về, đêm đó lẻn vào sân tập một mình",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Dưới ánh trăng, bạn tập lại thế thủ cho đến khi tay không còn run. Sáng hôm sau, Aldous liếc những vết chân trên sân cát và lặng lẽ để cổng võ đường mở cho bạn.",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 1,
+       "flags": [
+        "swd_met_aldous",
+        "swd_night_student"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn trượt chân trên rìa sân tập ướt sương, ngã đập vai vào cột gỗ. Aldous tìm thấy bạn lúc rạng sáng, lắc đầu, rồi tự tay băng vai cho bạn.",
+      "effects": {
+       "health": -10,
+       "flags": [
+        "swd_met_aldous"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "swd_c1_cassian",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "swd_met_aldous"
+    ],
+    "notFlags": [
+     "swd_met_cassian"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Cassian Rhee",
+     "race": "Human",
+     "position": "Đồng môn xuất thân quý tộc"
+    }
+   ],
+   "text": "Cassian Rhee là đệ tử duy nhất của Võ đường Sắt Xám đến lớp bằng xe ngựa có gia huy. Trong buổi so kiếm đầu tiên, hắn hạ bạn bằng ba đường kiếm gọn như nét bút, rồi chìa tay kéo bạn đứng dậy với nụ cười khó đoán.",
+   "choices": [
+    {
+     "label": "Nắm tay hắn, xin hắn chỉ lại đường kiếm thứ ba",
+     "text": "Cassian ngạc nhiên, rồi bật cười. Chiều hôm ấy hai người ở lại sân tập đến tối, và bạn học được cách quý tộc giấu một nhát đâm sau một nhát gạt.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "swd_met_cassian",
+       "swd_cassian_friend"
+      ]
+     },
+     "moment": "Kết bạn với Cassian Rhee ở Võ đường Sắt Xám"
+    },
+    {
+     "label": "Gạt tay hắn, đòi đấu lại ngay giữa trời mưa",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bùn bắn lên tận vai. Lần này bạn đánh văng kiếm của Cassian khỏi tay hắn. Hắn nhìn bạn rất lâu, không cười nữa: “Được. Từ hôm nay ta sẽ không nương tay.”",
+      "effects": {
+       "STR": 1,
+       "fame": 2,
+       "jobXp": 1,
+       "flags": [
+        "swd_met_cassian",
+        "swd_cassian_rival"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn ngã sấp xuống vũng bùn lần thứ hai. Cassian lau kiếm, bỏ đi mà không ngoảnh lại; từ đó cả võ đường gọi bạn là “kẻ hai lần nếm bùn”.",
+      "effects": {
+       "joy": -10,
+       "health": -5,
+       "flags": [
+        "swd_met_cassian",
+        "swd_cassian_rival"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Nói với Aldous rằng hắn đã dùng kiếm thép thay kiếm tập",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Aldous rút lưỡi kiếm của Cassian ra và gõ nhẹ: thép thật. Hắn bị phạt quét sân một tháng. Bạn thắng một lần, nhưng ánh mắt Cassian từ đó lạnh như sương đầu đông.",
+      "effects": {
+       "fame": 1,
+       "flags": [
+        "swd_met_cassian",
+        "swd_cassian_rival"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Thanh kiếm hóa ra là kiếm tập bọc sắt hợp lệ. Aldous nhìn bạn thất vọng: “Kẻ đổ lỗi cho kiếm của người khác thì chẳng bao giờ sửa được kiếm của mình.”",
+      "effects": {
+       "joy": -8,
+       "flags": [
+        "swd_met_cassian",
+        "swd_cassian_rival"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "swd_c1_mira_blade",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "swd_met_aldous"
+    ],
+    "notFlags": [
+     "swd_first_blade"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Mira Thorne",
+     "race": "Human",
+     "position": "Thợ rèn ở dốc lò Sanctus"
+    }
+   ],
+   "text": "Aldous gửi bạn tới lò rèn của Mira Thorne kèm một mẩu giấy: “Rèn cho đứa này thanh kiếm đầu tiên.” Mira đo sải tay bạn bằng sợi dây gai, rồi trải lên đe ba lựa chọn cho số tiền ít ỏi trong túi bạn.",
+   "choices": [
+    {
+     "label": "Kiếm sắt rẻ tiền, rèn xong ngay hôm nay",
+     "text": "Lưỡi kiếm nặng đầu và hơi cong, nhưng nó là của bạn. Mira dặn: “Sắt tốt hay xấu, kiếm sĩ giỏi đều biết lúc nào nó sắp gãy.”",
+     "effects": {
+      "wealth": -3,
+      "jobXp": 1,
+      "flags": [
+       "swd_first_blade",
+       "swd_blade_iron"
+      ]
+     }
+    },
+    {
+     "label": "Để dành nửa năm lương mua phôi thép Răng Cưa",
+     "require": {
+      "wealth": 15
+     },
+     "showLocked": true,
+     "text": "Mira gật gù khi thấy túi tiền. Bảy ngày sau, bạn nhận một thanh kiếm thép xanh, hoa văn lửa chạy dọc sống kiếm như mạch nước ngầm. Chị khắc vào chuôi một ký hiệu nhỏ: dấu của lò Thorne.",
+     "effects": {
+      "wealth": -15,
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "swd_first_blade",
+       "swd_blade_steel",
+       "swd_mira_friend"
+      ]
+     },
+     "moment": "Nhận thanh kiếm thép đầu tiên từ lò của Mira Thorne"
+    },
+    {
+     "label": "Phụ việc ở lò ba tháng để đổi lấy thanh kiếm",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Ba tháng thổi bễ và quai búa khiến vai bạn dày lên. Thanh kiếm Mira rèn cho bạn không đẹp nhất lò, nhưng bạn biết từng nhát búa đã làm nên nó.",
+      "effects": {
+       "STR": 1,
+       "health": -5,
+       "jobXp": 1,
+       "flags": [
+        "swd_first_blade",
+        "swd_blade_iron",
+        "swd_mira_friend"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Tháng đầu, một tia thép nóng bắn trúng mu bàn tay bạn. Mira băng vết bỏng, càu nhàu, rồi vẫn giữ lời: thanh kiếm được giao khi bạn còn đang tập cầm búa lại.",
+      "effects": {
+       "health": -12,
+       "flags": [
+        "swd_first_blade",
+        "swd_blade_iron",
+        "swd_mira_friend"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "swd_c1_noble_blood",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "origin": "human_bg_noble_bastard",
+    "flags": [
+     "swd_met_cassian"
+    ],
+    "notFlags": [
+     "swd_cassian_kin"
+    ]
+   },
+   "text": "Đêm hội mùa, Cassian say rượu và nhìn chiếc nhẫn ấn bạn giấu trong áo. Mặt hắn trắng bệch: cùng một gia huy với chiếc nhẫn trên tay cha hắn. Hai người đứng lặng giữa tiếng nhạc, cùng nhận ra mình là anh em cùng cha.",
+   "choices": [
+    {
+     "label": "Ôm lấy người anh em chưa từng biết",
+     "text": "Cassian khóc như một đứa trẻ, rồi thề sẽ không bao giờ để gia tộc biết. Từ đêm ấy, giữa hai người có một bí mật nặng hơn mọi thanh kiếm.",
+     "effects": {
+      "joy": 10,
+      "flags": [
+       "swd_cassian_kin",
+       "swd_cassian_friend"
+      ],
+      "unflags": [
+       "swd_cassian_rival"
+      ]
+     },
+     "moment": "Nhận ra Cassian Rhee là anh em cùng cha"
+    },
+    {
+     "label": "Đòi hắn trả lại phần danh phận đã bị cướp",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Cassian im lặng rất lâu, rồi đưa bạn chiếc túi Tinh Bạc của hắn: “Đây là thứ duy nhất ta có thể trả mà cha không biết.”",
+      "effects": {
+       "wealth": 20,
+       "flags": [
+        "swd_cassian_kin",
+        "swd_cassian_rival"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Cassian rút kiếm. Hai người đánh nhau giữa sân hội cho đến khi lính gác tách ra. Sáng hôm sau, gia tộc Rhee gửi người đến dọa sẽ cắt lưỡi bạn nếu còn dám nói.",
+      "effects": {
+       "health": -15,
+       "joy": -10,
+       "flags": [
+        "swd_cassian_kin",
+        "swd_cassian_rival"
+       ],
+       "unflags": [
+        "swd_cassian_friend"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "swd_c2_first_blood",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "swd_first_blood",
+     "swd_saint_end"
+    ]
+   },
+   "text": "Đoàn xe muối bạn hộ tống bị chặn ở khe đá Đồng Bằng Thánh Quang. Tên cướp lao vào bạn chỉ là một thiếu niên gầy gò, cầm lưỡi liềm buộc vào cán gậy. Lần đầu tiên, thanh kiếm trong tay bạn không còn là đồ tập.",
+   "choices": [
+    {
+     "label": "Chém, như Aldous đã dạy",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Một nhát. Cậu ta ngã xuống, và bọn cướp bỏ chạy. Đêm đó bạn không ăn được gì; bạn rửa kiếm ba lần bên suối mà vẫn ngửi thấy mùi sắt.",
+      "effects": {
+       "STR": 1,
+       "joy": -10,
+       "jobXp": 2,
+       "fame": 3,
+       "flags": [
+        "swd_first_blood",
+        "swd_killed_first"
+       ]
+      },
+      "moment": "Giết người lần đầu bằng thanh kiếm của mình"
+     },
+     "fail": {
+      "text": "Bạn chần chừ nửa nhịp, và lưỡi liềm rạch qua đùi bạn. Đoàn xe vẫn qua được, nhưng bạn khập khiễng suốt mùa sau.",
+      "effects": {
+       "health": -20,
+       "flags": [
+        "swd_first_blood"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đánh rơi vũ khí của cậu ta, tha cho đi",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Mũi kiếm của bạn hất văng lưỡi liềm. Cậu thiếu niên nhìn bạn, run rẩy, rồi chạy mất. Chủ đoàn xe lẩm bẩm rằng kẻ được tha hôm nay sẽ quay lại vào ngày mai.",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 2,
+       "flags": [
+        "swd_first_blood",
+        "swd_spared_first"
+       ]
+      },
+      "moment": "Tha mạng cho tên cướp đầu tiên"
+     },
+     "fail": {
+      "text": "Cậu ta không chịu buông. Trong lúc giằng co, một mũi tên từ vách đá cắm vào vai bạn. Bạn vẫn đuổi được bọn cướp, nhưng cái giá là một vết sẹo dài.",
+      "effects": {
+       "health": -18,
+       "flags": [
+        "swd_first_blood",
+        "swd_spared_first"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "swd_c2_crossroads",
+   "races": [
+    "human"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "swd_path_law",
+     "swd_path_blood",
+     "swd_path_wander",
+     "swd_saint_end"
+    ]
+   },
+   "text": "Ba lá thư đến cùng một tuần. Thánh Kỵ Sĩ Đoàn mời bạn làm cận vệ dự bị, đổi bằng một lời thề phục tùng. Đấu trường Huyết Sa hứa trả bằng Huyết Kim cho mỗi trận thắng. Lá thứ ba không có chữ, chỉ có tấm bản đồ Aethelgard Aldous vẽ tay, kèm một đồng Tinh Bạc cho lộ phí.",
+   "choices": [
+    {
+     "label": "Quỳ xuống trước Thánh Kỵ Sĩ Đoàn: Kiếm Luật",
+     "text": "Bạn đặt kiếm lên bậc đá nhà nguyện và lặp lại lời thề từng chữ. Áo choàng trắng nặng hơn bạn tưởng. Từ hôm nay, mỗi nhát kiếm của bạn phải trả lời trước luật.",
+     "effects": {
+      "fame": 5,
+      "jobXp": 2,
+      "flags": [
+       "swd_path_law"
+      ]
+     },
+     "moment": "Thề phụng sự Thánh Kỵ Sĩ Đoàn"
+    },
+    {
+     "label": "Nhận Huyết Kim của Đấu trường Huyết Sa: Huyết Kiếm",
+     "text": "Cát đấu trường đỏ thẫm dưới nắng. Lần đầu bước ra sân, bạn nghe hàng nghìn người gào lên đòi máu. Bạn nhận ra mình không ghét âm thanh ấy như mình tưởng.",
+     "effects": {
+      "wealth": 15,
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "swd_path_blood"
+      ]
+     },
+     "moment": "Bước lên cát Đấu trường Huyết Sa"
+    },
+    {
+     "label": "Cầm tấm bản đồ, đi khắp lục địa: Lãng Kiếm",
+     "text": "Bạn buộc kiếm sau lưng và rời Sanctus vào một sáng sương mù. Không chủ, không hợp đồng, không lời thề. Chỉ có con đường và những kẻ cần một lưỡi kiếm nhưng không trả nổi tiền.",
+     "effects": {
+      "AGI": 1,
+      "joy": 8,
+      "jobXp": 2,
+      "flags": [
+       "swd_path_wander"
+      ]
+     },
+     "moment": "Rời Sanctus làm kiếm khách lang bạt"
+    }
+   ]
+  },
+  {
+   "id": "swd_law_poacher",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "swd_path_law"
+    ],
+    "jobRankMax": 3,
+    "notFlags": [
+     "swd_saint_end"
+    ]
+   },
+   "text": "Đội tuần tra của bạn bắt được một người cha đang săn trộm nai trong rừng cấm của Giáo hội. Luật Thánh Kỵ Sĩ ghi rõ: chặt bàn tay phải. Ở bìa rừng, ba đứa con của ông ta đứng nhìn, gầy như que củi.",
+   "choices": [
+    {
+     "label": "Thi hành luật, chính tay bạn",
+     "text": "Bạn làm điều luật đòi hỏi. Viên đội trưởng vỗ vai khen bạn vững tâm. Đêm ấy bạn mơ thấy ba đứa trẻ đứng ở cuối giường.",
+     "effects": {
+      "fame": 5,
+      "joy": -15,
+      "jobXp": 2,
+      "flags": [
+       "swd_law_strict"
+      ]
+     },
+     "moment": "Thi hành luật rừng cấm không khoan nhượng"
+    },
+    {
+     "label": "Viện dẫn điều khoản ân xá cho kẻ đói",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đọc thuộc lòng một điều luật cũ đã bị quên: kẻ săn vì đói trong năm mất mùa được miễn hình. Viên đội trưởng câm nín. Người cha ôm con chạy khỏi rừng.",
+      "effects": {
+       "INT": 1,
+       "fame": 3,
+       "jobXp": 2,
+       "flags": [
+        "swd_law_mercy"
+       ]
+      },
+      "moment": "Dùng luật cứu một kẻ săn trộm vì đói"
+     },
+     "fail": {
+      "text": "Không ai tìm thấy điều khoản bạn nói trong sách luật mới. Bạn bị phạt giam mười ngày vì cản trở công vụ, còn bản án vẫn được thi hành.",
+      "effects": {
+       "joy": -12,
+       "fame": -4,
+       "flags": [
+        "swd_law_mercy"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Lặng lẽ cắt dây trói lúc đổi ca",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Sáng ra, căn lều trống không. Không ai nghi ngờ bạn, nhưng từ đó bạn biết lời thề của mình có một vết nứt.",
+      "effects": {
+       "AGI": 1,
+       "joy": 5,
+       "flags": [
+        "swd_law_mercy",
+        "swd_oath_cracked"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Một đồng đội bắt gặp bạn đang cầm dao bên dây trói. Hắn không tố cáo, nhưng từ đó hắn gọi bạn là “con dao hai lưỡi”.",
+      "effects": {
+       "fame": -5,
+       "flags": [
+        "swd_oath_cracked"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "swd_law_cassian_captain",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "swd_path_law",
+     "swd_met_cassian"
+    ],
+    "jobRankMax": 3,
+    "notFlags": [
+     "swd_saint_end"
+    ]
+   },
+   "text": "Cassian Rhee giờ là đội trưởng kỵ binh, nhờ tiền của gia tộc nhiều hơn nhờ kiếm. Trong trận phục kích ở Thảo Nguyên Gió Hú, hắn ra lệnh sai, và mười hai kỵ sĩ không trở về. Trước Hội đồng, hắn nhìn bạn: chỉ bạn biết lệnh đó là của ai.",
+   "choices": [
+    {
+     "label": "Khai thật trước Hội đồng",
+     "text": "Cassian bị tước quân hàm. Khi đi ngang qua bạn ở hành lang, hắn chỉ nói: “Ta sẽ nhớ.” Những gia đình của mười hai kỵ sĩ được nhận tiền tuất đầy đủ.",
+     "effects": {
+      "fame": 6,
+      "jobXp": 2,
+      "flags": [
+       "swd_cassian_rival",
+       "swd_cassian_shamed"
+      ],
+      "unflags": [
+       "swd_cassian_friend"
+      ]
+     },
+     "moment": "Làm chứng chống lại Cassian Rhee trước Hội đồng"
+    },
+    {
+     "label": "Im lặng để giữ bạn cũ",
+     "text": "Tội lỗi được đổ cho một kỵ sĩ đã chết. Cassian ôm lấy bạn trong bóng tối nhà nguyện: “Ta nợ ngươi một mạng.” Bạn không chắc mình vừa cứu hắn hay vừa đánh mất chính mình.",
+     "effects": {
+      "joy": -10,
+      "wealth": 10,
+      "flags": [
+       "swd_cassian_debt",
+       "swd_oath_cracked"
+      ]
+     },
+     "moment": "Che giấu lỗi của Cassian Rhee"
+    },
+    {
+     "label": "Ép hắn tự thú, đổi lấy việc bạn không khai",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Cassian đứng dậy trước Hội đồng và nhận tội bằng giọng run run. Hắn mất quân hàm nhưng giữ được danh dự. Sau đó hắn đến tìm bạn, lần đầu tiên không có rượu, và nói cảm ơn.",
+      "effects": {
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "swd_cassian_friend",
+        "swd_cassian_redeemed"
+       ],
+       "unflags": [
+        "swd_cassian_rival"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Cassian từ chối, và Hội đồng kết thúc mà không ai nói gì. Bạn mang theo nỗi hổ thẹn của mười hai chiếc ghế trống.",
+      "effects": {
+       "joy": -12,
+       "flags": [
+        "swd_oath_cracked"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "swd_blood_pit_deal",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "swd_path_blood"
+    ],
+    "jobRankMax": 3,
+    "notFlags": [
+     "swd_saint_end"
+    ]
+   },
+   "text": "Ông chủ Đấu trường Huyết Sa đẩy về phía bạn một túi Huyết Kim nặng trĩu: trận chung kết mùa này, bạn phải gục ở hiệp ba. Đối thủ là một võ sĩ già sắp giải nghệ; đây là trận cuối cùng của ông ấy.",
+   "choices": [
+    {
+     "label": "Nhận tiền, gục đúng hiệp ba",
+     "text": "Bạn ngã xuống cát đúng lúc. Người võ sĩ già được nâng lên giữa tiếng reo hò, không biết rằng chiến thắng cuối đời mình đã được mua. Túi Huyết Kim nặng một cách kỳ lạ.",
+     "effects": {
+      "wealth": 40,
+      "wealthKind": "windfall",
+      "joy": -8,
+      "flags": [
+       "swd_blood_sold"
+      ]
+     },
+     "moment": "Bán một trận đấu ở Huyết Sa"
+    },
+    {
+     "label": "Đánh thật, mặc kệ cái giá",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn thắng. Khán đài sụp xuống vì tiếng gào. Đêm đó, ba gã trùm đầu chặn bạn trong hẻm, và bạn để lại một trong số chúng nằm đó. Ông chủ đấu trường từ đó không dám ra giá với bạn nữa.",
+      "effects": {
+       "STR": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "swd_blood_champion"
+       ]
+      },
+      "moment": "Từ chối dàn xếp và vô địch Huyết Sa"
+     },
+     "fail": {
+      "text": "Bạn đánh thật, và người võ sĩ già đánh còn thật hơn. Ông ta thắng sòng phẳng, rồi cúi xuống thì thầm vào tai bạn: “Cảm ơn vì đã không bán ta.”",
+      "effects": {
+       "health": -20,
+       "fame": 3,
+       "jobXp": 2,
+       "flags": [
+        "swd_blood_honest"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Kể cho người võ sĩ già nghe",
+     "text": "Ông ta cười, mắt đỏ hoe: “Ta đã thắng đủ cho một đời. Ngươi cầm tiền mà sống.” Ông tự nhận thua ở hiệp hai. Bạn chia đôi túi Huyết Kim với ông dưới gầm khán đài.",
+     "effects": {
+      "wealth": 20,
+      "joy": 8,
+      "jobXp": 1,
+      "flags": [
+       "swd_blood_honest"
+      ]
+     },
+     "moment": "Chia tiền dàn xếp với đối thủ già ở Huyết Sa"
+    }
+   ]
+  },
+  {
+   "id": "swd_blood_whisper_blade",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "swd_path_blood"
+    ],
+    "notFlags": [
+     "swd_bloodblade",
+     "swd_saint_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Sau trận thắng thứ bốn mươi, một người đàn bà đeo mạng che mặt để lại trong phòng chờ của bạn một thanh kiếm đen tên là Rỉ Huyết. Khi bạn chạm vào, nó thì thầm bằng giọng của chính bạn lúc nhỏ: “Ta có thể khiến ngươi không bao giờ thua nữa.”",
+   "choices": [
+    {
+     "label": "Cầm lấy Rỉ Huyết",
+     "text": "Lưỡi kiếm uống máu từ lòng bàn tay bạn và ấm lên như một sinh vật. Đường kiếm của bạn nhanh hơn, mạnh hơn. Đôi khi, lúc tỉnh dậy, bạn không nhớ đêm qua mình đã đi đâu.",
+     "effects": {
+      "STR": 2,
+      "lifeCost": 5,
+      "jobXp": 3,
+      "flags": [
+       "swd_bloodblade"
+      ]
+     },
+     "moment": "Cầm lấy ác kiếm Rỉ Huyết"
+    },
+    {
+     "label": "Mang nó đến lò của Mira Thorne để phá hủy",
+     "require": {
+      "flags": [
+       "swd_mira_friend"
+      ]
+     },
+     "text": "Mira nhìn thanh kiếm rất lâu rồi đổ nó vào lò. Ngọn lửa hóa tím, và cả hai nghe rõ một tiếng thét. Khi lò nguội, chị đưa bạn một khối thép sạch: “Giờ nó chỉ là thép. Muốn rèn gì thì rèn.”",
+     "effects": {
+      "joy": 8,
+      "fame": 3,
+      "jobXp": 2,
+      "flags": [
+       "swd_bloodblade_broken"
+      ]
+     },
+     "moment": "Cùng Mira Thorne phá hủy ác kiếm Rỉ Huyết"
+    },
+    {
+     "label": "Ném nó xuống giếng sâu nhất của đấu trường",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Tiếng thì thầm tắt dần dưới đáy giếng. Bạn ngủ một giấc dài không mộng mị lần đầu tiên sau nhiều tháng.",
+      "effects": {
+       "joy": 5,
+       "flags": [
+        "swd_bloodblade_broken"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Ba ngày sau, thanh kiếm đen nằm trên giường bạn, khô ráo, như chưa từng rời đi. Bạn không dám ném nó lần nữa.",
+      "effects": {
+       "joy": -10,
+       "flags": [
+        "swd_bloodblade"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "swd_wander_village",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "swd_path_wander"
+    ],
+    "jobRankMax": 3,
+    "notFlags": [
+     "swd_saint_end"
+    ]
+   },
+   "text": "Ngôi làng ven Đầm Lầy Tử Khí chỉ có thể trả bạn bằng khoai và một chỗ ngủ trong kho thóc. Bọn cướp sẽ đến khi trăng tròn; kẻ cầm đầu, theo lời họ tả, dùng thế thủ của Võ đường Sắt Xám.",
+   "choices": [
+    {
+     "label": "Dạy dân làng cầm giáo trong mười đêm",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Đêm trăng tròn, bọn cướp gặp một hàng giáo tre và một kiếm sĩ đứng giữa. Kẻ cầm đầu nhận ra bạn, hạ kiếm, rồi rút quân không một lời. Dân làng gọi bạn là “người giữ kho thóc”.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 2,
+       "flags": [
+        "swd_wander_protector"
+       ]
+      },
+      "moment": "Dạy một ngôi làng tự bảo vệ trước bọn cướp"
+     },
+     "fail": {
+      "text": "Hàng giáo vỡ ngay lần xông đầu tiên. Bạn một mình giữ cổng làng đến sáng, và ngôi làng còn đứng, nhưng bạn thì nằm liệt suốt nửa tháng.",
+      "effects": {
+       "health": -25,
+       "fame": 3,
+       "flags": [
+        "swd_wander_protector"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đi gặp kẻ cầm đầu trước trăng tròn",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Hắn là một đệ tử cũ của Aldous, bị đuổi vì ăn cắp. Hai người đấu tay đôi trên bờ đầm, và khi kiếm hắn rơi xuống bùn, hắn quỳ xuống thề sẽ dẫn băng đi nơi khác.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 3,
+       "flags": [
+        "swd_wander_protector",
+        "swd_greyiron_shadow"
+       ]
+      },
+      "moment": "Đánh bại một đệ tử cũ của Sắt Xám đã thành cướp"
+     },
+     "fail": {
+      "text": "Hắn biết mọi đường kiếm của bạn vì đã học cùng một thầy. Bạn thoát chết nhờ một đứa trẻ trong làng ném đá vào mặt hắn.",
+      "effects": {
+       "health": -20,
+       "flags": [
+        "swd_greyiron_shadow"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Bảo họ bỏ làng mà đi",
+     "text": "Bạn dẫn ba mươi người già trẻ băng qua đầm lầy đến một thị trấn ven sông. Ngôi làng cũ cháy rụi đêm trăng tròn, nhưng không ai ở lại để cháy cùng nó.",
+     "effects": {
+      "AGI": 1,
+      "joy": -3,
+      "jobXp": 1,
+      "flags": [
+       "swd_wander_protector"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "swd_wander_road_duel",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "swd_path_wander"
+    ],
+    "jobRankMax": 3,
+    "notFlags": [
+     "swd_saint_end"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Yorin Hask",
+     "race": "Human",
+     "position": "Kiếm khách mù"
+    }
+   ],
+   "text": "Trên con đèo phủ tuyết, một kiếm khách mù ngồi chắn lối đi, đôi mắt phủ màng trắng như sương. Ông ta là Yorin Hask; người ta nói ông chỉ đấu với những kẻ sắp đánh mất lý do cầm kiếm. “Ngươi cầm kiếm để làm gì?” ông hỏi.",
+   "choices": [
+    {
+     "label": "“Để bảo vệ những người không tự bảo vệ được.”",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Yorin đấu với bạn đến khi tuyết phủ kín hai vai. Ông thua, rồi cười như được tặng quà, và chỉ cho bạn thế kiếm nghe gió mà ông gọi là “Bóng Thông”.",
+      "effects": {
+       "STR": 1,
+       "AGI": 1,
+       "jobXp": 3,
+       "flags": [
+        "swd_yorin_taught"
+       ]
+      },
+      "moment": "Học thế Bóng Thông từ kiếm khách Yorin Hask"
+     },
+     "fail": {
+      "text": "Ông đánh bạn ngã ba lần mà không cần nhìn. Lần thứ tư, ông dừng lại: “Câu trả lời tốt. Kiếm thì chưa.” Rồi ông nhường đường.",
+      "effects": {
+       "health": -15,
+       "jobXp": 2,
+       "flags": [
+        "swd_yorin_met"
+       ]
+      }
+     }
+    },
+    {
+     "label": "“Vì đó là thứ duy nhất ta làm giỏi.”",
+     "text": "Yorin gật đầu buồn bã: “Ta cũng từng nói thế, trước khi mất đôi mắt này.” Ông kể cho bạn nghe về trận đấu đã lấy đi ánh sáng của mình, rồi tránh sang bên cho bạn qua đèo.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "swd_yorin_met"
+      ]
+     }
+    },
+    {
+     "label": "Không trả lời, rút kiếm",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Lưỡi kiếm của bạn dừng cách cổ ông một sợi tóc. Yorin không nhúc nhích: “Nhanh. Nhưng ngươi vẫn chưa biết vì sao.” Câu nói theo bạn suốt chặng đường xuống núi.",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 2,
+       "flags": [
+        "swd_yorin_met"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn không thấy ông rút kiếm. Bạn chỉ thấy tuyết trên mặt và máu trên tuyết. Khi tỉnh dậy trong một quán trọ, có người đã trả tiền phòng cho bạn trước ba đêm.",
+      "effects": {
+       "health": -25,
+       "flags": [
+        "swd_yorin_met"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "swd_c4_aldous_last",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "swd_met_aldous"
+    ],
+    "notFlags": [
+     "swd_aldous_gone",
+     "swd_saint_end"
+    ]
+   },
+   "text": "Thư từ Sanctus báo tin Aldous Varn đã nằm liệt giường. Khi bạn đến, Võ đường Sắt Xám chỉ còn bốn đệ tử và mái ngói thủng một mảng. Lão nắm cổ tay bạn bằng bàn tay vẫn còn chai sạn: “Đừng để chỗ này thành tiệm bán rượu.”",
+   "choices": [
+    {
+     "label": "Nhận Võ đường Sắt Xám",
+     "text": "Bạn sửa mái ngói bằng chính tay mình và đứng lớp từ sáng hôm sau. Aldous mất vào mùa Lá Héo, lúc nghe tiếng kiếm gỗ ngoài sân. Lão ra đi với nụ cười đầu tiên bạn từng thấy trên mặt lão.",
+     "effects": {
+      "fame": 6,
+      "joy": 5,
+      "wealth": -10,
+      "jobXp": 3,
+      "flags": [
+       "swd_aldous_gone",
+       "swd_greyiron_master"
+      ]
+     },
+     "moment": "Kế thừa Võ đường Sắt Xám từ Aldous Varn"
+    },
+    {
+     "label": "Hứa sẽ truyền kiếm của lão ở nơi khác",
+     "text": "Aldous nhìn bạn rất lâu, rồi trao cho bạn thanh kiếm gỗ nặng như xà nhà từ ngày đầu tiên. “Vậy thì mang nó đi. Võ đường là con người, không phải mái ngói.” Lão mất ba ngày sau đó.",
+     "effects": {
+      "joy": -5,
+      "jobXp": 3,
+      "flags": [
+       "swd_aldous_gone",
+       "swd_aldous_sword"
+      ]
+     },
+     "moment": "Mang thanh kiếm gỗ của Aldous Varn đi khắp lục địa"
+    },
+    {
+     "label": "Hỏi lão câu bạn chưa từng dám hỏi",
+     "require": {
+      "flags": [
+       "swd_aldous_respect"
+      ]
+     },
+     "text": "“Vì sao ngày đầu thầy nhận con?” Aldous cười khàn: “Vì ngươi là đứa duy nhất không hỏi bao giờ được cầm kiếm thật.” Lão kể cho bạn nghe trận đấu đã khiến lão từ bỏ danh hiệu Kiếm Thánh, và bí mật đó theo bạn đến cuối đời.",
+     "effects": {
+      "INT": 1,
+      "joy": 5,
+      "jobXp": 3,
+      "flags": [
+       "swd_aldous_gone",
+       "swd_aldous_secret"
+      ]
+     },
+     "moment": "Nghe bí mật cuối cùng của Aldous Varn"
+    }
+   ]
+  },
+  {
+   "id": "swd_c4_war_law",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "swd_path_law"
+    ],
+    "notFlags": [
+     "swd_saint_end"
+    ]
+   },
+   "text": "Pháo đài biên giới bị Quân đoàn Ma Vương vây đến ngày thứ mười chín. Lệnh từ Sanctus chỉ có một dòng: giữ cổng, không được mở cho dân tị nạn vì sợ gián điệp trà trộn. Bên ngoài, hàng nghìn người đập tay vào cánh cổng sắt.",
+   "choices": [
+    {
+     "label": "Giữ lệnh, đóng cổng",
+     "text": "Pháo đài đứng vững. Bạn được phong tước và khắc tên lên tường nhà nguyện Sanctus. Không ai khắc tên những người ở ngoài cánh cổng.",
+     "effects": {
+      "fame": 10,
+      "joy": -15,
+      "jobXp": 3,
+      "flags": [
+       "swd_law_iron"
+      ]
+     },
+     "moment": "Giữ cổng pháo đài theo đúng lệnh trong cuộc vây hãm"
+    },
+    {
+     "label": "Mở cổng, tự tay kiểm từng người",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đứng ở cổng ba ngày ba đêm, nhìn vào mắt từng người. Bạn bắt được hai gián điệp và cứu được bốn nghìn người. Hội đồng kỷ luật bạn vì trái lệnh, rồi lặng lẽ xóa án khi dân Sanctus kéo nhau đến nhà nguyện.",
+      "effects": {
+       "INT": 1,
+       "fame": 12,
+       "jobXp": 4,
+       "flags": [
+        "swd_law_mercy",
+        "swd_gate_opened"
+       ]
+      },
+      "moment": "Mở cổng pháo đài cứu bốn nghìn dân tị nạn"
+     },
+     "fail": {
+      "text": "Một gián điệp lọt qua và mở cổng sau lúc nửa đêm. Pháo đài vẫn giữ được, nhưng với cái giá là chín kỵ sĩ. Hội đồng tước kiếm của bạn trong một năm.",
+      "effects": {
+       "health": -15,
+       "fame": -6,
+       "joy": -15,
+       "flags": [
+        "swd_gate_opened"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "swd_c4_war_blood",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "swd_path_blood"
+    ],
+    "notFlags": [
+     "swd_saint_end"
+    ]
+   },
+   "text": "Một quận công trả cho bạn nặng gấp mười lần tiền vô địch để giết một con Minotaur khổng lồ đang canh mỏ bạc của ông ta. Khi bạn đến nơi, bạn thấy con quái vật đang canh một hang đá có trẻ con Minotaur bên trong.",
+   "choices": [
+    {
+     "label": "Hoàn thành hợp đồng",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Trận chiến kéo dài đến khi mặt trời lặn. Đầu con Minotaur được treo trong sảnh của quận công. Tiếng kêu từ hang đá theo bạn vào những giấc ngủ không yên.",
+      "effects": {
+       "STR": 1,
+       "wealth": 50,
+       "wealthKind": "windfall",
+       "fame": 8,
+       "joy": -12,
+       "jobXp": 4,
+       "flags": [
+        "swd_blood_beastslayer"
+       ]
+      },
+      "moment": "Giết Minotaur giữ mỏ bạc vì Huyết Kim"
+     },
+     "fail": {
+      "text": "Cặp sừng ghim bạn vào vách đá. Bạn chỉ sống được vì con quái vật quay về che chắn cửa hang thay vì kết liễu bạn.",
+      "effects": {
+       "health": -35,
+       "joy": -5,
+       "flags": [
+        "swd_blood_spared_by_beast"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đem trả tiền đặt cọc cho quận công",
+     "text": "Quận công ném túi tiền xuống chân bạn và cho người đuổi bạn ra khỏi lãnh địa. Tin đồn lan ra rằng kiếm sĩ khát máu nhất Huyết Sa đã nhát gan. Bạn để mặc nó lan.",
+     "effects": {
+      "fame": -5,
+      "joy": 8,
+      "jobXp": 2,
+      "flags": [
+       "swd_blood_turned"
+      ]
+     },
+     "moment": "Bỏ hợp đồng săn Minotaur vì lũ con của nó"
+    },
+    {
+     "label": "Để Rỉ Huyết quyết định",
+     "require": {
+      "flags": [
+       "swd_bloodblade"
+      ]
+     },
+     "text": "Khi bạn tỉnh lại, mặt trời đã lặn hai lần và hang đá im lặng. Thanh kiếm đen sáng loáng, no nê. Bạn nhận tiền mà không dám hỏi chuyện gì đã xảy ra trong hai ngày ấy.",
+     "effects": {
+      "STR": 1,
+      "wealth": 50,
+      "wealthKind": "windfall",
+      "lifeCost": 5,
+      "joy": -20,
+      "jobXp": 4,
+      "flags": [
+       "swd_bloodblade_feasted"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "swd_c4_war_wander",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "swd_path_wander"
+    ],
+    "notFlags": [
+     "swd_saint_end"
+    ]
+   },
+   "text": "Ở Thảo Nguyên Gió Hú, bạn gặp một đoàn kiếm khách vô chủ, già có trẻ có, đều từng nghe tên bạn qua lời kể của dân các làng. Họ không cần tiền; họ cần một người dẫn đầu để chặn một toán Orc đang càn quét các bộ lạc Beastman nhỏ.",
+   "choices": [
+    {
+     "label": "Dẫn họ đi",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn chia đoàn thành ba mũi và dụ toán Orc vào hẻm núi. Khi trận đánh kết thúc, các bộ lạc Beastman đốt lửa mời cả đoàn, gọi bạn bằng một cái tên trong tiếng của họ nghĩa là “Gió Có Kiếm”.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "jobXp": 4,
+       "flags": [
+        "swd_wander_leader"
+       ]
+      },
+      "moment": "Dẫn đoàn kiếm khách vô chủ cứu các bộ lạc Beastman"
+     },
+     "fail": {
+      "text": "Kế hoạch đổ vỡ khi một mũi đến muộn. Bạn kéo được đoàn rút ra, nhưng bỏ lại bảy người dưới chân hẻm núi.",
+      "effects": {
+       "health": -15,
+       "joy": -15,
+       "flags": [
+        "swd_wander_leader"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đi một mình, chặn đầu toán Orc",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn đứng trên lối mòn duy nhất qua đèo và đánh với từng tên Orc một từ sáng đến chiều. Toán Orc bỏ đi; chưa từng có kẻ thù nào làm chúng mất kiên nhẫn đến thế.",
+      "effects": {
+       "STR": 1,
+       "fame": 8,
+       "jobXp": 4,
+       "flags": [
+        "swd_wander_alone"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn ngã xuống khi tên Orc thứ mười hai lao tới. Đoàn kiếm khách vô chủ kéo đến kịp lúc và cõng bạn về; không ai trong số họ trách bạn vì đã đi một mình.",
+      "effects": {
+       "health": -35,
+       "flags": [
+        "swd_wander_alone"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "swd_c4_cassian_reckoning",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "swd_cassian_rival"
+    ],
+    "notFlags": [
+     "swd_cassian_end",
+     "swd_saint_end"
+    ]
+   },
+   "text": "Cassian Rhee đến tìm bạn, tóc đã điểm bạc, mang theo hai thanh kiếm và không mang theo người hầu nào. “Cả đời ta sống trong cái bóng của ngươi,” hắn nói. “Hôm nay một trong hai ta sẽ được yên.”",
+   "choices": [
+    {
+     "label": "Nhận lời đấu, dốc toàn lực",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Trận đấu kết thúc khi kiếm của Cassian gãy làm đôi. Bạn dừng lại, và hắn ngồi xuống đất bật cười như một cậu bé ở Võ đường Sắt Xám năm nào. “Cuối cùng ta cũng biết mình đứng ở đâu,” hắn nói.",
+      "effects": {
+       "STR": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "swd_cassian_end",
+        "swd_cassian_peace"
+       ]
+      },
+      "moment": "Kết thúc mối thù với Cassian Rhee bằng một trận đấu"
+     },
+     "fail": {
+      "text": "Cassian đã tập luyện cả đời chỉ cho trận này. Mũi kiếm của hắn dừng ở cổ bạn, rồi hắn ném kiếm xuống. “Thắng rồi mà sao chẳng thấy gì,” hắn lẩm bẩm, và đi mất.",
+      "effects": {
+       "health": -25,
+       "joy": -5,
+       "flags": [
+        "swd_cassian_end"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Buông kiếm, mời hắn uống rượu",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Cassian đứng sững, rồi ném cả hai thanh kiếm vào bụi cây. Hai người uống đến sáng, kể về Aldous, về bùn, về những năm tháng đã mất. Lúc chia tay, hắn gọi bạn bằng cái tên chỉ đồng môn mới biết.",
+      "effects": {
+       "joy": 15,
+       "flags": [
+        "swd_cassian_end",
+        "swd_cassian_peace",
+        "swd_cassian_friend"
+       ],
+       "unflags": [
+        "swd_cassian_rival"
+       ]
+      },
+      "moment": "Làm hòa với Cassian Rhee sau nửa đời thù hận"
+     },
+     "fail": {
+      "text": "Hắn hất đổ chén rượu: “Ngươi thương hại ta?” Hắn bỏ đi, và bạn nghe nói hắn chết ở tiền tuyến một năm sau đó, một mình.",
+      "effects": {
+       "joy": -15,
+       "flags": [
+        "swd_cassian_end",
+        "swd_cassian_dead"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "swd_c4_cassian_ally",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "swd_cassian_friend"
+    ],
+    "notFlags": [
+     "swd_cassian_end",
+     "swd_cassian_rival",
+     "swd_saint_end"
+    ]
+   },
+   "text": "Cassian Rhee gửi thư cầu cứu: gia tộc Rhee bị vu cho tội phản quốc, và người ta muốn treo cổ hắn vào ngày đầu mùa Săn Bão. Lá thư chỉ có ba chữ cuối: “Đừng đến muộn.”",
+   "choices": [
+    {
+     "label": "Phá ngục cứu hắn",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đưa Cassian ra khỏi Sanctus trong một xe chở rơm. Hai người phi ngựa đến Thảo Nguyên, và ở đó hắn bắt đầu một cuộc đời mới không có gia huy.",
+      "effects": {
+       "AGI": 1,
+       "fame": -3,
+       "jobXp": 3,
+       "flags": [
+        "swd_cassian_end",
+        "swd_cassian_saved"
+       ]
+      },
+      "moment": "Phá ngục cứu Cassian Rhee"
+     },
+     "fail": {
+      "text": "Bạn bị bắt ở cổng thành. Cassian được tha nhờ một người làm chứng giấu mặt, còn bạn ngồi tù ba tháng thay hắn.",
+      "effects": {
+       "health": -15,
+       "joy": -8,
+       "flags": [
+        "swd_cassian_end",
+        "swd_cassian_saved"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đến Hội đồng, đặt danh tiếng của mình lên bàn cân",
+     "require": {
+      "fame": 30
+     },
+     "showLocked": true,
+     "text": "Bạn đứng trước Hội đồng và thề trên thanh kiếm của mình rằng Cassian vô tội. Cả gian phòng im lặng: không ai muốn là người gọi Kiếm sĩ lừng danh nhất Sanctus là kẻ nói dối. Cassian được trả tự do.",
+     "effects": {
+      "fame": 5,
+      "jobXp": 3,
+      "flags": [
+       "swd_cassian_end",
+       "swd_cassian_saved"
+      ]
+     },
+     "moment": "Dùng danh tiếng cứu Cassian Rhee khỏi giá treo cổ"
+    }
+   ]
+  },
+  {
+   "id": "swd_c5_saint_law",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "swd_path_law"
+    ],
+    "notFlags": [
+     "swd_saint_end"
+    ]
+   },
+   "text": "Thánh Kỵ Sĩ Đoàn trao cho bạn danh hiệu Kiếm Thánh và quyền viết lại Bộ Luật Kiếm, thứ đã không ai dám sửa trong ba trăm năm. Trên trang giấy trắng, bạn nhớ về những gì mình đã chém và những gì mình đã tha.",
+   "choices": [
+    {
+     "label": "Viết thêm điều khoản ân xá cho kẻ đói và kẻ chạy nạn",
+     "require": {
+      "anyFlags": [
+       "swd_law_mercy",
+       "swd_gate_opened"
+      ]
+     },
+     "text": "Bộ Luật mới có thêm mười hai dòng, mỗi dòng mang hình bóng một người bạn từng gặp. Các kỵ sĩ trẻ gọi chúng là “Mười Hai Dòng Của Kiếm Thánh”, và chúng còn được đọc rất lâu sau khi bạn không còn nữa.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "jobXp": 3,
+      "flags": [
+       "swd_saint_end",
+       "swd_saint_merciful"
+      ]
+     },
+     "moment": "Viết Mười Hai Dòng Ân Xá vào Bộ Luật Kiếm"
+    },
+    {
+     "label": "Giữ nguyên Bộ Luật, chỉ khắc tên mình lên bìa",
+     "text": "Luật không đổi một chữ. Bạn là Kiếm Thánh của trật tự, sắc bén và đáng tin như thép. Người ta kính sợ bạn; ít ai dám yêu mến bạn.",
+     "effects": {
+      "fame": 15,
+      "jobXp": 3,
+      "flags": [
+       "swd_saint_end",
+       "swd_saint_iron"
+      ]
+     },
+     "moment": "Trở thành Kiếm Thánh của Bộ Luật"
+    },
+    {
+     "label": "Xé bỏ lời thề, trao lại kiếm cho Hội đồng",
+     "require": {
+      "flags": [
+       "swd_oath_cracked"
+      ]
+     },
+     "text": "Bạn đặt thanh kiếm lên bàn Hội đồng và bước ra khỏi nhà nguyện, để lại danh hiệu chưa ráo mực. Người ta đồn Kiếm Thánh đã phát điên. Bạn chỉ thấy vai mình nhẹ hơn bao giờ hết.",
+     "effects": {
+      "joy": 20,
+      "fame": 5,
+      "flags": [
+       "swd_saint_end",
+       "swd_saint_unbound",
+       "swd_path_wander"
+      ],
+      "unflags": [
+       "swd_path_law"
+      ]
+     },
+     "moment": "Từ bỏ danh hiệu Kiếm Thánh của Thánh Kỵ Sĩ Đoàn"
+    }
+   ]
+  },
+  {
+   "id": "swd_c5_saint_blood",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "swd_path_blood"
+    ],
+    "notFlags": [
+     "swd_saint_end"
+    ]
+   },
+   "text": "Đấu trường Huyết Sa dựng tượng bạn bằng đồng ở cổng chính. Đêm khánh thành, bạn đứng một mình trước bức tượng và chợt không nhận ra khuôn mặt mình trong đó.",
+   "choices": [
+    {
+     "label": "Đối mặt Rỉ Huyết lần cuối",
+     "require": {
+      "flags": [
+       "swd_bloodblade"
+      ]
+     },
+     "check": {
+      "stat": "LUCK",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn cắm thanh kiếm đen xuống chân tượng và nghe nó gào lên giọng của mọi kẻ bạn từng giết. Bạn không buông tay cho đến khi tiếng gào tắt hẳn. Sáng ra, Rỉ Huyết chỉ còn là một thanh sắt gỉ.",
+      "effects": {
+       "fame": 10,
+       "joy": 20,
+       "flags": [
+        "swd_saint_end",
+        "swd_bloodblade_broken"
+       ],
+       "unflags": [
+        "swd_bloodblade"
+       ]
+      },
+      "moment": "Chiến thắng ác kiếm Rỉ Huyết"
+     },
+     "fail": {
+      "text": "Lưỡi kiếm thắng. Sáng ra người ta tìm thấy bức tượng đồng bị chém làm đôi và Kiếm Thánh của Huyết Sa đã biến mất. Thỉnh thoảng có kẻ kể rằng thấy một bóng người cầm kiếm đen lang thang dọc Đầm Lầy Tử Khí.",
+      "effects": {
+       "lifeCost": 15,
+       "joy": -30,
+       "flags": [
+        "swd_saint_end",
+        "swd_bloodblade_master"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Mua lại tự do cho các nô lệ đấu trường",
+     "require": {
+      "wealth": 40
+     },
+     "showLocked": true,
+     "text": "Bạn đổ toàn bộ Huyết Kim tích góp lên bàn ông chủ đấu trường và đòi đổi lấy tờ khế ước của bốn mươi nô lệ. Lần đầu tiên, tiếng reo hò ở Huyết Sa là dành cho những người được rời khỏi cát.",
+     "effects": {
+      "wealth": -40,
+      "fame": 12,
+      "joy": 20,
+      "flags": [
+       "swd_saint_end",
+       "swd_saint_liberator"
+      ]
+     },
+     "moment": "Mua tự do cho bốn mươi nô lệ đấu trường"
+    },
+    {
+     "label": "Ở lại làm vua của cát đỏ",
+     "text": "Bạn ngồi lên chiếc ghế danh dự cao nhất đấu trường. Mỗi mùa, có một kiếm sĩ trẻ đến thách đấu, và mỗi mùa bạn lại thắng. Bạn bắt đầu tự hỏi kẻ nào sẽ là người cuối cùng.",
+     "effects": {
+      "fame": 12,
+      "wealth": 30,
+      "joy": -5,
+      "flags": [
+       "swd_saint_end",
+       "swd_saint_arena_king"
+      ]
+     },
+     "moment": "Trở thành Kiếm Thánh bất bại của Huyết Sa"
+    }
+   ]
+  },
+  {
+   "id": "swd_c5_saint_wander",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "swd_path_wander"
+    ],
+    "notFlags": [
+     "swd_saint_end"
+    ]
+   },
+   "text": "Không ai trao cho bạn danh hiệu Kiếm Thánh. Nó tự lan ra từ những ngôi làng bạn từng đi qua, từ những bài hát quán trọ mà bạn chưa từng nghe hết. Một sáng, một đứa trẻ mồ côi đi theo bạn suốt ba dặm đường, tay ôm một khúc gỗ đẽo hình thanh kiếm.",
+   "choices": [
+    {
+     "label": "Nhận nó làm đệ tử cuối cùng",
+     "text": "Bạn dạy nó giữ thế thủ cho đến khi mặt trời lặn, đúng như Aldous đã dạy bạn. Nhiều năm sau, người ta kể về một kiếm sĩ trẻ không thuộc võ đường nào, luôn hỏi đối thủ trước khi rút kiếm: “Ngươi cầm kiếm để làm gì?”",
+     "effects": {
+      "joy": 20,
+      "fame": 8,
+      "jobXp": 3,
+      "flags": [
+       "swd_saint_end",
+       "swd_saint_teacher"
+      ]
+     },
+     "moment": "Nhận đệ tử cuối cùng trên con đường lang bạt"
+    },
+    {
+     "label": "Đi tìm Yorin Hask để trả câu trả lời",
+     "require": {
+      "anyFlags": [
+       "swd_yorin_met",
+       "swd_yorin_taught"
+      ]
+     },
+     "text": "Bạn tìm thấy ông trên chính con đèo năm xưa, giờ đã rất già. Bạn trả lời câu hỏi cũ bằng cả một đời đi đường. Yorin nhắm mắt nghe, rồi gật đầu: “Giờ thì ngươi biết.” Ông mất vào mùa xuân năm sau, và bạn chôn ông cùng thanh kiếm của ông.",
+     "effects": {
+      "joy": 15,
+      "INT": 1,
+      "flags": [
+       "swd_saint_end",
+       "swd_saint_answer"
+      ]
+     },
+     "moment": "Trả lời câu hỏi của Yorin Hask sau nửa đời"
+    },
+    {
+     "label": "Treo kiếm, biến mất khỏi mọi bài hát",
+     "text": "Bạn treo thanh kiếm lên vách một ngôi miếu bỏ hoang trên núi và bước xuống thung lũng làm một người nông dân vô danh. Các bài hát vẫn tiếp tục kể về bạn, mỗi bài một kết thúc khác, và chẳng bài nào đúng.",
+     "effects": {
+      "joy": 18,
+      "flags": [
+       "swd_saint_end",
+       "swd_saint_vanished"
+      ]
+     },
+     "moment": "Treo kiếm và biến thành truyền thuyết"
+    }
+   ]
+  },
+  {
+   "id": "swd_daily_whetstone",
+   "races": [
+    "human"
+   ],
+   "weight": 14,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "flags": [
+     "swd_first_blade"
+    ]
+   },
+   "text": "Đêm mưa, bạn ngồi mài kiếm bên bếp lửa quán trọ. Một tay lính đánh thuê già nhìn lưỡi kiếm của bạn và chỉ ra một vết mẻ nhỏ mà bạn chưa từng thấy: dấu của một nhát đỡ sai từ rất lâu.",
+   "choices": [
+    {
+     "label": "Hỏi ông ta về vết mẻ",
+     "text": "Ông kể về đường kiếm đã để lại vết như thế trên lưỡi kiếm của chính ông, và về người đồng đội đã chết vì nó. Bạn sửa lại thế đỡ ngay đêm ấy.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Mang kiếm đến lò Thorne sáng hôm sau",
+     "require": {
+      "flags": [
+       "swd_mira_friend"
+      ]
+     },
+     "text": "Mira cầm lưỡi kiếm lên ánh sáng, càu nhàu về thói quen đỡ thẳng của bạn, rồi mài lại cạnh kiếm miễn phí. “Lần sau nghiêng cổ tay đi, đồ cứng đầu.”",
+     "effects": {
+      "joy": 5,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Lờ đi, kiếm vẫn còn chém được",
+     "text": "Bạn tra kiếm vào vỏ và đi ngủ. Vết mẻ nhỏ nằm im ở đó, chờ.",
+     "effects": {
+      "joy": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "swd_daily_tavern_drunk",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Một gã say ở quán Ngựa Gỗ nhận ra phù hiệu kiếm sĩ trên áo bạn và đòi đấu tay đôi ngay giữa quán, trước mặt cô hầu bàn mà hắn đang cố gây ấn tượng.",
+   "choices": [
+    {
+     "label": "Đánh rơi kiếm của hắn bằng bao kiếm",
+     "check": {
+      "stat": "AGI",
+      "target": 4
+     },
+     "success": {
+      "text": "Chỉ một cái gõ vào cổ tay, thanh kiếm của hắn rơi vào bát canh. Cả quán cười rộ, và cô hầu bàn mời bạn một vò rượu.",
+      "effects": {
+       "joy": 6,
+       "fame": 1
+      }
+     },
+     "fail": {
+      "text": "Bạn đánh hụt, đổ cả bàn rượu. Chủ quán bắt bạn trả tiền cho mọi thứ vỡ.",
+      "effects": {
+       "wealth": -5,
+       "joy": -3
+      }
+     }
+    },
+    {
+     "label": "Mời hắn ngồi xuống uống cùng",
+     "text": "Gã say kể rằng hắn từng mơ làm kiếm sĩ trước khi gia đình bắt hắn đi cày. Hai người uống đến khuya, và hắn ra về mà quên mất mình định đánh nhau.",
+     "effects": {
+      "joy": 5
+     }
+    },
+    {
+     "label": "Đứng dậy rời quán",
+     "text": "Sau lưng bạn, gã say khoe với cả quán rằng một kiếm sĩ đã sợ hắn. Bạn mỉm cười trong bóng tối.",
+     "effects": {
+      "joy": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "swd_daily_children",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Lũ trẻ trong xóm chặn đường bạn, mỗi đứa cầm một cành cây. Đứa lớn nhất tuyên bố cả bọn là “Thánh Kỵ Sĩ Đoàn” và bạn là Ma Vương phải bị tiêu diệt.",
+   "choices": [
+    {
+     "label": "Đóng vai Ma Vương thật hoành tráng",
+     "text": "Bạn gầm lên và ngã xuống đất một cách bi tráng dưới hàng chục cành cây. Lũ trẻ reo hò chiến thắng. Bạn nằm đó cười mãi, lâu rồi mới thấy nhẹ lòng như thế.",
+     "effects": {
+      "joy": 10
+     }
+    },
+    {
+     "label": "Chỉ cho chúng cách cầm kiếm cho đúng",
+     "text": "Bạn sửa tay từng đứa như Aldous đã sửa tay bạn. Đứa nhỏ nhất cầm cành cây nghiêm túc đến mức mím chặt môi.",
+     "effects": {
+      "joy": 6,
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "swd_taught_children"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "swd_daily_bard_song",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRank": 2,
+    "fame": 20
+   },
+   "text": "Trong một quán trọ xa lạ, một thi sĩ đang hát bài ca về chính bạn. Chỉ có điều, trong bài hát bạn cao hai mét, giết rồng bằng tay không và có ba người vợ ở ba vương quốc.",
+   "choices": [
+    {
+     "label": "Ngồi nghe hết và vỗ tay",
+     "text": "Bạn thả một đồng Tinh Bạc vào mũ của thi sĩ. Có lẽ con người thật của bạn không quan trọng bằng thứ người ta cần tin vào.",
+     "effects": {
+      "joy": 8,
+      "fame": 2
+     }
+    },
+    {
+     "label": "Đứng dậy kể lại sự thật",
+     "text": "Cả quán nghe bạn kể, rồi ồ lên chê câu chuyện thật nhạt nhẽo hơn. Thi sĩ hát tiếp bản cũ. Bạn uống cạn ly rượu và bật cười.",
+     "effects": {
+      "joy": 3,
+      "INT": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "swd_daily_old_wound",
+   "races": [
+    "human"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_swordsman",
+    "free": true
+   },
+   "text": "Mùa Săn Bão năm nay đến sớm, và mọi vết sẹo cũ trên người bạn đều lên tiếng cùng một lúc. Sáng nay, lần đầu tiên, bạn không nâng nổi kiếm lên quá đầu.",
+   "choices": [
+    {
+     "label": "Tập lại từ thế thủ đầu tiên",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn đứng thế thủ trong sân cho đến khi mặt trời lặn, như ngày đầu ở Võ đường Sắt Xám. Đến cuối mùa, kiếm của bạn lại lên được quá đầu, chậm hơn, nhưng chính xác hơn.",
+      "effects": {
+       "health": 5,
+       "jobXp": 1
+      }
+     },
+     "fail": {
+      "text": "Vai bạn kêu răng rắc. Thầy thuốc bảo bạn phải nghỉ hẳn một mùa. Bạn ngồi nhìn thanh kiếm treo trên vách cả mùa đông.",
+      "effects": {
+       "health": -10,
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Đổi sang lối kiếm dùng ít sức hơn",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn học cách để đối thủ tự lao vào mũi kiếm. Các đệ tử trẻ nói đường kiếm của bạn trông như không dùng sức, và họ không hiểu sao vẫn không đỡ nổi.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 2
+      }
+     },
+     "fail": {
+      "text": "Lối đánh mới khiến bạn chậm hơn nửa nhịp. Bạn vẫn thắng trận tập, nhưng ai cũng thấy bạn đã già.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "swd_daily_war_recruit",
+   "races": [
+    "human"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Lính mộ của Sanctus dán cáo thị khắp các cổng thành: mọi kiếm sĩ có tên trong sổ hội phải trình diện ở Tuyến Đầu trong ba mươi ngày. Ở ngõ sau, người ta thì thầm giá của một tờ giấy miễn dịch.",
+   "choices": [
+    {
+     "label": "Trình diện",
+     "text": "Bạn ra Tuyến Đầu cùng một nghìn người lạ. Sau mùa đầu tiên, chỉ còn bảy trăm. Bạn học được nhiều về kiếm trong ba tháng ấy hơn cả năm năm ở võ đường.",
+     "effects": {
+      "STR": 1,
+      "health": -15,
+      "fame": 4,
+      "jobXp": 3,
+      "flags": [
+       "swd_war_veteran"
+      ]
+     },
+     "moment": "Ra Tuyến Đầu khi Sanctus gọi lính"
+    },
+    {
+     "label": "Mua giấy miễn dịch",
+     "require": {
+      "wealth": 20
+     },
+     "showLocked": true,
+     "text": "Bạn ở lại Sanctus, và mỗi sáng đi qua quảng trường đọc danh sách những người không trở về. Có những cái tên bạn từng tập kiếm cùng.",
+     "effects": {
+      "wealth": -20,
+      "joy": -10
+     }
+    },
+    {
+     "label": "Trốn sang Thảo Nguyên Gió Hú",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn băng qua biên giới trong đêm. Ở Thảo Nguyên, chẳng ai hỏi bạn có tên trong sổ hội nào.",
+      "effects": {
+       "AGI": 1,
+       "fame": -4,
+       "flags": [
+        "swd_deserter"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn bị bắt ở trạm gác và bị giải thẳng ra Tuyến Đầu, kèm thêm một vết roi trên lưng.",
+      "effects": {
+       "health": -20,
+       "fame": -5,
+       "flags": [
+        "swd_war_veteran"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "swd_daily_peace_tourney",
+   "races": [
+    "human"
+   ],
+   "eras": [
+    "peace"
+   ],
+   "weight": 14,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 3
+   },
+   "text": "Lễ hội mùa Nảy Mầm ở Sanctus mở giải đấu kiếm cho mọi người không phân biệt xuất thân. Giải thưởng là một chiếc nhẫn Tinh Bạc và một nụ hôn của Nữ hoàng Hoa năm nay.",
+   "choices": [
+    {
+     "label": "Ghi tên tham dự",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn thắng năm trận liền. Ở trận chung kết, bạn hạ một kỵ sĩ áo giáp bạc trước tiếng reo hò của cả quảng trường.",
+      "effects": {
+       "fame": 6,
+       "wealth": 10,
+       "joy": 8,
+       "jobXp": 2
+      },
+      "moment": "Vô địch giải kiếm lễ hội mùa Nảy Mầm"
+     },
+     "fail": {
+      "text": "Bạn bị loại ở vòng hai bởi một cô gái nông dân dùng gậy dài. Cô ấy về nhất. Bạn mua cho cô ấy một ly rượu để chúc mừng.",
+      "effects": {
+       "joy": 3,
+       "jobXp": 1
+      }
+     }
+    },
+    {
+     "label": "Làm trọng tài cho vòng thiếu niên",
+     "text": "Bạn đứng giữa những cậu bé cô bé run tay cầm kiếm gỗ, và chợt thấy mình của những ngày đầu ở Võ đường Sắt Xám.",
+     "effects": {
+      "joy": 6,
+      "fame": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "swd_daily_dark_plague",
+   "races": [
+    "human"
+   ],
+   "eras": [
+    "dark_age"
+   ],
+   "weight": 14,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Đại Dịch Miasma tràn qua khu ổ chuột Sanctus. Lính gác nhận lệnh khóa cổng khu phố và dùng kiếm ngăn bất kỳ ai cố ra ngoài. Họ cần thêm kiếm sĩ, và trả gấp đôi.",
+   "choices": [
+    {
+     "label": "Nhận việc canh cổng",
+     "text": "Bạn đứng canh cổng suốt mùa dịch. Có những đêm bạn phải giơ kiếm trước mặt những người mẹ ôm con. Bạn được trả đủ tiền, và không bao giờ kể lại về những đêm đó.",
+     "effects": {
+      "wealth": 20,
+      "joy": -15,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Vào trong khu phố giúp chôn cất người chết",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn đào mộ cùng các tu sĩ suốt hai tháng mà không bị lây bệnh. Khi dịch qua đi, dân khu ổ chuột nhớ mặt bạn đến cuối đời.",
+      "effects": {
+       "fame": 5,
+       "joy": 4
+      }
+     },
+     "fail": {
+      "text": "Cơn sốt ập đến vào tuần thứ ba. Bạn sống sót, nhưng ho suốt nhiều năm sau đó.",
+      "effects": {
+       "health": -25
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "swd_daily_greyiron_reunion",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_swordsman",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "swd_met_aldous"
+    ],
+    "notFlags": [
+     "swd_saint_end"
+    ]
+   },
+   "text": "Bạn tình cờ gặp lại ba người từng tập chung ở Võ đường Sắt Xám: một người giờ là đầu bếp, một người mất một chân ở chiến trường, người còn lại vẫn cầm kiếm nhưng chỉ đi đòi nợ thuê. Không ai trong số họ còn tập thế thủ nữa.",
+   "choices": [
+    {
+     "label": "Mời cả ba một bữa thịnh soạn",
+     "text": "Bữa ăn kéo dài đến nửa đêm. Họ kể về Aldous với giọng vừa sợ vừa thương. Lúc chia tay, người cụt chân ôm bạn: “Ít nhất trong chúng ta có một đứa đi hết con đường.”",
+     "effects": {
+      "wealth": -5,
+      "joy": 10
+     }
+    },
+    {
+     "label": "Đề nghị người đi đòi nợ theo bạn",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Anh ta ngập ngừng, rồi gật đầu. Có người cùng tập thế thủ mỗi sáng, con đường bớt cô độc hơn.",
+      "effects": {
+       "joy": 6,
+       "flags": [
+        "swd_old_comrade"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Anh ta cười buồn: “Ta đã quên cách cầm kiếm cho người khác rồi.” Hai người chia tay ở ngã tư.",
+      "effects": {
+       "joy": -3
+      }
+     }
+    }
+   ]
+  }
+ ]
+}
