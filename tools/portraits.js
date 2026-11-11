@@ -10,10 +10,15 @@ function addPortraits(data) {
   const portraitManifest = path.join(portraitDir, "manifest.json");
   if (fs.existsSync(portraitManifest)) {
     const manifest = JSON.parse(fs.readFileSync(portraitManifest, "utf8"));
-    const templates = JSON.parse(fs.readFileSync(path.join(ROOT, "content", "portraits", "human.json"), "utf8")).templates;
+    // every content/portraits/<race>.json adds its templates; a template names its race, else the file does
+    const templates = {};
+    for (const f of fs.readdirSync(path.join(ROOT, "content", "portraits")).filter((f) => f.endsWith(".json")).sort()) {
+      const race = f.replace(/\.json$/, "");
+      for (const [T, t] of Object.entries(JSON.parse(fs.readFileSync(path.join(ROOT, "content", "portraits", f), "utf8")).templates)) templates[T] = { race, ...t };
+    }
     data.portraits = { templates, looks: {} };
     for (const [T, looks] of Object.entries(manifest)) {
-      if (!templates[T]) throw new Error(`img/portraits: mẫu ${T} không có trong content/portraits/human.json`);
+      if (!templates[T]) throw new Error(`img/portraits: mẫu ${T} không có trong content/portraits/*.json`);
       data.portraits.looks[T] = Object.keys(looks);
       for (const [look, [w, h]] of Object.entries(looks)) {
         const rel = `img/portraits/${T}/${look}.webp`;

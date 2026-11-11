@@ -8,14 +8,14 @@ test('Dawn Torch members use the original species, gender and role frames',()=>{
  const [kael,lyra,grom]=members.map(m=>npcSprite(m,data));
  assert.match(kael.person,/^pt\/H0\d\//);assert.equal(kael.column,'swordsman_1');
  assert.match(lyra.person,/^elf_nu_/);assert.equal(lyra.column,'spirit_moi');
- assert.equal(grom.person,'beastman_bear_nam_1');assert.equal(grom.column,'gladiator_moi');
+ assert.equal(grom.person,'pt/BM_BEAR_M/gladiator_1');assert.equal(grom.column,'gladiator_1');
 });
 
 test('portrait selection is stable and leaves the member profile unchanged',()=>{
  const m={name:'Garr',race:'Beastman tộc Sói',position:'Gladiator (Bậc 3)',desc:'Dũng cảm'};
  const before=structuredClone(m);const first=npcSprite(m,data);
  assert.deepEqual(npcSprite(m,data),first);assert.deepEqual(m,before);
- assert.equal(first.person,'beastman_wolf_nam_1');assert.equal(first.column,'gladiator_kycuu');
+ assert.equal(first.person,'pt/BM_WOLF_M/gladiator_2');assert.equal(first.column,'gladiator_2');
 });
 
 test('explicit gender and the first race of a hybrid take precedence',()=>{
