@@ -131,18 +131,19 @@
     }
     return pool[hashName(ch.name) % pool.length];
   }
-  // ---------- illustrated Human portraits ----------
+  // ---------- illustrated portraits (artbook templates: Humans, Beastmen) ----------
   // A Human life gets one artbook template (H01-H08, F01-F08) by birth (content/portraits/human.json):
   // mostly from the templates made for that birth, now and then from those that also suit it. Its looks:
   // baby, child, teen, adult, old, and each trade at three steps (T1 ranks 1-2, T2 ranks 3-4, T3 rank 5).
   function portraitTemplate(ch) {
     const P = D.portraits;
-    if (!P || ch.race.id !== "human" || !ch.gender) return null;
+    if (!P || !ch.gender) return null;
     if (ch._portrait !== undefined) return ch._portrait;
+    // the race's templates for this gender (and kin, for Beastmen); a Human's also follow the birth
     const birth = ch.origin.id.replace(/^human_(bg|origin)_/, "");
-    const own = Object.entries(P.templates).filter(([T, t]) => t.gender === ch.gender && P.looks[T]);
-    const main = own.filter(([, t]) => t.main.includes(birth)).map(([T]) => T);
-    const also = own.filter(([, t]) => t.also.includes(birth)).map(([T]) => T);
+    const own = Object.entries(P.templates).filter(([T, t]) => t.race === ch.race.id && (!t.subtype || t.subtype === ch.subtype) && t.gender === ch.gender && P.looks[T]);
+    const main = own.filter(([, t]) => (t.main || []).includes(birth)).map(([T]) => T);
+    const also = own.filter(([, t]) => (t.also || []).includes(birth)).map(([T]) => T);
     const h = hashName(ch.name + "|" + birth);
     const from = main.length && (!also.length || h % 4 !== 0) ? main : also.length ? also : own.map(([T]) => T);
     ch._portrait = from.length ? from[(h >>> 2) % from.length] : null;
@@ -164,7 +165,7 @@
     const T = portraitTemplate(ch);
     if (!T) return null;
     const st = E.currentStage(ch).id;
-    const jobKey = (j) => PORTRAIT_TRADE[j.id] || j.id.replace(/^human_/, "");
+    const jobKey = (j) => PORTRAIT_TRADE[j.id] || j.id.replace(/^(human|bm)_/, "");
     const ranksOf = (j) => ((D.jobs || []).find((x) => x.id === j.id) || {}).ranks;
     const trade = (j, tier) => [3, 2, 1].filter((t) => t <= tier).map((t) => `${jobKey(j)}_${t}`);
     if (peak) {
