@@ -7,7 +7,7 @@ test('Dawn Torch members use the original species, gender and role frames',()=>{
  const members=data.story.human.bands.party_a.members;
  const [kael,lyra,grom]=members.map(m=>npcSprite(m,data));
  assert.match(kael.person,/^pt\/H0\d\//);assert.equal(kael.column,'swordsman_1');
- assert.match(lyra.person,/^elf_nu_/);assert.equal(lyra.column,'spirit_moi');
+ assert.match(lyra.person,/^pt\/ELF_F0\d\//);assert.equal(lyra.column,'spirit_1');
  assert.equal(grom.person,'pt/BM_BEAR_M/gladiator_1');assert.equal(grom.column,'gladiator_1');
 });
 

@@ -131,7 +131,7 @@
     }
     return pool[hashName(ch.name) % pool.length];
   }
-  // ---------- illustrated portraits (artbook templates: Humans, Beastmen) ----------
+  // ---------- illustrated portraits (artbook templates: Humans, Beastmen, Elves, Dwarves) ----------
   // A Human life gets one artbook template (H01-H08, F01-F08) by birth (content/portraits/human.json):
   // mostly from the templates made for that birth, now and then from those that also suit it. Its looks:
   // baby, child, teen, adult, old, and each trade at three steps (T1 ranks 1-2, T2 ranks 3-4, T3 rank 5).
@@ -165,7 +165,7 @@
     const T = portraitTemplate(ch);
     if (!T) return null;
     const st = E.currentStage(ch).id;
-    const jobKey = (j) => PORTRAIT_TRADE[j.id] || j.id.replace(/^(human|bm)_/, "");
+    const jobKey = (j) => PORTRAIT_TRADE[j.id] || j.id.replace(/^(human|bm|elf|dwarf)_/, "");
     const ranksOf = (j) => ((D.jobs || []).find((x) => x.id === j.id) || {}).ranks;
     const trade = (j, tier) => [3, 2, 1].filter((t) => t <= tier).map((t) => `${jobKey(j)}_${t}`);
     if (peak) {
