@@ -1,0 +1,1053 @@
+{
+ "_note": "Tuyến truyện Silver Wolf Mercenary (Beastman): 5 chương theo bậc, ba đạo ở Bậc 2 (bmc_path_caravan / bmc_path_vanguard / bmc_path_pack), nhân vật xuyên suốt Brann Mắt Huyết (tộc Sói) và Hettie (trưởng đoàn buôn Human).",
+ "origins": [],
+ "events": [
+  {
+   "id": "bmc_c1_brann",
+   "races": [
+    "beastman"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "bm_merc",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "bmc_met_brann"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Brann",
+     "race": "Beastman tộc Sói",
+     "position": "Lính đánh thuê Mắt Huyết của Sói Bạc"
+    }
+   ],
+   "text": "Brann Mắt Huyết là lính đánh thuê Beastman đầu tiên được Thương hội Sói Bạc cho đeo huy hiệu bạc, một Beastman tộc Sói già với con mắt trái đỏ như máu đông. Lão ném cho bạn một ngọn giáo gỗ: “Ở Sói Bạc, người Human nhìn ngươi như nhìn chó giữ nhà. Hãy làm con chó giữ nhà giỏi nhất họ từng thấy.”",
+   "choices": [
+    {
+     "label": "Tập giáo đến khi tay rướm máu",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Đến tối, bạn đâm trúng hình nộm mười lần liền. Brann nheo con mắt đỏ: “Được. Giờ học cách không cần đâm.”",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "bmc_met_brann",
+        "bmc_brann_respect"
+       ]
+      },
+      "moment": "Được Brann Mắt Huyết nhận vào Sói Bạc"
+     },
+     "fail": {
+      "text": "Ngọn giáo gãy trong tay bạn. Brann ném cho bạn ngọn khác, không nói gì.",
+      "effects": {
+       "health": -5,
+       "flags": [
+        "bmc_met_brann"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi lão vì sao lão ở lại một nơi coi mình như chó",
+     "text": "Brann im lặng rất lâu. “Vì ở đây, họ trả tiền như trả cho người. Và vì nếu ta đi, sẽ không có Beastman nào khác được đeo huy hiệu này.” Lão chạm vào miếng bạc trên ngực, mòn vẹt.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "bmc_met_brann",
+       "bmc_brann_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmc_c1_hettie",
+   "races": [
+    "beastman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "bm_merc",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "bmc_met_brann"
+    ],
+    "notFlags": [
+     "bmc_met_hettie"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Hettie",
+     "race": "Human",
+     "position": "Trưởng đoàn buôn của Thương hội Sói Bạc"
+    }
+   ],
+   "text": "Hettie là trưởng đoàn buôn Human đầu tiên chịu thuê lính Beastman. Bà cao lớn, cười to, và đặt ra một luật duy nhất: “Ai bảo vệ hàng của ta thì ăn cùng mâm với ta.” Ở bữa tối đầu tiên, hai tay buôn Human đứng dậy bỏ đi khi bạn ngồi xuống.",
+   "choices": [
+    {
+     "label": "Đứng dậy nhường chỗ",
+     "text": "Hettie đập bàn: “Ngồi xuống!” Rồi bà quay sang hai tay buôn: “Đi đi, và tìm đoàn khác.” Họ ngồi xuống. Không ai đứng dậy nữa trong suốt chuyến đi.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1,
+      "flags": [
+       "bmc_met_hettie",
+       "bmc_hettie_friend"
+      ]
+     },
+     "moment": "Được Hettie giữ lại cùng mâm"
+    },
+    {
+     "label": "Ngồi yên, ăn tiếp",
+     "text": "Hettie cười to, gắp cho bạn miếng thịt ngon nhất mâm. “Đúng rồi. Kẻ nào đứng dậy là kẻ đói.”",
+     "effects": {
+      "joy": 4,
+      "jobXp": 1,
+      "flags": [
+       "bmc_met_hettie",
+       "bmc_hettie_friend"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmc_c2_first_ambush",
+   "races": [
+    "beastman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "bm_merc",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "bmc_first_ambush",
+     "bmc_end"
+    ]
+   },
+   "text": "Chuyến hộ tống đầu tiên của bạn bị phục kích ở đèo Răng Cưa. Bọn cướp là Beastman tộc Gấu, và chúng hét lên với bạn: “Phản bội! Ngươi giữ hàng cho người Human!”",
+   "choices": [
+    {
+     "label": "Giữ hàng",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn đánh lui bọn cướp mà không giết ai. Chúng bỏ chạy, chửi rủa bạn bằng tiếng Thảo Nguyên. Hettie vỗ vai bạn, không hỏi gì.",
+      "effects": {
+       "STR": 1,
+       "fame": 3,
+       "jobXp": 2,
+       "flags": [
+        "bmc_first_ambush",
+        "bmc_held_line"
+       ]
+      },
+      "moment": "Giữ đoàn buôn trước bọn cướp cùng tộc"
+     },
+     "fail": {
+      "text": "Bạn bị đánh ngã. Brann phải ra tay, và lão giết hai tên cướp. Bạn không biết nên cảm ơn hay oán trách.",
+      "effects": {
+       "health": -15,
+       "flags": [
+        "bmc_first_ambush"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Nói chuyện với bọn cướp bằng tiếng Thảo Nguyên",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Chúng đói, bộ lạc chúng mất đàn bò vì dịch. Bạn thuyết phục Hettie để lại hai bao lúa mì ở đầu đèo. Bọn cướp rút đi, và đèo Răng Cưa từ đó có một luật ngầm: đoàn của Hettie được qua.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 2,
+       "flags": [
+        "bmc_first_ambush",
+        "bmc_talked_down"
+       ]
+      },
+      "moment": "Thuyết phục bọn cướp đói để đoàn buôn đi qua"
+     },
+     "fail": {
+      "text": "Chúng không nghe một kẻ “phản bội”. Bạn phải đánh, và một tên cướp chết.",
+      "effects": {
+       "joy": -10,
+       "flags": [
+        "bmc_first_ambush"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmc_c2_crossroads",
+   "races": [
+    "beastman"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "bm_merc",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "bmc_path_caravan",
+     "bmc_path_vanguard",
+     "bmc_path_pack",
+     "bmc_end"
+    ]
+   },
+   "text": "Sau một năm, bạn được đeo huy hiệu bạc. Hettie muốn bạn làm trưởng đội hộ tống cho đoàn buôn của bà. Quân đội Sanctus muốn thuê lính Sói Bạc làm mũi tiên phong ở biên giới. Và một nhóm lính Beastman trẻ, chán bị coi như chó giữ nhà, muốn bạn dẫn họ lập một đoàn của riêng mình.",
+   "choices": [
+    {
+     "label": "Làm trưởng đội hộ tống cho Hettie: Hộ Tống",
+     "text": "Bạn đi trước đoàn xe, đánh hơi những con đường, chọn những nơi cắm trại. Hettie gọi bạn là “mũi của đoàn”, và bà nói điều đó với vẻ tự hào.",
+     "effects": {
+      "wealth": 8,
+      "jobXp": 2,
+      "flags": [
+       "bmc_path_caravan"
+      ]
+     },
+     "moment": "Trở thành trưởng đội hộ tống của Hettie"
+    },
+    {
+     "label": "Làm mũi tiên phong cho quân đội: Tiên Phong",
+     "text": "Lính Human đi sau bạn. Họ cần bạn đánh hơi phục kích, chạy nhanh hơn ngựa, và chết trước họ nếu cần. Lương gấp ba.",
+     "effects": {
+      "STR": 1,
+      "wealth": 12,
+      "jobXp": 2,
+      "flags": [
+       "bmc_path_vanguard"
+      ]
+     },
+     "moment": "Làm mũi tiên phong cho quân đội Sanctus"
+    },
+    {
+     "label": "Lập đoàn riêng: Bầy Của Riêng",
+     "text": "Mười hai Beastman, mười hai ngọn giáo, và một lá cờ vẽ hình móng vuốt. Brann nhìn các bạn đi, con mắt đỏ ánh lên một điều gì đó giống như tự hào, hoặc lo lắng.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 2,
+      "flags": [
+       "bmc_path_pack"
+      ]
+     },
+     "moment": "Lập đoàn lính đánh thuê toàn Beastman"
+    }
+   ]
+  },
+  {
+   "id": "bmc_caravan_cargo",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_merc",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bmc_path_caravan"
+    ],
+    "notFlags": [
+     "bmc_end"
+    ]
+   },
+   "text": "Hettie chở một lô hàng mà bà không cho bạn biết bên trong là gì. Đêm ấy, bạn ngửi thấy mùi của Beastman trong những chiếc thùng.",
+   "choices": [
+    {
+     "label": "Mở thùng ra xem",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bên trong là những bộ da thú: da của Beastman. Hettie tái mặt khi bạn cho bà xem. Bà không biết. Bà đổ cả lô hàng xuống sông, và kiện thương hội đã giao nó cho bà.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "bmc_found_skins",
+        "bmc_hettie_friend"
+       ]
+      },
+      "moment": "Phát hiện lô da Beastman giấu trong hàng của đoàn"
+     },
+     "fail": {
+      "text": "Bên trong chỉ là da bò. Mũi bạn đã nhầm. Hettie cười, nhưng có gì đó trong ánh mắt bà khác đi.",
+      "effects": {
+       "joy": -6,
+       "flags": [
+        "bmc_hettie_doubt"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi thẳng Hettie",
+     "text": "Hettie nhìn bạn rất lâu, rồi mở một thùng ra. Bên trong là những đứa trẻ Beastman đang ngủ. Bà đang buôn lậu chúng ra khỏi vùng có dịch bệnh, đến một trại tị nạn ở Đồng Bằng. “Ta không nói vì ta không biết ngươi tin ai.”",
+     "effects": {
+      "joy": 10,
+      "jobXp": 3,
+      "flags": [
+       "bmc_hettie_secret",
+       "bmc_hettie_friend"
+      ]
+     },
+     "moment": "Biết bí mật những đứa trẻ trong thùng hàng của Hettie"
+    }
+   ]
+  },
+  {
+   "id": "bmc_caravan_desert",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_merc",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bmc_path_caravan"
+    ],
+    "notFlags": [
+     "bmc_end"
+    ]
+   },
+   "text": "Đoàn xe lạc giữa sa mạc phía nam sau một trận bão cát. Nước chỉ còn đủ cho ba ngày. Những người buôn Human nhìn bạn: một Beastman, có lẽ biết cách tìm nước.",
+   "choices": [
+    {
+     "label": "Đánh hơi tìm nước",
+     "require": {
+      "subtype": "dog"
+     },
+     "text": "Mũi tộc Chó bắt được mùi ẩm rất xa, sau ba ngọn đồi cát. Bạn dẫn cả đoàn đến một ốc đảo nhỏ. Những người buôn Human quỳ xuống uống nước, và một người vỗ vai bạn như vỗ vai người cùng quê.",
+     "effects": {
+      "fame": 6,
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "bmc_desert_saved"
+      ]
+     }
+    },
+    {
+     "label": "Đi trước tìm đường",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn chạy suốt đêm dưới ánh sao, và tìm thấy một con đường mòn của thương lái. Đoàn xe ra khỏi sa mạc với giọt nước cuối cùng.",
+      "effects": {
+       "AGI": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "bmc_desert_saved"
+       ]
+      },
+      "moment": "Dẫn đoàn buôn thoát khỏi sa mạc"
+     },
+     "fail": {
+      "text": "Bạn tìm được đường, nhưng quá muộn với hai con lạc đà và một người già.",
+      "effects": {
+       "health": -15,
+       "joy": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmc_vanguard_bait",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_merc",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bmc_path_vanguard"
+    ],
+    "notFlags": [
+     "bmc_end"
+    ]
+   },
+   "text": "Viên tướng Human ra lệnh cho đội Beastman tiên phong của bạn làm mồi nhử, dụ quân Orc vào bẫy. Kế hoạch tốt. Nhưng bạn đọc được trên bản đồ: không có lối rút lui nào cho đội mồi.",
+   "choices": [
+    {
+     "label": "Tuân lệnh, tự tìm lối rút",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn dụ quân Orc vào bẫy, rồi dẫn đội mình rút qua một khe đá mà chỉ người Thảo Nguyên biết. Viên tướng ngạc nhiên khi thấy cả đội trở về. Ông ta không xin lỗi, nhưng lần sau ông ta hỏi ý bạn trước.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "bmc_vanguard_survived"
+       ]
+      },
+      "moment": "Làm mồi nhử và đưa cả đội Beastman trở về"
+     },
+     "fail": {
+      "text": "Khe đá bị chặn. Bạn mất bốn người.",
+      "effects": {
+       "health": -15,
+       "joy": -15,
+       "flags": [
+        "bmc_vanguard_losses"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đòi tướng cho thêm lối rút",
+     "text": "Viên tướng giận dữ, nhưng ông ta cần đội của bạn. Ông ta gửi thêm một toán kỵ binh chờ ở cuối hẻm núi. Trận đánh thắng, và đội của bạn trở về đủ.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2,
+      "flags": [
+       "bmc_vanguard_survived"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmc_vanguard_kin",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_merc",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bmc_path_vanguard"
+    ],
+    "notFlags": [
+     "bmc_end"
+    ]
+   },
+   "text": "Đạo quân đối phương có một đội Beastman tộc Sói đánh thuê. Đêm trước trận, thủ lĩnh của họ lẻn sang trại bạn: “Ngày mai, ta và ngươi sẽ giết nhau vì người Human. Hay là không?”",
+   "choices": [
+    {
+     "label": "Thỏa thuận: cả hai đội rút khỏi trận",
+     "text": "Sáng hôm sau, hai đội Beastman cùng rút lui khỏi chiến trường. Cả hai vị tướng Human đều nổi giận. Cả hai đều phạt lính của mình. Không ai chết.",
+     "effects": {
+      "joy": 8,
+      "fame": -3,
+      "jobXp": 3,
+      "flags": [
+       "bmc_kin_truce"
+      ]
+     },
+     "moment": "Thỏa thuận cùng đội Beastman bên kia rút khỏi trận"
+    },
+    {
+     "label": "Từ chối: hợp đồng là hợp đồng",
+     "text": "Hai đội đánh nhau dữ dội nhất trận. Đội của bạn thắng. Bạn chôn thủ lĩnh đội kia theo nghi thức tộc Sói.",
+     "effects": {
+      "fame": 5,
+      "joy": -12,
+      "jobXp": 3,
+      "flags": [
+       "bmc_kin_fought"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmc_pack_contract",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_merc",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bmc_path_pack"
+    ],
+    "notFlags": [
+     "bmc_end"
+    ]
+   },
+   "text": "Đoàn Beastman của bạn nhận hợp đồng đầu tiên lớn: bảo vệ một mỏ muối. Chủ mỏ là người Human, và ông ta trả cho đoàn bạn một nửa giá của đoàn Human làm cùng việc.",
+   "choices": [
+    {
+     "label": "Nhận, rồi làm tốt hơn đoàn Human",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Ba tháng, không một vụ cướp nào. Chủ mỏ gia hạn hợp đồng, lần này trả đủ giá. Tin lan đi: đoàn Beastman không rẻ, nhưng đáng tiền.",
+      "effects": {
+       "STR": 1,
+       "fame": 6,
+       "wealth": 10,
+       "jobXp": 3,
+       "flags": [
+        "bmc_pack_earned"
+       ]
+      },
+      "moment": "Giữ mỏ muối ba tháng không một vụ cướp"
+     },
+     "fail": {
+      "text": "Một vụ cướp xảy ra trong ca của bạn. Chủ mỏ trừ tiền, và nói “đáng lẽ phải biết”.",
+      "effects": {
+       "wealth": -5,
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Từ chối, đòi giá ngang bằng",
+     "text": "Chủ mỏ thuê đoàn Human. Hai tháng sau, mỏ bị cướp. Ông ta quay lại tìm bạn, và trả đủ giá.",
+     "effects": {
+      "joy": 6,
+      "fame": 4,
+      "jobXp": 3,
+      "flags": [
+       "bmc_pack_equal_pay"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmc_pack_brann",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_merc",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bmc_path_pack",
+     "bmc_met_brann"
+    ],
+    "notFlags": [
+     "bmc_end"
+    ]
+   },
+   "text": "Brann Mắt Huyết đến trại của đoàn bạn, một mình. Thương hội Sói Bạc đã tước huy hiệu bạc của lão sau ba mươi năm, vì lão từ chối một hợp đồng tấn công làng Beastman.",
+   "choices": [
+    {
+     "label": "Mời lão gia nhập đoàn",
+     "text": "Brann nhìn lá cờ móng vuốt rất lâu. Rồi lão tháo dây đeo huy hiệu, giờ chỉ còn sợi dây trống, và treo nó lên cột cờ. “Ta già rồi. Nhưng ta còn đâm được.”",
+     "effects": {
+      "fame": 6,
+      "joy": 10,
+      "jobXp": 3,
+      "flags": [
+       "bmc_brann_joined"
+      ]
+     },
+     "moment": "Đón Brann Mắt Huyết gia nhập đoàn Beastman"
+    },
+    {
+     "label": "Mời lão làm thầy dạy cho đoàn",
+     "text": "Brann dạy lính trẻ những gì lão đã học trong ba mươi năm làm “chó giữ nhà giỏi nhất”. Bài học đầu tiên: “Đừng bao giờ để ai trả ngươi một nửa.”",
+     "effects": {
+      "INT": 1,
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "bmc_brann_joined"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmc_c4_brann",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_merc",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "bmc_met_brann"
+    ],
+    "notFlags": [
+     "bmc_brann_gone",
+     "bmc_end"
+    ]
+   },
+   "text": "Brann Mắt Huyết đã quá già. Lão gọi bạn đến, đưa cho bạn ngọn giáo gỗ mà lão đã ném cho bạn ngày đầu tiên.",
+   "choices": [
+    {
+     "label": "Nhận ngọn giáo, ở bên lão đến cuối",
+     "text": "Brann kể về ba mươi năm đeo huy hiệu bạc, về những người Human đã coi lão như người, và những người coi lão như chó. Lão mất trước bình minh, con mắt đỏ nhắm lại lần cuối.",
+     "effects": {
+      "joy": -3,
+      "jobXp": 3,
+      "flags": [
+       "bmc_brann_gone"
+      ]
+     },
+     "moment": "Nhận ngọn giáo gỗ từ tay Brann Mắt Huyết"
+    },
+    {
+     "label": "Đưa lão về Thảo Nguyên",
+     "text": "Lão không về Thảo Nguyên đã năm mươi năm. Lão mất trên xe, khi vừa ngửi thấy mùi cỏ khô của quê nhà.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 3,
+      "flags": [
+       "bmc_brann_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmc_c4_siege",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_merc",
+    "free": true,
+    "jobRank": 3,
+    "notFlags": [
+     "bmc_end"
+    ]
+   },
+   "text": "Một thành phố biên giới bị Ma tộc vây. Thương hội Sói Bạc nhận hợp đồng giữ thành, và giao cho bạn chỉ huy cổng phía bắc. Lính dưới quyền bạn có cả Human lẫn Beastman, và họ không tin nhau.",
+   "choices": [
+    {
+     "label": "Xếp Human và Beastman đứng xen kẽ",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đặt một Human cạnh một Beastman, suốt dọc tường thành. Ngày đầu họ cãi nhau. Ngày thứ năm, họ chia nhau bánh mì. Ngày thứ mười, khi Ma tộc rút lui, họ cùng uống rượu trên tường thành.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "jobXp": 4,
+       "flags": [
+        "bmc_siege_united"
+       ]
+      },
+      "moment": "Giữ cổng thành với lính Human và Beastman đứng xen kẽ"
+     },
+     "fail": {
+      "text": "Một trận cãi nhau biến thành ẩu đả giữa trận. Cổng vẫn giữ được, nhưng nhiều người bị thương vì nhau.",
+      "effects": {
+       "health": -15,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Tự mình đứng ở chỗ nguy hiểm nhất",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đứng ở cổng mười ngày, ngủ dựa vào tường thành. Lính Human và Beastman đều nhìn thấy, và không ai dám lùi bước khi người chỉ huy không lùi.",
+      "effects": {
+       "STR": 1,
+       "fame": 8,
+       "health": -15,
+       "jobXp": 4,
+       "flags": [
+        "bmc_siege_held"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn bị thương nặng ở ngày thứ ba. Cổng vẫn giữ được, nhờ người khác.",
+      "effects": {
+       "health": -30
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmc_c5_caravan",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_merc",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bmc_path_caravan"
+    ],
+    "notFlags": [
+     "bmc_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Silver Wolf Bloodeye, như Brann năm xưa. Hettie đã già, và bà muốn trao lại đoàn buôn cho bạn: đoàn buôn đầu tiên ở Sanctus có trưởng đoàn là Beastman.",
+   "choices": [
+    {
+     "label": "Nhận đoàn buôn",
+     "text": "Ngày đầu tiên, bạn ngồi ở đầu mâm, và mời mọi người ngồi xuống. Một tay buôn Human đứng dậy bỏ đi. Bạn nói, như Hettie từng nói: “Kẻ nào đứng dậy là kẻ đói.” Hắn ngồi xuống.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "wealth": 20,
+      "flags": [
+       "bmc_end",
+       "bmc_end_caravan_master"
+      ]
+     },
+     "moment": "Trở thành trưởng đoàn buôn Beastman đầu tiên ở Sanctus"
+    },
+    {
+     "label": "Đưa những đứa trẻ trong thùng hàng về",
+     "require": {
+      "flags": [
+       "bmc_hettie_secret"
+      ]
+     },
+     "text": "Những đứa trẻ năm ấy giờ đã lớn, sống ở trại tị nạn Đồng Bằng. Bạn và Hettie dẫn chúng về Thảo Nguyên, trong chuyến đi cuối cùng của bà.",
+     "effects": {
+      "joy": 20,
+      "fame": 10,
+      "flags": [
+       "bmc_end",
+       "bmc_end_children_home"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmc_c5_vanguard",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_merc",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bmc_path_vanguard"
+    ],
+    "notFlags": [
+     "bmc_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Silver Wolf Bloodeye. Quân đội Sanctus muốn phong cho bạn quân hàm, lần đầu tiên cho một Beastman.",
+   "choices": [
+    {
+     "label": "Nhận, và đòi quân hàm cho mọi lính Beastman đã chiến đấu",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Ba tháng thương lượng. Cuối cùng, năm mươi lính Beastman được phong quân hàm cùng bạn. Họ đứng thành hàng trong lễ phong, và quân nhạc Sanctus chơi một bài hát Thảo Nguyên.",
+      "effects": {
+       "fame": 15,
+       "joy": 15,
+       "flags": [
+        "bmc_end",
+        "bmc_end_officers"
+       ]
+      },
+      "moment": "Đòi được quân hàm cho năm mươi lính Beastman"
+     },
+     "fail": {
+      "text": "Quân đội chỉ phong cho bạn. Bạn từ chối, và trở về Thảo Nguyên.",
+      "effects": {
+       "fame": 10,
+       "joy": 4,
+       "flags": [
+        "bmc_end",
+        "bmc_end_refused_rank"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Từ chối, về Thảo Nguyên",
+     "text": "Bạn đã chiến đấu đủ cho người khác. Bạn về, và dạy lũ trẻ cách đâm giáo, cách đánh hơi phục kích, và cách đòi được trả giá đầy đủ.",
+     "effects": {
+      "joy": 15,
+      "fame": 8,
+      "flags": [
+       "bmc_end",
+       "bmc_end_home"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmc_c5_pack",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_merc",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bmc_path_pack"
+    ],
+    "notFlags": [
+     "bmc_end"
+    ]
+   },
+   "text": "Đoàn Beastman của bạn giờ có ba trăm người, và là đoàn lính đánh thuê được tin cậy nhất Aethelgard. Người ta gọi bạn là Silver Wolf Bloodeye. Thương hội Sói Bạc đề nghị sáp nhập.",
+   "choices": [
+    {
+     "label": "Từ chối, giữ lá cờ móng vuốt",
+     "text": "Đoàn của bạn vẫn đi dưới lá cờ của riêng mình. Mỗi khi ký hợp đồng, bạn đọc to điều đầu tiên trong điều lệ: “Không ai trả chúng ta một nửa.”",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "bmc_end",
+       "bmc_end_claw_flag"
+      ]
+     },
+     "moment": "Giữ lá cờ móng vuốt độc lập"
+    },
+    {
+     "label": "Sáp nhập, với điều kiện Beastman ngang hàng Human",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Thương hội chấp nhận. Lần đầu tiên, Sói Bạc có Beastman trong Hội đồng. Sợi dây huy hiệu trống của Brann được treo lên tường phòng họp.",
+      "effects": {
+       "fame": 15,
+       "joy": 12,
+       "flags": [
+        "bmc_end",
+        "bmc_end_merged"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Thương hội không chấp nhận. Bạn giữ đoàn độc lập.",
+      "effects": {
+       "fame": 10,
+       "flags": [
+        "bmc_end",
+        "bmc_end_claw_flag"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmc_daily_collar",
+   "races": [
+    "beastman"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "bm_merc",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một khách hàng Human đòi bạn đeo vòng cổ có khắc tên ông ta trong suốt hợp đồng, “cho dễ nhận diện”.",
+   "choices": [
+    {
+     "label": "Từ chối",
+     "text": "Ông ta tìm lính khác. Đám lính Beastman nghe chuyện, cười khục khặc suốt bữa tối.",
+     "effects": {
+      "joy": 6,
+      "wealth": -3
+     }
+    },
+    {
+     "label": "Đeo, nhưng tháo ra khi xong việc",
+     "text": "Bạn đeo nó ba tuần. Khi tháo ra, bạn đốt nó trong lửa trại.",
+     "effects": {
+      "wealth": 5,
+      "joy": -6
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmc_daily_tavern",
+   "races": [
+    "beastman"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "bm_merc",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Ở quán rượu, một lính Human say khướt gọi bạn là “con chó” trước mặt cả quán.",
+   "choices": [
+    {
+     "label": "Mặc kệ",
+     "text": "Bạn uống hết ly của mình rồi đi về. Sáng hôm sau, gã lính tỉnh rượu, nhận ra bạn là người đã cứu đội của gã tuần trước, và đỏ mặt cả buổi.",
+     "effects": {
+      "joy": 2
+     }
+    },
+    {
+     "label": "Thách đấu vật tay",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn thắng ba lần liền. Gã lính xin lỗi và mời bạn một ly.",
+      "effects": {
+       "fame": 2,
+       "joy": 6
+      }
+     },
+     "fail": {
+      "text": "Gã thắng. Cả quán cười. Gã mời bạn một ly vì thấy tội.",
+      "effects": {
+       "joy": -2
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmc_daily_war_contract",
+   "races": [
+    "beastman"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "bm_merc",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh khiến hợp đồng lính đánh thuê tăng gấp ba. Một vương quốc trả giá cao cho lính Beastman đánh vào Thảo Nguyên.",
+   "choices": [
+    {
+     "label": "Từ chối",
+     "text": "Bạn không bao giờ cầm giáo chống lại Thảo Nguyên. Một lính già tộc Sói gật đầu với bạn qua lửa trại.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Nhận hợp đồng của phía bên kia, bảo vệ Thảo Nguyên",
+     "text": "Lương thấp hơn, nhưng bạn chiến đấu cho những ngọn đồi nơi mình sinh ra.",
+     "effects": {
+      "fame": 5,
+      "wealth": 5,
+      "health": -12,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmc_daily_old_spear",
+   "races": [
+    "beastman"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "bm_merc",
+    "free": true
+   },
+   "text": "Ngọn giáo đã nặng hơn trong tay bạn. Sáng nay, một lính trẻ hỏi bạn có muốn nghỉ không.",
+   "choices": [
+    {
+     "label": "Nghỉ, giữ trại",
+     "text": "Bạn ở lại trại, nấu cháo, sửa giáp, kể chuyện. Mỗi lần đoàn trở về, bạn đếm số người.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Chưa",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn đi thêm một chuyến nữa. Rồi một chuyến nữa. Rồi bạn cũng phải nghỉ, nhưng không phải hôm nay.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1
+      }
+     },
+     "fail": {
+      "text": "Bạn ngã ở chặng đầu. Lính trẻ dìu bạn về trại.",
+      "effects": {
+       "health": -10,
+       "joy": -4
+      }
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1117 @@
+{
+ "_note": "Tuyến truyện Tribal Mage (Beastman): 5 chương theo bậc, ba đạo ở Bậc 2 (bmm_path_stone / bmm_path_tower / bmm_path_hex), nhân vật xuyên suốt lão Hoth (tộc Cáo) và Isolde Fenn (pháp sư Tháp Ngà).",
+ "origins": [],
+ "events": [
+  {
+   "id": "bmm_c1_hoth",
+   "races": [
+    "beastman"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "bm_mage",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "bmm_met_hoth"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Hoth",
+     "race": "Beastman tộc Cáo",
+     "position": "Thợ khắc rune ẩn cư trên núi"
+    }
+   ],
+   "text": "Lão Hoth sống một mình trên sườn núi, giữa hàng trăm tảng đá khắc rune mà bộ lạc gọi là “đá điên”. Lão là một Beastman tộc Cáo già, đuôi đã rụng gần hết lông. Lão đưa cho bạn một cái đục và một hòn đá trơn: “Khắc tên ngươi. Nhưng không bằng chữ. Bằng thứ ngươi là.”",
+   "choices": [
+    {
+     "label": "Khắc hình ngọn lửa",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn khắc một ngọn lửa nhỏ. Khi đường đục cuối cùng chạm vào đá, hòn đá ấm lên trong tay bạn. Lão Hoth nheo mắt: “Rune Lửa. Không phải ai cũng tự tìm ra rune đầu tiên của mình.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "bmm_met_hoth",
+        "bmm_rune_fire"
+       ]
+      },
+      "moment": "Tự khắc được rune đầu tiên trên đá"
+     },
+     "fail": {
+      "text": "Hòn đá vẫn lạnh. Lão Hoth bảo bạn khắc lại mỗi ngày, đến khi nó ấm lên. Mất ba tháng.",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "bmm_met_hoth"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Khắc hình tai và đuôi của tộc mình",
+     "text": "Đường đục của bạn vụng, nhưng hòn đá rung lên rất khẽ, như một con thú vừa thức dậy. Lão Hoth gật đầu: “Rune Máu. Ngươi khắc thứ ngươi là. Đúng rồi.”",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 1,
+      "flags": [
+       "bmm_met_hoth",
+       "bmm_rune_blood"
+      ]
+     }
+    },
+    {
+     "label": "Hỏi vì sao bộ lạc gọi đây là đá điên",
+     "text": "Lão Hoth cười. “Vì năm mươi năm trước, một tảng đá của ta làm cháy lều của tộc trưởng. Từ đó họ gọi ta là điên. Ta thì gọi đó là thành công đầu tiên.”",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1,
+      "flags": [
+       "bmm_met_hoth"
+      ]
+     },
+     "moment": "Nghe lão Hoth kể về tảng đá làm cháy lều tộc trưởng"
+    }
+   ]
+  },
+  {
+   "id": "bmm_c1_isolde",
+   "races": [
+    "beastman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "bm_mage",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "bmm_met_hoth"
+    ],
+    "notFlags": [
+     "bmm_met_isolde"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Isolde Fenn",
+     "race": "Human",
+     "position": "Pháp sư Tháp Ngà nghiên cứu rune Beastman"
+    }
+   ],
+   "text": "Một pháp sư Tháp Ngà tên Isolde Fenn đến Thảo Nguyên để nghiên cứu “ma thuật nguyên thủy của Beastman”. Cô ta mang theo sổ ghi chép và một cái thước đo, và đo cả đuôi của bạn trước khi kịp xin phép.",
+   "choices": [
+    {
+     "label": "Giật lấy sổ của cô ta",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn đọc lướt: những dòng ghi chép coi Beastman như mẫu vật. Bạn trả lại sổ, kèm một câu: “Nếu muốn học, hãy học như học trò, không phải như thợ săn.” Isolde đỏ mặt. Tuần sau, cô ta quay lại, không mang thước.",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 1,
+       "flags": [
+        "bmm_met_isolde",
+        "bmm_isolde_humbled"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Cô ta giữ chặt sổ. Hai người nhìn nhau như hai con mèo trên mái nhà.",
+      "effects": {
+       "joy": -3,
+       "flags": [
+        "bmm_met_isolde"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Cho cô ta xem một hòn đá rune",
+     "text": "Isolde cầm hòn đá, mặt biến sắc. “Đây là… cấu trúc mana này không có trong bất kỳ sách nào của Tháp Ngà.” Từ đó, cô ta lên núi mỗi tuần, ngồi cạnh lão Hoth, và ghi chép như một học trò.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "bmm_met_isolde",
+       "bmm_isolde_friend"
+      ]
+     },
+     "moment": "Cho pháp sư Tháp Ngà Isolde Fenn xem đá rune"
+    }
+   ]
+  },
+  {
+   "id": "bmm_c2_first_ward",
+   "races": [
+    "beastman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "bm_mage",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "bmm_first_ward",
+     "bmm_end"
+    ]
+   },
+   "text": "Bầy Hắc Lang đột kích trại mỗi đêm trăng non. Tộc trưởng, người từng gọi lão Hoth là điên, đến xin một hàng rào rune để bảo vệ trại.",
+   "choices": [
+    {
+     "label": "Khắc hàng rào rune quanh trại",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn khắc ba mươi hòn đá, đặt quanh trại thành vòng tròn. Đêm trăng non, bầy Hắc Lang dừng lại ở mép vòng tròn, gầm gừ, rồi bỏ đi. Tộc trưởng leo lên núi xin lỗi lão Hoth, sau năm mươi năm.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 2,
+       "flags": [
+        "bmm_first_ward"
+       ]
+      },
+      "moment": "Khắc hàng rào rune bảo vệ trại khỏi Hắc Lang"
+     },
+     "fail": {
+      "text": "Một hòn đá khắc sai. Bầy Hắc Lang đi qua đúng chỗ ấy. Trại mất ba con dê.",
+      "effects": {
+       "joy": -8,
+       "flags": [
+        "bmm_first_ward"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Từ chối: ông ta đã gọi thầy ta là điên",
+     "text": "Tộc trưởng bỏ về. Lão Hoth nghe chuyện, lắc đầu, rồi tự xuống núi khắc hàng rào cho trại. “Điên thì điên. Dê thì vẫn là dê.”",
+     "effects": {
+      "joy": -2,
+      "jobXp": 1,
+      "flags": [
+       "bmm_first_ward",
+       "bmm_hoth_lesson"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmm_c2_crossroads",
+   "races": [
+    "beastman"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "bm_mage",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "bmm_path_stone",
+     "bmm_path_tower",
+     "bmm_path_hex",
+     "bmm_end"
+    ]
+   },
+   "text": "Lão Hoth chỉ cho bạn ba tảng đá trên sườn núi. Tảng thứ nhất khắc rune của tổ tiên, cổ đến mức không ai còn đọc được hết. Tảng thứ hai là quà của Isolde: một tấm bia khắc cả rune Beastman lẫn chữ Tháp Ngà, thư mời bạn đến Sanctus. Tảng thứ ba nứt đôi, và vết nứt tỏa ra hơi lạnh. Lão Hoth không nói gì về nó.",
+   "choices": [
+    {
+     "label": "Đọc rune tổ tiên: Đá Rune Tổ Tiên",
+     "text": "Bạn ngồi trước tảng đá cổ suốt một mùa, mỗi ngày đọc được một nét. Lão Hoth mang cơm lên cho bạn mỗi tối, không hỏi gì.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "bmm_path_stone"
+      ]
+     },
+     "moment": "Bắt đầu giải mã rune của tổ tiên"
+    },
+    {
+     "label": "Đến Tháp Ngà: Cầu Nối",
+     "text": "Bạn là Beastman đầu tiên bước vào Tháp Ngà với tư cách học giả. Ở cổng, lính gác đòi xem giấy tờ ba lần. Isolde đứng chờ ở bậc thềm, cười.",
+     "effects": {
+      "INT": 1,
+      "fame": 4,
+      "jobXp": 2,
+      "flags": [
+       "bmm_path_tower"
+      ]
+     },
+     "moment": "Bước vào Tháp Ngà với tư cách học giả Beastman"
+    },
+    {
+     "label": "Chạm vào tảng đá nứt: Phù Thủy Nguyền",
+     "text": "Hơi lạnh chạy dọc cánh tay bạn đến tận tim. Bạn hiểu ra: có những rune không bảo vệ, không chữa lành, chỉ làm hại. Và chúng mạnh hơn mọi rune khác.",
+     "effects": {
+      "STR": 1,
+      "lifeCost": 2,
+      "jobXp": 2,
+      "flags": [
+       "bmm_path_hex"
+      ]
+     },
+     "moment": "Chạm vào tảng đá nguyền của lão Hoth"
+    }
+   ]
+  },
+  {
+   "id": "bmm_stone_ancient",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_mage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bmm_path_stone"
+    ],
+    "notFlags": [
+     "bmm_end"
+    ]
+   },
+   "text": "Rune trên tảng đá cổ kể về một trận động đất đã nuốt chửng một bộ lạc cách đây một nghìn năm, và lời cảnh báo rằng nó sẽ trở lại khi “con sông đổi màu”. Sáng nay, con sông dưới chân núi đỏ như máu vì đất sét sạt lở.",
+   "choices": [
+    {
+     "label": "Báo cho các bộ lạc dời đi",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Phần lớn các bộ lạc tin bạn, nhờ hàng rào rune năm nào. Họ dời đi ba ngày trước khi đất nứt. Thung lũng cũ sụp xuống, nhưng không ai ở đó.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "bmm_stone_prophecy"
+       ]
+      },
+      "moment": "Đọc rune tổ tiên cảnh báo động đất cứu các bộ lạc"
+     },
+     "fail": {
+      "text": "Chỉ một nửa bộ lạc tin bạn. Một nửa còn lại ở lại, và không phải ai cũng thoát.",
+      "effects": {
+       "fame": 5,
+       "joy": -15,
+       "flags": [
+        "bmm_stone_prophecy"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Khắc rune giữ đất",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn khắc suốt ba ngày, đóng mười hai tảng đá rune xuống lòng thung lũng. Khi đất rung lên, nó chỉ nứt một đường nhỏ, rồi lặng.",
+      "effects": {
+       "STR": 1,
+       "fame": 8,
+       "lifeCost": 3,
+       "jobXp": 3,
+       "flags": [
+        "bmm_stone_held"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Rune không đủ mạnh. Đất vẫn nứt, và bạn bị thương khi chạy khỏi thung lũng.",
+      "effects": {
+       "health": -20
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmm_stone_hoth_secret",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_mage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bmm_path_stone",
+     "bmm_met_hoth"
+    ],
+    "notFlags": [
+     "bmm_end"
+    ]
+   },
+   "text": "Bạn phát hiện ra lão Hoth không chỉ khắc đá. Dưới lều của lão có một hầm chứa hàng trăm tảng đá rune khắc tên những Beastman đã chết, mỗi tảng giữ một chút hơi ấm.",
+   "choices": [
+    {
+     "label": "Hỏi lão",
+     "text": "Lão Hoth im lặng rất lâu, rồi kể: đó là những người lão không cứu được. Lão khắc tên họ để họ không bị quên. Lão giao cho bạn một cái đục mới: “Khi ta chết, ngươi khắc tên ta.”",
+     "effects": {
+      "joy": -2,
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "bmm_hoth_secret"
+      ]
+     },
+     "moment": "Biết về hầm đá khắc tên người đã khuất của lão Hoth"
+    },
+    {
+     "label": "Lặng lẽ khắc thêm một tảng cho người bạn đã mất",
+     "text": "Bạn khắc tên một người bạn thời thơ ấu, chết vì sốt. Tảng đá ấm lên. Sáng hôm sau, lão Hoth thấy nó, và đặt nó vào hàng đầu tiên.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 2,
+      "flags": [
+       "bmm_hoth_secret"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmm_tower_prejudice",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_mage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bmm_path_tower"
+    ],
+    "notFlags": [
+     "bmm_end"
+    ]
+   },
+   "text": "Ở Tháp Ngà, một giáo sư từ chối chấm bài của bạn, nói rằng “Beastman chỉ biết bắt chước”. Bài của bạn là nghiên cứu đầu tiên chứng minh rune Beastman và phép thuật Tháp Ngà có chung một gốc.",
+   "choices": [
+    {
+     "label": "Biểu diễn trước Hội đồng",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn khắc một rune Beastman và một vòng tròn Tháp Ngà cạnh nhau, rồi cho mana chạy qua cả hai. Chúng hòa vào nhau như hai con sông. Hội đồng im lặng. Vị giáo sư rời phòng, và không quay lại trong một tuần.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "bmm_tower_proved"
+       ]
+      },
+      "moment": "Chứng minh rune Beastman và phép Tháp Ngà chung một gốc"
+     },
+     "fail": {
+      "text": "Mana chạy lệch. Hai rune nổ tung. Vị giáo sư cười: “Bắt chước, đúng như ta nói.”",
+      "effects": {
+       "health": -10,
+       "fame": -4
+      }
+     }
+    },
+    {
+     "label": "Nhờ Isolde nộp bài dưới tên cô ta",
+     "require": {
+      "flags": [
+       "bmm_met_isolde"
+      ]
+     },
+     "text": "Isolde từ chối. “Không. Nếu nó được công nhận, nó phải mang tên ngươi.” Cô ta đi gặp từng thành viên Hội đồng, một tháng liền. Bài của bạn được chấm, và được khen.",
+     "effects": {
+      "fame": 6,
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "bmm_tower_proved",
+       "bmm_isolde_friend"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmm_tower_theft",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_mage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bmm_path_tower"
+    ],
+    "notFlags": [
+     "bmm_end"
+    ]
+   },
+   "text": "Tháp Ngà muốn mua toàn bộ đá rune của lão Hoth để nghiên cứu, với giá đủ nuôi cả bộ lạc mười năm. Lão Hoth đã từ chối. Giờ họ nhờ bạn thuyết phục lão.",
+   "choices": [
+    {
+     "label": "Từ chối giúp Tháp Ngà",
+     "text": "Tháp Ngà không vui, nhưng không làm gì được. Lão Hoth nghe chuyện, gửi xuống cho bạn một hòn đá nhỏ khắc rune Lửa, hòn đá đầu tiên bạn khắc.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 2,
+      "flags": [
+       "bmm_loyal_hoth"
+      ]
+     }
+    },
+    {
+     "label": "Đề nghị một cách khác: Tháp Ngà gửi học trò lên núi học",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Cả Tháp Ngà lẫn lão Hoth đều đồng ý. Mỗi năm, ba học trò Tháp Ngà lên núi, mang theo lương thực và sách vở. Lão Hoth có học trò, bộ lạc có lương thực, Tháp Ngà có tri thức.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "bmm_tower_bridge"
+       ]
+      },
+      "moment": "Mở đường cho học trò Tháp Ngà lên núi học rune"
+     },
+     "fail": {
+      "text": "Lão Hoth không muốn người lạ lên núi. Thỏa thuận đổ vỡ.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmm_hex_revenge",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_mage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bmm_path_hex"
+    ],
+    "notFlags": [
+     "bmm_end"
+    ]
+   },
+   "text": "Một lãnh chúa Human đã đốt một trại Beastman để lấy đất. Những người sống sót tìm đến bạn: họ biết bạn có thể khắc rune nguyền.",
+   "choices": [
+    {
+     "label": "Khắc rune nguyền lên đất của hắn",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn chôn một hòn đá dưới ruộng của hắn. Mùa sau, lúa không mọc. Mùa sau nữa, giếng cạn. Năm thứ ba, hắn bán đất và rời đi. Những người sống sót trở về.",
+      "effects": {
+       "INT": 1,
+       "fame": 4,
+       "lifeCost": 2,
+       "jobXp": 3,
+       "flags": [
+        "bmm_hex_land"
+       ]
+      },
+      "moment": "Nguyền đất của lãnh chúa đã đốt trại Beastman"
+     },
+     "fail": {
+      "text": "Rune nguyền dội lại. Bạn ốm suốt một mùa.",
+      "effects": {
+       "health": -20,
+       "flags": [
+        "bmm_hex_backfire"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Khắc rune nguyền lên chính hắn",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Hắn chết trong giấc ngủ. Không ai biết vì sao. Những người sống sót cảm ơn bạn. Đêm ấy, bạn nghe thấy tiếng hắn trong gió, và nó không bao giờ dừng.",
+      "effects": {
+       "fame": 3,
+       "joy": -15,
+       "lifeCost": 4,
+       "jobXp": 3,
+       "flags": [
+        "bmm_hex_killed"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Hắn có pháp sư bảo vệ. Lời nguyền dội lại vào bạn.",
+      "effects": {
+       "health": -25,
+       "lifeCost": 3
+      }
+     }
+    },
+    {
+     "label": "Từ chối",
+     "text": "Những người sống sót bỏ đi, thất vọng. Bạn ngồi một mình với tảng đá nứt, và tự hỏi mình chọn con đường này để làm gì.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmm_hex_fear",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_mage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bmm_path_hex"
+    ],
+    "notFlags": [
+     "bmm_end"
+    ]
+   },
+   "text": "Lũ trẻ trong trại chạy tán loạn khi bạn đi ngang qua. Các bà mẹ dọa con bằng tên bạn. Ngay cả tộc trưởng cũng không dám nhìn thẳng vào mắt bạn.",
+   "choices": [
+    {
+     "label": "Chữa bệnh cho một đứa trẻ bằng rune ngược",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Rune nguyền đảo ngược là rune giải nguyền. Bạn chữa cho một đứa trẻ bị nguyền bởi một Hexer khác. Mẹ nó quỳ xuống trước bạn. Lũ trẻ vẫn sợ bạn, nhưng giờ chúng chào bạn trước khi chạy.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "joy": 8,
+       "jobXp": 3,
+       "flags": [
+        "bmm_hex_healer"
+       ]
+      },
+      "moment": "Dùng rune nguyền đảo ngược chữa cho một đứa trẻ"
+     },
+     "fail": {
+      "text": "Rune ngược không đủ mạnh. Đứa trẻ vẫn ốm, và mọi người tin rằng chính bạn đã nguyền nó.",
+      "effects": {
+       "fame": -6,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Dời lên núi sống một mình",
+     "text": "Bạn dựng một túp lều cạnh lều lão Hoth. Hai Beastman bị gọi là điên sống trên sườn núi, khắc đá, và nhìn xuống trại mỗi tối.",
+     "effects": {
+      "joy": -2,
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "bmm_hex_hermit"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmm_c4_hoth",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_mage",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "bmm_met_hoth"
+    ],
+    "notFlags": [
+     "bmm_hoth_gone",
+     "bmm_end"
+    ]
+   },
+   "text": "Lão Hoth đã già đến mức không cầm được cái đục. Lão ngồi giữa những tảng đá, tay đặt lên một tảng chưa khắc gì. “Khắc tên ta lên đây,” lão nói. “Ta muốn nhìn thấy nó trước khi đi.”",
+   "choices": [
+    {
+     "label": "Khắc tên lão",
+     "text": "Bạn khắc, chậm rãi, từng nét. Khi nét cuối cùng xong, hòn đá ấm lên. Lão Hoth đặt tay lên nó, mỉm cười, và nhắm mắt. Bạn đặt hòn đá vào hàng đầu tiên trong hầm.",
+     "effects": {
+      "joy": -2,
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "bmm_hoth_gone"
+      ]
+     },
+     "moment": "Khắc tên lão Hoth lên đá trước khi lão đi"
+    },
+    {
+     "label": "Khắc tên lão bằng rune Lửa, rune đầu tiên của bạn",
+     "require": {
+      "flags": [
+       "bmm_rune_fire"
+      ]
+     },
+     "text": "Lão Hoth bật cười khi thấy rune Lửa. “Vẫn là ngọn lửa ấy.” Hòn đá ấm đến mức tuyết xung quanh tan ra. Nó vẫn ấm sau nhiều mùa đông.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "bmm_hoth_gone",
+       "bmm_warm_stone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmm_c4_ritual",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_mage",
+    "free": true,
+    "jobRank": 3,
+    "notFlags": [
+     "bmm_end"
+    ]
+   },
+   "text": "Một đại pháp sư của Quân đoàn Ma Vương đang niệm chú triệu Mưa Thiên Thạch xuống Thảo Nguyên. Vòng tròn triệu hồi đã sáng trên đỉnh Vực Móng Vuốt.",
+   "choices": [
+    {
+     "label": "Phá vòng tròn bằng rune tổ tiên",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn khắc một rune cổ vào vách đá, đúng tâm vòng tròn triệu hồi. Hai thứ phép thuật va vào nhau. Vòng tròn vỡ. Thiên thạch rơi xuống biển, xa Thảo Nguyên. Người ta gọi bạn là Wild Elemental Master.",
+      "effects": {
+       "INT": 1,
+       "fame": 12,
+       "lifeCost": 3,
+       "jobXp": 4,
+       "flags": [
+        "bmm_broke_ritual"
+       ]
+      },
+      "moment": "Phá vòng tròn triệu hồi Mưa Thiên Thạch của Ma tộc"
+     },
+     "fail": {
+      "text": "Vòng tròn chỉ vỡ một nửa. Ba thiên thạch nhỏ rơi xuống Thảo Nguyên.",
+      "effects": {
+       "health": -20,
+       "fame": 5
+      }
+     }
+    },
+    {
+     "label": "Cùng Isolde phá vòng tròn",
+     "require": {
+      "flags": [
+       "bmm_isolde_friend"
+      ]
+     },
+     "text": "Isolde dệt vòng tròn Tháp Ngà, bạn khắc rune Thảo Nguyên. Hai thứ phép hòa vào nhau như năm nào trước Hội đồng, và vòng tròn triệu hồi tan thành bụi sáng.",
+     "effects": {
+      "fame": 10,
+      "joy": 10,
+      "jobXp": 4,
+      "flags": [
+       "bmm_broke_ritual"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmm_c5_stone",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_mage",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bmm_path_stone"
+    ],
+    "notFlags": [
+     "bmm_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Mountain Sage. Bạn đã đọc hết mọi rune của tổ tiên. Sườn núi của lão Hoth giờ có hai túp lều mới, hai học trò trẻ đến học.",
+   "choices": [
+    {
+     "label": "Dạy họ khắc tên mình bằng thứ họ là",
+     "text": "Bạn đưa cho mỗi người một cái đục và một hòn đá trơn, nói đúng câu lão Hoth đã nói. Một người khắc hình con suối, một người khắc hình ngọn gió. Cả hai hòn đá đều ấm lên.",
+     "effects": {
+      "joy": 18,
+      "fame": 10,
+      "flags": [
+       "bmm_end",
+       "bmm_end_teacher"
+      ]
+     },
+     "moment": "Dạy học trò khắc rune đầu tiên của mình"
+    },
+    {
+     "label": "Khắc toàn bộ lịch sử Thảo Nguyên lên vách núi",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn khắc suốt hai mươi năm. Khi xong, vách núi là một cuốn sách bằng đá, đọc được từ thung lũng bên dưới. Nó sẽ còn đó khi mọi cuốn sách giấy đã mục.",
+      "effects": {
+       "fame": 15,
+       "joy": 12,
+       "flags": [
+        "bmm_end",
+        "bmm_end_cliff"
+       ]
+      },
+      "moment": "Khắc lịch sử Thảo Nguyên lên vách núi"
+     },
+     "fail": {
+      "text": "Bạn khắc được một nửa vách núi trước khi tay không còn cầm đục nổi. Học trò của bạn khắc tiếp.",
+      "effects": {
+       "fame": 12,
+       "flags": [
+        "bmm_end",
+        "bmm_end_cliff"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmm_c5_tower",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_mage",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bmm_path_tower"
+    ],
+    "notFlags": [
+     "bmm_end"
+    ]
+   },
+   "text": "Tháp Ngà muốn phong bạn làm giáo sư, Beastman đầu tiên. Người ta gọi bạn là Mountain Sage, dù bạn sống ở Sanctus.",
+   "choices": [
+    {
+     "label": "Nhận, và mở một khoa rune Thảo Nguyên",
+     "text": "Khoa của bạn có mười học trò năm đầu, năm mươi năm thứ mười. Một nửa là Human, một nửa là Beastman. Họ học cách khắc tên mình bằng thứ mình là.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "bmm_end",
+       "bmm_end_faculty"
+      ]
+     },
+     "moment": "Mở khoa rune Thảo Nguyên ở Tháp Ngà"
+    },
+    {
+     "label": "Nhường cho Isolde, về núi",
+     "require": {
+      "flags": [
+       "bmm_isolde_friend"
+      ]
+     },
+     "text": "Isolde nhận khoa. Bạn về núi, sống trong túp lều của lão Hoth. Mỗi năm, Isolde gửi lên một lá thư, kể về những học trò mới.",
+     "effects": {
+      "joy": 18,
+      "fame": 8,
+      "flags": [
+       "bmm_end",
+       "bmm_end_mountain_return"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmm_c5_hex",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_mage",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bmm_path_hex"
+    ],
+    "notFlags": [
+     "bmm_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Mountain Sage, nhưng giọng họ run khi nói. Tảng đá nứt của lão Hoth đã nứt rộng hơn, và hơi lạnh của nó giờ chảy trong mạch máu bạn.",
+   "choices": [
+    {
+     "label": "Đập vỡ tảng đá nứt",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn đập nó bằng cái búa của lão Hoth. Tảng đá vỡ, và hơi lạnh tan vào gió. Bạn ngã xuống, ấm lên lần đầu sau nhiều năm. Bạn không còn khắc được rune nguyền nữa, và bạn không tiếc.",
+      "effects": {
+       "joy": 20,
+       "fame": 8,
+       "flags": [
+        "bmm_end",
+        "bmm_end_broke_stone"
+       ]
+      },
+      "moment": "Đập vỡ tảng đá nguyền của lão Hoth"
+     },
+     "fail": {
+      "text": "Tảng đá không vỡ. Bạn ngồi canh nó đến cuối đời, để không ai khác chạm vào.",
+      "effects": {
+       "joy": -6,
+       "lifeCost": 5,
+       "flags": [
+        "bmm_end",
+        "bmm_end_stone_guard"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Dùng rune nguyền để giải nguyền cho người khác",
+     "require": {
+      "flags": [
+       "bmm_hex_healer"
+      ]
+     },
+     "text": "Bạn trở thành người duy nhất ở Thảo Nguyên giải được mọi lời nguyền, vì bạn biết mọi lời nguyền. Lũ trẻ vẫn sợ bạn, nhưng mẹ chúng mang chúng đến khi chúng bị nguyền.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "bmm_end",
+       "bmm_end_curse_breaker"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmm_daily_chisel",
+   "races": [
+    "beastman"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "bm_mage",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Cái đục trượt, rạch một đường dài trên lòng bàn tay bạn. Máu chảy xuống hòn đá đang khắc dở.",
+   "choices": [
+    {
+     "label": "Băng lại, khắc tiếp",
+     "text": "Hòn đá ấm lên. Có lẽ rune cũng cần một chút máu của người khắc.",
+     "effects": {
+      "health": -3,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Nghỉ một ngày",
+     "text": "Bạn nằm trên cỏ cả ngày, nhìn mây. Ngày hôm sau, đường đục của bạn chắc hơn.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmm_daily_fullmoon",
+   "races": [
+    "beastman"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "bm_mage",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Đêm trăng tròn, mana trong người bạn dâng lên như nước lũ. Các rune trên đá xung quanh bắt đầu tự sáng.",
+   "choices": [
+    {
+     "label": "Khắc liền một mạch đến sáng",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn khắc mười hòn đá trong một đêm, hòn nào cũng hoàn hảo.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 2
+      }
+     },
+     "fail": {
+      "text": "Mana quá mạnh. Một hòn đá nổ tung bên cạnh bạn.",
+      "effects": {
+       "health": -10
+      }
+     }
+    },
+    {
+     "label": "Tru lên trăng",
+     "require": {
+      "subtype": "wolf"
+     },
+     "text": "Tiếng tru của bạn kéo mana ra khỏi người bạn như nước chảy. Các rune trên đá sáng rực, rồi dịu lại. Bạn ngủ ngon đến sáng.",
+     "effects": {
+      "joy": 8
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmm_daily_war_wards",
+   "races": [
+    "beastman"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "bm_mage",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh lan đến Thảo Nguyên. Mọi bộ lạc đều cần hàng rào rune.",
+   "choices": [
+    {
+     "label": "Khắc cho mọi bộ lạc",
+     "text": "Bạn khắc ngày đêm suốt một mùa. Tay bạn chai sạn, mắt bạn mờ đi, nhưng không trại nào có hàng rào rune bị phá.",
+     "effects": {
+      "fame": 6,
+      "health": -10,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Dạy các bộ lạc tự khắc",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Mỗi bộ lạc gửi một người đến học. Hàng rào của họ không đẹp bằng của bạn, nhưng đủ.",
+      "effects": {
+       "INT": 1,
+       "fame": 4,
+       "jobXp": 2
+      }
+     },
+     "fail": {
+      "text": "Họ học không kịp.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmm_daily_old_stones",
+   "races": [
+    "beastman"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "bm_mage",
+    "free": true
+   },
+   "text": "Những hòn đá bạn khắc thời trẻ giờ đã phủ rêu. Sáng nay, bạn chạm vào một hòn, và nó vẫn còn ấm.",
+   "choices": [
+    {
+     "label": "Ngồi bên nó một lúc",
+     "text": "Bạn nhớ lại ngày khắc nó, nhớ lão Hoth, nhớ những gì đã qua. Hòn đá ấm trong tay bạn như một bàn tay.",
+     "effects": {
+      "joy": 8
+     }
+    },
+    {
+     "label": "Khắc thêm một nét lên nó",
+     "text": "Rune cũ và rune mới hòa vào nhau. Hòn đá sáng lên một chút. Nó sẽ ấm thêm một trăm năm.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1
+     }
+    }
+   ]
+  }
+ ]
+}

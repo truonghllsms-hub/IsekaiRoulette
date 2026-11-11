@@ -1,0 +1,1103 @@
+{
+ "_note": "Tuyến truyện Scout (Beastman): 5 chương theo bậc, ba đạo ở Bậc 2 (bsc_path_pack / bsc_path_spy / bsc_path_map), nhân vật xuyên suốt Thea (tộc Mèo, không nói được) và Kaz (tộc Cáo, buôn tin).",
+ "origins": [],
+ "events": [
+  {
+   "id": "bsc_c1_thea",
+   "races": [
+    "beastman"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "bm_scout",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "bsc_met_thea"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Thea",
+     "race": "Beastman tộc Mèo",
+     "position": "Trinh sát già bị cắt lưỡi, dạy bằng tay"
+    }
+   ],
+   "text": "Thea là trinh sát già nhất trại, một Beastman tộc Mèo bị cắt lưỡi từ thời chiến tranh. Bà dạy bằng tay: một ngón chỉ là “đứng im”, nắm tay là “có người”, xòe tay là “chạy”. Ngày đầu tiên, bà dẫn bạn lên vách đá và chỉ xuống thảo nguyên bên dưới, rồi giơ năm ngón tay.",
+   "choices": [
+    {
+     "label": "Đếm ra năm thứ đang di chuyển dưới kia",
+     "check": {
+      "stat": "INT",
+      "target": 4
+     },
+     "success": {
+      "text": "Hai con hươu, một con chó sói, một đàn chim, và một người cưỡi ngựa ở rất xa. Thea gật đầu, vỗ vai bạn hai lần. Sau này bạn mới biết hai cái vỗ vai nghĩa là “được”.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "bsc_met_thea",
+        "bsc_thea_respect"
+       ]
+      },
+      "moment": "Đếm đủ năm thứ đang di chuyển dưới thảo nguyên"
+     },
+     "fail": {
+      "text": "Bạn chỉ đếm được ba. Thea chỉ vào hai thứ bạn bỏ sót: một con rắn và một bóng người nằm sấp trong cỏ. Bạn rùng mình.",
+      "effects": {
+       "joy": -3,
+       "flags": [
+        "bsc_met_thea"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Leo lên mỏm đá cao hơn để nhìn rõ",
+     "require": {
+      "subtype": "cat"
+     },
+     "text": "Bạn leo lên như một con mèo thật, đứng trên mỏm đá chỉ rộng bằng bàn tay. Thea ngước nhìn, rồi làm một ký hiệu bạn chưa học: hai ngón tay chéo nhau. Sau này bạn biết nó nghĩa là “giống ta”.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 1,
+      "flags": [
+       "bsc_met_thea",
+       "bsc_thea_respect"
+      ]
+     }
+    },
+    {
+     "label": "Hỏi bà bằng lời",
+     "text": "Thea lắc đầu, đặt ngón tay lên môi bạn. Bạn hiểu: trinh sát không nói. Cả buổi chiều, bạn học ký hiệu đầu tiên của mình: “đứng im”.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 1,
+      "flags": [
+       "bsc_met_thea"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsc_c1_kaz",
+   "races": [
+    "beastman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "bm_scout",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "bsc_met_thea"
+    ],
+    "notFlags": [
+     "bsc_met_kaz"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Kaz",
+     "race": "Beastman tộc Cáo",
+     "position": "Kẻ buôn tin ở chợ phiên"
+    }
+   ],
+   "text": "Ở chợ phiên Trại Huyết Môn, một Beastman tộc Cáo tên Kaz bán tin tức như người khác bán thịt khô: tin về đàn bò rừng, về lính Human, về bộ lạc nào đang thiếu muối. Hắn đề nghị mua lại những gì bạn thấy trong chuyến tuần tra.",
+   "choices": [
+    {
+     "label": "Bán vài tin vặt",
+     "text": "Kaz trả bằng muối và hạt tiêu. Bạn để ý thấy hắn ghi chép mọi điều bạn nói vào một cuốn sổ nhỏ, kể cả những điều bạn nghĩ là vô nghĩa.",
+     "effects": {
+      "wealth": 4,
+      "jobXp": 1,
+      "flags": [
+       "bsc_met_kaz",
+       "bsc_kaz_contact"
+      ]
+     }
+    },
+    {
+     "label": "Từ chối, rồi theo dõi hắn",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Đêm đó, bạn thấy Kaz gặp một người mặc áo choàng của Sanctus ở rìa trại. Bạn không biết hắn bán tin cho ai, nhưng giờ bạn biết hắn bán cho cả hai phía.",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 1,
+       "flags": [
+        "bsc_met_kaz",
+        "bsc_kaz_seen"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Kaz phát hiện ra bạn từ trước. Hắn vẫy tay chào bạn trong bóng tối, cười.",
+      "effects": {
+       "joy": -3,
+       "flags": [
+        "bsc_met_kaz"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsc_c2_first_watch",
+   "races": [
+    "beastman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "bm_scout",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "bsc_first_watch",
+     "bsc_end"
+    ]
+   },
+   "text": "Đêm gác đầu tiên của bạn một mình ở tháp canh cực bắc. Gần sáng, bạn thấy một hàng đuốc dài di chuyển ở chân trời: có thể là đoàn buôn, có thể là quân đột kích.",
+   "choices": [
+    {
+     "label": "Báo động cả trại ngay",
+     "text": "Trống đánh vang. Cả trại thức dậy, cầm vũ khí. Hóa ra đó là một đoàn buôn. Người ta càu nhàu, nhưng Thea vỗ vai bạn hai lần: thà sai còn hơn muộn.",
+     "effects": {
+      "jobXp": 2,
+      "flags": [
+       "bsc_first_watch"
+      ]
+     }
+    },
+    {
+     "label": "Lẻn đến gần xem trước",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn bò qua cỏ đến cách hàng đuốc ba mươi bước. Đó là quân đột kích Orc, hai trăm tên. Bạn chạy về trước chúng nửa giờ. Nửa giờ ấy đủ để cả trại chuẩn bị.",
+      "effects": {
+       "AGI": 1,
+       "fame": 5,
+       "jobXp": 2,
+       "flags": [
+        "bsc_first_watch",
+        "bsc_first_hero"
+       ]
+      },
+      "moment": "Phát hiện quân đột kích Orc trước nửa giờ"
+     },
+     "fail": {
+      "text": "Bạn bị một tên lính gác Orc phát hiện. Bạn chạy về kịp, nhưng mang theo một mũi tên ở vai.",
+      "effects": {
+       "health": -15,
+       "flags": [
+        "bsc_first_watch"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Ngửi gió",
+     "require": {
+      "subtype": "dog"
+     },
+     "text": "Gió từ phía bắc mang mùi dầu mỡ và sắt, mùi của quân đội, không phải mùi của hàng hóa. Bạn báo động đúng lúc, và Thea nhìn bạn với vẻ ganh tị hiếm hoi.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2,
+      "flags": [
+       "bsc_first_watch",
+       "bsc_first_hero"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsc_c2_crossroads",
+   "races": [
+    "beastman"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "bm_scout",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "bsc_path_pack",
+     "bsc_path_spy",
+     "bsc_path_map",
+     "bsc_end"
+    ]
+   },
+   "text": "Thea làm ba ký hiệu liên tiếp, và bạn hiểu cả ba: Đoàn chiến binh của Hội đồng Tộc trưởng cần mắt. Kaz cần một người trà trộn vào Sanctus. Và tấm bản đồ cũ của Thea có những khoảng trắng mà chưa trinh sát nào vẽ được.",
+   "choices": [
+    {
+     "label": "Làm mắt cho đoàn chiến binh: Mắt của Bầy",
+     "text": "Bạn đi trước đoàn chiến binh một ngày đường, mỗi ngày, mỗi trận. Những gì bạn thấy quyết định ai sống, ai chết.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 2,
+      "flags": [
+       "bsc_path_pack"
+      ]
+     },
+     "moment": "Trở thành mắt cho đoàn chiến binh bộ lạc"
+    },
+    {
+     "label": "Trà trộn vào Sanctus: Gián Điệp",
+     "text": "Bạn cắt ngắn lông tai, đội mũ trùm, và học nói giọng thủ đô. Kaz dặn: “Ở Sanctus, một Beastman đứng im thì là hầu, cúi đầu thì là nô lệ, ngẩng đầu thì là kẻ thù.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "bsc_path_spy"
+      ]
+     },
+     "moment": "Trà trộn vào Sanctus làm gián điệp"
+    },
+    {
+     "label": "Vẽ những khoảng trắng: Kẻ Vẽ Bản Đồ",
+     "text": "Thea trao cho bạn tấm bản đồ da của bà, với những khoảng trắng ở rìa Vực Thẳm, ở sâu trong Đầm Lầy, ở đỉnh Răng Cưa. Bà vẽ một ký hiệu cuối: một vòng tròn. Nghĩa là “trở về”.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "bsc_path_map"
+      ]
+     },
+     "moment": "Nhận tấm bản đồ của Thea"
+    }
+   ]
+  },
+  {
+   "id": "bsc_pack_ambush",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_scout",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bsc_path_pack"
+    ],
+    "notFlags": [
+     "bsc_end"
+    ]
+   },
+   "text": "Bạn phát hiện một ổ phục kích của Ma tộc ở hẻm núi mà đoàn chiến binh sẽ đi qua vào sáng mai. Nhưng tộc trưởng chỉ huy đoàn ghét bạn, và từng nói sẽ không bao giờ nghe lời “một con mắt chưa ráo máu”.",
+   "choices": [
+    {
+     "label": "Báo cáo bằng mọi giá",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn mang về một chiếc khiên của Ma tộc làm bằng chứng. Tộc trưởng im lặng, rồi đổi đường hành quân. Khi đi ngang qua bạn, ông ta gật đầu, lần đầu tiên.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "bsc_pack_trusted"
+       ]
+      },
+      "moment": "Thuyết phục tộc trưởng tránh ổ phục kích Ma tộc"
+     },
+     "fail": {
+      "text": "Tộc trưởng không tin. Đoàn đi qua hẻm núi. Bạn đã kịp báo cho một nửa đoàn tách ra đi đường khác, và nửa ấy sống sót.",
+      "effects": {
+       "joy": -15,
+       "fame": 3,
+       "flags": [
+        "bsc_pack_half"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Tự phá ổ phục kích",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn lẻn vào ổ phục kích lúc nửa đêm và cắt dây cung của mọi tên cung thủ. Sáng ra, đoàn chiến binh đi qua hẻm núi, và Ma tộc chỉ còn biết ném đá.",
+      "effects": {
+       "AGI": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "bsc_pack_trusted"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn bị phát hiện. Ổ phục kích lộ ra quá sớm, và đoàn chiến binh có thời gian rút lui, còn bạn phải trốn hai ngày trong một khe đá.",
+      "effects": {
+       "health": -15,
+       "flags": [
+        "bsc_pack_trusted"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsc_pack_false_report",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_scout",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bsc_path_pack"
+    ],
+    "notFlags": [
+     "bsc_end"
+    ]
+   },
+   "text": "Bạn thấy một làng Human nhỏ ở biên giới, chỉ có nông dân. Nhưng tộc trưởng muốn có cớ để tấn công, và hỏi bạn: “Làng đó có lính không?”",
+   "choices": [
+    {
+     "label": "Nói thật: không có lính",
+     "text": "Tộc trưởng không có cớ. Cuộc tấn công bị hủy. Ông ta giáng bạn xuống gác tháp một mùa.",
+     "effects": {
+      "joy": 6,
+      "fame": -2,
+      "jobXp": 2,
+      "flags": [
+       "bsc_pack_honest"
+      ]
+     }
+    },
+    {
+     "label": "Nói có lính",
+     "text": "Ngôi làng cháy. Không có lính nào. Bạn được thăng chức, và không bao giờ đi tuần qua con đường ấy nữa.",
+     "effects": {
+      "fame": 4,
+      "joy": -18,
+      "jobXp": 2,
+      "flags": [
+       "bsc_pack_lied"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsc_spy_servant",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_scout",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bsc_path_spy"
+    ],
+    "notFlags": [
+     "bsc_end"
+    ]
+   },
+   "text": "Ở Sanctus, bạn làm người hầu cho một vị bá tước trong Hội đồng Chiến tranh. Bạn nghe được kế hoạch: quân đội sẽ tấn công Trại Huyết Môn vào mùa xuân. Nhưng bạn cũng thấy con gái nhỏ của bá tước, người duy nhất trong nhà gọi bạn bằng tên.",
+   "choices": [
+    {
+     "label": "Gửi tin về Thảo Nguyên",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Tin đến kịp. Trại Huyết Môn dời đi trước mùa xuân. Quân đội đến và chỉ thấy tro bếp nguội. Bá tước bị khiển trách vì “kế hoạch bị lộ”.",
+      "effects": {
+       "AGI": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "bsc_spy_warned"
+       ]
+      },
+      "moment": "Gửi tin cứu Trại Huyết Môn từ dinh thự bá tước"
+     },
+     "fail": {
+      "text": "Người đưa tin bị bắt. Bá tước cho lục soát mọi người hầu. Bạn phải bỏ trốn trong đêm.",
+      "effects": {
+       "health": -10,
+       "flags": [
+        "bsc_spy_blown"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Gửi tin, và để lại một lá thư cho cô bé",
+     "text": "Bạn viết vụng về bằng chữ Human: “Cảm ơn vì đã gọi tên tôi.” Rồi bạn biến mất. Nhiều năm sau, cô bé ấy trở thành người đầu tiên trong Hội đồng Chiến tranh bỏ phiếu chống lại một cuộc tấn công Thảo Nguyên.",
+     "effects": {
+      "joy": 8,
+      "fame": 4,
+      "jobXp": 3,
+      "flags": [
+       "bsc_spy_warned",
+       "bsc_spy_letter"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsc_spy_kaz",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_scout",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bsc_path_spy",
+     "bsc_met_kaz"
+    ],
+    "notFlags": [
+     "bsc_end"
+    ]
+   },
+   "text": "Kaz bị bắt ở Sanctus. Hắn biết tên thật của bạn, và Thánh Kỵ Sĩ Đoàn đang tra hỏi hắn.",
+   "choices": [
+    {
+     "label": "Cứu hắn ra",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn lẻn vào nhà giam qua đường ống khói. Kaz nhìn bạn, cười như không có chuyện gì: “Ta chưa nói gì đâu. Nhưng ta sắp nói rồi đấy.” Hai người thoát ra trước bình minh.",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 3,
+       "flags": [
+        "bsc_kaz_saved"
+       ]
+      },
+      "moment": "Cứu Kaz khỏi nhà giam Thánh Kỵ Sĩ"
+     },
+     "fail": {
+      "text": "Bạn bị phát hiện ở cổng. Kaz thoát được, bạn thì không. Phải ba tháng sau Kaz mới đổi được bạn ra bằng một tin tức quý.",
+      "effects": {
+       "health": -20,
+       "flags": [
+        "bsc_kaz_saved"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Rời Sanctus ngay",
+     "text": "Bạn đi trước khi Kaz kịp nói. Bạn không bao giờ biết hắn đã nói gì. Một năm sau, bạn nghe tin hắn đã được thả, và đang bán tin ở một chợ phiên khác, như chưa có chuyện gì.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 2,
+      "flags": [
+       "bsc_left_kaz"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsc_map_abyss_edge",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_scout",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bsc_path_map"
+    ],
+    "notFlags": [
+     "bsc_end"
+    ]
+   },
+   "text": "Khoảng trắng đầu tiên trên bản đồ của Thea là rìa Vực Thẳm Phân Tầng. Không trinh sát nào từng vẽ được nó, vì không ai trở về. Bạn đứng trên mép vực, và nhìn xuống.",
+   "choices": [
+    {
+     "label": "Trèo xuống tầng thứ nhất",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn trèo xuống ba trăm bước, vẽ từng gờ đá, từng hang động, từng con đường mòn của Ma tộc. Khi trèo lên, tay bạn rướm máu, nhưng tấm bản đồ đã có thêm một mảnh mà chưa ai có.",
+      "effects": {
+       "AGI": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "bsc_map_abyss"
+       ]
+      },
+      "moment": "Vẽ được bản đồ rìa Vực Thẳm Phân Tầng"
+     },
+     "fail": {
+      "text": "Một gờ đá vỡ. Bạn trượt xuống năm mươi bước trước khi bám được. Bạn trèo lên tay trắng, nhưng còn sống.",
+      "effects": {
+       "health": -25,
+       "flags": [
+        "bsc_map_tried"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Vẽ từ trên cao, chờ ngày quang mây",
+     "text": "Bạn ngồi trên mép vực mười hai ngày, chờ mây tan. Ngày thứ mười ba, bạn nhìn thấy đáy tầng thứ nhất trong một khắc, và vẽ nhanh như chưa bao giờ vẽ.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "bsc_map_abyss"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsc_map_sell",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_scout",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bsc_path_map"
+    ],
+    "notFlags": [
+     "bsc_end"
+    ]
+   },
+   "text": "Tấm bản đồ của bạn đã có những thứ không ai có: lối mòn qua Đầm Lầy, khe núi xuyên Răng Cưa, mép Vực Thẳm. Một thương hội Sanctus trả một túi Huyết Kim để mua bản sao. Quân đội Sanctus trả gấp ba.",
+   "choices": [
+    {
+     "label": "Bán cho thương hội",
+     "text": "Những đoàn buôn bắt đầu đi qua những lối mòn của bạn. Thảo Nguyên có thêm muối, thêm vải. Nhưng cũng có thêm những người lạ.",
+     "effects": {
+      "wealth": 20,
+      "jobXp": 2,
+      "flags": [
+       "bsc_map_trade"
+      ]
+     }
+    },
+    {
+     "label": "Không bán cho ai",
+     "text": "Bạn giữ bản đồ trong ngực áo, chỉ cho các bộ lạc xem. Một số con đường nên chỉ có người Thảo Nguyên biết.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 2,
+      "flags": [
+       "bsc_map_kept"
+      ]
+     }
+    },
+    {
+     "label": "Bán cho quân đội, nhưng vẽ sai những lối dẫn vào Thảo Nguyên",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Quân đội trả gấp ba. Họ không bao giờ tìm được đường vào Thảo Nguyên theo bản đồ ấy.",
+      "effects": {
+       "INT": 1,
+       "wealth": 35,
+       "wealthKind": "windfall",
+       "jobXp": 3,
+       "flags": [
+        "bsc_map_trick"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Một sĩ quan đối chiếu với bản đồ cũ và phát hiện ra. Bạn bị truy nã ở Sanctus.",
+      "effects": {
+       "fame": -4,
+       "flags": [
+        "bsc_map_wanted"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsc_c4_thea",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_scout",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "bsc_met_thea"
+    ],
+    "notFlags": [
+     "bsc_thea_gone",
+     "bsc_end"
+    ]
+   },
+   "text": "Thea bị một mũi tên lạc ở biên giới. Bà nằm trong lều, không nói được, chỉ làm ký hiệu. Bạn ngồi bên bà, đọc từng ngón tay run rẩy.",
+   "choices": [
+    {
+     "label": "Đọc đến ký hiệu cuối",
+     "text": "Một ngón: đứng im. Nắm tay: có người. Xòe tay: chạy. Rồi bà vẽ vòng tròn lên lòng bàn tay bạn: trở về. Bà mất trước bình minh. Bạn hiểu: bà đã về nhà.",
+     "effects": {
+      "joy": -3,
+      "jobXp": 3,
+      "flags": [
+       "bsc_thea_gone"
+      ]
+     },
+     "moment": "Đọc ký hiệu cuối cùng của Thea"
+    },
+    {
+     "label": "Đưa bà lên vách đá năm xưa",
+     "text": "Bạn cõng bà lên vách đá nơi bà dạy bạn đếm. Bà nhìn xuống thảo nguyên, giơ năm ngón tay. Bạn đếm đủ năm. Bà vỗ vai bạn hai lần, và nhắm mắt.",
+     "effects": {
+      "joy": 2,
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "bsc_thea_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsc_c4_great_war",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_scout",
+    "free": true,
+    "jobRank": 3,
+    "notFlags": [
+     "bsc_end"
+    ]
+   },
+   "text": "Một đạo quân Ma tộc khổng lồ đang hành quân về phía Thảo Nguyên, nhưng không ai biết chúng sẽ đi qua đâu. Các bộ lạc cần một trinh sát đi xuyên qua đội hình địch và trở về với câu trả lời.",
+   "choices": [
+    {
+     "label": "Đi xuyên qua đội hình địch",
+     "check": {
+      "stat": "AGI",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn đi bảy ngày giữa đạo quân Ma tộc, ngụy trang như một con thú lạc. Bạn trở về với hướng hành quân, số lượng, và tên của tướng chỉ huy. Các bộ lạc chặn được chúng ở Vực Móng Vuốt. Người ta bắt đầu gọi bạn là Battlefield Phantom.",
+      "effects": {
+       "AGI": 1,
+       "fame": 12,
+       "jobXp": 4,
+       "flags": [
+        "bsc_war_phantom"
+       ]
+      },
+      "moment": "Đi xuyên đội hình Ma tộc bảy ngày và trở về"
+     },
+     "fail": {
+      "text": "Bạn bị phát hiện ở ngày thứ ba. Bạn trở về với một nửa thông tin và nửa thân thể rách nát.",
+      "effects": {
+       "health": -30,
+       "fame": 5
+      }
+     }
+    },
+    {
+     "label": "Hỏi Kaz",
+     "require": {
+      "anyFlags": [
+       "bsc_kaz_contact",
+       "bsc_kaz_saved"
+      ]
+     },
+     "text": "Kaz biết. Kaz luôn biết. Hắn đòi giá cao, rồi giảm một nửa khi biết đó là cho các bộ lạc. Thông tin đúng từng chữ.",
+     "effects": {
+      "wealth": -15,
+      "fame": 6,
+      "jobXp": 3,
+      "flags": [
+       "bsc_war_kaz"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsc_c5_pack",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_scout",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bsc_path_pack"
+    ],
+    "notFlags": [
+     "bsc_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Battlefield Phantom. Không đoàn chiến binh nào của Thảo Nguyên ra trận mà không có trinh sát do bạn dạy đi trước. Hội đồng Tộc trưởng mời bạn vào ghế.",
+   "choices": [
+    {
+     "label": "Nhận ghế, đòi quyền nói thật",
+     "require": {
+      "anyFlags": [
+       "bsc_pack_honest",
+       "bsc_pack_trusted"
+      ]
+     },
+     "text": "Bạn đặt một luật: không tộc trưởng nào được ra lệnh cho trinh sát sửa báo cáo. Luật ấy cứu nhiều làng hơn bạn đếm được.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "bsc_end",
+       "bsc_end_honest_eyes"
+      ]
+     },
+     "moment": "Viết luật bảo vệ báo cáo của trinh sát"
+    },
+    {
+     "label": "Từ chối, về gác tháp",
+     "text": "Bạn về tháp canh cực bắc, nơi bạn gác đêm đầu tiên. Mỗi đêm, bạn đếm những thứ đang di chuyển dưới thảo nguyên, và giơ tay báo cho trinh sát trẻ ở tháp bên cạnh.",
+     "effects": {
+      "joy": 15,
+      "flags": [
+       "bsc_end",
+       "bsc_end_tower"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsc_c5_spy",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_scout",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bsc_path_spy"
+    ],
+    "notFlags": [
+     "bsc_end"
+    ]
+   },
+   "text": "Bạn đã sống hai mươi năm dưới những cái tên khác nhau ở Sanctus. Người ta gọi bạn là Battlefield Phantom, nhưng không ai ở Sanctus biết điều đó. Một hiệp ước hòa bình giữa Sanctus và Thảo Nguyên đang được đàm phán.",
+   "choices": [
+    {
+     "label": "Bước ra khỏi bóng tối, làm sứ giả",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn đứng trước Hội đồng Sanctus với đôi tai không còn cắt ngắn. Nhiều người nhận ra bạn: người hầu, người bán hoa, người gác cổng. Không ai biết nên giận hay nên cười. Hiệp ước được ký.",
+      "effects": {
+       "fame": 15,
+       "joy": 15,
+       "flags": [
+        "bsc_end",
+        "bsc_end_envoy"
+       ]
+      },
+      "moment": "Bước ra khỏi bóng tối làm sứ giả hòa bình"
+     },
+     "fail": {
+      "text": "Hội đồng không tin một gián điệp. Hiệp ước bị hoãn, nhưng không bị hủy.",
+      "effects": {
+       "fame": 8,
+       "joy": -4,
+       "flags": [
+        "bsc_end",
+        "bsc_end_envoy"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Gặp lại cô bé năm xưa",
+     "require": {
+      "flags": [
+       "bsc_spy_letter"
+      ]
+     },
+     "text": "Cô bé giờ là thành viên Hội đồng Chiến tranh. Cô nhận ra bạn ngay, và đưa ra lá thư năm xưa, giấy đã ngả vàng. Hai người cùng đẩy hiệp ước qua Hội đồng.",
+     "effects": {
+      "fame": 12,
+      "joy": 18,
+      "flags": [
+       "bsc_end",
+       "bsc_end_letter"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsc_c5_map",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_scout",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bsc_path_map"
+    ],
+    "notFlags": [
+     "bsc_end"
+    ]
+   },
+   "text": "Tấm bản đồ của Thea giờ không còn khoảng trắng nào. Người ta gọi bạn là Battlefield Phantom, nhưng bạn chỉ muốn được gọi là người vẽ bản đồ. Tháp Ngà muốn in nó thành sách.",
+   "choices": [
+    {
+     "label": "Để Tháp Ngà in, nhưng giữ lại những lối của Thảo Nguyên",
+     "text": "Bản đồ được in, đẹp và chi tiết, trừ một vài lối mòn trên Thảo Nguyên bị vẽ thành đồi trọc. Không ai biết. Thea chắc sẽ vỗ vai bạn hai lần.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "bsc_end",
+       "bsc_end_printed"
+      ]
+     },
+     "moment": "In tấm bản đồ không còn khoảng trắng"
+    },
+    {
+     "label": "Trao bản đồ cho một trinh sát trẻ",
+     "text": "Bạn vẽ thêm một vòng tròn ở góc bản đồ, nghĩa là “trở về”, rồi trao nó cho một trinh sát trẻ tộc Mèo. Cô ta nhìn ký hiệu, gật đầu, như đã hiểu.",
+     "effects": {
+      "joy": 18,
+      "flags": [
+       "bsc_end",
+       "bsc_end_passed_map"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsc_daily_signs",
+   "races": [
+    "beastman"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "bm_scout",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Bạn tập ký hiệu tay đến mức nói mớ cũng bằng tay. Sáng nay, đứa em họ hỏi bạn sao đêm qua cứ vẫy tay trong khi ngủ.",
+   "choices": [
+    {
+     "label": "Dạy nó vài ký hiệu",
+     "text": "Nó học nhanh. Đến chiều, hai người đã nói chuyện qua sân trại mà không cần lên tiếng.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Cười trừ",
+     "text": "Bạn không nói gì. Trinh sát không nói.",
+     "effects": {
+      "AGI": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsc_daily_fox_trick",
+   "races": [
+    "beastman"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "bm_scout",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Một tên lính gác Human chặn bạn ở cổng thành, đòi xem giấy thông hành mà bạn không có.",
+   "choices": [
+    {
+     "label": "Lừa hắn",
+     "require": {
+      "subtype": "fox"
+     },
+     "text": "Bạn kể cho hắn một câu chuyện dài về một vị bá tước, một con ngựa, và một bức thư bị gió thổi bay. Đến cuối câu chuyện, hắn tự mở cổng cho bạn, còn xin lỗi vì đã làm phiền.",
+     "effects": {
+      "INT": 1,
+      "joy": 8
+     }
+    },
+    {
+     "label": "Đút lót",
+     "require": {
+      "wealth": 5
+     },
+     "text": "Một đồng Tinh Bạc mở cổng nhanh hơn mọi giấy tờ.",
+     "effects": {
+      "wealth": -5
+     }
+    },
+    {
+     "label": "Đi đường khác",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn trèo tường thành ở đoạn tối nhất.",
+      "effects": {
+       "AGI": 1
+      }
+     },
+     "fail": {
+      "text": "Bạn bị một con chó gác đuổi chạy ba con phố.",
+      "effects": {
+       "health": -6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsc_daily_war_scout",
+   "races": [
+    "beastman"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "bm_scout",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh lan khắp Aethelgard, và trinh sát Beastman được cả hai phe săn đón. Một sĩ quan Human đề nghị bạn làm việc cho quân đội Sanctus.",
+   "choices": [
+    {
+     "label": "Nhận lời",
+     "text": "Bạn đi trước quân đội Human ba ngày đường suốt một mùa. Họ trả lương đầy đủ, và gọi bạn là “con chó săn”. Bạn không sửa lại.",
+     "effects": {
+      "wealth": 15,
+      "joy": -6,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Từ chối",
+     "text": "Sĩ quan nhún vai và tìm người khác. Bạn quay về làm mắt cho Thảo Nguyên.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsc_daily_old_eyes",
+   "races": [
+    "beastman"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "bm_scout",
+    "free": true
+   },
+   "text": "Mắt bạn đã mờ. Sáng nay, bạn đếm nhầm một đàn hươu thành một toán cưỡi ngựa.",
+   "choices": [
+    {
+     "label": "Nhận việc dạy thay vì gác",
+     "text": "Bạn ngồi trên vách đá cùng những trinh sát trẻ, chỉ cho họ những chỗ mà kẻ thù hay ẩn nấp. Mắt bạn mờ, nhưng trí nhớ thì không.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Học gác bằng tai",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn nhắm mắt và nghe. Tiếng vó ngựa khác tiếng móng hươu. Bạn vẫn gác được.",
+      "effects": {
+       "INT": 1,
+       "joy": 6
+      }
+     },
+     "fail": {
+      "text": "Tai cũng đã kém. Bạn xuống vách đá lần cuối.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    }
+   ]
+  }
+ ]
+}

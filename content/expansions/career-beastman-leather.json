@@ -1,0 +1,1046 @@
+{
+ "_note": "Tuyến truyện Leatherworker (Beastman): 5 chương theo bậc, ba đạo ở Bậc 2 (blt_path_war / blt_path_craft / blt_path_rite), nhân vật xuyên suốt bà Ulla (tộc Gấu) và Merriwether (buôn da Human).",
+ "origins": [],
+ "events": [
+  {
+   "id": "blt_c1_ulla",
+   "races": [
+    "beastman"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "bm_leather",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "blt_met_ulla"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Ulla",
+     "race": "Beastman tộc Gấu",
+     "position": "Thợ thuộc da già của Trại Huyết Môn"
+    }
+   ],
+   "text": "Bà Ulla là thợ thuộc da già nhất Trại Huyết Môn, hai bàn tay nhuộm nâu vĩnh viễn vì nước chát. Việc đầu tiên bà giao: cạo sạch một tấm da bò rừng mà không làm thủng một lỗ nào. Mùi của nó khiến bạn muốn chạy khỏi lều.",
+   "choices": [
+    {
+     "label": "Nín thở và cạo",
+     "check": {
+      "stat": "STR",
+      "target": 4
+     },
+     "success": {
+      "text": "Ba ngày, tay bạn phồng rộp, nhưng tấm da sạch như mặt hồ. Bà Ulla giơ nó lên ánh sáng, không thấy một lỗ thủng. Bà đưa bạn một con dao cạo của riêng bà, cán đã mòn vẹt.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "blt_met_ulla",
+        "blt_ulla_respect"
+       ]
+      },
+      "moment": "Cạo sạch tấm da đầu tiên cho bà Ulla"
+     },
+     "fail": {
+      "text": "Bạn làm thủng ba lỗ. Bà Ulla khâu chúng lại bằng ba mũi kim, nhanh đến mức bạn không thấy tay bà động. “Lần sau, nghe tiếng da. Nó sẽ kêu trước khi rách.”",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "blt_met_ulla"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi bà con bò rừng này chết thế nào",
+     "text": "Bà Ulla dừng tay, nhìn bạn ngạc nhiên. “Già. Nó chết vì già, ở bên suối.” Bà kể rằng thợ thuộc da tốt phải biết câu chuyện của mỗi tấm da. Bà dạy bạn bài hát tiễn thú trước khi dạy cách cạo.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "blt_met_ulla",
+       "blt_ulla_respect"
+      ]
+     },
+     "moment": "Học bài hát tiễn thú của bà Ulla"
+    }
+   ]
+  },
+  {
+   "id": "blt_c1_merriwether",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_leather",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "blt_met_ulla"
+    ],
+    "notFlags": [
+     "blt_met_merri"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Merriwether",
+     "race": "Human",
+     "position": "Tay buôn da từ Sanctus"
+    }
+   ],
+   "text": "Merriwether, tay buôn da béo tròn từ Sanctus, đến chợ phiên mỗi mùa. Ông ta trả giá cao cho da đẹp, và ông ta đặc biệt hỏi bạn có loại da “mềm như lụa, màu như mật” không. Bạn biết ông ta đang tả da của Beastman tộc Cáo.",
+   "choices": [
+    {
+     "label": "Đuổi ông ta khỏi chợ",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn túm cổ áo ông ta, kéo ra cổng chợ trước mặt mọi người. Merriwether không bao giờ quay lại chợ phiên Trại Huyết Môn nữa. Ông ta cũng không bao giờ quên mặt bạn.",
+      "effects": {
+       "fame": 3,
+       "jobXp": 1,
+       "flags": [
+        "blt_met_merri",
+        "blt_merri_enemy"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Ông ta có vệ sĩ. Bạn bị đánh, và ông ta cười, bỏ đi.",
+      "effects": {
+       "health": -10,
+       "flags": [
+        "blt_met_merri",
+        "blt_merri_enemy"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Giả vờ không hiểu, rồi báo cho Hội đồng",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Hội đồng cho người theo dõi ông ta, và phát hiện một đường dây săn trộm Beastman. Merriwether bị trục xuất khỏi Thảo Nguyên. Ông ta không biết ai đã báo.",
+      "effects": {
+       "INT": 1,
+       "fame": 4,
+       "jobXp": 1,
+       "flags": [
+        "blt_met_merri",
+        "blt_merri_exposed"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Hội đồng không tin lời một thợ học việc. Merriwether vẫn đến chợ mỗi mùa.",
+      "effects": {
+       "joy": -6,
+       "flags": [
+        "blt_met_merri"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "blt_c2_first_armor",
+   "races": [
+    "beastman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "bm_leather",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "blt_first_armor",
+     "blt_end"
+    ]
+   },
+   "text": "Một chiến binh trẻ sắp đi đánh trận đầu tiên, và cậu ta đặt bạn làm chiếc áo giáp da đầu tiên của đời mình. Cậu ta chỉ có đủ tiền cho da bò thường.",
+   "choices": [
+    {
+     "label": "Làm thật dày, thật chắc",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Chiếc áo nặng nhưng chắc. Cậu chiến binh trở về từ trận đầu với một vết rìu trên lưng áo và không một vết xước trên da thịt. Cậu mang đến lều bạn một bình rượu sữa ngựa.",
+      "effects": {
+       "STR": 1,
+       "fame": 3,
+       "jobXp": 2,
+       "flags": [
+        "blt_first_armor"
+       ]
+      },
+      "moment": "Làm chiếc áo giáp da đầu tiên cứu một chiến binh"
+     },
+     "fail": {
+      "text": "Chiếc áo quá nặng. Cậu chiến binh chạy chậm, và bị thương ở chân vì không né kịp.",
+      "effects": {
+       "joy": -8,
+       "flags": [
+        "blt_first_armor"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Lót thêm da của chính mình đã cạo từ năm đầu",
+     "text": "Bạn lót bên trong áo tấm da bò rừng đầu tiên bạn cạo cho bà Ulla. Chiếc áo nhẹ hơn, và mang theo bài hát tiễn thú. Cậu chiến binh không biết điều đó, nhưng cậu trở về.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 2,
+      "flags": [
+       "blt_first_armor",
+       "blt_first_gift"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "blt_c2_crossroads",
+   "races": [
+    "beastman"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "bm_leather",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "blt_path_war",
+     "blt_path_craft",
+     "blt_path_rite",
+     "blt_end"
+    ]
+   },
+   "text": "Bà Ulla bày ra ba tấm da. Một tấm da Wyvern, dày như giáp thép, để làm giáp chiến. Một tấm da dê non mỏng như giấy, để làm hàng tinh xảo bán ở Sanctus. Và một tấm da bò rừng già đã chết bên suối, chưa ai hát tiễn. “Ngươi chọn tấm nào, ngươi sẽ thành thợ thuộc da kiểu đó.”",
+   "choices": [
+    {
+     "label": "Da Wyvern: Giáp Huyết Lễ",
+     "text": "Bạn sẽ làm giáp cho những chiến binh giỏi nhất Thảo Nguyên, khắc lên da những rune máu của tổ tiên. Mỗi bộ giáp là một lời thề bảo vệ.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "blt_path_war"
+      ]
+     },
+     "moment": "Chọn con đường làm giáp chiến"
+    },
+    {
+     "label": "Da dê non: Thợ Thủ Công",
+     "text": "Bạn sẽ làm những chiếc túi, đôi giày, chiếc găng tay mà quý tộc Sanctus trả bằng Huyết Kim. Mỗi đường kim của bạn sẽ đi xa hơn bất kỳ chiến binh nào.",
+     "effects": {
+      "INT": 1,
+      "wealth": 5,
+      "jobXp": 2,
+      "flags": [
+       "blt_path_craft"
+      ]
+     },
+     "moment": "Chọn con đường thợ thủ công tinh xảo"
+    },
+    {
+     "label": "Da bò rừng già: Nghi Lễ Cổ",
+     "text": "Bạn ngồi xuống, hát bài tiễn thú cho con bò rừng, rồi mới cầm dao. Bà Ulla mỉm cười. “Ta đã chờ có người chọn tấm này suốt hai mươi năm.”",
+     "effects": {
+      "joy": 8,
+      "jobXp": 2,
+      "flags": [
+       "blt_path_rite"
+      ]
+     },
+     "moment": "Chọn con đường nghi lễ cổ của thợ thuộc da"
+    }
+   ]
+  },
+  {
+   "id": "blt_war_bloodrite",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_leather",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "blt_path_war"
+    ],
+    "notFlags": [
+     "blt_end"
+    ]
+   },
+   "text": "Tộc trưởng chiến tranh muốn một bộ giáp khắc rune máu, loại giáp mà người mặc sẽ không biết đau trong trận. Cái giá: người làm giáp phải nhỏ máu của chính mình vào từng rune.",
+   "choices": [
+    {
+     "label": "Làm",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn làm suốt bốn mươi đêm, mỗi đêm một rune, mỗi rune một giọt máu. Bộ giáp xong, và tộc trưởng mặc nó đánh bại một Troll. Bạn gầy rộc đi, nhưng tay bạn giờ nhớ được ngôn ngữ của máu.",
+      "effects": {
+       "STR": 1,
+       "fame": 6,
+       "lifeCost": 2,
+       "jobXp": 3,
+       "flags": [
+        "blt_bloodrite"
+       ]
+      },
+      "moment": "Làm bộ giáp huyết lễ đầu tiên bằng máu của mình"
+     },
+     "fail": {
+      "text": "Đến rune thứ ba mươi, bạn ngất. Bộ giáp dừng lại ở đó, chỉ có ba mươi rune, và tác dụng chỉ bằng một nửa.",
+      "effects": {
+       "health": -20,
+       "flags": [
+        "blt_bloodrite_half"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Từ chối: giáp không biết đau thì người mặc không biết dừng",
+     "text": "Tộc trưởng giận dữ, tìm thợ khác. Bộ giáp được làm ra, và người mặc nó chết trong trận đầu tiên vì không biết mình đã bị thương.",
+     "effects": {
+      "INT": 1,
+      "joy": -4,
+      "jobXp": 2,
+      "flags": [
+       "blt_refused_bloodrite"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "blt_war_order",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_leather",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "blt_path_war"
+    ],
+    "notFlags": [
+     "blt_end"
+    ]
+   },
+   "text": "Quân đội Sanctus đặt mua năm trăm bộ giáp da cho lính Human đánh Ma tộc. Giá tốt. Nhưng bạn biết đạo quân ấy sẽ đi qua Thảo Nguyên, và có thể sẽ không chỉ đánh Ma tộc.",
+   "choices": [
+    {
+     "label": "Nhận đơn",
+     "text": "Năm trăm bộ giáp rời xưởng của bạn. Đạo quân đi qua Thảo Nguyên mà không đụng đến ai. Bạn thở phào, và không biết lần sau sẽ thế nào.",
+     "effects": {
+      "wealth": 30,
+      "wealthKind": "windfall",
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Nhận, nhưng đòi hiệp ước không động đến Thảo Nguyên",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Sĩ quan quân đội cười, rồi ký, vì không ai khác làm giáp tốt bằng bạn. Lần đầu tiên, một thợ thuộc da Beastman có tên trong một văn bản của Sanctus.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "wealth": 25,
+       "jobXp": 3,
+       "flags": [
+        "blt_war_treaty"
+       ]
+      },
+      "moment": "Đổi đơn hàng giáp lấy hiệp ước không động đến Thảo Nguyên"
+     },
+     "fail": {
+      "text": "Họ từ chối và mua ở chỗ khác.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "blt_craft_noble",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_leather",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "blt_path_craft"
+    ],
+    "notFlags": [
+     "blt_end"
+    ]
+   },
+   "text": "Một nữ bá tước ở Sanctus đặt bạn làm đôi giày cưới cho con gái. Bà ta trả gấp mười, với một điều kiện: không ai được biết người làm giày là Beastman.",
+   "choices": [
+    {
+     "label": "Làm, và giấu tên",
+     "text": "Đôi giày đẹp đến mức cả Sanctus bàn tán. Người ta đoán đó là của một thợ Elf. Bạn nhận tiền, và cười một mình.",
+     "effects": {
+      "wealth": 30,
+      "wealthKind": "windfall",
+      "jobXp": 3,
+      "flags": [
+       "blt_craft_hidden"
+      ]
+     }
+    },
+    {
+     "label": "Làm, và khâu một ký hiệu Thảo Nguyên vào đế giày",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Không ai thấy ký hiệu ấy, trừ cô dâu, người tháo giày ra sau đám cưới. Cô gửi cho bạn một lá thư cảm ơn, và từ đó chỉ mua giày của bạn.",
+      "effects": {
+       "INT": 1,
+       "wealth": 25,
+       "fame": 3,
+       "jobXp": 3,
+       "flags": [
+        "blt_craft_signed"
+       ]
+      },
+      "moment": "Khâu ký hiệu Thảo Nguyên vào đôi giày cưới của một quý tộc"
+     },
+     "fail": {
+      "text": "Nữ bá tước phát hiện ra. Bà ta không trả tiền.",
+      "effects": {
+       "wealth": -5,
+       "joy": -6
+      }
+     }
+    },
+    {
+     "label": "Từ chối: giày không có tên thì không phải giày của ta",
+     "text": "Nữ bá tước sửng sốt. Bà ta mua giày ở chỗ khác. Nhưng câu chuyện lan ra, và một số quý tộc khác bắt đầu tìm đến bạn chính vì bạn là Beastman.",
+     "effects": {
+      "fame": 5,
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "blt_craft_proud"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "blt_craft_merri",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_leather",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "blt_path_craft",
+     "blt_met_merri"
+    ],
+    "notFlags": [
+     "blt_end"
+    ]
+   },
+   "text": "Merriwether đến xưởng của bạn ở Sanctus, cười tươi, đề nghị một hợp đồng lớn: ông ta cung cấp da, bạn làm hàng, chia đôi lợi nhuận. Da của ông ta mềm như lụa, màu như mật.",
+   "choices": [
+    {
+     "label": "Kiểm tra da trước",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn ngửi, sờ, soi dưới ánh sáng. Đó là da Beastman tộc Cáo. Bạn đốt cả lô da trước mặt ông ta, và báo cho Thánh Kỵ Sĩ Đoàn. Lần này, không ai cứu được Merriwether.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "blt_merri_caught"
+       ]
+      },
+      "moment": "Vạch trần đường dây buôn da Beastman của Merriwether"
+     },
+     "fail": {
+      "text": "Bạn nghi ngờ nhưng không chắc. Bạn từ chối hợp đồng, và Merriwether tìm thợ khác.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    },
+    {
+     "label": "Ký hợp đồng mà không hỏi",
+     "text": "Lợi nhuận về đầy túi. Một đêm, khi đang khâu, bạn ngửi thấy mùi quen thuộc của tộc mình trên tấm da. Bạn bỏ kim xuống, và không bao giờ cầm lại tấm da ấy.",
+     "effects": {
+      "wealth": 30,
+      "joy": -25,
+      "jobXp": 2,
+      "flags": [
+       "blt_merri_complicit"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "blt_rite_hunt",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_leather",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "blt_path_rite"
+    ],
+    "notFlags": [
+     "blt_end"
+    ]
+   },
+   "text": "Một đoàn thợ săn mang về một con Hươu Tuyết, loài thú thiêng. Họ muốn bạn làm áo choàng từ da nó cho tộc trưởng. Nhưng không ai đã hát tiễn nó, và nó bị giết khi đang mang thai.",
+   "choices": [
+    {
+     "label": "Từ chối làm áo",
+     "text": "Bạn hát tiễn cho con hươu và con non trong bụng nó, rồi chôn cả hai theo nghi lễ. Tộc trưởng giận dữ. Bà Ulla thì gật đầu, lần đầu tiên bạn thấy bà khóc.",
+     "effects": {
+      "joy": 6,
+      "fame": -2,
+      "jobXp": 3,
+      "flags": [
+       "blt_rite_refused"
+      ]
+     },
+     "moment": "Từ chối làm áo từ da Hươu Tuyết bị săn sai lễ"
+    },
+    {
+     "label": "Làm áo, nhưng làm lễ trước",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn hát tiễn suốt đêm, rồi mới cầm dao. Chiếc áo choàng đẹp đến mức tộc trưởng mặc nó cả đời. Có người nói họ nghe thấy tiếng hươu kêu mỗi khi gió thổi qua áo.",
+      "effects": {
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "blt_rite_honored"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bài hát không đủ. Tấm da cứng lại, nứt ra khi bạn khâu, như con hươu không muốn bị biến thành áo.",
+      "effects": {
+       "joy": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "blt_rite_wyvern",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_leather",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "blt_path_rite"
+    ],
+    "notFlags": [
+     "blt_end"
+    ]
+   },
+   "text": "Một con Wyvern già chết tự nhiên trên đỉnh Răng Cưa, và chưa ai đến lấy da nó. Theo nghi lễ cổ, da của một con thú chết tự nhiên là món quà, không phải chiến lợi phẩm. Nhưng đỉnh núi nằm trong lãnh thổ Dwarf.",
+   "choices": [
+    {
+     "label": "Đến xin phép người Dwarf",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Người Dwarf ngạc nhiên vì có kẻ xin phép. Họ cho bạn lấy da, với điều kiện chia cho họ một nửa vảy. Hai tộc cùng hát tiễn con Wyvern, mỗi tộc một bài.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "blt_wyvern_gift"
+       ]
+      },
+      "moment": "Cùng người Dwarf hát tiễn con Wyvern già"
+     },
+     "fail": {
+      "text": "Người Dwarf không cho. Con Wyvern bị bỏ lại trên đỉnh núi, và kền kền ăn hết.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    },
+    {
+     "label": "Lén leo lên lấy",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn lấy được tấm da, hát tiễn trên đỉnh núi. Người Dwarf không bao giờ biết.",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 3,
+       "flags": [
+        "blt_wyvern_taken"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn bị lính Dwarf bắt, và phải trả một năm công làm giáp cho họ.",
+      "effects": {
+       "health": -10,
+       "joy": -8
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "blt_c4_ulla",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_leather",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "blt_met_ulla"
+    ],
+    "notFlags": [
+     "blt_ulla_gone",
+     "blt_end"
+    ]
+   },
+   "text": "Bà Ulla đã quá già để cầm dao cạo. Bà nằm trong lều, và xin bạn một điều: khi bà chết, đừng để ai làm gì với da của bà. Hãy hát tiễn bà như hát tiễn một con thú.",
+   "choices": [
+    {
+     "label": "Hứa và giữ lời",
+     "text": "Bà Ulla mất vào mùa xuân. Bạn hát bài tiễn thú cho bà, bài đầu tiên bà dạy bạn, và chôn bà ở bên suối, nơi những con bò rừng già hay đến chết.",
+     "effects": {
+      "joy": -2,
+      "jobXp": 3,
+      "flags": [
+       "blt_ulla_gone"
+      ]
+     },
+     "moment": "Hát bài tiễn thú cho bà Ulla"
+    },
+    {
+     "label": "Hỏi bà điều cuối cùng bà muốn dạy",
+     "text": "Bà Ulla nắm tay bạn, sờ những vết chai giống hệt vết chai của bà. “Da nào cũng có câu chuyện. Kể cả da của ngươi. Hãy sống sao cho nó có câu chuyện đáng kể.” Bà mất đêm ấy.",
+     "effects": {
+      "joy": 4,
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "blt_ulla_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "blt_c4_dragon",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_leather",
+    "free": true,
+    "jobRank": 3,
+    "notFlags": [
+     "blt_end"
+    ]
+   },
+   "text": "Một con Rồng Đất đã chết trong trận chiến với quân Ma Vương, và xác nó nằm giữa Thảo Nguyên. Các bộ lạc, Sanctus, Dwarf, cả Ma tộc đều muốn vảy của nó. Ai có được thợ thuộc da giỏi nhất sẽ có giáp tốt nhất.",
+   "choices": [
+    {
+     "label": "Làm giáp cho các bộ lạc Thảo Nguyên",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Ba tháng không ngủ. Bạn làm được mười hai bộ giáp vảy Rồng cho mười hai bộ lạc. Người ta bắt đầu gọi bạn là Dragonscale Master.",
+      "effects": {
+       "STR": 1,
+       "fame": 12,
+       "jobXp": 4,
+       "flags": [
+        "blt_dragonscale"
+       ]
+      },
+      "moment": "Làm mười hai bộ giáp vảy Rồng cho các bộ lạc"
+     },
+     "fail": {
+      "text": "Vảy Rồng cứng hơn mọi thứ bạn từng làm. Bạn chỉ làm được ba bộ.",
+      "effects": {
+       "health": -15,
+       "fame": 6,
+       "flags": [
+        "blt_dragonscale"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hát tiễn con Rồng trước khi ai chạm vào nó",
+     "text": "Bạn ngồi bên xác Rồng hát suốt ba ngày. Không ai dám động vào nó trong khi bạn hát. Đến ngày thứ tư, mặt đất nuốt xác Rồng xuống, như nó muốn trở về. Không ai có được vảy.",
+     "effects": {
+      "fame": 8,
+      "joy": 10,
+      "jobXp": 3,
+      "flags": [
+       "blt_dragon_returned"
+      ]
+     },
+     "moment": "Hát tiễn con Rồng Đất trở về lòng đất"
+    }
+   ]
+  },
+  {
+   "id": "blt_c5_war",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_leather",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "blt_path_war"
+    ],
+    "notFlags": [
+     "blt_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Blood-rite Armorer. Mọi chiến binh mạnh nhất Thảo Nguyên đều mặc giáp của bạn. Một chiến binh trẻ đến xin giáp, và bạn nhận ra cậu ta là con của chiến binh mặc chiếc áo giáp đầu tiên của bạn.",
+   "choices": [
+    {
+     "label": "Làm cho cậu ta chiếc giáp cuối cùng",
+     "text": "Bạn làm nó suốt một mùa, khắc vào đó mọi rune bạn biết, và lót bên trong một mảnh da từ chiếc áo của cha cậu ta. Đó là chiếc giáp cuối cùng bạn làm.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "blt_end",
+       "blt_end_last_armor"
+      ]
+     },
+     "moment": "Làm chiếc giáp cuối cùng cho con trai của khách hàng đầu tiên"
+    },
+    {
+     "label": "Dạy cậu ta tự làm giáp",
+     "text": "“Giáp tốt nhất là giáp tự tay làm.” Bạn dạy cậu ta suốt ba năm. Cậu ta không bao giờ ra trận; cậu ta thành thợ thuộc da.",
+     "effects": {
+      "joy": 12,
+      "fame": 10,
+      "flags": [
+       "blt_end",
+       "blt_end_apprentice"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "blt_c5_craft",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_leather",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "blt_path_craft"
+    ],
+    "notFlags": [
+     "blt_end"
+    ]
+   },
+   "text": "Hàng của bạn được bán ở mọi cửa hiệu sang trọng nhất Sanctus. Người ta gọi bạn là Blood-rite Armorer, dù bạn chỉ làm giày và găng tay. Một hội thợ thủ công Sanctus mời bạn làm hội trưởng, người Beastman đầu tiên.",
+   "choices": [
+    {
+     "label": "Nhận, mở cửa hội cho thợ Beastman",
+     "text": "Năm đầu, ba thợ Beastman gia nhập. Năm thứ mười, ba mươi. Đường phố Sanctus bắt đầu có những cửa hiệu treo biển bằng hai thứ chữ.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "blt_end",
+       "blt_end_guild"
+      ]
+     },
+     "moment": "Làm hội trưởng hội thợ thủ công Sanctus"
+    },
+    {
+     "label": "Từ chối, về Thảo Nguyên dạy nghề",
+     "text": "Bạn về, mở một xưởng nhỏ bên suối, nơi bà Ulla từng dạy bạn. Những đứa trẻ học cạo da trước, học hát tiễn sau, và học bán hàng cho Sanctus sau cùng.",
+     "effects": {
+      "joy": 15,
+      "fame": 8,
+      "flags": [
+       "blt_end",
+       "blt_end_home_workshop"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "blt_c5_rite",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_leather",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "blt_path_rite"
+    ],
+    "notFlags": [
+     "blt_end"
+    ]
+   },
+   "text": "Bạn là người cuối cùng biết trọn bộ nghi lễ cổ của thợ thuộc da. Người ta gọi bạn là Blood-rite Armorer, nhưng bạn biết mình chỉ là người hát tiễn.",
+   "choices": [
+    {
+     "label": "Dạy nghi lễ cho mọi thợ thuộc da trẻ",
+     "text": "Mỗi mùa, có mười thợ trẻ đến ngồi bên suối, học hát trước khi học cầm dao. Khi bạn mất, có hai trăm giọng hát tiễn bạn bên suối.",
+     "effects": {
+      "fame": 15,
+      "joy": 18,
+      "flags": [
+       "blt_end",
+       "blt_end_rite_school"
+      ]
+     },
+     "moment": "Truyền nghi lễ cổ cho thế hệ thợ thuộc da mới"
+    },
+    {
+     "label": "Ghi lại nghi lễ bằng chữ",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn ghi lại từng bài hát, từng bước. Cuốn sách được chép ra ba mươi bản, gửi cho ba mươi bộ lạc. Nghi lễ không còn phụ thuộc vào trí nhớ của một người.",
+      "effects": {
+       "fame": 12,
+       "joy": 12,
+       "flags": [
+        "blt_end",
+        "blt_end_rite_book"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Một số bài hát không thể viết thành chữ. Bạn ghi được một nửa.",
+      "effects": {
+       "fame": 8,
+       "flags": [
+        "blt_end",
+        "blt_end_rite_book"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "blt_daily_smell",
+   "races": [
+    "beastman"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "bm_leather",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Mùi nước chát bám vào lông bạn không gội sạch được. Hôm nay, một đứa trẻ trong trại bịt mũi chạy qua bạn.",
+   "choices": [
+    {
+     "label": "Cười",
+     "text": "Bạn nhớ lần đầu mình cũng muốn chạy khỏi lều bà Ulla. Giờ bạn không còn ngửi thấy gì nữa.",
+     "effects": {
+      "joy": 4
+     }
+    },
+    {
+     "label": "Đi tắm suối ba lần",
+     "text": "Vẫn không hết. Bạn chấp nhận rằng mùi ấy giờ là một phần của mình.",
+     "effects": {
+      "health": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "blt_daily_repair",
+   "races": [
+    "beastman"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "bm_leather",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Một chiến binh già mang đến chiếc áo giáp da đã rách nát, mặc suốt ba mươi năm. Anh ta muốn sửa, không muốn thay.",
+   "choices": [
+    {
+     "label": "Sửa từng mũi",
+     "text": "Bạn mất cả tuần để vá từng chỗ rách, giữ lại từng vết sẹo của chiếc áo. Anh chiến binh mặc lại nó, và mỉm cười như gặp lại bạn cũ.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Đề nghị làm cái mới, dùng lại vài mảnh cũ",
+     "text": "Áo mới nhẹ hơn, chắc hơn, và có ba mảnh da cũ khâu ở ngực. Anh chiến binh gật đầu, nửa vui nửa buồn.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "blt_daily_war_order",
+   "races": [
+    "beastman"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "bm_leather",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh khiến mọi xưởng thuộc da phải làm giáp cho quân đội. Bạn không có thời gian hát tiễn cho từng tấm da.",
+   "choices": [
+    {
+     "label": "Làm nhanh, hát một bài cho cả đống da",
+     "text": "Bạn hát một bài dài cho cả trăm tấm da cùng lúc. Có lẽ không đủ, nhưng chiến tranh không chờ ai.",
+     "effects": {
+      "wealth": 15,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Từ chối làm nhanh",
+     "text": "Quân đội phạt bạn. Bạn làm chậm, nhưng mỗi bộ giáp đều có bài hát của nó.",
+     "effects": {
+      "wealth": -5,
+      "joy": 6,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "blt_daily_old_hands",
+   "races": [
+    "beastman"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "bm_leather",
+    "free": true
+   },
+   "text": "Tay bạn nhuộm nâu như tay bà Ulla, và cũng run như tay bà những năm cuối. Kim khâu tuột khỏi tay ba lần trong buổi sáng.",
+   "choices": [
+    {
+     "label": "Khâu chậm lại",
+     "text": "Đường kim của bạn giờ chậm, nhưng thẳng hơn bao giờ hết. Khách hàng nói họ không vội.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Giao kim cho học trò, chỉ dẫn bằng lời",
+     "text": "Học trò khâu, bạn nói. Bạn nhận ra mình đang dùng đúng những câu bà Ulla đã dùng với bạn.",
+     "effects": {
+      "joy": 8
+     }
+    }
+   ]
+  }
+ ]
+}

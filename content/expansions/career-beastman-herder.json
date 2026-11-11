@@ -1,0 +1,1085 @@
+{
+ "_note": "Tuyến truyện Beast Herder (Beastman): 5 chương theo bậc, ba đạo ở Bậc 2 (bhd_path_herd / bhd_path_wild / bhd_path_drive), nhân vật xuyên suốt ông Tobin (tộc Chó), bò đầu đàn Sừng Gãy và Rakk (tộc Sói).",
+ "origins": [],
+ "events": [
+  {
+   "id": "bhd_c1_tobin",
+   "races": [
+    "beastman"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "bm_herder",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "bhd_met_tobin"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Tobin",
+     "race": "Beastman tộc Chó",
+     "position": "Người chăn thú già của bộ lạc"
+    }
+   ],
+   "text": "Ông Tobin chăn đàn bò của bộ lạc đã bốn mươi năm, chỉ với một cây gậy và một tiếng huýt sáo. Ông giao cho bạn mười con bê và một mùa hè: “Mùa thu đem về đủ mười, ta dạy ngươi tiếng huýt thứ hai.”",
+   "choices": [
+    {
+     "label": "Ngủ cùng đàn bê ngoài đồng",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn ngủ giữa đàn bê suốt mùa hè, ăn cùng chúng, chạy cùng chúng. Mùa thu, bạn dắt về đủ mười, còn béo hơn lúc đi. Ông Tobin huýt một tiếng dài, và mười con bê quay đầu nhìn ông cùng một lúc. “Giờ đến lượt ngươi.”",
+      "effects": {
+       "LUCK": 1,
+       "jobXp": 1,
+       "flags": [
+        "bhd_met_tobin",
+        "bhd_tobin_respect"
+       ]
+      },
+      "moment": "Đem đủ mười con bê về sau mùa hè đầu tiên"
+     },
+     "fail": {
+      "text": "Một con bê bị sói bắt giữa mùa. Bạn đem về chín. Ông Tobin vẫn dạy bạn tiếng huýt thứ hai, nhưng bắt bạn đi tìm lại xác con bê để chôn.",
+      "effects": {
+       "joy": -6,
+       "flags": [
+        "bhd_met_tobin"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đánh hơi từng con mỗi sáng",
+     "require": {
+      "subtype": "dog"
+     },
+     "text": "Bạn biết mùi của từng con bê như biết mùi của mẹ mình. Không con nào đi lạc quá ba trăm bước mà bạn không biết. Ông Tobin, cũng tộc Chó, gật đầu: “Mũi nhà mình đấy.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "bhd_met_tobin",
+       "bhd_tobin_respect"
+      ]
+     }
+    },
+    {
+     "label": "Hỏi ông vì sao ông không bao giờ dùng roi",
+     "text": "Ông Tobin chỉ vào con bò đầu đàn già, sừng gãy một bên. “Năm ta mười tuổi, ta quất roi vào nó. Nó húc gãy sừng vào tảng đá để không húc ta. Từ đó ta vứt roi.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "bhd_met_tobin"
+      ]
+     },
+     "moment": "Nghe chuyện con bò Sừng Gãy của ông Tobin"
+    }
+   ]
+  },
+  {
+   "id": "bhd_c1_rakk",
+   "races": [
+    "beastman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "bm_herder",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "bhd_met_tobin"
+    ],
+    "notFlags": [
+     "bhd_met_rakk"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Rakk",
+     "race": "Beastman tộc Sói",
+     "position": "Người chăn trẻ của bộ lạc bên cạnh"
+    }
+   ],
+   "text": "Mùa khô, Rakk, người chăn trẻ tộc Sói của bộ lạc bên cạnh, lùa đàn bò của hắn vào đồng cỏ mà bộ lạc bạn vẫn dùng. Hắn nói đồng cỏ không có chủ.",
+   "choices": [
+    {
+     "label": "Chia đôi đồng cỏ với hắn",
+     "text": "Rakk ngạc nhiên vì bạn không đánh. Hai đàn bò ăn chung đồng cỏ suốt mùa khô. Đến mùa mưa, Rakk mang sang một con dê béo, không nói lời nào.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1,
+      "flags": [
+       "bhd_met_rakk",
+       "bhd_rakk_friend"
+      ]
+     },
+     "moment": "Chia đôi đồng cỏ với Rakk trong mùa khô"
+    },
+    {
+     "label": "Đuổi hắn đi",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn và hắn đánh nhau giữa đồng cỏ đến khi cả hai mệt lả. Rakk rút đàn về, nhưng từ đó mỗi mùa khô hắn lại quay lại, và mỗi mùa khô hai người lại đánh nhau.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "bhd_met_rakk",
+        "bhd_rakk_rival"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Rakk khỏe hơn bạn tưởng. Đàn của hắn ăn hết đồng cỏ mùa ấy.",
+      "effects": {
+       "health": -8,
+       "flags": [
+        "bhd_met_rakk",
+        "bhd_rakk_rival"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bhd_c2_first_birth",
+   "races": [
+    "beastman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "bm_herder",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "bhd_first_birth",
+     "bhd_end"
+    ]
+   },
+   "text": "Đêm bão, một con bò cái của đàn đẻ khó. Con bê nằm ngược. Ông Tobin đang ở đồng cỏ xa. Chỉ có bạn.",
+   "choices": [
+    {
+     "label": "Tự tay xoay con bê",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn quỳ trong bùn hai giờ, tay ngập trong máu và nước ối. Con bê ra đời, thở, đứng dậy. Bò mẹ liếm nó, rồi liếm cả bạn. Đó là đêm bạn hiểu mình đã thành người chăn thú.",
+      "effects": {
+       "STR": 1,
+       "joy": 10,
+       "jobXp": 2,
+       "flags": [
+        "bhd_first_birth"
+       ]
+      },
+      "moment": "Đỡ đẻ cho con bò cái trong đêm bão"
+     },
+     "fail": {
+      "text": "Con bê chết. Bò mẹ sống. Bạn ngồi cạnh nó đến sáng, và nó không đứng dậy chừng nào bạn chưa đi.",
+      "effects": {
+       "joy": -12,
+       "flags": [
+        "bhd_first_birth"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Huýt gọi ông Tobin",
+     "text": "Tiếng huýt thứ hai, ông Tobin dạy để gọi người, vang qua cơn bão. Ông chạy về kịp, và dạy bạn cách xoay con bê bằng chính đôi tay bạn. Con bê sống.",
+     "effects": {
+      "INT": 1,
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "bhd_first_birth"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bhd_c2_crossroads",
+   "races": [
+    "beastman"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "bm_herder",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "bhd_path_herd",
+     "bhd_path_wild",
+     "bhd_path_drive",
+     "bhd_end"
+    ]
+   },
+   "text": "Ông Tobin trao cho bạn cây gậy của ông và hỏi: “Ngươi muốn chăn gì?” Hội đồng bộ lạc muốn bạn gây dựng đàn bò lớn nhất Thảo Nguyên. Một đàn ngựa hoang đã bắt đầu đi theo bạn mỗi khi bạn huýt sáo ở đồng cỏ xa. Và những thương lái Human ở chợ Sanctus trả giá gấp đôi cho bò sống được lùa đến tận nơi.",
+   "choices": [
+    {
+     "label": "Gây dựng đàn lớn: Đại Đàn",
+     "text": "Mỗi mùa xuân, bạn đếm thêm bê con. Đàn của bộ lạc bắt đầu lớn đến mức phải chia làm ba đồng cỏ.",
+     "effects": {
+      "wealth": 8,
+      "jobXp": 2,
+      "flags": [
+       "bhd_path_herd"
+      ]
+     },
+     "moment": "Bắt đầu gây dựng đại đàn của bộ lạc"
+    },
+    {
+     "label": "Đi theo đàn ngựa hoang: Sứ Giả Vạn Thú",
+     "text": "Bạn để lại đàn bò cho người khác, và đi theo tiếng vó ngựa hoang. Thảo Nguyên có nhiều thú hơn những gì người chăn bò từng thấy.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "bhd_path_wild"
+      ]
+     },
+     "moment": "Đi theo đàn ngựa hoang của Thảo Nguyên"
+    },
+    {
+     "label": "Lùa bò đến chợ xa: Đường Lùa",
+     "text": "Con đường từ Thảo Nguyên đến Sanctus dài hai tháng, qua sông, qua đèo, qua những vùng có cướp. Bạn và ba trăm con bò bắt đầu đi.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 2,
+      "flags": [
+       "bhd_path_drive"
+      ]
+     },
+     "moment": "Bắt đầu lùa đàn bò đến chợ Sanctus"
+    }
+   ]
+  },
+  {
+   "id": "bhd_herd_drought",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_herder",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bhd_path_herd"
+    ],
+    "notFlags": [
+     "bhd_end"
+    ]
+   },
+   "text": "Hạn hán. Đàn bò của bộ lạc đã lớn gấp ba, nhưng đồng cỏ chỉ còn đủ cho một nửa. Rakk cũng đang tìm cỏ cho đàn của hắn.",
+   "choices": [
+    {
+     "label": "Bán bớt một nửa đàn",
+     "text": "Bộ lạc buồn, nhưng nửa đàn còn lại sống qua hạn hán. Năm sau mưa đến, và đàn lớn lại trong ba mùa.",
+     "effects": {
+      "wealth": 15,
+      "joy": -4,
+      "jobXp": 3,
+      "flags": [
+       "bhd_herd_wise"
+      ]
+     }
+    },
+    {
+     "label": "Cùng Rakk tìm đồng cỏ mới",
+     "require": {
+      "flags": [
+       "bhd_rakk_friend"
+      ]
+     },
+     "text": "Hai người đi mười ngày về phía bắc, và tìm thấy một thung lũng còn xanh. Hai bộ lạc chia nhau thung lũng ấy suốt mùa hạn. Từ đó, hai bộ lạc gọi nhau là anh em.",
+     "effects": {
+      "fame": 6,
+      "joy": 10,
+      "jobXp": 3,
+      "flags": [
+       "bhd_herd_wise",
+       "bhd_valley_shared"
+      ]
+     },
+     "moment": "Cùng Rakk tìm thung lũng xanh cứu hai bộ lạc"
+    },
+    {
+     "label": "Giữ cả đàn, chiếm đồng cỏ của Rakk",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Đàn của bạn sống qua hạn hán. Đàn của Rakk thì không. Bộ lạc bạn giàu nhất Thảo Nguyên. Bộ lạc của Rakk dời đi nơi khác.",
+      "effects": {
+       "wealth": 25,
+       "joy": -12,
+       "jobXp": 3,
+       "flags": [
+        "bhd_herd_greed"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Hai bộ lạc đánh nhau. Cả hai đàn đều thiệt hại.",
+      "effects": {
+       "health": -15,
+       "wealth": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bhd_herd_bull",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_herder",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bhd_path_herd"
+    ],
+    "notFlags": [
+     "bhd_end"
+    ]
+   },
+   "text": "Con bò đầu đàn Sừng Gãy đã già, và một con bò đực trẻ đang thách thức nó. Theo luật đàn, kẻ thua sẽ bị đuổi khỏi đàn và chết một mình.",
+   "choices": [
+    {
+     "label": "Để luật đàn quyết định",
+     "text": "Sừng Gãy thua. Nó rời đàn, chậm rãi, không ngoảnh lại. Bạn đi theo nó ba ngày, đến khi nó nằm xuống bên suối. Bạn ngồi bên nó đến cuối.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 2,
+      "flags": [
+       "bhd_bull_gone"
+      ]
+     }
+    },
+    {
+     "label": "Tách Sừng Gãy ra, nuôi riêng",
+     "text": "Sừng Gãy sống thêm ba năm ở chuồng sau lều bạn, ăn cỏ khô và ngủ dưới nắng. Mỗi sáng, nó nhìn về phía đàn ở xa, nhưng không bao giờ bỏ đi.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "bhd_bull_kept"
+      ]
+     },
+     "moment": "Giữ con bò Sừng Gãy già bên mình"
+    }
+   ]
+  },
+  {
+   "id": "bhd_wild_horses",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_herder",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bhd_path_wild"
+    ],
+    "notFlags": [
+     "bhd_end"
+    ]
+   },
+   "text": "Đàn ngựa hoang đã quen với bạn. Con ngựa đầu đàn, một con ngựa xám có bờm trắng như tuyết, cho phép bạn đến gần trong khoảng một sải tay. Một thương lái Human đề nghị mua cả đàn với giá trị bằng cả bộ lạc.",
+   "choices": [
+    {
+     "label": "Từ chối",
+     "text": "Thương lái bỏ đi, rồi quay lại với thợ săn. Bạn dẫn đàn ngựa vào một hẻm núi mà chỉ bạn biết. Thợ săn tìm suốt một mùa mà không thấy.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "bhd_wild_protector"
+      ]
+     }
+    },
+    {
+     "label": "Cưỡi con ngựa đầu đàn",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Con ngựa xám để bạn leo lên lưng, đứng im một khắc, rồi phi như gió. Cả đàn chạy theo. Bạn cưỡi nó qua cả Thảo Nguyên đến lúc mặt trời lặn, không yên, không cương.",
+      "effects": {
+       "AGI": 1,
+       "fame": 6,
+       "joy": 12,
+       "jobXp": 3,
+       "flags": [
+        "bhd_wild_rider"
+       ]
+      },
+      "moment": "Cưỡi con ngựa đầu đàn không yên không cương"
+     },
+     "fail": {
+      "text": "Nó hất bạn xuống. Không ác ý, chỉ là chưa đến lúc.",
+      "effects": {
+       "health": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bhd_wild_demonwolves",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_herder",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bhd_path_wild"
+    ],
+    "notFlags": [
+     "bhd_end"
+    ]
+   },
+   "text": "Một bầy Hắc Lang của Quân đoàn Ma Vương đang săn đàn ngựa hoang. Chúng không ăn; chúng chỉ giết.",
+   "choices": [
+    {
+     "label": "Dẫn đàn ngựa chạy về phía các bộ lạc",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn cưỡi ngựa xám dẫn đàn chạy suốt đêm, thẳng về phía Trại Huyết Môn. Bầy Hắc Lang đuổi theo, và gặp ba trăm chiến binh đang chờ. Đàn ngựa sống sót.",
+      "effects": {
+       "AGI": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "bhd_saved_herd"
+       ]
+      },
+      "moment": "Dẫn đàn ngựa hoang chạy thoát bầy Hắc Lang"
+     },
+     "fail": {
+      "text": "Bầy Hắc Lang bắt kịp một phần đàn. Bạn cứu được hai phần ba.",
+      "effects": {
+       "health": -15,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Gọi các loài thú khác cùng chống lại",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn huýt tiếng huýt thứ ba mà ông Tobin chưa từng dạy ai, tiếng huýt bạn tự học từ gió. Bò rừng, nai, cả một bầy sói hoang cùng kéo đến. Bầy Hắc Lang bị vây giữa vạn con thú, và không con nào thoát.",
+      "effects": {
+       "LUCK": 1,
+       "fame": 10,
+       "jobXp": 4,
+       "flags": [
+        "bhd_called_beasts"
+       ]
+      },
+      "moment": "Gọi vạn thú Thảo Nguyên cùng chống bầy Hắc Lang"
+     },
+     "fail": {
+      "text": "Chỉ có vài con thú đến. Không đủ.",
+      "effects": {
+       "joy": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bhd_drive_river",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_herder",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bhd_path_drive"
+    ],
+    "notFlags": [
+     "bhd_end"
+    ]
+   },
+   "text": "Đàn bò của bạn đến bờ sông Bạc vào mùa nước lớn. Đi vòng mất một tháng, và thương lái ở Sanctus sẽ không chờ. Qua sông thì có thể mất cả trăm con.",
+   "choices": [
+    {
+     "label": "Qua sông",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn cưỡi ngựa đi trước, dẫn con bò đầu đàn xuống nước. Cả đàn theo sau. Mất ba con. Đến Sanctus đúng hẹn.",
+      "effects": {
+       "STR": 1,
+       "wealth": 20,
+       "jobXp": 3,
+       "flags": [
+        "bhd_drive_river"
+       ]
+      },
+      "moment": "Lùa ba trăm con bò qua sông Bạc mùa nước lớn"
+     },
+     "fail": {
+      "text": "Nước cuốn mất ba mươi con. Bạn cũng suýt chết đuối.",
+      "effects": {
+       "health": -20,
+       "wealth": -10
+      }
+     }
+    },
+    {
+     "label": "Đi vòng",
+     "text": "Một tháng thêm trên đường. Thương lái Sanctus đã mua bò của người khác. Bạn bán được, nhưng với giá thấp hơn.",
+     "effects": {
+      "wealth": 5,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "bhd_drive_market",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_herder",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "bhd_path_drive"
+    ],
+    "notFlags": [
+     "bhd_end"
+    ]
+   },
+   "text": "Ở chợ Sanctus, thương lái Human trả giá cho bò của bạn chỉ bằng một nửa giá bò của người Human, vì “bò của Beastman thì bẩn”.",
+   "choices": [
+    {
+     "label": "Mở chợ riêng ở ngoài cổng thành",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn dựng hàng rào ngoài cổng thành và bán trực tiếp cho dân thường. Giá rẻ hơn thương lái, nhưng vẫn cao hơn giá họ trả bạn. Một năm sau, chợ ngoài cổng thành đông hơn chợ trong thành.",
+      "effects": {
+       "INT": 1,
+       "wealth": 20,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "bhd_drive_market"
+       ]
+      },
+      "moment": "Mở chợ bò ngoài cổng thành Sanctus"
+     },
+     "fail": {
+      "text": "Lính gác cấm chợ của bạn. Bạn phải bán cho thương lái với giá nửa.",
+      "effects": {
+       "wealth": 5,
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Bán với giá nửa",
+     "text": "Bạn bán. Trên đường về, bạn nghĩ về những người Beastman khác cũng đang bán với giá nửa, và không biết làm gì.",
+     "effects": {
+      "wealth": 8,
+      "joy": -6,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "bhd_c4_tobin",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_herder",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "bhd_met_tobin"
+    ],
+    "notFlags": [
+     "bhd_tobin_gone",
+     "bhd_end"
+    ]
+   },
+   "text": "Ông Tobin không còn đi được. Ông nằm trên chiếc giường gỗ ngoài hiên, nghe tiếng đàn bò trở về mỗi chiều.",
+   "choices": [
+    {
+     "label": "Lùa đàn đi qua hiên nhà ông mỗi chiều",
+     "text": "Mỗi chiều, bạn lùa đàn bò đi qua trước hiên, chậm rãi, để ông nghe được tiếng của từng con. Ông huýt một tiếng nhỏ, và cả đàn dừng lại nhìn ông. Ông mất vào một buổi chiều như thế.",
+     "effects": {
+      "joy": -2,
+      "jobXp": 3,
+      "flags": [
+       "bhd_tobin_gone"
+      ]
+     },
+     "moment": "Lùa đàn qua hiên nhà ông Tobin mỗi chiều"
+    },
+    {
+     "label": "Hỏi ông tiếng huýt cuối cùng",
+     "text": "Ông Tobin huýt một tiếng mà bạn chưa nghe bao giờ: tiếng huýt gọi đàn về nhà lần cuối. Ông mất đêm ấy. Sáng ra, cả đàn đứng quanh lều, im lặng.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "bhd_tobin_gone",
+       "bhd_last_whistle"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bhd_c4_plague",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_herder",
+    "free": true,
+    "jobRank": 3,
+    "notFlags": [
+     "bhd_end"
+    ]
+   },
+   "text": "Dịch Lở Móng tràn qua Thảo Nguyên. Hội đồng ra lệnh giết mọi con bò bị nhiễm, kể cả những con chỉ mới nghi.",
+   "choices": [
+    {
+     "label": "Tách đàn, cách ly từng nhóm",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn chia đàn thành hai mươi nhóm nhỏ, mỗi nhóm một đồng cỏ cách xa nhau. Dịch dừng lại ở ba nhóm. Mười bảy nhóm còn lại sống. Hội đồng gọi bạn là Lord of the Steppe.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "jobXp": 4,
+       "flags": [
+        "bhd_plague_saved"
+       ]
+      },
+      "moment": "Chia đàn thành hai mươi nhóm, cứu đàn bò khỏi dịch"
+     },
+     "fail": {
+      "text": "Dịch lan nhanh hơn bạn chia. Bạn mất nửa đàn.",
+      "effects": {
+       "wealth": -20,
+       "joy": -12
+      }
+     }
+    },
+    {
+     "label": "Tuân lệnh",
+     "text": "Bạn giết hàng trăm con bò, trong đó có những con bạn đỡ đẻ. Dịch dừng lại. Bạn không ăn thịt bò suốt nhiều năm sau đó.",
+     "effects": {
+      "joy": -15,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "bhd_c5_herd",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_herder",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bhd_path_herd"
+    ],
+    "notFlags": [
+     "bhd_end"
+    ]
+   },
+   "text": "Đàn của bộ lạc giờ lớn nhất Thảo Nguyên. Người ta gọi bạn là Envoy of All Beasts, dù bạn chỉ chăn bò. Hội đồng muốn bạn chia đàn cho các bộ lạc nghèo.",
+   "choices": [
+    {
+     "label": "Chia đàn",
+     "require": {
+      "anyFlags": [
+       "bhd_herd_wise",
+       "bhd_valley_shared"
+      ]
+     },
+     "text": "Mỗi bộ lạc nghèo nhận mười con bê và một người dạy chăn. Mười năm sau, Thảo Nguyên không còn bộ lạc nào đói.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "bhd_end",
+       "bhd_end_shared"
+      ]
+     },
+     "moment": "Chia đại đàn cho các bộ lạc nghèo"
+    },
+    {
+     "label": "Giữ đàn cho bộ lạc mình",
+     "text": "Bộ lạc bạn giàu nhất Thảo Nguyên, và các bộ lạc khác nhìn với ánh mắt không mấy thiện cảm.",
+     "effects": {
+      "wealth": 30,
+      "fame": 10,
+      "joy": -4,
+      "flags": [
+       "bhd_end",
+       "bhd_end_rich"
+      ]
+     }
+    },
+    {
+     "label": "Trao cây gậy của ông Tobin cho một đứa trẻ",
+     "text": "Bạn giao cho nó mười con bê và một mùa hè. Mùa thu, nó dắt về đủ mười. Bạn huýt tiếng huýt thứ hai, và dạy nó.",
+     "effects": {
+      "joy": 18,
+      "flags": [
+       "bhd_end",
+       "bhd_end_passed_staff"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bhd_c5_wild",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_herder",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bhd_path_wild"
+    ],
+    "notFlags": [
+     "bhd_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Envoy of All Beasts. Khi bạn huýt sáo, ngựa hoang, bò rừng, nai, cả sói cũng ngẩng đầu. Các bộ lạc nhờ bạn thỏa thuận với thú hoang về đồng cỏ.",
+   "choices": [
+    {
+     "label": "Vạch ranh giới cho người và thú",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn đi suốt một năm, vạch ranh giới bằng đá trắng. Người chăn không vào đồng cỏ của thú hoang, thú hoang không vào đồng cỏ của người. Nó được giữ lâu hơn mọi hiệp ước giữa người với người.",
+      "effects": {
+       "fame": 15,
+       "joy": 15,
+       "flags": [
+        "bhd_end",
+        "bhd_end_white_stones"
+       ]
+      },
+      "moment": "Vạch ranh giới đá trắng giữa người và thú hoang"
+     },
+     "fail": {
+      "text": "Thú hoang không hiểu ranh giới. Nhưng chúng nhớ bạn.",
+      "effects": {
+       "fame": 10,
+       "flags": [
+        "bhd_end",
+        "bhd_end_white_stones"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Ra đi cùng đàn ngựa hoang",
+     "require": {
+      "anyFlags": [
+       "bhd_wild_rider",
+       "bhd_wild_protector"
+      ]
+     },
+     "text": "Con ngựa xám đã già, như bạn. Một sáng, nó đến trước lều, và bạn leo lên lưng nó. Người ta không bao giờ thấy bạn nữa, chỉ thấy một đàn ngựa hoang chạy qua Thảo Nguyên, có một bóng người ngồi trên lưng con dẫn đầu.",
+     "effects": {
+      "joy": 20,
+      "fame": 12,
+      "flags": [
+       "bhd_end",
+       "bhd_end_rode_away"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bhd_c5_drive",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_herder",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "bhd_path_drive"
+    ],
+    "notFlags": [
+     "bhd_end"
+    ]
+   },
+   "text": "Đường lùa bò của bạn giờ là con đường buôn lớn nhất giữa Thảo Nguyên và Sanctus. Người ta gọi bạn là Envoy of All Beasts. Thương hội Sanctus muốn mua lại con đường.",
+   "choices": [
+    {
+     "label": "Từ chối, lập hội những người lùa bò Beastman",
+     "text": "Hội có ba trăm người, một luật: không bán dưới giá công bằng. Thương lái Sanctus phải trả đủ, vì không còn ai bán rẻ.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "wealth": 15,
+      "flags": [
+       "bhd_end",
+       "bhd_end_drovers"
+      ]
+     },
+     "moment": "Lập hội những người lùa bò Beastman"
+    },
+    {
+     "label": "Bán con đường",
+     "text": "Bạn giàu đủ để sống phần đời còn lại. Con đường thuộc về Sanctus, và những người lùa bò Beastman lại bán với giá nửa.",
+     "effects": {
+      "wealth": 40,
+      "joy": -8,
+      "flags": [
+       "bhd_end",
+       "bhd_end_sold_road"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "bhd_daily_lamb",
+   "races": [
+    "beastman"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "bm_herder",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một con cừu con bị mẹ bỏ rơi kêu suốt đêm.",
+   "choices": [
+    {
+     "label": "Mang nó về lều nuôi",
+     "text": "Nó ngủ trong lòng bạn, bú sữa dê bằng ngón tay bạn. Đến mùa xuân, nó theo bạn khắp nơi như cái bóng.",
+     "effects": {
+      "joy": 8
+     }
+    },
+    {
+     "label": "Ghép nó với một cừu mẹ mất con",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn xoa con cừu con bằng da con cừu đã chết. Cừu mẹ ngửi, rồi cho nó bú.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1
+      }
+     },
+     "fail": {
+      "text": "Cừu mẹ không nhận. Bạn phải nuôi nó.",
+      "effects": {
+       "joy": 4
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bhd_daily_bear_strength",
+   "races": [
+    "beastman"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "bm_herder",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Một con bò đực bị sa lầy, chìm đến bụng.",
+   "choices": [
+    {
+     "label": "Kéo nó lên bằng tay không",
+     "require": {
+      "subtype": "bear"
+     },
+     "text": "Sức tộc Gấu không phải chuyện đùa. Bạn kéo nó lên trong một hơi, rồi ngồi xuống bùn thở dốc, cười.",
+     "effects": {
+      "STR": 1,
+      "joy": 6
+     }
+    },
+    {
+     "label": "Lót gỗ và kéo bằng dây",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Mất cả buổi chiều, nhưng con bò lên được.",
+      "effects": {
+       "jobXp": 1
+      }
+     },
+     "fail": {
+      "text": "Dây đứt. Phải nhờ cả làng.",
+      "effects": {
+       "joy": -2
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bhd_daily_war_requisition",
+   "races": [
+    "beastman"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "bm_herder",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Quân đội trưng thu bò của bộ lạc để làm lương thực cho chiến tranh.",
+   "choices": [
+    {
+     "label": "Giao một nửa, giấu một nửa",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Nửa đàn được giấu trong hẻm núi. Bộ lạc vẫn sống qua mùa đông.",
+      "effects": {
+       "joy": 4
+      }
+     },
+     "fail": {
+      "text": "Lính tìm thấy cả nửa giấu.",
+      "effects": {
+       "wealth": -15,
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Giao hết, đòi giấy biên nhận",
+     "text": "Ba năm sau, bạn đòi được một phần ba giá trị.",
+     "effects": {
+      "wealth": -10,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "bhd_daily_old_whistle",
+   "races": [
+    "beastman"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "bm_herder",
+    "free": true
+   },
+   "text": "Hơi bạn đã yếu, tiếng huýt không còn vang xa như xưa. Sáng nay, đàn bò không quay đầu khi bạn gọi.",
+   "choices": [
+    {
+     "label": "Dạy một đứa trẻ huýt thay",
+     "text": "Đứa trẻ huýt, đàn bò quay đầu. Bạn ngồi trên đá, nhìn, và nhớ ông Tobin.",
+     "effects": {
+      "joy": 8
+     }
+    },
+    {
+     "label": "Đi bộ ra giữa đàn",
+     "text": "Bạn đi chậm vào giữa đàn bò. Chúng ngửi bạn, nhận ra bạn, và đi theo bạn về. Không cần tiếng huýt nào.",
+     "effects": {
+      "joy": 10
+     }
+    }
+   ]
+  }
+ ]
+}

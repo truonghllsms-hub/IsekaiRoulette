@@ -1,0 +1,1128 @@
+{
+ "_note": "Tuyến truyện Thief (Beastman): 5 chương theo bậc, ba đạo ở Bậc 2 (btf_path_crown / btf_path_moon / btf_path_heist), nhân vật xuyên suốt bà Vesk (tộc Mèo) và đội trưởng gác thành Marlow.",
+ "origins": [],
+ "events": [
+  {
+   "id": "btf_c1_vesk",
+   "races": [
+    "beastman"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "bm_thief",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "btf_met_vesk"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Vesk",
+     "race": "Beastman tộc Mèo",
+     "position": "Bà lão tiêu thụ đồ gian ở khu ổ chuột Sanctus"
+    }
+   ],
+   "text": "Bà Vesk ngồi trên một chiếc ghế mây trong căn gác xép ở khu ổ chuột Sanctus, một Beastman tộc Mèo già với đôi mắt vàng không bao giờ chớp. Bà mua mọi thứ ăn cắp được, và bán lại mọi thứ người ta cần. Bà nhìn chiếc ví bạn vừa móc được: “Ví của ai?”",
+   "choices": [
+    {
+     "label": "“Của một gã quý tộc béo.”",
+     "text": "Bà Vesk mở ví, đếm tiền, và trả cho bạn một phần mười. “Lần sau, móc ví của gã gầy. Gã béo thì đi kiệu, gã gầy thì đi bộ, mà gã gầy giàu thật thì không cần béo để khoe.”",
+     "effects": {
+      "INT": 1,
+      "wealth": 2,
+      "jobXp": 1,
+      "flags": [
+       "btf_met_vesk"
+      ]
+     },
+     "moment": "Bán chiếc ví đầu tiên cho bà Vesk"
+    },
+    {
+     "label": "“Của một bà già bán hoa.”",
+     "text": "Bà Vesk đặt chiếc ví xuống, nhìn bạn rất lâu. “Trả lại.” Bạn trả lại. Bà già bán hoa không biết gì. Bà Vesk nhận bạn làm người của bà vì bạn đã nói thật.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 1,
+      "flags": [
+       "btf_met_vesk",
+       "btf_vesk_respect"
+      ]
+     }
+    },
+    {
+     "label": "Nhảy lên xà nhà, ngồi ngang tầm mắt bà",
+     "require": {
+      "subtype": "cat"
+     },
+     "text": "Bà Vesk ngước lên, đôi mắt vàng nheo lại thành một đường chỉ. “Mèo gác mái. Ta cũng từng ngồi chỗ ấy.” Bà ném cho bạn một chiếc chìa khóa đồng, chìa khóa căn gác xép.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 1,
+      "flags": [
+       "btf_met_vesk",
+       "btf_vesk_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "btf_c1_marlow",
+   "races": [
+    "beastman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "bm_thief",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "btf_met_vesk"
+    ],
+    "notFlags": [
+     "btf_met_marlow"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Marlow",
+     "race": "Human",
+     "position": "Đội trưởng gác thành Sanctus"
+    }
+   ],
+   "text": "Đội trưởng gác thành Marlow tóm cổ áo bạn ngay trên mái nhà, khi bạn đang trèo xuống từ cửa sổ một tiệm kim hoàn. Ông ta là người Human duy nhất ở Sanctus trèo mái nhà giỏi như Beastman.",
+   "choices": [
+    {
+     "label": "Thoát khỏi tay ông ta",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn tuột khỏi áo khoác, để lại nó trong tay Marlow. Ông ta nhìn chiếc áo, rồi nhìn bạn đang chạy trên mái ngói, và bật cười. Từ đó, mỗi lần bạn ra tay, ông ta lại xuất hiện.",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 1,
+       "flags": [
+        "btf_met_marlow",
+        "btf_marlow_game"
+       ]
+      },
+      "moment": "Thoát khỏi tay đội trưởng Marlow trên mái nhà"
+     },
+     "fail": {
+      "text": "Marlow giữ chặt. Bạn ngồi tù một tháng. Ông ta đến thăm bạn mỗi tuần, mang theo bánh mì, và hỏi bạn đã ăn cắp những gì.",
+      "effects": {
+       "health": -6,
+       "joy": -6,
+       "flags": [
+        "btf_met_marlow",
+        "btf_marlow_game"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Trả lại món đồ, xin ông ta tha",
+     "text": "Marlow nhìn món đồ, rồi nhìn bạn. “Lần đầu à?” Ông ta trả món đồ lại cho tiệm kim hoàn, và thả bạn ra. “Lần sau, ta không thả.”",
+     "effects": {
+      "joy": 4,
+      "flags": [
+       "btf_met_marlow",
+       "btf_marlow_mercy"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "btf_c2_first_job",
+   "races": [
+    "beastman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "bm_thief",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "btf_first_job",
+     "btf_end"
+    ]
+   },
+   "text": "Phi vụ lớn đầu tiên bà Vesk giao: lấy trộm sổ nợ của một tay cho vay nặng lãi. Trong sổ có tên của nửa khu ổ chuột. Bà Vesk muốn cuốn sổ để bán lại cho chính hắn.",
+   "choices": [
+    {
+     "label": "Lấy sổ, giao cho bà Vesk",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn lấy được sổ mà không ai biết. Bà Vesk bán lại nó cho tay cho vay nặng lãi với giá cắt cổ. Không ai trong khu ổ chuột được xóa nợ.",
+      "effects": {
+       "AGI": 1,
+       "wealth": 10,
+       "jobXp": 2,
+       "flags": [
+        "btf_first_job"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn bị chó gác cắn. Bạn mang sổ về, nhưng với một vết thương ở chân.",
+      "effects": {
+       "health": -12,
+       "flags": [
+        "btf_first_job"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Lấy sổ, rồi đốt nó",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Cuốn sổ cháy thành tro trên mái nhà khu ổ chuột. Sáng hôm sau, tay cho vay nặng lãi không biết ai nợ mình bao nhiêu. Bà Vesk nhìn bạn rất lâu, rồi cười: “Ngươi sẽ không giàu đâu.”",
+      "effects": {
+       "AGI": 1,
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "btf_first_job",
+        "btf_burned_ledger"
+       ]
+      },
+      "moment": "Đốt sổ nợ của tay cho vay nặng lãi"
+     },
+     "fail": {
+      "text": "Bạn bị phát hiện trước khi kịp đốt. Bạn chạy, cuốn sổ rơi lại.",
+      "effects": {
+       "health": -10,
+       "flags": [
+        "btf_first_job"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "btf_c2_crossroads",
+   "races": [
+    "beastman"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "bm_thief",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "btf_path_crown",
+     "btf_path_moon",
+     "btf_path_heist",
+     "btf_end"
+    ]
+   },
+   "text": "Bà Vesk nói với bạn, đôi mắt vàng không chớp: “Ngươi đã giỏi rồi. Giờ ngươi chọn trộm cái gì.” Có ba thứ đáng trộm ở Sanctus: quyền lực của thế giới ngầm, nơi các băng đảng tranh nhau từng con phố; bánh mì cho khu ổ chuột, từ những kho lúa của nhà giàu; và những báu vật mà chưa ai trộm được.",
+   "choices": [
+    {
+     "label": "Trộm quyền lực: Vua Thế Giới Ngầm",
+     "text": "Bạn bắt đầu từ một con phố, rồi hai, rồi ba. Mỗi băng nhỏ bạn thu phục là một cánh tay mới.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "btf_path_crown"
+      ]
+     },
+     "moment": "Bắt đầu tranh giành thế giới ngầm Sanctus"
+    },
+    {
+     "label": "Trộm bánh mì: Bóng Trăng",
+     "text": "Đêm trăng tròn đầu tiên, bạn lẻn vào kho lúa của một quý tộc, và sáng hôm sau, mười nhà ở khu ổ chuột có bánh mì. Người ta bắt đầu kể về một bóng mèo trên mái nhà.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 2,
+      "flags": [
+       "btf_path_moon"
+      ]
+     },
+     "moment": "Lần đầu trộm lúa cho khu ổ chuột"
+    },
+    {
+     "label": "Trộm báu vật: Phi Vụ Huyền Thoại",
+     "text": "Bạn bắt đầu lập danh sách những thứ không thể trộm: vương miện của nhà vua, ngọn đèn của Tháp Ngà, trái tim của Đấu trường Huyết Sa. Bà Vesk đọc danh sách và cười đến chảy nước mắt.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 2,
+      "flags": [
+       "btf_path_heist"
+      ]
+     },
+     "moment": "Lập danh sách những báu vật không thể trộm"
+    }
+   ]
+  },
+  {
+   "id": "btf_crown_war",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_thief",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "btf_path_crown"
+    ],
+    "notFlags": [
+     "btf_end"
+    ]
+   },
+   "text": "Hai băng đảng lớn nhất Sanctus đang đánh nhau vì khu chợ cá. Mỗi đêm có người chết. Bạn có thể đứng ngoài, hoặc dùng cơ hội này.",
+   "choices": [
+    {
+     "label": "Đứng giữa làm trung gian",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn mời hai thủ lĩnh đến một quán rượu trung lập, và chia khu chợ cá thành hai nửa theo từng con hẻm. Cả hai đều nghĩ mình được phần hơn. Đêm ấy không ai chết. Cả hai băng bắt đầu gọi bạn là “người phân xử”.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "btf_crown_judge"
+       ]
+      },
+      "moment": "Dàn xếp cuộc chiến băng đảng ở chợ cá"
+     },
+     "fail": {
+      "text": "Một thủ lĩnh rút dao giữa buổi nói chuyện. Bạn thoát được, nhưng cả hai băng giờ đều ghét bạn.",
+      "effects": {
+       "health": -12,
+       "flags": [
+        "btf_crown_hated"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Để hai băng tự diệt nhau, rồi chiếm chợ cá",
+     "text": "Ba tuần sau, cả hai băng đều kiệt quệ. Bạn bước vào chợ cá với mười người, và không ai dám cản. Bạn có một khu chợ, và một vũng máu không phải của mình.",
+     "effects": {
+      "wealth": 20,
+      "fame": 4,
+      "joy": -8,
+      "jobXp": 3,
+      "flags": [
+       "btf_crown_ruthless"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "btf_crown_children",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_thief",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "btf_path_crown"
+    ],
+    "notFlags": [
+     "btf_end"
+    ]
+   },
+   "text": "Một băng đảng dưới quyền bạn bắt đầu dùng trẻ con mồ côi Beastman làm móc túi, đánh đập chúng nếu không đủ tiền nộp.",
+   "choices": [
+    {
+     "label": "Dẹp băng ấy",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đến hang của chúng vào lúc nửa đêm, cùng hai mươi người. Bọn trẻ được thả. Thủ lĩnh băng bị đuổi khỏi Sanctus. Luật đầu tiên của bạn được nói ra từ đêm đó: không ai dùng trẻ con.",
+      "effects": {
+       "STR": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "btf_crown_rule"
+       ]
+      },
+      "moment": "Đặt luật không dùng trẻ con trong thế giới ngầm"
+     },
+     "fail": {
+      "text": "Băng ấy chống trả. Bạn thắng, nhưng mất ba người.",
+      "effects": {
+       "health": -15,
+       "joy": -8,
+       "flags": [
+        "btf_crown_rule"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Mặc kệ, miễn chúng nộp đủ phần",
+     "text": "Tiền vẫn về đều. Bạn không đi qua con hẻm ấy nữa.",
+     "effects": {
+      "wealth": 15,
+      "joy": -15,
+      "jobXp": 2,
+      "flags": [
+       "btf_crown_blind"
+      ]
+     }
+    },
+    {
+     "label": "Đưa bọn trẻ đến chỗ bà Vesk",
+     "require": {
+      "flags": [
+       "btf_met_vesk"
+      ]
+     },
+     "text": "Bà Vesk nhận hết, mười hai đứa. Căn gác xép chật kín. Bà dạy chúng đọc chữ trước khi dạy chúng móc túi, và nhiều đứa không bao giờ cần học đến bài thứ hai.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 3,
+      "flags": [
+       "btf_crown_rule",
+       "btf_vesk_children"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "btf_moon_granary",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_thief",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "btf_path_moon"
+    ],
+    "notFlags": [
+     "btf_end"
+    ]
+   },
+   "text": "Mùa đói. Kho lúa lớn nhất Sanctus thuộc về một vị bá tước đang tích trữ để chờ giá lên. Lính canh gấp ba bình thường. Marlow cũng ở đó.",
+   "choices": [
+    {
+     "label": "Lẻn vào như mọi khi",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn lấy được ba mươi bao lúa qua đường ống thông gió, mỗi bao một chuyến. Sáng ra, ba mươi nhà ở khu ổ chuột có lúa. Marlow tìm thấy một bông hoa đặt trên ghế gác của ông ta.",
+      "effects": {
+       "AGI": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "btf_moon_granary"
+       ]
+      },
+      "moment": "Lấy ba mươi bao lúa từ kho của bá tước giữa mùa đói"
+     },
+     "fail": {
+      "text": "Marlow chặn bạn ở ống thông gió. Ông ta nhìn bạn, nhìn bao lúa, rồi quay đi. “Ta không thấy gì.” Bạn chỉ kịp lấy năm bao.",
+      "effects": {
+       "fame": 3,
+       "jobXp": 2,
+       "flags": [
+        "btf_moon_granary",
+        "btf_marlow_blind_eye"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Nói chuyện với Marlow trước",
+     "require": {
+      "flags": [
+       "btf_met_marlow"
+      ]
+     },
+     "text": "Bạn gặp Marlow ở quán rượu. Ông ta nghe, rồi gật đầu. “Ta sẽ đổi ca gác đêm mai.” Đêm ấy, kho lúa vơi đi một phần ba. Bá tước tức giận, và Marlow bị khiển trách vì “lơ là”.",
+     "effects": {
+      "fame": 6,
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "btf_moon_granary",
+       "btf_marlow_ally"
+      ]
+     },
+     "moment": "Cùng đội trưởng Marlow chia lúa cho khu ổ chuột"
+    }
+   ]
+  },
+  {
+   "id": "btf_moon_copycat",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_thief",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "btf_path_moon"
+    ],
+    "notFlags": [
+     "btf_end"
+    ]
+   },
+   "text": "Có kẻ đang trộm nhân danh Bóng Trăng: trộm của người nghèo, để lại một bông hoa như bạn. Người khu ổ chuột bắt đầu nghi ngờ bạn.",
+   "choices": [
+    {
+     "label": "Săn kẻ mạo danh",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Kẻ mạo danh là một băng Human muốn đổ tội cho Beastman. Bạn bắt được chúng đang chia đồ, trói lại, và để chúng ở quảng trường cùng toàn bộ đồ ăn cắp. Mỗi món đồ có kèm tên chủ.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "btf_moon_cleared"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn không tìm ra. Một số người khu ổ chuột không còn để cửa sổ mở cho bạn nữa.",
+      "effects": {
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Ngừng để lại hoa",
+     "text": "Bạn không để lại gì nữa. Bóng Trăng trở thành một tin đồn không có dấu vết. Người ta vẫn có bánh mì, và không ai biết từ đâu.",
+     "effects": {
+      "joy": 2,
+      "jobXp": 2,
+      "flags": [
+       "btf_moon_nameless"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "btf_heist_lamp",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_thief",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "btf_path_heist"
+    ],
+    "notFlags": [
+     "btf_end"
+    ]
+   },
+   "text": "Món đầu tiên trong danh sách: ngọn đèn Vĩnh Cửu trên đỉnh Tháp Ngà, ngọn đèn đã cháy ba trăm năm mà không cần dầu. Mười hai pháp sư canh nó, và trận pháp bảo vệ có thể nướng chín bất cứ ai chạm vào.",
+   "choices": [
+    {
+     "label": "Đi qua trận pháp",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn mất ba tháng nghiên cứu nhịp của trận pháp: nó tắt một hơi thở mỗi khi chuông tháp điểm. Bạn đi qua đúng lúc ấy, lấy ngọn đèn, và đặt vào chỗ cũ một ngọn nến bình thường. Ba ngày sau, Tháp Ngà mới phát hiện.",
+      "effects": {
+       "AGI": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "btf_heist_lamp"
+       ]
+      },
+      "moment": "Trộm ngọn đèn Vĩnh Cửu của Tháp Ngà"
+     },
+     "fail": {
+      "text": "Bạn tính sai nhịp. Trận pháp nướng cháy lông một bên người bạn. Bạn rơi từ tầng ba xuống mái nhà bên dưới.",
+      "effects": {
+       "health": -25,
+       "flags": [
+        "btf_heist_failed"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Kết bạn với một pháp sư canh đèn",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Pháp sư trẻ chán việc canh đèn đến chết. Sau ba tháng uống rượu cùng bạn, cậu ta tự mang ngọn đèn ra trao cho bạn, chỉ để xem chuyện gì xảy ra.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "btf_heist_lamp"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Pháp sư trẻ đi báo cấp trên. Bạn phải trốn khỏi Sanctus một mùa.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "btf_heist_return",
+   "races": [
+    "beastman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "bm_thief",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "btf_path_heist",
+     "btf_heist_lamp"
+    ],
+    "notFlags": [
+     "btf_end"
+    ]
+   },
+   "text": "Bạn đang giữ ngọn đèn Vĩnh Cửu. Nó đẹp, nhưng không bán được: không ai dám mua. Và bạn nghe tin Tháp Ngà sắp phạt mười hai pháp sư canh đèn bằng cách tước bỏ phép thuật.",
+   "choices": [
+    {
+     "label": "Trả lại đèn, kèm một lá thư",
+     "text": "Bạn đặt ngọn đèn lại chỗ cũ, cùng một lá thư: “Ba tháng. Tăng gác đi.” Mười hai pháp sư được tha. Tháp Ngà thay toàn bộ trận pháp. Bạn có thêm một món cần trộm trong danh sách.",
+     "effects": {
+      "fame": 6,
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "btf_heist_returned"
+      ]
+     },
+     "moment": "Trả lại ngọn đèn Vĩnh Cửu kèm một lá thư"
+    },
+    {
+     "label": "Giữ đèn",
+     "text": "Ngọn đèn sáng trong căn gác xép của bạn, không cần dầu. Ở Tháp Ngà, mười hai pháp sư mất phép thuật. Bạn không nhìn thẳng vào ngọn đèn nữa.",
+     "effects": {
+      "joy": -10,
+      "jobXp": 2,
+      "flags": [
+       "btf_heist_kept"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "btf_c4_vesk",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_thief",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "btf_met_vesk"
+    ],
+    "notFlags": [
+     "btf_vesk_gone",
+     "btf_end"
+    ]
+   },
+   "text": "Bà Vesk ốm nặng. Căn gác xép đầy những món đồ ăn cắp chưa bán, và những đứa trẻ bà đã nhận nuôi. Bà gọi bạn đến, đặt vào tay bạn chiếc chìa khóa đồng.",
+   "choices": [
+    {
+     "label": "Nhận căn gác, nhận cả bọn trẻ",
+     "text": "Bà Vesk mất trên ghế mây, đôi mắt vàng mở, nhìn ra cửa sổ, về phía những mái nhà. Bạn đóng mắt bà lại. Những đứa trẻ nhìn bạn, chờ bạn nói gì đó. Bạn bảo chúng đi ngủ, như bà vẫn bảo.",
+     "effects": {
+      "joy": -2,
+      "jobXp": 3,
+      "flags": [
+       "btf_vesk_gone",
+       "btf_vesk_heir"
+      ]
+     },
+     "moment": "Nhận căn gác xép và những đứa trẻ của bà Vesk"
+    },
+    {
+     "label": "Hỏi bà đã từng trộm gì quý nhất",
+     "text": "Bà Vesk cười khàn: “Một đứa trẻ, từ tay bọn buôn người, năm mươi năm trước. Đứa trẻ ấy giờ là đội trưởng gác thành.” Bà mất trước khi bạn kịp hỏi thêm.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 3,
+      "flags": [
+       "btf_vesk_gone",
+       "btf_marlow_secret"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "btf_c4_marlow",
+   "races": [
+    "beastman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "bm_thief",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "btf_met_marlow"
+    ],
+    "notFlags": [
+     "btf_end"
+    ]
+   },
+   "text": "Đội trưởng Marlow bị một quý tộc vu cáo nhận hối lộ và sắp bị treo cổ. Ông ta là người duy nhất trong đội gác Sanctus từng đối xử với Beastman như người.",
+   "choices": [
+    {
+     "label": "Trộm bằng chứng vu cáo từ nhà quý tộc",
+     "check": {
+      "stat": "AGI",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn trèo vào phòng làm việc của quý tộc, mở két, và lấy ra bản gốc lá thư giả. Sáng hôm sau, nó nằm trên bàn của thẩm phán. Marlow được thả. Ông ta tìm bạn trên mái nhà đêm ấy, ngồi xuống cạnh bạn, không nói gì.",
+      "effects": {
+       "AGI": 1,
+       "fame": 8,
+       "jobXp": 4,
+       "flags": [
+        "btf_saved_marlow"
+       ]
+      },
+      "moment": "Trộm bằng chứng cứu đội trưởng Marlow khỏi giá treo cổ"
+     },
+     "fail": {
+      "text": "Két có bẫy. Bạn bị thương, và chỉ lấy được một nửa bằng chứng. Marlow bị giáng chức, nhưng không bị treo cổ.",
+      "effects": {
+       "health": -20,
+       "flags": [
+        "btf_saved_marlow"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Mặc kệ, ông ta là lính gác",
+     "text": "Marlow bị treo cổ. Người kế nhiệm ông ta không biết trèo mái nhà, và cũng không biết đối xử với Beastman như người. Khu ổ chuột khổ hơn trước.",
+     "effects": {
+      "joy": -12,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "btf_c5_crown",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_thief",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "btf_path_crown"
+    ],
+    "notFlags": [
+     "btf_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là King of the Underworld. Mọi băng đảng ở Sanctus đều nộp phần cho bạn. Đội gác thành biết bạn là ai, nhưng không ai dám bắt.",
+   "choices": [
+    {
+     "label": "Biến thế giới ngầm thành nơi có luật",
+     "require": {
+      "anyFlags": [
+       "btf_crown_rule",
+       "btf_crown_judge"
+      ]
+     },
+     "text": "Luật của bạn chỉ có ba điều: không dùng trẻ con, không giết người không mang vũ khí, không trộm của người nghèo. Ai phạm luật thì rời Sanctus. Khu ổ chuột an toàn hơn khu nhà giàu.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "btf_end",
+       "btf_end_lawful_king"
+      ]
+     },
+     "moment": "Đặt ba điều luật cho thế giới ngầm Sanctus"
+    },
+    {
+     "label": "Giữ ngai vàng bằng nỗi sợ",
+     "text": "Không ai dám phản bạn. Không ai dám yêu bạn. Bạn ngủ với một con dao dưới gối đến cuối đời.",
+     "effects": {
+      "wealth": 40,
+      "fame": 12,
+      "joy": -12,
+      "flags": [
+       "btf_end",
+       "btf_end_feared_king"
+      ]
+     }
+    },
+    {
+     "label": "Trao ngai vàng, về sống ở căn gác xép",
+     "require": {
+      "flags": [
+       "btf_vesk_heir"
+      ]
+     },
+     "text": "Bạn ngồi trên ghế mây của bà Vesk, mua bán đồ cũ, dạy lũ trẻ đọc chữ. Thế giới ngầm vẫn chạy mà không cần bạn. Có lẽ đó là chiến công lớn nhất của bạn.",
+     "effects": {
+      "joy": 18,
+      "fame": 8,
+      "flags": [
+       "btf_end",
+       "btf_end_attic"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "btf_c5_moon",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_thief",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "btf_path_moon"
+    ],
+    "notFlags": [
+     "btf_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là King of the Underworld, nhưng ở khu ổ chuột, người ta gọi bạn là Bóng Trăng. Mười năm nay không có đứa trẻ nào ở khu ổ chuột chết đói.",
+   "choices": [
+    {
+     "label": "Tiếp tục đến khi không trèo được nữa",
+     "text": "Bạn trèo mái nhà đến năm bảy mươi tuổi. Đêm cuối cùng, bạn đặt một bao lúa trước cửa một nhà nghèo, rồi ngồi xuống mái ngói nghỉ, và không đứng dậy nữa. Sáng ra, người ta tìm thấy một bông hoa bên cạnh bạn.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "btf_end",
+       "btf_end_last_moon"
+      ]
+     },
+     "moment": "Đặt bao lúa cuối cùng trong đêm trăng"
+    },
+    {
+     "label": "Dạy lại cho một đứa trẻ",
+     "text": "Bạn chọn một đứa trẻ tộc Mèo nhanh nhất khu ổ chuột, và dạy nó tất cả. Đêm trăng tròn đầu tiên nó ra tay một mình, bạn ngồi trên mái nhà đối diện, nhìn, và không can thiệp.",
+     "effects": {
+      "joy": 18,
+      "fame": 10,
+      "flags": [
+       "btf_end",
+       "btf_end_new_moon"
+      ]
+     }
+    },
+    {
+     "label": "Cùng Marlow lập quỹ lúa cho khu ổ chuột",
+     "require": {
+      "flags": [
+       "btf_marlow_ally"
+      ]
+     },
+     "text": "Marlow đã nghỉ hưu. Hai người già, một trộm một lính, lập một kho lúa chung ở khu ổ chuột, quyên góp bằng cách đi gõ cửa nhà giàu. Họ thường được cho nhiều hơn những gì bạn từng trộm được.",
+     "effects": {
+      "joy": 18,
+      "fame": 12,
+      "flags": [
+       "btf_end",
+       "btf_end_marlow_granary"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "btf_c5_heist",
+   "races": [
+    "beastman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "bm_thief",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "btf_path_heist"
+    ],
+    "notFlags": [
+     "btf_end"
+    ]
+   },
+   "text": "Món cuối cùng trong danh sách: vương miện của nhà vua Sanctus, trong phòng ngủ của nhà vua, trên đầu nhà vua. Người ta gọi bạn là King of the Underworld, nhưng bạn chỉ muốn được gọi là kẻ đã trộm được tất cả.",
+   "choices": [
+    {
+     "label": "Trộm vương miện",
+     "check": {
+      "stat": "AGI",
+      "target": 10
+     },
+     "success": {
+      "text": "Bạn vào cung điện qua ống khói, đi qua mười hai lớp gác, và nhấc vương miện khỏi đầu nhà vua đang ngủ. Rồi bạn đặt nó lại, và để bên cạnh một bông hoa. Danh sách đã xong. Bạn treo dụng cụ lên vách và không bao giờ trộm nữa.",
+      "effects": {
+       "fame": 15,
+       "joy": 18,
+       "flags": [
+        "btf_end",
+        "btf_end_crown_touched"
+       ]
+      },
+      "moment": "Nhấc vương miện khỏi đầu nhà vua đang ngủ"
+     },
+     "fail": {
+      "text": "Nhà vua thức dậy. Hai người nhìn nhau rất lâu. Rồi nhà vua cười, và hỏi bạn đã vào bằng cách nào. Bạn kể. Ông ta ân xá cho bạn, đổi lấy việc dạy lính gác của ông.",
+      "effects": {
+       "fame": 12,
+       "joy": 10,
+       "flags": [
+        "btf_end",
+        "btf_end_royal_pardon"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Để món cuối cùng lại cho người khác",
+     "text": "Bạn gạch dòng cuối trong danh sách, viết bên cạnh: “Để dành cho người sau.” Rồi bạn trao danh sách cho một đứa trẻ có đôi mắt vàng.",
+     "effects": {
+      "joy": 12,
+      "fame": 8,
+      "flags": [
+       "btf_end",
+       "btf_end_list_passed"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "btf_daily_pocket",
+   "races": [
+    "beastman"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "bm_thief",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Bạn móc nhầm túi của một đứa trẻ. Trong túi chỉ có một viên bi thủy tinh.",
+   "choices": [
+    {
+     "label": "Trả lại viên bi",
+     "text": "Bạn đuổi theo, nhét viên bi vào lại túi nó. Đứa trẻ không biết gì.",
+     "effects": {
+      "joy": 4
+     }
+    },
+    {
+     "label": "Giữ lại",
+     "text": "Viên bi thủy tinh nằm trên bậu cửa sổ gác xép của bạn suốt nhiều năm. Bạn không biết vì sao mình giữ nó.",
+     "effects": {
+      "LUCK": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "btf_daily_dog_guard",
+   "races": [
+    "beastman"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "bm_thief",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Một con chó gác to như con bê chặn đường bạn trong sân nhà một thương gia.",
+   "choices": [
+    {
+     "label": "Gầm khẽ theo kiểu tộc Chó",
+     "require": {
+      "subtype": "dog"
+     },
+     "text": "Con chó nghiêng đầu, ngửi bạn, rồi vẫy đuôi và nằm xuống. Có những lợi thế mà người Human không bao giờ hiểu được.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Ném cho nó miếng thịt",
+     "text": "Con chó ăn, rồi đi theo bạn đòi thêm suốt đường ra.",
+     "effects": {
+      "joy": 4
+     }
+    },
+    {
+     "label": "Leo tường tránh nó",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn leo lên tường trước khi nó kịp sủa.",
+      "effects": {
+       "AGI": 1
+      }
+     },
+     "fail": {
+      "text": "Nó ngoạm được gấu áo bạn.",
+      "effects": {
+       "health": -5
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "btf_daily_war_loot",
+   "races": [
+    "beastman"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "bm_thief",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh khiến Sanctus đầy những kho quân nhu không ai canh kỹ.",
+   "choices": [
+    {
+     "label": "Trộm quân nhu bán cho chợ đen",
+     "text": "Bạn giàu lên nhanh. Một tháng sau, bạn nghe tin một đơn vị ở Tuyến Đầu thiếu ủng mùa đông.",
+     "effects": {
+      "wealth": 20,
+      "joy": -8
+     }
+    },
+    {
+     "label": "Trộm của bọn đầu cơ chiến tranh, trả lại cho quân đội",
+     "text": "Bạn lấy những thùng ủng bị tích trữ, và bỏ chúng trước cửa doanh trại. Không ai biết từ đâu.",
+     "effects": {
+      "fame": 4,
+      "joy": 6,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "btf_daily_old_roof",
+   "races": [
+    "beastman"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "bm_thief",
+    "free": true
+   },
+   "text": "Mái nhà dốc hơn bạn nhớ. Đêm qua, bạn suýt ngã.",
+   "choices": [
+    {
+     "label": "Chuyển sang dạy",
+     "text": "Bạn ngồi trong gác xép, dạy lũ trẻ cách đọc một ổ khóa, cách nghe tiếng bước chân. Đôi tay bạn còn khéo, chỉ đôi chân là không.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Leo thêm một lần nữa",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn leo lên mái nhà cao nhất khu ổ chuột, ngồi nhìn trăng. Không trộm gì cả.",
+      "effects": {
+       "joy": 10
+      }
+     },
+     "fail": {
+      "text": "Bạn ngã từ mái hiên, gãy cổ tay.",
+      "effects": {
+       "health": -12
+      }
+     }
+    }
+   ]
+  }
+ ]
+}
