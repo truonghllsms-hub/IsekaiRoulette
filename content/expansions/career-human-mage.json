@@ -1,0 +1,1392 @@
+{
+ "_note": "Tuyến truyện Ma pháp sư: 5 chương theo bậc, ba đạo ở Bậc 2 (mag_path_tower / mag_path_forbidden / mag_path_hedge), nhân vật xuyên suốt Eloise Varr, Theron Ashe và con quạ Mực.",
+ "origins": [],
+ "events": [
+  {
+   "id": "mag_c1_tower_gate",
+   "races": [
+    "human"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "human_mage",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "mag_met_eloise"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Eloise Varr",
+     "race": "Human",
+     "position": "Magistra của Tháp Ngà"
+    }
+   ],
+   "text": "Cánh cổng Tháp Ngà không có then cài; nó chỉ mở cho kẻ nào làm được ngọn nến trên bậc thềm tự cháy. Magistra Eloise Varr đứng nhìn bạn cùng hai mươi đứa trẻ khác, tay khoanh trong tay áo bạc.",
+   "choices": [
+    {
+     "label": "Nhìn chằm chằm vào bấc nến cho đến khi nó cháy",
+     "check": {
+      "stat": "INT",
+      "target": 4
+     },
+     "success": {
+      "text": "Đến lúc mặt trời đứng bóng, một tia lửa xanh nhỏ như hạt gạo bật lên. Eloise ghi tên bạn vào sổ mà không nói gì, nhưng bạn thấy khóe miệng bà khẽ nhếch.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "mag_met_eloise",
+        "mag_eloise_notice"
+       ]
+      },
+      "moment": "Thắp ngọn nến trước cổng Tháp Ngà"
+     },
+     "fail": {
+      "text": "Bạn nhìn đến chảy nước mắt mà ngọn nến vẫn trơ trơ. Eloise cho bạn vào làm học việc quét thư viện, “để xem đôi mắt ngươi có dùng được vào việc khác không”.",
+      "effects": {
+       "joy": -5,
+       "flags": [
+        "mag_met_eloise"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hà hơi ấm vào lòng bàn tay, áp quanh ngọn nến",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Ngọn nến bùng lên một cách khó hiểu. Eloise nheo mắt: “Mana không phải lúc nào cũng đi đường thẳng.” Bà cho bạn vào, kèm một ánh nhìn nghi ngờ.",
+      "effects": {
+       "LUCK": 1,
+       "jobXp": 1,
+       "flags": [
+        "mag_met_eloise"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn chỉ làm nến chảy sáp ra tay. Lũ trẻ cười ồ, còn Eloise lắc đầu và cho bạn một tháng để thử lại.",
+      "effects": {
+       "joy": -6,
+       "flags": [
+        "mag_met_eloise"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi Eloise vì sao lửa lại là bài thi đầu tiên",
+     "text": "Bà im lặng rất lâu. “Vì lửa là thứ đầu tiên giết chết pháp sư trẻ.” Rồi bà tự tay thắp nến cho bạn, và đó là lần duy nhất bà làm thế cho ai đó.",
+     "effects": {
+      "INT": 1,
+      "flags": [
+       "mag_met_eloise",
+       "mag_eloise_notice"
+      ]
+     },
+     "moment": "Được Magistra Eloise Varr nhận vào Tháp Ngà"
+    }
+   ]
+  },
+  {
+   "id": "mag_c1_theron",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_mage",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "mag_met_eloise"
+    ],
+    "notFlags": [
+     "mag_met_theron"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Theron Ashe",
+     "race": "Human",
+     "position": "Đồng môn thiên tài của Tháp Ngà"
+    }
+   ],
+   "text": "Theron Ashe mười bốn tuổi đã đọc được rune bậc ba, và cậu ta muốn cả Tháp Ngà biết điều đó. Trong giờ thực hành, quả cầu lửa của Theron lệch đường bay, lao thẳng về phía chồng sách cổ bạn đang chép.",
+   "choices": [
+    {
+     "label": "Dập lửa bằng chính chiếc áo khoác",
+     "text": "Lửa liếm cháy tay áo bạn, nhưng chồng sách nguyên vẹn. Theron đứng sững, rồi tối hôm ấy lặng lẽ đặt lên bàn bạn một hũ thuốc mỡ trị bỏng không ký tên.",
+     "effects": {
+      "health": -8,
+      "jobXp": 1,
+      "flags": [
+       "mag_met_theron",
+       "mag_theron_friend"
+      ]
+     },
+     "moment": "Cứu thư viện khỏi quả cầu lửa của Theron Ashe"
+    },
+    {
+     "label": "Bẻ hướng quả cầu lửa bằng một câu chú phản xạ",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Quả cầu lửa vòng ngược lại, tắt phụt ngay trước mũi Theron. Cả lớp im phăng phắc. Từ hôm ấy, Theron chỉ nói chuyện với bạn bằng những câu hỏi khó nhất cậu ta nghĩ ra được.",
+      "effects": {
+       "INT": 1,
+       "fame": 2,
+       "jobXp": 1,
+       "flags": [
+        "mag_met_theron",
+        "mag_theron_rival"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Câu chú vỡ vụn trong miệng bạn. Quả cầu nổ tung, cả hai bị phạt chép lại ba quyển sách bị cháy sém.",
+      "effects": {
+       "health": -6,
+       "joy": -5,
+       "flags": [
+        "mag_met_theron",
+        "mag_theron_rival"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Báo với Eloise rằng Theron cố ý",
+     "text": "Eloise nghe xong, gọi Theron lên và bắt cậu ta thắp lại ngọn nến ở cổng trước mặt cả lớp. Theron làm được, nhưng tay cậu ta run. Cậu ta không bao giờ tha thứ cho bạn vì buổi chiều ấy.",
+     "effects": {
+      "flags": [
+       "mag_met_theron",
+       "mag_theron_rival"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mag_c1_familiar",
+   "races": [
+    "human"
+   ],
+   "weight": 40,
+   "require": {
+    "job": "human_mage",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "mag_met_eloise"
+    ],
+    "notFlags": [
+     "mag_familiar",
+     "mag_familiar_owl"
+    ]
+   },
+   "text": "Đến tuổi lập khế ước, mỗi học trò Tháp Ngà được ra vườn tháp gọi một sinh linh làm bạn đồng hành. Giữa những cánh bướm lân tinh và mèo mắt ngọc, chỉ có một con quạ đen bị gãy cánh đậu xuống vai bạn và mổ vào tai bạn một cái rõ đau.",
+   "choices": [
+    {
+     "label": "Băng cánh cho nó và chọn nó",
+     "text": "Bạn đặt tên nó là Mực. Nó ăn hết khẩu phần bánh mì của bạn mỗi sáng, nhưng đêm nào bạn đọc sách quá khuya, nó lại gõ mỏ vào nến cho đến khi bạn chịu đi ngủ.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 1,
+      "flags": [
+       "mag_familiar"
+      ]
+     },
+     "moment": "Lập khế ước với con quạ gãy cánh tên Mực"
+    },
+    {
+     "label": "Đuổi nó đi, gọi lại một sinh linh oai phong hơn",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Một con cú tuyết trắng đáp xuống tay bạn. Nó đẹp, lạnh lùng và vâng lời. Đêm ấy, bạn nghe tiếng quạ kêu rất lâu trên mái tháp.",
+      "effects": {
+       "INT": 1,
+       "fame": 1,
+       "flags": [
+        "mag_familiar_owl"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Vòng khế ước không phản hồi gì nữa. Con quạ vẫn đậu trên mái tháp nhìn bạn, như chờ bạn đổi ý.",
+      "effects": {
+       "joy": -5
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "mag_c2_first_spell",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_mage",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "mag_first_spell",
+     "mag_end"
+    ]
+   },
+   "text": "Một dòng sông ở Đồng Bằng Thánh Quang bị một linh hồn nước giận dữ làm vỡ đê. Đây là lần đầu tiên Tháp Ngà cho bạn ra ngoài một mình, mang theo đúng một cuộn giấy chú và lời dặn: “Đừng chết, giấy đắt lắm.”",
+   "choices": [
+    {
+     "label": "Đối thoại với linh hồn nước",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn ngồi xuống bờ đê, đọc tên dòng sông bằng ngôn ngữ cổ. Linh hồn nước lắng xuống, kể rằng người ta đã chặn nguồn của nó để xây cối xay. Bạn thuyết phục làng mở một khe nước nhỏ, và con sông yên trở lại.",
+      "effects": {
+       "INT": 1,
+       "fame": 3,
+       "jobXp": 2,
+       "flags": [
+        "mag_first_spell",
+        "mag_spoke_spirit"
+       ]
+      },
+      "moment": "Lần đầu dùng phép thuật cứu một ngôi làng"
+     },
+     "fail": {
+      "text": "Linh hồn nước không hiểu tiếng bạn. Một con sóng hất bạn văng vào bãi lau sậy. Phải nhờ bà lão bán cá chỉ cho, bạn mới tìm ra cái đập chặn nguồn.",
+      "effects": {
+       "health": -12,
+       "jobXp": 1,
+       "flags": [
+        "mag_first_spell"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Dùng cuộn giấy chú đóng băng cả khúc sông",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Mặt sông đông cứng như gương. Dân làng vỗ tay, nhưng bạn nghe thấy từ dưới lớp băng một tiếng gào rất nhỏ. Mùa xuân năm sau, con sông ấy không còn cá.",
+      "effects": {
+       "fame": 4,
+       "joy": -6,
+       "jobXp": 2,
+       "flags": [
+        "mag_first_spell",
+        "mag_froze_river"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Câu chú chỉ đóng được nửa sông. Nửa còn lại cuộn trào, cuốn theo cối xay và nửa con đê. Bạn về Tháp Ngà với áo ướt và một bản báo cáo rất dài.",
+      "effects": {
+       "health": -10,
+       "fame": -3,
+       "flags": [
+        "mag_first_spell"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "mag_c2_crossroads",
+   "races": [
+    "human"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "human_mage",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "mag_path_tower",
+     "mag_path_forbidden",
+     "mag_path_hedge",
+     "mag_end"
+    ]
+   },
+   "text": "Lễ thụ phong Ma pháp sư kết thúc lúc nửa đêm. Ba thứ chờ bạn trên bàn: thư mời của Viện Nguyên Tố, một chiếc chìa khóa đồng không rõ ai gửi dẫn xuống Thư Viện Câm dưới hầm tháp, và lá đơn của một làng chài xin một pháp sư về ở, trả công bằng cá khô.",
+   "choices": [
+    {
+     "label": "Vào Viện Nguyên Tố: con đường quyền lực của Tháp Ngà",
+     "text": "Áo choàng của Viện thêu chỉ bạc, và mỗi bậc thang lên phòng họp là một cuộc đấu trí. Ở Tháp Ngà, phép thuật mạnh nhất là phép khiến người khác bỏ phiếu cho mình.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2,
+      "flags": [
+       "mag_path_tower"
+      ]
+     },
+     "moment": "Gia nhập Viện Nguyên Tố của Tháp Ngà"
+    },
+    {
+     "label": "Xuống Thư Viện Câm: con đường của cấm thư",
+     "text": "Chiếc chìa khóa vừa khít ổ. Những kệ sách dưới hầm không có tựa đề, và mỗi trang bạn lật đều đòi một thứ gì đó: một giấc ngủ, một ký ức, đôi khi là một năm đời.",
+     "effects": {
+      "INT": 2,
+      "lifeCost": 2,
+      "jobXp": 2,
+      "flags": [
+       "mag_path_forbidden"
+      ]
+     },
+     "moment": "Mở cửa Thư Viện Câm dưới hầm Tháp Ngà"
+    },
+    {
+     "label": "Về làng chài: con đường của phù thủy làng",
+     "text": "Bạn rời Tháp Ngà với một túi sách và con quạ trên vai. Ở làng chài, không ai gọi bạn là Ma pháp sư; người ta gọi bạn là “người biết làm cho lưới không rách”.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 2,
+      "flags": [
+       "mag_path_hedge"
+      ]
+     },
+     "moment": "Rời Tháp Ngà làm phù thủy cho một làng chài"
+    }
+   ]
+  },
+  {
+   "id": "mag_tower_vote",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_mage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mag_path_tower"
+    ],
+    "notFlags": [
+     "mag_end"
+    ]
+   },
+   "text": "Viện Nguyên Tố bỏ phiếu xem có nên cho phép quân đội Sanctus dùng hỏa trận diện rộng lên các bộ lạc Beastman ở biên giới hay không. Lá phiếu của bạn là lá phiếu quyết định, và ba vị trưởng lão đã gửi quà đến phòng bạn từ tối hôm trước.",
+   "choices": [
+    {
+     "label": "Bỏ phiếu chống",
+     "text": "Đề xuất bị bác. Ba vị trưởng lão không gửi quà nữa, và tên bạn biến khỏi danh sách đề cử chức Chủ tọa năm ấy. Ở biên giới, các bộ lạc không bao giờ biết mình đã được cứu bởi một lá phiếu.",
+     "effects": {
+      "joy": 6,
+      "fame": -3,
+      "jobXp": 2,
+      "flags": [
+       "mag_tower_conscience"
+      ]
+     }
+    },
+    {
+     "label": "Bỏ phiếu thuận, đổi lấy ghế trong Hội đồng",
+     "text": "Bạn có ghế. Ba tháng sau, khói từ biên giới bay về tận Sanctus, và bạn tập cách không nhìn về hướng ấy.",
+     "effects": {
+      "fame": 6,
+      "wealth": 15,
+      "joy": -12,
+      "jobXp": 2,
+      "flags": [
+       "mag_tower_ambition"
+      ]
+     },
+     "moment": "Đổi lá phiếu lấy ghế Hội đồng Tháp Ngà"
+    },
+    {
+     "label": "Đề xuất một trận pháp phòng thủ thay cho hỏa trận",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn trình bày suốt ba giờ, vẽ cả sơ đồ lên bảng đá. Viện thông qua phương án của bạn: một bức tường gió dọc biên giới thay vì biển lửa. Ai cũng hài lòng, trừ vài kẻ muốn chiến tranh.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "mag_tower_conscience"
+       ]
+      },
+      "moment": "Thay hỏa trận chiến tranh bằng bức tường gió"
+     },
+     "fail": {
+      "text": "Bản thiết kế có một lỗ hổng mà Theron, hoặc ai đó, đã chỉ ra trước Viện. Đề xuất của bạn bị gạt đi, còn hỏa trận được thông qua.",
+      "effects": {
+       "joy": -10,
+       "flags": [
+        "mag_tower_ambition"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "mag_tower_theron",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_mage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mag_path_tower",
+     "mag_met_theron"
+    ],
+    "notFlags": [
+     "mag_end"
+    ]
+   },
+   "text": "Theron Ashe giờ là ứng viên sáng giá nhất cho chức Chủ tọa Viện Nguyên Tố. Đêm trước cuộc bầu, một người hầu mang đến cho bạn một lá thư: bằng chứng rằng luận án nổi tiếng nhất của Theron được chép từ một pháp sư đã chết.",
+   "choices": [
+    {
+     "label": "Công bố lá thư trước Viện",
+     "text": "Theron mất tất cả trong một buổi sáng. Ghế Chủ tọa thuộc về bạn. Khi đi ngang qua bạn ở hành lang, Theron không nhìn bạn; anh ta chỉ nhìn xuống đôi tay mình, như thể không còn nhận ra chúng.",
+     "effects": {
+      "fame": 8,
+      "jobXp": 3,
+      "flags": [
+       "mag_theron_ruined",
+       "mag_tower_chair"
+      ],
+      "unflags": [
+       "mag_theron_friend"
+      ]
+     },
+     "moment": "Hạ Theron Ashe để giành ghế Chủ tọa"
+    },
+    {
+     "label": "Mang lá thư đến hỏi thẳng Theron",
+     "text": "Theron đọc lá thư rồi bật cười, cười đến chảy nước mắt. “Thầy ta chết trước khi kịp ký tên. Ta đã viết từng chữ theo lời ông ấy đọc.” Anh ta đốt lá thư, và lần đầu tiên hai người nói chuyện như hai pháp sư chứ không như hai đối thủ.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 2,
+      "flags": [
+       "mag_theron_friend",
+       "mag_theron_truth"
+      ],
+      "unflags": [
+       "mag_theron_rival"
+      ]
+     },
+     "moment": "Nghe sự thật về luận án của Theron Ashe"
+    },
+    {
+     "label": "Đốt lá thư mà không đọc hết",
+     "text": "Bạn không biết lá thư là thật hay giả, và bạn chọn không biết. Theron thắng cuộc bầu. Anh ta không bao giờ biết bạn đã cầm số phận của mình trên tay một đêm.",
+     "effects": {
+      "joy": 3,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "mag_forbidden_price",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_mage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mag_path_forbidden"
+    ],
+    "notFlags": [
+     "mag_end"
+    ]
+   },
+   "text": "Cuốn sách thứ bảy trong Thư Viện Câm dạy cách nhìn thấy cái chết của một người trước khi nó xảy ra. Cái giá được viết rõ trên trang đầu: mỗi lần nhìn, mất một năm đời của chính mình.",
+   "choices": [
+    {
+     "label": "Học và dùng nó",
+     "text": "Bạn nhìn thấy cái chết của người bán bánh mì đầu phố: một con ngựa hoảng loạn, ba ngày nữa. Bạn chặn con ngựa lại. Ông ta không bao giờ biết vì sao bạn đứng ở góc phố hôm ấy, và bạn già đi một năm trong một đêm.",
+     "effects": {
+      "INT": 2,
+      "lifeCost": 4,
+      "jobXp": 3,
+      "flags": [
+       "mag_deathsight"
+      ]
+     },
+     "moment": "Học thuật nhìn thấy cái chết"
+    },
+    {
+     "label": "Chép lại trang sách rồi giấu đi cho kẻ đến sau",
+     "text": "Bạn không học nó, nhưng không nỡ để tri thức ấy mục rữa. Bản chép nằm trong một hộc tường mà chỉ con quạ của bạn biết.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "mag_hid_page"
+      ]
+     }
+    },
+    {
+     "label": "Đốt cuốn sách",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Ngọn lửa liếm qua trang giấy mà không phát ra tiếng nào. Ở đâu đó trong hầm, bạn có cảm giác những cuốn sách khác vừa lùi lại một bước.",
+      "effects": {
+       "joy": 5,
+       "flags": [
+        "mag_burned_book"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Cuốn sách không cháy. Nó chỉ nóng lên trong tay bạn và mở ra đúng trang đầu, như đang chờ.",
+      "effects": {
+       "health": -10,
+       "flags": [
+        "mag_burned_book"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "mag_forbidden_whisper",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_mage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mag_path_forbidden"
+    ],
+    "notFlags": [
+     "mag_end"
+    ]
+   },
+   "text": "Có ai đó khác cũng đọc sách trong Thư Viện Câm. Bạn tìm thấy những vết nến mới, những trang bị gấp mép, và cuối cùng là một học trò mười lăm tuổi đang ngồi giữa vòng tròn phấn, mắt trắng dã, môi lẩm nhẩm tên của chính em.",
+   "choices": [
+    {
+     "label": "Kéo em ra khỏi vòng tròn bằng tay không",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Vòng phấn bỏng rát như than hồng. Bạn kéo được em ra, và em tỉnh lại, khóc nức nở, không nhớ gì từ ba ngày trước. Hai bàn tay bạn mang sẹo cả đời.",
+      "effects": {
+       "health": -15,
+       "fame": 3,
+       "jobXp": 3,
+       "flags": [
+        "mag_saved_student"
+       ]
+      },
+      "moment": "Cứu một học trò khỏi vòng tròn cấm thuật"
+     },
+     "fail": {
+      "text": "Vòng tròn hất bạn văng vào kệ sách. Khi bạn đứng dậy được, em đã biến mất, chỉ còn lại một vệt phấn cháy đen.",
+      "effects": {
+       "health": -20,
+       "joy": -15,
+       "flags": [
+        "mag_lost_student"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đọc ngược câu chú em đang đọc",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đọc từng âm tiết ngược lại cho đến khi vòng phấn tự tắt. Em ngã vào tay bạn. Sáng hôm sau, bạn khóa Thư Viện Câm bằng một câu chú chỉ mình bạn biết.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "mag_saved_student",
+        "mag_sealed_library"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn đọc sai một âm. Câu chú dội lại vào bạn; bạn mất nửa năm ký ức, kể cả tên của em.",
+      "effects": {
+       "INT": -1,
+       "lifeCost": 3,
+       "flags": [
+        "mag_lost_student"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "mag_hedge_storm",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_mage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mag_path_hedge"
+    ],
+    "notFlags": [
+     "mag_end"
+    ]
+   },
+   "text": "Mùa Săn Bão năm ấy, cả đội thuyền của làng chài ra khơi và không về đúng hẹn. Những người vợ đứng chật bến, nhìn bạn như nhìn một ngọn hải đăng.",
+   "choices": [
+    {
+     "label": "Gọi gió đưa thuyền về",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đứng trên mỏm đá suốt một đêm, tay giơ cao, môi nứt nẻ vì muối. Lúc bình minh, mười một cánh buồm hiện ra ở chân trời. Làng chài treo một chiếc vỏ ốc khắc tên bạn ở đầu bến.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "joy": 10,
+       "jobXp": 3,
+       "flags": [
+        "mag_hedge_storm"
+       ]
+      },
+      "moment": "Gọi gió đưa đội thuyền làng chài về qua bão"
+     },
+     "fail": {
+      "text": "Gió nghe bạn được một nửa. Chín chiếc thuyền về. Hai chiếc không. Bạn ở lại bến cùng những người vợ cho đến khi mặt trời lặn hẳn.",
+      "effects": {
+       "health": -10,
+       "joy": -15,
+       "jobXp": 2,
+       "flags": [
+        "mag_hedge_storm"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Thắp lửa phép trên mỏm đá làm hải đăng",
+     "text": "Ngọn lửa xanh của bạn cháy suốt bảy đêm, ngốn hết mana và cả giấc ngủ của bạn. Đêm thứ bảy, chiếc thuyền cuối cùng cập bến, và bạn ngất đi ngay trên mỏm đá.",
+     "effects": {
+      "health": -12,
+      "fame": 4,
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "mag_hedge_storm"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mag_hedge_witchhunt",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_mage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mag_path_hedge"
+    ],
+    "notFlags": [
+     "mag_end"
+    ]
+   },
+   "text": "Một linh mục du hành đến làng chài, giảng rằng phép thuật không có giấy phép của Tháp Ngà là phép của Hắc Nguyệt Hội. Đến đêm, có người ném đá vỡ cửa sổ nhà bạn.",
+   "choices": [
+    {
+     "label": "Đến nhà thờ, mời linh mục đối chất trước cả làng",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn cho cả làng xem từng câu chú bạn dùng, từng cuốn sách bạn đọc. Linh mục không tìm được gì. Ông ta rời làng, và bà già bán cá mang đến cho bạn một con cá thu to nhất mùa.",
+      "effects": {
+       "fame": 4,
+       "joy": 6,
+       "jobXp": 2,
+       "flags": [
+        "mag_hedge_trusted"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Cả làng nghe linh mục nói hơn là nghe bạn. Bạn vẫn được ở lại, nhưng lũ trẻ không còn được phép đến xem bạn làm phép nữa.",
+      "effects": {
+       "joy": -12,
+       "fame": -3
+      }
+     }
+    },
+    {
+     "label": "Gửi thư về Tháp Ngà xin giấy phép",
+     "require": {
+      "flags": [
+       "mag_met_eloise"
+      ]
+     },
+     "text": "Eloise Varr tự tay gửi về một con dấu bạc, kèm một dòng chữ: “Đáng lẽ ngươi phải xin từ năm ngoái.” Linh mục im lặng. Bạn hiểu rằng mình vẫn chưa thật sự rời khỏi Tháp Ngà.",
+     "effects": {
+      "fame": 2,
+      "jobXp": 1,
+      "flags": [
+       "mag_hedge_licensed"
+      ]
+     }
+    },
+    {
+     "label": "Lặng lẽ dọn đến hòn đảo ngoài khơi",
+     "text": "Bạn dựng một túp lều trên đảo đá. Người làng vẫn chèo thuyền ra tìm bạn khi có người ốm, nhưng giờ họ chỉ đến vào ban đêm.",
+     "effects": {
+      "joy": -6,
+      "AGI": 1,
+      "flags": [
+       "mag_hedge_island"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mag_c4_eloise",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_mage",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "mag_met_eloise"
+    ],
+    "notFlags": [
+     "mag_eloise_gone",
+     "mag_end"
+    ]
+   },
+   "text": "Magistra Eloise Varr đã già lắm. Bà gọi bạn đến căn phòng trên đỉnh tháp, nơi lần đầu bạn thấy bà, và đặt vào tay bạn một chiếc bút lông quạ: “Ta sắp đi. Ai đó phải viết nốt cuốn sách ta còn dang dở.”",
+   "choices": [
+    {
+     "label": "Nhận viết nốt cuốn sách",
+     "text": "Cuốn sách là một tập ghi chép về những học trò Eloise đã dạy, kể cả những người đã chết vì lửa. Trang cuối cùng có tên bạn, chưa ghi gì phía sau. Bà mất vào một đêm không trăng, khi bạn đang đọc to cho bà nghe.",
+     "effects": {
+      "INT": 1,
+      "joy": 4,
+      "jobXp": 3,
+      "flags": [
+       "mag_eloise_gone",
+       "mag_eloise_book"
+      ]
+     },
+     "moment": "Nhận viết nốt cuốn sách của Magistra Eloise Varr"
+    },
+    {
+     "label": "Hỏi bà về ngọn nến ngày đầu tiên",
+     "require": {
+      "flags": [
+       "mag_eloise_notice"
+      ]
+     },
+     "text": "Eloise cười, nụ cười đầu tiên bạn thấy trên mặt bà. “Ngọn nến ấy chưa bao giờ có bấc. Ta chỉ muốn xem đứa nào không bỏ cuộc.” Bà mất ba ngày sau, và bạn giữ cây nến không bấc ấy đến cuối đời.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 3,
+      "flags": [
+       "mag_eloise_gone",
+       "mag_eloise_secret"
+      ]
+     },
+     "moment": "Nghe bí mật về ngọn nến của Eloise Varr"
+    }
+   ]
+  },
+  {
+   "id": "mag_c4_rift",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_mage",
+    "free": true,
+    "jobRank": 3,
+    "notFlags": [
+     "mag_end"
+    ]
+   },
+   "text": "Một vết nứt không gian mở ra trên bầu trời Đồng Bằng Thánh Quang, nhỏ như con mắt, nhưng mỗi ngày một lớn. Từ trong đó, những thứ không thuộc về Aethelgard bắt đầu nhìn ra.",
+   "choices": [
+    {
+     "label": "Tự tay khâu vết nứt bằng mana của mình",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn dệt từng sợi mana như kim chỉ, suốt chín ngày chín đêm. Vết nứt khép lại. Tóc bạn bạc trắng một bên, và người ta bắt đầu gọi bạn là “người khâu trời”.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "lifeCost": 3,
+       "jobXp": 4,
+       "flags": [
+        "mag_sealed_rift"
+       ]
+      },
+      "moment": "Khâu lại vết nứt trên bầu trời Đồng Bằng"
+     },
+     "fail": {
+      "text": "Mũi khâu cuối cùng tuột khỏi tay bạn. Vết nứt chỉ thu nhỏ lại chứ không khép hẳn, và nó vẫn ở đó, như một con mắt khép hờ, cho đến hết đời bạn.",
+      "effects": {
+       "health": -25,
+       "lifeCost": 3,
+       "jobXp": 2,
+       "flags": [
+        "mag_rift_open"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đọc những trang cấm thư về cánh cổng",
+     "require": {
+      "flags": [
+       "mag_path_forbidden"
+      ]
+     },
+     "text": "Bạn biết cách khép nó. Bạn cũng biết cách mở nó rộng hơn. Bạn khép nó lại, nhưng trong một khoảnh khắc, bạn đã nghe thấy những gì ở phía bên kia đang nói, và chúng gọi tên bạn.",
+     "effects": {
+      "INT": 2,
+      "lifeCost": 5,
+      "jobXp": 4,
+      "flags": [
+       "mag_sealed_rift",
+       "mag_heard_beyond"
+      ]
+     }
+    },
+    {
+     "label": "Triệu tập mọi pháp sư cùng khâu, kể cả Theron",
+     "require": {
+      "flags": [
+       "mag_met_theron"
+      ]
+     },
+     "text": "Theron đến, không nói gì, và đứng vào vị trí đối diện bạn trong vòng tròn. Hai mươi pháp sư cùng khâu một vết nứt, và lần đầu tiên sau nhiều năm, Tháp Ngà làm được một việc mà không ai tranh công.",
+     "effects": {
+      "fame": 8,
+      "joy": 8,
+      "jobXp": 4,
+      "flags": [
+       "mag_sealed_rift",
+       "mag_theron_friend"
+      ],
+      "unflags": [
+       "mag_theron_rival"
+      ]
+     },
+     "moment": "Cùng Theron Ashe và Tháp Ngà khâu vết nứt bầu trời"
+    }
+   ]
+  },
+  {
+   "id": "mag_c5_tower",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_mage",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "mag_path_tower"
+    ],
+    "notFlags": [
+     "mag_end"
+    ]
+   },
+   "text": "Bạn được phong danh hiệu Hiền Giả của Tháp Ngà. Trên chiếc ghế Chủ tọa, bạn có quyền quyết định Tháp Ngà sẽ là gì trong một trăm năm tới.",
+   "choices": [
+    {
+     "label": "Mở cửa Tháp Ngà cho trẻ con mọi tộc, mọi xuất thân",
+     "require": {
+      "flags": [
+       "mag_tower_conscience"
+      ]
+     },
+     "text": "Năm đầu tiên, có ba đứa trẻ Beastman và một đứa con lai Elf thắp được ngọn nến ở cổng. Các trưởng lão phản đối suốt mười năm, rồi im lặng khi một trong những đứa trẻ ấy khâu lại một vết nứt khác trên trời.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "jobXp": 3,
+      "flags": [
+       "mag_end",
+       "mag_end_open_tower"
+      ]
+     },
+     "moment": "Mở cửa Tháp Ngà cho mọi tộc"
+    },
+    {
+     "label": "Biến Tháp Ngà thành thanh kiếm của vương quốc",
+     "text": "Dưới tay bạn, Tháp Ngà giàu có và đáng sợ hơn bao giờ hết. Không vương quốc nào dám tuyên chiến với Sanctus nữa. Cũng không ai dám nói với bạn điều gì trái ý.",
+     "effects": {
+      "fame": 15,
+      "wealth": 30,
+      "joy": -5,
+      "flags": [
+       "mag_end",
+       "mag_end_war_tower"
+      ]
+     },
+     "moment": "Biến Tháp Ngà thành vũ khí của Sanctus"
+    },
+    {
+     "label": "Trao ghế cho Theron và rời đi",
+     "require": {
+      "flags": [
+       "mag_theron_friend"
+      ]
+     },
+     "text": "Theron nhận ghế với đôi tay run run. Bạn rời tháp với chiếc bút lông quạ, đi tìm những học trò cũ của Eloise để viết nốt trang về họ.",
+     "effects": {
+      "joy": 18,
+      "fame": 8,
+      "flags": [
+       "mag_end",
+       "mag_end_left_tower"
+      ]
+     },
+     "moment": "Trao ghế Chủ tọa cho Theron Ashe"
+    }
+   ]
+  },
+  {
+   "id": "mag_c5_forbidden",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_mage",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "mag_path_forbidden"
+    ],
+    "notFlags": [
+     "mag_end"
+    ]
+   },
+   "text": "Thư Viện Câm còn đúng một cuốn sách bạn chưa mở. Bìa sách không có chữ, chỉ có một hình vẽ: chính khuôn mặt bạn, già hơn bây giờ rất nhiều.",
+   "choices": [
+    {
+     "label": "Mở nó",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Bên trong là tất cả những gì bạn từng muốn biết. Bạn đọc đến trang cuối thì nhận ra mình đã ngồi đó ba mươi năm. Bạn bước ra, đóng cửa thư viện lại, và trở thành Hiền Giả biết mọi thứ, nhưng không còn ai đủ sống để kể cho nghe.",
+      "effects": {
+       "INT": 3,
+       "lifeCost": 15,
+       "fame": 10,
+       "flags": [
+        "mag_end",
+        "mag_end_all_knowing"
+       ]
+      },
+      "moment": "Đọc cuốn sách cuối cùng của Thư Viện Câm"
+     },
+     "fail": {
+      "text": "Cuốn sách nuốt trọn bạn. Người ta chỉ tìm thấy một cuốn sách mới trên kệ, bìa vẽ khuôn mặt bạn, và không ai dám mở nó.",
+      "effects": {
+       "lifeCost": 30,
+       "flags": [
+        "mag_end",
+        "mag_end_bound"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Niêm phong cả Thư Viện Câm vĩnh viễn",
+     "text": "Bạn dùng hết mana tích góp cả đời để khóa thư viện bằng một câu chú không có chìa. Khi bước ra, bạn chỉ còn là một ông già, bà già biết hơi nhiều chữ. Bạn chưa bao giờ ngủ ngon như đêm hôm ấy.",
+     "effects": {
+      "joy": 20,
+      "INT": -1,
+      "flags": [
+       "mag_end",
+       "mag_end_sealed"
+      ]
+     },
+     "moment": "Niêm phong vĩnh viễn Thư Viện Câm"
+    },
+    {
+     "label": "Trao chìa khóa cho học trò bạn đã cứu",
+     "require": {
+      "flags": [
+       "mag_saved_student"
+      ]
+     },
+     "text": "Em bây giờ đã là một pháp sư trưởng thành. Em cầm chìa khóa, nhìn bạn rất lâu: “Con sẽ đọc từng cuốn một, và trả giá từng cuốn một.” Bạn biết thư viện ấy đã có người giữ.",
+     "effects": {
+      "joy": 12,
+      "fame": 6,
+      "flags": [
+       "mag_end",
+       "mag_end_heir"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mag_c5_hedge",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_mage",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "mag_path_hedge"
+    ],
+    "notFlags": [
+     "mag_end"
+    ]
+   },
+   "text": "Người ta bắt đầu gọi bạn là Hiền Giả của Bờ Biển, dù bạn chưa từng nhận danh hiệu ấy. Tháp Ngà gửi thư mời bạn về giảng dạy, kèm lời hứa một căn phòng trên đỉnh tháp.",
+   "choices": [
+    {
+     "label": "Ở lại làng, dạy lũ trẻ làng chài đọc chữ và thắp lửa",
+     "text": "Bạn dựng một mái trường bằng gỗ trôi dạt. Lũ trẻ học đọc gió trước khi học đọc chữ. Nhiều năm sau, có một ngư dân già ở làng ấy dập tắt được một cơn bão bằng một câu hát mà bạn đã dạy.",
+     "effects": {
+      "joy": 20,
+      "fame": 8,
+      "flags": [
+       "mag_end",
+       "mag_end_school"
+      ]
+     },
+     "moment": "Dựng ngôi trường ma pháp đầu tiên ở làng chài"
+    },
+    {
+     "label": "Về Tháp Ngà một lần để dạy những gì Tháp Ngà đã quên",
+     "text": "Bạn giảng một học kỳ duy nhất, về những câu chú không cần mana mà chỉ cần lắng nghe. Lớp học chật kín. Rồi bạn lại khoác túi về biển, bỏ lại căn phòng trên đỉnh tháp trống không.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "INT": 1,
+      "flags": [
+       "mag_end",
+       "mag_end_lecture"
+      ]
+     }
+    },
+    {
+     "label": "Đi theo con quạ Mực về nơi nó muốn",
+     "require": {
+      "flags": [
+       "mag_familiar"
+      ]
+     },
+     "text": "Mực đã già, lông đã xám. Một sáng nó bay về hướng bắc và quay lại kêu, như gọi. Bạn đi theo nó qua ba vương quốc, đến một cánh rừng nơi nó nở ra, và ở lại đó cùng nó đến cuối đời.",
+     "effects": {
+      "joy": 18,
+      "flags": [
+       "mag_end",
+       "mag_end_crow"
+      ]
+     },
+     "moment": "Theo con quạ Mực về rừng nơi nó nở ra"
+    }
+   ]
+  },
+  {
+   "id": "mag_daily_overcast",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_mage",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Bạn thức trắng ba đêm để giải một phương trình mana. Đến sáng thứ tư, các con số bắt đầu bò ra khỏi trang giấy như kiến.",
+   "choices": [
+    {
+     "label": "Đi ngủ",
+     "text": "Bạn ngủ một mạch hai ngày. Khi tỉnh dậy, lời giải hiện ra trong đầu bạn rõ ràng như chưa từng khó.",
+     "effects": {
+      "health": 5,
+      "INT": 1,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Uống thêm một bình trà đen, làm tiếp",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn giải được nó lúc mặt trời mọc, và ngã gục xuống bàn. Lời giải đúng, nhưng mắt bạn mờ đi một chút từ hôm ấy.",
+      "effects": {
+       "INT": 1,
+       "health": -8,
+       "jobXp": 2
+      }
+     },
+     "fail": {
+      "text": "Bạn viết sai một dấu và cả trang giấy bốc cháy. Con quạ của bạn kêu lên đầy khinh bỉ.",
+      "effects": {
+       "health": -6,
+       "joy": -5
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "mag_daily_child_fire",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_mage",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Một đứa trẻ trong xóm vô tình làm bùng lửa từ lòng bàn tay khi đang khóc. Mẹ nó ôm nó chạy đến nhà bạn, mặt trắng bệch: hàng xóm đã bắt đầu thì thầm về Hắc Nguyệt Hội.",
+   "choices": [
+    {
+     "label": "Dạy đứa trẻ cách ru ngọn lửa ngủ",
+     "text": "Bạn dạy nó đếm hơi thở như Eloise đã dạy bạn. Đến tối, ngọn lửa trong tay nó nhỏ lại thành một đốm sáng hiền như đom đóm. Nó ngủ gục trên đùi bạn.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 1,
+      "flags": [
+       "mag_taught_child"
+      ]
+     }
+    },
+    {
+     "label": "Viết thư giới thiệu nó đến Tháp Ngà",
+     "text": "Người mẹ khóc vì mừng. Bạn không biết mình vừa cứu đứa trẻ hay vừa gửi nó vào một nơi đã làm bạn già đi trước tuổi.",
+     "effects": {
+      "fame": 2,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "mag_daily_war_battlemage",
+   "races": [
+    "human"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_mage",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Lệnh trưng tập từ Sanctus: mọi pháp sư có tên trong sổ Tháp Ngà phải lên Tuyến Đầu dựng kết giới. Bên kia chiến tuyến, các pháp sư Ma tộc cũng đang dựng kết giới của họ.",
+   "choices": [
+    {
+     "label": "Lên đường dựng kết giới",
+     "text": "Ba tháng giữ kết giới dưới mưa tên và cầu lửa. Bạn học được rằng phép thuật trên chiến trường không đẹp như trong sách; nó chỉ là kéo dài thêm một ngày sống cho những người phía sau.",
+     "effects": {
+      "INT": 1,
+      "health": -15,
+      "fame": 4,
+      "jobXp": 3,
+      "flags": [
+       "mag_war_veteran"
+      ]
+     },
+     "moment": "Dựng kết giới ở Tuyến Đầu"
+    },
+    {
+     "label": "Xin ở lại Tháp Ngà chữa thương cho lính",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn biến nhà ăn của tháp thành bệnh xá. Không ai gọi bạn là anh hùng, nhưng có ba trăm người lính trở về nhà nhờ bàn tay bạn.",
+      "effects": {
+       "joy": 6,
+       "jobXp": 2
+      }
+     },
+     "fail": {
+      "text": "Đơn xin bị bác. Bạn vẫn phải ra Tuyến Đầu, và lần này mang theo tiếng là kẻ muốn trốn.",
+      "effects": {
+       "fame": -4,
+       "health": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "mag_daily_peace_festival",
+   "races": [
+    "human"
+   ],
+   "eras": [
+    "peace"
+   ],
+   "weight": 14,
+   "require": {
+    "job": "human_mage",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 3
+   },
+   "text": "Lễ hội mùa Lửa Trại ở Sanctus cần một pháp sư làm pháo hoa. Hội đồng thành phố trả hậu, với điều kiện pháo hoa phải vẽ được gia huy của ngài thị trưởng lên trời.",
+   "choices": [
+    {
+     "label": "Vẽ gia huy thật lộng lẫy",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Gia huy bừng sáng trên bầu trời đêm, kèm một con quạ nhỏ bay ngang qua mà chẳng ai hiểu ở đâu ra. Thị trưởng trả gấp đôi.",
+      "effects": {
+       "wealth": 15,
+       "fame": 3,
+       "joy": 6
+      }
+     },
+     "fail": {
+      "text": "Gia huy nổ thành một hình gì đó trông giống một cái ủng. Cả quảng trường cười đến sáng.",
+      "effects": {
+       "joy": 4,
+       "fame": -2
+      }
+     }
+    },
+    {
+     "label": "Vẽ những vì sao cho lũ trẻ thay vì gia huy",
+     "text": "Bầu trời đầy những con thú bằng sao: rồng, ngựa, cá voi. Thị trưởng không trả tiền. Lũ trẻ thì nhớ đêm ấy cả đời.",
+     "effects": {
+      "joy": 10,
+      "wealth": -3
+     }
+    }
+   ]
+  },
+  {
+   "id": "mag_daily_old_hands",
+   "races": [
+    "human"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_mage",
+    "free": true
+   },
+   "text": "Đôi tay bạn bắt đầu run mỗi khi vẽ rune. Những vòng tròn hoàn hảo ngày xưa giờ méo đi một chút, và mana chảy ra từ chúng như nước rỉ qua kẽ đá.",
+   "choices": [
+    {
+     "label": "Học cách vẽ rune bằng giọng nói thay vì bằng tay",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn mất cả mùa đông để học hát những vòng tròn thay vì vẽ chúng. Câu chú của bạn chậm hơn, nhưng đẹp hơn, như một bài ca.",
+      "effects": {
+       "INT": 1,
+       "joy": 6,
+       "jobXp": 2
+      }
+     },
+     "fail": {
+      "text": "Giọng bạn khàn đi trước khi học được. Bạn chấp nhận rằng mình sẽ không còn làm được những phép lớn nữa.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Nhờ học trò vẽ rune theo lời bạn đọc",
+     "text": "Học trò của bạn vẽ, bạn đọc. Lần đầu tiên, bạn thấy phép thuật của mình qua tay người khác, và nhận ra nó cũng đẹp như vậy.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 1
+     }
+    }
+   ]
+  }
+ ]
+}

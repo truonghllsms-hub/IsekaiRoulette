@@ -1,0 +1,1320 @@
+{
+ "_note": "Tuyến truyện Assassin: 5 chương theo bậc, ba đạo ở Bậc 2 (asn_path_umbra / asn_path_traitor / asn_path_justice), nhân vật xuyên suốt Corvina 'Mẹ Quạ', Silas Venn và linh mục Aurel.",
+ "origins": [],
+ "events": [
+  {
+   "id": "asn_c1_crow_mother",
+   "races": [
+    "human"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "human_assassin",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "asn_met_corvina"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Corvina",
+     "race": "Human",
+     "position": "Mẹ Quạ, người đứng đầu Umbra"
+    }
+   ],
+   "text": "Người ta dẫn bạn bịt mắt qua bảy khúc quanh dưới cống ngầm Sanctus, đến một căn phòng chỉ có một ngọn nến và một bà lão đang đan len. Corvina, người Umbra gọi là Mẹ Quạ, không ngẩng lên: “Kể cho ta nghe về người đầu tiên ngươi muốn giết.”",
+   "choices": [
+    {
+     "label": "Nói thật",
+     "text": "Bạn kể, và bà lão nghe đến hết mà không ngừng tay đan. Khi bạn dứt lời, bà gật đầu: “Tốt. Kẻ nói dối ở đây thường chết trước kẻ nói thật.” Bà đưa bạn một con dao không có chuôi.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "asn_met_corvina",
+       "asn_corvina_trust"
+      ]
+     },
+     "moment": "Được Mẹ Quạ nhận vào Umbra"
+    },
+    {
+     "label": "Nói rằng bạn không muốn giết ai cả",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Corvina ngừng đan, lần đầu nhìn thẳng vào bạn. “Hiếm đấy. Umbra cần vài kẻ như ngươi để nhớ vì sao mình làm việc này.” Bà nhận bạn, và từ đó luôn giao cho bạn những hợp đồng khó nói nhất.",
+      "effects": {
+       "LUCK": 1,
+       "jobXp": 1,
+       "flags": [
+        "asn_met_corvina",
+        "asn_reluctant"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bà lão bật cười khan. “Thế thì ngươi đến nhầm chỗ.” Bà vẫn nhận bạn, nhưng giao cho bạn việc đổ bô dưới cống suốt nửa năm.",
+      "effects": {
+       "joy": -8,
+       "flags": [
+        "asn_met_corvina",
+        "asn_reluctant"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Bịa ra một câu chuyện thật hay",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Câu chuyện của bạn hay đến mức Corvina bật cười. “Nói dối giỏi. Nhưng lần sau, nhớ là ta biết.” Bà nhận bạn vào ban tình báo.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "asn_met_corvina"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bà lão chỉ hỏi lại một câu, và câu chuyện của bạn sụp đổ. Bạn nhận một vết cắt mảnh trên má làm bài học đầu tiên.",
+      "effects": {
+       "health": -8,
+       "flags": [
+        "asn_met_corvina"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "asn_c1_silas",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_assassin",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "asn_met_corvina"
+    ],
+    "notFlags": [
+     "asn_met_silas"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Silas Venn",
+     "race": "Human",
+     "position": "Bạn đồng hành của Umbra"
+    }
+   ],
+   "text": "Umbra ghép đôi mỗi tân binh với một bạn đồng hành; nếu một người phản, người kia phải giết. Bạn đồng hành của bạn là Silas Venn, một gã gầy gò hay cười, móc túi được cả ví của lính gác trong lúc hỏi đường.",
+   "choices": [
+    {
+     "label": "Kể cho Silas nghe bí mật của mình trước",
+     "text": "Silas nghe xong, im lặng một lúc, rồi kể lại bí mật của hắn: hắn có một đứa em gái bị bệnh ở khu ổ chuột, và tất cả tiền công hắn kiếm được đều đi về đó. Hai người bắt tay trong bóng tối.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1,
+      "flags": [
+       "asn_met_silas",
+       "asn_silas_bond"
+      ]
+     },
+     "moment": "Kết nghĩa đồng hành với Silas Venn"
+    },
+    {
+     "label": "Giữ khoảng cách, chỉ làm việc",
+     "text": "Silas không ép. Hai người làm việc cùng nhau trơn tru như hai lưỡi kéo, nhưng bạn để ý hắn luôn ngủ quay lưng vào tường.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 1,
+      "flags": [
+       "asn_met_silas"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "asn_c2_first_contract",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_assassin",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "asn_first_contract",
+     "asn_end"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Aurel",
+     "race": "Human",
+     "position": "Linh mục trại tế bần bên cảng"
+    }
+   ],
+   "text": "Hợp đồng đầu tiên mang tên linh mục Aurel, người điều hành trại tế bần bên cảng. Người thuê trả bằng Huyết Kim và không cho biết lý do. Đêm bạn trèo lên mái, bạn thấy ông ta đang tự tay đút cháo cho một đứa trẻ sốt.",
+   "choices": [
+    {
+     "label": "Hoàn thành hợp đồng",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Không ai nghe thấy gì. Trại tế bần đóng cửa ba tuần sau đó. Bạn nhận đủ tiền, và từ đêm ấy bạn không còn ăn được cháo.",
+      "effects": {
+       "AGI": 1,
+       "wealth": 20,
+       "joy": -15,
+       "jobXp": 2,
+       "flags": [
+        "asn_first_contract",
+        "asn_killed_aurel"
+       ]
+      },
+      "moment": "Hoàn thành hợp đồng ám sát đầu tiên"
+     },
+     "fail": {
+      "text": "Một đứa trẻ thức giấc và hét lên. Bạn phải bỏ chạy qua mái nhà, để lại máu của chính mình trên ngói.",
+      "effects": {
+       "health": -15,
+       "flags": [
+        "asn_first_contract"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Điều tra xem ai muốn ông ta chết",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn lần ra kẻ thuê: một thương gia muốn mua lại đất trại tế bần để xây kho. Bạn mang bằng chứng về cho Mẹ Quạ. Bà hủy hợp đồng và tăng giá cho lần sau gã thương gia đến thuê.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 2,
+       "flags": [
+        "asn_first_contract",
+        "asn_aurel_spared"
+       ]
+      },
+      "moment": "Phát hiện kẻ thuê giết linh mục Aurel"
+     },
+     "fail": {
+      "text": "Bạn điều tra quá lâu. Một sát thủ khác được gửi đến thay, và khi bạn quay lại trại tế bần, đã quá muộn.",
+      "effects": {
+       "joy": -15,
+       "flags": [
+        "asn_first_contract"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Báo cho Aurel rồi giúp ông ta trốn",
+     "text": "Aurel không trốn. Ông chỉ hỏi bạn có đói không, rồi múc cho bạn một bát cháo. Bạn báo cáo hợp đồng thất bại. Mẹ Quạ nhìn bạn rất lâu, rồi trừ nửa năm lương.",
+     "effects": {
+      "wealth": -10,
+      "joy": 8,
+      "flags": [
+       "asn_first_contract",
+       "asn_aurel_spared",
+       "asn_aurel_friend"
+      ]
+     },
+     "moment": "Tha mạng và ăn bát cháo của linh mục Aurel"
+    }
+   ]
+  },
+  {
+   "id": "asn_c2_crossroads",
+   "races": [
+    "human"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "human_assassin",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "asn_path_umbra",
+     "asn_path_traitor",
+     "asn_path_justice",
+     "asn_end"
+    ]
+   },
+   "text": "Mẹ Quạ gọi bạn đến căn phòng có ngọn nến duy nhất và đặt lên bàn ba thứ: chiếc nhẫn quạ đen của thành viên chính thức, một danh sách các hợp đồng mà Umbra đã nhận từ những kẻ bạn biết là có tội, và một con dao không chuôi giống hệt con dao ngày đầu. “Chọn đi. Ta không hỏi vì sao.”",
+   "choices": [
+    {
+     "label": "Đeo nhẫn quạ đen: Lưỡi Dao Umbra",
+     "text": "Chiếc nhẫn lạnh như nước giếng. Từ nay, Umbra là gia đình bạn, và gia đình không hỏi vì sao.",
+     "effects": {
+      "fame": 3,
+      "jobXp": 2,
+      "flags": [
+       "asn_path_umbra"
+      ]
+     },
+     "moment": "Thề trung thành với Umbra"
+    },
+    {
+     "label": "Cầm danh sách, rời Umbra: Kẻ Phản Đồ",
+     "text": "Bạn đi khỏi căn phòng với tờ danh sách trong áo. Mẹ Quạ không gọi ai đuổi theo. Bà chỉ nói, rất khẽ: “Ngươi có một năm.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "asn_path_traitor"
+      ]
+     },
+     "moment": "Phản bội Umbra, mang theo danh sách hợp đồng"
+    },
+    {
+     "label": "Nhận lại con dao không chuôi: Bóng Công Lý",
+     "text": "Bạn hiểu ý bà: ở Umbra, có những kẻ chỉ nhận hợp đồng mà mình tự chọn. Họ được dung thứ, chừng nào còn giữ im lặng. Mẹ Quạ gật đầu và quay về chiếc khăn len đang đan dở.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 2,
+      "flags": [
+       "asn_path_justice"
+      ]
+     },
+     "moment": "Chọn chỉ giết những kẻ có tội"
+    }
+   ]
+  },
+  {
+   "id": "asn_umbra_silas_order",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_assassin",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "asn_path_umbra",
+     "asn_met_silas"
+    ],
+    "notFlags": [
+     "asn_end"
+    ]
+   },
+   "text": "Lệnh từ Mẹ Quạ đến vào lúc nửa đêm: Silas Venn đã bán thông tin cho Thánh Kỵ Sĩ Đoàn. Theo luật Umbra, người đồng hành phải là kẻ ra tay.",
+   "choices": [
+    {
+     "label": "Tuân lệnh",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Silas không chống cự. Hắn chỉ nhờ bạn mang chiếc túi tiền cuối cùng đến cho em gái hắn. Bạn làm theo, và không bao giờ kể với cô bé ai đã gửi.",
+      "effects": {
+       "AGI": 1,
+       "joy": -20,
+       "fame": 4,
+       "jobXp": 3,
+       "flags": [
+        "asn_silas_dead",
+        "asn_umbra_loyal"
+       ]
+      },
+      "moment": "Thi hành luật Umbra lên chính Silas Venn"
+     },
+     "fail": {
+      "text": "Silas nhanh hơn bạn tưởng. Hắn đánh bạn ngất và biến mất khỏi Sanctus. Mẹ Quạ phạt bạn ba mươi roi vì để hắn thoát.",
+      "effects": {
+       "health": -20,
+       "flags": [
+        "asn_silas_fled"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đi tìm Silas để nghe hắn nói trước",
+     "require": {
+      "flags": [
+       "asn_silas_bond"
+      ]
+     },
+     "text": "Silas thừa nhận. Thánh Kỵ Sĩ Đoàn bắt em gái hắn làm con tin. Bạn giúp hắn cứu cô bé ra, rồi báo cáo với Mẹ Quạ rằng Silas đã chết trong một vụ hỏa hoạn. Bà không hỏi thêm. Bà biết.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "asn_silas_saved",
+       "asn_corvina_knows"
+      ]
+     },
+     "moment": "Giả chết cho Silas Venn để cứu em gái hắn"
+    },
+    {
+     "label": "Từ chối và nộp lại nhẫn",
+     "text": "Mẹ Quạ nhận chiếc nhẫn, đặt nó cạnh ngọn nến. “Một năm,” bà nói. Bạn đã trở thành kẻ phản đồ mà không cần đến tờ danh sách nào.",
+     "effects": {
+      "flags": [
+       "asn_path_traitor",
+       "asn_silas_saved"
+      ],
+      "unflags": [
+       "asn_path_umbra"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "asn_umbra_noble_ball",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_assassin",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "asn_path_umbra"
+    ],
+    "notFlags": [
+     "asn_end"
+    ]
+   },
+   "text": "Hợp đồng lớn nhất năm: một bá tước sẽ chết trong vũ hội mùa Lá Héo, giữa ba trăm khách mời và năm mươi lính gác. Mẹ Quạ muốn cái chết trông như một cơn đau tim.",
+   "choices": [
+    {
+     "label": "Cải trang làm người hầu rượu",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Một giọt độc không màu trong ly rượu thứ ba. Bá tước ngã xuống giữa điệu nhảy, và thầy thuốc hoàng gia xác nhận ông ta chết vì tim. Umbra nhận khoản tiền đủ nuôi cả hội trong một năm.",
+      "effects": {
+       "AGI": 1,
+       "wealth": 30,
+       "wealthKind": "windfall",
+       "fame": 3,
+       "jobXp": 3,
+       "flags": [
+        "asn_umbra_master"
+       ]
+      },
+      "moment": "Ám sát bá tước giữa vũ hội không để lại dấu vết"
+     },
+     "fail": {
+      "text": "Một người hầu thật nhận ra bạn. Bạn phải nhảy qua cửa sổ tầng ba và chạy suốt đêm qua những mái nhà Sanctus.",
+      "effects": {
+       "health": -20,
+       "fame": -3
+      }
+     }
+    },
+    {
+     "label": "Nhảy cùng ông ta, tìm hiểu vì sao ông ta phải chết",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Giữa điệu nhảy, bá tước thì thầm với bạn rằng ông biết mình sẽ chết đêm nay, và ông đã viết sẵn di chúc trao đất cho những người tá điền. Bạn vẫn làm việc của mình. Nhưng bạn giữ lại bản di chúc ấy cho đến khi nó được thi hành.",
+      "effects": {
+       "INT": 1,
+       "wealth": 20,
+       "joy": -5,
+       "jobXp": 3,
+       "flags": [
+        "asn_umbra_master",
+        "asn_kept_will"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Ông ta nhận ra bạn qua ánh mắt và gọi lính. Bạn trốn được, nhưng hợp đồng thất bại.",
+      "effects": {
+       "fame": -4,
+       "joy": -6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "asn_traitor_hunted",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_assassin",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "asn_path_traitor"
+    ],
+    "notFlags": [
+     "asn_end"
+    ]
+   },
+   "text": "Năm ân hạn của Mẹ Quạ đã hết. Ba đêm liền, bạn tìm thấy một chiếc lông quạ đen trên gối khi thức dậy, mỗi đêm ở một quán trọ khác nhau.",
+   "choices": [
+    {
+     "label": "Đặt bẫy đón kẻ săn mình",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Kẻ đến là một sát thủ trẻ, run như cầy sấy. Bạn tước dao của cậu ta và gửi cậu ta về với một lời nhắn cho Mẹ Quạ: “Gửi người giỏi hơn.” Lần sau, không ai đến nữa.",
+      "effects": {
+       "INT": 1,
+       "fame": 3,
+       "jobXp": 3,
+       "flags": [
+        "asn_hunter_beaten"
+       ]
+      },
+      "moment": "Bẫy và tha mạng sát thủ Umbra đến săn mình"
+     },
+     "fail": {
+      "text": "Kẻ đến giỏi hơn bạn nghĩ. Bạn thoát chết với một vết dao sâu dưới sườn, và phải đổi tên lần thứ ba trong năm.",
+      "effects": {
+       "health": -25,
+       "flags": [
+        "asn_hunter_beaten"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Bỏ chạy sang Thảo Nguyên Gió Hú",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn đổi tên, đổi giọng, đổi cả dáng đi. Ở Thảo Nguyên, bạn làm thợ thuộc da suốt một mùa, cho đến khi lông quạ ngừng xuất hiện.",
+      "effects": {
+       "AGI": 1,
+       "joy": -5,
+       "jobXp": 2,
+       "flags": [
+        "asn_hid_steppe"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn chạy, nhưng chiếc lông quạ vẫn đến, lần này cắm trên yên ngựa của bạn.",
+      "effects": {
+       "joy": -12
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "asn_traitor_list",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_assassin",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "asn_path_traitor"
+    ],
+    "notFlags": [
+     "asn_end"
+    ]
+   },
+   "text": "Tờ danh sách bạn mang theo có hai mươi ba cái tên: những kẻ đã thuê Umbra giết người vô tội. Có kẻ là thương gia, có kẻ là giám mục, có kẻ đang ngồi trong Hội đồng Sanctus.",
+   "choices": [
+    {
+     "label": "Gửi danh sách cho Thánh Kỵ Sĩ Đoàn",
+     "text": "Mười một người bị bắt trong một tháng. Mười hai người còn lại mua được sự im lặng. Từ đó, không chỉ Umbra, cả nửa giới quý tộc Sanctus cũng muốn bạn chết.",
+     "effects": {
+      "fame": 6,
+      "joy": 4,
+      "jobXp": 3,
+      "flags": [
+       "asn_list_published"
+      ]
+     },
+     "moment": "Công bố danh sách những kẻ thuê giết người"
+    },
+    {
+     "label": "Tự tay xử từng cái tên",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn mất ba năm. Hai mươi ba cái tên được gạch bỏ, từng tên một. Người ta bắt đầu đồn về một bóng ma chỉ giết những kẻ thuê sát thủ.",
+      "effects": {
+       "AGI": 1,
+       "fame": 8,
+       "joy": -10,
+       "jobXp": 4,
+       "flags": [
+        "asn_list_done"
+       ]
+      },
+      "moment": "Gạch bỏ hai mươi ba cái tên trên danh sách"
+     },
+     "fail": {
+      "text": "Đến cái tên thứ tư, bạn bị phục kích. Danh sách rơi vào tay một trong những kẻ có tên trong đó.",
+      "effects": {
+       "health": -25,
+       "flags": [
+        "asn_list_lost"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Dùng danh sách để tống tiền",
+     "text": "Mỗi cái tên trả bạn một khoản để giữ im lặng. Bạn giàu lên rất nhanh, và nhận ra mình đã trở thành đúng thứ mà mình bỏ đi.",
+     "effects": {
+      "wealth": 40,
+      "wealthKind": "windfall",
+      "joy": -15,
+      "flags": [
+       "asn_list_blackmail"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "asn_justice_judge",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_assassin",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "asn_path_justice"
+    ],
+    "notFlags": [
+     "asn_end"
+    ]
+   },
+   "text": "Bạn tự chọn hợp đồng của mình. Lần này là một quan tòa ở Sanctus đã kết án treo cổ mười hai người nghèo để che tội cho con trai. Nhưng con trai ông ta mới mười sáu tuổi, và đang ngồi khóc trong phòng giam riêng.",
+   "choices": [
+    {
+     "label": "Xử quan tòa",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Sáng hôm sau, ông ta được tìm thấy trên ghế xử án, trước mặt là bản án tự viết về chính tội lỗi của mình. Mười hai án treo cổ được hủy bỏ.",
+      "effects": {
+       "AGI": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "asn_justice_judge"
+       ]
+      },
+      "moment": "Trừng phạt quan tòa bán án"
+     },
+     "fail": {
+      "text": "Bạn bị phát hiện ngay trong dinh thự. Bạn thoát được, nhưng mười hai người kia bị treo cổ sớm hơn một ngày.",
+      "effects": {
+       "health": -15,
+       "joy": -20
+      }
+     }
+    },
+    {
+     "label": "Ép ông ta tự thú trước dân chúng",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đến phòng ngủ của ông ta mỗi đêm, chỉ để đặt lên gối một bản sao hồ sơ vụ án. Đến đêm thứ chín, ông ta tự thú giữa quảng trường. Bạn không phải rút dao.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "joy": 8,
+       "jobXp": 3,
+       "flags": [
+        "asn_justice_judge",
+        "asn_justice_no_blood"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Ông ta không gục ngã; ông ta thuê lính gác. Bạn phải bỏ kế hoạch.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "asn_justice_mirror",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_assassin",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "asn_path_justice"
+    ],
+    "notFlags": [
+     "asn_end"
+    ]
+   },
+   "text": "Có kẻ đang giết người ở Sanctus và để lại dấu hiệu của bạn: một con dao không chuôi cắm trên ngực nạn nhân. Nạn nhân mới nhất là một cô thợ giặt chẳng có tội gì.",
+   "choices": [
+    {
+     "label": "Săn kẻ mạo danh",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Kẻ mạo danh là một tay buôn người muốn đổ tội cho bạn. Bạn giao hắn cho lính gác, kèm con dao không chuôi cuối cùng của mình, và từ đó không để lại dấu hiệu nữa.",
+      "effects": {
+       "INT": 1,
+       "fame": 4,
+       "jobXp": 3,
+       "flags": [
+        "asn_mirror_caught"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn đuổi theo hắn suốt ba tháng mà không bắt được. Người ta bắt đầu tin rằng chính bạn là kẻ giết cô thợ giặt.",
+      "effects": {
+       "fame": -8,
+       "joy": -12
+      }
+     }
+    },
+    {
+     "label": "Nhờ Silas tìm hắn qua đường dây cũ",
+     "require": {
+      "flags": [
+       "asn_silas_bond"
+      ]
+     },
+     "text": "Silas giờ làm trong quán trọ, nhưng vẫn nghe được mọi lời đồn. Trong ba ngày, hắn đưa bạn đến tận cửa nhà kẻ mạo danh. Hai người làm việc cùng nhau như những ngày đầu.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "asn_mirror_caught"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "asn_c4_corvina",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_assassin",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "asn_met_corvina"
+    ],
+    "notFlags": [
+     "asn_corvina_gone",
+     "asn_end"
+    ]
+   },
+   "text": "Mẹ Quạ gửi cho bạn một chiếc khăn len đã đan xong, kèm một dòng chữ: “Ta sắp chết. Đến trước khi chúng đến.” Dưới cống ngầm, ngọn nến duy nhất đã sắp tàn, và Umbra đang chia rẽ thành ba phe tranh nhau ghế của bà.",
+   "choices": [
+    {
+     "label": "Ở bên bà đến hơi thở cuối",
+     "text": "Corvina chết lúc rạng sáng, tay vẫn cầm que đan. Trước khi đi, bà thì thầm cho bạn nghe tên thật của mình, thứ chưa ai ở Umbra từng biết. Bạn mang cái tên ấy đến cuối đời.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 3,
+      "flags": [
+       "asn_corvina_gone",
+       "asn_corvina_name"
+      ]
+     },
+     "moment": "Nghe tên thật của Mẹ Quạ khi bà qua đời"
+    },
+    {
+     "label": "Dẹp yên cuộc tranh giành trước khi bà mất",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn gặp từng thủ lĩnh phe trong một đêm, mỗi người một câu chuyện, một bí mật, một lời hứa. Sáng ra, cả ba phe cúi đầu trước ngọn nến. Corvina mỉm cười lần cuối và nhắm mắt.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 4,
+       "flags": [
+        "asn_corvina_gone",
+        "asn_umbra_heir"
+       ]
+      },
+      "moment": "Giữ Umbra không tan rã khi Mẹ Quạ qua đời"
+     },
+     "fail": {
+      "text": "Một phe ra tay trước. Đêm ấy dưới cống ngầm có bảy người chết, và Umbra vỡ làm ba.",
+      "effects": {
+       "health": -15,
+       "joy": -15,
+       "flags": [
+        "asn_corvina_gone",
+        "asn_umbra_broken"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "asn_c4_king",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_assassin",
+    "free": true,
+    "jobRank": 3,
+    "notFlags": [
+     "asn_end"
+    ]
+   },
+   "text": "Một người đeo mặt nạ bạc đặt lên bàn bạn túi tiền lớn nhất bạn từng thấy. Mục tiêu: nhà vua của Sanctus. Lý do: ông ta sắp ký hiệp ước bán ba tỉnh biên giới cho Quân đoàn Ma Vương.",
+   "choices": [
+    {
+     "label": "Nhận hợp đồng",
+     "check": {
+      "stat": "AGI",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn vào cung qua một lối mà chỉ Umbra biết. Nhưng khi đứng bên giường vua, bạn thấy bản hiệp ước bị xé đôi trên bàn. Bạn lặng lẽ rời đi, để lại con dao cắm trên mảnh giấy rách, như một lời nhắc.",
+      "effects": {
+       "AGI": 1,
+       "fame": 5,
+       "jobXp": 4,
+       "flags": [
+        "asn_king_warned"
+       ]
+      },
+      "moment": "Đứng bên giường vua Sanctus mà không ra tay"
+     },
+     "fail": {
+      "text": "Người đeo mặt nạ là một cái bẫy. Bạn bị vây trong cung và phải giết đường máu để ra.",
+      "effects": {
+       "health": -30,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Điều tra người đeo mặt nạ bạc",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Hắn là em trai nhà vua, muốn ngai vàng. Bản hiệp ước là giả. Bạn để lại bằng chứng trên bàn làm việc của vua, và một tháng sau, em trai nhà vua biến mất khỏi mọi sử sách.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 4,
+       "flags": [
+        "asn_king_saved"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Dấu vết dẫn vào ngõ cụt. Bạn từ chối hợp đồng, và không bao giờ biết ai đã muốn vua chết.",
+      "effects": {
+       "joy": -5
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "asn_c5_umbra",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_assassin",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "asn_path_umbra"
+    ],
+    "notFlags": [
+     "asn_end"
+    ]
+   },
+   "text": "Bạn ngồi trong căn phòng dưới cống ngầm, trước ngọn nến duy nhất. Umbra giờ là của bạn. Những thành viên trẻ nhìn bạn như bạn từng nhìn Mẹ Quạ.",
+   "choices": [
+    {
+     "label": "Giữ Umbra như bà đã giữ",
+     "text": "Không có gì thay đổi. Hợp đồng đến, hợp đồng đi, ngọn nến vẫn cháy. Bạn bắt đầu đan len trong những đêm dài, và hiểu ra vì sao bà luôn cần làm gì đó với đôi tay.",
+     "effects": {
+      "fame": 12,
+      "wealth": 20,
+      "flags": [
+       "asn_end",
+       "asn_end_matriarch"
+      ]
+     },
+     "moment": "Kế thừa ngọn nến của Umbra"
+    },
+    {
+     "label": "Viết luật mới: Umbra không giết trẻ em, không giết người cứu người",
+     "text": "Một nửa Umbra bỏ đi. Nửa còn lại ở lại và tuân theo. Người ta bắt đầu kể về Umbra như kể về một hội kín có luật lệ, thay vì một bầy quạ ăn xác.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "asn_end",
+       "asn_end_new_law"
+      ]
+     },
+     "moment": "Viết luật lệ mới cho Umbra"
+    },
+    {
+     "label": "Dập tắt ngọn nến, giải tán Umbra",
+     "require": {
+      "flags": [
+       "asn_corvina_name"
+      ]
+     },
+     "text": "Bạn đọc to tên thật của Corvina trước toàn hội, rồi thổi tắt ngọn nến. “Bà ấy muốn được nhớ bằng cái tên này, không phải bằng hội này.” Umbra tan đi trong một đêm, như chưa từng có.",
+     "effects": {
+      "joy": 18,
+      "fame": 6,
+      "flags": [
+       "asn_end",
+       "asn_end_disbanded"
+      ]
+     },
+     "moment": "Giải tán Umbra bằng tên thật của Mẹ Quạ"
+    }
+   ]
+  },
+  {
+   "id": "asn_c5_traitor",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_assassin",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "asn_path_traitor"
+    ],
+    "notFlags": [
+     "asn_end"
+    ]
+   },
+   "text": "Bạn đã trốn chạy và chiến đấu suốt nửa đời. Một đêm, có tiếng gõ cửa. Đứng ngoài là kẻ đứng đầu mới của Umbra, tay không vũ khí: “Ta đến để ký một hòa ước, hoặc để chết. Ngươi chọn.”",
+   "choices": [
+    {
+     "label": "Ký hòa ước",
+     "text": "Hai người ngồi đến sáng bên bếp lửa, thỏa thuận từng điều khoản. Từ đó, bạn sống nốt đời mình mà không cần nhìn qua vai nữa. Thỉnh thoảng, một chiếc lông quạ trắng xuất hiện trên bậu cửa, như một lời chào.",
+     "effects": {
+      "joy": 20,
+      "fame": 5,
+      "flags": [
+       "asn_end",
+       "asn_end_peace"
+      ]
+     },
+     "moment": "Ký hòa ước với Umbra sau nửa đời trốn chạy"
+    },
+    {
+     "label": "Giết hắn, để Umbra không bao giờ đến nữa",
+     "check": {
+      "stat": "AGI",
+      "target": 9
+     },
+     "success": {
+      "text": "Hắn không chống cự. Umbra mất thủ lĩnh, rồi mất luôn ý chí săn bạn. Bạn sống những năm cuối trong yên tĩnh, và trong những giấc mơ dài.",
+      "effects": {
+       "fame": 8,
+       "joy": -5,
+       "flags": [
+        "asn_end",
+        "asn_end_last_blood"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Hắn có mang vũ khí. Bạn thắng, nhưng phải trả bằng một vết thương không bao giờ lành.",
+      "effects": {
+       "health": -35,
+       "lifeCost": 10,
+       "flags": [
+        "asn_end",
+        "asn_end_last_blood"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Trao cho hắn tờ danh sách cuối cùng",
+     "require": {
+      "anyFlags": [
+       "asn_list_published",
+       "asn_list_done"
+      ]
+     },
+     "text": "Đó là danh sách những thành viên Umbra từng giết người vô tội. Hắn đọc, mặt tái đi, rồi cúi đầu: “Ta sẽ dọn dẹp nhà mình.” Lần đầu tiên, bạn và Umbra cùng đứng về một phía.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "asn_end",
+       "asn_end_reckoning"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "asn_c5_justice",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_assassin",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "asn_path_justice"
+    ],
+    "notFlags": [
+     "asn_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Death Bringer, nhưng ở khu ổ chuột, các bà mẹ dọa con bằng tên những kẻ bạn đã giết, không phải bằng tên bạn. Một cô bé gõ cửa nhà bạn, tay cầm một con dao bếp: “Dạy con đi. Con biết kẻ đã giết mẹ con.”",
+   "choices": [
+    {
+     "label": "Dạy cô bé",
+     "text": "Bạn dạy cô bé tất cả, trừ một điều: bạn bắt cô thề chỉ rút dao khi đã chắc chắn. Nhiều năm sau, cô trở thành một bóng tối khác của Sanctus, và cô giữ lời thề ấy lâu hơn cả bạn.",
+     "effects": {
+      "fame": 10,
+      "joy": 6,
+      "flags": [
+       "asn_end",
+       "asn_end_successor"
+      ]
+     },
+     "moment": "Truyền nghề cho một cô bé mồ côi"
+    },
+    {
+     "label": "Tự tay đi tìm kẻ đó, rồi giao cho tòa án",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Lần đầu tiên trong đời, bạn đưa một kẻ có tội ra trước pháp luật thay vì lưỡi dao. Cô bé đứng xem phiên xử, rồi ôm lấy bạn ở cổng tòa án. Bạn treo dao từ hôm ấy.",
+      "effects": {
+       "fame": 12,
+       "joy": 18,
+       "flags": [
+        "asn_end",
+        "asn_end_court"
+       ]
+      },
+      "moment": "Lần đầu tiên giao kẻ có tội cho tòa án"
+     },
+     "fail": {
+      "text": "Tòa án tha bổng hắn. Cô bé nhìn bạn, và bạn biết mình phải dạy cô một điều khác: không phải mọi bất công đều có lời giải.",
+      "effects": {
+       "joy": -8,
+       "flags": [
+        "asn_end",
+        "asn_end_court"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đưa cô bé đến trại tế bần của Aurel",
+     "require": {
+      "flags": [
+       "asn_aurel_friend"
+      ]
+     },
+     "text": "Aurel đã già, nhưng vẫn múc cháo cho những đứa trẻ như ngày nào. Cô bé ở lại, và bạn cũng ở lại, khuân nước và chẻ củi cho trại tế bần đến cuối đời.",
+     "effects": {
+      "joy": 20,
+      "flags": [
+       "asn_end",
+       "asn_end_soup"
+      ]
+     },
+     "moment": "Sống nốt đời ở trại tế bần của Aurel"
+    }
+   ]
+  },
+  {
+   "id": "asn_daily_rooftop",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_assassin",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Bạn nằm trên mái nhà chờ mục tiêu suốt ba đêm. Đêm thứ ba, bạn nhận ra một gia đình trong căn gác đối diện cũng thức trắng: người cha ho ra máu, người mẹ đếm tiền.",
+   "choices": [
+    {
+     "label": "Thả một túi tiền qua cửa sổ nhà họ",
+     "text": "Sáng ra, bạn nghe tiếng người mẹ khóc vì mừng. Mục tiêu của bạn đi ngang qua đúng lúc ấy, và bạn để hắn đi. Còn nhiều đêm khác.",
+     "effects": {
+      "wealth": -8,
+      "joy": 8
+     }
+    },
+    {
+     "label": "Chỉ tập trung vào mục tiêu",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Hợp đồng hoàn thành gọn gàng. Trên đường về, bạn không ngoảnh lại nhìn căn gác.",
+      "effects": {
+       "wealth": 10,
+       "jobXp": 2
+      }
+     },
+     "fail": {
+      "text": "Mục tiêu đổi đường. Ba đêm của bạn thành công cốc.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "asn_daily_poison_kitchen",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_assassin",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Bạn học pha chế độc dược trong căn bếp của một quán trọ cũ. Bà chủ quán, người không biết bạn làm nghề gì, khen bạn có đôi tay khéo và rủ bạn học làm bánh.",
+   "choices": [
+    {
+     "label": "Học làm bánh",
+     "text": "Bạn làm hỏng ba mẻ bánh đầu tiên. Mẻ thứ tư, bà chủ quán cắn một miếng và gật gù. Lâu lắm rồi, đôi tay bạn mới làm ra một thứ khiến người khác mỉm cười.",
+     "effects": {
+      "joy": 10
+     }
+    },
+    {
+     "label": "Lịch sự từ chối",
+     "text": "Bạn quay lại với những lọ thủy tinh. Bà chủ quán đặt một chiếc bánh lên bàn bạn mỗi sáng, dù bạn chưa bao giờ ăn.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "asn_daily_war_spy",
+   "races": [
+    "human"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_assassin",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh mở ra một thị trường mới cho Umbra: các tướng lĩnh cả hai phe đều thuê sát thủ để giết tướng lĩnh phe kia. Một hợp đồng đến với bạn từ phe Ma Vương.",
+   "choices": [
+    {
+     "label": "Từ chối, chỉ nhận hợp đồng từ phe con người",
+     "text": "Bạn làm việc ở hậu phương địch suốt một mùa, cắt đứt ba đường tiếp tế. Không ai viết tên bạn vào bản báo cáo chiến thắng.",
+     "effects": {
+      "AGI": 1,
+      "health": -10,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Nhận hợp đồng của cả hai phe",
+     "text": "Bạn kiếm được nhiều tiền hơn bao giờ hết. Chiến tranh kéo dài thêm một mùa, và bạn tự hỏi có bao nhiêu phần trong đó là công của mình.",
+     "effects": {
+      "wealth": 30,
+      "wealthKind": "windfall",
+      "joy": -12,
+      "flags": [
+       "asn_double_agent"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "asn_daily_dark_plague_doctor",
+   "races": [
+    "human"
+   ],
+   "eras": [
+    "dark_age"
+   ],
+   "weight": 14,
+   "require": {
+    "job": "human_assassin",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Đại Dịch Miasma khiến khu ổ chuột đầy xác chết, và một tên lang băm bán thuốc giả với giá cắt cổ. Những người hấp hối đưa cho hắn số tiền cuối cùng của họ.",
+   "choices": [
+    {
+     "label": "Dạy cho hắn một bài học",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Sáng ra, tên lang băm tỉnh dậy trên quảng trường, trói vào cột, quanh người dán đầy những chai thuốc giả của hắn. Dân chúng biết phải làm gì tiếp theo.",
+      "effects": {
+       "fame": 3,
+       "joy": 5
+      }
+     },
+     "fail": {
+      "text": "Hắn có vệ sĩ. Bạn rút lui, mang theo một vết bầm và cơn giận chưa nguôi.",
+      "effects": {
+       "health": -10
+      }
+     }
+    },
+    {
+     "label": "Lấy lại tiền của hắn, chia cho các nhà",
+     "text": "Bạn lẻn vào két của hắn và trả lại từng đồng cho từng nhà. Có những nhà không còn ai để nhận.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "asn_daily_old_shadow",
+   "races": [
+    "human"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_assassin",
+    "free": true
+   },
+   "text": "Đôi đầu gối của bạn không còn cho phép nhảy từ mái nhà này sang mái nhà kia nữa. Đêm qua, bạn suýt trượt ngã trên một mái ngói ướt, ngay trước mặt một tên trộm vặt cười khẩy.",
+   "choices": [
+    {
+     "label": "Dạy tên trộm vặt đó một bài học",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn không cần nhảy. Bạn chỉ cần đứng yên ở đúng chỗ hắn sẽ chạy qua. Kinh nghiệm thay cho đôi chân, và hắn hiểu ra điều đó khi nằm sấp dưới đất.",
+      "effects": {
+       "jobXp": 2,
+       "joy": 5
+      }
+     },
+     "fail": {
+      "text": "Hắn chạy mất, và bạn phải ngồi xuống bậc thềm thở dốc rất lâu.",
+      "effects": {
+       "joy": -6,
+       "health": -4
+      }
+     }
+    },
+    {
+     "label": "Chuyển sang làm việc bằng thông tin thay vì bằng dao",
+     "text": "Bạn ngồi trong một quán trọ, lắng nghe, ghi chép, bán lại những điều mình biết. Lưỡi dao của bạn nằm im trong vỏ, nhưng tên bạn vẫn khiến người ta nói khẽ đi.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1
+     }
+    }
+   ]
+  }
+ ]
+}

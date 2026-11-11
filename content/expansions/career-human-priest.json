@@ -1,0 +1,1304 @@
+{
+ "_note": "Tuyến truyện Priest: 5 chương theo bậc, ba đạo ở Bậc 2 (prs_path_see / prs_path_heresy / prs_path_hermit), nhân vật xuyên suốt Mẹ Bề Trên Agathe, Thầy Lucan và cô bé Nell.",
+ "origins": [],
+ "events": [
+  {
+   "id": "prs_c1_agathe",
+   "races": [
+    "human"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "human_priest",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "prs_met_agathe"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Agathe",
+     "race": "Human",
+     "position": "Mẹ Bề Trên tu viện Ánh Sáng Thứ Bảy"
+    }
+   ],
+   "text": "Tu viện Ánh Sáng Thứ Bảy nằm trên một ngọn đồi trọc ngoài Sanctus. Mẹ Bề Trên Agathe giao cho bạn việc đầu tiên: rửa chân cho những người hành hương, tất cả, kể cả gã ăn mày có bàn chân lở loét mà các tu sinh khác đều tránh.",
+   "choices": [
+    {
+     "label": "Rửa chân gã ăn mày trước tiên",
+     "text": "Gã ăn mày nhìn bạn, rồi bật khóc. Agathe đứng ở cửa, không nói gì, nhưng tối hôm ấy bà gọi bạn đến phòng mình và dạy bạn câu kinh đầu tiên bằng chính giọng của bà.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1,
+      "flags": [
+       "prs_met_agathe",
+       "prs_agathe_favor"
+      ]
+     },
+     "moment": "Rửa chân cho gã ăn mày ở tu viện Ánh Sáng Thứ Bảy"
+    },
+    {
+     "label": "Làm đúng thứ tự, gã ăn mày cuối cùng",
+     "text": "Bạn làm việc cẩn thận, không sót ai. Agathe gật đầu: “Công bằng là đức tính tốt. Nhưng Lumina không đứng xếp hàng.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "prs_met_agathe"
+      ]
+     }
+    },
+    {
+     "label": "Lén nhờ tu sinh khác làm thay phần gã ăn mày",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Không ai phát hiện. Nhưng đêm đó, bạn mơ thấy một bàn chân lở loét đặt trên ngực mình, và tỉnh dậy với cảm giác ngộp thở.",
+      "effects": {
+       "joy": -5,
+       "flags": [
+        "prs_met_agathe"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Agathe biết. Bà bắt bạn rửa chân cho người hành hương suốt một tháng liền, một mình.",
+      "effects": {
+       "health": -5,
+       "joy": -8,
+       "flags": [
+        "prs_met_agathe"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "prs_c1_lucan",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_priest",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "prs_met_agathe"
+    ],
+    "notFlags": [
+     "prs_met_lucan"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Lucan",
+     "race": "Human",
+     "position": "Thẩm tra viên của Giáo hội Lumina"
+    }
+   ],
+   "text": "Thầy Lucan đến từ Sanctus để kiểm tra đức tin của tu viện. Anh ta trẻ, đẹp, giọng nói như chuông bạc, và chỉ trong một tuần đã tố giác hai tu sinh vì đọc sách không được phép.",
+   "choices": [
+    {
+     "label": "Bênh vực hai tu sinh trước mặt Lucan",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn trích dẫn đúng ba điều luật cho phép tu sinh đọc sách y thuật. Lucan cười nhạt, rút lại lời tố giác, nhưng ghi tên bạn vào một cuốn sổ nhỏ màu đen.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "prs_met_lucan",
+        "prs_lucan_rival"
+       ]
+      },
+      "moment": "Đối đầu Thầy Lucan để bênh vực hai tu sinh"
+     },
+     "fail": {
+      "text": "Lucan hỏi lại ba câu và bạn không trả lời được câu nào. Hai tu sinh bị đuổi, và bạn bị phạt quỳ cầu nguyện suốt đêm.",
+      "effects": {
+       "joy": -10,
+       "flags": [
+        "prs_met_lucan",
+        "prs_lucan_rival"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Giữ im lặng, quan sát anh ta",
+     "text": "Bạn để ý thấy Lucan cầu nguyện lâu hơn bất kỳ ai, và mỗi đêm anh ta tự quất roi vào lưng mình trong phòng kín. Bạn không biết nên sợ hay thương anh ta.",
+     "effects": {
+      "INT": 1,
+      "flags": [
+       "prs_met_lucan",
+       "prs_lucan_seen"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "prs_c1_nell",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_priest",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "prs_met_agathe"
+    ],
+    "notFlags": [
+     "prs_met_nell"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Nell",
+     "race": "Human",
+     "position": "Cô bé mồ côi ở tu viện"
+    }
+   ],
+   "text": "Một cô bé bảy tuổi tên Nell được để lại trước cổng tu viện cùng một mảnh giấy: “Con bé bị ho máu. Chúng tôi không nuôi nổi.” Agathe giao cô bé cho bạn chăm sóc.",
+   "choices": [
+    {
+     "label": "Thức trắng chăm cô bé",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Sau ba tuần, cơn ho dịu đi. Nell bắt đầu theo bạn khắp tu viện như cái bóng nhỏ, và hỏi bạn đủ thứ về Lumina mà bạn không trả lời được.",
+      "effects": {
+       "joy": 10,
+       "health": -6,
+       "jobXp": 1,
+       "flags": [
+        "prs_met_nell",
+        "prs_nell_alive"
+       ]
+      },
+      "moment": "Cứu sống cô bé Nell bị bỏ rơi"
+     },
+     "fail": {
+      "text": "Cơn ho không dứt, nhưng Nell vẫn sống, gầy gò và kiên cường. Cô bé gọi bạn là “thầy” dù bạn mới chỉ là tu sinh.",
+      "effects": {
+       "health": -8,
+       "joy": -3,
+       "flags": [
+        "prs_met_nell",
+        "prs_nell_sick"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Dùng phép chữa lành đầu tiên của mình",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Ánh sáng từ lòng bàn tay bạn yếu ớt như ánh đom đóm, nhưng đủ. Nell ngừng ho trong một đêm. Agathe nhìn bạn rất lâu: “Lumina vừa trả lời ngươi đấy.”",
+      "effects": {
+       "INT": 1,
+       "fame": 2,
+       "jobXp": 2,
+       "flags": [
+        "prs_met_nell",
+        "prs_nell_alive"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Phép thuật không đến. Bạn ngồi bên Nell cả đêm, tay đặt lên trán cô bé, và lần đầu tiên tự hỏi Lumina có đang nghe không.",
+      "effects": {
+       "joy": -8,
+       "flags": [
+        "prs_met_nell",
+        "prs_nell_sick"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "prs_c2_first_rite",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_priest",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "prs_first_rite",
+     "prs_end"
+    ]
+   },
+   "text": "Bạn được gửi đến một làng mỏ để làm lễ an táng cho mười bốn thợ mỏ chết trong vụ sập hầm. Chủ mỏ dặn riêng: đừng nói gì về việc ông ta đã bắt họ xuống hầm khi biết vách đá đã nứt.",
+   "choices": [
+    {
+     "label": "Làm lễ và nói sự thật trong bài giảng",
+     "text": "Cả làng nghe. Chủ mỏ đứng dậy bỏ đi giữa chừng. Ba tháng sau, mỏ đóng cửa vì không ai chịu xuống nữa, và những người vợ góa được bồi thường. Giáo hội khiển trách bạn vì “gây rối”.",
+     "effects": {
+      "fame": 4,
+      "joy": 4,
+      "jobXp": 2,
+      "flags": [
+       "prs_first_rite",
+       "prs_spoke_truth"
+      ]
+     },
+     "moment": "Nói sự thật trong lễ an táng thợ mỏ"
+    },
+    {
+     "label": "Làm lễ thật trang nghiêm, giữ im lặng",
+     "text": "Lời kinh của bạn đẹp đến mức nhiều người khóc. Chủ mỏ gửi một khoản quyên góp lớn cho tu viện. Bạn không ngủ được nhiều đêm sau đó.",
+     "effects": {
+      "wealth": 10,
+      "joy": -10,
+      "jobXp": 2,
+      "flags": [
+       "prs_first_rite",
+       "prs_kept_silent"
+      ]
+     }
+    },
+    {
+     "label": "Lặng lẽ giúp các bà góa viết đơn kiện",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn viết đơn bằng chữ đẹp nhất của mình, ký tên làm chứng. Vụ kiện kéo dài hai năm, nhưng họ thắng.",
+      "effects": {
+       "INT": 1,
+       "fame": 3,
+       "jobXp": 2,
+       "flags": [
+        "prs_first_rite",
+        "prs_spoke_truth"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Đơn kiện bị tòa bác. Chủ mỏ gửi thư khiếu nại lên giám mục.",
+      "effects": {
+       "fame": -3,
+       "flags": [
+        "prs_first_rite"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "prs_c2_crossroads",
+   "races": [
+    "human"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "human_priest",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "prs_path_see",
+     "prs_path_heresy",
+     "prs_path_hermit",
+     "prs_end"
+    ]
+   },
+   "text": "Lễ thụ phong Priest kết thúc. Agathe đưa bạn ba lá thư. Một từ giám mục Sanctus, mời bạn vào Tòa Thánh. Một từ một người không ký tên, viết bằng mực đỏ: “Có những kẻ Lumina bỏ quên. Đến Đầm Lầy, ngươi sẽ thấy.” Lá thứ ba là danh sách các làng ven biên đang có dịch, không có tu sĩ nào.",
+   "choices": [
+    {
+     "label": "Vào Tòa Thánh Sanctus: con đường của Giáo hội",
+     "text": "Hành lang Tòa Thánh lát đá trắng, lạnh và sạch đến mức bạn nghe được bước chân mình vọng lại. Ở đây, lời cầu nguyện cũng có cấp bậc.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2,
+      "flags": [
+       "prs_path_see"
+      ]
+     },
+     "moment": "Vào phụng sự Tòa Thánh Sanctus"
+    },
+    {
+     "label": "Đi theo lá thư mực đỏ: con đường dị giáo từ tâm",
+     "text": "Ở rìa Đầm Lầy, bạn gặp một nhóm tu sĩ áo xám chữa bệnh cho bất kỳ ai, kể cả Goblin, kể cả Ma tộc bị thương. Giáo hội gọi họ là dị giáo. Họ gọi nhau là “những bàn tay”.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "prs_path_heresy"
+      ]
+     },
+     "moment": "Gia nhập những tu sĩ áo xám chữa bệnh cho mọi tộc"
+    },
+    {
+     "label": "Mang túi thuốc về các làng dịch: con đường ẩn tu",
+     "text": "Bạn đi bộ qua những con đường không còn ai đi. Ở mỗi làng, bạn ở lại đến khi người bệnh cuối cùng khỏi hoặc chết, rồi lại đi tiếp.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 2,
+      "flags": [
+       "prs_path_hermit"
+      ]
+     },
+     "moment": "Rời tu viện, đi chữa bệnh ở các làng vùng dịch"
+    }
+   ]
+  },
+  {
+   "id": "prs_see_relic",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_priest",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "prs_path_see"
+    ],
+    "notFlags": [
+     "prs_end"
+    ]
+   },
+   "text": "Tòa Thánh vừa nhận được một thánh tích: xương ngón tay của Thánh Elva, được cho là chữa lành mọi bệnh. Bạn được giao trông coi nó, và bạn sớm phát hiện đó chỉ là xương của một con cừu.",
+   "choices": [
+    {
+     "label": "Báo cáo với giám mục",
+     "text": "Giám mục nghe xong, im lặng, rồi bảo bạn quên chuyện này đi. Ngày hôm sau, có ba nghìn người hành hương xếp hàng chạm vào thánh tích. Có người khỏi bệnh thật. Bạn không biết nên nghĩ gì.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 2,
+      "flags": [
+       "prs_see_doubt"
+      ]
+     }
+    },
+    {
+     "label": "Công bố sự thật trước người hành hương",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn nói, và đám đông im lặng. Rồi một bà lão bước lên: “Tôi biết. Nhưng tôi vẫn muốn chạm vào nó.” Bạn hiểu ra rằng đức tin không nằm ở cái xương.",
+      "effects": {
+       "fame": 5,
+       "INT": 1,
+       "jobXp": 2,
+       "flags": [
+        "prs_see_truth"
+       ]
+      },
+      "moment": "Công bố thánh tích giả của Tòa Thánh"
+     },
+     "fail": {
+      "text": "Bạn bị lôi khỏi bục giảng giữa chừng. Giám mục giáng chức bạn xuống trông kho nến suốt một năm.",
+      "effects": {
+       "fame": -4,
+       "joy": -8,
+       "flags": [
+        "prs_see_truth"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Giữ im lặng, dùng tiền quyên góp xây bệnh xá",
+     "text": "Tiền chảy vào như nước. Bạn lặng lẽ chuyển một phần sang xây một bệnh xá cho người nghèo bên kia sông. Thánh Elva, dù là cừu hay người, đã cứu được nhiều mạng sống.",
+     "effects": {
+      "wealth": -5,
+      "fame": 3,
+      "joy": 4,
+      "jobXp": 2,
+      "flags": [
+       "prs_see_pragmatic"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "prs_see_inquisition",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_priest",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "prs_path_see",
+     "prs_met_lucan"
+    ],
+    "notFlags": [
+     "prs_end"
+    ]
+   },
+   "text": "Thầy Lucan giờ là Thẩm Tra Trưởng. Anh ta yêu cầu bạn ký vào bản án thiêu sống một bà đỡ bị tố là phù thủy. Bằng chứng duy nhất: bà ta biết dùng thảo dược mà không cầu nguyện.",
+   "choices": [
+    {
+     "label": "Từ chối ký",
+     "text": "Bản án thiếu một chữ ký và phải hoãn lại. Bà đỡ được thả sau sáu tháng giam. Lucan không nói gì, nhưng từ đó, mọi bức thư của bạn đều được mở trước khi đến tay bạn.",
+     "effects": {
+      "fame": 3,
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "prs_defied_lucan",
+       "prs_lucan_rival"
+      ]
+     }
+    },
+    {
+     "label": "Ký, để giữ vị trí của mình",
+     "text": "Ngọn lửa cháy suốt buổi chiều. Bạn có mặt, vì luật bắt bạn có mặt. Lucan đặt tay lên vai bạn sau đó: “Đức tin đòi hỏi sự cứng rắn.” Bạn không đáp.",
+     "effects": {
+      "fame": 4,
+      "joy": -20,
+      "jobXp": 2,
+      "flags": [
+       "prs_signed_pyre"
+      ]
+     },
+     "moment": "Ký bản án thiêu một bà đỡ"
+    },
+    {
+     "label": "Nói chuyện riêng với Lucan về những đêm anh ta tự quất roi",
+     "require": {
+      "flags": [
+       "prs_lucan_seen"
+      ]
+     },
+     "text": "Lucan tái mặt. Bạn không đe dọa; bạn chỉ hỏi anh ta đang trừng phạt ai. Anh ta ngồi xuống, và lần đầu tiên kể về người mẹ phù thủy của mình. Bản án bị hủy.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 3,
+      "flags": [
+       "prs_lucan_softened"
+      ],
+      "unflags": [
+       "prs_lucan_rival"
+      ]
+     },
+     "moment": "Chạm đến vết thương của Thầy Lucan"
+    }
+   ]
+  },
+  {
+   "id": "prs_heresy_goblin",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_priest",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "prs_path_heresy"
+    ],
+    "notFlags": [
+     "prs_end"
+    ]
+   },
+   "text": "Một Goblin non bị kẹp trong bẫy gấu, chân nát bấy. Những người áo xám nhìn bạn: chữa cho nó, theo luật Giáo hội, là phạm tội báng bổ.",
+   "choices": [
+    {
+     "label": "Chữa cho nó",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Ánh sáng Lumina chảy vào vết thương của con Goblin như chảy vào bất kỳ ai. Nó nhìn bạn bằng đôi mắt vàng, rồi chạy vào rừng. Tháng sau, có ai đó để trước lều bạn một bó nấm quý.",
+      "effects": {
+       "joy": 10,
+       "INT": 1,
+       "jobXp": 2,
+       "flags": [
+        "prs_healed_goblin"
+       ]
+      },
+      "moment": "Dùng ánh sáng Lumina chữa cho một Goblin"
+     },
+     "fail": {
+      "text": "Ánh sáng không đến. Bạn phải chữa nó bằng dao và chỉ khâu như một thầy thuốc bình thường. Nó sống, nhưng bạn bắt đầu tự hỏi: Lumina từ chối nó, hay từ chối bạn?",
+      "effects": {
+       "joy": -6,
+       "jobXp": 1,
+       "flags": [
+        "prs_healed_goblin",
+        "prs_light_silent"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Thả nó ra nhưng không chữa",
+     "text": "Con Goblin lết đi, để lại vệt máu trên tuyết. Những người áo xám không trách bạn. Họ chỉ lặng lẽ đi theo vệt máu.",
+     "effects": {
+      "joy": -8
+     }
+    }
+   ]
+  },
+  {
+   "id": "prs_heresy_trial",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_priest",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "prs_path_heresy"
+    ],
+    "notFlags": [
+     "prs_end"
+    ]
+   },
+   "text": "Giáo hội bắt được ba tu sĩ áo xám. Họ sẽ bị đưa ra xét xử ở Sanctus, và người ta cần một nhân chứng làm chứng chống lại họ. Thư mời gửi đích danh bạn, ký tên Thầy Lucan.",
+   "choices": [
+    {
+     "label": "Đến Sanctus và làm chứng cho họ",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đứng trước tòa, kể về từng người họ đã chữa, Human cũng như Goblin. Tòa không tha bổng họ, nhưng đổi án thiêu thành án lưu đày. Lucan nhìn bạn suốt phiên xử mà không chớp mắt.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "prs_heresy_witness",
+        "prs_lucan_rival"
+       ]
+      },
+      "moment": "Làm chứng cho những tu sĩ áo xám trước tòa Giáo hội"
+     },
+     "fail": {
+      "text": "Lời bạn bị cắt ngang và bạn bị bắt giam cùng họ. Ba tháng sau, Agathe đích thân đến Sanctus để xin cho bạn ra.",
+      "effects": {
+       "health": -15,
+       "joy": -10,
+       "flags": [
+        "prs_heresy_witness"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Tổ chức cướp tù trên đường giải",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Những bàn tay chữa bệnh hóa ra cũng biết cắt dây trói. Ba người được đưa sang Thảo Nguyên Gió Hú an toàn.",
+      "effects": {
+       "AGI": 1,
+       "fame": -3,
+       "jobXp": 3,
+       "flags": [
+        "prs_heresy_rescue"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Kế hoạch bị lộ. Bạn thoát được, nhưng giờ chính bạn cũng bị Giáo hội truy nã.",
+      "effects": {
+       "health": -10,
+       "fame": -6,
+       "flags": [
+        "prs_heresy_wanted"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "prs_hermit_village",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_priest",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "prs_path_hermit"
+    ],
+    "notFlags": [
+     "prs_end"
+    ]
+   },
+   "text": "Ngôi làng thứ mười hai bạn đến có dịch sốt đỏ. Trưởng làng muốn đóng cổng, bỏ mặc những nhà có người bệnh ở bên ngoài để cứu những người còn khỏe.",
+   "choices": [
+    {
+     "label": "Ở lại cùng những nhà bị bỏ ngoài cổng",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn sống với họ suốt bốn mươi ngày. Ba mươi người khỏi bệnh. Khi cổng làng mở lại, trưởng làng là người đầu tiên quỳ xuống trước bạn.",
+      "effects": {
+       "fame": 5,
+       "joy": 8,
+       "jobXp": 3,
+       "flags": [
+        "prs_hermit_saint"
+       ]
+      },
+      "moment": "Ở lại bốn mươi ngày với những người bị bỏ ngoài cổng làng"
+     },
+     "fail": {
+      "text": "Cơn sốt đỏ đến với bạn vào ngày thứ mười. Bạn sống, nhưng mất đi một phần thị lực.",
+      "effects": {
+       "health": -25,
+       "jobXp": 2,
+       "flags": [
+        "prs_hermit_saint"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Thuyết phục trưởng làng chia làng làm hai khu thay vì đóng cổng",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn vẽ sơ đồ trên đất: khu bệnh, khu khỏe, lối đi riêng cho người mang nước. Dịch dừng lại sau hai tháng mà không ai bị bỏ rơi.",
+      "effects": {
+       "INT": 1,
+       "fame": 4,
+       "jobXp": 3,
+       "flags": [
+        "prs_hermit_wise"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Trưởng làng không nghe. Cổng đóng, và bạn chỉ có thể chuyền thuốc qua khe cổng mỗi đêm.",
+      "effects": {
+       "joy": -12
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "prs_hermit_doubt",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_priest",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "prs_path_hermit"
+    ],
+    "notFlags": [
+     "prs_end"
+    ]
+   },
+   "text": "Đêm ấy, sau khi chôn đứa trẻ thứ chín trong tuần, bạn ngồi trên nấm mộ và cầu nguyện. Không có gì đáp lại. Không có ánh sáng, không có hơi ấm. Chỉ có tiếng gió qua những ngọn cỏ khô.",
+   "choices": [
+    {
+     "label": "Tiếp tục cầu nguyện đến sáng",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Lúc bình minh, một con chim sẻ đậu xuống nấm mộ và hót. Có thể đó là Lumina. Có thể không. Nhưng bạn đứng dậy và đi tiếp.",
+      "effects": {
+       "joy": 8,
+       "jobXp": 2,
+       "flags": [
+        "prs_faith_renewed"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Mặt trời mọc như mọi ngày. Bạn đứng dậy, và lần đầu tiên không đọc kinh trước khi bắt đầu làm việc.",
+      "effects": {
+       "joy": -10,
+       "flags": [
+        "prs_faith_lost"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Ngừng cầu nguyện, chỉ làm việc",
+     "text": "Bạn không còn chờ câu trả lời nữa. Bạn chỉ đun nước, rửa vết thương, khâu da, và ở lại. Có lẽ đó cũng là một kiểu cầu nguyện.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "prs_faith_work"
+      ]
+     }
+    },
+    {
+     "label": "Viết thư cho Agathe",
+     "require": {
+      "flags": [
+       "prs_met_agathe"
+      ]
+     },
+     "text": "Thư hồi âm đến sau ba tháng, chỉ một dòng, nét chữ đã run: “Ta đã không nghe thấy Người suốt bốn mươi năm. Ta vẫn rửa chân cho người hành hương.” Bạn đọc nó cho đến khi thuộc lòng.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 2,
+      "flags": [
+       "prs_faith_agathe"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "prs_c4_agathe",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_priest",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "prs_met_agathe"
+    ],
+    "notFlags": [
+     "prs_agathe_gone",
+     "prs_end"
+    ]
+   },
+   "text": "Tin đến từ tu viện Ánh Sáng Thứ Bảy: Mẹ Bề Trên Agathe đang hấp hối, và bà không cho ai làm lễ xức dầu cho mình, trừ bạn.",
+   "choices": [
+    {
+     "label": "Về làm lễ cuối cho bà",
+     "text": "Agathe nắm tay bạn, bàn tay nhẹ như lá khô. Bà không xin tha tội. Bà chỉ hỏi bạn đã rửa chân cho bao nhiêu người. Bạn không đếm. Bà mỉm cười: “Tốt. Ta cũng chưa bao giờ đếm.” Bà mất trước bình minh.",
+     "effects": {
+      "joy": -3,
+      "jobXp": 3,
+      "flags": [
+       "prs_agathe_gone"
+      ]
+     },
+     "moment": "Làm lễ cuối cho Mẹ Bề Trên Agathe"
+    },
+    {
+     "label": "Nhận lời bà, ở lại làm người đứng đầu tu viện",
+     "text": "Tu viện chỉ còn mười tu sinh và một mái nhà dột. Ngày đầu tiên, bạn tự tay rửa chân cho người hành hương đầu tiên đến cổng, và giao việc ấy cho tu sinh ít được ưa nhất.",
+     "effects": {
+      "fame": 5,
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "prs_agathe_gone",
+       "prs_abbey_heir"
+      ]
+     },
+     "moment": "Kế thừa tu viện Ánh Sáng Thứ Bảy"
+    }
+   ]
+  },
+  {
+   "id": "prs_c4_nell_grown",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_priest",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "prs_met_nell"
+    ],
+    "notFlags": [
+     "prs_end"
+    ]
+   },
+   "text": "Nell giờ đã là một thiếu nữ, và cô có một năng lực mà Giáo hội sợ hãi: cô chữa lành không cần cầu nguyện, chỉ bằng cách chạm vào. Thầy Lucan đã biết.",
+   "choices": [
+    {
+     "label": "Giấu cô đi",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn gửi Nell đến một làng chài xa với một cái tên khác. Lucan lục soát tu viện ba lần và không tìm thấy gì. Mỗi năm, bạn nhận được một lá thư không ký tên, kể về những người cô đã chữa.",
+      "effects": {
+       "INT": 1,
+       "joy": 6,
+       "jobXp": 3,
+       "flags": [
+        "prs_nell_hidden"
+       ]
+      },
+      "moment": "Giấu Nell khỏi tay Thẩm Tra Trưởng"
+     },
+     "fail": {
+      "text": "Lucan tìm thấy cô ở trạm ngựa thứ hai. Bạn chỉ kịp xin được ngồi trong phòng giam cùng cô.",
+      "effects": {
+       "joy": -15,
+       "flags": [
+        "prs_nell_taken"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đưa cô đến Tòa Thánh, đòi công nhận đó là phép của Lumina",
+     "require": {
+      "flags": [
+       "prs_path_see"
+      ]
+     },
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Trước mặt Hội đồng, Nell đặt tay lên một người lính mù và anh ta nhìn thấy lại. Không ai dám gọi đó là tà thuật. Nell được phong làm Thánh Nữ, điều mà cô chưa bao giờ muốn.",
+      "effects": {
+       "fame": 10,
+       "jobXp": 4,
+       "flags": [
+        "prs_nell_saint"
+       ]
+      },
+      "moment": "Nell được Tòa Thánh công nhận là Thánh Nữ"
+     },
+     "fail": {
+      "text": "Hội đồng chia rẽ. Nell bị giữ lại để “quan sát” vô thời hạn.",
+      "effects": {
+       "joy": -12,
+       "flags": [
+        "prs_nell_taken"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đối mặt với Lucan",
+     "require": {
+      "flags": [
+       "prs_lucan_softened"
+      ]
+     },
+     "text": "Lucan đến tu viện một mình, không mang lính. Anh ta nhìn Nell chữa cho một con chim gãy cánh, rồi xé tờ lệnh bắt trước mặt bạn. “Mẹ ta cũng làm được như thế,” anh ta nói khẽ.",
+     "effects": {
+      "joy": 12,
+      "jobXp": 3,
+      "flags": [
+       "prs_nell_free",
+       "prs_lucan_redeemed"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "prs_c5_see",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_priest",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "prs_path_see"
+    ],
+    "notFlags": [
+     "prs_end"
+    ]
+   },
+   "text": "Hội đồng Hồng Y bầu bạn làm Thánh Nhân của Giáo hội Lumina, người duy nhất trong thế hệ này. Bạn có quyền ban hành một Chiếu Thư mà mọi tu sĩ phải tuân theo.",
+   "choices": [
+    {
+     "label": "Ban Chiếu Thư: mọi sinh linh bị thương đều được chữa",
+     "require": {
+      "anyFlags": [
+       "prs_see_truth",
+       "prs_defied_lucan",
+       "prs_lucan_softened"
+      ]
+     },
+     "text": "Chiếu Thư Từ Tâm khiến nửa Giáo hội phẫn nộ và nửa còn lại khóc. Một trăm năm sau, những bệnh xá ở biên giới vẫn treo nó trên cửa, và Goblin bị thương biết rằng ở đó có người sẽ không đuổi chúng đi.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "prs_end",
+       "prs_end_mercy_bull"
+      ]
+     },
+     "moment": "Ban Chiếu Thư Từ Tâm của Giáo hội Lumina"
+    },
+    {
+     "label": "Ban Chiếu Thư: thánh chiến chống Ma tộc",
+     "text": "Ánh sáng Lumina giờ là ngọn lửa. Các đạo quân thập tự tuần hành dưới tên bạn. Bạn được ca tụng như một vị thánh chiến binh, và không bao giờ đến thăm một chiến trường.",
+     "effects": {
+      "fame": 15,
+      "joy": -5,
+      "flags": [
+       "prs_end",
+       "prs_end_crusade"
+      ]
+     },
+     "moment": "Ban Chiếu Thư thánh chiến"
+    },
+    {
+     "label": "Từ chối danh hiệu, trở về rửa chân ở tu viện",
+     "text": "Hội đồng sửng sốt. Bạn trở về ngọn đồi trọc, xách nước, rửa chân cho người hành hương. Người ta kể rằng có một vị thánh ở đó, nhưng không ai chỉ ra được là người nào.",
+     "effects": {
+      "joy": 20,
+      "fame": 8,
+      "flags": [
+       "prs_end",
+       "prs_end_humble"
+      ]
+     },
+     "moment": "Từ chối danh hiệu Thánh Nhân"
+    }
+   ]
+  },
+  {
+   "id": "prs_c5_heresy",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_priest",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "prs_path_heresy"
+    ],
+    "notFlags": [
+     "prs_end"
+    ]
+   },
+   "text": "Giáo hội chính thức gọi bạn là kẻ dị giáo. Nhưng ở biên giới, có mười bảy bệnh xá áo xám, nơi Human, Beastman, Goblin và cả Ma tộc nằm cạnh nhau, và không ai hỏi ai thờ vị thần nào.",
+   "choices": [
+    {
+     "label": "Viết lại kinh sách cho những bàn tay",
+     "text": "Bạn viết một cuốn sách mỏng, chỉ có những lời cầu nguyện ngắn đủ để đọc trong lúc khâu vết thương. Nó được chép tay và truyền đi khắp biên giới. Giáo hội cấm nó; nó vẫn được đọc.",
+     "effects": {
+      "fame": 12,
+      "INT": 1,
+      "joy": 10,
+      "flags": [
+       "prs_end",
+       "prs_end_grey_book"
+      ]
+     },
+     "moment": "Viết cuốn kinh của những bàn tay áo xám"
+    },
+    {
+     "label": "Đến Sanctus tự thú, đổi lấy sự an toàn cho bệnh xá",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn bị giam ba năm. Đổi lại, Giáo hội ký giấy cam kết không động đến mười bảy bệnh xá. Khi bạn ra tù, có một hàng dài người áo xám đứng chờ ngoài cổng.",
+      "effects": {
+       "fame": 12,
+       "joy": 8,
+       "health": -15,
+       "flags": [
+        "prs_end",
+        "prs_end_martyr"
+       ]
+      },
+      "moment": "Tự nộp mình để bảo vệ những bệnh xá áo xám"
+     },
+     "fail": {
+      "text": "Giáo hội giam bạn và vẫn đốt ba bệnh xá. Bạn sống những năm cuối trong tù, chữa bệnh cho các bạn tù.",
+      "effects": {
+       "health": -25,
+       "joy": -10,
+       "flags": [
+        "prs_end",
+        "prs_end_martyr"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Mời Lucan đến xem một ngày ở bệnh xá",
+     "require": {
+      "anyFlags": [
+       "prs_lucan_softened",
+       "prs_lucan_redeemed"
+      ]
+     },
+     "text": "Lucan ở lại một tuần. Khi về Sanctus, anh ta xóa tên bệnh xá áo xám khỏi danh sách dị giáo. Không ai biết vì sao Thẩm Tra Trưởng đổi ý; chỉ có bạn biết.",
+     "effects": {
+      "joy": 18,
+      "fame": 10,
+      "flags": [
+       "prs_end",
+       "prs_end_lucan"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "prs_c5_hermit",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_priest",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "prs_path_hermit"
+    ],
+    "notFlags": [
+     "prs_end"
+    ]
+   },
+   "text": "Bạn đã đi qua sáu mươi ngôi làng. Ở một ngôi làng, người ta dựng tượng bạn bằng gỗ; ở một làng khác, người ta đặt tên con theo tên bạn. Đôi chân bạn giờ đã không còn đi xa được nữa.",
+   "choices": [
+    {
+     "label": "Dừng chân ở ngôi làng cuối cùng, mở một bệnh xá",
+     "text": "Bệnh xá nhỏ, chỉ có tám giường. Mỗi năm có vài tu sĩ trẻ đến học việc, rồi lại khoác túi thuốc lên đường như bạn ngày xưa. Bạn ngồi ở bậc cửa nhìn họ đi.",
+     "effects": {
+      "joy": 18,
+      "fame": 8,
+      "flags": [
+       "prs_end",
+       "prs_end_hospice"
+      ]
+     },
+     "moment": "Mở bệnh xá ở ngôi làng cuối cùng"
+    },
+    {
+     "label": "Đi tiếp cho đến khi không đi được nữa",
+     "text": "Bạn đi chậm hơn, nghỉ nhiều hơn, nhưng vẫn đi. Người ta tìm thấy bạn ngồi dựa vào một gốc cây bên đường, túi thuốc vẫn còn trên vai, và một đứa trẻ trong làng gần đó đã khỏi sốt từ hôm trước.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "prs_end",
+       "prs_end_road"
+      ]
+     },
+     "moment": "Đi chữa bệnh đến bước chân cuối cùng"
+    },
+    {
+     "label": "Tìm Nell, trao lại túi thuốc",
+     "require": {
+      "anyFlags": [
+       "prs_nell_hidden",
+       "prs_nell_free",
+       "prs_nell_alive"
+      ]
+     },
+     "text": "Nell giờ đã có tóc bạc sớm, và cũng có một túi thuốc như bạn. Cô nhận túi thuốc của bạn, đổ hết vào túi mình. “Thầy nghỉ đi,” cô nói, như bạn từng nói với cô năm cô bảy tuổi.",
+     "effects": {
+      "joy": 20,
+      "flags": [
+       "prs_end",
+       "prs_end_nell"
+      ]
+     },
+     "moment": "Trao túi thuốc cho Nell"
+    }
+   ]
+  },
+  {
+   "id": "prs_daily_confession_child",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_priest",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một cậu bé xin xưng tội. Tội của cậu: đã ăn trộm một cái bánh mì cho em gái, và giờ cậu sợ Lumina sẽ bắt em gái phải chịu phạt thay.",
+   "choices": [
+    {
+     "label": "Tha tội và cho cậu thêm một cái bánh",
+     "text": "Cậu bé chạy về, ôm chặt hai cái bánh như ôm báu vật. Bạn ngồi lại trong phòng xưng tội, nghĩ về những tội lỗi người lớn chưa bao giờ biết sợ như thế.",
+     "effects": {
+      "joy": 8,
+      "wealth": -2
+     }
+    },
+    {
+     "label": "Dẫn cậu đi xin lỗi người bán bánh",
+     "text": "Người bán bánh ban đầu giận dữ, rồi im lặng khi nghe chuyện. Cuối cùng ông thuê cậu bé gánh nước mỗi sáng, trả công bằng bánh mì.",
+     "effects": {
+      "joy": 6,
+      "fame": 1,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "prs_daily_wedding_funeral",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_priest",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Hôm nay bạn làm lễ cưới vào buổi sáng và lễ tang vào buổi chiều, cho hai người của cùng một gia đình.",
+   "choices": [
+    {
+     "label": "Dùng cùng một bài giảng cho cả hai lễ",
+     "text": "Bài giảng về tình yêu ở lại sau khi người ta đi. Buổi sáng, cô dâu khóc. Buổi chiều, người góa phụ mỉm cười. Bạn không chắc ai hiểu bài giảng hơn.",
+     "effects": {
+      "INT": 1,
+      "joy": 4,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Ở lại uống rượu với gia đình sau cả hai lễ",
+     "text": "Họ kể về người đã khuất suốt đêm, vừa cười vừa khóc. Bạn học được về ông nhiều hơn bất kỳ bài điếu văn nào.",
+     "effects": {
+      "joy": 8
+     }
+    }
+   ]
+  },
+  {
+   "id": "prs_daily_war_field_chaplain",
+   "races": [
+    "human"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_priest",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Đạo quân lên đường ra Tuyến Đầu cần tu sĩ đi theo. Không ai trong tu viện muốn đi, và người ta nhìn bạn.",
+   "choices": [
+    {
+     "label": "Đi theo đạo quân",
+     "text": "Bạn làm lễ cho người sống trước trận và người chết sau trận, có khi cho cùng một người trong một ngày. Khi trở về, giọng bạn trầm hơn, và bạn không còn dùng những lời kinh hoa mỹ.",
+     "effects": {
+      "health": -12,
+      "fame": 5,
+      "jobXp": 3,
+      "flags": [
+       "prs_war_chaplain"
+      ]
+     },
+     "moment": "Làm tu sĩ quân đội ở Tuyến Đầu"
+    },
+    {
+     "label": "Đề nghị đi chữa thương ở hậu phương",
+     "text": "Hậu phương cũng không yên bình hơn. Những chiếc xe chở thương binh đến không ngừng, và bạn học cách cưa chân trước khi học cách an ủi.",
+     "effects": {
+      "INT": 1,
+      "joy": -6,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "prs_daily_old_voice",
+   "races": [
+    "human"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_priest",
+    "free": true
+   },
+   "text": "Giọng bạn đã khàn, không còn vang khắp giáo đường như xưa. Trong lễ sáng nay, hàng ghế cuối không nghe thấy gì.",
+   "choices": [
+    {
+     "label": "Bước xuống, đi dọc các hàng ghế mà giảng",
+     "text": "Bạn đi chậm, nói khẽ, dừng lại bên từng người. Lễ kéo dài gấp đôi, nhưng không ai bỏ về. Từ hôm ấy, bạn không bao giờ đứng trên bục giảng nữa.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Nhờ một tu sĩ trẻ giảng thay",
+     "text": "Cậu ta vấp váp, nói sai hai câu kinh, và đỏ mặt suốt buổi lễ. Bạn ngồi ở hàng ghế đầu, gật đầu với từng câu, như Agathe ngày xưa gật đầu với bạn.",
+     "effects": {
+      "joy": 6,
+      "fame": 1
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1236 @@
+{
+ "_note": "Tuyến truyện Bard: 5 chương theo bậc, ba đạo ở Bậc 2 (brd_path_court / brd_path_rebel / brd_path_lore), nhân vật xuyên suốt Lark Feywind, Percival Gilt và bà chủ quán Ottilie.",
+ "origins": [],
+ "events": [
+  {
+   "id": "brd_c1_lark",
+   "races": [
+    "human"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "human_bard",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "brd_met_lark"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Lark Feywind",
+     "race": "Human",
+     "position": "Người hát rong già ở quảng trường Sanctus"
+    }
+   ],
+   "text": "Lark Feywind hát rong ở góc quảng trường Sanctus đã bốn mươi năm, với một cây đàn lute nứt mặt và giọng khàn như gỗ cũ. Lão nghe bạn hát một bài, rồi lắc đầu: “Giọng hay. Nhưng ngươi đang hát cho mình nghe. Hát cho bà già bán cá kia nghe xem.”",
+   "choices": [
+    {
+     "label": "Hát cho bà bán cá",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn hát một bài ru cũ. Bà bán cá dừng tay, rồi bật khóc giữa chợ. Lark gật đầu: “Đấy. Giờ ngươi là ca sĩ.” Lão nhận bạn làm học trò bằng một cái vỗ vai.",
+      "effects": {
+       "joy": 8,
+       "jobXp": 1,
+       "flags": [
+        "brd_met_lark",
+        "brd_lark_proud"
+       ]
+      },
+      "moment": "Hát khiến bà bán cá bật khóc giữa chợ"
+     },
+     "fail": {
+      "text": "Bà bán cá ném cho bạn một con cá ươn. Lark cười đến ho sặc sụa, rồi vẫn nhận bạn: “Ít nhất bà ta đã nghe.”",
+      "effects": {
+       "joy": -2,
+       "flags": [
+        "brd_met_lark"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi lão vì sao",
+     "text": "Lark gảy một hợp âm. “Vì bài hát là để trả lại cho người nghe thứ họ đã quên mất là mình có.” Lão nhận bạn làm học trò, và mất ba năm để bạn hiểu câu ấy.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "brd_met_lark"
+      ]
+     },
+     "moment": "Trở thành học trò của Lark Feywind"
+    }
+   ]
+  },
+  {
+   "id": "brd_c1_ottilie",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_bard",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "brd_met_lark"
+    ],
+    "notFlags": [
+     "brd_met_ottilie"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Ottilie",
+     "race": "Human",
+     "position": "Bà chủ quán Ngựa Gỗ"
+    }
+   ],
+   "text": "Quán Ngựa Gỗ có một sân khấu nhỏ bằng thùng rượu ghép lại, và bà chủ quán Ottilie chỉ cho người lạ hát một bài. Nếu khách gõ cốc xuống bàn, người đó được ở lại. Nếu khách quay lưng, người đó phải rửa bát cả đêm.",
+   "choices": [
+    {
+     "label": "Hát một bài vui về chuyện say rượu",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Cả quán gõ cốc đến vỡ hai cái. Ottilie cho bạn một chỗ ngủ trên gác và một bữa ăn mỗi tối, đổi lại bạn hát ba đêm một tuần.",
+      "effects": {
+       "joy": 8,
+       "wealth": 3,
+       "jobXp": 1,
+       "flags": [
+        "brd_met_ottilie",
+        "brd_tavern_home"
+       ]
+      },
+      "moment": "Được Ottilie giữ lại hát ở quán Ngựa Gỗ"
+     },
+     "fail": {
+      "text": "Khách quay lưng. Bạn rửa bát đến sáng, rồi Ottilie đặt trước mặt bạn một bát súp: “Thử lại tuần sau.”",
+      "effects": {
+       "joy": -3,
+       "flags": [
+        "brd_met_ottilie"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hát một bài buồn về những người đi lính không về",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Cả quán im lặng. Không ai gõ cốc. Rồi một người lính già đứng dậy, đặt một đồng Tinh Bạc lên sân khấu, và đi ra. Ottilie gật đầu: “Ở lại.”",
+      "effects": {
+       "INT": 1,
+       "joy": 6,
+       "jobXp": 1,
+       "flags": [
+        "brd_met_ottilie",
+        "brd_tavern_home"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Khách quay lưng, vì không ai đến quán để buồn. Bạn rửa bát cả đêm.",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "brd_met_ottilie"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "brd_c1_percival",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_bard",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "brd_met_lark"
+    ],
+    "notFlags": [
+     "brd_met_percival"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Percival Gilt",
+     "race": "Human",
+     "position": "Thi sĩ cung đình trẻ của Sanctus"
+    }
+   ],
+   "text": "Percival Gilt là thi sĩ trẻ nhất từng được hát trong cung điện Sanctus. Hắn đến quán Ngựa Gỗ để “tìm cảm hứng từ dân thường”, nghe bạn hát, rồi ba ngày sau hát lại chính giai điệu đó trước nhà vua.",
+   "choices": [
+    {
+     "label": "Đến cung điện đòi lại bài hát",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn hát bài gốc ở cổng cung điện, có đoạn mà Percival không biết vì bạn chưa từng hát ở quán. Người gác cổng nghe, thị nữ nghe, và tin đồn lan vào đến tận ngai vàng. Percival phải công khai ghi tên bạn.",
+      "effects": {
+       "INT": 1,
+       "fame": 4,
+       "jobXp": 1,
+       "flags": [
+        "brd_met_percival",
+        "brd_percival_rival"
+       ]
+      },
+      "moment": "Đòi lại bài hát từ Percival Gilt"
+     },
+     "fail": {
+      "text": "Lính gác đuổi bạn đi. Percival gửi đến quán một túi tiền nhỏ, không kèm lời nào.",
+      "effects": {
+       "joy": -6,
+       "wealth": 5,
+       "flags": [
+        "brd_met_percival",
+        "brd_percival_rival"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Viết một bài châm biếm hắn",
+     "text": "Bài châm biếm lan khắp các quán rượu Sanctus trong một tuần. Percival không bao giờ dám đặt chân đến quán Ngựa Gỗ nữa. Hắn cũng không bao giờ quên.",
+     "effects": {
+      "fame": 3,
+      "joy": 6,
+      "jobXp": 1,
+      "flags": [
+       "brd_met_percival",
+       "brd_percival_rival"
+      ]
+     }
+    },
+    {
+     "label": "Viết bài mới hay hơn",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bài mới của bạn hay đến mức chính Percival đến quán nghe, ngồi ở góc tối, và vỗ tay khi không ai nhìn. Sau đó hắn tìm đến bạn: “Dạy ta cách viết như thế.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "brd_met_percival",
+        "brd_percival_friend"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bài mới không hay bằng bài cũ. Bạn hiểu ra có những bài chỉ đến một lần.",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "brd_met_percival"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "brd_c2_first_song",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_bard",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "brd_first_song",
+     "brd_end"
+    ]
+   },
+   "text": "Đã đến lúc viết bài hát của riêng bạn, bài mà Lark nói mỗi Bard chỉ có một: bài hát mà người ta sẽ nhớ khi đã quên tên người viết.",
+   "choices": [
+    {
+     "label": "Viết về quê hương mình",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bài hát có tên một con sông nhỏ mà không ai ở Sanctus biết. Nhưng khi bạn hát, ai cũng nghĩ đến dòng sông của chính họ. Nó lan đi khắp các quán rượu trong một mùa.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 2,
+       "flags": [
+        "brd_first_song",
+        "brd_song_home"
+       ]
+      },
+      "moment": "Viết bài hát đầu tiên của riêng mình"
+     },
+     "fail": {
+      "text": "Bài hát quá riêng tư. Chỉ những người cùng làng với bạn mới hiểu.",
+      "effects": {
+       "joy": -3,
+       "jobXp": 1,
+       "flags": [
+        "brd_first_song"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Viết về Lark",
+     "require": {
+      "flags": [
+       "brd_met_lark"
+      ]
+     },
+     "text": "Bạn hát nó ở góc quảng trường, đúng chỗ lão ngồi. Lark nghe hết, không nói gì, nhưng lão gảy đàn đệm cho bạn ở lần hát thứ hai. Đó là lần đầu tiên hai thầy trò hát cùng nhau.",
+     "effects": {
+      "joy": 10,
+      "fame": 3,
+      "jobXp": 2,
+      "flags": [
+       "brd_first_song",
+       "brd_song_lark"
+      ]
+     },
+     "moment": "Hát bài viết về Lark Feywind cùng lão"
+    },
+    {
+     "label": "Viết một bài để nhảy",
+     "text": "Bài hát nhanh, vui, và dễ thuộc đến mức sau một tuần bạn nghe lũ trẻ ngoài đường huýt sáo nó. Không ai nhớ tên bạn, nhưng ai cũng biết nhảy theo bài ấy.",
+     "effects": {
+      "joy": 8,
+      "fame": 3,
+      "jobXp": 2,
+      "flags": [
+       "brd_first_song"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "brd_c2_crossroads",
+   "races": [
+    "human"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "human_bard",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "brd_path_court",
+     "brd_path_rebel",
+     "brd_path_lore",
+     "brd_end"
+    ]
+   },
+   "text": "Bài hát của bạn đã đến tai nhiều người. Một vị công tước mời bạn vào cung làm thi sĩ, lương cao, áo đẹp. Những người thợ thuộc da ở khu ổ chuột nhờ bạn viết một bài hát về họ, về những gì lãnh chúa đã làm với họ. Và Lark đưa cho bạn một cuốn sổ cũ nát: danh sách hàng trăm bài hát đã thất truyền của các tộc, mà lão chưa bao giờ đủ thời gian đi tìm.",
+   "choices": [
+    {
+     "label": "Vào cung: Thi Sĩ Cung Đình",
+     "text": "Áo nhung, đàn mạ vàng, và những bữa tiệc mà mỗi món ăn đắt bằng một tháng lương của thợ thuộc da. Ở đây, bài hát phải làm vừa lòng người nghe, và người nghe chỉ có một.",
+     "effects": {
+      "fame": 5,
+      "wealth": 12,
+      "jobXp": 2,
+      "flags": [
+       "brd_path_court"
+      ]
+     },
+     "moment": "Trở thành thi sĩ cung đình"
+    },
+    {
+     "label": "Viết cho thợ thuộc da: Bài Ca Nổi Loạn",
+     "text": "Bài hát có tên “Da Người”, và chỉ một tuần sau nó được hát ở mọi xưởng thuộc da trong Sanctus. Lãnh chúa cấm nó. Người ta hát to hơn.",
+     "effects": {
+      "fame": 4,
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "brd_path_rebel"
+      ]
+     },
+     "moment": "Viết bài hát cho thợ thuộc da khu ổ chuột"
+    },
+    {
+     "label": "Nhận cuốn sổ của Lark: Người Gom Truyền Thuyết",
+     "text": "Bạn khoác đàn lên vai, nhét cuốn sổ vào ngực áo, và đi. Bài hát đầu tiên trong danh sách là một bài ru của người Dwarf, chỉ còn một bà lão trên Răng Cưa nhớ được.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "brd_path_lore"
+      ]
+     },
+     "moment": "Lên đường tìm những bài hát đã thất truyền"
+    }
+   ]
+  },
+  {
+   "id": "brd_court_flattery",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_bard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "brd_path_court"
+    ],
+    "notFlags": [
+     "brd_end"
+    ]
+   },
+   "text": "Công tước muốn bạn viết một bản trường ca kể về chiến công của ông ta trong cuộc chiến biên giới. Bạn biết sự thật: ông ta trốn trong lều suốt trận đánh.",
+   "choices": [
+    {
+     "label": "Viết đúng như ông ta muốn",
+     "text": "Bản trường ca được hát ở mọi bữa tiệc. Công tước thưởng cho bạn một con ngựa trắng. Những người lính từng ở trận ấy nghe bài hát và nhổ nước bọt xuống đất.",
+     "effects": {
+      "wealth": 20,
+      "fame": 4,
+      "joy": -10,
+      "jobXp": 2,
+      "flags": [
+       "brd_court_flatterer"
+      ]
+     }
+    },
+    {
+     "label": "Viết một bản trường ca về những người lính, ghi ông ta ở cuối",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn khéo đến mức công tước tưởng mình được ca ngợi. Thực ra, cả bản trường ca kể về những người lính, còn công tước chỉ xuất hiện ở đoạn cuối, đứng nhìn từ xa. Những người lính hiểu, và họ hát nó ở mọi quán rượu.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "brd_court_clever"
+       ]
+      },
+      "moment": "Viết bản trường ca ca ngợi người lính thay cho công tước"
+     },
+     "fail": {
+      "text": "Công tước hiểu ra ý bạn. Bạn bị đuổi khỏi bữa tiệc giữa chừng bài hát.",
+      "effects": {
+       "fame": -4,
+       "joy": -6
+      }
+     }
+    },
+    {
+     "label": "Từ chối",
+     "text": "Công tước im lặng một lúc lâu, rồi cười. “Thi sĩ có lòng tự trọng. Hiếm đấy.” Ông ta không đuổi bạn, nhưng từ đó giao những bài ca ngợi cho Percival.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1,
+      "flags": [
+       "brd_court_proud"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "brd_court_percival",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_bard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "brd_path_court",
+     "brd_met_percival"
+    ],
+    "notFlags": [
+     "brd_end"
+    ]
+   },
+   "text": "Percival Gilt bị buộc tội viết một bài thơ báng bổ nhà vua. Bạn biết bài thơ ấy không phải của hắn: nó là bài châm biếm bạn viết từ nhiều năm trước, ở quán Ngựa Gỗ, và ai đó đã ghép tên hắn vào.",
+   "choices": [
+    {
+     "label": "Đứng ra nhận",
+     "text": "Bạn bị đuổi khỏi cung và cấm hát ở Sanctus một năm. Percival đứng ở cổng cung điện nhìn bạn đi, không nói gì. Mùa đông năm ấy, có ai đó gửi tiền đến quán Ngựa Gỗ để trả chỗ ở cho bạn.",
+     "effects": {
+      "fame": -5,
+      "joy": 8,
+      "jobXp": 2,
+      "flags": [
+       "brd_saved_percival",
+       "brd_percival_friend"
+      ],
+      "unflags": [
+       "brd_percival_rival"
+      ]
+     },
+     "moment": "Nhận tội thay cho Percival Gilt"
+    },
+    {
+     "label": "Im lặng",
+     "text": "Percival bị lưu đày. Bạn có thêm chỗ trong cung. Mỗi lần hát bài châm biếm cũ ở đâu đó, bạn đều nghĩ đến hắn.",
+     "effects": {
+      "fame": 4,
+      "joy": -12,
+      "jobXp": 2,
+      "flags": [
+       "brd_percival_exiled"
+      ]
+     }
+    },
+    {
+     "label": "Tìm ra kẻ đã ghép tên",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Đó là một quý tộc muốn chiếm ghế thi sĩ cho cháu mình. Bạn chứng minh được điều đó bằng chính bản nháp cũ của bài thơ, viết bằng chữ của bạn. Cả bạn và Percival đều được tha.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "brd_percival_friend"
+       ],
+       "unflags": [
+        "brd_percival_rival"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn không tìm ra ai. Percival bị lưu đày.",
+      "effects": {
+       "joy": -10,
+       "flags": [
+        "brd_percival_exiled"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "brd_rebel_arrest",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_bard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "brd_path_rebel"
+    ],
+    "notFlags": [
+     "brd_end"
+    ]
+   },
+   "text": "Lính gác bắt bạn giữa lúc đang hát “Da Người” ở xưởng thuộc da. Viên đội trưởng đề nghị: hát một bài ca ngợi lãnh chúa trước dân chúng, và bạn sẽ được thả.",
+   "choices": [
+    {
+     "label": "Hát bài ca ngợi, nhưng hát sai nhịp từng chữ",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn hát bài ca ngợi theo đúng giai điệu của “Da Người”. Dân chúng nhận ra ngay, và cả quảng trường hát theo lời gốc. Lính gác không biết bắt ai.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "brd_rebel_legend"
+       ]
+      },
+      "moment": "Hát lời ca ngợi lãnh chúa theo giai điệu bài ca nổi loạn"
+     },
+     "fail": {
+      "text": "Viên đội trưởng nhận ra. Bạn bị giam ba tháng.",
+      "effects": {
+       "health": -15,
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Từ chối",
+     "text": "Bạn bị giam sáu tháng. Mỗi đêm, từ ngoài cửa sổ nhà giam, bạn nghe ai đó hát “Da Người”, mỗi đêm một giọng khác.",
+     "effects": {
+      "health": -15,
+      "fame": 6,
+      "joy": 4,
+      "jobXp": 2,
+      "flags": [
+       "brd_rebel_jailed"
+      ]
+     }
+    },
+    {
+     "label": "Hát bài ca ngợi đúng như họ muốn",
+     "text": "Bạn được thả. Thợ thuộc da không hát “Da Người” khi có bạn ở gần nữa. Bài hát vẫn sống, nhưng không còn là của bạn.",
+     "effects": {
+      "joy": -15,
+      "flags": [
+       "brd_rebel_broken"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "brd_rebel_riot",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_bard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "brd_path_rebel"
+    ],
+    "notFlags": [
+     "brd_end"
+    ]
+   },
+   "text": "Bài hát của bạn đã thành ngọn lửa. Đêm nay, thợ thuộc da định đốt kho thuế của lãnh chúa, và họ muốn bạn đứng hát ở đầu đoàn người.",
+   "choices": [
+    {
+     "label": "Đứng đầu đoàn người",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Kho thuế cháy, nhưng không ai chết. Lãnh chúa phải giảm thuế. Bạn trở thành người bị truy nã nhiều nhất Sanctus và người được yêu quý nhất khu ổ chuột.",
+      "effects": {
+       "fame": 8,
+       "joy": 6,
+       "jobXp": 3,
+       "flags": [
+        "brd_rebel_riot"
+       ]
+      },
+      "moment": "Hát ở đầu đoàn người đốt kho thuế"
+     },
+     "fail": {
+      "text": "Lính đến sớm. Có ba người chết trong đêm ấy, và cả ba đều đang hát bài của bạn.",
+      "effects": {
+       "joy": -20,
+       "fame": 4,
+       "flags": [
+        "brd_rebel_blood"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Ngăn họ lại bằng một bài hát khác",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn hát một bài về những đứa trẻ sẽ mồ côi nếu cha mẹ chúng chết đêm nay. Đoàn người dừng lại. Thay vì đốt kho, họ ngồi lì trước cổng kho ba ngày. Lãnh chúa phải ra nói chuyện.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "brd_rebel_peaceful"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Họ không nghe. Kho thuế cháy mà không có bạn.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "brd_lore_dwarf_lullaby",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_bard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "brd_path_lore"
+    ],
+    "notFlags": [
+     "brd_end"
+    ]
+   },
+   "text": "Bà lão Dwarf nhớ bài ru đã ngoài ba trăm tuổi. Bà chỉ chịu hát nó cho người nào uống thắng bà ba chén rượu đá Răng Cưa.",
+   "choices": [
+    {
+     "label": "Uống",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn uống ba chén và vẫn đứng được. Bà lão cười như sấm, rồi hát. Bài ru mười hai câu, mỗi câu là tên một ngọn núi. Bạn ghi lại khi tay còn run.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 3,
+       "flags": [
+        "brd_lore_dwarf"
+       ]
+      },
+      "moment": "Uống thắng bà lão Dwarf để được nghe bài ru cổ"
+     },
+     "fail": {
+      "text": "Bạn gục sau chén thứ hai. Sáng ra, bà lão đã hát bài ru cho bạn khi bạn ngủ; bạn nhớ được giai điệu, không nhớ lời.",
+      "effects": {
+       "health": -8,
+       "jobXp": 1
+      }
+     }
+    },
+    {
+     "label": "Hát cho bà nghe một bài của loài người trước",
+     "text": "Bà lão nghe bài ru của mẹ bạn, rồi im lặng rất lâu. “Bài ru nào cũng giống nhau,” bà nói, rồi hát bài của mình mà không cần chén rượu nào.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "brd_lore_dwarf"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "brd_lore_goblin_song",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_bard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "brd_path_lore"
+    ],
+    "notFlags": [
+     "brd_end"
+    ]
+   },
+   "text": "Trong cuốn sổ của Lark có một dòng: “Bài ca chiến thắng của Goblin, người Human chưa ai nghe toàn bộ.” Để nghe nó, bạn phải vào một hang Goblin và sống sót đến lúc chúng hát.",
+   "choices": [
+    {
+     "label": "Vào hang với một món quà",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Món quà là một chiếc lục lạc bằng bạc. Lũ Goblin nghi ngờ suốt một đêm, rồi đến đêm thứ hai, chúng hát cho bạn nghe. Bài ca chiến thắng của chúng hóa ra là một bài hát về việc sống sót qua mùa đông.",
+      "effects": {
+       "fame": 4,
+       "jobXp": 3,
+       "flags": [
+        "brd_lore_goblin"
+       ]
+      },
+      "moment": "Nghe bài ca chiến thắng của Goblin"
+     },
+     "fail": {
+      "text": "Lũ Goblin lấy quà, rồi đuổi bạn ra bằng giáo. Bạn chỉ nghe được ba câu đầu khi chạy.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Bỏ qua dòng này",
+     "text": "Không phải bài hát nào cũng đáng để chết. Bạn gạch dòng ấy đi, rồi lại viết lại, nhỏ hơn: “Để dành cho người sau.”",
+     "effects": {
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "brd_c4_lark",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_bard",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "brd_met_lark"
+    ],
+    "notFlags": [
+     "brd_lark_gone",
+     "brd_end"
+    ]
+   },
+   "text": "Lark Feywind không còn hát được. Giọng lão đã mất sau một mùa đông ho. Lão vẫn ngồi ở góc quảng trường mỗi ngày, ôm cây đàn nứt mặt, gảy những hợp âm mà không ai dừng lại nghe.",
+   "choices": [
+    {
+     "label": "Ngồi cạnh lão và hát những bài của lão",
+     "text": "Bạn hát mọi bài lão từng dạy, ở đúng góc quảng trường ấy. Người ta bắt đầu dừng lại. Lark gảy đàn đệm, mắt nhắm. Lão mất vào một chiều mưa, khi bạn đang hát bài cuối cùng trong danh sách.",
+     "effects": {
+      "joy": -2,
+      "fame": 3,
+      "jobXp": 3,
+      "flags": [
+       "brd_lark_gone"
+      ]
+     },
+     "moment": "Hát những bài của Lark Feywind ở góc quảng trường cho đến khi lão mất"
+    },
+    {
+     "label": "Mang cuốn sổ đã đầy cho lão xem",
+     "require": {
+      "flags": [
+       "brd_path_lore"
+      ]
+     },
+     "text": "Lark lật từng trang, ngón tay run run dừng lại ở từng bài hát mà lão từng mơ được nghe. Bạn hát cho lão nghe tất cả. Mất ba ngày. Lão mất vào ngày thứ tư, mỉm cười.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 3,
+      "flags": [
+       "brd_lark_gone",
+       "brd_lark_heard_all"
+      ]
+     },
+     "moment": "Hát cho Lark Feywind nghe mọi bài hát lão từng mơ"
+    }
+   ]
+  },
+  {
+   "id": "brd_c4_war_song",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_bard",
+    "free": true,
+    "jobRank": 3,
+    "notFlags": [
+     "brd_end"
+    ]
+   },
+   "text": "Chiến tranh với Ma tộc đã kéo dài mười năm. Cả hai phe mệt mỏi. Một sứ giả Ma tộc bí mật đến quán Ngựa Gỗ, nói rằng phe bên kia cũng có những bài hát về những người lính không về, và họ muốn nghe bài của loài người.",
+   "choices": [
+    {
+     "label": "Đi sang bên kia chiến tuyến hát",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn hát trong một doanh trại Ma tộc. Họ nghe, rồi họ hát lại cho bạn nghe. Hai bài hát giống nhau đến kỳ lạ. Ba tháng sau, có một cuộc ngưng chiến, và người ta đồn nó bắt đầu từ một đêm hát.",
+      "effects": {
+       "fame": 12,
+       "joy": 12,
+       "jobXp": 4,
+       "flags": [
+        "brd_war_song"
+       ]
+      },
+      "moment": "Hát trong doanh trại Ma tộc giữa chiến tranh"
+     },
+     "fail": {
+      "text": "Bạn bị bắt làm con tin. Phải sáu tháng sau mới được trao đổi về.",
+      "effects": {
+       "health": -20,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Mời sứ giả ở lại, hát cho ông ta nghe ở quán",
+     "text": "Sứ giả nghe suốt đêm, ghi chép lời bài hát. Bạn không biết ông ta mang chúng về đâu. Nhưng một năm sau, bạn nghe tin có người hát bài của bạn ở bên kia biên giới, bằng tiếng Ma tộc.",
+     "effects": {
+      "fame": 6,
+      "joy": 8,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "brd_c5_court",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_bard",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "brd_path_court"
+    ],
+    "notFlags": [
+     "brd_end"
+    ]
+   },
+   "text": "Bạn được gọi là Epic Virtuoso của triều đình. Nhà vua yêu cầu bạn sáng tác một bản quốc ca, bài hát mà mọi đứa trẻ trong vương quốc sẽ phải thuộc.",
+   "choices": [
+    {
+     "label": "Viết một bài về đất đai và những người cày nó",
+     "require": {
+      "anyFlags": [
+       "brd_court_clever",
+       "brd_court_proud",
+       "brd_saved_percival"
+      ]
+     },
+     "text": "Quốc ca của bạn không có tên một vị vua nào. Nó kể về sông, núi, đồng ruộng và những bàn tay. Nhà vua nghe xong, im lặng rất lâu, rồi ký. Nó được hát lâu hơn mọi triều đại.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "brd_end",
+       "brd_end_anthem"
+      ]
+     },
+     "moment": "Viết quốc ca không có tên vị vua nào"
+    },
+    {
+     "label": "Viết đúng như nhà vua muốn",
+     "text": "Quốc ca ca ngợi dòng dõi hoàng tộc, trang trọng và lộng lẫy. Nó được hát cho đến khi triều đại ấy sụp đổ, rồi bị quên ngay sau đó.",
+     "effects": {
+      "fame": 12,
+      "wealth": 20,
+      "flags": [
+       "brd_end",
+       "brd_end_royal_anthem"
+      ]
+     }
+    },
+    {
+     "label": "Giao việc cho Percival",
+     "require": {
+      "flags": [
+       "brd_percival_friend"
+      ]
+     },
+     "text": "Percival viết quốc ca, bạn sửa ba chỗ. Hai người cùng đứng hát nó trong lễ đăng quang, giọng hắn cao, giọng bạn trầm. Không ai biết bản quốc ca có hai tác giả.",
+     "effects": {
+      "joy": 18,
+      "fame": 10,
+      "flags": [
+       "brd_end",
+       "brd_end_two_poets"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "brd_c5_rebel",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_bard",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "brd_path_rebel"
+    ],
+    "notFlags": [
+     "brd_end"
+    ]
+   },
+   "text": "“Da Người” giờ được hát ở mọi xưởng, mọi mỏ, mọi cánh đồng trong vương quốc. Người ta gọi bạn là Epic Virtuoso của những người không có gì. Lãnh chúa cuối cùng cũng đến tìm bạn, không mang lính: “Ta muốn nghe nó một lần, từ chính miệng ngươi.”",
+   "choices": [
+    {
+     "label": "Hát cho ông ta nghe",
+     "text": "Bạn hát. Lãnh chúa nghe đến cuối, rồi đứng dậy, cởi áo choàng, và đi ra. Một tháng sau, xưởng thuộc da đầu tiên được trao lại cho thợ. Bạn không biết bài hát đã làm điều đó, hay ông ta đã định làm từ trước.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "brd_end",
+       "brd_end_lord_listened"
+      ]
+     },
+     "moment": "Hát Da Người cho chính lãnh chúa nghe"
+    },
+    {
+     "label": "Từ chối: bài hát không phải để ông ta nghe",
+     "text": "Lãnh chúa gật đầu, như hiểu. Bài hát tiếp tục sống mà không cần ông ta, và không cần cả bạn nữa.",
+     "effects": {
+      "fame": 12,
+      "joy": 8,
+      "flags": [
+       "brd_end",
+       "brd_end_song_lives"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "brd_c5_lore",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_bard",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "brd_path_lore"
+    ],
+    "notFlags": [
+     "brd_end"
+    ]
+   },
+   "text": "Cuốn sổ của Lark đã đầy, rồi đầy thêm ba cuốn nữa. Bạn đã gom được bài hát của Elf, Dwarf, Beastman, Goblin, và cả một bài của Rồng mà không ai tin là có thật. Tháp Ngà muốn mua tất cả.",
+   "choices": [
+    {
+     "label": "Dạy chúng cho mọi người hát rong",
+     "text": "Bạn mở một lớp ở quán Ngựa Gỗ, mỗi tuần dạy một bài. Bài hát không nằm trong sách nữa; chúng nằm trong miệng những người hát rong trên mọi con đường của Aethelgard. Không ai đốt được chúng.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "brd_end",
+       "brd_end_living_songs"
+      ]
+     },
+     "moment": "Dạy những bài hát đã gom được cho mọi người hát rong"
+    },
+    {
+     "label": "Bán cho Tháp Ngà",
+     "text": "Tháp Ngà trả rất hậu. Những bài hát được chép vào sách da, cất trong thư viện, và chỉ học giả mới được đọc. Bạn có tiền, và một cảm giác như mình vừa nhốt chim vào lồng.",
+     "effects": {
+      "wealth": 40,
+      "fame": 10,
+      "joy": -8,
+      "flags": [
+       "brd_end",
+       "brd_end_sold_songs"
+      ]
+     }
+    },
+    {
+     "label": "Hát bài ru của bà lão Dwarf ở quảng trường Sanctus",
+     "require": {
+      "flags": [
+       "brd_lore_dwarf"
+      ]
+     },
+     "text": "Ngay góc quảng trường Lark từng ngồi, bạn hát bài ru mười hai ngọn núi. Một Dwarf đi ngang dừng lại, khóc, rồi hát theo. Sau đó thêm một người, rồi thêm nữa.",
+     "effects": {
+      "joy": 20,
+      "fame": 10,
+      "flags": [
+       "brd_end",
+       "brd_end_square"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "brd_daily_string",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_bard",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Dây đàn đứt ngay giữa bài hát hay nhất của bạn, trước một quán đầy khách.",
+   "choices": [
+    {
+     "label": "Hát tiếp không cần đàn",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Cả quán vỗ tay theo nhịp thay cho tiếng đàn. Đó là lần bạn hát hay nhất trong năm.",
+      "effects": {
+       "joy": 8,
+       "fame": 1
+      }
+     },
+     "fail": {
+      "text": "Giọng bạn run lên không có đàn đỡ. Bạn dừng giữa chừng, xin lỗi, và mời cả quán một vò rượu.",
+      "effects": {
+       "wealth": -3,
+       "joy": -3
+      }
+     }
+    },
+    {
+     "label": "Biến sự cố thành một câu đùa",
+     "text": "Bạn kể chuyện về dây đàn đứt ở đám cưới của một bá tước. Cả quán cười. Khi bạn thay dây xong, họ còn đòi nghe thêm chuyện.",
+     "effects": {
+      "joy": 6,
+      "INT": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "brd_daily_wedding",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_bard",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Một cặp đôi nghèo nhờ bạn hát trong đám cưới, trả bằng một con gà.",
+   "choices": [
+    {
+     "label": "Nhận con gà và hát hết sức",
+     "text": "Bạn hát suốt đêm. Cô dâu nhảy đến rách giày. Con gà sống với bạn ba năm và đẻ trứng mỗi sáng.",
+     "effects": {
+      "joy": 10
+     }
+    },
+    {
+     "label": "Hát miễn phí, trả lại con gà làm quà cưới",
+     "text": "Cặp đôi đặt tên đứa con đầu lòng theo tên bạn.",
+     "effects": {
+      "joy": 8,
+      "fame": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "brd_daily_war_drum",
+   "races": [
+    "human"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_bard",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Quân đội cần những người hát để đi cùng đoàn quân, giữ tinh thần cho lính trong những đêm dài.",
+   "choices": [
+    {
+     "label": "Đi theo đoàn quân",
+     "text": "Bạn hát suốt một mùa chiến dịch, những bài vui để lính quên đói, những bài buồn để họ khóc được. Có những bài bạn hát cho một người trước khi người ấy không còn nghe được nữa.",
+     "effects": {
+      "fame": 5,
+      "health": -10,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Ở lại hát cho những gia đình có người đi lính",
+     "text": "Mỗi tối, bạn hát ở một ngôi nhà khác nhau trong khu phố. Những người mẹ ngồi nghe, tay nắm chặt những lá thư.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "brd_daily_old_voice",
+   "races": [
+    "human"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_bard",
+    "free": true
+   },
+   "text": "Giọng bạn đã khàn như giọng Lark ngày xưa. Những nốt cao không còn lên được.",
+   "choices": [
+    {
+     "label": "Hát trầm hơn, chậm hơn",
+     "text": "Hóa ra những bài cũ hát trầm và chậm lại hay hơn. Người nghe nói giọng bạn giờ giống tiếng gỗ cũ, ấm và có vết nứt.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Chỉ đàn, để người khác hát",
+     "text": "Bạn ngồi gảy đàn ở góc quán, đệm cho những ca sĩ trẻ. Đôi khi, ở những bài quen, cả quán tự hát mà không cần ai đứng lên sân khấu.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1270 @@
+{
+ "_note": "Tuyến truyện Thương nhân: 5 chương theo bậc, ba đạo ở Bậc 2 (mrh_path_house / mrh_path_smuggle / mrh_path_road), nhân vật xuyên suốt Grub Halloway, Seraphine Vos và cậu học việc Pim.",
+ "origins": [],
+ "events": [
+  {
+   "id": "mrh_c1_grub",
+   "races": [
+    "human"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "human_merchant",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "mrh_met_grub"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Grub Halloway",
+     "race": "Human",
+     "position": "Lão bán rong già có con lừa tên Nữ Hoàng"
+    }
+   ],
+   "text": "Grub Halloway bán rong bằng một chiếc xe kéo có bánh kêu cót két và một con lừa tên Nữ Hoàng. Lão nhận bạn làm học việc với một điều kiện: trong một tuần, bán được cái nồi đồng thủng đáy nằm dưới đáy xe.",
+   "choices": [
+    {
+     "label": "Nói thật nồi thủng, bán làm chậu trồng cây",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Một bà góa mua nó để trồng húng quế, trả gấp đôi giá cái nồi lành. Grub cười đến rung cả bụng: “Hàng xấu không có. Chỉ có người bán chưa nghĩ ra nó tốt cho việc gì.”",
+      "effects": {
+       "INT": 1,
+       "wealth": 2,
+       "jobXp": 1,
+       "flags": [
+        "mrh_met_grub",
+        "mrh_grub_proud"
+       ]
+      },
+      "moment": "Bán được cái nồi thủng đầu tiên cho Grub Halloway"
+     },
+     "fail": {
+      "text": "Không ai muốn một cái chậu đồng. Grub vẫn nhận bạn, vì bạn là đứa duy nhất trong năm không nói dối về cái nồi.",
+      "effects": {
+       "flags": [
+        "mrh_met_grub",
+        "mrh_grub_proud"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Giấu chỗ thủng bằng sáp ong và bán nhanh",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn bán được ngay ngày đầu. Grub nhận tiền, rồi bắt bạn đi bộ ba dặm trả lại cho người mua kèm một lời xin lỗi. “Bán một lần thì dễ. Bán cả đời mới khó.”",
+      "effects": {
+       "joy": -4,
+       "jobXp": 1,
+       "flags": [
+        "mrh_met_grub"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Người mua phát hiện ngay tại chỗ và ném cái nồi vào đầu bạn. Grub xoa đầu cho bạn và bảo đó là bài học rẻ nhất bạn sẽ có.",
+      "effects": {
+       "health": -4,
+       "flags": [
+        "mrh_met_grub"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrh_c1_seraphine",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_merchant",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "mrh_met_grub"
+    ],
+    "notFlags": [
+     "mrh_met_seraphine"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Seraphine Vos",
+     "race": "Human",
+     "position": "Con gái út của thương gia nhà Vos"
+    }
+   ],
+   "text": "Ở chợ phiên Sanctus, sạp của bạn nằm đối diện gian hàng của nhà Vos, thương gia lớn nhất phố Lụa. Cô con gái út, Seraphine Vos, ngang tuổi bạn, mua sạch lô len của bạn chỉ để bán lại với giá gấp ba ngay trước mặt bạn.",
+   "choices": [
+    {
+     "label": "Mua lại lô len của cô ta với giá gấp ba rồi bán gấp bốn cho đoàn lữ hành",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn biết đoàn lữ hành sắp đến; Seraphine không biết. Cô ta nhìn bạn đếm lãi, rồi lần đầu tiên bước sang sạp bạn để nói chuyện như hai người buôn với nhau.",
+      "effects": {
+       "INT": 1,
+       "wealth": 8,
+       "jobXp": 1,
+       "flags": [
+        "mrh_met_seraphine",
+        "mrh_seraphine_respect"
+       ]
+      },
+      "moment": "Thắng Seraphine Vos ở chợ phiên Sanctus"
+     },
+     "fail": {
+      "text": "Đoàn lữ hành không đến. Bạn ôm cả kho len giá gấp ba qua mùa đông, còn Seraphine gửi tặng bạn một chiếc khăn len, kèm lời chúc ấm áp.",
+      "effects": {
+       "wealth": -8,
+       "joy": -5,
+       "flags": [
+        "mrh_met_seraphine",
+        "mrh_seraphine_rival"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Bỏ qua, tìm hàng khác để bán",
+     "text": "Bạn chuyển sang bán gia vị. Seraphine theo dõi bạn suốt mùa, như đợi xem bạn sẽ làm gì tiếp theo.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "mrh_met_seraphine"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrh_c1_pim",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_merchant",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "mrh_met_grub"
+    ],
+    "notFlags": [
+     "mrh_met_pim"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Pim",
+     "race": "Human",
+     "position": "Cậu học việc ghi sổ"
+    }
+   ],
+   "text": "Một cậu bé gầy nhom bị bắt quả tang ăn trộm táo ở sạp của bạn. Cậu ta không khóc, không van xin, mà nhẩm tính chính xác số táo bạn đã bán sáng nay, kể cả số bạn tính nhầm.",
+   "choices": [
+    {
+     "label": "Thuê cậu ta làm học việc ghi sổ",
+     "text": "Cậu bé tên Pim. Cậu ta không bao giờ ăn trộm nữa, nhưng không bao giờ để bạn tính nhầm nữa, kể cả khi bạn cố ý.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "mrh_met_pim"
+      ]
+     },
+     "moment": "Nhận cậu bé trộm táo Pim làm học việc"
+    },
+    {
+     "label": "Giao cậu ta cho lính gác",
+     "text": "Lính gác đưa Pim đi. Một tuần sau, bạn tính nhầm sổ lần nữa, và nghĩ đến cậu bé.",
+     "effects": {
+      "joy": -4
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrh_c2_first_shop",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_merchant",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "mrh_first_shop",
+     "mrh_end"
+    ]
+   },
+   "text": "Bạn có đủ vốn mở cửa hàng đầu tiên. Có hai mặt bằng: một ở phố Lụa, đắt đỏ, đối diện nhà Vos; một ở bến cảng, rẻ, đầy thủy thủ và mùi cá.",
+   "choices": [
+    {
+     "label": "Thuê ở phố Lụa",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Năm đầu khó khăn, nhưng khách giàu dần biết đến bạn. Biển hiệu của bạn đứng ngang hàng với biển hiệu nhà Vos.",
+      "effects": {
+       "wealth": 15,
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "mrh_first_shop",
+        "mrh_shop_silk"
+       ]
+      },
+      "moment": "Mở cửa hàng đầu tiên ở phố Lụa"
+     },
+     "fail": {
+      "text": "Tiền thuê ăn hết lãi. Đến cuối năm, bạn phải bán nửa số hàng để trả nợ.",
+      "effects": {
+       "wealth": -15,
+       "joy": -8,
+       "flags": [
+        "mrh_first_shop",
+        "mrh_shop_silk"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Thuê ở bến cảng",
+     "text": "Thủy thủ mua dây thừng, rượu và thuốc lá, trả bằng đủ loại tiền của mười vương quốc. Bạn học cách đổi tiền nhanh hơn học cách bán hàng.",
+     "effects": {
+      "INT": 1,
+      "wealth": 8,
+      "jobXp": 2,
+      "flags": [
+       "mrh_first_shop",
+       "mrh_shop_port"
+      ]
+     },
+     "moment": "Mở cửa hàng đầu tiên ở bến cảng"
+    },
+    {
+     "label": "Không mở cửa hàng, theo Grub thêm một mùa",
+     "require": {
+      "flags": [
+       "mrh_met_grub"
+      ]
+     },
+     "text": "Grub nhìn bạn ngạc nhiên rồi gật đầu. Một mùa trên đường cái dạy bạn biết hàng nào bán ở đâu, và người nào đáng tin ở mỗi ngã tư.",
+     "effects": {
+      "AGI": 1,
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "mrh_first_shop",
+       "mrh_grub_road"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrh_c2_crossroads",
+   "races": [
+    "human"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "human_merchant",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "mrh_path_house",
+     "mrh_path_smuggle",
+     "mrh_path_road",
+     "mrh_end"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Borin",
+     "race": "Dwarf",
+     "position": "Thương nhân già của Dãy Núi Răng Cưa"
+    }
+   ],
+   "text": "Ba lời đề nghị đến cùng một tuần. Thương hội Sanctus mời bạn gia nhập Hội đồng Mười Hai, nơi quyết giá lúa mì cho cả vương quốc. Một gã chột mắt ở bến cảng đề nghị một chuyến hàng không cần qua trạm thuế. Và một lão Dwarf gõ cửa, hỏi có ai đủ gan mở một tuyến hàng xuyên qua lãnh thổ ba tộc hay không.",
+   "choices": [
+    {
+     "label": "Vào Hội đồng Mười Hai: con đường của Đại Thương Hội",
+     "text": "Bàn họp bằng gỗ mun, ghế bọc da, và mỗi quyết định ở đây khiến giá bánh mì của cả Sanctus lên hoặc xuống. Bạn nhận ra mình không còn bán hàng nữa; bạn bán quyền lực.",
+     "effects": {
+      "fame": 5,
+      "wealth": 10,
+      "jobXp": 2,
+      "flags": [
+       "mrh_path_house"
+      ]
+     },
+     "moment": "Gia nhập Hội đồng Mười Hai của Thương hội Sanctus"
+    },
+    {
+     "label": "Bắt tay gã chột mắt: con đường của chợ đen",
+     "text": "Chuyến hàng đầu tiên là ba thùng rượu Elf không đóng thuế. Lãi gấp năm lần. Bạn mua thêm một con dao găm và học cách ngủ với một mắt mở.",
+     "effects": {
+      "wealth": 20,
+      "wealthKind": "windfall",
+      "jobXp": 2,
+      "flags": [
+       "mrh_path_smuggle"
+      ]
+     },
+     "moment": "Bắt đầu buôn lậu qua bến cảng Sanctus"
+    },
+    {
+     "label": "Đi theo lão Dwarf: con đường thương lộ vạn tộc",
+     "text": "Lão tên Borin, và lão không cần tiền của bạn; lão cần một người Human mà các tộc khác chịu bắt tay. Bạn khoác ba lô lên đường, mang theo mười hai loại tiền và một cuốn sổ ghi phong tục của mỗi nơi.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 2,
+      "flags": [
+       "mrh_path_road"
+      ]
+     },
+     "moment": "Lên đường mở thương lộ vạn tộc cùng lão Dwarf Borin"
+    }
+   ]
+  },
+  {
+   "id": "mrh_house_famine",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_merchant",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mrh_path_house"
+    ],
+    "notFlags": [
+     "mrh_end"
+    ]
+   },
+   "text": "Mất mùa ở Đồng Bằng. Hội đồng Mười Hai họp kín: nếu tích trữ lúa mì thêm ba tháng, giá sẽ lên gấp năm, và mỗi thành viên sẽ giàu hơn cả một bá tước.",
+   "choices": [
+    {
+     "label": "Bỏ phiếu xả kho bán giá cũ",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn thuyết phục được sáu trên mười hai phiếu bằng một bản tính toán: dân đói thì cướp kho. Kho được xả. Sanctus không có bạo loạn mùa đông ấy, và không ai biết vì sao.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "joy": 8,
+       "jobXp": 3,
+       "flags": [
+        "mrh_house_fair"
+       ]
+      },
+      "moment": "Thuyết phục Hội đồng Mười Hai xả kho lúa giữa nạn đói"
+     },
+     "fail": {
+      "text": "Bạn thua phiếu, năm trên bảy. Bạn mở kho riêng của mình bán giá cũ, và lỗ nặng.",
+      "effects": {
+       "wealth": -25,
+       "joy": 4,
+       "flags": [
+        "mrh_house_fair"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Tích trữ cùng mọi người",
+     "text": "Mùa xuân năm ấy, bạn giàu hơn cả một bá tước. Ở khu ổ chuột, người ta chôn những đứa trẻ không qua được mùa đông. Bạn không đi ngang qua khu ổ chuột nữa.",
+     "effects": {
+      "wealth": 40,
+      "wealthKind": "windfall",
+      "joy": -18,
+      "jobXp": 3,
+      "flags": [
+       "mrh_house_hoarder"
+      ]
+     },
+     "moment": "Tích trữ lúa mì trong nạn đói"
+    }
+   ]
+  },
+  {
+   "id": "mrh_house_vos_merger",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_merchant",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mrh_path_house",
+     "mrh_met_seraphine"
+    ],
+    "notFlags": [
+     "mrh_end"
+    ]
+   },
+   "text": "Nhà Vos đang sụp đổ: lão Vos chết, các con tranh nhau gia sản, và chủ nợ đã đứng trước cửa. Seraphine Vos đến tìm bạn, lần đầu tiên không đội mũ lông: “Mua nhà Vos đi. Tôi muốn nó rơi vào tay người biết giá trị của nó.”",
+   "choices": [
+    {
+     "label": "Mua nhà Vos, giữ Seraphine làm đối tác",
+     "text": "Hai biển hiệu gộp làm một. Seraphine giỏi hơn bạn ở những bữa tiệc, bạn giỏi hơn cô ở những cuốn sổ. Trong mười năm, thương hội của hai người lớn nhất Sanctus.",
+     "effects": {
+      "wealth": 20,
+      "fame": 8,
+      "jobXp": 3,
+      "flags": [
+       "mrh_vos_partner"
+      ]
+     },
+     "moment": "Hợp nhất thương hội với Seraphine Vos"
+    },
+    {
+     "label": "Mua nhà Vos với giá rẻ nhất có thể",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn trả đúng một phần ba giá trị. Seraphine ký giấy, rồi bước ra mà không nói một lời. Bạn có cả phố Lụa.",
+      "effects": {
+       "wealth": 35,
+       "wealthKind": "windfall",
+       "joy": -6,
+       "jobXp": 3,
+       "flags": [
+        "mrh_vos_bought"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Một thương hội khác trả giá cao hơn. Seraphine bán cho họ, và nhìn bạn như nhìn một người lạ.",
+      "effects": {
+       "joy": -6,
+       "flags": [
+        "mrh_seraphine_rival"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Cho cô ta vay không lãi để tự cứu nhà Vos",
+     "text": "Seraphine nhìn bạn rất lâu, như không tin. Cô trả nợ trong năm năm, đúng từng đồng, và trong những năm ấy cô trở thành người bạn duy nhất ở phố Lụa mà bạn không cần đề phòng.",
+     "effects": {
+      "wealth": -15,
+      "joy": 12,
+      "jobXp": 2,
+      "flags": [
+       "mrh_seraphine_friend"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrh_smuggle_cargo",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_merchant",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mrh_path_smuggle"
+    ],
+    "notFlags": [
+     "mrh_end"
+    ]
+   },
+   "text": "Chuyến hàng lậu tuần này nặng bất thường. Đêm trước khi giao, bạn nạy một thùng ra xem. Bên trong không phải rượu Elf. Là những đứa trẻ Beastman, bị bịt miệng, mắt mở trừng trừng.",
+   "choices": [
+    {
+     "label": "Thả bọn trẻ, đốt chuyến hàng",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đưa mười hai đứa trẻ qua biên giới Thảo Nguyên trong hai đêm. Gã chột mắt treo thưởng cho cái đầu của bạn. Ở Trại Huyết Môn, các bộ lạc treo một sợi lông vũ trên cửa mỗi nhà để đợi bạn quay lại.",
+      "effects": {
+       "AGI": 1,
+       "fame": 5,
+       "wealth": -20,
+       "jobXp": 3,
+       "flags": [
+        "mrh_freed_children"
+       ]
+      },
+      "moment": "Thả mười hai đứa trẻ Beastman khỏi chuyến hàng lậu"
+     },
+     "fail": {
+      "text": "Bạn bị phát hiện giữa chừng. Bạn chỉ kịp thả bốn đứa trước khi phải bỏ chạy.",
+      "effects": {
+       "health": -20,
+       "joy": -12,
+       "flags": [
+        "mrh_freed_children"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Giao hàng, không hỏi gì",
+     "text": "Tiền về đầy túi. Mỗi lần nhìn thấy một đứa trẻ Beastman ở chợ, bạn quay mặt đi.",
+     "effects": {
+      "wealth": 30,
+      "wealthKind": "windfall",
+      "joy": -25,
+      "jobXp": 2,
+      "flags": [
+       "mrh_sold_children"
+      ]
+     },
+     "moment": "Giao một chuyến hàng người"
+    },
+    {
+     "label": "Báo cho Thánh Kỵ Sĩ Đoàn",
+     "text": "Đường dây bị triệt. Bạn được gọi là “người tố giác dũng cảm” trên giấy, và “kẻ phản bội” ở bến cảng. Bạn không bao giờ buôn lậu được nữa ở Sanctus.",
+     "effects": {
+      "fame": 4,
+      "wealth": -10,
+      "jobXp": 2,
+      "flags": [
+       "mrh_freed_children",
+       "mrh_smuggle_burned"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrh_smuggle_medicine",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_merchant",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mrh_path_smuggle"
+    ],
+    "notFlags": [
+     "mrh_end"
+    ]
+   },
+   "text": "Đại Dịch Miasma đang lan ở khu ổ chuột, và thuốc chữa chỉ có ở Tháp Ngà với giá mà không ai ở đó trả nổi. Bạn biết một con đường đưa thuốc ra khỏi tháp mà không qua cửa chính.",
+   "choices": [
+    {
+     "label": "Buôn thuốc lậu, bán giá vốn",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đưa ba trăm lọ thuốc ra khỏi Tháp Ngà trong sáu tháng. Khu ổ chuột sống sót. Người ta không biết tên bạn, chỉ biết một người đánh xe chở “rượu” đến vào lúc nửa đêm.",
+      "effects": {
+       "fame": 5,
+       "joy": 12,
+       "jobXp": 3,
+       "flags": [
+        "mrh_medicine_runner"
+       ]
+      },
+      "moment": "Buôn lậu thuốc cứu khu ổ chuột"
+     },
+     "fail": {
+      "text": "Một lô thuốc bị bắt. Bạn mất cả vốn liếng và phải trốn khỏi Sanctus một mùa.",
+      "effects": {
+       "wealth": -25,
+       "flags": [
+        "mrh_medicine_runner"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Buôn thuốc lậu, bán giá cao",
+     "text": "Bạn giàu hơn bao giờ hết. Người giàu ở khu ổ chuột sống sót; người nghèo thì không.",
+     "effects": {
+      "wealth": 35,
+      "wealthKind": "windfall",
+      "joy": -15,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrh_road_elf_trade",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_merchant",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mrh_path_road"
+    ],
+    "notFlags": [
+     "mrh_end"
+    ]
+   },
+   "text": "Ở rìa Đại Ngàn, các Elf không dùng tiền. Họ đổi hàng bằng lời hứa. Một trưởng lão Elf đề nghị đổi cả xe hàng của bạn lấy một lời hứa: Đại Ngàn sẽ mở cửa cho đoàn của bạn đi qua, mãi mãi.",
+   "choices": [
+    {
+     "label": "Nhận lời hứa",
+     "text": "Bất kỳ người buôn nào ở Sanctus cũng sẽ gọi bạn là kẻ điên. Bạn đi về tay trắng. Nhưng từ đó, đoàn của bạn là đoàn người Human duy nhất được đi xuyên Đại Ngàn, rút ngắn con đường đến Thảo Nguyên đi một nửa.",
+     "effects": {
+      "wealth": -15,
+      "fame": 6,
+      "jobXp": 3,
+      "flags": [
+       "mrh_elf_promise"
+      ]
+     },
+     "moment": "Đổi cả xe hàng lấy lời hứa của Elf"
+    },
+    {
+     "label": "Đòi đổi bằng thảo dược Đại Ngàn",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Trưởng lão nhíu mày, rồi gật đầu. Bạn về Sanctus với một xe thảo dược quý hơn vàng. Elf nhớ bạn như một người buôn giỏi, nhưng không phải một người bạn.",
+      "effects": {
+       "wealth": 25,
+       "jobXp": 2
+      }
+     },
+     "fail": {
+      "text": "Trưởng lão quay lưng đi. Bạn đứng ở rìa rừng với xe hàng và một bài học về việc người nào coi trọng điều gì.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrh_road_borin_debt",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_merchant",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mrh_path_road"
+    ],
+    "notFlags": [
+     "mrh_end"
+    ]
+   },
+   "text": "Lão Dwarf Borin bị Hội Thợ Rèn Răng Cưa kiện vì một món nợ từ năm mươi năm trước, khi lão còn chưa biết bạn. Theo luật Dwarf, nếu không trả được, lão phải làm thợ mỏ không công suốt hai mươi năm.",
+   "choices": [
+    {
+     "label": "Trả nợ thay lão",
+     "require": {
+      "wealth": 30
+     },
+     "showLocked": true,
+     "text": "Bạn đổ túi tiền lên bàn Hội. Borin không nói cảm ơn; Dwarf không nói những lời như thế. Lão chỉ khắc tên bạn lên chiếc rìu của mình, chỗ mà Dwarf dành cho tên của gia đình.",
+     "effects": {
+      "wealth": -30,
+      "joy": 10,
+      "jobXp": 2,
+      "flags": [
+       "mrh_borin_family"
+      ]
+     },
+     "moment": "Trả món nợ năm mươi năm cho lão Dwarf Borin"
+    },
+    {
+     "label": "Biện hộ trước Hội Thợ Rèn",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn lục được trong sổ sách Dwarf một điều khoản cổ: nợ quá năm mươi năm phải được chủ nợ xác nhận lại bằng máu. Chủ nợ đã chết. Borin được tự do, và Hội Thợ Rèn mời bạn uống bia đến sáng.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "mrh_borin_family"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Hội không công nhận lời biện hộ của một người Human. Borin bị đưa xuống mỏ. Bạn đi tiếp con đường một mình.",
+      "effects": {
+       "joy": -12,
+       "flags": [
+        "mrh_borin_mine"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrh_c4_grub",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_merchant",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "mrh_met_grub"
+    ],
+    "notFlags": [
+     "mrh_grub_gone",
+     "mrh_end"
+    ]
+   },
+   "text": "Grub Halloway đã quá già để kéo xe. Con lừa Nữ Hoàng đã chết từ mùa đông trước. Lão ngồi bên chiếc xe kéo cũ ở rìa chợ Sanctus, và đưa cho bạn một cuốn sổ nát: sổ nợ của tất cả những người lão từng cho chịu tiền, chưa bao giờ đòi.",
+   "choices": [
+    {
+     "label": "Xóa hết sổ nợ",
+     "text": "Bạn đốt cuốn sổ trước mặt lão. Grub cười, cái cười rung cả bụng ngày nào. Lão mất vào một buổi sáng chợ phiên, ngồi bên chiếc xe kéo, khi những người trong cuốn sổ vẫn đi ngang qua và gật đầu chào lão.",
+     "effects": {
+      "joy": 10,
+      "fame": 4,
+      "jobXp": 3,
+      "flags": [
+       "mrh_grub_gone"
+      ]
+     },
+     "moment": "Đốt sổ nợ của Grub Halloway"
+    },
+    {
+     "label": "Đi đòi từng khoản để lo cho tuổi già của lão",
+     "text": "Phần lớn người nợ đã chết hoặc nghèo hơn cả Grub. Bạn thu được đủ để lão có một căn phòng ấm và một bữa ăn nóng mỗi ngày trong mùa đông cuối cùng. Lão càu nhàu suốt, nhưng ăn hết.",
+     "effects": {
+      "wealth": 5,
+      "joy": 4,
+      "jobXp": 3,
+      "flags": [
+       "mrh_grub_gone"
+      ]
+     }
+    },
+    {
+     "label": "Mua lại chiếc xe kéo, sơn mới, đặt ở cửa thương hội",
+     "text": "Grub sờ vào lớp sơn mới, gật gù. Sau khi lão mất, chiếc xe vẫn đứng đó, và mọi học việc mới đều phải bán một cái nồi thủng từ trong xe trước khi được nhận.",
+     "effects": {
+      "fame": 5,
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "mrh_grub_gone",
+       "mrh_grub_cart"
+      ]
+     },
+     "moment": "Giữ chiếc xe kéo của Grub làm bài thi cho học việc"
+    }
+   ]
+  },
+  {
+   "id": "mrh_c4_crash",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_merchant",
+    "free": true,
+    "jobRank": 3,
+    "notFlags": [
+     "mrh_end"
+    ]
+   },
+   "text": "Đồng Tinh Bạc của Sanctus mất giá chỉ trong một tuần, vì một tin đồn rằng hầm bạc hoàng gia đã cạn. Mọi người đổ xô đi đổi tiền. Bạn có trong kho đủ Huyết Kim để làm một trong hai việc: cứu thương hội của mình, hoặc cứu cả chợ Sanctus.",
+   "choices": [
+    {
+     "label": "Mở kho, đổi tiền cho dân với giá công bằng",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Hàng dài người đứng trước cửa thương hội của bạn suốt ba ngày. Khi tin đồn được dập tắt, Tinh Bạc lấy lại giá, và Sanctus nhớ ai đã đứng đó lúc mọi cửa khác đóng.",
+      "effects": {
+       "fame": 10,
+       "wealth": -10,
+       "jobXp": 4,
+       "flags": [
+        "mrh_saved_market"
+       ]
+      },
+      "moment": "Cứu chợ Sanctus khỏi cơn hoảng loạn tiền tệ"
+     },
+     "fail": {
+      "text": "Kho cạn trước khi cơn hoảng loạn dừng. Thương hội của bạn lung lay suốt hai năm sau.",
+      "effects": {
+       "wealth": -30,
+       "fame": 5,
+       "flags": [
+        "mrh_saved_market"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Giữ kho, mua lại Tinh Bạc giá rẻ",
+     "text": "Một tháng sau, Tinh Bạc lấy lại giá. Bạn giàu gấp ba. Có những người bán tiền cho bạn với giá một nửa đã treo cổ trong nhà kho.",
+     "effects": {
+      "wealth": 50,
+      "wealthKind": "windfall",
+      "joy": -12,
+      "jobXp": 4,
+      "flags": [
+       "mrh_crash_profit"
+      ]
+     }
+    },
+    {
+     "label": "Nhờ Pim tìm ra kẻ tung tin đồn",
+     "require": {
+      "flags": [
+       "mrh_met_pim"
+      ]
+     },
+     "text": "Pim lần theo những lệnh bán đầu tiên và tìm ra một thương hội ở vương quốc láng giềng. Bằng chứng được dán lên cửa Tòa Thị chính. Cơn hoảng loạn tắt trong một đêm.",
+     "effects": {
+      "fame": 8,
+      "joy": 8,
+      "jobXp": 4,
+      "flags": [
+       "mrh_saved_market",
+       "mrh_pim_hero"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrh_c5_house",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_merchant",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "mrh_path_house"
+    ],
+    "notFlags": [
+     "mrh_end"
+    ]
+   },
+   "text": "Bạn được gọi là Thương Vương. Hội đồng Mười Hai giờ là của bạn; thương hội của bạn có chi nhánh ở mọi thành phố lớn. Pim, nay đã là quản lý sổ sách, hỏi bạn sẽ để lại tất cả cho ai.",
+   "choices": [
+    {
+     "label": "Biến thương hội thành hội tương trợ của những người buôn nhỏ",
+     "require": {
+      "anyFlags": [
+       "mrh_house_fair",
+       "mrh_saved_market",
+       "mrh_seraphine_friend"
+      ]
+     },
+     "text": "Mỗi người bán rong ở Aethelgard có thể vay vốn từ thương hội với lãi bằng không trong năm đầu. Những chiếc xe kéo mới lăn bánh khắp lục địa, và trên mỗi chiếc đều vẽ hình một con lừa.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "mrh_end",
+       "mrh_end_guild_of_carts"
+      ]
+     },
+     "moment": "Biến thương hội thành quỹ cho người bán rong"
+    },
+    {
+     "label": "Trao lại cho Pim",
+     "require": {
+      "flags": [
+       "mrh_met_pim"
+      ]
+     },
+     "text": "Pim ký nhận bằng nét chữ ngay ngắn của người chưa từng tính sai. Ngày bạn nghỉ, cậu đặt lên bàn bạn một quả táo, giống hệt quả táo cậu ăn trộm năm nào.",
+     "effects": {
+      "joy": 18,
+      "fame": 8,
+      "flags": [
+       "mrh_end",
+       "mrh_end_pim"
+      ]
+     },
+     "moment": "Trao thương hội cho Pim"
+    },
+    {
+     "label": "Giữ đế chế trong gia tộc mình",
+     "text": "Thương hội tiếp tục lớn lên, mạnh lên, lạnh lùng lên. Tên bạn được khắc trên cổng tòa nhà cao nhất phố Lụa. Rất ít người đến thăm bạn những năm cuối, trừ các luật sư.",
+     "effects": {
+      "wealth": 40,
+      "fame": 12,
+      "joy": -8,
+      "flags": [
+       "mrh_end",
+       "mrh_end_dynasty"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrh_c5_smuggle",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_merchant",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "mrh_path_smuggle"
+    ],
+    "notFlags": [
+     "mrh_end"
+    ]
+   },
+   "text": "Bạn là ông trùm chợ đen lớn nhất Sanctus. Thánh Kỵ Sĩ Đoàn đã có đủ bằng chứng để treo cổ bạn ba lần, và họ đang trên đường đến.",
+   "choices": [
+    {
+     "label": "Đầu thú, đổi tất cả sổ sách lấy ân xá cho người của mình",
+     "text": "Sổ sách của bạn hạ bệ một nửa giới quý tộc Sanctus. Bạn được ân xá, nhưng phải rời vương quốc. Những người từng làm việc cho bạn được tha bổng, và nhiều người trong số họ mở cửa hàng lương thiện.",
+     "effects": {
+      "fame": 8,
+      "joy": 10,
+      "wealth": -30,
+      "flags": [
+       "mrh_end",
+       "mrh_end_confession"
+      ]
+     },
+     "moment": "Đổi sổ sách chợ đen lấy ân xá cho thuộc hạ"
+    },
+    {
+     "label": "Biến mất cùng kho báu",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn rời Sanctus trong một chiếc thùng rượu, đúng như chuyến hàng đầu tiên. Ở một hòn đảo phía nam, có một người già giàu có không tên, nuôi rất nhiều mèo.",
+      "effects": {
+       "wealth": 30,
+       "joy": 8,
+       "flags": [
+        "mrh_end",
+        "mrh_end_vanished"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Thùng rượu bị mở ở trạm gác cuối cùng. Bạn sống những năm cuối trong ngục Sanctus, kể chuyện buôn lậu cho các bạn tù.",
+      "effects": {
+       "joy": -15,
+       "health": -15,
+       "flags": [
+        "mrh_end",
+        "mrh_end_caught"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Mở trại tị nạn cho trẻ em Beastman bằng kho báu của mình",
+     "require": {
+      "flags": [
+       "mrh_freed_children"
+      ]
+     },
+     "text": "Thánh Kỵ Sĩ Đoàn đến, và thấy hàng trăm đứa trẻ Beastman đang học chữ trong kho hàng cũ của bạn. Viên đội trưởng gỡ mũ xuống. Bản án của bạn được dời lại, rồi bị lãng quên.",
+     "effects": {
+      "joy": 20,
+      "fame": 12,
+      "flags": [
+       "mrh_end",
+       "mrh_end_orphanage"
+      ]
+     },
+     "moment": "Biến kho hàng lậu thành trại trẻ Beastman"
+    }
+   ]
+  },
+  {
+   "id": "mrh_c5_road",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_merchant",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "mrh_path_road"
+    ],
+    "notFlags": [
+     "mrh_end"
+    ]
+   },
+   "text": "Thương lộ của bạn giờ nối Sanctus với Đại Ngàn, Dãy Núi Răng Cưa và Thảo Nguyên Gió Hú. Ba tộc và loài người lần đầu tiên ngồi chung một bàn để bàn về thuế quan, và họ mời bạn ngồi ghế chủ tọa.",
+   "choices": [
+    {
+     "label": "Ký Hiệp ước Thương Lộ Vạn Tộc",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Hiệp ước được ký bằng bốn thứ chữ. Từ đó, đi buôn giữa các tộc không còn là chuyện liều mạng. Người ta gọi con đường ấy bằng tên bạn.",
+      "effects": {
+       "fame": 15,
+       "joy": 15,
+       "flags": [
+        "mrh_end",
+        "mrh_end_treaty"
+       ]
+      },
+      "moment": "Ký Hiệp ước Thương Lộ Vạn Tộc"
+     },
+     "fail": {
+      "text": "Hội nghị đổ vỡ vì một câu dịch sai. Mỗi tộc ra về, nhưng con đường của bạn vẫn còn, và những đoàn xe vẫn đi trên đó.",
+      "effects": {
+       "fame": 8,
+       "joy": -5,
+       "flags": [
+        "mrh_end",
+        "mrh_end_treaty_failed"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Trao ghế chủ tọa cho Borin",
+     "require": {
+      "flags": [
+       "mrh_borin_family"
+      ]
+     },
+     "text": "Borin đỏ mặt đến tận râu. Lão làm chủ tọa tệ nhất lịch sử, quát mắng mọi người, và hiệp ước vẫn được ký vì không ai dám cãi một Dwarf đang giận. Bạn ngồi ghế cuối, cười đến chảy nước mắt.",
+     "effects": {
+      "joy": 20,
+      "fame": 10,
+      "flags": [
+       "mrh_end",
+       "mrh_end_borin"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrh_daily_bargain_old_woman",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_merchant",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một bà cụ mặc cả với bạn suốt nửa giờ cho một cuộn chỉ giá ba đồng Cẩm Thạch. Cuối cùng bà trả hai đồng, rồi lén để lại đồng thứ ba trên quầy khi bạn quay đi.",
+   "choices": [
+    {
+     "label": "Chạy theo trả lại đồng tiền",
+     "text": "Bà cụ cười: “Ta chỉ muốn được mặc cả thôi, con ạ. Chẳng mấy ai chịu mặc cả với ta nữa.” Từ đó, mỗi tuần bà đều đến mặc cả với bạn một lần.",
+     "effects": {
+      "joy": 8
+     }
+    },
+    {
+     "label": "Giữ lại, ghi vào sổ",
+     "text": "Bạn ghi vào sổ: “một đồng, lòng tốt”, rồi để đồng tiền riêng ra một góc ngăn kéo.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrh_daily_bad_harvest_debt",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_merchant",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Một nông dân quen đến xin hoãn nợ thêm một năm vì mất mùa. Đây là lần thứ ba ông ta xin hoãn.",
+   "choices": [
+    {
+     "label": "Cho hoãn",
+     "text": "Ông ta về, và năm sau trả đủ cả gốc lẫn lãi, kèm một xe bí đỏ. Không phải ai cũng trả, nhưng ông ta thì có.",
+     "effects": {
+      "joy": 5,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Đòi đúng hạn",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Ông ta bán bớt một con bò để trả. Sổ sách của bạn sạch sẽ. Ông ta không bao giờ mua hàng của bạn nữa.",
+      "effects": {
+       "wealth": 8,
+       "joy": -4
+      }
+     },
+     "fail": {
+      "text": "Ông ta không có gì để trả. Bạn mất cả khoản nợ lẫn một khách hàng.",
+      "effects": {
+       "wealth": -4,
+       "joy": -4
+      }
+     }
+    },
+    {
+     "label": "Đề nghị trả nợ bằng nông sản theo giá thị trường",
+     "text": "Bạn nhận lúa thay tiền và bán lại ở chợ. Ông ta trả xong nợ, còn bạn có thêm một mối hàng.",
+     "effects": {
+      "INT": 1,
+      "wealth": 3,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrh_daily_war_supply",
+   "races": [
+    "human"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_merchant",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Quân đội Sanctus đặt mua một nghìn đôi ủng cho Tuyến Đầu, trả trước một nửa. Bạn có thể mua ủng tốt và lãi ít, hoặc mua ủng tồi và lãi gấp ba.",
+   "choices": [
+    {
+     "label": "Mua ủng tốt",
+     "text": "Lãi mỏng như lá lúa. Nhưng mùa đông ấy, những người lính mang ủng của bạn không ai bị hoại tử chân.",
+     "effects": {
+      "wealth": 5,
+      "fame": 3,
+      "joy": 5,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Mua ủng tồi",
+     "text": "Lãi đẹp. Đến mùa xuân, có một bức thư khiếu nại từ Tuyến Đầu, ký tên một viên đại úy đã mất ba ngón chân.",
+     "effects": {
+      "wealth": 25,
+      "joy": -10,
+      "fame": -3,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrh_daily_old_ledger",
+   "races": [
+    "human"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_merchant",
+    "free": true
+   },
+   "text": "Mắt bạn đã mờ, không đọc nổi những con số nhỏ trong sổ sách nữa. Lần đầu tiên trong đời, bạn tính nhầm một khoản lớn mà không biết.",
+   "choices": [
+    {
+     "label": "Thuê người đọc sổ cho mình",
+     "text": "Bạn nghe các con số thay vì nhìn chúng. Hóa ra tai bạn vẫn còn tinh: bạn nghe ra một khoản gian lận mà người đọc không để ý.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Giao sổ sách cho người trẻ hơn",
+     "text": "Bạn nghỉ việc ghi sổ, nhưng vẫn đến cửa hàng mỗi sáng để chào khách. Khách quen vẫn hỏi ý bạn trước khi mua.",
+     "effects": {
+      "joy": 8
+     }
+    }
+   ]
+  }
+ ]
+}

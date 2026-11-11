@@ -178,3 +178,5 @@ const corrections = require('./career-corrections');
 Object.assign(module.exports.families,corrections.families);
 module.exports.jobFamilies=corrections.jobFamilies;
 Object.assign(module.exports.overrides,corrections.overrides);
+// each Human trade's own dilemma and trials (content/career-overrides-human.js)
+Object.assign(module.exports.overrides,require('./career-overrides-human'));
