@@ -182,3 +182,4 @@ Object.assign(module.exports.overrides,corrections.overrides);
 Object.assign(module.exports.overrides,require('./career-overrides-human'));
 Object.assign(module.exports.overrides,require('./career-overrides-beastman'));
 Object.assign(module.exports.overrides,require('./career-overrides-elf'));
+Object.assign(module.exports.overrides,require('./career-overrides-dwarf'));

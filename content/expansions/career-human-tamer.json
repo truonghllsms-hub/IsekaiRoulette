@@ -11,7 +11,7 @@
    "require": {
     "job": "human_tamer",
     "free": true,
-    "jobRankMax": 1,
+    "jobRankMax": 2,
     "notFlags": [
      "tmr_met_kesh"
     ]
@@ -221,6 +221,10 @@
     "notFlags": [
      "tmr_first_bond",
      "tmr_end"
+    ],
+    "flags": [
+     "tmr_met_kesh",
+     "tmr_met_mordo"
     ]
    },
    "text": "Một con sói xám bị bắt trong bẫy của Mordo, chân gãy, và nó đã cắn hai người làm của hắn. Mordo muốn giết nó; Kesh muốn bạn thử thuần nó, như bài thi để thành Tamer thực thụ.",
@@ -287,6 +291,9 @@
      "tmr_path_sanctuary",
      "tmr_path_wild",
      "tmr_end"
+    ],
+    "flags": [
+     "tmr_met_kesh"
     ]
    },
    "text": "Ba lời mời cho một Tamer trẻ có tiếng. Quân đội Sanctus đang lập một đội kỵ thú và cần người huấn luyện. Một thầy thuốc già muốn mở trạm cứu thú bị thương ở rìa Đồng Bằng, nhưng không có ai biết nói chuyện với thú. Và Kesh, ngồi bên đống lửa, kể cho bạn về một con thú huyền thoại trên Thảo Nguyên mà chưa con người nào từng đến gần.",
@@ -460,7 +467,8 @@
     "jobRank": 2,
     "jobRankMax": 3,
     "flags": [
-     "tmr_path_sanctuary"
+     "tmr_path_sanctuary",
+     "tmr_met_mordo"
     ],
     "notFlags": [
      "tmr_end"
@@ -1161,6 +1169,11 @@
      "effects": {
       "joy": 8,
       "jobXp": 1
+     },
+     "require": {
+      "flags": [
+       "tmr_met_kesh"
+      ]
      }
     },
     {

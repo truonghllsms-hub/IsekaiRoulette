@@ -1,0 +1,945 @@
+{
+ "_note": "Tuyến truyện Rune Smith (Dwarf): 5 chương theo bậc, ba đạo ở Bậc 2 (drs_path_ancestor / drs_path_new / drs_path_silent), nhân vật xuyên suốt thầy Hrodgar (thợ rune mù) và Kelda (đối thủ cùng lò).",
+ "origins": [],
+ "events": [
+  {
+   "id": "drs_c1_hrodgar",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "dwarf_runesmith",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "drs_met_hrodgar"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Hrodgar",
+     "race": "Dwarf",
+     "position": "Thợ rune mù của Lò Rèn Vĩnh Cửu"
+    }
+   ],
+   "text": "Thầy Hrodgar đã mù từ ba mươi năm trước, vì nhìn quá lâu vào một con rune đang cháy. Ông vẫn rèn. Ông bắt bạn nhắm mắt, đặt tay lên một thanh sắt nguội, và hỏi: “Nó muốn trở thành gì?”",
+   "choices": [
+    {
+     "label": "Trả lời theo cảm nhận",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn nói: “Một cái móc treo nồi.” Hrodgar cười vang cả lò. “Đúng. Sắt này mềm, không làm nổi lưỡi rìu. Ngươi là đứa đầu tiên không nói ‘thanh kiếm’.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "drs_met_hrodgar",
+        "drs_hrodgar_respect"
+       ]
+      },
+      "moment": "Nhắm mắt nghe một thanh sắt nói nó muốn trở thành gì"
+     },
+     "fail": {
+      "text": "Bạn nói “thanh kiếm”, như mọi học trò khác. Hrodgar thở dài, đưa bạn cái chổi quét xỉ.",
+      "effects": {
+       "joy": -3,
+       "flags": [
+        "drs_met_hrodgar"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi lại: “Thầy nghe thấy gì?”",
+     "text": "Hrodgar im lặng rất lâu. “Ta nghe thấy một đứa nhóc dám hỏi lại thầy.” Ông đặt tay bạn lên thanh sắt lần nữa, và lần này ông ngồi nghe cùng bạn đến tận tối.",
+     "effects": {
+      "joy": 5,
+      "jobXp": 1,
+      "flags": [
+       "drs_met_hrodgar",
+       "drs_hrodgar_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs_c1_kelda",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "dwarf_runesmith",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "drs_met_hrodgar"
+    ],
+    "notFlags": [
+     "drs_met_kelda"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Kelda",
+     "race": "Dwarf",
+     "position": "Thợ rune trẻ cùng học ở lò Hrodgar"
+    }
+   ],
+   "text": "Kelda cùng học ở lò Hrodgar. Cô khắc rune nhanh gấp đôi bạn, và không bao giờ để ai quên điều đó. Hôm nay, cô đặt hai phôi sắt lên đe: “Ai khắc xong rune Lửa trước, người kia quét xỉ một tháng.”",
+   "choices": [
+    {
+     "label": "Nhận lời, khắc thật nhanh",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn thắng, sát nút. Kelda nhìn rune của bạn, rồi rune của mình, và lần đầu tiên không nói gì. Hôm sau cô đến lò sớm hơn bạn một canh giờ.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "drs_met_kelda",
+        "drs_kelda_rival"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Kelda xong trước, và rune của bạn bị lệch một nét. Bạn quét xỉ một tháng. Cô ngồi trên đe, đung đưa chân, xem bạn quét.",
+      "effects": {
+       "joy": -3,
+       "flags": [
+        "drs_met_kelda",
+        "drs_kelda_rival"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Khắc chậm, khắc cho đúng",
+     "text": "Kelda xong trước rất lâu. Nhưng khi Hrodgar sờ hai con rune, ông chỉ giữ lại của bạn. Kelda đỏ mặt, rồi kéo ghế ngồi cạnh bạn: “Chỉ cho ta ngươi đã khắc nét thứ ba thế nào.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "drs_met_kelda",
+       "drs_kelda_friend"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs_c2_first_rune",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "dwarf_runesmith",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "drs_first_rune",
+     "drs_end"
+    ]
+   },
+   "text": "Lần đầu tiên, một chiến binh trả tiền cho con rune của bạn: rune Bền trên lưỡi rìu. Khi rèn xong, bạn thấy một vết rạn nhỏ trong lõi thép. Có thể nó không bao giờ vỡ. Có thể nó vỡ ở trận đầu tiên.",
+   "choices": [
+    {
+     "label": "Rèn lại từ đầu",
+     "text": "Mất thêm mười ngày và hết tiền công. Người chiến binh càu nhàu. Ba mươi năm sau, ông ta quay lại lò với chiếc rìu vẫn nguyên vẹn, và đặt hàng cho cả ba đứa con trai.",
+     "effects": {
+      "wealth": -5,
+      "fame": 3,
+      "jobXp": 2,
+      "flags": [
+       "drs_first_rune",
+       "drs_first_honest"
+      ]
+     },
+     "moment": "Rèn lại con rune đầu tiên vì một vết rạn không ai thấy"
+    },
+    {
+     "label": "Giao hàng, khắc thêm rune Bền lên chỗ rạn",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Rune giữ được vết rạn. Chiếc rìu không bao giờ vỡ. Nhưng mỗi khi nghe tin có trận chiến, bạn lại nghĩ đến nó.",
+      "effects": {
+       "wealth": 5,
+       "jobXp": 2,
+       "flags": [
+        "drs_first_rune"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Chiếc rìu gãy ở trận thứ hai. Người chiến binh sống sót, và trả lại hai mảnh rìu trước cửa lò, không nói một lời.",
+      "effects": {
+       "fame": -4,
+       "joy": -6,
+       "flags": [
+        "drs_first_rune"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs_c2_crossroads",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "dwarf_runesmith",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "drs_path_ancestor",
+     "drs_path_new",
+     "drs_path_silent",
+     "drs_end"
+    ],
+    "flags": [
+     "drs_met_hrodgar"
+    ]
+   },
+   "text": "Hrodgar dẫn bạn xuống hầm lò, nơi ba bức vách khắc ba con đường của nghề rune. Vách thứ nhất kín đặc rune tổ tiên, không ai được thêm một nét. Vách thứ hai trống trơn. Vách thứ ba đã bị đục nhẵn, chỉ còn một con rune duy nhất ở giữa, không ai đọc được.",
+   "choices": [
+    {
+     "label": "Vách rune tổ tiên: Người Giữ Cổ Ngữ",
+     "text": "Bạn đặt tay lên vách đầu tiên. Từ nay, bạn sẽ học thuộc mọi rune mà tổ tiên Dwarf để lại, và không bao giờ khắc sai một nét.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "drs_path_ancestor"
+      ]
+     },
+     "moment": "Chọn con đường giữ rune tổ tiên"
+    },
+    {
+     "label": "Vách trống: Người Viết Rune Mới",
+     "text": "Bạn cầm đục, khắc nét đầu tiên lên vách trống. Hrodgar nghe tiếng đục và cười: “Đã năm trăm năm chưa ai dám.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "drs_path_new"
+      ]
+     },
+     "moment": "Khắc nét đầu tiên lên vách rune trống"
+    },
+    {
+     "label": "Vách đã bị đục: Rune Câm",
+     "text": "Hrodgar kể: con rune ở giữa là rune Câm, thứ có thể xóa mọi rune khác. Tổ tiên đã đục bỏ những rune xung quanh nó để không ai học được. Bạn muốn học nó.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "drs_path_silent"
+      ]
+     },
+     "moment": "Chọn học rune Câm, con rune bị tổ tiên phong ấn"
+    }
+   ]
+  },
+  {
+   "id": "drs_ancestor_error",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_runesmith",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "drs_path_ancestor"
+    ],
+    "notFlags": [
+     "drs_end"
+    ]
+   },
+   "text": "Bạn phát hiện một con rune tổ tiên trên vách hầm đã bị khắc sai từ ba nghìn năm trước. Mọi lưỡi rìu mang rune ấy đều yếu hơn một chút. Sửa nó nghĩa là thừa nhận tổ tiên đã sai.",
+   "choices": [
+    {
+     "label": "Trình lên Hội đồng Trưởng Lão",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Hội đồng tranh cãi ba ngày. Cuối cùng một Trưởng Lão già đứng dậy: “Tổ tiên khắc đá để con cháu đọc, không phải để con cháu thờ.” Con rune được sửa.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "drs_ancestor_fix"
+       ]
+      },
+      "moment": "Thuyết phục Hội đồng sửa một con rune tổ tiên đã sai ba nghìn năm"
+     },
+     "fail": {
+      "text": "Hội đồng gọi bạn là kẻ báng bổ. Bạn bị cấm vào hầm rune một năm.",
+      "effects": {
+       "fame": -5,
+       "joy": -6
+      }
+     }
+    },
+    {
+     "label": "Âm thầm khắc đúng trên mọi lưỡi rìu của mình",
+     "text": "Không ai biết. Nhưng những chiến binh mang rìu của bạn sống sót nhiều hơn một chút, và họ không hiểu vì sao.",
+     "effects": {
+      "jobXp": 3,
+      "flags": [
+       "drs_ancestor_quiet"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs_ancestor_clan",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_runesmith",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "drs_path_ancestor"
+    ],
+    "notFlags": [
+     "drs_end"
+    ]
+   },
+   "text": "Một gia tộc lớn muốn bạn khắc rune tổ tiên của họ lên cổng thành mới. Nhưng con rune ấy là rune của một gia tộc khác, đã tuyệt tự từ lâu. Họ muốn mượn danh.",
+   "choices": [
+    {
+     "label": "Từ chối",
+     "text": "Gia tộc ấy thuê thợ khác. Con rune được khắc lệch, và trông như một vết nứt. Bạn không nói gì.",
+     "effects": {
+      "joy": 3,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Khắc rune của chính họ, cho thật đẹp",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn tìm trong thư khố, thấy rằng gia tộc ấy từng có rune riêng mà họ đã quên. Bạn khắc nó lên cổng. Trưởng tộc đứng trước cổng rất lâu, rồi cúi đầu.",
+      "effects": {
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "drs_ancestor_found"
+       ]
+      },
+      "moment": "Tìm lại con rune đã bị quên của một gia tộc Dwarf"
+     },
+     "fail": {
+      "text": "Họ không nhận ra rune của chính mình. Họ trả nửa tiền.",
+      "effects": {
+       "wealth": -5
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs_new_explosion",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_runesmith",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "drs_path_new"
+    ],
+    "notFlags": [
+     "drs_end"
+    ]
+   },
+   "text": "Con rune mới đầu tiên của bạn, rune Hơi Thở, khiến lò rèn bùng cháy dữ dội khi được thử. Không ai chết, nhưng lò của Hrodgar mất nửa mái.",
+   "choices": [
+    {
+     "label": "Thử lại, cẩn thận hơn",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Lần thứ hai, con rune hít vào thay vì thổi ra, và lò rèn nóng đều như chưa bao giờ. Hrodgar sờ thành lò, gật đầu: “Đây là con rune mới đầu tiên trong năm trăm năm.”",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "drs_new_breath"
+       ]
+      },
+      "moment": "Khắc thành công rune Hơi Thở, con rune mới đầu tiên trong năm trăm năm"
+     },
+     "fail": {
+      "text": "Lò cháy lần nữa. Hội đồng cấm bạn khắc rune mới trong lò chung.",
+      "effects": {
+       "health": -8,
+       "fame": -4
+      }
+     }
+    },
+    {
+     "label": "Bỏ rune Hơi Thở, bắt đầu lại",
+     "text": "Bạn đốt bản vẽ. Hrodgar không trách. “Có những con rune chưa đến lúc ra đời.”",
+     "effects": {
+      "joy": -4,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs_new_human",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_runesmith",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "drs_path_new"
+    ],
+    "notFlags": [
+     "drs_end"
+    ]
+   },
+   "text": "Một kỹ sư Human ở Sanctus muốn mua con rune mới của bạn để gắn vào máy dệt. Ông ta nói nó sẽ làm ra vải cho cả một vương quốc.",
+   "choices": [
+    {
+     "label": "Bán, và dạy ông ta cách khắc",
+     "text": "Hội đồng giận dữ: rune Dwarf chưa bao giờ rời khỏi núi. Nhưng mùa đông năm sau, cả Sanctus có áo ấm, và ai đó gửi đến lò của bạn một tấm chăn len.",
+     "effects": {
+      "wealth": 15,
+      "fame": 4,
+      "jobXp": 3,
+      "flags": [
+       "drs_new_shared"
+      ]
+     },
+     "moment": "Dạy một con rune Dwarf cho kỹ sư Human"
+    },
+    {
+     "label": "Từ chối, rune là của núi",
+     "text": "Ông ta về tay trắng. Mười năm sau, ông ta tự chế ra một cỗ máy không cần rune, và bạn nghe nói nó làm việc nhanh hơn.",
+     "effects": {
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs_silent_first",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_runesmith",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "drs_path_silent"
+    ],
+    "notFlags": [
+     "drs_end"
+    ]
+   },
+   "text": "Bạn khắc thành công rune Câm lần đầu tiên trên một thanh sắt thử. Mọi rune xung quanh, trong bán kính mười bước, tắt lịm. Kể cả rune giữ ấm trên vách nhà bếp của lò.",
+   "choices": [
+    {
+     "label": "Phá con rune ngay",
+     "text": "Rune ấm sáng lại. Không ai biết chuyện gì đã xảy ra, ngoài một bà bếp càu nhàu vì nồi cháo nguội.",
+     "effects": {
+      "jobXp": 3,
+      "flags": [
+       "drs_silent_tested"
+      ]
+     }
+    },
+    {
+     "label": "Nghiên cứu nó thêm một ngày",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn học được cách giới hạn vùng tác động của nó vào đúng một con rune. Đó là thứ có thể gỡ bỏ những lời nguyền khắc trên vũ khí.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "drs_silent_tested",
+        "drs_silent_control"
+       ]
+      },
+      "moment": "Học được cách thu nhỏ rune Câm để gỡ lời nguyền"
+     },
+     "fail": {
+      "text": "Rune Câm lan rộng, tắt cả rune trên cổng lò. Hrodgar phải mất một tuần khắc lại.",
+      "effects": {
+       "fame": -4,
+       "flags": [
+        "drs_silent_tested"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs_silent_offer",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_runesmith",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "drs_path_silent"
+    ],
+    "notFlags": [
+     "drs_end"
+    ]
+   },
+   "text": "Một sứ giả của một vương quốc Human muốn thuê bạn khắc rune Câm lên mũi tên, để tắt rune trên cổng thành Dwarf của một gia tộc đang chống lại họ.",
+   "choices": [
+    {
+     "label": "Từ chối và báo cho gia tộc kia",
+     "text": "Gia tộc ấy kịp chuẩn bị. Vương quốc kia gọi bạn là kẻ thù. Bạn không bao giờ được đến Sanctus nữa.",
+     "effects": {
+      "fame": 5,
+      "jobXp": 3,
+      "flags": [
+       "drs_silent_loyal"
+      ]
+     }
+    },
+    {
+     "label": "Nhận tiền, khắc mũi tên hỏng",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Mũi tên không làm gì cả. Sứ giả không biết vì sao. Bạn giàu lên, và không ai chết.",
+      "effects": {
+       "wealth": 20,
+       "wealthKind": "windfall",
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Sứ giả mang theo một thợ rune Human. Hắn kiểm tra mũi tên, và bạn phải bỏ trốn khỏi quán trọ trong đêm.",
+      "effects": {
+       "health": -10,
+       "wealth": -5
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs_c4_hrodgar",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_runesmith",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "drs_met_hrodgar"
+    ],
+    "notFlags": [
+     "drs_hrodgar_gone",
+     "drs_end"
+    ]
+   },
+   "text": "Hrodgar đã gần hai trăm tuổi, già nhất lò rèn. Ông gọi bạn đến lò, đặt vào tay bạn chiếc búa của ông. “Ta muốn rèn một con rune cuối cùng. Ngươi làm mắt cho ta.”",
+   "choices": [
+    {
+     "label": "Làm mắt cho thầy",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn kể cho ông từng màu lửa, từng tia sáng trên con rune. Ông khắc rune Nhìn Thấy, và đặt nó lên chiếc búa. “Để ngươi không bao giờ phải mù như ta.” Ông mất ba ngày sau, tay vẫn đặt trên đe.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "drs_hrodgar_gone",
+        "drs_hrodgar_hammer"
+       ]
+      },
+      "moment": "Làm đôi mắt cho thầy Hrodgar trong lần rèn cuối cùng"
+     },
+     "fail": {
+      "text": "Bạn tả sai màu lửa, và con rune cháy trước khi xong. Hrodgar cười: “Không sao. Rune hay nhất là rune chưa khắc.” Ông mất mùa đông năm ấy.",
+      "effects": {
+       "joy": -8,
+       "flags": [
+        "drs_hrodgar_gone"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Xin thầy để ngày khác",
+     "text": "Không có ngày khác. Hrodgar mất trong đêm. Chiếc búa vẫn nằm trên đe, nơi ông để lại.",
+     "effects": {
+      "joy": -12,
+      "jobXp": 3,
+      "flags": [
+       "drs_hrodgar_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs_c4_kelda",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_runesmith",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "drs_met_kelda"
+    ],
+    "notFlags": [
+     "drs_end"
+    ]
+   },
+   "text": "Kelda đã thành thợ rune nổi tiếng nhất phía bắc dãy núi. Cô đến lò của bạn, mang theo một lưỡi rìu đã nứt: con rune của cô đã giết người dùng nó, vì một nét khắc sai.",
+   "choices": [
+    {
+     "label": "Giúp cô tìm nét sai",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Hai người thức ba đêm. Nét sai nằm ở nơi cô luôn khắc nhanh nhất. Kelda ngồi lặng rất lâu, rồi nói: “Ngươi luôn khắc chậm. Ta luôn nghĩ đó là yếu.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "drs_kelda_bond"
+       ]
+      },
+      "moment": "Cùng Kelda tìm ra nét rune sai đã giết một chiến binh"
+     },
+     "fail": {
+      "text": "Hai người không tìm ra. Kelda bỏ nghề một năm.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    },
+    {
+     "label": "Nói cô phải tự tìm",
+     "text": "Kelda nhìn bạn, gật đầu, và bỏ đi. Một năm sau, cô gửi đến một lá thư: “Ta tìm ra rồi. Cảm ơn vì đã không giúp.”",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs_c5_ancestor",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_runesmith",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "drs_path_ancestor"
+    ],
+    "notFlags": [
+     "drs_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Divine Smith. Vách rune tổ tiên trong hầm lò giờ là vách của bạn để giữ.",
+   "choices": [
+    {
+     "label": "Khắc tên Hrodgar lên vách",
+     "require": {
+      "flags": [
+       "drs_met_hrodgar"
+      ]
+     },
+     "text": "Một thợ rune mù, không gia tộc, giờ có tên trên vách của tổ tiên. Hội đồng định phản đối, rồi thôi.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "drs_end",
+       "drs_end_hrodgar_name"
+      ]
+     },
+     "moment": "Khắc tên thầy Hrodgar lên vách rune tổ tiên"
+    },
+    {
+     "label": "Mở vách cho mọi học trò đọc",
+     "text": "Từ nay, bất cứ ai muốn học rune tổ tiên đều được xuống hầm. Vách đá đầy dấu tay của những đứa trẻ.",
+     "effects": {
+      "fame": 15,
+      "joy": 10,
+      "flags": [
+       "drs_end",
+       "drs_end_open_wall"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs_c5_new",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_runesmith",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "drs_path_new"
+    ],
+    "notFlags": [
+     "drs_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Divine Smith. Vách trống trong hầm lò giờ đã có mười hai con rune mới, đều do bạn khắc.",
+   "choices": [
+    {
+     "label": "Để lại một khoảng trống",
+     "text": "Bạn dừng ở con rune thứ mười hai, và để lại nửa vách trống. “Cho đứa nào dám,” bạn nói với học trò.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "drs_end",
+       "drs_end_space"
+      ]
+     },
+     "moment": "Để lại nửa vách trống cho thế hệ thợ rune sau"
+    },
+    {
+     "label": "Viết sách dạy rune mới",
+     "text": "Cuốn sách được chép lại ở mọi lò rèn của Dãy Núi Răng Cưa, và vài bản lọt đến tận Sanctus.",
+     "effects": {
+      "fame": 15,
+      "INT": 1,
+      "flags": [
+       "drs_end",
+       "drs_end_book"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs_c5_silent",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_runesmith",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "drs_path_silent"
+    ],
+    "notFlags": [
+     "drs_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Divine Smith, nhưng ít ai biết vì sao. Chỉ bạn còn biết khắc rune Câm.",
+   "choices": [
+    {
+     "label": "Dùng nó gỡ lời nguyền trên mọi vũ khí cổ",
+     "require": {
+      "flags": [
+       "drs_silent_control"
+      ]
+     },
+     "text": "Hàng trăm vũ khí bị nguyền trong kho tàng các gia tộc được gỡ bỏ. Lần đầu tiên sau nghìn năm, chúng được trao cho người cầm.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "drs_end",
+       "drs_end_unbind"
+      ]
+     },
+     "moment": "Dùng rune Câm gỡ lời nguyền trên vũ khí cổ của các gia tộc"
+    },
+    {
+     "label": "Mang nó theo xuống mộ",
+     "text": "Bạn không dạy ai. Khi bạn mất, rune Câm mất theo. Có thể đó là điều tổ tiên đã muốn.",
+     "effects": {
+      "fame": 8,
+      "joy": 4,
+      "flags": [
+       "drs_end",
+       "drs_end_buried"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs_daily_apprentice",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "dwarf_runesmith",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một học trò nhỏ khắc rune Lửa lên chiếc thìa, và nồi canh của cả lò sôi trào.",
+   "choices": [
+    {
+     "label": "Phạt nó rửa nồi",
+     "text": "Nó rửa ba ngày. Ngày thứ tư nó khắc rune Lạnh lên chiếc thìa khác.",
+     "effects": {
+      "joy": 4
+     }
+    },
+    {
+     "label": "Khen nó, rồi chỉ cách giới hạn rune",
+     "text": "Đứa trẻ sáng mắt. Từ hôm ấy, canh của lò luôn ấm vừa đủ.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs_daily_war_order",
+   "races": [
+    "dwarf"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "dwarf_runesmith",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Hội đồng đặt hàng một nghìn lưỡi rìu mang rune trong một tháng.",
+   "choices": [
+    {
+     "label": "Khắc rune đơn giản, đủ số lượng",
+     "text": "Rìu đủ. Rune mờ dần sau vài trận. Nhưng một nghìn chiến binh không ra trận tay không.",
+     "effects": {
+      "wealth": 10,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Khắc ít hơn, nhưng mỗi cái đều tốt",
+     "text": "Hội đồng giận, chỉ nhận được ba trăm. Ba trăm chiến binh ấy đều trở về.",
+     "effects": {
+      "fame": 5,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs_daily_old_hands",
+   "races": [
+    "dwarf"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "dwarf_runesmith",
+    "free": true
+   },
+   "text": "Bàn tay bạn bắt đầu run. Những nét rune nhỏ không còn thẳng như xưa.",
+   "choices": [
+    {
+     "label": "Khắc rune lớn hơn",
+     "text": "Rune của bạn giờ to như bàn tay, và người ta gọi đó là phong cách mới.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Để học trò khắc, bạn chỉ nghe",
+     "text": "Bạn nhắm mắt, nghe tiếng đục. Bạn hiểu vì sao những thợ rune giỏi nhất chưa bao giờ cần đến mắt.",
+     "effects": {
+      "INT": 1,
+      "joy": 4
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -11,7 +11,7 @@
    "require": {
     "job": "human_ranger",
     "free": true,
-    "jobRankMax": 1,
+    "jobRankMax": 2,
     "notFlags": [
      "rgr_met_hesper"
     ]
@@ -210,6 +210,9 @@
     "notFlags": [
      "rgr_first_hunt",
      "rgr_end"
+    ],
+    "flags": [
+     "rgr_met_hesper"
     ]
    },
    "text": "Một con gấu ma vật đã giết ba người ở làng lâm nghiệp. Hesper bị thương ở chân, nên đây là cuộc săn đầu tiên bạn phải dẫn một mình, cùng năm thợ săn trong làng đang run tay.",
@@ -300,6 +303,9 @@
      "rgr_path_bounty",
      "rgr_path_warden",
      "rgr_end"
+    ],
+    "flags": [
+     "rgr_met_hesper"
     ]
    },
    "text": "Hesper gọi bạn vào chòi. Trên bàn có ba thứ: huy hiệu của Đội Biên Phòng phía bắc, nơi ma vật tràn xuống mỗi mùa đông; tờ lệnh truy nã đầu tiên của Guild Bình Minh, treo thưởng bằng Tinh Bạc; và chính cây cung của bà. “Ta già rồi,” bà nói. “Khu rừng này cần một người giữ.”",
@@ -715,7 +721,8 @@
      "label": "Gọi Ithil và các Elf giúp",
      "require": {
       "flags": [
-       "rgr_ithil_friend"
+       "rgr_ithil_friend",
+       "rgr_met_ithil"
       ]
      },
      "text": "Sáng hôm sau, một trăm mũi tên lông bạc cắm thành một đường thẳng tắp trước hàng tiều phu. Không ai bị thương. Không ai dám bước qua.",
@@ -1122,7 +1129,8 @@
      "label": "Mời Ithil cùng giữ rừng",
      "require": {
       "flags": [
-       "rgr_ithil_friend"
+       "rgr_ithil_friend",
+       "rgr_met_ithil"
       ]
      },
      "text": "Ithil dời đến sống ở chòi bên cạnh. Một Elf và một Human cùng giữ một khu rừng, cho đến khi tóc bạn bạc như tóc cô ấy. Cô hứa sẽ giữ nó thêm năm trăm năm sau khi bạn đi.",
@@ -1303,7 +1311,7 @@
       "target": 7
      },
      "success": {
-      "text": "Bạn nhắm mắt và nghe: tiếng cánh, tiếng lá, tiếng tim con thú. Mũi tên vẫn đi trúng. Hesper từng làm thế khi bà mù một mắt; giờ bạn hiểu bà đã nghe những gì.",
+      "text": "Bạn nhắm mắt và nghe: tiếng cánh, tiếng lá, tiếng tim con thú. Mũi tên vẫn đi trúng. Những Kiểm Lâm già vẫn làm thế; giờ bạn hiểu họ đã nghe những gì.",
       "effects": {
        "INT": 1,
        "joy": 8,
@@ -1311,7 +1319,7 @@
       }
      },
      "fail": {
-      "text": "Tai bạn cũng không còn tinh như xưa. Bạn treo cung lên vách, cạnh ba chục cây cung của Hesper.",
+      "text": "Tai bạn cũng không còn tinh như xưa. Bạn treo cung lên vách, cạnh những cây cung cũ của chòi gác.",
       "effects": {
        "joy": -8
       }

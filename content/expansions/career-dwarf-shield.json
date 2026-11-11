@@ -1,0 +1,937 @@
+{
+ "_note": "Tuyến truyện Shield Warrior (Dwarf): 5 chương theo bậc, ba đạo ở Bậc 2 (dsh_path_wall / dsh_path_blood / dsh_path_ward), nhân vật xuyên suốt đội trưởng Ragnhild (lá khiên của Cổng Sắt) và Olvir (đồng đội cùng hàng khiên).",
+ "origins": [],
+ "events": [
+  {
+   "id": "dsh_c1_ragnhild",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "dwarf_shield",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "dsh_met_ragnhild"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Ragnhild",
+     "race": "Dwarf",
+     "position": "Đội trưởng hàng khiên ở Cổng Sắt"
+    }
+   ],
+   "text": "Đội trưởng Ragnhild không dạy bạn đánh. Ngày đầu tiên, bà đưa cho bạn một tấm khiên sắt nặng gần bằng người bạn, và bảo bạn đứng yên dưới mưa đến khi bà quay lại.",
+   "choices": [
+    {
+     "label": "Đứng yên",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Bà quay lại lúc nửa đêm. Bạn vẫn đứng, tay run, khiên vẫn giơ. Ragnhild gật đầu: “Đánh thì ai cũng học được. Đứng thì không.”",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "dsh_met_ragnhild",
+        "dsh_ragnhild_respect"
+       ]
+      },
+      "moment": "Đứng giữ khiên dưới mưa đến nửa đêm trong ngày đầu nhập ngũ"
+     },
+     "fail": {
+      "text": "Bạn gục xuống trước khi bà quay lại. Ragnhild kéo bạn dậy: “Mai đứng tiếp.”",
+      "effects": {
+       "health": -3,
+       "flags": [
+        "dsh_met_ragnhild"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đặt khiên xuống đất, tựa vào nó mà đứng",
+     "text": "Ragnhild quay lại, thấy bạn đứng cạnh tấm khiên dựng thẳng. Bà nhìn rất lâu, rồi phá lên cười. “Thông minh. Nhưng giữa trận, đất không đỡ khiên cho ngươi đâu.” Hôm sau bà bắt bạn đứng lâu gấp đôi.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "dsh_met_ragnhild"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsh_c1_olvir",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "dwarf_shield",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "dsh_met_ragnhild"
+    ],
+    "notFlags": [
+     "dsh_met_olvir"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Olvir",
+     "race": "Dwarf",
+     "position": "Đồng đội nhỏ con nhất trong hàng khiên"
+    }
+   ],
+   "text": "Olvir đứng cạnh bạn trong hàng khiên. Cậu ta nhỏ con nhất đội và sợ mọi thứ, nhưng chưa bao giờ lùi một bước. Hôm nay, cậu ta thì thầm: “Nếu ta chết trước, ngươi giữ khiên của ta nhé.”",
+   "choices": [
+    {
+     "label": "Hứa với cậu ta",
+     "text": "Olvir cười, nhẹ nhõm. Từ hôm ấy, hai tấm khiên của các bạn luôn chạm mép nhau trong hàng.",
+     "effects": {
+      "joy": 5,
+      "jobXp": 1,
+      "flags": [
+       "dsh_met_olvir",
+       "dsh_olvir_friend"
+      ]
+     },
+     "moment": "Hứa giữ khiên cho Olvir"
+    },
+    {
+     "label": "Bảo cậu ta đừng nói gở",
+     "text": "Olvir im. Nhưng trận sau, khi một mũi tên bay về phía bạn, khiên của cậu ta đã ở đó trước.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "dsh_met_olvir",
+       "dsh_olvir_friend"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsh_c2_first_line",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "dwarf_shield",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "dsh_first_line",
+     "dsh_end"
+    ]
+   },
+   "text": "Trận đầu tiên. Một bầy Troll lao vào hàng khiên. Người bên trái bạn ngã, để hở một khoảng trống.",
+   "choices": [
+    {
+     "label": "Lấp khoảng trống bằng khiên của mình",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn trượt sang, khiên chạm khiên. Troll đập vào bức tường sắt và dội ngược lại. Sau trận, người chỉ huy hàng khiên chỉ nói một chữ: “Tốt.” Ở Cổng Sắt, thế đã là lời khen dài.",
+      "effects": {
+       "STR": 1,
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "dsh_first_line",
+        "dsh_first_held"
+       ]
+      },
+      "moment": "Lấp khoảng trống trong hàng khiên ở trận đầu tiên"
+     },
+     "fail": {
+      "text": "Bạn trượt sang quá chậm. Một Troll lọt qua. Hàng khiên vẫn đứng, nhưng có người trả giá.",
+      "effects": {
+       "health": -8,
+       "joy": -8,
+       "flags": [
+        "dsh_first_line"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Kéo người ngã vào phía sau khiên",
+     "text": "Bạn cứu được người ấy. Hàng khiên lùi một bước, nhưng không vỡ. Người được cứu là con trai của một Trưởng Lão, và ông ta không bao giờ quên.",
+     "effects": {
+      "fame": 3,
+      "jobXp": 2,
+      "flags": [
+       "dsh_first_line",
+       "dsh_first_rescue"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsh_c2_crossroads",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "dwarf_shield",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "dsh_path_wall",
+     "dsh_path_blood",
+     "dsh_path_ward",
+     "dsh_end"
+    ],
+    "flags": [
+     "dsh_met_ragnhild"
+    ]
+   },
+   "text": "Ragnhild dẫn bạn đến kho khiên của Cổng Sắt. Ba tấm khiên treo trên vách: một tấm khiên tháp to như cánh cửa, một tấm khiên tròn nhuốm máu khô, và một tấm khiên nhỏ khắc rune bảo hộ. “Chọn đi. Tấm khiên chọn cách ngươi sống.”",
+   "choices": [
+    {
+     "label": "Khiên tháp: Bức Tường Cổng Sắt",
+     "text": "Bạn sẽ đứng ở Cổng Sắt, và không có gì vượt qua được. Ragnhild gật đầu: “Đó cũng là khiên của ta.”",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "dsh_path_wall"
+      ]
+     },
+     "moment": "Nhận khiên tháp, chọn làm bức tường của Cổng Sắt"
+    },
+    {
+     "label": "Khiên nhuốm máu: Kỵ Sĩ Huyết Khiên",
+     "text": "Khiên không chỉ để đỡ. Bạn sẽ học cách dùng nó làm vũ khí, như những Blood Knight đã thề với lửa và máu.",
+     "effects": {
+      "STR": 1,
+      "AGI": 1,
+      "jobXp": 2,
+      "flags": [
+       "dsh_path_blood"
+      ]
+     },
+     "moment": "Nhận khiên nhuốm máu, theo con đường Blood Knight"
+    },
+    {
+     "label": "Khiên rune: Người Hộ Tống",
+     "text": "Bạn sẽ không đứng ở cổng nào. Bạn sẽ đi theo những người cần được che chắn: thương đoàn, sứ giả, những đứa trẻ trên đường lánh nạn.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "dsh_path_ward"
+      ]
+     },
+     "moment": "Nhận khiên rune, chọn đi hộ tống những người cần che chắn"
+    }
+   ]
+  },
+  {
+   "id": "dsh_wall_siege",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_shield",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dsh_path_wall"
+    ],
+    "notFlags": [
+     "dsh_end"
+    ]
+   },
+   "text": "Cổng Sắt bị vây bốn mươi ngày. Lương thực còn cho mười ngày. Kẻ địch đề nghị: mở cổng, cho dân thường đi, binh lính ở lại làm tù binh.",
+   "choices": [
+    {
+     "label": "Khuyên chỉ huy nhận lời",
+     "text": "Dân thường đi an toàn. Bạn và đồng đội làm tù binh ba năm. Khi được trả về, Cổng Sắt đã có tường mới, và tên các bạn được khắc trên đó.",
+     "effects": {
+      "health": -10,
+      "fame": 8,
+      "jobXp": 3,
+      "flags": [
+       "dsh_wall_prisoner"
+      ]
+     },
+     "moment": "Chịu làm tù binh để dân thường rời Cổng Sắt an toàn"
+    },
+    {
+     "label": "Giữ cổng đến cùng",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Ngày thứ bốn mươi chín, viện binh đến. Cổng Sắt chưa bao giờ mở. Bạn gầy rộc, nhưng còn đứng.",
+      "effects": {
+       "STR": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "dsh_wall_held"
+       ]
+      },
+      "moment": "Giữ Cổng Sắt qua bốn mươi chín ngày vây hãm"
+     },
+     "fail": {
+      "text": "Viện binh đến muộn ba ngày. Cổng không mở, nhưng nhiều người không còn ở đó để thấy.",
+      "effects": {
+       "health": -15,
+       "joy": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsh_wall_young",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_shield",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dsh_path_wall"
+    ],
+    "notFlags": [
+     "dsh_end"
+    ]
+   },
+   "text": "Một tân binh nhút nhát được xếp đứng cạnh bạn trong hàng khiên. Cậu ta run đến mức khiên va lập cập vào khiên bạn.",
+   "choices": [
+    {
+     "label": "Bắt cậu ta đứng dưới mưa, như bạn từng đứng",
+     "text": "Cậu ta đứng đến nửa đêm. Sáng hôm sau, khiên của cậu ta không còn run.",
+     "effects": {
+      "jobXp": 3,
+      "flags": [
+       "dsh_wall_teacher"
+      ]
+     }
+    },
+    {
+     "label": "Đổi chỗ, để cậu ta đứng hàng sau",
+     "text": "Cậu ta không bao giờ trở thành chiến binh khiên giỏi. Nhưng cậu ta sống, và trở thành thợ rèn khiên giỏi nhất Cổng Sắt.",
+     "effects": {
+      "joy": 5,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsh_blood_oath",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_shield",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dsh_path_blood"
+    ],
+    "notFlags": [
+     "dsh_end"
+    ]
+   },
+   "text": "Lễ thề Blood Knight: cắt tay, để máu nhỏ lên khiên, và thề không bao giờ quay lưng với kẻ thù. Một Blood Knight già thì thầm: “Lời thề ấy đã giết nhiều người hơn mọi kẻ thù.”",
+   "choices": [
+    {
+     "label": "Thề đúng như lễ",
+     "text": "Máu thấm vào sắt. Bạn cảm thấy khiên nặng hơn, và mạnh hơn. Từ nay, bạn không còn được lùi.",
+     "effects": {
+      "STR": 1,
+      "fame": 5,
+      "jobXp": 3,
+      "flags": [
+       "dsh_blood_sworn"
+      ]
+     },
+     "moment": "Thề lời thề Blood Knight bằng máu trên khiên"
+    },
+    {
+     "label": "Thề, nhưng sửa một chữ",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn thề “không bao giờ quay lưng với đồng đội”. Lão Blood Knight già mỉm cười. Hội đồng không nhận ra chữ bị đổi.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "dsh_blood_sworn",
+        "dsh_blood_comrade"
+       ]
+      },
+      "moment": "Đổi lời thề Blood Knight thành lời thề với đồng đội"
+     },
+     "fail": {
+      "text": "Hội đồng nghe ra, và bắt bạn thề lại từ đầu, đúng từng chữ.",
+      "effects": {
+       "fame": -3,
+       "flags": [
+        "dsh_blood_sworn"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsh_blood_retreat",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_shield",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dsh_path_blood"
+    ],
+    "notFlags": [
+     "dsh_end"
+    ]
+   },
+   "text": "Chỉ huy ra lệnh rút lui. Kẻ địch đang ở ngay trước mặt bạn. Lời thề Blood Knight cấm bạn quay lưng.",
+   "choices": [
+    {
+     "label": "Lùi lại, mặt vẫn hướng về kẻ địch",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn lùi từng bước, khiên giơ cao, suốt hai dặm. Không quay lưng một lần. Kẻ địch không dám đuổi.",
+      "effects": {
+       "AGI": 1,
+       "fame": 8,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Bạn vấp ngã giữa đường lùi. Đồng đội phải quay lại kéo bạn.",
+      "effects": {
+       "health": -10
+      }
+     }
+    },
+    {
+     "label": "Ở lại chặn hậu",
+     "text": "Cả đội rút an toàn. Bạn đứng một mình cho đến khi kẻ địch bỏ đi. Lời thề được giữ, nhưng bạn mang thêm ba vết sẹo.",
+     "effects": {
+      "health": -15,
+      "fame": 10,
+      "jobXp": 3,
+      "flags": [
+       "dsh_blood_rearguard"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsh_ward_children",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_shield",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dsh_path_ward"
+    ],
+    "notFlags": [
+     "dsh_end"
+    ]
+   },
+   "text": "Bạn hộ tống một đoàn trẻ mồ côi qua đèo Răng Cưa. Bão tuyết. Một đứa trẻ bị sốt, không đi nổi.",
+   "choices": [
+    {
+     "label": "Cõng nó, khiên trên lưng còn lại",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn cõng đứa trẻ suốt ba ngày, khiên buộc chéo sau lưng như một chiếc mái. Cả đoàn đến nơi. Đứa trẻ hết sốt.",
+      "effects": {
+       "STR": 1,
+       "joy": 10,
+       "jobXp": 3,
+       "flags": [
+        "dsh_ward_children"
+       ]
+      },
+      "moment": "Cõng một đứa trẻ sốt qua đèo Răng Cưa trong bão tuyết"
+     },
+     "fail": {
+      "text": "Bạn kiệt sức giữa đường. Đoàn phải dừng lại hai ngày trong hang.",
+      "effects": {
+       "health": -10
+      }
+     }
+    },
+    {
+     "label": "Dựng khiên làm lều, chờ bão tan",
+     "text": "Bạn dựng khiên chắn gió ở cửa hang. Cả đoàn chờ bốn ngày. Không ai chết, nhưng lương thực hết sạch.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsh_ward_envoy",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_shield",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dsh_path_ward"
+    ],
+    "notFlags": [
+     "dsh_end"
+    ]
+   },
+   "text": "Bạn hộ tống một sứ giả Elf đến Hội đồng Dwarf. Giữa đường, bạn nghe được sứ giả mang theo một bức thư tuyên chiến, không phải hòa ước.",
+   "choices": [
+    {
+     "label": "Vẫn hộ tống, đó là nhiệm vụ",
+     "text": "Sứ giả đến nơi an toàn. Chiến tranh nổ ra. Nhưng người ta nhắc đến bạn như người hộ tống chưa bao giờ phản bội ai.",
+     "effects": {
+      "fame": 6,
+      "jobXp": 3,
+      "flags": [
+       "dsh_ward_duty"
+      ]
+     }
+    },
+    {
+     "label": "Hỏi sứ giả vì sao",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Sứ giả kể: bức thư là để dọa, không phải để đánh. Bạn đề nghị ông ta đọc bức thư hòa ước trước. Ông ta đồng ý. Không có chiến tranh.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "dsh_ward_peace"
+       ]
+      },
+      "moment": "Thuyết phục một sứ giả Elf đọc hòa ước trước thư tuyên chiến"
+     },
+     "fail": {
+      "text": "Sứ giả từ chối trả lời, và báo với Hội đồng rằng hộ vệ Dwarf tò mò quá mức.",
+      "effects": {
+       "fame": -3
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsh_c4_olvir",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "dwarf_shield",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dsh_met_olvir"
+    ],
+    "notFlags": [
+     "dsh_olvir_gone",
+     "dsh_end"
+    ]
+   },
+   "text": "Olvir ngã trong trận ở Đèo Xám. Cậu ta còn sống được một lúc, đủ để đưa tấm khiên cho bạn.",
+   "choices": [
+    {
+     "label": "Mang khiên của Olvir ra trận",
+     "require": {
+      "flags": [
+       "dsh_olvir_friend"
+      ]
+     },
+     "text": "Bạn đeo hai tấm khiên từ hôm ấy, một trên tay, một sau lưng. Người ta gọi bạn là “Hai Khiên”. Chỉ bạn biết vì sao.",
+     "effects": {
+      "joy": -6,
+      "STR": 1,
+      "jobXp": 3,
+      "flags": [
+       "dsh_olvir_gone",
+       "dsh_olvir_shield"
+      ]
+     },
+     "moment": "Mang khiên của Olvir ra trận"
+    },
+    {
+     "label": "Treo khiên của cậu ta ở Cổng Sắt",
+     "text": "Tấm khiên nhỏ nhất của Cổng Sắt được treo cao nhất. Những tân binh nhỏ con thường dừng lại nhìn nó.",
+     "effects": {
+      "joy": -8,
+      "fame": 3,
+      "jobXp": 3,
+      "flags": [
+       "dsh_olvir_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsh_c4_ragnhild",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_shield",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dsh_met_ragnhild"
+    ],
+    "notFlags": [
+     "dsh_ragnhild_gone",
+     "dsh_end"
+    ]
+   },
+   "text": "Ragnhild đã già, nhưng vẫn đứng hàng đầu. Hôm nay, một đạo quân Orc tiến đến Cổng Sắt, và bà không còn đủ sức giơ khiên tháp.",
+   "choices": [
+    {
+     "label": "Đứng thay vị trí của bà",
+     "text": "Bà nhìn bạn đứng vào chỗ của mình. “Đã đến lúc,” bà nói, và lùi lại hàng sau, lần đầu tiên trong đời. Bà mất mùa đông năm ấy, trong giấc ngủ, khiên dựng cạnh giường.",
+     "effects": {
+      "fame": 8,
+      "jobXp": 3,
+      "flags": [
+       "dsh_ragnhild_gone",
+       "dsh_took_place"
+      ]
+     },
+     "moment": "Đứng thay vị trí của Ragnhild ở hàng đầu Cổng Sắt"
+    },
+    {
+     "label": "Đứng cạnh bà, chia sức nặng của khiên",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Hai người giữ một tấm khiên tháp suốt trận. Cổng Sắt đứng vững. Ragnhild mất một năm sau, kể với ai cũng rằng trận cuối của bà là trận hay nhất.",
+      "effects": {
+       "STR": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "dsh_ragnhild_gone"
+       ]
+      },
+      "moment": "Cùng Ragnhild giữ một tấm khiên tháp trong trận cuối của bà"
+     },
+     "fail": {
+      "text": "Bà ngã giữa trận. Bạn kéo bà vào sau cổng. Bà không tỉnh lại.",
+      "effects": {
+       "joy": -12,
+       "flags": [
+        "dsh_ragnhild_gone"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsh_c5_wall",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_shield",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dsh_path_wall"
+    ],
+    "notFlags": [
+     "dsh_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Juggernaut. Hơn một trăm năm qua, Cổng Sắt chưa bao giờ mở khi bạn đứng đó.",
+   "choices": [
+    {
+     "label": "Mở trường dạy đứng",
+     "text": "Bạn không dạy đánh. Bạn dạy đứng, dưới mưa, đến nửa đêm. Cổng Sắt có một thế hệ chiến binh khiên mới.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "dsh_end",
+       "dsh_end_school"
+      ]
+     },
+     "moment": "Mở trường dạy đứng giữ khiên ở Cổng Sắt"
+    },
+    {
+     "label": "Đứng ở cổng đến ngày cuối cùng",
+     "text": "Bạn mất khi đang đứng gác. Người ta để nguyên tấm khiên của bạn ở chỗ ấy, và Cổng Sắt có thêm một bức tượng.",
+     "effects": {
+      "fame": 15,
+      "joy": 8,
+      "flags": [
+       "dsh_end",
+       "dsh_end_statue"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsh_c5_blood",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_shield",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dsh_path_blood"
+    ],
+    "notFlags": [
+     "dsh_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Juggernaut. Hội Blood Knight muốn bạn làm Đại Kỵ Sĩ, người đặt lời thề cho thế hệ sau.",
+   "choices": [
+    {
+     "label": "Đổi lời thề thành lời thề với đồng đội",
+     "require": {
+      "flags": [
+       "dsh_blood_comrade"
+      ]
+     },
+     "text": "Thế hệ Blood Knight mới thề không bao giờ quay lưng với đồng đội. Họ vẫn chiến đấu dữ dội như xưa, nhưng chết ít hơn nhiều.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "dsh_end",
+       "dsh_end_new_oath"
+      ]
+     },
+     "moment": "Đổi lời thề Blood Knight cho thế hệ sau"
+    },
+    {
+     "label": "Giữ lời thề cũ",
+     "text": "Lời thề vẫn như ba nghìn năm. Hội Blood Knight là đội quân đáng sợ nhất Dãy Núi Răng Cưa, và nghĩa trang của họ là nghĩa trang lớn nhất.",
+     "effects": {
+      "fame": 15,
+      "joy": -4,
+      "flags": [
+       "dsh_end",
+       "dsh_end_old_oath"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsh_c5_ward",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_shield",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dsh_path_ward"
+    ],
+    "notFlags": [
+     "dsh_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Juggernaut. Mọi thương đoàn, mọi sứ giả đều muốn bạn đi cùng.",
+   "choices": [
+    {
+     "label": "Lập Hội Hộ Tống",
+     "text": "Hội của bạn hộ tống bất kỳ ai, bất kể tộc nào, với một luật duy nhất: không ai bị bỏ lại.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "dsh_end",
+       "dsh_end_guild"
+      ]
+     },
+     "moment": "Lập Hội Hộ Tống không phân biệt tộc"
+    },
+    {
+     "label": "Đi cùng những đứa trẻ mồ côi, chuyến cuối",
+     "require": {
+      "flags": [
+       "dsh_ward_children"
+      ]
+     },
+     "text": "Những đứa trẻ năm xưa giờ đã có con. Chúng mời bạn đi cùng chuyến qua đèo của con chúng, chỉ để có bạn ở đó.",
+     "effects": {
+      "fame": 10,
+      "joy": 18,
+      "flags": [
+       "dsh_end",
+       "dsh_end_children"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsh_daily_dent",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "dwarf_shield",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Khiên của bạn có thêm một vết lõm mới. Bạn đếm: ba trăm mười hai vết.",
+   "choices": [
+    {
+     "label": "Gõ phẳng nó",
+     "text": "Khiên sáng như mới. Bạn thấy nhớ vết lõm.",
+     "effects": {
+      "joy": 2
+     }
+    },
+    {
+     "label": "Để nguyên, khắc tên trận lên cạnh",
+     "text": "Mỗi vết lõm giờ có một cái tên. Tấm khiên là cuốn nhật ký của bạn.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsh_daily_war_line",
+   "races": [
+    "dwarf"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "dwarf_shield",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Hàng khiên phải đứng ba ngày không nghỉ.",
+   "choices": [
+    {
+     "label": "Thay ca với đồng đội",
+     "text": "Hàng khiên đứng vững nhờ thay nhau ngủ từng nửa canh giờ.",
+     "effects": {
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Đứng hết ba ngày",
+     "text": "Bạn không ngủ. Hàng khiên đứng vững. Bạn ngủ năm ngày sau đó.",
+     "effects": {
+      "health": -8,
+      "fame": 5,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsh_daily_old_arm",
+   "races": [
+    "dwarf"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "dwarf_shield",
+    "free": true
+   },
+   "text": "Cánh tay giữ khiên của bạn giờ đau mỗi khi trời trở lạnh.",
+   "choices": [
+    {
+     "label": "Đổi sang khiên nhẹ hơn",
+     "text": "Khiên nhẹ, nhưng bạn vẫn đứng như xưa.",
+     "effects": {
+      "joy": 3
+     }
+    },
+    {
+     "label": "Treo khiên, ngồi kể chuyện cho tân binh",
+     "text": "Tân binh nghe đến quên giờ ăn. Bạn biết mình vẫn đang giữ khiên, theo một cách khác.",
+     "effects": {
+      "joy": 8
+     }
+    }
+   ]
+  }
+ ]
+}

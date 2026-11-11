@@ -1,0 +1,953 @@
+{
+ "_note": "Tuyến truyện Master Miner (Dwarf): 5 chương theo bậc, ba đạo ở Bậc 2 (dmn_path_vein / dmn_path_deep / dmn_path_crew), nhân vật xuyên suốt bà Gunnhild 'Đèn Đá' (thợ mỏ già) và Torvi (bạn cùng ca).",
+ "origins": [],
+ "events": [
+  {
+   "id": "dmn_c1_gunnhild",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "dwarf_miner",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "dmn_met_gunnhild"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Gunnhild Đèn Đá",
+     "race": "Dwarf",
+     "position": "Thợ mỏ già một mắt của mỏ sâu"
+    }
+   ],
+   "text": "Ngày đầu xuống mỏ, bà Gunnhild, người ta gọi là “Đèn Đá”, thổi tắt ngọn đèn của bạn. Trong bóng tối tuyệt đối, bà bảo: “Nghe đi. Núi đang nói gì?”",
+   "choices": [
+    {
+     "label": "Lắng nghe",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn nghe thấy tiếng nước nhỏ giọt ở phía trái, và một tiếng rắc rất nhỏ ở phía trên. Bà Gunnhild thắp đèn, chỉ lên trần: một vết nứt mới. “Ngươi sẽ sống lâu trong nghề này.”",
+      "effects": {
+       "LUCK": 1,
+       "jobXp": 1,
+       "flags": [
+        "dmn_met_gunnhild",
+        "dmn_gunnhild_respect"
+       ]
+      },
+      "moment": "Nghe được tiếng núi nứt trong bóng tối ở ngày đầu xuống mỏ"
+     },
+     "fail": {
+      "text": "Bạn chỉ nghe thấy tim mình đập. Bà Gunnhild thắp đèn lại: “Không sao. Mất mười năm mới nghe được.”",
+      "effects": {
+       "joy": -2,
+       "flags": [
+        "dmn_met_gunnhild"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi bà làm sao nghe được",
+     "text": "Bà Gunnhild cười trong bóng tối. “Ta mất một con mắt và hai người bạn để học. Ngươi thì học từ ta, rẻ hơn nhiều.” Bà nắm tay bạn đặt lên vách đá: “Cảm nhận nó trước đã.”",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "dmn_met_gunnhild"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmn_c1_torvi",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "dwarf_miner",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "dmn_met_gunnhild"
+    ],
+    "notFlags": [
+     "dmn_met_torvi"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Torvi",
+     "race": "Dwarf",
+     "position": "Thợ mỏ cùng ca, thích hát dưới hầm"
+    }
+   ],
+   "text": "Torvi là thợ mỏ cùng ca, to gấp rưỡi bạn và cười to gấp ba. Cậu ta hát suốt lúc đào. Các thợ mỏ già bảo hát dưới hầm là gọi ma đá.",
+   "choices": [
+    {
+     "label": "Hát cùng cậu ta",
+     "text": "Hai người hát suốt ca. Không có ma đá nào đến. Nhưng cả ca đào nhanh hơn thường lệ, và mấy thợ già cũng lẩm nhẩm theo.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1,
+      "flags": [
+       "dmn_met_torvi",
+       "dmn_torvi_friend"
+      ]
+     },
+     "moment": "Hát cùng Torvi dưới hầm mỏ"
+    },
+    {
+     "label": "Bảo cậu ta im",
+     "text": "Torvi im, nhưng cả ca nặng nề hẳn. Đến chiều, cậu ta ngồi cạnh bạn ăn bánh: “Ta hát để không nghe thấy tiếng núi. Ta sợ nó.”",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "dmn_met_torvi"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmn_c2_first_cavein",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "dwarf_miner",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "dmn_first_cavein",
+     "dmn_end"
+    ]
+   },
+   "text": "Một đoạn hầm sập phía sau bạn. Ba thợ mỏ kẹt ở phía bên kia. Cột chống còn lại đang kêu răng rắc.",
+   "choices": [
+    {
+     "label": "Đào xuyên qua đống đá sập",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn đào suốt sáu canh giờ, tay rướm máu. Ba người bò ra, và cột chống sập ngay sau đó. Một thợ mỏ già băng tay cho bạn, không nói gì, nhưng từ đó cả mỏ gọi bạn bằng tên.",
+      "effects": {
+       "STR": 1,
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "dmn_first_cavein",
+        "dmn_first_saved"
+       ]
+      },
+      "moment": "Đào xuyên qua hầm sập cứu ba thợ mỏ"
+     },
+     "fail": {
+      "text": "Bạn đào được nửa đường thì cột chống gãy. Bạn bị kéo ra ngoài. Hai người sống. Một người không.",
+      "effects": {
+       "health": -10,
+       "joy": -10,
+       "flags": [
+        "dmn_first_cavein"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Gõ vào vách, tìm lối khác",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn nghe tiếng gõ đáp lại từ một hướng không ai ngờ: có một hang tự nhiên bên dưới. Ba người theo đó bò ra, không ai bị thương.",
+      "effects": {
+       "INT": 1,
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "dmn_first_cavein",
+        "dmn_first_saved"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Tiếng gõ không có hồi đáp. Bạn phải đợi đội cứu hộ, mất hai ngày.",
+      "effects": {
+       "joy": -6,
+       "flags": [
+        "dmn_first_cavein"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmn_c2_crossroads",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "dwarf_miner",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "dmn_path_vein",
+     "dmn_path_deep",
+     "dmn_path_crew",
+     "dmn_end"
+    ],
+    "flags": [
+     "dmn_met_gunnhild"
+    ]
+   },
+   "text": "Bà Gunnhild đặt ba thứ lên tảng đá cạnh lối vào mỏ: một cục quặng Tinh Bạc lấp lánh, một ngọn đèn đá chưa từng thắp, và chiếc mũ thợ mỏ cũ của bà.",
+   "choices": [
+    {
+     "label": "Cục quặng: Người Tìm Mạch",
+     "text": "Bạn sẽ đi tìm những mạch quặng mà chưa thợ mỏ nào thấy. Bà Gunnhild gật đầu: “Mạch quặng không chạy trốn. Nhưng nó cũng không tự đến.”",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "dmn_path_vein"
+      ]
+     },
+     "moment": "Chọn con đường tìm mạch Tinh Bạc"
+    },
+    {
+     "label": "Ngọn đèn: Kẻ Xuống Sâu",
+     "text": "Bạn sẽ đào xuống nơi sâu hơn bất kỳ Dwarf nào từng đến, nơi Lõi Mana kết tinh trong bóng tối. Bà Gunnhild im lặng rất lâu: “Ở dưới đó, đèn này là thứ duy nhất ngươi có.”",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "dmn_path_deep"
+      ]
+     },
+     "moment": "Nhận ngọn đèn đá, chọn đào xuống tầng sâu nhất"
+    },
+    {
+     "label": "Chiếc mũ: Đội Trưởng Ca Mỏ",
+     "text": "Bạn đội chiếc mũ cũ của bà. Từ nay, bạn sẽ dẫn một ca mỏ, và mỗi người trong đó đều phải trở về.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "dmn_path_crew"
+      ]
+     },
+     "moment": "Đội mũ của bà Gunnhild, nhận dẫn một ca mỏ"
+    }
+   ]
+  },
+  {
+   "id": "dmn_vein_claim",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_miner",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dmn_path_vein"
+    ],
+    "notFlags": [
+     "dmn_end"
+    ]
+   },
+   "text": "Bạn tìm thấy một mạch Tinh Bạc lớn nằm ngay dưới ranh giới giữa hai gia tộc. Ai giữ bản đồ, người đó quyết định mạch thuộc về ai.",
+   "choices": [
+    {
+     "label": "Báo cho cả hai gia tộc cùng lúc",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Hai gia tộc định đánh nhau, rồi đồng ý cùng khai thác. Mạch quặng nuôi cả hai suốt ba thế hệ, và họ gọi nó theo tên bạn.",
+      "effects": {
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "dmn_vein_shared"
+       ]
+      },
+      "moment": "Chia mạch Tinh Bạc giữa hai gia tộc thay vì để họ tranh nhau"
+     },
+     "fail": {
+      "text": "Hai gia tộc đánh nhau ngay trong hầm. Mạch quặng bị bỏ hoang mười năm.",
+      "effects": {
+       "fame": -4,
+       "joy": -6
+      }
+     }
+    },
+    {
+     "label": "Bán bản đồ cho gia tộc trả giá cao hơn",
+     "text": "Bạn giàu lên. Gia tộc kia không bao giờ thuê bạn nữa.",
+     "effects": {
+      "wealth": 25,
+      "wealthKind": "windfall",
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmn_vein_false",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_miner",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dmn_path_vein"
+    ],
+    "notFlags": [
+     "dmn_end"
+    ]
+   },
+   "text": "Một mạch quặng bạn tìm ra hóa ra chỉ là quặng giả, lớp vỏ Tinh Bạc mỏng phủ trên đá thường. Gia tộc đã đầu tư cả mùa đào vào đó.",
+   "choices": [
+    {
+     "label": "Thừa nhận ngay",
+     "text": "Gia tộc mất một mùa, nhưng không mất thêm. Họ vẫn thuê bạn, vì bạn là người duy nhất dám nói.",
+     "effects": {
+      "fame": 4,
+      "wealth": -5,
+      "jobXp": 3,
+      "flags": [
+       "dmn_vein_honest"
+      ]
+     }
+    },
+    {
+     "label": "Đào sâu thêm, có thể bên dưới có thật",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Ba mươi bước dưới lớp vỏ giả, một mạch thật lóe sáng. Gia tộc gọi bạn là “Người Nghe Quặng”.",
+      "effects": {
+       "LUCK": 1,
+       "fame": 6,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Bên dưới chỉ có đá. Gia tộc mất hai mùa, và tên bạn bị gạch khỏi sổ.",
+      "effects": {
+       "fame": -6,
+       "joy": -6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmn_deep_light",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_miner",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dmn_path_deep"
+    ],
+    "notFlags": [
+     "dmn_end"
+    ]
+   },
+   "text": "Ở tầng sâu nhất từng được đào, bạn thấy những tinh thể Lõi Mana tự phát sáng, và giữa chúng là những dấu vết như bàn chân, không phải của Dwarf.",
+   "choices": [
+    {
+     "label": "Lần theo dấu chân",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Dấu chân dẫn đến một hang nơi những sinh vật nhỏ không mắt đang chăm sóc tinh thể như chăm vườn. Chúng không tấn công bạn. Bạn rời đi, và không ghi hang ấy vào bản đồ.",
+      "effects": {
+       "LUCK": 1,
+       "joy": 8,
+       "jobXp": 3,
+       "flags": [
+        "dmn_deep_gardeners"
+       ]
+      },
+      "moment": "Tìm thấy những người làm vườn tinh thể không mắt dưới đáy núi"
+     },
+     "fail": {
+      "text": "Bạn lạc đường. Hai ngày sau mới tìm được lối về, ngọn đèn gần cạn.",
+      "effects": {
+       "health": -8
+      }
+     }
+    },
+    {
+     "label": "Ghi lại, báo cho Hội đồng",
+     "text": "Hội đồng cử binh lính xuống. Họ không tìm thấy gì ngoài những tinh thể bị bẻ gãy.",
+     "effects": {
+      "fame": 3,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmn_deep_gas",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_miner",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dmn_path_deep"
+    ],
+    "notFlags": [
+     "dmn_end"
+    ]
+   },
+   "text": "Khí độc. Ngọn đèn đá của bạn chập chờn màu xanh, dấu hiệu khí Mana đậm đặc. Một bước nữa là đến mạch Lõi Mana lớn nhất bạn từng thấy.",
+   "choices": [
+    {
+     "label": "Quay lại",
+     "text": "Bạn sống. Ba năm sau, khí tan đi, và bạn quay lại. Mạch Lõi Mana vẫn ở đó.",
+     "effects": {
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Nín thở, bước thêm một bước",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đục được một tảng Lõi Mana to bằng đầu người trước khi phổi bỏng rát. Cả mỏ ăn mừng ba ngày.",
+      "effects": {
+       "wealth": 20,
+       "fame": 5,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Bạn ngã gục. Ai đó kéo bạn ra. Ngực bạn khò khè suốt mấy năm sau.",
+      "effects": {
+       "health": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmn_crew_quota",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_miner",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dmn_path_crew"
+    ],
+    "notFlags": [
+     "dmn_end"
+    ]
+   },
+   "text": "Hội đồng tăng chỉ tiêu quặng gấp đôi. Ca của bạn sẽ phải đào cả đêm, trong những đoạn hầm chưa kịp chống.",
+   "choices": [
+    {
+     "label": "Từ chối, giữ giờ đào an toàn",
+     "text": "Ca của bạn bị phạt một tháng lương. Nhưng mùa ấy, ba ca khác có người chết. Ca của bạn thì không.",
+     "effects": {
+      "wealth": -8,
+      "fame": 5,
+      "jobXp": 3,
+      "flags": [
+       "dmn_crew_safe"
+      ]
+     },
+     "moment": "Từ chối chỉ tiêu, giữ ca mỏ an toàn"
+    },
+    {
+     "label": "Đào, nhưng tự đi đầu",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đi đầu mọi đoạn hầm nguy hiểm. Đủ chỉ tiêu. Không ai chết. Bạn ngủ suốt ba ngày sau đó.",
+      "effects": {
+       "STR": 1,
+       "wealth": 8,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Hầm sập trên đầu bạn. Ca của bạn kéo bạn ra. Bạn nằm liệt một mùa.",
+      "effects": {
+       "health": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmn_crew_torvi",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_miner",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dmn_path_crew",
+     "dmn_met_torvi"
+    ],
+    "notFlags": [
+     "dmn_end"
+    ]
+   },
+   "text": "Torvi không hát nữa. Từ sau lần hầm sập năm ngoái, cậu ta xuống mỏ là run tay.",
+   "choices": [
+    {
+     "label": "Đưa cậu ta lên làm việc trên mặt đất",
+     "text": "Torvi buồn, nhưng nhận lời. Cậu ta trở thành người phân loại quặng giỏi nhất mỏ, và lại bắt đầu hát.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "dmn_torvi_up"
+      ]
+     }
+    },
+    {
+     "label": "Đi cạnh cậu ta mỗi ca",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Một tháng sau, Torvi hát lại, khẽ thôi. Rồi to dần. Đến cuối mùa, cả ca hát theo.",
+      "effects": {
+       "joy": 10,
+       "jobXp": 3,
+       "flags": [
+        "dmn_torvi_sing"
+       ]
+      },
+      "moment": "Giúp Torvi hát lại dưới hầm mỏ"
+     },
+     "fail": {
+      "text": "Torvi ngất xỉu giữa ca. Cậu ta bỏ nghề mỏ.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmn_c4_gunnhild",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_miner",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dmn_met_gunnhild"
+    ],
+    "notFlags": [
+     "dmn_gunnhild_gone",
+     "dmn_end"
+    ]
+   },
+   "text": "Bà Gunnhild muốn xuống mỏ lần cuối cùng. Bà không đi nổi nữa, và bà muốn bạn cõng bà xuống.",
+   "choices": [
+    {
+     "label": "Cõng bà xuống",
+     "text": "Ở đáy hầm, bà bảo bạn thổi tắt đèn. Trong bóng tối, bà nói: “Nghe đi. Núi đang nói gì?” Lần này bạn nghe thấy mọi thứ. Bà mất trên đường lên, trên lưng bạn.",
+     "effects": {
+      "joy": -4,
+      "LUCK": 1,
+      "jobXp": 3,
+      "flags": [
+       "dmn_gunnhild_gone"
+      ]
+     },
+     "moment": "Cõng bà Gunnhild xuống mỏ lần cuối"
+    },
+    {
+     "label": "Từ chối, sợ bà không chịu nổi",
+     "text": "Bà Gunnhild giận bạn cả tháng, rồi mất trên giường. Bạn mang chiếc đèn của bà xuống mỏ, đặt ở đoạn hầm sâu nhất.",
+     "effects": {
+      "joy": -10,
+      "jobXp": 3,
+      "flags": [
+       "dmn_gunnhild_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmn_c4_quake",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_miner",
+    "free": true,
+    "jobRank": 3,
+    "notFlags": [
+     "dmn_end"
+    ]
+   },
+   "text": "Động đất. Toàn bộ mỏ sâu rung chuyển. Hai trăm thợ mỏ đang ở dưới, và lối ra chính đã sập.",
+   "choices": [
+    {
+     "label": "Dẫn mọi người qua những hầm cũ",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn nhớ từng hầm cũ đã bỏ hoang. Hai trăm người theo bạn, nối đuôi trong bóng tối, và ra được ở sườn núi bên kia lúc bình minh.",
+      "effects": {
+       "INT": 1,
+       "fame": 12,
+       "jobXp": 3,
+       "flags": [
+        "dmn_quake_saved"
+       ]
+      },
+      "moment": "Dẫn hai trăm thợ mỏ thoát ra qua những hầm bỏ hoang trong động đất"
+     },
+     "fail": {
+      "text": "Bạn dẫn họ ra được, nhưng một đoạn hầm cũ sập trên đầu đoàn. Mười người không về.",
+      "effects": {
+       "joy": -12,
+       "fame": 4
+      }
+     }
+    },
+    {
+     "label": "Ở lại chống trần cho người khác chạy",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn giữ cột chống bằng lưng cho đến khi người cuối cùng chạy qua. Bạn ra cuối cùng, gãy ba xương sườn.",
+      "effects": {
+       "health": -15,
+       "fame": 12,
+       "jobXp": 3,
+       "flags": [
+        "dmn_quake_saved"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Cột gãy. Bạn bị vùi hai ngày trước khi được đào lên.",
+      "effects": {
+       "health": -25,
+       "fame": 6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmn_c5_vein",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_miner",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dmn_path_vein"
+    ],
+    "notFlags": [
+     "dmn_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Lord of the Deep. Bản đồ mạch quặng của bạn giờ phủ cả Dãy Núi Răng Cưa.",
+   "choices": [
+    {
+     "label": "Công bố bản đồ cho mọi gia tộc",
+     "text": "Không còn gia tộc nào giữ bí mật mạch quặng. Chiến tranh giữa các gia tộc vì quặng giảm đi một nửa trong trăm năm sau.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "dmn_end",
+       "dmn_end_open_map"
+      ]
+     },
+     "moment": "Công bố bản đồ mạch quặng cho mọi gia tộc"
+    },
+    {
+     "label": "Đặt tên mạch lớn nhất theo tên hai gia tộc",
+     "require": {
+      "flags": [
+       "dmn_vein_shared"
+      ]
+     },
+     "text": "Mạch quặng ở ranh giới giờ mang tên của cả hai gia tộc. Con cháu họ cưới nhau.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "dmn_end",
+       "dmn_end_two_names"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmn_c5_deep",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_miner",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dmn_path_deep"
+    ],
+    "notFlags": [
+     "dmn_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Lord of the Deep. Bạn đã xuống sâu hơn mọi Dwarf từng xuống.",
+   "choices": [
+    {
+     "label": "Phong ấn tầng sâu nhất",
+     "require": {
+      "flags": [
+       "dmn_deep_gardeners"
+      ]
+     },
+     "text": "Bạn khắc dấu cấm ở lối xuống hang của những người làm vườn tinh thể. Không ai biết vì sao. Họ chỉ biết đó là lệnh của Lord of the Deep.",
+     "effects": {
+      "fame": 10,
+      "joy": 15,
+      "flags": [
+       "dmn_end",
+       "dmn_end_sealed"
+      ]
+     },
+     "moment": "Phong ấn tầng sâu nhất để bảo vệ những người làm vườn tinh thể"
+    },
+    {
+     "label": "Mở đường cho thế hệ sau xuống",
+     "text": "Bạn dựng một chuỗi trạm nghỉ dọc đường xuống tầng sâu. Lõi Mana từ đó nuôi cả các thành trì Dwarf.",
+     "effects": {
+      "fame": 15,
+      "wealth": 20,
+      "flags": [
+       "dmn_end",
+       "dmn_end_road"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmn_c5_crew",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_miner",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dmn_path_crew"
+    ],
+    "notFlags": [
+     "dmn_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Lord of the Deep. Hơn một trăm năm dẫn ca, chưa thợ mỏ nào của bạn chết dưới hầm.",
+   "choices": [
+    {
+     "label": "Viết luật an toàn mỏ",
+     "text": "Luật của bạn được khắc ở cửa mọi mỏ trong Dãy Núi Răng Cưa. Dòng đầu tiên: “Mỗi người xuống, mỗi người lên.”",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "dmn_end",
+       "dmn_end_law"
+      ]
+     },
+     "moment": "Viết luật an toàn mỏ cho cả Dãy Núi Răng Cưa"
+    },
+    {
+     "label": "Trao mũ cho Torvi",
+     "require": {
+      "flags": [
+       "dmn_torvi_sing"
+      ]
+     },
+     "text": "Torvi đội chiếc mũ cũ của bà Gunnhild, và ca mỏ của cậu ta là ca duy nhất hát dưới hầm.",
+     "effects": {
+      "fame": 10,
+      "joy": 18,
+      "flags": [
+       "dmn_end",
+       "dmn_end_torvi"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmn_daily_canary",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "dwarf_miner",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một chú chim hoàng yến được mang xuống mỏ để báo khí độc. Nó đã sống ba năm dưới hầm, và cả ca thương nó.",
+   "choices": [
+    {
+     "label": "Đặt tên cho nó",
+     "text": "Cả ca gọi nó là “Bà Chủ”. Nó hót mỗi khi có người xuống ca.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Thả nó lên trời",
+     "text": "Bạn mang nó lên đỉnh núi và mở lồng. Nó bay vòng ba lần, rồi đậu lại trên mũ bạn.",
+     "effects": {
+      "joy": 8
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmn_daily_war_ore",
+   "races": [
+    "dwarf"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "dwarf_miner",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Quân đội cần sắt, và cần ngay.",
+   "choices": [
+    {
+     "label": "Đào cả đêm",
+     "text": "Sắt đủ cho ba quân đoàn. Ca của bạn kiệt sức.",
+     "effects": {
+      "wealth": 10,
+      "health": -5,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Đào đủ, không hơn",
+     "text": "Quân đội càu nhàu. Ca của bạn còn sức cho cả mùa.",
+     "effects": {
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmn_daily_old_ears",
+   "races": [
+    "dwarf"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "dwarf_miner",
+    "free": true
+   },
+   "text": "Tai bạn kém dần. Tiếng núi giờ chỉ là tiếng ù.",
+   "choices": [
+    {
+     "label": "Đặt tay lên vách thay cho tai",
+     "text": "Bạn vẫn cảm được núi rung. Có những thứ không cần nghe.",
+     "effects": {
+      "LUCK": 1
+     }
+    },
+    {
+     "label": "Nhờ học trò nghe thay",
+     "text": "Học trò của bạn nghe, rồi kể lại. Bạn mỉm cười khi nó nói đúng.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  }
+ ]
+}

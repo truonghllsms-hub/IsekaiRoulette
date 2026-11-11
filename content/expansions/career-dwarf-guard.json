@@ -1,0 +1,954 @@
+{
+ "_note": "Tuyến truyện Mountain Guard (Dwarf): 5 chương theo bậc, ba đạo ở Bậc 2 (dgd_path_peak / dgd_path_pass / dgd_path_hunt), nhân vật xuyên suốt trung sĩ Halvard (lính gác già ở tháp Đỉnh Tuyết) và Kiri (trinh sát Beastman tộc Sói).",
+ "origins": [],
+ "events": [
+  {
+   "id": "dgd_c1_halvard",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "dwarf_guard",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "dgd_met_halvard"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Halvard",
+     "race": "Dwarf",
+     "position": "Trung sĩ gác tháp Đỉnh Tuyết"
+    }
+   ],
+   "text": "Tháp Đỉnh Tuyết là tháp canh cao nhất Dãy Núi Răng Cưa. Trung sĩ Halvard đã gác ở đây sáu mươi năm. Ông đưa bạn lên đỉnh tháp lúc nửa đêm, chỉ vào màn tuyết: “Nhìn đi. Kể cho ta những gì ngươi thấy.”",
+   "choices": [
+    {
+     "label": "Nhìn thật lâu, kể từng thứ",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn kể: ba ngọn lửa trại ở thung lũng phía nam, một đàn dê núi trên sườn đông, và một vệt tối di chuyển ngược gió. Halvard gật đầu: “Cái cuối cùng là thứ quan trọng.” Đó là một con gấu tuyết. Ông ghi tên bạn vào sổ gác.",
+      "effects": {
+       "LUCK": 1,
+       "jobXp": 1,
+       "flags": [
+        "dgd_met_halvard",
+        "dgd_halvard_respect"
+       ]
+      },
+      "moment": "Nhìn thấy vệt tối ngược gió trong đêm gác đầu tiên ở tháp Đỉnh Tuyết"
+     },
+     "fail": {
+      "text": "Bạn chỉ thấy tuyết. Halvard đưa bạn tấm chăn: “Không sao. Mắt cần thời gian để học cách nhìn bóng tối.”",
+      "effects": {
+       "joy": -2,
+       "flags": [
+        "dgd_met_halvard"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi ông thấy gì",
+     "text": "Halvard im lặng một lúc. “Ta thấy một đứa nhóc chưa biết nhìn, nhưng biết hỏi. Thế cũng tốt.” Ông chỉ cho bạn từng ngọn đồi, từng khe núi, và tên của chúng.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "dgd_met_halvard"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dgd_c1_kiri",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "dwarf_guard",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "dgd_met_halvard"
+    ],
+    "notFlags": [
+     "dgd_met_kiri"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Kiri",
+     "race": "Beastman",
+     "position": "Trinh sát tộc Sói chạy trốn từ phương bắc"
+    }
+   ],
+   "text": "Một Beastman tộc Sói bị bắt khi vượt biên giới vào lãnh thổ Dwarf. Cô tên là Kiri, một trinh sát của bộ lạc phía bắc, và nói rằng cô đang chạy trốn một thứ gì đó tồi tệ hơn lính gác Dwarf.",
+   "choices": [
+    {
+     "label": "Nghe cô kể",
+     "text": "Kiri kể về những bóng đen biết đi từ phía bắc, đã ăn cả bộ lạc cô. Bạn báo cáo lên trên. Không ai tin. Bạn thì tin.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "dgd_met_kiri",
+       "dgd_kiri_trust"
+      ]
+     },
+     "moment": "Lắng nghe trinh sát Beastman Kiri kể về bóng đen phương bắc"
+    },
+    {
+     "label": "Giải cô về trại giam theo luật",
+     "text": "Kiri không chống cự. Ở cổng trại, cô nói: “Khi chúng đến, ngươi sẽ nhớ ta.”",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "dgd_met_kiri"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dgd_c2_first_alarm",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "dwarf_guard",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "dgd_first_alarm",
+     "dgd_end"
+    ]
+   },
+   "text": "Đêm gác thứ một trăm của bạn. Bạn thấy những ngọn đuốc di chuyển trên đèo. Có thể là quân địch. Có thể là thương đoàn lạc đường. Đánh chuông báo động sẽ đánh thức cả thành trì.",
+   "choices": [
+    {
+     "label": "Đánh chuông",
+     "text": "Cả thành trì bật dậy, vũ khí trong tay. Đó là một thương đoàn lạc đường. Người ta càu nhàu cả tuần. Nhưng một lính gác già nói nhỏ với bạn: “Đánh nhầm trăm lần còn hơn im lặng một lần.”",
+     "effects": {
+      "fame": -2,
+      "jobXp": 2,
+      "flags": [
+       "dgd_first_alarm",
+       "dgd_first_rang"
+      ]
+     }
+    },
+    {
+     "label": "Xuống đèo xem trước",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn bò qua tuyết, đến đủ gần để thấy: quân địch, ba trăm tên. Bạn chạy về đánh chuông. Thành trì có thêm nửa canh giờ chuẩn bị, và nửa canh giờ ấy cứu được cổng thành.",
+      "effects": {
+       "AGI": 1,
+       "fame": 6,
+       "jobXp": 2,
+       "flags": [
+        "dgd_first_alarm",
+        "dgd_first_scout"
+       ]
+      },
+      "moment": "Do thám đèo và báo động kịp lúc quân địch kéo đến"
+     },
+     "fail": {
+      "text": "Bạn bị phát hiện, và phải chạy về trong mưa tên. Chuông đánh muộn.",
+      "effects": {
+       "health": -10,
+       "flags": [
+        "dgd_first_alarm"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dgd_c2_crossroads",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "dwarf_guard",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "dgd_path_peak",
+     "dgd_path_pass",
+     "dgd_path_hunt",
+     "dgd_end"
+    ]
+   },
+   "text": "Sau mười năm gác, bạn được chọn. Ba vị trí đang chờ: lính gác đỉnh tháp, người chỉ được nhìn và báo; đội trưởng gác đèo, người quyết định ai được qua; và thợ săn quái vật trên núi, người đi tìm nguy hiểm trước khi nó tìm đến thành trì.",
+   "choices": [
+    {
+     "label": "Đỉnh tháp: Mắt Của Núi",
+     "text": "Bạn lên tháp cao nhất, nơi gió thổi buốt xương và tầm nhìn xa cả trăm dặm. Bạn sẽ là đôi mắt của Dãy Núi Răng Cưa.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "dgd_path_peak"
+      ]
+     },
+     "moment": "Lên gác đỉnh tháp cao nhất Dãy Núi Răng Cưa"
+    },
+    {
+     "label": "Gác đèo: Người Giữ Cổng",
+     "text": "Bạn nhận chìa khóa cổng đèo. Từ nay, mỗi thương nhân, mỗi người tị nạn, mỗi kẻ lạ đều phải qua bạn.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "dgd_path_pass"
+      ]
+     },
+     "moment": "Nhận chìa khóa cổng đèo"
+    },
+    {
+     "label": "Săn quái vật: Sói Núi",
+     "text": "Bạn sẽ không đứng chờ. Bạn sẽ đi săn những thứ đang rình rập trên núi: gấu tuyết, Troll, và những thứ không có tên.",
+     "effects": {
+      "STR": 1,
+      "AGI": 1,
+      "jobXp": 2,
+      "flags": [
+       "dgd_path_hunt"
+      ]
+     },
+     "moment": "Chọn đi săn quái vật trên núi"
+    }
+   ]
+  },
+  {
+   "id": "dgd_peak_signal",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_guard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dgd_path_peak"
+    ],
+    "notFlags": [
+     "dgd_end"
+    ]
+   },
+   "text": "Từ đỉnh tháp, bạn thấy khói hiệu từ một tháp canh xa, báo động nguy hiểm. Nhưng tháp ấy đã bỏ hoang từ hai mươi năm trước.",
+   "choices": [
+    {
+     "label": "Báo động toàn tuyến",
+     "text": "Mọi thành trì chuẩn bị. Không có quân địch nào đến. Một tuần sau, người ta tìm thấy một nhóm thợ mỏ lạc đường đã đốt lửa trong tháp hoang để cầu cứu. Họ sống nhờ bạn.",
+     "effects": {
+      "fame": 6,
+      "jobXp": 3,
+      "flags": [
+       "dgd_peak_rescue"
+      ]
+     }
+    },
+    {
+     "label": "Tự đi đến tháp hoang",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Ba ngày leo núi. Trong tháp, bạn tìm thấy năm thợ mỏ lạc đường, gần chết cóng. Bạn đưa họ về từng người một.",
+      "effects": {
+       "STR": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "dgd_peak_rescue"
+       ]
+      },
+      "moment": "Leo ba ngày đến tháp canh bỏ hoang cứu năm thợ mỏ lạc đường"
+     },
+     "fail": {
+      "text": "Bão tuyết chặn đường. Bạn phải quay lại. Khi đội cứu hộ đến, chỉ còn hai người sống.",
+      "effects": {
+       "health": -8,
+       "joy": -8
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dgd_peak_alone",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_guard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dgd_path_peak"
+    ],
+    "notFlags": [
+     "dgd_end"
+    ]
+   },
+   "text": "Năm thứ ba một mình trên đỉnh tháp. Bạn bắt đầu nói chuyện với lũ quạ.",
+   "choices": [
+    {
+     "label": "Xin đổi ca",
+     "text": "Bạn xuống núi một mùa, ăn bánh nóng, nghe tiếng người. Khi quay lại, lũ quạ vẫn chờ.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Dạy lũ quạ mang tin",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Đến cuối năm, ba con quạ biết bay xuống thành trì khi bạn thả dải vải đỏ. Tháp Đỉnh Tuyết có hệ thống báo tin nhanh nhất Dãy Núi Răng Cưa.",
+      "effects": {
+       "LUCK": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "dgd_peak_ravens"
+       ]
+      },
+      "moment": "Dạy lũ quạ mang tin từ đỉnh tháp xuống thành trì"
+     },
+     "fail": {
+      "text": "Lũ quạ ăn dải vải đỏ. Bạn cười một mình suốt buổi chiều.",
+      "effects": {
+       "joy": 4
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dgd_pass_refugees",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_guard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dgd_path_pass"
+    ],
+    "notFlags": [
+     "dgd_end"
+    ]
+   },
+   "text": "Một đoàn người tị nạn Human đến cổng đèo giữa bão tuyết. Lệnh của Hội đồng: không ai được qua khi chưa kiểm tra giấy tờ. Họ không có giấy tờ.",
+   "choices": [
+    {
+     "label": "Mở cổng, chịu phạt sau",
+     "text": "Hội đồng phạt bạn một năm lương. Những người tị nạn sống qua mùa đông trong hang ngay sau cổng. Mùa xuân, họ đi tiếp, và để lại một tấm bia gỗ khắc tên bạn.",
+     "effects": {
+      "wealth": -15,
+      "fame": 6,
+      "jobXp": 3,
+      "flags": [
+       "dgd_pass_open"
+      ]
+     },
+     "moment": "Mở cổng đèo cho người tị nạn giữa bão tuyết"
+    },
+    {
+     "label": "Cho họ trú trong trạm gác, cổng vẫn đóng",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Trạm gác chật ních người, nhưng cổng vẫn đóng, luật vẫn giữ. Hội đồng không phạt được bạn. Họ cũng không cảm ơn.",
+      "effects": {
+       "INT": 1,
+       "joy": 6,
+       "jobXp": 3,
+       "flags": [
+        "dgd_pass_open"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Trạm gác quá nhỏ. Một nửa phải ngủ ngoài trời.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dgd_pass_smuggler",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_guard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dgd_path_pass"
+    ],
+    "notFlags": [
+     "dgd_end"
+    ]
+   },
+   "text": "Một thương nhân quen mặt đi qua cổng mỗi tháng. Lần này, bạn ngửi thấy mùi thuốc súng từ xe hàng của hắn. Hắn nhét vào tay bạn một túi Tinh Bạc.",
+   "choices": [
+    {
+     "label": "Trả lại túi, khám xe",
+     "text": "Thuốc súng đủ làm nổ một nửa thành trì. Hắn bị bắt. Bạn không bao giờ biết hắn định làm gì với nó.",
+     "effects": {
+      "fame": 8,
+      "jobXp": 3,
+      "flags": [
+       "dgd_pass_honest"
+      ]
+     }
+    },
+    {
+     "label": "Nhận túi, cho qua, rồi báo cáo bí mật",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Lính theo dõi hắn đến tận kho của một băng nhóm lớn. Cả băng bị bắt. Bạn trả lại túi Tinh Bạc cho Hội đồng.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "dgd_pass_honest"
+       ]
+      },
+      "moment": "Lần theo một kẻ buôn lậu thuốc súng đến tận sào huyệt"
+     },
+     "fail": {
+      "text": "Hắn cắt đuôi được lính theo dõi. Người ta thấy bạn nhận túi.",
+      "effects": {
+       "fame": -8
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dgd_hunt_troll",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_guard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dgd_path_hunt"
+    ],
+    "notFlags": [
+     "dgd_end"
+    ]
+   },
+   "text": "Một con Troll núi đang giết dê của các làng dưới chân núi. Dấu chân của nó dẫn về một hang. Bên trong hang có tiếng kêu của Troll con.",
+   "choices": [
+    {
+     "label": "Giết cả mẹ lẫn con",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Làng dưới núi an toàn. Bạn mang về đầu Troll mẹ. Tiếng kêu của Troll con theo bạn nhiều đêm.",
+      "effects": {
+       "fame": 8,
+       "joy": -6,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Troll mẹ mạnh hơn bạn tưởng. Bạn thoát được, gãy hai xương sườn.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Dụ Troll mẹ dời hang sang núi bên kia",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn dùng xác dê làm mồi, dẫn đường cho nó suốt một tuần. Troll mẹ và con dọn sang núi hoang. Làng không mất thêm con dê nào.",
+      "effects": {
+       "INT": 1,
+       "joy": 8,
+       "jobXp": 3,
+       "flags": [
+        "dgd_hunt_mercy"
+       ]
+      },
+      "moment": "Dụ một Troll mẹ và con dời sang núi hoang"
+     },
+     "fail": {
+      "text": "Troll mẹ không theo. Nó tấn công làng lần nữa.",
+      "effects": {
+       "fame": -4
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dgd_hunt_shadow",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_guard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dgd_path_hunt"
+    ],
+    "notFlags": [
+     "dgd_end"
+    ]
+   },
+   "text": "Trên tuyết, bạn thấy những dấu chân không giống loài nào: dài, mảnh, và không có hơi ấm. Chúng đi từ phía bắc.",
+   "choices": [
+    {
+     "label": "Lần theo",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn thấy chúng: những bóng đen biết đi, gầy như cành cây chết. Chúng chưa thấy bạn. Bạn về báo cáo, và lần này Hội đồng tin.",
+      "effects": {
+       "AGI": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "dgd_hunt_shadows"
+       ]
+      },
+      "moment": "Tận mắt thấy những bóng đen biết đi từ phương bắc"
+     },
+     "fail": {
+      "text": "Dấu chân biến mất giữa một khoảng tuyết trơn. Bạn cảm thấy có thứ gì đó đang nhìn mình.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    },
+    {
+     "label": "Báo cáo ngay",
+     "text": "Hội đồng gửi thêm lính lên biên giới phía bắc. Không ai thấy gì. Nhưng dấu chân vẫn xuất hiện, mỗi mùa một gần hơn.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dgd_c4_halvard",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_guard",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dgd_met_halvard"
+    ],
+    "notFlags": [
+     "dgd_halvard_gone",
+     "dgd_end"
+    ]
+   },
+   "text": "Trung sĩ Halvard không còn leo nổi cầu thang tháp. Ông xin được gác đêm cuối cùng trên đỉnh tháp Đỉnh Tuyết.",
+   "choices": [
+    {
+     "label": "Cõng ông lên",
+     "text": "Hai người ngồi trên đỉnh tháp suốt đêm. Ông kể tên từng ngọn đồi, từng khe núi, như ngày đầu. Gần sáng, ông nói: “Giờ đến lượt ngươi kể.” Bạn kể. Ông ngủ, và không tỉnh lại.",
+     "effects": {
+      "joy": -4,
+      "LUCK": 1,
+      "jobXp": 3,
+      "flags": [
+       "dgd_halvard_gone"
+      ]
+     },
+     "moment": "Cõng trung sĩ Halvard lên gác đêm cuối cùng trên đỉnh tháp"
+    },
+    {
+     "label": "Gác thay ông, kể lại cho ông nghe sáng hôm sau",
+     "text": "Sáng hôm sau, bạn xuống kể. Ông nghe, gật đầu, và mỉm cười. Ông mất tuần sau, trong phòng gác dưới chân tháp.",
+     "effects": {
+      "joy": -8,
+      "jobXp": 3,
+      "flags": [
+       "dgd_halvard_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dgd_c4_shadows",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "dwarf_guard",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dgd_met_kiri"
+    ],
+    "notFlags": [
+     "dgd_end"
+    ]
+   },
+   "text": "Những bóng đen từ phương bắc đến, như Kiri từng nói. Hàng trăm. Chúng không sợ lửa, không sợ sắt.",
+   "choices": [
+    {
+     "label": "Tìm Kiri",
+     "require": {
+      "flags": [
+       "dgd_kiri_trust"
+      ]
+     },
+     "text": "Kiri biết điều mà không Dwarf nào biết: bóng đen sợ tiếng hú của tộc Sói. Cô đứng trên tường thành, hú suốt đêm. Bóng đen rút lui. Kiri không bao giờ nói lại được bình thường nữa, nhưng cô cười khi bạn đến thăm.",
+     "effects": {
+      "fame": 12,
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "dgd_shadows_won",
+       "dgd_kiri_hero"
+      ]
+     },
+     "moment": "Cùng Kiri đẩy lùi những bóng đen phương bắc bằng tiếng hú tộc Sói"
+    },
+    {
+     "label": "Giữ tường thành bằng mọi giá",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Ba ngày ba đêm. Khi mặt trời lên ngày thứ tư, bóng đen tan đi như sương. Tường thành vẫn đứng.",
+      "effects": {
+       "STR": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "dgd_shadows_won"
+       ]
+      },
+      "moment": "Giữ tường thành ba ngày ba đêm trước những bóng đen phương bắc"
+     },
+     "fail": {
+      "text": "Tường thành giữ được, nhưng một phần ba lính gác không trở về.",
+      "effects": {
+       "health": -15,
+       "joy": -12
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dgd_c5_peak",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_guard",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dgd_path_peak"
+    ],
+    "notFlags": [
+     "dgd_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Peak Sentinel. Từ đỉnh tháp, bạn đã thấy mọi thứ đến từ mọi hướng, hơn một trăm năm.",
+   "choices": [
+    {
+     "label": "Viết sách về cách nhìn",
+     "text": "Bạn viết về bóng tối, về tuyết, về những vệt tối ngược gió. Cuốn sách nằm ở mọi tháp canh.",
+     "effects": {
+      "fame": 15,
+      "INT": 1,
+      "flags": [
+       "dgd_end",
+       "dgd_end_book"
+      ]
+     },
+     "moment": "Viết sách dạy lính gác cách nhìn trong bóng tối"
+    },
+    {
+     "label": "Để lũ quạ lại cho người gác sau",
+     "require": {
+      "flags": [
+       "dgd_peak_ravens"
+      ]
+     },
+     "text": "Lũ quạ đã sinh sôi ba đời. Chúng vẫn bay xuống thành trì khi thấy dải vải đỏ. Người gác mới gọi chúng bằng những cái tên bạn đã đặt.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "dgd_end",
+       "dgd_end_ravens"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dgd_c5_pass",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_guard",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dgd_path_pass"
+    ],
+    "notFlags": [
+     "dgd_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Peak Sentinel. Cổng đèo của bạn là cổng duy nhất mà cả thương nhân lẫn người tị nạn đều không sợ.",
+   "choices": [
+    {
+     "label": "Viết luật mới cho cổng đèo",
+     "require": {
+      "flags": [
+       "dgd_pass_open"
+      ]
+     },
+     "text": "Luật mới: không ai bị bỏ lại ngoài cổng giữa bão tuyết, có giấy tờ hay không. Hội đồng ký, sau ba năm tranh cãi.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "dgd_end",
+       "dgd_end_storm_law"
+      ]
+     },
+     "moment": "Viết luật không bỏ ai lại ngoài cổng đèo giữa bão tuyết"
+    },
+    {
+     "label": "Trao chìa khóa cho người kế nhiệm",
+     "text": "Bạn trao chìa khóa, và dặn đúng một câu: “Nhìn vào mắt họ trước khi nhìn vào giấy tờ.”",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "dgd_end",
+       "dgd_end_key"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dgd_c5_hunt",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_guard",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dgd_path_hunt"
+    ],
+    "notFlags": [
+     "dgd_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Peak Sentinel. Không quái vật nào trên Dãy Núi Răng Cưa không biết tên bạn.",
+   "choices": [
+    {
+     "label": "Lập đội Sói Núi",
+     "text": "Bạn dạy hai mươi thợ săn trẻ. Họ không chỉ săn, họ còn biết khi nào nên tha.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "dgd_end",
+       "dgd_end_wolves"
+      ]
+     },
+     "moment": "Lập đội săn Sói Núi"
+    },
+    {
+     "label": "Đi thăm Troll con năm xưa",
+     "require": {
+      "flags": [
+       "dgd_hunt_mercy"
+      ]
+     },
+     "text": "Troll con giờ đã lớn, sống ở núi hoang. Nó nhìn bạn từ xa, và không tấn công. Bạn ngồi trên đá, ăn bánh, và nó ngồi trên đá bên kia.",
+     "effects": {
+      "fame": 10,
+      "joy": 18,
+      "flags": [
+       "dgd_end",
+       "dgd_end_troll"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dgd_daily_goat",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "dwarf_guard",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một con dê núi leo lên đỉnh tháp gác, và không chịu xuống.",
+   "choices": [
+    {
+     "label": "Để nó ở lại",
+     "text": "Con dê ở lại cả mùa đông. Nó kêu mỗi khi có người đến gần. Nó là lính gác giỏi nhất tháp.",
+     "effects": {
+      "joy": 8
+     }
+    },
+    {
+     "label": "Dụ nó xuống bằng bánh mì",
+     "text": "Nó xuống. Hôm sau nó lại leo lên.",
+     "effects": {
+      "joy": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "dgd_daily_war_watch",
+   "races": [
+    "dwarf"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "dwarf_guard",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Mọi tháp canh phải gác gấp đôi.",
+   "choices": [
+    {
+     "label": "Gác thêm ca",
+     "text": "Bạn không ngủ đủ suốt một mùa. Không có kẻ địch nào lọt qua.",
+     "effects": {
+      "health": -5,
+      "fame": 4,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Dạy tân binh gác thay",
+     "text": "Tân binh học nhanh. Một vài đứa sẽ thành lính gác giỏi.",
+     "effects": {
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "dgd_daily_old_eyes",
+   "races": [
+    "dwarf"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "dwarf_guard",
+    "free": true
+   },
+   "text": "Mắt bạn không còn thấy xa như xưa. Những ngọn lửa trại ở thung lũng giờ chỉ là những đốm mờ.",
+   "choices": [
+    {
+     "label": "Học nghe gió",
+     "text": "Gió mang theo mùi khói, tiếng dê kêu, tiếng bước chân. Bạn vẫn biết ai đang đến.",
+     "effects": {
+      "LUCK": 1
+     }
+    },
+    {
+     "label": "Nhận một đứa trẻ làm mắt",
+     "text": "Đứa trẻ kể, bạn giải thích. Hai người là một lính gác.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  }
+ ]
+}

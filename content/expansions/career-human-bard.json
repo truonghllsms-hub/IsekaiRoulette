@@ -11,7 +11,7 @@
    "require": {
     "job": "human_bard",
     "free": true,
-    "jobRankMax": 1,
+    "jobRankMax": 2,
     "notFlags": [
      "brd_met_lark"
     ]
@@ -265,6 +265,9 @@
     "notFlags": [
      "brd_first_song",
      "brd_end"
+    ],
+    "flags": [
+     "brd_met_lark"
     ]
    },
    "text": "Đã đến lúc viết bài hát của riêng bạn, bài mà Lark nói mỗi Bard chỉ có một: bài hát mà người ta sẽ nhớ khi đã quên tên người viết.",
@@ -347,6 +350,9 @@
      "brd_path_rebel",
      "brd_path_lore",
      "brd_end"
+    ],
+    "flags": [
+     "brd_met_lark"
     ]
    },
    "text": "Bài hát của bạn đã đến tai nhiều người. Một vị công tước mời bạn vào cung làm thi sĩ, lương cao, áo đẹp. Những người thợ thuộc da ở khu ổ chuột nhờ bạn viết một bài hát về họ, về những gì lãnh chúa đã làm với họ. Và Lark đưa cho bạn một cuốn sổ cũ nát: danh sách hàng trăm bài hát đã thất truyền của các tộc, mà lão chưa bao giờ đủ thời gian đi tìm.",
@@ -452,7 +458,7 @@
     },
     {
      "label": "Từ chối",
-     "text": "Công tước im lặng một lúc lâu, rồi cười. “Thi sĩ có lòng tự trọng. Hiếm đấy.” Ông ta không đuổi bạn, nhưng từ đó giao những bài ca ngợi cho Percival.",
+     "text": "Công tước im lặng một lúc lâu, rồi cười. “Thi sĩ có lòng tự trọng. Hiếm đấy.” Ông ta không đuổi bạn, nhưng từ đó giao những bài ca ngợi cho một thi sĩ khác.",
      "effects": {
       "joy": 6,
       "jobXp": 1,
@@ -963,7 +969,8 @@
      "label": "Giao việc cho Percival",
      "require": {
       "flags": [
-       "brd_percival_friend"
+       "brd_percival_friend",
+       "brd_met_percival"
       ]
      },
      "text": "Percival viết quốc ca, bạn sửa ba chỗ. Hai người cùng đứng hát nó trong lễ đăng quang, giọng hắn cao, giọng bạn trầm. Không ai biết bản quốc ca có hai tác giả.",
@@ -1211,7 +1218,10 @@
    "weight": 16,
    "require": {
     "job": "human_bard",
-    "free": true
+    "free": true,
+    "flags": [
+     "brd_met_lark"
+    ]
    },
    "text": "Giọng bạn đã khàn như giọng Lark ngày xưa. Những nốt cao không còn lên được.",
    "choices": [

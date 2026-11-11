@@ -1,0 +1,904 @@
+{
+ "_note": "Tuyến truyện Stone Carver (Dwarf): 5 chương theo bậc, ba đạo ở Bậc 2 (dcv_path_hall / dcv_path_grave / dcv_path_saga), nhân vật xuyên suốt ông Ivaldi (thợ tạc đá già) và bà Asta (góa phụ đặt tạc bia mộ).",
+ "origins": [],
+ "events": [
+  {
+   "id": "dcv_c1_ivaldi",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "dwarf_carver",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "dcv_met_ivaldi"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Ivaldi",
+     "race": "Dwarf",
+     "position": "Thợ tạc đá già ở sườn núi"
+    }
+   ],
+   "text": "Ông Ivaldi dẫn bạn đến một tảng đá thô ở sườn núi. “Ngồi đây. Nhìn nó. Khi nào thấy được thứ bên trong, gọi ta.” Ông bỏ đi, để bạn lại với tảng đá.",
+   "choices": [
+    {
+     "label": "Ngồi nhìn cho đến khi thấy",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Ba ngày sau, bạn thấy một con dê núi đang nằm ngủ, cuộn tròn trong đá. Ông Ivaldi đến, nhìn theo tay bạn chỉ, và gật đầu. “Giờ thì đục bỏ những gì không phải là con dê.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "dcv_met_ivaldi",
+        "dcv_ivaldi_respect"
+       ]
+      },
+      "moment": "Ngồi ba ngày trước tảng đá đến khi thấy con dê núi bên trong"
+     },
+     "fail": {
+      "text": "Bạn ngồi đến khi đói lả, và chỉ thấy đá. Ông Ivaldi mang bánh đến: “Không sao. Có những tảng đá không có gì bên trong.”",
+      "effects": {
+       "joy": -2,
+       "flags": [
+        "dcv_met_ivaldi"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Sờ tảng đá thay vì nhìn",
+     "text": "Bạn nhắm mắt, lần theo từng thớ đá. Có một chỗ đá mềm hơn, như một đường cong. Ông Ivaldi quay lại, thấy bạn đang áp má vào đá. Ông không nói gì, chỉ ngồi xuống bên cạnh.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "dcv_met_ivaldi",
+       "dcv_ivaldi_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dcv_c1_asta",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "dwarf_carver",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "dcv_met_ivaldi"
+    ],
+    "notFlags": [
+     "dcv_met_asta"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Asta",
+     "race": "Dwarf",
+     "position": "Góa phụ thợ mỏ đặt tạc bia"
+    }
+   ],
+   "text": "Bà Asta đến xưởng, đặt tạc một tấm bia cho chồng, chết trong một vụ sập mỏ. Bà không có tiền. Bà chỉ có một chiếc nhẫn cưới bằng sắt.",
+   "choices": [
+    {
+     "label": "Nhận tạc, không lấy nhẫn",
+     "text": "Bạn tạc bia suốt một tháng, mỗi tối sau giờ làm. Bà Asta đến xem mỗi ngày. Khi xong, bà đặt tay lên tên chồng, và nói: “Giờ ông ấy có chỗ để ta đến.”",
+     "effects": {
+      "joy": 8,
+      "jobXp": 1,
+      "flags": [
+       "dcv_met_asta",
+       "dcv_asta_friend"
+      ]
+     },
+     "moment": "Tạc bia mộ miễn phí cho bà Asta"
+    },
+    {
+     "label": "Nhận nhẫn, tạc bia đơn giản",
+     "text": "Bà Asta nhận bia, cảm ơn. Bạn giữ chiếc nhẫn sắt trong ngăn kéo. Thỉnh thoảng bạn lấy nó ra nhìn.",
+     "effects": {
+      "wealth": 2,
+      "jobXp": 1,
+      "flags": [
+       "dcv_met_asta"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dcv_c2_first_statue",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "dwarf_carver",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "dcv_first_statue",
+     "dcv_end"
+    ]
+   },
+   "text": "Tượng đầu tiên được trả tiền: tượng một Trưởng Lão cho đại sảnh gia tộc. Ông ta muốn được tạc cao hơn, gầy hơn, và trẻ hơn thực tế ba mươi năm.",
+   "choices": [
+    {
+     "label": "Tạc đúng như ông ta muốn",
+     "text": "Trưởng Lão hài lòng. Bức tượng đẹp, và không giống ông ta chút nào. Cháu ông ta đi qua đại sảnh mà không nhận ra ông nội mình.",
+     "effects": {
+      "wealth": 8,
+      "jobXp": 2,
+      "flags": [
+       "dcv_first_statue"
+      ]
+     }
+    },
+    {
+     "label": "Tạc đúng như ông ta là",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn tạc một ông già có đôi mắt mỏi và đôi tay chai sạn. Trưởng Lão giận, rồi đứng trước tượng rất lâu. “Đó là ta,” ông ta nói. Ông trả gấp đôi.",
+      "effects": {
+       "INT": 1,
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "dcv_first_statue",
+        "dcv_first_true"
+       ]
+      },
+      "moment": "Tạc tượng một Trưởng Lão đúng như ông ta là"
+     },
+     "fail": {
+      "text": "Trưởng Lão giận dữ, từ chối trả tiền, và bức tượng nằm trong xưởng bạn suốt mười năm.",
+      "effects": {
+       "wealth": -5,
+       "flags": [
+        "dcv_first_statue"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dcv_c2_crossroads",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "dwarf_carver",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "dcv_path_hall",
+     "dcv_path_grave",
+     "dcv_path_saga",
+     "dcv_end"
+    ],
+    "flags": [
+     "dcv_met_ivaldi"
+    ]
+   },
+   "text": "Ông Ivaldi đưa bạn đến ba nơi trong một ngày: đại sảnh trống của một thành trì mới, nghĩa trang dưới chân núi nơi những tấm bia đã mòn hết tên, và một vách đá dài cả dặm chưa ai chạm đục.",
+   "choices": [
+    {
+     "label": "Đại sảnh: Người Tạc Sảnh Đường",
+     "text": "Bạn sẽ tạc những đại sảnh, những cột trụ, những cổng thành, những nơi mà hàng nghìn Dwarf sẽ đi qua mỗi ngày.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "dcv_path_hall"
+      ]
+     },
+     "moment": "Chọn tạc những đại sảnh của các thành trì"
+    },
+    {
+     "label": "Nghĩa trang: Người Giữ Tên",
+     "text": "Bạn sẽ tạc bia cho người đã khuất, và khắc lại những cái tên đã mòn. Ông Ivaldi gật đầu: “Không ai trả nhiều cho nghề này. Nhưng không ai quên người làm nghề này.”",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "dcv_path_grave"
+      ]
+     },
+     "moment": "Chọn tạc bia và giữ tên cho người đã khuất"
+    },
+    {
+     "label": "Vách đá dài: Người Tạc Sử Thi",
+     "text": "Bạn sẽ tạc lịch sử Dwarf lên vách đá, từ trận chiến đầu tiên đến ngày hôm nay. Nó sẽ mất cả đời bạn, và có thể không bao giờ xong.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "dcv_path_saga"
+      ]
+     },
+     "moment": "Bắt đầu tạc sử thi Dwarf lên vách đá dài cả dặm"
+    }
+   ]
+  },
+  {
+   "id": "dcv_hall_collapse",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_carver",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dcv_path_hall"
+    ],
+    "notFlags": [
+     "dcv_end"
+    ]
+   },
+   "text": "Cột trụ bạn tạc cho đại sảnh mới có một vết nứt ẩn. Đại sảnh đã khánh thành, và hàng trăm người đi qua mỗi ngày.",
+   "choices": [
+    {
+     "label": "Báo ngay, đóng cửa đại sảnh",
+     "text": "Gia tộc mất mặt. Bạn tạc lại cột trụ, không lấy tiền. Một năm sau, đại sảnh mở cửa lại, chắc chắn hơn.",
+     "effects": {
+      "wealth": -15,
+      "fame": 4,
+      "jobXp": 3,
+      "flags": [
+       "dcv_hall_honest"
+      ]
+     },
+     "moment": "Đóng cửa đại sảnh để tạc lại cột trụ nứt"
+    },
+    {
+     "label": "Gia cố lén vào ban đêm",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn làm suốt ba đêm, chèn thép vào vết nứt. Không ai biết. Cột trụ đứng vững.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Một đêm, người gác phát hiện bạn. Tin đồn lan nhanh hơn sự thật.",
+      "effects": {
+       "fame": -8
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dcv_hall_faces",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_carver",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dcv_path_hall"
+    ],
+    "notFlags": [
+     "dcv_end"
+    ]
+   },
+   "text": "Gia tộc muốn bạn tạc khuôn mặt tổ tiên lên các cột trụ đại sảnh. Bạn đề nghị thêm khuôn mặt của những thợ mỏ, thợ rèn đã xây nên thành trì.",
+   "choices": [
+    {
+     "label": "Kiên quyết",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Gia tộc đồng ý, miễn cưỡng. Giờ đại sảnh có ba mươi khuôn mặt, và những đứa trẻ thợ mỏ thường dừng lại chỉ: “Đó là ông nội ta.”",
+      "effects": {
+       "fame": 8,
+       "joy": 8,
+       "jobXp": 3,
+       "flags": [
+        "dcv_hall_workers"
+       ]
+      },
+      "moment": "Tạc khuôn mặt của thợ mỏ và thợ rèn lên cột trụ đại sảnh"
+     },
+     "fail": {
+      "text": "Gia tộc từ chối, và thuê thợ khác.",
+      "effects": {
+       "wealth": -8
+      }
+     }
+    },
+    {
+     "label": "Tạc tổ tiên theo yêu cầu",
+     "text": "Đại sảnh uy nghi. Những khuôn mặt bằng đá nhìn xuống mọi người, không ai nhận ra họ là ai.",
+     "effects": {
+      "wealth": 10,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dcv_grave_nameless",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_carver",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dcv_path_grave"
+    ],
+    "notFlags": [
+     "dcv_end"
+    ]
+   },
+   "text": "Sau một trận chiến, năm mươi thi thể không ai nhận được chôn chung một hố. Hội đồng muốn một tấm bia ghi: “Những người vô danh.”",
+   "choices": [
+    {
+     "label": "Đi tìm tên của họ",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đi khắp các làng, hỏi ai đã mất con, mất chồng. Một năm sau, bạn khắc được bốn mươi hai cái tên. Tám cái tên còn lại, bạn khắc: “Chúng tôi vẫn đang tìm.”",
+      "effects": {
+       "fame": 8,
+       "joy": 8,
+       "jobXp": 3,
+       "flags": [
+        "dcv_grave_names"
+       ]
+      },
+      "moment": "Tìm lại tên của bốn mươi hai người lính vô danh"
+     },
+     "fail": {
+      "text": "Bạn chỉ tìm được sáu cái tên.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    },
+    {
+     "label": "Tạc tấm bia như Hội đồng muốn",
+     "text": "Tấm bia đẹp, trang nghiêm, và lặng im. Thỉnh thoảng có người đến, đặt hoa, không biết mình đang đặt cho ai.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dcv_grave_enemy",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_carver",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dcv_path_grave"
+    ],
+    "notFlags": [
+     "dcv_end"
+    ]
+   },
+   "text": "Một bà mẹ Orc đến xưởng của bạn. Con trai bà chết trong trận đánh Dwarf, chôn ở nghĩa trang Dwarf. Bà muốn một tấm bia.",
+   "choices": [
+    {
+     "label": "Tạc bia",
+     "text": "Hội đồng phản đối. Bạn tạc nó, nhỏ thôi, khắc tên bằng chữ Orc. Bà mẹ Orc ngồi bên mộ một đêm, rồi đi. Năm sau, bà quay lại.",
+     "effects": {
+      "fame": -3,
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "dcv_grave_enemy"
+      ]
+     },
+     "moment": "Tạc bia cho một người lính Orc trong nghĩa trang Dwarf"
+    },
+    {
+     "label": "Từ chối, theo luật",
+     "text": "Bà mẹ Orc gật đầu như đã đoán trước. Bà để lại một hòn đá nhỏ trên mộ con, và đi.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dcv_saga_truth",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_carver",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dcv_path_saga"
+    ],
+    "notFlags": [
+     "dcv_end"
+    ]
+   },
+   "text": "Đến đoạn sử thi về Chiến Tranh Tuyến, bạn đọc được trong thư khố rằng chính một gia tộc Dwarf đã mở cổng cho kẻ thù. Gia tộc ấy giờ là gia tộc quyền lực nhất.",
+   "choices": [
+    {
+     "label": "Tạc đúng sự thật",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Gia tộc ấy giận dữ, rồi im lặng khi Hội đồng đứng về phía bạn. Một Trưởng Lão của gia tộc ấy đến đứng trước vách đá, và cúi đầu.",
+      "effects": {
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "dcv_saga_truth"
+       ]
+      },
+      "moment": "Tạc lên vách đá sự thật về gia tộc đã mở cổng cho kẻ thù"
+     },
+     "fail": {
+      "text": "Gia tộc ấy cấm bạn đến gần vách đá suốt mười năm.",
+      "effects": {
+       "fame": -6,
+       "joy": -6
+      }
+     }
+    },
+    {
+     "label": "Bỏ qua đoạn ấy",
+     "text": "Vách đá có một khoảng trống. Người ta hỏi vì sao. Bạn nói: “Có những thứ chưa đến lúc.”",
+     "effects": {
+      "jobXp": 3,
+      "flags": [
+       "dcv_saga_gap"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dcv_saga_child",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_carver",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dcv_path_saga"
+    ],
+    "notFlags": [
+     "dcv_end"
+    ]
+   },
+   "text": "Một đứa trẻ Dwarf hỏi bạn: “Vì sao trên vách đá chỉ có chiến tranh?”",
+   "choices": [
+    {
+     "label": "Tạc thêm một đoạn về một ngày bình thường",
+     "text": "Một gia đình thợ mỏ ăn tối. Một đứa trẻ học chữ. Một bà già ru cháu. Đoạn ấy trở thành đoạn được người ta dừng lại xem lâu nhất.",
+     "effects": {
+      "joy": 10,
+      "fame": 4,
+      "jobXp": 3,
+      "flags": [
+       "dcv_saga_peace"
+      ]
+     },
+     "moment": "Tạc một ngày bình thường vào giữa sử thi chiến tranh"
+    },
+    {
+     "label": "Giải thích rằng sử thi là để nhớ",
+     "text": "Đứa trẻ gật đầu, nhưng không hiểu. Bạn nghĩ mãi về câu hỏi ấy.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dcv_c4_ivaldi",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_carver",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dcv_met_ivaldi"
+    ],
+    "notFlags": [
+     "dcv_ivaldi_gone",
+     "dcv_end"
+    ]
+   },
+   "text": "Ông Ivaldi gọi bạn đến tảng đá thô ở sườn núi, nơi ông từng bắt bạn ngồi nhìn. Ông đã tạc nó dở dang suốt năm mươi năm. “Ta không còn sức. Ngươi làm nốt.”",
+   "choices": [
+    {
+     "label": "Tạc nốt",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn tạc suốt một mùa. Khi xong, đó là khuôn mặt của ông Ivaldi khi còn trẻ, đang nhìn vào tảng đá. Ông mất trước khi bạn xong một ngày. Bạn biết ông đã thấy nó từ lâu.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "dcv_ivaldi_gone",
+        "dcv_ivaldi_statue"
+       ]
+      },
+      "moment": "Tạc nốt bức tượng dang dở năm mươi năm của ông Ivaldi"
+     },
+     "fail": {
+      "text": "Bạn tạc lệch một nét, và không thể sửa. Ông Ivaldi cười: “Đá cũng có ý của nó.” Ông mất mùa đông năm ấy.",
+      "effects": {
+       "joy": -8,
+       "flags": [
+        "dcv_ivaldi_gone"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Để nguyên, như ông đã để",
+     "text": "Bạn không chạm đục. Tảng đá vẫn dang dở. Ông Ivaldi mất, và bạn mang hoa đến tảng đá thay vì mộ ông.",
+     "effects": {
+      "joy": -10,
+      "jobXp": 3,
+      "flags": [
+       "dcv_ivaldi_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dcv_c4_asta",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_carver",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dcv_met_asta"
+    ],
+    "notFlags": [
+     "dcv_asta_gone",
+     "dcv_end"
+    ]
+   },
+   "text": "Bà Asta đã già. Bà mang đến chiếc nhẫn cưới bằng sắt, và muốn đặt tạc tấm bia cho chính mình, ngay cạnh bia chồng.",
+   "choices": [
+    {
+     "label": "Tạc hai tấm bia thành một",
+     "text": "Bạn tạc lại cả hai thành một tấm bia đôi, hai cái tên khắc cạnh nhau. Bà Asta nhìn nó, và nói: “Giờ ta không sợ nữa.” Bà mất mùa xuân năm sau.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "dcv_asta_gone"
+      ]
+     },
+     "moment": "Tạc tấm bia đôi cho bà Asta và chồng"
+    },
+    {
+     "label": "Tạc tấm bia như bà muốn",
+     "text": "Hai tấm bia đứng cạnh nhau, giống hệt nhau. Bà Asta mất mùa xuân năm sau, và chiếc nhẫn sắt được chôn cùng bà.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 3,
+      "flags": [
+       "dcv_asta_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dcv_c5_hall",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_carver",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dcv_path_hall"
+    ],
+    "notFlags": [
+     "dcv_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Monument Lord. Những đại sảnh bạn tạc đứng ở hai mươi thành trì.",
+   "choices": [
+    {
+     "label": "Tạc đại sảnh cuối cùng, cho thợ mỏ",
+     "require": {
+      "flags": [
+       "dcv_hall_workers"
+      ]
+     },
+     "text": "Đại sảnh cuối cùng không thuộc về gia tộc nào. Nó là nơi thợ mỏ nghỉ chân sau ca, với những cột trụ mang khuôn mặt của họ.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "dcv_end",
+       "dcv_end_worker_hall"
+      ]
+     },
+     "moment": "Tạc một đại sảnh dành riêng cho thợ mỏ"
+    },
+    {
+     "label": "Dạy học trò rồi nghỉ",
+     "text": "Bạn mở trường tạc đá. Hai mươi học trò, hai mươi phong cách. Bạn ngồi xem họ tạc, và thỉnh thoảng sửa một nét.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "dcv_end",
+       "dcv_end_school"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dcv_c5_grave",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_carver",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dcv_path_grave"
+    ],
+    "notFlags": [
+     "dcv_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Monument Lord. Nghĩa trang dưới chân núi không còn một tấm bia nào mòn tên.",
+   "choices": [
+    {
+     "label": "Tạc bia cho chính mình, để trống tên",
+     "text": "Bạn tạc tấm bia của mình, khắc: “Người giữ tên.” Không có tên bạn. Học trò của bạn sẽ khắc nó sau.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "dcv_end",
+       "dcv_end_own_stone"
+      ]
+     },
+     "moment": "Tạc tấm bia của chính mình và để trống tên"
+    },
+    {
+     "label": "Mở một khu nghĩa trang cho mọi tộc",
+     "require": {
+      "flags": [
+       "dcv_grave_enemy"
+      ]
+     },
+     "text": "Dưới chân núi có một khu nghĩa trang mới, nơi bia Dwarf, Orc, Human đứng cạnh nhau. Bà mẹ Orc là người đầu tiên đến thăm.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "dcv_end",
+       "dcv_end_all_graves"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dcv_c5_saga",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_carver",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dcv_path_saga"
+    ],
+    "notFlags": [
+     "dcv_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Monument Lord. Vách sử thi dài thêm nửa dặm, và vẫn chưa xong.",
+   "choices": [
+    {
+     "label": "Để lại nửa dặm vách trống",
+     "text": "Bạn đặt đục xuống, và khắc dòng cuối: “Phần còn lại là của các ngươi.”",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "dcv_end",
+       "dcv_end_open_saga"
+      ]
+     },
+     "moment": "Để lại nửa dặm vách sử thi cho thế hệ sau"
+    },
+    {
+     "label": "Lấp khoảng trống năm xưa",
+     "require": {
+      "flags": [
+       "dcv_saga_gap"
+      ]
+     },
+     "text": "Giờ đã đến lúc. Bạn tạc sự thật về Chiến Tranh Tuyến. Gia tộc ấy không phản đối nữa: họ đã đổi khác.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "dcv_end",
+       "dcv_end_filled_gap"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dcv_daily_pebble",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "dwarf_carver",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một đứa trẻ mang đến một viên sỏi, nhờ bạn tạc thành con mèo.",
+   "choices": [
+    {
+     "label": "Tạc ngay",
+     "text": "Con mèo đá bé bằng ngón tay. Đứa trẻ mang nó đi khắp nơi.",
+     "effects": {
+      "joy": 8
+     }
+    },
+    {
+     "label": "Dạy đứa trẻ tự tạc",
+     "text": "Con mèo méo mó. Đứa trẻ yêu nó hơn mọi thứ.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "dcv_daily_war_memorial",
+   "races": [
+    "dwarf"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "dwarf_carver",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Mỗi tuần lại có thêm tên để khắc lên bia tưởng niệm.",
+   "choices": [
+    {
+     "label": "Khắc từng cái tên",
+     "text": "Tay bạn mỏi. Nhưng không ai bị bỏ quên.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Nhờ học trò khắc giúp",
+     "text": "Tên được khắc đủ. Vài chữ hơi lệch, nhưng gia đình không trách.",
+     "effects": {
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "dcv_daily_old_dust",
+   "races": [
+    "dwarf"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "dwarf_carver",
+    "free": true
+   },
+   "text": "Bụi đá đã làm phổi bạn khò khè. Thầy thuốc bảo bạn ngừng tạc.",
+   "choices": [
+    {
+     "label": "Tạc ngoài trời, nơi gió thổi bụi đi",
+     "text": "Bạn dời xưởng ra sườn núi. Tượng của bạn giờ có ánh nắng.",
+     "effects": {
+      "health": 3,
+      "joy": 4
+     }
+    },
+    {
+     "label": "Chỉ tạc những thứ nhỏ",
+     "text": "Bạn tạc những con vật bé bằng bàn tay, và phát cho trẻ con trong làng.",
+     "effects": {
+      "joy": 8
+     }
+    }
+   ]
+  }
+ ]
+}

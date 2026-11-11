@@ -11,7 +11,7 @@
    "require": {
     "job": "elf_herb",
     "free": true,
-    "jobRankMax": 1,
+    "jobRankMax": 2,
     "notFlags": [
      "ehb_met_morwen"
     ]
@@ -149,6 +149,9 @@
     "notFlags": [
      "ehb_first_patient",
      "ehb_end"
+    ],
+    "flags": [
+     "ehb_met_morwen"
     ]
    },
    "text": "Bệnh nhân đầu tiên bạn chữa một mình là một đứa trẻ Elf bị rắn cắn. Bà Morwen đi vắng. Bạn có ba loại thuốc giải, và không chắc loại nào đúng.",
@@ -210,6 +213,9 @@
      "ehb_path_poison",
      "ehb_path_garden",
      "ehb_end"
+    ],
+    "flags": [
+     "ehb_met_morwen"
     ]
    },
    "text": "Bà Morwen bày ra ba thứ: một túi thuốc của người đi chữa bệnh, một cuốn sổ đen ghi những chất độc mà chỉ bà biết, và một nắm hạt giống của những loài cây đang tuyệt chủng. “Thầy thuốc giỏi phải biết cả ba. Nhưng ngươi chỉ có thể sống cả đời cho một.”",
@@ -305,7 +311,8 @@
      "label": "Gửi thuốc qua Kestrel",
      "require": {
       "flags": [
-       "ehb_kestrel_friend"
+       "ehb_kestrel_friend",
+       "ehb_met_kestrel"
       ]
      },
      "text": "Kestrel nhận thuốc ở rìa rừng mỗi đêm, mang vào thành phố. Hai người, một Elf một Human, dập tắt dịch mà không ai biết bạn đã giúp.",
@@ -504,7 +511,8 @@
      "label": "Nhờ Kestrel tra sách Human",
      "require": {
       "flags": [
-       "ehb_kestrel_friend"
+       "ehb_kestrel_friend",
+       "ehb_met_kestrel"
       ]
      },
      "text": "Kestrel tìm thấy công thức trong một cuốn sách cũ của Tháp Ngà. Hai người pha thuốc giải trong một đêm.",

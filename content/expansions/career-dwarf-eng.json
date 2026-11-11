@@ -1,0 +1,956 @@
+{
+ "_note": "Tuyến truyện Mech Engineer (Dwarf): 5 chương theo bậc, ba đạo ở Bậc 2 (deg_path_rail / deg_path_war / deg_path_golem), nhân vật xuyên suốt bà Sigrun Bánh Răng (kỹ sư già) và Edwin Cogsworth (nhà phát minh Human).",
+ "origins": [],
+ "events": [
+  {
+   "id": "deg_c1_sigrun",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "dwarf_eng",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "deg_met_sigrun"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Sigrun Bánh Răng",
+     "race": "Dwarf",
+     "position": "Kỹ sư già của xưởng hơi nước"
+    }
+   ],
+   "text": "Xưởng của bà Sigrun ồn như một trận chiến: búa hơi, bánh răng, ống đồng rít lên. Bà ném cho bạn một chiếc hộp kim loại kêu tích tắc: “Tháo nó ra. Lắp lại. Nếu còn thừa ốc, ngươi về nhà.”",
+   "choices": [
+    {
+     "label": "Vẽ sơ đồ trước khi tháo",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn vẽ từng chi tiết, đánh số từng con ốc. Lắp lại xong, chiếc hộp kêu tích tắc như cũ. Bà Sigrun gật đầu, rồi đưa bạn một chiếc hộp khác, to gấp đôi.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "deg_met_sigrun",
+        "deg_sigrun_respect"
+       ]
+      },
+      "moment": "Tháo và lắp lại chiếc hộp tích tắc của bà Sigrun không thừa một con ốc"
+     },
+     "fail": {
+      "text": "Thừa ba con ốc. Bà Sigrun nhặt chúng lên, nhìn bạn. “Ba con. Mai thử lại.”",
+      "effects": {
+       "joy": -3,
+       "flags": [
+        "deg_met_sigrun"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi bà chiếc hộp dùng để làm gì",
+     "text": "Bà Sigrun dừng tay. “Không gì cả. Nó chỉ kêu tích tắc.” Rồi bà cười: “Ngươi là đứa đầu tiên hỏi. Một kỹ sư phải biết máy để làm gì trước khi biết máy làm thế nào.”",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "deg_met_sigrun",
+       "deg_sigrun_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "deg_c1_edwin",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "dwarf_eng",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "deg_met_sigrun"
+    ],
+    "notFlags": [
+     "deg_met_edwin"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Edwin Cogsworth",
+     "race": "Human",
+     "position": "Nhà phát minh Human đến học hơi nước"
+    }
+   ],
+   "text": "Edwin Cogsworth là một nhà phát minh Human, đến Dãy Núi Răng Cưa để học về hơi nước. Ông mang theo một cỗ máy kỳ lạ: một chiếc hộp gỗ biết tính toán bằng bánh răng. Các kỹ sư Dwarf cười ông.",
+   "choices": [
+    {
+     "label": "Ngồi xem máy của ông",
+     "text": "Máy của Edwin chậm, kêu cọt kẹt, nhưng nó tính đúng. Bạn chỉ cho ông cách thay trục gỗ bằng trục đồng. Ông viết thư cảm ơn bạn suốt ba mươi năm sau.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "deg_met_edwin",
+       "deg_edwin_friend"
+      ]
+     },
+     "moment": "Giúp nhà phát minh Human Edwin Cogsworth sửa cỗ máy tính"
+    },
+    {
+     "label": "Cười theo mọi người",
+     "text": "Edwin cúi đầu, cất máy đi. Năm năm sau, ông gửi đến xưởng một cỗ máy tính bằng đồng, nhanh gấp mười. Không kèm thư.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "deg_met_edwin"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "deg_c2_first_machine",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "dwarf_eng",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "deg_first_machine",
+     "deg_end"
+    ]
+   },
+   "text": "Cỗ máy đầu tiên của bạn: một chiếc tời hơi nước kéo quặng lên từ mỏ sâu. Lần chạy thử, áp suất tăng nhanh hơn tính toán.",
+   "choices": [
+    {
+     "label": "Tắt lò ngay",
+     "text": "Máy dừng. Thợ mỏ cười chế. Bạn làm lại van an toàn, và lần thứ hai, chiếc tời kéo một tấn quặng mà không rung.",
+     "effects": {
+      "jobXp": 2,
+      "flags": [
+       "deg_first_machine",
+       "deg_first_safe"
+      ]
+     },
+     "moment": "Chạy thành công chiếc tời hơi nước đầu tiên"
+    },
+    {
+     "label": "Để máy chạy, theo dõi đồng hồ",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Áp suất dừng lại ngay dưới vạch đỏ. Chiếc tời kéo hai tấn quặng. Cả mỏ hò reo.",
+      "effects": {
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "deg_first_machine"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Van nổ. Không ai bị thương, nhưng chiếc tời văng xuống đáy mỏ.",
+      "effects": {
+       "wealth": -8,
+       "fame": -3,
+       "flags": [
+        "deg_first_machine"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "deg_c2_crossroads",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "dwarf_eng",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "deg_path_rail",
+     "deg_path_war",
+     "deg_path_golem",
+     "deg_end"
+    ],
+    "flags": [
+     "deg_met_sigrun"
+    ]
+   },
+   "text": "Bà Sigrun trải ra ba bản vẽ trên bàn: một đường ray hơi nước nối các thành trì dưới núi, một cỗ pháo hơi nước có thể bắn sập cả tường thành, và một Golem cổ đã ngừng chạy từ ba nghìn năm trước.",
+   "choices": [
+    {
+     "label": "Đường ray: Mạch Máu Dưới Núi",
+     "text": "Bạn sẽ nối mọi thành trì Dwarf bằng đường ray, để quặng, bia và người đi lại không cần qua đèo tuyết. Bà Sigrun cười: “Cả đời ta mơ thứ đó.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "deg_path_rail"
+      ]
+     },
+     "moment": "Chọn xây đường ray hơi nước dưới núi"
+    },
+    {
+     "label": "Cỗ pháo: Xưởng Chiến Cơ",
+     "text": "Bạn sẽ chế tạo vũ khí cho các quân đoàn Dwarf. Bà Sigrun im lặng rất lâu: “Ta cũng từng chế pháo. Ta đã ngừng. Ngươi sẽ tự hiểu vì sao.”",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "deg_path_war"
+      ]
+     },
+     "moment": "Chọn chế tạo chiến cơ hơi nước"
+    },
+    {
+     "label": "Golem cổ: Người Đánh Thức Golem",
+     "text": "Bạn sẽ học cách tổ tiên làm những cỗ máy biết nghĩ. Bà Sigrun đưa bạn chìa khóa hầm chứa Golem: “Cẩn thận. Có những thứ ngủ là có lý do.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "deg_path_golem"
+      ]
+     },
+     "moment": "Nhận chìa khóa hầm Golem cổ"
+    }
+   ]
+  },
+  {
+   "id": "deg_rail_tunnel",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_eng",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "deg_path_rail"
+    ],
+    "notFlags": [
+     "deg_end"
+    ]
+   },
+   "text": "Đường hầm cho tuyến ray đầu tiên phải xuyên qua một nghĩa trang cổ của gia tộc Đá Xám. Đi vòng thì mất thêm mười năm.",
+   "choices": [
+    {
+     "label": "Đi vòng",
+     "text": "Mười năm. Gia tộc Đá Xám không nói gì, nhưng khi tuyến ray khánh thành, họ là những người đầu tiên lên tàu.",
+     "effects": {
+      "fame": 6,
+      "jobXp": 3,
+      "flags": [
+       "deg_rail_respect"
+      ]
+     }
+    },
+    {
+     "label": "Thương lượng dời mộ",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Gia tộc Đá Xám đồng ý, với điều kiện mỗi chuyến tàu phải dừng một khắc ở hầm mộ mới. Tuyến ray có trạm dừng lặng lẽ nhất Dãy Núi Răng Cưa.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "deg_rail_respect"
+       ]
+      },
+      "moment": "Thương lượng dời nghĩa trang cổ để mở đường ray"
+     },
+     "fail": {
+      "text": "Gia tộc Đá Xám từ chối, và cấm người của bạn vào lãnh địa họ.",
+      "effects": {
+       "fame": -4
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "deg_rail_first_train",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_eng",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "deg_path_rail"
+    ],
+    "notFlags": [
+     "deg_end"
+    ]
+   },
+   "text": "Chuyến tàu đầu tiên. Cả thành trì ra xem. Đầu máy rít hơi, và bạn thấy một vết nứt nhỏ trên nồi hơi mà không ai khác thấy.",
+   "choices": [
+    {
+     "label": "Hoãn chuyến tàu",
+     "text": "Cả thành trì la ó. Bạn sửa nồi hơi trong một tuần. Chuyến tàu thứ hai chạy êm, và không ai nhớ chuyến bị hoãn.",
+     "effects": {
+      "fame": -2,
+      "jobXp": 3,
+      "flags": [
+       "deg_rail_careful"
+      ]
+     }
+    },
+    {
+     "label": "Cho tàu chạy, tự lái",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn lái chuyến đầu, mắt dán vào vết nứt. Nó giữ được. Cả thành trì hò reo. Đêm ấy bạn sửa nồi hơi, không ai biết.",
+      "effects": {
+       "fame": 10,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Nồi hơi xì hơi giữa đường. Không ai chết, nhưng chuyến tàu đầu tiên phải kéo về bằng dê núi.",
+      "effects": {
+       "fame": -6,
+       "health": -5
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "deg_war_test",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_eng",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "deg_path_war"
+    ],
+    "notFlags": [
+     "deg_end"
+    ]
+   },
+   "text": "Cỗ pháo hơi nước của bạn được bắn thử vào một ngọn đồi trống. Nó san phẳng cả ngọn đồi. Các tướng quân vỗ tay. Bạn thấy bàn tay mình run.",
+   "choices": [
+    {
+     "label": "Giao bản vẽ cho quân đội",
+     "text": "Quân đội đặt mười cỗ. Bạn giàu lên. Bạn không ngủ được nhiều đêm.",
+     "effects": {
+      "wealth": 20,
+      "fame": 6,
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "deg_war_built"
+      ]
+     }
+    },
+    {
+     "label": "Thêm một khóa an toàn chỉ bạn mở được",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Pháo chỉ bắn khi có lệnh của Hội đồng và chìa khóa của bạn. Các tướng quân giận, nhưng Hội đồng đồng ý.",
+      "effects": {
+       "INT": 1,
+       "fame": 4,
+       "jobXp": 3,
+       "flags": [
+        "deg_war_built",
+        "deg_war_lock"
+       ]
+      },
+      "moment": "Gắn khóa an toàn lên cỗ pháo hơi nước"
+     },
+     "fail": {
+      "text": "Khóa an toàn hỏng ngay lần thử đầu. Quân đội tháo bỏ nó.",
+      "effects": {
+       "jobXp": 3,
+       "flags": [
+        "deg_war_built"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "deg_war_spy",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_eng",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "deg_path_war"
+    ],
+    "notFlags": [
+     "deg_end"
+    ]
+   },
+   "text": "Một gián điệp của một vương quốc Human bị bắt trong xưởng của bạn, tay cầm bản vẽ pháo. Hắn còn trẻ, và đang khóc.",
+   "choices": [
+    {
+     "label": "Giao hắn cho Hội đồng",
+     "text": "Hắn bị xử theo luật Dwarf. Bản vẽ được giữ an toàn. Bạn không nhớ được tên hắn, nhưng nhớ khuôn mặt.",
+     "effects": {
+      "fame": 4,
+      "joy": -4,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Đổi bản vẽ thật lấy bản vẽ lỗi, thả hắn đi",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Vương quốc kia chế tạo theo bản vẽ lỗi. Pháo của họ nổ ngay lần thử đầu, không ai chết. Họ từ bỏ ý định.",
+      "effects": {
+       "fame": 6,
+       "joy": 6,
+       "jobXp": 3,
+       "flags": [
+        "deg_war_trick"
+       ]
+      },
+      "moment": "Thả gián điệp với bản vẽ pháo lỗi"
+     },
+     "fail": {
+      "text": "Hội đồng phát hiện ra bạn đã thả gián điệp. Bạn bị phạt nặng.",
+      "effects": {
+       "wealth": -15,
+       "fame": -6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "deg_golem_wake",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_eng",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "deg_path_golem"
+    ],
+    "notFlags": [
+     "deg_end"
+    ]
+   },
+   "text": "Golem cổ mở mắt. Đôi mắt nó sáng xanh, và nó nói một câu bằng tiếng Dwarf cổ: “Lệnh cuối cùng chưa hoàn thành.”",
+   "choices": [
+    {
+     "label": "Hỏi lệnh cuối cùng là gì",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Golem nói: “Bảo vệ đứa trẻ.” Nó không biết đứa trẻ ấy đã chết từ ba nghìn năm. Bạn nói cho nó biết. Golem im lặng rất lâu, rồi hỏi: “Vậy giờ ai cần bảo vệ?”",
+      "effects": {
+       "INT": 1,
+       "joy": 6,
+       "jobXp": 3,
+       "flags": [
+        "deg_golem_awake",
+        "deg_golem_asked"
+       ]
+      },
+      "moment": "Đánh thức một Golem cổ và nghe lệnh cuối cùng của nó"
+     },
+     "fail": {
+      "text": "Golem không hiểu tiếng Dwarf hiện đại. Nó đứng yên, lặp lại câu ấy mỗi giờ.",
+      "effects": {
+       "jobXp": 2,
+       "flags": [
+        "deg_golem_awake"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Ra lệnh mới cho nó ngay",
+     "text": "Golem làm theo, im lặng, chính xác. Nhưng đôi mắt xanh của nó thỉnh thoảng nhìn về phía cửa hầm, như đang chờ ai.",
+     "effects": {
+      "jobXp": 3,
+      "flags": [
+       "deg_golem_awake"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "deg_golem_buyer",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_eng",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "deg_path_golem",
+     "deg_golem_awake"
+    ],
+    "notFlags": [
+     "deg_end"
+    ]
+   },
+   "text": "Một quý tộc Human muốn mua Golem cổ, trả bằng số vàng đủ xây một xưởng mới. Ông ta muốn dùng nó làm vệ sĩ.",
+   "choices": [
+    {
+     "label": "Hỏi Golem",
+     "require": {
+      "flags": [
+       "deg_golem_asked"
+      ]
+     },
+     "text": "Golem nhìn quý tộc rất lâu, rồi nói: “Không.” Quý tộc bỏ đi. Bạn nhận ra mình vừa để một cỗ máy tự quyết định.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "deg_golem_free"
+      ]
+     },
+     "moment": "Để Golem cổ tự từ chối một người mua"
+    },
+    {
+     "label": "Từ chối",
+     "text": "Quý tộc bỏ đi, chửi rủa. Golem vẫn ở trong hầm, đôi mắt xanh nhìn bạn.",
+     "effects": {
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Bán",
+     "text": "Bạn có xưởng mới. Một năm sau, bạn nghe nói Golem đứng bất động trước cửa dinh thự quý tộc, không làm gì cả, cho đến khi ông ta trả nó về.",
+     "effects": {
+      "wealth": 25,
+      "wealthKind": "windfall",
+      "joy": -6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "deg_c4_sigrun",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_eng",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "deg_met_sigrun"
+    ],
+    "notFlags": [
+     "deg_sigrun_gone",
+     "deg_end"
+    ]
+   },
+   "text": "Bà Sigrun đã quá già để cầm cờ lê. Bà gọi bạn đến xưởng, và chỉ vào chiếc hộp tích tắc trên bàn: “Nó sắp dừng rồi. Ta muốn nghe nó kêu thêm một lần.”",
+   "choices": [
+    {
+     "label": "Sửa chiếc hộp",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn tháo ra, thay một chiếc lò xo đã mỏi, và lắp lại. Không thừa một con ốc. Chiếc hộp kêu tích tắc. Bà Sigrun nhắm mắt nghe, mỉm cười, và ngủ. Bà không tỉnh lại.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "deg_sigrun_gone",
+        "deg_sigrun_box"
+       ]
+      },
+      "moment": "Sửa chiếc hộp tích tắc cho bà Sigrun lần cuối"
+     },
+     "fail": {
+      "text": "Chiếc lò xo gãy. Chiếc hộp im lặng. Bà Sigrun vỗ tay bạn: “Không sao. Ta nhớ tiếng nó mà.” Bà mất ba ngày sau.",
+      "effects": {
+       "joy": -8,
+       "flags": [
+        "deg_sigrun_gone"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Ngồi cạnh bà, nghe nó kêu những tiếng cuối",
+     "text": "Chiếc hộp kêu chậm dần, chậm dần. Nó dừng lúc gần sáng. Bà Sigrun cũng vậy.",
+     "effects": {
+      "joy": -10,
+      "jobXp": 3,
+      "flags": [
+       "deg_sigrun_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "deg_c4_edwin",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_eng",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "deg_met_edwin"
+    ],
+    "notFlags": [
+     "deg_end"
+    ]
+   },
+   "text": "Một lá thư từ Sanctus: Edwin Cogsworth đã mất. Ông để lại cho bạn toàn bộ bản vẽ của mình, kèm một mảnh giấy: “Dwarf sống lâu. Hãy làm xong những gì ta chưa kịp.”",
+   "choices": [
+    {
+     "label": "Chế tạo cỗ máy cuối cùng của ông",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Đó là một cỗ máy tính lớn bằng căn phòng, chạy bằng hơi nước và bánh răng đồng. Bạn đặt tên nó là “Edwin”. Nó tính được quỹ đạo của các vì sao.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "deg_edwin_machine"
+       ]
+      },
+      "moment": "Hoàn thành cỗ máy tính cuối cùng của Edwin Cogsworth"
+     },
+     "fail": {
+      "text": "Bạn không hiểu được nửa số bản vẽ. Bạn cất chúng đi, hứa sẽ quay lại.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    },
+    {
+     "label": "Gửi bản vẽ cho học trò của ông ở Sanctus",
+     "text": "Học trò của Edwin hoàn thành cỗ máy mười năm sau. Họ gửi cho bạn bản sao đầu tiên.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "deg_c5_rail",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_eng",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "deg_path_rail"
+    ],
+    "notFlags": [
+     "deg_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Magitech Pioneer. Đường ray hơi nước nối hai mươi thành trì dưới núi.",
+   "choices": [
+    {
+     "label": "Kéo đường ray ra khỏi núi, đến các tộc khác",
+     "text": "Tuyến ray đầu tiên vượt qua Dãy Núi Răng Cưa đến Sanctus. Một số Dwarf nói đó là phản bội. Phần đông lên tàu.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "deg_end",
+       "deg_end_outward"
+      ]
+     },
+     "moment": "Kéo đường ray hơi nước ra khỏi núi đến Sanctus"
+    },
+    {
+     "label": "Đặt tên trạm đầu tiên theo tên bà Sigrun",
+     "require": {
+      "flags": [
+       "deg_met_sigrun"
+      ]
+     },
+     "text": "Trạm Sigrun có một chiếc hộp tích tắc đặt trong lồng kính ở sảnh chờ. Trẻ con thường áp tai vào nghe.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "deg_end",
+       "deg_end_sigrun_station"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "deg_c5_war",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_eng",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "deg_path_war"
+    ],
+    "notFlags": [
+     "deg_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Magitech Pioneer. Chiến cơ của bạn bảo vệ Dãy Núi Răng Cưa, và không quân đội nào dám tiến đến.",
+   "choices": [
+    {
+     "label": "Tháo dỡ cỗ pháo lớn nhất",
+     "require": {
+      "flags": [
+       "deg_war_lock"
+      ]
+     },
+     "text": "Bạn dùng chiếc chìa khóa an toàn lần cuối, khóa vĩnh viễn cỗ pháo, rồi ném chìa khóa xuống lò. Hội đồng giận. Hòa bình vẫn giữ được.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "deg_end",
+       "deg_end_disarm"
+      ]
+     },
+     "moment": "Khóa vĩnh viễn cỗ pháo lớn nhất và ném chìa khóa vào lò"
+    },
+    {
+     "label": "Tiếp tục chế tạo",
+     "text": "Xưởng của bạn là xưởng chiến cơ lớn nhất Aethelgard. Dãy Núi Răng Cưa an toàn. Bạn không biết những vương quốc khác có an toàn không.",
+     "effects": {
+      "fame": 15,
+      "wealth": 30,
+      "joy": -6,
+      "flags": [
+       "deg_end",
+       "deg_end_arsenal"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "deg_c5_golem",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_eng",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "deg_path_golem"
+    ],
+    "notFlags": [
+     "deg_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Magitech Pioneer. Golem cổ vẫn đứng cạnh bạn, và giờ có thêm ba Golem mới do bạn chế tạo.",
+   "choices": [
+    {
+     "label": "Trao tự do cho Golem cổ",
+     "require": {
+      "flags": [
+       "deg_golem_free"
+      ]
+     },
+     "text": "Golem cổ rời hầm, đi ra ngoài núi lần đầu tiên sau ba nghìn năm. Người ta kể nó đứng canh một trường học ở làng biên, không ai ra lệnh.",
+     "effects": {
+      "fame": 12,
+      "joy": 18,
+      "flags": [
+       "deg_end",
+       "deg_end_golem_free"
+      ]
+     },
+     "moment": "Để Golem cổ tự do rời khỏi núi"
+    },
+    {
+     "label": "Viết sách về cách chế tạo Golem",
+     "text": "Cuốn sách được giữ trong thư khố Hội đồng, chỉ những kỹ sư giỏi nhất được đọc. Golem cổ đứng canh cửa thư khố.",
+     "effects": {
+      "fame": 15,
+      "INT": 1,
+      "flags": [
+       "deg_end",
+       "deg_end_golem_book"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "deg_daily_gadget",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "dwarf_eng",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Bạn chế một chiếc máy pha trà hơi nước. Nó pha trà ngon, và thỉnh thoảng phun nước sôi lên trần.",
+   "choices": [
+    {
+     "label": "Sửa nó",
+     "text": "Nó không phun nữa. Trà vẫn ngon.",
+     "effects": {
+      "joy": 4
+     }
+    },
+    {
+     "label": "Giữ nguyên, gọi đó là tính năng",
+     "text": "Cả xưởng học cách né. Đó trở thành trò vui của xưởng.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "deg_daily_war_order",
+   "races": [
+    "dwarf"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "dwarf_eng",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Quân đội cần một trăm cỗ máy kéo pháo trong ba tháng.",
+   "choices": [
+    {
+     "label": "Làm đủ, làm nhanh",
+     "text": "Đủ một trăm. Ba mươi cỗ hỏng giữa đường.",
+     "effects": {
+      "wealth": 10,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Làm sáu mươi cỗ, cỗ nào cũng chắc",
+     "text": "Quân đội giận, nhưng không cỗ nào hỏng.",
+     "effects": {
+      "fame": 5,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "deg_daily_old_ears",
+   "races": [
+    "dwarf"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "dwarf_eng",
+    "free": true
+   },
+   "text": "Tai bạn ù vì hơn một trăm năm sống giữa búa hơi. Bạn không còn nghe được tiếng máy hỏng.",
+   "choices": [
+    {
+     "label": "Đặt tay lên máy để cảm nhận",
+     "text": "Rung động nói với bạn nhiều hơn âm thanh. Bạn vẫn là người đầu tiên biết máy nào sắp hỏng.",
+     "effects": {
+      "INT": 1
+     }
+    },
+    {
+     "label": "Chế một chiếc kèn tai bằng đồng",
+     "text": "Chiếc kèn tai trông buồn cười. Nó hoạt động. Học trò của bạn bắt đầu đặt hàng cho ông bà họ.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  }
+ ]
+}

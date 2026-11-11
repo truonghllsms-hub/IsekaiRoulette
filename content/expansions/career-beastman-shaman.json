@@ -11,7 +11,7 @@
    "require": {
     "job": "bm_shaman",
     "free": true,
-    "jobRankMax": 1,
+    "jobRankMax": 2,
     "notFlags": [
      "bsm_met_rinn"
     ]
@@ -165,6 +165,9 @@
     "notFlags": [
      "bsm_first_rite",
      "bsm_end"
+    ],
+    "flags": [
+     "bsm_met_rinn"
     ]
    },
    "text": "Một đứa trẻ trong trại bị ma nhập sau khi chơi gần một nấm mồ cổ. Nó nói bằng giọng của một ông già, và gọi tên những người đã chết từ trăm năm trước. Bà Rinn đang ở bộ lạc khác. Chỉ còn bạn.",
@@ -259,6 +262,9 @@
      "bsm_path_tree",
      "bsm_path_storm",
      "bsm_end"
+    ],
+    "flags": [
+     "bsm_met_rinn"
     ]
    },
    "text": "Bà Rinn gọi bạn đến lều. Bà đặt trước mặt bạn ba thứ: một chiếc trống da cũ của tổ tiên, một cành cây non từ Đại Ngàn mà bà giữ từ thời trẻ, và một chiếc sừng gọi bão mà bà chưa bao giờ dùng. “Chọn đi. Mỗi thứ đòi một giá khác nhau.”",
@@ -949,7 +955,8 @@
      "label": "Trao sừng cho Skarn",
      "require": {
       "flags": [
-       "bsm_skarn_respect"
+       "bsm_skarn_respect",
+       "bsm_met_skarn"
       ]
      },
      "text": "Skarn giờ đã già như bạn. Hắn nhận sừng, nhìn những vết bỏng trên tay mình, rồi cười. “Ta sẽ không thổi nó một mình.” Hắn giữ lời.",
@@ -1086,7 +1093,7 @@
    "choices": [
     {
      "label": "Chấp nhận",
-     "text": "Bạn không còn nghe được tiếng cười của lũ trẻ trong trại. Nhưng bạn nghe được tiếng của bà Rinn, của những người đã đi trước, mỗi đêm. Bạn mỉm cười.",
+     "text": "Bạn không còn nghe được tiếng cười của lũ trẻ trong trại. Nhưng bạn nghe được tiếng của những người đã đi trước, mỗi đêm. Bạn mỉm cười.",
      "effects": {
       "joy": 6,
       "INT": 1

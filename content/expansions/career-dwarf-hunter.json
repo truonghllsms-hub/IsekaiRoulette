@@ -1,0 +1,980 @@
+{
+ "_note": "Tuyến truyện Treasure Hunter (Dwarf): 5 chương theo bậc, ba đạo ở Bậc 2 (dth_path_return / dth_path_fortune / dth_path_lore), nhân vật xuyên suốt lão Snorri Một Mắt (thợ săn kho báu già) và Vivienne Locke (nhà mạo hiểm Human đối thủ).",
+ "origins": [],
+ "events": [
+  {
+   "id": "dth_c1_snorri",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "dwarf_hunter",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "dth_met_snorri"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Snorri Một Mắt",
+     "race": "Dwarf",
+     "position": "Thợ săn kho báu già mất một mắt"
+    }
+   ],
+   "text": "Lão Snorri Một Mắt đã vào hơn trăm hầm ngục và ra được từ tất cả, trừ một con mắt. Lão dắt bạn đến cửa một hầm mộ nhỏ, đưa cho bạn một cây sào dài: “Quy tắc đầu tiên: không bao giờ bước lên thứ gì mà sào chưa chạm trước.”",
+   "choices": [
+    {
+     "label": "Dò từng bước bằng sào",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Cây sào chạm vào một phiến đá, và một lưỡi rìu bổ xuống từ trần, ngay trước mặt bạn. Bạn không chớp mắt. Snorri cười khàn: “Ngươi sẽ giữ được cả hai mắt.”",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 1,
+       "flags": [
+        "dth_met_snorri",
+        "dth_snorri_respect"
+       ]
+      },
+      "moment": "Dò ra bẫy rìu đầu tiên trong hầm mộ cùng lão Snorri"
+     },
+     "fail": {
+      "text": "Bạn dò quá nhanh, và một mũi tên sượt qua tai. Snorri túm cổ áo kéo bạn lùi lại: “Chậm thôi. Hầm mộ đã chờ một nghìn năm, nó chờ thêm được một chút.”",
+      "effects": {
+       "health": -3,
+       "flags": [
+        "dth_met_snorri"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi lão con mắt kia mất ở đâu",
+     "text": "Snorri im lặng, rồi kể: một hầm mộ ở Đầm Lầy Tử Khí, một chiếc rương trông quá dễ mở. “Quy tắc thứ hai,” lão nói, “là thứ gì trông dễ quá thì đừng chạm vào.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "dth_met_snorri",
+       "dth_snorri_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dth_c1_vivienne",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "dwarf_hunter",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "dth_met_snorri"
+    ],
+    "notFlags": [
+     "dth_met_vivienne"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Vivienne Locke",
+     "race": "Human",
+     "position": "Nhà mạo hiểm Human có bộ bản đồ đẹp nhất"
+    }
+   ],
+   "text": "Vivienne Locke, một nhà mạo hiểm Human có bản đồ đẹp nhất bạn từng thấy, đến cùng một hầm ngục với bạn, cùng một ngày. Cô cười: “Ai lấy được kho báu trước thì giữ. Công bằng chứ?”",
+   "choices": [
+    {
+     "label": "Đề nghị đi cùng, chia đôi",
+     "text": "Vivienne nhướng mày, rồi đồng ý. Bản đồ của cô và cây sào của bạn hợp nhau một cách đáng ngạc nhiên. Kho báu nhỏ, nhưng chia đôi xong, cả hai cười lớn.",
+     "effects": {
+      "wealth": 5,
+      "jobXp": 1,
+      "flags": [
+       "dth_met_vivienne",
+       "dth_vivienne_friend"
+      ]
+     },
+     "moment": "Cùng nhà mạo hiểm Human Vivienne Locke chia đôi một kho báu"
+    },
+    {
+     "label": "Nhận lời thách đấu",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn đến trước, nhờ biết đường hầm Dwarf. Vivienne đến sau một khắc, nhìn rương trống, và bật cười: “Lần sau ta thắng.”",
+      "effects": {
+       "wealth": 8,
+       "jobXp": 1,
+       "flags": [
+        "dth_met_vivienne",
+        "dth_vivienne_rival"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Vivienne đến trước. Cô vẫy tay chào bạn từ trên miệng hầm, ôm chiếc rương nhỏ.",
+      "effects": {
+       "joy": -3,
+       "flags": [
+        "dth_met_vivienne",
+        "dth_vivienne_rival"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dth_c2_first_tomb",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "dwarf_hunter",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "dth_first_tomb",
+     "dth_end"
+    ]
+   },
+   "text": "Hầm mộ đầu tiên bạn tự mình vào. Trên quan tài có khắc dòng chữ Dwarf cổ: “Hãy để ta ngủ cùng chiếc rìu của ta.” Chiếc rìu nạm ngọc nằm trên ngực bộ xương.",
+   "choices": [
+    {
+     "label": "Để nguyên chiếc rìu",
+     "text": "Bạn ra về với vài đồng xu cổ trong góc mộ. Ít tiền, nhưng đêm ấy bạn ngủ ngon.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "dth_first_tomb",
+       "dth_first_respect"
+      ]
+     },
+     "moment": "Để lại chiếc rìu trên ngực người đã khuất trong hầm mộ đầu tiên"
+    },
+    {
+     "label": "Lấy chiếc rìu",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Không có lời nguyền nào. Bạn bán chiếc rìu được giá cao. Thỉnh thoảng, bạn vẫn nghĩ về dòng chữ ấy.",
+      "effects": {
+       "wealth": 15,
+       "jobXp": 2,
+       "flags": [
+        "dth_first_tomb"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Cửa mộ đóng sập khi bạn nhấc chiếc rìu lên. Bạn mất hai ngày đào đường ra, và để lại chiếc rìu.",
+      "effects": {
+       "health": -8,
+       "flags": [
+        "dth_first_tomb"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dth_c2_crossroads",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "dwarf_hunter",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "dth_path_return",
+     "dth_path_fortune",
+     "dth_path_lore",
+     "dth_end"
+    ],
+    "flags": [
+     "dth_met_snorri"
+    ]
+   },
+   "text": "Lão Snorri mở chiếc túi da sờn cũ, đổ ra ba thứ: một chiếc nhẫn gia tộc có khắc tên, một đồng vàng to bằng lòng bàn tay, và một mảnh đá khắc chữ mà không ai đọc được. “Mỗi thợ săn kho báu đều phải chọn mình đi tìm thứ gì,” lão nói.",
+   "choices": [
+    {
+     "label": "Chiếc nhẫn: Người Mang Về",
+     "text": "Bạn sẽ tìm những bảo vật đã bị đánh cắp khỏi các gia tộc Dwarf, và mang chúng về đúng nơi. Snorri gật đầu: “Đó là nghề nghèo nhất. Cũng là nghề ngủ ngon nhất.”",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "dth_path_return"
+      ]
+     },
+     "moment": "Chọn đi tìm và mang về những bảo vật đã mất của các gia tộc"
+    },
+    {
+     "label": "Đồng vàng: Kẻ Săn Gia Tài",
+     "text": "Bạn sẽ đi tìm những kho báu lớn nhất Aethelgard, và trở nên giàu có hơn mọi gia tộc. Snorri cười: “Ta cũng từng chọn thế, trước khi mất con mắt.”",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 2,
+      "flags": [
+       "dth_path_fortune"
+      ]
+     },
+     "moment": "Chọn đi săn những kho báu lớn nhất Aethelgard"
+    },
+    {
+     "label": "Mảnh đá: Người Đọc Di Tích",
+     "text": "Bạn sẽ tìm không phải vàng, mà là những gì các nền văn minh cổ để lại: chữ viết, bản đồ, câu chuyện. Snorri im lặng một lúc: “Thứ đó có thể nguy hiểm hơn vàng.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "dth_path_lore"
+      ]
+     },
+     "moment": "Chọn tìm tri thức của các nền văn minh cổ"
+    }
+   ]
+  },
+  {
+   "id": "dth_return_crown",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_hunter",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dth_path_return"
+    ],
+    "notFlags": [
+     "dth_end"
+    ]
+   },
+   "text": "Bạn tìm thấy vương miện của một gia tộc Dwarf bị cướp từ năm trăm năm trước, giờ nằm trong kho của một quý tộc Human. Ông ta mua nó hợp pháp, từ một thương nhân, và không biết nguồn gốc.",
+   "choices": [
+    {
+     "label": "Đề nghị mua lại",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Quý tộc nghe câu chuyện, và bán lại với giá vốn. Gia tộc Dwarf tổ chức lễ đón vương miện về, và mời ông ta đến dự.",
+      "effects": {
+       "fame": 8,
+       "wealth": -10,
+       "jobXp": 3,
+       "flags": [
+        "dth_return_crown"
+       ]
+      },
+      "moment": "Mua lại vương miện bị cướp của một gia tộc Dwarf"
+     },
+     "fail": {
+      "text": "Quý tộc từ chối, và tăng gấp đôi lính canh kho.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    },
+    {
+     "label": "Lẻn vào lấy lại",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Vương miện về đến núi trước khi quý tộc biết nó đã mất. Gia tộc không hỏi bạn lấy bằng cách nào.",
+      "effects": {
+       "AGI": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "dth_return_crown"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn bị bắt. Phải mất một năm và rất nhiều tiền để Hội đồng chuộc bạn ra.",
+      "effects": {
+       "wealth": -20,
+       "fame": -6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dth_return_orc",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_hunter",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dth_path_return"
+    ],
+    "notFlags": [
+     "dth_end"
+    ]
+   },
+   "text": "Trong một hầm ngục, bạn tìm thấy một chiếc trống da của một bộ lạc Orc, bị một đội mạo hiểm Human cướp đi. Không ai trả tiền cho việc mang nó về.",
+   "choices": [
+    {
+     "label": "Mang về cho bộ lạc Orc",
+     "text": "Bạn đi bộ ba tuần đến lãnh thổ Orc. Họ suýt giết bạn, rồi nhìn thấy chiếc trống. Tù trưởng già ôm nó và khóc. Bạn ra về với một chiếc nanh khắc dấu bộ lạc: giấy thông hành qua mọi đất Orc.",
+     "effects": {
+      "fame": 6,
+      "joy": 10,
+      "jobXp": 3,
+      "flags": [
+       "dth_return_orc"
+      ]
+     },
+     "moment": "Mang chiếc trống bị cướp về trả cho một bộ lạc Orc"
+    },
+    {
+     "label": "Để nó lại trong hầm",
+     "text": "Bạn không phải người của họ. Chiếc trống ở lại trong bóng tối.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dth_fortune_dragon",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_hunter",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dth_path_fortune"
+    ],
+    "notFlags": [
+     "dth_end"
+    ]
+   },
+   "text": "Bạn tìm thấy hang của một con rồng đã chết từ trăm năm trước. Kho báu vẫn còn nguyên: núi vàng, núi ngọc. Nhưng hang sắp sập.",
+   "choices": [
+    {
+     "label": "Lấy nhanh những gì mang được",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn chạy ra với hai bao đầy, ngay trước khi trần hang sập xuống. Bạn giàu hơn mọi gia tộc trong một ngày.",
+      "effects": {
+       "wealth": 40,
+       "wealthKind": "windfall",
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "dth_fortune_dragon"
+       ]
+      },
+      "moment": "Chạy khỏi hang rồng đang sập với hai bao vàng"
+     },
+     "fail": {
+      "text": "Trần hang sập. Bạn thoát ra với một bao, và một chân gãy.",
+      "effects": {
+       "wealth": 15,
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Gia cố hang trước, lấy sau",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Mất một tháng, nhưng bạn lấy được toàn bộ. Rồi bạn phát hiện mình không biết làm gì với từng ấy vàng.",
+      "effects": {
+       "wealth": 50,
+       "wealthKind": "windfall",
+       "jobXp": 3,
+       "flags": [
+        "dth_fortune_dragon"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Hang sập khi bạn đang gia cố. Bạn thoát được, tay trắng.",
+      "effects": {
+       "health": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dth_fortune_partner",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_hunter",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dth_path_fortune"
+    ],
+    "notFlags": [
+     "dth_end"
+    ]
+   },
+   "text": "Người bạn đồng hành của bạn bị kẹt chân dưới một phiến đá trong hầm ngục đang ngập nước. Kho báu ở phía trước. Nước đang dâng.",
+   "choices": [
+    {
+     "label": "Cứu bạn đồng hành",
+     "text": "Mất cả canh giờ để nạy phiến đá. Hai người thoát ra, ướt sũng, tay trắng. Kho báu chìm dưới nước.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "dth_fortune_loyal"
+      ]
+     },
+     "moment": "Bỏ kho báu để cứu bạn đồng hành khỏi hầm ngục ngập nước"
+    },
+    {
+     "label": "Lấy kho báu trước, rồi quay lại",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn lấy kho báu và quay lại kịp. Bạn đồng hành sống. Nhưng người đó không bao giờ đi cùng bạn nữa.",
+      "effects": {
+       "wealth": 25,
+       "joy": -6,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Bạn quay lại muộn.",
+      "effects": {
+       "wealth": 25,
+       "joy": -18,
+       "jobXp": 3,
+       "flags": [
+        "dth_fortune_guilt"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dth_lore_tablet",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_hunter",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dth_path_lore"
+    ],
+    "notFlags": [
+     "dth_end"
+    ]
+   },
+   "text": "Bạn tìm thấy một tấm bia đá ghi lại cách tổ tiên Dwarf phong ấn một thứ gì đó dưới đáy núi. Dòng cuối cùng bị đục mất.",
+   "choices": [
+    {
+     "label": "Mang về cho Hội đồng",
+     "text": "Hội đồng cất nó vào thư khố, và cấm bạn nói về nó. Bạn để ý thấy từ đó lính gác ở các mỏ sâu được tăng gấp đôi.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 3,
+      "flags": [
+       "dth_lore_sealed"
+      ]
+     }
+    },
+    {
+     "label": "Đi tìm dòng chữ bị đục",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Ba năm sau, bạn tìm thấy mảnh đá bị đục trong một hầm khác. Dòng chữ là: “Đừng bao giờ đào sâu hơn thế này.” Bạn mang nó về, và Hội đồng đóng cửa ba mỏ sâu nhất.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "dth_lore_warning"
+       ]
+      },
+      "moment": "Tìm ra lời cảnh báo bị đục mất của tổ tiên Dwarf"
+     },
+     "fail": {
+      "text": "Bạn không tìm được. Câu hỏi theo bạn suốt nhiều năm.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dth_lore_map",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_hunter",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dth_path_lore"
+    ],
+    "notFlags": [
+     "dth_end"
+    ]
+   },
+   "text": "Bạn tìm được một bản đồ cổ chỉ đường đến một thành phố Dwarf bị lãng quên. Một học giả của Tháp Ngà muốn mua nó.",
+   "choices": [
+    {
+     "label": "Tự mình đi",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Thành phố còn đó, dưới lớp băng. Nhà cửa, đường phố, cả những chiếc bàn còn bày bát đĩa. Bạn vẽ lại tất cả, và không lấy gì.",
+      "effects": {
+       "LUCK": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "dth_lore_city"
+       ]
+      },
+      "moment": "Tìm thấy thành phố Dwarf bị lãng quên dưới lớp băng"
+     },
+     "fail": {
+      "text": "Bản đồ dẫn đến một vực sâu. Thành phố, nếu có, đã rơi xuống từ lâu.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    },
+    {
+     "label": "Bán cho học giả",
+     "text": "Học giả trả giá cao. Ông ta đi, và không bao giờ trở về.",
+     "effects": {
+      "wealth": 15,
+      "joy": -4,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dth_c4_snorri",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_hunter",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dth_met_snorri"
+    ],
+    "notFlags": [
+     "dth_snorri_gone",
+     "dth_end"
+    ]
+   },
+   "text": "Lão Snorri muốn vào hầm ngục cuối cùng: hầm mộ ở Đầm Lầy Tử Khí, nơi lão mất con mắt. “Chiếc rương ấy vẫn ở đó. Ta muốn biết bên trong có gì.”",
+   "choices": [
+    {
+     "label": "Đi cùng lão",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Hai người dò từng bước. Lần này, lão không chạm vào rương. Lão bảo bạn mở. Bên trong không có gì, ngoài một mảnh giấy: “Ngươi đã mất gì để đến được đây?” Snorri cười đến chảy nước mắt. Lão mất mùa đông năm ấy, vẫn cười mỗi khi nhắc đến chuyện đó.",
+      "effects": {
+       "AGI": 1,
+       "joy": 6,
+       "jobXp": 3,
+       "flags": [
+        "dth_snorri_gone",
+        "dth_snorri_chest"
+       ]
+      },
+      "moment": "Cùng lão Snorri mở chiếc rương đã lấy một con mắt của lão"
+     },
+     "fail": {
+      "text": "Hầm mộ đã sập một nửa. Hai người phải quay về. Lão Snorri mất mùa đông năm ấy, không bao giờ biết.",
+      "effects": {
+       "joy": -8,
+       "flags": [
+        "dth_snorri_gone"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Khuyên lão ở nhà",
+     "text": "Lão nghe lời. Lão mất mùa đông năm ấy, trên giường. Bạn không bao giờ đến hầm mộ ấy, vì đó là hầm mộ của lão.",
+     "effects": {
+      "joy": -8,
+      "jobXp": 3,
+      "flags": [
+       "dth_snorri_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dth_c4_vivienne",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_hunter",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dth_met_vivienne"
+    ],
+    "notFlags": [
+     "dth_end"
+    ]
+   },
+   "text": "Vivienne Locke bị kẹt trong một hầm ngục ở Sanctus. Một người đưa tin mang đến tấm bản đồ cô vẽ vội: đường vào, và một dấu chéo nơi cô đang ở.",
+   "choices": [
+    {
+     "label": "Đi cứu cô",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn tìm thấy cô sau hai ngày, chân gãy, nhưng vẫn cười: “Ta biết ngươi sẽ đến. Ngươi là người duy nhất đọc được bản đồ của ta.”",
+      "effects": {
+       "AGI": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "dth_vivienne_saved"
+       ]
+      },
+      "moment": "Theo tấm bản đồ vẽ vội để cứu Vivienne Locke khỏi hầm ngục"
+     },
+     "fail": {
+      "text": "Bạn đến khi cô đã tự bò ra được, nửa đường. Cô cười: “Chậm quá.” Nhưng cô nắm tay bạn rất lâu.",
+      "effects": {
+       "jobXp": 3
+      }
+     }
+    },
+    {
+     "label": "Gửi đội cứu hộ, vì bạn ở quá xa",
+     "text": "Đội cứu hộ đưa cô ra. Cô gửi thư: “Lần sau tự đến.” Bạn giữ lá thư ấy.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dth_c5_return",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_hunter",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dth_path_return"
+    ],
+    "notFlags": [
+     "dth_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Treasure Lord, dù bạn không giữ kho báu nào. Mọi thứ bạn tìm được đều đã về với chủ của nó.",
+   "choices": [
+    {
+     "label": "Mở một hầm chứa những bảo vật chưa tìm được chủ",
+     "text": "Hầm ấy mở cửa cho mọi tộc. Ai nhận ra đồ của tổ tiên mình thì cứ mang về. Mỗi năm, hầm vơi đi một chút.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "dth_end",
+       "dth_end_returning_vault"
+      ]
+     },
+     "moment": "Mở hầm cho mọi tộc đến nhận lại bảo vật của tổ tiên"
+    },
+    {
+     "label": "Đến thăm bộ lạc Orc lần cuối",
+     "require": {
+      "flags": [
+       "dth_return_orc"
+      ]
+     },
+     "text": "Chiếc trống vẫn ở đó. Họ đánh nó khi bạn đến, và cả bộ lạc hát một bài hát về một Dwarf đã đi bộ ba tuần.",
+     "effects": {
+      "fame": 10,
+      "joy": 18,
+      "flags": [
+       "dth_end",
+       "dth_end_orc_song"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dth_c5_fortune",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_hunter",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dth_path_fortune"
+    ],
+    "notFlags": [
+     "dth_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Treasure Lord. Kho báu của bạn lớn hơn của nhiều vương quốc.",
+   "choices": [
+    {
+     "label": "Dùng nó xây lại một thành phố bị chiến tranh tàn phá",
+     "text": "Vàng của rồng trở thành nhà, trường học, và một cây cầu đá. Người ta đặt tên cây cầu theo tên bạn.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "wealth": -30,
+      "flags": [
+       "dth_end",
+       "dth_end_city"
+      ]
+     },
+     "moment": "Dùng kho báu xây lại một thành phố bị chiến tranh tàn phá"
+    },
+    {
+     "label": "Giữ nó",
+     "text": "Bạn sống những năm cuối trong một tòa lâu đài đầy vàng. Bạn không còn đi hầm ngục nữa. Bạn thấy nhớ cây sào.",
+     "effects": {
+      "wealth": 30,
+      "joy": -4,
+      "flags": [
+       "dth_end",
+       "dth_end_hoard"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dth_c5_lore",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_hunter",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dth_path_lore"
+    ],
+    "notFlags": [
+     "dth_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Treasure Lord, nhưng thứ bạn tìm được không phải vàng. Bản đồ và ghi chép của bạn chất đầy ba căn phòng.",
+   "choices": [
+    {
+     "label": "Dẫn người đến thành phố dưới băng",
+     "require": {
+      "flags": [
+       "dth_lore_city"
+      ]
+     },
+     "text": "Các học giả Dwarf đến thành phố bị lãng quên lần đầu tiên. Họ tìm thấy những bài hát, những công thức, những cái tên. Lịch sử Dwarf dài thêm ba nghìn năm.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "dth_end",
+       "dth_end_lost_city"
+      ]
+     },
+     "moment": "Dẫn các học giả đến thành phố Dwarf bị lãng quên"
+    },
+    {
+     "label": "Trao mọi ghi chép cho thư khố",
+     "text": "Ba căn phòng ghi chép của bạn trở thành một phần của thư khố Hội đồng. Học trò đọc chúng, và đi tiếp những con đường bạn chưa đi.",
+     "effects": {
+      "fame": 12,
+      "INT": 1,
+      "flags": [
+       "dth_end",
+       "dth_end_archive"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dth_daily_pole",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "dwarf_hunter",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Cây sào dò bẫy của bạn gãy. Nó đã đi cùng bạn qua hai mươi hầm ngục.",
+   "choices": [
+    {
+     "label": "Làm cây mới",
+     "text": "Cây sào mới thẳng hơn, nhẹ hơn. Bạn mất một tháng mới quen tay.",
+     "effects": {
+      "joy": 2
+     }
+    },
+    {
+     "label": "Nối lại cây cũ",
+     "text": "Cây sào cũ có một mối nối xấu xí. Bạn thích nó hơn.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "dth_daily_war_ruins",
+   "races": [
+    "dwarf"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "dwarf_hunter",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh để lại những thành phố đổ nát. Người ta đào bới tìm của cải trong đống đổ nát.",
+   "choices": [
+    {
+     "label": "Giúp người dân tìm đồ của họ",
+     "text": "Bạn không kiếm được gì. Một bà già tìm lại được chiếc hộp đựng thư của chồng nhờ bạn.",
+     "effects": {
+      "joy": 8,
+      "fame": 3
+     }
+    },
+    {
+     "label": "Đi tìm kho của lãnh chúa",
+     "text": "Bạn tìm được. Lãnh chúa đã chết. Không ai đòi.",
+     "effects": {
+      "wealth": 15,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "dth_daily_old_knees",
+   "races": [
+    "dwarf"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "dwarf_hunter",
+    "free": true
+   },
+   "text": "Đầu gối bạn không còn bò được qua những đường hầm hẹp.",
+   "choices": [
+    {
+     "label": "Vẽ bản đồ cho người trẻ đi",
+     "text": "Bản đồ của bạn chính xác đến từng cái bẫy. Học trò quay về an toàn, và kể cho bạn nghe từng bước.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Chỉ vào những hầm rộng",
+     "text": "Hầm rộng ít kho báu hơn. Nhưng bạn vẫn đi, và vẫn vui.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  }
+ ]
+}
