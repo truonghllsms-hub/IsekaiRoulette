@@ -33,26 +33,7 @@ for (const sprite of Object.values(data.sprites)) {
 }
 // Illustrated Human portraits (artbook templates H01-H08, F01-F08): one image per look, each shown
 // through the same sprite path as an atlas frame of its own ("pt/<template>/<look>")
-const portraitDir = path.join(__dirname, "..", "img", "portraits");
-const portraitManifest = path.join(portraitDir, "manifest.json");
-if (fs.existsSync(portraitManifest)) {
-  const manifest = JSON.parse(fs.readFileSync(portraitManifest, "utf8"));
-  const templates = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "content", "portraits", "human.json"), "utf8")).templates;
-  data.portraits = { templates, looks: {} };
-  for (const [T, looks] of Object.entries(manifest)) {
-    if (!templates[T]) throw new Error(`img/portraits: mẫu ${T} không có trong content/portraits/human.json`);
-    data.portraits.looks[T] = Object.keys(looks);
-    for (const [look, [w, h]] of Object.entries(looks)) {
-      const rel = `img/portraits/${T}/${look}.webp`;
-      const hash = crypto.createHash("sha256").update(fs.readFileSync(path.join(__dirname, "..", rel))).digest("hex").slice(0, 12);
-      const key = `pt/${T}/${look}`;
-      data.sprites[key] = { _src: `${rel}?v=${hash}`, _size: [w, h], [look]: [0, 0, w, h] };
-      // the small header frame shows head and shoulders of a standing figure, the whole of a seated baby
-      const tall = look !== "age1"; // the head and shoulders, except the baby, who is drawn whole
-      data.spritePresentation.people[key] = { frames: { [look]: { full: [0, 0, w, h], portrait: tall ? [0, 0, w, Math.round(h * 0.5)] : [0, 0, w, h], kind: tall ? "portrait" : "full" } } };
-    }
-  }
-}
+require("./portraits").addPortraits(data);
 const worldMap = "img/maps/aethelgard-01.png";
 const mapHash = crypto.createHash("sha256").update(fs.readFileSync(path.join(__dirname,"..",worldMap))).digest("hex").slice(0,12);
 data.worldMap = {src:worldMap+"?v="+mapHash,width:1536,height:1024,title:"Biên niên cổ đồ Aethelgard"};

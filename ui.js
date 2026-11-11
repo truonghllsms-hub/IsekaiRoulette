@@ -226,7 +226,7 @@
     return col ? { person, column: col, rect: P[col], size: P._size } : null;
   }
   function setSprite(id, ch, peak) {
-    paintSprite(id, spriteOf(ch, peak), id === "hud-sprite" ? "portrait" : "full");
+    paintSprite(id, spriteOf(ch, peak), "full"); // every frame shows the whole figure: stance, hands and weapon
   }
   const decodedSprites = new Map();
   function decodeSprite(url) {
@@ -329,7 +329,7 @@
       list.appendChild(card);
     }
     if (!$("roster-dialog").open) $("roster-dialog").showModal();
-    for(const [id,s] of portraits)paintSprite(id,s,"portrait");
+    for(const [id,s] of portraits)paintSprite(id,s,"full");
   }
   $("app").addEventListener("click", e => {
     const close = e.target.closest("[data-close]");
@@ -473,7 +473,7 @@
     for(const [i,m] of members.entries()) {
       const button=document.createElement("button");button.type="button";button.className="companion-card";button.dataset.member=m.name;button.setAttribute("aria-haspopup","dialog");
       button.innerHTML=`<span id="party-sprite-${i}" class="sprite-hud companion-portrait" aria-hidden="true"><span class="sprite-frame"></span></span><span class="companion-copy"><b>${esc(m.name)}</b><small>${esc([m.race,m.jobName].filter(Boolean).join(" · "))}</small>${m.alive===false?'<small class="fallen-label">Đã qua đời</small>':m.bond!=null?`<small>Thân thiết ${m.bond}/100</small>`:""}</span><span aria-hidden="true">›</span>`;
-      list.appendChild(button);paintSprite(`party-sprite-${i}`,window.Portraits.npcSprite(m,D),"portrait");
+      list.appendChild(button);paintSprite(`party-sprite-${i}`,window.Portraits.npcSprite(m,D),"full");
     }
   }
 

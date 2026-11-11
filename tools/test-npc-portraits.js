@@ -1,12 +1,12 @@
 const {test}=require('node:test');
 const assert=require('node:assert/strict');
 const {npcSprite}=require('../portraits');
-const data={...require('./load').loadData(),sprites:require('../img/atlas.json')};
+const data=require('./portraits').addPortraits({...require('./load').loadData(),sprites:{...require('../img/atlas.json')}});
 
 test('Dawn Torch members use the original species, gender and role frames',()=>{
  const members=data.story.human.bands.party_a.members;
  const [kael,lyra,grom]=members.map(m=>npcSprite(m,data));
- assert.match(kael.person,/^human_nam_/);assert.equal(kael.column,'swordsman_moi');
+ assert.match(kael.person,/^pt\/H0\d\//);assert.equal(kael.column,'swordsman_1');
  assert.match(lyra.person,/^elf_nu_/);assert.equal(lyra.column,'spirit_moi');
  assert.equal(grom.person,'beastman_bear_nam_1');assert.equal(grom.column,'gladiator_moi');
 });
