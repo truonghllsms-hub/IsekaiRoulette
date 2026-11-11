@@ -261,7 +261,8 @@
      "label": "Rủ Marta cùng góp tiền mua chung",
      "require": {
       "flags": [
-       "frm_marta_friend"
+       "frm_marta_friend",
+       "frm_met_marta"
       ]
      },
      "text": "Marta nghĩ một đêm, rồi mang ra chiếc hộp gỗ đựng tiền dành dụm của chồng bà. Hai người cùng dọn đá. Đến mùa thứ hai, mười mẫu ruộng xanh mướt, và hai người chia đôi thu hoạch mà không cần cãi nhau.",
@@ -473,7 +474,8 @@
      "label": "Nhờ Dorran nói giúp",
      "require": {
       "flags": [
-       "frm_dorran_ally"
+       "frm_dorran_ally",
+       "frm_met_dorran"
       ]
      },
      "text": "Dorran đứng trước lãnh chúa, nói rằng nếu tăng thuế, nông dân sẽ bỏ làng và ông ta sẽ không thu được gì nữa. Lãnh chúa nghe theo quản gia của mình. Dorran nháy mắt với bạn khi ra về.",
@@ -673,7 +675,7 @@
       "moment": "Tìm ra cách chữa bệnh nấm cho giống lúa mới"
      },
      "fail": {
-      "text": "Không có gì hiệu quả. Nấm lan sang ruộng của Marta và ba nhà khác trước khi bạn kịp đốt.",
+      "text": "Không có gì hiệu quả. Nấm lan sang ruộng của bốn nhà hàng xóm trước khi bạn kịp đốt.",
       "effects": {
        "joy": -15,
        "wealth": -15
@@ -1159,6 +1161,11 @@
      "effects": {
       "joy": 8,
       "jobXp": 1
+     },
+     "require": {
+      "flags": [
+       "frm_met_marta"
+      ]
      }
     },
     {

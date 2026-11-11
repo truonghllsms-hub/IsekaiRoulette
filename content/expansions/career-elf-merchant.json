@@ -1,0 +1,919 @@
+{
+ "_note": "Tuyến truyện Thương nhân Đại Ngàn (Elf): 5 chương theo bậc, ba đạo ở Bậc 2 (emc_path_promise / emc_path_caravan / emc_path_league), nhân vật xuyên suốt bà Lirien (người buôn lời hứa) và Ned Fallow (thương nhân Human).",
+ "origins": [],
+ "events": [
+  {
+   "id": "emc_c1_lirien",
+   "races": [
+    "elf"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "elf_merchant",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "emc_met_lirien"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Lirien",
+     "race": "Elf",
+     "position": "Người buôn lời hứa của Đại Ngàn"
+    }
+   ],
+   "text": "Ở Đại Ngàn, không ai dùng tiền. Bà Lirien buôn bán bằng lời hứa: một bó ma thảo đổi lấy lời hứa giúp gặt lúa mùa sau, một cây cung đổi lấy lời hứa kể một câu chuyện. Bà đưa cho bạn một chiếc giỏ và bảo bạn đổi nó lấy thứ gì đó có giá trị hơn.",
+   "choices": [
+    {
+     "label": "Đổi giỏ lấy một lời hứa dạy hát",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Một Elf già nhận giỏ, hứa dạy bạn một bài hát. Bạn đổi bài hát lấy lời hứa sửa mái nhà. Đến cuối ngày, chiếc giỏ đã thành một mái nhà mới cho bà Lirien. Bà cười: “Lời hứa là thứ duy nhất càng đổi càng lớn.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "emc_met_lirien",
+        "emc_lirien_respect"
+       ]
+      },
+      "moment": "Đổi một chiếc giỏ thành một mái nhà bằng lời hứa"
+     },
+     "fail": {
+      "text": "Bạn đổi giỏ lấy một lời hứa mà người kia quên ngay hôm sau. Bà Lirien lắc đầu: “Phải biết ai giữ lời trước khi đổi.”",
+      "effects": {
+       "joy": -3,
+       "flags": [
+        "emc_met_lirien"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Giữ chiếc giỏ, đem đi tặng",
+     "text": "Bạn tặng nó cho một đứa trẻ không có giỏ hái quả. Bà Lirien nhìn bạn rất lâu. “Ngươi vừa làm một thương vụ mà ta mất ba trăm năm mới hiểu: món quà là lời hứa không cần đòi lại.”",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1,
+      "flags": [
+       "emc_met_lirien",
+       "emc_lirien_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "emc_c1_ned",
+   "races": [
+    "elf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "elf_merchant",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "emc_met_lirien"
+    ],
+    "notFlags": [
+     "emc_met_ned"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Ned Fallow",
+     "race": "Human",
+     "position": "Thương nhân Human đầu tiên ở rìa Đại Ngàn"
+    }
+   ],
+   "text": "Ned Fallow là thương nhân Human đầu tiên được phép buôn bán ở rìa Đại Ngàn. Anh ta không hiểu lời hứa; anh ta hiểu Tinh Bạc. Anh ta muốn mua ma thảo của bạn với giá gấp mười lần những gì Elf từng trả.",
+   "choices": [
+    {
+     "label": "Bán cho anh ta, tính bằng Tinh Bạc",
+     "text": "Ned trả đủ, và cười. Bạn cầm những đồng Tinh Bạc, không biết dùng chúng làm gì ở Đại Ngàn. Ned dạy bạn: “Tiền là lời hứa mà ai cũng giữ.”",
+     "effects": {
+      "wealth": 10,
+      "jobXp": 1,
+      "flags": [
+       "emc_met_ned",
+       "emc_ned_friend"
+      ]
+     },
+     "moment": "Bán ma thảo cho thương nhân Human Ned Fallow"
+    },
+    {
+     "label": "Đòi anh ta trả bằng lời hứa",
+     "text": "Ned ngạc nhiên, rồi hứa: mỗi năm mang đến một thứ từ Sanctus mà Elf chưa từng thấy. Năm đầu là một chiếc kính. Năm thứ hai là một cuốn sách in. Ned giữ lời suốt năm mươi năm.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1,
+      "flags": [
+       "emc_met_ned",
+       "emc_ned_friend",
+       "emc_ned_promise"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "emc_c2_first_deal",
+   "races": [
+    "elf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "elf_merchant",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "emc_first_deal",
+     "emc_end"
+    ]
+   },
+   "text": "Một Elf trẻ nợ bạn ba lời hứa và không giữ lời nào. Theo luật cổ, bạn có thể đòi Hội đồng tước quyền buôn bán của anh ta trong một trăm năm.",
+   "choices": [
+    {
+     "label": "Đòi Hội đồng xử",
+     "text": "Anh ta bị tước quyền. Chợ lời hứa nghiêm túc hơn từ đó. Anh ta không bao giờ nói chuyện với bạn nữa.",
+     "effects": {
+      "fame": 3,
+      "jobXp": 2,
+      "flags": [
+       "emc_first_deal"
+      ]
+     }
+    },
+    {
+     "label": "Hỏi vì sao anh ta không giữ lời",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Anh ta đã hứa với quá nhiều người, vì không dám từ chối ai. Bạn giúp anh ta trả từng lời hứa một, theo thứ tự. Mất mười năm. Anh ta trở thành thương nhân giữ lời nhất Đại Ngàn.",
+      "effects": {
+       "INT": 1,
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "emc_first_deal",
+        "emc_first_mercy"
+       ]
+      },
+      "moment": "Giúp một Elf trẻ trả lại mọi lời hứa đã nợ"
+     },
+     "fail": {
+      "text": "Anh ta không chịu nói. Bạn bỏ qua món nợ.",
+      "effects": {
+       "joy": -3,
+       "flags": [
+        "emc_first_deal"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "emc_c2_crossroads",
+   "races": [
+    "elf"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "elf_merchant",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "emc_path_promise",
+     "emc_path_caravan",
+     "emc_path_league",
+     "emc_end"
+    ],
+    "flags": [
+     "emc_met_lirien"
+    ]
+   },
+   "text": "Bà Lirien bày ra ba thứ trên chiếc bàn gỗ: một sợi dây buộc lời hứa, dấu hiệu của chợ cổ Đại Ngàn; một bó ma thảo Sinh Mạch, thứ mà cả Aethelgard thèm muốn; và một tấm da ghi giao ước liên bang giữa các tộc, chưa ai đủ kiên nhẫn để giữ.",
+   "choices": [
+    {
+     "label": "Sợi dây lời hứa: Chợ Lời Hứa",
+     "text": "Bạn buộc sợi dây lên cổ tay. Từ hôm nay, bạn là người giữ chợ lời hứa của Đại Ngàn, nơi không có tiền, chỉ có lời.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "emc_path_promise"
+      ]
+     },
+     "moment": "Nhận sợi dây giữ chợ lời hứa của Đại Ngàn"
+    },
+    {
+     "label": "Bó ma thảo: Thương Đoàn Sinh Mạch",
+     "text": "Bạn lập thương đoàn đầu tiên của Elf mang ma thảo ra khỏi rừng. Tinh Bạc chảy vào Đại Ngàn lần đầu tiên.",
+     "effects": {
+      "wealth": 10,
+      "jobXp": 2,
+      "flags": [
+       "emc_path_caravan"
+      ]
+     },
+     "moment": "Lập Thương đoàn Sinh Mạch"
+    },
+    {
+     "label": "Tấm da giao ước: Giữ Giao Ước Liên Bang",
+     "text": "Bạn mang tấm da đi gặp từng tộc, ghi thêm từng điều khoản. Đây là thương vụ dài nhất bạn từng làm: một giao ước giữ được qua nhiều đời người.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2,
+      "flags": [
+       "emc_path_league"
+      ]
+     },
+     "moment": "Nhận tấm da giao ước liên bang"
+    }
+   ]
+  },
+  {
+   "id": "emc_promise_broken_elder",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_merchant",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "emc_path_promise"
+    ],
+    "notFlags": [
+     "emc_end"
+    ]
+   },
+   "text": "Một Trưởng Lão quyền lực không giữ lời hứa với một gia đình Elf nghèo. Theo luật chợ, bạn phải công bố điều đó. Nhưng ông ta có thể làm bạn mất mọi thứ.",
+   "choices": [
+    {
+     "label": "Công bố",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Cả chợ im lặng khi bạn đọc tên ông ta. Rồi những người khác đứng lên, kể những lời hứa ông ta đã bội. Trưởng Lão phải trả từng lời. Chợ lời hứa đáng tin hơn bao giờ hết.",
+      "effects": {
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "emc_promise_justice"
+       ]
+      },
+      "moment": "Công bố một Trưởng Lão bội lời hứa giữa chợ"
+     },
+     "fail": {
+      "text": "Không ai dám đứng lên cùng bạn. Trưởng Lão khiến bạn mất quyền giữ chợ mười năm.",
+      "effects": {
+       "fame": -4,
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Tự trả lời hứa ấy cho gia đình nghèo",
+     "text": "Bạn làm thay điều Trưởng Lão đã hứa. Gia đình không biết. Trưởng Lão biết, và từ đó tránh mặt bạn.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "emc_promise_paid"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "emc_promise_human",
+   "races": [
+    "elf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "elf_merchant",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "emc_path_promise",
+     "emc_met_ned"
+    ],
+    "notFlags": [
+     "emc_end"
+    ]
+   },
+   "text": "Ned Fallow, giờ đã bốn mươi tuổi, muốn tham gia chợ lời hứa. Không Human nào từng được phép, vì Elf tin rằng Human chết trước khi kịp trả lời hứa.",
+   "choices": [
+    {
+     "label": "Cho anh ta tham gia",
+     "text": "Ned hứa ít, nhưng giữ đủ. Đến khi anh ta già, anh ta đã trả mọi lời hứa, và còn để lại một lời hứa cho con trai mình giữ thay. Chợ lời hứa có thêm một luật: lời hứa có thể được thừa kế.",
+     "effects": {
+      "fame": 6,
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "emc_promise_ned"
+      ]
+     },
+     "moment": "Cho Ned Fallow tham gia chợ lời hứa của Elf"
+    },
+    {
+     "label": "Từ chối theo luật cũ",
+     "text": "Ned hiểu, và không trách. Nhưng bạn thấy anh ta nhìn chợ lời hứa từ xa, như một đứa trẻ nhìn qua cửa sổ.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "emc_caravan_overharvest",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_merchant",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "emc_path_caravan"
+    ],
+    "notFlags": [
+     "emc_end"
+    ]
+   },
+   "text": "Ma thảo Sinh Mạch bán chạy đến mức các Elf hái gấp ba mùa trước. Những đồng cỏ ma thảo bắt đầu trơ trụi.",
+   "choices": [
+    {
+     "label": "Giới hạn số lượng hái mỗi mùa",
+     "text": "Lợi nhuận giảm một nửa. Một số thương nhân Elf bỏ thương đoàn của bạn. Nhưng mười năm sau, đồng cỏ xanh trở lại, và thương đoàn của bạn là thương đoàn duy nhất còn ma thảo để bán.",
+     "effects": {
+      "INT": 1,
+      "fame": 5,
+      "jobXp": 3,
+      "flags": [
+       "emc_caravan_limit"
+      ]
+     },
+     "moment": "Giới hạn thu hoạch ma thảo để cứu đồng cỏ"
+    },
+    {
+     "label": "Tiếp tục hái",
+     "text": "Thương đoàn giàu lên nhanh. Mười năm sau, đồng cỏ cuối cùng trơ trụi, và Sinh Mạch chỉ còn là một cái tên.",
+     "effects": {
+      "wealth": 30,
+      "wealthKind": "windfall",
+      "joy": -12,
+      "jobXp": 3,
+      "flags": [
+       "emc_caravan_greed"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "emc_caravan_ambush",
+   "races": [
+    "elf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "elf_merchant",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "emc_path_caravan"
+    ],
+    "notFlags": [
+     "emc_end"
+    ]
+   },
+   "text": "Thương đoàn Sinh Mạch bị cướp trên đường đến Sanctus. Bọn cướp là những Human đói, không phải lính.",
+   "choices": [
+    {
+     "label": "Đưa cho họ một phần ma thảo",
+     "text": "Bạn chia cho họ đủ để bán lấy tiền mua lương thực một mùa. Họ không cướp nữa. Một số người trong đó sau này làm phu khuân vác cho thương đoàn của bạn.",
+     "effects": {
+      "joy": 6,
+      "wealth": -8,
+      "jobXp": 3,
+      "flags": [
+       "emc_caravan_mercy"
+      ]
+     }
+    },
+    {
+     "label": "Chiến đấu bảo vệ hàng",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bọn cướp bỏ chạy trước những mũi tên của hộ vệ Elf. Thương đoàn đến Sanctus đúng hẹn.",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Họ đông hơn bạn tưởng. Bạn mất nửa chuyến hàng.",
+      "effects": {
+       "wealth": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "emc_league_dwarves",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_merchant",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "emc_path_league"
+    ],
+    "notFlags": [
+     "emc_end"
+    ]
+   },
+   "text": "Người Dwarf không muốn ký giao ước liên bang. Họ nói Elf sống quá lâu, sẽ thay đổi giao ước sau khi mọi người ký đã chết.",
+   "choices": [
+    {
+     "label": "Đề nghị khắc giao ước lên đá",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Người Dwarf ngạc nhiên. Giao ước được khắc lên một tảng đá ở Răng Cưa, và không Elf nào có thể sửa nó. Người Dwarf ký.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "emc_league_dwarves"
+       ]
+      },
+      "moment": "Khắc giao ước liên bang lên đá để người Dwarf ký"
+     },
+     "fail": {
+      "text": "Người Dwarf vẫn không tin. Họ muốn đợi thêm một thế hệ.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    },
+    {
+     "label": "Hứa sẽ giữ nó bằng chính đời mình",
+     "text": "Người Dwarf cười: “Đời Elf dài quá, lời hứa ấy rẻ quá.” Họ không ký năm ấy. Nhưng họ nhớ.",
+     "effects": {
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "emc_league_violation",
+   "races": [
+    "elf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "elf_merchant",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "emc_path_league"
+    ],
+    "notFlags": [
+     "emc_end"
+    ]
+   },
+   "text": "Một vương quốc Human vi phạm giao ước liên bang, đóng biên giới với thương nhân Beastman. Các tộc khác muốn trừng phạt bằng cách cắt hết thương mại.",
+   "choices": [
+    {
+     "label": "Đề nghị trừng phạt có giới hạn",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đề nghị cắt thương mại một mùa, đủ để vương quốc ấy hiểu, không đủ để dân họ đói. Họ mở lại biên giới sau ba tháng.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "emc_league_measured"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Không ai đồng ý. Các tộc cắt hết thương mại, và dân thường của vương quốc ấy đói suốt mùa đông.",
+      "effects": {
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Ủng hộ cắt hết",
+     "text": "Vương quốc ấy đầu hàng sau một năm. Giao ước được tôn trọng hơn. Nhưng một mùa đông đói đã qua.",
+     "effects": {
+      "fame": 5,
+      "joy": -6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "emc_c4_ned",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_merchant",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "emc_met_ned"
+    ],
+    "notFlags": [
+     "emc_ned_gone",
+     "emc_end"
+    ]
+   },
+   "text": "Ned Fallow đã tám mươi tuổi, nằm trên giường trong căn nhà gỗ ở rìa rừng. Ông gửi cho bạn một chiếc hộp nhỏ: món đồ cuối cùng ông hứa mang từ Sanctus, năm thứ năm mươi.",
+   "choices": [
+    {
+     "label": "Mở hộp bên giường ông",
+     "text": "Bên trong là một chiếc đồng hồ bỏ túi. Ned cười: “Để ngươi biết thời gian của bọn ta trôi nhanh thế nào.” Ông mất đêm ấy. Bạn giữ chiếc đồng hồ, và lên dây cho nó mỗi sáng trong năm trăm năm.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 3,
+      "flags": [
+       "emc_ned_gone"
+      ]
+     },
+     "moment": "Nhận chiếc đồng hồ, món quà cuối cùng của Ned Fallow"
+    },
+    {
+     "label": "Giữ hộp, không mở",
+     "text": "Bạn đặt chiếc hộp lên kệ. Ned mất mà không biết bạn đã nhận. Một trăm năm sau, bạn mới mở nó, và khóc.",
+     "effects": {
+      "joy": -8,
+      "jobXp": 3,
+      "flags": [
+       "emc_ned_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "emc_c4_lirien",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_merchant",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "emc_met_lirien"
+    ],
+    "notFlags": [
+     "emc_lirien_gone",
+     "emc_end"
+    ]
+   },
+   "text": "Bà Lirien nói với bạn rằng bà còn nợ một lời hứa chưa trả, từ tám trăm năm trước. Người bà hứa đã chết từ lâu. Bà không biết phải trả cho ai.",
+   "choices": [
+    {
+     "label": "Tìm hậu duệ của người ấy",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn lần theo sách cổ, tìm ra một Elf trẻ là hậu duệ đời thứ mười. Bà Lirien trả lời hứa: dạy cậu ta nghề buôn. Bà mất ba năm sau, nhẹ nhõm.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "emc_lirien_gone"
+       ]
+      },
+      "moment": "Giúp bà Lirien trả lời hứa tám trăm năm"
+     },
+     "fail": {
+      "text": "Bạn không tìm được ai. Bà Lirien mất, mang theo lời hứa chưa trả.",
+      "effects": {
+       "joy": -8,
+       "flags": [
+        "emc_lirien_gone"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Nhận giữ lời hứa thay bà",
+     "text": "Bà Lirien nắm tay bạn, đặt lời hứa vào tay bạn như trao một món đồ. Bà mất đêm ấy. Lời hứa giờ là của bạn để trả.",
+     "effects": {
+      "joy": 2,
+      "jobXp": 3,
+      "flags": [
+       "emc_lirien_gone",
+       "emc_inherited_promise"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "emc_c5_promise",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_merchant",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "emc_path_promise"
+    ],
+    "notFlags": [
+     "emc_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Thương chủ Yggdrasil. Chợ lời hứa của bạn giờ có cả Human, Dwarf và Beastman tham gia.",
+   "choices": [
+    {
+     "label": "Viết luật chợ thành văn",
+     "text": "Bạn viết mọi luật, kể cả luật lời hứa được thừa kế. Chợ lời hứa trở thành nơi mà mọi tộc tin tưởng hơn mọi ngân hàng của Sanctus.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "emc_end",
+       "emc_end_market_law"
+      ]
+     },
+     "moment": "Viết luật thành văn cho chợ lời hứa"
+    },
+    {
+     "label": "Trả lời hứa cuối cùng của bà Lirien",
+     "require": {
+      "flags": [
+       "emc_inherited_promise"
+      ]
+     },
+     "text": "Bạn tìm ra hậu duệ của người được hứa, sau hai trăm năm. Lời hứa được trả. Bạn cảm thấy bà Lirien mỉm cười ở đâu đó.",
+     "effects": {
+      "fame": 12,
+      "joy": 18,
+      "flags": [
+       "emc_end",
+       "emc_end_last_promise"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "emc_c5_caravan",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_merchant",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "emc_path_caravan"
+    ],
+    "notFlags": [
+     "emc_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Thương chủ Yggdrasil. Thương đoàn Sinh Mạch có mặt ở mọi thành phố lớn của Aethelgard.",
+   "choices": [
+    {
+     "label": "Trao thương đoàn cho những người làm việc trong đó",
+     "require": {
+      "flags": [
+       "emc_caravan_limit"
+      ]
+     },
+     "text": "Mỗi phu khuân vác, mỗi người hái ma thảo đều có một phần. Thương đoàn sống lâu hơn bạn, và đồng cỏ ma thảo vẫn xanh.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "emc_end",
+       "emc_end_shared_caravan"
+      ]
+     },
+     "moment": "Trao Thương đoàn Sinh Mạch cho những người làm việc trong đó"
+    },
+    {
+     "label": "Giữ thương đoàn cho gia tộc",
+     "text": "Gia tộc bạn giàu nhất Đại Ngàn. Một số Elf nói Đại Ngàn đã học được thói tham lam của Human.",
+     "effects": {
+      "wealth": 40,
+      "fame": 10,
+      "joy": -6,
+      "flags": [
+       "emc_end",
+       "emc_end_dynasty"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "emc_c5_league",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_merchant",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "emc_path_league"
+    ],
+    "notFlags": [
+     "emc_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Thương chủ Yggdrasil. Giao ước liên bang đã giữ hòa bình thương mại giữa bảy tộc suốt ba trăm năm.",
+   "choices": [
+    {
+     "label": "Trao giao ước cho một hội đồng các tộc",
+     "text": "Bạn không giữ nó một mình nữa. Bảy tộc, bảy người giữ, mỗi người một bản. Khi bạn mất, giao ước vẫn còn, vì không còn ai sửa được nó một mình.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "emc_end",
+       "emc_end_league_council"
+      ]
+     },
+     "moment": "Trao giao ước liên bang cho hội đồng bảy tộc"
+    },
+    {
+     "label": "Khắc thêm điều khoản cuối lên đá Răng Cưa",
+     "require": {
+      "flags": [
+       "emc_league_dwarves"
+      ]
+     },
+     "text": "Điều khoản cuối: “Giao ước này không thuộc về ai sống lâu nhất, mà thuộc về ai giữ nó lâu nhất.” Người Dwarf gật đầu khi đọc nó.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "emc_end",
+       "emc_end_stone_clause"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "emc_daily_barter",
+   "races": [
+    "elf"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "elf_merchant",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một đứa trẻ Elf muốn đổi một viên sỏi đẹp lấy lời hứa bạn kể chuyện cho nó nghe mỗi tối trong một tuần.",
+   "choices": [
+    {
+     "label": "Nhận viên sỏi",
+     "text": "Bạn kể bảy câu chuyện. Đến tối thứ tám, đứa trẻ mang đến một viên sỏi khác.",
+     "effects": {
+      "joy": 8
+     }
+    },
+    {
+     "label": "Kể chuyện miễn phí, trả lại viên sỏi",
+     "text": "Đứa trẻ không hiểu vì sao bạn không lấy viên sỏi. Một người buôn già đi ngang qua gật đầu.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "emc_daily_war_trade",
+   "races": [
+    "elf"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "elf_merchant",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh làm giá ma thảo chữa thương tăng gấp mười.",
+   "choices": [
+    {
+     "label": "Bán giá cũ",
+     "text": "Bạn lỗ, nhưng hàng nghìn người lính được chữa.",
+     "effects": {
+      "wealth": -5,
+      "fame": 5,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Bán giá thị trường",
+     "text": "Bạn giàu lên. Ma thảo đến tay những ai trả nổi.",
+     "effects": {
+      "wealth": 20,
+      "joy": -6,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "emc_daily_old_ledger",
+   "races": [
+    "elf"
+   ],
+   "stages": [
+    "elder",
+    "ancient"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "elf_merchant",
+    "free": true
+   },
+   "text": "Sau tám trăm năm, bạn không còn nhớ hết những lời hứa mình đã nhận và đã cho.",
+   "choices": [
+    {
+     "label": "Viết sổ",
+     "text": "Cuốn sổ dày như một bộ sách. Bạn đọc lại nó mỗi mùa xuân, và mỉm cười ở những lời hứa đã quên.",
+     "effects": {
+      "INT": 1
+     }
+    },
+    {
+     "label": "Tha cho mọi lời hứa chưa trả",
+     "text": "Bạn tuyên bố giữa chợ: mọi ai còn nợ bạn lời hứa, giờ được tự do. Cả chợ im lặng, rồi vỗ tay.",
+     "effects": {
+      "joy": 10,
+      "fame": 3
+     }
+    }
+   ]
+  }
+ ]
+}

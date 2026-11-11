@@ -1,0 +1,1009 @@
+{
+ "_note": "Tuyến truyện Spirit Caller (Elf): 5 chương theo bậc, ba đạo ở Bậc 2 (esp_path_pact / esp_path_bind / esp_path_vessel), nhân vật xuyên suốt Aelith, tinh linh nước Liri và Caelan.",
+ "origins": [],
+ "events": [
+  {
+   "id": "esp_c1_aelith",
+   "races": [
+    "elf"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "elf_spirit",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "esp_met_aelith"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Aelith",
+     "race": "Elf",
+     "position": "Spirit Caller già bên Hồ Gương Tĩnh Lặng"
+    }
+   ],
+   "text": "Aelith đã gọi tinh linh từ trước khi bạn ra đời ba trăm năm. Bà đưa bạn đến Hồ Gương Tĩnh Lặng và bảo bạn nhìn xuống nước: “Đừng gọi. Chỉ chờ xem có ai muốn nói chuyện với ngươi không.”",
+   "choices": [
+    {
+     "label": "Ngồi im bên hồ",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Đến ngày thứ chín, mặt hồ gợn lên dù không có gió. Một khuôn mặt nhỏ bằng nước nhô lên, nghiêng đầu nhìn bạn. Nó tự xưng là Liri. Aelith mỉm cười: “Nó chọn ngươi. Đừng bao giờ quên là nó chọn.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "esp_met_aelith",
+        "esp_liri"
+       ]
+      },
+      "moment": "Tinh linh nước Liri tự tìm đến bên Hồ Gương"
+     },
+     "fail": {
+      "text": "Mặt hồ im lặng suốt một mùa. Aelith nói tinh linh nước rất kén chọn, và bạn chỉ cần học cách chờ thêm.",
+      "effects": {
+       "joy": -3,
+       "flags": [
+        "esp_met_aelith"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hát cho mặt hồ nghe",
+     "text": "Bạn hát một bài ru cũ. Mặt hồ rung lên theo nhịp. Một khuôn mặt nhỏ bằng nước nhô lên, bĩu môi chê giọng bạn, nhưng vẫn ở lại nghe hết. Nó tên là Liri.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 1,
+      "flags": [
+       "esp_met_aelith",
+       "esp_liri"
+      ]
+     },
+     "moment": "Hát cho mặt hồ và gặp tinh linh Liri"
+    }
+   ]
+  },
+  {
+   "id": "esp_c1_caelan",
+   "races": [
+    "elf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "elf_spirit",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "esp_met_aelith"
+    ],
+    "notFlags": [
+     "esp_met_caelan"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Caelan",
+     "race": "Elf",
+     "position": "Spirit Caller trẻ chuyên trói buộc tinh linh"
+    }
+   ],
+   "text": "Caelan là Spirit Caller trẻ tài năng nhất thế hệ bạn. Hắn không chờ tinh linh chọn; hắn vẽ một vòng tròn bạc, đọc một câu chú, và tinh linh lửa phải hiện ra, run rẩy trong vòng tròn.",
+   "choices": [
+    {
+     "label": "Nói với hắn rằng tinh linh đang sợ",
+     "text": "Caelan nhìn tinh linh lửa, rồi nhìn bạn. “Sợ thì nghe lời.” Nhưng đêm ấy, bạn thấy hắn ngồi một mình bên vòng tròn bạc, nhìn tinh linh lửa đã được thả ra bay đi.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "esp_met_caelan",
+       "esp_caelan_doubt"
+      ]
+     }
+    },
+    {
+     "label": "Xin hắn dạy câu chú",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Caelan dạy bạn, vì không ai khác chịu học. Câu chú mạnh, chính xác, và lạnh lẽo. Đâu đó gần bờ hồ, một tinh linh nhỏ quay mặt đi.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "esp_met_caelan",
+        "esp_learned_binding"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn đọc sai một âm. Vòng tròn bạc vỡ, và tinh linh lửa liếm cháy tay áo bạn trước khi biến mất.",
+      "effects": {
+       "health": -8,
+       "flags": [
+        "esp_met_caelan"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "esp_c2_first_pact",
+   "races": [
+    "elf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "elf_spirit",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "esp_first_pact",
+     "esp_end"
+    ]
+   },
+   "text": "Một tinh linh đất bị mắc kẹt dưới chân một ngọn núi đang sụp. Nó đang kêu cứu, và chỉ một Spirit Caller mới nghe thấy.",
+   "choices": [
+    {
+     "label": "Đề nghị một khế ước: cứu nó, nó giúp bạn một lần",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn đào bằng tay suốt hai ngày. Tinh linh đất thoát ra, to như một tảng đá biết thở. Nó đặt một viên sỏi vào tay bạn: lời hứa của nó. Khế ước đầu tiên của bạn.",
+      "effects": {
+       "INT": 1,
+       "fame": 3,
+       "jobXp": 2,
+       "flags": [
+        "esp_first_pact"
+       ]
+      },
+      "moment": "Lập khế ước đầu tiên với tinh linh đất"
+     },
+     "fail": {
+      "text": "Bạn không đào kịp. Tinh linh đất chìm sâu hơn vào lòng núi, và tiếng kêu tắt dần.",
+      "effects": {
+       "joy": -10,
+       "flags": [
+        "esp_first_pact"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Nhờ Liri làm mềm đất",
+     "require": {
+      "flags": [
+       "esp_liri"
+      ]
+     },
+     "text": "Liri thấm vào đất đá, làm chúng mềm như bùn. Tinh linh đất trồi lên, ướt sũng và cáu kỉnh, nhưng sống. Nó và Liri cãi nhau suốt một buổi chiều, rồi trở thành bạn.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 2,
+      "flags": [
+       "esp_first_pact",
+       "esp_earth_friend"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "esp_c2_crossroads",
+   "races": [
+    "elf"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "elf_spirit",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "esp_path_pact",
+     "esp_path_bind",
+     "esp_path_vessel",
+     "esp_end"
+    ],
+    "flags": [
+     "esp_met_aelith",
+     "esp_met_caelan"
+    ]
+   },
+   "text": "Aelith nói: “Có ba cách để một Elf nói chuyện với tinh linh.” Cách của bà: khế ước bằng hữu, ngang hàng, mỗi bên tự do rời đi. Cách của Caelan: vòng tròn bạc, mệnh lệnh, quyền năng không giới hạn. Và cách thứ ba, mà chỉ vài Elf mỗi nghìn năm dám chọn: mở chính mình làm bình chứa cho tinh linh của Yggdrasil.",
+   "choices": [
+    {
+     "label": "Khế ước bằng hữu: con đường của Aelith",
+     "text": "Bạn sẽ có ít tinh linh hơn Caelan, và chúng có thể rời bỏ bạn bất cứ lúc nào. Nhưng những tinh linh ở lại thì ở lại vì muốn.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "esp_path_pact"
+      ]
+     },
+     "moment": "Chọn con đường khế ước bằng hữu với tinh linh"
+    },
+    {
+     "label": "Vòng tròn bạc: con đường của Caelan",
+     "text": "Caelan trao cho bạn một sợi xích bạc mảnh. “Tinh linh không có bạn. Chúng có chủ, hoặc chúng có tự do. Ngươi chọn cho chúng.”",
+     "effects": {
+      "INT": 1,
+      "fame": 3,
+      "jobXp": 2,
+      "flags": [
+       "esp_path_bind"
+      ]
+     },
+     "moment": "Chọn con đường trói buộc tinh linh"
+    },
+    {
+     "label": "Bình chứa Yggdrasil: con đường thứ ba",
+     "text": "Aelith nắm tay bạn rất lâu. “Ngươi sẽ không còn là ngươi hoàn toàn nữa.” Bạn gật đầu. Đêm ấy, bạn ngủ dưới gốc Yggdrasil, và mơ thấy mình là rễ cây.",
+     "effects": {
+      "LUCK": 1,
+      "lifeCost": 2,
+      "jobXp": 2,
+      "flags": [
+       "esp_path_vessel"
+      ]
+     },
+     "moment": "Mở lòng làm bình chứa cho tinh linh Yggdrasil"
+    }
+   ]
+  },
+  {
+   "id": "esp_pact_fire",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_spirit",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "esp_path_pact"
+    ],
+    "notFlags": [
+     "esp_end"
+    ]
+   },
+   "text": "Một tinh linh lửa hoang dã đang thiêu rụi một khu rừng phía nam. Nó không ác; nó chỉ đói, và đang lớn lên.",
+   "choices": [
+    {
+     "label": "Đề nghị cho nó một chỗ ở",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn dẫn nó đến một ngọn núi lửa đã ngủ, nơi nó có thể sống mà không thiêu gì. Nó đồng ý, với điều kiện bạn đến thăm mỗi trăm năm. Bạn giữ lời.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "esp_pact_fire"
+       ]
+      },
+      "moment": "Dẫn tinh linh lửa hoang dã về một ngọn núi lửa ngủ"
+     },
+     "fail": {
+      "text": "Nó không nghe. Bạn phải nhờ Liri dập lửa, và Liri suýt bốc hơi.",
+      "effects": {
+       "health": -15,
+       "flags": [
+        "esp_liri_hurt"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Gọi mưa dập lửa",
+     "text": "Mưa đến sau ba ngày cầu khẩn. Lửa tắt. Tinh linh lửa co lại thành một đốm than, giận dữ, và bỏ đi. Bạn biết nó sẽ quay lại.",
+     "effects": {
+      "jobXp": 2,
+      "flags": [
+       "esp_fire_angry"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "esp_pact_liri_leave",
+   "races": [
+    "elf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "elf_spirit",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "esp_path_pact",
+     "esp_liri"
+    ],
+    "notFlags": [
+     "esp_end"
+    ]
+   },
+   "text": "Liri nói với bạn rằng nó muốn về với biển. Nó đã ở bên bạn hai trăm năm, và nó nhớ những con sóng.",
+   "choices": [
+    {
+     "label": "Để nó đi",
+     "text": "Bạn dẫn Liri ra bờ biển phía tây. Nó nhảy vào sóng, rồi quay lại nhìn bạn một lần, và biến mất. Hai mươi năm sau, mỗi lần bạn đứng bên bờ biển, có một con sóng nhỏ vỗ vào chân bạn, ấm áp lạ thường.",
+     "effects": {
+      "joy": -4,
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "esp_liri_free"
+      ]
+     },
+     "moment": "Thả Liri về với biển"
+    },
+    {
+     "label": "Xin nó ở lại thêm",
+     "text": "Liri ở lại. Nhưng nó không còn hát nữa, và mặt nước quanh nó không còn gợn sóng. Bạn hiểu ra điều Aelith nói: khế ước bằng hữu nghĩa là để bạn đi.",
+     "effects": {
+      "joy": -8,
+      "jobXp": 2,
+      "flags": [
+       "esp_liri_kept"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "esp_bind_army",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_spirit",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "esp_path_bind"
+    ],
+    "notFlags": [
+     "esp_end"
+    ]
+   },
+   "text": "Hội đồng Trưởng Lão cần một đạo quân tinh linh để đẩy lùi Ma tộc ở biên giới. Với vòng tròn bạc, bạn có thể trói một trăm tinh linh trong một đêm.",
+   "choices": [
+    {
+     "label": "Trói một trăm tinh linh",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Một trăm tinh linh đứng trong vòng tròn bạc, run rẩy, chờ lệnh. Đạo quân của bạn đẩy lùi Ma tộc trong một ngày. Hội đồng tôn bạn làm Elemental Master. Đêm ấy, bạn nghe một trăm giọng nói khóc trong giấc mơ.",
+      "effects": {
+       "fame": 10,
+       "joy": -12,
+       "jobXp": 3,
+       "flags": [
+        "esp_bind_army"
+       ]
+      },
+      "moment": "Trói một trăm tinh linh làm đạo quân"
+     },
+     "fail": {
+      "text": "Vòng tròn quá lớn. Một nửa tinh linh thoát ra và quay lại tấn công bạn.",
+      "effects": {
+       "health": -25,
+       "flags": [
+        "esp_bind_revolt"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Chỉ trói những tinh linh tự nguyện",
+     "text": "Chỉ có mười hai tinh linh đến. Bạn đặt chúng vào vòng tròn mà không khóa. Mười hai tinh linh tự nguyện đánh giỏi hơn một trăm tinh linh bị trói. Ma tộc rút lui.",
+     "effects": {
+      "fame": 6,
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "esp_bind_willing"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "esp_bind_caelan",
+   "races": [
+    "elf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "elf_spirit",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "esp_path_bind",
+     "esp_met_caelan"
+    ],
+    "notFlags": [
+     "esp_end"
+    ]
+   },
+   "text": "Caelan đã trói quá nhiều tinh linh. Chúng phản lại, và giờ hắn bị giam trong chính vòng tròn bạc của mình, bên trong là một tinh linh lửa khổng lồ.",
+   "choices": [
+    {
+     "label": "Phá vòng tròn cứu hắn",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đập vỡ vòng tròn bằng tay không. Tinh linh lửa thoát ra, bay đi. Caelan ngã vào tay bạn, bỏng nặng, nhưng còn sống. Hắn không bao giờ vẽ vòng tròn bạc nữa.",
+      "effects": {
+       "STR": 1,
+       "fame": 5,
+       "health": -15,
+       "jobXp": 3,
+       "flags": [
+        "esp_caelan_saved"
+       ]
+      },
+      "moment": "Đập vỡ vòng tròn bạc cứu Caelan"
+     },
+     "fail": {
+      "text": "Tay bạn bỏng đến xương. Vòng tròn vẫn chưa vỡ khi Aelith đến.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Thương lượng với tinh linh lửa",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn hỏi nó muốn gì. Nó muốn tự do cho mọi tinh linh mà Caelan đã trói. Bạn hứa. Nó thả Caelan. Bạn giữ lời, và cả hai người mất ba năm để tháo hết những vòng tròn bạc.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "esp_caelan_saved",
+        "esp_freed_bound"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Tinh linh lửa không tin lời một Elf mang xích bạc trên tay.",
+      "effects": {
+       "joy": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "esp_vessel_first",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_spirit",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "esp_path_vessel"
+    ],
+    "notFlags": [
+     "esp_end"
+    ]
+   },
+   "text": "Lần đầu tiên tinh linh của Yggdrasil chảy qua bạn, bạn nhìn thấy cả Đại Ngàn cùng lúc: từng chiếc lá, từng con sâu, từng giọt nhựa. Rồi bạn quên mất tên mình trong ba ngày.",
+   "choices": [
+    {
+     "label": "Học cách giữ lại tên mình",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn khắc tên mình lên một hòn đá, cầm trong tay mỗi khi tinh linh đến. Lần sau, bạn chỉ quên trong một giờ.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "esp_vessel_anchor"
+       ]
+      },
+      "moment": "Học cách giữ lại tên mình khi làm bình chứa"
+     },
+     "fail": {
+      "text": "Bạn quên lâu hơn. Aelith phải gọi tên bạn suốt một tuần.",
+      "effects": {
+       "lifeCost": 2,
+       "joy": -6
+      }
+     }
+    },
+    {
+     "label": "Để nó chảy, không chống lại",
+     "text": "Bạn mở hết. Bạn là Đại Ngàn trong một tháng. Khi tỉnh lại, bạn biết ngôn ngữ của cây, nhưng quên mất tên của mẹ mình.",
+     "effects": {
+      "INT": 2,
+      "lifeCost": 4,
+      "joy": -8,
+      "jobXp": 3,
+      "flags": [
+       "esp_vessel_open"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "esp_vessel_voice",
+   "races": [
+    "elf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "elf_spirit",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "esp_path_vessel"
+    ],
+    "notFlags": [
+     "esp_end"
+    ]
+   },
+   "text": "Yggdrasil muốn nói với Hội đồng Trưởng Lão qua bạn. Lời nó muốn nói: Hội đồng đã sai khi đóng cửa Đại Ngàn với các tộc khác.",
+   "choices": [
+    {
+     "label": "Để nó nói",
+     "text": "Giọng nói phát ra từ miệng bạn không phải giọng của bạn. Hội đồng im lặng suốt một ngày. Rồi họ bắt đầu tranh luận, lần đầu tiên sau năm trăm năm.",
+     "effects": {
+      "fame": 8,
+      "jobXp": 3,
+      "flags": [
+       "esp_vessel_spoke"
+      ]
+     },
+     "moment": "Để Yggdrasil nói qua mình trước Hội đồng"
+    },
+    {
+     "label": "Nói thay nó bằng lời của mình",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn truyền lại lời cây bằng giọng của mình, mềm mỏng hơn. Hội đồng nghe, và bắt đầu mở vài con đường.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Hội đồng nghĩ đó là ý của bạn, không phải của cây. Họ gạt đi.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "esp_c4_aelith",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_spirit",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "esp_met_aelith"
+    ],
+    "notFlags": [
+     "esp_aelith_gone",
+     "esp_end"
+    ]
+   },
+   "text": "Aelith đã sống một nghìn hai trăm năm. Bà nói với bạn rằng các tinh linh của bà đã đi trước, từng người một, và giờ đến lượt bà.",
+   "choices": [
+    {
+     "label": "Ngồi bên Hồ Gương cùng bà",
+     "text": "Bà nhìn xuống mặt hồ, nơi bà gặp tinh linh đầu tiên của mình. Mặt hồ gợn lên, dù không có gió. Bà mỉm cười, và đi theo nó. Bạn ở lại bên hồ thêm một trăm năm.",
+     "effects": {
+      "joy": -2,
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "esp_aelith_gone"
+      ]
+     },
+     "moment": "Tiễn Aelith bên Hồ Gương Tĩnh Lặng"
+    },
+    {
+     "label": "Hỏi bà điều bà hối tiếc nhất",
+     "text": "Aelith nghĩ rất lâu. “Ta chưa bao giờ học được cách sống mà không có tinh linh nào bên cạnh. Đừng như ta.” Bà mất trước bình minh.",
+     "effects": {
+      "joy": 2,
+      "jobXp": 3,
+      "flags": [
+       "esp_aelith_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "esp_c4_abyss_spirit",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_spirit",
+    "free": true,
+    "jobRank": 3,
+    "notFlags": [
+     "esp_end"
+    ]
+   },
+   "text": "Một tinh linh từ Vực Thẳm Phân Tầng đã vượt qua ranh giới, một thực thể của bóng tối và đói khát. Mọi tinh linh của Đại Ngàn đều sợ nó.",
+   "choices": [
+    {
+     "label": "Đối mặt nó một mình",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn nói chuyện với nó theo cách cổ nhất của Thần Triệu Hồi: không gọi, chỉ chờ xem nó muốn gì. Nó muốn về nhà, nhưng không biết đường. Bạn dẫn nó về Vực Thẳm. Người ta gọi bạn là High Spirit Caller.",
+      "effects": {
+       "INT": 1,
+       "fame": 12,
+       "jobXp": 4,
+       "flags": [
+        "esp_abyss_guided"
+       ]
+      },
+      "moment": "Dẫn tinh linh Vực Thẳm về nhà"
+     },
+     "fail": {
+      "text": "Nó nuốt một phần ký ức của bạn trước khi bỏ đi.",
+      "effects": {
+       "INT": -1,
+       "lifeCost": 4,
+       "flags": [
+        "esp_abyss_scar"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Gọi mọi tinh linh bạn từng kết giao",
+     "require": {
+      "anyFlags": [
+       "esp_pact_fire",
+       "esp_earth_friend",
+       "esp_bind_willing",
+       "esp_freed_bound"
+      ]
+     },
+     "text": "Tinh linh đất, tinh linh lửa, những tinh linh được bạn trả tự do. Chúng đến, không phải vì bị gọi, mà vì muốn. Cùng nhau, chúng đẩy tinh linh bóng tối về Vực Thẳm.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "jobXp": 4,
+      "flags": [
+       "esp_abyss_guided"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "esp_c5_pact",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_spirit",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "esp_path_pact"
+    ],
+    "notFlags": [
+     "esp_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Avatar of Yggdrasil, nhưng bạn biết mình chỉ là người bạn của vài tinh linh. Những tinh linh ấy giờ đã già, như bạn.",
+   "choices": [
+    {
+     "label": "Thả mọi khế ước",
+     "text": "Bạn gọi từng tinh linh đến, cảm ơn, và trả lại lời hứa của chúng. Một số đi. Một số ở lại, không vì khế ước nào. Bạn sống những năm cuối với những người bạn ở lại vì muốn.",
+     "effects": {
+      "joy": 18,
+      "fame": 10,
+      "flags": [
+       "esp_end",
+       "esp_end_released"
+      ]
+     },
+     "moment": "Trả lại mọi khế ước cho các tinh linh"
+    },
+    {
+     "label": "Dạy lũ trẻ chờ bên Hồ Gương",
+     "text": "Bạn dẫn từng đứa trẻ Elf đến Hồ Gương, nói đúng câu Aelith đã nói. Một số chờ chín ngày. Một số chờ chín năm. Bạn chờ cùng chúng.",
+     "effects": {
+      "joy": 15,
+      "fame": 12,
+      "flags": [
+       "esp_end",
+       "esp_end_teacher"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "esp_c5_bind",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_spirit",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "esp_path_bind"
+    ],
+    "notFlags": [
+     "esp_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Avatar of Yggdrasil, và sợ bạn hơn yêu bạn. Một nghìn tinh linh bị trói trong những vòng tròn bạc của bạn.",
+   "choices": [
+    {
+     "label": "Phá hết vòng tròn",
+     "require": {
+      "anyFlags": [
+       "esp_bind_willing",
+       "esp_freed_bound",
+       "esp_caelan_saved"
+      ]
+     },
+     "text": "Bạn đi từng vòng tròn một, đập vỡ từng sợi xích bạc. Mất mười năm. Khi vòng tròn cuối cùng vỡ, một nghìn tinh linh bay lên, và mưa rơi trên Đại Ngàn suốt ba ngày, ấm như nước mắt.",
+     "effects": {
+      "joy": 20,
+      "fame": 12,
+      "flags": [
+       "esp_end",
+       "esp_end_unbound"
+      ]
+     },
+     "moment": "Phá vỡ một nghìn vòng tròn bạc"
+    },
+    {
+     "label": "Giữ đạo quân tinh linh để bảo vệ Đại Ngàn",
+     "text": "Đại Ngàn không bao giờ bị xâm phạm trong thời của bạn. Nhưng các tinh linh tự do không còn đến gần những khu rừng có Elf nữa.",
+     "effects": {
+      "fame": 15,
+      "joy": -10,
+      "flags": [
+       "esp_end",
+       "esp_end_army_kept"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "esp_c5_vessel",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_spirit",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "esp_path_vessel"
+    ],
+    "notFlags": [
+     "esp_end"
+    ]
+   },
+   "text": "Bạn đã là bình chứa của Yggdrasil quá lâu. Người ta gọi bạn là Avatar of Yggdrasil, và đúng như vậy: nửa bạn là bạn, nửa bạn là Cây.",
+   "choices": [
+    {
+     "label": "Trở về làm mình",
+     "require": {
+      "flags": [
+       "esp_vessel_anchor"
+      ]
+     },
+     "text": "Bạn cầm hòn đá khắc tên mình, và đọc to nó lần cuối. Tinh linh của Yggdrasil rời khỏi bạn, nhẹ như gió. Bạn sống những năm cuối như một Elf bình thường, và lần đầu tiên sau nhiều thế kỷ, bạn mơ những giấc mơ của riêng mình.",
+     "effects": {
+      "joy": 20,
+      "fame": 10,
+      "flags": [
+       "esp_end",
+       "esp_end_returned_self"
+      ]
+     }
+    },
+    {
+     "label": "Hòa vào Cây",
+     "text": "Bạn đi đến gốc Yggdrasil, đặt lưng vào thân cây, và nhắm mắt. Sáng ra, người ta không tìm thấy bạn, chỉ thấy một nhánh rễ mới, có hình dáng một bàn tay đang mở.",
+     "effects": {
+      "fame": 15,
+      "flags": [
+       "esp_end",
+       "esp_end_became_tree"
+      ]
+     },
+     "moment": "Hòa vào Cây Thế Giới Yggdrasil"
+    }
+   ]
+  },
+  {
+   "id": "esp_daily_sprite",
+   "races": [
+    "elf"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "elf_spirit",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một tinh linh gió nhỏ nghịch ngợm thổi tung những trang sách của bạn khắp khu rừng.",
+   "choices": [
+    {
+     "label": "Đuổi theo nó",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn bắt được nó trong một tán lá. Nó cười, trả lại từng trang sách.",
+      "effects": {
+       "joy": 6
+      }
+     },
+     "fail": {
+      "text": "Bạn chạy cả ngày mà không bắt được. Sáng hôm sau, những trang sách được xếp gọn trên bàn bạn.",
+      "effects": {
+       "joy": 4
+      }
+     }
+    },
+    {
+     "label": "Hát cho nó nghe",
+     "text": "Nó dừng lại, lắng nghe, rồi lặng lẽ đặt từng trang sách xuống chân bạn.",
+     "effects": {
+      "joy": 8
+     }
+    }
+   ]
+  },
+  {
+   "id": "esp_daily_war_spirits",
+   "races": [
+    "elf"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "elf_spirit",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh với Ma tộc lan đến Đại Ngàn. Hội đồng muốn mọi Spirit Caller đưa tinh linh của mình ra chiến trường.",
+   "choices": [
+    {
+     "label": "Hỏi tinh linh của mình có muốn không",
+     "text": "Một số muốn, một số không. Bạn chỉ đưa những tinh linh muốn đi. Chúng chiến đấu như những ngọn gió.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Ra lệnh cho tất cả",
+     "text": "Mọi tinh linh của bạn ra chiến trường. Ma tộc bị đẩy lùi. Một số tinh linh không trở về.",
+     "effects": {
+      "fame": 6,
+      "joy": -10,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "esp_daily_old_voices",
+   "races": [
+    "elf"
+   ],
+   "stages": [
+    "elder",
+    "ancient"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "elf_spirit",
+    "free": true
+   },
+   "text": "Sau nhiều thế kỷ, bạn bắt đầu nghe thấy tiếng tinh linh ở khắp nơi, kể cả khi không gọi. Giấc ngủ của bạn đầy tiếng thì thầm.",
+   "choices": [
+    {
+     "label": "Học cách đóng tai lại",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn học được cách im lặng bên trong, như một mặt hồ không gió.",
+      "effects": {
+       "INT": 1,
+       "joy": 6
+      }
+     },
+     "fail": {
+      "text": "Tiếng thì thầm vẫn còn đó. Bạn học cách sống cùng nó.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    },
+    {
+     "label": "Lắng nghe chúng",
+     "text": "Hóa ra chúng không đòi hỏi gì. Chúng chỉ kể chuyện. Bạn ngủ ngon hơn khi lắng nghe.",
+     "effects": {
+      "joy": 8
+     }
+    }
+   ]
+  }
+ ]
+}

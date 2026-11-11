@@ -1,0 +1,1015 @@
+{
+ "_note": "Tuyến truyện Nature Envoy (Elf): 5 chương theo bậc, ba đạo ở Bậc 2 (eev_path_council / eev_path_crown / eev_path_tribes), nhân vật xuyên suốt Ithrandil (đại sứ già) và Mara Vey (đại sứ Sanctus).",
+ "origins": [],
+ "events": [
+  {
+   "id": "eev_c1_ithrandil",
+   "races": [
+    "elf"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "elf_envoy",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "eev_met_ithrandil"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Ithrandil",
+     "race": "Elf",
+     "position": "Đại sứ lâu năm nhất của Đại Ngàn"
+    }
+   ],
+   "text": "Ithrandil đã làm đại sứ của Đại Ngàn từ khi Sanctus còn là một làng chài. Bài học đầu tiên của ông: ngồi trong một căn phòng với một sứ giả Dwarf suốt một ngày mà không nói gì, cho đến khi người kia nói trước.",
+   "choices": [
+    {
+     "label": "Im lặng đến cùng",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Đến chiều, sứ giả Dwarf đỏ mặt, đập bàn, và nói ra điều ông ta thật sự muốn: một con đường buôn bán qua rìa rừng. Ithrandil mỉm cười: “Người nói trước luôn nói thật hơn.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "eev_met_ithrandil",
+        "eev_ithrandil_respect"
+       ]
+      },
+      "moment": "Học bài im lặng của đại sứ Ithrandil"
+     },
+     "fail": {
+      "text": "Bạn nói trước. Sứ giả Dwarf cười khẩy. Ithrandil thở dài: “Còn ba trăm năm để học.”",
+      "effects": {
+       "joy": -3,
+       "flags": [
+        "eev_met_ithrandil"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Rót cho ông ta một cốc bia",
+     "text": "Sứ giả Dwarf nhìn cốc bia, rồi nhìn bạn, rồi uống. Ông ta nói chuyện suốt buổi chiều. Ithrandil nhướng mày: “Không đúng bài. Nhưng hiệu quả.”",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 1,
+      "flags": [
+       "eev_met_ithrandil"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "eev_c1_mara",
+   "races": [
+    "elf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "elf_envoy",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "eev_met_ithrandil"
+    ],
+    "notFlags": [
+     "eev_met_mara"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Mara Vey",
+     "race": "Human",
+     "position": "Đại sứ trẻ của Sanctus tại Đại Ngàn"
+    }
+   ],
+   "text": "Đại sứ mới của Sanctus là Mara Vey, hai mươi lăm tuổi, nói nhanh, cười to, và không biết gì về phong tục Elf. Trong buổi gặp đầu tiên, cô ta bắt tay Trưởng Lão, một điều cấm kỵ.",
+   "choices": [
+    {
+     "label": "Đỡ lời cho cô ta",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn nói rằng ở Sanctus, bắt tay là cách tôn trọng nhất. Trưởng Lão im lặng, rồi chìa tay ra lần nữa, theo kiểu Human. Mara nhìn bạn, biết ơn. Từ đó, cô ta nhờ bạn dạy phong tục Elf.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "eev_met_mara",
+        "eev_mara_friend"
+       ]
+      },
+      "moment": "Đỡ lời cho đại sứ Mara Vey trong buổi gặp đầu tiên"
+     },
+     "fail": {
+      "text": "Trưởng Lão không chấp nhận lời bạn. Buổi gặp kết thúc lạnh lẽo.",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "eev_met_mara"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Để cô ta tự xử lý",
+     "text": "Mara nhận ra sai lầm, cúi đầu xin lỗi bằng tiếng Elf vụng về. Trưởng Lão bật cười, lần đầu sau trăm năm. Mara giỏi hơn bạn tưởng.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1,
+      "flags": [
+       "eev_met_mara"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "eev_c2_first_treaty",
+   "races": [
+    "elf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "elf_envoy",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "eev_first_treaty",
+     "eev_end"
+    ]
+   },
+   "text": "Nhiệm vụ đầu tiên của bạn: thương lượng với một làng Human đang muốn khai thác gỗ ở rìa Đại Ngàn. Hội đồng muốn bạn từ chối thẳng.",
+   "choices": [
+    {
+     "label": "Từ chối thẳng, như Hội đồng muốn",
+     "text": "Làng Human về tay trắng. Một năm sau, họ quay lại, với rìu.",
+     "effects": {
+      "jobXp": 2,
+      "flags": [
+       "eev_first_treaty",
+       "eev_first_refused"
+      ]
+     }
+    },
+    {
+     "label": "Đề nghị gỗ cây đổ thay vì cây sống",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Làng Human được phép nhặt gỗ cây đổ ở rìa rừng mỗi mùa thu. Họ có gỗ, Đại Ngàn có rừng. Hội đồng khiển trách bạn vì vượt quyền, rồi ghi hiệp ước vào sổ.",
+      "effects": {
+       "INT": 1,
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "eev_first_treaty",
+        "eev_first_deal"
+       ]
+      },
+      "moment": "Ký hiệp ước gỗ cây đổ đầu tiên với một làng Human"
+     },
+     "fail": {
+      "text": "Làng Human không tin. Họ nghĩ Elf đang lừa họ.",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "eev_first_treaty"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "eev_c2_crossroads",
+   "races": [
+    "elf"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "elf_envoy",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "eev_path_council",
+     "eev_path_crown",
+     "eev_path_tribes",
+     "eev_end"
+    ],
+    "flags": [
+     "eev_met_ithrandil"
+    ]
+   },
+   "text": "Ithrandil gọi bạn đến. “Một sứ giả phải chọn mình nói cho ai.” Hội đồng Trưởng Lão cần một người hiểu bên ngoài để ngồi trong phòng họp. Vương triều Sanctus đề nghị một liên minh lâu dài, và cần một đại sứ thường trú. Và những tộc ít ai đến gặp, Beastman, Dwarf, thậm chí Goblin, chưa từng có sứ giả Elf nào.",
+   "choices": [
+    {
+     "label": "Ngồi trong Hội đồng: Hội Đồng",
+     "text": "Phòng họp của Hội đồng có những chiếc ghế gỗ đã ngồi một nghìn năm. Bạn ngồi xuống chiếc ghế trẻ nhất, và học cách nói chậm.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "eev_path_council"
+      ]
+     },
+     "moment": "Ngồi vào ghế trẻ nhất của Hội đồng Trưởng Lão"
+    },
+    {
+     "label": "Đến Sanctus: Liên Minh Loài Người",
+     "text": "Bạn dọn đến một ngôi nhà ở Sanctus, giữa khu phố của các thương nhân. Mọi thứ ở đây diễn ra quá nhanh. Mọi người ở đây già đi quá nhanh.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2,
+      "flags": [
+       "eev_path_crown"
+      ]
+     },
+     "moment": "Làm đại sứ thường trú của Đại Ngàn tại Sanctus"
+    },
+    {
+     "label": "Đi đến các tộc khác: Sứ Giả Muôn Tộc",
+     "text": "Bạn khoác áo đi đường, mang theo một chiếc lá Yggdrasil làm tín vật. Lều đầu tiên bạn bước vào là lều của một tộc trưởng Beastman tộc Gấu.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "eev_path_tribes"
+      ]
+     },
+     "moment": "Lên đường làm sứ giả đến các tộc khác"
+    }
+   ]
+  },
+  {
+   "id": "eev_council_purge",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_envoy",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "eev_path_council"
+    ],
+    "notFlags": [
+     "eev_end"
+    ]
+   },
+   "text": "Hội đồng lên kế hoạch xóa sổ một làng Human đã lấn vào rìa rừng. Phiếu của bạn có thể quyết định.",
+   "choices": [
+    {
+     "label": "Bỏ phiếu chống, đề nghị di dời có bồi thường",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn nói suốt một ngày, kể về những đứa trẻ trong làng. Hội đồng đồng ý di dời thay vì xóa sổ. Làng Human nhận một mảnh đất mới và đủ gỗ để xây nhà.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "eev_council_mercy"
+       ]
+      },
+      "moment": "Thuyết phục Hội đồng di dời thay vì xóa sổ một làng Human"
+     },
+     "fail": {
+      "text": "Bạn thua phiếu. Bạn chạy ra cảnh báo làng trước khi Ranger đến. Họ kịp chạy.",
+      "effects": {
+       "fame": -4,
+       "joy": -6,
+       "flags": [
+        "eev_council_warned"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Bỏ phiếu thuận",
+     "text": "Làng biến mất. Rìa rừng nguyên vẹn. Bạn được thăng một bậc trong Hội đồng. Đêm ấy, bạn không ngủ được.",
+     "effects": {
+      "fame": 4,
+      "joy": -18,
+      "jobXp": 3,
+      "flags": [
+       "eev_council_purge"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "eev_council_ithrandil",
+   "races": [
+    "elf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "elf_envoy",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "eev_path_council",
+     "eev_met_ithrandil"
+    ],
+    "notFlags": [
+     "eev_end"
+    ]
+   },
+   "text": "Ithrandil bị Hội đồng buộc tội đã nói quá nhiều với người Human. Họ muốn tước chức đại sứ của ông, sau tám trăm năm.",
+   "choices": [
+    {
+     "label": "Bênh vực ông",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn trình bày tám trăm năm hiệp ước ông đã ký, từng cái một. Hội đồng im lặng, rồi rút lời buộc tội. Ithrandil nhìn bạn, gật đầu, như đã chờ điều này từ lâu.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "eev_saved_ithrandil"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Hội đồng không nghe. Ithrandil bị tước chức. Ông về sống trong một căn nhà nhỏ ở rìa rừng, và vẫn tiếp khách Human ở đó.",
+      "effects": {
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Im lặng",
+     "text": "Ithrandil bị tước chức. Ông không trách bạn. Ông chỉ nói: “Im lặng cũng là một câu trả lời. Ngươi học bài ấy giỏi quá.”",
+     "effects": {
+      "joy": -8,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "eev_crown_war",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_envoy",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "eev_path_crown",
+     "eev_met_mara"
+    ],
+    "notFlags": [
+     "eev_end"
+    ]
+   },
+   "text": "Nhà vua Sanctus đòi Elf mở đường qua Đại Ngàn cho quân đội đi đánh Ma tộc. Hội đồng từ chối. Mara Vey đến tìm bạn lúc nửa đêm: nếu không mở đường, quân đội sẽ tự mở bằng rìu.",
+   "choices": [
+    {
+     "label": "Đề nghị một con đường hẹp, có Ranger dẫn",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn thuyết phục được cả hai bên: một con đường ven sông, không chặt cây, có Ranger dẫn. Quân đội đi qua trong mười ngày. Không cây nào bị đốn.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "eev_crown_road"
+       ]
+      },
+      "moment": "Dàn xếp con đường hẹp cho quân đội Sanctus qua Đại Ngàn"
+     },
+     "fail": {
+      "text": "Một bên không tin bên kia. Quân đội đi đường vòng, chậm một tháng, và thua một trận.",
+      "effects": {
+       "joy": -12
+      }
+     }
+    },
+    {
+     "label": "Báo Hội đồng chuẩn bị chiến tranh",
+     "text": "Hội đồng chuẩn bị. Quân đội Sanctus đến rìa rừng, thấy Ranger đứng đầy cành cây, và quay đi. Liên minh rạn nứt.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 2,
+      "flags": [
+       "eev_crown_broken"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "eev_crown_mara_child",
+   "races": [
+    "elf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "elf_envoy",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "eev_path_crown",
+     "eev_met_mara"
+    ],
+    "notFlags": [
+     "eev_end"
+    ]
+   },
+   "text": "Mara Vey sinh con. Cô ta nhờ bạn làm cha đỡ đầu, theo phong tục Human. Không Elf nào từng làm cha đỡ đầu cho một đứa trẻ Human.",
+   "choices": [
+    {
+     "label": "Nhận lời",
+     "text": "Bạn bế đứa bé trong lễ rửa tội ở nhà thờ Lumina, giữa những ánh nhìn tò mò. Đứa trẻ nắm lấy tai nhọn của bạn và không chịu buông. Cả nhà thờ bật cười.",
+     "effects": {
+      "joy": 12,
+      "jobXp": 2,
+      "flags": [
+       "eev_godparent"
+      ]
+     },
+     "moment": "Làm cha mẹ đỡ đầu cho con của Mara Vey"
+    },
+    {
+     "label": "Từ chối nhẹ nhàng",
+     "text": "Mara hiểu. Nhưng mỗi năm, cô ta vẫn gửi cho bạn một bức vẽ của đứa trẻ, để bạn thấy nó lớn lên.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "eev_tribes_goblin",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_envoy",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "eev_path_tribes"
+    ],
+    "notFlags": [
+     "eev_end"
+    ]
+   },
+   "text": "Một bộ lạc Goblin ở Đầm Lầy muốn gặp sứ giả Elf. Chưa Elf nào từng ngồi chung với Goblin mà không rút kiếm.",
+   "choices": [
+    {
+     "label": "Đến, không mang vũ khí",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Tù trưởng Goblin nhìn bạn rất lâu, rồi mời bạn ăn một món gì đó bạn không muốn biết là gì. Bạn ăn. Họ muốn một điều đơn giản: Elf thôi săn Goblin ở rìa đầm lầy. Bạn hứa, và giữ lời.",
+      "effects": {
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "eev_tribes_goblin"
+       ]
+      },
+      "moment": "Ngồi ăn cùng tù trưởng Goblin mà không mang vũ khí"
+     },
+     "fail": {
+      "text": "Một Goblin trẻ hoảng sợ và đâm bạn. Tù trưởng đánh nó, xin lỗi bạn. Cuộc gặp vẫn diễn ra, với bạn băng bó một bên tay.",
+      "effects": {
+       "health": -15,
+       "fame": 4,
+       "flags": [
+        "eev_tribes_goblin"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Từ chối",
+     "text": "Có những ranh giới mà một sứ giả cũng không bước qua.",
+     "effects": {
+      "joy": -2
+     }
+    }
+   ]
+  },
+  {
+   "id": "eev_tribes_council",
+   "races": [
+    "elf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "elf_envoy",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "eev_path_tribes"
+    ],
+    "notFlags": [
+     "eev_end"
+    ]
+   },
+   "text": "Bạn đề nghị một điều chưa từng có: một hội đồng nơi Elf, Dwarf, Beastman và Human cùng ngồi, mỗi năm một lần, để giải quyết tranh chấp biên giới.",
+   "choices": [
+    {
+     "label": "Tổ chức lần đầu tiên",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Mười hai người, bốn tộc, một chiếc bàn tròn bằng gỗ Yggdrasil. Lần đầu tiên kết thúc bằng một trận cãi nhau. Lần thứ hai kết thúc bằng một hiệp ước. Từ đó, mỗi năm họ lại ngồi xuống.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "eev_round_table"
+       ]
+      },
+      "moment": "Tổ chức hội đồng bốn tộc đầu tiên"
+     },
+     "fail": {
+      "text": "Không ai đến đủ. Bạn ngồi một mình ở bàn tròn, chờ. Năm sau, có ba tộc đến.",
+      "effects": {
+       "joy": -6,
+       "flags": [
+        "eev_round_table"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Bắt đầu nhỏ: chỉ mời hai tộc",
+     "text": "Bạn mời Beastman và Dwarf ngồi cùng Elf, ba tộc, một bàn nhỏ. Họ cãi nhau suốt buổi, nhưng hẹn năm sau gặp lại. Năm sau, có thêm một tộc xin ngồi.",
+     "effects": {
+      "INT": 1,
+      "fame": 5,
+      "jobXp": 3,
+      "flags": [
+       "eev_round_table"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "eev_c4_mara",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_envoy",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "eev_met_mara"
+    ],
+    "notFlags": [
+     "eev_mara_gone",
+     "eev_end"
+    ]
+   },
+   "text": "Mara Vey đã già, tóc bạc trắng, và đang hấp hối trong căn nhà cạnh nhà bạn ở Sanctus. Năm mươi năm làm đại sứ, cô chưa từng thấy bạn già đi một ngày.",
+   "choices": [
+    {
+     "label": "Ngồi bên cô",
+     "text": "Mara nắm tay bạn, cười. “Ngươi vẫn chưa học được cách nói nhanh.” Cô kể về năm mươi năm, về mọi hiệp ước, mọi cuộc cãi nhau. Cô mất lúc bình minh. Bạn đọc điếu văn ở nhà thờ Lumina, bằng tiếng Elf và tiếng Human.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "eev_mara_gone"
+      ]
+     },
+     "moment": "Tiễn Mara Vey sau năm mươi năm làm đại sứ cùng nhau"
+    },
+    {
+     "label": "Hứa giữ lời hứa cuối cùng của cô",
+     "text": "Mara xin bạn giữ cho hiệp ước của hai người sống thêm năm mươi năm nữa, lâu hơn cô. Bạn hứa. Cô mất lúc nửa đêm, và bạn giữ lời lâu hơn năm mươi năm.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 3,
+      "flags": [
+       "eev_mara_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "eev_c4_ithrandil",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_envoy",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "eev_met_ithrandil"
+    ],
+    "notFlags": [
+     "eev_ithrandil_gone",
+     "eev_end"
+    ]
+   },
+   "text": "Ithrandil quyết định đi về phía tây, nơi những Elf già nhất đi khi đã sống đủ. Ông trao cho bạn chiếc nhẫn đại sứ của mình.",
+   "choices": [
+    {
+     "label": "Nhận nhẫn",
+     "text": "Chiếc nhẫn nặng hơn bạn tưởng. Ithrandil mỉm cười: “Bài học cuối: không có hiệp ước nào là mãi mãi. Chỉ có người giữ nó.” Ông đi về phía tây, và không quay lại.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "eev_ithrandil_gone"
+      ]
+     },
+     "moment": "Nhận chiếc nhẫn đại sứ từ Ithrandil"
+    },
+    {
+     "label": "Xin đi cùng ông một đoạn đường",
+     "text": "Bạn đi cùng ông bảy ngày về phía tây. Ở bờ biển, ông dừng lại, trao cho bạn chiếc nhẫn, và bước tiếp một mình. Bạn đứng nhìn đến khi bóng ông khuất.",
+     "effects": {
+      "joy": 2,
+      "jobXp": 3,
+      "flags": [
+       "eev_ithrandil_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "eev_c4_dragon",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_envoy",
+    "free": true,
+    "jobRank": 3,
+    "notFlags": [
+     "eev_end"
+    ]
+   },
+   "text": "Một Hỏa Long thức dậy ở Đảo Tro Tàn, giận dữ vì một kho báu bị đánh cắp. Nó đe dọa thiêu rụi Sanctus. Không ai dám đến nói chuyện với nó.",
+   "choices": [
+    {
+     "label": "Đến gặp nó",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn đứng trước con Rồng, kể cho nó nghe ai đã lấy kho báu, và đề nghị một thỏa thuận: Sanctus trả lại, kèm một món quà. Con Rồng nhìn bạn rất lâu, rồi nằm xuống. Người ta gọi bạn là Voice of Yggdrasil.",
+      "effects": {
+       "INT": 1,
+       "fame": 12,
+       "jobXp": 4,
+       "flags": [
+        "eev_dragon_peace"
+       ]
+      },
+      "moment": "Thương lượng với Hỏa Long cứu Sanctus"
+     },
+     "fail": {
+      "text": "Con Rồng không nghe. Nó thiêu một phần Sanctus trước khi kho báu được trả lại.",
+      "effects": {
+       "health": -20,
+       "fame": 5
+      }
+     }
+    },
+    {
+     "label": "Thuyết phục Sanctus trả kho báu trước khi con Rồng đến",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn chạy về Sanctus, tìm ra kẻ trộm trong cung điện, và mang kho báu về Đảo Tro Tàn trước khi con Rồng kịp bay. Nó nhìn bạn, gật đầu, và ngủ tiếp.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "jobXp": 4,
+       "flags": [
+        "eev_dragon_peace"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn tìm ra kẻ trộm, nhưng không kịp. Con Rồng thiêu một phần thành phố.",
+      "effects": {
+       "fame": 4,
+       "joy": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "eev_c5_council",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_envoy",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "eev_path_council"
+    ],
+    "notFlags": [
+     "eev_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Voice of Yggdrasil. Hội đồng Trưởng Lão bầu bạn làm người đứng đầu.",
+   "choices": [
+    {
+     "label": "Mở cửa Hội đồng cho người trẻ",
+     "require": {
+      "anyFlags": [
+       "eev_council_mercy",
+       "eev_saved_ithrandil"
+      ]
+     },
+     "text": "Bạn thêm mười chiếc ghế cho những Elf dưới năm trăm tuổi. Hội đồng ồn ào hơn, cãi nhau nhiều hơn, và quyết định nhanh hơn.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "eev_end",
+       "eev_end_young_seats"
+      ]
+     },
+     "moment": "Mở cửa Hội đồng Trưởng Lão cho người trẻ"
+    },
+    {
+     "label": "Giữ Hội đồng như nghìn năm qua",
+     "text": "Không có gì thay đổi. Đại Ngàn yên bình, và chậm rãi, và đóng cửa.",
+     "effects": {
+      "fame": 12,
+      "flags": [
+       "eev_end",
+       "eev_end_unchanged"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "eev_c5_crown",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_envoy",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "eev_path_crown"
+    ],
+    "notFlags": [
+     "eev_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Voice of Yggdrasil. Bạn đã thấy mười một vị vua Sanctus lên ngôi và qua đời. Vị vua thứ mười hai muốn ký một liên minh vĩnh viễn.",
+   "choices": [
+    {
+     "label": "Ký, với điều kiện có người giữ",
+     "text": "Bạn thêm một điều khoản: mỗi thế hệ, một đứa trẻ Human và một đứa trẻ Elf sẽ cùng học làm đại sứ. Liên minh không mãi mãi, nhưng người giữ nó thì luôn có.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "eev_end",
+       "eev_end_eternal_alliance"
+      ]
+     },
+     "moment": "Ký liên minh vĩnh viễn giữa Đại Ngàn và Sanctus"
+    },
+    {
+     "label": "Dạy con cháu Mara làm đại sứ",
+     "require": {
+      "flags": [
+       "eev_godparent"
+      ]
+     },
+     "text": "Chắt của Mara Vey giờ là đại sứ của Sanctus. Bạn dạy cô bài học im lặng, như Ithrandil đã dạy bạn. Cô nói trước. Bạn cười.",
+     "effects": {
+      "joy": 18,
+      "fame": 10,
+      "flags": [
+       "eev_end",
+       "eev_end_mara_line"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "eev_c5_tribes",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_envoy",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "eev_path_tribes"
+    ],
+    "notFlags": [
+     "eev_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Voice of Yggdrasil. Hội đồng bốn tộc của bạn giờ có bảy tộc, kể cả Goblin và Kobold.",
+   "choices": [
+    {
+     "label": "Trao chiếc bàn tròn cho các tộc",
+     "text": "Bạn không ngồi ở đầu bàn nữa. Bạn ngồi ở một chỗ bình thường, như mọi sứ giả khác. Khi bạn mất, chiếc bàn tròn vẫn họp, và luôn có một chỗ trống bằng gỗ Yggdrasil.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "eev_end",
+       "eev_end_round_table"
+      ]
+     },
+     "moment": "Trao chiếc bàn tròn cho bảy tộc"
+    },
+    {
+     "label": "Viết lại điều lệ của bàn tròn trước khi đi",
+     "text": "Điều lệ chỉ có bốn dòng: ai cũng được nói, không ai được nói trước hai lần, mọi quyết định cần cả bảy tộc đồng ý, và luôn để một chỗ trống cho tộc chưa đến. Bạn trao nó cho bàn tròn, rồi rời đi.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "eev_end",
+       "eev_end_charter"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "eev_daily_etiquette",
+   "races": [
+    "elf"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "elf_envoy",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Bạn mất ba tháng học phong tục của một tộc mới, để rồi phát hiện họ đã thay đổi phong tục từ năm ngoái.",
+   "choices": [
+    {
+     "label": "Học lại",
+     "text": "Bạn học lại. Sứ giả là người học suốt đời.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Cười, và hỏi thẳng họ",
+     "text": "Họ cười theo, và giải thích. Đôi khi hỏi thẳng là phong tục tốt nhất.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "eev_daily_war_envoy",
+   "races": [
+    "elf"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "elf_envoy",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Cả hai phe đều muốn Elf đứng về phía mình.",
+   "choices": [
+    {
+     "label": "Giữ Đại Ngàn trung lập",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đi giữa hai phe suốt một năm. Đại Ngàn không bị kéo vào chiến tranh.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Một phe cho rằng bạn đứng về phía kia. Rìa rừng bị đốt.",
+      "effects": {
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Thuyết phục Hội đồng giúp phe đang bảo vệ dân thường",
+     "text": "Elf gửi thầy thuốc và Ranger, không gửi quân. Một số người nói đó là đứng về một phe. Bạn gọi đó là đứng về phía người sống.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "eev_daily_old_names",
+   "races": [
+    "elf"
+   ],
+   "stages": [
+    "elder",
+    "ancient"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "elf_envoy",
+    "free": true
+   },
+   "text": "Sau tám trăm năm, bạn bắt đầu nhầm tên các vị vua Sanctus với nhau.",
+   "choices": [
+    {
+     "label": "Viết sổ",
+     "text": "Bạn viết lại tên mọi vị vua, mọi đại sứ, mọi hiệp ước. Cuốn sổ trở thành lịch sử ngoại giao của Aethelgard.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Gọi tất cả bằng tên vị vua đầu tiên",
+     "text": "Các vị vua trẻ không dám sửa bạn. Các thị thần cười thầm. Bạn biết, và cũng cười.",
+     "effects": {
+      "joy": 8
+     }
+    }
+   ]
+  }
+ ]
+}

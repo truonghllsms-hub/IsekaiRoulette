@@ -181,3 +181,5 @@ Object.assign(module.exports.overrides,corrections.overrides);
 // each Human trade's own dilemma and trials (content/career-overrides-human.js)
 Object.assign(module.exports.overrides,require('./career-overrides-human'));
 Object.assign(module.exports.overrides,require('./career-overrides-beastman'));
+Object.assign(module.exports.overrides,require('./career-overrides-elf'));
+Object.assign(module.exports.overrides,require('./career-overrides-dwarf'));

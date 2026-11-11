@@ -11,7 +11,7 @@
    "require": {
     "job": "bm_courier",
     "free": true,
-    "jobRankMax": 1,
+    "jobRankMax": 2,
     "notFlags": [
      "bcr_met_orla"
     ]
@@ -150,6 +150,9 @@
      "bcr_path_people",
      "bcr_path_storm",
      "bcr_end"
+    ],
+    "flags": [
+     "bcr_met_orla"
     ]
    },
    "text": "Bà Orla treo ba chiếc túi lên vách. Túi đỏ: thư quân sự, qua chiến tuyến, trả gấp năm. Túi nâu: thư của dân thường, của người tị nạn, không ai trả gì ngoài lời cảm ơn. Túi trắng: cuộc đua đưa thư từ Thảo Nguyên đến Sanctus, kẻ thắng được gọi là Cánh Bão.",
@@ -180,7 +183,7 @@
     },
     {
      "label": "Túi trắng: Cánh Bão",
-     "text": "Bạn buộc chặt dây giày, nhìn về phía Sanctus. Tavi đứng cạnh bạn ở vạch xuất phát, cười.",
+     "text": "Bạn buộc chặt dây giày, nhìn về phía Sanctus. Một người đưa thư trẻ đứng cạnh bạn ở vạch xuất phát, cười.",
      "effects": {
       "AGI": 1,
       "jobXp": 2,
@@ -427,7 +430,8 @@
     "jobRank": 2,
     "jobRankMax": 3,
     "flags": [
-     "bcr_path_storm"
+     "bcr_path_storm",
+     "bcr_met_tavi"
     ],
     "notFlags": [
      "bcr_end"
@@ -634,7 +638,8 @@
      "label": "Để Tavi chạy, bạn dụ lính đuổi",
      "require": {
       "flags": [
-       "bcr_tavi_friend"
+       "bcr_tavi_friend",
+       "bcr_met_tavi"
       ]
      },
      "text": "Bạn chạy về phía đông, hét to, để lính đuổi theo. Tavi lẻn ra phía tây. Bạn bị bắt; Tavi thoát. Cứu viện đến, và bạn được thả ra từ một chiếc lồng giữa trại Ma tộc bị phá.",
@@ -805,7 +810,8 @@
      "label": "Chạy với Tavi lần cuối",
      "require": {
       "flags": [
-       "bcr_tavi_friend"
+       "bcr_tavi_friend",
+       "bcr_met_tavi"
       ]
      },
      "text": "Hai người già chạy từ trạm thư đến chân đồi, chậm như đi bộ. Về đích cùng lúc. Lần này không ai nhường ai.",

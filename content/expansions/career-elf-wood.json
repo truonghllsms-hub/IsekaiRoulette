@@ -1,0 +1,924 @@
+{
+ "_note": "Tuyến truyện Holy Woodcarver (Elf): 5 chương theo bậc, ba đạo ở Bậc 2 (ewd_path_spirit / ewd_path_trade / ewd_path_tree), nhân vật xuyên suốt Faelan (thợ mộc già) và Bram (thợ khắc đá Dwarf).",
+ "origins": [],
+ "events": [
+  {
+   "id": "ewd_c1_faelan",
+   "races": [
+    "elf"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "elf_wood",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "ewd_met_faelan"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Faelan",
+     "race": "Elf",
+     "position": "Thợ mộc già chỉ khắc gỗ cây tự đổ"
+    }
+   ],
+   "text": "Xưởng của Faelan không có rìu. Ông chỉ khắc gỗ của những cây đã tự đổ. Ông dẫn bạn đi suốt một ngày trong rừng, tìm một cành sồi gãy vì bão, rồi đưa nó cho bạn: “Hỏi nó muốn trở thành gì.”",
+   "choices": [
+    {
+     "label": "Ngồi cầm cành gỗ đến khi nghe thấy",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Đến tối, bạn cảm thấy thớ gỗ cong theo một hình dáng: một con chim đang cụp cánh. Bạn khắc theo nó. Faelan nhìn, gật đầu: “Ngươi không khắc. Ngươi chỉ gỡ bỏ phần không phải là con chim.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "ewd_met_faelan",
+        "ewd_faelan_respect"
+       ]
+      },
+      "moment": "Khắc con chim đầu tiên từ cành sồi gãy"
+     },
+     "fail": {
+      "text": "Cành gỗ không nói gì với bạn. Bạn khắc một cái thìa. Faelan cười: “Cũng là một câu trả lời.”",
+      "effects": {
+       "joy": -2,
+       "flags": [
+        "ewd_met_faelan"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Khắc ngay thứ mình muốn",
+     "text": "Bạn khắc một con ngựa. Thớ gỗ chống lại bạn ở từng đường dao, và con ngựa nứt ở cổ. Faelan nhặt nó lên: “Nó muốn làm một con cá. Lần sau, hỏi trước.”",
+     "effects": {
+      "STR": 1,
+      "jobXp": 1,
+      "flags": [
+       "ewd_met_faelan"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ewd_c1_bram",
+   "races": [
+    "elf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "elf_wood",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "ewd_met_faelan"
+    ],
+    "notFlags": [
+     "ewd_met_bram"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Bram",
+     "race": "Dwarf",
+     "position": "Thợ khắc đá ở chợ phiên ven rừng"
+    }
+   ],
+   "text": "Một thợ khắc đá Dwarf tên Bram đến chợ phiên ven rừng, chê tượng gỗ của Elf là “đồ chơi trẻ con, mục sau trăm năm”. Hắn chỉ vào bức tượng đá của mình: “Thứ này sẽ đứng một nghìn năm.”",
+   "choices": [
+    {
+     "label": "Thách hắn khắc cùng một chủ đề",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Cả hai khắc một con sói. Tượng đá của Bram uy nghi, bất động. Tượng gỗ của bạn như đang thở. Đám đông chia đôi. Bram nhìn tượng của bạn rất lâu, rồi chìa bàn tay chai sạn: “Ngươi dạy ta khắc cho nó thở. Ta dạy ngươi khắc cho nó đứng.”",
+      "effects": {
+       "INT": 1,
+       "fame": 3,
+       "jobXp": 1,
+       "flags": [
+        "ewd_met_bram",
+        "ewd_bram_friend"
+       ]
+      },
+      "moment": "Thi khắc tượng sói với thợ đá Dwarf Bram"
+     },
+     "fail": {
+      "text": "Tượng của bạn nứt dưới nắng chợ. Bram không cười; hắn chỉ đưa bạn một lọ dầu bảo quản gỗ của Dwarf.",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "ewd_met_bram"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đồng ý với hắn: gỗ sẽ mục",
+     "text": "Bram ngạc nhiên. Bạn nói tiếp: “Nhưng khi nó mục, nó thành đất, và từ đất mọc lên cây mới.” Bram gãi râu, im lặng rất lâu, rồi mua một bức tượng của bạn.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1,
+      "flags": [
+       "ewd_met_bram",
+       "ewd_bram_friend"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ewd_c2_first_commission",
+   "races": [
+    "elf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "elf_wood",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "ewd_first_cradle",
+     "ewd_end"
+    ]
+   },
+   "text": "Đơn đặt hàng đầu tiên: một chiếc nôi cho đứa trẻ Elf đầu tiên được sinh ra trong làng sau năm mươi năm. Cha mẹ nó muốn chiếc nôi được dùng cho mọi đứa trẻ của làng trong nghìn năm tới.",
+   "choices": [
+    {
+     "label": "Khắc từ gỗ sồi đã đổ ba trăm năm",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Gỗ cứng như đá, nhưng ấm như da. Chiếc nôi đơn giản, không hoa văn, chỉ có một con chim cụp cánh khắc ở đầu. Đứa trẻ ngủ ngon ngay đêm đầu tiên.",
+      "effects": {
+       "INT": 1,
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "ewd_first_cradle"
+       ]
+      },
+      "moment": "Khắc chiếc nôi cho đứa trẻ đầu tiên của làng sau năm mươi năm"
+     },
+     "fail": {
+      "text": "Gỗ quá cứng, và chiếc nôi nứt ở đáy khi hoàn thành. Bạn khắc lại từ đầu, mất thêm một mùa.",
+      "effects": {
+       "joy": -6,
+       "flags": [
+        "ewd_first_cradle"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Khắc từ gỗ Yggdrasil rụng",
+     "text": "Gỗ Yggdrasil không bao giờ mục. Chiếc nôi tỏa ra một mùi hương dịu, và đứa trẻ cười trong giấc ngủ. Những thợ khắc già nhìn, im lặng. Ông biết chiếc nôi ấy sẽ còn đó lâu hơn cả hai người.",
+     "effects": {
+      "fame": 5,
+      "jobXp": 2,
+      "flags": [
+       "ewd_first_cradle",
+       "ewd_used_tree_wood"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ewd_c2_crossroads",
+   "races": [
+    "elf"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "elf_wood",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "ewd_path_spirit",
+     "ewd_path_trade",
+     "ewd_path_tree",
+     "ewd_end"
+    ],
+    "flags": [
+     "ewd_met_faelan"
+    ]
+   },
+   "text": "Faelan bày ra ba khúc gỗ. Một khúc gỗ có tinh linh ngủ bên trong, mà chỉ thợ mộc giỏi nhất mới khắc thành vật chứa được. Một khúc gỗ quý mà các tộc khác trả giá bằng vàng. Và một nhánh cây sống của Yggdrasil, chưa đổ, vẫn đang mọc. “Thợ mộc giỏi nhất không khắc gỗ chết. Họ nắn gỗ sống.”",
+   "choices": [
+    {
+     "label": "Gỗ có tinh linh: Gỗ Có Linh Hồn",
+     "text": "Bạn khắc khúc gỗ chậm rãi, sợ đánh thức thứ bên trong quá sớm. Khi xong, bức tượng mở mắt.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "ewd_path_spirit"
+      ]
+     },
+     "moment": "Khắc vật chứa tinh linh đầu tiên"
+    },
+    {
+     "label": "Gỗ quý: Mộc Cho Muôn Tộc",
+     "text": "Bạn mở một xưởng ở rìa rừng, nơi Human, Dwarf và Beastman có thể đến đặt hàng. Faelan không vui, nhưng ông hiểu.",
+     "effects": {
+      "wealth": 8,
+      "jobXp": 2,
+      "flags": [
+       "ewd_path_trade"
+      ]
+     },
+     "moment": "Mở xưởng mộc cho mọi tộc ở rìa rừng"
+    },
+    {
+     "label": "Nhánh Yggdrasil sống: Nghệ Nhân Yggdrasil",
+     "text": "Bạn không cầm dao. Bạn đặt tay lên nhánh cây, và hát cho nó nghe về hình dáng bạn muốn. Nó lớn chậm, rất chậm, theo lời bạn hát.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "ewd_path_tree"
+      ]
+     },
+     "moment": "Bắt đầu nắn nhánh sống của Yggdrasil"
+    }
+   ]
+  },
+  {
+   "id": "ewd_spirit_awake",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_wood",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ewd_path_spirit"
+    ],
+    "notFlags": [
+     "ewd_end"
+    ]
+   },
+   "text": "Bức tượng tinh linh đầu tiên của bạn thức dậy, và nó không muốn ở trong gỗ. Nó muốn ra ngoài, đi lại, như một sinh vật thật.",
+   "choices": [
+    {
+     "label": "Khắc cho nó đôi chân",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn khắc thêm khớp gối, khớp mắt cá. Bức tượng đứng dậy, bước những bước đầu tiên như một đứa trẻ. Nó đi theo bạn khắp xưởng, và tự xưng là “Gỗ”.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "ewd_spirit_walker"
+       ]
+      },
+      "moment": "Khắc đôi chân cho bức tượng tinh linh"
+     },
+     "fail": {
+      "text": "Khớp gối nứt khi nó bước bước đầu tiên. Tinh linh rời khỏi gỗ, và bức tượng chỉ còn là gỗ.",
+      "effects": {
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Thả tinh linh tự do",
+     "text": "Bạn đặt bức tượng giữa rừng, mở một khe nhỏ ở lưng. Tinh linh thoát ra như một làn gió ấm. Bức tượng còn lại, rỗng, nhưng vẫn còn hơi ấm.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "ewd_spirit_freed"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ewd_spirit_war",
+   "races": [
+    "elf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "elf_wood",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ewd_path_spirit"
+    ],
+    "notFlags": [
+     "ewd_end"
+    ]
+   },
+   "text": "Hội đồng muốn bạn khắc một trăm chiến binh gỗ có tinh linh, để bảo vệ biên giới.",
+   "choices": [
+    {
+     "label": "Khắc cho tinh linh tự nguyện",
+     "text": "Chỉ mười hai tinh linh đồng ý. Bạn khắc mười hai chiến binh. Chúng đứng gác biên giới, không bao giờ ngủ, không bao giờ rời đi.",
+     "effects": {
+      "fame": 6,
+      "jobXp": 3,
+      "flags": [
+       "ewd_spirit_willing"
+      ]
+     }
+    },
+    {
+     "label": "Khắc đủ một trăm, bắt tinh linh vào",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Một trăm chiến binh gỗ. Hội đồng hài lòng. Đêm nào, bạn cũng nghe tiếng gỗ kêu cót két, như tiếng khóc.",
+      "effects": {
+       "fame": 10,
+       "joy": -15,
+       "jobXp": 3,
+       "flags": [
+        "ewd_spirit_army"
+       ]
+      },
+      "moment": "Khắc một trăm chiến binh gỗ cho biên giới"
+     },
+     "fail": {
+      "text": "Một nửa tinh linh thoát ra trước khi bạn kịp niêm phong. Chúng không bao giờ đến gần bạn nữa.",
+      "effects": {
+       "joy": -12
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "ewd_trade_human",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_wood",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ewd_path_trade"
+    ],
+    "notFlags": [
+     "ewd_end"
+    ]
+   },
+   "text": "Một bá tước Human đặt bạn làm một chiếc ngai bằng gỗ Đại Ngàn, trả bằng một rương Huyết Kim. Để làm, bạn phải đốn một cây sồi già còn sống.",
+   "choices": [
+    {
+     "label": "Từ chối, đề nghị gỗ cây đã đổ",
+     "text": "Bá tước càu nhàu, nhưng đồng ý. Chiếc ngai từ gỗ sồi đổ vì bão đẹp hơn ông ta tưởng. Ông ta trả đủ, và kể với mọi quý tộc khác rằng thợ mộc Elf có luật riêng.",
+     "effects": {
+      "wealth": 15,
+      "fame": 4,
+      "jobXp": 3,
+      "flags": [
+       "ewd_trade_honest"
+      ]
+     }
+    },
+    {
+     "label": "Đốn cây",
+     "text": "Chiếc ngai đẹp nhất bạn từng làm. Bá tước trả gấp đôi. Faelan không nói chuyện với bạn suốt mười năm.",
+     "effects": {
+      "wealth": 40,
+      "wealthKind": "windfall",
+      "joy": -12,
+      "jobXp": 3,
+      "flags": [
+       "ewd_trade_felled"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ewd_trade_bram",
+   "races": [
+    "elf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "elf_wood",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ewd_path_trade",
+     "ewd_met_bram"
+    ],
+    "notFlags": [
+     "ewd_end"
+    ]
+   },
+   "text": "Bram đề nghị một hợp tác: một ngôi nhà nửa đá nửa gỗ cho một hội đồng các tộc ở biên giới. Đá của Dwarf làm móng, gỗ của Elf làm mái.",
+   "choices": [
+    {
+     "label": "Nhận lời",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Mất mười năm. Ngôi nhà đứng ở biên giới như một lời hứa: đá không nứt, gỗ không mục. Các tộc gọi nó là Nhà Hai Bàn Tay.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "ewd_two_hands"
+       ]
+      },
+      "moment": "Cùng Bram xây Nhà Hai Bàn Tay ở biên giới"
+     },
+     "fail": {
+      "text": "Đá và gỗ co giãn khác nhau. Mái nhà nứt sau mùa đông đầu. Hai người cãi nhau, rồi làm lại.",
+      "effects": {
+       "joy": -6,
+       "flags": [
+        "ewd_two_hands"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Từ chối",
+     "text": "Bram nhún vai, xây nhà bằng toàn đá. Nó đứng vững, nhưng lạnh lẽo, và không ai muốn họp ở đó.",
+     "effects": {
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "ewd_tree_shape",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_wood",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ewd_path_tree"
+    ],
+    "notFlags": [
+     "ewd_end"
+    ]
+   },
+   "text": "Nhánh Yggdrasil bạn nắn suốt năm mươi năm đã thành một cây cầu sống bắc qua sông. Nhưng một cơn bão sắp đến, và cây cầu còn quá non.",
+   "choices": [
+    {
+     "label": "Đứng giữa cầu suốt cơn bão, hát cho nó",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn hát suốt đêm bão, tay đặt lên thân cầu. Cây cầu oằn xuống, nhưng không gãy. Sáng ra, nó vươn thêm một nhánh, như muốn ôm lấy bạn.",
+      "effects": {
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "ewd_tree_bridge"
+       ]
+      },
+      "moment": "Hát cho cây cầu sống vượt qua cơn bão"
+     },
+     "fail": {
+      "text": "Cây cầu gãy một nhánh. Bạn phải nắn lại từ đầu.",
+      "effects": {
+       "joy": -10,
+       "health": -8
+      }
+     }
+    },
+    {
+     "label": "Buộc cây cầu bằng dây, chờ bão qua",
+     "text": "Cây cầu sống sót, nhưng mọc lệch theo dây buộc. Nó vẫn bắc qua sông, cong như một nụ cười méo.",
+     "effects": {
+      "jobXp": 2,
+      "flags": [
+       "ewd_tree_bridge"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ewd_tree_rot",
+   "races": [
+    "elf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "elf_wood",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ewd_path_tree"
+    ],
+    "notFlags": [
+     "ewd_end"
+    ]
+   },
+   "text": "Một phần thân Yggdrasil bắt đầu mục vì tà khí. Các Spirit Caller nói phải cắt bỏ nó. Bạn nghĩ có thể nắn cho nó tự lành.",
+   "choices": [
+    {
+     "label": "Nắn cho nó tự lành",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn mất mười năm, ngày nào cũng hát cho phần thân mục. Nó không lành, nhưng mọc vòng quanh vết mục, bọc lấy nó như một vết sẹo. Yggdrasil sống, mang theo vết sẹo của bạn.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "ewd_tree_healed"
+       ]
+      },
+      "moment": "Nắn cho thân Yggdrasil bị mục tự bọc lấy vết thương"
+     },
+     "fail": {
+      "text": "Tà khí lan nhanh hơn. Các Spirit Caller phải cắt bỏ.",
+      "effects": {
+       "joy": -12
+      }
+     }
+    },
+    {
+     "label": "Để các Spirit Caller cắt",
+     "text": "Bạn đứng nhìn họ cắt, và hát bài tiễn cho phần thân bị cắt. Bạn khắc từ nó một chiếc hộp nhỏ, đựng những điều không muốn quên.",
+     "effects": {
+      "joy": -2,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "ewd_c4_faelan",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_wood",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "ewd_met_faelan"
+    ],
+    "notFlags": [
+     "ewd_faelan_gone",
+     "ewd_end"
+    ]
+   },
+   "text": "Faelan đã già, đôi tay run không cầm được dao khắc. Ông nhờ bạn dẫn ông vào rừng lần cuối, tìm một cái cây đã đổ.",
+   "choices": [
+    {
+     "label": "Dẫn ông đi",
+     "text": "Hai người đi suốt ba ngày. Cuối cùng, ông dừng lại trước một cây sồi già vừa đổ vì bão. Ông đặt tay lên nó, hỏi nó muốn trở thành gì. Ông mất ở đó, tay vẫn đặt trên thân cây. Bạn khắc cây sồi ấy thành bia mộ của ông.",
+     "effects": {
+      "joy": -2,
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "ewd_faelan_gone"
+      ]
+     },
+     "moment": "Khắc bia mộ cho Faelan từ cây sồi đổ cuối cùng"
+    },
+    {
+     "label": "Khắc cho ông một con chim cụp cánh",
+     "text": "Bạn đặt nó vào tay ông. Ông sờ thớ gỗ, mỉm cười: “Ngươi vẫn chỉ gỡ bỏ phần không phải là con chim.” Ông mất đêm ấy, ôm con chim gỗ.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 3,
+      "flags": [
+       "ewd_faelan_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ewd_c4_bram",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_wood",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "ewd_met_bram"
+    ],
+    "notFlags": [
+     "ewd_bram_gone",
+     "ewd_end"
+    ]
+   },
+   "text": "Bram đã già, như mọi Dwarf sau ba trăm năm. Hắn gửi thư mời bạn đến Răng Cưa, xem bức tượng cuối cùng của hắn.",
+   "choices": [
+    {
+     "label": "Đến",
+     "text": "Bức tượng là hai bàn tay: một bằng đá, một bằng gỗ, đan vào nhau. Bram đã khắc cả hai. Gỗ của hắn thở. Hắn cười, móm mém: “Cuối cùng ta cũng học được.” Hắn mất vào mùa đông năm ấy.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 3,
+      "flags": [
+       "ewd_bram_gone"
+      ]
+     },
+     "moment": "Xem bức tượng hai bàn tay cuối cùng của Bram"
+    },
+    {
+     "label": "Không đến kịp, gửi một bức tượng gỗ",
+     "text": "Bạn khắc một bàn tay gỗ đan vào một bàn tay đá, và gửi đến Răng Cưa. Người đưa tin đến nơi một ngày sau khi Bram mất. Gia đình ông đặt bức tượng lên mộ ông.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 3,
+      "flags": [
+       "ewd_bram_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ewd_c5_spirit",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_wood",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "ewd_path_spirit"
+    ],
+    "notFlags": [
+     "ewd_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Hand of the Tree God. Những bức tượng tinh linh của bạn đi lại khắp Đại Ngàn, mỗi bức một tính cách.",
+   "choices": [
+    {
+     "label": "Trả tự do cho mọi tinh linh",
+     "require": {
+      "anyFlags": [
+       "ewd_spirit_freed",
+       "ewd_spirit_willing"
+      ]
+     },
+     "text": "Bạn mở khe lưng cho từng bức tượng. Tinh linh bay ra, và những bức tượng rỗng ở lại, đứng khắp rừng như những người canh gác im lặng. Chim làm tổ trong chúng.",
+     "effects": {
+      "joy": 18,
+      "fame": 12,
+      "flags": [
+       "ewd_end",
+       "ewd_end_freed"
+      ]
+     },
+     "moment": "Trả tự do cho mọi tinh linh trong tượng gỗ"
+    },
+    {
+     "label": "Khắc bức tượng cuối cùng cho chính mình",
+     "text": "Bạn khắc một bức tượng giống mình. Khi bạn mất, một phần của bạn ở lại trong nó, và học trò nói rằng bức tượng đôi khi chỉnh lại tay cầm dao của họ.",
+     "effects": {
+      "fame": 15,
+      "flags": [
+       "ewd_end",
+       "ewd_end_self_statue"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ewd_c5_trade",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_wood",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "ewd_path_trade"
+    ],
+    "notFlags": [
+     "ewd_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Hand of the Tree God, và đồ mộc của bạn có mặt ở mọi cung điện của Aethelgard. Một cô bé Dwarf xin học nghề.",
+   "choices": [
+    {
+     "label": "Nhận cô bé",
+     "text": "Lần đầu tiên, một Dwarf học khắc gỗ của Elf. Cô bé khắc vụng, nhưng thớ gỗ nghe lời cô. Gỗ và đá, cuối cùng, đã học được của nhau.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "ewd_end",
+       "ewd_end_dwarf_student"
+      ]
+     },
+     "moment": "Nhận một cô bé Dwarf làm học trò khắc gỗ"
+    },
+    {
+     "label": "Đóng xưởng, trở về rừng",
+     "text": "Bạn đóng xưởng, trả lại mọi đơn hàng, và về khắc những thứ cây muốn trở thành, không phải những thứ người ta muốn mua.",
+     "effects": {
+      "joy": 15,
+      "flags": [
+       "ewd_end",
+       "ewd_end_return"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ewd_c5_tree",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_wood",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "ewd_path_tree"
+    ],
+    "notFlags": [
+     "ewd_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Hand of the Tree God. Những gì bạn nắn từ Yggdrasil giờ là cầu, là nhà, là cổng của cả Đại Ngàn. Cây Thế Giới muốn bạn nắn một thứ cuối cùng.",
+   "choices": [
+    {
+     "label": "Lắng nghe Cây muốn gì",
+     "text": "Nó muốn một cái nôi. Bạn nắn một nhánh nhỏ thành hình một chiếc nôi, sống, mọc lá. Đứa trẻ Elf đầu tiên ngủ trong đó cười suốt đêm. Chiếc nôi vẫn mọc, và sẽ mọc mãi.",
+     "effects": {
+      "fame": 15,
+      "joy": 18,
+      "flags": [
+       "ewd_end",
+       "ewd_end_living_cradle"
+      ]
+     },
+     "moment": "Nắn một chiếc nôi sống từ Yggdrasil"
+    },
+    {
+     "label": "Dạy học trò hát cho gỗ sống",
+     "text": "Bạn dạy họ suốt một trăm năm. Khi bạn mất, Đại Ngàn có ba mươi người biết hát cho cây. Cây cầu, ngôi nhà, cánh cổng tiếp tục mọc.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "ewd_end",
+       "ewd_end_singers"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ewd_daily_splinter",
+   "races": [
+    "elf"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "elf_wood",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một mảnh dằm gỗ găm sâu vào lòng bàn tay bạn.",
+   "choices": [
+    {
+     "label": "Nhổ ra và khắc tiếp",
+     "text": "Bàn tay thợ mộc nào cũng có những vết sẹo nhỏ như vậy.",
+     "effects": {
+      "health": -2,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Giữ mảnh dằm lại, khắc nó thành một cây kim nhỏ",
+     "text": "Cây kim nhỏ nhất bạn từng làm. Bạn dùng nó để khâu túi đồ nghề.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "ewd_daily_war_arrows",
+   "races": [
+    "elf"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "elf_wood",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Hội đồng cần một vạn mũi tên, và thợ mộc phải làm.",
+   "choices": [
+    {
+     "label": "Làm tên từ gỗ cây đổ",
+     "text": "Chậm hơn, nhưng đúng luật. Bạn làm suốt một mùa, đủ năm nghìn mũi.",
+     "effects": {
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Đốn cây để làm cho đủ",
+     "text": "Đủ một vạn mũi. Một góc rừng trơ trụi. Bạn không đi qua đó nữa.",
+     "effects": {
+      "fame": 4,
+      "joy": -8,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "ewd_daily_old_hands",
+   "races": [
+    "elf"
+   ],
+   "stages": [
+    "elder",
+    "ancient"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "elf_wood",
+    "free": true
+   },
+   "text": "Tay bạn run sau bảy trăm năm khắc gỗ.",
+   "choices": [
+    {
+     "label": "Khắc chậm lại",
+     "text": "Đường dao chậm hơn, nhưng thớ gỗ vẫn nghe lời bạn.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Chuyển sang hát cho gỗ thay vì khắc",
+     "text": "Bạn không cầm dao nữa. Bạn ngồi bên gỗ, hát, và để học trò khắc theo bài hát của bạn.",
+     "effects": {
+      "joy": 8,
+      "INT": 1
+     }
+    }
+   ]
+  }
+ ]
+}

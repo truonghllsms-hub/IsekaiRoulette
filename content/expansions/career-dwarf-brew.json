@@ -1,0 +1,898 @@
+{
+ "_note": "Tuyến truyện Brewmaster (Dwarf): 5 chương theo bậc, ba đạo ở Bậc 2 (dbw_path_hearth / dbw_path_alchemy / dbw_path_memory), nhân vật xuyên suốt ông Magni (chủ quán Thùng Gỗ Sồi) và Hrafna (thợ ủ đối thủ bên kia phố).",
+ "origins": [],
+ "events": [
+  {
+   "id": "dbw_c1_magni",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "dwarf_brew",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "dbw_met_magni"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Magni",
+     "race": "Dwarf",
+     "position": "Chủ quán Thùng Gỗ Sồi"
+    }
+   ],
+   "text": "Quán Thùng Gỗ Sồi của ông Magni đã mở cửa ba trăm năm, qua bốn đời chủ. Ông giao cho bạn việc đầu tiên: nếm một ngụm từ mỗi thùng trong hầm, và nói thùng nào đã hỏng.",
+   "choices": [
+    {
+     "label": "Nếm cẩn thận từng thùng",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Đến thùng thứ bốn mươi, bạn nhăn mặt: có vị kim loại rất nhẹ. Ông Magni gõ vào thùng, nghe tiếng rỗng: một vết nứt trong đai sắt. “Lưỡi tốt,” ông nói. “Giờ ngủ đi, ngươi say rồi.”",
+      "effects": {
+       "LUCK": 1,
+       "jobXp": 1,
+       "flags": [
+        "dbw_met_magni",
+        "dbw_magni_respect"
+       ]
+      },
+      "moment": "Nếm ra thùng bia hỏng trong hầm quán Thùng Gỗ Sồi"
+     },
+     "fail": {
+      "text": "Đến thùng thứ hai mươi, bạn không còn phân biệt được gì. Ông Magni cõng bạn lên giường, cười khùng khục.",
+      "effects": {
+       "health": -3,
+       "flags": [
+        "dbw_met_magni"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Ngửi trước, chỉ nếm thùng đáng ngờ",
+     "text": "Ông Magni nhướng mày. “Ba trăm năm, chưa đứa học việc nào nghĩ ra chuyện đó. Chúng đều muốn được uống.” Bạn tìm ra thùng hỏng, và vẫn tỉnh táo để lau quầy.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "dbw_met_magni",
+       "dbw_magni_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbw_c1_hrafna",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "dwarf_brew",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "dbw_met_magni"
+    ],
+    "notFlags": [
+     "dbw_met_hrafna"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Hrafna",
+     "race": "Dwarf",
+     "position": "Thợ ủ bia đen bên kia phố"
+    }
+   ],
+   "text": "Hrafna mở quán bên kia phố, ủ thứ bia đen đặc như dầu máy và đắng như lời chửi. Cô đứng giữa phố, thách: “Thùng Gỗ Sồi là bia cho người già. Ai dám uống bia của ta?”",
+   "choices": [
+    {
+     "label": "Uống cạn một vại",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn uống cạn, không nhăn mặt. Hrafna nhìn bạn, rồi rót thêm một vại cho chính mình. “Được. Đối thủ của ta ít ra cũng có cổ họng.”",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "dbw_met_hrafna",
+        "dbw_hrafna_rival"
+       ]
+      },
+      "moment": "Uống cạn vại bia đen của Hrafna giữa phố"
+     },
+     "fail": {
+      "text": "Bạn sặc ngay ngụm đầu. Cả phố cười. Hrafna vỗ lưng bạn: “Lần sau uống chậm thôi.”",
+      "effects": {
+       "joy": -3,
+       "flags": [
+        "dbw_met_hrafna",
+        "dbw_hrafna_rival"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Mời cô sang nếm bia của Thùng Gỗ Sồi",
+     "text": "Hrafna sang, nếm, im lặng. Rồi cô nói: “Nhạt. Nhưng sạch.” Từ đó, mỗi tháng cô sang nếm một lần, và mỗi lần đều chê.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 1,
+      "flags": [
+       "dbw_met_hrafna",
+       "dbw_hrafna_friend"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbw_c2_first_batch",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "dwarf_brew",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "dbw_first_batch",
+     "dbw_end"
+    ]
+   },
+   "text": "Mẻ bia đầu tiên mang tên bạn. Khi mở thùng, nó có vị lạ: ngọt hơn công thức, như có mật ong, dù bạn không cho mật ong vào.",
+   "choices": [
+    {
+     "label": "Bán nó, đặt một cái tên mới",
+     "text": "Khách quen nhăn mặt, rồi gọi thêm vại thứ hai. “Mật Đá”, họ gọi nó. Bạn không bao giờ ủ lại được đúng vị ấy, nhưng người ta vẫn nhắc.",
+     "effects": {
+      "wealth": 5,
+      "fame": 3,
+      "jobXp": 2,
+      "flags": [
+       "dbw_first_batch"
+      ]
+     },
+     "moment": "Bán mẻ bia đầu tiên mang tên mình"
+    },
+    {
+     "label": "Đổ đi, tìm nguyên nhân",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn tìm ra: một tổ ong đá đã làm tổ trong thùng gỗ cũ. Bạn học được cách dùng nó. Mẻ sau ngọt đúng như bạn muốn.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 2,
+       "flags": [
+        "dbw_first_batch",
+        "dbw_first_bees"
+       ]
+      },
+      "moment": "Tìm ra tổ ong đá trong thùng gỗ cũ"
+     },
+     "fail": {
+      "text": "Bạn không tìm ra. Một mẻ bia ngon đã bị đổ xuống cống.",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "dbw_first_batch"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbw_c2_crossroads",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "dwarf_brew",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "dbw_path_hearth",
+     "dbw_path_alchemy",
+     "dbw_path_memory",
+     "dbw_end"
+    ],
+    "flags": [
+     "dbw_met_magni"
+    ]
+   },
+   "text": "Ông Magni dẫn bạn xuống hầm sâu nhất, nơi có ba chiếc thùng không ai được mở: một thùng gỗ sồi đã ngả đen vì khói bếp, một thùng sắt chằng chịt ống đồng, và một thùng nhỏ dán nhãn bằng chữ rune cổ, ghi tên những người đã mất.",
+   "choices": [
+    {
+     "label": "Thùng khói bếp: Lửa Quán Trọ",
+     "text": "Bạn sẽ giữ lửa cho quán Thùng Gỗ Sồi, nơi thợ mỏ, chiến binh và kẻ lang thang đều có một chỗ ngồi. Ông Magni đưa bạn chùm chìa khóa quán.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "dbw_path_hearth"
+      ]
+     },
+     "moment": "Nhận chìa khóa giữ lửa quán Thùng Gỗ Sồi"
+    },
+    {
+     "label": "Thùng ống đồng: Giả Kim Thùng Rượu",
+     "text": "Bạn sẽ ủ những thứ không chỉ để say: rượu chữa thương, rượu tăng sức, rượu mà các pháp sư Tháp Ngà sẵn sàng trả bằng vàng.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "dbw_path_alchemy"
+      ]
+     },
+     "moment": "Chọn con đường giả kim thùng rượu"
+    },
+    {
+     "label": "Thùng ký ức: Người Ủ Ký Ức",
+     "text": "Ông Magni kể: mỗi gia tộc Dwarf có một công thức bia riêng, ủ trong ngày cưới, ngày tang, ngày ra trận. Nhiều công thức đã mất. Bạn sẽ đi tìm chúng.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "dbw_path_memory"
+      ]
+     },
+     "moment": "Nhận đi tìm những công thức bia đã mất của các gia tộc"
+    }
+   ]
+  },
+  {
+   "id": "dbw_hearth_brawl",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_brew",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dbw_path_hearth"
+    ],
+    "notFlags": [
+     "dbw_end"
+    ]
+   },
+   "text": "Hai gia tộc thù nhau cùng ngồi trong quán của bạn. Một lời nói ra, và cả hai bên đứng dậy, tay đặt lên rìu.",
+   "choices": [
+    {
+     "label": "Đập vỡ một thùng bia giữa quán",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Bia chảy lênh láng, cả hai bên sững sờ. Bạn nói: “Ai đánh nhau trong quán này thì phải lau sạch chỗ này.” Họ cười. Họ ngồi xuống. Họ uống đến sáng.",
+      "effects": {
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "dbw_hearth_peace"
+       ]
+      },
+      "moment": "Dập một trận ẩu đả giữa hai gia tộc bằng một thùng bia vỡ"
+     },
+     "fail": {
+      "text": "Không ai cười. Trận ẩu đả nổ ra, và quán của bạn mất nửa số bàn ghế.",
+      "effects": {
+       "wealth": -10,
+       "health": -5
+      }
+     }
+    },
+    {
+     "label": "Mời cả hai bên một vại, tính vào sổ của mình",
+     "text": "Họ uống, im lặng. Không ai rút rìu. Không ai nói chuyện. Nhưng tuần sau, cả hai lại đến.",
+     "effects": {
+      "wealth": -5,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbw_hearth_debt",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_brew",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dbw_path_hearth"
+    ],
+    "notFlags": [
+     "dbw_end"
+    ]
+   },
+   "text": "Một thợ mỏ già đã uống chịu ở quán bạn mười năm. Giờ ông ta mất việc, và sổ nợ dài bằng cánh tay.",
+   "choices": [
+    {
+     "label": "Xé trang sổ ấy",
+     "text": "Ông ta không nói gì, chỉ cúi đầu. Tuần sau, ông ta mang đến một chiếc ghế gỗ tự đóng. Nó là chiếc ghế chắc nhất quán.",
+     "effects": {
+      "joy": 8,
+      "wealth": -5,
+      "jobXp": 3,
+      "flags": [
+       "dbw_hearth_forgive"
+      ]
+     }
+    },
+    {
+     "label": "Nhận ông ta làm phụ quán, trừ dần nợ",
+     "text": "Ông ta rửa vại giỏi hơn bất kỳ ai. Ba năm sau, nợ hết. Ông ta vẫn ở lại.",
+     "effects": {
+      "joy": 5,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbw_alchemy_tower",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_brew",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dbw_path_alchemy"
+    ],
+    "notFlags": [
+     "dbw_end"
+    ]
+   },
+   "text": "Một pháp sư Tháp Ngà muốn mua toàn bộ rượu chữa thương của bạn, để nghiên cứu và bán lại với giá gấp mười.",
+   "choices": [
+    {
+     "label": "Bán một nửa, giữ một nửa cho quân y",
+     "text": "Pháp sư càu nhàu nhưng đồng ý. Nửa còn lại cứu được hai mươi thợ mỏ trong mùa sập hầm.",
+     "effects": {
+      "wealth": 10,
+      "fame": 5,
+      "jobXp": 3,
+      "flags": [
+       "dbw_alchemy_split"
+      ]
+     }
+    },
+    {
+     "label": "Bán hết",
+     "text": "Bạn giàu lên. Mùa sập hầm năm ấy, quân y phải dùng thuốc thường.",
+     "effects": {
+      "wealth": 25,
+      "wealthKind": "windfall",
+      "joy": -6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbw_alchemy_explode",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_brew",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dbw_path_alchemy"
+    ],
+    "notFlags": [
+     "dbw_end"
+    ]
+   },
+   "text": "Mẻ rượu tăng sức của bạn sôi quá mức. Thùng phình ra, đai sắt kêu răng rắc.",
+   "choices": [
+    {
+     "label": "Mở van xả",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn mở van kịp lúc. Hơi rượu bốc lên trần, cả hầm say trong ba ngày. Nhưng bạn đã học được nhiệt độ đúng của mẻ ủ.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "dbw_alchemy_learned"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Van kẹt. Thùng nổ. Bạn bị bỏng nhẹ, và hầm mất một vách.",
+      "effects": {
+       "health": -10,
+       "wealth": -8
+      }
+     }
+    },
+    {
+     "label": "Chạy",
+     "text": "Thùng nổ sau lưng bạn. Hầm rượu mất một nửa. Bạn còn nguyên vẹn, và bắt đầu lại từ đầu.",
+     "effects": {
+      "wealth": -12,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbw_memory_widow",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_brew",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dbw_path_memory"
+    ],
+    "notFlags": [
+     "dbw_end"
+    ]
+   },
+   "text": "Một bà góa ở làng mỏ nhờ bạn ủ lại loại bia cưới của gia tộc chồng bà. Công thức đã mất cùng ông. Bà chỉ nhớ vị: “Như mùa thu, và có chút khói.”",
+   "choices": [
+    {
+     "label": "Thử từng loại lá mùa thu",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Đến lần thử thứ mười hai, bà nếm, và bật khóc. Đúng là vị ấy. Bạn chép công thức vào sổ, và đặt tên nó theo tên chồng bà.",
+      "effects": {
+       "fame": 6,
+       "joy": 10,
+       "jobXp": 3,
+       "flags": [
+        "dbw_memory_widow"
+       ]
+      },
+      "moment": "Ủ lại bia cưới cho một bà góa sau mười hai lần thử"
+     },
+     "fail": {
+      "text": "Bạn thử suốt một mùa, không đúng. Bà cảm ơn bạn vì đã cố.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    },
+    {
+     "label": "Hỏi bà kể về ông",
+     "text": "Bà kể suốt một đêm. Bạn ủ một thứ bia mới, không giống công thức cũ, nhưng giống ông. Bà nếm, và mỉm cười.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbw_memory_forbidden",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_brew",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dbw_path_memory"
+    ],
+    "notFlags": [
+     "dbw_end"
+    ]
+   },
+   "text": "Bạn tìm thấy công thức bia của một gia tộc đã bị trục xuất vì phản bội. Hội đồng cấm nhắc tên họ. Nhưng công thức ấy là thứ bia ngon nhất bạn từng đọc.",
+   "choices": [
+    {
+     "label": "Ủ nó, không ghi tên gia tộc",
+     "text": "Bia ngon. Không ai biết nó từ đâu. Bạn biết.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Ủ nó, ghi đúng tên gia tộc",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Hội đồng giận, rồi im. Hậu duệ của gia tộc bị trục xuất, đang sống ở Đầm Lầy Tử Khí, nghe tin và gửi đến bạn một lá thư.",
+      "effects": {
+       "fame": 6,
+       "joy": 8,
+       "jobXp": 3,
+       "flags": [
+        "dbw_memory_exiles"
+       ]
+      },
+      "moment": "Ủ lại bia của một gia tộc bị trục xuất và ghi đúng tên họ"
+     },
+     "fail": {
+      "text": "Hội đồng phạt bạn đóng cửa quán một năm.",
+      "effects": {
+       "wealth": -15,
+       "fame": -4
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbw_c4_magni",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_brew",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dbw_met_magni"
+    ],
+    "notFlags": [
+     "dbw_magni_gone",
+     "dbw_end"
+    ]
+   },
+   "text": "Ông Magni ngồi ở bàn trong góc quán, nơi ông vẫn ngồi mỗi tối. Ông gọi một vại, và bảo bạn rót cho chính mình một vại.",
+   "choices": [
+    {
+     "label": "Ngồi uống cùng ông",
+     "text": "Ông kể về bốn đời chủ quán, về những người đã ngồi ở mỗi chiếc bàn. Gần sáng, ông gục đầu xuống bàn như ngủ. Ông không tỉnh lại. Vại bia của ông vẫn còn một nửa.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "dbw_magni_gone"
+      ]
+     },
+     "moment": "Uống vại cuối cùng cùng ông Magni ở góc quán"
+    },
+    {
+     "label": "Rót, nhưng còn phải lo quán",
+     "text": "Bạn rót, đặt vại xuống, rồi quay lại quầy vì khách đông. Khi quay lại, ông đã ngủ, và không bao giờ tỉnh nữa. Bạn giữ chiếc bàn ấy trống suốt một năm.",
+     "effects": {
+      "joy": -10,
+      "jobXp": 3,
+      "flags": [
+       "dbw_magni_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbw_c4_hrafna",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_brew",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dbw_met_hrafna"
+    ],
+    "notFlags": [
+     "dbw_end"
+    ]
+   },
+   "text": "Quán của Hrafna cháy rụi trong một đêm. Cô đứng giữa phố, nhìn đống tro, không khóc.",
+   "choices": [
+    {
+     "label": "Mời cô ủ bia chung trong hầm của bạn",
+     "text": "Hrafna ủ bia đen ở một góc hầm, bạn ủ bia của bạn ở góc kia. Hai năm sau cô xây lại quán, nhưng vẫn gửi một thùng bia đen sang mỗi mùa.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "dbw_hrafna_partner"
+      ]
+     },
+     "moment": "Mời Hrafna ủ bia chung trong hầm sau khi quán cô cháy"
+    },
+    {
+     "label": "Gửi cô ít tiền, để cô tự gây dựng lại",
+     "text": "Hrafna trả lại tiền, kèm một mảnh giấy: “Ta không cần thương hại. Ta cần đối thủ.” Một năm sau, quán mới của cô mở cửa, và bia đen đắng hơn bao giờ hết.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbw_c5_hearth",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_brew",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dbw_path_hearth"
+    ],
+    "notFlags": [
+     "dbw_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Drunken Immortal. Quán Thùng Gỗ Sồi đã qua thêm một đời chủ: đời của bạn.",
+   "choices": [
+    {
+     "label": "Trao chìa khóa cho người phụ quán lâu năm nhất",
+     "text": "Người ấy nhận chìa khóa, tay run. Bạn ngồi ở bàn trong góc, và gọi một vại.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "dbw_end",
+       "dbw_end_hearth"
+      ]
+     },
+     "moment": "Trao chìa khóa quán Thùng Gỗ Sồi cho đời chủ tiếp theo"
+    },
+    {
+     "label": "Mở quán cho mọi tộc",
+     "text": "Quán Thùng Gỗ Sồi treo biển mới: Human, Elf, Beastman, Orc, mọi tộc đều có chỗ ngồi. Một số Dwarf bỏ đi. Nhiều người khác đến.",
+     "effects": {
+      "fame": 15,
+      "joy": 10,
+      "flags": [
+       "dbw_end",
+       "dbw_end_open"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbw_c5_alchemy",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_brew",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dbw_path_alchemy"
+    ],
+    "notFlags": [
+     "dbw_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Drunken Immortal. Rượu chữa thương của bạn có mặt ở mọi quân y của Dãy Núi Răng Cưa.",
+   "choices": [
+    {
+     "label": "Công bố công thức",
+     "require": {
+      "flags": [
+       "dbw_alchemy_split"
+      ]
+     },
+     "text": "Mọi thợ ủ đều có thể làm rượu chữa thương. Giá nó rẻ như bia thường. Tháp Ngà gửi thư phản đối, và bạn dùng nó để nhóm lò.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "dbw_end",
+       "dbw_end_public"
+      ]
+     },
+     "moment": "Công bố công thức rượu chữa thương cho mọi thợ ủ"
+    },
+    {
+     "label": "Bán công thức cho Tháp Ngà",
+     "text": "Bạn giàu nhất phố. Rượu chữa thương giờ mang dấu của Tháp Ngà, và giá của nó chỉ quý tộc mới trả nổi.",
+     "effects": {
+      "wealth": 40,
+      "fame": 8,
+      "joy": -6,
+      "flags": [
+       "dbw_end",
+       "dbw_end_sold"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbw_c5_memory",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_brew",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dbw_path_memory"
+    ],
+    "notFlags": [
+     "dbw_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Drunken Immortal. Cuốn sổ công thức của bạn giờ ghi bia của một trăm gia tộc.",
+   "choices": [
+    {
+     "label": "Tổ chức lễ hội bia của mọi gia tộc",
+     "text": "Một đêm, một trăm thùng bia được mở cùng lúc, mỗi thùng của một gia tộc. Người già khóc khi nếm lại vị của tuổi trẻ.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "dbw_end",
+       "dbw_end_festival"
+      ]
+     },
+     "moment": "Mở một trăm thùng bia của một trăm gia tộc trong một đêm"
+    },
+    {
+     "label": "Mời gia tộc bị trục xuất về dự lễ",
+     "require": {
+      "flags": [
+       "dbw_memory_exiles"
+      ]
+     },
+     "text": "Hậu duệ của gia tộc bị trục xuất ngồi giữa lễ hội, uống bia của tổ tiên họ. Hội đồng không ngăn.",
+     "effects": {
+      "fame": 12,
+      "joy": 18,
+      "flags": [
+       "dbw_end",
+       "dbw_end_exiles"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbw_daily_cat",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "dwarf_brew",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một con mèo hoang dọn đến hầm rượu của bạn. Chuột biến mất trong một tuần.",
+   "choices": [
+    {
+     "label": "Cho nó ăn",
+     "text": "Con mèo ngủ trên thùng ấm nhất. Khách gọi nó là “Ông Chủ”.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Để nó tự lo",
+     "text": "Con mèo tự lo rất tốt. Nó vẫn ngủ trên thùng ấm nhất.",
+     "effects": {
+      "joy": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbw_daily_war_tavern",
+   "races": [
+    "dwarf"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "dwarf_brew",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Quán chật kín binh lính trước khi ra trận.",
+   "choices": [
+    {
+     "label": "Rót miễn phí cho người sắp đi",
+     "text": "Bạn mất một tháng lời. Nhiều người hứa sẽ quay lại trả. Một số người đã quay lại.",
+     "effects": {
+      "wealth": -8,
+      "fame": 5,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Bán như thường",
+     "text": "Quán đông nhất từ trước đến nay. Sổ sách đầy. Nhiều bàn sau đó trống mãi.",
+     "effects": {
+      "wealth": 10,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbw_daily_old_taste",
+   "races": [
+    "dwarf"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "dwarf_brew",
+    "free": true
+   },
+   "text": "Lưỡi bạn không còn nhạy như xưa. Bạn nếm mẻ mới và không chắc nó ngon hay dở.",
+   "choices": [
+    {
+     "label": "Nhờ học trò nếm",
+     "text": "Học trò nếm, và nói thật: dở. Bạn cười, và đổ mẻ ấy đi.",
+     "effects": {
+      "joy": 5
+     }
+    },
+    {
+     "label": "Ủ theo trí nhớ của đôi tay",
+     "text": "Đôi tay vẫn nhớ. Khách nói mẻ bia ngon nhất mùa.",
+     "effects": {
+      "LUCK": 1
+     }
+    }
+   ]
+  }
+ ]
+}

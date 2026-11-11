@@ -11,7 +11,7 @@
    "require": {
     "job": "bm_mage",
     "free": true,
-    "jobRankMax": 1,
+    "jobRankMax": 2,
     "notFlags": [
      "bmm_met_hoth"
     ]
@@ -161,6 +161,9 @@
     "notFlags": [
      "bmm_first_ward",
      "bmm_end"
+    ],
+    "flags": [
+     "bmm_met_hoth"
     ]
    },
    "text": "Bầy Hắc Lang đột kích trại mỗi đêm trăng non. Tộc trưởng, người từng gọi lão Hoth là điên, đến xin một hàng rào rune để bảo vệ trại.",
@@ -222,6 +225,10 @@
      "bmm_path_tower",
      "bmm_path_hex",
      "bmm_end"
+    ],
+    "flags": [
+     "bmm_met_hoth",
+     "bmm_met_isolde"
     ]
    },
    "text": "Lão Hoth chỉ cho bạn ba tảng đá trên sườn núi. Tảng thứ nhất khắc rune của tổ tiên, cổ đến mức không ai còn đọc được hết. Tảng thứ hai là quà của Isolde: một tấm bia khắc cả rune Beastman lẫn chữ Tháp Ngà, thư mời bạn đến Sanctus. Tảng thứ ba nứt đôi, và vết nứt tỏa ra hơi lạnh. Lão Hoth không nói gì về nó.",
@@ -758,7 +765,8 @@
      "label": "Cùng Isolde phá vòng tròn",
      "require": {
       "flags": [
-       "bmm_isolde_friend"
+       "bmm_isolde_friend",
+       "bmm_met_isolde"
       ]
      },
      "text": "Isolde dệt vòng tròn Tháp Ngà, bạn khắc rune Thảo Nguyên. Hai thứ phép hòa vào nhau như năm nào trước Hội đồng, và vòng tròn triệu hồi tan thành bụi sáng.",
@@ -1098,7 +1106,7 @@
    "choices": [
     {
      "label": "Ngồi bên nó một lúc",
-     "text": "Bạn nhớ lại ngày khắc nó, nhớ lão Hoth, nhớ những gì đã qua. Hòn đá ấm trong tay bạn như một bàn tay.",
+     "text": "Bạn nhớ lại ngày khắc nó, nhớ những người đã dạy bạn, nhớ những gì đã qua. Hòn đá ấm trong tay bạn như một bàn tay.",
      "effects": {
       "joy": 8
      }

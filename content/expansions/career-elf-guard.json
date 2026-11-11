@@ -1,0 +1,995 @@
+{
+ "_note": "Tuyến truyện Yggdrasil Guardian (Elf): 5 chương theo bậc, ba đạo ở Bậc 2 (egd_path_root / egd_path_shield / egd_path_vigil), nhân vật xuyên suốt Galdor (Hộ Vệ Tối Cao), Elowen và Ser Aldric (Human).",
+ "origins": [],
+ "events": [
+  {
+   "id": "egd_c1_galdor",
+   "races": [
+    "elf"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "elf_guard",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "egd_met_galdor"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Galdor",
+     "race": "Elf",
+     "position": "Hộ Vệ Tối Cao của Yggdrasil"
+    }
+   ],
+   "text": "Galdor là Hộ Vệ Tối Cao của Yggdrasil. Chiếc khiên gỗ thiêng của ông đã chặn một nghìn năm tên, giáo và lửa. Ông đặt nó trước mặt bạn: “Cầm lên. Đứng đó đến khi trời tối.” Chiếc khiên nặng như một thân cây.",
+   "choices": [
+    {
+     "label": "Đứng đến khi trời tối",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Tay bạn run, chân bạn lún xuống đất, nhưng chiếc khiên không hạ. Galdor gật đầu: “Khiên không nặng vì gỗ. Nó nặng vì những gì nó đã chặn. Giờ ngươi đã cảm thấy chúng.”",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "egd_met_galdor",
+        "egd_galdor_respect"
+       ]
+      },
+      "moment": "Giữ chiếc khiên ngàn năm của Galdor đến khi trời tối"
+     },
+     "fail": {
+      "text": "Gần trưa, chiếc khiên kéo bạn ngã. Galdor đỡ nó lên bằng một tay. “Ta mất một trăm năm để đứng được đến tối. Ngươi có thời gian.”",
+      "effects": {
+       "health": -5,
+       "flags": [
+        "egd_met_galdor"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đặt khiên xuống, cắm rễ chân vào đất",
+     "text": "Bạn không cầm khiên lên. Bạn đứng sau nó, để nó tựa vào chân mình, như cây tựa vào đất. Galdor nhìn bạn rất lâu. “Không ai từng làm thế. Có lẽ không ai từng hiểu.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "egd_met_galdor"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "egd_c1_elowen",
+   "races": [
+    "elf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "elf_guard",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "egd_met_galdor"
+    ],
+    "notFlags": [
+     "egd_met_elowen"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Elowen",
+     "race": "Elf",
+     "position": "Hộ Vệ trẻ cùng thế hệ"
+    }
+   ],
+   "text": "Elowen là Hộ Vệ trẻ cùng thời với bạn, nhanh nhẹn, nóng tính, và luôn đánh nhau với những Hộ Vệ già. Cô ta thách bạn đấu khiên trước mặt Galdor.",
+   "choices": [
+    {
+     "label": "Nhận lời",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Hai chiếc khiên va vào nhau như sấm. Không ai ngã. Cuối cùng cả hai ngồi phịch xuống đất, cười. Từ đó, hai người đứng gác cạnh nhau.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "egd_met_elowen",
+        "egd_elowen_shield"
+       ]
+      },
+      "moment": "Đấu khiên hòa với Elowen"
+     },
+     "fail": {
+      "text": "Elowen hất bạn ngã ba lần. Lần thứ tư, cô ta chìa tay kéo bạn dậy.",
+      "effects": {
+       "health": -6,
+       "flags": [
+        "egd_met_elowen",
+        "egd_elowen_shield"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Từ chối, nói khiên không dùng để đấu",
+     "text": "Elowen đỏ mặt. Galdor bật cười, lần đầu bạn thấy ông cười. Từ đó, Elowen không thách bạn nữa, nhưng luôn đứng gác ở bên trái bạn, như để chứng minh điều gì đó.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "egd_met_elowen"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "egd_c2_first_watch",
+   "races": [
+    "elf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "elf_guard",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "egd_first_watch",
+     "egd_end"
+    ]
+   },
+   "text": "Đêm gác đầu tiên ở gốc Yggdrasil. Gần sáng, một đứa trẻ Human lạc vào sâu trong rừng, đứng trước gốc Cây Thế Giới, há hốc miệng nhìn. Theo luật, không ai ngoài Elf được đến gần.",
+   "choices": [
+    {
+     "label": "Dẫn đứa trẻ ra khỏi rừng",
+     "text": "Bạn bế nó lên, đi suốt một ngày, đặt nó xuống ở rìa rừng. Nó nhìn bạn, rồi chạy về làng, la to: “Con thấy Cây Thế Giới!” Không ai tin nó. Bạn thì biết.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "egd_first_watch",
+       "egd_kind_guard"
+      ]
+     },
+     "moment": "Dẫn một đứa trẻ Human lạc trước Yggdrasil về nhà"
+    },
+    {
+     "label": "Báo cho Hội đồng",
+     "text": "Hội đồng gửi Ranger đưa đứa trẻ ra, và xóa ký ức của nó bằng phép. Đứa trẻ về nhà, không nhớ gì. Bạn thì nhớ ánh mắt nó khi nhìn Cây.",
+     "effects": {
+      "jobXp": 2,
+      "flags": [
+       "egd_first_watch"
+      ]
+     }
+    },
+    {
+     "label": "Để nó chạm vào Cây một lần",
+     "text": "Đứa trẻ đặt tay lên vỏ cây. Yggdrasil rung lên rất khẽ, như một tiếng cười. Rồi bạn dẫn nó về. Các Hộ Vệ già biết, và không nói gì.",
+     "effects": {
+      "LUCK": 1,
+      "joy": 8,
+      "jobXp": 2,
+      "flags": [
+       "egd_first_watch",
+       "egd_tree_laughed"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "egd_c2_crossroads",
+   "races": [
+    "elf"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "elf_guard",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "egd_path_root",
+     "egd_path_shield",
+     "egd_path_vigil",
+     "egd_end"
+    ],
+    "flags": [
+     "egd_met_galdor"
+    ]
+   },
+   "text": "Galdor nói: “Một Hộ Vệ phải chọn bảo vệ cái gì.” Gốc Yggdrasil, nơi mọi Hộ Vệ thề trung thành. Hay những tộc khác ở rìa rừng, những người không có khiên gỗ thiêng. Hay chọn như Galdor thời trẻ: Lời Thề Câm Lặng, đứng gác một nơi suốt một nghìn năm, không nói một lời.",
+   "choices": [
+    {
+     "label": "Gốc Yggdrasil: Bức Tường Rễ",
+     "text": "Bạn nhận một vị trí ở vòng gác trong cùng. Từ đây, mọi thứ sau lưng bạn là Cây Thế Giới.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "egd_path_root"
+      ]
+     },
+     "moment": "Nhận vị trí gác ở vòng trong cùng của Yggdrasil"
+    },
+    {
+     "label": "Các tộc ở rìa rừng: Khiên Cho Muôn Tộc",
+     "text": "Bạn mang khiên ra khỏi Đại Ngàn. Những làng Human, những bộ lạc Beastman ở rìa rừng chưa từng thấy một Hộ Vệ Elf đứng trước cổng làng họ.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2,
+      "flags": [
+       "egd_path_shield"
+      ]
+     },
+     "moment": "Mang khiên ra bảo vệ các tộc ở rìa rừng"
+    },
+    {
+     "label": "Lời Thề Câm Lặng",
+     "text": "Bạn thề trước Galdor, rồi im lặng. Từ hôm nay, bạn chỉ nói bằng khiên.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "egd_path_vigil"
+      ]
+     },
+     "moment": "Thề Lời Thề Câm Lặng của Hộ Vệ"
+    }
+   ]
+  },
+  {
+   "id": "egd_root_rift",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_guard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "egd_path_root"
+    ],
+    "notFlags": [
+     "egd_end"
+    ]
+   },
+   "text": "Một vết nứt không gian mở ra ở rễ chính của Yggdrasil. Thứ gì đó đang bò ra từ bên trong, và vòng gác ngoài đã vỡ.",
+   "choices": [
+    {
+     "label": "Đứng chắn trước vết nứt",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đứng đó ba ngày ba đêm, khiên dựng trước vết nứt, đẩy lùi mọi thứ bò ra. Đến ngày thứ tư, các Spirit Caller khâu được vết nứt lại. Khiên của bạn nứt một đường, như khiên của Galdor.",
+      "effects": {
+       "STR": 1,
+       "fame": 8,
+       "health": -20,
+       "jobXp": 3,
+       "flags": [
+        "egd_root_held"
+       ]
+      },
+      "moment": "Giữ vết nứt không gian ở rễ Yggdrasil ba ngày ba đêm"
+     },
+     "fail": {
+      "text": "Một thứ gì đó lọt qua. Phải mất một tháng các Ranger mới săn được nó.",
+      "effects": {
+       "health": -25,
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Đứng cùng Elowen",
+     "require": {
+      "flags": [
+       "egd_elowen_shield",
+       "egd_met_elowen"
+      ]
+     },
+     "text": "Hai chiếc khiên khóa vào nhau như hai bàn tay. Không gì đi qua được. Khi vết nứt khép lại, Elowen ngã xuống bên bạn, cười giữa những vết thương.",
+     "effects": {
+      "fame": 6,
+      "joy": 8,
+      "health": -15,
+      "jobXp": 3,
+      "flags": [
+       "egd_root_held",
+       "egd_elowen_bond"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "egd_root_order",
+   "races": [
+    "elf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "elf_guard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "egd_path_root"
+    ],
+    "notFlags": [
+     "egd_end"
+    ]
+   },
+   "text": "Hội đồng ra lệnh đóng hoàn toàn Đại Ngàn: không ai được vào, kể cả những Elf đã sống bên ngoài hàng trăm năm và muốn trở về.",
+   "choices": [
+    {
+     "label": "Tuân lệnh",
+     "text": "Cổng rừng đóng lại. Bạn đứng gác, nhìn những Elf già đứng ở bên ngoài, chờ, rồi quay đi.",
+     "effects": {
+      "joy": -12,
+      "jobXp": 2,
+      "flags": [
+       "egd_root_closed"
+      ]
+     }
+    },
+    {
+     "label": "Để những Elf trở về đi qua",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn mở một lối nhỏ vào ban đêm. Ba mươi Elf già về đến Đại Ngàn, khóc khi chạm vào rễ Yggdrasil. Hội đồng khiển trách bạn, nhưng không đuổi những người đã về.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "egd_root_mercy"
+       ]
+      },
+      "moment": "Mở lối cho những Elf lưu lạc trở về Đại Ngàn"
+     },
+     "fail": {
+      "text": "Bạn bị phát hiện. Những Elf già bị đẩy ra, và bạn bị giáng xuống vòng gác ngoài.",
+      "effects": {
+       "fame": -4,
+       "joy": -8
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "egd_shield_aldric",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_guard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "egd_path_shield"
+    ],
+    "notFlags": [
+     "egd_end"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Aldric",
+     "race": "Human",
+     "position": "Hiệp sĩ được cử đến làng ven rừng"
+    }
+   ],
+   "text": "Một hiệp sĩ Human tên Aldric đến làng ven rừng nơi bạn đứng gác. Anh ta được cử đến để “bảo vệ dân làng khỏi Elf”. Sau một tuần, anh ta thấy bạn là người duy nhất đứng gác mỗi đêm.",
+   "choices": [
+    {
+     "label": "Mời anh ta đứng gác cùng",
+     "text": "Aldric ngập ngừng, rồi đứng cạnh bạn. Hai người, một khiên gỗ một khiên thép, gác cổng làng suốt mười năm. Dân làng gọi họ là “hai cánh cổng”.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "egd_met_aldric",
+       "egd_aldric_friend"
+      ]
+     },
+     "moment": "Đứng gác cổng làng cùng hiệp sĩ Aldric"
+    },
+    {
+     "label": "Mặc kệ anh ta",
+     "text": "Aldric đứng gác ở cổng bên kia làng. Hai người không nói chuyện suốt một năm, cho đến đêm bầy Hắc Lang đến, và cả hai cùng chạy về cổng giữa.",
+     "effects": {
+      "jobXp": 2,
+      "flags": [
+       "egd_met_aldric"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "egd_shield_raid",
+   "races": [
+    "elf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "elf_guard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "egd_path_shield"
+    ],
+    "notFlags": [
+     "egd_end"
+    ]
+   },
+   "text": "Một toán cướp Orc tấn công làng ven rừng vào lúc nửa đêm. Hội đồng Elf đã ra lệnh: Hộ Vệ không được đổ máu vì người ngoài.",
+   "choices": [
+    {
+     "label": "Đứng chắn trước cổng làng",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn không đánh. Bạn chỉ đứng. Mỗi mũi giáo, mỗi nhát rìu đều dội lại từ chiếc khiên gỗ thiêng. Đến sáng, toán Orc mệt mỏi bỏ đi. Không ai chết. Hội đồng không biết nên phạt bạn vì điều gì.",
+      "effects": {
+       "STR": 1,
+       "fame": 8,
+       "health": -15,
+       "jobXp": 3,
+       "flags": [
+        "egd_shield_village"
+       ]
+      },
+      "moment": "Đứng chắn cổng làng trước toán cướp Orc mà không đổ máu"
+     },
+     "fail": {
+      "text": "Khiên không chặn hết. Hai căn nhà cháy, nhưng dân làng chạy kịp vào rừng.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Dẫn dân làng vào rừng trốn",
+     "text": "Bạn dẫn họ vào Đại Ngàn, trái lệnh Hội đồng. Toán Orc đốt làng trống. Sáng ra, dân làng trở về dựng lại nhà. Hội đồng phạt bạn. Bạn không hối hận.",
+     "effects": {
+      "joy": 6,
+      "fame": -3,
+      "jobXp": 3,
+      "flags": [
+       "egd_shield_village"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "egd_vigil_years",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_guard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "egd_path_vigil"
+    ],
+    "notFlags": [
+     "egd_end"
+    ]
+   },
+   "text": "Năm thứ năm mươi của Lời Thề Câm Lặng. Bạn đứng gác ở cổng phía bắc của Đại Ngàn, không nói một lời. Một con chim sẻ đã làm tổ trên vành khiên của bạn.",
+   "choices": [
+    {
+     "label": "Để nó ở lại",
+     "text": "Bạn không động đậy suốt mùa xuân. Ba con chim non nở ra, tập bay từ vành khiên của bạn. Khi chúng bay đi, bạn cảm thấy mình vừa nói được một điều gì đó, dù không mở miệng.",
+     "effects": {
+      "joy": 10,
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "egd_vigil_bird"
+      ]
+     },
+     "moment": "Để chim sẻ làm tổ trên vành khiên suốt mùa xuân"
+    },
+    {
+     "label": "Tiếp tục đứng gác như cũ",
+     "text": "Con chim sẻ tự bỏ đi khi bạn đổi tư thế. Bạn tiếp tục đứng gác. Năm năm mươi mốt bắt đầu.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "egd_vigil_test",
+   "races": [
+    "elf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "elf_guard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "egd_path_vigil"
+    ],
+    "notFlags": [
+     "egd_end"
+    ]
+   },
+   "text": "Một đoàn sứ giả Human đến cổng phía bắc, cầu xin được vào rừng để báo tin khẩn: một đạo quân Ma tộc đang tiến về Đại Ngàn. Bạn không được nói. Họ không hiểu ngôn ngữ khiên.",
+   "choices": [
+    {
+     "label": "Phá Lời Thề, nói",
+     "text": "Bạn nói, lần đầu tiên sau năm mươi năm. Giọng bạn khàn như vỏ cây. Bạn dẫn họ đến Hội đồng. Đại Ngàn kịp chuẩn bị. Galdor nhìn bạn, không trách: “Có những lời thề được giữ bằng cách phá chúng.”",
+     "effects": {
+      "fame": 8,
+      "jobXp": 3,
+      "flags": [
+       "egd_vigil_broken_well"
+      ]
+     },
+     "moment": "Phá Lời Thề Câm Lặng để báo tin cứu Đại Ngàn"
+    },
+    {
+     "label": "Dùng khiên để nói",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn gõ khiên xuống đất theo nhịp báo động của Hộ Vệ. Tiếng vang lan qua rễ cây, đến tận Hội đồng. Họ cử người ra cổng. Bạn không nói một lời.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "egd_vigil_kept"
+       ]
+      },
+      "moment": "Báo động cả Đại Ngàn bằng tiếng khiên mà không nói một lời"
+     },
+     "fail": {
+      "text": "Không ai hiểu nhịp gõ. Đoàn sứ giả bỏ đi.",
+      "effects": {
+       "joy": -12
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "egd_c4_galdor",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_guard",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "egd_met_galdor"
+    ],
+    "notFlags": [
+     "egd_galdor_gone",
+     "egd_end"
+    ]
+   },
+   "text": "Galdor đặt chiếc khiên ngàn năm của mình xuống, lần đầu tiên sau mười thế kỷ. “Ta đã chặn đủ rồi,” ông nói. “Giờ ta muốn được đứng phía sau một chiếc khiên.”",
+   "choices": [
+    {
+     "label": "Nhận khiên của ông",
+     "text": "Chiếc khiên nặng hơn bao giờ hết, vì giờ bạn biết những gì nó đã chặn. Galdor ngồi xuống gốc Yggdrasil, phía sau bạn. Ông mất ở đó, một mùa đông sau, an toàn lần đầu tiên.",
+     "effects": {
+      "STR": 1,
+      "joy": -2,
+      "jobXp": 3,
+      "flags": [
+       "egd_galdor_gone",
+       "egd_galdor_shield"
+      ]
+     },
+     "moment": "Nhận chiếc khiên ngàn năm từ tay Galdor"
+    },
+    {
+     "label": "Đặt khiên của ông lên mộ ông",
+     "text": "Bạn đặt chiếc khiên dựng đứng trên mộ ông, như ông vẫn đứng. Rêu mọc lên nó, rồi rễ cây. Một trăm năm sau, nó đã thành một phần của rừng.",
+     "effects": {
+      "joy": 2,
+      "jobXp": 3,
+      "flags": [
+       "egd_galdor_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "egd_c4_aldric",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_guard",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "egd_met_aldric"
+    ],
+    "notFlags": [
+     "egd_aldric_gone",
+     "egd_end"
+    ]
+   },
+   "text": "Aldric đã già, tóc bạc, khiên thép gỉ sét. Một đêm, bầy Hắc Lang tấn công làng lần cuối, và anh ta vẫn chạy ra cổng, như mọi đêm.",
+   "choices": [
+    {
+     "label": "Đứng trước anh ta",
+     "text": "Lần này, bạn đứng chắn trước Aldric. Anh ta phản đối, rồi cười, và đứng sau bạn. Bầy Hắc Lang rút đi. Một năm sau, Aldric mất trong giấc ngủ. Bạn chôn anh ta ở cổng làng, khiên thép cắm cạnh mộ.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 3,
+      "flags": [
+       "egd_aldric_gone"
+      ]
+     },
+     "moment": "Lần đầu đứng chắn trước Aldric già"
+    },
+    {
+     "label": "Để anh ta đứng ở chỗ của mình",
+     "text": "Aldric chạy ra cổng như mọi đêm, khiên thép gỉ trong tay. Bạn đứng cạnh anh ta, không trước, không sau. Bầy Hắc Lang rút đi. Một năm sau, Aldric mất trong giấc ngủ, và bạn chôn anh ta ở cổng làng, nơi anh ta đã đứng suốt đời.",
+     "effects": {
+      "joy": -2,
+      "jobXp": 3,
+      "flags": [
+       "egd_aldric_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "egd_c4_siege",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_guard",
+    "free": true,
+    "jobRank": 3,
+    "notFlags": [
+     "egd_end"
+    ]
+   },
+   "text": "Một đạo quân Ma tộc lớn nhất nghìn năm bao vây Đại Ngàn. Mọi Hộ Vệ đều được gọi về gốc Yggdrasil cho trận chiến cuối cùng.",
+   "choices": [
+    {
+     "label": "Đứng ở vòng gác trong cùng",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Trận chiến kéo dài bảy ngày. Không gì qua được vòng gác của bạn. Khi Ma tộc rút lui, người ta gọi bạn là Undying Bastion.",
+      "effects": {
+       "STR": 1,
+       "fame": 12,
+       "health": -20,
+       "jobXp": 4,
+       "flags": [
+        "egd_siege_held"
+       ]
+      },
+      "moment": "Giữ vòng gác trong cùng của Yggdrasil suốt bảy ngày vây hãm"
+     },
+     "fail": {
+      "text": "Vòng gác vỡ ở ngày thứ năm. Bạn kéo được những người bị thương về sau, và vòng gác thứ hai giữ được.",
+      "effects": {
+       "health": -30,
+       "fame": 6
+      }
+     }
+    },
+    {
+     "label": "Gọi các tộc ở rìa rừng đến giúp",
+     "require": {
+      "anyFlags": [
+       "egd_shield_village",
+       "egd_aldric_friend",
+       "egd_kind_guard"
+      ]
+     },
+     "text": "Họ đến: những làng bạn từng bảo vệ, những đứa trẻ bạn từng dẫn về, con cháu của Aldric. Lần đầu tiên, Human và Beastman đứng gác cùng Elf quanh Yggdrasil. Ma tộc rút lui.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "jobXp": 4,
+      "flags": [
+       "egd_siege_held",
+       "egd_siege_allies"
+      ]
+     },
+     "moment": "Gọi các tộc ở rìa rừng đến cùng giữ Yggdrasil"
+    }
+   ]
+  },
+  {
+   "id": "egd_c5_root",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_guard",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "egd_path_root"
+    ],
+    "notFlags": [
+     "egd_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Undying Bastion. Bạn đã đứng ở gốc Yggdrasil năm trăm năm. Hội đồng muốn bạn trở thành Hộ Vệ Tối Cao.",
+   "choices": [
+    {
+     "label": "Nhận",
+     "text": "Bạn nhận khiên, nhận vị trí, và nhận lời thề. Mỗi Hộ Vệ mới, bạn đặt khiên trước mặt họ và bảo họ đứng đến khi trời tối.",
+     "effects": {
+      "fame": 15,
+      "joy": 10,
+      "flags": [
+       "egd_end",
+       "egd_end_high_guardian"
+      ]
+     },
+     "moment": "Trở thành Hộ Vệ Tối Cao của Yggdrasil"
+    },
+    {
+     "label": "Mở vòng gác cho những tộc đã cùng giữ Cây",
+     "require": {
+      "flags": [
+       "egd_siege_allies"
+      ]
+     },
+     "text": "Hội đồng phản đối suốt mười năm. Nhưng cuối cùng, vòng gác ngoài cùng của Yggdrasil có một Human, một Beastman và một Dwarf. Cây Thế Giới, theo lời các Spirit Caller, đã cười.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "egd_end",
+       "egd_end_open_watch"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "egd_c5_shield",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_guard",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "egd_path_shield"
+    ],
+    "notFlags": [
+     "egd_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Undying Bastion, nhưng ở các làng ven rừng, người ta gọi bạn là “cánh cổng”. Ba thế hệ trẻ con đã lớn lên dưới bóng khiên của bạn.",
+   "choices": [
+    {
+     "label": "Dạy dân làng tự gác",
+     "text": "Bạn dạy họ cách đứng, cách đỡ, cách không bỏ chạy. Khi bạn trở về Đại Ngàn, làng ven rừng có mười người gác, mỗi người một khiên gỗ do bạn đẽo.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "egd_end",
+       "egd_end_village_guard"
+      ]
+     },
+     "moment": "Dạy dân làng ven rừng tự đứng gác"
+    },
+    {
+     "label": "Ở lại làng đến cuối đời",
+     "text": "Bạn ở lại, bên mộ Aldric, bên cổng làng. Khi bạn không còn đứng nổi, dân làng khắc một bức tượng hai cánh cổng, một gỗ một thép, ở lối vào.",
+     "effects": {
+      "joy": 18,
+      "fame": 10,
+      "flags": [
+       "egd_end",
+       "egd_end_two_gates"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "egd_c5_vigil",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_guard",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "egd_path_vigil"
+    ],
+    "notFlags": [
+     "egd_end"
+    ]
+   },
+   "text": "Năm thứ năm trăm của Lời Thề Câm Lặng. Người ta gọi bạn là Undying Bastion, và có người tin rằng bạn đã hóa thành cây.",
+   "choices": [
+    {
+     "label": "Nói lời đầu tiên sau năm trăm năm",
+     "text": "Bạn mở miệng, và nói với Elf trẻ đứng gác bên cạnh: “Đến lượt ngươi.” Rồi bạn đặt khiên xuống, và bước vào rừng, nghe tiếng chim hót lần đầu tiên bằng đôi tai không phải của một người lính.",
+     "effects": {
+      "joy": 20,
+      "fame": 12,
+      "flags": [
+       "egd_end",
+       "egd_end_first_word"
+      ]
+     },
+     "moment": "Nói lời đầu tiên sau năm trăm năm câm lặng"
+    },
+    {
+     "label": "Tiếp tục đứng gác",
+     "text": "Bạn đứng đó, và rễ cây bắt đầu mọc quanh chân bạn. Một trăm năm sau, người ta không phân biệt được đâu là Hộ Vệ, đâu là thân cây ở cổng phía bắc. Nhưng không gì đi qua cổng ấy được.",
+     "effects": {
+      "fame": 15,
+      "flags": [
+       "egd_end",
+       "egd_end_rooted"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "egd_daily_shield_moss",
+   "races": [
+    "elf"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "elf_guard",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Rêu đã mọc trên khiên của bạn sau hai mươi năm gác.",
+   "choices": [
+    {
+     "label": "Cạo sạch",
+     "text": "Khiên sáng bóng như mới. Một Hộ Vệ già đi ngang, lắc đầu: “Khiên mọc rêu là khiên đã quen đất.”",
+     "effects": {
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Để rêu mọc",
+     "text": "Rêu xanh mướt, và khiên của bạn giờ trông như một phần của rừng.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "egd_daily_war_wall",
+   "races": [
+    "elf"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "elf_guard",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh với Ma tộc. Hội đồng gọi Hộ Vệ ra biên giới.",
+   "choices": [
+    {
+     "label": "Đi",
+     "text": "Bạn đứng ở tuyến đầu, khiên dựng, suốt một mùa. Nhiều Hộ Vệ không trở về. Khiên của bạn có thêm vết nứt.",
+     "effects": {
+      "STR": 1,
+      "health": -15,
+      "fame": 4,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Xin ở lại gác Yggdrasil",
+     "text": "Hội đồng đồng ý. Bạn đứng gác ở gốc Cây, nghe tin chiến trường qua rễ cây.",
+     "effects": {
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "egd_daily_old_guard",
+   "races": [
+    "elf"
+   ],
+   "stages": [
+    "elder",
+    "ancient"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "elf_guard",
+    "free": true
+   },
+   "text": "Sau bảy trăm năm, đôi tay bạn không còn giữ khiên đến tối được nữa.",
+   "choices": [
+    {
+     "label": "Tựa khiên vào chân, như cây tựa vào đất",
+     "text": "Bạn đứng sau khiên, để nó tựa vào mình. Bạn vẫn đứng đến tối.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Nhường vị trí cho người trẻ",
+     "text": "Bạn đứng phía sau, nhìn họ gác. Đôi khi, bạn sửa tư thế cho họ bằng một cái chạm nhẹ.",
+     "effects": {
+      "joy": 8
+     }
+    }
+   ]
+  }
+ ]
+}

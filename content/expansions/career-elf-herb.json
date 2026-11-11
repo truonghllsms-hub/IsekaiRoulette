@@ -1,0 +1,1018 @@
+{
+ "_note": "Tuyến truyện Herbalist (Elf): 5 chương theo bậc, ba đạo ở Bậc 2 (ehb_path_heal / ehb_path_poison / ehb_path_garden), nhân vật xuyên suốt bà Morwen và Kestrel (học trò Human).",
+ "origins": [],
+ "events": [
+  {
+   "id": "ehb_c1_morwen",
+   "races": [
+    "elf"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "elf_herb",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "ehb_met_morwen"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Morwen",
+     "race": "Elf",
+     "position": "Thầy thuốc già sống trong nhà cây"
+    }
+   ],
+   "text": "Bà Morwen sống trong một căn nhà mọc ra từ thân cây, trên vách treo hàng nghìn bó thảo dược khô. Bà đặt trước mặt bạn hai chiếc lá giống hệt nhau: “Một chiếc chữa sốt. Một chiếc giết người trong một đêm. Chọn đi.”",
+   "choices": [
+    {
+     "label": "Ngửi kỹ từng chiếc",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Chiếc thứ hai có mùi hạnh nhân rất nhẹ, nhẹ đến mức gần như không có. Bạn đẩy nó ra xa. Bà Morwen gật đầu: “Mũi tốt. Giờ thì học tên của ba nghìn chiếc lá khác.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "ehb_met_morwen",
+        "ehb_morwen_respect"
+       ]
+      },
+      "moment": "Phân biệt được lá chữa sốt và lá độc của bà Morwen"
+     },
+     "fail": {
+      "text": "Bạn chọn sai. Bà Morwen giật chiếc lá khỏi tay bạn trước khi bạn kịp đưa lên miệng. “Đấy là bài học đầu tiên: không bao giờ nếm thứ mình chưa biết tên.”",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "ehb_met_morwen"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi bà vì sao chúng giống nhau",
+     "text": "Bà Morwen mỉm cười. “Vì rừng không chia thuốc và độc. Chỉ có người hái mới chia.” Bà dạy bạn cách nhìn gân lá dưới ánh trăng, nơi hai chiếc lá khác nhau.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "ehb_met_morwen",
+       "ehb_morwen_respect"
+      ]
+     },
+     "moment": "Học điều đầu tiên về thuốc và độc từ bà Morwen"
+    }
+   ]
+  },
+  {
+   "id": "ehb_c1_kestrel",
+   "races": [
+    "elf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "elf_herb",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "ehb_met_morwen"
+    ],
+    "notFlags": [
+     "ehb_met_kestrel"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Kestrel",
+     "race": "Human",
+     "position": "Học giả Sanctus muốn học nghề thuốc Elf"
+    }
+   ],
+   "text": "Một chàng trai Human tên Kestrel từ Sanctus vượt qua rìa Đại Ngàn, mặc áo học giả rách tả tơi, cầu xin được học nghề thuốc của Elf. Bệnh dịch đã giết cả gia đình cậu ta, và thầy thuốc Human không cứu được ai.",
+   "choices": [
+    {
+     "label": "Xin bà Morwen nhận cậu ta",
+     "require": {
+      "flags": [
+       "ehb_met_morwen"
+      ]
+     },
+     "text": "Bà Morwen nhìn Kestrel rất lâu, rồi đưa cho cậu ta hai chiếc lá giống hệt nhau. Kestrel chọn đúng. Bà nhận cậu ta, Human đầu tiên trong năm trăm năm. Hai người các bạn trở thành bạn đồng môn.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 1,
+      "flags": [
+       "ehb_met_kestrel",
+       "ehb_kestrel_friend"
+      ]
+     },
+     "moment": "Xin bà Morwen nhận Kestrel làm học trò"
+    },
+    {
+     "label": "Dạy cậu ta những gì mình biết, lén lút",
+     "text": "Bạn gặp Kestrel ở rìa rừng mỗi tuần, chỉ cho cậu ta một loại cây. Cậu ta học nhanh, ghi chép bằng thứ chữ Human nhỏ li ti.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "ehb_met_kestrel",
+       "ehb_kestrel_friend"
+      ]
+     }
+    },
+    {
+     "label": "Đuổi cậu ta về",
+     "text": "Kestrel đi, ngoái lại nhìn khu rừng rất lâu. Nhiều năm sau, bạn nghe tin cậu ta trở thành thầy thuốc giỏi nhất Sanctus, tự học, và vẫn ghét Elf.",
+     "effects": {
+      "flags": [
+       "ehb_met_kestrel"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ehb_c2_first_patient",
+   "races": [
+    "elf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "elf_herb",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "ehb_first_patient",
+     "ehb_end"
+    ],
+    "flags": [
+     "ehb_met_morwen"
+    ]
+   },
+   "text": "Bệnh nhân đầu tiên bạn chữa một mình là một đứa trẻ Elf bị rắn cắn. Bà Morwen đi vắng. Bạn có ba loại thuốc giải, và không chắc loại nào đúng.",
+   "choices": [
+    {
+     "label": "Nhìn vết cắn, đoán loài rắn",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Hai lỗ nhỏ, cách nhau một đốt ngón tay, viền tím: rắn Lục Bạc. Bạn chọn đúng thuốc giải. Đứa trẻ tỉnh lại lúc nửa đêm, đòi ăn.",
+      "effects": {
+       "INT": 1,
+       "fame": 3,
+       "jobXp": 2,
+       "flags": [
+        "ehb_first_patient"
+       ]
+      },
+      "moment": "Cứu sống bệnh nhân đầu tiên"
+     },
+     "fail": {
+      "text": "Bạn chọn sai. Đứa trẻ sống, nhờ bà Morwen về kịp, nhưng sốt ba ngày.",
+      "effects": {
+       "joy": -10,
+       "flags": [
+        "ehb_first_patient"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hút nọc ra trước, rồi mới chọn thuốc",
+     "text": "Nọc đắng và tê cả lưỡi. Bạn hút hết, rồi chọn thuốc giải chậm rãi. Đứa trẻ sống. Bạn thì không nói được suốt ba ngày.",
+     "effects": {
+      "health": -8,
+      "fame": 2,
+      "jobXp": 2,
+      "flags": [
+       "ehb_first_patient"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ehb_c2_crossroads",
+   "races": [
+    "elf"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "elf_herb",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "ehb_path_heal",
+     "ehb_path_poison",
+     "ehb_path_garden",
+     "ehb_end"
+    ],
+    "flags": [
+     "ehb_met_morwen"
+    ]
+   },
+   "text": "Bà Morwen bày ra ba thứ: một túi thuốc của người đi chữa bệnh, một cuốn sổ đen ghi những chất độc mà chỉ bà biết, và một nắm hạt giống của những loài cây đang tuyệt chủng. “Thầy thuốc giỏi phải biết cả ba. Nhưng ngươi chỉ có thể sống cả đời cho một.”",
+   "choices": [
+    {
+     "label": "Túi thuốc: Thánh Y Rừng",
+     "text": "Bạn đeo túi thuốc lên vai. Từ hôm nay, bạn đi đến nơi có người bệnh, dù họ là Elf, Human, hay bất cứ ai.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "ehb_path_heal"
+      ]
+     },
+     "moment": "Nhận túi thuốc của người đi chữa bệnh"
+    },
+    {
+     "label": "Sổ đen: Bậc Thầy Độc Dược",
+     "text": "Bà Morwen trao cuốn sổ đen bằng hai tay, như trao một thứ nặng. “Biết giết người là biết cứu người. Đừng quên điều ngược lại.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "ehb_path_poison"
+      ]
+     },
+     "moment": "Nhận cuốn sổ độc dược của bà Morwen"
+    },
+    {
+     "label": "Hạt giống: Vườn Sự Sống",
+     "text": "Bạn trồng nắm hạt giống đầu tiên trong một khoảng trống của rừng. Chúng nảy mầm chậm, như mọi thứ ở Đại Ngàn. Bạn có thời gian.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "ehb_path_garden"
+      ]
+     },
+     "moment": "Gieo hạt giống của những loài cây sắp tuyệt chủng"
+    }
+   ]
+  },
+  {
+   "id": "ehb_heal_human_plague",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_herb",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ehb_path_heal"
+    ],
+    "notFlags": [
+     "ehb_end"
+    ]
+   },
+   "text": "Dịch Hắc Bào tử bùng phát ở một thành phố Human ven Đại Ngàn. Hội đồng cấm Elf ra khỏi rừng để tránh lây nhiễm.",
+   "choices": [
+    {
+     "label": "Ra khỏi rừng chữa bệnh",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn tìm ra loại rêu làm Hắc Bào tử chết héo, và dạy dân thành phố cách trồng nó. Dịch dừng lại trong ba tháng. Hội đồng phạt bạn mười năm không được vào Đại Ngàn. Mười năm với Elf là rất ngắn.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "ehb_heal_plague"
+       ]
+      },
+      "moment": "Ra khỏi Đại Ngàn chữa dịch Hắc Bào tử cho thành phố Human"
+     },
+     "fail": {
+      "text": "Bạn cứu được nhiều người, nhưng chính bạn bị nhiễm. Bạn sống, nhưng phổi không còn như xưa.",
+      "effects": {
+       "health": -25,
+       "fame": 6,
+       "flags": [
+        "ehb_heal_plague"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Gửi thuốc qua Kestrel",
+     "require": {
+      "flags": [
+       "ehb_kestrel_friend",
+       "ehb_met_kestrel"
+      ]
+     },
+     "text": "Kestrel nhận thuốc ở rìa rừng mỗi đêm, mang vào thành phố. Hai người, một Elf một Human, dập tắt dịch mà không ai biết bạn đã giúp.",
+     "effects": {
+      "fame": 6,
+      "joy": 10,
+      "jobXp": 3,
+      "flags": [
+       "ehb_heal_plague",
+       "ehb_kestrel_partner"
+      ]
+     },
+     "moment": "Cùng Kestrel dập dịch qua rìa rừng"
+    },
+    {
+     "label": "Tuân lệnh Hội đồng",
+     "text": "Bạn ở lại rừng, nhìn khói bốc lên từ những giàn thiêu xác ở thành phố bên kia. Một nửa thành phố chết.",
+     "effects": {
+      "joy": -18,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "ehb_heal_enemy",
+   "races": [
+    "elf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "elf_herb",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ehb_path_heal"
+    ],
+    "notFlags": [
+     "ehb_end"
+    ]
+   },
+   "text": "Một chiến binh Ma tộc bị thương nặng gục ở rìa Đại Ngàn. Hắn cầu xin bạn chữa cho hắn. Hắn đã giết ba Ranger Elf hôm qua.",
+   "choices": [
+    {
+     "label": "Chữa cho hắn",
+     "text": "Bạn chữa như chữa mọi bệnh nhân. Hắn tỉnh lại, nhìn bạn, không nói gì, và bỏ đi trước bình minh. Một năm sau, một toán Ma tộc đột kích rìa rừng, nhưng tránh căn nhà cây của bạn.",
+     "effects": {
+      "joy": 4,
+      "fame": -3,
+      "jobXp": 3,
+      "flags": [
+       "ehb_healed_enemy"
+      ]
+     },
+     "moment": "Chữa cho một chiến binh Ma tộc bị thương"
+    },
+    {
+     "label": "Giao hắn cho Ranger",
+     "text": "Các Ranger đến, đưa hắn đi. Bạn không hỏi họ đã làm gì. Bạn rửa tay ba lần.",
+     "effects": {
+      "joy": -8,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "ehb_poison_order",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_herb",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ehb_path_poison"
+    ],
+    "notFlags": [
+     "ehb_end"
+    ]
+   },
+   "text": "Hội đồng Trưởng Lão giao cho bạn một nhiệm vụ bí mật: pha chế một chất độc không màu, không mùi, để đầu độc một vị tướng Human đang chuẩn bị chặt rừng thiêng.",
+   "choices": [
+    {
+     "label": "Pha chế",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Chất độc hoàn hảo. Vị tướng chết trong giấc ngủ. Quân đội của ông ta rút lui. Đại Ngàn được giữ. Bạn ghi vào cuốn sổ đen một dòng mới, và nhận ra tay mình không run.",
+      "effects": {
+       "INT": 1,
+       "fame": 4,
+       "joy": -12,
+       "jobXp": 3,
+       "flags": [
+        "ehb_poison_killed"
+       ]
+      },
+      "moment": "Pha chất độc giết một vị tướng Human"
+     },
+     "fail": {
+      "text": "Chất độc có mùi rất nhẹ. Vị tướng phát hiện ra, và biết Elf đứng sau. Chiến tranh nổ ra.",
+      "effects": {
+       "joy": -15,
+       "fame": -6
+      }
+     }
+    },
+    {
+     "label": "Pha một liều làm ông ta ốm ba tháng",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Vị tướng ốm nặng, phải về Sanctus chữa trị. Kế hoạch chặt rừng bị hoãn, rồi bị quên. Không ai chết.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "ehb_poison_mercy"
+       ]
+      },
+      "moment": "Dùng độc dược khiến tướng địch ốm thay vì chết"
+     },
+     "fail": {
+      "text": "Liều quá nhẹ. Ông ta chỉ ốm ba ngày.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    },
+    {
+     "label": "Từ chối",
+     "text": "Hội đồng tìm người khác. Vị tướng chết. Bạn biết điều đó sẽ xảy ra dù bạn có làm hay không, và bạn không biết điều đó khiến bạn nhẹ nhõm hay nặng nề hơn.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "ehb_poison_antidote",
+   "races": [
+    "elf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "elf_herb",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ehb_path_poison"
+    ],
+    "notFlags": [
+     "ehb_end"
+    ]
+   },
+   "text": "Một sát thủ Umbra dùng một chất độc lạ giết ba trưởng lão Elf. Không ai biết thuốc giải, trừ người hiểu độc dược như bạn.",
+   "choices": [
+    {
+     "label": "Tìm ra thuốc giải",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn mất mười ngày không ngủ, thử từng chất trong cuốn sổ đen. Thuốc giải hóa ra là một loại cỏ dại mọc ở rìa đường Human. Trưởng lão thứ tư sống sót.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "ehb_poison_antidote"
+       ]
+      },
+      "moment": "Tìm ra thuốc giải độc dược của sát thủ Umbra"
+     },
+     "fail": {
+      "text": "Bạn tìm ra quá muộn.",
+      "effects": {
+       "joy": -12
+      }
+     }
+    },
+    {
+     "label": "Nhờ Kestrel tra sách Human",
+     "require": {
+      "flags": [
+       "ehb_kestrel_friend",
+       "ehb_met_kestrel"
+      ]
+     },
+     "text": "Kestrel tìm thấy công thức trong một cuốn sách cũ của Tháp Ngà. Hai người pha thuốc giải trong một đêm.",
+     "effects": {
+      "fame": 6,
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "ehb_poison_antidote"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ehb_garden_last_seed",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_herb",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ehb_path_garden"
+    ],
+    "notFlags": [
+     "ehb_end"
+    ]
+   },
+   "text": "Cây Huyết Lan, loài hoa chữa được mọi vết thương do lửa, chỉ còn một hạt giống cuối cùng trên đời. Nó nằm trong tay bạn. Nếu gieo sai đất, nó sẽ không bao giờ nảy mầm.",
+   "choices": [
+    {
+     "label": "Đi tìm đất của nó",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Sách cổ nói Huyết Lan mọc nơi rồng chết. Bạn đi đến Đảo Tro Tàn, tìm một xương rồng phủ rêu, và gieo hạt cạnh đó. Ba năm sau, nó nở hoa.",
+      "effects": {
+       "LUCK": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "ehb_garden_bloodlily"
+       ]
+      },
+      "moment": "Hồi sinh loài hoa Huyết Lan từ hạt giống cuối cùng"
+     },
+     "fail": {
+      "text": "Hạt giống không nảy mầm. Bạn ngồi bên luống đất trống suốt một mùa.",
+      "effects": {
+       "joy": -15
+      }
+     }
+    },
+    {
+     "label": "Chờ thêm một trăm năm cho đến khi chắc chắn",
+     "text": "Bạn cất hạt giống trong hộp gỗ, nghiên cứu suốt một trăm năm. Elf có thể chờ. Hạt giống cũng vậy.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "ehb_garden_waiting"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ehb_garden_thieves",
+   "races": [
+    "elf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "elf_herb",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ehb_path_garden"
+    ],
+    "notFlags": [
+     "ehb_end"
+    ]
+   },
+   "text": "Thương nhân Human phát hiện vườn của bạn có những loài cây đã tuyệt chủng ở mọi nơi khác. Họ trả giá cao, và nếu bạn không bán, họ sẽ tự đến hái.",
+   "choices": [
+    {
+     "label": "Bán hạt giống, không bán cây",
+     "text": "Bạn dạy họ cách trồng. Những loài cây quý bắt đầu mọc lại ở các vườn Human. Giá của chúng giảm, và không ai còn muốn đến trộm.",
+     "effects": {
+      "INT": 1,
+      "wealth": 10,
+      "jobXp": 3,
+      "flags": [
+       "ehb_garden_shared"
+      ]
+     },
+     "moment": "Bán hạt giống quý để các loài cây sống lại khắp nơi"
+    },
+    {
+     "label": "Giấu vườn bằng rễ cây",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn nhờ những cây cổ thụ đan rễ thành một bức tường. Không ai tìm thấy vườn nữa.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "ehb_garden_hidden"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bức tường rễ chưa kịp mọc. Một nửa vườn bị hái trụi.",
+      "effects": {
+       "joy": -12
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "ehb_c4_kestrel",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_herb",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "ehb_met_kestrel"
+    ],
+    "notFlags": [
+     "ehb_kestrel_gone",
+     "ehb_end"
+    ]
+   },
+   "text": "Kestrel đã già. Ông ấy viết thư cho bạn: “Ta sắp đi. Ta muốn được chôn ở rìa rừng, nơi lần đầu ta gặp ngươi.”",
+   "choices": [
+    {
+     "label": "Đến bên ông ấy",
+     "text": "Kestrel tám mươi tuổi, tóc bạc trắng, và vẫn chọn đúng chiếc lá khi bạn đặt hai chiếc giống nhau trước mặt ông. Ông mất trong vòng tay bạn. Bạn chôn ông ở rìa rừng, và trồng trên mộ ông một cây sồi non.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "ehb_kestrel_gone"
+      ]
+     },
+     "moment": "Chôn Kestrel ở rìa rừng nơi lần đầu gặp nhau"
+    },
+    {
+     "label": "Mang thuốc kéo dài thêm vài năm",
+     "text": "Thuốc của Elf cho ông ấy thêm năm năm. Năm năm ấy, Kestrel viết xong cuốn sách về thuốc Elf cho người Human. Rồi ông nói: “Đủ rồi.” Và bạn để ông đi.",
+     "effects": {
+      "joy": -2,
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "ehb_kestrel_gone",
+       "ehb_kestrel_book"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ehb_c4_morwen",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_herb",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "ehb_met_morwen"
+    ],
+    "notFlags": [
+     "ehb_morwen_gone",
+     "ehb_end"
+    ]
+   },
+   "text": "Bà Morwen đã sống một nghìn năm. Bà hái bó thảo dược cuối cùng, treo lên vách, rồi gọi bạn đến.",
+   "choices": [
+    {
+     "label": "Ngồi cùng bà giữa những bó thảo dược",
+     "text": "Bà chỉ cho bạn từng bó, kể tên, kể công dụng, kể cả câu chuyện của nơi bà hái nó. Đến bó cuối cùng, bà dừng lại, mỉm cười, và nhắm mắt. Đó là một bó hoa bình thường, chẳng chữa được gì, chỉ là đẹp.",
+     "effects": {
+      "joy": -2,
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "ehb_morwen_gone"
+      ]
+     },
+     "moment": "Tiễn bà Morwen giữa những bó thảo dược"
+    },
+    {
+     "label": "Hỏi bà vì sao bó cuối cùng chỉ là hoa",
+     "text": "Bà Morwen cười. “Vì sau một nghìn năm chữa bệnh, ta muốn hái một thứ chỉ để ngắm.” Bà mất đêm ấy. Bạn treo bó hoa ấy cạnh giường bà, và không bao giờ dùng nó làm thuốc.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 3,
+      "flags": [
+       "ehb_morwen_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ehb_c5_heal",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_herb",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "ehb_path_heal"
+    ],
+    "notFlags": [
+     "ehb_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Sage of Life. Bạn đã chữa cho Elf, Human, Beastman, cả Ma tộc. Hội đồng Trưởng Lão muốn bạn trở về Đại Ngàn và chỉ chữa cho Elf.",
+   "choices": [
+    {
+     "label": "Từ chối, mở một nhà thuốc ở rìa rừng",
+     "text": "Nhà thuốc của bạn nằm đúng trên ranh giới, nửa trong rừng, nửa ngoài rừng. Ai cũng có thể đến. Sau bạn, nó trở thành nơi Elf và Human học thuốc cùng nhau.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "ehb_end",
+       "ehb_end_border_clinic"
+      ]
+     },
+     "moment": "Mở nhà thuốc trên ranh giới Đại Ngàn"
+    },
+    {
+     "label": "Dịch sách thuốc Elf sang chữ Human",
+     "require": {
+      "flags": [
+       "ehb_kestrel_book"
+      ]
+     },
+     "text": "Bạn hoàn thành cuốn sách Kestrel để dang dở. Nó được chép ra hàng trăm bản. Ở Sanctus, các thầy thuốc gọi nó là “Sách của Kestrel và người Elf”.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "ehb_end",
+       "ehb_end_book"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ehb_c5_poison",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_herb",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "ehb_path_poison"
+    ],
+    "notFlags": [
+     "ehb_end"
+    ]
+   },
+   "text": "Cuốn sổ đen của bạn giờ dày gấp ba cuốn của bà Morwen. Người ta gọi bạn là Sage of Life, nhưng chỉ vài người biết vì sao: không ai biết cái chết rõ bằng bạn.",
+   "choices": [
+    {
+     "label": "Biến cuốn sổ đen thành sách thuốc giải",
+     "require": {
+      "anyFlags": [
+       "ehb_poison_mercy",
+       "ehb_poison_antidote"
+      ]
+     },
+     "text": "Với mỗi chất độc trong sổ, bạn viết thêm thuốc giải của nó. Cuốn sổ đen trở thành cuốn sách cứu được nhiều người nhất Aethelgard.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "ehb_end",
+       "ehb_end_antidotes"
+      ]
+     },
+     "moment": "Biến cuốn sổ độc dược thành sách thuốc giải"
+    },
+    {
+     "label": "Đốt cuốn sổ đen",
+     "text": "Bạn đốt nó trong lò sưởi nhà cây của bà Morwen. Có những tri thức nên chết cùng người biết nó.",
+     "effects": {
+      "joy": 10,
+      "fame": 6,
+      "flags": [
+       "ehb_end",
+       "ehb_end_burned"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ehb_c5_garden",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_herb",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "ehb_path_garden"
+    ],
+    "notFlags": [
+     "ehb_end"
+    ]
+   },
+   "text": "Vườn của bạn giờ có ba nghìn loài cây, trong đó năm trăm loài không còn mọc ở bất cứ đâu khác. Người ta gọi bạn là Sage of Life.",
+   "choices": [
+    {
+     "label": "Mở vườn cho mọi tộc đến học",
+     "text": "Học trò từ Tháp Ngà, từ Thảo Nguyên, từ Răng Cưa đến học. Mỗi người mang về một nắm hạt giống. Sau một trăm năm, những loài cây ấy mọc khắp Aethelgard.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "ehb_end",
+       "ehb_end_open_garden"
+      ]
+     },
+     "moment": "Mở vườn sự sống cho mọi tộc"
+    },
+    {
+     "label": "Gieo hạt Huyết Lan cuối cùng",
+     "require": {
+      "flags": [
+       "ehb_garden_waiting"
+      ]
+     },
+     "text": "Một trăm năm chờ đợi. Bạn gieo nó. Nó nảy mầm vào đúng mùa xuân năm bạn mất. Học trò của bạn đặt bông hoa đầu tiên lên mộ bạn.",
+     "effects": {
+      "fame": 12,
+      "joy": 18,
+      "flags": [
+       "ehb_end",
+       "ehb_end_bloodlily"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ehb_daily_mortar",
+   "races": [
+    "elf"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "elf_herb",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Cối giã thuốc của bạn nứt sau hai trăm năm.",
+   "choices": [
+    {
+     "label": "Tự đẽo cối mới từ gỗ sồi",
+     "text": "Mất một mùa. Cối mới nhẹ hơn, và thuốc giã trong nó có mùi gỗ sồi rất dễ chịu.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Mua cối đá ở chợ Human",
+     "text": "Cối đá nặng và lạnh, nhưng không bao giờ nứt. Bạn sẽ dùng nó năm trăm năm.",
+     "effects": {
+      "wealth": -3
+     }
+    }
+   ]
+  },
+  {
+   "id": "ehb_daily_war_wounded",
+   "races": [
+    "elf"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "elf_herb",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh mang đến những vết thương mà thảo dược Elf chưa từng gặp: bỏng ma hỏa, vết cắn của Hắc Lang, những lời nguyền.",
+   "choices": [
+    {
+     "label": "Thử nghiệm thuốc mới trên chiến trường",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn tìm ra cách chữa bỏng ma hỏa bằng rêu tuyết. Hàng trăm người lính được cứu.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Thuốc thử nghiệm làm nặng thêm vết thương của hai người.",
+      "effects": {
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Chữa bằng những gì mình đã biết",
+     "text": "Bạn chữa được những gì chữa được, và ngồi bên những người không chữa được.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "ehb_daily_old_herbs",
+   "races": [
+    "elf"
+   ],
+   "stages": [
+    "elder",
+    "ancient"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "elf_herb",
+    "free": true
+   },
+   "text": "Sau nhiều thế kỷ, bạn bắt đầu quên tên một vài loại cây. Sáng nay, bạn đứng trước một bụi cỏ quen mà không nhớ nó dùng để làm gì.",
+   "choices": [
+    {
+     "label": "Viết lại mọi thứ mình còn nhớ",
+     "text": "Bạn viết suốt một mùa. Cuốn sổ trở thành trí nhớ thứ hai của bạn.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Nếm thử, như ngày còn trẻ",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Vị đắng quen thuộc trên lưỡi. Bạn nhớ ra: nó chữa đau bụng. Bạn cười một mình.",
+      "effects": {
+       "joy": 8
+      }
+     },
+     "fail": {
+      "text": "Nó không phải loại bạn nghĩ. Bạn đau bụng ba ngày.",
+      "effects": {
+       "health": -8
+      }
+     }
+    }
+   ]
+  }
+ ]
+}

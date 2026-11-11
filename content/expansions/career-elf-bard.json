@@ -1,0 +1,923 @@
+{
+ "_note": "Tuyến truyện Bard (Elf): 5 chương theo bậc, ba đạo ở Bậc 2 (ebd_path_ages / ebd_path_mortal / ebd_path_arcane), nhân vật xuyên suốt Thalindra (người giữ Khúc Ca Vạn Năm) và Rowan (người hát rong Human).",
+ "origins": [],
+ "events": [
+  {
+   "id": "ebd_c1_thalindra",
+   "races": [
+    "elf"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "elf_bard",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "ebd_met_thalindra"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Thalindra",
+     "race": "Elf",
+     "position": "Người giữ Khúc Ca Vạn Năm"
+    }
+   ],
+   "text": "Thalindra là người giữ Khúc Ca Vạn Năm, bài hát kể lại toàn bộ lịch sử Elf, dài đến mức hát hết mất bốn mươi đêm. Bà nghe bạn hát một bài ngắn, rồi hỏi: “Ngươi hát để được nghe, hay hát để nhớ?”",
+   "choices": [
+    {
+     "label": "“Để nhớ.”",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Thalindra dạy bạn đêm đầu tiên của Khúc Ca: chuyện Yggdrasil nảy mầm. Bạn thuộc nó sau ba lần nghe. Bà gật đầu: “Còn ba mươi chín đêm nữa. Ngươi có ba trăm năm.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "ebd_met_thalindra",
+        "ebd_thalindra_respect"
+       ]
+      },
+      "moment": "Học đêm đầu tiên của Khúc Ca Vạn Năm"
+     },
+     "fail": {
+      "text": "Bạn quên một câu ở giữa. Thalindra hát lại câu ấy, kiên nhẫn, như đã hát cho hàng trăm học trò trước bạn.",
+      "effects": {
+       "joy": -3,
+       "flags": [
+        "ebd_met_thalindra"
+       ]
+      }
+     }
+    },
+    {
+     "label": "“Để được nghe.”",
+     "text": "Thalindra cười. “Thật thà. Hiếm đấy ở Elf.” Bà không dạy bạn Khúc Ca, nhưng dạy bạn cách làm một khán phòng im lặng chỉ bằng một nốt.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 1,
+      "flags": [
+       "ebd_met_thalindra"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ebd_c1_rowan",
+   "races": [
+    "elf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "elf_bard",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "ebd_met_thalindra"
+    ],
+    "notFlags": [
+     "ebd_met_rowan"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Rowan",
+     "race": "Human",
+     "position": "Người hát rong trẻ ở Đồng Bằng"
+    }
+   ],
+   "text": "Ở một quán trọ ven rừng, bạn nghe một chàng trai Human hát một bài về Elf, sai hết mọi chi tiết, nhưng hay đến mức bạn ngồi nghe đến hết. Cậu ta tên Rowan, và khi thấy đôi tai nhọn của bạn, cậu ta đỏ mặt đến tận cổ.",
+   "choices": [
+    {
+     "label": "Sửa lại bài hát cho cậu ta",
+     "text": "Hai người ngồi đến sáng, sửa từng câu. Bài hát mới đúng hơn, và hay hơn. Rowan hát nó ở mọi quán trọ trên Đồng Bằng, và luôn nói nó được viết cùng “một người bạn Elf”.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 1,
+      "flags": [
+       "ebd_met_rowan",
+       "ebd_rowan_friend"
+      ]
+     },
+     "moment": "Cùng Rowan sửa lại bài hát về Elf"
+    },
+    {
+     "label": "Học bài hát sai của cậu ta",
+     "text": "Bạn hát lại nó, đúng như Rowan hát, sai mọi chi tiết. Rowan bật cười, và từ đó hai người hát cùng nhau mỗi khi bạn ra khỏi rừng.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 1,
+      "flags": [
+       "ebd_met_rowan",
+       "ebd_rowan_friend"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ebd_c2_first_song",
+   "races": [
+    "elf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "elf_bard",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "ebd_first_song",
+     "ebd_end"
+    ]
+   },
+   "text": "Đã đến lúc bạn sáng tác bài hát đầu tiên của riêng mình. Với Elf, một bài hát có thể được hát lại trong nghìn năm. Nó phải xứng đáng.",
+   "choices": [
+    {
+     "label": "Viết về một điều sẽ không thay đổi",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn viết về ánh trăng trên Hồ Gương. Bài hát đơn giản, nhưng Elf hát nó ở mọi đêm trăng tròn. Năm trăm năm sau, người ta vẫn hát nó, và không ai nhớ ai viết.",
+      "effects": {
+       "INT": 1,
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "ebd_first_song"
+       ]
+      },
+      "moment": "Viết bài hát đầu tiên được Elf hát mãi"
+     },
+     "fail": {
+      "text": "Bài hát quá đơn giản. Nó bị quên sau một mùa, như mọi bài hát Human.",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "ebd_first_song"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Viết về Rowan",
+     "require": {
+      "flags": [
+       "ebd_met_rowan"
+      ]
+     },
+     "text": "Bạn viết về một chàng trai Human hát sai mọi chi tiết. Các Elf cười, rồi im lặng ở câu cuối, nơi bạn hát rằng cậu ta sẽ già trước khi bạn học xong bài hát này. Đó là bài hát buồn nhất mà nhiều Elf từng nghe.",
+     "effects": {
+      "fame": 5,
+      "joy": 4,
+      "jobXp": 2,
+      "flags": [
+       "ebd_first_song",
+       "ebd_song_rowan"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ebd_c2_crossroads",
+   "races": [
+    "elf"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "elf_bard",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "ebd_path_ages",
+     "ebd_path_mortal",
+     "ebd_path_arcane",
+     "ebd_end"
+    ],
+    "flags": [
+     "ebd_met_thalindra"
+    ]
+   },
+   "text": "Thalindra hỏi bạn sẽ dành ba trăm năm tới cho điều gì. Học trọn Khúc Ca Vạn Năm, để trở thành người giữ nó khi bà đi. Rời Đại Ngàn, sống giữa những tộc người chết sớm, và học những bài hát ngắn của họ. Hay học Âm Thuật, thứ phép thuật mà một nốt nhạc có thể làm vỡ đá hoặc chữa lành xương.",
+   "choices": [
+    {
+     "label": "Khúc Ca Vạn Năm: người giữ ký ức",
+     "text": "Bạn ngồi cạnh Thalindra mỗi đêm, học từng câu. Bạn biết mình đang trở thành một cuốn sách sống của cả một tộc.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "ebd_path_ages"
+      ]
+     },
+     "moment": "Bắt đầu học trọn Khúc Ca Vạn Năm"
+    },
+    {
+     "label": "Lữ Ca Phàm Trần: sống giữa người chết sớm",
+     "text": "Bạn khoác cây đàn lên vai, ra khỏi Đại Ngàn. Những bài hát Human ngắn, vụng, và đẹp theo cách mà Elf chưa bao giờ hiểu: đẹp vì chúng sẽ bị quên.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 2,
+      "flags": [
+       "ebd_path_mortal"
+      ]
+     },
+     "moment": "Rời Đại Ngàn sống giữa loài người"
+    },
+    {
+     "label": "Âm Thuật: phép thuật của âm thanh",
+     "text": "Nốt đầu tiên bạn học được làm một chiếc lá rụng ngược lên cành. Nốt thứ hai làm nứt một tảng đá. Bạn bắt đầu hiểu vì sao Âm Thuật bị cấm hát trong Hội đồng.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "ebd_path_arcane"
+      ]
+     },
+     "moment": "Bắt đầu học Âm Thuật"
+    }
+   ]
+  },
+  {
+   "id": "ebd_ages_wrong",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_bard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ebd_path_ages"
+    ],
+    "notFlags": [
+     "ebd_end"
+    ]
+   },
+   "text": "Khi học đến đêm thứ hai mươi bảy của Khúc Ca, bạn phát hiện một đoạn kể về một cuộc chiến mà theo sách cổ, Elf không phải phe bị tấn công, mà là phe tấn công trước.",
+   "choices": [
+    {
+     "label": "Hỏi Thalindra",
+     "text": "Thalindra im lặng rất lâu. “Ta biết. Người giữ Khúc Ca trước ta đã sửa nó. Ta không đủ can đảm sửa lại.” Bà nhìn bạn: “Đến lượt ngươi chọn.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "ebd_ages_truth"
+      ]
+     }
+    },
+    {
+     "label": "Hát lại đúng sự thật trước Hội đồng",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Hội đồng phẫn nộ. Nhưng những Elf già nhất, những người còn nhớ cuộc chiến ấy, đứng dậy và xác nhận. Khúc Ca được sửa lại sau năm trăm năm.",
+      "effects": {
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "ebd_ages_truth",
+        "ebd_ages_corrected"
+       ]
+      },
+      "moment": "Hát lại sự thật về một cuộc chiến trong Khúc Ca Vạn Năm"
+     },
+     "fail": {
+      "text": "Hội đồng cấm bạn hát đêm thứ hai mươi bảy. Bạn hát nó một mình trong rừng.",
+      "effects": {
+       "joy": -10,
+       "flags": [
+        "ebd_ages_truth"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "ebd_ages_forgotten",
+   "races": [
+    "elf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "elf_bard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ebd_path_ages"
+    ],
+    "notFlags": [
+     "ebd_end"
+    ]
+   },
+   "text": "Có những Elf đã chết mà không ai còn nhớ tên. Khúc Ca Vạn Năm không có chỗ cho họ.",
+   "choices": [
+    {
+     "label": "Viết thêm một đêm cho những người bị quên",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Đêm thứ bốn mươi mốt của Khúc Ca là tên của những người bị quên, những người bạn tìm thấy trong sách cổ và ký ức của cây. Thalindra khóc khi nghe nó lần đầu.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "ebd_ages_forty_one"
+       ]
+      },
+      "moment": "Viết thêm đêm thứ bốn mươi mốt cho Khúc Ca Vạn Năm"
+     },
+     "fail": {
+      "text": "Bạn không tìm đủ tên. Đêm thứ bốn mươi mốt còn dang dở.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    },
+    {
+     "label": "Giữ nguyên Khúc Ca",
+     "text": "Khúc Ca là của tổ tiên. Bạn không có quyền thêm. Bạn ghi những cái tên ấy vào một cuốn sổ riêng.",
+     "effects": {
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "ebd_mortal_tavern",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_bard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ebd_path_mortal"
+    ],
+    "notFlags": [
+     "ebd_end"
+    ]
+   },
+   "text": "Ở một quán trọ Human, bạn được trả công bằng một bát súp và một chỗ ngủ. Chủ quán đề nghị bạn ở lại làm ca sĩ thường trú. Bạn biết quán này sẽ còn đó khoảng ba mươi năm nữa. Ông ta thì ít hơn.",
+   "choices": [
+    {
+     "label": "Ở lại",
+     "text": "Bạn hát ở quán trọ ấy suốt bốn mươi năm. Chủ quán già đi, con trai ông ta tiếp quản, rồi cháu ông ta. Mỗi thế hệ đều nghe bạn hát những bài giống nhau, và mỗi thế hệ đều khóc ở cùng một câu.",
+     "effects": {
+      "joy": 12,
+      "jobXp": 3,
+      "flags": [
+       "ebd_mortal_tavern"
+      ]
+     },
+     "moment": "Hát ở một quán trọ Human suốt ba thế hệ"
+    },
+    {
+     "label": "Đi tiếp",
+     "text": "Bạn hát một đêm, rồi đi. Mỗi quán trọ một đêm. Bạn gom được một nghìn bài hát Human, mỗi bài ngắn như một đời người.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "ebd_mortal_collector"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ebd_mortal_rowan_old",
+   "races": [
+    "elf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "elf_bard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ebd_path_mortal",
+     "ebd_met_rowan"
+    ],
+    "notFlags": [
+     "ebd_end"
+    ]
+   },
+   "text": "Rowan giờ đã sáu mươi, giọng khàn, tay run trên dây đàn. Cậu ta, giờ là ông ta, vẫn hát bài hát hai người viết chung năm nào, ở cùng một quán trọ.",
+   "choices": [
+    {
+     "label": "Hát cùng ông ấy",
+     "text": "Hai giọng hát, một trẻ một già, cùng một bài. Khán giả không biết ai trong hai người đã viết nó trước. Rowan cười giữa bài, như năm ông hai mươi tuổi.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 2,
+      "flags": [
+       "ebd_rowan_old"
+      ]
+     },
+     "moment": "Hát cùng Rowan già ở quán trọ năm nào"
+    },
+    {
+     "label": "Viết cho ông ấy một bài mới",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bài hát kể về một người hát rong già đi trong khi bạn mình không già. Rowan nghe xong, lặng im, rồi nói: “Đừng hát nó khi ta còn sống. Hát nó sau.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "ebd_rowan_old",
+        "ebd_rowan_song"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn không tìm được lời. Có những điều Elf không biết cách viết.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "ebd_arcane_shatter",
+   "races": [
+    "elf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "elf_bard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ebd_path_arcane"
+    ],
+    "notFlags": [
+     "ebd_end"
+    ]
+   },
+   "text": "Một Troll đang đập phá cầu đá dẫn vào Đại Ngàn. Các Ranger bắn tên không xuyên được da nó. Bạn biết một nốt có thể làm nó ngủ, và một nốt có thể làm vỡ xương nó.",
+   "choices": [
+    {
+     "label": "Hát nốt ngủ",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Troll lắc lư, ngáp, rồi nằm vật xuống giữa cầu và ngáy. Các Ranger phải mất ba ngày mới kéo được nó ra khỏi rừng.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "ebd_arcane_lullaby"
+       ]
+      },
+      "moment": "Ru ngủ một con Troll bằng Âm Thuật"
+     },
+     "fail": {
+      "text": "Nốt ngủ không đủ mạnh với Troll. Nó chỉ chậm lại. Các Ranger phải đánh nó ra khỏi cầu.",
+      "effects": {
+       "health": -10
+      }
+     }
+    },
+    {
+     "label": "Hát nốt vỡ",
+     "text": "Một âm thanh mà không ai nghe được, chỉ cảm thấy trong răng. Troll gục xuống, xương chân vỡ vụn. Nó sống, nhưng không bao giờ đi được nữa. Bạn không hát nốt ấy lần nào nữa.",
+     "effects": {
+      "fame": 4,
+      "joy": -10,
+      "jobXp": 3,
+      "flags": [
+       "ebd_arcane_shatter"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ebd_arcane_forbidden",
+   "races": [
+    "elf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "elf_bard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ebd_path_arcane"
+    ],
+    "notFlags": [
+     "ebd_end"
+    ]
+   },
+   "text": "Trong một cuốn sách cổ, bạn tìm thấy Bài Ca Câm: một bài hát có thể làm mọi âm thanh trong một vùng biến mất, kể cả nhịp tim.",
+   "choices": [
+    {
+     "label": "Học nó, để biết",
+     "text": "Bạn học nó, nhưng không bao giờ hát. Biết nó, bạn hiểu vì sao âm nhạc lại là phép thuật: vì im lặng cũng vậy.",
+     "effects": {
+      "INT": 2,
+      "lifeCost": 2,
+      "jobXp": 3,
+      "flags": [
+       "ebd_arcane_silent_song"
+      ]
+     }
+    },
+    {
+     "label": "Đốt cuốn sách",
+     "text": "Bạn đốt nó. Có những bài hát không nên tồn tại.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "ebd_c4_rowan",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_bard",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "ebd_met_rowan"
+    ],
+    "notFlags": [
+     "ebd_rowan_gone",
+     "ebd_end"
+    ]
+   },
+   "text": "Rowan đã tám mươi tuổi, nằm trên giường bệnh trong căn phòng trên gác quán trọ. Ông nhờ người tìm bạn, và đặt cây đàn của mình vào tay bạn.",
+   "choices": [
+    {
+     "label": "Hát cho ông nghe bài hát hai người viết chung",
+     "text": "Bạn hát, và ông hát theo, giọng thều thào. Ông mất ở câu cuối cùng. Bạn hát nốt câu ấy một mình.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "ebd_rowan_gone"
+      ]
+     },
+     "moment": "Hát tiễn Rowan bằng bài hát hai người viết chung"
+    },
+    {
+     "label": "Hát bài ông dặn chỉ hát sau khi ông mất",
+     "require": {
+      "flags": [
+       "ebd_rowan_song"
+      ]
+     },
+     "text": "Bạn hát nó ở quán trọ, đêm sau đám tang. Cả quán im lặng. Từ đó, đó là bài hát mà mọi người hát rong Human đều thuộc, và mọi Elf đều khóc khi nghe.",
+     "effects": {
+      "joy": -2,
+      "fame": 8,
+      "jobXp": 3,
+      "flags": [
+       "ebd_rowan_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ebd_c4_thalindra",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_bard",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "ebd_met_thalindra"
+    ],
+    "notFlags": [
+     "ebd_thalindra_gone",
+     "ebd_end"
+    ]
+   },
+   "text": "Thalindra đã hát Khúc Ca Vạn Năm lần thứ năm trăm. Giọng bà giờ chỉ còn là tiếng thì thầm. Bà muốn hát lần cuối, và muốn bạn hát cùng.",
+   "choices": [
+    {
+     "label": "Hát cùng bà bốn mươi đêm",
+     "text": "Bốn mươi đêm. Đêm thứ bốn mươi, giọng bà tắt giữa câu cuối. Bạn hát nốt câu ấy. Khi bạn dừng, bà đã đi.",
+     "effects": {
+      "joy": -2,
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "ebd_thalindra_gone"
+      ]
+     },
+     "moment": "Hát Khúc Ca Vạn Năm cùng Thalindra lần cuối"
+    },
+    {
+     "label": "Hát thay bà từ đêm đầu tiên",
+     "text": "Bà Thalindra ngồi nghe bạn hát bốn mươi đêm, môi mấp máy theo từng câu. Đêm cuối, bà nhắm mắt khi bạn hát đến câu kết, và không mở ra nữa.",
+     "effects": {
+      "joy": -2,
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "ebd_thalindra_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ebd_c5_ages",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_bard",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "ebd_path_ages"
+    ],
+    "notFlags": [
+     "ebd_end"
+    ]
+   },
+   "text": "Bạn là người giữ Khúc Ca Vạn Năm. Người ta gọi bạn là Heir of Poetry. Đêm đầu tiên bạn hát nó một mình trước toàn tộc Elf, mọi ngọn đèn ở Đại Ngàn đều tắt để lắng nghe.",
+   "choices": [
+    {
+     "label": "Hát nó đúng như được truyền lại",
+     "text": "Bạn hát bốn mươi đêm, không sai một chữ. Khúc Ca được giữ nguyên thêm năm trăm năm nữa.",
+     "effects": {
+      "fame": 15,
+      "joy": 10,
+      "flags": [
+       "ebd_end",
+       "ebd_end_keeper"
+      ]
+     },
+     "moment": "Hát trọn Khúc Ca Vạn Năm trước toàn tộc Elf"
+    },
+    {
+     "label": "Hát cả đêm thứ bốn mươi mốt",
+     "require": {
+      "flags": [
+       "ebd_ages_forty_one"
+      ]
+     },
+     "text": "Khi bạn hát tên những người bị quên, có những gia đình Elf đứng dậy, khóc, vì nghe thấy tên tổ tiên của mình lần đầu sau hàng trăm năm. Khúc Ca giờ dài bốn mươi mốt đêm.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "ebd_end",
+       "ebd_end_forty_one"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ebd_c5_mortal",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_bard",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "ebd_path_mortal"
+    ],
+    "notFlags": [
+     "ebd_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Heir of Poetry, nhưng ở các quán trọ Human, người ta chỉ gọi bạn là “người Elf hát”. Bạn đã gom một nghìn bài hát của những người đã chết.",
+   "choices": [
+    {
+     "label": "Mang những bài hát Human về Đại Ngàn",
+     "text": "Bạn hát chúng trước Hội đồng. Lần đầu tiên, Elf nghe những bài hát về những đời người ngắn ngủi. Có Trưởng Lão khóc. Có Trưởng Lão bỏ về. Không ai quên.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "ebd_end",
+       "ebd_end_mortal_songs"
+      ]
+     },
+     "moment": "Hát những bài ca Human trước Hội đồng Elf"
+    },
+    {
+     "label": "Ở lại quán trọ đến cuối",
+     "text": "Bạn ở lại quán trọ, hát cho chắt của chắt những người khách đầu tiên nghe. Bạn sẽ còn hát ở đó rất lâu sau khi quán trọ đổi tên.",
+     "effects": {
+      "joy": 18,
+      "flags": [
+       "ebd_end",
+       "ebd_end_tavern"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ebd_c5_arcane",
+   "races": [
+    "elf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "elf_bard",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "ebd_path_arcane"
+    ],
+    "notFlags": [
+     "ebd_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Heir of Poetry, và sợ giọng hát của bạn. Một nốt của bạn có thể làm sụp một bức tường, hoặc làm một đứa trẻ ngừng khóc.",
+   "choices": [
+    {
+     "label": "Chỉ hát những nốt chữa lành",
+     "require": {
+      "anyFlags": [
+       "ebd_arcane_lullaby"
+      ]
+     },
+     "text": "Bạn không hát nốt vỡ nữa. Bạn hát cho người bệnh, cho người mất ngủ, cho những đứa trẻ sợ bóng tối. Người ta bắt đầu gọi Âm Thuật của bạn là “bài ru của Đại Ngàn”.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "ebd_end",
+       "ebd_end_healing_song"
+      ]
+     },
+     "moment": "Chỉ hát Âm Thuật để chữa lành"
+    },
+    {
+     "label": "Dạy Âm Thuật cho một học trò duy nhất",
+     "text": "Bạn chọn một Elf trẻ không bao giờ nói to. Bạn dạy cô ấy mọi nốt, kể cả nốt vỡ. Rồi bạn dạy cô ấy điều quan trọng nhất: khi nào không hát.",
+     "effects": {
+      "fame": 10,
+      "joy": 10,
+      "flags": [
+       "ebd_end",
+       "ebd_end_one_student"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ebd_daily_string",
+   "races": [
+    "elf"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "elf_bard",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Dây đàn bằng tóc kỳ lân của bạn bị đứt sau ba trăm năm.",
+   "choices": [
+    {
+     "label": "Đi tìm kỳ lân",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Mất mười năm. Một con kỳ lân già để lại cho bạn một sợi tóc trên cành cây.",
+      "effects": {
+       "joy": 8
+      }
+     },
+     "fail": {
+      "text": "Không tìm thấy. Bạn dùng dây ruột mèo. Âm thanh khác, nhưng cũng đẹp.",
+      "effects": {
+       "joy": 2
+      }
+     }
+    },
+    {
+     "label": "Thay dây Human",
+     "text": "Âm thanh mộc hơn, ấm hơn, như giọng hát của những người hát rong ven đường.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "ebd_daily_war_song",
+   "races": [
+    "elf"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "elf_bard",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Các chiến binh Elf cần bài hát để giữ can đảm.",
+   "choices": [
+    {
+     "label": "Hát Khúc Ca về những trận thắng",
+     "text": "Chiến binh nghe, và ra trận với đầu ngẩng cao. Một số không trở về. Bạn thêm tên họ vào bài hát.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Hát một bài ru cho những người không ngủ được",
+     "text": "Đêm trước trận, cả doanh trại ngủ yên. Sáng ra, họ chiến đấu tỉnh táo hơn.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "ebd_daily_old_voice",
+   "races": [
+    "elf"
+   ],
+   "stages": [
+    "elder",
+    "ancient"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "elf_bard",
+    "free": true
+   },
+   "text": "Giọng hát của bạn sau sáu trăm năm đã trầm và khàn. Những nốt cao không còn lên được.",
+   "choices": [
+    {
+     "label": "Hát trầm hơn",
+     "text": "Những bài hát cũ, hát trầm, nghe như tiếng cây cổ thụ. Người nghe nói nó hay hơn khi bạn còn trẻ.",
+     "effects": {
+      "joy": 8
+     }
+    },
+    {
+     "label": "Chỉ đàn, để người trẻ hát",
+     "text": "Bạn đệm đàn cho học trò hát. Bạn nghe giọng mình ngày xưa trong giọng của họ.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,928 @@
+{
+ "_note": "Tuyến truyện Gem Merchant (Dwarf): 5 chương theo bậc, ba đạo ở Bậc 2 (dmc_path_vault / dmc_path_road / dmc_path_guild), nhân vật xuyên suốt ông Grimwald (người thẩm định đá quý già) và Lucien Marr (chủ ngân hàng Human).",
+ "origins": [],
+ "events": [
+  {
+   "id": "dmc_c1_grimwald",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "dwarf_merchant",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "dmc_met_grimwald"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Grimwald",
+     "race": "Dwarf",
+     "position": "Người thẩm định đá quý già ở chợ ngọc"
+    }
+   ],
+   "text": "Ông Grimwald có một chiếc kính lúp truyền qua ba đời. Ông đặt trước mặt bạn hai viên ngọc lục bảo giống hệt nhau: “Một viên thật, một viên là thủy tinh Sanctus. Chọn đi. Chọn sai, ngươi rửa bàn một năm.”",
+   "choices": [
+    {
+     "label": "Soi kỹ dưới đèn",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn thấy một bọt khí nhỏ xíu trong viên bên trái. Thủy tinh. Ông Grimwald gật đầu: “Đá thật có vết thương. Đồ giả thì hoàn hảo quá.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "dmc_met_grimwald",
+        "dmc_grimwald_respect"
+       ]
+      },
+      "moment": "Phân biệt được ngọc lục bảo thật với thủy tinh Sanctus"
+     },
+     "fail": {
+      "text": "Bạn chọn sai. Ông Grimwald đưa bạn giẻ lau. Một năm sau, bạn nhìn thủy tinh là biết.",
+      "effects": {
+       "joy": -3,
+       "flags": [
+        "dmc_met_grimwald"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Thả cả hai vào nước lạnh",
+     "text": "Viên thật lạnh nhanh hơn. Ông Grimwald bật cười: “Mẹo của thợ mỏ. Ai dạy ngươi thế?” Bạn nói không ai cả. Ông nhìn bạn khác đi từ hôm đó.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 1,
+      "flags": [
+       "dmc_met_grimwald",
+       "dmc_grimwald_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmc_c1_lucien",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "dwarf_merchant",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "dmc_met_grimwald"
+    ],
+    "notFlags": [
+     "dmc_met_lucien"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Lucien Marr",
+     "race": "Human",
+     "position": "Chủ ngân hàng Human ở Sanctus"
+    }
+   ],
+   "text": "Lucien Marr là chủ một ngân hàng nhỏ ở Sanctus, đến Dãy Núi Răng Cưa tìm đối tác. Anh ta mặc áo lụa, cười nhiều, và đề nghị: gửi ngọc của bạn ở ngân hàng anh ta, nhận giấy bảo chứng thay vì mang ngọc đi đường.",
+   "choices": [
+    {
+     "label": "Thử gửi một viên nhỏ",
+     "text": "Ba tháng sau, bạn mang giấy bảo chứng đến chi nhánh ở Sanctus, và nhận lại đúng viên ngọc. Lucien cười: “Thấy chưa? Giấy nhẹ hơn đá.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "dmc_met_lucien",
+       "dmc_lucien_partner"
+      ]
+     },
+     "moment": "Gửi viên ngọc đầu tiên vào ngân hàng của Lucien Marr"
+    },
+    {
+     "label": "Từ chối, Dwarf không tin giấy",
+     "text": "Lucien không giận. “Rồi ngươi sẽ đổi ý,” anh ta nói, và để lại danh thiếp. Bạn dùng nó kê chân bàn.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "dmc_met_lucien"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmc_c2_first_sale",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "dwarf_merchant",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "dmc_first_sale",
+     "dmc_end"
+    ]
+   },
+   "text": "Thương vụ đầu tiên của riêng bạn: một quý tộc Human muốn mua viên hồng ngọc lớn nhất trên quầy. Anh ta không biết rằng nó có một vết rạn bên trong, có thể vỡ nếu bị va mạnh.",
+   "choices": [
+    {
+     "label": "Nói cho anh ta biết",
+     "text": "Quý tộc trả nửa giá. Ba năm sau, anh ta quay lại với cả gia đình, và chỉ mua ở quầy của bạn.",
+     "effects": {
+      "wealth": 3,
+      "fame": 3,
+      "jobXp": 2,
+      "flags": [
+       "dmc_first_sale",
+       "dmc_first_honest"
+      ]
+     },
+     "moment": "Nói thật về vết rạn trong viên hồng ngọc đầu tiên bán được"
+    },
+    {
+     "label": "Bán đủ giá, im lặng",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Viên ngọc không bao giờ vỡ. Quý tộc không bao giờ biết. Bạn thì biết.",
+      "effects": {
+       "wealth": 10,
+       "jobXp": 2,
+       "flags": [
+        "dmc_first_sale"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Viên ngọc vỡ trong buổi dạ tiệc. Tin lan khắp Sanctus: đừng mua ngọc ở quầy ấy.",
+      "effects": {
+       "fame": -6,
+       "flags": [
+        "dmc_first_sale"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmc_c2_crossroads",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "dwarf_merchant",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "dmc_path_vault",
+     "dmc_path_road",
+     "dmc_path_guild",
+     "dmc_end"
+    ],
+    "flags": [
+     "dmc_met_grimwald"
+    ]
+   },
+   "text": "Ông Grimwald mở chiếc hộp sắt mà ông giữ dưới quầy suốt cả đời. Bên trong có ba thứ: chìa khóa của một hầm ngọc cổ, tấm bản đồ đường buôn qua Thảo Nguyên Gió Hú, và con dấu bạc của Hội Thương Nhân.",
+   "choices": [
+    {
+     "label": "Chìa khóa hầm: Hầm Ngọc Gia Tộc",
+     "text": "Bạn sẽ giữ hầm ngọc của các gia tộc, nơi tài sản của Dwarf được cất giữ qua nhiều đời. Ông Grimwald nói: “Người giữ hầm không được giàu. Họ phải đáng tin.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "dmc_path_vault"
+      ]
+     },
+     "moment": "Nhận chìa khóa giữ hầm ngọc của các gia tộc"
+    },
+    {
+     "label": "Bản đồ: Đường Ngọc Thảo Nguyên",
+     "text": "Bạn sẽ mang ngọc Dwarf ra thế giới, qua Thảo Nguyên đến Sanctus và xa hơn nữa.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 2,
+      "flags": [
+       "dmc_path_road"
+      ]
+     },
+     "moment": "Nhận bản đồ đường buôn ngọc qua Thảo Nguyên"
+    },
+    {
+     "label": "Con dấu bạc: Hội Thương Nhân",
+     "text": "Bạn sẽ vào Hội Thương Nhân, nơi người ta đặt giá cho mọi viên ngọc của Dãy Núi Răng Cưa. Ông Grimwald lắc đầu: “Ở đó, đá thật cũng có thể thành đồ giả.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "dmc_path_guild"
+      ]
+     },
+     "moment": "Nhận con dấu bạc, bước vào Hội Thương Nhân"
+    }
+   ]
+  },
+  {
+   "id": "dmc_vault_heir",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_merchant",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dmc_path_vault"
+    ],
+    "notFlags": [
+     "dmc_end"
+    ]
+   },
+   "text": "Một gia tộc đã tuyệt tự. Hầm ngọc của họ không còn ai thừa kế. Theo luật, nó thuộc về người giữ hầm, tức là bạn.",
+   "choices": [
+    {
+     "label": "Tìm người thừa kế xa",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn lần theo gia phả ba trăm năm, tìm ra một thợ rèn nghèo ở Đầm Lầy Tử Khí là chắt của chắt gia tộc ấy. Ông ta khóc khi nhận chìa khóa.",
+      "effects": {
+       "fame": 10,
+       "joy": 8,
+       "jobXp": 3,
+       "flags": [
+        "dmc_vault_heir"
+       ]
+      },
+      "moment": "Tìm ra người thừa kế xa của một hầm ngọc vô chủ"
+     },
+     "fail": {
+      "text": "Gia phả bị đứt đoạn. Bạn không tìm được ai.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    },
+    {
+     "label": "Nhận theo luật",
+     "text": "Bạn giàu lên chỉ sau một đêm. Các gia tộc khác bắt đầu nhìn bạn khác đi.",
+     "effects": {
+      "wealth": 30,
+      "wealthKind": "windfall",
+      "fame": -3,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmc_vault_war",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_merchant",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dmc_path_vault"
+    ],
+    "notFlags": [
+     "dmc_end"
+    ]
+   },
+   "text": "Chiến tranh giữa hai gia tộc. Cả hai đều có ngọc trong hầm của bạn, và cả hai đều đòi rút ra để mua vũ khí.",
+   "choices": [
+    {
+     "label": "Cho cả hai rút",
+     "text": "Hầm vơi. Chiến tranh kéo dài thêm hai năm, vì cả hai đều có tiền.",
+     "effects": {
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Đóng hầm đến khi chiến tranh kết thúc",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Không có tiền, cả hai gia tộc phải ngồi vào bàn đàm phán sau ba tháng. Hòa ước được ký trong chính hầm ngọc của bạn.",
+      "effects": {
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "dmc_vault_peace"
+       ]
+      },
+      "moment": "Đóng hầm ngọc để buộc hai gia tộc ngừng chiến"
+     },
+     "fail": {
+      "text": "Cả hai gia tộc tố bạn chiếm đoạt tài sản. Hội đồng mở hầm, và bạn mất quyền giữ hầm năm năm.",
+      "effects": {
+       "fame": -8
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmc_road_storm",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_merchant",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dmc_path_road"
+    ],
+    "notFlags": [
+     "dmc_end"
+    ]
+   },
+   "text": "Thương đoàn ngọc của bạn bị kẹt giữa Thảo Nguyên Gió Hú trong bão cát. Một bộ lạc Beastman đề nghị cho trú, đổi lấy một phần mười số ngọc.",
+   "choices": [
+    {
+     "label": "Nhận lời",
+     "text": "Bộ lạc giữ lời. Thương đoàn sống sót. Từ đó, mỗi lần đi qua Thảo Nguyên, bạn dừng ở trại họ.",
+     "effects": {
+      "wealth": -8,
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "dmc_road_tribe"
+      ]
+     },
+     "moment": "Trú bão cát ở trại một bộ lạc Beastman"
+    },
+    {
+     "label": "Tự dựng trại chờ bão tan",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn giữ được trại suốt ba ngày bão. Không mất một viên ngọc.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Bão cuốn mất hai xe hàng.",
+      "effects": {
+       "wealth": -20
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmc_road_cursed",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_merchant",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dmc_path_road"
+    ],
+    "notFlags": [
+     "dmc_end"
+    ]
+   },
+   "text": "Ở chợ Sanctus, một người lạ bán cho bạn một viên ngọc trai đen với giá rẻ đến vô lý. Đêm ấy, bạn mơ thấy biển.",
+   "choices": [
+    {
+     "label": "Trả lại cho người bán",
+     "text": "Người bán đã biến mất. Bạn mang viên ngọc đến đền thờ, và giấc mơ dừng lại.",
+     "effects": {
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Giữ nó, tìm hiểu",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Viên ngọc là nước mắt của một nàng tiên cá. Bạn trả nó về biển, và từ đó, thương đoàn của bạn chưa bao giờ gặp bão trên đường ven biển.",
+      "effects": {
+       "LUCK": 1,
+       "joy": 8,
+       "jobXp": 3,
+       "flags": [
+        "dmc_road_pearl"
+       ]
+      },
+      "moment": "Trả viên ngọc trai đen về biển"
+     },
+     "fail": {
+      "text": "Giấc mơ biển kéo dài một năm. Bạn sụt cân, mất ngủ.",
+      "effects": {
+       "health": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmc_guild_price",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_merchant",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dmc_path_guild"
+    ],
+    "notFlags": [
+     "dmc_end"
+    ]
+   },
+   "text": "Hội Thương Nhân bàn chuyện giữ giá ngọc: mỗi năm chỉ bán ra một nửa số ngọc đào được, để giá luôn cao.",
+   "choices": [
+    {
+     "label": "Phản đối",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn chỉ ra rằng thợ mỏ sẽ mất việc một nửa. Hội Thương Nhân bỏ phiếu, và đề xuất bị bác với một phiếu chênh lệch.",
+      "effects": {
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "dmc_guild_fair"
+       ]
+      },
+      "moment": "Chặn đề xuất giữ giá ngọc của Hội Thương Nhân"
+     },
+     "fail": {
+      "text": "Bạn thua phiếu. Một nửa số thợ mỏ mất việc mùa ấy.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Bỏ phiếu thuận",
+     "text": "Giá ngọc tăng gấp đôi. Bạn giàu lên. Thợ mỏ thì không.",
+     "effects": {
+      "wealth": 20,
+      "joy": -6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmc_guild_lucien",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dwarf_merchant",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dmc_path_guild",
+     "dmc_met_lucien"
+    ],
+    "notFlags": [
+     "dmc_end"
+    ]
+   },
+   "text": "Lucien Marr đề nghị sáp nhập ngân hàng của anh ta với Hội Thương Nhân. Giấy bảo chứng của anh ta sẽ thay cho ngọc trong mọi giao dịch.",
+   "choices": [
+    {
+     "label": "Ủng hộ",
+     "text": "Hội đồng tranh cãi một năm. Cuối cùng, giấy bảo chứng Dwarf-Sanctus ra đời. Ngọc không còn phải đi đường. Cướp đường mất việc.",
+     "effects": {
+      "wealth": 15,
+      "fame": 6,
+      "jobXp": 3,
+      "flags": [
+       "dmc_guild_paper"
+      ]
+     },
+     "moment": "Ủng hộ giấy bảo chứng chung giữa Dwarf và Sanctus"
+    },
+    {
+     "label": "Phản đối",
+     "text": "Hội Thương Nhân giữ ngọc. Lucien buồn, nhưng vẫn gửi thư mỗi năm.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmc_c4_grimwald",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_merchant",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dmc_met_grimwald"
+    ],
+    "notFlags": [
+     "dmc_grimwald_gone",
+     "dmc_end"
+    ]
+   },
+   "text": "Ông Grimwald không còn nhìn rõ qua chiếc kính lúp. Ông đặt nó vào tay bạn, cùng một viên đá xám xịt: “Viên này ta chưa bao giờ định giá được. Ngươi thử đi.”",
+   "choices": [
+    {
+     "label": "Soi nó dưới đèn",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn soi suốt một đêm. Đến sáng, bạn hiểu: nó là đá thường, nhưng có dấu tay nhỏ của một đứa trẻ hóa thạch bên trong. Không có giá. Ông Grimwald cười: “Đúng. Viên đầu tiên con gái ta nhặt được.” Ông mất tuần sau.",
+      "effects": {
+       "INT": 1,
+       "joy": 4,
+       "jobXp": 3,
+       "flags": [
+        "dmc_grimwald_gone",
+        "dmc_grimwald_lens"
+       ]
+      },
+      "moment": "Định giá viên đá cuối cùng của ông Grimwald"
+     },
+     "fail": {
+      "text": "Bạn không thấy gì đặc biệt. Ông Grimwald gật đầu: “Ta cũng vậy, suốt cả đời.” Ông mất tuần sau.",
+      "effects": {
+       "joy": -6,
+       "flags": [
+        "dmc_grimwald_gone"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Nói rằng nó vô giá, không cần soi",
+     "text": "Ông Grimwald nhìn bạn rất lâu, rồi cười. “Ngươi học được rồi.” Ông mất tuần sau, viên đá xám trong tay.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 3,
+      "flags": [
+       "dmc_grimwald_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmc_c4_lucien",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dwarf_merchant",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dmc_met_lucien"
+    ],
+    "notFlags": [
+     "dmc_end"
+    ]
+   },
+   "text": "Ngân hàng của Lucien Marr sụp đổ vì một khoản vay xấu. Anh ta đã già, và đến tìm bạn, không xin tiền, chỉ xin lời khuyên.",
+   "choices": [
+    {
+     "label": "Mua lại các khoản nợ của anh ta",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn mua lại nợ với giá thấp, và cho người gửi tiền lấy lại một nửa. Lucien không mất danh dự. Anh ta mất ba năm sau, trong căn nhà nhỏ, nợ đã trả sạch.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "wealth": -10,
+       "jobXp": 3,
+       "flags": [
+        "dmc_lucien_saved"
+       ]
+      },
+      "moment": "Cứu danh dự cho Lucien Marr khi ngân hàng của anh ta sụp đổ"
+     },
+     "fail": {
+      "text": "Khoản nợ lớn hơn bạn tính. Bạn mất một phần lớn tài sản, và ngân hàng vẫn sụp.",
+      "effects": {
+       "wealth": -25
+      }
+     }
+    },
+    {
+     "label": "Khuyên anh ta nói thật với người gửi tiền",
+     "text": "Lucien làm theo. Người gửi tiền giận, rồi thông cảm. Họ lấy lại được một phần. Lucien sống những năm cuối với ít tiền, và không ai nguyền rủa tên anh ta.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmc_c5_vault",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_merchant",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dmc_path_vault"
+    ],
+    "notFlags": [
+     "dmc_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Guild Tycoon. Hầm ngọc của bạn chưa bao giờ mất một viên.",
+   "choices": [
+    {
+     "label": "Trao chìa khóa cho học trò đáng tin nhất",
+     "text": "Học trò ấy nghèo nhất trong số học trò của bạn. Đó là lý do bạn chọn.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "dmc_end",
+       "dmc_end_trusted"
+      ]
+     },
+     "moment": "Trao chìa khóa hầm ngọc cho học trò nghèo nhất"
+    },
+    {
+     "label": "Mở hầm cho người thừa kế cuối cùng",
+     "require": {
+      "flags": [
+       "dmc_vault_heir"
+      ]
+     },
+     "text": "Người thợ rèn nghèo năm xưa giờ đã giàu, và dùng ngọc của tổ tiên mở một trường dạy nghề ở Đầm Lầy Tử Khí.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "dmc_end",
+       "dmc_end_heir_school"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmc_c5_road",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_merchant",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dmc_path_road"
+    ],
+    "notFlags": [
+     "dmc_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Guild Tycoon. Đường ngọc của bạn nối Dãy Núi Răng Cưa đến tận bờ biển.",
+   "choices": [
+    {
+     "label": "Trao đường buôn cho bộ lạc Beastman",
+     "require": {
+      "flags": [
+       "dmc_road_tribe"
+      ]
+     },
+     "text": "Bộ lạc từng cho bạn trú bão giờ giữ đường ngọc qua Thảo Nguyên. Lần đầu tiên, Beastman là chủ một đường buôn lớn.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "dmc_end",
+       "dmc_end_tribe_road"
+      ]
+     },
+     "moment": "Trao đường buôn ngọc qua Thảo Nguyên cho một bộ lạc Beastman"
+    },
+    {
+     "label": "Đi chuyến cuối cùng",
+     "text": "Bạn đi lại toàn bộ con đường, từ núi đến biển, lần cuối. Ở bờ biển, bạn ngồi nhìn sóng, và thấy đủ.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "dmc_end",
+       "dmc_end_last_road"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmc_c5_guild",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dwarf_merchant",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dmc_path_guild"
+    ],
+    "notFlags": [
+     "dmc_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Guild Tycoon. Hội Thương Nhân bầu bạn làm Chủ hội.",
+   "choices": [
+    {
+     "label": "Mở Hội cho thợ mỏ có phiếu bầu",
+     "require": {
+      "flags": [
+       "dmc_guild_fair"
+      ]
+     },
+     "text": "Lần đầu tiên, những người đào ra ngọc được quyết định giá ngọc. Hội Thương Nhân ồn ào hơn, và công bằng hơn.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "dmc_end",
+       "dmc_end_miners_vote"
+      ]
+     },
+     "moment": "Trao phiếu bầu Hội Thương Nhân cho thợ mỏ"
+    },
+    {
+     "label": "Củng cố quyền lực của Hội",
+     "text": "Hội Thương Nhân giàu nhất Aethelgard. Tên bạn được khắc trên cổng Hội. Các vương quốc phải hỏi ý Hội trước khi đánh thuế ngọc.",
+     "effects": {
+      "fame": 15,
+      "wealth": 40,
+      "joy": -4,
+      "flags": [
+       "dmc_end",
+       "dmc_end_power"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmc_daily_child_gem",
+   "races": [
+    "dwarf"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "dwarf_merchant",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một đứa trẻ mang đến một viên sỏi lấp lánh, hỏi nó giá bao nhiêu.",
+   "choices": [
+    {
+     "label": "Nói thật: đó là thạch anh, không đáng tiền",
+     "text": "Đứa trẻ thất vọng, rồi hỏi: “Vậy làm sao để biết đá nào đáng tiền?” Bạn dạy nó cả buổi chiều.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Mua nó với giá một đồng xu",
+     "text": "Đứa trẻ chạy đi, hớn hở. Viên thạch anh nằm trên quầy của bạn mãi về sau.",
+     "effects": {
+      "joy": 8,
+      "wealth": -1
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmc_daily_war_gems",
+   "races": [
+    "dwarf"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "dwarf_merchant",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Người ta bán tháo ngọc gia truyền để mua lương thực.",
+   "choices": [
+    {
+     "label": "Mua đúng giá",
+     "text": "Bạn không lời nhiều. Người bán có đủ lương thực qua mùa đông.",
+     "effects": {
+      "fame": 5,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Mua giá thấp, như thị trường",
+     "text": "Bạn lời lớn. Nhiều người sẽ không bao giờ quên ai đã mua ngọc của họ năm ấy.",
+     "effects": {
+      "wealth": 15,
+      "fame": -3,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "dmc_daily_old_lens",
+   "races": [
+    "dwarf"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "dwarf_merchant",
+    "free": true
+   },
+   "text": "Mắt bạn mờ dần. Bạn không còn thấy được bọt khí trong viên ngọc.",
+   "choices": [
+    {
+     "label": "Dùng tay và lưỡi thay mắt",
+     "text": "Ngọc thật lạnh hơn, nặng hơn. Bạn vẫn không nhầm.",
+     "effects": {
+      "LUCK": 1
+     }
+    },
+    {
+     "label": "Để học trò soi, bạn chỉ nghe",
+     "text": "Học trò mô tả, bạn phán. Hai người làm việc nhanh hơn một người.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  }
+ ]
+}
