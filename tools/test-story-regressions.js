@@ -82,7 +82,7 @@ test("both Beastman endings show their result and apply their effects", () => {
     const c = resolveBranch("bm_chain_traitor_forgive", flag, "beastman", 90);
     assert.equal(c.alive, true);
     assert.ok(c.log.some((e) => flag === "spared_zog_son" ? /hận thù vĩnh viễn/.test(e.text) : /nghiệp chướng/.test(e.text)));
-    if (flag === "spared_zog_son") assert.ok(c.fame >= 20);
+    if (flag === "spared_zog_son") assert.ok(c.fame > 0); // renown is softened by the engine; the branch must still raise it
   }
 });
 
@@ -100,7 +100,7 @@ test("the assassin can be captured, killed or spared, and the final branch is pl
     assert.equal(c.pending.choices.length, 1);
     const before = c.fame;
     E.choose(c, finale, 0, () => 0);
-    assert.equal(c.fame - before, index === 0 ? -10 : 20);
+    assert.ok(index === 0 ? c.fame < before : c.fame > before); // killed lowers renown, sparing raises it (sizes are softened)
   }
 });
 
@@ -446,9 +446,9 @@ test("a high-scoring novice without achievements is capped at B", () => {
   c.job = { id: ratingJob().id, rank: 0, xp: 0 };
   c.guild = { org: data.orgs.find((o) => o.races?.includes("human")).id, rank: 5, pts: 100 };
   c.spouse = { name: "Mira" };
-  c.fame = 59;
+  c.fame = 29.5; // renown counts in full from 50, so 29.5 gives the same 17.7 points the old 59 did
   assert.equal(rating(c).grade, "B"); // 72.7 points, but no qualifying achievement
-  for (const patch of [{ job: { ...c.job, rank: 2 } }, { questsDone: 2 }, { form: "Ascended" }, { fame: 60 }]) {
+  for (const patch of [{ job: { ...c.job, rank: 2 } }, { questsDone: 2 }, { form: "Ascended" }, { famePeak: 60 }]) {
     assert.equal(rating({ ...c, ...patch }).grade, "A");
   }
 });

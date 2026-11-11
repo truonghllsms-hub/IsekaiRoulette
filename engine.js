@@ -580,6 +580,50 @@
   }
   const fameLabel = c => ["dragon","high_demon","demon","imp","vampire"].includes(c.race.id)?"Uy danh":"Danh vọng";
   const fameTier = c => c.fame<=10?"Vô danh":c.fame<=35?"Được biết đến":c.fame<=60?"Có tiếng tăm":c.fame<=85?"Lừng danh":"Uy danh đại lục";
+  // ---------- danh vọng ----------
+  // Renown is what others say of you, not a sum of numbers: a single deed moves it a little, a known
+  // name is harder to raise and easier to stain, a child is only known around the block, and a name
+  // that stops doing things fades back toward what its rank and deeds keep alive.
+  const FAME_STAGE_CAP = { infant: 5, child: 15, teen: 35 };
+  const FAME_TIER_UP = {
+    "Được biết đến": "Người trong vùng bắt đầu gọi đúng tên bạn, không còn là “đứa nào đó” nữa.",
+    "Có tiếng tăm": "Tên bạn được nhắc đến ở những quán trọ cách nhà nhiều ngày đường.",
+    "Lừng danh": "Thi sĩ bắt đầu hát về bạn, mỗi người một kiểu, chẳng ai giống ai.",
+    "Uy danh đại lục": "Khắp Aethelgard, từ những thành trì lớn nhất đến những bộ lạc xa nhất, ai cũng từng nghe tên bạn.",
+  };
+  function fameStanding(c) {
+    return Math.min(60, (c.job ? c.job.rank * 6 : 0) + (c.guild ? c.guild.rank * 4 : 0) + (c.form ? 10 : 0) + Math.min(20, (c.questsDone || 0) * 2));
+  }
+  function setFame(c, value) {
+    const before = fameTier(c);
+    c.famePeak = Math.max(c.famePeak || 0, c.fame || 0);
+    c.fame = clamp(Math.round(value * 10) / 10, 0, 100);
+    c.famePeak = Math.max(c.famePeak, c.fame);
+    const after = fameTier(c);
+    if (after === before) return;
+    const order = ["Vô danh", "Được biết đến", "Có tiếng tăm", "Lừng danh", "Uy danh đại lục"];
+    if (order.indexOf(after) > order.indexOf(before)) pushLog(c, "milestone", FAME_TIER_UP[after]);
+    else pushLog(c, "milestone", `Tên tuổi bạn dần phai; giờ người ta chỉ còn coi bạn là ${after.toLowerCase()}.`);
+  }
+  function addFame(c, raw) {
+    if (!raw) return 0;
+    const size = 12 * (1 - Math.exp(-Math.abs(raw) / 12));
+    let d;
+    if (raw > 0) {
+      const cap = FAME_STAGE_CAP[currentStage(c).id] ?? 100;
+      d = Math.min(size * Math.max(0, 1 - c.fame / 115), Math.max(0, cap - c.fame));
+    } else d = -size * (0.35 + 0.65 * c.fame / 100);
+    const before = c.fame;
+    setFame(c, c.fame + d);
+    return c.fame - before;
+  }
+  function fadeFame(c, years) {
+    const floor = fameStanding(c);
+    if (c.fame <= floor) return;
+    const rate = c.fame >= 80 ? 0.005 : 0.02;
+    const kept = Math.pow(1 - rate, years / yearScale(c.race));
+    setFame(c, floor + (c.fame - floor) * kept);
+  }
 
   function createCharacter(data, rng, raceId) {
     rng = rng || Math.random;
@@ -1311,7 +1355,7 @@
       c.epoch = c.epoch || {domain:0,ruin:0,insight:0,legacy:0,recent:[]};
       for (const [k,v] of Object.entries(eff.epochChange)) c.epoch[k]=clamp((c.epoch[k]||0)+v,0,100);
     }
-    if (eff.fame) c.fame = clamp(c.fame + eff.fame, 0, 100);
+    if (eff.fame) addFame(c, eff.fame);
     if (eff.lifeCost > 0 && c.maxAge != null) {
       c.maxAge = Math.max(0, c.maxAge - eff.lifeCost * yearScale(c.race));
       c.lifeBurnedAt = c.age;
@@ -2025,7 +2069,7 @@
     c.guild.rank = idx;
     if (o.points && o.points[idx] != null) c.guild.pts = Math.max(c.guild.pts, o.points[idx]);
     if (up) {
-      c.fame = clamp(c.fame + 4 + idx * 2, 0, 100);
+      addFame(c, 4 + idx * 2);
       const text = (o.rankUp && (o.rankUp[idx] || o.rankUp.default)) || `Bạn được thăng lên ${o.ranks[idx]}.`;
       pushLog(c, "milestone", fmt(text, c, null, data));
       addMoment(c, `Trở thành ${o.rankLabel ? o.rankLabel + " " : ""}${o.ranks[idx]}`, data);
@@ -3060,6 +3104,7 @@
         pushLog(c, "era", c.era.change);
       }
       if (c.era) applyEffects(c, c.era.perTurn, data, rng, "era");
+      fadeFame(c, years);
 
       // Aging and malnutrition persist; quiet years do not erase injuries.
       if (c.maxAge != null && c.age > c.maxAge * 0.75) c.bars.health = clamp(c.bars.health - randInt(rng, 1, 4) * Math.min(years, 5), 0, 100);
@@ -3179,7 +3224,7 @@
         c.job.rank++;
         c.job.xp = 0;
         promotionCooldown(c);
-        c.fame = clamp(c.fame + 3 + c.job.rank * 2, 0, 100);
+        addFame(c, 3 + c.job.rank * 2);
         checkVeteran(c, data, rng, "job");
         break;
       }
@@ -3348,7 +3393,9 @@
   function lifeRating(c, data, joyAvg) {
     const j = jobDef(c, data);
     const share = c.maxAge ? Math.min(1, c.age / c.maxAge) : 1;
-    let score = share * 25 + (c.fame / 100) * 30 + (joyAvg / 100) * 20;
+    // a life is remembered by the height its name reached, not by how much it had faded at the end
+    const renown = Math.max(c.fame, c.famePeak || 0);
+    let score = share * 25 + Math.min(1, renown / 50) * 30 + (joyAvg / 100) * 20;
     if (c.form) score += 10;
     if (j && c.job) score += (c.job.rank / Math.max(1, j.ranks.length - 1)) * 10;
     if (c.guild) score += Math.min(5, c.guild.rank);
@@ -3356,8 +3403,8 @@
     const epochTotal = epochAchievement(c);
     score += Math.min(10, epochTotal / 2);
     const young = ["infant", "child", "teen"].includes(currentStage(c).id);
-    const hasAchievement = (c.job && c.job.rank >= 2) || c.form || c.questsDone >= 2 || c.fame >= 60 || epochTotal >= 6;
-    if (score >= 90 && (c.fame >= 80 || c.form || c.questsDone >= 4 || epochTotal >= 12)) return { grade: "S", title: "Huyền Thoại Đại Lục" };
+    const hasAchievement = (c.job && c.job.rank >= 2) || c.form || c.questsDone >= 2 || renown >= 60 || epochTotal >= 6;
+    if (score >= 90 && (renown >= 80 || c.form || c.questsDone >= 4 || epochTotal >= 12)) return { grade: "S", title: "Huyền Thoại Đại Lục" };
     if (score >= 72 && hasAchievement) return { grade: "A", title: "Một Đời Oanh Liệt" };
     if (score >= 40) return { grade: "B", title: "Bình Yên Thanh Thản" };
     return { grade: "C", title: young ? "Chết Yểu" : "Một Kiếp Cơ Cực" };
@@ -3392,7 +3439,7 @@
     if (familyCount(c)) profile.push(`Hậu duệ: ${familyCount(c)} · đang sống ${livingChildren(c).length}`);
     if ((c.fallen||[]).length) profile.push("Đồng đội đã khuất: " + c.fallen.map(m=>m.name).join(", "));
     if (c.party.length) profile.push("Đồng đội: " + c.party.map((m) => m.name + (m.alive ? "" : m.left ? " (đã rời)" : " †")).join(", "));
-    if (c.fame) profile.push(`${fameLabel(c)} ${c.fame}`);
+    if (c.fame) profile.push(`${fameLabel(c)} ${Math.round(c.fame)}`);
     if (epochAchievement(c)) profile.push(`Cống hiến kỷ nguyên: ${epochAchievement(c)}`);
     // the life card: three marks a stranger would remember
     const marks = [];
@@ -3416,13 +3463,13 @@
     const STAT_GLORY = { STR: "Sức mạnh đạt đỉnh", INT: "Trí tuệ uyên bác", AGI: "Thân thủ nhanh như gió", LUCK: "Được vận may chở che" };
     const fill = [
       c.questsDone ? `${c.questsDone} ${(o && o.missionWord) || "nhiệm vụ"} hoàn thành` : null,
-      c.fame >= 30 ? `Danh vọng ${c.fame}${c.fame >= 80 ? " · Huyền thoại" : ""}` : null,
+      c.fame >= 30 ? `Danh vọng ${Math.round(c.fame)}${c.fame >= 80 ? " · Huyền thoại" : ""}` : null,
       c.age >= 10000 ? "Thực thể thái cổ chứng kiến vạn vật khởi sinh" : c.age >= 1000 ? "Tồn tại qua hàng thiên niên kỷ" : c.age >= 200 ? `Sống qua ${Math.floor(c.age / 100)} thế kỷ` : null,
       c.stats[topStat] >= 10 ? `${STAT_GLORY[topStat]} (${STAT_LABEL[topStat]} ${c.stats[topStat]})` : null,
       joyAvg < 25 ? (c.bars.wealth >= 60 ? "Kẻ giàu có cô độc" : "Một đời cay đắng") : joyAvg > 70 ? "Một đời an vui" : null,
       c.bars.wealth >= 60 ? `Gia tài ${Math.round(c.bars.wealth)}` : null,
       !c.spouse && !(c.formerSpouses || []).length && (c.race.tags || []).includes("civil") && c.age >= 25 ? "Một đời tiêu dao độc hành" : null,
-      c.fame > 0 && c.fame < 30 ? `Danh vọng ${c.fame}` : null,
+      c.fame > 0 && c.fame < 30 ? `Danh vọng ${Math.round(c.fame)}` : null,
     ].filter(Boolean);
     for (const f of fill) { if (marks.length >= 3) break; if (!seen.has(f.toLowerCase())) { marks.push(f); seen.add(f.toLowerCase()); } }
     for (const f of [["infant", "child"].includes(currentStage(c).id) ? "Ra đi khi còn chưa kịp lớn" : `Một đời ${Math.floor(c.age)} năm`, `Xuất thân: ${c.origin.name}`])
@@ -3449,6 +3496,8 @@
     STATUS_KEYS: [...BAR_KEYS,"fame"],
     wealthTier,
     fameLabel,
+    addFame,
+    fameStanding,
     fameTier,
     capitalEligible,
     naturalWealthCap,

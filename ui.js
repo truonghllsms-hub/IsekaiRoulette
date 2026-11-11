@@ -434,6 +434,7 @@
   }
 
   // ---------- life ----------
+  const fameSeen = { who: null, value: 0, delta: 0 };
   function renderHud() {
     const genderTxt = c.gender === "male" ? "Nam" : c.gender === "female" ? "Nữ" : "Vô tính";
     setSprite("hud-sprite", c);
@@ -452,11 +453,14 @@
     $("hud-age").textContent = fmtAge(c.age);
     $("hud-stage").textContent = E.currentStage(c).name;
 
+    // the last change of renown, shown beside its number until the next one
+    if (fameSeen.who !== c) Object.assign(fameSeen, { who: c, value: c.fame, delta: 0 });
+    else if (Math.abs(c.fame - fameSeen.value) >= 0.5) Object.assign(fameSeen, { delta: c.fame - fameSeen.value, value: c.fame });
     $("hud-bars").innerHTML = E.STATUS_KEYS.map(k => {
       const value = Math.max(0,Math.min(100,Number(k === "fame" ? c.fame : c.bars[k]) || 0));
       const label = k === "fame" ? E.fameLabel(c) : BAR_LABEL[k];
       const tier = k === "wealth" ? E.wealthTier(c,D) : k === "fame" ? E.fameTier(c) : "";
-      return `<div class="bar${k === "health" && value <= 30 ? " bar-critical" : ""}" data-bar="${k}"><span class="bar-label">${label}<b>${Math.round(value)}</b></span><div class="track" role="progressbar" aria-label="${label}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(value)}" aria-valuetext="${esc(`${Math.round(value)}/100${tier ? ` · ${tier}` : ""}`)}"><div class="fill" style="width:${value}%;background:${BAR_COLOR[k]}"></div></div>${tier ? `<span class="bar-tier">${esc(tier)}</span>` : ""}</div>`;
+      return `<div class="bar${k === "health" && value <= 30 ? " bar-critical" : ""}" data-bar="${k}"><span class="bar-label">${label}<b>${Math.round(value)}</b>${k === "fame" && Math.round(fameSeen.delta) ? `<i class="bar-delta ${fameSeen.delta > 0 ? "up" : "down"}">${fameSeen.delta > 0 ? "▲" : "▼"}${Math.abs(Math.round(fameSeen.delta))}</i>` : ""}</span><div class="track${k === "fame" ? " track-fame" : ""}"${k === "fame" ? ` title="Vô danh 0–10 · Được biết đến 11–35 · Có tiếng tăm 36–60 · Lừng danh 61–85 · Uy danh đại lục 86–100. Danh vọng phai dần nếu lâu không làm gì; bậc nghề, hạng hội và chiến công giữ lại một phần."` : ""} role="progressbar" aria-label="${label}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(value)}" aria-valuetext="${esc(`${Math.round(value)}/100${tier ? ` · ${tier}` : ""}`)}"><div class="fill" style="width:${value}%;background:${BAR_COLOR[k]}"></div></div>${tier ? `<span class="bar-tier">${esc(tier)}</span>` : ""}</div>`;
     }).join("");
     $("hud-stats").innerHTML = E.STAT_KEYS.map((k) => `<span class="stat">${STAT_LABEL[k]} <b>${c.stats[k]}</b></span>`).join("");
     $("hud-profile").innerHTML = profileHtml();
