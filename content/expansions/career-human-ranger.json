@@ -1,0 +1,1331 @@
+{
+ "_note": "Tuyến truyện Ranger: 5 chương theo bậc, ba đạo ở Bậc 2 (rgr_path_border / rgr_path_bounty / rgr_path_warden), nhân vật xuyên suốt Hesper Moss, Ithil (Elf) và chó săn Tro.",
+ "origins": [],
+ "events": [
+  {
+   "id": "rgr_c1_hesper",
+   "races": [
+    "human"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "human_ranger",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "rgr_met_hesper"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Hesper Moss",
+     "race": "Human",
+     "position": "Ranger già sống ở rìa rừng"
+    }
+   ],
+   "text": "Hesper Moss sống một mình trong căn chòi ở rìa rừng, với ba chục cây cung treo trên vách và không một chiếc ghế. Bà đưa bạn một cây cung gỗ thủy tùng và chỉ vào con quạ đậu trên cây sồi cách năm mươi bước: “Đừng bắn nó. Bắn chiếc lá ngay phía trên đầu nó.”",
+   "choices": [
+    {
+     "label": "Ngắm thật lâu rồi bắn",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Mũi tên xuyên qua chiếc lá. Con quạ giật mình bay đi, kêu lên một tiếng phẫn nộ. Hesper gật đầu: “Mắt tốt. Giờ thì học cách để quạ không biết ngươi ở đó.”",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 1,
+       "flags": [
+        "rgr_met_hesper",
+        "rgr_hesper_respect"
+       ]
+      },
+      "moment": "Bắn trúng chiếc lá trên đầu con quạ"
+     },
+     "fail": {
+      "text": "Mũi tên đi trượt ba thước. Con quạ không thèm nhúc nhích. Hesper bảo bạn bắn tiếp đến khi hết bó tên, rồi đi nhặt từng mũi một.",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "rgr_met_hesper"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi bà vì sao không được bắn con quạ",
+     "text": "Hesper nhìn bạn, lần đầu có vẻ thích thú. “Vì nó chưa làm gì sai.” Bà ngồi xuống bậc chòi, kể cho bạn nghe luật đầu tiên của Ranger: không giết thứ gì mà ngươi không ăn, không cần, hoặc không sợ.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "rgr_met_hesper",
+       "rgr_hesper_respect"
+      ]
+     },
+     "moment": "Học luật đầu tiên của Ranger từ Hesper Moss"
+    }
+   ]
+  },
+  {
+   "id": "rgr_c1_tro",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_ranger",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "rgr_met_hesper"
+    ],
+    "notFlags": [
+     "rgr_tro",
+     "rgr_tro_wild"
+    ]
+   },
+   "text": "Trong một chuyến tuần tra, bạn tìm thấy một con chó săn con bị bỏ lại trong hang cáo, gầy trơ xương, lông xám như tro bếp. Hesper nói chó săn bị chủ bỏ thường không bao giờ tin người nữa.",
+   "choices": [
+    {
+     "label": "Ngồi trước hang mỗi ngày cho đến khi nó tự ra",
+     "text": "Ngày thứ chín, nó bước ra, ngửi tay bạn, rồi nằm xuống bên chân bạn. Bạn gọi nó là Tro. Từ đó, không có dấu vết nào trong rừng mà Tro không tìm ra.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 1,
+      "flags": [
+       "rgr_tro"
+      ]
+     },
+     "moment": "Thuần phục con chó săn bị bỏ rơi tên Tro"
+    },
+    {
+     "label": "Bế nó về chòi luôn",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Nó cắn bạn một phát, rồi ngủ trong lòng bạn suốt đêm. Bạn gọi nó là Tro.",
+      "effects": {
+       "joy": 8,
+       "health": -3,
+       "flags": [
+        "rgr_tro"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Nó cắn bạn và chạy mất vào rừng. Thỉnh thoảng bạn thấy một bóng xám theo sau mình từ xa.",
+      "effects": {
+       "health": -5,
+       "flags": [
+        "rgr_tro_wild"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "rgr_c1_ithil",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_ranger",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "rgr_met_hesper"
+    ],
+    "notFlags": [
+     "rgr_met_ithil"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Ithil",
+     "race": "Elf",
+     "position": "Ranger Elf tuần tra ranh giới Đại Ngàn"
+    }
+   ],
+   "text": "Ở ranh giới Đại Ngàn, một mũi tên cắm phập xuống trước mũi giày bạn. Một Elf tóc bạc bước ra từ bóng cây. Cô ta tên Ithil, đã tuần tra khúc rừng này từ trước khi ông nội bạn ra đời, và cô ta muốn biết vì sao bạn đang theo dấu một con hươu trắng.",
+   "choices": [
+    {
+     "label": "Nói thật: bạn chỉ muốn nhìn nó",
+     "text": "Ithil nhìn bạn rất lâu, rồi hạ cung. Cô dẫn bạn đến một khoảng trống, nơi con hươu trắng đang uống nước dưới ánh trăng. “Ít người Human chỉ muốn nhìn,” cô nói. Từ đó, thỉnh thoảng bạn lại thấy một mũi tên lông bạc cắm ở cửa chòi, như một lời chào.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 1,
+      "flags": [
+       "rgr_met_ithil",
+       "rgr_ithil_friend"
+      ]
+     },
+     "moment": "Được Ithil dẫn đi xem con hươu trắng của Đại Ngàn"
+    },
+    {
+     "label": "Bắn lại một mũi tên cắm cạnh mũi tên của cô ta",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Hai mũi tên cắm sát nhau đến mức chạm lông. Ithil bật cười, tiếng cười như suối chảy, và thách bạn đến đây mỗi mùa trăng tròn để thi bắn.",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 1,
+       "flags": [
+        "rgr_met_ithil",
+        "rgr_ithil_rival"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Mũi tên của bạn trượt xa. Ithil nhặt nó lên, sửa lại lông đuôi, rồi trả cho bạn: “Lông cắt lệch. Không phải lỗi tay.”",
+      "effects": {
+       "joy": -3,
+       "flags": [
+        "rgr_met_ithil"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "rgr_c2_first_hunt",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_ranger",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "rgr_first_hunt",
+     "rgr_end"
+    ]
+   },
+   "text": "Một con gấu ma vật đã giết ba người ở làng lâm nghiệp. Hesper bị thương ở chân, nên đây là cuộc săn đầu tiên bạn phải dẫn một mình, cùng năm thợ săn trong làng đang run tay.",
+   "choices": [
+    {
+     "label": "Đặt bẫy ở suối, nơi gấu xuống uống nước",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Con gấu sa vào hố chông lúc nửa đêm. Không ai trong năm người bị xước. Làng mổ một con lợn đãi bạn, và Hesper khập khiễng đến dự, gật gù từ đầu đến cuối.",
+      "effects": {
+       "INT": 1,
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "rgr_first_hunt"
+       ]
+      },
+      "moment": "Dẫn cuộc săn gấu ma vật đầu tiên"
+     },
+     "fail": {
+      "text": "Con gấu đi đường khác và tấn công lều trại. Hai thợ săn bị thương nặng trước khi bạn bắn hạ được nó.",
+      "effects": {
+       "health": -15,
+       "joy": -8,
+       "flags": [
+        "rgr_first_hunt"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Theo dấu nó vào hang và bắn khi nó ngủ",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn trườn trong bóng tối đến cách nó mười bước. Một mũi tên. Khi bạn bước ra, năm thợ săn nhìn bạn như nhìn một bóng ma.",
+      "effects": {
+       "AGI": 1,
+       "fame": 5,
+       "jobXp": 2,
+       "flags": [
+        "rgr_first_hunt"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Con gấu thức dậy. Bạn thoát ra khỏi hang với ba vết vuốt trên lưng.",
+      "effects": {
+       "health": -22,
+       "flags": [
+        "rgr_first_hunt"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Tìm hiểu vì sao nó xuống làng trước khi săn",
+     "text": "Bạn tìm thấy hang gấu bị một đám tiều phu đốt cháy, và một con gấu con chết trong đó. Bạn vẫn phải bắn con gấu mẹ, nhưng sau đó bạn kiện đám tiều phu lên lãnh chúa. Không ai thắng vụ kiện ấy.",
+     "effects": {
+      "INT": 1,
+      "joy": -6,
+      "jobXp": 2,
+      "flags": [
+       "rgr_first_hunt",
+       "rgr_saw_cause"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "rgr_c2_crossroads",
+   "races": [
+    "human"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "human_ranger",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "rgr_path_border",
+     "rgr_path_bounty",
+     "rgr_path_warden",
+     "rgr_end"
+    ]
+   },
+   "text": "Hesper gọi bạn vào chòi. Trên bàn có ba thứ: huy hiệu của Đội Biên Phòng phía bắc, nơi ma vật tràn xuống mỗi mùa đông; tờ lệnh truy nã đầu tiên của Guild Bình Minh, treo thưởng bằng Tinh Bạc; và chính cây cung của bà. “Ta già rồi,” bà nói. “Khu rừng này cần một người giữ.”",
+   "choices": [
+    {
+     "label": "Lên phía bắc: Biên Phòng",
+     "text": "Pháo đài gỗ ở biên giới lạnh đến mức dây cung đông cứng mỗi sáng. Ở đây, không ai hỏi bạn từ đâu tới; người ta chỉ hỏi bạn bắn được bao xa.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "rgr_path_border"
+      ]
+     },
+     "moment": "Gia nhập Đội Biên Phòng phía bắc"
+    },
+    {
+     "label": "Cầm tờ truy nã: Thợ Săn Tiền Thưởng",
+     "text": "Mục tiêu đầu tiên là một tên cướp đường có giá năm mươi Tinh Bạc. Bạn bắt được hắn sau mười ngày. Bạn nhận ra mình giỏi săn người hơn săn thú, và không chắc điều đó tốt hay xấu.",
+     "effects": {
+      "wealth": 12,
+      "jobXp": 2,
+      "flags": [
+       "rgr_path_bounty"
+      ]
+     },
+     "moment": "Nhận tờ truy nã đầu tiên"
+    },
+    {
+     "label": "Nhận cây cung của Hesper: Người Giữ Rừng",
+     "text": "Hesper treo cây cung của bà lên vai bạn. “Giờ thì nó là của khu rừng, không phải của ngươi.” Bạn ở lại, và học cách lắng nghe khu rừng như bà.",
+     "effects": {
+      "INT": 1,
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "rgr_path_warden"
+      ]
+     },
+     "moment": "Nhận cây cung và khu rừng của Hesper Moss"
+    }
+   ]
+  },
+  {
+   "id": "rgr_border_winter",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_ranger",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "rgr_path_border"
+    ],
+    "notFlags": [
+     "rgr_end"
+    ]
+   },
+   "text": "Mùa đông năm ấy, một đàn Sói Băng lớn hơn mọi năm tràn xuống biên giới. Viên chỉ huy pháo đài ra lệnh rút về tuyến sau, bỏ lại ba ngôi làng chưa kịp sơ tán.",
+   "choices": [
+    {
+     "label": "Ở lại với một nhóm tình nguyện giữ làng",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn và chín cung thủ giữ một khe đá suốt ba đêm. Ba ngôi làng sơ tán xong. Khi bạn trở về pháo đài, viên chỉ huy định phạt bạn, rồi nhìn thấy dân làng đứng sau lưng bạn và im lặng.",
+      "effects": {
+       "AGI": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "rgr_border_hero"
+       ]
+      },
+      "moment": "Giữ khe đá ba đêm để sơ tán ba ngôi làng"
+     },
+     "fail": {
+      "text": "Đến đêm thứ hai, khe đá vỡ. Bạn kéo được hai ngôi làng ra. Ngôi làng thứ ba không kịp.",
+      "effects": {
+       "health": -20,
+       "joy": -15,
+       "flags": [
+        "rgr_border_hero"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Tuân lệnh rút quân",
+     "text": "Bạn rút về tuyến sau đúng lệnh. Từ tháp canh, bạn nhìn thấy khói bốc lên từ ba ngôi làng. Không ai trách bạn. Bạn trách chính mình.",
+     "effects": {
+      "joy": -15,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Thả Tro đi báo động cho các làng",
+     "require": {
+      "flags": [
+       "rgr_tro"
+      ]
+     },
+     "text": "Tro chạy suốt đêm qua tuyết, sủa vang ở cổng từng làng. Đến sáng, cả ba làng đã lên xe. Tro về pháo đài với bốn chân rướm máu, và ngủ ba ngày liền trong lòng bạn.",
+     "effects": {
+      "fame": 4,
+      "joy": 10,
+      "jobXp": 2,
+      "flags": [
+       "rgr_tro_hero"
+      ]
+     },
+     "moment": "Tro chạy qua tuyết cứu ba ngôi làng"
+    }
+   ]
+  },
+  {
+   "id": "rgr_border_goblin_child",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_ranger",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "rgr_path_border"
+    ],
+    "notFlags": [
+     "rgr_end"
+    ]
+   },
+   "text": "Sau trận đánh với một toán Goblin, bạn tìm thấy một Goblin con còn sống trong hang của chúng. Luật biên phòng rất rõ: không để lại mầm mống.",
+   "choices": [
+    {
+     "label": "Tuân luật",
+     "text": "Bạn làm điều luật đòi hỏi, nhanh và gọn. Đêm ấy, ở lửa trại, bạn không nói câu nào. Hesper từng nói không giết thứ gì ngươi không sợ. Bạn tự hỏi mình đã sợ một đứa trẻ.",
+     "effects": {
+      "joy": -15,
+      "jobXp": 2,
+      "flags": [
+       "rgr_border_hard"
+      ]
+     }
+    },
+    {
+     "label": "Thả nó về rừng",
+     "text": "Con Goblin nhỏ nhìn bạn một lúc, rồi biến vào bụi rậm. Nhiều năm sau, một toán Goblin bất ngờ rút lui khỏi một trận đánh mà chúng sắp thắng. Bạn không bao giờ biết vì sao.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1,
+      "flags": [
+       "rgr_spared_goblin"
+      ]
+     }
+    },
+    {
+     "label": "Mang nó đến cho Ithil",
+     "require": {
+      "flags": [
+       "rgr_met_ithil"
+      ]
+     },
+     "text": "Ithil nhận nó mà không hỏi gì. Elf có những khu rừng mà Goblin và Human đều không vào được. Ở đó, cô nói, nó sẽ lớn lên mà không biết thù hận.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 2,
+      "flags": [
+       "rgr_spared_goblin",
+       "rgr_ithil_friend"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "rgr_bounty_innocent",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_ranger",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "rgr_path_bounty"
+    ],
+    "notFlags": [
+     "rgr_end"
+    ]
+   },
+   "text": "Tờ truy nã tiếp theo có giá cao nhất bạn từng thấy: một phụ nữ bị buộc tội đầu độc chồng, một quý tộc. Khi bạn tìm thấy bà ta trong một nhà trọ, bà đang băng bó những vết roi trên lưng con gái mình.",
+   "choices": [
+    {
+     "label": "Đưa bà ta về Sanctus nhận thưởng",
+     "text": "Bạn nhận đủ Tinh Bạc. Bà ta bị treo cổ một tuần sau. Con gái bà được gửi vào trại mồ côi. Bạn không bao giờ hỏi trại nào.",
+     "effects": {
+      "wealth": 30,
+      "joy": -20,
+      "jobXp": 3,
+      "flags": [
+       "rgr_bounty_cold"
+      ]
+     }
+    },
+    {
+     "label": "Đưa hai mẹ con qua biên giới",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn dẫn họ qua đèo vào ban đêm. Bạn mất khoản thưởng lớn nhất đời, và giữ được thứ gì đó mà bạn không đặt tên được.",
+      "effects": {
+       "AGI": 1,
+       "joy": 10,
+       "jobXp": 3,
+       "flags": [
+        "rgr_bounty_mercy"
+       ]
+      },
+      "moment": "Dẫn một người mẹ bị truy nã cùng con gái qua biên giới"
+     },
+     "fail": {
+      "text": "Một thợ săn khác bám theo. Bạn phải chọn giữa đánh nhau với hắn hoặc bỏ mặc họ. Bạn đánh, và về với một vết dao trên đùi.",
+      "effects": {
+       "health": -18,
+       "joy": 4,
+       "flags": [
+        "rgr_bounty_mercy"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Điều tra cái chết của viên quý tộc",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Kẻ đầu độc thật là em trai ông ta, kẻ thừa kế. Bạn mang bằng chứng về Sanctus. Tờ truy nã bị gỡ xuống, và một tờ mới được dán lên với khuôn mặt khác.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "wealth": 15,
+       "jobXp": 3,
+       "flags": [
+        "rgr_bounty_mercy",
+        "rgr_bounty_detective"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn không tìm ra gì. Bạn để bà ta đi, và từ đó không nhận truy nã của quý tộc nữa.",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "rgr_bounty_mercy"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "rgr_bounty_rival",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_ranger",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "rgr_path_bounty"
+    ],
+    "notFlags": [
+     "rgr_end"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Garrow Vex",
+     "race": "Human",
+     "position": "Thợ săn tiền thưởng đối thủ"
+    }
+   ],
+   "text": "Một thợ săn tiền thưởng khác tên Garrow Vex luôn đến trước bạn một bước, cướp mục tiêu ngay trước mũi tên của bạn. Lần này, hắn để lại một lời nhắn: “Thử đuổi kịp ta xem.”",
+   "choices": [
+    {
+     "label": "Đuổi theo hắn suốt mùa đông",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn bắt kịp Garrow ở một quán trọ trên đèo, đúng lúc hắn đang đếm tiền thưởng. Hắn cười to, mời bạn một ly, rồi đề nghị chia đôi mọi tờ truy nã từ đó. Bạn có một đối thủ, và một người bạn uống rượu.",
+      "effects": {
+       "AGI": 1,
+       "fame": 4,
+       "jobXp": 3,
+       "flags": [
+        "rgr_garrow_friend"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn đuổi mất dấu ở Đầm Lầy. Garrow gửi cho bạn một mũi tên bẻ đôi kèm lời nhắn: “Lần sau.”",
+      "effects": {
+       "joy": -8,
+       "flags": [
+        "rgr_garrow_rival"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Mặc kệ hắn, săn những mục tiêu hắn không thèm",
+     "text": "Bạn chuyển sang những tờ truy nã giá rẻ mà không ai nhận: kẻ trộm gà, con nợ bỏ trốn, những đứa trẻ bỏ nhà. Không giàu, nhưng mỗi mục tiêu bạn tìm về đều có ai đó đang chờ.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 2,
+      "flags": [
+       "rgr_small_bounties"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "rgr_warden_loggers",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_ranger",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "rgr_path_warden"
+    ],
+    "notFlags": [
+     "rgr_end"
+    ]
+   },
+   "text": "Một lãnh chúa gửi một trăm tiều phu đến chặt khu rừng của bạn để đóng tàu chiến. Họ mang theo giấy phép có đóng dấu hoàng gia, và năm mươi lính đánh thuê.",
+   "choices": [
+    {
+     "label": "Thương lượng với lãnh chúa",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn chỉ cho ông ta một khu rừng bạch dương già cỗi ở bờ sông, gỗ tốt hơn và dễ vận chuyển hơn. Ông ta đổi chỗ chặt. Khu rừng của bạn được yên, và ông ta tưởng mình vừa thắng một vụ làm ăn.",
+      "effects": {
+       "INT": 1,
+       "fame": 4,
+       "jobXp": 3,
+       "flags": [
+        "rgr_warden_deal"
+       ]
+      },
+      "moment": "Thương lượng để cứu khu rừng khỏi tiều phu hoàng gia"
+     },
+     "fail": {
+      "text": "Lãnh chúa cười vào mặt bạn. Rìu bắt đầu vang lên từ sáng hôm sau.",
+      "effects": {
+       "joy": -12
+      }
+     }
+    },
+    {
+     "label": "Biến khu rừng thành mê cung",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đổi hướng mọi lối mòn, giấu mọi suối nước. Sau một tháng, nửa số tiều phu bị lạc và nửa còn lại xin về. Người ta đồn khu rừng có ma.",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 3,
+       "flags": [
+        "rgr_warden_haunted"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Một tiều phu bị lạc chết vì rét. Bạn tìm thấy xác anh ta, và không còn chắc mình đang bảo vệ điều gì.",
+      "effects": {
+       "joy": -15,
+       "flags": [
+        "rgr_warden_haunted"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Gọi Ithil và các Elf giúp",
+     "require": {
+      "flags": [
+       "rgr_ithil_friend"
+      ]
+     },
+     "text": "Sáng hôm sau, một trăm mũi tên lông bạc cắm thành một đường thẳng tắp trước hàng tiều phu. Không ai bị thương. Không ai dám bước qua.",
+     "effects": {
+      "fame": 5,
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "rgr_warden_elves"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "rgr_warden_poacher_child",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_ranger",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "rgr_path_warden"
+    ],
+    "notFlags": [
+     "rgr_end"
+    ]
+   },
+   "text": "Kẻ săn trộm nai trong rừng của bạn là một đứa trẻ mười hai tuổi, gầy đến mức xương sườn lộ ra dưới áo. Nó cầm một cây cung tự làm, và bắn khá chuẩn.",
+   "choices": [
+    {
+     "label": "Dạy nó săn đúng luật",
+     "text": "Bạn dạy nó luật của Hesper: chỉ săn thứ ngươi ăn. Nó học nhanh. Từ đó, rừng của bạn có thêm một người giữ, và nhà nó không còn đói.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 2,
+      "flags": [
+       "rgr_apprentice"
+      ]
+     },
+     "moment": "Nhận đứa trẻ săn trộm làm học trò"
+    },
+    {
+     "label": "Đưa nó về làng, nói chuyện với cha mẹ nó",
+     "text": "Cha nó chết, mẹ nó ốm. Bạn để lại một con nai và một túi thuốc. Đứa trẻ không săn trộm nữa, và mỗi tháng nó đến chòi giúp bạn bổ củi.",
+     "effects": {
+      "joy": 6,
+      "wealth": -5,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "rgr_c4_hesper",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_ranger",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "rgr_met_hesper"
+    ],
+    "notFlags": [
+     "rgr_hesper_gone",
+     "rgr_end"
+    ]
+   },
+   "text": "Hesper Moss không còn kéo nổi dây cung. Bà ngồi trên bậc chòi suốt ngày, nghe tiếng rừng, và nói cho bạn biết con chim nào vừa hót, con thú nào vừa đi qua, dù bà đã mù một mắt.",
+   "choices": [
+    {
+     "label": "Đưa bà đi một vòng rừng lần cuối",
+     "text": "Bạn cõng bà đi suốt một ngày, dừng lại ở từng gốc cây bà nhớ tên. Ở khoảng trống cuối cùng, bà bảo bạn đặt bà xuống. Bà mất ở đó, lắng nghe tiếng gió, và bạn chôn bà ngay dưới gốc sồi có con quạ đậu ngày đầu tiên.",
+     "effects": {
+      "joy": -2,
+      "jobXp": 3,
+      "flags": [
+       "rgr_hesper_gone"
+      ]
+     },
+     "moment": "Cõng Hesper Moss đi vòng rừng lần cuối"
+    },
+    {
+     "label": "Ghi lại mọi điều bà biết về khu rừng",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn ghi suốt một mùa: tên những con suối, đường đi của bầy hươu, nơi mọc nấm sau mưa. Cuốn sổ dày như một cuốn kinh. Hesper mất trước khi bạn ghi xong, nhưng bạn đã kịp ghi phần quan trọng nhất.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "rgr_hesper_gone",
+        "rgr_forest_book"
+       ]
+      },
+      "moment": "Ghi lại khu rừng qua lời kể của Hesper Moss"
+     },
+     "fail": {
+      "text": "Bà kể nhanh hơn bạn ghi, và rồi bà ngừng kể. Cuốn sổ dừng lại giữa một câu.",
+      "effects": {
+       "joy": -8,
+       "flags": [
+        "rgr_hesper_gone"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "rgr_c4_beast_lord",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_ranger",
+    "free": true,
+    "jobRank": 3,
+    "notFlags": [
+     "rgr_end"
+    ]
+   },
+   "text": "Một ma thú khổng lồ thức dậy dưới lòng Dãy Núi Răng Cưa: một con Wyvern già đến mức vảy đã hóa đá. Nó chưa giết ai, nhưng nó đang bay về phía Sanctus, và cả vương quốc đang nhìn về phía những Ranger.",
+   "choices": [
+    {
+     "label": "Bắn nó từ đỉnh tháp canh cao nhất",
+     "check": {
+      "stat": "AGI",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn chờ suốt hai ngày. Khi nó bay qua, mũi tên của bạn xuyên qua khe vảy duy nhất ở cổ nó. Con Wyvern rơi xuống thung lũng. Người ta gọi bạn là Sniper của Sanctus.",
+      "effects": {
+       "AGI": 1,
+       "fame": 12,
+       "jobXp": 4,
+       "flags": [
+        "rgr_wyvern_slain"
+       ]
+      },
+      "moment": "Bắn hạ con Wyvern già bằng một mũi tên"
+     },
+     "fail": {
+      "text": "Mũi tên của bạn bật ra khỏi vảy đá. Con Wyvern quay đầu, và bạn chỉ kịp nhảy khỏi tháp trước khi nó sụp.",
+      "effects": {
+       "health": -30,
+       "fame": 3,
+       "flags": [
+        "rgr_wyvern_survived"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Theo dấu xem nó đang đi đâu",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Nó không đến Sanctus; nó đến một ngọn núi lửa phía nam để chết, như tổ tiên nó. Bạn thuyết phục vương quốc để nó bay qua. Nó bay qua, không ai bị thương, và bạn đứng nhìn nó cho đến khi nó thành một chấm nhỏ.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "joy": 10,
+       "jobXp": 4,
+       "flags": [
+        "rgr_wyvern_spared"
+       ]
+      },
+      "moment": "Thuyết phục vương quốc để con Wyvern già bay đi chết yên"
+     },
+     "fail": {
+      "text": "Không ai tin bạn. Quân đội bắn nó rơi giữa đồng lúa, và nó chết ở đó, cách ngọn núi lửa nó muốn đến một ngày bay.",
+      "effects": {
+       "joy": -12,
+       "flags": [
+        "rgr_wyvern_spared"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "rgr_c5_border",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_ranger",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "rgr_path_border"
+    ],
+    "notFlags": [
+     "rgr_end"
+    ]
+   },
+   "text": "Bạn là chỉ huy biên phòng phía bắc. Pháo đài gỗ đã thành pháo đài đá, và dưới quyền bạn có ba trăm Ranger. Một sứ giả Goblin đến dưới cờ trắng, đề nghị hưu chiến.",
+   "choices": [
+    {
+     "label": "Nhận lời hưu chiến",
+     "require": {
+      "anyFlags": [
+       "rgr_spared_goblin",
+       "rgr_border_hero"
+      ]
+     },
+     "text": "Hiệp ước được ký trên một tảng đá ở giữa biên giới. Mùa đông năm ấy, không có làng nào bị cháy. Một Goblin trẻ trong đoàn sứ giả nhìn bạn rất lâu, như đã gặp bạn từ trước.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "rgr_end",
+       "rgr_end_truce"
+      ]
+     },
+     "moment": "Ký hiệp ước hưu chiến với Goblin ở biên giới"
+    },
+    {
+     "label": "Từ chối, đánh đến cùng",
+     "text": "Bạn dẫn ba trăm Ranger tràn qua biên giới. Mười năm sau, phương bắc yên bình, vì không còn gì ở đó để chiến đấu nữa.",
+     "effects": {
+      "fame": 12,
+      "joy": -8,
+      "flags": [
+       "rgr_end",
+       "rgr_end_purge"
+      ]
+     }
+    },
+    {
+     "label": "Trao quyền chỉ huy, về làm một Ranger bình thường",
+     "text": "Bạn trả lại huy hiệu và nhận một khúc biên giới nhỏ để tuần tra một mình, với một cây cung và một con chó già. Đó là những năm bạn ngủ ngon nhất.",
+     "effects": {
+      "joy": 18,
+      "flags": [
+       "rgr_end",
+       "rgr_end_lone_patrol"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "rgr_c5_bounty",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_ranger",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "rgr_path_bounty"
+    ],
+    "notFlags": [
+     "rgr_end"
+    ]
+   },
+   "text": "Tên bạn đứng đầu danh sách thợ săn của Guild Bình Minh. Tờ truy nã cuối cùng bạn nhận là một tờ đặc biệt: kẻ bị truy nã là chính bạn, do một quý tộc mà bạn từng làm hỏng việc treo thưởng.",
+   "choices": [
+    {
+     "label": "Tự nộp mình và đối chất",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn mang theo mọi bằng chứng từ mọi vụ đã làm. Phiên tòa kéo dài ba ngày. Quý tộc kia mất tước vị. Bạn rời tòa, xé tờ truy nã, và treo cung luôn từ hôm ấy.",
+      "effects": {
+       "fame": 12,
+       "joy": 12,
+       "flags": [
+        "rgr_end",
+        "rgr_end_trial"
+       ]
+      },
+      "moment": "Tự nộp mình và thắng kiện trước kẻ truy nã mình"
+     },
+     "fail": {
+      "text": "Tòa không đứng về phía bạn. Bạn bị lưu đày. Ở xứ lạ, bạn vẫn săn, nhưng chỉ để ăn.",
+      "effects": {
+       "joy": -10,
+       "flags": [
+        "rgr_end",
+        "rgr_end_exile"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Gọi Garrow Vex đến giúp",
+     "require": {
+      "flags": [
+       "rgr_garrow_friend"
+      ]
+     },
+     "text": "Garrow đến, cười như mọi khi. Hai thợ săn già săn kẻ đã treo thưởng cho bạn, và mang hắn về Sanctus trói như một con lợn. Đêm ấy hai người uống đến sáng và quyết định cùng nghỉ hưu.",
+     "effects": {
+      "joy": 18,
+      "fame": 10,
+      "flags": [
+       "rgr_end",
+       "rgr_end_garrow"
+      ]
+     }
+    },
+    {
+     "label": "Biến mất vào rừng sâu",
+     "text": "Không ai bắt được bạn, vì không ai biết rừng như bạn. Thỉnh thoảng thợ săn trẻ kể về một bóng người già cầm cung, giúp họ tìm đường về khi bị lạc.",
+     "effects": {
+      "joy": 12,
+      "flags": [
+       "rgr_end",
+       "rgr_end_vanished"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "rgr_c5_warden",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_ranger",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "rgr_path_warden"
+    ],
+    "notFlags": [
+     "rgr_end"
+    ]
+   },
+   "text": "Khu rừng của bạn giờ được gọi là Rừng Người Giữ. Không có tiều phu nào dám vào, không có thợ săn trộm nào quay lại. Vương quốc đề nghị phong bạn làm Lãnh chúa Rừng, với quyền cai quản cả vùng đất quanh đó.",
+   "choices": [
+    {
+     "label": "Từ chối, đề nghị rừng được bảo vệ mãi mãi bằng luật",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Đạo luật được ký: Rừng Người Giữ không thuộc về ai, kể cả bạn. Bạn tiếp tục sống trong chòi của Hesper, giờ đã có thêm một chiếc ghế.",
+      "effects": {
+       "fame": 12,
+       "joy": 15,
+       "flags": [
+        "rgr_end",
+        "rgr_end_law"
+       ]
+      },
+      "moment": "Biến khu rừng thành vùng đất không ai được chiếm"
+     },
+     "fail": {
+      "text": "Đạo luật bị bác. Bạn vẫn giữ rừng, chỉ bằng cây cung và cái tên của mình, cho đến khi bạn không giữ được nữa.",
+      "effects": {
+       "joy": 4,
+       "flags": [
+        "rgr_end",
+        "rgr_end_law"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Trao cung cho học trò",
+     "require": {
+      "flags": [
+       "rgr_apprentice"
+      ]
+     },
+     "text": "Đứa trẻ săn trộm năm nào giờ đã là một Ranger trưởng thành. Bạn treo cây cung lên vai nó, như Hesper đã treo lên vai bạn: “Giờ thì nó là của khu rừng.”",
+     "effects": {
+      "joy": 20,
+      "fame": 8,
+      "flags": [
+       "rgr_end",
+       "rgr_end_bow_passed"
+      ]
+     },
+     "moment": "Trao cây cung của Hesper cho học trò"
+    },
+    {
+     "label": "Mời Ithil cùng giữ rừng",
+     "require": {
+      "flags": [
+       "rgr_ithil_friend"
+      ]
+     },
+     "text": "Ithil dời đến sống ở chòi bên cạnh. Một Elf và một Human cùng giữ một khu rừng, cho đến khi tóc bạn bạc như tóc cô ấy. Cô hứa sẽ giữ nó thêm năm trăm năm sau khi bạn đi.",
+     "effects": {
+      "joy": 18,
+      "fame": 10,
+      "flags": [
+       "rgr_end",
+       "rgr_end_ithil"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "rgr_daily_rain_camp",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_ranger",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Mưa ba ngày không dứt. Chỗ trú duy nhất là một hốc đá, và một con lửng đã chiếm trước.",
+   "choices": [
+    {
+     "label": "Chia chỗ với con lửng",
+     "text": "Nó gầm gừ suốt đêm đầu, rồi ngủ. Đến đêm thứ ba, nó nằm sát vào bạn cho ấm. Khi mưa tạnh, nó đi mà không ngoảnh lại.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Đuổi nó đi",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Con lửng bỏ đi, càu nhàu. Bạn ngủ khô ráo, và thấy hơi có lỗi.",
+      "effects": {
+       "health": 4
+      }
+     },
+     "fail": {
+      "text": "Con lửng không chịu đi, và nó cắn rất đau.",
+      "effects": {
+       "health": -8
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "rgr_daily_lost_child",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_ranger",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Một đứa trẻ bị lạc trong rừng từ chiều qua. Cả làng đã đi tìm mà không thấy. Trời sắp tối, và có tiếng sói tru ở phía tây.",
+   "choices": [
+    {
+     "label": "Đọc dấu vết",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Một cành gãy, một vết giày nhỏ trên bùn, một sợi len đỏ trên bụi gai. Bạn tìm thấy nó ngủ trong một gốc cây rỗng, tay ôm một con thỏ con.",
+      "effects": {
+       "fame": 3,
+       "joy": 10,
+       "jobXp": 2
+      },
+      "moment": "Tìm thấy đứa trẻ lạc trong rừng"
+     },
+     "fail": {
+      "text": "Bạn tìm thấy nó lúc gần sáng, run cầm cập nhưng còn sống.",
+      "effects": {
+       "joy": 4,
+       "jobXp": 1
+      }
+     }
+    },
+    {
+     "label": "Thả Tro đi tìm",
+     "require": {
+      "flags": [
+       "rgr_tro"
+      ]
+     },
+     "text": "Tro đánh hơi chiếc khăn của đứa trẻ, rồi lao vào bóng tối. Mười phút sau, bạn nghe tiếng sủa vui mừng. Đứa trẻ ôm chặt cổ Tro không chịu buông.",
+     "effects": {
+      "fame": 3,
+      "joy": 12,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "rgr_daily_war_scouts",
+   "races": [
+    "human"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_ranger",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Quân đội cần Ranger làm trinh sát cho cuộc hành quân qua Thảo Nguyên Gió Hú. Phần thưởng hậu hĩnh, nhưng đơn vị trinh sát trước đã không ai trở về.",
+   "choices": [
+    {
+     "label": "Nhận nhiệm vụ",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đi trước đại quân ba ngày, đánh dấu mọi điểm phục kích. Đại quân đi qua thảo nguyên mà không mất một người. Viên tướng nhắc tên bạn trong báo cáo.",
+      "effects": {
+       "AGI": 1,
+       "fame": 5,
+       "wealth": 10,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Bạn bị phát hiện. Bạn sống sót nhờ trốn ba ngày trong một xác ngựa.",
+      "effects": {
+       "health": -20,
+       "jobXp": 2
+      }
+     }
+    },
+    {
+     "label": "Từ chối",
+     "text": "Người ta gọi bạn là kẻ hèn. Đơn vị trinh sát thứ hai cũng không ai trở về. Không ai gọi bạn là kẻ hèn nữa.",
+     "effects": {
+      "joy": -4
+     }
+    }
+   ]
+  },
+  {
+   "id": "rgr_daily_old_eyes",
+   "races": [
+    "human"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_ranger",
+    "free": true
+   },
+   "text": "Mắt bạn đã kém. Chiếc lá trên đầu con quạ năm mươi bước giờ chỉ còn là một vệt xanh nhòe.",
+   "choices": [
+    {
+     "label": "Học bắn bằng tai",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn nhắm mắt và nghe: tiếng cánh, tiếng lá, tiếng tim con thú. Mũi tên vẫn đi trúng. Hesper từng làm thế khi bà mù một mắt; giờ bạn hiểu bà đã nghe những gì.",
+      "effects": {
+       "INT": 1,
+       "joy": 8,
+       "jobXp": 2
+      }
+     },
+     "fail": {
+      "text": "Tai bạn cũng không còn tinh như xưa. Bạn treo cung lên vách, cạnh ba chục cây cung của Hesper.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Dạy lũ trẻ trong làng bắn cung",
+     "text": "Bạn không còn bắn trúng, nhưng vẫn biết chỉ cho người khác bắn trúng. Ở cuối buổi tập, có một đứa bắn xuyên chiếc lá trên đầu con quạ.",
+     "effects": {
+      "joy": 10,
+      "fame": 2
+     }
+    }
+   ]
+  }
+ ]
+}

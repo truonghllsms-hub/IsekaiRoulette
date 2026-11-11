@@ -1,0 +1,1175 @@
+{
+ "_note": "Tuyến truyện Nông dân: 5 chương theo bậc, ba đạo ở Bậc 2 (frm_path_coop / frm_path_land / frm_path_seed), nhân vật xuyên suốt Marta Bell, quản gia Dorran và con bò Mây.",
+ "origins": [],
+ "events": [
+  {
+   "id": "frm_c1_marta",
+   "races": [
+    "human"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "human_farmer",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "frm_met_marta"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Marta Bell",
+     "race": "Human",
+     "position": "Bà góa có ruộng bên cạnh"
+    }
+   ],
+   "text": "Mảnh ruộng thuê đầu tiên của bạn nằm cạnh ruộng của bà góa Marta Bell. Sáng đầu tiên, bà đứng bên bờ rào nhìn bạn cày suốt một giờ, rồi lên tiếng: “Cày thế thì đến mùa sau đất vẫn chưa tơi.”",
+   "choices": [
+    {
+     "label": "Mời bà chỉ cho cách cày",
+     "text": "Marta bước qua bờ rào, cầm lấy chuôi cày, và cày một đường thẳng như kẻ chỉ. Bà dạy bạn cả buổi sáng, rồi để lại một rổ khoai mà không nói gì. Từ đó, mỗi mùa gieo, bà đều đứng bên bờ rào.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "frm_met_marta",
+       "frm_marta_friend"
+      ]
+     },
+     "moment": "Học cày từ bà góa Marta Bell"
+    },
+    {
+     "label": "Mặc kệ, cày theo cách của mình",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Đường cày của bạn xấu, nhưng sâu. Đến mùa thu, lúa của bạn không thua lúa của bà. Marta gật đầu qua bờ rào: “Cứng đầu. Ta thích loại cứng đầu.”",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "frm_met_marta"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Mùa đầu tiên, bạn thu được một nửa so với ruộng của bà. Marta không nói gì; bà chỉ để một rổ khoai bên bờ rào khi mùa đông đến.",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "frm_met_marta",
+        "frm_marta_friend"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "frm_c1_ox",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_farmer",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "frm_met_marta"
+    ],
+    "notFlags": [
+     "frm_ox",
+     "frm_ox_strong"
+    ]
+   },
+   "text": "Ở phiên chợ gia súc, bạn chỉ đủ tiền cho một con bò già, gầy, sừng gãy một bên, mà người bán gọi là “đồ bỏ đi”. Nó nhìn bạn bằng đôi mắt đen lớn và không chịu nhúc nhích khi người bán quất roi.",
+   "choices": [
+    {
+     "label": "Mua nó, đặt tên là Mây",
+     "text": "Mây đi theo bạn về nhà mà không cần dây thừng. Nó cày chậm, nhưng không bao giờ dừng. Mỗi tối, nó đứng bên cửa sổ chờ bạn mang cỏ ra. Bạn không bao giờ quất roi nó lần nào.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 1,
+      "flags": [
+       "frm_ox"
+      ]
+     },
+     "moment": "Mua con bò già sừng gãy tên Mây"
+    },
+    {
+     "label": "Chờ thêm một năm để mua con bò tốt hơn",
+     "text": "Bạn cày tay thêm một năm, và mua được một con bò khỏe. Thỉnh thoảng bạn nghĩ đến con bò già sừng gãy ở chợ, và tự hỏi ai đã mua nó.",
+     "effects": {
+      "STR": 1,
+      "health": -5,
+      "jobXp": 1,
+      "flags": [
+       "frm_ox_strong"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "frm_c1_dorran",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_farmer",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "frm_met_marta"
+    ],
+    "notFlags": [
+     "frm_met_dorran"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Dorran",
+     "race": "Human",
+     "position": "Quản gia thu thuế của lãnh chúa"
+    }
+   ],
+   "text": "Quản gia Dorran của lãnh chúa đến đo ruộng để tính thuế. Thước đo của ông ta, bạn để ý, ngắn hơn thước của làng một gang tay, nghĩa là ruộng của ai cũng bị tính rộng hơn thực tế.",
+   "choices": [
+    {
+     "label": "Chỉ ra cái thước trước mặt cả làng",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn đặt thước của Dorran cạnh thước của làng giữa sân đình. Cả làng im lặng nhìn. Dorran đỏ mặt, đổi thước, và thuế năm ấy giảm một phần mười. Ông ta nhớ mặt bạn.",
+      "effects": {
+       "INT": 1,
+       "fame": 3,
+       "jobXp": 1,
+       "flags": [
+        "frm_met_dorran",
+        "frm_dorran_enemy"
+       ]
+      },
+      "moment": "Vạch trần cái thước gian của quản gia Dorran"
+     },
+     "fail": {
+      "text": "Dorran nói thước của làng mới là thước sai. Lãnh chúa tin ông ta. Thuế nhà bạn tăng gấp đôi năm ấy.",
+      "effects": {
+       "wealth": -10,
+       "flags": [
+        "frm_met_dorran",
+        "frm_dorran_enemy"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Lặng lẽ nói chuyện riêng với ông ta",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Dorran nhìn bạn rất lâu, rồi thở dài: lãnh chúa bắt ông ta nộp đủ một số thuế cố định, thiếu thì ông ta chịu. Hai người tìm cách khác. Từ đó, Dorran đối xử với bạn như với một người hiểu chuyện.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "frm_met_dorran",
+        "frm_dorran_ally"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Dorran cười khẩy và đo ruộng nhà bạn bằng thước ngắn hơn nữa.",
+      "effects": {
+       "wealth": -6,
+       "flags": [
+        "frm_met_dorran",
+        "frm_dorran_enemy"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Im lặng, nộp thuế",
+     "text": "Cả làng im lặng nộp thuế. Bạn cũng vậy.",
+     "effects": {
+      "wealth": -5,
+      "flags": [
+       "frm_met_dorran"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "frm_c2_own_land",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_farmer",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "frm_own_land",
+     "frm_end"
+    ]
+   },
+   "text": "Lãnh chúa rao bán mười mẫu ruộng bỏ hoang ở rìa làng. Đó là đất tốt nhưng đầy đá, và giá bằng toàn bộ tiền bạn dành dụm cả đời.",
+   "choices": [
+    {
+     "label": "Mua và tự tay dọn đá",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn và Mây dọn đá suốt hai năm. Những tảng đá ấy thành bờ rào quanh ruộng của bạn, ruộng của riêng bạn, lần đầu tiên trong đời.",
+      "effects": {
+       "STR": 1,
+       "wealth": -10,
+       "joy": 12,
+       "jobXp": 2,
+       "flags": [
+        "frm_own_land"
+       ]
+      },
+      "moment": "Mua mảnh ruộng đầu tiên của riêng mình"
+     },
+     "fail": {
+      "text": "Đá nhiều hơn bạn tưởng. Năm đầu chẳng thu được gì, và bạn phải vay để sống qua mùa đông. Nhưng đất vẫn là của bạn.",
+      "effects": {
+       "wealth": -20,
+       "health": -8,
+       "flags": [
+        "frm_own_land"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Rủ Marta cùng góp tiền mua chung",
+     "require": {
+      "flags": [
+       "frm_marta_friend"
+      ]
+     },
+     "text": "Marta nghĩ một đêm, rồi mang ra chiếc hộp gỗ đựng tiền dành dụm của chồng bà. Hai người cùng dọn đá. Đến mùa thứ hai, mười mẫu ruộng xanh mướt, và hai người chia đôi thu hoạch mà không cần cãi nhau.",
+     "effects": {
+      "wealth": -5,
+      "joy": 10,
+      "jobXp": 2,
+      "flags": [
+       "frm_own_land",
+       "frm_shared_land"
+      ]
+     },
+     "moment": "Cùng Marta Bell mua chung mảnh ruộng đầu tiên"
+    },
+    {
+     "label": "Không mua, tiếp tục thuê ruộng",
+     "text": "Tiền vẫn còn trong hũ. Mảnh đất rơi vào tay một thương gia ở Sanctus, người chưa bao giờ đặt chân đến làng.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 1,
+      "flags": [
+       "frm_own_land"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "frm_c2_crossroads",
+   "races": [
+    "human"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "human_farmer",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "frm_path_coop",
+     "frm_path_land",
+     "frm_path_seed",
+     "frm_end"
+    ]
+   },
+   "text": "Một mùa được mùa hiếm hoi, và bạn có dư tiền lần đầu tiên. Những nông dân nghèo trong làng đến hỏi bạn có muốn cùng lập một kho thóc chung để không phải bán lúa rẻ cho thương lái. Một lãnh chúa nhỏ đang phá sản rao bán cả trang viên. Và một pháp sư Tháp Ngà gửi thư hỏi có nông dân nào chịu thử trồng những hạt giống mới mà họ lai tạo.",
+   "choices": [
+    {
+     "label": "Lập kho thóc chung: Hợp Tác Xã",
+     "text": "Mười hai gia đình góp thóc vào một kho. Năm đầu cãi nhau suốt. Năm thứ hai, thương lái phải đến làng mua lúa với giá công bằng, vì không ai còn chịu bán rẻ nữa.",
+     "effects": {
+      "fame": 4,
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "frm_path_coop"
+      ]
+     },
+     "moment": "Lập kho thóc chung cho làng"
+    },
+    {
+     "label": "Mua trang viên: Địa Chủ",
+     "text": "Bạn ký giấy, và bỗng có ba mươi gia đình tá điền sống trên đất của mình. Từ hôm ấy, bạn không còn cày ruộng nữa; bạn đếm thóc.",
+     "effects": {
+      "wealth": 15,
+      "fame": 3,
+      "jobXp": 2,
+      "flags": [
+       "frm_path_land"
+      ]
+     },
+     "moment": "Mua lại trang viên của một lãnh chúa phá sản"
+    },
+    {
+     "label": "Trồng thử hạt giống mới: Giống Mới",
+     "text": "Hạt giống đến trong một chiếc hộp gỗ có khắc rune. Bạn gieo chúng ở một góc ruộng, xa những luống khác, và lần đầu tiên ghi chép mọi điều về đất, nước và trời.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "frm_path_seed"
+      ]
+     },
+     "moment": "Bắt đầu trồng thử giống lúa mới của Tháp Ngà"
+    }
+   ]
+  },
+  {
+   "id": "frm_coop_traitor",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_farmer",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "frm_path_coop",
+     "frm_met_marta"
+    ],
+    "notFlags": [
+     "frm_end"
+    ]
+   },
+   "text": "Một thành viên của kho thóc chung lén bán phần thóc của cả làng cho thương lái với giá cao, ôm tiền bỏ trốn. Người đó là con trai của Marta Bell.",
+   "choices": [
+    {
+     "label": "Đuổi theo cậu ta",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn tìm thấy cậu ta ở một quán trọ cách hai ngày đường, đang khóc trên túi tiền. Cậu ta nợ một sòng bạc ở Sanctus. Bạn đưa cậu ta về, và cả làng cùng trả nợ, đổi lại cậu ta phải làm việc cho kho thóc ba năm không công.",
+      "effects": {
+       "joy": 6,
+       "jobXp": 3,
+       "flags": [
+        "frm_coop_mercy"
+       ]
+      },
+      "moment": "Đưa con trai Marta về và cùng làng trả nợ cho cậu ta"
+     },
+     "fail": {
+      "text": "Bạn không tìm thấy cậu ta. Kho thóc trống một nửa qua mùa đông. Marta không ra khỏi nhà suốt ba tháng.",
+      "effects": {
+       "joy": -12,
+       "flags": [
+        "frm_coop_loss"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Để cả làng quyết định",
+     "text": "Làng họp ở sân đình. Có người muốn báo lính, có người muốn tha. Cuối cùng, Marta đứng dậy và tự trả bằng mảnh ruộng của chồng bà. Không ai dám nói gì nữa.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 2,
+      "flags": [
+       "frm_coop_marta_paid"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "frm_coop_lord",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_farmer",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "frm_path_coop"
+    ],
+    "notFlags": [
+     "frm_end"
+    ]
+   },
+   "text": "Lãnh chúa nhận ra kho thóc chung khiến ông ta không ép giá được nữa. Ông ta ban lệnh: mọi kho thóc phải nộp thuế gấp ba, “vì là kho của thương nhân”.",
+   "choices": [
+    {
+     "label": "Kiện lên tòa Sanctus",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn mang theo sổ sách kho thóc, ghi rõ từng hạt thóc của từng gia đình. Tòa xử rằng kho thóc chung là của nông dân, không phải thương nhân. Lãnh chúa thua, và từ đó những làng khác bắt đầu học theo.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "frm_coop_won"
+       ]
+      },
+      "moment": "Thắng kiện lãnh chúa giữ kho thóc chung"
+     },
+     "fail": {
+      "text": "Tòa đứng về phía lãnh chúa. Kho thóc phải giải tán, nhưng các gia đình vẫn bí mật góp thóc trong hầm nhà bạn.",
+      "effects": {
+       "fame": 3,
+       "joy": -6,
+       "flags": [
+        "frm_coop_secret"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Chia nhỏ kho thóc vào từng nhà",
+     "text": "Không còn kho, không còn thuế. Thóc vẫn được góp chung, chỉ là nằm rải rác dưới gầm giường mười hai gia đình. Quản gia đến kiểm tra và không tìm thấy gì.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "frm_coop_secret"
+      ]
+     }
+    },
+    {
+     "label": "Nhờ Dorran nói giúp",
+     "require": {
+      "flags": [
+       "frm_dorran_ally"
+      ]
+     },
+     "text": "Dorran đứng trước lãnh chúa, nói rằng nếu tăng thuế, nông dân sẽ bỏ làng và ông ta sẽ không thu được gì nữa. Lãnh chúa nghe theo quản gia của mình. Dorran nháy mắt với bạn khi ra về.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 2,
+      "flags": [
+       "frm_coop_won"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "frm_land_tenants",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_farmer",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "frm_path_land"
+    ],
+    "notFlags": [
+     "frm_end"
+    ]
+   },
+   "text": "Mùa đông năm ấy khắc nghiệt. Ba mươi gia đình tá điền của bạn không đủ thóc để nộp tô. Trưởng tá điền quỳ trước cửa nhà bạn xin hoãn.",
+   "choices": [
+    {
+     "label": "Miễn tô một năm",
+     "text": "Bạn mất trắng một năm lợi tức. Nhưng mùa xuân năm sau, ba mươi gia đình cày ruộng như cày cho chính mình, và vụ mùa lớn nhất trong mười năm.",
+     "effects": {
+      "wealth": -15,
+      "fame": 4,
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "frm_land_kind"
+      ]
+     },
+     "moment": "Miễn tô cho tá điền trong mùa đông khắc nghiệt"
+    },
+    {
+     "label": "Thu đủ tô như luật",
+     "text": "Ba gia đình phải bỏ làng. Những gia đình khác nộp đủ, và không ai nhìn vào mắt bạn ở chợ nữa.",
+     "effects": {
+      "wealth": 20,
+      "joy": -10,
+      "jobXp": 2,
+      "flags": [
+       "frm_land_harsh"
+      ]
+     }
+    },
+    {
+     "label": "Cho vay thóc, trả dần trong ba năm",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn ghi từng khoản vay vào một cuốn sổ riêng. Ba năm sau, mọi khoản đều được trả, và bạn có ba mươi gia đình tin bạn hơn tin lãnh chúa.",
+      "effects": {
+       "INT": 1,
+       "joy": 6,
+       "jobXp": 3,
+       "flags": [
+        "frm_land_kind"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Sổ sách lộn xộn. Một nửa khoản vay không bao giờ được trả, và bạn không đòi.",
+      "effects": {
+       "wealth": -10,
+       "joy": 2
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "frm_land_dorran_offer",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_farmer",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "frm_path_land",
+     "frm_met_dorran"
+    ],
+    "notFlags": [
+     "frm_end"
+    ]
+   },
+   "text": "Quản gia Dorran đến với một đề nghị: lãnh chúa muốn bán thêm ba trăm mẫu đất, và Dorran sẽ giúp bạn mua với giá rẻ, nếu bạn chia cho ông ta một phần mười lợi tức.",
+   "choices": [
+    {
+     "label": "Nhận lời",
+     "text": "Đất của bạn tăng gấp năm lần. Dorran trở thành người thường xuyên dùng bữa ở nhà bạn. Bạn bắt đầu dùng chính cái thước ngắn của ông ta để đo đất.",
+     "effects": {
+      "wealth": 30,
+      "wealthKind": "windfall",
+      "joy": -8,
+      "jobXp": 3,
+      "flags": [
+       "frm_land_dorran_deal"
+      ]
+     }
+    },
+    {
+     "label": "Từ chối và mua bằng giá thật",
+     "require": {
+      "wealth": 40
+     },
+     "showLocked": true,
+     "text": "Bạn trả đủ giá, không thiếu một đồng. Dorran nhìn bạn như nhìn một kẻ ngốc. Lãnh chúa thì nhớ đến bạn như người duy nhất không mặc cả với ông ta.",
+     "effects": {
+      "wealth": -40,
+      "fame": 5,
+      "jobXp": 3,
+      "flags": [
+       "frm_land_honest"
+      ]
+     }
+    },
+    {
+     "label": "Từ chối, không mua thêm",
+     "text": "Bạn đã có đủ đất. Dorran nhún vai và tìm người khác.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "frm_seed_blight",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_farmer",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "frm_path_seed"
+    ],
+    "notFlags": [
+     "frm_end"
+    ]
+   },
+   "text": "Giống lúa mới của Tháp Ngà cho năng suất gấp đôi, nhưng năm thứ ba, nó bắt đầu chết vì một loại nấm lạ. Nấm đang lan sang những luống lúa cũ.",
+   "choices": [
+    {
+     "label": "Đốt toàn bộ ruộng giống mới",
+     "text": "Bạn mất cả vụ. Nhưng nấm dừng lại ở bờ ruộng của bạn, và không lan sang làng. Pháp sư Tháp Ngà gửi thư cảm ơn, kèm một hộp hạt giống mới.",
+     "effects": {
+      "wealth": -15,
+      "joy": -4,
+      "fame": 3,
+      "jobXp": 3,
+      "flags": [
+       "frm_seed_burned"
+      ]
+     },
+     "moment": "Đốt ruộng giống mới để cứu cả làng khỏi nấm"
+    },
+    {
+     "label": "Tìm cách chữa cho cây",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn thử mười hai loại thuốc, từ tro bếp đến nước tiểu bò. Loại thứ mười một có tác dụng: nước ngâm vỏ hành. Bạn viết cách chữa thành một tờ giấy và gửi đến mọi làng trong vùng.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "frm_seed_cure"
+       ]
+      },
+      "moment": "Tìm ra cách chữa bệnh nấm cho giống lúa mới"
+     },
+     "fail": {
+      "text": "Không có gì hiệu quả. Nấm lan sang ruộng của Marta và ba nhà khác trước khi bạn kịp đốt.",
+      "effects": {
+       "joy": -15,
+       "wealth": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "frm_seed_hybrid",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_farmer",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "frm_path_seed"
+    ],
+    "notFlags": [
+     "frm_end"
+    ]
+   },
+   "text": "Bạn lai được một giống lúa của riêng mình, từ hạt giống Tháp Ngà và giống lúa cổ của làng: chịu hạn, chịu nấm, hạt chắc. Tháp Ngà muốn mua bản quyền giống lúa.",
+   "choices": [
+    {
+     "label": "Bán cho Tháp Ngà",
+     "text": "Tháp Ngà trả một khoản lớn và đặt tên giống lúa theo tên một pháp sư. Giống lúa được bán khắp vương quốc với giá cao. Nông dân nghèo không mua nổi.",
+     "effects": {
+      "wealth": 35,
+      "wealthKind": "windfall",
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "frm_seed_sold"
+      ]
+     }
+    },
+    {
+     "label": "Phát miễn phí cho mọi làng",
+     "text": "Bạn đi khắp các làng, mỗi làng để lại một bao hạt giống. Người ta gọi giống lúa ấy bằng tên bạn. Tháp Ngà không vui, nhưng không làm gì được với một giống lúa đã mọc khắp nơi.",
+     "effects": {
+      "fame": 8,
+      "joy": 12,
+      "jobXp": 3,
+      "flags": [
+       "frm_seed_free"
+      ]
+     },
+     "moment": "Phát giống lúa của mình miễn phí cho mọi làng"
+    }
+   ]
+  },
+  {
+   "id": "frm_c4_marta",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_farmer",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "frm_met_marta"
+    ],
+    "notFlags": [
+     "frm_marta_gone",
+     "frm_end"
+    ]
+   },
+   "text": "Marta Bell đã quá già để ra đồng. Bà ngồi bên cửa sổ nhìn ra ruộng, nơi bạn đang cày, và gọi bạn vào nhà lần cuối.",
+   "choices": [
+    {
+     "label": "Ngồi với bà",
+     "text": "Bà kể về người chồng đã mất, về những mùa lụt, mùa hạn, về lần đầu bà thấy bạn cày một đường xiêu vẹo. Bà mất vào đầu mùa gieo. Bạn cày ruộng của bà đường thẳng như kẻ chỉ, và gieo hạt đúng như bà dạy.",
+     "effects": {
+      "joy": -2,
+      "jobXp": 3,
+      "flags": [
+       "frm_marta_gone"
+      ]
+     },
+     "moment": "Tiễn bà góa Marta Bell"
+    },
+    {
+     "label": "Nhận nuôi mảnh ruộng của bà",
+     "text": "Marta trao cho bạn chiếc thước cày cũ của chồng bà. “Ruộng này không có con cháu. Giờ thì có.” Bà mất ba ngày sau, và mảnh ruộng của bà vẫn xanh mỗi mùa cho đến khi bạn già.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 3,
+      "flags": [
+       "frm_marta_gone",
+       "frm_marta_field"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "frm_c4_famine",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_farmer",
+    "free": true,
+    "jobRank": 3,
+    "notFlags": [
+     "frm_end"
+    ]
+   },
+   "text": "Kỷ Nguyên Nạn Đói đến. Ba năm không mưa. Kho thóc của bạn là kho thóc duy nhất còn đầy trong vùng, và hàng nghìn người từ những làng xa đang kéo đến.",
+   "choices": [
+    {
+     "label": "Mở kho, phát thóc theo khẩu phần",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn tính toán từng hạt: đủ để mọi người sống, không ai no. Ba năm, không ai trong vùng chết đói. Khi mưa trở lại, bạn đã hết sạch thóc và có hàng nghìn người mang ơn.",
+      "effects": {
+       "fame": 12,
+       "joy": 10,
+       "wealth": -25,
+       "jobXp": 4,
+       "flags": [
+        "frm_famine_saved"
+       ]
+      },
+      "moment": "Giữ cho cả vùng sống sót qua ba năm nạn đói"
+     },
+     "fail": {
+      "text": "Khẩu phần không đủ. Cuối năm thứ hai, kho cạn, và có những người không qua được mùa đông. Nhưng nhiều người khác đã sống.",
+      "effects": {
+       "fame": 8,
+       "joy": -8,
+       "wealth": -25,
+       "flags": [
+        "frm_famine_saved"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Bán thóc với giá cao",
+     "text": "Bạn trở thành người giàu nhất vùng trong ba năm. Khi mưa trở lại, bạn nhận ra mình không còn ai để bán thóc nữa.",
+     "effects": {
+      "wealth": 50,
+      "wealthKind": "windfall",
+      "joy": -20,
+      "jobXp": 3,
+      "flags": [
+       "frm_famine_profit"
+      ]
+     }
+    },
+    {
+     "label": "Dắt Mây đi cày những cánh đồng khô của làng bên",
+     "require": {
+      "flags": [
+       "frm_ox"
+      ]
+     },
+     "text": "Mây đã rất già, nhưng nó vẫn kéo cày. Hai người, một bò, cày cho những làng không còn bò nào. Khi mưa đến, những cánh đồng ấy là những cánh đồng đầu tiên xanh lại.",
+     "effects": {
+      "fame": 6,
+      "joy": 12,
+      "jobXp": 3,
+      "flags": [
+       "frm_famine_plow"
+      ]
+     },
+     "moment": "Cùng con bò Mây cày ruộng cho những làng đói"
+    }
+   ]
+  },
+  {
+   "id": "frm_c5_coop",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_farmer",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "frm_path_coop"
+    ],
+    "notFlags": [
+     "frm_end"
+    ]
+   },
+   "text": "Kho thóc chung của làng bạn giờ đã thành một mạng lưới hai trăm làng trên khắp Đồng Bằng. Người ta gọi bạn là Agriculture King, dù bạn chưa bao giờ sở hữu quá mười mẫu ruộng.",
+   "choices": [
+    {
+     "label": "Viết điều lệ cho mạng lưới, rồi rút lui",
+     "text": "Điều lệ dài đúng một trang: mỗi làng một phiếu, không ai được bán thóc chung dưới giá vốn, và không ai được làm chủ tịch quá ba năm, kể cả bạn. Bạn về lại mười mẫu ruộng của mình.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "frm_end",
+       "frm_end_charter"
+      ]
+     },
+     "moment": "Viết điều lệ cho mạng lưới hai trăm kho thóc"
+    },
+    {
+     "label": "Ở lại dẫn dắt đến cuối đời",
+     "text": "Bạn đi từ làng này sang làng khác, giải quyết từng cuộc cãi vã về thóc và nước. Mạng lưới lớn mạnh, và khi bạn mất, hai trăm làng cùng đóng kho một ngày để tưởng nhớ.",
+     "effects": {
+      "fame": 15,
+      "joy": 8,
+      "flags": [
+       "frm_end",
+       "frm_end_elder"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "frm_c5_land",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_farmer",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "frm_path_land"
+    ],
+    "notFlags": [
+     "frm_end"
+    ]
+   },
+   "text": "Bạn sở hữu nhiều đất hơn cả lãnh chúa từng sở hữu. Người ta gọi bạn là Agriculture King. Một sáng, con trai của một gia đình tá điền đến hỏi bạn: “Bao giờ thì đất này là của bố cháu?”",
+   "choices": [
+    {
+     "label": "Chia đất cho tá điền",
+     "require": {
+      "anyFlags": [
+       "frm_land_kind",
+       "frm_land_honest"
+      ]
+     },
+     "text": "Bạn gọi luật sư và chia ba nghìn mẫu cho ba trăm gia đình. Bạn giữ lại mười mẫu, đúng bằng mảnh ruộng đầu tiên. Người ta nói bạn điên. Những gia đình ấy thì không nói gì; họ chỉ cày.",
+     "effects": {
+      "fame": 15,
+      "joy": 18,
+      "wealth": -40,
+      "flags": [
+       "frm_end",
+       "frm_end_land_given"
+      ]
+     },
+     "moment": "Chia ba nghìn mẫu ruộng cho tá điền"
+    },
+    {
+     "label": "Trả lời: “Không bao giờ.”",
+     "text": "Đứa trẻ cúi đầu bỏ đi. Đất của bạn tiếp tục lớn lên, và bạn chết giàu hơn mọi lãnh chúa trong vùng. Không ai trong ba trăm gia đình đến đám tang.",
+     "effects": {
+      "wealth": 40,
+      "fame": 10,
+      "joy": -10,
+      "flags": [
+       "frm_end",
+       "frm_end_dynasty"
+      ]
+     }
+    },
+    {
+     "label": "Trả lời: “Khi cháu đủ lớn để mua nó.”",
+     "text": "Bạn lập một quỹ cho con cái tá điền vay mua đất với lãi bằng không. Ba mươi năm sau, nửa số đất của bạn đã thuộc về những đứa trẻ năm ấy.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "frm_end",
+       "frm_end_land_fund"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "frm_c5_seed",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_farmer",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "frm_path_seed"
+    ],
+    "notFlags": [
+     "frm_end"
+    ]
+   },
+   "text": "Giống lúa của bạn giờ được trồng khắp Aethelgard, cả ở những vùng Beastman trên Thảo Nguyên và những thung lũng của Dwarf. Tháp Ngà muốn phong bạn làm học giả danh dự.",
+   "choices": [
+    {
+     "label": "Nhận danh hiệu, dạy lại cho học trò Tháp Ngà",
+     "text": "Lần đầu tiên, một nông dân đứng giảng ở Tháp Ngà. Bài giảng của bạn bắt đầu bằng câu: “Hãy cởi giày ra và đứng xuống đất.” Một nửa học trò bỏ về. Nửa còn lại trở thành những nhà nông học giỏi nhất thế hệ.",
+     "effects": {
+      "fame": 15,
+      "INT": 1,
+      "joy": 10,
+      "flags": [
+       "frm_end",
+       "frm_end_professor"
+      ]
+     }
+    },
+    {
+     "label": "Từ chối, tiếp tục lai giống ở góc ruộng",
+     "text": "Bạn ở lại góc ruộng của mình, với cuốn sổ ghi chép đã dày như một bộ sách. Giống lúa cuối cùng bạn lai được đặt tên theo mảnh ruộng đầu tiên của bạn.",
+     "effects": {
+      "joy": 18,
+      "fame": 10,
+      "flags": [
+       "frm_end",
+       "frm_end_field_corner"
+      ]
+     },
+     "moment": "Lai giống lúa cuối cùng ở góc ruộng của mình"
+    }
+   ]
+  },
+  {
+   "id": "frm_daily_crow",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_farmer",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Bầy quạ ăn hết nửa luống hạt giống vừa gieo. Bù nhìn rơm của bạn đã bị chúng làm tổ.",
+   "choices": [
+    {
+     "label": "Làm một bù nhìn mới đáng sợ hơn",
+     "text": "Bù nhìn mới mặc áo của bạn, đội mũ của bạn. Bầy quạ bay đi. Hàng xóm thì cứ chào nó mỗi sáng.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Gieo dư ra một luống cho bầy quạ",
+     "text": "Bầy quạ ăn luống của chúng và để yên những luống khác. Hàng xóm nói bạn là kẻ ngốc nhất làng. Lúa năm ấy vẫn tốt.",
+     "effects": {
+      "joy": 4,
+      "LUCK": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "frm_daily_harvest_festival",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_farmer",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Lễ hội mùa gặt, làng tổ chức thi xem nhà ai có bí đỏ to nhất. Bí của bạn năm nay to bằng cái bánh xe.",
+   "choices": [
+    {
+     "label": "Mang đi thi",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Bí của bạn thắng. Bạn được đội vòng lúa mì lên đầu và nhảy với mọi người đến sáng.",
+      "effects": {
+       "joy": 10,
+       "fame": 2
+      }
+     },
+     "fail": {
+      "text": "Bí nhà bên to hơn một chút. Bạn chúc mừng họ và ăn bí của mình suốt mùa đông.",
+      "effects": {
+       "joy": 4
+      }
+     }
+    },
+    {
+     "label": "Nấu súp bí cho cả làng",
+     "text": "Nồi súp to nhất làng. Ai cũng được một bát. Không ai nhớ ai thắng cuộc thi năm ấy, nhưng ai cũng nhớ nồi súp.",
+     "effects": {
+      "joy": 10,
+      "fame": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "frm_daily_war_requisition",
+   "races": [
+    "human"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_farmer",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Quân đội đi qua làng, trưng thu ngựa và bò cho Tuyến Đầu. Họ chỉ để lại cho mỗi nhà một con.",
+   "choices": [
+    {
+     "label": "Giấu bò vào rừng",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Lính đi qua, không thấy gì. Bò của bạn ăn cỏ trong rừng suốt một tuần.",
+      "effects": {
+       "joy": 6
+      }
+     },
+     "fail": {
+      "text": "Lính tìm thấy và tịch thu cả hai con, kèm theo một khoản phạt.",
+      "effects": {
+       "wealth": -12,
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Giao bò, xin giấy biên nhận",
+     "text": "Ba năm sau, khi chiến tranh kết thúc, bạn mang giấy biên nhận đến đòi. Người ta trả cho bạn một nửa giá trị, bằng tiền giấy đã mất giá.",
+     "effects": {
+      "wealth": -8,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "frm_daily_old_back",
+   "races": [
+    "human"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_farmer",
+    "free": true
+   },
+   "text": "Lưng bạn không còn cúi xuống được để cấy lúa. Sáng nay bạn đứng ở bờ ruộng, nhìn người khác làm việc mà mình đã làm cả đời.",
+   "choices": [
+    {
+     "label": "Đứng bên bờ ruộng chỉ dẫn, như Marta ngày xưa",
+     "text": "Những người trẻ cấy lúa dưới tiếng nói của bạn. Đường cấy của họ thẳng như kẻ chỉ. Bạn hiểu ra Marta đã cảm thấy thế nào khi đứng bên bờ rào.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Làm một chiếc ghế thấp để ngồi cấy",
+     "text": "Bạn cấy chậm, ngồi trên chiếc ghế gỗ nhỏ, nhưng vẫn cấy. Ruộng của bạn năm ấy xanh không kém ai.",
+     "effects": {
+      "joy": 6,
+      "STR": 1
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1230 @@
+{
+ "_note": "Tuyến truyện Blacksmith: 5 chương theo bậc, ba đạo ở Bậc 2 (smt_path_arms / smt_path_rune / smt_path_village), nhân vật xuyên suốt Bran Hollow, Thrudi (Dwarf) và cô học việc Tam.",
+ "origins": [],
+ "events": [
+  {
+   "id": "smt_c1_bran",
+   "races": [
+    "human"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "human_smith",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "smt_met_bran"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Bran Hollow",
+     "race": "Human",
+     "position": "Thợ cả lò rèn dốc Sanctus"
+    }
+   ],
+   "text": "Lò rèn của Bran Hollow là lò nóng nhất dốc Sanctus, và lão là người nóng tính nhất. Ngày đầu, lão không cho bạn chạm vào búa. Lão chỉ đưa cho bạn một cái chổi và chỉ vào đống than xỉ cao ngang ngực: “Khi nào ngươi phân biệt được than tốt với than xấu bằng tiếng nó kêu, thì quay lại.”",
+   "choices": [
+    {
+     "label": "Ngồi nghe tiếng than suốt một tuần",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Đến ngày thứ năm, bạn nghe ra: than tốt kêu trong như chuông, than xấu kêu đục như đất. Bran nhặt một cục, gõ, nghe, rồi đưa bạn chiếc búa nhỏ nhất trong lò.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "smt_met_bran",
+        "smt_bran_respect"
+       ]
+      },
+      "moment": "Nghe được tiếng than tốt trong lò Bran Hollow"
+     },
+     "fail": {
+      "text": "Một tuần trôi qua, mọi cục than đều kêu như nhau với bạn. Bran thở dài, rồi cầm tay bạn gõ từng cục cho đến khi bạn nghe ra.",
+      "effects": {
+       "joy": -3,
+       "flags": [
+        "smt_met_bran"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Thổi bễ giúp lão trong lúc chờ",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Lò của Bran chưa bao giờ đỏ đều như thế. Lão liếc bạn, rồi càu nhàu: “Tay khỏe thì tốt. Nhưng đừng tưởng thế là đủ.” Lão vẫn cho bạn cầm búa sớm hơn kế hoạch.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "smt_met_bran"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn thổi quá mạnh, lửa bùng lên làm cháy sém lông mày lão. Bran chửi suốt một buổi chiều.",
+      "effects": {
+       "health": -4,
+       "flags": [
+        "smt_met_bran"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "smt_c1_thrudi",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_smith",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "smt_met_bran"
+    ],
+    "notFlags": [
+     "smt_met_thrudi"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Thrudi",
+     "race": "Dwarf",
+     "position": "Nữ thợ rèn từ Dãy Núi Răng Cưa"
+    }
+   ],
+   "text": "Một nữ thợ rèn Dwarf thuê một góc lò của Bran để sửa rìu. Thrudi thấp đến ngang ngực bạn, râu tết thành ba bím, và bà ta cười phá lên khi thấy bạn tôi thép: “Loài người tôi thép như đang tắm cho mèo.”",
+   "choices": [
+    {
+     "label": "Đề nghị bà ta chỉ cho cách tôi thép kiểu Dwarf",
+     "text": "Thrudi ngạc nhiên, rồi cười to hơn. Bà dạy bạn tôi thép bằng dầu hạt lanh và đếm nhịp bằng một bài hát Dwarf có mười bảy đoạn. Bạn học thuộc bài hát trước khi học được cách tôi.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "smt_met_thrudi",
+       "smt_thrudi_friend"
+      ]
+     },
+     "moment": "Học tôi thép kiểu Dwarf từ Thrudi"
+    },
+    {
+     "label": "Thách bà ta thi rèn một con dao",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Con dao của bạn thô, nhưng sắc. Con dao của Thrudi đẹp như trang sức. Bà ta cầm dao bạn lên, thử cắt một sợi tóc, rồi gật đầu: “Không tệ, với một con người.” Từ đó bà ta luôn tìm bạn để thi.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "smt_met_thrudi",
+        "smt_thrudi_rival"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Con dao của bạn gãy khi thử chặt. Thrudi không cười nữa; bà ta chỉ lắc đầu và đưa bạn một mảnh thép mới.",
+      "effects": {
+       "joy": -5,
+       "flags": [
+        "smt_met_thrudi",
+        "smt_thrudi_rival"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "smt_c2_masterpiece",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_smith",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "smt_masterwork",
+     "smt_end"
+    ]
+   },
+   "text": "Để được Bran công nhận là thợ rèn thực thụ, bạn phải tự tay làm một món đồ bằng thép, từ quặng đến chuôi, không ai giúp. Bran không nói phải làm gì.",
+   "choices": [
+    {
+     "label": "Rèn một thanh kiếm",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Thanh kiếm cân bằng hoàn hảo trên ngón tay. Bran cầm lên, nheo mắt nhìn dọc sống kiếm, rồi đặt nó lên giá treo của lò, chỗ dành cho những món đồ lão không bán.",
+      "effects": {
+       "STR": 1,
+       "fame": 3,
+       "jobXp": 2,
+       "flags": [
+        "smt_masterwork",
+        "smt_first_sword"
+       ]
+      },
+      "moment": "Rèn thanh kiếm đầu tiên được Bran Hollow giữ lại"
+     },
+     "fail": {
+      "text": "Thanh kiếm cong vênh sau lần tôi cuối. Bran nhìn nó rất lâu, rồi nói: “Làm lại.” Bạn làm lại bốn lần.",
+      "effects": {
+       "health": -8,
+       "jobXp": 1,
+       "flags": [
+        "smt_masterwork"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Rèn một lưỡi cày",
+     "text": "Bran nhìn lưỡi cày, rồi nhìn bạn. “Kiếm thì giết một người. Lưỡi cày thì nuôi một làng.” Lão không nói gì thêm, nhưng tối hôm ấy lão mời bạn uống rượu.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "smt_masterwork",
+       "smt_first_plow"
+      ]
+     },
+     "moment": "Rèn lưỡi cày làm bài thi thợ rèn"
+    },
+    {
+     "label": "Rèn một chiếc khóa không ai mở được",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bran mất cả buổi chiều thử mở. Lão không mở được. Lão đưa lại cho bạn với vẻ mặt vừa bực vừa tự hào.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 2,
+       "flags": [
+        "smt_masterwork",
+        "smt_first_lock"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bran mở nó bằng một cây đinh trong ba hơi thở. “Làm lại, nhưng lần này nghĩ như kẻ trộm.”",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "smt_masterwork"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "smt_c2_crossroads",
+   "races": [
+    "human"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "human_smith",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "smt_path_arms",
+     "smt_path_rune",
+     "smt_path_village",
+     "smt_end"
+    ]
+   },
+   "text": "Ba đơn đặt hàng nằm trên đe của bạn cùng một sáng. Quân đội Sanctus cần một nghìn mũi giáo trong ba tháng. Tháp Ngà muốn tìm một thợ rèn chịu học khắc rune vào thép. Và một làng ven Đồng Bằng vừa mất thợ rèn duy nhất, cả làng góp tiền gửi thư mời bạn về.",
+   "choices": [
+    {
+     "label": "Nhận hợp đồng quân đội: Lò Quân Giới",
+     "text": "Lò của bạn chạy cả ngày lẫn đêm. Mười hai thợ phụ, sáu cái đe, và tiếng búa không bao giờ ngừng. Bạn bắt đầu đo thời gian bằng số mũi giáo.",
+     "effects": {
+      "wealth": 15,
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "smt_path_arms"
+      ]
+     },
+     "moment": "Mở Lò Quân Giới cho quân đội Sanctus"
+    },
+    {
+     "label": "Học khắc rune ở Tháp Ngà: Rèn Rune",
+     "text": "Các pháp sư nhìn tay bạn đầy vết chai và than bụi như nhìn một con gấu vào thư viện. Nhưng thép không nghe lời phù chú; nó nghe lời búa. Họ cần bạn hơn bạn cần họ.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "smt_path_rune"
+      ]
+     },
+     "moment": "Đến Tháp Ngà học rèn rune"
+    },
+    {
+     "label": "Về làng làm thợ rèn: Lò Làng",
+     "text": "Lò làng nhỏ, đe mòn, và việc đầu tiên bạn làm là đóng móng cho một con ngựa già. Nhưng mỗi sáng có trẻ con đứng ở cửa xem bạn làm, và mỗi tối có ai đó mang đến một giỏ trứng.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 2,
+      "flags": [
+       "smt_path_village"
+      ]
+     },
+     "moment": "Về làm thợ rèn cho một ngôi làng"
+    }
+   ]
+  },
+  {
+   "id": "smt_arms_quota",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_smith",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "smt_path_arms"
+    ],
+    "notFlags": [
+     "smt_end"
+    ]
+   },
+   "text": "Quân đội tăng đơn hàng lên gấp đôi, nhưng không tăng thời hạn. Thợ phụ của bạn đã làm việc mười tám giờ mỗi ngày, và hôm qua một cậu mười lăm tuổi ngất bên lò.",
+   "choices": [
+    {
+     "label": "Từ chối đơn tăng thêm",
+     "text": "Viên đại tá quăng hợp đồng xuống đất và đe dọa sẽ tìm lò khác. Ông ta không tìm được ai làm tốt bằng bạn. Một tháng sau, ông ta quay lại với thời hạn gấp đôi.",
+     "effects": {
+      "joy": 6,
+      "fame": 3,
+      "jobXp": 2,
+      "flags": [
+       "smt_arms_humane"
+      ]
+     }
+    },
+    {
+     "label": "Tuyển thêm thợ và chia ca",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn chia lò làm ba ca, mỗi ca tám giờ, và dạy thợ mới cách rèn nhanh mà không ẩu. Đơn hàng xong đúng hạn, không ai ngất nữa.",
+      "effects": {
+       "INT": 1,
+       "wealth": 15,
+       "jobXp": 3,
+       "flags": [
+        "smt_arms_humane",
+        "smt_arms_system"
+       ]
+      },
+      "moment": "Tổ chức Lò Quân Giới làm việc theo ca"
+     },
+     "fail": {
+      "text": "Thợ mới làm hỏng một lô giáo. Bạn phải bù tiền và vẫn trễ hạn.",
+      "effects": {
+       "wealth": -15,
+       "fame": -3
+      }
+     }
+    },
+    {
+     "label": "Ép thợ làm cho xong",
+     "text": "Đơn hàng xong. Cậu bé mười lăm tuổi không quay lại làm nữa, và bạn không hỏi cậu ta đi đâu.",
+     "effects": {
+      "wealth": 25,
+      "joy": -12,
+      "jobXp": 2,
+      "flags": [
+       "smt_arms_harsh"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "smt_arms_enemy_blade",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_smith",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "smt_path_arms"
+    ],
+    "notFlags": [
+     "smt_end"
+    ]
+   },
+   "text": "Sau một trận đánh ở biên giới, quân đội gửi về lò bạn một thanh kiếm thu được từ xác một chiến binh Ma tộc. Lưỡi kiếm bị gãy, và trên mảnh gãy có dấu búa của chính bạn.",
+   "choices": [
+    {
+     "label": "Điều tra xem kiếm của mình đến tay Ma tộc bằng cách nào",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn lần theo sổ sách và tìm ra một viên quan hậu cần đã bán vũ khí cho cả hai phe. Hắn bị treo cổ. Bạn khắc thêm số hiệu bí mật vào mọi lưỡi kiếm từ đó.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "smt_arms_traitor_found"
+       ]
+      },
+      "moment": "Phát hiện kẻ bán vũ khí cho Ma tộc"
+     },
+     "fail": {
+      "text": "Dấu vết dẫn đến một bàn giấy trong Bộ Chiến tranh, và có người khuyên bạn đừng hỏi thêm.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Nấu chảy nó và rèn lại",
+     "text": "Thép là thép. Bạn đưa nó vào lò, và thanh kiếm Ma tộc trở thành một chiếc móng ngựa. Nhưng đêm ấy bạn đếm lại số kiếm mình đã rèn, và không dám tưởng tượng chúng đang ở đâu.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "smt_rune_first_glyph",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_smith",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "smt_path_rune"
+    ],
+    "notFlags": [
+     "smt_end"
+    ]
+   },
+   "text": "Rune đầu tiên bạn khắc vào thép là rune Cứng. Pháp sư hướng dẫn cảnh báo: nếu khắc sai một nét khi thép còn nóng, nó sẽ nổ. Nếu khắc khi thép nguội, rune sẽ không thức.",
+   "choices": [
+    {
+     "label": "Khắc khi thép còn nóng đỏ",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Tay bạn vững như đe. Rune bừng sáng, rồi chìm vào thép như một hơi thở. Pháp sư lặng người: thợ rèn đầu tiên làm được trong lần thử đầu.",
+      "effects": {
+       "STR": 1,
+       "fame": 4,
+       "jobXp": 3,
+       "flags": [
+        "smt_rune_awake"
+       ]
+      },
+      "moment": "Đánh thức rune đầu tiên trên thép nóng"
+     },
+     "fail": {
+      "text": "Một nét lệch. Thép nổ, mảnh vụn găm vào cánh tay bạn. Pháp sư băng bó cho bạn và nói: “Lần sau sẽ tốt hơn.” Có những thợ rèn không có lần sau.",
+      "effects": {
+       "health": -20,
+       "jobXp": 1,
+       "flags": [
+        "smt_rune_scar"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Nghĩ ra cách khắc khi thép đang nguội dần",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn khắc từng nét theo nhịp nhiệt độ hạ xuống, như hát theo bài hát của Thrudi. Rune thức dậy chậm hơn, nhưng sâu hơn. Tháp Ngà ghi phương pháp của bạn vào sách.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "smt_rune_awake",
+        "smt_rune_method"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Rune không thức. Bạn mất ba tháng thử nghiệm vô ích.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "smt_rune_hungry_blade",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_smith",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "smt_path_rune"
+    ],
+    "notFlags": [
+     "smt_end"
+    ]
+   },
+   "text": "Một quý tộc đặt bạn rèn một thanh kiếm khắc rune Đói, loại rune khiến lưỡi kiếm hút sinh lực của kẻ bị chém. Ông ta trả bằng một rương Lõi Mana.",
+   "choices": [
+    {
+     "label": "Từ chối",
+     "text": "Quý tộc tìm thợ khác. Thanh kiếm Đói vẫn ra đời, nhưng không phải từ tay bạn. Bạn tự nhủ thế là đủ, và không hoàn toàn tin điều đó.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Rèn nó, nhưng khắc thêm một rune Khóa bí mật",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Thanh kiếm hút sinh lực của ba người, rồi rune Khóa thức dậy và nó trở thành một thanh sắt cùn. Quý tộc không bao giờ biết vì sao.",
+      "effects": {
+       "INT": 1,
+       "wealth": 25,
+       "jobXp": 3,
+       "flags": [
+        "smt_rune_trickster"
+       ]
+      },
+      "moment": "Khóa thanh kiếm hút máu bằng một rune bí mật"
+     },
+     "fail": {
+      "text": "Rune Khóa không thức. Thanh kiếm Đói rời lò của bạn hoàn chỉnh, và bạn nghe tin về nó trong nhiều năm sau.",
+      "effects": {
+       "wealth": 25,
+       "joy": -15
+      }
+     }
+    },
+    {
+     "label": "Rèn đúng như ông ta muốn",
+     "text": "Đó là thanh kiếm đẹp nhất bạn từng rèn. Bạn cố không nghĩ đến những người sẽ bị nó chém.",
+     "effects": {
+      "wealth": 40,
+      "wealthKind": "windfall",
+      "joy": -15,
+      "jobXp": 3,
+      "flags": [
+       "smt_rune_hunger"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "smt_village_bandits_steel",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_smith",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "smt_path_village"
+    ],
+    "notFlags": [
+     "smt_end"
+    ]
+   },
+   "text": "Bọn cướp đến làng và đòi bạn rèn vũ khí cho chúng, nếu không sẽ đốt lò. Thủ lĩnh của chúng chỉ là một gã trẻ, cầm một thanh kiếm gỉ sét mà bạn nhận ra đường rèn: của Bran Hollow.",
+   "choices": [
+    {
+     "label": "Rèn cho chúng những thanh kiếm giòn như thủy tinh",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Ngày bọn cướp tấn công làng bên, kiếm của chúng gãy ngay nhát đầu tiên. Chúng bỏ chạy, và không bao giờ quay lại.",
+      "effects": {
+       "INT": 1,
+       "fame": 4,
+       "jobXp": 3,
+       "flags": [
+        "smt_village_defended"
+       ]
+      },
+      "moment": "Rèn kiếm giòn cho bọn cướp để bảo vệ làng"
+     },
+     "fail": {
+      "text": "Một tên phát hiện ra mánh khóe và chém gãy cánh tay bạn bằng thanh kiếm cũ.",
+      "effects": {
+       "health": -25,
+       "flags": [
+        "smt_village_defended"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi gã trẻ về thanh kiếm của Bran",
+     "text": "Gã kể rằng cha gã từng là lính, chết với thanh kiếm ấy trong tay. Bạn rèn lại nó cho gã, sáng như mới, và gã rời làng mà không cướp gì. Bạn không biết gã sẽ dùng nó vào việc gì.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 2,
+      "flags": [
+       "smt_village_mercy"
+      ]
+     }
+    },
+    {
+     "label": "Rèn giáo cho dân làng thay vì cho bọn cướp",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn làm ba đêm liền, đủ hai mươi mũi giáo. Bọn cướp đến và gặp một hàng giáo mới. Chúng bỏ đi.",
+      "effects": {
+       "STR": 1,
+       "fame": 4,
+       "jobXp": 3,
+       "flags": [
+        "smt_village_defended"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Chỉ kịp mười mũi giáo. Làng giữ được, nhưng lò của bạn bị đốt.",
+      "effects": {
+       "wealth": -20,
+       "joy": -8,
+       "flags": [
+        "smt_village_defended"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "smt_village_tam",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_smith",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "smt_path_village"
+    ],
+    "notFlags": [
+     "smt_met_tam",
+     "smt_end"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Tam",
+     "race": "Human",
+     "position": "Cô bé học việc ở lò rèn làng"
+    }
+   ],
+   "text": "Một cô bé mười tuổi tên Tam ngày nào cũng đứng ở cửa lò xem bạn làm, từ sáng đến tối. Cha cô là thợ săn, và ông ta không muốn con gái học nghề rèn.",
+   "choices": [
+    {
+     "label": "Nói chuyện với cha cô bé",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn mời ông ta vào lò, đưa cho ông xem một mũi tên bạn rèn và một mũi tên Tam rèn thử. Ông không phân biệt được. Từ hôm sau, Tam chính thức là học việc của bạn.",
+      "effects": {
+       "joy": 10,
+       "jobXp": 2,
+       "flags": [
+        "smt_met_tam"
+       ]
+      },
+      "moment": "Nhận cô bé Tam làm học việc"
+     },
+     "fail": {
+      "text": "Ông ta giận dữ lôi Tam về. Nhưng tối nào cô bé cũng lén trốn ra, và bạn để cửa lò khép hờ.",
+      "effects": {
+       "joy": 4,
+       "flags": [
+        "smt_met_tam"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đưa cô bé một cái búa nhỏ, không hỏi ai",
+     "text": "Tam cầm búa như cầm báu vật. Cha cô đến lò, định quát, rồi thấy con gái đang gõ một chiếc đinh thẳng tắp. Ông ta đứng im một lúc lâu rồi bỏ về.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 1,
+      "flags": [
+       "smt_met_tam"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "smt_c4_bran",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_smith",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "smt_met_bran"
+    ],
+    "notFlags": [
+     "smt_bran_gone",
+     "smt_end"
+    ]
+   },
+   "text": "Bran Hollow bị mù sau một tai nạn ở lò. Lão vẫn ngồi bên đe mỗi sáng, nghe tiếng búa của những thợ khác, và chửi khi họ đánh sai nhịp.",
+   "choices": [
+    {
+     "label": "Mời lão về lò của mình, để lão nghe và sửa cho thợ của bạn",
+     "text": "Bran nghe tiếng búa từ sáng đến tối và sửa từng người. Thợ của bạn sợ lão hơn sợ bạn. Lão mất vào mùa đông, ngồi bên đe, và người ta nói lão ra đi giữa một câu chửi.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "smt_bran_gone",
+       "smt_bran_last_years"
+      ]
+     },
+     "moment": "Đón Bran Hollow mù lòa về lò của mình"
+    },
+    {
+     "label": "Rèn cho lão một chiếc búa có rãnh để lão nhận ra bằng tay",
+     "require": {
+      "flags": [
+       "smt_bran_respect"
+      ]
+     },
+     "text": "Bran sờ vào chiếc búa, ngón tay lướt qua từng rãnh. Lão gõ một nhát vào đe, và tiếng kêu trong như chuông. “Than tốt,” lão nói. Đó là lời cuối cùng lão nói về nghề.",
+     "effects": {
+      "joy": 10,
+      "fame": 3,
+      "jobXp": 3,
+      "flags": [
+       "smt_bran_gone",
+       "smt_bran_hammer"
+      ]
+     },
+     "moment": "Rèn chiếc búa cuối cùng cho Bran Hollow"
+    }
+   ]
+  },
+  {
+   "id": "smt_c4_hero_order",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_smith",
+    "free": true,
+    "jobRank": 3,
+    "notFlags": [
+     "smt_end"
+    ]
+   },
+   "text": "Dũng Giả của thời đại này đến lò của bạn, không phải để sửa kiếm, mà để đặt rèn một thanh mới. Người ấy chỉ có một yêu cầu: thanh kiếm phải giết được Ma Vương, và không giết được ai khác.",
+   "choices": [
+    {
+     "label": "Nhận đơn và dồn cả đời mình vào nó",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn rèn suốt một năm. Khi xong, thanh kiếm nặng như một ngọn núi với bất kỳ ai, trừ Dũng Giả. Người ấy cầm lên, và bạn thấy nước mắt trong mắt người ấy. Thanh kiếm được đặt tên theo tên bạn.",
+      "effects": {
+       "STR": 1,
+       "fame": 12,
+       "lifeCost": 3,
+       "jobXp": 4,
+       "flags": [
+        "smt_hero_blade"
+       ]
+      },
+      "moment": "Rèn thanh kiếm của Dũng Giả"
+     },
+     "fail": {
+      "text": "Thanh kiếm hoàn thành, nhưng giết được bất kỳ ai. Dũng Giả vẫn nhận nó, và bạn sợ ngày nó rơi vào tay người khác.",
+      "effects": {
+       "fame": 6,
+       "joy": -10,
+       "flags": [
+        "smt_hero_blade_flawed"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Rèn cùng Thrudi",
+     "require": {
+      "flags": [
+       "smt_met_thrudi"
+      ]
+     },
+     "text": "Thrudi đến từ Răng Cưa, mang theo một khối thép tổ tiên. Hai người rèn suốt chín tháng, bạn đánh nhịp, Thrudi hát. Thanh kiếm mang hai dấu búa, một của loài người, một của Dwarf, và lần đầu tiên trong lịch sử, hai tộc ký tên trên cùng một vũ khí.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "jobXp": 4,
+      "flags": [
+       "smt_hero_blade",
+       "smt_thrudi_friend"
+      ],
+      "unflags": [
+       "smt_thrudi_rival"
+      ]
+     },
+     "moment": "Cùng Thrudi rèn thanh kiếm Dũng Giả"
+    },
+    {
+     "label": "Từ chối: không có thanh kiếm nào chỉ giết một người",
+     "text": "Dũng Giả nhìn bạn rất lâu, rồi gật đầu. “Ngươi là thợ rèn thứ mười từ chối ta. Nhưng ngươi là người đầu tiên nói thật vì sao.”",
+     "effects": {
+      "INT": 1,
+      "joy": 4,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "smt_c5_arms",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_smith",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "smt_path_arms"
+    ],
+    "notFlags": [
+     "smt_end"
+    ]
+   },
+   "text": "Lò Quân Giới của bạn giờ là xưởng vũ khí lớn nhất Aethelgard. Người ta gọi bạn là Thần Rèn của vương quốc. Một sứ giả hòa bình từ Thảo Nguyên đến, đề nghị một hiệp ước, với điều kiện Sanctus giảm một nửa sản lượng vũ khí.",
+   "choices": [
+    {
+     "label": "Chuyển nửa lò sang rèn nông cụ",
+     "require": {
+      "anyFlags": [
+       "smt_arms_humane",
+       "smt_arms_traitor_found"
+      ]
+     },
+     "text": "Hiệp ước được ký. Lò của bạn rèn ra những lưỡi cày đầu tiên sau hai mươi năm. Thợ của bạn bối rối, rồi quen dần. Có người nói tiếng búa rèn cày nghe vui hơn.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "smt_end",
+       "smt_end_plowshares"
+      ]
+     },
+     "moment": "Chuyển Lò Quân Giới sang rèn nông cụ"
+    },
+    {
+     "label": "Từ chối: vũ khí là lý do vương quốc còn tồn tại",
+     "text": "Hiệp ước không được ký. Lò của bạn tiếp tục cháy, và những đứa trẻ sinh ra trong năm ấy lớn lên với tiếng búa và tiếng kèn chiến.",
+     "effects": {
+      "fame": 12,
+      "wealth": 30,
+      "joy": -8,
+      "flags": [
+       "smt_end",
+       "smt_end_forge_of_war"
+      ]
+     }
+    },
+    {
+     "label": "Trao lò cho những thợ phụ đã theo bạn từ đầu",
+     "text": "Bạn chia lò thành mười hai lò nhỏ, mỗi người một lò. Một số tiếp tục rèn vũ khí, một số rèn cày, một số rèn trang sức. Bạn nghỉ hưu và đi thăm từng lò mỗi mùa.",
+     "effects": {
+      "joy": 15,
+      "fame": 8,
+      "flags": [
+       "smt_end",
+       "smt_end_twelve_forges"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "smt_c5_rune",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_smith",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "smt_path_rune"
+    ],
+    "notFlags": [
+     "smt_end"
+    ]
+   },
+   "text": "Bạn đã khắc được rune mà Tháp Ngà cho là không thể: rune Sống. Một món đồ khắc rune này có thể tự lành, tự lớn, có lẽ tự nghĩ. Tháp Ngà muốn biết công thức.",
+   "choices": [
+    {
+     "label": "Dạy lại cho Tháp Ngà",
+     "text": "Bạn dạy suốt năm năm. Rune Sống được dùng để xây những cây cầu tự vá và những bức tường tự lành. Một số pháp sư dùng nó để tạo ra những thứ bạn ước mình chưa từng dạy.",
+     "effects": {
+      "fame": 15,
+      "INT": 1,
+      "joy": 4,
+      "flags": [
+       "smt_end",
+       "smt_end_taught_tower"
+      ]
+     }
+    },
+    {
+     "label": "Khắc nó lên chiếc đe của mình rồi đập vỡ công thức",
+     "text": "Chiếc đe của bạn giờ tự lành sau mỗi nhát búa, và nó sẽ còn đó sau khi bạn chết. Công thức chỉ còn trong tay bạn, và bạn mang nó theo xuống mộ.",
+     "effects": {
+      "joy": 12,
+      "fame": 10,
+      "flags": [
+       "smt_end",
+       "smt_end_living_anvil"
+      ]
+     },
+     "moment": "Khắc rune Sống lên chiếc đe rồi hủy công thức"
+    },
+    {
+     "label": "Trao công thức cho Thrudi mang về Răng Cưa",
+     "require": {
+      "flags": [
+       "smt_thrudi_friend"
+      ]
+     },
+     "text": "Thrudi giữ công thức trong một chiếc hộp đá, khóa bằng một bài hát mười bảy đoạn. “Dwarf giữ bí mật giỏi hơn pháp sư,” bà nói. Bạn tin điều đó.",
+     "effects": {
+      "joy": 15,
+      "fame": 8,
+      "flags": [
+       "smt_end",
+       "smt_end_thrudi_vault"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "smt_c5_village",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_smith",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "smt_path_village"
+    ],
+    "notFlags": [
+     "smt_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là Thần Rèn, dù bạn chỉ rèn cày, móng ngựa và đinh. Lý do: không có ngôi làng nào trong mười dặm quanh đây đói kém suốt ba mươi năm, vì lưỡi cày của bạn không bao giờ gãy.",
+   "choices": [
+    {
+     "label": "Trao lò cho Tam",
+     "require": {
+      "flags": [
+       "smt_met_tam"
+      ]
+     },
+     "text": "Tam giờ đã là một thợ rèn giỏi hơn bạn ở tuổi bạn. Cô nhận chiếc búa của bạn, và việc đầu tiên cô làm là rèn một chiếc gậy chống cho bạn, nặng vừa tay.",
+     "effects": {
+      "joy": 20,
+      "fame": 8,
+      "flags": [
+       "smt_end",
+       "smt_end_tam"
+      ]
+     },
+     "moment": "Trao lò rèn làng cho Tam"
+    },
+    {
+     "label": "Đi khắp các làng dạy rèn cày",
+     "text": "Bạn đi bộ từ làng này sang làng khác với một cái túi đồ nghề. Ở mỗi nơi, bạn dạy một người cách tôi thép để lưỡi cày không gãy. Khi bạn mất, có hai mươi ba lò rèn làng mang dấu búa giống nhau.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "smt_end",
+       "smt_end_teacher"
+      ]
+     },
+     "moment": "Dạy rèn cày cho hai mươi ba ngôi làng"
+    },
+    {
+     "label": "Rèn món đồ cuối cùng rồi tắt lò",
+     "text": "Món đồ cuối cùng là một chiếc chuông nhỏ, treo ở cổng làng. Mỗi khi có gió, nó kêu trong như than tốt. Bạn tắt lò và ngồi nghe chuông mỗi chiều.",
+     "effects": {
+      "joy": 18,
+      "flags": [
+       "smt_end",
+       "smt_end_bell"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "smt_daily_burn",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_smith",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một tia thép nóng bắn vào mu bàn tay bạn lần thứ một trăm. Bạn không còn kêu lên nữa, chỉ chửi khẽ và làm tiếp.",
+   "choices": [
+    {
+     "label": "Bôi mỡ gấu và làm tiếp",
+     "text": "Vết bỏng mới chồng lên vết bỏng cũ. Bàn tay bạn giờ trông như bản đồ của tất cả những gì bạn từng rèn.",
+     "effects": {
+      "STR": 1,
+      "health": -3,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Rèn một đôi găng da cho chính mình",
+     "text": "Lần đầu tiên bạn làm một món đồ cho bản thân. Đôi găng xấu xí, nhưng vừa khít.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "smt_daily_child_sword",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_smith",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Một cậu bé đến lò với một nắm đồng Cẩm Thạch và xin bạn rèn cho cậu một thanh kiếm để giết con sói đã ăn thịt con dê của nhà.",
+   "choices": [
+    {
+     "label": "Rèn cho cậu một con dao nhỏ và dạy cậu cách làm bẫy",
+     "text": "Cậu bé thất vọng, rồi phấn khích khi biết cách làm bẫy. Tuần sau, cậu quay lại khoe một con sói đã bị bắt, và trả bạn một nắm đồng Cẩm Thạch nữa.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Trả lại tiền, đi cùng cậu tìm con sói",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Con sói già và đói. Bạn đuổi nó đi bằng một thanh sắt nung. Cậu bé kể chuyện này với cả làng, và bạn bỗng thành anh hùng của lũ trẻ.",
+      "effects": {
+       "fame": 2,
+       "joy": 6
+      }
+     },
+     "fail": {
+      "text": "Con sói cắn vào chân bạn trước khi bỏ chạy. Cậu bé phải dìu bạn về.",
+      "effects": {
+       "health": -10,
+       "joy": 2
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "smt_daily_war_forge",
+   "races": [
+    "human"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_smith",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Lệnh trưng dụng: mọi lò rèn trong vương quốc phải chuyển sang rèn đầu tên và giáp cho Tuyến Đầu. Thợ rèn nào từ chối sẽ bị tịch thu lò.",
+   "choices": [
+    {
+     "label": "Tuân lệnh",
+     "text": "Bạn rèn đầu tên suốt một mùa. Mỗi chiếc đều giống nhau, và bạn không khắc dấu búa của mình lên chiếc nào.",
+     "effects": {
+      "STR": 1,
+      "wealth": 10,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Xin rèn giáp thay vì vũ khí",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Viên sĩ quan đồng ý. Mùa đông năm ấy, có những người lính trở về nhờ tấm giáp của bạn chặn một mũi tên.",
+      "effects": {
+       "joy": 8,
+       "jobXp": 2
+      }
+     },
+     "fail": {
+      "text": "Đơn xin bị từ chối. Bạn vẫn rèn đầu tên, kèm theo một vết đen trong sổ sĩ quan.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "smt_daily_old_arm",
+   "races": [
+    "human"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_smith",
+    "free": true
+   },
+   "text": "Cánh tay phải của bạn không còn nâng được búa lớn quá trăm nhát mỗi ngày. Bạn bắt đầu nghe tiếng than xấu lẫn trong tiếng than tốt.",
+   "choices": [
+    {
+     "label": "Chuyển sang rèn những món đồ nhỏ và tinh xảo",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Nhẫn, khóa, kim khâu. Bạn phát hiện ra mình có thể làm những thứ mà bàn tay trẻ chưa đủ kiên nhẫn để làm.",
+      "effects": {
+       "INT": 1,
+       "joy": 6,
+       "jobXp": 2
+      }
+     },
+     "fail": {
+      "text": "Đôi mắt cũng không còn tinh như xưa. Bạn làm hỏng ba chiếc nhẫn liền.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    },
+    {
+     "label": "Dạy tay trái cầm búa",
+     "text": "Năm đầu, mọi thứ bạn rèn bằng tay trái đều cong vẹo. Năm thứ hai, chúng thẳng lại. Bạn cười một mình bên đe như một thằng nhóc học việc.",
+     "effects": {
+      "STR": 1,
+      "joy": 6,
+      "jobXp": 1
+     }
+    }
+   ]
+  }
+ ]
+}

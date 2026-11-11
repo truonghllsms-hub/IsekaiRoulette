@@ -1,0 +1,1200 @@
+{
+ "_note": "Tuyến truyện Đấu sĩ: 5 chương theo bậc, ba đạo ở Bậc 2 (gla_path_glory / gla_path_revolt / gla_path_freedom), nhân vật xuyên suốt Varro Kade, Bruna 'Bò Mộng' và lão Fen.",
+ "origins": [],
+ "events": [
+  {
+   "id": "gla_c1_ludus",
+   "races": [
+    "human"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "human_gladiator",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "gla_met_varro"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Varro Kade",
+     "race": "Human",
+     "position": "Chủ lò đấu sĩ ở Huyết Sa"
+    }
+   ],
+   "text": "Lò đấu sĩ của Varro Kade có tường đá cao gấp ba đầu người và một khẩu hiệu khắc trên cổng: “Máu của ngươi thuộc về khán đài.” Varro đi một vòng quanh bạn như đi quanh một con ngựa ở chợ, rồi hỏi: “Ngươi muốn sống, hay muốn thắng?”",
+   "choices": [
+    {
+     "label": "“Thắng.”",
+     "text": "Varro cười, lần đầu để lộ một chiếc răng vàng. “Kẻ muốn thắng thì bán được vé.” Ông ta xếp bạn vào dãy chuồng của những đấu sĩ được kỳ vọng.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 1,
+      "flags": [
+       "gla_met_varro",
+       "gla_varro_favor"
+      ]
+     },
+     "moment": "Bước vào lò đấu sĩ của Varro Kade"
+    },
+    {
+     "label": "“Sống.”",
+     "text": "Varro nhún vai. “Kẻ muốn sống thì sống lâu, mà sống lâu thì bán được nhiều vé hơn.” Ông ta xếp bạn vào dãy chuồng cuối, cạnh một người phụ nữ khổng lồ đang ngủ ngáy.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "gla_met_varro"
+      ]
+     }
+    },
+    {
+     "label": "Không trả lời",
+     "text": "Varro nhìn bạn lâu, rồi gật đầu như vừa xác nhận điều gì. “Loại im lặng. Loại này nguy hiểm nhất.” Ông ta cho người canh bạn kỹ hơn.",
+     "effects": {
+      "AGI": 1,
+      "flags": [
+       "gla_met_varro",
+       "gla_varro_wary"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "gla_c1_bruna",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_gladiator",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "gla_met_varro"
+    ],
+    "notFlags": [
+     "gla_met_bruna"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Bruna",
+     "race": "Human",
+     "position": "Nữ đấu sĩ khổng lồ, biệt danh Bò Mộng"
+    }
+   ],
+   "text": "Người phụ nữ khổng lồ ở chuồng bên cạnh tên Bruna, người ta gọi là Bò Mộng. Đêm đầu tiên, bà ta thò tay qua song sắt, lấy mất nửa khẩu phần bánh của bạn, rồi nói: “Thuế ngủ cạnh ta.”",
+   "choices": [
+    {
+     "label": "Để bà ta lấy",
+     "text": "Đêm thứ hai, bà ta lấy nửa khẩu phần nữa. Đêm thứ ba, bà ta trả lại cả ba nửa, kèm một miếng thịt khô. “Ta chỉ thử xem ngươi có biết chia không.” Từ đó Bruna không để ai trong lò động đến bạn.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1,
+      "flags": [
+       "gla_met_bruna",
+       "gla_bruna_friend"
+      ]
+     },
+     "moment": "Kết bạn với Bruna Bò Mộng qua song sắt"
+    },
+    {
+     "label": "Giật lại miếng bánh",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn giật được. Bruna cười to đến rung cả song sắt: “Có gan!” Sáng hôm sau, bà ta xin Varro cho tập chung với bạn.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "gla_met_bruna",
+        "gla_bruna_friend"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bruna bóp tay bạn đến tím. “Đừng giật đồ của người đói.” Bà ta trả lại miếng bánh, và bạn không ngủ được vì xấu hổ.",
+      "effects": {
+       "health": -4,
+       "flags": [
+        "gla_met_bruna"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "gla_c1_fen",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_gladiator",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "gla_met_varro"
+    ],
+    "notFlags": [
+     "gla_met_fen"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Fen",
+     "race": "Human",
+     "position": "Thầy thuốc bảy ngón của lò đấu sĩ"
+    }
+   ],
+   "text": "Lão Fen, thầy thuốc của lò, khâu vết thương đầu tiên của bạn bằng kim cong và chỉ ruột mèo, vừa khâu vừa kể chuyện cười. Lão từng là đấu sĩ, và lão chỉ còn bảy ngón tay.",
+   "choices": [
+    {
+     "label": "Hỏi lão về ba ngón tay đã mất",
+     "text": "Lão kể: mỗi ngón tay là một trận lão không nên đánh. “Ngươi có mười ngón. Cố mà giữ.” Từ đó, mỗi khi bạn bị thương, lão đều hỏi bạn đã học được gì trước khi bắt đầu khâu.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "gla_met_fen"
+      ]
+     },
+     "moment": "Nghe chuyện bảy ngón tay của lão Fen"
+    },
+    {
+     "label": "Nhờ lão dạy cách tự băng bó",
+     "text": "Lão nhìn bạn như nhìn một học trò hiếm có. Bạn học cách khâu, cách cầm máu, cách biết vết thương nào sẽ giết người. Kiến thức ấy cứu bạn nhiều lần hơn mọi đòn kiếm.",
+     "effects": {
+      "health": 8,
+      "jobXp": 1,
+      "flags": [
+       "gla_met_fen",
+       "gla_fen_student"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "gla_c2_first_blood",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_gladiator",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "gla_first_bout",
+     "gla_end"
+    ]
+   },
+   "text": "Trận đầu tiên của bạn ở Huyết Sa là một trận “đến khi đầu hàng”. Đối thủ là một nông dân bị bắt vì nợ thuế, cầm kiếm như cầm cái cuốc. Khán đài gào lên đòi máu.",
+   "choices": [
+    {
+     "label": "Hạ anh ta thật nhanh, không gây thương tích nặng",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Một cú quét chân, một mũi kiếm kề cổ. Anh ta đầu hàng trước khi khán đài kịp gào lần nữa. Varro cau mày vì trận đấu quá ngắn, nhưng anh nông dân nhìn bạn như nhìn một ân nhân.",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 2,
+       "flags": [
+        "gla_first_bout",
+        "gla_merciful"
+       ]
+      },
+      "moment": "Thắng trận đầu tiên ở Huyết Sa mà không đổ máu"
+     },
+     "fail": {
+      "text": "Anh ta vung kiếm loạn xạ vì sợ. Bạn bị một vết chém dài trên vai trước khi khống chế được anh ta.",
+      "effects": {
+       "health": -15,
+       "flags": [
+        "gla_first_bout",
+        "gla_merciful"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Kéo dài trận đấu cho khán đài vui",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn đùa với anh ta như mèo vờn chuột suốt mười phút. Khán đài ném hoa. Varro tăng khẩu phần cho bạn. Anh nông dân rời sân với ba vết chém và ánh mắt căm ghét.",
+      "effects": {
+       "STR": 1,
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "gla_first_bout",
+        "gla_showman"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn đùa quá trớn. Anh ta đâm trúng đùi bạn trong một khoảnh khắc may mắn.",
+      "effects": {
+       "health": -18,
+       "fame": -2,
+       "flags": [
+        "gla_first_bout"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "gla_c2_crossroads",
+   "races": [
+    "human"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "human_gladiator",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "gla_path_glory",
+     "gla_path_revolt",
+     "gla_path_freedom",
+     "gla_end"
+    ]
+   },
+   "text": "Sau mùa đấu thứ ba, bạn có tên tuổi. Varro muốn bạn ký hợp đồng mười năm làm ngôi sao của lò. Đêm ấy, Bruna thì thầm qua song sắt về một kế hoạch: bốn mươi đấu sĩ, một đêm không trăng, và chìa khóa của dãy chuồng. Còn lão Fen chỉ đưa cho bạn một tờ giấy: giá chuộc thân của bạn, và số tiền bạn đã tích được.",
+   "choices": [
+    {
+     "label": "Ký hợp đồng ngôi sao: Vinh Quang",
+     "text": "Mực chưa khô, Varro đã cho người vẽ chân dung bạn lên tường đấu trường. Khán đài gọi tên bạn trước cả khi bạn bước ra.",
+     "effects": {
+      "fame": 6,
+      "wealth": 10,
+      "jobXp": 2,
+      "flags": [
+       "gla_path_glory"
+      ]
+     },
+     "moment": "Ký hợp đồng làm ngôi sao của Huyết Sa"
+    },
+    {
+     "label": "Gật đầu với Bruna: Khởi Nghĩa",
+     "text": "Bạn không ký gì cả. Bạn chỉ đếm từng bước chân của lính gác, mỗi đêm, trong ba tháng liền.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "gla_path_revolt"
+      ]
+     },
+     "moment": "Tham gia kế hoạch nổi dậy của các đấu sĩ"
+    },
+    {
+     "label": "Tích tiền chuộc thân: Chuộc Thân",
+     "text": "Bạn đánh từng trận như một người thợ: không phô diễn, không liều mạng, chỉ thắng và đếm tiền. Lão Fen giữ sổ cho bạn.",
+     "effects": {
+      "wealth": 8,
+      "jobXp": 2,
+      "flags": [
+       "gla_path_freedom"
+      ]
+     },
+     "moment": "Bắt đầu tích tiền chuộc lại tự do"
+    }
+   ]
+  },
+  {
+   "id": "gla_glory_crowd",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_gladiator",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "gla_path_glory"
+    ],
+    "notFlags": [
+     "gla_end"
+    ]
+   },
+   "text": "Khán đài Huyết Sa có ba vạn người, và hôm nay họ đến chỉ để xem bạn. Nhà vua cũng ngồi trên khán đài danh dự. Trận đấu sắp kết thúc, đối thủ nằm dưới chân bạn, và nhà vua đang chờ khán đài quyết định bằng ngón tay cái.",
+   "choices": [
+    {
+     "label": "Giơ tay xin khán đài tha mạng cho đối thủ",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Ba vạn ngón tay cái giơ lên. Nhà vua gật đầu. Từ đó, người ta gọi bạn là “Nhà vô địch nhân từ”, và giá vé trận của bạn tăng gấp đôi.",
+      "effects": {
+       "fame": 8,
+       "joy": 8,
+       "jobXp": 3,
+       "flags": [
+        "gla_glory_mercy"
+       ]
+      },
+      "moment": "Khiến ba vạn khán giả tha mạng cho đối thủ"
+     },
+     "fail": {
+      "text": "Khán đài chia đôi. Nhà vua chọn cái chết. Bạn phải làm điều mà bạn đã xin không làm.",
+      "effects": {
+       "joy": -18,
+       "fame": 4,
+       "jobXp": 2
+      }
+     }
+    },
+    {
+     "label": "Kết thúc trận đấu theo ý khán đài",
+     "text": "Ngón tay cái chỉ xuống. Bạn làm điều phải làm. Khán đài gào tên bạn, và bạn nhận ra mình không còn nghe thấy tiếng của chính mình giữa ba vạn giọng nói ấy.",
+     "effects": {
+      "fame": 10,
+      "joy": -10,
+      "jobXp": 3,
+      "flags": [
+       "gla_glory_cruel"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "gla_glory_bruna_match",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_gladiator",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "gla_path_glory",
+     "gla_met_bruna"
+    ],
+    "notFlags": [
+     "gla_end"
+    ]
+   },
+   "text": "Varro công bố trận đấu lớn nhất mùa: bạn đối đầu với Bruna Bò Mộng. Không phải đến khi đầu hàng. Đến chết.",
+   "choices": [
+    {
+     "label": "Từ chối ra sân",
+     "text": "Varro đe dọa bán bạn cho mỏ đá. Bruna cũng từ chối. Hai ngôi sao lớn nhất lò cùng ngồi trong chuồng, và khán đài Huyết Sa nổi giận vì mất trận đấu. Varro phải hủy, lần đầu tiên trong đời.",
+     "effects": {
+      "fame": -4,
+      "joy": 10,
+      "jobXp": 2,
+      "flags": [
+       "gla_refused_bruna",
+       "gla_bruna_friend"
+      ]
+     },
+     "moment": "Cùng Bruna từ chối trận tử đấu"
+    },
+    {
+     "label": "Ra sân và tìm cách để cả hai sống",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn và Bruna đánh một trận ngoạn mục nhất lịch sử Huyết Sa, mỗi đòn đều suýt chết mà không ai chết. Khán đài nhận ra, và chính họ đòi tha cho cả hai. Varro không dám trái ý ba vạn người.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "gla_saved_bruna",
+        "gla_bruna_friend"
+       ]
+      },
+      "moment": "Cùng Bruna diễn trận tử đấu mà cả hai đều sống"
+     },
+     "fail": {
+      "text": "Một đòn của bạn đi quá tay. Bruna ngã xuống, cười với bạn lần cuối.",
+      "effects": {
+       "joy": -30,
+       "fame": 8,
+       "flags": [
+        "gla_killed_bruna"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "gla_revolt_night",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_gladiator",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "gla_path_revolt"
+    ],
+    "notFlags": [
+     "gla_end"
+    ]
+   },
+   "text": "Đêm không trăng đã đến. Chìa khóa đã có trong tay. Bốn mươi đấu sĩ đang chờ tín hiệu của bạn. Nhưng chiều nay, Varro cho ba đứa trẻ con của lính gác vào ngủ trong trạm gác ở cổng chính.",
+   "choices": [
+    {
+     "label": "Đổi kế hoạch, đi qua cổng phụ",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Cổng phụ hẹp và khó đi hơn, nhưng không có trẻ con. Bốn mươi người ra khỏi lò trước khi chuông báo động vang lên.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "gla_revolt_escaped"
+       ]
+      },
+      "moment": "Dẫn bốn mươi đấu sĩ thoát khỏi lò Varro"
+     },
+     "fail": {
+      "text": "Cổng phụ bị khóa thêm một lớp. Mười hai người thoát được; số còn lại bị bắt lại.",
+      "effects": {
+       "health": -15,
+       "joy": -12,
+       "flags": [
+        "gla_revolt_escaped"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Giữ nguyên kế hoạch",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Cổng chính vỡ. Bọn trẻ trốn dưới gầm bàn, không đứa nào bị thương. Bốn mươi đấu sĩ chạy ra đường phố Sanctus giữa đêm.",
+      "effects": {
+       "STR": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "gla_revolt_escaped"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Trong hỗn loạn, một đứa trẻ bị thương. Bạn nghe tiếng nó khóc suốt quãng đường chạy trốn.",
+      "effects": {
+       "joy": -20,
+       "flags": [
+        "gla_revolt_escaped",
+        "gla_revolt_stain"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "gla_revolt_army",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_gladiator",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "gla_path_revolt"
+    ],
+    "notFlags": [
+     "gla_end"
+    ]
+   },
+   "text": "Bốn mươi người đã thành bốn trăm: đấu sĩ, nô lệ mỏ, nông dân trốn thuế. Họ trốn trong những ngọn đồi phía nam và gọi bạn là thủ lĩnh. Quân đội Sanctus đang đến.",
+   "choices": [
+    {
+     "label": "Đánh một trận ở hẻm núi",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn dụ quân đội vào hẻm núi và lăn đá từ hai bên. Quân đội rút lui. Tin đồn lan khắp vương quốc, và nô lệ ở mọi mỏ đá bắt đầu nhìn về phía nam.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 4,
+       "flags": [
+        "gla_revolt_victory"
+       ]
+      },
+      "moment": "Đánh bại quân đội Sanctus ở hẻm núi phía nam"
+     },
+     "fail": {
+      "text": "Quân đội không mắc bẫy. Bạn mất một phần ba người trong trận rút lui.",
+      "effects": {
+       "health": -20,
+       "joy": -15,
+       "flags": [
+        "gla_revolt_defeat"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Chia người thành từng nhóm nhỏ, rải khắp các vùng",
+     "text": "Quân đội đến và không thấy ai. Bốn trăm người biến vào bốn trăm ngôi làng, với bốn trăm câu chuyện về một đấu sĩ đã dẫn họ ra khỏi xiềng xích.",
+     "effects": {
+      "AGI": 1,
+      "fame": 5,
+      "jobXp": 3,
+      "flags": [
+       "gla_revolt_scattered"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "gla_freedom_price",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_gladiator",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "gla_path_freedom"
+    ],
+    "notFlags": [
+     "gla_end"
+    ]
+   },
+   "text": "Bạn đã có đủ tiền chuộc thân. Nhưng chiều nay, Varro tăng giá chuộc lên gấp đôi, với lý do “giá trị của ngươi đã tăng”.",
+   "choices": [
+    {
+     "label": "Kiện Varro ra Tòa Thị chính",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Luật Sanctus quy định giá chuộc phải ghi trong hợp đồng ban đầu. Varro thua kiện. Bạn bước ra khỏi cổng lò với túi tiền nhẹ đi và đôi vai nhẹ hơn.",
+      "effects": {
+       "INT": 1,
+       "joy": 15,
+       "jobXp": 3,
+       "flags": [
+        "gla_freed"
+       ]
+      },
+      "moment": "Thắng kiện Varro và chuộc lại tự do"
+     },
+     "fail": {
+      "text": "Tòa đứng về phía Varro. Bạn phải đánh thêm hai mùa nữa.",
+      "effects": {
+       "joy": -15,
+       "health": -10
+      }
+     }
+    },
+    {
+     "label": "Thách Varro: một trận cuối, thắng thì được tự do",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Varro không cưỡng lại được món lợi một trận đấu như vậy. Bạn thắng. Ba vạn người chứng kiến bạn bước ra khỏi cát lần cuối cùng, tự do.",
+      "effects": {
+       "STR": 1,
+       "fame": 8,
+       "joy": 15,
+       "jobXp": 3,
+       "flags": [
+        "gla_freed"
+       ]
+      },
+      "moment": "Giành tự do trong trận đấu cuối cùng"
+     },
+     "fail": {
+      "text": "Varro chọn đối thủ cho bạn: một con Manticore. Bạn sống sót, nhưng thua, và mất thêm một năm.",
+      "effects": {
+       "health": -30
+      }
+     }
+    },
+    {
+     "label": "Nhờ lão Fen giúp",
+     "require": {
+      "flags": [
+       "gla_fen_student"
+      ]
+     },
+     "text": "Lão Fen đưa ra một cuốn sổ: mọi lần Varro bỏ thuốc vào đồ ăn của đối thủ để dàn xếp trận. Varro trả lại giá cũ ngay trong đêm.",
+     "effects": {
+      "joy": 12,
+      "jobXp": 2,
+      "flags": [
+       "gla_freed"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "gla_freedom_school",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_gladiator",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "gla_path_freedom"
+    ],
+    "notFlags": [
+     "gla_end"
+    ]
+   },
+   "text": "Tự do rồi, bạn mở một lò dạy võ nhỏ ở ngoại ô Sanctus. Học trò đầu tiên là con trai một bá tước muốn học đấu kiếm cho đẹp, và một đứa trẻ nô lệ trốn thoát muốn học để không bị bắt lại.",
+   "choices": [
+    {
+     "label": "Nhận cả hai",
+     "text": "Bạn dạy chúng cùng một bài, trên cùng một sân. Ban đầu chúng không nói với nhau câu nào. Ba năm sau, chúng là bạn thân, và cậu con trai bá tước dùng tiền của cha để chuộc tự do cho gia đình đứa kia.",
+     "effects": {
+      "joy": 12,
+      "fame": 4,
+      "jobXp": 3,
+      "flags": [
+       "gla_school_two"
+      ]
+     },
+     "moment": "Dạy con trai bá tước và đứa trẻ nô lệ trên cùng một sân"
+    },
+    {
+     "label": "Chỉ nhận đứa trẻ nô lệ",
+     "text": "Tiền ít, nhưng bạn biết mình dạy để làm gì. Đứa trẻ học nhanh như thể nó đã chờ cả đời để được học.",
+     "effects": {
+      "joy": 8,
+      "wealth": -5,
+      "jobXp": 2,
+      "flags": [
+       "gla_school_free"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "gla_c4_fen",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_gladiator",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "gla_met_fen"
+    ],
+    "notFlags": [
+     "gla_fen_gone",
+     "gla_end"
+    ]
+   },
+   "text": "Lão Fen đang hấp hối trong căn phòng nhỏ sau lò Varro. Lão nhờ người tìm bạn, dù bạn đang ở đâu, đang làm gì.",
+   "choices": [
+    {
+     "label": "Đến bên lão",
+     "text": "Lão Fen giơ bảy ngón tay lên, đếm từng ngón: “Đây là những trận ta đã đánh đúng.” Rồi lão cười. Lão mất trong tiếng cười ấy, và bạn khâu lại tấm vải liệm cho lão bằng mũi kim cong của chính lão.",
+     "effects": {
+      "joy": -3,
+      "jobXp": 3,
+      "flags": [
+       "gla_fen_gone"
+      ]
+     },
+     "moment": "Tiễn lão Fen bảy ngón"
+    },
+    {
+     "label": "Mua tự do cho lão trước khi lão mất",
+     "require": {
+      "wealth": 20
+     },
+     "showLocked": true,
+     "text": "Varro bán tự do của một ông già sắp chết với giá rẻ mạt. Lão Fen chết ở ngoài cổng lò, dưới bầu trời, lần đầu tiên sau bốn mươi năm. Lão không nói gì, chỉ nhìn mây.",
+     "effects": {
+      "wealth": -20,
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "gla_fen_gone",
+       "gla_fen_freed"
+      ]
+     },
+     "moment": "Chuộc tự do cho lão Fen để lão chết dưới bầu trời"
+    }
+   ]
+  },
+  {
+   "id": "gla_c4_varro",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_gladiator",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "gla_met_varro"
+    ],
+    "notFlags": [
+     "gla_end"
+    ]
+   },
+   "text": "Varro Kade đã già và phá sản. Lò đấu sĩ của ông ta sắp bị bán cho một thương hội. Ông ta đến tìm bạn, quỳ xuống: “Mua nó đi. Ta không muốn chúng biến nó thành lò mổ.”",
+   "choices": [
+    {
+     "label": "Mua lò, giải phóng mọi đấu sĩ trong đó",
+     "require": {
+      "wealth": 30
+     },
+     "showLocked": true,
+     "text": "Ngày đầu tiên, bạn mở hết các chuồng. Một nửa đấu sĩ bỏ đi. Nửa còn lại ở lại, tự nguyện, và lò của Varro trở thành lò đấu sĩ đầu tiên ở Huyết Sa không có xiềng xích.",
+     "effects": {
+      "wealth": -30,
+      "fame": 8,
+      "joy": 12,
+      "jobXp": 4,
+      "flags": [
+       "gla_ludus_freed"
+      ]
+     },
+     "moment": "Mua lò của Varro và mở hết các chuồng"
+    },
+    {
+     "label": "Từ chối, để ông ta tự chịu",
+     "text": "Varro đứng dậy, phủi đầu gối, và không nói gì. Lò bị bán. Ông ta chết trong cảnh nghèo vài năm sau. Bạn không đến đám tang.",
+     "effects": {
+      "joy": -2,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Đề nghị ông ta làm thầy thuốc thay lão Fen",
+     "require": {
+      "flags": [
+       "gla_fen_gone"
+      ]
+     },
+     "text": "Varro bật cười, rồi khóc. Ông ta chưa từng khâu một vết thương nào. Bạn dạy ông ta những gì lão Fen đã dạy bạn. Varro chết khi đang băng bó cho một đấu sĩ trẻ, và lần đầu tiên trong đời, có người khóc thương ông ta.",
+     "effects": {
+      "joy": 10,
+      "fame": 4,
+      "jobXp": 3,
+      "flags": [
+       "gla_varro_redeemed"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "gla_c5_glory",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_gladiator",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "gla_path_glory"
+    ],
+    "notFlags": [
+     "gla_end"
+    ]
+   },
+   "text": "Người ta gọi bạn là War God. Khán đài Huyết Sa có một bức tượng bạn bằng đá. Nhà vua muốn bạn đấu một trận cuối cùng, trận kỷ niệm một trăm năm Huyết Sa, với một đối thủ được giữ bí mật.",
+   "choices": [
+    {
+     "label": "Ra sân",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Đối thủ là một Minotaur từ Đảo Tro Tàn. Trận đấu kéo dài đến lúc mặt trời lặn. Khi nó ngã xuống, bạn giơ tay xin tha mạng cho nó, và ba vạn người đồng ý. Đó là trận cuối cùng của bạn.",
+      "effects": {
+       "fame": 15,
+       "joy": 10,
+       "flags": [
+        "gla_end",
+        "gla_end_final_bout"
+       ]
+      },
+      "moment": "Đánh trận kỷ niệm một trăm năm Huyết Sa"
+     },
+     "fail": {
+      "text": "Bạn thua, lần đầu tiên sau hai mươi năm. Đối thủ giơ tay xin tha cho bạn, và khán đài đồng ý. Bạn rời cát với đôi chân không còn đi thẳng được.",
+      "effects": {
+       "health": -35,
+       "fame": 8,
+       "flags": [
+        "gla_end",
+        "gla_end_final_bout"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Từ chối, đề nghị Huyết Sa bỏ luật tử đấu",
+     "require": {
+      "anyFlags": [
+       "gla_glory_mercy",
+       "gla_saved_bruna",
+       "gla_refused_bruna"
+      ]
+     },
+     "text": "Bạn đứng giữa sân, nói trước ba vạn người. Không ai ngắt lời War God. Một năm sau, luật tử đấu bị bãi bỏ. Huyết Sa vẫn đông khách, chỉ bớt đi những chiếc cáng.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "gla_end",
+       "gla_end_no_death"
+      ]
+     },
+     "moment": "Thuyết phục Huyết Sa bãi bỏ luật tử đấu"
+    },
+    {
+     "label": "Treo kiếm, về sống với Bruna",
+     "require": {
+      "flags": [
+       "gla_bruna_friend"
+      ],
+      "notFlags": [
+       "gla_killed_bruna"
+      ]
+     },
+     "text": "Bruna đã mua một trang trại nhỏ trên đồi. Hai đấu sĩ già trồng bắp cải, nuôi lợn, và cãi nhau xem ai thắng nhiều trận hơn. Không ai trong hai người chịu nhận thua.",
+     "effects": {
+      "joy": 20,
+      "flags": [
+       "gla_end",
+       "gla_end_farm"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "gla_c5_revolt",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_gladiator",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "gla_path_revolt"
+    ],
+    "notFlags": [
+     "gla_end"
+    ]
+   },
+   "text": "Phong trào của bạn đã lớn đến mức nhà vua phải ngồi vào bàn thương lượng. Ông ta đề nghị: ân xá cho mọi người theo bạn, đổi lại bạn phải ra trước tòa chịu án.",
+   "choices": [
+    {
+     "label": "Nhận lời",
+     "text": "Bạn bị giam năm năm. Bốn nghìn người được tự do. Khi bạn ra tù, có một hàng người dài đến tận cổng thành chờ đón, và nhiều người trong số họ bạn chưa từng gặp.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "health": -15,
+      "flags": [
+       "gla_end",
+       "gla_end_ransom"
+      ]
+     },
+     "moment": "Đổi án tù của mình lấy tự do cho bốn nghìn người"
+    },
+    {
+     "label": "Đòi thêm: bãi bỏ chế độ nô lệ đấu trường",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Thương lượng kéo dài ba tháng. Cuối cùng, nhà vua ký. Huyết Sa không còn nô lệ, chỉ còn những đấu sĩ tự do được trả công.",
+      "effects": {
+       "fame": 15,
+       "joy": 18,
+       "flags": [
+        "gla_end",
+        "gla_end_abolition"
+       ]
+      },
+      "moment": "Buộc nhà vua bãi bỏ chế độ nô lệ đấu trường"
+     },
+     "fail": {
+      "text": "Thương lượng đổ vỡ. Chiến tranh nổ ra, và nó kéo dài hơn đời bạn.",
+      "effects": {
+       "joy": -15,
+       "fame": 8,
+       "flags": [
+        "gla_end",
+        "gla_end_war"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "gla_c5_freedom",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_gladiator",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "gla_path_freedom"
+    ],
+    "notFlags": [
+     "gla_end"
+    ]
+   },
+   "text": "Lò dạy võ của bạn giờ có ba trăm học trò. Ba người trong số họ đã vô địch Huyết Sa. Người ta gọi bạn là War God, dù bạn chưa bước lên cát đấu trường hai mươi năm nay.",
+   "choices": [
+    {
+     "label": "Tiếp tục dạy cho đến hơi thở cuối",
+     "text": "Bạn dạy từ sáng đến tối, ngồi trên một chiếc ghế bên sân khi chân không còn đứng nổi. Học trò cuối cùng của bạn là một đứa trẻ mồ côi. Nó ở bên bạn đến cuối.",
+     "effects": {
+      "joy": 18,
+      "fame": 10,
+      "flags": [
+       "gla_end",
+       "gla_end_teacher"
+      ]
+     },
+     "moment": "Dạy võ đến hơi thở cuối cùng"
+    },
+    {
+     "label": "Mua tự do cho mọi nô lệ còn lại ở lò Varro",
+     "require": {
+      "wealth": 40
+     },
+     "showLocked": true,
+     "text": "Bạn đổ toàn bộ tiền dành dụm cả đời vào đó. Ngày cuối cùng, bạn tự tay mở chiếc chuồng mà bạn từng ngủ năm nào. Nó trống không.",
+     "effects": {
+      "wealth": -40,
+      "joy": 20,
+      "fame": 12,
+      "flags": [
+       "gla_end",
+       "gla_end_last_cage"
+      ]
+     },
+     "moment": "Mở chiếc chuồng cuối cùng ở lò Varro"
+    }
+   ]
+  },
+  {
+   "id": "gla_daily_scars",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_gladiator",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Lão thầy thuốc đếm được bốn mươi bảy vết sẹo trên người bạn. Mỗi vết là một trận đấu bạn nhớ tên đối thủ.",
+   "choices": [
+    {
+     "label": "Kể cho người khác nghe về từng vết sẹo",
+     "text": "Những đấu sĩ trẻ ngồi quanh nghe. Bạn kể cả những trận thua. Đặc biệt là những trận thua.",
+     "effects": {
+      "joy": 6,
+      "INT": 1,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Không muốn nhớ",
+     "text": "Bạn mặc áo vào. Có những vết sẹo không cần ai nhìn thấy.",
+     "effects": {
+      "joy": -2
+     }
+    }
+   ]
+  },
+  {
+   "id": "gla_daily_fan_child",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_gladiator",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Một đứa trẻ trèo qua tường lò, mang theo một bức vẽ bạn bằng than. Trong tranh, bạn cao gấp đôi người thật và đang cưỡi một con rồng.",
+   "choices": [
+    {
+     "label": "Ký tên lên bức tranh",
+     "text": "Đứa trẻ chạy về khoe với cả phố. Tuần sau, có ba đứa nữa trèo tường.",
+     "effects": {
+      "joy": 8,
+      "fame": 1
+     }
+    },
+    {
+     "label": "Đưa đứa trẻ ra về và dặn đừng mơ làm đấu sĩ",
+     "text": "Đứa trẻ cúi đầu, rồi ngẩng lên: “Con không mơ làm đấu sĩ. Con mơ làm người được tự do như chú.” Bạn không biết trả lời thế nào.",
+     "effects": {
+      "joy": 4,
+      "INT": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "gla_daily_war_arena",
+   "races": [
+    "human"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_gladiator",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh khiến khán đài Huyết Sa vắng một nửa. Varro, hoặc chủ mới của lò, đề nghị đưa các đấu sĩ ra Tuyến Đầu làm quân xung kích, đổi lấy một nửa thời gian nô dịch.",
+   "choices": [
+    {
+     "label": "Tình nguyện ra Tuyến Đầu",
+     "text": "Chiến trường không có khán đài, không có ngón tay cái, không có ai xin tha mạng. Bạn trở về với ít người hơn lúc đi, và một tờ giấy giảm nửa thời hạn.",
+     "effects": {
+      "STR": 1,
+      "health": -15,
+      "fame": 4,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Ở lại, đánh những trận vắng khán giả",
+     "text": "Những trận đấu không có khán giả là những trận đấu lạ lùng nhất. Không ai cổ vũ, không ai đòi máu. Chỉ có bạn, đối thủ và tiếng gió thổi qua những hàng ghế trống.",
+     "effects": {
+      "INT": 1,
+      "joy": -3,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "gla_daily_old_knees",
+   "races": [
+    "human"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_gladiator",
+    "free": true
+   },
+   "text": "Đầu gối bạn kêu răng rắc mỗi khi bước xuống cát. Một đấu sĩ trẻ đã nhận ra điều đó, và đang nhắm vào chân bạn trong mọi buổi tập.",
+   "choices": [
+    {
+     "label": "Đổi lối đánh, đứng yên một chỗ",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn đứng như một tảng đá giữa sân và để cậu ta tự chạy vòng quanh đến kiệt sức. Cậu ta ngã trước, và từ đó đến xin bạn dạy cách đứng yên.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 2
+      }
+     },
+     "fail": {
+      "text": "Cậu ta quá nhanh. Bạn ngã xuống cát lần đầu tiên sau nhiều năm, và nghe tiếng cười khẽ từ những hàng ghế tập.",
+      "effects": {
+       "joy": -8,
+       "health": -5
+      }
+     }
+    },
+    {
+     "label": "Nói thẳng với cậu ta về đầu gối của mình",
+     "text": "Cậu ta ngượng ngùng, rồi hỏi bạn cách giữ đầu gối mình không thành như thế. Bạn dạy cậu ta, và nhận ra đó là bài học đáng giá nhất bạn có.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1
+     }
+    }
+   ]
+  }
+ ]
+}

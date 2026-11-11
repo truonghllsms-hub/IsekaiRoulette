@@ -1,0 +1,1140 @@
+{
+ "_note": "Tuyến truyện Học giả Tháp Ngà: 5 chương theo bậc, ba đạo ở Bậc 2 (sch_path_history / sch_path_ruins / sch_path_court), nhân vật xuyên suốt Quill Moreau, Hollis Crane và cô học trò Ada.",
+ "origins": [],
+ "events": [
+  {
+   "id": "sch_c1_quill",
+   "races": [
+    "human"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "human_scholar",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "sch_met_quill"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Quill Moreau",
+     "race": "Human",
+     "position": "Quản thủ thư viện tầng thấp của Tháp Ngà"
+    }
+   ],
+   "text": "Quill Moreau là quản thủ thư viện tầng thấp nhất Tháp Ngà, nơi chứa những cuốn sách không ai đọc nữa. Lão giao cho bạn việc đầu tiên: sắp xếp lại ba nghìn cuộn giấy bị trộn lẫn sau một trận lụt, không có danh mục nào.",
+   "choices": [
+    {
+     "label": "Đọc từng cuộn rồi mới xếp",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Mất bốn tháng. Nhưng khi xong, bạn biết từng cuộn giấy nói gì, và bạn phát hiện ra hai cuộn là bản duy nhất còn sót lại trên đời. Quill nhìn bạn với vẻ mặt của người vừa tìm thấy một cuốn sách quý.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "sch_met_quill",
+        "sch_quill_favor"
+       ]
+      },
+      "moment": "Đọc và sắp xếp ba nghìn cuộn giấy sau trận lụt"
+     },
+     "fail": {
+      "text": "Bạn đọc chậm đến mức lụt năm sau đến trước khi bạn xếp xong. Quill vẫn nhận bạn, và giúp bạn kê cao những kệ thấp nhất.",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "sch_met_quill"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Xếp theo màu sáp niêm phong trước, đọc sau",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Hóa ra mỗi màu sáp là một thế kỷ. Bạn xếp xong trong ba tuần. Quill nheo mắt: “Đôi khi đoán mò cũng là phương pháp.”",
+      "effects": {
+       "LUCK": 1,
+       "jobXp": 1,
+       "flags": [
+        "sch_met_quill"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Màu sáp không có nghĩa gì cả. Bạn phải xếp lại từ đầu.",
+      "effects": {
+       "joy": -6,
+       "flags": [
+        "sch_met_quill"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "sch_c1_hollis",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_scholar",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "sch_met_quill"
+    ],
+    "notFlags": [
+     "sch_met_hollis"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Hollis Crane",
+     "race": "Human",
+     "position": "Viện trưởng Tháp Ngà"
+    }
+   ],
+   "text": "Viện trưởng Hollis Crane mời bạn dùng trà. Ông ta tử tế, lịch thiệp, và nhớ tên mọi học giả trẻ. Ông ta muốn bạn ghi lại mọi điều Quill Moreau nói trong thư viện, “vì lợi ích của Tháp Ngà”.",
+   "choices": [
+    {
+     "label": "Từ chối lịch sự",
+     "text": "Hollis mỉm cười, rót thêm trà, và không nhắc lại chuyện đó nữa. Nhưng từ đó, đơn xin tài trợ của bạn luôn đến tay ông ta cuối cùng.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 1,
+      "flags": [
+       "sch_met_hollis",
+       "sch_hollis_cold"
+      ]
+     }
+    },
+    {
+     "label": "Đồng ý, nhưng chỉ ghi những điều vô hại",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn gửi cho Hollis những ghi chép về thời tiết, về giá nến, về bệnh thấp khớp của Quill. Ông ta đọc, mỉm cười, và hiểu. Hollis bắt đầu tôn trọng bạn theo cách của ông ta.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "sch_met_hollis",
+        "sch_hollis_respect"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Hollis nhận ra ngay. Ông ta không giận; ông ta chỉ thôi mời bạn dùng trà.",
+      "effects": {
+       "flags": [
+        "sch_met_hollis",
+        "sch_hollis_cold"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Kể cho Quill nghe",
+     "require": {
+      "flags": [
+       "sch_met_quill"
+      ]
+     },
+     "text": "Quill bật cười khàn. “Hollis đã theo dõi ta ba mươi năm. Cứ ghi đi, ta sẽ nói những điều hay hay cho ngươi ghi.” Từ đó, mỗi tuần bạn gửi cho Hollis một câu châm ngôn do Quill bịa ra.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 1,
+      "flags": [
+       "sch_met_hollis",
+       "sch_quill_favor"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "sch_c2_first_paper",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_scholar",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "sch_first_paper",
+     "sch_end"
+    ]
+   },
+   "text": "Luận văn đầu tiên của bạn đã xong: một nghiên cứu chứng minh trận chiến lập quốc của Sanctus không xảy ra như sử sách chép. Vị vua đầu tiên không chiến thắng; ông ta mua chuộc tướng giặc.",
+   "choices": [
+    {
+     "label": "Công bố nguyên văn",
+     "text": "Luận văn gây chấn động. Một nửa Tháp Ngà gọi bạn là thiên tài, nửa kia gọi bạn là kẻ phản quốc. Bạn nhận được ba lời mời giảng dạy và một lời đe dọa không ký tên.",
+     "effects": {
+      "fame": 6,
+      "joy": 4,
+      "jobXp": 2,
+      "flags": [
+       "sch_first_paper",
+       "sch_bold"
+      ]
+     },
+     "moment": "Công bố sự thật về trận chiến lập quốc"
+    },
+    {
+     "label": "Viết lại cho mềm mỏng hơn",
+     "text": "Bạn thay “mua chuộc” bằng “ngoại giao khéo léo”. Luận văn được khen ngợi, đăng trong niên giám, và chẳng ai đọc kỹ.",
+     "effects": {
+      "fame": 2,
+      "jobXp": 2,
+      "flags": [
+       "sch_first_paper"
+      ]
+     }
+    },
+    {
+     "label": "Cất luận văn vào kệ của Quill",
+     "require": {
+      "flags": [
+       "sch_met_quill"
+      ]
+     },
+     "text": "Quill đọc xong, gật gù, và đặt nó vào tầng thấp nhất cạnh hai cuộn giấy duy nhất trên đời. “Sự thật không cần vội. Nó chờ được.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "sch_first_paper",
+       "sch_patient"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "sch_c2_crossroads",
+   "races": [
+    "human"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "human_scholar",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "sch_path_history",
+     "sch_path_ruins",
+     "sch_path_court",
+     "sch_end"
+    ]
+   },
+   "text": "Ba con đường mở ra trước bạn cùng lúc. Quill muốn bạn ở lại thư viện tầng thấp để viết lại lịch sử Aethelgard từ những cuộn giấy không ai đọc. Một đoàn thám hiểm cần học giả đọc cổ ngữ cho chuyến đi đến một thư viện chìm dưới Hồ Gương Tĩnh Lặng. Và triều đình Sanctus cần một cố vấn trẻ biết đọc luật cũ.",
+   "choices": [
+    {
+     "label": "Ở lại với Quill: Sử Gia",
+     "text": "Bạn kê một chiếc bàn nhỏ cạnh bàn của Quill. Hai người làm việc trong im lặng, chỉ có tiếng giấy lật và tiếng ho của lão. Bạn biết mình sẽ ở đây rất lâu.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "sch_path_history"
+      ]
+     },
+     "moment": "Ở lại viết lại lịch sử Aethelgard cùng Quill Moreau"
+    },
+    {
+     "label": "Đi cùng đoàn thám hiểm: Khảo Cổ",
+     "text": "Lần đầu tiên bạn rời Tháp Ngà quá ba ngày đường. Đôi giày học giả rách sau một tuần. Bạn mua một đôi ủng của thợ săn và chưa bao giờ hối hận.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 2,
+      "flags": [
+       "sch_path_ruins"
+      ]
+     },
+     "moment": "Tham gia đoàn thám hiểm thư viện chìm"
+    },
+    {
+     "label": "Vào triều đình: Cố Vấn",
+     "text": "Áo choàng cố vấn nặng hơn áo học giả, và mỗi chữ bạn viết giờ có thể khiến ai đó mất đất, mất tước, hay mất mạng.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2,
+      "flags": [
+       "sch_path_court"
+      ]
+     },
+     "moment": "Trở thành cố vấn trẻ nhất của triều đình Sanctus"
+    }
+   ]
+  },
+  {
+   "id": "sch_history_forgery",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_scholar",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "sch_path_history"
+    ],
+    "notFlags": [
+     "sch_end"
+    ]
+   },
+   "text": "Trong một cuộn giấy cổ, bạn tìm thấy bằng chứng rằng Giáo hội Lumina đã sửa kinh sách cách đây ba trăm năm, xóa đi những đoạn nói Lumina từng có một người chị em tên là Vael.",
+   "choices": [
+    {
+     "label": "Công bố phát hiện",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Giáo hội phản đối dữ dội, nhưng không phủ nhận được bằng chứng. Một phong trào nhỏ bắt đầu thờ Vael bên cạnh Lumina. Bạn không biết mình vừa mở ra điều tốt hay điều xấu.",
+      "effects": {
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "sch_vael_published"
+       ]
+      },
+      "moment": "Công bố bằng chứng Giáo hội đã sửa kinh sách"
+     },
+     "fail": {
+      "text": "Cuộn giấy biến mất khỏi thư viện ngay đêm hôm ấy. Bạn còn bản chép tay, nhưng không ai tin bản chép.",
+      "effects": {
+       "fame": -4,
+       "joy": -10,
+       "flags": [
+        "sch_vael_lost"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Chép lại thành ba bản và giấu ở ba nơi",
+     "text": "Bạn không công bố. Nhưng bạn đảm bảo sự thật không thể bị đốt chỉ trong một đêm.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "sch_vael_hidden"
+      ]
+     }
+    },
+    {
+     "label": "Hỏi Quill",
+     "require": {
+      "flags": [
+       "sch_met_quill"
+      ]
+     },
+     "text": "Quill đọc cuộn giấy, mặt tái đi. “Ta biết về nó bốn mươi năm rồi. Ta chưa bao giờ đủ can đảm.” Lão trao quyết định cho bạn, và bạn thấy lão già đi mười tuổi trong một buổi chiều.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 2,
+      "flags": [
+       "sch_vael_hidden",
+       "sch_quill_secret"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "sch_history_burning",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_scholar",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "sch_path_history"
+    ],
+    "notFlags": [
+     "sch_end"
+    ]
+   },
+   "text": "Một vị lãnh chúa ra lệnh đốt mọi sách viết bằng tiếng Beastman trong thư viện thành phố, vì “chiến tranh”. Thư viện tầng thấp của Tháp Ngà có bảy trăm cuốn.",
+   "choices": [
+    {
+     "label": "Giấu chúng trong hầm muối",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn chuyển bảy trăm cuốn sách xuống hầm muối trong ba đêm, một mình. Lính đến và đốt những kệ trống. Mười năm sau, khi chiến tranh kết thúc, bạn mang chúng lên, không thiếu cuốn nào.",
+      "effects": {
+       "AGI": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "sch_saved_beast_books"
+       ]
+      },
+      "moment": "Cứu bảy trăm cuốn sách Beastman khỏi lửa"
+     },
+     "fail": {
+      "text": "Bạn chỉ kịp cứu hai trăm cuốn. Năm trăm cuốn còn lại cháy trong một buổi chiều.",
+      "effects": {
+       "joy": -15,
+       "flags": [
+        "sch_saved_beast_books"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Học thuộc lòng những cuốn quý nhất",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn thức trắng mười đêm. Sách bị đốt, nhưng mười hai cuốn quý nhất sống trong đầu bạn. Sau chiến tranh, bạn viết lại chúng, từng chữ một.",
+      "effects": {
+       "INT": 2,
+       "jobXp": 3,
+       "flags": [
+        "sch_saved_beast_books"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Trí nhớ không chứa được hết. Bạn viết lại được ba cuốn, và mãi mãi không nhớ phần cuối của cuốn thứ tư.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "sch_ruins_sunken_library",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_scholar",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "sch_path_ruins"
+    ],
+    "notFlags": [
+     "sch_end"
+    ]
+   },
+   "text": "Thư viện chìm dưới Hồ Gương Tĩnh Lặng được bảo vệ bởi một câu đố khắc trên cửa đá, bằng một ngôn ngữ đã chết từ ba nghìn năm trước. Nước đang dâng lên, và đoàn thám hiểm chỉ còn đủ không khí cho một giờ.",
+   "choices": [
+    {
+     "label": "Giải câu đố",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Câu đố hỏi: “Thứ gì càng lấy đi càng lớn?” Bạn khắc vào đá: “Cái hố.” Cửa mở. Bên trong là mười nghìn cuộn giấy khô ráo, như chưa từng chìm.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "sch_sunken_opened"
+       ]
+      },
+      "moment": "Giải câu đố mở cửa thư viện chìm"
+     },
+     "fail": {
+      "text": "Bạn giải sai. Nước tràn vào. Đoàn thám hiểm thoát ra, nhưng thư viện chìm hẳn xuống bùn.",
+      "effects": {
+       "health": -15,
+       "joy": -12,
+       "flags": [
+        "sch_sunken_lost"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Rút lui, quay lại với bản đồ tốt hơn",
+     "text": "Bạn đi về, nghiên cứu suốt một năm, rồi quay lại vào mùa khô. Cửa đá mở cho bạn, và lần này bạn có cả đời để đọc.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "sch_sunken_opened"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "sch_ruins_grave_robbers",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_scholar",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "sch_path_ruins"
+    ],
+    "notFlags": [
+     "sch_end"
+    ]
+   },
+   "text": "Đoàn thám hiểm của bạn bị một băng trộm mộ theo dõi. Chúng không quan tâm đến chữ; chúng muốn vàng trong những ngôi mộ mà bạn đang đọc bia.",
+   "choices": [
+    {
+     "label": "Dẫn chúng vào ngôi mộ có bẫy",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đọc bia mộ to lên, dịch sai một chữ, đủ để bọn trộm đi nhầm cửa. Chúng mắc kẹt trong một căn phòng không có lối ra, cho đến khi bạn quyết định thả chúng ra.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "sch_outwitted_robbers"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bọn trộm nhận ra mánh khóe. Bạn mất toàn bộ ghi chép của nửa chuyến đi.",
+      "effects": {
+       "joy": -12,
+       "health": -8
+      }
+     }
+    },
+    {
+     "label": "Thương lượng: vàng cho chúng, chữ cho bạn",
+     "text": "Chúng lấy vàng, bạn lấy những tấm bia. Ai cũng nghĩ mình được phần hơn. Bạn chắc chắn là mình.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "sch_court_law",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_scholar",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "sch_path_court"
+    ],
+    "notFlags": [
+     "sch_end"
+    ]
+   },
+   "text": "Nhà vua muốn ban hành một đạo luật mới: mọi đất không có giấy tờ đều thuộc về vương quyền. Bạn biết rằng chín phần mười nông dân Đồng Bằng chưa bao giờ có giấy tờ.",
+   "choices": [
+    {
+     "label": "Viết bản tấu trình phản đối",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn trích dẫn bảy bộ luật cũ và tính toán số lúa vương quốc sẽ mất khi nông dân bỏ ruộng. Nhà vua đọc xong, gạch bỏ đạo luật, và giữ bạn lại dùng bữa tối.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "sch_court_conscience"
+       ]
+      },
+      "moment": "Thuyết phục nhà vua hủy đạo luật cướp đất"
+     },
+     "fail": {
+      "text": "Nhà vua đọc lướt và ký. Bạn bị gạt ra khỏi buổi chầu sáng hôm sau.",
+      "effects": {
+       "joy": -12,
+       "fame": -3
+      }
+     }
+    },
+    {
+     "label": "Đề xuất thêm điều khoản: ai cày đất mười năm thì đất là của họ",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Đạo luật được ký kèm điều khoản của bạn. Vô tình, bạn vừa trao cho nông dân giấy tờ mà họ chưa từng có.",
+      "effects": {
+       "fame": 8,
+       "joy": 8,
+       "jobXp": 3,
+       "flags": [
+        "sch_court_conscience"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Điều khoản bị cắt bỏ trong bản cuối.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Im lặng",
+     "text": "Đạo luật được ban hành. Mùa xuân năm sau, những đoàn người rời Đồng Bằng đi về phía biên giới. Bạn ngồi trong cung điện, viết những bản tấu trình về những chuyện khác.",
+     "effects": {
+      "wealth": 10,
+      "joy": -12,
+      "jobXp": 2,
+      "flags": [
+       "sch_court_silent"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "sch_court_hollis",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_scholar",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "sch_path_court",
+     "sch_met_hollis"
+    ],
+    "notFlags": [
+     "sch_end"
+    ]
+   },
+   "text": "Hollis Crane giờ là Đại Học sĩ của triều đình, và ông ta muốn bạn ký vào một bản báo cáo khẳng định rằng Tháp Ngà cần toàn quyền quản lý mọi trường học trong vương quốc.",
+   "choices": [
+    {
+     "label": "Ký",
+     "text": "Hollis mỉm cười và rót trà cho bạn. Bản báo cáo được thông qua. Mười năm sau, mọi đứa trẻ trong vương quốc học cùng một cuốn sách lịch sử, do Tháp Ngà viết.",
+     "effects": {
+      "fame": 5,
+      "wealth": 10,
+      "joy": -4,
+      "jobXp": 2,
+      "flags": [
+       "sch_hollis_ally"
+      ]
+     }
+    },
+    {
+     "label": "Viết bản báo cáo đối lập",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Hai bản báo cáo được trình lên cùng ngày. Nhà vua chọn bản của bạn. Hollis đến gặp bạn sau buổi chầu, lần đầu không có trà: “Ngươi giỏi hơn ta tưởng.”",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "sch_beat_hollis"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bản của bạn bị gạt đi. Hollis gửi cho bạn một gói trà, kèm lời nhắn: “Lần sau nhé.”",
+      "effects": {
+       "joy": -6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "sch_c4_quill",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_scholar",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "sch_met_quill"
+    ],
+    "notFlags": [
+     "sch_quill_gone",
+     "sch_end"
+    ]
+   },
+   "text": "Quill Moreau ngã gục giữa những kệ sách tầng thấp và không đứng dậy được nữa. Lão nằm trên giường suốt mùa đông, nhờ bạn đọc to cho lão nghe những cuốn sách lão chưa kịp đọc.",
+   "choices": [
+    {
+     "label": "Đọc cho lão nghe đến cuối",
+     "text": "Bạn đọc mỗi ngày, từ sáng đến tối. Cuốn cuối cùng là một tập thơ thiếu nhi viết bằng tiếng Beastman. Quill cười khi nghe nó, và mất trong lúc bạn đang đọc đến bài thứ bảy.",
+     "effects": {
+      "joy": -2,
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "sch_quill_gone"
+      ]
+     },
+     "moment": "Đọc sách cho Quill Moreau nghe đến hơi thở cuối"
+    },
+    {
+     "label": "Hứa sẽ giữ thư viện tầng thấp",
+     "text": "Quill trao cho bạn chiếc chìa khóa đồng. “Đừng để Hollis biến nó thành kho chứa bàn ghế.” Lão mất vào sáng hôm sau, và bạn treo chiếc chìa khóa trên cổ đến cuối đời.",
+     "effects": {
+      "joy": 2,
+      "jobXp": 3,
+      "flags": [
+       "sch_quill_gone",
+       "sch_quill_key"
+      ]
+     },
+     "moment": "Nhận chìa khóa thư viện tầng thấp từ Quill Moreau"
+    }
+   ]
+  },
+  {
+   "id": "sch_c4_ada",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_scholar",
+    "free": true,
+    "jobRank": 3,
+    "notFlags": [
+     "sch_met_ada",
+     "sch_end"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Ada",
+     "race": "Human",
+     "position": "Học trò thiên tài của bạn"
+    }
+   ],
+   "text": "Một cô gái tên Ada đến xin làm học trò của bạn. Cô là con gái của một gia đình học giả sa sút, giống như bao người, nhưng cô đọc được bốn thứ tiếng và đã tự dịch xong một cuốn sách mà bạn mất năm năm mới hiểu.",
+   "choices": [
+    {
+     "label": "Nhận cô làm học trò",
+     "text": "Ada hỏi nhiều hơn bạn trả lời được. Đôi khi bạn phải đọc thêm cả đêm để trả lời câu hỏi của cô sáng hôm sau. Lần đầu tiên sau nhiều năm, bạn thấy mình đang học.",
+     "effects": {
+      "INT": 1,
+      "joy": 10,
+      "jobXp": 3,
+      "flags": [
+       "sch_met_ada"
+      ]
+     },
+     "moment": "Nhận Ada làm học trò"
+    },
+    {
+     "label": "Gửi cô đến một thầy giỏi hơn",
+     "text": "Ada nhìn bạn rất lâu, rồi cúi đầu. Cô đi, và trở thành một học giả nổi tiếng. Nhiều năm sau, cô viết trong lời tựa cuốn sách đầu tay rằng người đầu tiên nhìn ra cô là bạn.",
+     "effects": {
+      "fame": 3,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "sch_c5_history",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_scholar",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "sch_path_history"
+    ],
+    "notFlags": [
+     "sch_end"
+    ]
+   },
+   "text": "Bộ Lịch sử Aethelgard của bạn đã hoàn thành: mười hai tập, ba mươi năm, viết từ những cuộn giấy không ai đọc. Tháp Ngà phong bạn làm Grand Sage, với điều kiện xóa đi những chương làm phật lòng Giáo hội và triều đình.",
+   "choices": [
+    {
+     "label": "Từ chối danh hiệu, giữ nguyên mười hai tập",
+     "text": "Bạn in mười hai tập bằng tiền túi, một trăm bộ, gửi đến một trăm thư viện. Ba mươi bộ bị đốt. Bảy mươi bộ còn lại được đọc trong nhiều thế kỷ.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "wealth": -20,
+      "flags": [
+       "sch_end",
+       "sch_end_uncut"
+      ]
+     },
+     "moment": "Xuất bản Lịch sử Aethelgard không cắt một chữ"
+    },
+    {
+     "label": "Nhận danh hiệu, xóa những chương ấy, nhưng giấu bản gốc",
+     "text": "Bộ sách chính thức được dạy trong mọi trường học. Bản gốc nằm trong hầm thư viện tầng thấp, chờ ngày có người đủ can đảm đọc nó.",
+     "effects": {
+      "fame": 15,
+      "joy": 4,
+      "flags": [
+       "sch_end",
+       "sch_end_hidden_truth"
+      ]
+     }
+    },
+    {
+     "label": "Trao bản gốc cho Ada",
+     "require": {
+      "flags": [
+       "sch_met_ada"
+      ]
+     },
+     "text": "Ada cầm mười hai tập, nặng trĩu trên tay. “Con sẽ xuất bản nó,” cô nói, “khi con đủ già để không còn sợ ai.” Bạn tin cô.",
+     "effects": {
+      "joy": 18,
+      "fame": 10,
+      "flags": [
+       "sch_end",
+       "sch_end_ada"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "sch_c5_ruins",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_scholar",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "sch_path_ruins"
+    ],
+    "notFlags": [
+     "sch_end"
+    ]
+   },
+   "text": "Bạn đã đọc được ngôn ngữ của những người xây dựng thư viện chìm: một nền văn minh đã biến mất trước cả Elf. Những gì họ để lại không phải lịch sử, mà là một lời cảnh báo.",
+   "choices": [
+    {
+     "label": "Công bố lời cảnh báo",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Lời cảnh báo nói về một cơn đói của mặt đất, sẽ quay lại sau mỗi ba nghìn năm. Tháp Ngà tính toán và tái mặt: còn bốn mươi năm. Lần đầu tiên, mọi tộc cùng ngồi lại để chuẩn bị.",
+      "effects": {
+       "fame": 15,
+       "joy": 10,
+       "flags": [
+        "sch_end",
+        "sch_end_warning"
+       ]
+      },
+      "moment": "Giải mã lời cảnh báo của nền văn minh đã mất"
+     },
+     "fail": {
+      "text": "Không ai tin. Bạn viết lời cảnh báo vào mọi cuốn sách mình xuất bản, và hy vọng ai đó sẽ đọc nó trước khi quá muộn.",
+      "effects": {
+       "fame": 8,
+       "joy": -5,
+       "flags": [
+        "sch_end",
+        "sch_end_unheard"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Ở lại thư viện chìm cho đến hết đời",
+     "text": "Bạn dựng một căn chòi bên hồ và mỗi ngày lặn xuống đọc thêm một cuộn. Bạn chưa đọc hết, và không cần đọc hết. Chỉ cần đọc thêm một cuộn nữa.",
+     "effects": {
+      "joy": 18,
+      "INT": 1,
+      "flags": [
+       "sch_end",
+       "sch_end_lakeside"
+      ]
+     },
+     "moment": "Sống những năm cuối bên thư viện chìm"
+    }
+   ]
+  },
+  {
+   "id": "sch_c5_court",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_scholar",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "sch_path_court"
+    ],
+    "notFlags": [
+     "sch_end"
+    ]
+   },
+   "text": "Nhà vua qua đời, và thái tử mới mười hai tuổi. Hội đồng nhiếp chính cần một người đứng đầu. Ba phe đều muốn bạn, vì bạn là người duy nhất ai cũng tin, và ai cũng nghi.",
+   "choices": [
+    {
+     "label": "Nhận làm nhiếp chính cho đến khi thái tử trưởng thành",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Sáu năm, bạn giữ vương quốc như giữ một chồng sách xếp không vững. Khi thái tử lên ngôi, cậu đã đọc hết mọi luật cũ mà bạn đọc, và cậu hỏi ý bạn trước mọi đạo luật.",
+      "effects": {
+       "fame": 15,
+       "joy": 10,
+       "flags": [
+        "sch_end",
+        "sch_end_regent"
+       ]
+      },
+      "moment": "Làm nhiếp chính cho vị vua mười hai tuổi"
+     },
+     "fail": {
+      "text": "Sáu năm đầy âm mưu. Bạn giữ được ngai vàng cho thái tử, nhưng phải trả bằng những người bạn mất dọc đường.",
+      "effects": {
+       "fame": 12,
+       "joy": -10,
+       "flags": [
+        "sch_end",
+        "sch_end_regent"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Từ chối, đề nghị một hội đồng ba người",
+     "text": "Ba phe, ba người, không ai nắm quyền tuyệt đối. Hội đồng cãi nhau suốt sáu năm, nhưng không ai giết ai. Bạn làm thư ký cho hội đồng, và ghi lại mọi cuộc cãi nhau.",
+     "effects": {
+      "fame": 10,
+      "joy": 8,
+      "flags": [
+       "sch_end",
+       "sch_end_council"
+      ]
+     }
+    },
+    {
+     "label": "Từ chức, trở về thư viện",
+     "text": "Bạn cởi áo choàng cố vấn, treo lên móc, và đi bộ về Tháp Ngà. Ở thư viện tầng thấp, có một chiếc bàn nhỏ vẫn để trống cho bạn.",
+     "effects": {
+      "joy": 15,
+      "flags": [
+       "sch_end",
+       "sch_end_return"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "sch_daily_ink",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_scholar",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Lọ mực của bạn đổ lên bản chép tay đã làm suốt ba tuần.",
+   "choices": [
+    {
+     "label": "Chép lại từ đầu",
+     "text": "Ba tuần sau, bản mới đẹp hơn bản cũ. Bạn đặt lọ mực vào một cái khay sâu từ đó.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Giữ nguyên, vẽ thêm một con mèo che vết mực",
+     "text": "Các học giả già chắc sẽ nhăn mặt. Nhưng con mèo vẽ khá đẹp.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "sch_daily_village_letter",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_scholar",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Một bà mẹ ở làng bên nhờ bạn đọc lá thư của con trai gửi từ Tuyến Đầu. Lá thư báo tin cậu đã hy sinh.",
+   "choices": [
+    {
+     "label": "Đọc đúng những gì viết",
+     "text": "Bà nghe hết, gật đầu, cảm ơn, rồi đi về. Bạn nghe tiếng khóc của bà vọng lại từ cuối con đường.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Đọc, rồi ngồi lại cùng bà cả buổi chiều",
+     "text": "Bạn không nói gì nhiều. Bà kể về cậu con trai từ lúc nhỏ đến lúc lớn. Khi bà về, bạn ghi lại câu chuyện ấy vào sổ, vì có những lịch sử không ai khác sẽ viết.",
+     "effects": {
+      "joy": 4,
+      "INT": 1,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "sch_daily_war_cipher",
+   "races": [
+    "human"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_scholar",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Quân đội bắt được một bức thư mật của Ma Vương và cần học giả giải mã. Họ cho bạn ba ngày.",
+   "choices": [
+    {
+     "label": "Giải mã",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn giải được trong hai ngày. Bức thư tiết lộ một cuộc tấn công bất ngờ. Quân đội chuẩn bị kịp. Không ai biết tên bạn ngoài viên tướng đã đọc bản dịch.",
+      "effects": {
+       "INT": 1,
+       "fame": 4,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Bạn giải sai một chữ. Quân đội chuẩn bị ở sai cửa thành.",
+      "effects": {
+       "joy": -12,
+       "fame": -4
+      }
+     }
+    },
+    {
+     "label": "Từ chối dính vào chiến tranh",
+     "text": "Người ta gọi bạn là kẻ thờ ơ. Bạn trả lời rằng sách không có phe. Có lẽ bạn đúng. Có lẽ không.",
+     "effects": {
+      "joy": -2
+     }
+    }
+   ]
+  },
+  {
+   "id": "sch_daily_old_memory",
+   "races": [
+    "human"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_scholar",
+    "free": true
+   },
+   "text": "Bạn bắt đầu quên. Hôm qua, bạn quên tên một cuốn sách mình đã viết. Sáng nay, bạn đọc một đoạn văn và thấy nó hay, rồi nhận ra chính mình viết.",
+   "choices": [
+    {
+     "label": "Viết mọi thứ ra giấy",
+     "text": "Bạn ghi chép mọi điều: tên người, tên sách, những gì đã làm hôm qua. Cuốn sổ trở thành trí nhớ thứ hai của bạn, và nó tốt hơn trí nhớ thứ nhất.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Cười và đọc lại sách của mình như đọc sách người khác",
+     "text": "Hóa ra bạn viết cũng hay. Bạn đọc hết cả bộ, và thấy thích người đã viết chúng.",
+     "effects": {
+      "joy": 10
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1124 @@
+{
+ "_note": "Tuyến truyện Thánh Kỵ Sĩ: 5 chương theo bậc, ba đạo ở Bậc 2 (pld_path_pure / pld_path_penitent / pld_path_crusade), nhân vật xuyên suốt Oswin Hale, Ysolde Brand và Merek, kỵ sĩ sa ngã.",
+ "origins": [],
+ "events": [
+  {
+   "id": "pld_c1_vigil",
+   "races": [
+    "human"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "human_paladin",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "pld_met_oswin"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Oswin Hale",
+     "race": "Human",
+     "position": "Chỉ huy già của Thánh Kỵ Sĩ Đoàn"
+    }
+   ],
+   "text": "Đêm canh thức trước khi nhận áo choàng cận vệ, bạn phải quỳ trước bàn thờ Lumina từ hoàng hôn đến bình minh, không ăn, không uống, không ngủ. Chỉ huy Oswin Hale, một kỵ sĩ già có vết sẹo chạy từ trán xuống cằm, quỳ cách bạn ba bước, im lặng.",
+   "choices": [
+    {
+     "label": "Quỳ đến bình minh",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Lúc bình minh, một tia nắng chiếu qua cửa kính màu và dừng lại trên tay bạn, ấm như bàn tay người. Oswin đứng dậy, gật đầu: “Người đã nhìn thấy ngươi.”",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "pld_met_oswin",
+        "pld_light_touch"
+       ]
+      },
+      "moment": "Được ánh sáng Lumina chạm vào trong đêm canh thức"
+     },
+     "fail": {
+      "text": "Gần sáng, bạn ngã gục. Oswin đỡ bạn dậy và đặt bạn quỳ lại. “Ta đã ngã ba lần trong đêm của ta,” ông nói khẽ. “Quan trọng là quỳ lại.”",
+      "effects": {
+       "health": -5,
+       "flags": [
+        "pld_met_oswin"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi Oswin vì sao ông cũng quỳ",
+     "text": "Ông im lặng rất lâu, rồi nói: “Mỗi khi có một cận vệ mới, ta quỳ cùng để nhớ lại lời thề của mình. Càng già, ta càng cần nhớ.” Hai người quỳ đến sáng, và bạn không còn thấy đêm dài nữa.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "pld_met_oswin",
+       "pld_oswin_bond"
+      ]
+     },
+     "moment": "Quỳ canh thức cùng Chỉ huy Oswin Hale"
+    }
+   ]
+  },
+  {
+   "id": "pld_c1_ysolde",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_paladin",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "pld_met_oswin"
+    ],
+    "notFlags": [
+     "pld_met_ysolde"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Ysolde Brand",
+     "race": "Human",
+     "position": "Nữ cận vệ xuất thân khu ổ chuột"
+    }
+   ],
+   "text": "Ysolde Brand là cận vệ duy nhất trong khóa của bạn đến từ khu ổ chuột. Các cận vệ quý tộc giấu áo giáp của cô trước buổi duyệt binh, để cô phải ra sân trong bộ áo vải.",
+   "choices": [
+    {
+     "label": "Cởi áo giáp của mình, cùng ra sân bằng áo vải",
+     "text": "Hai người đứng giữa hàng cận vệ giáp sáng, mặc áo vải, đầu ngẩng cao. Oswin nhìn cả hai rất lâu, rồi ra lệnh cho toàn đội cởi giáp và tập cả buổi bằng áo vải. Ysolde không bao giờ quên điều đó.",
+     "effects": {
+      "fame": 2,
+      "joy": 6,
+      "jobXp": 1,
+      "flags": [
+       "pld_met_ysolde",
+       "pld_ysolde_bond"
+      ]
+     },
+     "moment": "Cởi giáp đứng cùng Ysolde Brand trong buổi duyệt binh"
+    },
+    {
+     "label": "Tìm lại áo giáp cho cô ta",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn tìm thấy nó dưới máng ngựa trước khi kèn thổi. Ysolde mặc giáp vội, rồi thì thầm: “Ta nợ ngươi.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "pld_met_ysolde",
+        "pld_ysolde_bond"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn tìm không ra. Ysolde ra sân bằng áo vải, một mình, và không nhìn bạn suốt buổi.",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "pld_met_ysolde"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "pld_c2_first_oath",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_paladin",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "pld_oath_true",
+     "pld_oath_shadow",
+     "pld_end"
+    ]
+   },
+   "text": "Lễ phong Thánh Kỵ Sĩ. Bạn đặt tay lên kiếm và đọc ba lời thề: bảo vệ người yếu, không nói dối, không quay lưng. Khi đọc đến lời thứ hai, bạn nhớ ra một điều mình đã giấu Oswin từ ngày đầu.",
+   "choices": [
+    {
+     "label": "Dừng lại, thú nhận trước khi thề",
+     "text": "Cả nhà nguyện im lặng. Oswin nghe bạn thú nhận, rồi gật đầu và ra hiệu cho bạn đọc tiếp. Khi bạn đọc xong lời thề thứ ba, ánh sáng từ thanh kiếm bừng lên mạnh hơn bất kỳ ai trong khóa.",
+     "effects": {
+      "fame": 3,
+      "joy": 8,
+      "jobXp": 2,
+      "flags": [
+       "pld_oath_true",
+       "pld_light_strong"
+      ]
+     },
+     "moment": "Thú nhận trước khi đọc lời thề Thánh Kỵ Sĩ"
+    },
+    {
+     "label": "Đọc tiếp, tự nhủ sẽ thú nhận sau",
+     "text": "Lời thề trôi chảy. Ánh sáng đến, nhưng yếu, như ngọn nến trong gió. Oswin nhìn bạn một thoáng lâu hơn bình thường.",
+     "effects": {
+      "jobXp": 2,
+      "flags": [
+       "pld_oath_shadow"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "pld_c2_crossroads",
+   "races": [
+    "human"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "human_paladin",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "pld_path_pure",
+     "pld_path_penitent",
+     "pld_path_crusade",
+     "pld_end"
+    ]
+   },
+   "text": "Thánh Kỵ Sĩ Đoàn chia làm ba nhánh, và mỗi kỵ sĩ mới phải chọn. Nhánh Ánh Sáng ở lại Sanctus giữ lời thề trong từng việc nhỏ. Một nhánh nhỏ, ít người nhắc tên, nhận những kỵ sĩ đã từng phạm sai lầm và muốn chuộc lỗi. Và nhánh Thập Tự đang chuẩn bị tiến vào Vực Thẳm Phân Tầng.",
+   "choices": [
+    {
+     "label": "Nhánh Ánh Sáng: giữ lời thề trọn vẹn",
+     "text": "Không có trận đánh lớn, không có vinh quang. Chỉ có những buổi sáng canh cổng thành, những đêm hộ tống người hành hương, và một lời thề phải giữ trong từng việc nhỏ nhất.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "pld_path_pure"
+      ]
+     },
+     "moment": "Chọn nhánh Ánh Sáng của Thánh Kỵ Sĩ Đoàn"
+    },
+    {
+     "label": "Nhánh Sám Hối: con đường của kẻ đã sai",
+     "text": "Áo choàng của nhánh Sám Hối màu xám, không thêu hoa văn. Ở đây không ai hỏi bạn đã làm gì; người ta chỉ hỏi bạn định sửa nó thế nào.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "pld_path_penitent"
+      ]
+     },
+     "moment": "Khoác áo choàng xám của nhánh Sám Hối"
+    },
+    {
+     "label": "Nhánh Thập Tự: tiến vào Vực Thẳm",
+     "text": "Bạn nhận một thanh kiếm được ban phước ba lần và một tấm bản đồ chỉ có một nửa. Nửa còn lại, người ta nói, chỉ những kẻ trở về mới vẽ được.",
+     "effects": {
+      "STR": 1,
+      "fame": 4,
+      "jobXp": 2,
+      "flags": [
+       "pld_path_crusade"
+      ]
+     },
+     "moment": "Gia nhập Thập Tự chinh vào Vực Thẳm"
+    }
+   ]
+  },
+  {
+   "id": "pld_pure_small_lie",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_paladin",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "pld_path_pure"
+    ],
+    "notFlags": [
+     "pld_end"
+    ]
+   },
+   "text": "Một bà lão bán hoa hỏi bạn có phải con trai bà đã chết anh dũng ở Tuyến Đầu không. Bạn biết sự thật: anh ta chết vì say rượu ngã xuống hào. Bà chỉ còn sống được vài tháng.",
+   "choices": [
+    {
+     "label": "Nói sự thật",
+     "text": "Bà lão im lặng rất lâu, rồi nắm tay bạn: “Cảm ơn. Ta đã biết. Ta chỉ muốn có người dám nói thật với ta một lần.” Ánh sáng trên kiếm bạn ấm lên.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "pld_kept_oath"
+      ]
+     }
+    },
+    {
+     "label": "Nói dối cho bà yên lòng",
+     "text": "Bà lão khóc vì tự hào. Đêm ấy, ánh sáng trên kiếm bạn yếu đi một chút, và bạn hiểu lời thề không có ngoại lệ cho lòng thương.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 1,
+      "flags": [
+       "pld_oath_bent"
+      ]
+     }
+    },
+    {
+     "label": "Kể về những điều tốt đẹp có thật của anh ta",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn tìm được ba người lính nhớ anh ta đã chia khẩu phần cho họ trong mùa đói. Bạn kể đúng những điều ấy, không thêm, không bớt. Bà lão mỉm cười, và lời thề của bạn vẫn nguyên vẹn.",
+      "effects": {
+       "INT": 1,
+       "joy": 8,
+       "jobXp": 2,
+       "flags": [
+        "pld_kept_oath"
+       ]
+      },
+      "moment": "Tìm điều tốt có thật để kể cho một người mẹ"
+     },
+     "fail": {
+      "text": "Bạn không tìm được gì. Bạn đành nói thật, vụng về và đau lòng.",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "pld_kept_oath"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "pld_pure_noble_order",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_paladin",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "pld_path_pure"
+    ],
+    "notFlags": [
+     "pld_end"
+    ]
+   },
+   "text": "Một bá tước ra lệnh cho đội kỵ sĩ của bạn đuổi những người tị nạn khỏi đất của ông ta. Luật cho phép ông ta làm thế. Lời thề của bạn thì không.",
+   "choices": [
+    {
+     "label": "Từ chối lệnh",
+     "text": "Bá tước kiện lên Hội đồng. Bạn bị giáng xuống hàng cận vệ một năm. Những người tị nạn ở lại thêm một mùa đông, đủ để tìm được nơi khác.",
+     "effects": {
+      "fame": 3,
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "pld_kept_oath",
+       "pld_defied_noble"
+      ]
+     }
+    },
+    {
+     "label": "Tuân lệnh, nhưng hộ tống họ đến nơi an toàn",
+     "text": "Bạn đuổi họ đi, rồi đi cùng họ mười ngày đường đến một thị trấn chịu nhận. Luật được giữ. Lời thề cũng được giữ, nhưng chỉ vừa đủ.",
+     "effects": {
+      "health": -8,
+      "joy": 2,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Nhờ Ysolde dẫn họ vào khu ổ chuột Sanctus",
+     "require": {
+      "flags": [
+       "pld_ysolde_bond"
+      ]
+     },
+     "text": "Ysolde biết mọi ngõ ngách nơi cô lớn lên. Trong một đêm, ba trăm người biến vào khu ổ chuột như nước thấm vào cát. Bá tước tìm mãi không thấy ai để đuổi.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 2,
+      "flags": [
+       "pld_kept_oath"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "pld_penitent_light_gone",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_paladin",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "pld_path_penitent"
+    ],
+    "notFlags": [
+     "pld_end"
+    ]
+   },
+   "text": "Ánh sáng không còn đến khi bạn cầu nguyện. Ở nhánh Sám Hối, điều đó không lạ: Lumina rời bỏ những kẻ phá thề, và chỉ quay lại khi họ làm đủ điều đúng. Không ai biết bao nhiêu là đủ.",
+   "choices": [
+    {
+     "label": "Đi bộ đến từng người mình từng làm tổn thương",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn đi suốt một năm. Có người tha thứ, có người đóng cửa, có người đã chết. Ở ngôi nhà cuối cùng, một bà lão đặt tay lên đầu bạn, và bạn cảm thấy hơi ấm quen thuộc trên lòng bàn tay mình.",
+      "effects": {
+       "joy": 12,
+       "jobXp": 3,
+       "flags": [
+        "pld_light_return"
+       ]
+      },
+      "moment": "Đi xin lỗi từng người mình từng làm tổn thương"
+     },
+     "fail": {
+      "text": "Một năm trôi qua, ánh sáng vẫn chưa đến. Bạn tiếp tục đi.",
+      "effects": {
+       "joy": -6,
+       "jobXp": 2
+      }
+     }
+    },
+    {
+     "label": "Chiến đấu không có ánh sáng",
+     "text": "Kiếm của bạn không phát sáng, khiên của bạn không được ban phước. Bạn chiến đấu như một người lính bình thường, và nhận ra những người lính bình thường đã luôn chiến đấu như thế.",
+     "effects": {
+      "STR": 1,
+      "health": -10,
+      "jobXp": 2,
+      "flags": [
+       "pld_lightless"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "pld_penitent_merek",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_paladin",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "pld_path_penitent"
+    ],
+    "notFlags": [
+     "pld_end"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Merek",
+     "race": "Human",
+     "position": "Thánh Kỵ Sĩ sa ngã thành Hắc Kỵ Sĩ"
+    }
+   ],
+   "text": "Nhánh Sám Hối nhận được thư của một kỵ sĩ đã sa ngã thành Hắc Kỵ Sĩ: Merek, từng là đồng đội của Oswin Hale. Hắn muốn quay về, nhưng chỉ nói chuyện với một kẻ cũng từng phá thề.",
+   "choices": [
+    {
+     "label": "Đi gặp Merek một mình",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Hai người ngồi bên đống lửa suốt đêm. Merek kể vì sao hắn sa ngã; bạn kể vì sao bạn phá thề. Lúc bình minh, hắn tháo chiếc mũ trụ đen và đi theo bạn về.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "pld_merek_returned"
+       ]
+      },
+      "moment": "Đưa Hắc Kỵ Sĩ Merek trở về"
+     },
+     "fail": {
+      "text": "Merek muốn quay về, nhưng bóng tối trong hắn thì không. Hắn rút kiếm giữa chừng câu chuyện. Bạn sống sót, hắn biến mất.",
+      "effects": {
+       "health": -20,
+       "flags": [
+        "pld_merek_fled"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Báo cho Oswin Hale",
+     "require": {
+      "flags": [
+       "pld_met_oswin"
+      ]
+     },
+     "text": "Oswin đi cùng bạn. Khi thấy Merek, ông già không rút kiếm; ông ôm lấy người đồng đội cũ. Merek khóc như một đứa trẻ trong vòng tay một ông già có vết sẹo từ trán xuống cằm, vết sẹo mà chính Merek đã gây ra.",
+     "effects": {
+      "joy": 12,
+      "jobXp": 3,
+      "flags": [
+       "pld_merek_returned",
+       "pld_oswin_bond"
+      ]
+     },
+     "moment": "Chứng kiến Oswin Hale ôm lấy kẻ đã gây ra vết sẹo của ông"
+    }
+   ]
+  },
+  {
+   "id": "pld_crusade_first_layer",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_paladin",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "pld_path_crusade"
+    ],
+    "notFlags": [
+     "pld_end"
+    ]
+   },
+   "text": "Tầng thứ nhất của Vực Thẳm Phân Tầng nóng như lò rèn và tối như đáy giếng. Đoàn Thập Tự của bạn tìm thấy một làng nhỏ của Ma tộc: phụ nữ, trẻ con, người già, không có chiến binh nào.",
+   "choices": [
+    {
+     "label": "Tuân lệnh chỉ huy: thanh tẩy",
+     "text": "Ánh sáng Lumina rực lên trên kiếm bạn, mạnh chưa từng thấy. Ngôi làng biến mất trong biển lửa trắng. Bạn tự hỏi vì sao Lumina lại sáng nhất vào lúc này.",
+     "effects": {
+      "fame": 6,
+      "joy": -20,
+      "jobXp": 3,
+      "flags": [
+       "pld_crusade_purge"
+      ]
+     },
+     "moment": "Thanh tẩy một ngôi làng Ma tộc"
+    },
+    {
+     "label": "Đứng chắn trước ngôi làng",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đứng một mình giữa đoàn Thập Tự và ngôi làng, kiếm chỉ xuống đất. Chỉ huy không dám ra lệnh tấn công qua xác một Thánh Kỵ Sĩ. Đoàn quân đi tiếp, để lại ngôi làng nguyên vẹn.",
+      "effects": {
+       "STR": 1,
+       "fame": -3,
+       "joy": 8,
+       "jobXp": 3,
+       "flags": [
+        "pld_crusade_shield"
+       ]
+      },
+      "moment": "Đứng chắn giữa đoàn Thập Tự và một ngôi làng Ma tộc"
+     },
+     "fail": {
+      "text": "Chỉ huy cho người trói bạn lại. Bạn chứng kiến mọi thứ mà không làm gì được.",
+      "effects": {
+       "health": -10,
+       "joy": -25,
+       "flags": [
+        "pld_crusade_shield"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "pld_crusade_whisper",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_paladin",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "pld_path_crusade"
+    ],
+    "notFlags": [
+     "pld_end"
+    ]
+   },
+   "text": "Càng xuống sâu trong Vực Thẳm, đoàn Thập Tự càng ít người. Đêm qua, ba kỵ sĩ đã tự cắt cổ mình trong lúc ngủ. Sáng nay, bạn nghe thấy giọng nói của chính mình thì thầm từ vách đá: “Quay về đi. Người không theo ngươi xuống đây đâu.”",
+   "choices": [
+    {
+     "label": "Tiếp tục đi xuống",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn hát kinh thật to để át tiếng thì thầm. Đến tầng thứ ba, giọng nói tắt hẳn, và bạn thấy một tia sáng rất nhỏ ở cuối đường hầm: Lumina vẫn ở đây.",
+      "effects": {
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "pld_crusade_deep"
+       ]
+      },
+      "moment": "Xuống đến tầng thứ ba của Vực Thẳm"
+     },
+     "fail": {
+      "text": "Giọng nói ngày càng to. Bạn vẫn đi tiếp, nhưng từ đó không ngủ được quá ba giờ mỗi đêm.",
+      "effects": {
+       "health": -15,
+       "joy": -10,
+       "flags": [
+        "pld_crusade_deep"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Dẫn những người còn lại quay về",
+     "text": "Chỉ huy gọi bạn là kẻ hèn. Bạn đưa mười hai kỵ sĩ về đến mặt đất. Không ai trong số họ gọi bạn là kẻ hèn.",
+     "effects": {
+      "joy": 6,
+      "fame": 3,
+      "jobXp": 2,
+      "flags": [
+       "pld_crusade_return"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "pld_c4_oswin",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_paladin",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "pld_met_oswin"
+    ],
+    "notFlags": [
+     "pld_oswin_gone",
+     "pld_end"
+    ]
+   },
+   "text": "Oswin Hale chết trong tư thế quỳ, trước bàn thờ Lumina, trong đêm canh thức của một cận vệ mới. Cậu cận vệ hoảng hốt chạy đi tìm bạn.",
+   "choices": [
+    {
+     "label": "Quỳ thay ông đến sáng",
+     "text": "Bạn quỳ cách cậu cận vệ ba bước, đúng chỗ Oswin từng quỳ cách bạn. Lúc bình minh, tia nắng chiếu qua cửa kính màu, dừng lại trên tay cậu ta. Bạn gật đầu: “Người đã nhìn thấy ngươi.”",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "pld_oswin_gone",
+       "pld_oswin_heir"
+      ]
+     },
+     "moment": "Quỳ canh thức thay Oswin Hale trong đêm ông mất"
+    },
+    {
+     "label": "Mang thanh kiếm của ông về quê ông",
+     "text": "Quê Oswin là một làng chăn cừu ở Đồng Bằng. Không ai ở đó biết ông là Chỉ huy Thánh Kỵ Sĩ; họ chỉ nhớ một cậu bé hay trèo cây. Bạn chôn kiếm của ông dưới gốc cây ấy.",
+     "effects": {
+      "joy": 2,
+      "jobXp": 3,
+      "flags": [
+       "pld_oswin_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "pld_c4_ysolde_fall",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_paladin",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "pld_met_ysolde"
+    ],
+    "notFlags": [
+     "pld_end"
+    ]
+   },
+   "text": "Ysolde Brand bị buộc tội ăn hối lộ, và bạn là người được Hội đồng giao điều tra. Mọi bằng chứng đều chỉ về phía cô. Cô chỉ nói với bạn một câu: “Ngươi biết ta mà.”",
+   "choices": [
+    {
+     "label": "Điều tra đến cùng, dù kết quả thế nào",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bằng chứng là giả, do chính bá tước từng bị cô chống lệnh dựng lên. Ysolde được minh oan. Cô không cảm ơn bạn; cô chỉ đặt lại tay lên vai bạn như năm hai người cùng đứng trong áo vải.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 4,
+       "flags": [
+        "pld_ysolde_cleared"
+       ]
+      },
+      "moment": "Minh oan cho Ysolde Brand"
+     },
+     "fail": {
+      "text": "Bạn tìm ra sự thật: cô có nhận tiền, để nuôi ba trăm người tị nạn trong khu ổ chuột. Bạn phải báo cáo. Ysolde bị tước áo choàng.",
+      "effects": {
+       "joy": -15,
+       "flags": [
+        "pld_ysolde_fallen"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Từ chối điều tra người mình tin",
+     "text": "Hội đồng giao cho người khác. Ysolde bị kết tội. Bạn không bao giờ biết sự thật, và không bao giờ tha thứ cho mình vì đã không muốn biết.",
+     "effects": {
+      "joy": -12,
+      "jobXp": 2,
+      "flags": [
+       "pld_ysolde_fallen"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "pld_c5_pure",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_paladin",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "pld_path_pure"
+    ],
+    "notFlags": [
+     "pld_end"
+    ]
+   },
+   "text": "Bạn được phong Sword of Light, danh hiệu cao nhất của Thánh Kỵ Sĩ Đoàn. Trong lễ phong, Hội đồng hỏi bạn đã giữ trọn ba lời thề chưa.",
+   "choices": [
+    {
+     "label": "Trả lời: “Có.”",
+     "require": {
+      "flags": [
+       "pld_kept_oath"
+      ],
+      "notFlags": [
+       "pld_oath_bent"
+      ]
+     },
+     "text": "Thanh kiếm trong tay bạn bừng sáng như mặt trời giữa trưa. Cả nhà nguyện phải nhắm mắt. Đó là lần đầu tiên trong một trăm năm có người trả lời câu hỏi ấy mà ánh sáng không tắt.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "pld_end",
+       "pld_end_unbroken"
+      ]
+     },
+     "moment": "Được phong Sword of Light với lời thề trọn vẹn"
+    },
+    {
+     "label": "Trả lời: “Không. Nhưng con chưa bao giờ ngừng cố.”",
+     "text": "Ánh sáng không rực rỡ, nhưng ấm và đều, như ngọn đèn trong một căn nhà có người chờ. Hội đồng im lặng, rồi phong cho bạn. Đó là câu trả lời mà Oswin từng nói.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "pld_end",
+       "pld_end_honest"
+      ]
+     },
+     "moment": "Thú nhận lời thề chưa trọn trong lễ phong Sword of Light"
+    }
+   ]
+  },
+  {
+   "id": "pld_c5_penitent",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_paladin",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "pld_path_penitent"
+    ],
+    "notFlags": [
+     "pld_end"
+    ]
+   },
+   "text": "Không ai phong danh hiệu cho một kỵ sĩ áo xám. Nhưng những người bạn đã cứu, đã xin lỗi, đã chuộc lỗi, bắt đầu gọi bạn là Sword of Light, và cái tên ấy lan nhanh hơn mọi chiếu chỉ.",
+   "choices": [
+    {
+     "label": "Trở về nhà nguyện, cầu nguyện lần cuối",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn quỳ, và ánh sáng đến, lần đầu tiên sau nhiều năm. Không rực rỡ. Chỉ như một bàn tay đặt lên vai. Bạn khóc như một đứa trẻ.",
+      "effects": {
+       "joy": 20,
+       "fame": 10,
+       "flags": [
+        "pld_end",
+        "pld_end_forgiven"
+       ]
+      },
+      "moment": "Ánh sáng Lumina trở lại sau nhiều năm sám hối"
+     },
+     "fail": {
+      "text": "Ánh sáng không đến. Bạn đứng dậy, mỉm cười, và đi ra cửa. Có lẽ không cần nó nữa.",
+      "effects": {
+       "joy": 12,
+       "fame": 8,
+       "flags": [
+        "pld_end",
+        "pld_end_without_light"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Lập nhà cho những kỵ sĩ sa ngã",
+     "require": {
+      "flags": [
+       "pld_merek_returned"
+      ]
+     },
+     "text": "Merek là người đầu tiên đến. Sau đó là những kẻ phá thề, những Hắc Kỵ Sĩ mệt mỏi, những kẻ không còn nơi nào để về. Ngôi nhà của bạn không có ánh sáng Lumina, nhưng có lửa sưởi và bánh mì.",
+     "effects": {
+      "joy": 18,
+      "fame": 10,
+      "flags": [
+       "pld_end",
+       "pld_end_house_of_fallen"
+      ]
+     },
+     "moment": "Lập ngôi nhà cho những kỵ sĩ sa ngã"
+    }
+   ]
+  },
+  {
+   "id": "pld_c5_crusade",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_paladin",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "pld_path_crusade"
+    ],
+    "notFlags": [
+     "pld_end"
+    ]
+   },
+   "text": "Bạn đã đến tầng sâu nhất của Vực Thẳm Phân Tầng mà một con người từng đến. Trước mặt bạn là một cánh cửa đá, và sau cánh cửa là thứ mà Ma tộc gọi là Cổ Thần.",
+   "choices": [
+    {
+     "label": "Mở cửa và chiến đấu",
+     "check": {
+      "stat": "STR",
+      "target": 10
+     },
+     "success": {
+      "text": "Bạn không nhớ trận chiến ấy. Bạn chỉ nhớ đã bước ra khỏi Vực Thẳm sau một trăm ngày, một mình, tóc trắng xóa. Từ đó, những tầng trên của Vực Thẳm yên lặng hơn, và không ai biết vì sao.",
+      "effects": {
+       "fame": 15,
+       "lifeCost": 10,
+       "flags": [
+        "pld_end",
+        "pld_end_abyss_hero"
+       ]
+      },
+      "moment": "Trở về từ tầng sâu nhất của Vực Thẳm"
+     },
+     "fail": {
+      "text": "Người ta không bao giờ tìm thấy bạn. Chỉ có thanh kiếm của bạn được tìm thấy ở tầng thứ năm, vẫn còn tỏa ánh sáng yếu ớt.",
+      "effects": {
+       "lifeCost": 40,
+       "fame": 10,
+       "flags": [
+        "pld_end",
+        "pld_end_lost_below"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Niêm phong cửa và quay về",
+     "text": "Bạn dùng toàn bộ ánh sáng còn lại để khóa cánh cửa đá. Khi về đến mặt đất, kiếm của bạn không còn phát sáng nữa. Bạn treo nó lên vách nhà nguyện, và sống nốt đời như một người thường.",
+     "effects": {
+      "joy": 12,
+      "fame": 12,
+      "flags": [
+       "pld_end",
+       "pld_end_sealed_gate"
+      ]
+     },
+     "moment": "Niêm phong cánh cửa Cổ Thần dưới Vực Thẳm"
+    },
+    {
+     "label": "Nói chuyện với thứ ở sau cánh cửa",
+     "require": {
+      "flags": [
+       "pld_crusade_shield"
+      ]
+     },
+     "text": "Thứ ở sau cánh cửa hỏi bạn vì sao đã tha cho ngôi làng ở tầng thứ nhất. Bạn trả lời thật. Cánh cửa không mở, nhưng từ đó Ma tộc ở những tầng trên không còn tràn lên mặt đất nữa. Không ai hiểu vì sao.",
+     "effects": {
+      "joy": 15,
+      "fame": 12,
+      "INT": 1,
+      "flags": [
+       "pld_end",
+       "pld_end_parley"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "pld_daily_polish_armor",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_paladin",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Áo giáp của bạn cần được đánh bóng mỗi ngày, và người cận vệ của bạn đã bị ốm. Cả đoàn sẽ duyệt binh trong một giờ nữa.",
+   "choices": [
+    {
+     "label": "Tự đánh bóng",
+     "text": "Bạn ngồi đánh bóng áo giáp như ngày còn là cận vệ, và nhận ra mình nhớ những buổi sáng đơn giản ấy.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Mặc nguyên áo giáp bụi bặm ra sân",
+     "text": "Vài kỵ sĩ quý tộc cười khẩy. Oswin, nếu còn đó, chắc sẽ gật đầu: giáp sáng không làm nên kỵ sĩ.",
+     "effects": {
+      "joy": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "pld_daily_beggar_horse",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_paladin",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Một người ăn xin xin bạn cho cưỡi ngựa chiến một vòng. Anh ta từng là kỵ binh, mất một chân ở Tuyến Đầu, và chưa lên ngựa từ đó.",
+   "choices": [
+    {
+     "label": "Giúp anh ta lên ngựa",
+     "text": "Anh ta cưỡi một vòng quanh quảng trường, chậm rãi, khóc suốt từ đầu đến cuối. Khi xuống, anh ta chào bạn theo kiểu kỵ binh, thẳng như một ngọn giáo.",
+     "effects": {
+      "joy": 10,
+      "fame": 1
+     }
+    },
+    {
+     "label": "Cho anh ta tiền thay vì ngựa",
+     "text": "Anh ta nhận tiền, cảm ơn, và nhìn theo con ngựa của bạn rất lâu.",
+     "effects": {
+      "wealth": -3,
+      "joy": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "pld_daily_war_vanguard",
+   "races": [
+    "human"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_paladin",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Ma Vương tập kết quân ở biên giới. Thánh Kỵ Sĩ Đoàn được lệnh làm mũi xung kích đầu tiên, một nhiệm vụ mà ít người trở về.",
+   "choices": [
+    {
+     "label": "Xung phong hàng đầu",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Đội kỵ sĩ của bạn xé toạc hàng quân Ma Vương như mũi giáo xuyên lụa. Bạn trở về với áo giáp móp méo và tên được khắc lên tường nhà nguyện.",
+      "effects": {
+       "STR": 1,
+       "fame": 8,
+       "health": -15,
+       "jobXp": 3
+      },
+      "moment": "Dẫn mũi xung kích phá trận Ma Vương"
+     },
+     "fail": {
+      "text": "Mũi xung kích bị bao vây. Bạn kéo được nửa đội ra.",
+      "effects": {
+       "health": -25,
+       "joy": -10,
+       "jobXp": 2
+      }
+     }
+    },
+    {
+     "label": "Đề nghị chiến thuật khác ít thương vong hơn",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Chỉ huy nghe theo. Trận đánh kéo dài hơn, nhưng ít người chết hơn.",
+      "effects": {
+       "INT": 1,
+       "fame": 4,
+       "jobXp": 2
+      }
+     },
+     "fail": {
+      "text": "Đề nghị bị bác. Bạn vẫn phải xung phong.",
+      "effects": {
+       "health": -15,
+       "joy": -6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "pld_daily_old_armor",
+   "races": [
+    "human"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_paladin",
+    "free": true
+   },
+   "text": "Áo giáp của bạn giờ nặng như một ngôi nhà. Sáng nay, bạn cần hai người cận vệ mới lên được ngựa.",
+   "choices": [
+    {
+     "label": "Đổi sang áo giáp da nhẹ",
+     "text": "Các kỵ sĩ trẻ thì thầm rằng bạn đã già. Bạn mặc kệ. Lời thề không nằm trong áo giáp.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Vẫn mặc giáp đủ bộ, đi chậm hơn",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn đi chậm, nhưng vẫn đi. Các kỵ sĩ trẻ học được cách đi chậm cùng bạn.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1
+      }
+     },
+     "fail": {
+      "text": "Bạn ngã ngựa giữa buổi duyệt binh. Không ai cười.",
+      "effects": {
+       "health": -10,
+       "joy": -6
+      }
+     }
+    }
+   ]
+  }
+ ]
+}

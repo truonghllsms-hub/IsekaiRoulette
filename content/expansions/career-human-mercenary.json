@@ -1,0 +1,1278 @@
+{
+ "_note": "Tuyến truyện Lính đánh thuê: 5 chương theo bậc, ba đạo ở Bậc 2 (mrc_path_wolf / mrc_path_free / mrc_path_sell), nhân vật xuyên suốt Dagny Stroud, Benn 'Tai Cụp' và thủ quỹ Pell.",
+ "origins": [],
+ "events": [
+  {
+   "id": "mrc_c1_dagny",
+   "races": [
+    "human"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "human_mercenary",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "mrc_met_dagny"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Dagny Stroud",
+     "race": "Human",
+     "position": "Đội trưởng đại đội Sói Bạc"
+    }
+   ],
+   "text": "Doanh trại của đại đội Sói Bạc là một bãi lều bên bờ sông ngoài Sanctus, đầy mùi ngựa, mùi khói và mùi rượu rẻ. Đội trưởng Dagny Stroud không hỏi tên bạn. Bà chỉ ném cho bạn một cái xẻng: “Đào hố xí cho cả đại đội. Kẻ nào đào hố xí tử tế thì đào chiến hào cũng tử tế.”",
+   "choices": [
+    {
+     "label": "Đào thật sâu, thật thẳng",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn đào đến tối. Dagny đi qua, liếc xuống hố, rồi gật đầu. Sáng hôm sau, bạn được phát một thanh kiếm và một chiếc áo choàng có thêu đầu sói bạc.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "mrc_met_dagny",
+        "mrc_dagny_respect"
+       ]
+      },
+      "moment": "Đào hố xí và được nhận vào Sói Bạc"
+     },
+     "fail": {
+      "text": "Hố sụp nửa chừng. Cả đại đội cười. Dagny bắt bạn đào lại, và đứng xem đến khi bạn đào xong.",
+      "effects": {
+       "health": -5,
+       "flags": [
+        "mrc_met_dagny"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi bà vì sao không ai khác đào",
+     "text": "Dagny nhìn bạn, nhướn mày. “Vì kẻ mới luôn phải đào. Kể cả ta, ngày xưa.” Bà cầm xẻng đào cùng bạn mười nhát đầu tiên, rồi đi. Cả đại đội thấy cảnh đó.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "mrc_met_dagny",
+       "mrc_dagny_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrc_c1_benn",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_mercenary",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "mrc_met_dagny"
+    ],
+    "notFlags": [
+     "mrc_met_benn"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Benn",
+     "race": "Con lai Beastman",
+     "position": "Lính Sói Bạc, biệt danh Tai Cụp"
+    }
+   ],
+   "text": "Bạn chung lều với Benn, một gã con lai Beastman có một cái tai cụp xuống, mà cả đại đội gọi là “Tai Cụp”. Đêm đầu tiên, có ba tên lính cũ lôi Benn ra khỏi lều để “dạy cho thằng nửa thú biết thân phận”.",
+   "choices": [
+    {
+     "label": "Ra can",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn đánh ngã một tên trước khi cả ba quay sang bạn. Benn đứng dậy, và hai người đánh lại ba người đến khi Dagny đến. Từ đêm đó, Benn ngủ quay lưng về phía bạn, nghĩa là anh ta tin bạn.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "mrc_met_benn",
+        "mrc_benn_brother"
+       ]
+      },
+      "moment": "Đánh nhau vì Benn Tai Cụp trong đêm đầu tiên"
+     },
+     "fail": {
+      "text": "Bạn bị đánh nhừ tử cùng Benn. Sáng ra, hai người ngồi băng bó cho nhau, và Benn bật cười: “Ngươi đánh tệ thật. Nhưng ngươi đã ra.”",
+      "effects": {
+       "health": -15,
+       "flags": [
+        "mrc_met_benn",
+        "mrc_benn_brother"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Gọi Dagny",
+     "text": "Dagny đến, nhìn ba tên lính, rồi trừ một tháng lương của chúng. Benn được trả về lều. Anh ta không nói cảm ơn, nhưng từ đó chia rượu cho bạn.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "mrc_met_benn"
+      ]
+     }
+    },
+    {
+     "label": "Giả vờ ngủ",
+     "text": "Bạn nghe tiếng đánh nhau bên ngoài lều suốt nửa giờ. Sáng ra, Benn nằm trong lều với một mắt sưng húp, và không nhìn bạn.",
+     "effects": {
+      "joy": -8,
+      "flags": [
+       "mrc_met_benn"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrc_c1_pell",
+   "races": [
+    "human"
+   ],
+   "weight": 40,
+   "require": {
+    "job": "human_mercenary",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "mrc_met_dagny"
+    ],
+    "notFlags": [
+     "mrc_met_pell"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Pell",
+     "race": "Human",
+     "position": "Thủ quỹ của đại đội Sói Bạc"
+    }
+   ],
+   "text": "Thủ quỹ Pell là người duy nhất trong đại đội biết đọc và biết đếm quá mười. Ông ta trả lương cho mọi người vào cuối tháng, và luôn trả thiếu một đồng, “phí giữ hộ”.",
+   "choices": [
+    {
+     "label": "Đòi đủ một đồng",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn đọc to điều khoản hợp đồng có ghi rõ không có phí giữ hộ. Pell trả lại, nhìn bạn với vẻ ngạc nhiên lẫn tôn trọng. Từ đó, ông ta nhờ bạn giúp kiểm sổ.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "mrc_met_pell",
+        "mrc_pell_trust"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Pell đưa ra một tờ giấy khác có chữ ký của bạn. Bạn không biết mình đã ký nó lúc nào.",
+      "effects": {
+       "joy": -3,
+       "flags": [
+        "mrc_met_pell"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Mặc kệ, một đồng thôi mà",
+     "text": "Bạn để Pell giữ đồng ấy. Cuối năm, ông ta trả lại cho bạn mười hai đồng, kèm lãi: “Ngươi là đứa duy nhất không cãi. Ta để dành cho ngươi.”",
+     "effects": {
+      "wealth": 3,
+      "joy": 4,
+      "flags": [
+       "mrc_met_pell"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrc_c2_first_contract",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_mercenary",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "mrc_first_contract",
+     "mrc_end"
+    ]
+   },
+   "text": "Hợp đồng đầu tiên bạn được giao làm tổ trưởng: hộ tống một đoàn xe muối qua đèo. Nửa đường, bạn phát hiện trong thùng muối có giấu nỏ và tên, gửi cho một nhóm phiến quân.",
+   "choices": [
+    {
+     "label": "Hoàn thành hợp đồng, không hỏi gì",
+     "text": "Đoàn xe đến nơi đúng hẹn. Tiền được trả đủ. Tháng sau, bạn nghe tin phiến quân dùng những cây nỏ ấy để phục kích một đoàn lính triều đình.",
+     "effects": {
+      "wealth": 12,
+      "joy": -6,
+      "jobXp": 2,
+      "flags": [
+       "mrc_first_contract",
+       "mrc_no_questions"
+      ]
+     }
+    },
+    {
+     "label": "Báo cho Dagny",
+     "require": {
+      "flags": [
+       "mrc_met_dagny"
+      ]
+     },
+     "text": "Dagny nghe xong, im lặng rất lâu, rồi ra lệnh: hoàn thành hợp đồng, nhưng thông báo cho triều đình về chuyến hàng sau khi nhận tiền. “Sói Bạc giữ lời với khách. Nhưng khách không mua được sự im lặng của chúng ta.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "mrc_first_contract",
+       "mrc_dagny_code"
+      ]
+     },
+     "moment": "Học luật của Sói Bạc từ Dagny Stroud"
+    },
+    {
+     "label": "Đổ hết vũ khí xuống vực",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn đổ nỏ xuống vực và đưa muối đến nơi. Khách hàng giận dữ, nhưng không dám kiện vì món hàng lậu. Sói Bạc mất một khách, giữ được một lương tâm.",
+      "effects": {
+       "STR": 1,
+       "wealth": -5,
+       "jobXp": 2,
+       "flags": [
+        "mrc_first_contract",
+        "mrc_conscience"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Phiến quân phát hiện và phục kích đoàn xe. Bạn đưa người của mình về đủ, nhưng mất cả xe lẫn muối.",
+      "effects": {
+       "health": -15,
+       "wealth": -10,
+       "flags": [
+        "mrc_first_contract",
+        "mrc_conscience"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrc_c2_crossroads",
+   "races": [
+    "human"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "human_mercenary",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "mrc_path_wolf",
+     "mrc_path_free",
+     "mrc_path_sell",
+     "mrc_end"
+    ]
+   },
+   "text": "Sau mười hai hợp đồng, bạn có tên tuổi. Dagny muốn bạn làm phó đội trưởng của Sói Bạc. Một nhóm lính trẻ, chán cảnh làm thuê cho kẻ trả tiền, muốn bạn dẫn họ lập một đoàn mới với luật lệ riêng. Và một thương gia vũ khí đề nghị bạn làm việc riêng cho ông ta, với lương gấp năm lần.",
+   "choices": [
+    {
+     "label": "Làm phó cho Dagny: Nanh Sói Bạc",
+     "text": "Bạn đeo chiếc huy hiệu đầu sói bằng bạc thật. Từ hôm nay, mỗi quyết định của bạn ảnh hưởng đến ba trăm người, và đến cái tên mà Sói Bạc đã giữ một trăm năm.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2,
+      "flags": [
+       "mrc_path_wolf"
+      ]
+     },
+     "moment": "Trở thành phó đội trưởng Sói Bạc"
+    },
+    {
+     "label": "Lập đoàn mới: Đoàn Tự Do",
+     "text": "Mười lăm người, mười lăm thanh kiếm, và một điều lệ viết trên da dê: không giết người không mang vũ khí, không nhận hợp đồng của kẻ buôn người, chia tiền đều. Dagny tiễn bạn ở bờ sông, không giận, chỉ nói: “Giữ được điều lệ ấy lâu hơn ta thì quay lại khoe.”",
+     "effects": {
+      "joy": 8,
+      "jobXp": 2,
+      "flags": [
+       "mrc_path_free"
+      ]
+     },
+     "moment": "Lập Đoàn Tự Do với mười lăm người"
+    },
+    {
+     "label": "Làm cho thương gia vũ khí: Lưỡi Kiếm Thuê",
+     "text": "Lương gấp năm lần, và không có điều lệ nào. Bạn mua một bộ giáp tốt, một con ngựa tốt, và học cách không hỏi vì sao.",
+     "effects": {
+      "wealth": 25,
+      "wealthKind": "windfall",
+      "jobXp": 2,
+      "flags": [
+       "mrc_path_sell"
+      ]
+     },
+     "moment": "Bán kiếm cho kẻ trả giá cao nhất"
+    }
+   ]
+  },
+  {
+   "id": "mrc_wolf_mutiny",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_mercenary",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mrc_path_wolf"
+    ],
+    "notFlags": [
+     "mrc_end"
+    ]
+   },
+   "text": "Mùa đông khắc nghiệt, lương chậm ba tháng vì khách hàng phá sản. Một nhóm lính định nổi loạn, cướp kho lương của đại đội và bỏ đi. Dagny đang ốm liệt giường.",
+   "choices": [
+    {
+     "label": "Đứng ra nói chuyện với họ",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn dốc túi riêng chia cho những người có gia đình, và hứa sẽ tự đi đòi nợ khách hàng. Nhóm nổi loạn tan. Hai tuần sau, bạn mang tiền về, và cả đại đội nâng cốc gọi tên bạn.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "wealth": -10,
+       "jobXp": 3,
+       "flags": [
+        "mrc_wolf_held"
+       ]
+      },
+      "moment": "Dập cuộc nổi loạn mùa đông bằng túi tiền của mình"
+     },
+     "fail": {
+      "text": "Họ không nghe. Ba mươi người bỏ đi, mang theo một nửa kho lương.",
+      "effects": {
+       "joy": -12,
+       "flags": [
+        "mrc_wolf_split"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Dùng vũ lực",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đánh ngã kẻ cầm đầu trước mặt cả đại đội. Không ai dám động đậy. Kho lương được giữ, nhưng bạn biết có những người sẽ không bao giờ tin bạn nữa.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 2,
+       "flags": [
+        "mrc_wolf_iron"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Cuộc đánh nhau biến thành hỗn loạn. Hai người chết.",
+      "effects": {
+       "health": -15,
+       "joy": -15
+      }
+     }
+    },
+    {
+     "label": "Nhờ Pell mở két dự phòng bí mật",
+     "require": {
+      "flags": [
+       "mrc_pell_trust"
+      ]
+     },
+     "text": "Pell nhăn nhó, rồi mở một chiếc két mà chỉ ông ta và Dagny biết. Đủ lương cho hai tháng. Cuộc nổi loạn tắt trước khi bắt đầu.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "mrc_wolf_held"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrc_wolf_paladin_contract",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_mercenary",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mrc_path_wolf"
+    ],
+    "notFlags": [
+     "mrc_end"
+    ]
+   },
+   "text": "Sói Bạc nhận hợp đồng của một lãnh chúa đánh dẹp một ngôi làng “phản loạn”. Khi đến nơi, bạn thấy một Thánh Kỵ Sĩ đứng chắn giữa làng, một mình, kiếm cắm xuống đất.",
+   "choices": [
+    {
+     "label": "Thương lượng với Thánh Kỵ Sĩ",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Ngôi làng không phản loạn; họ chỉ không nộp nổi thuế. Bạn và Thánh Kỵ Sĩ cùng đến gặp lãnh chúa. Sói Bạc trả lại tiền đặt cọc, và lãnh chúa giảm thuế vì không dám đối đầu cả hai.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "mrc_wolf_honor"
+       ]
+      },
+      "moment": "Cùng một Thánh Kỵ Sĩ cứu ngôi làng bị gọi là phản loạn"
+     },
+     "fail": {
+      "text": "Lãnh chúa không nghe. Bạn rút đại đội về, mất hợp đồng, mất tiền đặt cọc.",
+      "effects": {
+       "wealth": -15,
+       "flags": [
+        "mrc_wolf_honor"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Thực hiện hợp đồng",
+     "text": "Thánh Kỵ Sĩ ngã xuống sau khi hạ bảy người của bạn. Ngôi làng bị đốt. Lãnh chúa trả đủ tiền. Ở doanh trại, không ai nói về ngày hôm ấy.",
+     "effects": {
+      "wealth": 20,
+      "joy": -20,
+      "jobXp": 2,
+      "flags": [
+       "mrc_wolf_dark"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrc_free_charter_test",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_mercenary",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mrc_path_free"
+    ],
+    "notFlags": [
+     "mrc_end"
+    ]
+   },
+   "text": "Hợp đồng lớn nhất từ khi lập đoàn: hai trăm Tinh Bạc để chặn một đoàn buôn trên đường cái. Chỉ sau khi nhận tiền, bạn mới biết đoàn buôn ấy chở nô lệ, và người thuê là một băng buôn người đối thủ.",
+   "choices": [
+    {
+     "label": "Chặn đoàn buôn, thả nô lệ, giữ tiền",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Đoàn Tự Do chặn đoàn buôn trên đèo và cắt xích cho ba mươi người. Bạn giữ tiền, vì điều lệ không cấm lấy tiền của kẻ buôn người. Đoàn của bạn có thêm ba mươi người tình nguyện.",
+      "effects": {
+       "AGI": 1,
+       "fame": 6,
+       "wealth": 15,
+       "jobXp": 3,
+       "flags": [
+        "mrc_free_liberators"
+       ]
+      },
+      "moment": "Thả ba mươi nô lệ bằng tiền của bọn buôn người"
+     },
+     "fail": {
+      "text": "Đoàn buôn có nhiều lính hơn dự tính. Bạn thả được mười người, mất ba người của mình.",
+      "effects": {
+       "health": -15,
+       "joy": -10,
+       "flags": [
+        "mrc_free_liberators"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Trả lại tiền, từ chối hợp đồng",
+     "text": "Điều lệ nói không nhận hợp đồng của kẻ buôn người, nên bạn không nhận. Đoàn buôn đi qua. Bạn giữ được điều lệ, và mất một đêm ngủ.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 2,
+      "flags": [
+       "mrc_free_strict"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrc_free_vote",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_mercenary",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mrc_path_free"
+    ],
+    "notFlags": [
+     "mrc_end"
+    ]
+   },
+   "text": "Đoàn Tự Do có điều lệ chia tiền đều và bỏ phiếu mọi quyết định. Lần này, đoàn bỏ phiếu nhận một hợp đồng mà bạn biết là sai: đánh thuê cho một lãnh chúa đang chiếm đất của nông dân. Bạn thua phiếu.",
+   "choices": [
+    {
+     "label": "Tôn trọng lá phiếu",
+     "text": "Bạn đi cùng đoàn, làm đúng phần việc của mình, và không nói gì. Sau hợp đồng, một nửa đoàn đến xin lỗi bạn. Điều lệ được thêm một dòng: không đánh thuê để cướp đất của người cày.",
+     "effects": {
+      "joy": -4,
+      "fame": 3,
+      "jobXp": 3,
+      "flags": [
+       "mrc_free_democracy"
+      ]
+     },
+     "moment": "Tôn trọng lá phiếu của Đoàn Tự Do dù mình thua"
+    },
+    {
+     "label": "Dùng quyền đội trưởng phủ quyết",
+     "text": "Đoàn nhận lệnh, nhưng nhiều người không vui. Ba người rời đoàn ngay đêm ấy. Bạn tự hỏi mình còn khác gì những đội trưởng mà bạn từng bỏ đi.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 2,
+      "flags": [
+       "mrc_free_veto"
+      ]
+     }
+    },
+    {
+     "label": "Nhờ Benn nói chuyện với từng người",
+     "require": {
+      "flags": [
+       "mrc_benn_brother"
+      ]
+     },
+     "text": "Benn đi từ lều này sang lều khác suốt đêm, kể về ngôi làng con lai nơi anh ta lớn lên, bị một lãnh chúa chiếm mất. Sáng ra, đoàn bỏ phiếu lại. Hợp đồng bị từ chối.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "mrc_free_democracy"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrc_sell_both_sides",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_mercenary",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mrc_path_sell"
+    ],
+    "notFlags": [
+     "mrc_end"
+    ]
+   },
+   "text": "Thương gia vũ khí của bạn bán giáo cho cả hai vương quốc đang đánh nhau. Giờ ông ta muốn bạn dẫn một đội lính đánh thuê sang phía vương quốc đang thua, để chiến tranh kéo dài thêm một năm.",
+   "choices": [
+    {
+     "label": "Làm theo",
+     "text": "Chiến tranh kéo dài thêm một năm. Thương gia giàu gấp đôi, bạn giàu gấp ba. Có những làng ở biên giới bị cháy hai lần trong năm ấy.",
+     "effects": {
+      "wealth": 40,
+      "wealthKind": "windfall",
+      "joy": -15,
+      "jobXp": 3,
+      "flags": [
+       "mrc_sell_war_profiteer"
+      ]
+     },
+     "moment": "Kéo dài chiến tranh để thương gia vũ khí giàu thêm"
+    },
+    {
+     "label": "Dẫn đội sang, rồi giúp hai bên đàm phán",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Với lính đánh thuê ở cả hai phía, bạn là người duy nhất nói chuyện được với cả hai. Bạn sắp xếp một cuộc ngưng chiến. Thương gia không bao giờ thuê bạn nữa.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "mrc_sell_peacemaker"
+       ]
+      },
+      "moment": "Dùng vị trí lính thuê để dàn xếp ngưng chiến"
+     },
+     "fail": {
+      "text": "Cả hai phía đều nghi ngờ bạn. Bạn phải rút đội về trong đêm.",
+      "effects": {
+       "joy": -8,
+       "fame": -3
+      }
+     }
+    },
+    {
+     "label": "Bỏ việc",
+     "text": "Bạn trả lại con ngựa tốt, giữ lại bộ giáp. Thương gia cười: “Rồi ngươi sẽ quay lại.” Bạn không quay lại.",
+     "effects": {
+      "wealth": -10,
+      "joy": 6,
+      "flags": [
+       "mrc_sell_quit"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrc_sell_old_comrades",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_mercenary",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mrc_path_sell"
+    ],
+    "notFlags": [
+     "mrc_end"
+    ]
+   },
+   "text": "Hợp đồng mới: tiêu diệt một đoàn lính đánh thuê đang cản đường cho thương gia của bạn. Lá cờ trên doanh trại đối phương là lá cờ đầu sói bạc.",
+   "choices": [
+    {
+     "label": "Tấn công",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn thắng. Khi đi qua những xác người, bạn nhận ra những khuôn mặt từng uống rượu cùng mình. Thương gia trả thưởng gấp đôi.",
+      "effects": {
+       "wealth": 35,
+       "joy": -25,
+       "jobXp": 3,
+       "flags": [
+        "mrc_sell_betrayed_wolves"
+       ]
+      },
+      "moment": "Tấn công đại đội Sói Bạc cũ của mình"
+     },
+     "fail": {
+      "text": "Sói Bạc biết bạn sẽ đến. Đội của bạn bị đánh tan, và Dagny cho người khiêng bạn về lều của bà để băng bó.",
+      "effects": {
+       "health": -25,
+       "joy": -10,
+       "flags": [
+        "mrc_sell_spared_by_wolves"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Báo trước cho Sói Bạc",
+     "text": "Bạn gửi một mũi tên có buộc thư đến doanh trại Sói Bạc. Họ rút đi trước khi bạn đến. Thương gia nghi ngờ, nhưng không chứng minh được gì.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "mrc_sell_warned_wolves"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrc_c4_dagny",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_mercenary",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "mrc_met_dagny"
+    ],
+    "notFlags": [
+     "mrc_dagny_gone",
+     "mrc_end"
+    ]
+   },
+   "text": "Dagny Stroud bị thương nặng trong trận cuối cùng của bà, một trận đánh mà bà không cần đánh: bảo vệ một trại tị nạn không ai trả tiền. Bà nằm trong lều, gọi tên bạn.",
+   "choices": [
+    {
+     "label": "Đến bên bà",
+     "text": "Dagny nắm tay bạn bằng bàn tay chai sạn. Bà không nói về Sói Bạc, không nói về tiền. Bà chỉ hỏi: “Hố xí năm ấy, ngươi đào sâu bao nhiêu?” Bạn trả lời. Bà cười, và mất trong tiếng cười ấy.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 3,
+      "flags": [
+       "mrc_dagny_gone"
+      ]
+     },
+     "moment": "Tiễn Dagny Stroud trong trận cuối của bà"
+    },
+    {
+     "label": "Nhận lá cờ đầu sói bạc từ tay bà",
+     "require": {
+      "flags": [
+       "mrc_path_wolf"
+      ]
+     },
+     "text": "Dagny trao cho bạn lá cờ đã rách ba chỗ. “Đừng để nó thành cờ của kẻ buôn người.” Bà mất trước bình minh. Ba trăm người đứng quanh lều, im lặng, rồi quỳ xuống trước bạn.",
+     "effects": {
+      "fame": 6,
+      "jobXp": 3,
+      "flags": [
+       "mrc_dagny_gone",
+       "mrc_wolf_heir"
+      ]
+     },
+     "moment": "Nhận lá cờ Sói Bạc từ tay Dagny Stroud"
+    }
+   ]
+  },
+  {
+   "id": "mrc_c4_benn",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_mercenary",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "mrc_met_benn"
+    ],
+    "notFlags": [
+     "mrc_end"
+    ]
+   },
+   "text": "Benn bị bắt ở một thị trấn biên giới, nơi có luật treo cổ mọi con lai Beastman bị nghi là gián điệp. Không có bằng chứng nào; chỉ có cái tai cụp của anh ta.",
+   "choices": [
+    {
+     "label": "Phá ngục cứu Benn",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn trèo tường nhà giam lúc nửa đêm, đúng như những ngày đầu Sói Bạc đã dạy. Benn đang ngồi hát trong xà lim. Hai người thoát ra trước khi chuông báo động vang lên.",
+      "effects": {
+       "AGI": 1,
+       "fame": -3,
+       "jobXp": 3,
+       "flags": [
+        "mrc_benn_saved"
+       ]
+      },
+      "moment": "Phá ngục cứu Benn Tai Cụp"
+     },
+     "fail": {
+      "text": "Bạn bị phát hiện. Cả hai bị nhốt chung một xà lim, và phải nhờ cả đại đội đến đòi người.",
+      "effects": {
+       "health": -15,
+       "flags": [
+        "mrc_benn_saved"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Mua tự do cho anh ta",
+     "require": {
+      "wealth": 25
+     },
+     "showLocked": true,
+     "text": "Luật treo cổ con lai có một lỗ hổng: tiền chuộc. Bạn trả, trong khi Benn đứng nhìn qua song sắt, lắc đầu: “Ngươi có biết bao nhiêu con lai khác không có ai trả không?”",
+     "effects": {
+      "wealth": -25,
+      "joy": 4,
+      "jobXp": 2,
+      "flags": [
+       "mrc_benn_saved",
+       "mrc_benn_bitter"
+      ]
+     }
+    },
+    {
+     "label": "Kéo cả đoàn đến cổng thị trấn",
+     "require": {
+      "anyFlags": [
+       "mrc_path_free",
+       "mrc_path_wolf"
+      ]
+     },
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Ba trăm lính đánh thuê đứng trước cổng thị trấn không rút kiếm. Viên trấn trưởng thả Benn, và cả luật treo cổ con lai bị bãi bỏ ngay mùa sau.",
+      "effects": {
+       "fame": 8,
+       "joy": 10,
+       "jobXp": 4,
+       "flags": [
+        "mrc_benn_saved",
+        "mrc_law_broken"
+       ]
+      },
+      "moment": "Kéo cả đoàn quân đến cứu Benn và xóa luật treo cổ con lai"
+     },
+     "fail": {
+      "text": "Thị trấn đóng cổng và gọi quân triều đình. Bạn phải rút, và Benn bị chuyển đi nơi khác.",
+      "effects": {
+       "joy": -15,
+       "flags": [
+        "mrc_benn_lost"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrc_c5_wolf",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_mercenary",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "mrc_path_wolf"
+    ],
+    "notFlags": [
+     "mrc_end"
+    ]
+   },
+   "text": "Bạn là đội trưởng Sói Bạc, người được gọi là Silver Wolf Leader, rồi Mercenary King. Một vương quốc đề nghị mua đứt đại đội: ba trăm người sẽ thành quân chính quy, có lương, có đất, có lương hưu.",
+   "choices": [
+    {
+     "label": "Nhận lời",
+     "text": "Ba trăm người có nhà. Lá cờ đầu sói bạc được treo trong sảnh của một lâu đài. Sói Bạc không còn là lính đánh thuê, và một trăm năm truyền thống kết thúc trong một bữa tiệc.",
+     "effects": {
+      "wealth": 30,
+      "fame": 10,
+      "joy": 8,
+      "flags": [
+       "mrc_end",
+       "mrc_end_settled"
+      ]
+     },
+     "moment": "Đưa Sói Bạc trở thành quân chính quy"
+    },
+    {
+     "label": "Từ chối, giữ Sói Bạc tự do",
+     "require": {
+      "anyFlags": [
+       "mrc_wolf_held",
+       "mrc_wolf_honor",
+       "mrc_wolf_heir"
+      ]
+     },
+     "text": "Bạn viết lại luật của Dagny thành điều lệ chính thức của Sói Bạc. Đại đội tiếp tục đi khắp Aethelgard dưới lá cờ rách ba chỗ, và người ta biết rằng có những hợp đồng Sói Bạc không bao giờ nhận.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "mrc_end",
+       "mrc_end_free_wolves"
+      ]
+     },
+     "moment": "Giữ Sói Bạc tự do với luật của Dagny"
+    },
+    {
+     "label": "Chia đại đội thành những đoàn nhỏ",
+     "text": "Mỗi phó đội trưởng nhận một nhóm và một mảnh cờ. Sói Bạc tan ra như sói con rời đàn. Mười năm sau, có hai mươi đoàn lính đánh thuê mang đầu sói bạc trên khiên.",
+     "effects": {
+      "fame": 12,
+      "joy": 8,
+      "flags": [
+       "mrc_end",
+       "mrc_end_pack_scattered"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrc_c5_free",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_mercenary",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "mrc_path_free"
+    ],
+    "notFlags": [
+     "mrc_end"
+    ]
+   },
+   "text": "Đoàn Tự Do giờ có ba nghìn người và điều lệ dài ba trang. Người ta gọi bạn là Mercenary King, dù trong đoàn không ai được làm vua. Nhà vua Sanctus đề nghị phong tước cho bạn, đổi lại Đoàn Tự Do phải thề trung thành với triều đình.",
+   "choices": [
+    {
+     "label": "Đưa ra bỏ phiếu",
+     "text": "Ba nghìn người bỏ phiếu. Bạn không biết kết quả trước. Hai nghìn bảy trăm phiếu chống. Bạn mỉm cười, và gửi lời từ chối cho nhà vua, ký tên “Đoàn Tự Do”, không phải tên bạn.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "mrc_end",
+       "mrc_end_the_vote"
+      ]
+     },
+     "moment": "Để ba nghìn người bỏ phiếu từ chối tước vị"
+    },
+    {
+     "label": "Nhận tước, nhưng giữ điều lệ",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn thương lượng suốt ba tháng. Đoàn Tự Do thành một đội quân có tước vị nhưng vẫn giữ quyền từ chối mọi lệnh trái điều lệ. Nhà vua ký, có lẽ vì không còn lựa chọn.",
+      "effects": {
+       "fame": 15,
+       "wealth": 20,
+       "flags": [
+        "mrc_end",
+        "mrc_end_chartered_knight"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Nhà vua không chấp nhận điều kiện. Đoàn Tự Do bị cấm hoạt động ở Sanctus, và chuyển sang Thảo Nguyên.",
+      "effects": {
+       "fame": 10,
+       "joy": -5,
+       "flags": [
+        "mrc_end",
+        "mrc_end_exiled_company"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Trao quyền dẫn đoàn cho Benn",
+     "require": {
+      "flags": [
+       "mrc_benn_brother"
+      ]
+     },
+     "text": "Lần đầu tiên, một đoàn lính đánh thuê lớn có thủ lĩnh là con lai Beastman. Benn đeo huy hiệu lên ngực, cái tai cụp run run. Bạn đứng ở hàng cuối, và là người đầu tiên vỗ tay.",
+     "effects": {
+      "joy": 20,
+      "fame": 10,
+      "flags": [
+       "mrc_end",
+       "mrc_end_benn"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrc_c5_sell",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_mercenary",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "mrc_path_sell"
+    ],
+    "notFlags": [
+     "mrc_end"
+    ]
+   },
+   "text": "Bạn giàu hơn mọi lãnh chúa, có lâu đài, có đất, có quân riêng. Người ta gọi bạn là Mercenary King. Một đêm, bạn mơ thấy tất cả những người đã chết vì những hợp đồng bạn nhận, xếp hàng dài từ cổng lâu đài đến chân trời.",
+   "choices": [
+    {
+     "label": "Dùng tài sản để bồi thường cho những ngôi làng cũ",
+     "require": {
+      "anyFlags": [
+       "mrc_sell_war_profiteer",
+       "mrc_sell_betrayed_wolves"
+      ]
+     },
+     "text": "Bạn đi lại những con đường cũ, đến từng ngôi làng đã cháy, từng gia đình đã mất người. Bạn không xin tha thứ; bạn chỉ trả. Khi tiền hết, bạn bán lâu đài. Khi lâu đài hết, bạn đi tiếp bằng đôi chân.",
+     "effects": {
+      "wealth": -50,
+      "joy": 12,
+      "fame": 8,
+      "flags": [
+       "mrc_end",
+       "mrc_end_atonement"
+      ]
+     },
+     "moment": "Dùng cả gia tài bồi thường cho những ngôi làng đã cháy"
+    },
+    {
+     "label": "Tiếp tục sống như cũ",
+     "text": "Giấc mơ quay lại mỗi đêm. Bạn uống nhiều hơn, ngủ ít hơn. Lâu đài của bạn ngày càng lớn, và ngày càng vắng.",
+     "effects": {
+      "wealth": 20,
+      "joy": -15,
+      "flags": [
+       "mrc_end",
+       "mrc_end_hollow_king"
+      ]
+     }
+    },
+    {
+     "label": "Tìm lại Đoàn Sói Bạc, xin gia nhập làm lính thường",
+     "text": "Đội trưởng mới của Sói Bạc nhìn bạn rất lâu, rồi ném cho bạn một cái xẻng: “Đào hố xí cho cả đại đội.” Bạn đào thật sâu, thật thẳng.",
+     "effects": {
+      "joy": 15,
+      "fame": 6,
+      "flags": [
+       "mrc_end",
+       "mrc_end_shovel"
+      ]
+     },
+     "moment": "Quay về Sói Bạc làm lính thường"
+    }
+   ]
+  },
+  {
+   "id": "mrc_daily_campfire",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_mercenary",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Đêm lửa trại, những người lính kể chuyện về nơi họ sinh ra. Đến lượt bạn.",
+   "choices": [
+    {
+     "label": "Kể thật",
+     "text": "Câu chuyện của bạn không đặc biệt, nhưng ai cũng nghe. Ở đây, không ai cần một câu chuyện đặc biệt; họ chỉ cần biết người ngồi cạnh mình là ai.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Bịa ra một câu chuyện hoành tráng",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Cả đội cười lăn lộn. Từ đó, đêm lửa trại nào người ta cũng đòi nghe tiếp câu chuyện của bạn.",
+      "effects": {
+       "joy": 8,
+       "fame": 1
+      }
+     },
+     "fail": {
+      "text": "Một người lính già vạch ra ba chỗ mâu thuẫn. Cả đội cười vào mặt bạn.",
+      "effects": {
+       "joy": 2
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrc_daily_payday",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_mercenary",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Ngày trả lương. Một tân binh mười sáu tuổi nhận tiền xong thì ngồi khóc, vì cậu nhận ra đây là tiền người ta trả để cậu đi giết người.",
+   "choices": [
+    {
+     "label": "Ngồi cạnh cậu ta",
+     "text": "Bạn không nói gì nhiều. Bạn kể cho cậu nghe hợp đồng đầu tiên của mình. Cậu ta lau nước mắt, đếm lại tiền, và gửi một nửa về cho mẹ.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Bảo cậu ta về nhà",
+     "text": "Cậu ta nhìn bạn, rồi gật đầu. Sáng hôm sau, cậu ta trả lại huy hiệu và đi về phía làng mình. Có lẽ đó là người lính thông minh nhất bạn từng gặp.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrc_daily_war_contract",
+   "races": [
+    "human"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_mercenary",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh nổ ra, và giá lính đánh thuê tăng gấp ba. Cả hai phe đều gửi người đến mời.",
+   "choices": [
+    {
+     "label": "Chọn phe trả nhiều hơn",
+     "text": "Bạn đánh cho phe trả nhiều hơn. Phe ấy thua. Bạn vẫn được trả đủ, và học được rằng tiền không mua được chiến thắng.",
+     "effects": {
+      "wealth": 25,
+      "health": -15,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Chọn phe đang bảo vệ quê hương của nó",
+     "text": "Lương thấp, chiến đấu khó, nhưng đêm nào bạn cũng ngủ được. Khi chiến tranh kết thúc, dân làng mang bánh mì ra đường đón đoàn của bạn.",
+     "effects": {
+      "wealth": 8,
+      "fame": 5,
+      "health": -15,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "mrc_daily_old_scars",
+   "races": [
+    "human"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_mercenary",
+    "free": true
+   },
+   "text": "Trời trở lạnh, và mọi vết thương cũ trên người bạn cùng lên tiếng. Sáng nay, bạn không tự đeo được dây giáp.",
+   "choices": [
+    {
+     "label": "Nhờ tân binh giúp, kể chuyện về từng vết sẹo",
+     "text": "Cậu tân binh vừa buộc dây giáp vừa nghe. Đến vết sẹo thứ mười, cậu dừng tay: “Sao chú còn sống được?” Bạn cười: “Vì đào hố xí rất sâu.”",
+     "effects": {
+      "joy": 8,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Nhận việc giữ trại thay vì ra trận",
+     "text": "Bạn ở lại trại, nấu cháo, sửa giáp, đếm tên những người trở về. Có những lần số người trở về ít hơn số người đi, và bạn là người phải nói với lửa trại.",
+     "effects": {
+      "joy": -2,
+      "INT": 1,
+      "jobXp": 1
+     }
+    }
+   ]
+  }
+ ]
+}

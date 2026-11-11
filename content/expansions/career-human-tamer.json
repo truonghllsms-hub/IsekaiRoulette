@@ -1,0 +1,1176 @@
+{
+ "_note": "Tuyến truyện Tamer: 5 chương theo bậc, ba đạo ở Bậc 2 (tmr_path_war / tmr_path_sanctuary / tmr_path_wild), nhân vật xuyên suốt Kesh (Beastman tộc Sói), Mordo và Griffin con Sương.",
+ "origins": [],
+ "events": [
+  {
+   "id": "tmr_c1_kesh",
+   "races": [
+    "human"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "human_tamer",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "tmr_met_kesh"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Kesh",
+     "race": "Beastman tộc Sói",
+     "position": "Thầy thuần thú già ở rìa Sanctus"
+    }
+   ],
+   "text": "Kesh là một Beastman tộc Sói già, chuồng thú của lão ở rìa Sanctus có mùi rơm khô và mùi lông ướt. Lão không dạy bằng lời. Lão chỉ đẩy bạn vào chuồng một con ngựa hoang chưa ai cưỡi được, rồi đóng cửa lại.",
+   "choices": [
+    {
+     "label": "Ngồi xuống góc chuồng, không nhìn vào mắt nó",
+     "text": "Bạn ngồi suốt buổi chiều. Đến tối, con ngựa bước lại, hít hơi vào tóc bạn, rồi nằm xuống cạnh bạn. Kesh mở cửa, tai vểnh lên: “Ngươi biết chờ. Thú không tin kẻ vội.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "tmr_met_kesh",
+       "tmr_kesh_respect"
+      ]
+     },
+     "moment": "Được con ngựa hoang của Kesh chấp nhận"
+    },
+    {
+     "label": "Tìm cách trèo lên lưng nó",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn trụ trên lưng nó được ba hơi thở trước khi bay qua vách chuồng. Kesh cười khục khặc, đỡ bạn dậy: “Gan đấy. Giờ học cách không cần gan.”",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 1,
+       "flags": [
+        "tmr_met_kesh"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Con ngựa đá bạn văng vào máng nước. Kesh lôi bạn ra, lắc đầu, và bắt bạn ngồi trong chuồng thêm ba ngày.",
+      "effects": {
+       "health": -10,
+       "flags": [
+        "tmr_met_kesh"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "tmr_c1_griffin",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_tamer",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "tmr_met_kesh"
+    ],
+    "notFlags": [
+     "tmr_griffin"
+    ]
+   },
+   "text": "Trên vách đá Dãy Núi Răng Cưa, bạn tìm thấy một tổ Griffin bị thợ săn phá. Chỉ còn một con non sống sót, cánh gãy, lông trắng như sương sớm, rít lên đe dọa mọi thứ đến gần.",
+   "choices": [
+    {
+     "label": "Mang nó về nuôi",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn băng cánh cho nó bằng nẹp tre, cho ăn bằng tay suốt ba tháng. Bạn đặt tên nó là Sương. Đến mùa xuân, nó bay được vòng đầu tiên quanh chuồng của Kesh, rồi đáp xuống vai bạn.",
+      "effects": {
+       "joy": 12,
+       "jobXp": 2,
+       "flags": [
+        "tmr_griffin"
+       ]
+      },
+      "moment": "Nuôi sống Griffin con Sương"
+     },
+     "fail": {
+      "text": "Sương cắn bạn ba lần trong tuần đầu, mỗi lần một vết sẹo. Nhưng nó sống, và đến tháng thứ hai nó thôi cắn.",
+      "effects": {
+       "health": -10,
+       "joy": 6,
+       "flags": [
+        "tmr_griffin"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Báo cho Kesh, để lão quyết",
+     "require": {
+      "flags": [
+       "tmr_met_kesh"
+      ]
+     },
+     "text": "Kesh trèo lên vách đá cùng bạn, nhìn con Griffin rất lâu. “Nó chọn ngươi rồi. Thấy không, nó không rít với ngươi nữa.” Bạn mang Sương về, và Kesh dạy bạn từng điều về loài Griffin.",
+     "effects": {
+      "INT": 1,
+      "joy": 8,
+      "jobXp": 2,
+      "flags": [
+       "tmr_griffin",
+       "tmr_kesh_respect"
+      ]
+     }
+    },
+    {
+     "label": "Để nó lại, Griffin không phải thú nuôi",
+     "text": "Bạn quay lưng đi, và nghe tiếng rít của nó theo bạn xuống tận chân núi.",
+     "effects": {
+      "joy": -8
+     }
+    }
+   ]
+  },
+  {
+   "id": "tmr_c1_mordo",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_tamer",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "tmr_griffin"
+    ],
+    "notFlags": [
+     "tmr_met_mordo"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Mordo",
+     "race": "Human",
+     "position": "Tay buôn thú ở chợ Sanctus"
+    }
+   ],
+   "text": "Mordo bán thú ở chợ Sanctus: rắn trong lồng, Slime trong chum, chim lửa trong lồng sắt nung đỏ. Hắn đề nghị mua Griffin của bạn với giá bằng mười năm lương.",
+   "choices": [
+    {
+     "label": "Từ chối thẳng",
+     "text": "Mordo cười, xoa tay. “Rồi ngươi sẽ đổi ý. Ai cũng đổi ý.” Từ đó, bạn thấy người của hắn lảng vảng quanh chuồng của Kesh.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "tmr_met_mordo",
+       "tmr_mordo_enemy"
+      ]
+     }
+    },
+    {
+     "label": "Hỏi hắn giữ những con thú kia thế nào",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Mordo hãnh diện dẫn bạn đi xem kho thú. Bạn ghi nhớ mọi lồng, mọi con. Tối hôm ấy, bạn gửi danh sách những con thú bị bệnh cho Hội thú y Sanctus.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "tmr_met_mordo",
+        "tmr_mordo_enemy",
+        "tmr_reported_mordo"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Mordo nhận ra bạn đang dò xét và đuổi bạn ra.",
+      "effects": {
+       "flags": [
+        "tmr_met_mordo",
+        "tmr_mordo_enemy"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "tmr_c2_first_bond",
+   "races": [
+    "human"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "human_tamer",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "tmr_first_bond",
+     "tmr_end"
+    ]
+   },
+   "text": "Một con sói xám bị bắt trong bẫy của Mordo, chân gãy, và nó đã cắn hai người làm của hắn. Mordo muốn giết nó; Kesh muốn bạn thử thuần nó, như bài thi để thành Tamer thực thụ.",
+   "choices": [
+    {
+     "label": "Thuần nó bằng sự kiên nhẫn",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Mười ngày ngồi cạnh chuồng, mười ngày cho ăn bằng tay, mười ngày bị gầm gừ. Ngày thứ mười một, nó liếm tay bạn. Kesh gật đầu: lão không cần nói gì.",
+      "effects": {
+       "INT": 1,
+       "fame": 3,
+       "jobXp": 2,
+       "flags": [
+        "tmr_first_bond"
+       ]
+      },
+      "moment": "Thuần hóa con sói xám bị thương"
+     },
+     "fail": {
+      "text": "Nó cắn bạn vào ngày thứ chín, rồi thôi cắn từ ngày thứ mười. Kesh băng tay cho bạn và bảo bài thi đã qua.",
+      "effects": {
+       "health": -10,
+       "jobXp": 2,
+       "flags": [
+        "tmr_first_bond"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Mua nó, rồi thả về rừng sau khi lành",
+     "require": {
+      "wealth": 10
+     },
+     "showLocked": true,
+     "text": "Mordo bán với giá cao. Bạn chữa cho nó, rồi thả nó ở rìa rừng. Kesh nói bạn đã trượt bài thi, rồi cười: “Nhưng ngươi đậu bài thi của ta.”",
+     "effects": {
+      "wealth": -10,
+      "joy": 8,
+      "jobXp": 2,
+      "flags": [
+       "tmr_first_bond"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "tmr_c2_crossroads",
+   "races": [
+    "human"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "human_tamer",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "tmr_path_war",
+     "tmr_path_sanctuary",
+     "tmr_path_wild",
+     "tmr_end"
+    ]
+   },
+   "text": "Ba lời mời cho một Tamer trẻ có tiếng. Quân đội Sanctus đang lập một đội kỵ thú và cần người huấn luyện. Một thầy thuốc già muốn mở trạm cứu thú bị thương ở rìa Đồng Bằng, nhưng không có ai biết nói chuyện với thú. Và Kesh, ngồi bên đống lửa, kể cho bạn về một con thú huyền thoại trên Thảo Nguyên mà chưa con người nào từng đến gần.",
+   "choices": [
+    {
+     "label": "Huấn luyện kỵ thú cho quân đội: Kỵ Thú Quân Đoàn",
+     "text": "Chuồng thú của quân đội to gấp mười chuồng của Kesh, đầy Thiết Giáp Tê và Sói Chiến. Bạn học cách biến những con thú hoang thành chiến binh, và học cả cách nhìn chúng chết.",
+     "effects": {
+      "STR": 1,
+      "wealth": 10,
+      "jobXp": 2,
+      "flags": [
+       "tmr_path_war"
+      ]
+     },
+     "moment": "Huấn luyện đội kỵ thú cho quân đội Sanctus"
+    },
+    {
+     "label": "Mở trạm cứu thú: Trạm Cứu Thú",
+     "text": "Trạm cứu thú là một nhà kho cũ có mười hai chuồng và một mái thủng. Tuần đầu tiên, có người mang đến một con cú gãy cánh, một con cáo bị bỏng, và một con Slime bị ai đó cắt làm đôi.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 2,
+      "flags": [
+       "tmr_path_sanctuary"
+      ]
+     },
+     "moment": "Mở trạm cứu thú ở rìa Đồng Bằng"
+    },
+    {
+     "label": "Đi tìm con thú huyền thoại: Khế Ước Hoang Dã",
+     "text": "Bạn khoác ba lô, Sương bay trên đầu, và đi về phía Thảo Nguyên Gió Hú. Kesh tiễn bạn đến cổng thành, tai cụp xuống: “Nếu nó không chọn ngươi, đừng ép.”",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 2,
+      "flags": [
+       "tmr_path_wild"
+      ]
+     },
+     "moment": "Lên đường tìm con thú huyền thoại của Thảo Nguyên"
+    }
+   ]
+  },
+  {
+   "id": "tmr_war_charge",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_tamer",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "tmr_path_war"
+    ],
+    "notFlags": [
+     "tmr_end"
+    ]
+   },
+   "text": "Trong trận đầu tiên, viên tướng ra lệnh cho đội kỵ thú của bạn xông thẳng vào hàng giáo của địch. Bạn biết những con Thiết Giáp Tê sẽ phá được hàng giáo, nhưng một nửa số chúng sẽ chết.",
+   "choices": [
+    {
+     "label": "Tuân lệnh",
+     "text": "Hàng giáo vỡ. Trận đánh thắng. Bạn đi giữa xác những con Thiết Giáp Tê, gọi tên từng con, và không con nào trả lời.",
+     "effects": {
+      "fame": 6,
+      "joy": -15,
+      "jobXp": 3,
+      "flags": [
+       "tmr_war_obedient"
+      ]
+     },
+     "moment": "Dẫn kỵ thú phá hàng giáo địch"
+    },
+    {
+     "label": "Đề nghị đánh bọc sườn thay vì xông thẳng",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Viên tướng nghe theo. Đội kỵ thú vòng qua cánh rừng và tấn công từ phía sau. Hàng giáo vỡ mà chỉ mất hai con. Viên tướng vỗ vai bạn: “Ngươi hiểu thú như ta hiểu người.”",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "tmr_war_clever"
+       ]
+      },
+      "moment": "Dẫn kỵ thú đánh bọc sườn mà gần như không tổn thất"
+     },
+     "fail": {
+      "text": "Viên tướng gạt lời bạn. Đội kỵ thú vẫn phải xông thẳng.",
+      "effects": {
+       "joy": -12
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "tmr_war_beast_madness",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_tamer",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "tmr_path_war"
+    ],
+    "notFlags": [
+     "tmr_end"
+    ]
+   },
+   "text": "Một con Sói Chiến của đội bạn bị nhiễm tà khí sau trận đánh ở biên giới Vực Thẳm. Nó bắt đầu tấn công cả những con thú khác. Quân y đề nghị giết nó trước khi cả đàn bị nhiễm.",
+   "choices": [
+    {
+     "label": "Tự tay làm việc đó",
+     "text": "Bạn ngồi với nó đến khi trời tối, rồi làm việc phải làm, nhanh và nhẹ nhàng. Cả đàn sói tru suốt đêm. Bạn cũng không ngủ.",
+     "effects": {
+      "joy": -12,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Cách ly và thử chữa",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn nhốt nó trong một hang đá cách xa, ngày ngày mang muối thánh và nước suối đến. Đến ngày thứ hai mươi, mắt nó hết đỏ.",
+      "effects": {
+       "INT": 1,
+       "joy": 10,
+       "jobXp": 3,
+       "flags": [
+        "tmr_cured_taint"
+       ]
+      },
+      "moment": "Chữa khỏi con Sói Chiến nhiễm tà khí"
+     },
+     "fail": {
+      "text": "Tà khí lan sang hai con khác trước khi bạn kịp tách ra.",
+      "effects": {
+       "joy": -15,
+       "flags": [
+        "tmr_taint_spread"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "tmr_sanctuary_mordo_raid",
+   "races": [
+    "human"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "human_tamer",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "tmr_path_sanctuary"
+    ],
+    "notFlags": [
+     "tmr_end"
+    ]
+   },
+   "text": "Bạn biết Mordo đang giữ hai mươi con thú quý hiếm trong một kho hàng ở bến cảng, chuẩn bị bán sang vương quốc bên kia biển. Một nửa số chúng đã bệnh.",
+   "choices": [
+    {
+     "label": "Báo cho Thánh Kỵ Sĩ Đoàn",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Lính đến đột kích kho hàng. Mordo bị bắt. Hai mươi con thú được giao về trạm cứu thú của bạn, chật kín đến tận mái.",
+      "effects": {
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "tmr_mordo_caught"
+       ]
+      },
+      "moment": "Giải cứu hai mươi con thú khỏi kho hàng của Mordo"
+     },
+     "fail": {
+      "text": "Mordo được báo trước và chuyển kho đi trong đêm. Lính chỉ tìm thấy những chiếc lồng trống.",
+      "effects": {
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Tự đột nhập vào ban đêm",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn mở từng lồng một. Những con thú biết đường ra; chúng chỉ cần ai đó mở cửa. Sáng hôm sau, Mordo đến và thấy kho hàng trống trơn.",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 3,
+       "flags": [
+        "tmr_mordo_robbed",
+        "tmr_mordo_enemy"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn bị người của Mordo bắt quả tang và đánh một trận nhừ tử.",
+      "effects": {
+       "health": -20,
+       "flags": [
+        "tmr_mordo_enemy"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "tmr_sanctuary_dragonling",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_tamer",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "tmr_path_sanctuary"
+    ],
+    "notFlags": [
+     "tmr_end"
+    ]
+   },
+   "text": "Một Kobold đi lạc mang đến trạm cứu thú một con Rồng con bé bằng con mèo, vảy xỉn màu, bị ốm. Nó không phải thú. Nó là con của một thực thể có thể thiêu rụi cả vùng nếu biết con mình đang ở đâu.",
+   "choices": [
+    {
+     "label": "Chữa cho nó",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Ba tuần sau, Rồng con khỏe lại. Một đêm, có bóng cánh khổng lồ che khuất mặt trăng trên trạm cứu thú. Sáng hôm sau, Rồng con biến mất, và trước cửa có một chiếc vảy to bằng cái khiên.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "tmr_dragon_scale"
+       ]
+      },
+      "moment": "Chữa bệnh cho Rồng con và nhận vảy của Rồng mẹ"
+     },
+     "fail": {
+      "text": "Rồng con không khỏe hẳn. Một đêm, Rồng mẹ đến, mang con đi, và để lại một vết cháy đen dài trên mái trạm như một lời cảnh cáo.",
+      "effects": {
+       "health": -10,
+       "joy": -6
+      }
+     }
+    },
+    {
+     "label": "Đưa nó về Đảo Tro Tàn ngay",
+     "text": "Hành trình mất hai tháng. Bạn đặt Rồng con ở chân núi lửa và lùi ra xa. Nó bay lên, chậm chạp, về phía một hình bóng khổng lồ đang chờ trên đỉnh.",
+     "effects": {
+      "joy": 8,
+      "health": -8,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "tmr_wild_steppe",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_tamer",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "tmr_path_wild"
+    ],
+    "notFlags": [
+     "tmr_end"
+    ]
+   },
+   "text": "Trên Thảo Nguyên Gió Hú, các bộ lạc Beastman kể về Bạch Lang, con sói trắng to bằng con ngựa, sống cả trăm năm, chỉ hiện ra trước những kẻ không mang vũ khí. Bạn đã đi ba tháng mà chưa thấy nó.",
+   "choices": [
+    {
+     "label": "Vứt hết vũ khí, đi tiếp",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Đêm thứ chín không vũ khí, bạn thức dậy và thấy nó nằm cách bạn ba bước, đôi mắt vàng nhìn bạn như nhìn một đứa trẻ. Nó không nói gì, chỉ nằm đó đến sáng. Bạn biết mình đã được nhìn thấy.",
+      "effects": {
+       "joy": 12,
+       "fame": 4,
+       "jobXp": 3,
+       "flags": [
+        "tmr_white_wolf"
+       ]
+      },
+      "moment": "Gặp Bạch Lang trên Thảo Nguyên Gió Hú"
+     },
+     "fail": {
+      "text": "Không có Bạch Lang. Chỉ có một bầy sói đói. Bạn sống sót nhờ Sương lao xuống cào mắt con đầu đàn.",
+      "effects": {
+       "health": -20,
+       "flags": [
+        "tmr_white_wolf_sought"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi các bộ lạc Beastman cách gặp nó",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Một bà đồng tộc Sói dạy bạn bài hát gọi gió. Bạn hát suốt đêm ở đỉnh đồi. Gần sáng, có tiếng tru đáp lại từ rất xa, chỉ một lần.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 2,
+       "flags": [
+        "tmr_white_wolf_heard"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Các bộ lạc không tin một người Human. Họ chỉ cho bạn đi sai đường.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "tmr_wild_hunters",
+   "races": [
+    "human"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "human_tamer",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "tmr_path_wild"
+    ],
+    "notFlags": [
+     "tmr_end"
+    ]
+   },
+   "text": "Một đoàn thợ săn quý tộc từ Sanctus đến Thảo Nguyên với một trăm con chó săn và giấy phép của nhà vua. Họ đang săn Bạch Lang.",
+   "choices": [
+    {
+     "label": "Dẫn họ đi lạc",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn nhận làm người dẫn đường. Hai tuần sau, đoàn thợ săn lạc giữa thảo nguyên, chó săn kiệt sức, và nhà vua triệu họ về vì một cuộc chiến mới.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "tmr_protected_wolf"
+       ]
+      },
+      "moment": "Dẫn đoàn thợ săn quý tộc lạc khỏi dấu Bạch Lang"
+     },
+     "fail": {
+      "text": "Một thợ săn nhận ra bạn đang dẫn sai đường. Bạn bị trói và bỏ lại giữa thảo nguyên.",
+      "effects": {
+       "health": -15,
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Báo cho các bộ lạc Beastman",
+     "text": "Các bộ lạc cưỡi ngựa ra chặn đường đoàn thợ săn. Không ai đổ máu, nhưng đoàn thợ săn phải quay về. Từ đó, các bộ lạc gọi bạn bằng một cái tên có nghĩa là “Người đứng cùng thú”.",
+     "effects": {
+      "fame": 5,
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "tmr_protected_wolf",
+       "tmr_beast_tribes"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "tmr_c4_kesh",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_tamer",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "tmr_met_kesh"
+    ],
+    "notFlags": [
+     "tmr_kesh_gone",
+     "tmr_end"
+    ]
+   },
+   "text": "Kesh đã rất già, lông xám bạc và đôi tai không còn vểnh. Lão gọi bạn về chuồng thú, nơi chỉ còn con ngựa hoang năm xưa, giờ cũng đã già như lão.",
+   "choices": [
+    {
+     "label": "Ở lại với lão đến cuối",
+     "text": "Kesh mất vào một đêm trăng tròn, nằm trong chuồng cạnh con ngựa già. Sáng ra, con ngựa vẫn nằm cạnh lão, không chịu đứng dậy. Bạn chôn cả hai ở cùng một chỗ, dưới gốc cây sồi sau chuồng.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 3,
+      "flags": [
+       "tmr_kesh_gone"
+      ]
+     },
+     "moment": "Tiễn Kesh và con ngựa già của lão"
+    },
+    {
+     "label": "Đưa lão về Thảo Nguyên, quê hương lão",
+     "text": "Kesh đã không về quê sáu mươi năm. Lão mất trên lưng ngựa, khi vừa nhìn thấy những ngọn đồi của Thảo Nguyên Gió Hú, tai lão vểnh lên lần cuối.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 3,
+      "flags": [
+       "tmr_kesh_gone",
+       "tmr_kesh_home"
+      ]
+     },
+     "moment": "Đưa Kesh về chết trên quê hương Thảo Nguyên"
+    }
+   ]
+  },
+  {
+   "id": "tmr_c4_griffin",
+   "races": [
+    "human"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "human_tamer",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "tmr_griffin"
+    ],
+    "notFlags": [
+     "tmr_end"
+    ]
+   },
+   "text": "Sương đã thành một con Griffin trưởng thành, sải cánh rộng bằng ba người. Mùa xuân năm ấy, có tiếng kêu của một đàn Griffin hoang vọng xuống từ Dãy Núi Răng Cưa. Sương đứng trên mái nhà, nhìn về hướng núi suốt ngày.",
+   "choices": [
+    {
+     "label": "Để nó đi",
+     "text": "Bạn tháo chiếc vòng da trên cổ nó. Sương nhìn bạn rất lâu, rồi bay về phía núi. Mỗi năm vào mùa xuân, một con Griffin trắng bay vòng ba lần trên mái nhà bạn rồi mới đi.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "tmr_griffin_free"
+      ]
+     },
+     "moment": "Thả Griffin Sương về với đàn"
+    },
+    {
+     "label": "Giữ nó lại",
+     "text": "Sương ở lại, nhưng mỗi mùa xuân nó lại đứng trên mái nhà nhìn về phía núi. Bạn biết nó ở lại vì bạn, không phải vì muốn.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 2,
+      "flags": [
+       "tmr_griffin_kept"
+      ]
+     }
+    },
+    {
+     "label": "Bay cùng nó lên núi gặp đàn",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Lần đầu tiên, bạn cưỡi Sương bay lên Dãy Núi Răng Cưa. Đàn Griffin hoang nhìn bạn đầy cảnh giác, rồi chấp nhận. Sương ở lại với đàn, và bạn trở thành con người duy nhất được đàn Griffin cho phép đến thăm.",
+      "effects": {
+       "AGI": 1,
+       "fame": 8,
+       "joy": 10,
+       "jobXp": 4,
+       "flags": [
+        "tmr_griffin_free",
+        "tmr_griffin_flock"
+       ]
+      },
+      "moment": "Cưỡi Griffin Sương lên gặp đàn Griffin hoang"
+     },
+     "fail": {
+      "text": "Đàn Griffin không chấp nhận bạn. Sương phải chọn, và nó chọn đưa bạn về.",
+      "effects": {
+       "health": -10,
+       "joy": -4,
+       "flags": [
+        "tmr_griffin_kept"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "tmr_c5_war",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_tamer",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "tmr_path_war"
+    ],
+    "notFlags": [
+     "tmr_end"
+    ]
+   },
+   "text": "Đội kỵ thú của bạn giờ là đội quân đáng sợ nhất Aethelgard. Người ta gọi bạn là Lord of Beasts. Nhà vua muốn bạn dẫn đội kỵ thú vào cuộc chinh phạt Thảo Nguyên Gió Hú.",
+   "choices": [
+    {
+     "label": "Từ chối, giải ngũ toàn bộ đàn thú",
+     "require": {
+      "anyFlags": [
+       "tmr_war_clever",
+       "tmr_cured_taint"
+      ]
+     },
+     "text": "Bạn thả những con Thiết Giáp Tê về đầm lầy, những con Sói Chiến về rừng. Nhà vua giận dữ, nhưng không có ai khác điều khiển được chúng. Cuộc chinh phạt bị hoãn, rồi bị quên.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "tmr_end",
+       "tmr_end_released"
+      ]
+     },
+     "moment": "Giải ngũ toàn bộ đội kỵ thú"
+    },
+    {
+     "label": "Dẫn quân đi",
+     "text": "Thảo Nguyên bị chinh phục trong một mùa. Những bộ lạc Beastman rút về Vực Móng Vuốt. Bạn trở về với vinh quang, và không bao giờ cưỡi thú lần nào nữa.",
+     "effects": {
+      "fame": 15,
+      "joy": -12,
+      "flags": [
+       "tmr_end",
+       "tmr_end_conquest"
+      ]
+     }
+    },
+    {
+     "label": "Dạy lại cho người kế nhiệm rồi nghỉ hưu",
+     "text": "Bạn chọn một học trò trẻ, dạy cậu ta mọi thứ, kể cả cách nói lời tạm biệt với một con thú sắp chết. Rồi bạn về một trang trại nhỏ, nuôi ba con chó già.",
+     "effects": {
+      "joy": 12,
+      "fame": 8,
+      "flags": [
+       "tmr_end",
+       "tmr_end_retired"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "tmr_c5_sanctuary",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_tamer",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "tmr_path_sanctuary"
+    ],
+    "notFlags": [
+     "tmr_end"
+    ]
+   },
+   "text": "Trạm cứu thú của bạn giờ là thánh địa của mọi loài thú bị thương ở Aethelgard. Người ta gọi bạn là Lord of Beasts, dù bạn chưa bao giờ ra lệnh cho con thú nào.",
+   "choices": [
+    {
+     "label": "Biến trạm cứu thú thành trường dạy chữa thú",
+     "text": "Mỗi năm có hai mươi học trò, đến từ mọi tộc, kể cả một Kobold. Họ học cách nẹp cánh gãy, cách chữa vảy mục, và cách ngồi im đủ lâu để một con thú tin mình.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "tmr_end",
+       "tmr_end_school"
+      ]
+     },
+     "moment": "Lập trường dạy chữa thú cho mọi tộc"
+    },
+    {
+     "label": "Đặt chiếc vảy rồng ở cổng làm bùa hộ mệnh",
+     "require": {
+      "flags": [
+       "tmr_dragon_scale"
+      ]
+     },
+     "text": "Không thợ săn trộm nào dám đến gần trạm cứu thú có vảy của Rồng ở cổng. Người ta kể rằng mỗi trăm năm, có một con Rồng đến thăm nơi này. Bạn không sống đủ lâu để biết điều đó có đúng không.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "tmr_end",
+       "tmr_end_dragon_ward"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "tmr_c5_wild",
+   "races": [
+    "human"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "human_tamer",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "tmr_path_wild"
+    ],
+    "notFlags": [
+     "tmr_end"
+    ]
+   },
+   "text": "Bạch Lang đã rất già. Nó tìm đến bạn ở đỉnh đồi nơi bạn từng hát bài gọi gió, và nằm xuống cạnh bạn như ngày đầu tiên. Lần này, bạn hiểu được nó muốn gì.",
+   "choices": [
+    {
+     "label": "Ở lại cùng nó đến cuối",
+     "require": {
+      "anyFlags": [
+       "tmr_white_wolf",
+       "tmr_white_wolf_heard",
+       "tmr_protected_wolf"
+      ]
+     },
+     "text": "Bạn ở lại với Bạch Lang suốt mùa cuối của nó. Khi nó mất, các bộ lạc Beastman đến hát suốt ba đêm. Họ trao cho bạn danh hiệu Nature Envoy của Thảo Nguyên, danh hiệu mà chưa người Human nào từng có.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "tmr_end",
+       "tmr_end_white_wolf"
+      ]
+     },
+     "moment": "Ở bên Bạch Lang trong mùa cuối của nó"
+    },
+    {
+     "label": "Tìm con của nó để bảo vệ",
+     "check": {
+      "stat": "INT",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn tìm thấy một con sói non lông trắng trong một hang đá xa. Nó chưa biết nó là ai. Bạn dành phần đời còn lại để giữ cho nó an toàn cho đến khi nó đủ lớn.",
+      "effects": {
+       "fame": 12,
+       "joy": 15,
+       "flags": [
+        "tmr_end",
+        "tmr_end_wolf_heir"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn không tìm thấy. Có lẽ Bạch Lang là con cuối cùng. Bạn ghi lại mọi điều về nó, để ít nhất có người nhớ.",
+      "effects": {
+       "joy": -4,
+       "fame": 8,
+       "flags": [
+        "tmr_end",
+        "tmr_end_last_wolf"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "tmr_daily_feed",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_tamer",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một con dê con không chịu bú mẹ. Mẹ nó cũng không chịu cho bú. Đêm đã khuya.",
+   "choices": [
+    {
+     "label": "Ngồi vắt sữa cho nó bú bình",
+     "text": "Đến sáng, con dê con đã no và ngủ trong lòng bạn. Dê mẹ nhìn bạn đầy nghi ngờ, rồi quay lưng đi ăn cỏ.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Nhốt dê mẹ và dê con chung một ô hẹp",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Đến nửa đêm, bản năng thắng. Dê con bú no, dê mẹ liếm lông cho nó.",
+      "effects": {
+       "jobXp": 1
+      }
+     },
+     "fail": {
+      "text": "Dê mẹ húc con ra góc. Bạn phải tách chúng ra và vắt sữa đến sáng.",
+      "effects": {
+       "joy": -3
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "tmr_daily_child_puppy",
+   "races": [
+    "human"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "human_tamer",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Một đứa trẻ mang đến cho bạn một con chó con bị thương ở chân, và toàn bộ tiền tiết kiệm của nó: ba đồng Cẩm Thạch.",
+   "choices": [
+    {
+     "label": "Chữa và nhận ba đồng",
+     "text": "Bạn nhận ba đồng, vì đứa trẻ cần được trả. Khi con chó khỏe, bạn đưa lại cho đứa trẻ ba đồng, nói là “tiền thuê chó canh trạm một tuần”.",
+     "effects": {
+      "joy": 8
+     }
+    },
+    {
+     "label": "Chữa miễn phí, dạy đứa trẻ cách thay băng",
+     "text": "Đứa trẻ thay băng cho con chó mỗi ngày, nghiêm trang như một thầy thuốc. Nhiều năm sau, nó đến xin làm học việc của bạn.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "tmr_daily_war_beast_draft",
+   "races": [
+    "human"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_tamer",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Quân đội trưng dụng mọi thú cưỡi để kéo xe tiếp tế ra Tuyến Đầu, kể cả những con của bạn.",
+   "choices": [
+    {
+     "label": "Đi theo đoàn xe để chăm sóc chúng",
+     "text": "Bạn đi bộ cạnh đoàn xe suốt một mùa, chữa móng, băng vết thương, và đôi khi phải nói lời tạm biệt. Phần lớn những con thú của bạn đã trở về.",
+     "effects": {
+      "health": -10,
+      "joy": 4,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Giấu những con thú già nhất",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Những con già ở lại trong một hang đá. Những con trẻ đi với quân đội. Bạn không chắc mình đã chọn đúng.",
+      "effects": {
+       "joy": 2
+      }
+     },
+     "fail": {
+      "text": "Lính tìm thấy chúng và phạt bạn nặng.",
+      "effects": {
+       "wealth": -12,
+       "joy": -6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "tmr_daily_old_knees",
+   "races": [
+    "human"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "human_tamer",
+    "free": true
+   },
+   "text": "Bạn không còn đủ sức giữ một con ngựa hoang hay đè một con thú đang hoảng loạn nữa. Sáng nay, một con lừa đá bạn ngã chổng vó.",
+   "choices": [
+    {
+     "label": "Cười, đứng dậy, ngồi xuống góc chuồng như Kesh dạy",
+     "text": "Con lừa nhìn bạn ngồi im, rồi bước lại hít vào tóc bạn. Có những bài học không cần đến sức.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Giao những con thú khó cho học trò",
+     "text": "Bạn đứng bên ngoài chuồng chỉ dẫn. Học trò của bạn bị đá ba lần trước khi hiểu ra. Bạn cười, vì ngày xưa bạn cũng bị đá ba lần.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  }
+ ]
+}
