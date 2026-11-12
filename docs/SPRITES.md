@@ -98,3 +98,23 @@ node tools/test-presentation.js
 Build kiểm tra SHA-256 của mỗi atlas với metadata và dừng khi vùng hiển thị đã
 lỗi thời. Game chạy từ ZIP vẫn chỉ cần trình duyệt; Python/Pillow/NumPy phục vụ
 bước tạo lại metadata trong môi trường phát triển.
+
+## Viền trắng và lỗ thủng trên chân dung minh họa
+
+Ảnh trong `img/portraits/` từng còn một dải trắng 2–4 px quanh các khe kín (giữa
+hai chân, trong cánh cung, quanh cán trượng) và bị thủng ở những mảng trắng như
+lông, áo lễ, điểm sáng trên giáp. `tools/defringe-portraits.py` xử lý cả hai:
+
+- đi từ vùng trong suốt vào qua các điểm gần trắng, dừng ở nét mực của hình; không
+  đi quá 8 px tính từ nét mực và không đụng vào mảng trắng rộng (áo, lưỡi kiếm);
+- lỗ kín mà nét mực không chạy trọn quanh mép được coi là lỗ thủng và được trả lại
+  màu gốc còn lưu dưới lớp trong suốt; khe có nét mực bao kín được giữ nguyên.
+
+```sh
+python3 tools/defringe-portraits.py           # sửa tại chỗ
+python3 tools/defringe-portraits.py --check   # chỉ báo cáo
+```
+
+Cần Pillow, NumPy và SciPy. Ảnh được lưu lại dạng WebP như bản gốc (màu nén chất
+lượng 92, kênh trong suốt không nén). Sau khi thêm ảnh mới, chạy lại công cụ rồi
+xem ảnh trên nền tối: phép đo tự động không thay được việc nhìn bằng mắt.
