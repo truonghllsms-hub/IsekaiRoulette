@@ -1,0 +1,324 @@
+{
+ "_note": "Kho cảnh độc lập cho Goblin Scout (đời Goblin quá ngắn cho một tuyến nhiều chương).",
+ "origins": [],
+ "events": [
+  {
+   "id": "gbs_first_map",
+   "races": [
+    "goblin"
+   ],
+   "weight": 40,
+   "require": {
+    "job": "goblin_scout",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 1
+   },
+   "text": "Chief bảo bạn đi xem con đường mòn phía đông dẫn đến đâu. Bạn chưa từng đi xa khỏi hang quá một tiếng hú.",
+   "choices": [
+    {
+     "label": "Đi xa hơn được bảo",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Con đường dẫn đến một trang trại Human có ba con bò và không có chó. Bạn vẽ bản đồ bằng than lên vỏ cây. Chief giữ nó như báu vật, dù không đọc được.",
+      "effects": {
+       "AGI": 1,
+       "fame": 3,
+       "jobXp": 2
+      },
+      "moment": "Vẽ tấm bản đồ đầu tiên cho bầy Goblin"
+     },
+     "fail": {
+      "text": "Bạn lạc hai ngày. Khi về, Chief đã quên mất mình sai bạn đi đâu.",
+      "effects": {
+       "health": -3,
+       "jobXp": 1
+      }
+     }
+    },
+    {
+     "label": "Nằm trong bụi một ngày rồi về bịa chuyện",
+     "text": "Bạn kể về một lâu đài vàng. Cả bầy háo hức. Ba ngày sau chúng đi tìm, và về với một trận đòn từ lính gác làng. Không ai tin bạn nữa.",
+     "effects": {
+      "fame": -3,
+      "joy": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbs_ranger_shadow",
+   "races": [
+    "goblin"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "goblin_scout",
+    "free": true
+   },
+   "text": "Bạn đang theo dõi một Kiểm Lâm Elf, nấp sau tảng đá. Hắn dừng lại, không quay đầu, nói bằng tiếng Goblin rất chuẩn: “Ra đây đi. Ta nghe thấy ngươi thở từ ba cây sồi trước.”",
+   "choices": [
+    {
+     "label": "Ra mặt",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Hắn nhìn bạn, nhìn con dao rỉ trên tay bạn, và cười. Hắn chỉ cho bạn cách thở để không ai nghe thấy, rồi bỏ đi. Bạn không bao giờ kể chuyện này với bầy.",
+      "effects": {
+       "AGI": 1,
+       "joy": 6,
+       "jobXp": 2
+      },
+      "moment": "Được một Kiểm Lâm Elf dạy cách thở không tiếng"
+     },
+     "fail": {
+      "text": "Hắn trói bạn vào gốc cây và đi tiếp. Bạn mất nửa ngày cắn đứt dây.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    },
+    {
+     "label": "Bỏ chạy, nín thở",
+     "text": "Bạn chạy. Hắn không đuổi. Từ đó, bạn tập nín thở mỗi đêm.",
+     "effects": {
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbs_caravan_count",
+   "races": [
+    "goblin"
+   ],
+   "weight": 35,
+   "require": {
+    "job": "goblin_scout",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Một đoàn xe thương hội Sói Bạc sắp qua hẻm núi. Bầy muốn biết có bao nhiêu lính canh. Bạn phải nằm trên vách đá đếm, giữa nắng gắt suốt nửa ngày.",
+   "choices": [
+    {
+     "label": "Đếm cả những kẻ trốn trong xe",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn đếm được mười hai lính, năm trong số đó trốn trong xe chờ phục kích. Bạn báo lại. Chief hủy trận cướp. Một bầy khác không có trinh sát giỏi thì không hủy.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 2
+      },
+      "moment": "Phát hiện lính phục kích trốn trong xe thương hội"
+     },
+     "fail": {
+      "text": "Bạn chỉ đếm được bảy. Bầy lao vào, và năm lính trong xe nhảy ra.",
+      "effects": {
+       "fame": -5,
+       "health": -6
+      }
+     }
+    },
+    {
+     "label": "Ngủ quên trên vách đá",
+     "text": "Bạn tỉnh dậy khi đoàn xe đã đi qua. Chief không biết. Bạn bịa ra con số ba mươi, và bầy không dám cướp. Có lẽ đó là quyết định đúng nhất mùa.",
+     "effects": {
+      "joy": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbs_lost_child",
+   "races": [
+    "goblin"
+   ],
+   "weight": 25,
+   "require": {
+    "job": "goblin_scout",
+    "free": true
+   },
+   "text": "Bạn tìm thấy một bé gái Human lạc trong rừng, khóc, đói lả. Nó nhìn bạn, sợ hãi, rồi chìa ra nửa cái bánh mì.",
+   "choices": [
+    {
+     "label": "Dẫn nó về bìa làng",
+     "text": "Bạn đi trước, nó theo sau, cách mười bước. Đến bìa làng, nó chạy về phía mẹ. Bạn nấp sau bụi cây nhìn. Bạn không kể với ai, và giữ nửa cái bánh mì rất lâu mới ăn.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 1
+     },
+     "moment": "Dẫn một bé gái Human lạc đường về làng"
+    },
+    {
+     "label": "Lấy bánh mì, bỏ đi",
+     "text": "Bánh mì ngon. Tiếng khóc theo bạn một đoạn dài.",
+     "effects": {
+      "joy": -4
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbs_trap_master",
+   "races": [
+    "goblin"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "goblin_scout",
+    "free": true
+   },
+   "text": "Ai đó đặt bẫy gấu trên mọi lối đi quanh hang. Ba Goblin đã mất chân. Bầy muốn bỏ hang.",
+   "choices": [
+    {
+     "label": "Lần theo dấu kẻ đặt bẫy",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Đó là một thợ săn Human già, sống một mình trong chòi. Bạn ăn trộm hết bẫy của lão trong một đêm, xếp thành đống trước cửa chòi. Sáng ra lão nhìn đống bẫy, rồi dọn đi nơi khác.",
+      "effects": {
+       "AGI": 1,
+       "fame": 6,
+       "jobXp": 3
+      },
+      "moment": "Lấy trộm hết bẫy gấu và trả lại trước cửa chòi thợ săn"
+     },
+     "fail": {
+      "text": "Bạn dẫm phải một cái bẫy trên đường lần theo. May mà chỉ là bẫy thỏ.",
+      "effects": {
+       "health": -6
+      }
+     }
+    },
+    {
+     "label": "Vẽ dấu đỏ quanh mọi chỗ có bẫy",
+     "text": "Không ai mất chân nữa. Bầy không phải bỏ hang. Lũ Goblin con học cách đọc dấu đỏ trước khi học đếm.",
+     "effects": {
+      "jobXp": 2,
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbs_demon_army",
+   "races": [
+    "goblin"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 25,
+   "require": {
+    "job": "goblin_scout",
+    "free": true
+   },
+   "text": "Từ vách núi, bạn thấy một đạo quân Ma Vương hành quân ngang qua thung lũng. Chúng bắt mọi bầy Goblin trên đường làm quân xung kích.",
+   "choices": [
+    {
+     "label": "Chạy về báo bầy dời hang",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bầy dời đi trong đêm, vào sâu trong núi. Ba bầy Goblin khác bị bắt. Bầy của bạn thì không.",
+      "effects": {
+       "fame": 8,
+       "jobXp": 2
+      },
+      "moment": "Báo tin kịp để cả bầy trốn khỏi đạo quân Ma Vương"
+     },
+     "fail": {
+      "text": "Bạn chạy về muộn. Nửa bầy đã bị bắt.",
+      "effects": {
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Theo dõi chúng để biết chúng đi đâu",
+     "text": "Bạn theo ba ngày. Bạn biết được chúng hướng về Đồng Bằng Thánh Quang. Bạn không biết bán tin này cho ai, nhưng biết là nó đáng giá.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbs_shiny_cave",
+   "races": [
+    "goblin"
+   ],
+   "weight": 20,
+   "require": {
+    "job": "goblin_scout",
+    "free": true
+   },
+   "text": "Bạn tìm thấy một khe nứt dẫn vào hang toàn đá phát sáng. Không ai biết nó tồn tại.",
+   "choices": [
+    {
+     "label": "Báo cho Chief",
+     "text": "Chief chiếm hang làm chỗ ở riêng. Bạn được thưởng một con gà.",
+     "effects": {
+      "wealth": 2,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Giữ bí mật, đến đó một mình",
+     "text": "Bạn đến đó mỗi khi bầy ồn ào quá. Đó là nơi duy nhất trong đời bạn được yên tĩnh.",
+     "effects": {
+      "joy": 10
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbs_old_scout",
+   "races": [
+    "goblin"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "goblin_scout",
+    "free": true
+   },
+   "text": "Chân bạn không còn chạy nhanh như xưa. Lũ trinh sát trẻ chạy vượt bạn trên mọi lối.",
+   "choices": [
+    {
+     "label": "Dạy chúng đọc dấu chân",
+     "text": "Chúng chạy nhanh, nhưng giờ chúng biết mình đang đuổi theo cái gì.",
+     "effects": {
+      "joy": 6,
+      "fame": 2
+     }
+    },
+    {
+     "label": "Ngồi trên vách đá canh chừng",
+     "text": "Mắt bạn vẫn tinh. Bạn là người đầu tiên thấy mọi thứ đến.",
+     "effects": {
+      "joy": 5
+     }
+    }
+   ]
+  }
+ ]
+}

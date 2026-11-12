@@ -1,0 +1,333 @@
+{
+ "_note": "Kho cảnh độc lập cho Goblin Wolf Rider (đời Goblin quá ngắn cho một tuyến nhiều chương).",
+ "origins": [],
+ "events": [
+  {
+   "id": "gbr_first_wolf",
+   "races": [
+    "goblin"
+   ],
+   "weight": 40,
+   "require": {
+    "job": "goblin_rider",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 1
+   },
+   "text": "Con sói đầu tiên của bạn là con nhỏ nhất ổ, bị cả bầy sói bắt nạt. Không Goblin nào muốn nó.",
+   "choices": [
+    {
+     "label": "Nhận nó",
+     "text": "Nó nhỏ, nhưng nó chạy như gió và không bao giờ bỏ bạn lại. Bầy cười cái cặp bé tí của bạn, cho đến khi hai đứa thắng cuộc đua đầu tiên.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 2
+     },
+     "moment": "Nhận con sói nhỏ nhất ổ làm bạn đồng hành"
+    },
+    {
+     "label": "Chờ một con to hơn",
+     "text": "Bạn chờ cả mùa. Con to nhất được Chief lấy mất. Bạn nhận một con trung bình, và nó cũng không tệ.",
+     "effects": {
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbr_race",
+   "races": [
+    "goblin"
+   ],
+   "weight": 35,
+   "require": {
+    "job": "goblin_rider",
+    "free": true
+   },
+   "text": "Bầy tổ chức cuộc đua sói qua khe núi. Kẻ thắng được ăn trước một tuần.",
+   "choices": [
+    {
+     "label": "Đi đường tắt qua vách đá",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Con sói của bạn nhảy qua khe đá mà không con sói to nào dám. Bạn về đầu, và ăn trước một tuần.",
+      "effects": {
+       "AGI": 1,
+       "fame": 5,
+       "jobXp": 2
+      },
+      "moment": "Thắng cuộc đua sói qua khe núi bằng đường tắt"
+     },
+     "fail": {
+      "text": "Con sói trượt chân. Hai đứa lăn xuống dốc, trầy xước khắp người.",
+      "effects": {
+       "health": -6
+      }
+     }
+    },
+    {
+     "label": "Chạy đúng đường, giữ sức cho sói",
+     "text": "Bạn về thứ ba. Con sói của bạn không mệt, và hôm sau vẫn chạy được.",
+     "effects": {
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbr_ostrich",
+   "races": [
+    "goblin"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "goblin_rider",
+    "free": true
+   },
+   "text": "Một Beastman tộc Báo cưỡi đà điểu khổng lồ đuổi theo bạn trên đồng cỏ. Hắn cười to, phóng lao như chơi.",
+   "choices": [
+    {
+     "label": "Dẫn hắn vào rừng rậm",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Đà điểu không chạy được giữa cây. Sói thì được. Bạn vòng lại, cắn trúng chân đà điểu. Gã Beastman ngã, cười còn to hơn: “Được lắm, nhóc xanh!”",
+      "effects": {
+       "AGI": 1,
+       "fame": 4,
+       "jobXp": 2
+      },
+      "moment": "Thoát khỏi kỵ sĩ đà điểu bằng cách dẫn hắn vào rừng"
+     },
+     "fail": {
+      "text": "Một ngọn lao ghim vào đùi bạn. Bạn vẫn chạy được về hang.",
+      "effects": {
+       "health": -10
+      }
+     }
+    },
+    {
+     "label": "Quay lại đối mặt",
+     "text": "Gã Beastman dừng đà điểu, nhìn bạn và con sói nhỏ. Hắn ném cho bạn một miếng thịt khô rồi phóng đi. Bạn không hiểu chuyện gì vừa xảy ra.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbr_sick_pack",
+   "races": [
+    "goblin"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "goblin_rider",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Dịch bệnh lan trong chuồng sói. Lũ sói nổi mụn rộp và bắt đầu cắn nhau.",
+   "choices": [
+    {
+     "label": "Tách những con bệnh ra",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn dựng chuồng riêng, cho chúng ăn rêu đắng. Bảy con khỏi. Chỉ hai con chết.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 2
+      },
+      "moment": "Cứu đàn sói của bầy khỏi trận dịch"
+     },
+     "fail": {
+      "text": "Bạn tách chậm. Một nửa đàn chết.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Đưa con sói của mình đi xa khỏi chuồng",
+     "text": "Con sói của bạn sống. Nhiều con khác thì không. Những kỵ sĩ khác nhìn bạn với ánh mắt khó chịu.",
+     "effects": {
+      "joy": -2
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbr_meat_share",
+   "races": [
+    "goblin"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "goblin_rider",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Tên chỉ huy bộ binh đòi tịch thu một nửa thịt của bầy sói để chia cho lính. Lũ sói sẽ đói.",
+   "choices": [
+    {
+     "label": "Đứng ra cãi trước Chief",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn nói: “Sói đói thì cắn ai trước?” Chief nghĩ, rồi để nguyên phần thịt cho sói.",
+      "effects": {
+       "fame": 5,
+       "jobXp": 2
+      },
+      "moment": "Bảo vệ phần thịt của bầy sói trước tên chỉ huy bộ binh"
+     },
+     "fail": {
+      "text": "Chief không nghe. Lũ sói đói, và một con cắn tên chỉ huy bộ binh. Không ai buồn.",
+      "effects": {
+       "joy": 3
+      }
+     }
+    },
+    {
+     "label": "Dẫn sói đi săn thêm",
+     "text": "Bạn và đàn sói đi săn ba ngày. Đủ thịt. Không ai phải cãi nhau.",
+     "effects": {
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbr_horned_wolf",
+   "races": [
+    "goblin"
+   ],
+   "weight": 25,
+   "require": {
+    "job": "goblin_rider",
+    "free": true
+   },
+   "text": "Bạn tìm thấy một con Sói Sừng mắc bẫy thợ săn, thở thoi thóp. Ánh mắt nó hoang dã, đầy tuyệt vọng.",
+   "choices": [
+    {
+     "label": "Tháo bẫy cho nó",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Nó cắn bạn một phát, rồi nằm im cho bạn băng chân. Sáng hôm sau, nó đi theo bạn về hang.",
+      "effects": {
+       "LUCK": 1,
+       "joy": 8,
+       "jobXp": 2
+      },
+      "moment": "Cứu một con Sói Sừng khỏi bẫy thợ săn"
+     },
+     "fail": {
+      "text": "Nó cắn bạn đau điếng, rồi chạy mất vào rừng.",
+      "effects": {
+       "health": -6
+      }
+     }
+    },
+    {
+     "label": "Gọi cả bầy đến xẻ thịt",
+     "text": "Thịt Sói Sừng dai, nhưng bầy ăn no ba ngày.",
+     "effects": {
+      "wealth": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbr_war_charge",
+   "races": [
+    "goblin"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 25,
+   "require": {
+    "job": "goblin_rider",
+    "free": true
+   },
+   "text": "Chiến tranh. Kỵ sói Goblin được lệnh xung phong vào hàng khiên giáo của dân quân Human.",
+   "choices": [
+    {
+     "label": "Vòng ra sau thay vì lao thẳng",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Đội kỵ sói của bạn đánh vào sau lưng hàng khiên. Dân quân vỡ trận. Không con sói nào chết.",
+      "effects": {
+       "fame": 6,
+       "jobXp": 2
+      }
+     },
+     "fail": {
+      "text": "Vòng ra sau gặp ngay một hàng giáo khác. Bạn mất ba con sói.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Lao thẳng như lệnh",
+     "text": "Bạn sống. Nhiều kỵ sĩ khác thì không.",
+     "effects": {
+      "health": -8,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbr_old_rider",
+   "races": [
+    "goblin"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "goblin_rider",
+    "free": true
+   },
+   "text": "Con sói của bạn đã già, mõm bạc trắng. Bạn cũng vậy.",
+   "choices": [
+    {
+     "label": "Cưỡi nó đi dạo một vòng cuối",
+     "text": "Hai đứa đi chậm quanh hang lúc hoàng hôn. Lũ Goblin con chạy theo, tranh nhau sờ lưng con sói già.",
+     "effects": {
+      "joy": 10
+     }
+    },
+    {
+     "label": "Dạy lũ trẻ chọn sói",
+     "text": "Bạn dạy chúng: chọn con nhỏ nhất, con không ai muốn. Chúng không hiểu. Một đứa thì hiểu.",
+     "effects": {
+      "joy": 6,
+      "fame": 2
+     }
+    }
+   ]
+  }
+ ]
+}

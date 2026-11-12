@@ -1,0 +1,314 @@
+{
+ "_note": "Kho cảnh độc lập cho Goblin Tinker (đời Goblin quá ngắn cho một tuyến nhiều chương).",
+ "origins": [],
+ "events": [
+  {
+   "id": "gbt_first_gadget",
+   "races": [
+    "goblin"
+   ],
+   "weight": 40,
+   "require": {
+    "job": "goblin_tinker",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 1
+   },
+   "text": "Bạn ghép một cái bẫy chuột từ lò xo cũ và một cái thìa. Nó bắt được chuột. Nó cũng bắt được ngón tay của Chief.",
+   "choices": [
+    {
+     "label": "Xin lỗi, đưa cái bẫy cho Chief",
+     "text": "Chief ném nó vào tường. Nó bật lại, bắt trúng mũi hắn. Cả bầy cười đến khi Chief cũng cười. Bạn được giao làm bẫy cho cả hang.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2
+     },
+     "moment": "Chiếc bẫy chuột đầu tiên kẹp trúng mũi Chief"
+    },
+    {
+     "label": "Chạy trốn ba ngày",
+     "text": "Khi bạn về, Chief đã dùng bẫy của bạn bắt được bốn con chuột, và quên mất ngón tay mình.",
+     "effects": {
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbt_dwarf_watch",
+   "races": [
+    "goblin"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "goblin_tinker",
+    "free": true
+   },
+   "text": "Bạn nhặt được một chiếc đồng hồ Dwarf, tích tắc đều đặn. Bên trong có hàng trăm bánh răng nhỏ như hạt gạo.",
+   "choices": [
+    {
+     "label": "Tháo ra để học",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Mất cả mùa, nhưng bạn hiểu được bánh răng chuyển động thế nào. Bạn lắp lại, và nó vẫn chạy. Gần như đúng giờ.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3
+      },
+      "moment": "Tháo và lắp lại được chiếc đồng hồ Dwarf"
+     },
+     "fail": {
+      "text": "Bạn lắp lại, thừa mười hai bánh răng. Đồng hồ chạy ngược. Bạn vẫn giữ nó.",
+      "effects": {
+       "joy": 3,
+       "jobXp": 1
+      }
+     }
+    },
+    {
+     "label": "Đổi lấy một con dê",
+     "text": "Con dê cho sữa cả mùa. Bạn đôi khi tự hỏi bên trong chiếc đồng hồ có gì.",
+     "effects": {
+      "wealth": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbt_bomb_short",
+   "races": [
+    "goblin"
+   ],
+   "weight": 35,
+   "require": {
+    "job": "goblin_tinker",
+    "free": true
+   },
+   "text": "Quả bom to như quả dưa của bạn có ngòi cháy ngắn hơn bạn tính. Ngòi đang cháy, và cả bầy đứng quanh xem.",
+   "choices": [
+    {
+     "label": "Ném nó ra cửa hang",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bom nổ ngoài cửa hang, mở ra một lối đi mới xuyên qua vách đá. Bầy tưởng bạn cố ý. Bạn không đính chính.",
+      "effects": {
+       "AGI": 1,
+       "fame": 5,
+       "jobXp": 2
+      },
+      "moment": "Ném quả bom ra cửa hang đúng lúc, và mở được lối đi mới"
+     },
+     "fail": {
+      "text": "Bom nổ giữa không trung. Không ai chết, nhưng cả bầy điếc ba ngày.",
+      "effects": {
+       "health": -6,
+       "fame": -2
+      }
+     }
+    },
+    {
+     "label": "Dập ngòi bằng tay",
+     "text": "Bỏng rộp cả bàn tay. Bom không nổ. Từ đó bạn luôn làm ngòi dài gấp đôi.",
+     "effects": {
+      "health": -5,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbt_spider_bot",
+   "races": [
+    "goblin"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "goblin_tinker",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Con Nhện Máy của bạn, làm từ xe đẩy gỗ và giáo gãy, cuối cùng đã chạy được. Nó chạy thẳng ra khỏi hang và không dừng lại.",
+   "choices": [
+    {
+     "label": "Đuổi theo nó",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn đuổi theo đến tận làng Human. Nó đâm vào chuồng gà, và gà bay tán loạn. Bạn mang về cả Nhện Máy lẫn ba con gà.",
+      "effects": {
+       "wealth": 3,
+       "joy": 8,
+       "jobXp": 2
+      },
+      "moment": "Đuổi theo con Nhện Máy đến tận chuồng gà làng Human"
+     },
+     "fail": {
+      "text": "Nó rơi xuống vực. Bạn nhìn theo, khóc như mất con.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    },
+    {
+     "label": "Làm con thứ hai, có phanh",
+     "text": "Con thứ hai có phanh. Nó cũng không dừng. Nhưng nó quay vòng tròn trong hang, và lũ Goblin con cưỡi lên nó cả ngày.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbt_siege_ladder",
+   "races": [
+    "goblin"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "goblin_tinker",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Bầy định cướp một trang trại có hàng rào cao. Chief muốn bạn làm một cái thang leo.",
+   "choices": [
+    {
+     "label": "Làm một cái máy bắn đá thay vì thang",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Máy bắn đá ném ba Goblin qua hàng rào. Chúng mở cổng từ bên trong. Bạn được ăn phần thịt ngon nhất.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3
+      },
+      "moment": "Chế máy bắn Goblin qua hàng rào trang trại"
+     },
+     "fail": {
+      "text": "Máy bắn đá ném ba Goblin vào chuồng lợn.",
+      "effects": {
+       "fame": -3,
+       "joy": 4
+      }
+     }
+    },
+    {
+     "label": "Làm thang như được bảo",
+     "text": "Thang gãy giữa chừng. Nhưng nó đủ dài để hai đứa leo qua trước khi gãy.",
+     "effects": {
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbt_human_tinker",
+   "races": [
+    "goblin"
+   ],
+   "weight": 20,
+   "require": {
+    "job": "goblin_tinker",
+    "free": true
+   },
+   "text": "Một thợ máy Human bị lạc, ngồi sửa chiếc xe kéo hỏng giữa rừng. Ông ta không sợ bạn. Ông ta chỉ nói: “Đưa tôi cái cờ lê kia.”",
+   "choices": [
+    {
+     "label": "Đưa cờ lê, ngồi xem",
+     "text": "Ông ta sửa xe trong một canh giờ, giải thích từng bước bằng tiếng Human mà bạn hiểu được một nửa. Trước khi đi, ông ta để lại cho bạn cây cờ lê.",
+     "effects": {
+      "INT": 1,
+      "joy": 6,
+      "jobXp": 2
+     },
+     "moment": "Được một thợ máy Human tặng cây cờ lê"
+    },
+    {
+     "label": "Lấy trộm cờ lê và chạy",
+     "text": "Ông ta hét theo, rồi thở dài, rồi tự sửa bằng tay không. Bạn có một cây cờ lê, và một cảm giác lạ.",
+     "effects": {
+      "wealth": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbt_war_traps",
+   "races": [
+    "goblin"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 25,
+   "require": {
+    "job": "goblin_tinker",
+    "free": true
+   },
+   "text": "Chiến tranh. Bầy cần thứ gì đó để chặn đội kỵ binh Human đang đến.",
+   "choices": [
+    {
+     "label": "Đào hố, cắm cọc, phủ lá",
+     "text": "Năm con ngựa sa hố. Đội kỵ binh quay đầu. Bầy ăn mừng bằng thịt ngựa cả tuần.",
+     "effects": {
+      "fame": 5,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Làm hàng trăm quả bom khói",
+     "text": "Khói mù cả thung lũng. Kỵ binh lạc đường. Bầy cũng lạc đường.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbt_old_tinker",
+   "races": [
+    "goblin"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "goblin_tinker",
+    "free": true
+   },
+   "text": "Mắt bạn mờ, tay bạn run. Bạn không còn lắp được những bánh răng nhỏ nữa.",
+   "choices": [
+    {
+     "label": "Làm những thứ to",
+     "text": "Bạn làm một bánh xe nước to bằng cả hang. Nó quay suốt ngày, không để làm gì cả. Bầy thích ngồi xem.",
+     "effects": {
+      "joy": 8
+     }
+    },
+    {
+     "label": "Truyền cờ lê cho học trò",
+     "text": "Học trò của bạn tháo đồng hồ đầu tiên của nó. Thừa mười hai bánh răng. Bạn cười.",
+     "effects": {
+      "joy": 6,
+      "fame": 2
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1085 @@
+{
+ "_note": "Tuyến truyện Orc Shaman: 5 chương theo bậc, ba đạo ở Bậc 2 (osh_path_mend / osh_path_blood / osh_path_crow), nhân vật xuyên suốt bà Ragga Mỏ Quạ (pháp sư già bị khinh rẻ) và Thrak Nanh Gãy (Warlord ghét pháp thuật).",
+ "origins": [],
+ "events": [
+  {
+   "id": "osh_c1_ragga",
+   "races": [
+    "orc"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "orc_shaman",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "osh_met_ragga"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Ragga Mỏ Quạ",
+     "race": "Orc",
+     "position": "Pháp sư già sống tách khỏi trại"
+    }
+   ],
+   "text": "Lều của bà Ragga Mỏ Quạ dựng tách xa khỏi trại, vì không chiến binh nào muốn ngủ gần “mụ phù thủy”. Bà đeo chiếc mỏ quạ trên cổ và nói chuyện với lũ quạ như với người. “Chúng khinh ta,” bà nói, “nhưng khi bị thương, chúng bò đến lều ta trước tiên.”",
+   "choices": [
+    {
+     "label": "Xin học",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bà bắt bạn ngồi nghe lũ quạ cả ngày. Đến tối, bạn nhận ra chúng kêu khác nhau khi có người đến từ phía bắc và từ phía nam. Ragga gật đầu: “Linh hồn nói bằng mọi thứ. Ngươi chỉ cần im lặng đủ lâu.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "osh_met_ragga",
+        "osh_ragga_respect"
+       ]
+      },
+      "moment": "Nghe ra tiếng quạ báo người đến từ phương nào"
+     },
+     "fail": {
+      "text": "Bạn ngủ gật. Lũ quạ mổ vào đầu bạn. Ragga cười khanh khách: “Linh hồn cũng biết bực mình.”",
+      "effects": {
+       "health": -2,
+       "flags": [
+        "osh_met_ragga"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi vì sao bà không bỏ bộ lạc đi",
+     "text": "Ragga im lặng lâu. “Vì khi một đứa trẻ sốt, mẹ nó không cần biết ta là gì. Chỉ cần biết ta ở đây.” Bà đưa bạn một nắm lá. “Nghiền nó. Bài học đầu tiên.”",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "osh_met_ragga",
+       "osh_ragga_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "osh_c1_thrak",
+   "races": [
+    "orc"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "orc_shaman",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "osh_met_ragga"
+    ],
+    "notFlags": [
+     "osh_met_thrak"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Thrak Nanh Gãy",
+     "race": "Orc",
+     "position": "Warlord khinh ghét pháp thuật"
+    }
+   ],
+   "text": "Thrak Nanh Gãy, Warlord của bộ lạc, đạp đổ nồi thuốc của bạn trước mặt mọi người. “Phép thuật là trò của Goblin và đàn bà. Orc thật chữa thương bằng lửa và nghiến răng.”",
+   "choices": [
+    {
+     "label": "Nhặt lại từng chiếc lá, không nói gì",
+     "text": "Cả trại cười. Bạn nhặt hết, nấu lại. Ba ngày sau, Thrak bị một mũi tên độc. Hắn nghiến răng suốt một đêm, rồi sáng ra cho người đến lều bạn. Hắn không cảm ơn. Nhưng hắn không đạp nồi nữa.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "osh_met_thrak",
+       "osh_thrak_debt"
+      ]
+     },
+     "moment": "Chữa cho Warlord Thrak, kẻ từng đạp đổ nồi thuốc"
+    },
+    {
+     "label": "Thách hắn chịu một vết bỏng mà không cần thuốc",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Thrak nhận lời, áp tay vào than hồng, không kêu. Rồi ba ngày sau tay hắn sưng mủ. Hắn đến lều bạn, lặng lẽ. Bạn chữa, lặng lẽ.",
+      "effects": {
+       "fame": 3,
+       "jobXp": 1,
+       "flags": [
+        "osh_met_thrak",
+        "osh_thrak_debt"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Thrak nhận lời, và vết bỏng lành sạch nhờ may. Hắn cười vào mặt bạn suốt mùa.",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "osh_met_thrak"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "osh_c2_first_ritual",
+   "races": [
+    "orc"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "orc_shaman",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "osh_first_ritual",
+     "osh_end"
+    ]
+   },
+   "text": "Nghi lễ đầu tiên bạn tự làm: gọi mưa cho đồng cỏ khô hạn. Cả bộ lạc đứng xem, chờ bạn thất bại.",
+   "choices": [
+    {
+     "label": "Nhảy và gọi như bà Ragga dạy",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Mây đến vào lúc hoàng hôn. Mưa nhỏ, nhưng là mưa. Không ai vỗ tay, nhưng vài chiến binh cúi đầu khi đi qua lều bạn.",
+      "effects": {
+       "LUCK": 1,
+       "fame": 5,
+       "jobXp": 2,
+       "flags": [
+        "osh_first_ritual"
+       ]
+      },
+      "moment": "Gọi được cơn mưa đầu tiên cho đồng cỏ khô hạn"
+     },
+     "fail": {
+      "text": "Không có mây. Cả bộ lạc cười. Ba ngày sau trời mới mưa, và chẳng ai nhớ đến bạn.",
+      "effects": {
+       "fame": -3,
+       "flags": [
+        "osh_first_ritual"
+       ]
+      }
+     },
+     "require": {
+      "flags": [
+       "osh_met_ragga"
+      ]
+     }
+    },
+    {
+     "label": "Nói thật: chưa thấy dấu hiệu mưa, nên dời trại",
+     "text": "Bộ lạc giận, nhưng nghe. Họ dời trại về phía sông. Mùa khô kéo dài thêm hai tháng, và chỉ bộ lạc bạn còn nguyên đàn bò.",
+     "effects": {
+      "INT": 1,
+      "fame": 3,
+      "jobXp": 2,
+      "flags": [
+       "osh_first_ritual",
+       "osh_first_honest"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "osh_c2_crossroads",
+   "races": [
+    "orc"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "orc_shaman",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "osh_path_mend",
+     "osh_path_blood",
+     "osh_path_crow",
+     "osh_end"
+    ],
+    "flags": [
+     "osh_met_ragga"
+    ]
+   },
+   "text": "Bà Ragga đặt lên bàn ba thứ: một bó băng vải đẫm thuốc, một con dao đá dùng trong lễ hiến máu, và chiếc mỏ quạ trên cổ bà. “Một pháp sư Orc chỉ có thể làm một trong ba việc cho thật giỏi.”",
+   "choices": [
+    {
+     "label": "Băng vải: Người Vá Chiến Binh",
+     "text": "Bạn sẽ đi theo chiến binh ra trận, vá thịt, nối xương, và mang về những kẻ đáng lẽ đã chết. Họ sẽ không bao giờ gọi đó là phép thuật. Họ sẽ gọi đó là “bà già ấy” hoặc “kẻ đó”.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "osh_path_mend"
+      ]
+     },
+     "moment": "Chọn làm người vá chiến binh trên chiến trường"
+    },
+    {
+     "label": "Dao đá: Huyết Tư Tế",
+     "text": "Lễ máu là thứ duy nhất chiến binh Orc kính sợ ở pháp sư. Bạn sẽ học nó, và học cả những giới hạn mà tổ tiên đã đặt ra.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "osh_path_blood"
+      ]
+     },
+     "moment": "Nhận con dao đá của Huyết Tư Tế"
+    },
+    {
+     "label": "Mỏ quạ: Tiếng Nói Của Quạ",
+     "text": "Ragga tháo chiếc mỏ quạ, đeo lên cổ bạn. “Lũ quạ thấy mọi thứ. Ngươi sẽ thấy những gì chúng thấy, và nói những điều không ai muốn nghe.”",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "osh_path_crow"
+      ]
+     },
+     "moment": "Nhận chiếc mỏ quạ của bà Ragga"
+    }
+   ]
+  },
+  {
+   "id": "osh_mend_enemy",
+   "races": [
+    "orc"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "orc_shaman",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "osh_path_mend"
+    ],
+    "notFlags": [
+     "osh_end"
+    ]
+   },
+   "text": "Sau trận, bạn tìm thấy một lính Human còn sống giữa đống xác. Chiến binh Orc đang đi giết những kẻ bị thương.",
+   "choices": [
+    {
+     "label": "Kéo hắn vào lều chữa",
+     "text": "Các chiến binh nhìn bạn như kẻ phản bội. Hắn sống, và trở thành tù binh làm việc trong trại. Ba năm sau, hắn là người duy nhất biết đọc thư của sứ giả Human.",
+     "effects": {
+      "fame": -3,
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "osh_mend_enemy"
+      ]
+     },
+     "moment": "Cứu một lính Human bị thương giữa chiến trường"
+    },
+    {
+     "label": "Để chiến binh làm việc của họ",
+     "text": "Bạn quay đi, tiếp tục vá cho những Orc còn rên. Tiếng hét phía sau tắt dần.",
+     "effects": {
+      "joy": -5,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "osh_mend_choice",
+   "races": [
+    "orc"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "orc_shaman",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "osh_path_mend"
+    ],
+    "notFlags": [
+     "osh_end"
+    ]
+   },
+   "text": "Hai chiến binh bị thương cùng lúc, cả hai đều sắp chết. Bạn chỉ còn thuốc cho một người. Một là con trai Warchief, một là chiến binh nghèo đã cứu ba người trong trận.",
+   "choices": [
+    {
+     "label": "Chữa cho người bị nặng hơn, không cần biết là ai",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn nhìn vết thương, không nhìn mặt. Người bị nặng hơn là chiến binh nghèo. Bạn chữa cho hắn, và tìm được cách vá tạm cho con trai Warchief bằng lửa. Cả hai đều sống.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "osh_mend_fair"
+       ]
+      },
+      "moment": "Cứu cả hai chiến binh chỉ với một liều thuốc"
+     },
+     "fail": {
+      "text": "Bạn chữa cho chiến binh nghèo. Con trai Warchief chết. Warchief không bao giờ bước vào lều bạn nữa.",
+      "effects": {
+       "fame": -6,
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Chữa cho con trai Warchief",
+     "text": "Warchief tặng bạn một chuỗi nanh vàng. Chiến binh nghèo được chôn với rìu của hắn.",
+     "effects": {
+      "wealth": 10,
+      "joy": -8,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "osh_blood_child",
+   "races": [
+    "orc"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "orc_shaman",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "osh_path_blood"
+    ],
+    "notFlags": [
+     "osh_end"
+    ]
+   },
+   "text": "Hắc Nguyệt Hội đến trại, mang theo quà, và đề nghị bạn làm lễ hiến máu một đứa trẻ để gọi sức mạnh từ Vực Thẳm cho cả bộ lạc.",
+   "choices": [
+    {
+     "label": "Đuổi chúng đi",
+     "text": "Chúng cười, nói rằng sẽ tìm một pháp sư khác. Bạn báo cho Warchief. Lần đầu tiên, Warchief đứng về phía pháp sư.",
+     "effects": {
+      "fame": 6,
+      "jobXp": 3,
+      "flags": [
+       "osh_blood_refused"
+      ]
+     },
+     "moment": "Đuổi Hắc Nguyệt Hội khỏi trại Orc"
+    },
+    {
+     "label": "Làm lễ máu bằng máu của chính mình thay",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn cắt tay mình, để máu chảy lên đá. Vực Thẳm đáp lời, nhưng chỉ một chút. Hắc Nguyệt Hội bỏ đi, thất vọng. Bạn nằm liệt ba ngày.",
+      "effects": {
+       "STR": 1,
+       "health": -15,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "osh_blood_self"
+       ]
+      },
+      "moment": "Dùng máu của chính mình thay cho máu đứa trẻ"
+     },
+     "fail": {
+      "text": "Vực Thẳm đòi nhiều hơn bạn có. Bạn ngất trên đá lễ, và tỉnh lại sau một tuần.",
+      "effects": {
+       "health": -25
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "osh_blood_oath",
+   "races": [
+    "orc"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "orc_shaman",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "osh_path_blood"
+    ],
+    "notFlags": [
+     "osh_end"
+    ]
+   },
+   "text": "Hai gia tộc muốn kết minh bằng lễ máu. Bạn biết một trong hai trưởng gia tộc đã định phản bội ngay sau lễ.",
+   "choices": [
+    {
+     "label": "Làm lễ, nhưng khắc thêm lời nguyền lên kẻ phản bội",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Hắn nghe lời nguyền, và tái mặt. Hắn không phản bội. Minh ước giữ được hai mươi năm.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Hắn không tin vào lời nguyền. Hắn phản bội. Lời nguyền có ứng hay không, không ai biết, nhưng hắn chết trong năm ấy.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    },
+    {
+     "label": "Từ chối làm lễ",
+     "text": "Hai gia tộc không kết minh. Một năm sau, chúng đánh nhau. Bạn không biết như thế là tốt hơn hay tệ hơn.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "osh_crow_warning",
+   "races": [
+    "orc"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "orc_shaman",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "osh_path_crow"
+    ],
+    "notFlags": [
+     "osh_end"
+    ]
+   },
+   "text": "Lũ quạ bay về từ phía tây, kêu inh ỏi. Bạn thấy trong mắt chúng một đạo quân Human lớn gấp ba bộ lạc. Warchief đang chuẩn bị tấn công về phía ấy.",
+   "choices": [
+    {
+     "label": "Nói với Warchief, trước mặt mọi người",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Warchief chửi bạn, rồi cử trinh sát đi. Trinh sát về, mặt tái. Bộ lạc rút về phía nam, và sống.",
+      "effects": {
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "osh_crow_heeded"
+       ]
+      },
+      "moment": "Cảnh báo Warchief về đạo quân Human qua mắt lũ quạ"
+     },
+     "fail": {
+      "text": "Warchief không nghe. Bộ lạc tấn công, và mất một nửa chiến binh.",
+      "effects": {
+       "joy": -12
+      }
+     }
+    },
+    {
+     "label": "Nói riêng với các bà mẹ",
+     "text": "Các bà mẹ đưa trẻ con đi trước. Khi trận thua xảy ra, không đứa trẻ nào ở lại trại.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "osh_crow_lie",
+   "races": [
+    "orc"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "orc_shaman",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "osh_path_crow"
+    ],
+    "notFlags": [
+     "osh_end"
+    ]
+   },
+   "text": "Warchief muốn bạn tuyên bố trước bộ lạc rằng lũ quạ đã báo điềm thắng trận. Lũ quạ không báo gì cả.",
+   "choices": [
+    {
+     "label": "Nói thật: lũ quạ im lặng",
+     "text": "Warchief giận. Nhưng cả bộ lạc biết từ đó: khi bạn nói lũ quạ báo điều gì, đó là thật.",
+     "effects": {
+      "fame": 5,
+      "jobXp": 3,
+      "flags": [
+       "osh_crow_true"
+      ]
+     }
+    },
+    {
+     "label": "Nói điều Warchief muốn",
+     "text": "Bộ lạc ra trận với tinh thần cao. Họ thắng. Lần sau, khi lũ quạ thật sự báo điều xấu, không ai tin bạn.",
+     "effects": {
+      "fame": 3,
+      "joy": -6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "osh_c4_ragga",
+   "races": [
+    "orc"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "orc_shaman",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "osh_met_ragga"
+    ],
+    "notFlags": [
+     "osh_ragga_gone",
+     "osh_end"
+    ],
+    "anyFlags": [
+     "osh_path_mend",
+     "osh_path_blood",
+     "osh_path_crow"
+    ]
+   },
+   "text": "Lũ quạ đậu kín mái lều của bà Ragga, im lặng. Bà gọi bạn vào. “Chúng đến tiễn ta. Ngươi ở lại chứ?”",
+   "choices": [
+    {
+     "label": "Ở lại",
+     "text": "Bà kể cho bạn tên của từng con quạ, và tên của từng đứa trẻ bà đã cứu. Gần sáng, bà nói: “Chúng sẽ đi theo ngươi giờ.” Bà mất. Lũ quạ bay lên cùng lúc, rồi đậu xuống lều bạn.",
+     "effects": {
+      "joy": -4,
+      "LUCK": 1,
+      "jobXp": 3,
+      "flags": [
+       "osh_ragga_gone"
+      ]
+     },
+     "moment": "Ở bên bà Ragga đêm lũ quạ đến tiễn bà"
+    },
+    {
+     "label": "Đi gọi các bà mẹ đến",
+     "text": "Các bà mẹ đến, mang theo con. Những đứa trẻ bà đã cứu đứng kín quanh lều. Bà Ragga nhìn chúng, mỉm cười, và nhắm mắt.",
+     "effects": {
+      "joy": 2,
+      "fame": 3,
+      "jobXp": 3,
+      "flags": [
+       "osh_ragga_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "osh_c4_thrak",
+   "races": [
+    "orc"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "orc_shaman",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "osh_met_thrak"
+    ],
+    "notFlags": [
+     "osh_end"
+    ]
+   },
+   "text": "Thrak Nanh Gãy đã già, và bị bệnh mà lửa với nghiến răng không chữa được. Hắn nằm trong lều, không cho ai gọi pháp sư.",
+   "choices": [
+    {
+     "label": "Đến dù không ai gọi",
+     "require": {
+      "flags": [
+       "osh_thrak_debt"
+      ]
+     },
+     "text": "Thrak nhìn bạn, rồi quay mặt đi. Nhưng hắn không đuổi. Bạn chữa cho hắn ba mươi ngày. Hắn sống thêm ba năm, và trước khi chết, hắn ra lệnh dựng lều pháp sư ngay giữa trại.",
+     "effects": {
+      "fame": 10,
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "osh_thrak_healed"
+      ]
+     },
+     "moment": "Chữa cho Warlord Thrak khi hắn không cho ai gọi pháp sư"
+    },
+    {
+     "label": "Tôn trọng ý hắn",
+     "text": "Thrak chết như hắn muốn, nghiến răng. Bộ lạc hát về hắn. Bạn cũng hát.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "osh_c5_mend",
+   "races": [
+    "orc"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "orc_shaman",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "osh_path_mend"
+    ],
+    "notFlags": [
+     "osh_end"
+    ]
+   },
+   "text": "Không chiến binh nào gọi bạn là pháp sư. Họ gọi bạn là “kẻ đưa về”, vì bạn đã đưa về quá nhiều người từ ngưỡng cửa cái chết.",
+   "choices": [
+    {
+     "label": "Dạy nghề vá cho chiến binh",
+     "text": "Mỗi đội chiến giờ có một Orc biết vá. Họ không gọi đó là phép thuật. Bạn không bận tâm.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "osh_end",
+       "osh_end_menders"
+      ]
+     },
+     "moment": "Dạy nghề vá thương cho mọi đội chiến Orc"
+    },
+    {
+     "label": "Mở lều chữa cho cả tù binh",
+     "require": {
+      "flags": [
+       "osh_mend_enemy"
+      ]
+     },
+     "text": "Lều của bạn chữa cho cả Orc lẫn Human. Người lính Human năm xưa giờ là phụ tá của bạn. Vài vương quốc bắt đầu trả tù binh Orc về để đổi lấy người được chữa.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "osh_end",
+       "osh_end_open_tent"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "osh_c5_blood",
+   "races": [
+    "orc"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "orc_shaman",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "osh_path_blood"
+    ],
+    "notFlags": [
+     "osh_end"
+    ]
+   },
+   "text": "Bạn là Huyết Tư Tế được kính sợ nhất thảo nguyên. Hắc Nguyệt Hội không dám đặt chân vào lãnh thổ bộ lạc bạn.",
+   "choices": [
+    {
+     "label": "Khắc luật máu lên đá lễ",
+     "require": {
+      "flags": [
+       "osh_blood_refused"
+      ]
+     },
+     "text": "Luật mới: không lễ máu nào được dùng máu của kẻ không tự nguyện. Các pháp sư trẻ học luật ấy trước khi học cầm dao.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "osh_end",
+       "osh_end_blood_law"
+      ]
+     },
+     "moment": "Khắc luật cấm dùng máu của kẻ không tự nguyện"
+    },
+    {
+     "label": "Chôn con dao đá",
+     "text": "Bạn chôn con dao dưới gốc cây già. Lễ máu sẽ còn, nhưng không phải bằng tay bạn nữa.",
+     "effects": {
+      "fame": 10,
+      "joy": 10,
+      "flags": [
+       "osh_end",
+       "osh_end_buried_knife"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "osh_c5_crow",
+   "races": [
+    "orc"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "orc_shaman",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "osh_path_crow"
+    ],
+    "notFlags": [
+     "osh_end"
+    ]
+   },
+   "text": "Lũ quạ của bạn giờ bay khắp thảo nguyên. Các bộ lạc khác gửi người đến hỏi bạn chúng đã thấy gì.",
+   "choices": [
+    {
+     "label": "Trao mỏ quạ cho học trò",
+     "text": "Bạn đeo chiếc mỏ quạ lên cổ học trò, như bà Ragga đã đeo cho bạn. Lũ quạ đậu lên vai nó.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "osh_end",
+       "osh_end_beak"
+      ]
+     },
+     "moment": "Trao chiếc mỏ quạ cho học trò"
+    },
+    {
+     "label": "Nói lời tiên tri cuối cùng",
+     "require": {
+      "flags": [
+       "osh_crow_true"
+      ]
+     },
+     "text": "Bạn nói về một mùa đông dài, mười năm nữa. Không ai nghi ngờ. Mười năm sau, mọi bộ lạc đều đã dự trữ. Không ai chết đói.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "osh_end",
+       "osh_end_prophecy"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "osh_daily_herbs",
+   "races": [
+    "orc"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "orc_shaman",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một đứa trẻ Orc lén mang đến cho bạn một nắm lá, hỏi chúng chữa được gì.",
+   "choices": [
+    {
+     "label": "Dạy nó",
+     "text": "Nó học nhanh. Bố nó, một chiến binh, đến lôi nó về, nhưng tối hôm sau nó lại đến.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Bảo nó đừng để ai thấy",
+     "text": "Nó gật đầu, nghiêm túc. Bạn nhớ mình từng như thế.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "osh_daily_war_wounded",
+   "races": [
+    "orc"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "orc_shaman",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Lều của bạn chật kín người bị thương.",
+   "choices": [
+    {
+     "label": "Thức trắng ba đêm",
+     "text": "Bạn cứu được nhiều hơn bạn nghĩ. Bạn ngủ hai ngày sau đó.",
+     "effects": {
+      "health": -5,
+      "fame": 5,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Dạy vài chiến binh băng bó",
+     "text": "Họ vụng, nhưng đủ để bạn tập trung vào ca nặng.",
+     "effects": {
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "osh_daily_old_voices",
+   "races": [
+    "orc"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "orc_shaman",
+    "free": true
+   },
+   "text": "Bạn bắt đầu nghe thấy tiếng của những người đã chết, nhất là vào lúc chạng vạng.",
+   "choices": [
+    {
+     "label": "Trò chuyện với họ",
+     "text": "Họ không nói gì mới. Nhưng bạn thấy bớt cô đơn.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Ghi lại những gì họ nói",
+     "text": "Học trò đọc lại, và tìm thấy những bài thuốc cũ đã bị quên.",
+     "effects": {
+      "INT": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "osh_c5_mend_late",
+   "races": [
+    "orc"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "orc_shaman",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "osh_path_mend"
+    ],
+    "notFlags": [
+     "osh_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Không chiến binh nào gọi bạn là pháp sư. Họ gọi bạn là “kẻ đưa về”, vì bạn đã đưa về quá nhiều người từ ngưỡng cửa cái chết.",
+   "choices": [
+    {
+     "label": "Dạy nghề vá cho chiến binh",
+     "text": "Mỗi đội chiến giờ có một Orc biết vá. Họ không gọi đó là phép thuật. Bạn không bận tâm.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "osh_end",
+       "osh_end_menders"
+      ]
+     },
+     "moment": "Dạy nghề vá thương cho mọi đội chiến Orc"
+    },
+    {
+     "label": "Mở lều chữa cho cả tù binh",
+     "require": {
+      "flags": [
+       "osh_mend_enemy"
+      ]
+     },
+     "text": "Lều của bạn chữa cho cả Orc lẫn Human. Người lính Human năm xưa giờ là phụ tá của bạn. Vài vương quốc bắt đầu trả tù binh Orc về để đổi lấy người được chữa.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "osh_end",
+       "osh_end_open_tent"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "osh_c5_blood_late",
+   "races": [
+    "orc"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "orc_shaman",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "osh_path_blood"
+    ],
+    "notFlags": [
+     "osh_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Huyết Tư Tế được kính sợ nhất thảo nguyên. Hắc Nguyệt Hội không dám đặt chân vào lãnh thổ bộ lạc bạn.",
+   "choices": [
+    {
+     "label": "Khắc luật máu lên đá lễ",
+     "require": {
+      "flags": [
+       "osh_blood_refused"
+      ]
+     },
+     "text": "Luật mới: không lễ máu nào được dùng máu của kẻ không tự nguyện. Các pháp sư trẻ học luật ấy trước khi học cầm dao.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "osh_end",
+       "osh_end_blood_law"
+      ]
+     },
+     "moment": "Khắc luật cấm dùng máu của kẻ không tự nguyện"
+    },
+    {
+     "label": "Chôn con dao đá",
+     "text": "Bạn chôn con dao dưới gốc cây già. Lễ máu sẽ còn, nhưng không phải bằng tay bạn nữa.",
+     "effects": {
+      "fame": 10,
+      "joy": 10,
+      "flags": [
+       "osh_end",
+       "osh_end_buried_knife"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "osh_c5_crow_late",
+   "races": [
+    "orc"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "orc_shaman",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "osh_path_crow"
+    ],
+    "notFlags": [
+     "osh_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Lũ quạ của bạn giờ bay khắp thảo nguyên. Các bộ lạc khác gửi người đến hỏi bạn chúng đã thấy gì.",
+   "choices": [
+    {
+     "label": "Trao mỏ quạ cho học trò",
+     "text": "Bạn đeo chiếc mỏ quạ lên cổ học trò, như bà Ragga đã đeo cho bạn. Lũ quạ đậu lên vai nó.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "osh_end",
+       "osh_end_beak"
+      ]
+     },
+     "moment": "Trao chiếc mỏ quạ cho học trò"
+    },
+    {
+     "label": "Nói lời tiên tri cuối cùng",
+     "require": {
+      "flags": [
+       "osh_crow_true"
+      ]
+     },
+     "text": "Bạn nói về một mùa đông dài, mười năm nữa. Không ai nghi ngờ. Mười năm sau, mọi bộ lạc đều đã dự trữ. Không ai chết đói.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "osh_end",
+       "osh_end_prophecy"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}

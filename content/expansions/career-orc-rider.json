@@ -1,0 +1,1102 @@
+{
+ "_note": "Tuyến truyện Orc Wolf Rider: 5 chương theo bậc, ba đạo ở Bậc 2 (ord_path_raid / ord_path_pack / ord_path_road), nhân vật xuyên suốt bà Yagra Mẹ Sói (người nuôi sói già) và Răng Xám (sói chiến của bạn).",
+ "origins": [],
+ "events": [
+  {
+   "id": "ord_c1_yagra",
+   "races": [
+    "orc"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "orc_rider",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "ord_met_yagra"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Yagra Mẹ Sói",
+     "race": "Orc",
+     "position": "Người nuôi sói già sống trong chuồng sói"
+    }
+   ],
+   "text": "Bà Yagra Mẹ Sói sống trong chuồng sói, không trong lều. Bà dẫn bạn đến một ổ sói con vừa mở mắt. “Không phải ngươi chọn sói. Sói chọn ngươi. Ngồi xuống, và đừng nhìn vào mắt chúng.”",
+   "choices": [
+    {
+     "label": "Ngồi im, nhìn xuống đất",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Một lúc lâu, một con sói con màu xám bò đến, ngửi tay bạn, rồi nằm gối đầu lên đùi bạn. Yagra mỉm cười: “Răng Xám. Nó chọn rồi.”",
+      "effects": {
+       "LUCK": 1,
+       "jobXp": 1,
+       "flags": [
+        "ord_met_yagra",
+        "ord_met_grey",
+        "ord_grey_bond"
+       ]
+      },
+      "moment": "Được sói con Răng Xám chọn làm người cưỡi"
+     },
+     "fail": {
+      "text": "Không con nào đến. Hôm sau bạn quay lại, và hôm sau nữa. Ngày thứ năm, một con sói con màu xám bò đến cắn ngón tay bạn. Yagra cười: “Thế cũng là chọn.”",
+      "effects": {
+       "health": -1,
+       "flags": [
+        "ord_met_yagra",
+        "ord_met_grey"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi bà sao không sống trong lều",
+     "text": "“Lều là chỗ cho kẻ sợ đêm,” Yagra nói. “Sói không sợ đêm. Ta cũng thế.” Đêm ấy, bạn ngủ trong chuồng cùng bà. Sáng ra, một con sói con màu xám nằm cuộn tròn cạnh bạn.",
+     "effects": {
+      "joy": 5,
+      "jobXp": 1,
+      "flags": [
+       "ord_met_yagra",
+       "ord_met_grey"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ord_c1_first_ride",
+   "races": [
+    "orc"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "orc_rider",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "ord_met_grey"
+    ],
+    "notFlags": [
+     "ord_grey_bond"
+    ]
+   },
+   "text": "Răng Xám đã đủ lớn để cưỡi. Lần đầu tiên bạn leo lên lưng nó, nó hất bạn xuống, rồi đứng nhìn bạn như hỏi: “Ngươi chắc chưa?”",
+   "choices": [
+    {
+     "label": "Leo lên lại",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Lần thứ bảy, nó để bạn ngồi. Hai người chạy một vòng quanh trại, gió rít bên tai. Bạn cười như đứa trẻ.",
+      "effects": {
+       "AGI": 1,
+       "joy": 6,
+       "jobXp": 1,
+       "flags": [
+        "ord_grey_bond"
+       ]
+      },
+      "moment": "Cưỡi Răng Xám chạy vòng quanh trại lần đầu tiên"
+     },
+     "fail": {
+      "text": "Lần thứ mười, bạn gãy tay. Răng Xám nằm cạnh bạn cả đêm, liếm vết thương.",
+      "effects": {
+       "health": -6,
+       "flags": [
+        "ord_grey_bond"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đi bên cạnh nó một mùa trước đã",
+     "text": "Bạn đi bộ cạnh Răng Xám khắp thảo nguyên, không cưỡi. Cuối mùa, nó tự cúi xuống cho bạn leo lên.",
+     "effects": {
+      "joy": 5,
+      "jobXp": 1,
+      "flags": [
+       "ord_grey_bond"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ord_c2_first_raid",
+   "races": [
+    "orc"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "orc_rider",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "flags": [
+     "ord_met_grey"
+    ],
+    "notFlags": [
+     "ord_first_raid",
+     "ord_grey_gone",
+     "ord_end"
+    ]
+   },
+   "text": "Chuyến cướp đầu tiên. Đội kỵ sói lao vào một đoàn xe Human. Một con ngựa kéo xe hoảng loạn, đá trúng sườn Răng Xám.",
+   "choices": [
+    {
+     "label": "Kéo Răng Xám ra khỏi trận",
+     "text": "Bạn rút khỏi trận, mất phần chiến lợi phẩm. Các kỵ sĩ khác cười. Răng Xám lành sau một tháng, và từ đó không bao giờ sợ ngựa.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 2,
+      "flags": [
+       "ord_first_raid",
+       "ord_first_grey"
+      ]
+     }
+    },
+    {
+     "label": "Tiếp tục tấn công",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Răng Xám nghiến răng chạy tiếp. Hai người hạ được người đánh xe. Phần chiến lợi phẩm của bạn lớn nhất đội.",
+      "effects": {
+       "wealth": 8,
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "ord_first_raid"
+       ]
+      },
+      "moment": "Cùng Răng Xám bị thương vẫn hoàn thành chuyến cướp đầu tiên"
+     },
+     "fail": {
+      "text": "Răng Xám ngã. Bạn văng xuống giữa đám lính. Kỵ sĩ khác phải quay lại kéo bạn ra.",
+      "effects": {
+       "health": -10,
+       "flags": [
+        "ord_first_raid"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "ord_c2_crossroads",
+   "races": [
+    "orc"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "orc_rider",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "ord_path_raid",
+     "ord_path_pack",
+     "ord_path_road",
+     "ord_end"
+    ],
+    "flags": [
+     "ord_met_yagra"
+    ]
+   },
+   "text": "Bà Yagra vẽ ba đường trên cát: một đường dẫn đến các làng Human, nơi kỵ sói đi cướp; một đường dẫn vào thảo nguyên sâu, nơi những bầy sói hoang sống; và một đường dọc theo con đường buôn, nơi các thương đoàn cần người hộ tống.",
+   "choices": [
+    {
+     "label": "Đường cướp: Kỵ Sói Chiến",
+     "text": "Bạn sẽ dẫn đội kỵ sói, lao vào trước, rút ra trước. Kỵ sói là cơn gió mà mọi làng Human sợ.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 2,
+      "flags": [
+       "ord_path_raid"
+      ]
+     },
+     "moment": "Chọn dẫn đội kỵ sói đi cướp"
+    },
+    {
+     "label": "Thảo nguyên sâu: Người Của Bầy",
+     "text": "Bạn sẽ đi cùng Răng Xám vào thảo nguyên sâu, sống với những bầy sói hoang, học tiếng của chúng. Yagra gật đầu: “Đó là đường của ta.”",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "ord_path_pack"
+      ]
+     },
+     "moment": "Chọn sống cùng các bầy sói hoang ở thảo nguyên sâu"
+    },
+    {
+     "label": "Đường buôn: Kỵ Sói Hộ Tống",
+     "text": "Kỵ sói không chỉ để cướp. Thương đoàn Sói Bạc trả vàng cho những kẻ có thể đuổi cướp đi. Các Orc khác gọi bạn là kẻ bán sói. Bạn không quan tâm.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "ord_path_road"
+      ]
+     },
+     "moment": "Chọn làm kỵ sói hộ tống thương đoàn"
+    }
+   ]
+  },
+  {
+   "id": "ord_raid_children",
+   "races": [
+    "orc"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "orc_rider",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ord_path_raid"
+    ],
+    "notFlags": [
+     "ord_end"
+    ]
+   },
+   "text": "Đội kỵ sói của bạn đến một làng chỉ có trẻ con và người già. Các kỵ sĩ trẻ hú lên hào hứng.",
+   "choices": [
+    {
+     "label": "Ra lệnh quay đầu",
+     "text": "Có tiếng càu nhàu. Nhưng đội quay đầu. Trên đường về, một kỵ sĩ trẻ hỏi vì sao. Bạn không trả lời được, nhưng biết mình đúng.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "ord_raid_mercy"
+      ]
+     }
+    },
+    {
+     "label": "Lấy lương thực, không đụng ai",
+     "text": "Đội lấy đủ lương thực cho một tháng, để lại làng nguyên vẹn. Năm sau, làng ấy để sẵn một bao lúa ở đầu đường mỗi mùa thu.",
+     "effects": {
+      "wealth": 6,
+      "joy": 4,
+      "jobXp": 3,
+      "flags": [
+       "ord_raid_tribute"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ord_raid_cavalry",
+   "races": [
+    "orc"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "orc_rider",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ord_path_raid"
+    ],
+    "notFlags": [
+     "ord_end"
+    ]
+   },
+   "text": "Kỵ binh Human đuổi theo đội kỵ sói của bạn qua đồng cỏ. Ngựa của chúng nhanh hơn trên đường thẳng.",
+   "choices": [
+    {
+     "label": "Dẫn chúng vào vùng đồi đá",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Ngựa trượt chân trên đá. Sói thì không. Kỵ binh Human phải quay về, và từ đó không dám đuổi kỵ sói vào đồi.",
+      "effects": {
+       "AGI": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "ord_raid_hills"
+       ]
+      },
+      "moment": "Dụ kỵ binh Human vào vùng đồi đá"
+     },
+     "fail": {
+      "text": "Đường đồi xa hơn bạn tưởng. Bạn mất hai con sói.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Quay lại đánh",
+     "text": "Sói và ngựa va vào nhau. Không bên nào thắng. Cả hai bên rút về, đếm xác.",
+     "effects": {
+      "health": -8,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "ord_pack_alpha",
+   "races": [
+    "orc"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "orc_rider",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ord_path_pack"
+    ],
+    "notFlags": [
+     "ord_grey_gone",
+     "ord_end"
+    ]
+   },
+   "text": "Đầu đàn của bầy sói hoang thách Răng Xám. Theo luật bầy, bạn không được can thiệp.",
+   "choices": [
+    {
+     "label": "Đứng ngoài",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Răng Xám thắng. Bầy sói hoang cúi đầu trước nó, và trước bạn. Từ đó, cả bầy chạy cùng bạn.",
+      "effects": {
+       "LUCK": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "ord_pack_led"
+       ]
+      },
+      "moment": "Răng Xám thắng đầu đàn, cả bầy sói hoang theo bạn"
+     },
+     "fail": {
+      "text": "Răng Xám thua, nhưng sống. Bầy chấp nhận nó như một thành viên, không phải đầu đàn.",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "ord_pack_member"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Can thiệp, cứu Răng Xám",
+     "text": "Bạn kéo Răng Xám ra. Bầy sói hoang không tấn công, nhưng quay lưng đi. Bạn phải bắt đầu lại.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "ord_pack_hunters",
+   "races": [
+    "orc"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "orc_rider",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ord_path_pack"
+    ],
+    "notFlags": [
+     "ord_end"
+    ]
+   },
+   "text": "Một nhóm thợ săn Human đến thảo nguyên sâu, đặt bẫy bắt sói con để bán cho các lãnh chúa.",
+   "choices": [
+    {
+     "label": "Phá bẫy trong đêm",
+     "text": "Thợ săn về tay trắng, và không biết vì sao. Bầy sói hoang nhìn bạn khác đi.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "ord_pack_saved"
+      ]
+     }
+    },
+    {
+     "label": "Cùng bầy đuổi họ đi",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Tiếng hú của cả bầy, và một Orc trên lưng sói. Thợ săn bỏ chạy, để lại cả lều trại. Họ không bao giờ quay lại.",
+      "effects": {
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "ord_pack_saved"
+       ]
+      },
+      "moment": "Cùng bầy sói hoang đuổi thợ săn Human khỏi thảo nguyên"
+     },
+     "fail": {
+      "text": "Thợ săn có cung. Hai con sói bị thương.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "ord_road_ambush",
+   "races": [
+    "orc"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "orc_rider",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ord_path_road"
+    ],
+    "notFlags": [
+     "ord_end"
+    ]
+   },
+   "text": "Đoàn xe bạn hộ tống bị một bộ lạc Orc khác phục kích. Những kẻ tấn công là đồng tộc của bạn.",
+   "choices": [
+    {
+     "label": "Bảo vệ đoàn xe",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đánh lui chúng mà không giết ai. Tù trưởng của chúng nhổ nước bọt: “Kẻ phản bội.” Thương đoàn Sói Bạc thưởng gấp đôi.",
+      "effects": {
+       "STR": 1,
+       "wealth": 15,
+       "fame": -3,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Chúng đông hơn. Đoàn mất một xe. Thương đoàn trừ lương bạn.",
+      "effects": {
+       "wealth": -5
+      }
+     }
+    },
+    {
+     "label": "Thương lượng: một xe, đổi lấy đường qua",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Tù trưởng nhận lời. Từ đó, mỗi đoàn xe đi qua để lại một xe cho bộ lạc ấy. Không còn ai bị giết trên đoạn đường đó.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "ord_road_toll"
+       ]
+      },
+      "moment": "Thương lượng phí qua đường giữa thương đoàn và một bộ lạc Orc"
+     },
+     "fail": {
+      "text": "Tù trưởng cười vào mặt bạn, và tấn công.",
+      "effects": {
+       "health": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "ord_road_offer",
+   "races": [
+    "orc"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "orc_rider",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ord_path_road"
+    ],
+    "notFlags": [
+     "ord_grey_gone",
+     "ord_end"
+    ]
+   },
+   "text": "Một thương nhân Sói Bạc muốn mua Răng Xám, trả bằng vàng ròng đủ cho bạn sống sung sướng đến cuối đời.",
+   "choices": [
+    {
+     "label": "Từ chối",
+     "text": "Thương nhân lắc đầu, không hiểu. Răng Xám nằm cạnh bạn, liếm tay bạn.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Hỏi Răng Xám",
+     "text": "Bạn nhìn nó. Nó nhìn bạn. Bạn nói với thương nhân: “Nó bảo không.” Thương nhân cười ầm, rồi thuê bạn thêm một năm, gấp đôi lương.",
+     "effects": {
+      "wealth": 10,
+      "joy": 4,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "ord_c4_yagra",
+   "races": [
+    "orc"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "orc_rider",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "ord_met_yagra"
+    ],
+    "notFlags": [
+     "ord_yagra_gone",
+     "ord_end"
+    ],
+    "anyFlags": [
+     "ord_path_raid",
+     "ord_path_pack",
+     "ord_path_road"
+    ]
+   },
+   "text": "Bà Yagra sắp mất. Bà không muốn chết trong lều. Bà muốn được đưa ra thảo nguyên, nơi các bầy sói hoang sống.",
+   "choices": [
+    {
+     "label": "Đưa bà đi trên lưng Răng Xám",
+     "require": {
+      "notFlags": [
+       "ord_grey_gone"
+      ]
+     },
+     "text": "Răng Xám đi chậm, rất chậm. Đến đồi cao, bà Yagra nghe tiếng hú của bầy hoang, và hú đáp lại lần cuối. Bà mất trước bình minh, và đêm ấy cả thảo nguyên hú.",
+     "effects": {
+      "joy": -4,
+      "LUCK": 1,
+      "jobXp": 3,
+      "flags": [
+       "ord_yagra_gone"
+      ]
+     },
+     "moment": "Đưa bà Yagra ra thảo nguyên trên lưng Răng Xám lần cuối"
+    },
+    {
+     "label": "Ở lại chuồng sói với bà",
+     "text": "Bà nằm giữa đàn sói, như cả đời bà. Những con sói già nằm quanh bà, im lặng. Bà mất khi chúng vẫn còn ở đó.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "ord_yagra_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ord_c4_grey",
+   "races": [
+    "orc"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "orc_rider",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "ord_met_grey"
+    ],
+    "notFlags": [
+     "ord_grey_gone",
+     "ord_end"
+    ]
+   },
+   "text": "Răng Xám đã già. Mõm nó bạc trắng, chân sau run khi đứng. Nó không còn chạy được nữa.",
+   "choices": [
+    {
+     "label": "Để nó ra đi cạnh bạn",
+     "text": "Bạn nằm cạnh nó suốt đêm cuối. Sáng ra, nó liếm tay bạn lần cuối, và nhắm mắt. Bạn chôn nó trên đồi cao, nơi gió thổi mạnh nhất.",
+     "effects": {
+      "joy": -10,
+      "jobXp": 3,
+      "flags": [
+       "ord_grey_gone"
+      ]
+     },
+     "moment": "Ở bên Răng Xám trong đêm cuối cùng của nó"
+    },
+    {
+     "label": "Đưa nó về với bầy hoang",
+     "text": "Bạn đưa nó vào thảo nguyên sâu. Bầy hoang nhận nó. Bạn quay về một mình, và nghe tiếng hú của nó từ xa, lần cuối.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "ord_grey_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ord_c5_raid",
+   "races": [
+    "orc"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "orc_rider",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "ord_path_raid"
+    ],
+    "notFlags": [
+     "ord_end"
+    ]
+   },
+   "text": "Cả thảo nguyên sợ tiếng hú của đội kỵ sói bạn dẫn.",
+   "choices": [
+    {
+     "label": "Đổi cướp lấy cống nạp",
+     "require": {
+      "flags": [
+       "ord_raid_tribute"
+      ]
+     },
+     "text": "Các làng biên giới để sẵn lương thực mỗi mùa thu, đổi lấy việc kỵ sói đuổi cướp đi thay vì cướp họ. Lần đầu tiên, làng Human và Orc có một thỏa thuận không viết thành chữ.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "ord_end",
+       "ord_end_tribute"
+      ]
+     },
+     "moment": "Đổi cướp bóc lấy thỏa thuận cống nạp với các làng biên giới"
+    },
+    {
+     "label": "Cưỡi trận cuối cùng",
+     "text": "Bạn dẫn đội kỵ sói lao vào trận lớn nhất. Bạn không về. Đội kỵ sói hú ba đêm liền.",
+     "effects": {
+      "fame": 15,
+      "joy": 6,
+      "flags": [
+       "ord_end",
+       "ord_end_last_ride"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ord_c5_pack",
+   "races": [
+    "orc"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "orc_rider",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "ord_path_pack"
+    ],
+    "notFlags": [
+     "ord_end"
+    ]
+   },
+   "text": "Các bầy sói hoang trên thảo nguyên coi bạn là một thành viên. Không Orc nào khác được như thế.",
+   "choices": [
+    {
+     "label": "Dạy bộ lạc cách chung sống với bầy hoang",
+     "require": {
+      "flags": [
+       "ord_pack_saved"
+      ]
+     },
+     "text": "Bộ lạc ngừng săn sói hoang. Bầy hoang ngừng tấn công đàn bò. Đôi khi, một con sói hoang đến chuồng sói của trại, và ở lại.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "ord_end",
+       "ord_end_pact"
+      ]
+     },
+     "moment": "Lập ước chung sống giữa bộ lạc Orc và các bầy sói hoang"
+    },
+    {
+     "label": "Sống những năm cuối với bầy",
+     "text": "Bạn không về trại nữa. Thỉnh thoảng các kỵ sĩ thấy một bóng Orc già chạy cùng bầy sói trên đồi xa.",
+     "effects": {
+      "fame": 10,
+      "joy": 15,
+      "flags": [
+       "ord_end",
+       "ord_end_wild"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ord_c5_road",
+   "races": [
+    "orc"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "orc_rider",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "ord_path_road"
+    ],
+    "notFlags": [
+     "ord_end"
+    ]
+   },
+   "text": "Kỵ sói hộ tống của bạn là lý do thương đoàn dám đi qua thảo nguyên.",
+   "choices": [
+    {
+     "label": "Lập trạm nghỉ cho thương đoàn",
+     "require": {
+      "flags": [
+       "ord_road_toll"
+      ]
+     },
+     "text": "Bộ lạc nhận phí qua đường, dựng trạm nghỉ, bán thịt và nước. Lần đầu tiên, Orc giàu lên mà không cần cướp.",
+     "effects": {
+      "fame": 15,
+      "wealth": 20,
+      "joy": 12,
+      "flags": [
+       "ord_end",
+       "ord_end_waystation"
+      ]
+     },
+     "moment": "Dựng trạm nghỉ thương đoàn do Orc quản lý"
+    },
+    {
+     "label": "Trao đội hộ tống cho kỵ sĩ trẻ",
+     "text": "Kỵ sĩ trẻ của bạn đi khắp các con đường buôn. Các Orc khác thôi gọi họ là kẻ bán sói.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "ord_end",
+       "ord_end_escort"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ord_daily_pup",
+   "races": [
+    "orc"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "orc_rider",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một con sói con trong chuồng cứ bám theo bạn, cắn gấu áo.",
+   "choices": [
+    {
+     "label": "Cho nó ăn",
+     "text": "Nó theo bạn cả ngày. Con sói chiến của bạn gầm gừ nhẹ, ghen tị.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Trả nó về với mẹ",
+     "text": "Con sói mẹ liếm con, rồi nhìn bạn, gật đầu theo kiểu của sói.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "ord_daily_war_riders",
+   "races": [
+    "orc"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "orc_rider",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Kỵ sói được gọi làm tiên phong.",
+   "choices": [
+    {
+     "label": "Đi đầu",
+     "text": "Kỵ sói xé toang đội hình địch. Bạn mất hai con sói, và được hát về.",
+     "effects": {
+      "fame": 5,
+      "joy": -3,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Đi làm trinh sát",
+     "text": "Ít vinh quang, nhưng không mất con sói nào.",
+     "effects": {
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "ord_daily_old_ride",
+   "races": [
+    "orc"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "orc_rider",
+    "free": true
+   },
+   "text": "Lưng bạn đau mỗi khi cưỡi sói. Những con sói trẻ chạy nhanh hơn bạn chịu nổi.",
+   "choices": [
+    {
+     "label": "Cưỡi một con sói già, đi chậm",
+     "text": "Bạn và con sói già đi dạo trên đồi mỗi chiều. Cả hai đều không vội.",
+     "effects": {
+      "joy": 8
+     }
+    },
+    {
+     "label": "Dạy lũ trẻ cưỡi",
+     "text": "Bạn đứng dưới đất, hét lên chỉ dẫn. Lũ trẻ ngã liên tục. Bạn cười.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "ord_c5_raid_late",
+   "races": [
+    "orc"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "orc_rider",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "ord_path_raid"
+    ],
+    "notFlags": [
+     "ord_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Cả thảo nguyên sợ tiếng hú của đội kỵ sói bạn dẫn.",
+   "choices": [
+    {
+     "label": "Đổi cướp lấy cống nạp",
+     "require": {
+      "flags": [
+       "ord_raid_tribute"
+      ]
+     },
+     "text": "Các làng biên giới để sẵn lương thực mỗi mùa thu, đổi lấy việc kỵ sói đuổi cướp đi thay vì cướp họ. Lần đầu tiên, làng Human và Orc có một thỏa thuận không viết thành chữ.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "ord_end",
+       "ord_end_tribute"
+      ]
+     },
+     "moment": "Đổi cướp bóc lấy thỏa thuận cống nạp với các làng biên giới"
+    },
+    {
+     "label": "Cưỡi trận cuối cùng",
+     "text": "Bạn dẫn đội kỵ sói lao vào trận lớn nhất. Bạn không về. Đội kỵ sói hú ba đêm liền.",
+     "effects": {
+      "fame": 15,
+      "joy": 6,
+      "flags": [
+       "ord_end",
+       "ord_end_last_ride"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "ord_c5_pack_late",
+   "races": [
+    "orc"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "orc_rider",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "ord_path_pack"
+    ],
+    "notFlags": [
+     "ord_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Các bầy sói hoang trên thảo nguyên coi bạn là một thành viên. Không Orc nào khác được như thế.",
+   "choices": [
+    {
+     "label": "Dạy bộ lạc cách chung sống với bầy hoang",
+     "require": {
+      "flags": [
+       "ord_pack_saved"
+      ]
+     },
+     "text": "Bộ lạc ngừng săn sói hoang. Bầy hoang ngừng tấn công đàn bò. Đôi khi, một con sói hoang đến chuồng sói của trại, và ở lại.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "ord_end",
+       "ord_end_pact"
+      ]
+     },
+     "moment": "Lập ước chung sống giữa bộ lạc Orc và các bầy sói hoang"
+    },
+    {
+     "label": "Sống những năm cuối với bầy",
+     "text": "Bạn không về trại nữa. Thỉnh thoảng các kỵ sĩ thấy một bóng Orc già chạy cùng bầy sói trên đồi xa.",
+     "effects": {
+      "fame": 10,
+      "joy": 15,
+      "flags": [
+       "ord_end",
+       "ord_end_wild"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "ord_c5_road_late",
+   "races": [
+    "orc"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "orc_rider",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "ord_path_road"
+    ],
+    "notFlags": [
+     "ord_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Kỵ sói hộ tống của bạn là lý do thương đoàn dám đi qua thảo nguyên.",
+   "choices": [
+    {
+     "label": "Lập trạm nghỉ cho thương đoàn",
+     "require": {
+      "flags": [
+       "ord_road_toll"
+      ]
+     },
+     "text": "Bộ lạc nhận phí qua đường, dựng trạm nghỉ, bán thịt và nước. Lần đầu tiên, Orc giàu lên mà không cần cướp.",
+     "effects": {
+      "fame": 15,
+      "wealth": 20,
+      "joy": 12,
+      "flags": [
+       "ord_end",
+       "ord_end_waystation"
+      ]
+     },
+     "moment": "Dựng trạm nghỉ thương đoàn do Orc quản lý"
+    },
+    {
+     "label": "Trao đội hộ tống cho kỵ sĩ trẻ",
+     "text": "Kỵ sĩ trẻ của bạn đi khắp các con đường buôn. Các Orc khác thôi gọi họ là kẻ bán sói.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "ord_end",
+       "ord_end_escort"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}

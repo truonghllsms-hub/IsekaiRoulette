@@ -1,0 +1,310 @@
+{
+ "_note": "Kho cảnh độc lập cho Kobold Overseer (đời Kobold quá ngắn cho một tuyến nhiều chương).",
+ "origins": [],
+ "events": [
+  {
+   "id": "kbo_first_whip",
+   "races": [
+    "kobold"
+   ],
+   "weight": 40,
+   "require": {
+    "job": "kobold_overseer",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 1
+   },
+   "text": "Ngày đầu làm đốc công, bạn được trao một chiếc roi da. Lãnh chúa mỏ dặn: “Roi kêu thì quặng ra.”",
+   "choices": [
+    {
+     "label": "Quất roi xuống đất thật kêu, không đánh ai",
+     "text": "Tiếng roi vang khắp hầm. Thợ đào làm việc nhanh hơn, vì tưởng bạn hung dữ. Không ai bị đánh. Không ai biết.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2
+     },
+     "moment": "Quất roi xuống đất thay vì đánh thợ đào trong ngày đầu làm đốc công"
+    },
+    {
+     "label": "Treo roi lên vách, hỏi thợ đào cần gì",
+     "text": "Họ nhìn nhau, ngờ vực. Một thợ già nói: “Đuốc. Hầm tối quá.” Bạn xin thêm đuốc. Sản lượng tăng.",
+     "effects": {
+      "joy": 5,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbo_sick_digger",
+   "races": [
+    "kobold"
+   ],
+   "weight": 35,
+   "require": {
+    "job": "kobold_overseer",
+    "free": true
+   },
+   "text": "Một thợ đào ho ra máu đen, nhưng vẫn cố cầm cuốc vì sợ mất khẩu phần.",
+   "choices": [
+    {
+     "label": "Cho hắn nghỉ, vẫn giữ khẩu phần",
+     "text": "Lãnh chúa không vui. Nhưng thợ đào ấy khỏi bệnh sau một tháng, và đào chăm hơn bất kỳ ai.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2
+     },
+     "moment": "Cho thợ đào bệnh nghỉ mà vẫn giữ khẩu phần"
+    },
+    {
+     "label": "Để hắn đào tiếp",
+     "text": "Hắn ngã gục giữa ca. Ba thợ đào khác phải khiêng hắn ra. Ca ấy thiếu bốn người.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbo_quota",
+   "races": [
+    "kobold"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "kobold_overseer",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Lãnh chúa tăng chỉ tiêu gấp đôi. Thợ đào đã kiệt sức.",
+   "choices": [
+    {
+     "label": "Chia ca, cho đào luân phiên cả ngày lẫn đêm",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Không ai làm quá nửa ngày, nhưng hầm không bao giờ nghỉ. Đủ chỉ tiêu. Lãnh chúa ngạc nhiên, thợ đào cũng ngạc nhiên.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3
+      },
+      "moment": "Chia ca luân phiên để đạt chỉ tiêu mà không vắt kiệt thợ đào"
+     },
+     "fail": {
+      "text": "Ca đêm ngủ gật, sập một đoạn hầm. Thiếu chỉ tiêu.",
+      "effects": {
+       "fame": -4
+      }
+     }
+    },
+    {
+     "label": "Ép đào gấp đôi",
+     "text": "Đủ chỉ tiêu. Năm thợ đào bỏ trốn trong tháng ấy.",
+     "effects": {
+      "wealth": 4,
+      "joy": -4,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbo_thief",
+   "races": [
+    "kobold"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "kobold_overseer",
+    "free": true
+   },
+   "text": "Bạn bắt gặp một thợ đào giấu một mẩu Tinh Bạc nhỏ trong miệng. Luật mỏ: chặt một ngón tay.",
+   "choices": [
+    {
+     "label": "Giả vờ không thấy",
+     "text": "Hắn biết bạn đã thấy. Từ đó, hắn là thợ đào trung thành nhất của bạn.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Bắt hắn nhả ra, không báo lên",
+     "text": "Hắn nhả ra, run rẩy. Bạn nộp mẩu Tinh Bạc, nói là tự tìm thấy. Hắn không quên.",
+     "effects": {
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Thi hành luật",
+     "text": "Cả hầm im lặng. Không ai ăn trộm nữa. Không ai nói chuyện với bạn nữa.",
+     "effects": {
+      "fame": 3,
+      "joy": -8,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbo_ghoul_tomb",
+   "races": [
+    "kobold"
+   ],
+   "weight": 25,
+   "require": {
+    "job": "kobold_overseer",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Thợ đào phá vào một hầm mộ cổ. Mùi tử khí bốc lên, và từ bóng tối có tiếng sột soạt. Không ai dám vào.",
+   "choices": [
+    {
+     "label": "Tự mình vào trước",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Chỉ là một bầy chuột lớn. Bạn đi ra, ôm một con trên tay. Thợ đào cười, và từ đó tin bạn hơn.",
+      "effects": {
+       "fame": 6,
+       "jobXp": 2
+      },
+      "moment": "Tự mình bước vào hầm mộ cổ trước thợ đào"
+     },
+     "fail": {
+      "text": "Không chỉ có chuột. Bạn chạy ra, mất một mảnh đuôi.",
+      "effects": {
+       "health": -10,
+       "fame": 3
+      }
+     }
+    },
+    {
+     "label": "Bịt hầm mộ lại",
+     "text": "Mất một vỉa quặng. Không ai mất mạng.",
+     "effects": {
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbo_strike",
+   "races": [
+    "kobold"
+   ],
+   "weight": 25,
+   "require": {
+    "job": "kobold_overseer",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Thợ đào đồng loạt ngồi xuống, không chịu cầm cuốc. Họ muốn thêm một bữa ăn mỗi ngày.",
+   "choices": [
+    {
+     "label": "Đứng về phía họ trước lãnh chúa",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn nói sản lượng sẽ tăng nếu họ không đói. Lãnh chúa cho thử một tháng. Sản lượng tăng. Bữa ăn thêm được giữ.",
+      "effects": {
+       "fame": 6,
+       "joy": 6,
+       "jobXp": 3
+      },
+      "moment": "Đứng về phía thợ đào đòi thêm một bữa ăn mỗi ngày"
+     },
+     "fail": {
+      "text": "Lãnh chúa giận, phạt cả bạn lẫn thợ đào nhịn đói ba ngày.",
+      "effects": {
+       "health": -6
+      }
+     }
+    },
+    {
+     "label": "Dọa họ bằng roi",
+     "text": "Họ cầm cuốc lên. Họ đào chậm hơn trước. Bạn biết mình đã thua, theo cách nào đó.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbo_war_levy",
+   "races": [
+    "kobold"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 25,
+   "require": {
+    "job": "kobold_overseer",
+    "free": true
+   },
+   "text": "Chiến tranh. Lãnh chúa muốn bạn chọn mười thợ đào đi làm lính.",
+   "choices": [
+    {
+     "label": "Chọn những đứa tự nguyện",
+     "text": "Chỉ có sáu đứa. Bạn tự đi thay bốn suất còn lại, hoặc ít nhất bạn định thế, cho đến khi lãnh chúa ngăn lại.",
+     "effects": {
+      "fame": 5,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Chọn những đứa đào kém nhất",
+     "text": "Mười đứa đi. Không đứa nào về. Sản lượng không giảm.",
+     "effects": {
+      "joy": -8,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbo_old_overseer",
+   "races": [
+    "kobold"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "kobold_overseer",
+    "free": true
+   },
+   "text": "Bạn đã già. Chiếc roi treo trên vách lâu rồi không ai lấy xuống.",
+   "choices": [
+    {
+     "label": "Đốt nó",
+     "text": "Thợ đào trẻ nhìn ngọn lửa, không hiểu. Thợ đào già thì hiểu.",
+     "effects": {
+      "joy": 8
+     }
+    },
+    {
+     "label": "Trao cho người kế nhiệm, kèm một lời dặn",
+     "text": "Bạn dặn: “Roi kêu thì quặng ra. Nhưng thợ no thì quặng ra nhiều hơn.”",
+     "effects": {
+      "joy": 6,
+      "fame": 2
+     }
+    }
+   ]
+  }
+ ]
+}

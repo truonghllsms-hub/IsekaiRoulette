@@ -1,0 +1,379 @@
+{
+ "_note": "Kho cảnh độc lập cho Goblin Warrior (đời Goblin quá ngắn cho một tuyến nhiều chương).",
+ "origins": [],
+ "events": [
+  {
+   "id": "gbw_count",
+   "races": [
+    "goblin"
+   ],
+   "weight": 40,
+   "require": {
+    "job": "goblin_warrior",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 1
+   },
+   "text": "Già Gnarl, Goblin già nhất hang, chặn bạn ở cửa trước trận cướp: “Đếm đi. Kẻ thù bao nhiêu, bạn bao nhiêu, đường chạy bao nhiêu.” Lão đã sống đến mười một tuổi nhờ đếm.",
+   "choices": [
+    {
+     "label": "Đếm cẩn thận rồi mới xông lên",
+     "check": {
+      "stat": "INT",
+      "target": 4
+     },
+     "success": {
+      "text": "Bốn lính canh, ba mươi Goblin, hai đường chạy. Bạn dẫn mười đứa vòng ra sau. Đoàn xe là của bầy, và không đứa nào trong nhóm bạn chết.",
+      "effects": {
+       "INT": 1,
+       "fame": 3,
+       "jobXp": 2
+      },
+      "moment": "Đếm trước khi xông lên, và cả nhóm sống sót"
+     },
+     "fail": {
+      "text": "Bạn đếm nhầm: có tám lính canh, không phải bốn. Bạn chạy theo đường thứ hai, may mà còn sống.",
+      "effects": {
+       "health": -4,
+       "jobXp": 1
+      }
+     }
+    },
+    {
+     "label": "Mặc kệ lão, xông lên trước",
+     "text": "Bạn xông lên đầu tiên, và là đứa đầu tiên bị đá văng vào bụi gai. Già Gnarl đếm bạn trong số những đứa trở về, rồi lắc đầu.",
+     "effects": {
+      "health": -5,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbw_fat_chief",
+   "races": [
+    "goblin"
+   ],
+   "weight": 35,
+   "require": {
+    "job": "goblin_warrior",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Tên Chief béo đến mức không tự đứng dậy nổi. Hắn ăn nửa phần thịt của cả bầy. Đêm nay hắn ngủ say, và năm tên vệ sĩ đang chơi xúc xắc bằng xương.",
+   "choices": [
+    {
+     "label": "Thách đấu hắn công khai sáng mai",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Hắn phải tự đứng dậy để đấu, và ngã. Năm tên vệ sĩ nhìn nhau, rồi quay sang phe bạn. Bạn là Chief mới, ít nhất cho đến khi có đứa béo hơn.",
+      "effects": {
+       "STR": 1,
+       "fame": 8,
+       "wealth": 3,
+       "jobXp": 3
+      },
+      "moment": "Lật đổ tên Chief béo bằng một trận thách đấu công khai"
+     },
+     "fail": {
+      "text": "Năm tên vệ sĩ không quay phe. Bạn bị treo ngược ở cửa hang ba ngày.",
+      "effects": {
+       "health": -10,
+       "fame": 2
+      }
+     }
+    },
+    {
+     "label": "Ăn trộm phần thịt của hắn, chia cho lũ nhỏ",
+     "text": "Sáng ra, Chief gầm lên. Không ai khai. Lũ Goblin con no bụng lần đầu tiên trong mùa, và chúng nhớ ai đã cho.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbw_flood",
+   "races": [
+    "goblin"
+   ],
+   "weight": 35,
+   "require": {
+    "job": "goblin_warrior",
+    "free": true
+   },
+   "text": "Mưa lớn. Nước tràn vào hang, dâng về phía ổ trứng. Cả bầy say ngủ sau trận cướp.",
+   "choices": [
+    {
+     "label": "Một mình chuyển trứng lên chỗ cao",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Suốt đêm, bạn chuyển hai mươi quả trứng lên mỏm đá. Sáng ra bầy thức dậy trong nước ngập đến gối, thấy ổ trứng còn nguyên. Không ai cảm ơn, nhưng có một miếng thịt đặt trước chỗ bạn ngồi.",
+      "effects": {
+       "STR": 1,
+       "fame": 4,
+       "jobXp": 2
+      },
+      "moment": "Cứu ổ trứng của bầy trong đêm hang ngập"
+     },
+     "fail": {
+      "text": "Bạn cứu được mười hai quả. Tám quả trôi mất trong bóng tối.",
+      "effects": {
+       "joy": -6,
+       "jobXp": 1
+      }
+     }
+    },
+    {
+     "label": "Hét đánh thức cả bầy",
+     "text": "Cả bầy chửi bới, nhưng dậy. Mỗi đứa bê một quả trứng. Không quả nào mất.",
+     "effects": {
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbw_orc_bait",
+   "races": [
+    "goblin"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "goblin_warrior",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Một băng Orc thuê bạn dẫn đường, trả bằng thịt. Giữa đường, bạn nghe chúng bàn sẽ dùng bạn làm mồi nhử cho bầy Troll.",
+   "choices": [
+    {
+     "label": "Đề nghị làm mồi nhử với giá gấp ba",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Đám Orc sững người, rồi đồng ý. Bạn chạy trước bầy Troll, luồn qua khe đá mà Troll không lọt. Đám Orc thắng trận và trả đủ. Lần đầu tiên, Orc trả tiền cho Goblin thay vì đá nó.",
+      "effects": {
+       "AGI": 1,
+       "wealth": 8,
+       "fame": 5,
+       "jobXp": 3
+      },
+      "moment": "Tự nhận làm mồi nhử cho Orc với giá gấp ba, và sống sót"
+     },
+     "fail": {
+      "text": "Một con Troll túm được chân bạn trước khi bạn lọt khe đá.",
+      "effects": {
+       "health": -15,
+       "jobXp": 1
+      }
+     }
+    },
+    {
+     "label": "Bỏ trốn trong đêm, mang theo thịt",
+     "text": "Đám Orc phải tự làm mồi nhử. Chúng sống, nhưng nhớ mặt bạn. Bạn ăn ba ngày no.",
+     "effects": {
+      "wealth": 2,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbw_knight",
+   "races": [
+    "goblin"
+   ],
+   "weight": 25,
+   "require": {
+    "job": "goblin_warrior",
+    "free": true
+   },
+   "text": "Một hiệp sĩ Human lạc đường, ngã ngựa, gãy chân, nằm giữa rừng. Bộ giáp của hắn sáng lấp lánh, đáng giá cả trăm con gà.",
+   "choices": [
+    {
+     "label": "Lột giáp, để hắn lại",
+     "text": "Bộ giáp quá to với bạn. Bạn kéo nó về hang, cả bầy giành nhau từng mảnh. Bạn giữ được chiếc mũ, đội lên che cả mặt.",
+     "effects": {
+      "wealth": 6,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Kéo hắn đến bìa làng Human, đổi lấy bánh mì",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Dân làng hoảng loạn, rồi thấy hiệp sĩ vẫy tay. Họ ném cho bạn một bao bánh mì, và không ai đuổi đánh bạn. Hiệp sĩ nhìn theo bạn, không biết nên nghĩ gì.",
+      "effects": {
+       "wealth": 4,
+       "joy": 8,
+       "jobXp": 2
+      },
+      "moment": "Kéo một hiệp sĩ Human bị thương về làng đổi lấy bánh mì"
+     },
+     "fail": {
+      "text": "Dân làng ném đá trước khi kịp nhìn. Bạn chạy, để hiệp sĩ lại ở bìa làng.",
+      "effects": {
+       "health": -5
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbw_snik",
+   "races": [
+    "goblin"
+   ],
+   "weight": 25,
+   "require": {
+    "job": "goblin_warrior",
+    "free": true
+   },
+   "npcs": [
+    {
+     "name": "Snik",
+     "race": "Goblin",
+     "position": "Goblin cùng ổ, láu cá và tham ăn"
+    }
+   ],
+   "text": "Snik, đứa cùng ổ láu cá nhất bầy, bị lính Human bắt khi đang trộm gà. Chúng định treo hắn ở cổng làng lúc bình minh.",
+   "choices": [
+    {
+     "label": "Lẻn vào cắt dây",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Hai đứa chạy về hang trong đêm, Snik còn ôm theo một con gà. Hắn chia đôi, và thề sẽ trả ơn. Goblin không giữ lời thề, nhưng Snik giữ.",
+      "effects": {
+       "AGI": 1,
+       "joy": 10,
+       "jobXp": 2
+      },
+      "moment": "Cứu Snik khỏi giá treo cổ ở cổng làng Human"
+     },
+     "fail": {
+      "text": "Chó làng sủa. Bạn phải chạy một mình. Sáng ra, bạn nghe tiếng chuông ở cổng làng.",
+      "effects": {
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Mặc kệ hắn",
+     "text": "Bầy không ai nhắc đến Snik nữa. Chỉ có bạn thỉnh thoảng nhớ những miếng thịt hắn chia.",
+     "effects": {
+      "joy": -5
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbw_paladin_mercy",
+   "races": [
+    "goblin"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 25,
+   "require": {
+    "job": "goblin_warrior",
+    "free": true
+   },
+   "text": "Một đội Thánh Kỵ Sĩ càn vào hang. Bạn bị dồn vào góc cùng ba Goblin con. Một kỵ sĩ giơ kiếm, rồi khựng lại khi thấy lũ nhỏ sau lưng bạn.",
+   "choices": [
+    {
+     "label": "Buông dao, quỳ xuống",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Kỵ sĩ hạ kiếm, quay đi, hét với đồng đội rằng góc này không còn ai. Bạn và lũ nhỏ sống. Bạn không hiểu vì sao, và nhớ mãi.",
+      "effects": {
+       "LUCK": 1,
+       "joy": 6,
+       "jobXp": 2
+      },
+      "moment": "Được một Thánh Kỵ Sĩ tha mạng khi che chắn cho lũ Goblin con"
+     },
+     "fail": {
+      "text": "Kỵ sĩ do dự quá lâu. Đồng đội của hắn đến. Bạn chỉ kịp đẩy lũ nhỏ vào khe đá.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Lao vào hắn để lũ nhỏ chạy",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn ôm chân hắn, hắn ngã. Lũ nhỏ chạy thoát qua khe đá. Bạn cũng thoát, với một vết chém dài trên lưng.",
+      "effects": {
+       "health": -10,
+       "fame": 4,
+       "jobXp": 2
+      }
+     },
+     "fail": {
+      "text": "Hắn gạt bạn văng vào vách đá. Lũ nhỏ vẫn chạy kịp.",
+      "effects": {
+       "health": -18
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbw_old_warrior",
+   "races": [
+    "goblin"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "goblin_warrior",
+    "free": true
+   },
+   "text": "Bạn đã sống lâu hơn gần hết những Goblin cùng ổ. Lũ Goblin con xin bạn dạy cách đánh nhau.",
+   "choices": [
+    {
+     "label": "Dạy chúng đếm trước khi đánh",
+     "text": "Chúng chán, chúng ngáp. Nhưng mùa sau, lứa ấy là lứa duy nhất trở về đủ từ trận cướp.",
+     "effects": {
+      "joy": 8,
+      "fame": 3
+     }
+    },
+    {
+     "label": "Dạy chúng cắn vào mắt cá chân",
+     "text": "Lũ Goblin con cắn vào mắt cá chân mọi thứ, kể cả nhau. Bạn cười đến đau bụng.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  }
+ ]
+}

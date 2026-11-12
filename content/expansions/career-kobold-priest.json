@@ -1,0 +1,340 @@
+{
+ "_note": "Kho cảnh độc lập cho Kobold Priest (đời Kobold quá ngắn cho một tuyến nhiều chương).",
+ "origins": [],
+ "events": [
+  {
+   "id": "kbp_first_sermon",
+   "races": [
+    "kobold"
+   ],
+   "weight": 40,
+   "require": {
+    "job": "kobold_priest",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 1
+   },
+   "text": "Lần đầu tiên bạn đứng giảng trước tổ đào. Bạn kể về Rồng, đấng tạo ra núi. Một Kobold nhỏ hỏi: “Rồng trông thế nào?” Không ai trong tổ từng thấy rồng.",
+   "choices": [
+    {
+     "label": "Nói thật: không ai biết",
+     "text": "Cả tổ im lặng. Rồi Kobold nhỏ nói: “Vậy con sẽ là đứa đầu tiên thấy.” Bạn không cười. Bạn hy vọng nó đúng.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2
+     },
+     "moment": "Thừa nhận trước cả tổ rằng chưa ai từng thấy Rồng"
+    },
+    {
+     "label": "Tả thật oai hùng",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Cả tổ nghe say mê. Đêm ấy, lũ trẻ vẽ rồng khắp vách hang.",
+      "effects": {
+       "fame": 4,
+       "jobXp": 2
+      }
+     },
+     "fail": {
+      "text": "Bạn tả rồng có tám chân. Một thợ đào già cười khẩy. Cả tổ cười theo.",
+      "effects": {
+       "fame": -3
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbp_riot",
+   "races": [
+    "kobold"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "kobold_priest",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Đói và dịch. Tổ đào xông vào đền, gào lên rằng Rồng đã bỏ rơi họ, và đòi đập vỡ tượng thờ.",
+   "choices": [
+    {
+     "label": "Mở kho lễ vật cho họ ăn",
+     "text": "Lễ vật vốn để dâng Rồng. Cả tổ ăn no lần đầu trong mùa. Không ai đập tượng. Bạn nói với tượng: “Ngài sẽ hiểu.”",
+     "effects": {
+      "fame": 6,
+      "joy": 6,
+      "jobXp": 2
+     },
+     "moment": "Mở kho lễ vật dâng Rồng để cứu tổ đào đang đói"
+    },
+    {
+     "label": "Đứng chắn trước tượng",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn đứng yên, tay giang ra. Đám đông dừng lại. Một Kobold già bắt đầu khóc, rồi cả tổ quỳ xuống.",
+      "effects": {
+       "fame": 5,
+       "jobXp": 2
+      }
+     },
+     "fail": {
+      "text": "Đám đông xô bạn ngã. Tượng vỡ một chiếc sừng.",
+      "effects": {
+       "health": -8
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbp_dragon_sighting",
+   "races": [
+    "kobold"
+   ],
+   "weight": 20,
+   "require": {
+    "job": "kobold_priest",
+    "free": true
+   },
+   "text": "Một con Rồng thật bay ngang qua khe nứt trên đỉnh hang. Bóng nó phủ kín cả tổ đào trong ba hơi thở. Ai cũng quay sang nhìn bạn.",
+   "choices": [
+    {
+     "label": "Quỳ xuống, cầu nguyện",
+     "text": "Cả tổ quỳ theo. Rồng không dừng lại. Nhưng từ hôm ấy, không ai còn nghi ngờ lời bạn giảng.",
+     "effects": {
+      "fame": 8,
+      "joy": 10,
+      "jobXp": 2
+     },
+     "moment": "Thấy bóng Rồng thật bay qua đỉnh hang"
+    },
+    {
+     "label": "Leo lên khe nứt nhìn theo",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn thấy nó bay về phía Đảo Tro Tàn. Vảy nó đỏ như than hồng. Bạn vẽ lại, và bức vẽ được treo trong đền mãi về sau.",
+      "effects": {
+       "AGI": 1,
+       "fame": 6,
+       "jobXp": 2
+      }
+     },
+     "fail": {
+      "text": "Bạn trượt chân, ngã lại vào hang. Cả tổ tưởng Rồng đã đánh bạn.",
+      "effects": {
+       "health": -6,
+       "fame": 3
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbp_cult",
+   "races": [
+    "kobold"
+   ],
+   "weight": 25,
+   "require": {
+    "job": "kobold_priest",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Một sứ giả áo đen của Hắc Nguyệt Hội mò vào đền, hứa ban cho tổ đào sức mạnh vô hạn nếu bạn đổi tượng Rồng thành tượng của chúng.",
+   "choices": [
+    {
+     "label": "Đuổi hắn đi",
+     "text": "Hắn cười, nói sẽ quay lại khi tổ đói hơn. Bạn tăng gấp đôi giờ cầu nguyện, và dự trữ thêm nấm khô.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Giả vờ đồng ý để biết chúng muốn gì",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Hắn tiết lộ chúng định chiếm mỏ để mở cổng Vực Thẳm. Bạn báo cho lãnh chúa rồng. Hắc Nguyệt Hội không bao giờ quay lại.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3
+      },
+      "moment": "Lừa được sứ giả Hắc Nguyệt Hội để lộ âm mưu mở cổng Vực Thẳm"
+     },
+     "fail": {
+      "text": "Hắn nhận ra bạn giả vờ, và để lại một lời nguyền trên bàn thờ.",
+      "effects": {
+       "health": -8
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbp_paladin",
+   "races": [
+    "kobold"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 20,
+   "require": {
+    "job": "kobold_priest",
+    "free": true
+   },
+   "text": "Một đội Thánh Kỵ Sĩ phá vào hầm. Đội trưởng chĩa kiếm vào bạn: “Thờ Rồng là tà giáo. Từ bỏ, hoặc chết.”",
+   "choices": [
+    {
+     "label": "Từ bỏ bằng miệng, giữ trong lòng",
+     "text": "Hắn tha bạn. Đêm ấy, bạn khắc một con rồng nhỏ vào mặt trong của vòng cổ, nơi không ai thấy.",
+     "effects": {
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Nói: “Rồng tạo ra núi. Thần của ngươi tạo ra gì?”",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Đội trưởng khựng lại, rồi bật cười. “Một Kobold biết cãi.” Hắn hạ kiếm, dẫn đội đi tiếp.",
+      "effects": {
+       "fame": 8,
+       "jobXp": 2
+      },
+      "moment": "Cãi lại một Thánh Kỵ Sĩ và được tha mạng"
+     },
+     "fail": {
+      "text": "Hắn không cười.",
+      "effects": {
+       "health": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbp_egg_blessing",
+   "races": [
+    "kobold"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "kobold_priest",
+    "free": true
+   },
+   "text": "Mùa ấp trứng. Các bà mẹ Kobold xếp hàng chờ bạn chúc phúc cho từng quả.",
+   "choices": [
+    {
+     "label": "Chúc phúc từng quả, không bỏ quả nào",
+     "text": "Mất ba ngày. Bạn khản cả giọng. Lứa ấy nở đủ, và các bà mẹ tin là nhờ bạn.",
+     "effects": {
+      "fame": 5,
+      "joy": 6,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Chúc phúc chung một lần cho cả ổ",
+     "text": "Nhanh, gọn. Vài bà mẹ không hài lòng. Lứa ấy vẫn nở đủ.",
+     "effects": {
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbp_fire_voice",
+   "races": [
+    "kobold"
+   ],
+   "weight": 20,
+   "require": {
+    "job": "kobold_priest",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Bên suối dung nham, bạn nghe tiếng thì thầm từ ngọn lửa. Nó xưng là Rồng, và đòi lễ vật lớn hơn.",
+   "choices": [
+    {
+     "label": "Hỏi nó một câu chỉ Rồng mới biết",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Ngọn lửa không trả lời được. Nó tắt lịm. Bạn biết nó không phải Rồng, và không nói với ai rằng mình suýt bị lừa.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 2
+      },
+      "moment": "Vạch trần tiếng nói giả danh Rồng trong ngọn lửa"
+     },
+     "fail": {
+      "text": "Ngọn lửa trả lời bằng một câu bạn không hiểu. Bạn không chắc nữa.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    },
+    {
+     "label": "Dâng lễ vật",
+     "text": "Lễ vật cháy rụi. Ngọn lửa im lặng. Tổ đào thiếu ăn một tuần.",
+     "effects": {
+      "wealth": -3,
+      "joy": -3
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbp_old_priest",
+   "races": [
+    "kobold"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "kobold_priest",
+    "free": true
+   },
+   "text": "Giọng bạn đã khàn, và bạn không còn đứng giảng lâu được.",
+   "choices": [
+    {
+     "label": "Kể cho lũ trẻ nghe về bóng Rồng",
+     "text": "Chúng ngồi quanh bạn, mắt sáng rực. Một đứa hứa sẽ là đứa đầu tiên chạm vào Rồng.",
+     "effects": {
+      "joy": 8
+     }
+    },
+    {
+     "label": "Chọn người kế nhiệm",
+     "text": "Bạn chọn đứa từng hỏi Rồng trông thế nào. Nó vẫn chưa biết. Nó vẫn đang hỏi.",
+     "effects": {
+      "joy": 6,
+      "fame": 2
+     }
+    }
+   ]
+  }
+ ]
+}

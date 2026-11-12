@@ -1,0 +1,1068 @@
+{
+ "_note": "Tuyến truyện Orc Smith: 5 chương theo bậc, ba đạo ở Bậc 2 (osm_path_blood / osm_path_hearth / osm_path_captive), nhân vật xuyên suốt lão Boruk Điếc (thợ rèn già) và Tharn (thợ rèn Dwarf bị bắt làm tù binh).",
+ "origins": [],
+ "events": [
+  {
+   "id": "osm_c1_boruk",
+   "races": [
+    "orc"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "orc_smith",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "osm_met_boruk"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Boruk Điếc",
+     "race": "Orc",
+     "position": "Thợ rèn già điếc của bộ lạc"
+    }
+   ],
+   "text": "Lão Boruk điếc đặc vì năm mươi năm đứng cạnh đe. Lão không nói, chỉ chỉ tay. Ngày đầu tiên, lão đưa cho bạn một thanh sắt nguội và cái búa, rồi chỉ vào tai mình, lắc đầu, chỉ vào tay bạn, gật đầu.",
+   "choices": [
+    {
+     "label": "Đập sắt và cảm nhận nó qua tay",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Đến chiều, bạn cảm thấy sắt rung khác đi khi nó sắp nứt. Bạn dừng tay. Lão Boruk nhìn thanh sắt, nhìn bạn, và vỗ vai bạn một cái đau điếng. Đó là lời khen.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "osm_met_boruk",
+        "osm_boruk_respect"
+       ]
+      },
+      "moment": "Cảm nhận được thanh sắt sắp nứt qua đôi tay"
+     },
+     "fail": {
+      "text": "Thanh sắt nứt đôi. Lão Boruk nhặt nó lên, ném vào đống phế liệu, đưa bạn thanh khác.",
+      "effects": {
+       "joy": -2,
+       "flags": [
+        "osm_met_boruk"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Vẽ lên đất để hỏi lão",
+     "text": "Bạn vẽ một cái búa và một dấu hỏi. Lão Boruk nhìn rất lâu, rồi bật cười, tiếng cười khàn đặc. Lão vẽ lại: một bàn tay, một thanh sắt, một trái tim. Từ đó hai người nói chuyện bằng than trên đất.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "osm_met_boruk",
+       "osm_boruk_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "osm_c1_tharn",
+   "races": [
+    "orc"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "orc_smith",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "osm_met_boruk"
+    ],
+    "notFlags": [
+     "osm_met_tharn"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Tharn",
+     "race": "Dwarf",
+     "position": "Thợ rèn Dwarf bị bắt làm tù binh"
+    }
+   ],
+   "text": "Một thợ rèn Dwarf tên Tharn bị bắt trong trận cướp, bị xích vào cột cạnh lò rèn. Hắn nhổ nước bọt vào lưỡi rìu bạn vừa rèn: “Đồ chơi của lũ man rợ.”",
+   "choices": [
+    {
+     "label": "Đưa búa cho hắn: “Làm hay hơn đi”",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Tharn ngạc nhiên, rồi cầm búa. Hắn rèn chậm, cẩn thận, và lưỡi rìu của hắn cắt đôi lưỡi rìu của bạn. Bạn không giận. Bạn hỏi hắn đã làm thế nào.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "osm_met_tharn",
+        "osm_tharn_teacher"
+       ]
+      },
+      "moment": "Đưa búa cho tù binh Dwarf Tharn và học từ hắn"
+     },
+     "fail": {
+      "text": "Tharn ném búa xuống đất: “Ta không rèn cho Orc.” Bạn nhặt búa lên, rèn tiếp.",
+      "effects": {
+       "flags": [
+        "osm_met_tharn"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đánh hắn",
+     "text": "Hắn ngã, nhưng vẫn cười. “Đánh giỏi hơn rèn,” hắn nói. Câu đó làm bạn đau hơn cú đấm của bất kỳ ai.",
+     "effects": {
+      "joy": -3,
+      "jobXp": 1,
+      "flags": [
+       "osm_met_tharn"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "osm_c2_first_order",
+   "races": [
+    "orc"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "orc_smith",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "osm_first_order",
+     "osm_end"
+    ]
+   },
+   "text": "Tù trưởng đặt bạn rèn một bộ giáp gai trong mười ngày. Không kịp thì mất một ngón tay. Bạn có thể kịp nếu bỏ qua công đoạn tôi thép.",
+   "choices": [
+    {
+     "label": "Bỏ công đoạn tôi, giao đúng hạn",
+     "text": "Giáp đẹp, gai sắc. Tù trưởng hài lòng. Bạn biết nó sẽ nứt ở trận thứ ba. Nó nứt ở trận thứ hai.",
+     "effects": {
+      "jobXp": 2,
+      "flags": [
+       "osm_first_order"
+      ]
+     }
+    },
+    {
+     "label": "Làm đúng từng bước, xin thêm ba ngày",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Tù trưởng gầm lên, rồi nhìn bộ giáp, và quên mất chuyện ngón tay. Bộ giáp ấy theo hắn mười năm.",
+      "effects": {
+       "fame": 5,
+       "jobXp": 2,
+       "flags": [
+        "osm_first_order",
+        "osm_first_true"
+       ]
+      },
+      "moment": "Giữ đúng quy trình rèn giáp dù bị dọa chặt ngón tay"
+     },
+     "fail": {
+      "text": "Tù trưởng giữ lời. Bạn rèn bằng chín ngón từ hôm ấy.",
+      "effects": {
+       "health": -8,
+       "flags": [
+        "osm_first_order",
+        "osm_first_true"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "osm_c2_crossroads",
+   "races": [
+    "orc"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "orc_smith",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "osm_path_blood",
+     "osm_path_hearth",
+     "osm_path_captive",
+     "osm_end"
+    ],
+    "flags": [
+     "osm_met_boruk"
+    ]
+   },
+   "text": "Lão Boruk vẽ ba thứ lên nền đất bằng than: một lưỡi rìu nhỏ giọt máu, một cái nồi và một lưỡi cày, và một sợi xích bị đập đứt.",
+   "choices": [
+    {
+     "label": "Rìu nhỏ máu: Lò Huyết Kim",
+     "text": "Bạn sẽ rèn Huyết Kim, thứ kim loại đỏ mà chỉ Orc biết tôi bằng máu thú. Vũ khí của bạn sẽ đi đầu mọi trận chiến.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "osm_path_blood"
+      ]
+     },
+     "moment": "Chọn rèn vũ khí Huyết Kim"
+    },
+    {
+     "label": "Nồi và lưỡi cày: Lò Của Trại",
+     "text": "Không ai hát về thợ rèn nồi. Nhưng không có nồi, không ai ăn. Lão Boruk gật đầu mạnh, lần đầu tiên bạn thấy mắt lão sáng lên như thế.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "osm_path_hearth"
+      ]
+     },
+     "moment": "Chọn rèn nồi, lưỡi cày và đồ dùng cho trại"
+    },
+    {
+     "label": "Xích đứt: Học Nghề Kẻ Thù",
+     "text": "Bạn sẽ học từ những thợ rèn bị bắt về, Dwarf và Human, và trộn nghề của họ với nghề Orc.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "osm_path_captive"
+      ]
+     },
+     "moment": "Chọn học nghề rèn từ những tù binh"
+    }
+   ]
+  },
+  {
+   "id": "osm_blood_axe",
+   "races": [
+    "orc"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "orc_smith",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "osm_path_blood"
+    ],
+    "notFlags": [
+     "osm_end"
+    ]
+   },
+   "text": "Một Warlord đặt bạn rèn chiếc rìu Huyết Kim lớn nhất từng có, để hắn thách Warchief. Bạn biết hắn tàn ác với kẻ yếu.",
+   "choices": [
+    {
+     "label": "Rèn rìu tốt nhất bạn có thể",
+     "text": "Chiếc rìu là kiệt tác. Warlord lên ngai bằng nó. Bộ lạc khổ hơn dưới tay hắn, và mọi người đều biết rìu ấy do ai rèn.",
+     "effects": {
+      "fame": 8,
+      "wealth": 15,
+      "joy": -6,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Rèn rìu đẹp, nhưng nặng hơn tay hắn",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Hắn vung rìu quá chậm trong trận thách. Warchief cũ thắng. Không ai biết vì sao, trừ bạn.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "osm_blood_trick"
+       ]
+      },
+      "moment": "Rèn một chiếc rìu quá nặng cho tay kẻ tàn ác"
+     },
+     "fail": {
+      "text": "Hắn nhận ra rìu quá nặng, và quay lại lò rèn. Bạn phải rèn lại, và nhận thêm một vết sẹo.",
+      "effects": {
+       "health": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "osm_blood_beast",
+   "races": [
+    "orc"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "orc_smith",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "osm_path_blood"
+    ],
+    "notFlags": [
+     "osm_end"
+    ]
+   },
+   "text": "Huyết Kim cần máu thú để tôi. Lần này, máu cần là máu của một con sói trắng, linh thú của bộ lạc bên cạnh.",
+   "choices": [
+    {
+     "label": "Tìm cách tôi khác",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn thử máu bò rừng trộn tro xương. Huyết Kim ra màu đỏ sẫm hơn, không sáng bằng, nhưng bền hơn. Từ đó, không ai cần săn linh thú cho lò rèn nữa.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "osm_blood_newtemper"
+       ]
+      },
+      "moment": "Tìm ra cách tôi Huyết Kim không cần máu linh thú"
+     },
+     "fail": {
+      "text": "Không có gì thay được. Mẻ Huyết Kim ấy hỏng.",
+      "effects": {
+       "wealth": -8
+      }
+     }
+    },
+    {
+     "label": "Thuê thợ săn đi bắt",
+     "text": "Huyết Kim sáng rực. Bộ lạc bên cạnh mất linh thú, và tuyên chiến.",
+     "effects": {
+      "wealth": 10,
+      "joy": -6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "osm_hearth_plow",
+   "races": [
+    "orc"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "orc_smith",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "osm_path_hearth"
+    ],
+    "notFlags": [
+     "osm_end"
+    ]
+   },
+   "text": "Bạn rèn lưỡi cày sắt đầu tiên của bộ lạc. Orc chưa bao giờ trồng trọt; các chiến binh cười vào mặt bạn.",
+   "choices": [
+    {
+     "label": "Tự đi cày một mảnh đất",
+     "text": "Bạn cày, gieo lúa mạch thảo nguyên. Mùa thu, mảnh đất cho đủ bánh nuôi ba lều qua đông. Năm sau, mười lều xin lưỡi cày.",
+     "effects": {
+      "joy": 8,
+      "fame": 5,
+      "jobXp": 3,
+      "flags": [
+       "osm_hearth_plow"
+      ]
+     },
+     "moment": "Rèn lưỡi cày đầu tiên và tự gieo hạt cho bộ lạc"
+    },
+    {
+     "label": "Đổi lưỡi cày với làng Human lấy lương thực",
+     "text": "Làng Human ngạc nhiên vì Orc đến buôn bán chứ không cướp. Họ đổi. Từ đó, giữa hai bên có một con đường mòn.",
+     "effects": {
+      "wealth": 8,
+      "jobXp": 3,
+      "flags": [
+       "osm_hearth_trade"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "osm_hearth_war",
+   "races": [
+    "orc"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "orc_smith",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "osm_path_hearth"
+    ],
+    "notFlags": [
+     "osm_end"
+    ]
+   },
+   "text": "Chiến tranh đến. Warchief ra lệnh nung chảy mọi nồi niêu, lưỡi cày để rèn vũ khí.",
+   "choices": [
+    {
+     "label": "Nung một nửa, giấu một nửa",
+     "text": "Vũ khí đủ dùng. Sau chiến tranh, bộ lạc vẫn có nồi để nấu và lưỡi cày để gieo.",
+     "effects": {
+      "joy": 5,
+      "jobXp": 3,
+      "flags": [
+       "osm_hearth_hidden"
+      ]
+     }
+    },
+    {
+     "label": "Tuân lệnh",
+     "text": "Bộ lạc thắng trận. Mùa đông năm ấy, họ ăn thịt sống vì không còn nồi.",
+     "effects": {
+      "fame": 4,
+      "joy": -6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "osm_captive_secret",
+   "races": [
+    "orc"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "orc_smith",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "osm_path_captive",
+     "osm_met_tharn"
+    ],
+    "notFlags": [
+     "osm_tharn_free",
+     "osm_end"
+    ]
+   },
+   "text": "Tharn dạy bạn cách gấp thép bảy lần của Dwarf. Đổi lại, hắn xin bạn tháo xích cho hắn một đêm để đi thăm mộ một tù binh Dwarf khác.",
+   "choices": [
+    {
+     "label": "Tháo xích",
+     "require": {
+      "flags": [
+       "osm_tharn_teacher"
+      ]
+     },
+     "text": "Tharn đi, và trở về trước bình minh, đúng như hứa. Hắn không nói gì, nhưng từ hôm ấy hắn dạy bạn mọi thứ hắn biết.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "osm_captive_trust"
+      ]
+     },
+     "moment": "Tháo xích cho Tharn một đêm, và hắn trở về đúng hẹn"
+    },
+    {
+     "label": "Từ chối, nhưng đi thăm mộ thay hắn",
+     "text": "Bạn đặt một viên than lên mộ, theo cách Dwarf. Tharn biết. Hắn dạy bạn thêm một bí quyết.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "osm_captive_human",
+   "races": [
+    "orc"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "orc_smith",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "osm_path_captive"
+    ],
+    "notFlags": [
+     "osm_end"
+    ]
+   },
+   "text": "Một thợ rèn Human bị bắt về, tay run vì sợ. Các chiến binh định bắt hắn rèn cho đến chết.",
+   "choices": [
+    {
+     "label": "Đề nghị Warchief để hắn làm việc cho bạn",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Warchief đồng ý. Thợ rèn Human dạy bạn cách làm bản lề, khóa, móc, những thứ Orc chưa từng có. Trại có cửa lều đóng được lần đầu tiên.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "osm_captive_human"
+       ]
+      },
+      "moment": "Học nghề làm bản lề và khóa từ một thợ rèn Human bị bắt"
+     },
+     "fail": {
+      "text": "Warchief từ chối. Bạn chỉ có thể lén mang thức ăn cho hắn.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    },
+    {
+     "label": "Mặc kệ",
+     "text": "Hắn rèn cho đến khi tay không cầm búa được nữa.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "osm_c4_boruk",
+   "races": [
+    "orc"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "orc_smith",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "osm_met_boruk"
+    ],
+    "notFlags": [
+     "osm_boruk_gone",
+     "osm_end"
+    ],
+    "anyFlags": [
+     "osm_path_blood",
+     "osm_path_hearth",
+     "osm_path_captive"
+    ]
+   },
+   "text": "Lão Boruk không còn nâng nổi búa. Lão vẽ lên đất một cái búa, một bàn tay, và chỉ vào bạn. Rồi lão vẽ một ngọn lửa, và chỉ vào mình.",
+   "choices": [
+    {
+     "label": "Rèn cho lão một chiếc búa nhỏ",
+     "text": "Chiếc búa nhẹ như lông, vừa tay lão. Lão rèn thêm được ba con dao cho lũ trẻ. Lão mất bên đe, búa nhỏ trong tay. Bạn chôn lão cùng nó.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 3,
+      "flags": [
+       "osm_boruk_gone"
+      ]
+     },
+     "moment": "Rèn cho lão Boruk chiếc búa nhỏ để lão rèn những con dao cuối cùng"
+    },
+    {
+     "label": "Đốt lò rèn cho lão sưởi",
+     "text": "Bạn đốt lò suốt đêm. Lão ngồi bên lửa, tay đặt lên đe, cảm nhận hơi nóng. Lão mất khi lửa vẫn còn cháy.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "osm_boruk_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "osm_c4_tharn",
+   "races": [
+    "orc"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "orc_smith",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "osm_met_tharn"
+    ],
+    "notFlags": [
+     "osm_end"
+    ]
+   },
+   "text": "Tharn đã già trong xích. Một sứ giả Dwarf đến, đề nghị đổi hắn lấy ba chiến binh Orc bị bắt ở Răng Cưa.",
+   "choices": [
+    {
+     "label": "Ủng hộ cuộc trao đổi",
+     "text": "Tharn được thả. Ở cổng trại, hắn quay lại, đặt vào tay bạn chiếc búa Dwarf của mình. “Lũ man rợ rèn cũng khá,” hắn nói, và đi.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "osm_tharn_free"
+      ]
+     },
+     "moment": "Nhận chiếc búa Dwarf từ tay Tharn khi hắn được thả"
+    },
+    {
+     "label": "Xin giữ hắn lại thêm một năm",
+     "text": "Warchief đồng ý vì bạn là thợ rèn giỏi nhất. Tharn không nói gì. Năm sau, hắn chết trong xích, và bạn mãi nhớ cái nhìn của hắn.",
+     "effects": {
+      "joy": -10,
+      "INT": 1,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "osm_c5_blood",
+   "races": [
+    "orc"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "orc_smith",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "osm_path_blood"
+    ],
+    "notFlags": [
+     "osm_end"
+    ]
+   },
+   "text": "Vũ khí Huyết Kim của bạn nổi tiếng khắp thảo nguyên. Các bộ lạc gửi quà đến chỉ để được xếp hàng.",
+   "choices": [
+    {
+     "label": "Dạy cách tôi mới cho mọi lò rèn",
+     "require": {
+      "flags": [
+       "osm_blood_newtemper"
+      ]
+     },
+     "text": "Không lò rèn nào cần săn linh thú nữa. Các bộ lạc thôi đánh nhau vì những con sói trắng.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "osm_end",
+       "osm_end_new_temper"
+      ]
+     },
+     "moment": "Dạy cách tôi Huyết Kim mới cho mọi lò rèn Orc"
+    },
+    {
+     "label": "Rèn chiếc rìu cuối cùng cho chính mình",
+     "text": "Chiếc rìu đẹp nhất bạn từng rèn. Bạn không bao giờ dùng nó. Nó được treo trên vách lò, cho thợ rèn sau nhìn.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "osm_end",
+       "osm_end_last_axe"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "osm_c5_hearth",
+   "races": [
+    "orc"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "orc_smith",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "osm_path_hearth"
+    ],
+    "notFlags": [
+     "osm_end"
+    ]
+   },
+   "text": "Trại của bạn là trại Orc duy nhất có nồi sắt cho mọi lều và lúa mạch trên đồng.",
+   "choices": [
+    {
+     "label": "Dựng một lò rèn chung cho mọi lều",
+     "text": "Lò rèn của trại không thuộc về ai. Ai cần sửa nồi thì cứ đến. Lũ trẻ lớn lên quen với tiếng búa như tiếng tim đập.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "osm_end",
+       "osm_end_common_forge"
+      ]
+     },
+     "moment": "Dựng lò rèn chung cho cả trại Orc"
+    },
+    {
+     "label": "Mang lưỡi cày đến các bộ lạc khác",
+     "require": {
+      "flags": [
+       "osm_hearth_plow"
+      ]
+     },
+     "text": "Ba bộ lạc gieo lúa mạch năm ấy. Năm sau, mười bộ lạc. Thảo nguyên có những mảnh đồng xanh mà trước đây chỉ có cỏ.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "osm_end",
+       "osm_end_plows"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "osm_c5_captive",
+   "races": [
+    "orc"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "orc_smith",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "osm_path_captive"
+    ],
+    "notFlags": [
+     "osm_end"
+    ]
+   },
+   "text": "Lò rèn của bạn rèn được thép gấp bảy lần của Dwarf và bản lề tinh xảo của Human. Không lò Orc nào khác làm được.",
+   "choices": [
+    {
+     "label": "Gửi thép Orc đến Răng Cưa",
+     "require": {
+      "flags": [
+       "osm_tharn_free"
+      ]
+     },
+     "text": "Bạn gửi một lưỡi rìu đến Răng Cưa, kèm một mẩu da: “Gửi Tharn.” Một năm sau, một lưỡi rìu Dwarf được gửi lại, kèm một mẩu da: “Khá.”",
+     "effects": {
+      "fame": 12,
+      "joy": 18,
+      "flags": [
+       "osm_end",
+       "osm_end_letter"
+      ]
+     },
+     "moment": "Gửi lưỡi rìu Orc đến Răng Cưa cho Tharn"
+    },
+    {
+     "label": "Mở lò rèn cho thợ rèn mọi tộc",
+     "text": "Lò của bạn nhận học trò Orc, tù binh, và cả kẻ lang thang. Ai rèn giỏi thì được tự do.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "osm_end",
+       "osm_end_open_forge"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "osm_daily_sparks",
+   "races": [
+    "orc"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "orc_smith",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Tia lửa từ lò bắn vào một đứa trẻ đứng xem quá gần.",
+   "choices": [
+    {
+     "label": "Đuổi nó đi xa",
+     "text": "Nó đi, nhưng hôm sau lại đứng xem, xa hơn một chút.",
+     "effects": {
+      "joy": 3
+     }
+    },
+    {
+     "label": "Cho nó đứng xem, đeo tạp dề da",
+     "text": "Nó đứng xem suốt mùa. Đến mùa sau, nó xin cầm búa.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "osm_daily_war_forge",
+   "races": [
+    "orc"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "orc_smith",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Lò rèn chạy cả ngày lẫn đêm.",
+   "choices": [
+    {
+     "label": "Rèn đến kiệt sức",
+     "text": "Rìu đủ cho mọi chiến binh. Tay bạn run suốt một tháng sau.",
+     "effects": {
+      "health": -5,
+      "fame": 4,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Rèn ít hơn, nhưng sửa vũ khí cũ",
+     "text": "Bạn sửa nhiều hơn rèn. Chiến binh không thiếu rìu.",
+     "effects": {
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "osm_daily_old_ears",
+   "races": [
+    "orc"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "orc_smith",
+    "free": true
+   },
+   "text": "Tai bạn bắt đầu điếc, như lão thợ rèn già năm xưa.",
+   "choices": [
+    {
+     "label": "Học nghe bằng tay",
+     "text": "Sắt vẫn nói với bạn qua búa. Bạn hiểu vì sao người điếc vẫn rèn giỏi.",
+     "effects": {
+      "STR": 1
+     }
+    },
+    {
+     "label": "Vẽ lên đất để dạy học trò",
+     "text": "Học trò của bạn học cách nói chuyện bằng than trên đất.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "osm_c5_blood_late",
+   "races": [
+    "orc"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "orc_smith",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "osm_path_blood"
+    ],
+    "notFlags": [
+     "osm_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Vũ khí Huyết Kim của bạn nổi tiếng khắp thảo nguyên. Các bộ lạc gửi quà đến chỉ để được xếp hàng.",
+   "choices": [
+    {
+     "label": "Dạy cách tôi mới cho mọi lò rèn",
+     "require": {
+      "flags": [
+       "osm_blood_newtemper"
+      ]
+     },
+     "text": "Không lò rèn nào cần săn linh thú nữa. Các bộ lạc thôi đánh nhau vì những con sói trắng.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "osm_end",
+       "osm_end_new_temper"
+      ]
+     },
+     "moment": "Dạy cách tôi Huyết Kim mới cho mọi lò rèn Orc"
+    },
+    {
+     "label": "Rèn chiếc rìu cuối cùng cho chính mình",
+     "text": "Chiếc rìu đẹp nhất bạn từng rèn. Bạn không bao giờ dùng nó. Nó được treo trên vách lò, cho thợ rèn sau nhìn.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "osm_end",
+       "osm_end_last_axe"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "osm_c5_hearth_late",
+   "races": [
+    "orc"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "orc_smith",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "osm_path_hearth"
+    ],
+    "notFlags": [
+     "osm_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Trại của bạn là trại Orc duy nhất có nồi sắt cho mọi lều và lúa mạch trên đồng.",
+   "choices": [
+    {
+     "label": "Dựng một lò rèn chung cho mọi lều",
+     "text": "Lò rèn của trại không thuộc về ai. Ai cần sửa nồi thì cứ đến. Lũ trẻ lớn lên quen với tiếng búa như tiếng tim đập.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "osm_end",
+       "osm_end_common_forge"
+      ]
+     },
+     "moment": "Dựng lò rèn chung cho cả trại Orc"
+    },
+    {
+     "label": "Mang lưỡi cày đến các bộ lạc khác",
+     "require": {
+      "flags": [
+       "osm_hearth_plow"
+      ]
+     },
+     "text": "Ba bộ lạc gieo lúa mạch năm ấy. Năm sau, mười bộ lạc. Thảo nguyên có những mảnh đồng xanh mà trước đây chỉ có cỏ.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "osm_end",
+       "osm_end_plows"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "osm_c5_captive_late",
+   "races": [
+    "orc"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "orc_smith",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "osm_path_captive"
+    ],
+    "notFlags": [
+     "osm_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Lò rèn của bạn rèn được thép gấp bảy lần của Dwarf và bản lề tinh xảo của Human. Không lò Orc nào khác làm được.",
+   "choices": [
+    {
+     "label": "Gửi thép Orc đến Răng Cưa",
+     "require": {
+      "flags": [
+       "osm_tharn_free"
+      ]
+     },
+     "text": "Bạn gửi một lưỡi rìu đến Răng Cưa, kèm một mẩu da: “Gửi Tharn.” Một năm sau, một lưỡi rìu Dwarf được gửi lại, kèm một mẩu da: “Khá.”",
+     "effects": {
+      "fame": 12,
+      "joy": 18,
+      "flags": [
+       "osm_end",
+       "osm_end_letter"
+      ]
+     },
+     "moment": "Gửi lưỡi rìu Orc đến Răng Cưa cho Tharn"
+    },
+    {
+     "label": "Mở lò rèn cho thợ rèn mọi tộc",
+     "text": "Lò của bạn nhận học trò Orc, tù binh, và cả kẻ lang thang. Ai rèn giỏi thì được tự do.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "osm_end",
+       "osm_end_open_forge"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}

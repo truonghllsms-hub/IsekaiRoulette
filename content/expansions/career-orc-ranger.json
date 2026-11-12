@@ -1,0 +1,1051 @@
+{
+ "_note": "Tuyến truyện Orc Ranger: 5 chương theo bậc, ba đạo ở Bậc 2 (org_path_open / org_path_feed / org_path_elf), nhân vật xuyên suốt bà Shazka Tai Cụt (thợ săn già) và Lirael (tù binh Kiểm Lâm Elf).",
+ "origins": [],
+ "events": [
+  {
+   "id": "org_c1_shazka",
+   "races": [
+    "orc"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "orc_ranger",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "org_met_shazka"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Shazka Tai Cụt",
+     "race": "Orc",
+     "position": "Thợ săn dùng cung duy nhất của bộ lạc"
+    }
+   ],
+   "text": "Bà Shazka Tai Cụt là thợ săn duy nhất trong bộ lạc dám dùng cung. Các chiến binh gọi bà là “kẻ đánh lén”, và chia cho bà phần thịt cuối cùng. Bà đưa bạn cây cung đầu tiên: “Bọn chúng ăn thịt ta săn, rồi chửi cách ta săn. Ngươi vẫn muốn học chứ?”",
+   "choices": [
+    {
+     "label": "Nhận cung",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Mũi tên đầu tiên của bạn cắm vào gốc cây cách đích một gang tay. Mũi thứ hai trúng đích. Shazka gật đầu: “Tay ngươi nghe lời mắt. Còn lại chỉ là kiên nhẫn.”",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 1,
+       "flags": [
+        "org_met_shazka",
+        "org_shazka_respect"
+       ]
+      },
+      "moment": "Bắn trúng đích bằng cây cung đầu tiên của bà Shazka"
+     },
+     "fail": {
+      "text": "Dây cung bật vào cổ tay bạn, rướm máu. Shazka cười: “Ai cũng bị một lần. Kẻ giỏi thì bị hai lần, rồi thôi.”",
+      "effects": {
+       "health": -2,
+       "flags": [
+        "org_met_shazka"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi vì sao bà không cầm rìu như mọi người",
+     "text": "Shazka chỉ vào cái tai cụt. “Ta từng cầm rìu. Một con gấu dạy ta rằng có những thứ không nên đến gần.” Bà đưa bạn cung. “Đánh từ xa không phải hèn. Hèn là để bộ lạc đói.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "org_met_shazka",
+       "org_shazka_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "org_c1_lirael",
+   "races": [
+    "orc"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "orc_ranger",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "org_met_shazka"
+    ],
+    "notFlags": [
+     "org_met_lirael"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Lirael",
+     "race": "Elf",
+     "position": "Kiểm Lâm Elf bị bộ lạc giam giữ"
+    }
+   ],
+   "text": "Bộ lạc bắt được một Kiểm Lâm Elf tên Lirael, giam trong lồng gỗ giữa trại. Các chiến binh ném đá vào nàng. Nàng nhìn cây cung trên lưng bạn và nói bằng tiếng Orc ngọng nghịu: “Ngươi cầm sai tay rồi.”",
+   "choices": [
+    {
+     "label": "Hỏi nàng cầm thế nào cho đúng",
+     "text": "Nàng chỉ qua song gỗ, từng chút một. Đêm ấy bạn tập theo, và sáng ra mũi tên bay xa gấp rưỡi. Bạn mang cho nàng một bát nước, lén lút.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 1,
+      "flags": [
+       "org_met_lirael",
+       "org_lirael_friend"
+      ]
+     },
+     "moment": "Học cách cầm cung từ tù binh Elf Lirael qua song gỗ"
+    },
+    {
+     "label": "Bỏ đi, không nghe kẻ thù",
+     "text": "Bạn bỏ đi. Nhưng đêm ấy, bạn thử đổi tay. Nàng nói đúng.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "org_met_lirael"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "org_c2_first_hunt",
+   "races": [
+    "orc"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "orc_ranger",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "org_first_hunt",
+     "org_end"
+    ]
+   },
+   "text": "Bạn hạ được con bò rừng đầu tiên bằng một mũi tên duy nhất, từ xa trăm bước. Khi kéo về trại, một chiến binh nhổ nước bọt: “Giết từ xa như rắn. Thịt này có mùi hèn.”",
+   "choices": [
+    {
+     "label": "Thách hắn hạ một con bằng rìu",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Hắn đi săn ba ngày, về tay trắng, mặt đầy vết sừng. Tối ấy hắn ăn thịt bò của bạn, và không nói gì nữa.",
+      "effects": {
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "org_first_hunt",
+        "org_first_proved"
+       ]
+      },
+      "moment": "Khiến một chiến binh câm lặng sau khi hắn săn tay trắng"
+     },
+     "fail": {
+      "text": "Hắn hạ được một con, sau năm ngày, gãy một tay. Bộ lạc hát về hắn. Không ai hát về bạn.",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "org_first_hunt"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Im lặng, chia thịt cho lều nghèo nhất",
+     "text": "Lều nghèo nhất có trẻ con ăn no lần đầu trong mùa. Bà mẹ nhìn bạn, không nói gì, nhưng từ đó luôn để phần cho bạn chỗ ngồi gần lửa.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "org_first_hunt"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "org_c2_crossroads",
+   "races": [
+    "orc"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "orc_ranger",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "org_path_open",
+     "org_path_feed",
+     "org_path_elf",
+     "org_end"
+    ],
+    "flags": [
+     "org_met_shazka"
+    ]
+   },
+   "text": "Bà Shazka bẻ ba nhánh cây đặt trước mặt bạn: một nhánh cắm lông đại bàng, dấu của kẻ săn công khai; một nhánh buộc túi muối, dấu của người nuôi bộ lạc; và một nhánh có mũi tên Elf cắm vào, dấu của kẻ săn Kiểm Lâm.",
+   "choices": [
+    {
+     "label": "Lông đại bàng: Mũi Tên Công Khai",
+     "text": "Bạn sẽ chứng minh cung không phải vũ khí hèn: mỗi phát bắn đều báo trước, mỗi con mồi đều được gọi tên. Shazka cười to: “Điên. Nhưng là thứ điên mà Orc hiểu được.”",
+     "effects": {
+      "AGI": 1,
+      "fame": 3,
+      "jobXp": 2,
+      "flags": [
+       "org_path_open"
+      ]
+     },
+     "moment": "Chọn con đường Mũi Tên Công Khai"
+    },
+    {
+     "label": "Túi muối: Người Nuôi Bộ Lạc",
+     "text": "Không vinh quang, không bài hát. Chỉ có thịt trên lửa mỗi tối, và không đứa trẻ nào đói.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "org_path_feed"
+      ]
+     },
+     "moment": "Chọn làm người nuôi bộ lạc"
+    },
+    {
+     "label": "Mũi tên Elf: Kẻ Săn Kiểm Lâm",
+     "text": "Kiểm Lâm Elf đã giết nhiều Orc hơn bất kỳ chiến binh nào. Bạn sẽ học cách săn chúng, bằng chính cách của chúng.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 2,
+      "flags": [
+       "org_path_elf"
+      ]
+     },
+     "moment": "Chọn săn Kiểm Lâm Elf trong rừng Greatwood"
+    }
+   ]
+  },
+  {
+   "id": "org_open_duel",
+   "races": [
+    "orc"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "orc_ranger",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "org_path_open"
+    ],
+    "notFlags": [
+     "org_end"
+    ]
+   },
+   "text": "Một Warlord thách bạn: hắn đứng giữa đồng, bạn đứng cách năm mươi bước. Nếu bạn bắn trúng chiếc bình trên đầu hắn mà không làm hắn chảy máu, hắn sẽ không bao giờ gọi cung là vũ khí hèn nữa.",
+   "choices": [
+    {
+     "label": "Bắn",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Chiếc bình vỡ tung, nước đổ ướt mặt hắn. Hắn đứng im một lúc, rồi gầm lên cười. Từ hôm ấy, đội của hắn có ba cung thủ.",
+      "effects": {
+       "AGI": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "org_open_bowl"
+       ]
+      },
+      "moment": "Bắn vỡ chiếc bình trên đầu một Warlord trước cả bộ lạc"
+     },
+     "fail": {
+      "text": "Mũi tên sượt qua tai hắn, rách một vệt máu. Hắn không giận, chỉ lắc đầu: “Chưa đủ.”",
+      "effects": {
+       "fame": -4
+      }
+     }
+    },
+    {
+     "label": "Đề nghị đổi chỗ: bạn đội bình, hắn ném rìu",
+     "text": "Cả bộ lạc nín thở. Rìu của hắn chẻ đôi chiếc bình trên đầu bạn. Bạn không chớp mắt. Hắn gật đầu: “Kẻ hèn không đứng yên được như thế.”",
+     "effects": {
+      "fame": 8,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "org_open_warning",
+   "races": [
+    "orc"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "orc_ranger",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "org_path_open"
+    ],
+    "notFlags": [
+     "org_end"
+    ]
+   },
+   "text": "Bạn theo một tên do thám Human suốt hai ngày. Giờ hắn đang ngồi bên suối, quay lưng lại. Một mũi tên là xong.",
+   "choices": [
+    {
+     "label": "Huýt sáo cho hắn quay lại trước khi bắn",
+     "text": "Hắn quay lại, rút kiếm. Bạn bắn trúng tay cầm kiếm. Hắn sống, bị bắt, và kể với cả trại giam rằng Orc này đã cho hắn cơ hội.",
+     "effects": {
+      "fame": 6,
+      "jobXp": 3,
+      "flags": [
+       "org_open_honor"
+      ]
+     }
+    },
+    {
+     "label": "Bắn sau lưng",
+     "text": "Gọn, nhanh. Không ai chứng kiến. Bạn biết, và bà Shazka sẽ hỏi.",
+     "effects": {
+      "jobXp": 3,
+      "joy": -4
+     }
+    }
+   ]
+  },
+  {
+   "id": "org_feed_winter",
+   "races": [
+    "orc"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "orc_ranger",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "org_path_feed"
+    ],
+    "notFlags": [
+     "org_end"
+    ]
+   },
+   "text": "Mùa đông dài nhất bạn từng thấy. Bò rừng đã đi xa về phía nam. Bộ lạc còn thịt khô cho mười ngày.",
+   "choices": [
+    {
+     "label": "Đi theo đàn bò về phía nam",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Mười hai ngày lội tuyết. Bạn hạ ba con, kéo về bằng xe trượt. Không ai chết đói mùa ấy.",
+      "effects": {
+       "STR": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "org_feed_winter"
+       ]
+      },
+      "moment": "Lội tuyết mười hai ngày để kéo thịt về cứu bộ lạc"
+     },
+     "fail": {
+      "text": "Bạn về tay trắng, tê cóng hai ngón chân. Bộ lạc phải giết một con sói chiến.",
+      "effects": {
+       "health": -10
+      }
+     }
+    },
+    {
+     "label": "Dạy lũ trẻ đặt bẫy thỏ quanh trại",
+     "text": "Thỏ không no bằng bò, nhưng mỗi ngày đều có. Lũ trẻ học được nghề, và một vài đứa giỏi hơn bạn.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "org_feed_snares"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "org_feed_share",
+   "races": [
+    "orc"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "orc_ranger",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "org_path_feed"
+    ],
+    "notFlags": [
+     "org_end"
+    ]
+   },
+   "text": "Warchief ra lệnh phần thịt săn được chia theo thứ bậc: chiến binh trước, thợ săn và người già sau cùng.",
+   "choices": [
+    {
+     "label": "Tuân lệnh",
+     "text": "Chiến binh béo lên. Người già gầy đi. Bạn lén để phần mình cho lều người già.",
+     "effects": {
+      "joy": -2,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Phản đối trước cả trại",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn nói: “Kẻ đói không chiến đấu được, kẻ già không dạy được.” Một trưởng lão đứng dậy cạnh bạn, rồi hai, rồi mười. Warchief đổi lệnh.",
+      "effects": {
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "org_feed_fair"
+       ]
+      },
+      "moment": "Thuyết phục Warchief chia thịt công bằng cho cả bộ lạc"
+     },
+     "fail": {
+      "text": "Warchief cười nhạo bạn, và bạn bị phạt đi săn một mình suốt mùa.",
+      "effects": {
+       "health": -5,
+       "fame": -3
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "org_elf_forest",
+   "races": [
+    "orc"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "orc_ranger",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "org_path_elf"
+    ],
+    "notFlags": [
+     "org_end"
+    ]
+   },
+   "text": "Trong rừng Greatwood, bạn đối mặt một Kiểm Lâm Elf, cả hai cùng giương cung, cùng biết rằng ai buông dây trước sẽ sống.",
+   "choices": [
+    {
+     "label": "Hạ cung trước",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Elf ngạc nhiên, rồi cũng hạ cung. Hai người đứng nhìn nhau rất lâu, rồi mỗi người lùi một bước về phía mình. Không ai kể chuyện này với ai.",
+      "effects": {
+       "LUCK": 1,
+       "joy": 8,
+       "jobXp": 3,
+       "flags": [
+        "org_elf_truce"
+       ]
+      },
+      "moment": "Hạ cung trước một Kiểm Lâm Elf giữa rừng Greatwood"
+     },
+     "fail": {
+      "text": "Elf không hạ cung. Mũi tên của nàng găm vào vai bạn. Bạn thoát được, nhờ may mắn.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Buông dây",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn nhanh hơn. Elf ngã. Bạn mang cây cung của nàng về trại, và cả bộ lạc hò reo.",
+      "effects": {
+       "AGI": 1,
+       "fame": 8,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Hai mũi tên bay cùng lúc. Cả hai cùng ngã. Bạn tỉnh dậy trong trại, không biết ai đã kéo mình về.",
+      "effects": {
+       "health": -18
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "org_elf_cage",
+   "races": [
+    "orc"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "orc_ranger",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "org_path_elf",
+     "org_met_lirael"
+    ],
+    "notFlags": [
+     "org_end"
+    ]
+   },
+   "text": "Lirael vẫn còn trong lồng gỗ. Warchief định đổi nàng lấy vũ khí với một băng buôn người.",
+   "choices": [
+    {
+     "label": "Mở lồng trong đêm",
+     "require": {
+      "flags": [
+       "org_lirael_friend"
+      ]
+     },
+     "text": "Bạn đưa nàng ra tận bìa rừng. Nàng quay lại một lần: “Lần sau gặp ngươi trong rừng, ta sẽ hạ cung trước.” Warchief không bao giờ biết ai đã mở lồng.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 3,
+      "flags": [
+       "org_lirael_free"
+      ]
+     },
+     "moment": "Thả Lirael về rừng trong đêm"
+    },
+    {
+     "label": "Đề nghị đổi nàng lấy tù binh Orc trong tay Elf",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Warchief đồng ý. Ba chiến binh Orc trở về từ rừng Greatwood, và Lirael về với tộc nàng.",
+      "effects": {
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "org_lirael_free"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Elf không trả lời. Lirael bị bán đi.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "org_c4_shazka",
+   "races": [
+    "orc"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "orc_ranger",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "org_met_shazka"
+    ],
+    "notFlags": [
+     "org_shazka_gone",
+     "org_end"
+    ],
+    "anyFlags": [
+     "org_path_open",
+     "org_path_feed",
+     "org_path_elf"
+    ]
+   },
+   "text": "Bà Shazka không còn kéo nổi dây cung. Bà ngồi trước lều, nhìn các chiến binh đi săn, và gọi bạn lại: “Đưa ta ra đồng lần cuối. Ta muốn bắn một mũi.”",
+   "choices": [
+    {
+     "label": "Đưa bà ra đồng, kéo dây giúp bà",
+     "text": "Hai bàn tay, một cây cung. Mũi tên bay xa, cắm vào gốc cây sồi già cuối đồng. Bà cười: “Ít ra lần cuối ta không trượt.” Bà mất trước mùa săn tiếp theo. Mũi tên vẫn cắm ở đó.",
+     "effects": {
+      "joy": -4,
+      "AGI": 1,
+      "jobXp": 3,
+      "flags": [
+       "org_shazka_gone"
+      ]
+     },
+     "moment": "Cùng bà Shazka bắn mũi tên cuối cùng của bà"
+    },
+    {
+     "label": "Mang cung của bà đi săn thay, kể lại cho bà",
+     "text": "Bạn mang về một con hươu và kể cho bà nghe từng bước. Bà nhắm mắt nghe, như đang tự săn. Bà mất đêm ấy.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "org_shazka_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "org_c5_open",
+   "races": [
+    "orc"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "orc_ranger",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "org_path_open"
+    ],
+    "notFlags": [
+     "org_end"
+    ]
+   },
+   "text": "Cả thảo nguyên biết tên bạn: Orc đã khiến cung không còn là vũ khí hèn.",
+   "choices": [
+    {
+     "label": "Lập đội cung thủ đầu tiên của bộ lạc",
+     "require": {
+      "flags": [
+       "org_open_bowl"
+      ]
+     },
+     "text": "Hai mươi cung thủ, lông đại bàng trên tóc, đứng ngay sau hàng rìu. Lần đầu tiên, bộ lạc thắng một trận mà không ai phải lao lên trước tên Elf.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "org_end",
+       "org_end_archers"
+      ]
+     },
+     "moment": "Lập đội cung thủ đầu tiên của bộ lạc Orc"
+    },
+    {
+     "label": "Dạy luật săn công khai cho lũ trẻ",
+     "text": "Báo trước, gọi tên, bắn một mũi. Lũ trẻ lớn lên không còn gọi cung là hèn.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "org_end",
+       "org_end_open_law"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "org_c5_feed",
+   "races": [
+    "orc"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "orc_ranger",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "org_path_feed"
+    ],
+    "notFlags": [
+     "org_end"
+    ]
+   },
+   "text": "Không ai hát về bạn, nhưng không đứa trẻ nào trong bộ lạc chết đói suốt những năm bạn đi săn.",
+   "choices": [
+    {
+     "label": "Truyền nghề cho những đứa trẻ đặt bẫy năm xưa",
+     "require": {
+      "flags": [
+       "org_feed_snares"
+      ]
+     },
+     "text": "Những đứa trẻ năm ấy giờ là thợ săn. Chúng dạy lại lũ trẻ mới. Bộ lạc không bao giờ còn đói như mùa đông năm ấy.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "org_end",
+       "org_end_snares"
+      ]
+     },
+     "moment": "Truyền nghề săn cho những đứa trẻ từng học đặt bẫy"
+    },
+    {
+     "label": "Đi săn đến ngày cuối cùng",
+     "text": "Bạn mất trên đồng, cạnh con bò rừng cuối cùng. Tối ấy, cả bộ lạc ăn thịt bạn săn, và lần đầu tiên họ hát về một thợ săn.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "org_end",
+       "org_end_last_hunt"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "org_c5_elf",
+   "races": [
+    "orc"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "orc_ranger",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "org_path_elf"
+    ],
+    "notFlags": [
+     "org_end"
+    ]
+   },
+   "text": "Kiểm Lâm Elf gọi bạn là “Bóng Xanh”. Họ sợ bạn, và tôn trọng bạn.",
+   "choices": [
+    {
+     "label": "Đến bìa rừng gặp Lirael",
+     "require": {
+      "flags": [
+       "org_lirael_free"
+      ]
+     },
+     "text": "Nàng đã già đi chút ít, còn bạn già đi nhiều. Hai người ngồi ở bìa rừng, mỗi người một bên ranh giới. Từ năm ấy, Kiểm Lâm và thợ săn Orc không bắn nhau ở khu rừng phía đông.",
+     "effects": {
+      "fame": 12,
+      "joy": 18,
+      "flags": [
+       "org_end",
+       "org_end_truce"
+      ]
+     },
+     "moment": "Lập hưu chiến với Kiểm Lâm Elf ở khu rừng phía đông"
+    },
+    {
+     "label": "Treo cung, kể chuyện cho lũ trẻ",
+     "text": "Bạn kể về rừng Greatwood, về những mũi tên Elf, về những kẻ thù đáng kính. Lũ trẻ nghe say mê, và không còn gọi Elf là lũ ma rừng nữa.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "org_end",
+       "org_end_stories"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "org_daily_feather",
+   "races": [
+    "orc"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "orc_ranger",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một đứa trẻ nhặt được chiếc lông đại bàng, xin bạn làm cho nó một mũi tên.",
+   "choices": [
+    {
+     "label": "Làm cho nó",
+     "text": "Mũi tên bay lệch, nhưng đứa trẻ hét lên vui sướng.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Dạy nó tự làm",
+     "text": "Mất cả buổi chiều. Mũi tên của nó bay thẳng hơn của bạn hồi bằng tuổi.",
+     "effects": {
+      "joy": 5,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "org_daily_war_scout",
+   "races": [
+    "orc"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "orc_ranger",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Warchief cần biết quân địch ở đâu.",
+   "choices": [
+    {
+     "label": "Đi trinh sát một mình",
+     "text": "Bạn về sau ba ngày, với bản đồ vẽ trên da. Warchief không cảm ơn, nhưng dùng nó.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Bắn hạ trinh sát địch",
+     "text": "Ba trinh sát địch không bao giờ về. Quân địch đi mù.",
+     "effects": {
+      "jobXp": 2,
+      "joy": -2
+     }
+    }
+   ]
+  },
+  {
+   "id": "org_daily_old_eyes",
+   "races": [
+    "orc"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "orc_ranger",
+    "free": true
+   },
+   "text": "Mắt bạn mờ đi. Con mồi giờ chỉ là những đốm nâu trên đồng cỏ.",
+   "choices": [
+    {
+     "label": "Săn bằng tai và mũi",
+     "text": "Gió mang mùi thú đến trước khi bạn thấy chúng. Bạn vẫn không về tay trắng.",
+     "effects": {
+      "LUCK": 1
+     }
+    },
+    {
+     "label": "Làm cung cho người trẻ",
+     "text": "Cung của bạn giờ ở trên lưng nửa số thợ săn trong bộ lạc.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "org_c5_open_late",
+   "races": [
+    "orc"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "orc_ranger",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "org_path_open"
+    ],
+    "notFlags": [
+     "org_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Cả thảo nguyên biết tên bạn: Orc đã khiến cung không còn là vũ khí hèn.",
+   "choices": [
+    {
+     "label": "Lập đội cung thủ đầu tiên của bộ lạc",
+     "require": {
+      "flags": [
+       "org_open_bowl"
+      ]
+     },
+     "text": "Hai mươi cung thủ, lông đại bàng trên tóc, đứng ngay sau hàng rìu. Lần đầu tiên, bộ lạc thắng một trận mà không ai phải lao lên trước tên Elf.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "org_end",
+       "org_end_archers"
+      ]
+     },
+     "moment": "Lập đội cung thủ đầu tiên của bộ lạc Orc"
+    },
+    {
+     "label": "Dạy luật săn công khai cho lũ trẻ",
+     "text": "Báo trước, gọi tên, bắn một mũi. Lũ trẻ lớn lên không còn gọi cung là hèn.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "org_end",
+       "org_end_open_law"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "org_c5_feed_late",
+   "races": [
+    "orc"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "orc_ranger",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "org_path_feed"
+    ],
+    "notFlags": [
+     "org_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Không ai hát về bạn, nhưng không đứa trẻ nào trong bộ lạc chết đói suốt những năm bạn đi săn.",
+   "choices": [
+    {
+     "label": "Truyền nghề cho những đứa trẻ đặt bẫy năm xưa",
+     "require": {
+      "flags": [
+       "org_feed_snares"
+      ]
+     },
+     "text": "Những đứa trẻ năm ấy giờ là thợ săn. Chúng dạy lại lũ trẻ mới. Bộ lạc không bao giờ còn đói như mùa đông năm ấy.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "org_end",
+       "org_end_snares"
+      ]
+     },
+     "moment": "Truyền nghề săn cho những đứa trẻ từng học đặt bẫy"
+    },
+    {
+     "label": "Đi săn đến ngày cuối cùng",
+     "text": "Bạn mất trên đồng, cạnh con bò rừng cuối cùng. Tối ấy, cả bộ lạc ăn thịt bạn săn, và lần đầu tiên họ hát về một thợ săn.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "org_end",
+       "org_end_last_hunt"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "org_c5_elf_late",
+   "races": [
+    "orc"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "orc_ranger",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "org_path_elf"
+    ],
+    "notFlags": [
+     "org_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Kiểm Lâm Elf gọi bạn là “Bóng Xanh”. Họ sợ bạn, và tôn trọng bạn.",
+   "choices": [
+    {
+     "label": "Đến bìa rừng gặp Lirael",
+     "require": {
+      "flags": [
+       "org_lirael_free"
+      ]
+     },
+     "text": "Nàng đã già đi chút ít, còn bạn già đi nhiều. Hai người ngồi ở bìa rừng, mỗi người một bên ranh giới. Từ năm ấy, Kiểm Lâm và thợ săn Orc không bắn nhau ở khu rừng phía đông.",
+     "effects": {
+      "fame": 12,
+      "joy": 18,
+      "flags": [
+       "org_end",
+       "org_end_truce"
+      ]
+     },
+     "moment": "Lập hưu chiến với Kiểm Lâm Elf ở khu rừng phía đông"
+    },
+    {
+     "label": "Treo cung, kể chuyện cho lũ trẻ",
+     "text": "Bạn kể về rừng Greatwood, về những mũi tên Elf, về những kẻ thù đáng kính. Lũ trẻ nghe say mê, và không còn gọi Elf là lũ ma rừng nữa.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "org_end",
+       "org_end_stories"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}
