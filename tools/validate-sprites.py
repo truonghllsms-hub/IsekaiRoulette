@@ -34,6 +34,11 @@ for person,columns in atlas.items():
     file=args.images/Path(columns["_src"]).name
     sheet=Image.open(file).convert("RGBA")
     assert list(sheet.size)==columns["_size"], person
+    info=provenance[person]
+    generated=info.get("kind")=="generated-art"
+    if generated:
+        assert hashlib.sha256(file.read_bytes()).hexdigest()==info["sha256"],(person,"generated atlas checksum")
+        assert set(info["approvedSources"])=={k for k in columns if not k.startswith("_")},(person,"approved frame coverage")
     for column,rect in columns.items():
         if column.startswith("_"):
             continue
@@ -63,11 +68,11 @@ for person,columns in atlas.items():
                 py,px=np.where(patch[:,:,3]>0);xx,yy=px+rx-sx,py+ry-sy
                 assert ((xx>=0)&(xx<w)&(yy>=0)&(yy<h)).all(),(person,column,"native repair clipped")
                 assert np.array_equal(rgba[yy,xx],patch[py,px]),(person,column,"native face/prop repair erased or recolored")
-        if args.originals:
+        if args.originals and not generated:
             source=np.asarray(originals[info["source"]].crop((sx,sy,sx+sw,sy+sh)))
             assert np.array_equal(rgba[:,:,:3][opaque],source[opaque]),(person,column,"foreground colors changed")
         frames+=1
-assert frames==1262,frames
+assert frames==1264,frames
 assert reviewed_count==sum(map(len,reviewed.values())),"reviewed corrections missing from atlas"
 print(f"PASS: {reviewed_count} reviewed caption/debris/repair frames retain their corrections.")
 print(f"PASS: {len(atlas)} identities, {frames} transparent native-resolution frames, valid bounds.")

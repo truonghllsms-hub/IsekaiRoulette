@@ -19,14 +19,14 @@ test('portrait selection is stable and leaves the member profile unchanged',()=>
 });
 
 test('explicit gender and the first race of a hybrid take precedence',()=>{
- assert.match(npcSprite({name:'Vera',race:'Nam, Demon',position:'Dark Knight (Bậc 3)',desc:'Bạn của một nữ pháp sư'},data).person,/^demon_nam_/);
- assert.match(npcSprite({name:'Kael',race:'Nữ, Vampire/Demon lai',position:'Quý tộc'},data).person,/^vampire_nu_/);
+ assert.match(npcSprite({name:'Vera',race:'Nam, Demon',position:'Dark Knight (Bậc 3)',desc:'Bạn của một nữ pháp sư'},data).person,/^pt\/DM_M\d+\//);
+ assert.match(npcSprite({name:'Kael',race:'Nữ, Vampire/Demon lai',position:'Quý tộc'},data).person,/^pt\/VP_F\d+\//);
  assert.equal(npcSprite({name:'Krik',race:'Kobold lai Goblin'},data).raceId,'kobold');
 });
 
 test('known evolution names use their corresponding original illustration',()=>{
  const s=npcSprite({name:'Ruk',race:'Hobgoblin',gender:'male'},data);
- assert.equal(s.raceId,'goblin');assert.equal(s.column,'tienhoa_hobgoblin');
+ assert.equal(s.raceId,'goblin');assert.equal(s.column,'form_hobgoblin');
 });
 
 test('missing animal or lion art is not replaced with an unrelated humanoid',()=>{

@@ -165,19 +165,22 @@
     const T = portraitTemplate(ch);
     if (!T) return null;
     const st = E.currentStage(ch).id;
-    const jobKey = (j) => PORTRAIT_TRADE[j.id] || j.id.replace(/^(human|bm|elf|dwarf)_/, "");
+    const jobKey = (j) => PORTRAIT_TRADE[j.id] || j.id.replace(/^(human|bm|elf|dwarf|demon|hd|vampire|goblin|kobold|orc|troll|minotaur|lizard)_/, "");
     const ranksOf = (j) => ((D.jobs || []).find((x) => x.id === j.id) || {}).ranks;
     const trade = (j, tier) => [3, 2, 1].filter((t) => t <= tier).map((t) => `${jobKey(j)}_${t}`);
     if (peak) {
       // the card: the furthest a trade went in this life, else the grown-up self
       const jobs = [ch.job, ...(ch.pastJobs || [])].filter(Boolean).map((j) => ({ j, tier: tierOf(j.rank || 0, (ranksOf(j) || []).length) })).sort((a, b) => b.tier - a.tier);
       const wants = jobs.flatMap(({ j, tier }) => trade(j, tier));
+      // an evolved form is the strongest look a life can reach
+      if (ch.form) wants.unshift(`form_${slug(ch.form)}`);
       if (st === "infant") wants.push("age1");
       else if (st === "child") wants.push("age7");
       wants.push("base", "age15");
       return portraitSprite(T, wants);
     }
     const wants = [];
+    if (ch.form) wants.push(`form_${slug(ch.form)}`);
     if (st === "infant") wants.push("age1", "age7");
     else if (st === "child") wants.push("age7", "age1");
     else if (st === "elder" || st === "ancient") wants.push("age60");
