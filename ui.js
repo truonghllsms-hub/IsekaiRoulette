@@ -778,7 +778,9 @@
     const thisCard = card;
     const highest = window.LifeCard.highestJob(c, D);
     const imageLife = highest ? { ...c, job: [c.job, ...(c.pastJobs || [])].find(j => j && j.id === highest.id && j.rank === highest.rank) } : c;
-    const sp = spriteOf(imageLife, true);
+    const youngWithoutCareer = !highest && !c.form && ["infant", "child", "teen"].includes(E.currentStage(c).id);
+    const sp = spriteOf(imageLife, !youngWithoutCareer);
+    $("lc-art").dataset.portrait = sp ? `${sp.person}:${sp.column}` : "none";
     $("btn-save-card").disabled = true;
     $("lc-note").hidden = true;
     $("lc-image")?.remove();

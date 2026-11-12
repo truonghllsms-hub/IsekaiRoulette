@@ -42,3 +42,8 @@ test('the same four self-contained fonts and painted assets are embedded in ever
  for(const name of ['paper','rank-badge','wax-seal'])assert.ok(r.svg.includes(`data-part="${name}"`));
  assert.doesNotMatch(r.svg,/Georgia|Times New Roman|fonts\.googleapis/);assert.match(r.svg,/font-family="Chronicle Serif"/);
 });
+test('each current race receives its own emblem without changing its identity or game rules',()=>{
+ const motifs=new Set();
+ for(const race of data.races){const c=life(race.id),before=JSON.stringify(c),m=card(c),r=L.render(m,null);assert.notEqual(m.motif,'star',race.id);assert.ok(r.svg.includes(`data-emblem="${m.motif}"`));assert.equal(JSON.stringify(c),before);motifs.add(m.motif);}
+ assert.equal(motifs.size,data.races.length);
+});

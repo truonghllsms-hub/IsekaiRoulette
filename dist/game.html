@@ -4527,6 +4527,11 @@ window.GAME_DATA = {"races":[{"id":"human","name":"Human","gloss":"loài ngườ
 (function(root) {
   'use strict';
   const STAT = {STR:'Sức mạnh',INT:'Trí tuệ',AGI:'Nhanh nhẹn',LUCK:'May mắn'};
+  const RACE_MOTIFS = {
+    human:'crest',elf:'leaf',dwarf:'forge',beastman:'paw',slime:'drop',dragon:'dragon',
+    demon:'horns',high_demon:'sovereign',vampire:'fangs',goblin:'ears',kobold:'pickaxe',
+    lizardman:'scales',orc:'tusks',minotaur:'bull',troll:'stone',ghoul:'skull'
+  };
   const number = n => Math.max(0,Math.floor(Number(n)||0)).toLocaleString('vi-VN');
   const clean = s => String(s ?? '').normalize('NFC').replace(/\s+/g,' ').trim();
   const sentence = s => { const t=clean(s); return t && !/[.!?…]$/.test(t) ? t+'.' : t; };
@@ -4564,7 +4569,7 @@ window.GAME_DATA = {"races":[{"id":"human","name":"Human","gloss":"loài ngườ
     const unique=moments.filter((m,i,a)=>a.findIndex(x=>x.age===m.age&&x.text===m.text)===i);
     const selected=unique.length<=3?unique:[unique[0],unique[Math.floor((unique.length-1)/2)],unique[unique.length-1]];
     const timeline=selected.length?selected:[{age:0,text:'Khởi đầu: '+(clean(c.origin?.name)||clean(race.name))},{age,text:clean(c.cause)||'Cuộc đời khép lại.'}];
-    const motif=['elf','human'].includes(race.id)?'leaf':race.id==='dwarf'?'forge':race.id==='beastman'?'paw':race.id==='slime'?'drop':race.id==='dragon'?'dragon':'star';
+    const motif=RACE_MOTIFS[race.id]||'star';
     return {name:clean(c.name),race:[clean(race.name),clean(c.subtypeName),clean(c.form)].filter(Boolean).join(' · '),raceId:race.id,motif,age,origin:clean(c.origin?.name)||'Chưa rõ',job:job?job.name:'Chưa có chức nghiệp',jobRank:job?.rankName||'',rating:k.rating||{grade:'C',title:'Một kiếp sống'},highlights:highlights.slice(0,3),timeline,imprint:[...stats.slice(0,2).map(s=>`${s.label} ${number(s.value)}`),`Danh vọng ${number(Math.max(c.fame||0,c.famePeak||0))}`,`Tài sản ${number(c.bars?.wealth)}`],epitaph:clean(k.epitaph),cause:clean(c.cause||k.cause)};
   }
 
@@ -4646,7 +4651,20 @@ window.GAME_DATA = {"races":[{"id":"human","name":"Human","gloss":"loài ngườ
   }
   function motif(kind,color) {
     const paths={swords:'M-22-25L18 16M-18-27L22 12M-21 17L20-24M-17 21L24-20M-27 12L-10 29M10-29L29-10M-27-13L-9-28M10 10L28 28',home:'M-25-7L0-26 25-7M-20-10V24H20V-10M-6 24V5H6V24M-12-2H-6M6-2H12',leaf:'M0 23C-31 7-22-23 23-27C26 5 12 19 0 23ZM-13 12L17-20',forge:'M-29-10H29L13 4H1V18H22V24H-23V18H-5V4H-18Z',paw:'M-19 9Q0-16 19 9Q30 31 0 22Q-30 31-19 9ZM-23-7a6 9 0 1 0 .1 0M-8-18a6 9 0 1 0 .1 0M9-18a6 9 0 1 0 .1 0M24-7a6 9 0 1 0 .1 0',drop:'M0-27C-8-8-27 1-23 16C-17 36 18 33 23 16C27 1 9-11 0-27Z',dragon:'M-25 22L-17-5 6-23 23-18 10-8 29 0 6 9-9 26-2 0-15 6Z',star:'M0-27L7-7 27 0 7 7 0 27-7 7-27 0-7-7Z'};
-    return `<path d="${paths[kind]||paths.star}" fill="none" stroke="${color}" stroke-width="2.8" stroke-linejoin="round"/>`;
+    Object.assign(paths,{
+      crest:'M-22-24H22V3Q17 20 0 28Q-17 20-22 3ZM0-15V15M-13 0H13',
+      horns:'M-12-5Q-32-13-27-29Q-18-18-5-17M12-5Q32-13 27-29Q18-18 5-17M-17-14Q0-24 17-14L14 13 0 27-14 13ZM-9-2H-4M4-2H9',
+      sovereign:'M-24 4L-27-19-10-9 0-29 10-9 27-19 24 4ZM-23 11H23M-17 18H17M-9 5V11M9 5V11',
+      fangs:'M-1-11Q-11-30-29-23L-25-3-14-8-9 8 0 0 9 8 14-8 25-3 29-23Q11-30 1-11M-10 10H10M-9 10L-5 28-1 10M1 10L5 28 9 10',
+      ears:'M-14-9L-29-24-26 1-15 8M14-9L29-24 26 1 15 8M-15-14Q0-25 15-14L13 12 0 25-13 12ZM-9-2L-3 1M9-2L3 1M-5 13H5',
+      pickaxe:'M-25-12Q-6-32 20-17L29-2Q9-16-8-7M-2-12L-19 27M5-8L-12 29M13 4L25 14 14 27 3 16Z',
+      scales:'M0-28L-22-14V12L0 28 22 12V-14ZM-21-13L0 1 21-13M-22 0L0 14 22 0M-10-21L-10-6M10-21L10-6M0 1V27',
+      tusks:'M-19-21Q0-31 19-21L20 9Q12 26 0 27Q-12 26-20 9ZM-19 15Q-31 7-26-8Q-22 3-12 4M19 15Q31 7 26-8Q22 3 12 4M-8-10H-3M3-10H8M-7 17H7',
+      bull:'M-15-12Q-33-15-28-30Q-18-20-8-18M15-12Q33-15 28-30Q18-20 8-18M-18-13Q0-25 18-13L13 18 0 27-13 18ZM-9 11H9M-7 17H-3M3 17H7M-11-5H-5M5-5H11',
+      stone:'M-27 14L-22-8-8-26 13-24 28-5 23 22-8 29ZM-8-26L0-5-22-8M0-5L13-24M0-5L23 22M0-5L-8 29',
+      skull:'M-20 2Q-30-24-10-28Q17-35 24-15Q29 2 13 11V24H-12V11ZM-17-8H-5V0H-17ZM5-8H17V0H5ZM0 2L-4 8H4ZM-7 16V24M0 16V24M7 16V24'
+    });
+    return `<path data-emblem="${escape(kind)}" d="${paths[kind]||paths.star}" fill="none" stroke="${color}" stroke-width="2.8" stroke-linejoin="round"/>`;
   }
   const api={model,highestJob,render,text};
   if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.LifeCard=api;
@@ -5434,7 +5452,9 @@ window.GAME_DATA = {"races":[{"id":"human","name":"Human","gloss":"loài ngườ
     const thisCard = card;
     const highest = window.LifeCard.highestJob(c, D);
     const imageLife = highest ? { ...c, job: [c.job, ...(c.pastJobs || [])].find(j => j && j.id === highest.id && j.rank === highest.rank) } : c;
-    const sp = spriteOf(imageLife, true);
+    const youngWithoutCareer = !highest && !c.form && ["infant", "child", "teen"].includes(E.currentStage(c).id);
+    const sp = spriteOf(imageLife, !youngWithoutCareer);
+    $("lc-art").dataset.portrait = sp ? `${sp.person}:${sp.column}` : "none";
     $("btn-save-card").disabled = true;
     $("lc-note").hidden = true;
     $("lc-image")?.remove();
