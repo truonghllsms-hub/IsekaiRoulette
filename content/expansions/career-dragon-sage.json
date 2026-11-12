@@ -1,0 +1,987 @@
+{
+ "_note": "Tuyến truyện Sage Dragon: ba đạo (drs2_path_star / drs2_path_mortal / drs2_path_void), nhân vật xuyên suốt Elyndra Mắt Sao (Rồng hiền triết cổ) và Học viện Tháp Ngà qua nhiều đời viện trưởng.",
+ "origins": [],
+ "events": [
+  {
+   "id": "drs2_c1_elyndra",
+   "races": [
+    "dragon"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "dragon_sage",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "drs2_met_elyndra"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Elyndra Mắt Sao",
+     "race": "Dragon",
+     "position": "Rồng hiền triết đã đếm sao hai mươi nghìn năm"
+    }
+   ],
+   "text": "Elyndra Mắt Sao đã đếm sao hai mươi nghìn năm. Bà chỉ cho bạn một ngôi sao nhỏ ở chân trời: “Nó sẽ tắt trong ba nghìn năm. Ta muốn có người nhìn nó tắt cùng ta.”",
+   "choices": [
+    {
+     "label": "Ngồi đếm sao cùng bà",
+     "text": "Bạn ngồi cạnh bà mỗi đêm, một trăm năm. Bà dạy bạn tên mọi ngôi sao, và câu chuyện của mỗi ngôi.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "drs2_met_elyndra",
+       "drs2_elyndra_bond"
+      ]
+     },
+     "moment": "Đếm sao cùng Elyndra Mắt Sao suốt một trăm năm"
+    },
+    {
+     "label": "Hỏi vì sao nó sẽ tắt",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bà giải thích, suốt mười năm. Bạn hiểu được một nửa. Bà nói thế là đủ.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "drs2_met_elyndra"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn không hiểu gì. Bà mỉm cười: “Ngươi còn ba nghìn năm.”",
+      "effects": {
+       "flags": [
+        "drs2_met_elyndra"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs2_c2_first_tower",
+   "races": [
+    "dragon"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "dragon_sage",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "drs2_first_tower",
+     "drs2_end"
+    ]
+   },
+   "text": "Viện trưởng Học viện Tháp Ngà, một Hiền Giả một trăm năm mươi tuổi, leo lên đỉnh núi của bạn. Ông run rẩy, không vì sợ, mà vì già. Ông muốn hỏi bạn một câu.",
+   "choices": [
+    {
+     "label": "Trả lời câu hỏi của ông",
+     "text": "Câu hỏi về bản chất của ma pháp. Bạn trả lời trong ba ngày. Ông ghi chép, khóc, cảm ơn. Ông mất trên đường xuống núi, hạnh phúc. Học viện gửi người lên mỗi trăm năm từ đó.",
+     "effects": {
+      "INT": 1,
+      "fame": 5,
+      "jobXp": 2,
+      "flags": [
+       "drs2_first_tower",
+       "drs2_tower_bond"
+      ]
+     },
+     "moment": "Trả lời câu hỏi của Viện trưởng Tháp Ngà già trước khi ông mất"
+    },
+    {
+     "label": "Hỏi lại ông một câu",
+     "text": "Câu hỏi của bạn khiến ông ngồi suy nghĩ đến sáng. Ông xuống núi, và dành mười năm cuối đời trả lời nó. Câu trả lời đến tay bạn sau khi ông mất.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "drs2_first_tower"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs2_c2_crossroads",
+   "races": [
+    "dragon"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "dragon_sage",
+    "free": true,
+    "jobRank": 1,
+    "flags": [
+     "drs2_met_elyndra"
+    ],
+    "notFlags": [
+     "drs2_path_star",
+     "drs2_path_mortal",
+     "drs2_path_void",
+     "drs2_end"
+    ]
+   },
+   "text": "Elyndra đưa bạn ba thứ: một tấm bản đồ sao, một cuốn sách của Tháp Ngà, và một mảnh thủy tinh đen phản chiếu Hư Vô.",
+   "choices": [
+    {
+     "label": "Bản đồ sao: Kẻ Đọc Trời",
+     "text": "Bạn sẽ đọc vận mệnh của thế giới trong những vì sao, như Elyndra.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "drs2_path_star"
+      ]
+     },
+     "moment": "Chọn đọc vận mệnh thế giới trong những vì sao"
+    },
+    {
+     "label": "Sách Tháp Ngà: Thầy Của Phàm Nhân",
+     "text": "Bạn sẽ dạy những gì mình biết cho loài người, những sinh vật sống ngắn ngủi nhưng không bao giờ ngừng hỏi.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "drs2_path_mortal"
+      ]
+     },
+     "moment": "Chọn dạy tri thức của Rồng cho loài người"
+    },
+    {
+     "label": "Mảnh Hư Vô: Kẻ Nhìn Vực Không",
+     "text": "Elyndra lùi lại. “Ta đã nhìn vào đó một lần. Ta mất một nghìn năm ký ức.”",
+     "effects": {
+      "INT": 2,
+      "jobXp": 2,
+      "flags": [
+       "drs2_path_void"
+      ]
+     },
+     "moment": "Chọn nhìn vào Hư Vô"
+    }
+   ]
+  },
+  {
+   "id": "drs2_star_omen",
+   "races": [
+    "dragon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dragon_sage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "drs2_path_star"
+    ],
+    "notFlags": [
+     "drs2_end"
+    ]
+   },
+   "text": "Những vì sao báo trước một thảm họa: một thiên thạch sẽ rơi xuống Đồng Bằng Thánh Quang trong mười năm.",
+   "choices": [
+    {
+     "label": "Bay đến cảnh báo",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Vua Human không tin, rồi tin khi bạn chỉ cho ông ta ngôi sao đang lớn dần. Thành phố sơ tán. Thiên thạch rơi xuống đồng trống.",
+      "effects": {
+       "LUCK": 1,
+       "fame": 12,
+       "jobXp": 3,
+       "flags": [
+        "drs2_star_saved"
+       ]
+      },
+      "moment": "Cảnh báo kịp để thành phố sơ tán trước thiên thạch"
+     },
+     "fail": {
+      "text": "Họ không tin. Bạn phải tự đẩy lệch quỹ đạo thiên thạch, và mất một phần cánh.",
+      "effects": {
+       "health": -20,
+       "fame": 8
+      }
+     }
+    },
+    {
+     "label": "Ghi lại, không can thiệp",
+     "text": "Thiên thạch rơi. Thành phố mất một nửa. Bạn ghi lại mọi điều, và không ngủ được trăm năm.",
+     "effects": {
+      "INT": 1,
+      "joy": -10,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs2_star_anomaly",
+   "races": [
+    "dragon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dragon_sage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "drs2_path_star"
+    ],
+    "notFlags": [
+     "drs2_end"
+    ]
+   },
+   "text": "Thí nghiệm ma pháp Không-Thời gian của bạn sai sót. Lõi không gian bắt đầu xé rách thực tại quanh ngọn núi.",
+   "choices": [
+    {
+     "label": "Đóng lõi bằng chính cơ thể",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn cuộn quanh lõi, ép nó lại. Thực tại khép. Bạn mất một trăm năm, theo nghĩa đen: thời gian quanh bạn trôi nhanh hơn.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Lõi xé một phần vảy bạn vào thời gian khác. Bạn thấy chúng trôi đi.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Để lõi tự sụp",
+     "text": "Lõi sụp, mang theo nửa ngọn núi vào hư không. Bạn xây lại hang ở ngọn núi bên cạnh.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs2_mortal_student",
+   "races": [
+    "dragon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dragon_sage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "drs2_path_mortal"
+    ],
+    "notFlags": [
+     "drs2_end"
+    ]
+   },
+   "text": "Một cô bé mười tuổi leo lên núi một mình, mang theo bánh mì và một câu hỏi: “Vì sao bầu trời màu xanh?”",
+   "choices": [
+    {
+     "label": "Trả lời cô bé",
+     "text": "Bạn giải thích, đơn giản nhất có thể. Cô bé hiểu, và hỏi thêm mười câu. Bạn trả lời đến tối. Cô bé quay lại mỗi năm. Khi cô già, cô là viện trưởng Tháp Ngà.",
+     "effects": {
+      "joy": 12,
+      "jobXp": 3,
+      "flags": [
+       "drs2_mortal_student"
+      ]
+     },
+     "moment": "Trả lời câu hỏi của cô bé mười tuổi, người sau này trở thành viện trưởng Tháp Ngà"
+    },
+    {
+     "label": "Bảo cô bé tự tìm câu trả lời",
+     "text": "Cô bé nhăn mặt, rồi xuống núi. Hai mươi năm sau, cô quay lại, với câu trả lời đúng. Bạn tự hào lạ lùng.",
+     "effects": {
+      "INT": 1,
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "drs2_mortal_student"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs2_mortal_ban",
+   "races": [
+    "dragon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dragon_sage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "drs2_path_mortal"
+    ],
+    "notFlags": [
+     "drs2_end"
+    ]
+   },
+   "text": "Giáo hội cấm Tháp Ngà học từ Rồng, gọi đó là tà thuật.",
+   "choices": [
+    {
+     "label": "Gửi sách đến Tháp Ngà trong bí mật",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Sách đến tay các học giả, giấu trong thùng táo. Tri thức không dừng lại.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Thùng táo bị khám. Một học giả bị bắt.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Bay đến Giáo hội, nói chuyện",
+     "text": "Giáo hội sợ, rồi nghe. Lệnh cấm được nới lỏng: học từ Rồng được phép, nếu có tu sĩ đi cùng.",
+     "effects": {
+      "fame": 8,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs2_void_touch",
+   "races": [
+    "dragon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dragon_sage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "drs2_path_void"
+    ],
+    "notFlags": [
+     "drs2_end"
+    ]
+   },
+   "text": "Bạn nhìn vào Hư Vô. Ý thức bạn chạm tới thứ không có tên.",
+   "choices": [
+    {
+     "label": "Nhìn lâu hơn",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn thấy hình dạng của mọi thứ trước khi chúng tồn tại. Khi trở về, bạn hiểu ma pháp theo cách không ai hiểu được.",
+      "effects": {
+       "INT": 2,
+       "jobXp": 3,
+       "flags": [
+        "drs2_void_seen"
+       ]
+      },
+      "moment": "Nhìn vào Hư Vô và hiểu được hình dạng của mọi thứ trước khi tồn tại"
+     },
+     "fail": {
+      "text": "Bạn mất một nghìn năm ký ức, như Elyndra.",
+      "effects": {
+       "health": -15,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Rút lui",
+     "text": "Có những thứ không nên nhìn quá lâu.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs2_void_whisper",
+   "races": [
+    "dragon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dragon_sage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "drs2_path_void"
+    ],
+    "notFlags": [
+     "drs2_end"
+    ]
+   },
+   "text": "Hư Vô bắt đầu nói chuyện với bạn, mỗi đêm. Nó muốn bạn mở một cánh cửa.",
+   "choices": [
+    {
+     "label": "Từ chối",
+     "text": "Nó im lặng. Rồi nói lại. Mỗi đêm. Bạn quen dần.",
+     "effects": {
+      "jobXp": 3,
+      "flags": [
+       "drs2_void_refused"
+      ]
+     }
+    },
+    {
+     "label": "Hỏi nó là gì",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Nó trả lời: “Ta là những gì chưa được tạo ra.” Bạn hiểu: nó không ác. Nó chỉ muốn tồn tại. Bạn không mở cửa, nhưng bạn thôi sợ nó.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "drs2_void_refused"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Nó trả lời bằng một cơn đau kéo dài một thế kỷ.",
+      "effects": {
+       "health": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs2_c4_elyndra",
+   "races": [
+    "dragon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dragon_sage",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "drs2_met_elyndra"
+    ],
+    "notFlags": [
+     "drs2_elyndra_gone",
+     "drs2_end"
+    ],
+    "anyFlags": [
+     "drs2_path_star",
+     "drs2_path_mortal",
+     "drs2_path_void"
+    ]
+   },
+   "text": "Ngôi sao nhỏ ở chân trời bắt đầu mờ đi. Ba nghìn năm đã qua. Elyndra cũng mờ dần cùng nó.",
+   "choices": [
+    {
+     "label": "Ngồi nhìn cùng bà",
+     "text": "Ngôi sao tắt lúc nửa đêm. Elyndra thở ra một hơi dài, như tiếc, như nhẹ nhõm. Bà nói: “Giờ ngươi nhìn những ngôi khác.” Bà nhắm mắt, và không mở ra nữa.",
+     "effects": {
+      "joy": -6,
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "drs2_elyndra_gone"
+      ]
+     },
+     "moment": "Cùng Elyndra Mắt Sao nhìn ngôi sao nhỏ tắt sau ba nghìn năm"
+    },
+    {
+     "label": "Đặt tên cho một ngôi sao mới theo tên bà",
+     "text": "Bạn tìm một ngôi sao mới, vừa sinh ra, và gọi nó là Elyndra. Bà mỉm cười, và đi.",
+     "effects": {
+      "joy": -2,
+      "jobXp": 3,
+      "flags": [
+       "drs2_elyndra_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs2_c5_star",
+   "races": [
+    "dragon"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "dragon_sage",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "drs2_path_star"
+    ],
+    "notFlags": [
+     "drs2_end"
+    ]
+   },
+   "text": "Bạn là Absolute Omniscience. Bạn đọc được vận mệnh thế giới trong mọi vì sao.",
+   "choices": [
+    {
+     "label": "Cảnh báo thế giới về mọi thảm họa",
+     "require": {
+      "flags": [
+       "drs2_star_saved"
+      ]
+     },
+     "text": "Một đài quan sát trên đỉnh núi. Mỗi trăm năm, bạn gửi một lời cảnh báo. Các vương quốc học cách lắng nghe.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "drs2_end",
+       "drs2_end_observatory"
+      ]
+     },
+     "moment": "Dựng đài quan sát cảnh báo thảm họa cho cả thế giới"
+    },
+    {
+     "label": "Đếm sao, như Elyndra",
+     "text": "Bạn ngồi trên đỉnh núi, đếm sao, mãi mãi. Một ngày, ai đó sẽ ngồi cạnh bạn.",
+     "effects": {
+      "fame": 10,
+      "joy": 15,
+      "flags": [
+       "drs2_end",
+       "drs2_end_counting"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs2_c5_mortal",
+   "races": [
+    "dragon"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "dragon_sage",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "drs2_path_mortal"
+    ],
+    "notFlags": [
+     "drs2_end"
+    ]
+   },
+   "text": "Bạn là Absolute Omniscience. Tháp Ngà gọi bạn là “Viện trưởng Danh dự Vĩnh viễn”.",
+   "choices": [
+    {
+     "label": "Dạy lớp học cuối cùng",
+     "require": {
+      "flags": [
+       "drs2_mortal_student"
+      ]
+     },
+     "text": "Học trò của học trò của cô bé năm xưa. Một trăm pháp sư trẻ ngồi trên đỉnh núi, nghe bạn giảng. Câu hỏi đầu tiên: “Vì sao bầu trời màu xanh?”",
+     "effects": {
+      "fame": 15,
+      "joy": 18,
+      "flags": [
+       "drs2_end",
+       "drs2_end_last_class"
+      ]
+     },
+     "moment": "Dạy lớp học cuối cùng trên đỉnh núi cho một trăm pháp sư trẻ"
+    },
+    {
+     "label": "Viết bách khoa toàn thư của Rồng",
+     "text": "Mọi điều bạn biết. Mười nghìn trang. Tháp Ngà mất một thế kỷ để chép.",
+     "effects": {
+      "fame": 12,
+      "INT": 1,
+      "flags": [
+       "drs2_end",
+       "drs2_end_encyclopedia"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs2_c5_void",
+   "races": [
+    "dragon"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "dragon_sage",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "drs2_path_void"
+    ],
+    "notFlags": [
+     "drs2_end"
+    ]
+   },
+   "text": "Bạn là Absolute Omniscience. Bạn đã nhìn vào Hư Vô và trở về.",
+   "choices": [
+    {
+     "label": "Canh cánh cửa Hư Vô",
+     "require": {
+      "flags": [
+       "drs2_void_refused"
+      ]
+     },
+     "text": "Bạn nằm trước cánh cửa, mãi mãi. Hư Vô nói chuyện với bạn mỗi đêm. Hai kẻ cô đơn nhất vũ trụ, một bên cửa.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "drs2_end",
+       "drs2_end_door"
+      ]
+     },
+     "moment": "Nằm canh trước cánh cửa Hư Vô mãi mãi"
+    },
+    {
+     "label": "Tạo ra một thứ mới",
+     "require": {
+      "flags": [
+       "drs2_void_seen"
+      ]
+     },
+     "text": "Bạn đã thấy hình dạng của mọi thứ trước khi tồn tại. Bạn tạo ra một loài hoa mới. Nó mọc khắp thế giới, và không ai biết nó từ đâu đến.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "drs2_end",
+       "drs2_end_flower"
+      ]
+     }
+    },
+    {
+     "label": "Quên đi",
+     "text": "Bạn để Hư Vô lấy đi ký ức về nó. Bạn ngủ, bình yên.",
+     "effects": {
+      "fame": 8,
+      "joy": 10,
+      "flags": [
+       "drs2_end",
+       "drs2_end_forget"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs2_daily_star",
+   "races": [
+    "dragon"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "dragon_sage",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một ngôi sao băng vạch qua bầu trời.",
+   "choices": [
+    {
+     "label": "Đếm thời gian nó bay",
+     "text": "Bạn ghi lại. Ba giây. Đẹp.",
+     "effects": {
+      "INT": 1
+     }
+    },
+    {
+     "label": "Ước",
+     "text": "Rồng không ước. Nhưng bạn thử.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs2_daily_war",
+   "races": [
+    "dragon"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "dragon_sage",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Các pháp sư cả hai bên muốn hỏi bạn về ma pháp chiến tranh.",
+   "choices": [
+    {
+     "label": "Từ chối",
+     "text": "Họ về tay trắng.",
+     "effects": {
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Dạy họ ma pháp chữa lành thay vì chiến tranh",
+     "text": "Họ không muốn. Một vài người học. Chiến tranh ngắn hơn một chút.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs2_daily_old",
+   "races": [
+    "dragon"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "dragon_sage",
+    "free": true
+   },
+   "text": "Bạn đã biết quá nhiều. Đôi khi bạn ước được ngạc nhiên lần nữa.",
+   "choices": [
+    {
+     "label": "Hỏi một đứa trẻ một câu hỏi",
+     "text": "Câu trả lời của nó làm bạn ngạc nhiên. Bạn cười suốt một thập kỷ.",
+     "effects": {
+      "joy": 10
+     }
+    },
+    {
+     "label": "Nhìn sao",
+     "text": "Vẫn còn những ngôi bạn chưa đặt tên.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "drs2_c5_star_late",
+   "races": [
+    "dragon"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "dragon_sage",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "drs2_path_star"
+    ],
+    "notFlags": [
+     "drs2_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Absolute Omniscience. Bạn đọc được vận mệnh thế giới trong mọi vì sao.",
+   "choices": [
+    {
+     "label": "Cảnh báo thế giới về mọi thảm họa",
+     "require": {
+      "flags": [
+       "drs2_star_saved"
+      ]
+     },
+     "text": "Một đài quan sát trên đỉnh núi. Mỗi trăm năm, bạn gửi một lời cảnh báo. Các vương quốc học cách lắng nghe.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "drs2_end",
+       "drs2_end_observatory"
+      ]
+     },
+     "moment": "Dựng đài quan sát cảnh báo thảm họa cho cả thế giới"
+    },
+    {
+     "label": "Đếm sao, như Elyndra",
+     "text": "Bạn ngồi trên đỉnh núi, đếm sao, mãi mãi. Một ngày, ai đó sẽ ngồi cạnh bạn.",
+     "effects": {
+      "fame": 10,
+      "joy": 15,
+      "flags": [
+       "drs2_end",
+       "drs2_end_counting"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "drs2_c5_mortal_late",
+   "races": [
+    "dragon"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "dragon_sage",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "drs2_path_mortal"
+    ],
+    "notFlags": [
+     "drs2_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Absolute Omniscience. Tháp Ngà gọi bạn là “Viện trưởng Danh dự Vĩnh viễn”.",
+   "choices": [
+    {
+     "label": "Dạy lớp học cuối cùng",
+     "require": {
+      "flags": [
+       "drs2_mortal_student"
+      ]
+     },
+     "text": "Học trò của học trò của cô bé năm xưa. Một trăm pháp sư trẻ ngồi trên đỉnh núi, nghe bạn giảng. Câu hỏi đầu tiên: “Vì sao bầu trời màu xanh?”",
+     "effects": {
+      "fame": 15,
+      "joy": 18,
+      "flags": [
+       "drs2_end",
+       "drs2_end_last_class"
+      ]
+     },
+     "moment": "Dạy lớp học cuối cùng trên đỉnh núi cho một trăm pháp sư trẻ"
+    },
+    {
+     "label": "Viết bách khoa toàn thư của Rồng",
+     "text": "Mọi điều bạn biết. Mười nghìn trang. Tháp Ngà mất một thế kỷ để chép.",
+     "effects": {
+      "fame": 12,
+      "INT": 1,
+      "flags": [
+       "drs2_end",
+       "drs2_end_encyclopedia"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "drs2_c5_void_late",
+   "races": [
+    "dragon"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "dragon_sage",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "drs2_path_void"
+    ],
+    "notFlags": [
+     "drs2_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Absolute Omniscience. Bạn đã nhìn vào Hư Vô và trở về.",
+   "choices": [
+    {
+     "label": "Canh cánh cửa Hư Vô",
+     "require": {
+      "flags": [
+       "drs2_void_refused"
+      ]
+     },
+     "text": "Bạn nằm trước cánh cửa, mãi mãi. Hư Vô nói chuyện với bạn mỗi đêm. Hai kẻ cô đơn nhất vũ trụ, một bên cửa.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "drs2_end",
+       "drs2_end_door"
+      ]
+     },
+     "moment": "Nằm canh trước cánh cửa Hư Vô mãi mãi"
+    },
+    {
+     "label": "Tạo ra một thứ mới",
+     "require": {
+      "flags": [
+       "drs2_void_seen"
+      ]
+     },
+     "text": "Bạn đã thấy hình dạng của mọi thứ trước khi tồn tại. Bạn tạo ra một loài hoa mới. Nó mọc khắp thế giới, và không ai biết nó từ đâu đến.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "drs2_end",
+       "drs2_end_flower"
+      ]
+     }
+    },
+    {
+     "label": "Quên đi",
+     "text": "Bạn để Hư Vô lấy đi ký ức về nó. Bạn ngủ, bình yên.",
+     "effects": {
+      "fame": 8,
+      "joy": 10,
+      "flags": [
+       "drs2_end",
+       "drs2_end_forget"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}

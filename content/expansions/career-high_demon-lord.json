@@ -1,0 +1,1230 @@
+{
+ "_note": "Tuyến truyện Abyssal Lord (High Demon): ba đạo (hdl_path_throne / hdl_path_people / hdl_path_gods), nhân vật xuyên suốt Đại Công Tước Belphegor (lãnh chúa cổ) và Lady Nocturne (Vampire nữ gián điệp).",
+ "origins": [],
+ "events": [
+  {
+   "id": "hdl_c1_belphegor",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "hd_lord",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "hdl_met_belphegor"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Belphegor",
+     "race": "High Demon",
+     "position": "Đại Công Tước cai trị tầng thứ ba của Vực Thẳm"
+    }
+   ],
+   "text": "Đại Công Tước Belphegor đã cai trị tầng thứ ba của Vực Thẳm hai mươi nghìn năm. Ông mời bạn đến dự tiệc, và hỏi: “Ngươi muốn cai trị ai?”",
+   "choices": [
+    {
+     "label": "Những kẻ muốn được cai trị",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Ông bật cười, lần đầu sau nghìn năm. “Câu trả lời của một lãnh chúa sống lâu.” Ông dạy bạn đọc lòng người trong một bữa tiệc.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "hdl_met_belphegor",
+        "hdl_belphegor_respect"
+       ]
+      },
+      "moment": "Trả lời câu hỏi của Đại Công Tước Belphegor như một lãnh chúa sống lâu"
+     },
+     "fail": {
+      "text": "Ông không cười. “Ngươi còn trẻ.”",
+      "effects": {
+       "flags": [
+        "hdl_met_belphegor"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Tất cả",
+     "text": "Ông lắc đầu. “Mọi lãnh chúa trẻ đều nói thế. Mọi lãnh chúa trẻ đều chết trẻ.” Ông vẫn dạy bạn.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "hdl_met_belphegor"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdl_c1_nocturne",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "hd_lord",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "hdl_met_belphegor"
+    ],
+    "notFlags": [
+     "hdl_met_nocturne"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Lady Nocturne",
+     "race": "Vampire",
+     "position": "Nữ gián điệp Vampire của các triều đình Vực Thẳm"
+    }
+   ],
+   "text": "Tại yến tiệc của một Đại Công Tước đối địch, Lady Nocturne, một Vampire nữ, rót rượu cho bạn và thì thầm: “Ly này có độc. Ly kia thì không. Ta muốn biết ngươi chọn ly nào.”",
+   "choices": [
+    {
+     "label": "Uống ly cô nói không độc",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Không độc. Cô mỉm cười. “Ngươi tin ta. Thú vị.” Từ đó, cô gửi bạn tin tức từ mọi triều đình Vực Thẳm.",
+      "effects": {
+       "LUCK": 1,
+       "jobXp": 1,
+       "flags": [
+        "hdl_met_nocturne",
+        "hdl_nocturne_ally"
+       ]
+      },
+      "moment": "Tin lời Lady Nocturne và uống ly rượu cô chỉ"
+     },
+     "fail": {
+      "text": "Có độc. Nhẹ. Bạn ốm một thập kỷ. Cô gửi lời xin lỗi kèm một bó hoa đen.",
+      "effects": {
+       "health": -10,
+       "flags": [
+        "hdl_met_nocturne"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Không uống ly nào",
+     "text": "Cô cười to. “Đúng. Cả hai đều có độc.” Cô ngồi xuống cạnh bạn, và từ đó coi bạn là đối thủ đáng tôn trọng.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "hdl_met_nocturne"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdl_c2_first_strike",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "hd_lord",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "flags": [
+     "hdl_met_belphegor"
+    ],
+    "notFlags": [
+     "hdl_first_strike",
+     "hdl_end"
+    ]
+   },
+   "text": "Bọn Imp và quỷ cấp thấp ở hầm mỏ số 4 đình công vì thuế máu quá cao. Chúng đứng chặn cổng mỏ.",
+   "choices": [
+    {
+     "label": "Giảm thuế, nghe chúng nói",
+     "text": "Chúng ngạc nhiên đến im lặng. Bạn giảm thuế một phần ba. Sản lượng mỏ tăng gấp đôi trong một thế kỷ.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2,
+      "flags": [
+       "hdl_first_strike",
+       "hdl_first_listened"
+      ]
+     },
+     "moment": "Giảm thuế máu và lắng nghe những Imp đình công"
+    },
+    {
+     "label": "Dập bằng quyền lực",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Một cái nhìn của High Demon. Chúng quỳ, run rẩy, và trở lại làm việc. Chúng sẽ không bao giờ quên.",
+      "effects": {
+       "STR": 1,
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "hdl_first_strike"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Chúng đông hơn bạn nghĩ. Cuộc đình công kéo dài một thập kỷ.",
+      "effects": {
+       "fame": -4,
+       "flags": [
+        "hdl_first_strike"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdl_c2_crossroads",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "hd_lord",
+    "free": true,
+    "jobRank": 1,
+    "flags": [
+     "hdl_met_belphegor"
+    ],
+    "notFlags": [
+     "hdl_path_throne",
+     "hdl_path_people",
+     "hdl_path_gods",
+     "hdl_end"
+    ]
+   },
+   "text": "Belphegor dẫn bạn lên ban công cao nhất của lâu đài ông, nhìn xuống Vực Thẳm. Ông chỉ ba thứ: ngai của Ma Vương ở tầng thứ chín, những khu ổ chuột của Imp ở tầng thứ nhất, và bầu trời trên cao, nơi các Thần linh nhìn xuống.",
+   "choices": [
+    {
+     "label": "Ngai Ma Vương: Đường Lên Đỉnh",
+     "text": "Bạn sẽ leo từng tầng, cho đến tầng thứ chín. Belphegor gật đầu: “Ta đã thử, hai lần.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "hdl_path_throne"
+      ]
+     },
+     "moment": "Chọn leo từng tầng Vực Thẳm hướng tới ngai Ma Vương"
+    },
+    {
+     "label": "Khu ổ chuột: Lãnh Chúa Của Kẻ Thấp Hèn",
+     "text": "Bạn sẽ cai trị cho những kẻ không ai cai trị cho. Belphegor nhìn bạn, lạ lùng. “Không lãnh chúa nào chọn thế.”",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "hdl_path_people"
+      ]
+     },
+     "moment": "Chọn cai trị vì những Imp và quỷ cấp thấp"
+    },
+    {
+     "label": "Bầu trời: Kẻ Thách Thần",
+     "text": "Các Thần linh đặt giới hạn cho quyền năng của High Demon. Bạn sẽ tìm hiểu giới hạn ấy, và có lẽ phá nó.",
+     "effects": {
+      "STR": 1,
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "hdl_path_gods"
+      ]
+     },
+     "moment": "Chọn tìm hiểu và thách thức giới hạn của Thần linh"
+    }
+   ]
+  },
+  {
+   "id": "hdl_throne_duke",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "hd_lord",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "hdl_path_throne"
+    ],
+    "notFlags": [
+     "hdl_end"
+    ]
+   },
+   "text": "Một Đại Công Tước đối địch mời bạn dự tiệc. Lời mời viết bằng máu, và có ý nghĩa: hoặc liên minh, hoặc chiến tranh.",
+   "choices": [
+    {
+     "label": "Đến, đề nghị liên minh",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Hai lãnh chúa, một bàn tiệc, một thỏa thuận. Liên minh giữ được ba Kỷ Nguyên. Bạn leo lên tầng thứ năm.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "hdl_throne_alliance"
+       ]
+      },
+      "moment": "Đổi lời mời bằng máu thành một liên minh ba Kỷ Nguyên"
+     },
+     "fail": {
+      "text": "Hắn phản bội ngay tại bàn tiệc. Bạn thoát, mất một tầng lãnh địa.",
+      "effects": {
+       "fame": -6
+      }
+     }
+    },
+    {
+     "label": "Gửi Lady Nocturne thay mình",
+     "require": {
+      "flags": [
+       "hdl_nocturne_ally",
+       "hdl_met_nocturne"
+      ]
+     },
+     "text": "Cô quay về với mọi bí mật của hắn. Bạn không cần đánh. Hắn đầu hàng trước khi biết mình đã thua.",
+     "effects": {
+      "fame": 10,
+      "jobXp": 3,
+      "flags": [
+       "hdl_throne_alliance"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdl_throne_coup",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "hd_lord",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "hdl_path_throne"
+    ],
+    "notFlags": [
+     "hdl_end"
+    ]
+   },
+   "text": "Ma Vương yếu đi. Các lãnh chúa thì thầm về một cuộc đảo chính. Họ muốn bạn dẫn đầu.",
+   "choices": [
+    {
+     "label": "Từ chối, chờ thời",
+     "text": "Cuộc đảo chính thất bại. Mọi kẻ tham gia bị xử. Bạn sống, và leo thêm một tầng vào chỗ trống họ để lại.",
+     "effects": {
+      "INT": 1,
+      "fame": 6,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Dẫn đầu",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Ngai lung lay. Ma Vương cũ chạy trốn. Bạn chưa ngồi lên, nhưng giờ không ai dám ngồi trước bạn.",
+      "effects": {
+       "STR": 1,
+       "fame": 12,
+       "jobXp": 3,
+       "flags": [
+        "hdl_throne_coup"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Thất bại. Bạn bị đày xuống tầng thứ nhất.",
+      "effects": {
+       "fame": -12,
+       "joy": -8
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdl_people_imp",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "hd_lord",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "hdl_path_people"
+    ],
+    "notFlags": [
+     "hdl_end"
+    ]
+   },
+   "text": "Một Imp nhỏ đến lâu đài bạn, xin công lý: một lãnh chúa khác đã giết cả gia đình nó vì nợ thuế.",
+   "choices": [
+    {
+     "label": "Nhận vụ án",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đưa lãnh chúa ấy ra trước Hội đồng, với bằng chứng. Hắn bị tước lãnh địa. Imp nhỏ trở thành người phục vụ trung thành nhất của bạn.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "hdl_people_justice"
+       ]
+      },
+      "moment": "Mang công lý đến cho một Imp nhỏ trước Hội đồng Ma Giới"
+     },
+     "fail": {
+      "text": "Hội đồng không thèm nghe vụ của một Imp.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    },
+    {
+     "label": "Cho nó chỗ ở, không làm gì thêm",
+     "text": "Nó sống. Nó không bao giờ quên kẻ giết gia đình mình. Một Kỷ Nguyên sau, nó tự đòi công lý.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdl_people_tax",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "hd_lord",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "hdl_path_people"
+    ],
+    "notFlags": [
+     "hdl_end"
+    ]
+   },
+   "text": "Bạn bãi bỏ thuế máu ở lãnh địa mình. Các lãnh chúa khác nói bạn sẽ làm cả Vực Thẳm nổi loạn.",
+   "choices": [
+    {
+     "label": "Giữ nguyên quyết định",
+     "text": "Imp từ mọi tầng di cư đến lãnh địa bạn. Nó trở thành tầng đông dân nhất Vực Thẳm, và giàu nhất.",
+     "effects": {
+      "fame": 10,
+      "wealth": 10,
+      "jobXp": 3,
+      "flags": [
+       "hdl_people_free"
+      ]
+     },
+     "moment": "Bãi bỏ thuế máu ở lãnh địa của mình"
+    },
+    {
+     "label": "Khôi phục một nửa",
+     "text": "Các lãnh chúa yên lòng. Imp ở lãnh địa bạn sống khá hơn nơi khác, một chút.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdl_gods_judgement",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "hd_lord",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "hdl_path_gods"
+    ],
+    "notFlags": [
+     "hdl_end"
+    ]
+   },
+   "text": "Quyền lực của bạn chạm đến ngưỡng giới hạn. Một Thần linh hiện xuống, phán xét: hoặc lùi lại, hoặc bị xóa sổ.",
+   "choices": [
+    {
+     "label": "Hỏi Thần vì sao có giới hạn",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Thần im lặng, rồi trả lời. Không ai từng hỏi. Giới hạn tồn tại vì quyền năng vô hạn sẽ xé rách thế giới. Bạn lùi lại, không vì sợ, mà vì hiểu.",
+      "effects": {
+       "INT": 2,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "hdl_gods_understood"
+       ]
+      },
+      "moment": "Hỏi Thần linh vì sao quyền năng có giới hạn, và nhận được câu trả lời"
+     },
+     "fail": {
+      "text": "Thần không trả lời. Thần xóa một phần quyền năng của bạn.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Thách đấu",
+     "check": {
+      "stat": "STR",
+      "target": 9
+     },
+     "success": {
+      "text": "Bạn không thắng. Nhưng bạn không thua. Thần rút lui, và giới hạn của bạn lùi ra xa một chút.",
+      "effects": {
+       "STR": 1,
+       "fame": 15,
+       "jobXp": 3,
+       "flags": [
+        "hdl_gods_challenged"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn mất một nửa quyền năng, và một nghìn năm.",
+      "effects": {
+       "health": -30
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdl_gods_temple",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "hd_lord",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "hdl_path_gods"
+    ],
+    "notFlags": [
+     "hdl_end"
+    ]
+   },
+   "text": "Một ngôi đền cổ thờ một Thần đã chết nằm trong lãnh địa bạn. Những người thờ cúng cuối cùng đang chết dần.",
+   "choices": [
+    {
+     "label": "Bảo vệ ngôi đền",
+     "text": "Bạn không tin Thần. Nhưng bạn tin vào những người tin. Ngôi đền đứng vững qua ba Kỷ Nguyên.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Tìm hiểu vì sao Thần chết",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Thần chết vì không còn ai tin. Bạn hiểu: quyền năng của Thần đến từ người tin. Có lẽ quyền năng của lãnh chúa cũng vậy.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "hdl_gods_secret"
+       ]
+      },
+      "moment": "Khám phá rằng Thần linh chết khi không còn ai tin"
+     },
+     "fail": {
+      "text": "Sách cổ đã mục. Không ai còn nhớ.",
+      "effects": {
+       "joy": -2
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdl_c4_belphegor",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "hd_lord",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "hdl_met_belphegor"
+    ],
+    "notFlags": [
+     "hdl_belphegor_gone",
+     "hdl_end"
+    ],
+    "anyFlags": [
+     "hdl_path_throne",
+     "hdl_path_people",
+     "hdl_path_gods"
+    ]
+   },
+   "text": "Đại Công Tước Belphegor đã cai trị đủ lâu. Ông muốn trao lãnh địa cho bạn, và đi xuống tầng sâu nhất, nơi High Demon già đi ngủ mãi mãi.",
+   "choices": [
+    {
+     "label": "Nhận lãnh địa",
+     "text": "Ông trao bạn chiếc nhẫn lãnh chúa. “Cai trị những kẻ muốn được cai trị.” Ông đi xuống, và không ai thấy ông nữa.",
+     "effects": {
+      "fame": 10,
+      "jobXp": 3,
+      "flags": [
+       "hdl_belphegor_gone",
+       "hdl_belphegor_ring"
+      ]
+     },
+     "moment": "Nhận chiếc nhẫn lãnh chúa từ Đại Công Tước Belphegor"
+    },
+    {
+     "label": "Đi cùng ông xuống tầng sâu nhất",
+     "text": "Một chuyến đi dài. Ông kể về hai mươi nghìn năm. Đến tầng sâu nhất, ông nằm xuống, và bạn quay về một mình.",
+     "effects": {
+      "joy": -4,
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "hdl_belphegor_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdl_c4_nocturne",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "hd_lord",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "hdl_met_nocturne"
+    ],
+    "notFlags": [
+     "hdl_end"
+    ]
+   },
+   "text": "Lady Nocturne bị bắt bởi một Đại Công Tước, sẽ bị xử như gián điệp lúc bình minh.",
+   "choices": [
+    {
+     "label": "Đòi người",
+     "require": {
+      "flags": [
+       "hdl_nocturne_ally"
+      ]
+     },
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đổi một vùng lãnh địa lấy cô. Cô bước ra khỏi ngục, nhìn bạn, và lần đầu tiên không nói gì mỉa mai.",
+      "effects": {
+       "fame": 6,
+       "wealth": -15,
+       "jobXp": 3,
+       "flags": [
+        "hdl_nocturne_saved"
+       ]
+      },
+      "moment": "Đổi một vùng lãnh địa để cứu Lady Nocturne"
+     },
+     "fail": {
+      "text": "Đại Công Tước không chịu. Cô được thả sau một Kỷ Nguyên, gầy và lạnh lùng hơn.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Không can thiệp",
+     "text": "Cô tự trốn thoát, như mọi khi. Cô không nói chuyện với bạn một thế kỷ.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdl_c5_throne",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "hd_lord",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "hdl_path_throne"
+    ],
+    "notFlags": [
+     "hdl_end"
+    ]
+   },
+   "text": "Bạn là Demon Lord. Ngai ở tầng thứ chín chờ bạn.",
+   "choices": [
+    {
+     "label": "Ngồi lên ngai với liên minh sau lưng",
+     "require": {
+      "flags": [
+       "hdl_throne_alliance"
+      ]
+     },
+     "text": "Không đảo chính, không máu. Các lãnh chúa đồng minh tôn bạn lên. Triều đại của bạn là triều đại dài nhất Vực Thẳm từng có.",
+     "effects": {
+      "fame": 18,
+      "joy": 10,
+      "flags": [
+       "hdl_end",
+       "hdl_end_allied_throne"
+      ]
+     },
+     "moment": "Lên ngai Ma Vương nhờ liên minh, không đổ máu"
+    },
+    {
+     "label": "Ngồi lên ngai bằng sức mạnh",
+     "require": {
+      "flags": [
+       "hdl_throne_coup"
+      ]
+     },
+     "text": "Ngai là của bạn. Bạn biết ai đó, một ngày, sẽ làm điều bạn đã làm.",
+     "effects": {
+      "fame": 18,
+      "joy": -4,
+      "flags": [
+       "hdl_end",
+       "hdl_end_seized_throne"
+      ]
+     }
+    },
+    {
+     "label": "Đứng trước ngai, không ngồi",
+     "text": "Bạn hiểu Belphegor. Bạn đứng ở tầng thứ tám, và để ngai trống. Không ai dám ngồi.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "hdl_end",
+       "hdl_end_empty_throne"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdl_c5_people",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "hd_lord",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "hdl_path_people"
+    ],
+    "notFlags": [
+     "hdl_end"
+    ]
+   },
+   "text": "Bạn là Demon Lord, nhưng Imp ở khắp Vực Thẳm gọi bạn là “Người Bảo Hộ”.",
+   "choices": [
+    {
+     "label": "Biến lãnh địa thành nơi tự do cho mọi kẻ thấp hèn",
+     "require": {
+      "flags": [
+       "hdl_people_free"
+      ]
+     },
+     "text": "Không thuế máu. Không nô lệ. Tầng của bạn là nơi duy nhất trong Vực Thẳm mà một Imp có thể sống đến già.",
+     "effects": {
+      "fame": 15,
+      "joy": 18,
+      "flags": [
+       "hdl_end",
+       "hdl_end_haven"
+      ]
+     },
+     "moment": "Biến lãnh địa thành nơi tự do cho mọi kẻ thấp hèn của Vực Thẳm"
+    },
+    {
+     "label": "Lập tòa án cho Imp",
+     "require": {
+      "flags": [
+       "hdl_people_justice"
+      ]
+     },
+     "text": "Imp nhỏ năm xưa giờ là thẩm phán. Lãnh chúa nào giết Imp vô cớ, đều phải ra tòa.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "hdl_end",
+       "hdl_end_court"
+      ]
+     }
+    },
+    {
+     "label": "Sống giữa họ",
+     "text": "Bạn rời lâu đài, sống ở tầng thứ nhất, giữa khu ổ chuột. Imp không còn sợ bạn.",
+     "effects": {
+      "fame": 10,
+      "joy": 15,
+      "flags": [
+       "hdl_end",
+       "hdl_end_among"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdl_c5_gods",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "hd_lord",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "hdl_path_gods"
+    ],
+    "notFlags": [
+     "hdl_end"
+    ]
+   },
+   "text": "Bạn là Demon Lord. Bạn đã đối mặt với Thần linh.",
+   "choices": [
+    {
+     "label": "Chấp nhận giới hạn",
+     "require": {
+      "flags": [
+       "hdl_gods_understood"
+      ]
+     },
+     "text": "Bạn hiểu. Bạn không thách nữa. Thần linh, lần đầu tiên, gửi một lời: “Cảm ơn.”",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "hdl_end",
+       "hdl_end_accept"
+      ]
+     },
+     "moment": "Chấp nhận giới hạn của Thần linh vì đã hiểu lý do"
+    },
+    {
+     "label": "Trở thành Thần",
+     "require": {
+      "flags": [
+       "hdl_gods_secret"
+      ]
+     },
+     "text": "Quyền năng của Thần đến từ người tin. Những Imp bạn đã bảo vệ bắt đầu thờ bạn. Bạn không muốn. Nhưng bạn không thể ngăn họ.",
+     "effects": {
+      "fame": 18,
+      "joy": 8,
+      "flags": [
+       "hdl_end",
+       "hdl_end_godhood"
+      ]
+     }
+    },
+    {
+     "label": "Thách đấu lần cuối",
+     "text": "Bạn đứng trước Thần, lần cuối. Không ai biết kết quả.",
+     "effects": {
+      "fame": 15,
+      "joy": 6,
+      "flags": [
+       "hdl_end",
+       "hdl_end_last_challenge"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdl_daily_feast",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "hd_lord",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một bữa tiệc nữa. Một âm mưu nữa.",
+   "choices": [
+    {
+     "label": "Đến",
+     "text": "Bạn biết ai muốn đầu độc ai. Bạn không nói.",
+     "effects": {
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Không đến",
+     "text": "Họ thì thầm về bạn. Bạn không quan tâm.",
+     "effects": {
+      "joy": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdl_daily_war",
+   "races": [
+    "high_demon"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "hd_lord",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh Kỷ Nguyên. Ma Vương gọi các lãnh chúa.",
+   "choices": [
+    {
+     "label": "Gửi quân",
+     "text": "Quân của bạn trở về, ít hơn.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Gửi vàng thay quân",
+     "text": "Ma Vương hài lòng. Lính của bạn sống.",
+     "effects": {
+      "wealth": -10,
+      "joy": 4,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdl_daily_old",
+   "races": [
+    "high_demon"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "hd_lord",
+    "free": true
+   },
+   "text": "Bạn đã cai trị qua nhiều Kỷ Nguyên. Những kẻ thù cũ đều đã chết.",
+   "choices": [
+    {
+     "label": "Nhớ lại họ",
+     "text": "Một số bạn nhớ với lòng kính trọng.",
+     "effects": {
+      "joy": 4
+     }
+    },
+    {
+     "label": "Tìm kẻ thù mới",
+     "text": "Thế hệ mới. Thú vị.",
+     "effects": {
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdl_c5_throne_late",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "hd_lord",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "hdl_path_throne"
+    ],
+    "notFlags": [
+     "hdl_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Demon Lord. Ngai ở tầng thứ chín chờ bạn.",
+   "choices": [
+    {
+     "label": "Ngồi lên ngai với liên minh sau lưng",
+     "require": {
+      "flags": [
+       "hdl_throne_alliance"
+      ]
+     },
+     "text": "Không đảo chính, không máu. Các lãnh chúa đồng minh tôn bạn lên. Triều đại của bạn là triều đại dài nhất Vực Thẳm từng có.",
+     "effects": {
+      "fame": 18,
+      "joy": 10,
+      "flags": [
+       "hdl_end",
+       "hdl_end_allied_throne"
+      ]
+     },
+     "moment": "Lên ngai Ma Vương nhờ liên minh, không đổ máu"
+    },
+    {
+     "label": "Ngồi lên ngai bằng sức mạnh",
+     "require": {
+      "flags": [
+       "hdl_throne_coup"
+      ]
+     },
+     "text": "Ngai là của bạn. Bạn biết ai đó, một ngày, sẽ làm điều bạn đã làm.",
+     "effects": {
+      "fame": 18,
+      "joy": -4,
+      "flags": [
+       "hdl_end",
+       "hdl_end_seized_throne"
+      ]
+     }
+    },
+    {
+     "label": "Đứng trước ngai, không ngồi",
+     "text": "Bạn hiểu Belphegor. Bạn đứng ở tầng thứ tám, và để ngai trống. Không ai dám ngồi.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "hdl_end",
+       "hdl_end_empty_throne"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "hdl_c5_people_late",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "hd_lord",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "hdl_path_people"
+    ],
+    "notFlags": [
+     "hdl_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Demon Lord, nhưng Imp ở khắp Vực Thẳm gọi bạn là “Người Bảo Hộ”.",
+   "choices": [
+    {
+     "label": "Biến lãnh địa thành nơi tự do cho mọi kẻ thấp hèn",
+     "require": {
+      "flags": [
+       "hdl_people_free"
+      ]
+     },
+     "text": "Không thuế máu. Không nô lệ. Tầng của bạn là nơi duy nhất trong Vực Thẳm mà một Imp có thể sống đến già.",
+     "effects": {
+      "fame": 15,
+      "joy": 18,
+      "flags": [
+       "hdl_end",
+       "hdl_end_haven"
+      ]
+     },
+     "moment": "Biến lãnh địa thành nơi tự do cho mọi kẻ thấp hèn của Vực Thẳm"
+    },
+    {
+     "label": "Lập tòa án cho Imp",
+     "require": {
+      "flags": [
+       "hdl_people_justice"
+      ]
+     },
+     "text": "Imp nhỏ năm xưa giờ là thẩm phán. Lãnh chúa nào giết Imp vô cớ, đều phải ra tòa.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "hdl_end",
+       "hdl_end_court"
+      ]
+     }
+    },
+    {
+     "label": "Sống giữa họ",
+     "text": "Bạn rời lâu đài, sống ở tầng thứ nhất, giữa khu ổ chuột. Imp không còn sợ bạn.",
+     "effects": {
+      "fame": 10,
+      "joy": 15,
+      "flags": [
+       "hdl_end",
+       "hdl_end_among"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "hdl_c5_gods_late",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "hd_lord",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "hdl_path_gods"
+    ],
+    "notFlags": [
+     "hdl_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Demon Lord. Bạn đã đối mặt với Thần linh.",
+   "choices": [
+    {
+     "label": "Chấp nhận giới hạn",
+     "require": {
+      "flags": [
+       "hdl_gods_understood"
+      ]
+     },
+     "text": "Bạn hiểu. Bạn không thách nữa. Thần linh, lần đầu tiên, gửi một lời: “Cảm ơn.”",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "hdl_end",
+       "hdl_end_accept"
+      ]
+     },
+     "moment": "Chấp nhận giới hạn của Thần linh vì đã hiểu lý do"
+    },
+    {
+     "label": "Trở thành Thần",
+     "require": {
+      "flags": [
+       "hdl_gods_secret"
+      ]
+     },
+     "text": "Quyền năng của Thần đến từ người tin. Những Imp bạn đã bảo vệ bắt đầu thờ bạn. Bạn không muốn. Nhưng bạn không thể ngăn họ.",
+     "effects": {
+      "fame": 18,
+      "joy": 8,
+      "flags": [
+       "hdl_end",
+       "hdl_end_godhood"
+      ]
+     }
+    },
+    {
+     "label": "Thách đấu lần cuối",
+     "text": "Bạn đứng trước Thần, lần cuối. Không ai biết kết quả.",
+     "effects": {
+      "fame": 15,
+      "joy": 6,
+      "flags": [
+       "hdl_end",
+       "hdl_end_last_challenge"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}

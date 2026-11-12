@@ -1,0 +1,1098 @@
+{
+ "_note": "Tuyến truyện Dark Archmage (High Demon): ba đạo (hda_path_forbidden / hda_path_law / hda_path_teach), nhân vật xuyên suốt Lilith Không Bóng (đại pháp sư cổ) và Aurelian (pháp sư Human bị đày).",
+ "origins": [],
+ "events": [
+  {
+   "id": "hda_c1_lilith",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "hd_archmage",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "hda_met_lilith"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Lilith Không Bóng",
+     "race": "High Demon",
+     "position": "Đại pháp sư cổ đã đổi cái bóng lấy cấm thuật"
+    }
+   ],
+   "text": "Lilith Không Bóng đã đánh đổi cái bóng của mình lấy một cấm thuật, mười nghìn năm trước. Bà nhìn bạn: “Mỗi phép thuật đều có giá. Phép càng mạnh, giá càng đắt. Ngươi sẵn sàng trả gì?”",
+   "choices": [
+    {
+     "label": "Hỏi giá trước",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bà mỉm cười. “Kẻ hỏi giá trước sẽ sống lâu.” Bà dạy bạn cách đọc giá của mỗi phép trước khi niệm.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "hda_met_lilith",
+        "hda_lilith_respect"
+       ]
+      },
+      "moment": "Học cách đọc giá của mỗi phép thuật từ Lilith Không Bóng"
+     },
+     "fail": {
+      "text": "Bà không trả lời. “Ngươi sẽ biết khi trả.”",
+      "effects": {
+       "flags": [
+        "hda_met_lilith"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Bất cứ thứ gì",
+     "text": "Bà nhìn bạn rất lâu, rồi lắc đầu. “Ta cũng từng nói thế.” Bà chỉ vào chỗ bóng của bà từng ở.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "hda_met_lilith"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "hda_c2_first_experiment",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "hd_archmage",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "flags": [
+     "hda_met_lilith"
+    ],
+    "notFlags": [
+     "hda_first_experiment",
+     "hda_end"
+    ]
+   },
+   "text": "Thí nghiệm hợp nhất lõi rồng lửa với ma thạch sương giá của bạn vượt tầm kiểm soát. Phòng thí nghiệm bắt đầu nứt.",
+   "choices": [
+    {
+     "label": "Tách hai lõi bằng tay",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn tách chúng ra, tay bỏng và đông cứng cùng lúc. Phòng thí nghiệm đứng vững. Lilith gật đầu: “Đôi khi phép thuật tốt nhất là đôi tay.”",
+      "effects": {
+       "STR": 1,
+       "jobXp": 2,
+       "flags": [
+        "hda_first_experiment"
+       ]
+      },
+      "moment": "Tách hai lõi nguyên tố đang hợp nhất bằng chính đôi tay"
+     },
+     "fail": {
+      "text": "Vụ nổ làm sập nửa tháp. Bạn sống, nhưng mất một thế kỷ để lành.",
+      "effects": {
+       "health": -15,
+       "flags": [
+        "hda_first_experiment"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Để chúng hợp nhất",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Lửa và băng hòa thành một thứ mới: một tinh thể vừa nóng vừa lạnh. Không ai từng thấy nó.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 2,
+       "flags": [
+        "hda_first_experiment"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Chúng hợp nhất thành một vụ nổ.",
+      "effects": {
+       "health": -15,
+       "flags": [
+        "hda_first_experiment"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "hda_c2_crossroads",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "hd_archmage",
+    "free": true,
+    "jobRank": 1,
+    "flags": [
+     "hda_met_lilith"
+    ],
+    "notFlags": [
+     "hda_path_forbidden",
+     "hda_path_law",
+     "hda_path_teach",
+     "hda_end"
+    ]
+   },
+   "text": "Lilith mở ba cánh cửa trong thư viện của bà: một cánh dẫn đến cấm thư mà chính bà không dám đọc, một cánh dẫn đến phòng soạn luật ma pháp của Ma Giới, và một cánh dẫn đến căn phòng có những chiếc ghế trống cho học trò.",
+   "choices": [
+    {
+     "label": "Cấm thư: Kẻ Đọc Điều Cấm",
+     "text": "Bạn sẽ đọc những gì Lilith không dám. Bà không ngăn. “Ta chỉ xin ngươi kể cho ta nghe, nếu còn sống.”",
+     "effects": {
+      "INT": 2,
+      "jobXp": 2,
+      "flags": [
+       "hda_path_forbidden"
+      ]
+     },
+     "moment": "Chọn đọc những cấm thư mà Lilith không dám đọc"
+    },
+    {
+     "label": "Phòng luật: Người Đặt Giới Hạn",
+     "text": "Ma pháp không có luật thì sẽ hủy diệt cả Ma Giới. Bạn sẽ viết luật cho nó.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "hda_path_law"
+      ]
+     },
+     "moment": "Chọn viết luật giới hạn cho ma pháp Ma Giới"
+    },
+    {
+     "label": "Ghế trống: Người Thầy",
+     "text": "Lilith chưa từng có học trò nào sống sót qua một Kỷ Nguyên. Bạn sẽ là người đầu tiên dạy đủ lâu.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "hda_path_teach"
+      ]
+     },
+     "moment": "Chọn làm người thầy dạy ma pháp qua nhiều Kỷ Nguyên"
+    }
+   ]
+  },
+  {
+   "id": "hda_c1_aurelian",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "hd_archmage",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 3,
+    "flags": [
+     "hda_met_lilith"
+    ],
+    "notFlags": [
+     "hda_met_aurelian"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Aurelian",
+     "race": "Human",
+     "position": "Pháp sư Human bị Tháp Ngà đày vì nghiên cứu cấm thuật"
+    }
+   ],
+   "text": "Aurelian, một pháp sư Human bị Tháp Ngà đày đi vì nghiên cứu cấm thuật, lạc vào Ma Giới. Hắn không sợ bạn. Hắn hỏi: “Ngươi có thư viện không?”",
+   "choices": [
+    {
+     "label": "Cho hắn vào thư viện",
+     "text": "Hắn đọc suốt ba ngày không ngủ. Rồi hắn bắt đầu tranh luận với bạn về mọi thứ. Hắn sai một nửa. Nửa còn lại khiến bạn suy nghĩ cả trăm năm.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "hda_met_aurelian",
+       "hda_aurelian_friend"
+      ]
+     },
+     "moment": "Cho pháp sư Human bị đày Aurelian vào thư viện của mình"
+    },
+    {
+     "label": "Đuổi hắn đi",
+     "text": "Hắn đi, nhưng để lại một cuốn sổ ghi chép. Bạn đọc nó. Hắn đúng về ba điều.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "hda_met_aurelian"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "hda_forbidden_tome",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "hd_archmage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "hda_path_forbidden"
+    ],
+    "notFlags": [
+     "hda_end"
+    ]
+   },
+   "text": "Một thương nhân Sói Bạc bí mật dâng lên bạn một cuốn ma đạo thư bọc da người, viết bằng thứ ngôn ngữ đã chết.",
+   "choices": [
+    {
+     "label": "Đọc nó",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đọc được. Nó dạy cách viết lại pháp tắc của thế giới. Bạn đọc đến trang cuối, rồi đốt nó. Không ai nên biết điều này. Kể cả bạn, nhưng đã muộn.",
+      "effects": {
+       "INT": 2,
+       "joy": -6,
+       "jobXp": 3,
+       "flags": [
+        "hda_forbidden_read"
+       ]
+      },
+      "moment": "Đọc cuốn ma đạo thư viết lại pháp tắc thế giới rồi đốt nó"
+     },
+     "fail": {
+      "text": "Cuốn sách đọc bạn. Bạn mất một nghìn năm ký ức.",
+      "effects": {
+       "health": -15,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Trả nó lại",
+     "text": "Thương nhân không hiểu. Bạn đóng cửa. Cuốn sách sẽ tìm người khác.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "hda_forbidden_assassin",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "hd_archmage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "hda_path_forbidden"
+    ],
+    "notFlags": [
+     "hda_end"
+    ]
+   },
+   "text": "Đang khắc ma trận, ngọn nến đột ngột tắt. Một sát thủ của Hội đồng Ma Giới đứng sau lưng bạn: họ sợ những gì bạn đã đọc.",
+   "choices": [
+    {
+     "label": "Đánh",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Hắn ngã. Bạn gửi đầu hắn về Hội đồng, kèm một trang ghi chú: “Ta đọc, ta không dùng. Để ta yên.”",
+      "effects": {
+       "STR": 1,
+       "fame": 6,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Hắn để lại một vết dao trên lưng bạn trước khi biến mất.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Nói chuyện với hắn",
+     "text": "Hắn không ngờ. Hắn nghe. Hắn về báo cáo: pháp sư này không nguy hiểm. Hội đồng tin, lần này.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "hda_law_council",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "hd_archmage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "hda_path_law"
+    ],
+    "notFlags": [
+     "hda_end"
+    ]
+   },
+   "text": "Bạn trình bộ luật ma pháp lên Hội đồng Ma Giới. Các Đại Công Tước phản đối: luật sẽ giới hạn quyền năng của họ.",
+   "choices": [
+    {
+     "label": "Chứng minh bằng một vụ nổ",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn chỉ cho họ thấy điều gì xảy ra khi ma pháp không có giới hạn, bằng một ảo ảnh. Họ im lặng. Rồi ký.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "hda_law_passed"
+       ]
+      },
+      "moment": "Thuyết phục Hội đồng Ma Giới ký bộ luật ma pháp đầu tiên"
+     },
+     "fail": {
+      "text": "Họ bác bỏ. Một Đại Công Tước gọi bạn là kẻ phản bội.",
+      "effects": {
+       "fame": -6
+      }
+     }
+    },
+    {
+     "label": "Rút lại, sửa luật mềm hơn",
+     "text": "Luật mềm hơn được thông qua. Một nửa giới hạn. Một nửa còn hơn không.",
+     "effects": {
+      "jobXp": 3,
+      "flags": [
+       "hda_law_passed"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "hda_law_violation",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "hd_archmage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "hda_path_law"
+    ],
+    "notFlags": [
+     "hda_end"
+    ]
+   },
+   "text": "Một Đại Công Tước vi phạm luật ma pháp, mở một cánh cổng nguy hiểm. Hắn quyền lực hơn bạn.",
+   "choices": [
+    {
+     "label": "Đóng cổng và báo cáo",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đóng cổng, rồi đứng trước Hội đồng với bằng chứng. Hắn bị tước quyền. Luật có răng.",
+      "effects": {
+       "STR": 1,
+       "fame": 12,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Bạn đóng được cổng, nhưng hắn chối. Hội đồng không dám xử hắn.",
+      "effects": {
+       "fame": -4
+      }
+     }
+    },
+    {
+     "label": "Đóng cổng, im lặng",
+     "text": "Thế giới an toàn. Hắn biết bạn biết. Hai người nhìn nhau ở mọi buổi họp suốt một Kỷ Nguyên.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "hda_teach_first",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "hd_archmage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "hda_path_teach"
+    ],
+    "notFlags": [
+     "hda_end"
+    ]
+   },
+   "text": "Học trò đầu tiên của bạn: một Imp nhỏ, không ai muốn dạy, nhưng có thiên phú lạ.",
+   "choices": [
+    {
+     "label": "Dạy nó",
+     "text": "Một Kỷ Nguyên sau, nó là pháp sư giỏi nhất thế hệ. Các High Demon không tin một Imp làm được thế.",
+     "effects": {
+      "joy": 10,
+      "fame": 6,
+      "jobXp": 3,
+      "flags": [
+       "hda_teach_imp"
+      ]
+     },
+     "moment": "Nhận một Imp không ai muốn dạy làm học trò đầu tiên"
+    },
+    {
+     "label": "Từ chối, tìm học trò xứng đáng hơn",
+     "text": "Bạn chọn một High Demon trẻ quý tộc. Nó giỏi, nhưng không hơn những gì bạn mong đợi.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "hda_teach_lost",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "hd_archmage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "hda_path_teach"
+    ],
+    "notFlags": [
+     "hda_end"
+    ]
+   },
+   "text": "Một học trò của bạn bị cấm thuật nuốt chửng, biến thành thứ không còn là nó nữa.",
+   "choices": [
+    {
+     "label": "Cứu nó",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Ba ngày, ba đêm. Bạn kéo nó ra khỏi cấm thuật, từng mảnh linh hồn. Nó sống, yếu đi, nhưng là chính nó.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "hda_teach_saved"
+       ]
+      },
+      "moment": "Kéo học trò ra khỏi cấm thuật từng mảnh linh hồn"
+     },
+     "fail": {
+      "text": "Bạn chỉ cứu được một nửa.",
+      "effects": {
+       "joy": -12
+      }
+     }
+    },
+    {
+     "label": "Kết thúc nó",
+     "text": "Nhanh. Thứ đó không còn là học trò của bạn. Nhưng bạn nhớ khuôn mặt nó trước kia.",
+     "effects": {
+      "joy": -10,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "hda_c4_lilith",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "hd_archmage",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "hda_met_lilith"
+    ],
+    "notFlags": [
+     "hda_lilith_gone",
+     "hda_end"
+    ],
+    "anyFlags": [
+     "hda_path_forbidden",
+     "hda_path_law",
+     "hda_path_teach"
+    ]
+   },
+   "text": "Lilith Không Bóng sắp chết. Cái giá cuối cùng của cấm thuật năm xưa đã đến đòi. Bà muốn lấy lại cái bóng trước khi đi.",
+   "choices": [
+    {
+     "label": "Tìm cách trả lại bóng cho bà",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đổi một phần ma lực của mình lấy cái bóng của bà. Bà đứng dưới ánh nến, nhìn bóng mình trên tường, và khóc. Bà mất đêm ấy, có bóng.",
+      "effects": {
+       "INT": 1,
+       "joy": 4,
+       "jobXp": 3,
+       "flags": [
+        "hda_lilith_gone",
+        "hda_lilith_shadow"
+       ]
+      },
+      "moment": "Đổi ma lực của mình để trả lại cái bóng cho Lilith"
+     },
+     "fail": {
+      "text": "Không đủ. Bà mất, không bóng, nhưng mỉm cười vì bạn đã cố.",
+      "effects": {
+       "joy": -8,
+       "flags": [
+        "hda_lilith_gone"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Ngồi cạnh bà",
+     "text": "Bà kể về cấm thuật năm xưa, cái giá, và nỗi hối hận. Bà mất trước bình minh.",
+     "effects": {
+      "joy": -8,
+      "jobXp": 3,
+      "flags": [
+       "hda_lilith_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "hda_c4_aurelian",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "hd_archmage",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "hda_met_aurelian"
+    ],
+    "notFlags": [
+     "hda_aurelian_gone",
+     "hda_end"
+    ]
+   },
+   "text": "Aurelian đã già, theo cách Human già. Hắn nằm trên giường trong thư viện của bạn, nơi hắn sống bốn mươi năm.",
+   "choices": [
+    {
+     "label": "Cho hắn đọc trang cuối cùng",
+     "require": {
+      "flags": [
+       "hda_aurelian_friend"
+      ]
+     },
+     "text": "Bạn đưa hắn trang sách hắn muốn đọc cả đời, trang mà Tháp Ngà đày hắn vì nó. Hắn đọc, cười, và nói: “Ta đúng.” Hắn mất với trang sách trên ngực.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 3,
+      "flags": [
+       "hda_aurelian_gone"
+      ]
+     },
+     "moment": "Cho Aurelian đọc trang sách hắn muốn đọc cả đời"
+    },
+    {
+     "label": "Gửi xác hắn về Tháp Ngà",
+     "text": "Tháp Ngà nhận xác hắn, và một lá thư của bạn. Họ khôi phục danh dự cho hắn, một trăm năm quá muộn.",
+     "effects": {
+      "joy": -2,
+      "jobXp": 3,
+      "flags": [
+       "hda_aurelian_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "hda_c5_forbidden",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "hd_archmage",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "hda_path_forbidden"
+    ],
+    "notFlags": [
+     "hda_end"
+    ]
+   },
+   "text": "Bạn là Abyssal Sage. Bạn biết những điều không ai được biết.",
+   "choices": [
+    {
+     "label": "Phong ấn mọi cấm thư",
+     "require": {
+      "flags": [
+       "hda_forbidden_read"
+      ]
+     },
+     "text": "Bạn đã đọc chúng. Không ai khác cần đọc. Bạn khóa chúng trong một kho không có cửa, và quên mất cách mở.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "hda_end",
+       "hda_end_sealed"
+      ]
+     },
+     "moment": "Phong ấn mọi cấm thư trong một kho không có cửa"
+    },
+    {
+     "label": "Viết lại pháp tắc một lần",
+     "text": "Một thay đổi nhỏ: nước sẽ chảy chậm hơn một chút. Không ai nhận ra. Bạn nhận ra.",
+     "effects": {
+      "fame": 10,
+      "joy": 6,
+      "flags": [
+       "hda_end",
+       "hda_end_rewrite"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "hda_c5_law",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "hd_archmage",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "hda_path_law"
+    ],
+    "notFlags": [
+     "hda_end"
+    ]
+   },
+   "text": "Bạn là Abyssal Sage, người viết luật ma pháp của Ma Giới.",
+   "choices": [
+    {
+     "label": "Mở rộng luật đến Tháp Ngà",
+     "require": {
+      "flags": [
+       "hda_law_passed"
+      ]
+     },
+     "text": "Tháp Ngà và Ma Giới cùng ký một bộ luật ma pháp. Lần đầu tiên, hai thế giới đồng ý về một điều.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "hda_end",
+       "hda_end_shared_law"
+      ]
+     },
+     "moment": "Hai thế giới cùng ký bộ luật ma pháp chung"
+    },
+    {
+     "label": "Làm thẩm phán ma pháp",
+     "text": "Mọi vi phạm đều đến tay bạn. Bạn xử công bằng, qua nhiều Kỷ Nguyên.",
+     "effects": {
+      "fame": 12,
+      "joy": 8,
+      "flags": [
+       "hda_end",
+       "hda_end_judge"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "hda_c5_teach",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "hd_archmage",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "hda_path_teach"
+    ],
+    "notFlags": [
+     "hda_end"
+    ]
+   },
+   "text": "Bạn là Abyssal Sage. Học trò của bạn có mặt ở khắp Ma Giới.",
+   "choices": [
+    {
+     "label": "Giao trường cho học trò Imp",
+     "require": {
+      "flags": [
+       "hda_teach_imp"
+      ]
+     },
+     "text": "Imp nhỏ năm xưa giờ là hiệu trưởng. High Demon quý tộc phải xin học dưới tay một Imp. Bạn cười suốt một Kỷ Nguyên.",
+     "effects": {
+      "fame": 15,
+      "joy": 18,
+      "flags": [
+       "hda_end",
+       "hda_end_imp_school"
+      ]
+     },
+     "moment": "Giao trường ma pháp cho học trò Imp năm xưa"
+    },
+    {
+     "label": "Dạy đến học trò cuối cùng",
+     "text": "Một nghìn học trò. Bạn nhớ tên từng người.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "hda_end",
+       "hda_end_thousand"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "hda_daily_candle",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "hd_archmage",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Ngọn nến trong phòng thí nghiệm tắt.",
+   "choices": [
+    {
+     "label": "Thắp lại bằng phép",
+     "text": "Như mọi lần.",
+     "effects": {
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Ngồi trong bóng tối",
+     "text": "Yên tĩnh lạ.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "hda_daily_war",
+   "races": [
+    "high_demon"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "hd_archmage",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh Kỷ Nguyên. Ma Vương muốn một phép hủy diệt.",
+   "choices": [
+    {
+     "label": "Từ chối",
+     "text": "Ma Vương giận. Ông tìm pháp sư khác, kém hơn. Phép ấy không bao giờ thành.",
+     "effects": {
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Tạo một phép phòng thủ thay",
+     "text": "Thành trì của Ma Giới đứng vững. Không thành Human nào bị hủy diệt.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "hda_daily_old",
+   "races": [
+    "high_demon"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "hd_archmage",
+    "free": true
+   },
+   "text": "Bạn đã biết quá nhiều phép. Một số bạn đã quên cách tháo.",
+   "choices": [
+    {
+     "label": "Ghi lại cách tháo mọi phép",
+     "text": "Một cuốn sách. Quan trọng hơn mọi cuốn sách phép.",
+     "effects": {
+      "INT": 1
+     }
+    },
+    {
+     "label": "Để chúng yên",
+     "text": "Phép không tháo được thì đừng niệm.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "hda_c5_forbidden_late",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "hd_archmage",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "hda_path_forbidden"
+    ],
+    "notFlags": [
+     "hda_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Abyssal Sage. Bạn biết những điều không ai được biết.",
+   "choices": [
+    {
+     "label": "Phong ấn mọi cấm thư",
+     "require": {
+      "flags": [
+       "hda_forbidden_read"
+      ]
+     },
+     "text": "Bạn đã đọc chúng. Không ai khác cần đọc. Bạn khóa chúng trong một kho không có cửa, và quên mất cách mở.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "hda_end",
+       "hda_end_sealed"
+      ]
+     },
+     "moment": "Phong ấn mọi cấm thư trong một kho không có cửa"
+    },
+    {
+     "label": "Viết lại pháp tắc một lần",
+     "text": "Một thay đổi nhỏ: nước sẽ chảy chậm hơn một chút. Không ai nhận ra. Bạn nhận ra.",
+     "effects": {
+      "fame": 10,
+      "joy": 6,
+      "flags": [
+       "hda_end",
+       "hda_end_rewrite"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "hda_c5_law_late",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "hd_archmage",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "hda_path_law"
+    ],
+    "notFlags": [
+     "hda_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Abyssal Sage, người viết luật ma pháp của Ma Giới.",
+   "choices": [
+    {
+     "label": "Mở rộng luật đến Tháp Ngà",
+     "require": {
+      "flags": [
+       "hda_law_passed"
+      ]
+     },
+     "text": "Tháp Ngà và Ma Giới cùng ký một bộ luật ma pháp. Lần đầu tiên, hai thế giới đồng ý về một điều.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "hda_end",
+       "hda_end_shared_law"
+      ]
+     },
+     "moment": "Hai thế giới cùng ký bộ luật ma pháp chung"
+    },
+    {
+     "label": "Làm thẩm phán ma pháp",
+     "text": "Mọi vi phạm đều đến tay bạn. Bạn xử công bằng, qua nhiều Kỷ Nguyên.",
+     "effects": {
+      "fame": 12,
+      "joy": 8,
+      "flags": [
+       "hda_end",
+       "hda_end_judge"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "hda_c5_teach_late",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "hd_archmage",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "hda_path_teach"
+    ],
+    "notFlags": [
+     "hda_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Abyssal Sage. Học trò của bạn có mặt ở khắp Ma Giới.",
+   "choices": [
+    {
+     "label": "Giao trường cho học trò Imp",
+     "require": {
+      "flags": [
+       "hda_teach_imp"
+      ]
+     },
+     "text": "Imp nhỏ năm xưa giờ là hiệu trưởng. High Demon quý tộc phải xin học dưới tay một Imp. Bạn cười suốt một Kỷ Nguyên.",
+     "effects": {
+      "fame": 15,
+      "joy": 18,
+      "flags": [
+       "hda_end",
+       "hda_end_imp_school"
+      ]
+     },
+     "moment": "Giao trường ma pháp cho học trò Imp năm xưa"
+    },
+    {
+     "label": "Dạy đến học trò cuối cùng",
+     "text": "Một nghìn học trò. Bạn nhớ tên từng người.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "hda_end",
+       "hda_end_thousand"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}

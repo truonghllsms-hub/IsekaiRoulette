@@ -1,0 +1,1003 @@
+{
+ "_note": "Tuyến truyện Night Hunter (Vampire): ba đạo (vph_path_beast / vph_path_wild / vph_path_pack), nhân vật xuyên suốt Ulfric Nanh Xám (Vampire hoang dã cổ) và bầy sói đêm.",
+ "origins": [],
+ "events": [
+  {
+   "id": "vph_c1_ulfric",
+   "races": [
+    "vampire"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "vampire_hunter",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "vph_met_ulfric"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Ulfric Nanh Xám",
+     "race": "Vampire",
+     "position": "Vampire hoang dã sống cùng bầy sói nghìn năm"
+    }
+   ],
+   "text": "Ulfric Nanh Xám không sống trong lâu đài. Ông sống trong rừng, cùng bầy sói, đã nghìn năm. Ông khịt mũi khi thấy bạn: “Huyết Tộc thành phố. Ngươi biết săn không, hay chỉ biết mời rượu?”",
+   "choices": [
+    {
+     "label": "Đi săn cùng ông",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn đuổi kịp một con nai trước khi Ulfric kịp. Ông gật đầu. “Còn chút hoang dã trong ngươi.”",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 1,
+       "flags": [
+        "vph_met_ulfric",
+        "vph_ulfric_respect"
+       ]
+      },
+      "moment": "Đuổi kịp con nai trước Ulfric Nanh Xám trong chuyến săn đầu tiên"
+     },
+     "fail": {
+      "text": "Con nai thoát. Ulfric cười đến ngã ngửa. “Ngày mai.”",
+      "effects": {
+       "flags": [
+        "vph_met_ulfric"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi vì sao ông rời thành phố",
+     "text": "“Vì ở thành phố, ta săn người. Ở đây, ta săn những gì rừng cho phép.” Ông đưa bạn một tấm da thú. “Ngủ đi. Mai dậy trước trăng lên.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "vph_met_ulfric",
+       "vph_ulfric_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vph_c2_first_hunt",
+   "races": [
+    "vampire"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "vampire_hunter",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "flags": [
+     "vph_met_ulfric"
+    ],
+    "notFlags": [
+     "vph_first_hunt",
+     "vph_end"
+    ]
+   },
+   "text": "Cơn khát dẫn bạn đến một đoàn thương nhân ngủ ven đường. Mùi máu người ngọt hơn mọi thứ trong rừng.",
+   "choices": [
+    {
+     "label": "Quay lại rừng",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn quay đi, cắn vào tay mình đến khi về đến hang. Ulfric ngồi chờ, đưa bạn một con thỏ. “Lần đầu luôn khó nhất.”",
+      "effects": {
+       "STR": 1,
+       "jobXp": 2,
+       "flags": [
+        "vph_first_hunt",
+        "vph_first_held"
+       ]
+      },
+      "moment": "Lần đầu quay lưng lại với mùi máu người"
+     },
+     "fail": {
+      "text": "Bạn lao vào. Một người lính canh tỉnh dậy, rút kiếm bạc. Bạn bỏ chạy, bỏng một vệt dài.",
+      "effects": {
+       "health": -8,
+       "flags": [
+        "vph_first_hunt"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Uống một ít từ kẻ ngủ say nhất",
+     "text": "Hắn không tỉnh dậy. Sáng ra, hắn thấy mệt, và hai vết đỏ trên cổ. Ulfric ngửi thấy mùi trên miệng bạn, và không nói gì.",
+     "effects": {
+      "jobXp": 2,
+      "flags": [
+       "vph_first_hunt"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vph_c2_crossroads",
+   "races": [
+    "vampire"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "vampire_hunter",
+    "free": true,
+    "jobRank": 1,
+    "flags": [
+     "vph_met_ulfric"
+    ],
+    "notFlags": [
+     "vph_path_beast",
+     "vph_path_wild",
+     "vph_path_pack",
+     "vph_end"
+    ]
+   },
+   "text": "Ulfric dẫn bạn đến ba nơi trong rừng: hang của một con quái điểu Griffon, một đồng cỏ hoang không có dấu chân người, và nơi bầy sói đêm của ông nằm nghỉ.",
+   "choices": [
+    {
+     "label": "Hang Griffon: Kẻ Săn Quái Thú",
+     "text": "Bạn sẽ săn những thứ lớn hơn, mạnh hơn bạn. Máu quái thú không có ký ức con người.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "vph_path_beast"
+      ]
+     },
+     "moment": "Chọn săn quái thú lớn"
+    },
+    {
+     "label": "Đồng cỏ hoang: Kẻ Hoang Dã",
+     "text": "Bạn sẽ rời xa mọi thứ có tên. Không lâu đài, không quý tộc, không người. Chỉ rừng.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 2,
+      "flags": [
+       "vph_path_wild"
+      ]
+     },
+     "moment": "Chọn sống hoang dã hoàn toàn, xa mọi thứ có tên"
+    },
+    {
+     "label": "Bầy sói: Chúa Bầy Đêm",
+     "text": "Ulfric sẽ không sống mãi. Bầy sói cần người dẫn. Ông nhìn bạn: “Chúng sẽ thử ngươi.”",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "vph_path_pack"
+      ]
+     },
+     "moment": "Chọn kế thừa bầy sói đêm của Ulfric"
+    }
+   ]
+  },
+  {
+   "id": "vph_beast_griffon",
+   "races": [
+    "vampire"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "vampire_hunter",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vph_path_beast"
+    ],
+    "notFlags": [
+     "vph_end"
+    ]
+   },
+   "text": "Lần theo mùi hương, bạn sa vào bẫy của một con Griffon to lớn đang ấp trứng.",
+   "choices": [
+    {
+     "label": "Đánh nó",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Trận đánh trên vách đá kéo dài đến khi trời gần sáng. Bạn thắng, và không động vào ổ trứng. Đêm sau, bạn mang thịt đến cho lũ con của nó.",
+      "effects": {
+       "STR": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "vph_beast_griffon"
+       ]
+      },
+      "moment": "Hạ con Griffon và nuôi lũ con của nó"
+     },
+     "fail": {
+      "text": "Móng nó xé toạc ngực bạn. Bạn rơi xuống vực, và mất một thập kỷ để lành.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Rút lui, tôn trọng mẹ đang ấp",
+     "text": "Con Griffon nhìn bạn đi. Một trăm năm sau, cháu chắt nó bay qua đầu bạn, và không tấn công.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "vph_beast_rival",
+   "races": [
+    "vampire"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "vampire_hunter",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vph_path_beast"
+    ],
+    "notFlags": [
+     "vph_end"
+    ]
+   },
+   "text": "Bạn vừa hạ một con gấu ma lớn thì một tên Ma tộc từ Vực Thẳm lao ra, đòi chiến lợi phẩm.",
+   "choices": [
+    {
+     "label": "Chia đôi",
+     "text": "Hắn ngạc nhiên. Hai kẻ săn, một con gấu, một đêm dài. Hắn kể về Vực Thẳm. Bạn kể về rừng.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Đánh",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Hắn bỏ chạy về Vực Thẳm.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Hắn mạnh hơn bạn tưởng. Cả hai đều bị thương, và con gấu bị sói ăn mất.",
+      "effects": {
+       "health": -12
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "vph_wild_forget",
+   "races": [
+    "vampire"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "vampire_hunter",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vph_path_wild"
+    ],
+    "notFlags": [
+     "vph_end"
+    ]
+   },
+   "text": "Một trăm năm trong rừng. Bạn quên dần tiếng nói, quên dần tên mình.",
+   "choices": [
+    {
+     "label": "Để quên",
+     "text": "Rừng không cần tên. Bạn chạy cùng gió, uống máu nai, ngủ dưới rễ cây. Bạn chưa bao giờ hạnh phúc như thế.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 3,
+      "flags": [
+       "vph_wild_forgot"
+      ]
+     },
+     "moment": "Để mình quên dần tên và tiếng nói trong rừng sâu"
+    },
+    {
+     "label": "Khắc tên mình lên đá mỗi năm",
+     "text": "Một trăm hòn đá, một trăm lần khắc cùng một tên. Bạn vẫn nhớ.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "vph_wild_lost",
+   "races": [
+    "vampire"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "vampire_hunter",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vph_path_wild"
+    ],
+    "notFlags": [
+     "vph_end"
+    ]
+   },
+   "text": "Một đứa trẻ Human lạc vào rừng sâu, nơi bạn sống. Nó đói, lạnh, và sắp chết.",
+   "choices": [
+    {
+     "label": "Mang nó ra bìa rừng",
+     "text": "Bạn bế nó suốt đêm. Nó ngủ trên vai bạn, không biết bạn là gì. Ở bìa rừng, bạn để nó cạnh một ngọn lửa của thợ săn, và đi.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 3,
+      "flags": [
+       "vph_wild_child"
+      ]
+     },
+     "moment": "Bế đứa trẻ lạc ra khỏi rừng sâu suốt đêm"
+    },
+    {
+     "label": "Để rừng quyết định",
+     "text": "Sáng ra, đứa trẻ đã đi. Bạn không biết nó đi đâu.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "vph_pack_test",
+   "races": [
+    "vampire"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "vampire_hunter",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vph_path_pack"
+    ],
+    "notFlags": [
+     "vph_end"
+    ]
+   },
+   "text": "Con sói đầu đàn mới lớn thách bạn. Bầy sói đứng quanh, chờ.",
+   "choices": [
+    {
+     "label": "Đấu như sói, không dùng sức Huyết Tộc",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Răng đấu răng, không phép thuật. Bạn thắng, sát nút. Con sói trẻ cúi đầu. Bầy hú lên.",
+      "effects": {
+       "AGI": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "vph_pack_accepted"
+       ]
+      },
+      "moment": "Thắng con sói đầu đàn trẻ mà không dùng sức Huyết Tộc"
+     },
+     "fail": {
+      "text": "Bạn thua. Bầy vẫn để bạn ở lại, nhưng không đi theo bạn.",
+      "effects": {
+       "health": -8
+      }
+     }
+    },
+    {
+     "label": "Dùng sức Huyết Tộc",
+     "text": "Con sói ngã ngay. Bầy cúi đầu, vì sợ, không vì tôn trọng.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "vph_pack_hunters",
+   "races": [
+    "vampire"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "vampire_hunter",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vph_path_pack"
+    ],
+    "notFlags": [
+     "vph_end"
+    ]
+   },
+   "text": "Thợ săn Human giăng bẫy bạc khắp rừng, săn bầy sói của bạn để lấy da.",
+   "choices": [
+    {
+     "label": "Gỡ bẫy trong đêm",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Sáng ra, thợ săn thấy mọi bẫy đã bị gỡ, xếp thành đống trước lều họ. Họ rời rừng.",
+      "effects": {
+       "AGI": 1,
+       "fame": 6,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Một cái bẫy bạc kẹp tay bạn. Bạn thoát, nhưng vết bỏng mãi không lành.",
+      "effects": {
+       "health": -12
+      }
+     }
+    },
+    {
+     "label": "Dẫn bầy sang rừng khác",
+     "text": "Bầy rời đi. Rừng cũ trống vắng. Thợ săn không tìm thấy gì.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "vph_c4_ulfric",
+   "races": [
+    "vampire"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "vampire_hunter",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "vph_met_ulfric"
+    ],
+    "notFlags": [
+     "vph_ulfric_gone",
+     "vph_end"
+    ],
+    "anyFlags": [
+     "vph_path_beast",
+     "vph_path_wild",
+     "vph_path_pack"
+    ]
+   },
+   "text": "Ulfric già yếu, theo cách Huyết Tộc già yếu: chậm hơn, khát hơn. Ông muốn chết như một con sói, trong rừng, không phải như một Huyết Tộc, trong bình minh.",
+   "choices": [
+    {
+     "label": "Đưa ông vào rừng sâu",
+     "text": "Bầy sói đi theo. Ông nằm xuống dưới gốc cây cổ thụ, nơi ông ngủ suốt nghìn năm. Bầy nằm quanh ông. Sáng ra, ông đã tan vào đất, như một con sói già.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "vph_ulfric_gone"
+      ]
+     },
+     "moment": "Đưa Ulfric Nanh Xám vào rừng sâu để ông chết như một con sói"
+    },
+    {
+     "label": "Săn cho ông bữa cuối",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Một con nai đực lớn nhất rừng. Ông uống, cười, và ngủ. Không thức dậy.",
+      "effects": {
+       "joy": -4,
+       "jobXp": 3,
+       "flags": [
+        "vph_ulfric_gone"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn về tay trắng. Ông đã đi.",
+      "effects": {
+       "joy": -10,
+       "flags": [
+        "vph_ulfric_gone"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "vph_c5_beast",
+   "races": [
+    "vampire"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "vampire_hunter",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "vph_path_beast"
+    ],
+    "notFlags": [
+     "vph_end"
+    ]
+   },
+   "text": "Bạn là Apex Predator. Không quái thú nào trong rừng dám đến gần bạn.",
+   "choices": [
+    {
+     "label": "Bảo vệ lũ Griffon",
+     "require": {
+      "flags": [
+       "vph_beast_griffon"
+      ]
+     },
+     "text": "Con cháu của con Griffon năm xưa giờ là một bầy. Chúng bay cùng bạn trên vách đá mỗi đêm trăng.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "vph_end",
+       "vph_end_griffons"
+      ]
+     },
+     "moment": "Bay cùng bầy Griffon do mình nuôi lớn"
+    },
+    {
+     "label": "Săn quái thú cuối cùng",
+     "text": "Một con Rồng con lạc đến rừng. Bạn đánh nó, và để nó đi. Có những con mồi để tôn trọng.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "vph_end",
+       "vph_end_dragon"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vph_c5_wild",
+   "races": [
+    "vampire"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "vampire_hunter",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "vph_path_wild"
+    ],
+    "notFlags": [
+     "vph_end"
+    ]
+   },
+   "text": "Bạn là Apex Predator, hay có lẽ chỉ là một phần của rừng.",
+   "choices": [
+    {
+     "label": "Tan vào rừng",
+     "require": {
+      "flags": [
+       "vph_wild_forgot"
+      ]
+     },
+     "text": "Bạn không còn nhớ tên, không còn nói. Thợ săn kể về một bóng đen chạy cùng gió trong rừng sâu, và không ai bị nó làm hại.",
+     "effects": {
+      "fame": 10,
+      "joy": 18,
+      "flags": [
+       "vph_end",
+       "vph_end_forest"
+      ]
+     },
+     "moment": "Tan vào rừng, trở thành truyền thuyết của gió"
+    },
+    {
+     "label": "Gặp lại đứa trẻ năm xưa",
+     "require": {
+      "flags": [
+       "vph_wild_child"
+      ]
+     },
+     "text": "Nó giờ là một bà già, ngồi ở bìa rừng mỗi chiều. Bà không nhận ra bạn. Nhưng bà để lại một chiếc khăn ấm trên tảng đá, mỗi mùa đông.",
+     "effects": {
+      "fame": 8,
+      "joy": 15,
+      "flags": [
+       "vph_end",
+       "vph_end_old_child"
+      ]
+     }
+    },
+    {
+     "label": "Trở về lâu đài",
+     "text": "Sau ba trăm năm, bạn trở về. Mọi thứ đã khác. Bạn không chắc mình muốn ở lại.",
+     "effects": {
+      "fame": 8,
+      "joy": 4,
+      "flags": [
+       "vph_end",
+       "vph_end_return"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vph_c5_pack",
+   "races": [
+    "vampire"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "vampire_hunter",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "vph_path_pack"
+    ],
+    "notFlags": [
+     "vph_end"
+    ]
+   },
+   "text": "Bạn là Apex Predator, Chúa Bầy Đêm.",
+   "choices": [
+    {
+     "label": "Dẫn bầy qua nhiều thế hệ",
+     "require": {
+      "flags": [
+       "vph_pack_accepted"
+      ]
+     },
+     "text": "Mười thế hệ sói. Bạn biết tên từng con. Bầy là gia đình duy nhất bạn chưa bao giờ phải nhìn chết trước mình, vì luôn có lứa mới.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "vph_end",
+       "vph_end_pack"
+      ]
+     },
+     "moment": "Dẫn bầy sói đêm qua mười thế hệ"
+    },
+    {
+     "label": "Trao bầy cho sói đầu đàn",
+     "text": "Bầy không cần Huyết Tộc. Chúng chưa bao giờ cần. Bạn đi, và chúng hú tiễn bạn.",
+     "effects": {
+      "fame": 10,
+      "joy": 10,
+      "flags": [
+       "vph_end",
+       "vph_end_release"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vph_daily_moon",
+   "races": [
+    "vampire"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "vampire_hunter",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Trăng tròn. Bầy sói hú.",
+   "choices": [
+    {
+     "label": "Hú cùng",
+     "text": "Giọng bạn lạc lõng. Bầy không quan tâm.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Ngồi nghe",
+     "text": "Bài hát cổ nhất thế giới.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "vph_daily_war",
+   "races": [
+    "vampire"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "vampire_hunter",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Lính đốt rừng để mở đường.",
+   "choices": [
+    {
+     "label": "Dẫn thú rừng chạy khỏi lửa",
+     "text": "Nhiều con sống. Rừng sẽ mọc lại.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Săn lính đốt rừng",
+     "text": "Họ không đốt tiếp.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "vph_daily_old",
+   "races": [
+    "vampire"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "vampire_hunter",
+    "free": true
+   },
+   "text": "Bạn đã chạy trong rừng hàng nghìn năm. Rừng đã đổi khác ba lần.",
+   "choices": [
+    {
+     "label": "Tìm cây cổ thụ của Ulfric",
+     "text": "Nó vẫn đó. Bạn ngồi dưới gốc.",
+     "effects": {
+      "joy": 8
+     },
+     "require": {
+      "flags": [
+       "vph_met_ulfric"
+      ]
+     }
+    },
+    {
+     "label": "Chạy một vòng rừng",
+     "text": "Chậm hơn. Vẫn đẹp.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "vph_c5_beast_late",
+   "races": [
+    "vampire"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "vampire_hunter",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "vph_path_beast"
+    ],
+    "notFlags": [
+     "vph_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Apex Predator. Không quái thú nào trong rừng dám đến gần bạn.",
+   "choices": [
+    {
+     "label": "Bảo vệ lũ Griffon",
+     "require": {
+      "flags": [
+       "vph_beast_griffon"
+      ]
+     },
+     "text": "Con cháu của con Griffon năm xưa giờ là một bầy. Chúng bay cùng bạn trên vách đá mỗi đêm trăng.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "vph_end",
+       "vph_end_griffons"
+      ]
+     },
+     "moment": "Bay cùng bầy Griffon do mình nuôi lớn"
+    },
+    {
+     "label": "Săn quái thú cuối cùng",
+     "text": "Một con Rồng con lạc đến rừng. Bạn đánh nó, và để nó đi. Có những con mồi để tôn trọng.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "vph_end",
+       "vph_end_dragon"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "vph_c5_wild_late",
+   "races": [
+    "vampire"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "vampire_hunter",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "vph_path_wild"
+    ],
+    "notFlags": [
+     "vph_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Apex Predator, hay có lẽ chỉ là một phần của rừng.",
+   "choices": [
+    {
+     "label": "Tan vào rừng",
+     "require": {
+      "flags": [
+       "vph_wild_forgot"
+      ]
+     },
+     "text": "Bạn không còn nhớ tên, không còn nói. Thợ săn kể về một bóng đen chạy cùng gió trong rừng sâu, và không ai bị nó làm hại.",
+     "effects": {
+      "fame": 10,
+      "joy": 18,
+      "flags": [
+       "vph_end",
+       "vph_end_forest"
+      ]
+     },
+     "moment": "Tan vào rừng, trở thành truyền thuyết của gió"
+    },
+    {
+     "label": "Gặp lại đứa trẻ năm xưa",
+     "require": {
+      "flags": [
+       "vph_wild_child"
+      ]
+     },
+     "text": "Nó giờ là một bà già, ngồi ở bìa rừng mỗi chiều. Bà không nhận ra bạn. Nhưng bà để lại một chiếc khăn ấm trên tảng đá, mỗi mùa đông.",
+     "effects": {
+      "fame": 8,
+      "joy": 15,
+      "flags": [
+       "vph_end",
+       "vph_end_old_child"
+      ]
+     }
+    },
+    {
+     "label": "Trở về lâu đài",
+     "text": "Sau ba trăm năm, bạn trở về. Mọi thứ đã khác. Bạn không chắc mình muốn ở lại.",
+     "effects": {
+      "fame": 8,
+      "joy": 4,
+      "flags": [
+       "vph_end",
+       "vph_end_return"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "vph_c5_pack_late",
+   "races": [
+    "vampire"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "vampire_hunter",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "vph_path_pack"
+    ],
+    "notFlags": [
+     "vph_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Apex Predator, Chúa Bầy Đêm.",
+   "choices": [
+    {
+     "label": "Dẫn bầy qua nhiều thế hệ",
+     "require": {
+      "flags": [
+       "vph_pack_accepted"
+      ]
+     },
+     "text": "Mười thế hệ sói. Bạn biết tên từng con. Bầy là gia đình duy nhất bạn chưa bao giờ phải nhìn chết trước mình, vì luôn có lứa mới.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "vph_end",
+       "vph_end_pack"
+      ]
+     },
+     "moment": "Dẫn bầy sói đêm qua mười thế hệ"
+    },
+    {
+     "label": "Trao bầy cho sói đầu đàn",
+     "text": "Bầy không cần Huyết Tộc. Chúng chưa bao giờ cần. Bạn đi, và chúng hú tiễn bạn.",
+     "effects": {
+      "fame": 10,
+      "joy": 10,
+      "flags": [
+       "vph_end",
+       "vph_end_release"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}

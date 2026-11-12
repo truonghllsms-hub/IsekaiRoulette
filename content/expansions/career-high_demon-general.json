@@ -1,0 +1,1178 @@
+{
+ "_note": "Tuyến truyện Legion General (High Demon): ba đạo (hdg_path_conquest / hdg_path_wall / hdg_path_legion), nhân vật xuyên suốt Đại tướng Moloch Mắt Than (tướng cổ) và Krell (High Orc phó tướng).",
+ "origins": [],
+ "events": [
+  {
+   "id": "hdg_c1_moloch",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "hd_general",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "hdg_met_moloch"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Moloch Mắt Than",
+     "race": "High Demon",
+     "position": "Đại tướng cổ của quân đoàn Vực Thẳm"
+    }
+   ],
+   "text": "Đại tướng Moloch Mắt Than đã chỉ huy quân đoàn Vực Thẳm qua ba Kỷ Nguyên. Ông đặt trước mặt bạn một bàn cờ bằng xương. “Mỗi quân cờ là một nghìn sinh mạng. Ngươi chơi thế nào?”",
+   "choices": [
+    {
+     "label": "Chơi thận trọng, giữ quân",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn thua ván đầu, nhưng mất ít quân nhất. Moloch gật đầu: “Thắng thì dễ. Thắng mà còn quân để thắng trận sau, mới khó.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "hdg_met_moloch",
+        "hdg_moloch_respect"
+       ]
+      },
+      "moment": "Ván cờ xương đầu tiên với Đại tướng Moloch: thua nhưng giữ được quân"
+     },
+     "fail": {
+      "text": "Bạn mất hết quân. Moloch dọn bàn: “Lần sau.”",
+      "effects": {
+       "flags": [
+        "hdg_met_moloch"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Chơi tấn công, thắng nhanh",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn thắng, mất một nửa quân. Moloch nhìn bàn cờ rất lâu. “Một nửa. Năm trăm nghìn sinh mạng. Ngươi có ngủ được không?”",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "hdg_met_moloch"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn thua, mất hết. Moloch không nói gì.",
+      "effects": {
+       "flags": [
+        "hdg_met_moloch"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdg_c1_krell",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "hd_general",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "hdg_met_moloch"
+    ],
+    "notFlags": [
+     "hdg_met_krell"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Krell",
+     "race": "High Orc",
+     "position": "Phó tướng High Orc khổng lồ"
+    }
+   ],
+   "text": "Krell là một High Orc khổng lồ, được giao làm phó tướng cho bạn. Hắn nhìn bạn, nhỏ hơn hắn một nửa, và cười khẩy.",
+   "choices": [
+    {
+     "label": "Đấu tay đôi với hắn",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn hạ hắn trong ba hơi thở. Hắn đứng dậy, quỳ xuống, và từ đó theo bạn đến chết.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "hdg_met_krell",
+        "hdg_krell_loyal"
+       ]
+      },
+      "moment": "Hạ phó tướng High Orc Krell trong ba hơi thở"
+     },
+     "fail": {
+      "text": "Hắn mạnh hơn bạn nghĩ. Bạn thắng, nhưng chậm. Hắn tôn trọng bạn, một chút.",
+      "effects": {
+       "health": -5,
+       "flags": [
+        "hdg_met_krell"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi hắn muốn gì",
+     "text": "Hắn ngạc nhiên. “Thịt. Và trở về nhà sống.” Bạn hứa sẽ cố. Hắn không tin, nhưng nhớ.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 1,
+      "flags": [
+       "hdg_met_krell",
+       "hdg_krell_loyal"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdg_c2_first_mutiny",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "hd_general",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "flags": [
+     "hdg_met_moloch"
+    ],
+    "notFlags": [
+     "hdg_first_mutiny",
+     "hdg_end"
+    ]
+   },
+   "text": "Bầy High Orc và Troll dưới trướng bất mãn vì thiếu thịt tươi. Chúng gầm gừ vác chùy tiến về lều chỉ huy.",
+   "choices": [
+    {
+     "label": "Chia khẩu phần của mình cho chúng",
+     "text": "Bạn mở kho riêng. Chúng ăn, im lặng, rồi quỳ. Moloch nghe chuyện, gật đầu: “Một tướng đói cùng lính thì không bao giờ bị phản.”",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2,
+      "flags": [
+       "hdg_first_mutiny",
+       "hdg_first_fed"
+      ]
+     },
+     "moment": "Chia khẩu phần của mình để dập cuộc binh biến vì đói"
+    },
+    {
+     "label": "Chém đầu kẻ cầm đầu",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Một cái đầu lăn. Binh biến tan. Lính sợ bạn. Chúng sẽ không bao giờ yêu bạn.",
+      "effects": {
+       "STR": 1,
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "hdg_first_mutiny"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Kẻ cầm đầu mạnh hơn. Phó tướng của bạn phải ra tay.",
+      "effects": {
+       "health": -10,
+       "flags": [
+        "hdg_first_mutiny"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdg_c2_crossroads",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "hd_general",
+    "free": true,
+    "jobRank": 1,
+    "flags": [
+     "hdg_met_moloch"
+    ],
+    "notFlags": [
+     "hdg_path_conquest",
+     "hdg_path_wall",
+     "hdg_path_legion",
+     "hdg_end"
+    ]
+   },
+   "text": "Moloch dẫn bạn đến bản đồ lớn của thế giới, khắc trên vách hang. Ông chỉ ba nơi: những vương quốc Human chưa bị chinh phục, ranh giới Vực Thẳm đang rạn nứt, và doanh trại của quân đoàn.",
+   "choices": [
+    {
+     "label": "Vương quốc Human: Chinh Phạt",
+     "text": "Bạn sẽ dẫn quân đoàn chinh phục. Moloch gật đầu: “Đường của mọi tướng trẻ.”",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "hdg_path_conquest"
+      ]
+     },
+     "moment": "Chọn con đường chinh phạt các vương quốc Human"
+    },
+    {
+     "label": "Ranh giới Vực Thẳm: Bức Tường Ma Giới",
+     "text": "Có những thứ dưới Vực Thẳm còn tệ hơn High Demon. Bạn sẽ giữ chúng ở dưới.",
+     "effects": {
+      "STR": 1,
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "hdg_path_wall"
+      ]
+     },
+     "moment": "Chọn canh giữ ranh giới Vực Thẳm"
+    },
+    {
+     "label": "Doanh trại: Cha Của Quân Đoàn",
+     "text": "Bạn sẽ không chinh phục, không canh giữ. Bạn sẽ chăm lo cho quân đoàn, để họ sống sót qua mọi Kỷ Nguyên.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "hdg_path_legion"
+      ]
+     },
+     "moment": "Chọn chăm lo cho quân đoàn qua mọi Kỷ Nguyên"
+    }
+   ]
+  },
+  {
+   "id": "hdg_conquest_city",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "hd_general",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "hdg_path_conquest"
+    ],
+    "notFlags": [
+     "hdg_end"
+    ]
+   },
+   "text": "Quân đoàn vây một thành Human. Thành có ba vạn dân, và một vị vua sẵn sàng đầu hàng nếu dân được tha.",
+   "choices": [
+    {
+     "label": "Chấp nhận đầu hàng",
+     "text": "Thành mở cổng. Không ai chết. Vị vua quỳ trước bạn, và bạn để ông ta giữ ngai, dưới cờ của Vực Thẳm.",
+     "effects": {
+      "fame": 8,
+      "jobXp": 3,
+      "flags": [
+       "hdg_conquest_mercy"
+      ]
+     },
+     "moment": "Chấp nhận đầu hàng và tha cho ba vạn dân thành"
+    },
+    {
+     "label": "Đòi thành phải chống cự để quân đoàn có chiến lợi phẩm",
+     "text": "Thành chống cự. Thành thất thủ. Quân đoàn giàu lên. Bạn nghe tiếng khóc suốt đêm.",
+     "effects": {
+      "wealth": 20,
+      "fame": 6,
+      "joy": -10,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdg_conquest_ambush",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "hd_general",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "hdg_path_conquest"
+    ],
+    "notFlags": [
+     "hdg_end"
+    ]
+   },
+   "text": "Đội trinh sát báo tin một tiểu đội Thánh Kỵ Sĩ đang phục kích ở khe núi phía trước.",
+   "choices": [
+    {
+     "label": "Vòng qua khe núi",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Quân đoàn vòng qua, đánh vào sau lưng họ. Tiểu đội Thánh Kỵ Sĩ đầu hàng, không ai chết.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Vòng qua mất ba ngày. Thành phố phía trước đã kịp tăng viện.",
+      "effects": {
+       "fame": -4
+      }
+     }
+    },
+    {
+     "label": "Đánh thẳng",
+     "text": "Quân đoàn thắng, mất hai nghìn quân. Một tiểu đội Thánh Kỵ Sĩ, đổi hai nghìn.",
+     "effects": {
+      "fame": 6,
+      "joy": -6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdg_wall_rift",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "hd_general",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "hdg_path_wall"
+    ],
+    "notFlags": [
+     "hdg_end"
+    ]
+   },
+   "text": "Một vết nứt mở ra ở ranh giới Vực Thẳm. Những thứ không có tên đang bò lên, thứ mà ngay cả High Demon cũng sợ.",
+   "choices": [
+    {
+     "label": "Dẫn quân đoàn chặn vết nứt",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Mười ngày mười đêm. Vết nứt khép. Quân đoàn mất một nửa. Không thứ gì lọt lên được.",
+      "effects": {
+       "STR": 1,
+       "fame": 12,
+       "jobXp": 3,
+       "flags": [
+        "hdg_wall_held"
+       ]
+      },
+      "moment": "Chặn vết nứt Vực Thẳm suốt mười ngày mười đêm"
+     },
+     "fail": {
+      "text": "Một thứ lọt lên. Bạn phải săn nó trăm năm.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Gọi cả Human đến giúp",
+     "text": "Thánh Kỵ Sĩ và quân đoàn Vực Thẳm đứng cạnh nhau, lần đầu tiên. Vết nứt khép. Họ quay về, không nói với ai.",
+     "effects": {
+      "fame": 8,
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "hdg_wall_alliance"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdg_wall_scarred",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "hd_general",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "hdg_path_wall"
+    ],
+    "notFlags": [
+     "hdg_end"
+    ]
+   },
+   "text": "Một High Demon vô danh, thân đầy sẹo, phá cổng doanh trại và ném xuống đất đầu của ba tướng quân. Hắn thách bạn.",
+   "choices": [
+    {
+     "label": "Đấu",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Hắn mạnh, nhưng bạn mạnh hơn. Hắn quỳ. Hắn kể: hắn là kẻ sống sót duy nhất của một quân đoàn bị bỏ rơi ở vết nứt. Bạn nhận hắn vào bức tường.",
+      "effects": {
+       "STR": 1,
+       "fame": 10,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Hắn thắng một hiệp. Bạn thắng hai. Cả hai nằm trên đất, thở dốc, cười.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Hỏi hắn vì sao",
+     "text": "Hắn ngạc nhiên. Hắn kể về quân đoàn bị bỏ rơi. Bạn nghe. Hắn không thách nữa.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdg_legion_home",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "hd_general",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "hdg_path_legion",
+     "hdg_met_krell"
+    ],
+    "notFlags": [
+     "hdg_end"
+    ]
+   },
+   "text": "Krell và lũ High Orc xin về nhà. Mười nghìn năm chiến tranh. Họ muốn thấy con cháu.",
+   "choices": [
+    {
+     "label": "Cho họ về",
+     "require": {
+      "flags": [
+       "hdg_krell_loyal"
+      ]
+     },
+     "text": "Quân đoàn mất một phần ba. Ma Vương giận. Krell quỳ trước bạn, lần cuối, và đi. Ba trăm năm sau, cháu hắn đến xin gia nhập quân đoàn, vì ông nội kể về bạn.",
+     "effects": {
+      "joy": 10,
+      "fame": 4,
+      "jobXp": 3,
+      "flags": [
+       "hdg_legion_home"
+      ]
+     },
+     "moment": "Cho Krell và lũ High Orc về nhà sau mười nghìn năm"
+    },
+    {
+     "label": "Cho họ nghỉ phép luân phiên",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Mỗi năm một phần mười về nhà. Quân đoàn không yếu đi. Lính không còn nổi loạn.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "hdg_legion_home"
+       ]
+      },
+      "moment": "Lập chế độ nghỉ phép luân phiên cho quân đoàn"
+     },
+     "fail": {
+      "text": "Ma Vương bác bỏ.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdg_legion_wounded",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "hd_general",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "hdg_path_legion"
+    ],
+    "notFlags": [
+     "hdg_end"
+    ]
+   },
+   "text": "Sau trận, hàng nghìn lính bị thương. Ma Vương ra lệnh bỏ lại những kẻ không đi nổi.",
+   "choices": [
+    {
+     "label": "Mang theo tất cả",
+     "text": "Quân đoàn chậm lại. Ma Vương giận dữ. Nhưng không lính nào bị bỏ lại, và quân đoàn yêu bạn hơn bao giờ hết.",
+     "effects": {
+      "fame": 8,
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "hdg_legion_carry"
+      ]
+     }
+    },
+    {
+     "label": "Thi hành lệnh",
+     "text": "Quân đoàn tiến nhanh. Những kẻ bị bỏ lại nhìn theo.",
+     "effects": {
+      "joy": -10,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdg_c4_moloch",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "hd_general",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "hdg_met_moloch"
+    ],
+    "notFlags": [
+     "hdg_moloch_gone",
+     "hdg_end"
+    ],
+    "anyFlags": [
+     "hdg_path_conquest",
+     "hdg_path_wall",
+     "hdg_path_legion"
+    ]
+   },
+   "text": "Đại tướng Moloch bị Ma Vương xử tử vì một thất bại cách đây ba Kỷ Nguyên. Ông chọn bạn làm người thi hành án.",
+   "choices": [
+    {
+     "label": "Làm điều ông xin",
+     "text": "Ông quỳ, không vì sợ. “Một tướng chết dưới tay học trò mình. Không có cái chết nào vinh dự hơn.” Bạn giữ bàn cờ xương của ông.",
+     "effects": {
+      "joy": -10,
+      "jobXp": 3,
+      "flags": [
+       "hdg_moloch_gone",
+       "hdg_moloch_board"
+      ]
+     },
+     "moment": "Thi hành án tử cho Đại tướng Moloch theo ý nguyện của ông"
+    },
+    {
+     "label": "Từ chối, đứng về phía ông",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Ma Vương nhìn bạn rất lâu, rồi rút lệnh. Moloch sống thêm một Kỷ Nguyên, và chết trong giấc ngủ, bàn cờ trên đùi.",
+      "effects": {
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "hdg_moloch_gone",
+        "hdg_moloch_board"
+       ]
+      },
+      "moment": "Đứng về phía Đại tướng Moloch trước lệnh xử tử của Ma Vương"
+     },
+     "fail": {
+      "text": "Ma Vương xử cả ông lẫn giáng cấp bạn.",
+      "effects": {
+       "fame": -10,
+       "joy": -10,
+       "flags": [
+        "hdg_moloch_gone"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdg_c5_conquest",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "hd_general",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "hdg_path_conquest"
+    ],
+    "notFlags": [
+     "hdg_end"
+    ]
+   },
+   "text": "Bạn là Abyssal Marshal. Nửa lục địa nằm dưới cờ Vực Thẳm.",
+   "choices": [
+    {
+     "label": "Cai trị những vùng đất chinh phục bằng luật",
+     "require": {
+      "flags": [
+       "hdg_conquest_mercy"
+      ]
+     },
+     "text": "Những vị vua đầu hàng giữ ngai. Dân chúng giữ nhà. Thuế thấp hơn thời họ tự cai trị. Một số người bắt đầu tự hỏi Vực Thẳm có thật sự tệ thế không.",
+     "effects": {
+      "fame": 15,
+      "joy": 10,
+      "flags": [
+       "hdg_end",
+       "hdg_end_rule"
+      ]
+     },
+     "moment": "Cai trị nửa lục địa chinh phục bằng luật thay vì nỗi sợ"
+    },
+    {
+     "label": "Chinh phục đến biển cuối cùng",
+     "text": "Quân đoàn đứng trên bờ biển cuối cùng. Không còn gì để chinh phục. Bạn không biết làm gì tiếp.",
+     "effects": {
+      "fame": 15,
+      "joy": -4,
+      "flags": [
+       "hdg_end",
+       "hdg_end_sea"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdg_c5_wall",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "hd_general",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "hdg_path_wall"
+    ],
+    "notFlags": [
+     "hdg_end"
+    ]
+   },
+   "text": "Bạn là Abyssal Marshal. Ranh giới Vực Thẳm chưa bao giờ bị phá khi bạn canh.",
+   "choices": [
+    {
+     "label": "Lập Bức Tường chung với Human",
+     "require": {
+      "flags": [
+       "hdg_wall_alliance"
+      ]
+     },
+     "text": "Thánh Kỵ Sĩ và quân đoàn Vực Thẳm cùng canh ranh giới. Ma Vương và Giáo hội đều phản đối. Bức tường vẫn đứng.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "hdg_end",
+       "hdg_end_shared_wall"
+      ]
+     },
+     "moment": "Lập Bức Tường chung giữa Vực Thẳm và Thánh Quang canh ranh giới"
+    },
+    {
+     "label": "Canh một mình đến cuối",
+     "require": {
+      "flags": [
+       "hdg_wall_held"
+      ]
+     },
+     "text": "Bạn đứng ở vết nứt cũ, mãi mãi. Không thứ gì lọt lên. Không ai biết vì sao thế giới an toàn.",
+     "effects": {
+      "fame": 12,
+      "joy": 8,
+      "flags": [
+       "hdg_end",
+       "hdg_end_alone"
+      ]
+     }
+    },
+    {
+     "label": "Truyền vị trí cho kẻ đầy sẹo",
+     "text": "Hắn đứng ở vết nứt thay bạn. Bạn biết hắn sẽ không rời bỏ nó.",
+     "effects": {
+      "fame": 10,
+      "joy": 10,
+      "flags": [
+       "hdg_end",
+       "hdg_end_heir"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdg_c5_legion",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "hd_general",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "hdg_path_legion"
+    ],
+    "notFlags": [
+     "hdg_end"
+    ]
+   },
+   "text": "Bạn là Abyssal Marshal, nhưng quân đoàn gọi bạn là “Cha”.",
+   "choices": [
+    {
+     "label": "Giải ngũ cả quân đoàn",
+     "require": {
+      "flags": [
+       "hdg_legion_home"
+      ]
+     },
+     "text": "Mười nghìn năm. Đủ rồi. Bạn cho mọi lính về nhà. Ma Vương không còn quân đoàn. Thế giới có một Kỷ Nguyên hòa bình.",
+     "effects": {
+      "fame": 15,
+      "joy": 18,
+      "flags": [
+       "hdg_end",
+       "hdg_end_disband"
+      ]
+     },
+     "moment": "Giải ngũ cả quân đoàn sau mười nghìn năm"
+    },
+    {
+     "label": "Dựng nghĩa trang cho quân đoàn",
+     "require": {
+      "flags": [
+       "hdg_legion_carry"
+      ]
+     },
+     "text": "Mọi lính đã ngã đều có tên trên đá. Bạn đọc từng cái tên mỗi Kỷ Nguyên.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "hdg_end",
+       "hdg_end_cemetery"
+      ]
+     }
+    },
+    {
+     "label": "Đặt bàn cờ xương lên bàn",
+     "require": {
+      "flags": [
+       "hdg_moloch_board"
+      ]
+     },
+     "text": "Bạn chơi một ván cờ với chính mình mỗi đêm, như Moloch từng chơi. Bạn luôn giữ được quân.",
+     "effects": {
+      "fame": 10,
+      "joy": 10,
+      "flags": [
+       "hdg_end",
+       "hdg_end_chess"
+      ]
+     }
+    },
+    {
+     "label": "Dẫn quân đoàn đến Kỷ Nguyên sau",
+     "text": "Quân đoàn vẫn đó. Bạn vẫn đó. Thế giới đổi thay quanh các bạn.",
+     "effects": {
+      "fame": 12,
+      "joy": 6,
+      "flags": [
+       "hdg_end",
+       "hdg_end_endure"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdg_daily_map",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "hd_general",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Bản đồ chiến trường đã cũ. Những vương quốc trên đó không còn tồn tại.",
+   "choices": [
+    {
+     "label": "Vẽ bản đồ mới",
+     "text": "Thế giới đã đổi khác ba lần.",
+     "effects": {
+      "INT": 1
+     }
+    },
+    {
+     "label": "Giữ bản đồ cũ",
+     "text": "Nó là ký ức.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdg_daily_war",
+   "races": [
+    "high_demon"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "hd_general",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh Kỷ Nguyên. Ma Vương gọi mọi quân đoàn.",
+   "choices": [
+    {
+     "label": "Đi đầu",
+     "text": "Bạn trở về với một vết sẹo mới, và ít quân hơn.",
+     "effects": {
+      "fame": 6,
+      "health": -6,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Bảo vệ hậu phương",
+     "text": "Ít vinh quang. Nhiều quân sống.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdg_daily_old",
+   "races": [
+    "high_demon"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "hd_general",
+    "free": true
+   },
+   "text": "Bạn đã chỉ huy qua ba Kỷ Nguyên. Lính của bạn không còn ai nhớ trận đầu tiên.",
+   "choices": [
+    {
+     "label": "Kể cho họ nghe",
+     "text": "Họ nghe như nghe thần thoại.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Ngồi một mình với bàn cờ",
+     "text": "Quân cờ là những người bạn cũ.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "hdg_c5_conquest_late",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "hd_general",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "hdg_path_conquest"
+    ],
+    "notFlags": [
+     "hdg_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Abyssal Marshal. Nửa lục địa nằm dưới cờ Vực Thẳm.",
+   "choices": [
+    {
+     "label": "Cai trị những vùng đất chinh phục bằng luật",
+     "require": {
+      "flags": [
+       "hdg_conquest_mercy"
+      ]
+     },
+     "text": "Những vị vua đầu hàng giữ ngai. Dân chúng giữ nhà. Thuế thấp hơn thời họ tự cai trị. Một số người bắt đầu tự hỏi Vực Thẳm có thật sự tệ thế không.",
+     "effects": {
+      "fame": 15,
+      "joy": 10,
+      "flags": [
+       "hdg_end",
+       "hdg_end_rule"
+      ]
+     },
+     "moment": "Cai trị nửa lục địa chinh phục bằng luật thay vì nỗi sợ"
+    },
+    {
+     "label": "Chinh phục đến biển cuối cùng",
+     "text": "Quân đoàn đứng trên bờ biển cuối cùng. Không còn gì để chinh phục. Bạn không biết làm gì tiếp.",
+     "effects": {
+      "fame": 15,
+      "joy": -4,
+      "flags": [
+       "hdg_end",
+       "hdg_end_sea"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "hdg_c5_wall_late",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "hd_general",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "hdg_path_wall"
+    ],
+    "notFlags": [
+     "hdg_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Abyssal Marshal. Ranh giới Vực Thẳm chưa bao giờ bị phá khi bạn canh.",
+   "choices": [
+    {
+     "label": "Lập Bức Tường chung với Human",
+     "require": {
+      "flags": [
+       "hdg_wall_alliance"
+      ]
+     },
+     "text": "Thánh Kỵ Sĩ và quân đoàn Vực Thẳm cùng canh ranh giới. Ma Vương và Giáo hội đều phản đối. Bức tường vẫn đứng.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "hdg_end",
+       "hdg_end_shared_wall"
+      ]
+     },
+     "moment": "Lập Bức Tường chung giữa Vực Thẳm và Thánh Quang canh ranh giới"
+    },
+    {
+     "label": "Canh một mình đến cuối",
+     "require": {
+      "flags": [
+       "hdg_wall_held"
+      ]
+     },
+     "text": "Bạn đứng ở vết nứt cũ, mãi mãi. Không thứ gì lọt lên. Không ai biết vì sao thế giới an toàn.",
+     "effects": {
+      "fame": 12,
+      "joy": 8,
+      "flags": [
+       "hdg_end",
+       "hdg_end_alone"
+      ]
+     }
+    },
+    {
+     "label": "Truyền vị trí cho kẻ đầy sẹo",
+     "text": "Hắn đứng ở vết nứt thay bạn. Bạn biết hắn sẽ không rời bỏ nó.",
+     "effects": {
+      "fame": 10,
+      "joy": 10,
+      "flags": [
+       "hdg_end",
+       "hdg_end_heir"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "hdg_c5_legion_late",
+   "races": [
+    "high_demon"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "hd_general",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "hdg_path_legion"
+    ],
+    "notFlags": [
+     "hdg_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Abyssal Marshal, nhưng quân đoàn gọi bạn là “Cha”.",
+   "choices": [
+    {
+     "label": "Giải ngũ cả quân đoàn",
+     "require": {
+      "flags": [
+       "hdg_legion_home"
+      ]
+     },
+     "text": "Mười nghìn năm. Đủ rồi. Bạn cho mọi lính về nhà. Ma Vương không còn quân đoàn. Thế giới có một Kỷ Nguyên hòa bình.",
+     "effects": {
+      "fame": 15,
+      "joy": 18,
+      "flags": [
+       "hdg_end",
+       "hdg_end_disband"
+      ]
+     },
+     "moment": "Giải ngũ cả quân đoàn sau mười nghìn năm"
+    },
+    {
+     "label": "Dựng nghĩa trang cho quân đoàn",
+     "require": {
+      "flags": [
+       "hdg_legion_carry"
+      ]
+     },
+     "text": "Mọi lính đã ngã đều có tên trên đá. Bạn đọc từng cái tên mỗi Kỷ Nguyên.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "hdg_end",
+       "hdg_end_cemetery"
+      ]
+     }
+    },
+    {
+     "label": "Đặt bàn cờ xương lên bàn",
+     "require": {
+      "flags": [
+       "hdg_moloch_board"
+      ]
+     },
+     "text": "Bạn chơi một ván cờ với chính mình mỗi đêm, như Moloch từng chơi. Bạn luôn giữ được quân.",
+     "effects": {
+      "fame": 10,
+      "joy": 10,
+      "flags": [
+       "hdg_end",
+       "hdg_end_chess"
+      ]
+     }
+    },
+    {
+     "label": "Dẫn quân đoàn đến Kỷ Nguyên sau",
+     "text": "Quân đoàn vẫn đó. Bạn vẫn đó. Thế giới đổi thay quanh các bạn.",
+     "effects": {
+      "fame": 12,
+      "joy": 6,
+      "flags": [
+       "hdg_end",
+       "hdg_end_endure"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}
