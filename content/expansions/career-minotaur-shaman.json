@@ -1,0 +1,991 @@
+{
+ "_note": "Tuyến truyện Abyssal Shaman (Minotaur): ba đạo (mns_path_seal / mns_path_voice / mns_path_herd), nhân vật xuyên suốt bà Pasiphae Mắt Mù (pháp sư già) và tượng Cổ Thần Vực Thẳm.",
+ "origins": [],
+ "events": [
+  {
+   "id": "mns_c1_pasiphae",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "minotaur_shaman",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "mns_met_pasiphae"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Pasiphae Mắt Mù",
+     "race": "Minotaur",
+     "position": "Pháp sư già đã mất mắt vì nhìn vào Vực Thẳm"
+    }
+   ],
+   "text": "Bà Pasiphae Mắt Mù đã nhìn thẳng vào Vực Thẳm khi còn trẻ, và mất cả hai mắt. Bà lẩm bẩm suốt ngày, những từ mà không ai hiểu. Bà quay về phía bạn: “Ngươi nghe thấy nó chưa? Dưới chân tượng.”",
+   "choices": [
+    {
+     "label": "Áp tai xuống đất",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn nghe thấy: một tiếng thở rất chậm, rất sâu, từ dưới lòng đất. Bà Pasiphae gật đầu: “Nó ngủ. Việc của chúng ta là giữ nó ngủ.”",
+      "effects": {
+       "LUCK": 1,
+       "jobXp": 1,
+       "flags": [
+        "mns_met_pasiphae",
+        "mns_pasiphae_respect"
+       ]
+      },
+      "moment": "Nghe thấy tiếng thở của thứ đang ngủ dưới tượng Cổ Thần"
+     },
+     "fail": {
+      "text": "Bạn không nghe thấy gì. Bà cười: “May cho ngươi. Rồi sẽ nghe.”",
+      "effects": {
+       "flags": [
+        "mns_met_pasiphae"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi bà nó là gì",
+     "text": "Bà im lặng rất lâu. “Thứ mà tổ tiên ta đã thờ, rồi sợ, rồi phong ấn. Giờ chúng ta lẩm bẩm để nó không tỉnh.” Bà dạy bạn từ đầu tiên của lời ru.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "mns_met_pasiphae",
+       "mns_pasiphae_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mns_c2_first_whisper",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "minotaur_shaman",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "flags": [
+     "mns_met_pasiphae"
+    ],
+    "notFlags": [
+     "mns_first_whisper",
+     "mns_end"
+    ]
+   },
+   "text": "Nửa đêm, tượng Cổ Thần rỉ máu từ hốc mắt. Một giọng nói không thành tiếng van xin bạn tháo một sợi xích trên chân tượng.",
+   "choices": [
+    {
+     "label": "Lẩm bẩm lời ru",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Giọng nói nhỏ dần, rồi im. Máu ngừng chảy. Sáng ra, bạn kể với bà Pasiphae. Bà gật đầu: “Lần đầu nó thử ngươi. Ngươi qua rồi.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 2,
+       "flags": [
+        "mns_first_whisper"
+       ]
+      },
+      "moment": "Ru được tượng Cổ Thần trở lại giấc ngủ"
+     },
+     "fail": {
+      "text": "Giọng nói to hơn. Bạn chạy ra khỏi đền, và không ngủ được ba đêm.",
+      "effects": {
+       "joy": -6,
+       "flags": [
+        "mns_first_whisper"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi nó muốn gì",
+     "text": "Nó nói: tự do. Nó nói: nó cô đơn. Bạn không tin, và cũng không hẳn là không tin.",
+     "effects": {
+      "jobXp": 2,
+      "flags": [
+       "mns_first_whisper",
+       "mns_first_listened"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mns_c2_crossroads",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "minotaur_shaman",
+    "free": true,
+    "jobRank": 1,
+    "flags": [
+     "mns_met_pasiphae"
+    ],
+    "notFlags": [
+     "mns_path_seal",
+     "mns_path_voice",
+     "mns_path_herd",
+     "mns_end"
+    ]
+   },
+   "text": "Bà Pasiphae đặt tay lên ba thứ: sợi xích trên chân tượng, chiếc chuông đồng treo trước đền, và cây gậy chăn của tộc Minotaur.",
+   "choices": [
+    {
+     "label": "Sợi xích: Người Giữ Phong Ấn",
+     "text": "Bạn sẽ giữ cho Cổ Thần ngủ, suốt đời, như bà Pasiphae. Không ai biết, không ai cảm ơn.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "mns_path_seal"
+      ]
+     },
+     "moment": "Nhận giữ phong ấn Cổ Thần Vực Thẳm"
+    },
+    {
+     "label": "Chiếc chuông: Tiếng Nói Của Vực Thẳm",
+     "text": "Bạn sẽ nghe những gì Cổ Thần nói, và truyền lại cho tộc. Có thể nó biết những điều mà không ai khác biết.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "mns_path_voice"
+      ]
+     },
+     "moment": "Chọn lắng nghe và truyền lời Cổ Thần"
+    },
+    {
+     "label": "Cây gậy chăn: Pháp Sư Của Đàn",
+     "text": "Bạn sẽ dùng phép không phải cho đền, mà cho tộc: chữa bò bệnh, gọi mưa cho đồng cỏ, ru lũ Minotaur con khi chúng sợ.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "mns_path_herd"
+      ]
+     },
+     "moment": "Chọn dùng phép để chăm sóc cả tộc Minotaur"
+    }
+   ]
+  },
+  {
+   "id": "mns_seal_crack",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "minotaur_shaman",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mns_path_seal"
+    ],
+    "notFlags": [
+     "mns_end"
+    ]
+   },
+   "text": "Phong ấn có một vết nứt nhỏ. Lời ru không còn đủ.",
+   "choices": [
+    {
+     "label": "Dùng máu mình gia cố phong ấn",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Vết nứt khép lại. Bạn yếu đi một mùa. Bà Pasiphae sờ lên vai bạn: “Giờ ngươi hiểu vì sao ta già nhanh thế.”",
+      "effects": {
+       "STR": 1,
+       "health": -10,
+       "fame": 4,
+       "jobXp": 3,
+       "flags": [
+        "mns_seal_blood"
+       ]
+      },
+      "moment": "Gia cố phong ấn Cổ Thần bằng máu của chính mình"
+     },
+     "fail": {
+      "text": "Không đủ. Vết nứt vẫn còn, nhỏ hơn.",
+      "effects": {
+       "health": -12
+      }
+     }
+    },
+    {
+     "label": "Tìm sách cổ về phong ấn",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn tìm ra cách khắc thêm một vòng rune quanh tượng. Phong ấn mạnh hơn bao giờ hết.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "mns_seal_rune"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Sách cổ viết bằng thứ chữ không ai đọc được.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "mns_seal_inquisitor",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "minotaur_shaman",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mns_path_seal"
+    ],
+    "notFlags": [
+     "mns_end"
+    ]
+   },
+   "text": "Một đội Inquisitor của Giáo hội Thánh Quang lần theo mùi tà khí, giăng trận pháp ánh sáng quanh đền.",
+   "choices": [
+    {
+     "label": "Giải thích cho họ đền đang giữ cái gì",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Đội trưởng nghe, rồi đặt tay lên tượng. Hắn tái mặt. “Chúng ta sẽ giúp giữ nó.” Hắn để lại hai người canh cùng bạn.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "mns_seal_allies"
+       ]
+      },
+      "moment": "Thuyết phục Inquisitor cùng canh giữ phong ấn"
+     },
+     "fail": {
+      "text": "Hắn không tin. Trận pháp ánh sáng làm phong ấn rung chuyển.",
+      "effects": {
+       "health": -10
+      }
+     }
+    },
+    {
+     "label": "Đẩy họ ra khỏi đền",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Họ rút lui, thề sẽ quay lại.",
+      "effects": {
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Ánh sáng thiêu cháy lông bạn.",
+      "effects": {
+       "health": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "mns_voice_vision",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "minotaur_shaman",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mns_path_voice"
+    ],
+    "notFlags": [
+     "mns_end"
+    ]
+   },
+   "text": "Bạn nhìn thẳng vào Vực Thẳm như bà Pasiphae từng làm. Mắt trái của bạn tối lại. Bù lại, bạn thấy được những điều sắp xảy ra.",
+   "choices": [
+    {
+     "label": "Kể cho tộc điều bạn thấy",
+     "text": "Bạn thấy một trận lũ. Tộc dời đi trước ba ngày. Lũ đến, không ai chết. Họ bắt đầu sợ bạn, theo cách họ từng sợ bà Pasiphae.",
+     "effects": {
+      "fame": 8,
+      "jobXp": 3,
+      "flags": [
+       "mns_voice_seer"
+      ]
+     },
+     "moment": "Đổi một con mắt lấy khả năng thấy trước"
+    },
+    {
+     "label": "Giữ cho riêng mình",
+     "text": "Bạn thấy nhiều thứ. Bạn không biết thứ nào là thật.",
+     "effects": {
+      "INT": 1,
+      "joy": -4,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "mns_voice_bargain",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "minotaur_shaman",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mns_path_voice"
+    ],
+    "notFlags": [
+     "mns_end"
+    ]
+   },
+   "text": "Cổ Thần đề nghị: nó sẽ cho tộc Minotaur hết mù màu, nếu bạn nới lỏng một mắt xích.",
+   "choices": [
+    {
+     "label": "Từ chối",
+     "text": "Cổ Thần im lặng. Bạn biết nó sẽ hỏi lại.",
+     "effects": {
+      "jobXp": 3,
+      "flags": [
+       "mns_voice_refused"
+      ]
+     }
+    },
+    {
+     "label": "Hỏi nó cái giá thật sự",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Nó không trả lời. Bạn biết đó là câu trả lời. Bạn kể lại cho tộc, và họ hiểu vì sao tổ tiên đã phong ấn nó.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "mns_voice_refused"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Nó trả lời bằng một cơn đau đầu kéo dài cả tuần.",
+      "effects": {
+       "health": -8
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "mns_herd_plague",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "minotaur_shaman",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mns_path_herd"
+    ],
+    "notFlags": [
+     "mns_end"
+    ]
+   },
+   "text": "Đàn bò của tộc bị dịch. Chúng nằm la liệt trên đồng cỏ.",
+   "choices": [
+    {
+     "label": "Làm lễ chữa cả đàn",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Ba ngày ba đêm. Đàn bò đứng dậy, từng con một. Tộc Minotaur nhìn bạn như nhìn một vị thần nhỏ.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "mns_herd_healed"
+       ]
+      },
+      "moment": "Chữa khỏi trận dịch cho cả đàn bò của tộc"
+     },
+     "fail": {
+      "text": "Bạn cứu được một nửa.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    },
+    {
+     "label": "Tách con bệnh, dời đàn khỏe đi",
+     "text": "Đàn khỏe sống. Những con bệnh nằm lại. Bạn ngồi với chúng đến cuối.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "mns_herd_calves",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "minotaur_shaman",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mns_path_herd"
+    ],
+    "notFlags": [
+     "mns_end"
+    ]
+   },
+   "text": "Lũ Minotaur con sợ bóng tối, sợ sấm, sợ cả tiếng thở dưới đền. Chúng không ngủ được.",
+   "choices": [
+    {
+     "label": "Dạy chúng lời ru",
+     "text": "Lời ru giữ Cổ Thần ngủ cũng giữ được lũ con ngủ. Từ đó, cả tộc hát nó mỗi đêm. Bạn không chắc ai đang ru ai.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 3,
+      "flags": [
+       "mns_herd_lullaby"
+      ]
+     },
+     "moment": "Dạy lũ Minotaur con lời ru của đền Cổ Thần"
+    },
+    {
+     "label": "Kể chuyện về những anh hùng Minotaur",
+     "text": "Chúng ngủ, mơ thấy mình húc đổ những bức tường.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "mns_c4_pasiphae",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "minotaur_shaman",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "mns_met_pasiphae"
+    ],
+    "notFlags": [
+     "mns_pasiphae_gone",
+     "mns_end"
+    ],
+    "anyFlags": [
+     "mns_path_seal",
+     "mns_path_voice",
+     "mns_path_herd"
+    ]
+   },
+   "text": "Bà Pasiphae biết mình sắp chết. Bà muốn nghe tiếng thở dưới tượng lần cuối.",
+   "choices": [
+    {
+     "label": "Đưa bà vào đền",
+     "text": "Bà nằm áp tai xuống đất, lẩm bẩm lời ru. Đến sáng, bà vẫn lẩm bẩm. Đến trưa, bà im lặng. Tiếng thở dưới tượng vẫn đều, chậm, sâu. Bà đã giữ nó ngủ đến hơi thở cuối.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "mns_pasiphae_gone"
+      ]
+     },
+     "moment": "Ở bên bà Pasiphae khi bà ru Cổ Thần lần cuối"
+    },
+    {
+     "label": "Hát lời ru thay bà",
+     "text": "Bà nghe bạn hát, mỉm cười. “Ngươi hát đúng rồi.” Bà mất trong giấc ngủ.",
+     "effects": {
+      "joy": -4,
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "mns_pasiphae_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mns_c5_seal",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "minotaur_shaman",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "mns_path_seal"
+    ],
+    "notFlags": [
+     "mns_end"
+    ]
+   },
+   "text": "Bạn là Abyssal Emissary. Cổ Thần vẫn ngủ.",
+   "choices": [
+    {
+     "label": "Dạy lời ru cho ba người kế nhiệm",
+     "text": "Không ai được giữ phong ấn một mình nữa. Ba người, ba giọng hát. Nếu một người im, hai người kia vẫn hát.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "mns_end",
+       "mns_end_three"
+      ]
+     },
+     "moment": "Dạy lời ru phong ấn cho ba người kế nhiệm"
+    },
+    {
+     "label": "Mời Inquisitor cùng giữ đền",
+     "require": {
+      "flags": [
+       "mns_seal_allies"
+      ]
+     },
+     "text": "Giáo hội Thánh Quang và tộc Minotaur cùng giữ một ngôi đền. Không ai tin điều đó, cho đến khi tận mắt thấy.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "mns_end",
+       "mns_end_alliance"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mns_c5_voice",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "minotaur_shaman",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "mns_path_voice"
+    ],
+    "notFlags": [
+     "mns_end"
+    ]
+   },
+   "text": "Bạn là Abyssal Emissary. Cổ Thần nói, và bạn nghe.",
+   "choices": [
+    {
+     "label": "Nói lời cuối với Cổ Thần",
+     "require": {
+      "flags": [
+       "mns_voice_refused"
+      ]
+     },
+     "text": "Bạn nói: “Ta hiểu ngươi cô đơn. Nhưng ngươi sẽ ngủ.” Lần đầu tiên, Cổ Thần không đáp bằng lời van xin. Nó đáp bằng im lặng, như một sự chấp nhận.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "mns_end",
+       "mns_end_acceptance"
+      ]
+     },
+     "moment": "Nói lời cuối với Cổ Thần, và nó chấp nhận ngủ"
+    },
+    {
+     "label": "Ghi lại mọi điều đã thấy",
+     "text": "Học trò của bạn đọc, và hiểu được một phần ba. Đủ để biết khi nào nên chạy.",
+     "effects": {
+      "fame": 10,
+      "INT": 1,
+      "flags": [
+       "mns_end",
+       "mns_end_visions"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mns_c5_herd",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "minotaur_shaman",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "mns_path_herd"
+    ],
+    "notFlags": [
+     "mns_end"
+    ]
+   },
+   "text": "Bạn là Abyssal Emissary, nhưng tộc gọi bạn là “người chăn”.",
+   "choices": [
+    {
+     "label": "Để lời ru thành bài hát của tộc",
+     "require": {
+      "flags": [
+       "mns_herd_lullaby"
+      ]
+     },
+     "text": "Cả tộc hát nó mỗi đêm, không ai còn nhớ nó bắt đầu từ đền. Cổ Thần ngủ sâu hơn bao giờ hết.",
+     "effects": {
+      "fame": 12,
+      "joy": 18,
+      "flags": [
+       "mns_end",
+       "mns_end_song"
+      ]
+     },
+     "moment": "Lời ru phong ấn trở thành bài hát của cả tộc Minotaur"
+    },
+    {
+     "label": "Đi chăn đàn bò những năm cuối",
+     "text": "Bạn đi giữa đàn bò trên đồng cỏ, không phép thuật, không đền. Chỉ có gió và tiếng chuông.",
+     "effects": {
+      "fame": 8,
+      "joy": 15,
+      "flags": [
+       "mns_end",
+       "mns_end_pasture"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mns_daily_bell",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "minotaur_shaman",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Chuông đồng trước đền rung lên dù không có gió.",
+   "choices": [
+    {
+     "label": "Hát lời ru",
+     "text": "Chuông im lặng.",
+     "effects": {
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Kệ nó",
+     "text": "Chuông rung suốt đêm. Bạn không ngủ được.",
+     "effects": {
+      "joy": -3
+     }
+    }
+   ]
+  },
+  {
+   "id": "mns_daily_war",
+   "races": [
+    "minotaur"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "minotaur_shaman",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Máu đổ khắp nơi làm Cổ Thần trở mình.",
+   "choices": [
+    {
+     "label": "Hát lời ru gấp đôi",
+     "text": "Bạn khản giọng cả mùa. Cổ Thần vẫn ngủ.",
+     "effects": {
+      "health": -4,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Đi khắp chiến trường chôn người chết",
+     "text": "Ít máu trên đất hơn. Ít tiếng thì thầm hơn.",
+     "effects": {
+      "joy": 3,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "mns_daily_old",
+   "races": [
+    "minotaur"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "minotaur_shaman",
+    "free": true
+   },
+   "text": "Bạn bắt đầu nghe tiếng thở dưới tượng ngay cả khi ở xa đền.",
+   "choices": [
+    {
+     "label": "Hát lời ru khi đi ngủ",
+     "text": "Bạn ngủ ngon. Cổ Thần cũng vậy.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Dạy lũ trẻ nhận ra tiếng thở",
+     "text": "Chúng sợ, rồi quen. Đó là cách duy nhất.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "mns_c5_seal_late",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "minotaur_shaman",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "mns_path_seal"
+    ],
+    "notFlags": [
+     "mns_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Abyssal Emissary. Cổ Thần vẫn ngủ.",
+   "choices": [
+    {
+     "label": "Dạy lời ru cho ba người kế nhiệm",
+     "text": "Không ai được giữ phong ấn một mình nữa. Ba người, ba giọng hát. Nếu một người im, hai người kia vẫn hát.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "mns_end",
+       "mns_end_three"
+      ]
+     },
+     "moment": "Dạy lời ru phong ấn cho ba người kế nhiệm"
+    },
+    {
+     "label": "Mời Inquisitor cùng giữ đền",
+     "require": {
+      "flags": [
+       "mns_seal_allies"
+      ]
+     },
+     "text": "Giáo hội Thánh Quang và tộc Minotaur cùng giữ một ngôi đền. Không ai tin điều đó, cho đến khi tận mắt thấy.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "mns_end",
+       "mns_end_alliance"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "mns_c5_voice_late",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "minotaur_shaman",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "mns_path_voice"
+    ],
+    "notFlags": [
+     "mns_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Abyssal Emissary. Cổ Thần nói, và bạn nghe.",
+   "choices": [
+    {
+     "label": "Nói lời cuối với Cổ Thần",
+     "require": {
+      "flags": [
+       "mns_voice_refused"
+      ]
+     },
+     "text": "Bạn nói: “Ta hiểu ngươi cô đơn. Nhưng ngươi sẽ ngủ.” Lần đầu tiên, Cổ Thần không đáp bằng lời van xin. Nó đáp bằng im lặng, như một sự chấp nhận.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "mns_end",
+       "mns_end_acceptance"
+      ]
+     },
+     "moment": "Nói lời cuối với Cổ Thần, và nó chấp nhận ngủ"
+    },
+    {
+     "label": "Ghi lại mọi điều đã thấy",
+     "text": "Học trò của bạn đọc, và hiểu được một phần ba. Đủ để biết khi nào nên chạy.",
+     "effects": {
+      "fame": 10,
+      "INT": 1,
+      "flags": [
+       "mns_end",
+       "mns_end_visions"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "mns_c5_herd_late",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "minotaur_shaman",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "mns_path_herd"
+    ],
+    "notFlags": [
+     "mns_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Abyssal Emissary, nhưng tộc gọi bạn là “người chăn”.",
+   "choices": [
+    {
+     "label": "Để lời ru thành bài hát của tộc",
+     "require": {
+      "flags": [
+       "mns_herd_lullaby"
+      ]
+     },
+     "text": "Cả tộc hát nó mỗi đêm, không ai còn nhớ nó bắt đầu từ đền. Cổ Thần ngủ sâu hơn bao giờ hết.",
+     "effects": {
+      "fame": 12,
+      "joy": 18,
+      "flags": [
+       "mns_end",
+       "mns_end_song"
+      ]
+     },
+     "moment": "Lời ru phong ấn trở thành bài hát của cả tộc Minotaur"
+    },
+    {
+     "label": "Đi chăn đàn bò những năm cuối",
+     "text": "Bạn đi giữa đàn bò trên đồng cỏ, không phép thuật, không đền. Chỉ có gió và tiếng chuông.",
+     "effects": {
+      "fame": 8,
+      "joy": 15,
+      "flags": [
+       "mns_end",
+       "mns_end_pasture"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}

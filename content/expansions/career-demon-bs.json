@@ -1,0 +1,1118 @@
+{
+ "_note": "Tuyến truyện Hell Forge Blacksmith (Ma tộc): ba đạo (dbs_path_soul / dbs_path_siege / dbs_path_free), nhân vật xuyên suốt lão Hephas Lò Than (thợ rèn già) và Liora (linh hồn Thánh Kỵ Sĩ bị nhốt trong kiếm).",
+ "origins": [],
+ "events": [
+  {
+   "id": "dbs_c1_hephas",
+   "races": [
+    "demon"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "demon_bs",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "dbs_met_hephas"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Hephas Lò Than",
+     "race": "Demon",
+     "position": "Thợ rèn già của lò lửa Vực Thẳm"
+    }
+   ],
+   "text": "Lão Hephas Lò Than rèn bằng lửa Vực Thẳm, thứ lửa đốt cả linh hồn. Lão dạy bạn: “Mỗi thanh ma kiếm cần một linh hồn. Ngươi phải biết linh hồn nào đáng nhốt, và linh hồn nào không.”",
+   "choices": [
+    {
+     "label": "Hỏi linh hồn nào đáng nhốt",
+     "text": "Lão im lặng rất lâu. “Không linh hồn nào. Nhưng Ma Vương không hỏi ta câu đó.” Lão đưa bạn búa. “Học rèn trước. Học từ chối sau.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "dbs_met_hephas",
+       "dbs_hephas_respect"
+      ]
+     },
+     "moment": "Nghe lão Hephas thú nhận rằng không linh hồn nào đáng bị nhốt"
+    },
+    {
+     "label": "Cầm búa ngay",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn đập lên phôi sắt. Lửa Vực Thẳm bùng lên, nhưng bạn không lùi. Lão Hephas gật đầu: “Tay vững.”",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "dbs_met_hephas"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Lửa liếm vào tay bạn. Lão Hephas dội nước: “Lửa này không đốt da. Nó đốt thứ bên trong. Cẩn thận.”",
+      "effects": {
+       "health": -5,
+       "flags": [
+        "dbs_met_hephas"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbs_c1_liora",
+   "races": [
+    "demon"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "demon_bs",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "dbs_met_hephas"
+    ],
+    "notFlags": [
+     "dbs_met_liora"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Liora",
+     "race": "Human",
+     "position": "Linh hồn Thánh Kỵ Sĩ bị nhốt trong ma kiếm"
+    }
+   ],
+   "text": "Trong kho của lão Hephas có một thanh kiếm cổ, nhốt linh hồn một Thánh Kỵ Sĩ tên Liora. Khi bạn chạm vào, nó nói: “Ngươi còn trẻ. Ngươi vẫn có thể chọn không làm như họ.”",
+   "choices": [
+    {
+     "label": "Nói chuyện với cô",
+     "text": "Cô kể về Sanctus, về ánh sáng, về ba trăm năm trong thanh kiếm. Bạn quay lại kho mỗi đêm. Lão Hephas biết, và không ngăn.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 1,
+      "flags": [
+       "dbs_met_liora",
+       "dbs_liora_friend"
+      ]
+     },
+     "moment": "Trò chuyện với linh hồn Thánh Kỵ Sĩ Liora bị nhốt trong kiếm"
+    },
+    {
+     "label": "Đặt kiếm xuống",
+     "text": "Thanh kiếm im lặng. Nhưng đêm ấy, bạn mơ thấy ánh sáng.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "dbs_met_liora"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbs_c2_first_blade",
+   "races": [
+    "demon"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "demon_bs",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "dbs_first_blade",
+     "dbs_end"
+    ],
+    "flags": [
+     "dbs_met_hephas"
+    ]
+   },
+   "text": "Thanh ma kiếm đầu tiên của bạn. Lão Hephas đưa bạn một lọ chứa linh hồn của một tên tội phạm Ma tộc đã bị xử tử.",
+   "choices": [
+    {
+     "label": "Rèn kiếm không có linh hồn",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Thanh kiếm yếu hơn, nhưng sạch. Lão Hephas cầm nó lên, nhìn rất lâu: “Ta chưa từng thấy ai làm được thế.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 2,
+       "flags": [
+        "dbs_first_blade",
+        "dbs_first_soulless"
+       ]
+      },
+      "moment": "Rèn ma kiếm đầu tiên mà không nhốt linh hồn nào"
+     },
+     "fail": {
+      "text": "Thanh kiếm vỡ khi nguội. Không có linh hồn, lửa Vực Thẳm không giữ được nó.",
+      "effects": {
+       "jobXp": 1,
+       "flags": [
+        "dbs_first_blade"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Dùng linh hồn tên tội phạm",
+     "text": "Thanh kiếm thì thầm những lời chửi rủa. Nó sắc bén. Nó cũng căm ghét người cầm nó.",
+     "effects": {
+      "jobXp": 2,
+      "flags": [
+       "dbs_first_blade"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbs_c2_crossroads",
+   "races": [
+    "demon"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "demon_bs",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "dbs_path_soul",
+     "dbs_path_siege",
+     "dbs_path_free",
+     "dbs_end"
+    ],
+    "flags": [
+     "dbs_met_hephas"
+    ]
+   },
+   "text": "Lão Hephas dẫn bạn đến ba lò rèn: lò rèn ma kiếm của Ma Vương, lò rèn máy công thành của quân đoàn, và một lò nhỏ lão dùng để làm việc riêng mà không ai biết.",
+   "choices": [
+    {
+     "label": "Lò ma kiếm: Thợ Rèn Linh Hồn",
+     "text": "Bạn sẽ rèn ma kiếm, thứ vũ khí mạnh nhất Ma Giới. Lão Hephas không nói gì.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "dbs_path_soul"
+      ]
+     },
+     "moment": "Chọn rèn ma kiếm cho Ma Vương"
+    },
+    {
+     "label": "Lò công thành: Xưởng Công Thành",
+     "text": "Bạn sẽ chế tạo những cỗ máy phá thành. Không cần linh hồn. Chỉ cần sắt và lửa.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "dbs_path_siege"
+      ]
+     },
+     "moment": "Chọn chế tạo máy công thành cho quân đoàn"
+    },
+    {
+     "label": "Lò nhỏ: Kẻ Giải Phóng",
+     "text": "Lão Hephas mở cửa lò nhỏ. Bên trong là hàng chục thanh kiếm cũ, đã được tháo linh hồn. “Ta giải thoát chúng, từng thanh một, suốt trăm năm.”",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "dbs_path_free"
+      ]
+     },
+     "moment": "Chọn giải phóng linh hồn bị nhốt trong những ma kiếm cũ"
+    }
+   ]
+  },
+  {
+   "id": "dbs_soul_curse",
+   "races": [
+    "demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "demon_bs",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dbs_path_soul"
+    ],
+    "notFlags": [
+     "dbs_end"
+    ]
+   },
+   "text": "Khi rèn thanh tà kiếm “Đoạt Hồn”, linh hồn bên trong bạo động, gào thét, đòi được thả.",
+   "choices": [
+    {
+     "label": "Đè nó xuống bằng lửa",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Lửa Vực Thẳm nuốt tiếng gào. Thanh kiếm hoàn thành, mạnh nhất bạn từng rèn. Ma Vương thưởng bạn.",
+      "effects": {
+       "STR": 1,
+       "fame": 10,
+       "joy": -6,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Linh hồn thoát ra, tấn công bạn trước khi tan biến.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Nghe nó nói",
+     "text": "Nó là một người mẹ, chết khi bảo vệ con. Bạn không rèn tiếp. Bạn giao một thanh kiếm thường, và nói với Ma Vương rằng linh hồn đã tan.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "dbs_soul_listened"
+      ]
+     },
+     "moment": "Nghe linh hồn trong thanh Đoạt Hồn kể chuyện, và không rèn tiếp"
+    }
+   ]
+  },
+  {
+   "id": "dbs_soul_meteor",
+   "races": [
+    "demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "demon_bs",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dbs_path_soul"
+    ],
+    "notFlags": [
+     "dbs_end"
+    ]
+   },
+   "text": "Một kỵ sĩ không đầu cưỡi ngựa ma mang tới một mảnh thiên thạch. Hắn muốn một thanh kiếm không cần linh hồn, nhưng mạnh như ma kiếm.",
+   "choices": [
+    {
+     "label": "Thử rèn",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Thiên thạch giữ lửa Vực Thẳm mà không cần linh hồn. Thanh kiếm sáng như sao băng. Kỵ sĩ không đầu cúi chào bạn, theo cách của hắn.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "dbs_soul_meteor"
+       ]
+      },
+      "moment": "Rèn được thanh kiếm thiên thạch mạnh như ma kiếm mà không cần linh hồn"
+     },
+     "fail": {
+      "text": "Thiên thạch vỡ. Kỵ sĩ không đầu thở dài, theo cách của hắn.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    },
+    {
+     "label": "Từ chối, không đủ tay nghề",
+     "text": "Kỵ sĩ không đầu gật đầu, theo cách của hắn, và để lại mảnh thiên thạch cho bạn.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbs_siege_engineer",
+   "races": [
+    "demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "demon_bs",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dbs_path_siege"
+    ],
+    "notFlags": [
+     "dbs_end"
+    ]
+   },
+   "text": "Kỹ sư thiết kế bị ám sát. Bạn được giao hoàn thành cỗ máy phá thành lớn nhất trong một tháng.",
+   "choices": [
+    {
+     "label": "Hoàn thành đúng hạn",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Cỗ máy đứng trước cổng Sanctus. Một phát, cổng vỡ. Bạn được thăng chức.",
+      "effects": {
+       "STR": 1,
+       "fame": 10,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Cỗ máy gãy trục ở phát thứ hai. Quân đoàn rút lui.",
+      "effects": {
+       "fame": -6
+      }
+     }
+    },
+    {
+     "label": "Thêm một tấm khiên che cho lính kéo máy",
+     "text": "Mất thêm năm ngày. Cỗ máy đến muộn, nhưng không lính kéo nào chết.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "dbs_siege_shield"
+      ]
+     },
+     "moment": "Thêm khiên che cho lính kéo máy công thành"
+    }
+   ]
+  },
+  {
+   "id": "dbs_siege_wall",
+   "races": [
+    "demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "demon_bs",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dbs_path_siege"
+    ],
+    "notFlags": [
+     "dbs_end"
+    ]
+   },
+   "text": "Một thành Human sắp thất thủ trước máy của bạn. Bên trong, bạn nghe nói có một trại trẻ mồ côi sát tường thành.",
+   "choices": [
+    {
+     "label": "Đổi hướng bắn sang cổng phía đông",
+     "text": "Cổng đông vỡ. Tường thành gần trại trẻ đứng nguyên. Không ai biết vì sao bạn đổi hướng.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "dbs_siege_spared"
+      ]
+     }
+    },
+    {
+     "label": "Bắn như kế hoạch",
+     "text": "Tường vỡ. Thành thất thủ. Bạn không muốn biết gì thêm.",
+     "effects": {
+      "fame": 6,
+      "joy": -8,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbs_free_first",
+   "races": [
+    "demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "demon_bs",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dbs_path_free"
+    ],
+    "notFlags": [
+     "dbs_end"
+    ]
+   },
+   "text": "Lần đầu tiên bạn tự tay tháo linh hồn khỏi một ma kiếm cũ. Lão Hephas đứng cạnh, chỉ dẫn.",
+   "choices": [
+    {
+     "label": "Làm chậm rãi, đúng từng bước",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Linh hồn thoát ra, sáng lên một khoảnh khắc, rồi tan đi như hơi thở. Bạn nghe thấy một tiếng cảm ơn rất khẽ.",
+      "effects": {
+       "INT": 1,
+       "joy": 8,
+       "jobXp": 3,
+       "flags": [
+        "dbs_free_first"
+       ]
+      },
+      "moment": "Lần đầu giải phóng một linh hồn khỏi ma kiếm"
+     },
+     "fail": {
+      "text": "Linh hồn bị kẹt nửa chừng. Lão Hephas phải làm lại. Mất ba ngày.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    },
+    {
+     "label": "Hỏi linh hồn muốn gì trước",
+     "text": "Nó muốn biết con nó còn sống không. Bạn không biết. Bạn hứa sẽ tìm. Rồi bạn thả nó.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 3,
+      "flags": [
+       "dbs_free_first"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbs_free_caught",
+   "races": [
+    "demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "demon_bs",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dbs_path_free"
+    ],
+    "notFlags": [
+     "dbs_end"
+    ]
+   },
+   "text": "Một quan thanh tra phát hiện kho kiếm đã bị tháo linh hồn. Ma Vương sẽ biết.",
+   "choices": [
+    {
+     "label": "Nhận hết tội về mình",
+     "text": "Bạn bị phạt trăm năm làm thợ rèn bình thường. Lão Hephas không bị liên lụy. Lão vẫn tiếp tục, lặng lẽ.",
+     "effects": {
+      "fame": -6,
+      "jobXp": 3,
+      "flags": [
+       "dbs_free_punished"
+      ]
+     }
+    },
+    {
+     "label": "Hối lộ quan thanh tra",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Hắn nhận, và quên. Lò nhỏ tiếp tục hoạt động.",
+      "effects": {
+       "wealth": -15,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Hắn nhận tiền, rồi vẫn báo cáo. Lò nhỏ bị phá.",
+      "effects": {
+       "wealth": -15,
+       "joy": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbs_c4_hephas",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_bs",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dbs_met_hephas"
+    ],
+    "notFlags": [
+     "dbs_hephas_gone",
+     "dbs_end"
+    ],
+    "anyFlags": [
+     "dbs_path_soul",
+     "dbs_path_siege",
+     "dbs_path_free"
+    ]
+   },
+   "text": "Lão Hephas không còn đứng nổi bên lò. Lão xin bạn một điều cuối: khi lão chết, đừng để ai nhốt linh hồn lão vào kiếm.",
+   "choices": [
+    {
+     "label": "Hứa với lão",
+     "text": "Lão mất bên lò, tay vẫn đặt trên đe. Bạn canh xác lão ba ngày, cho đến khi linh hồn lão tự đi. Một thợ rèn của Ma Vương đến muộn, tay cầm lọ chứa hồn, và về tay trắng.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "dbs_hephas_gone"
+      ]
+     },
+     "moment": "Canh xác lão Hephas để linh hồn lão được tự do"
+    },
+    {
+     "label": "Rèn một thanh kiếm không linh hồn mang tên lão",
+     "text": "Thanh kiếm sạch, sáng, không thì thầm. Lão cầm nó, mỉm cười, và mất. Bạn treo nó trên lò.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 3,
+      "flags": [
+       "dbs_hephas_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbs_c4_liora",
+   "races": [
+    "demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "demon_bs",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dbs_met_liora"
+    ],
+    "notFlags": [
+     "dbs_liora_free",
+     "dbs_end"
+    ]
+   },
+   "text": "Liora, linh hồn trong thanh kiếm, xin bạn thả cô. Ba trăm năm là đủ.",
+   "choices": [
+    {
+     "label": "Thả cô",
+     "require": {
+      "flags": [
+       "dbs_liora_friend"
+      ]
+     },
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Linh hồn cô sáng lên, rực rỡ hơn mọi linh hồn bạn từng thấy. Cô mỉm cười: “Cảm ơn, Ma tộc.” Rồi cô đi về phía ánh sáng.",
+      "effects": {
+       "INT": 1,
+       "joy": 12,
+       "jobXp": 3,
+       "flags": [
+        "dbs_liora_free"
+       ]
+      },
+      "moment": "Giải phóng linh hồn Thánh Kỵ Sĩ Liora sau ba trăm năm"
+     },
+     "fail": {
+      "text": "Thanh kiếm quá cổ. Linh hồn cô kẹt lại. Cô nói: “Không sao. Ngươi đã cố.”",
+      "effects": {
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Xin cô ở lại thêm",
+     "text": "Cô buồn, nhưng đồng ý. Cô ở lại, và bạn không biết mình đã đúng hay sai.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbs_c5_soul",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_bs",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dbs_path_soul"
+    ],
+    "notFlags": [
+     "dbs_end"
+    ]
+   },
+   "text": "Bạn là Forge Lord. Ma kiếm của bạn là thứ vũ khí đáng sợ nhất Ma Giới.",
+   "choices": [
+    {
+     "label": "Rèn ma kiếm từ thiên thạch thay vì linh hồn",
+     "require": {
+      "flags": [
+       "dbs_soul_meteor"
+      ]
+     },
+     "text": "Bạn tìm ra cách thay linh hồn bằng thiên thạch. Ma Vương không quan tâm vũ khí làm từ gì, miễn là mạnh. Không linh hồn nào bị nhốt nữa.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "dbs_end",
+       "dbs_end_meteor"
+      ]
+     },
+     "moment": "Thay linh hồn bằng thiên thạch trong mọi ma kiếm"
+    },
+    {
+     "label": "Rèn thanh ma kiếm cuối cùng, rồi tắt lò",
+     "text": "Thanh kiếm hoàn hảo nhất. Bạn tắt lò, và không bao giờ đốt lại.",
+     "effects": {
+      "fame": 12,
+      "joy": 6,
+      "flags": [
+       "dbs_end",
+       "dbs_end_last_blade"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbs_c5_siege",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_bs",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dbs_path_siege"
+    ],
+    "notFlags": [
+     "dbs_end"
+    ]
+   },
+   "text": "Bạn là Forge Lord. Máy công thành của bạn đã phá vỡ mười thành trì.",
+   "choices": [
+    {
+     "label": "Thiết kế máy bảo vệ thay vì phá",
+     "require": {
+      "flags": [
+       "dbs_siege_shield"
+      ]
+     },
+     "text": "Khiên di động, tường gấp, cầu nổi. Quân đoàn Ma Vương ít lính chết hơn bao giờ hết. Các thành Human cũng bắt đầu mua thiết kế của bạn, qua trung gian.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "dbs_end",
+       "dbs_end_shields"
+      ]
+     },
+     "moment": "Chuyển xưởng công thành sang chế tạo máy bảo vệ"
+    },
+    {
+     "label": "Nghỉ hưu",
+     "text": "Bạn rời xưởng, đi ngắm những thành trì mình từng phá. Một số đã được xây lại.",
+     "effects": {
+      "fame": 10,
+      "joy": 10,
+      "flags": [
+       "dbs_end",
+       "dbs_end_retire"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbs_c5_free",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_bs",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dbs_path_free"
+    ],
+    "notFlags": [
+     "dbs_end"
+    ]
+   },
+   "text": "Bạn là Forge Lord. Không ai biết bạn đã giải phóng bao nhiêu linh hồn.",
+   "choices": [
+    {
+     "label": "Giải phóng thanh kiếm của Ma Vương",
+     "require": {
+      "flags": [
+       "dbs_free_first"
+      ]
+     },
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn lẻn vào kho vũ khí của Ma Vương trong đêm, và giải phóng linh hồn trong thanh kiếm quý nhất của hắn. Sáng ra, hắn rút kiếm: chỉ còn sắt. Hắn không bao giờ tìm ra ai.",
+      "effects": {
+       "fame": 12,
+       "joy": 18,
+       "flags": [
+        "dbs_end",
+        "dbs_end_kings_blade"
+       ]
+      },
+      "moment": "Giải phóng linh hồn trong thanh kiếm của chính Ma Vương"
+     },
+     "fail": {
+      "text": "Bạn bị phát hiện. Bạn trốn được, nhưng không bao giờ quay lại Ma Đô.",
+      "effects": {
+       "joy": 6,
+       "flags": [
+        "dbs_end",
+        "dbs_end_exile"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Dạy học trò giải phóng linh hồn",
+     "text": "Ba học trò, ba lò nhỏ, ba nơi bí mật. Việc lão Hephas bắt đầu sẽ không dừng lại.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "dbs_end",
+       "dbs_end_heirs"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbs_daily_spark",
+   "races": [
+    "demon"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "demon_bs",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một tia lửa Vực Thẳm bắn vào tay áo bạn.",
+   "choices": [
+    {
+     "label": "Dập ngay",
+     "text": "Áo cháy một lỗ nhỏ. Bạn không để ý đến nó nữa.",
+     "effects": {
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Nhìn nó cháy",
+     "text": "Lửa Vực Thẳm đẹp lạ. Rồi bạn dập nó.",
+     "effects": {
+      "joy": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbs_daily_war",
+   "races": [
+    "demon"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "demon_bs",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Lò rèn chạy cả ngày lẫn đêm.",
+   "choices": [
+    {
+     "label": "Rèn vũ khí",
+     "text": "Vũ khí đủ cho quân đoàn. Bạn kiệt sức.",
+     "effects": {
+      "health": -5,
+      "fame": 4,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Rèn giáp",
+     "text": "Ít vinh quang hơn. Nhiều lính sống hơn.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbs_daily_old",
+   "races": [
+    "demon"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "demon_bs",
+    "free": true
+   },
+   "text": "Tay bạn run. Búa không còn rơi đúng chỗ.",
+   "choices": [
+    {
+     "label": "Rèn những thứ nhỏ",
+     "text": "Dao bếp, móc treo, đinh. Không ai cần linh hồn cho những thứ ấy.",
+     "effects": {
+      "joy": 8
+     }
+    },
+    {
+     "label": "Dạy học trò cầm búa",
+     "text": "Nó cầm búa như bạn ngày đầu. Bạn mỉm cười.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbs_c5_soul_late",
+   "races": [
+    "demon"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "demon_bs",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dbs_path_soul"
+    ],
+    "notFlags": [
+     "dbs_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Forge Lord. Ma kiếm của bạn là thứ vũ khí đáng sợ nhất Ma Giới.",
+   "choices": [
+    {
+     "label": "Rèn ma kiếm từ thiên thạch thay vì linh hồn",
+     "require": {
+      "flags": [
+       "dbs_soul_meteor"
+      ]
+     },
+     "text": "Bạn tìm ra cách thay linh hồn bằng thiên thạch. Ma Vương không quan tâm vũ khí làm từ gì, miễn là mạnh. Không linh hồn nào bị nhốt nữa.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "dbs_end",
+       "dbs_end_meteor"
+      ]
+     },
+     "moment": "Thay linh hồn bằng thiên thạch trong mọi ma kiếm"
+    },
+    {
+     "label": "Rèn thanh ma kiếm cuối cùng, rồi tắt lò",
+     "text": "Thanh kiếm hoàn hảo nhất. Bạn tắt lò, và không bao giờ đốt lại.",
+     "effects": {
+      "fame": 12,
+      "joy": 6,
+      "flags": [
+       "dbs_end",
+       "dbs_end_last_blade"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "elder"
+   ]
+  },
+  {
+   "id": "dbs_c5_siege_late",
+   "races": [
+    "demon"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "demon_bs",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dbs_path_siege"
+    ],
+    "notFlags": [
+     "dbs_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Forge Lord. Máy công thành của bạn đã phá vỡ mười thành trì.",
+   "choices": [
+    {
+     "label": "Thiết kế máy bảo vệ thay vì phá",
+     "require": {
+      "flags": [
+       "dbs_siege_shield"
+      ]
+     },
+     "text": "Khiên di động, tường gấp, cầu nổi. Quân đoàn Ma Vương ít lính chết hơn bao giờ hết. Các thành Human cũng bắt đầu mua thiết kế của bạn, qua trung gian.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "dbs_end",
+       "dbs_end_shields"
+      ]
+     },
+     "moment": "Chuyển xưởng công thành sang chế tạo máy bảo vệ"
+    },
+    {
+     "label": "Nghỉ hưu",
+     "text": "Bạn rời xưởng, đi ngắm những thành trì mình từng phá. Một số đã được xây lại.",
+     "effects": {
+      "fame": 10,
+      "joy": 10,
+      "flags": [
+       "dbs_end",
+       "dbs_end_retire"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "elder"
+   ]
+  },
+  {
+   "id": "dbs_c5_free_late",
+   "races": [
+    "demon"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "demon_bs",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dbs_path_free"
+    ],
+    "notFlags": [
+     "dbs_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Forge Lord. Không ai biết bạn đã giải phóng bao nhiêu linh hồn.",
+   "choices": [
+    {
+     "label": "Giải phóng thanh kiếm của Ma Vương",
+     "require": {
+      "flags": [
+       "dbs_free_first"
+      ]
+     },
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn lẻn vào kho vũ khí của Ma Vương trong đêm, và giải phóng linh hồn trong thanh kiếm quý nhất của hắn. Sáng ra, hắn rút kiếm: chỉ còn sắt. Hắn không bao giờ tìm ra ai.",
+      "effects": {
+       "fame": 12,
+       "joy": 18,
+       "flags": [
+        "dbs_end",
+        "dbs_end_kings_blade"
+       ]
+      },
+      "moment": "Giải phóng linh hồn trong thanh kiếm của chính Ma Vương"
+     },
+     "fail": {
+      "text": "Bạn bị phát hiện. Bạn trốn được, nhưng không bao giờ quay lại Ma Đô.",
+      "effects": {
+       "joy": 6,
+       "flags": [
+        "dbs_end",
+        "dbs_end_exile"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Dạy học trò giải phóng linh hồn",
+     "text": "Ba học trò, ba lò nhỏ, ba nơi bí mật. Việc lão Hephas bắt đầu sẽ không dừng lại.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "dbs_end",
+       "dbs_end_heirs"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "elder"
+   ]
+  }
+ ]
+}

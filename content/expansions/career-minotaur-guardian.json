@@ -1,0 +1,1097 @@
+{
+ "_note": "Tuyến truyện Labyrinth Guardian (Minotaur): ba đạo (mng_path_heart / mng_path_maze / mng_path_door), nhân vật xuyên suốt lão Asterion Sừng Gãy (người giữ mê cung già) và Thea Lạc Lối (cô bé Human sống trong mê cung).",
+ "origins": [],
+ "events": [
+  {
+   "id": "mng_c1_asterion",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "minotaur_guardian",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "mng_met_asterion"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Asterion Sừng Gãy",
+     "race": "Minotaur",
+     "position": "Người giữ mê cung già"
+    }
+   ],
+   "text": "Lão Asterion Sừng Gãy đã giữ mê cung năm mươi năm. Lão bịt mắt bạn bằng một mảnh da, dẫn bạn vào ngã rẽ đầu tiên, rồi bỏ đi. “Mê cung không nhìn bằng mắt. Tìm đường ra.”",
+   "choices": [
+    {
+     "label": "Lần tay theo vách",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn đếm từng ngã rẽ, nhớ mùi rêu ở mỗi góc. Đến tối, bạn ra được. Lão Asterion đang ngồi chờ ở cửa, nhai cỏ. “Mùi rêu. Tốt. Hầu hết đứa trẻ chỉ biết húc tường.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "mng_met_asterion",
+        "mng_asterion_respect"
+       ]
+      },
+      "moment": "Tìm đường ra khỏi mê cung với đôi mắt bị bịt"
+     },
+     "fail": {
+      "text": "Bạn húc vào tường mười lần, rồi ngồi xuống khóc. Lão Asterion tìm thấy bạn lúc nửa đêm, không chê, chỉ dắt bạn ra.",
+      "effects": {
+       "health": -3,
+       "flags": [
+        "mng_met_asterion"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Ngồi yên, nghe tiếng gió",
+     "text": "Gió thổi từ cửa ra. Bạn đi ngược chiều gió, chậm rãi. Lão Asterion thấy bạn ra trước khi lão kịp nhai xong bó cỏ. Lão nhìn bạn rất lâu.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 1,
+      "flags": [
+       "mng_met_asterion",
+       "mng_asterion_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mng_c1_thea",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "minotaur_guardian",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "mng_met_asterion"
+    ],
+    "notFlags": [
+     "mng_met_thea"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Thea Lạc Lối",
+     "race": "Human",
+     "position": "Cô bé Human sống trong mê cung"
+    }
+   ],
+   "text": "Sâu trong mê cung, bạn gặp một cô bé Human gầy gò, sống trong một ngõ cụt bằng cách ăn trộm thức ăn của những kẻ xâm nhập. Cô không bỏ chạy. Cô hỏi: “Ngươi có ăn thịt người không?”",
+   "choices": [
+    {
+     "label": "Lắc đầu, chia cho cô nửa bó cỏ",
+     "text": "Cô nếm cỏ, nhăn mặt, rồi cười. Cô tên Thea, và cô biết mê cung còn rõ hơn bạn. Từ đó, bạn mang thêm bánh mì mỗi khi đi tuần.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 1,
+      "flags": [
+       "mng_met_thea",
+       "mng_thea_friend"
+      ]
+     },
+     "moment": "Chia bó cỏ với Thea, cô bé Human sống trong mê cung"
+    },
+    {
+     "label": "Báo cho lão Asterion",
+     "text": "Lão Asterion đến, nhìn cô bé, rồi nói: “Cô ta ở đây trước ngươi. Mê cung có chỗ cho cả hai.” Thea nhìn bạn, không tin bạn nữa.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "mng_met_thea"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mng_c2_first_intruder",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "minotaur_guardian",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "mng_first_intruder",
+     "mng_end"
+    ]
+   },
+   "text": "Kẻ xâm nhập đầu tiên bạn tự mình đối mặt: một chàng mạo hiểm giả trẻ, run rẩy, kiếm cầm ngược. Hắn lạc ba ngày rồi.",
+   "choices": [
+    {
+     "label": "Dẫn hắn ra cửa",
+     "text": "Hắn đi theo bạn, không dám thở. Ở cửa, hắn chạy, không ngoái lại. Ba năm sau, hắn quay lại làm thương nhân bán cỏ khô cho mê cung.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "mng_first_intruder",
+       "mng_first_mercy"
+      ]
+     },
+     "moment": "Dẫn kẻ xâm nhập đầu tiên ra khỏi mê cung"
+    },
+    {
+     "label": "Gầm lên đuổi hắn",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Hắn chạy, vứt cả kiếm. Thanh kiếm được treo ở ngã rẽ đầu tiên, như một lời cảnh báo.",
+      "effects": {
+       "STR": 1,
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "mng_first_intruder"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Hắn chạy sâu hơn vào mê cung. Bạn phải tìm hắn suốt hai ngày.",
+      "effects": {
+       "jobXp": 1,
+       "flags": [
+        "mng_first_intruder"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "mng_c2_crossroads",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "minotaur_guardian",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "mng_path_heart",
+     "mng_path_maze",
+     "mng_path_door",
+     "mng_end"
+    ],
+    "flags": [
+     "mng_met_asterion"
+    ]
+   },
+   "text": "Lão Asterion dẫn bạn đến trung tâm mê cung, nơi ba con đường tỏa ra: một dẫn xuống hầm giữ báu vật, một dẫn vào những hành lang chưa ai vẽ bản đồ, một dẫn ra cánh cổng lớn hướng về thế giới bên ngoài.",
+   "choices": [
+    {
+     "label": "Hầm báu vật: Người Giữ Tim Mê Cung",
+     "text": "Bạn sẽ canh trái tim của mê cung, nơi giữ những thứ không ai được lấy. Lão Asterion gật đầu: “Chỗ của ta. Giờ là của ngươi.”",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "mng_path_heart"
+      ]
+     },
+     "moment": "Nhận canh giữ trái tim mê cung"
+    },
+    {
+     "label": "Hành lang chưa vẽ: Người Vẽ Mê Cung",
+     "text": "Mê cung cổ hơn mọi Minotaur. Không ai biết hết nó. Bạn sẽ là người đầu tiên.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "mng_path_maze"
+      ]
+     },
+     "moment": "Chọn khám phá và vẽ bản đồ mê cung cổ"
+    },
+    {
+     "label": "Cánh cổng lớn: Người Giữ Cửa",
+     "text": "Bạn sẽ đứng ở cổng, quyết định ai vào, ai không. Mê cung cần một người nói chuyện với thế giới, không chỉ húc nó.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "mng_path_door"
+      ]
+     },
+     "moment": "Chọn đứng giữ cánh cổng lớn của mê cung"
+    }
+   ]
+  },
+  {
+   "id": "mng_heart_relic",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "minotaur_guardian",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mng_path_heart"
+    ],
+    "notFlags": [
+     "mng_end"
+    ]
+   },
+   "text": "Trong hầm báu vật, bạn tìm thấy một chiếc rương có dòng chữ: “Không bao giờ mở.” Không ai nhớ bên trong có gì.",
+   "choices": [
+    {
+     "label": "Không mở",
+     "text": "Bạn canh nó như canh mọi thứ khác. Đôi khi, ban đêm, bạn nghe tiếng thở rất khẽ từ bên trong.",
+     "effects": {
+      "jobXp": 3,
+      "flags": [
+       "mng_heart_sealed"
+      ]
+     }
+    },
+    {
+     "label": "Mở hé một chút",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Bên trong là một chiếc sừng Minotaur cổ, khắc chữ. Đó là sừng của người xây mê cung. Bạn đóng lại, và hiểu vì sao không ai được mở.",
+      "effects": {
+       "LUCK": 1,
+       "jobXp": 3,
+       "flags": [
+        "mng_heart_horn"
+       ]
+      },
+      "moment": "Nhìn thấy chiếc sừng của người xây mê cung"
+     },
+     "fail": {
+      "text": "Một luồng khí lạnh thoát ra. Bạn đóng lại ngay, nhưng mê cung rung chuyển suốt đêm.",
+      "effects": {
+       "health": -8
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "mng_heart_greed",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "minotaur_guardian",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mng_path_heart"
+    ],
+    "notFlags": [
+     "mng_end"
+    ]
+   },
+   "text": "Một kẻ trộm hạng A lẩn qua tầm nhìn mù màu của bạn, đang cạy rương trong hầm báu vật.",
+   "choices": [
+    {
+     "label": "Đánh hơi hắn",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Mắt bạn không phân biệt được màu áo choàng của hắn, nhưng mũi bạn biết mùi sợ hãi. Bạn tóm hắn trước khi nắp rương bật.",
+      "effects": {
+       "LUCK": 1,
+       "fame": 8,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Hắn lấy được một món. Bạn đuổi theo đến cửa, và mất dấu.",
+      "effects": {
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Sập cửa hầm, chờ hắn đói",
+     "text": "Ba ngày sau, hắn gõ cửa xin ra. Bạn thả hắn, tay trắng. Hắn kể với mọi quán rượu rằng mê cung có một gã bò kiên nhẫn đáng sợ.",
+     "effects": {
+      "fame": 5,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "mng_maze_shift",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "minotaur_guardian",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mng_path_maze"
+    ],
+    "notFlags": [
+     "mng_end"
+    ]
+   },
+   "text": "Đêm qua, mê cung tự đổi hình. Ba hành lang đã biến mất, hai hành lang mới xuất hiện. Bản đồ của bạn vô dụng.",
+   "choices": [
+    {
+     "label": "Vẽ lại từ đầu",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Mất một mùa. Bạn phát hiện mê cung đổi hình theo chu kỳ, như thủy triều. Bạn vẽ bản đồ của cả chu kỳ.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "mng_maze_cycle"
+       ]
+      },
+      "moment": "Tìm ra chu kỳ mê cung tự đổi hình"
+     },
+     "fail": {
+      "text": "Mê cung đổi hình lần nữa trước khi bạn vẽ xong.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    },
+    {
+     "label": "Hỏi Thea",
+     "require": {
+      "flags": [
+       "mng_met_thea"
+      ]
+     },
+     "text": "Thea cười: “Nó làm thế mỗi tháng. Ngươi không biết sao?” Cô dẫn bạn đi khắp các hành lang mới. Bạn vẽ, cô chỉ.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "mng_maze_cycle"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mng_maze_deep",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "minotaur_guardian",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mng_path_maze"
+    ],
+    "notFlags": [
+     "mng_end"
+    ]
+   },
+   "text": "Ở tầng sâu nhất chưa ai vẽ, bạn tìm thấy những bức vẽ trên vách: Minotaur, Human, và Elf cùng xây mê cung, tay trong tay.",
+   "choices": [
+    {
+     "label": "Vẽ lại chúng cho cả tộc xem",
+     "text": "Các trưởng lão im lặng rất lâu. Một số nói đó là giả. Một số không nói gì, nhưng thôi gọi Human là con mồi.",
+     "effects": {
+      "fame": 5,
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "mng_maze_murals"
+      ]
+     },
+     "moment": "Tìm thấy bức vẽ Minotaur, Human và Elf cùng xây mê cung"
+    },
+    {
+     "label": "Giữ bí mật",
+     "text": "Bạn không chắc tộc mình đã sẵn sàng. Bạn đánh dấu hành lang ấy trên bản đồ bằng một ký hiệu chỉ bạn hiểu.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "mng_door_bribe",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "minotaur_guardian",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mng_path_door"
+    ],
+    "notFlags": [
+     "mng_end"
+    ]
+   },
+   "text": "Một quý tộc Human mang theo lính đánh thuê đến cổng, mở một rương Tinh Bạc: ông ta muốn mở một tuyến buôn lậu xuyên qua mê cung.",
+   "choices": [
+    {
+     "label": "Từ chối",
+     "text": "Ông ta bỏ đi, chửi rủa. Một tháng sau, lính đánh thuê của ông ta thử đột nhập. Mê cung nuốt chúng.",
+     "effects": {
+      "fame": 5,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Đề nghị thu phí qua đường, công khai",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Ông ta ngạc nhiên, rồi đồng ý. Thương nhân đi qua mê cung, trả phí, có người dẫn đường. Tộc Minotaur có Tinh Bạc lần đầu tiên.",
+      "effects": {
+       "INT": 1,
+       "wealth": 15,
+       "jobXp": 3,
+       "flags": [
+        "mng_door_toll"
+       ]
+      },
+      "moment": "Mở tuyến đường thu phí công khai xuyên mê cung"
+     },
+     "fail": {
+      "text": "Ông ta đồng ý, rồi dùng tuyến đường để buôn nô lệ. Bạn phải đóng nó lại.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "mng_door_lost",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "minotaur_guardian",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mng_path_door"
+    ],
+    "notFlags": [
+     "mng_end"
+    ]
+   },
+   "text": "Tiếng khóc thút thít trong ngõ cụt. Một nhóm dân làng Human lạc vào mê cung khi chạy trốn chiến tranh.",
+   "choices": [
+    {
+     "label": "Dẫn họ ra, cho trú ở cổng",
+     "text": "Họ sợ bạn, rồi bớt sợ. Họ ở lại ngoài cổng một mùa, trồng cỏ cho tộc Minotaur. Một số không bao giờ đi.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "mng_door_refuge"
+      ]
+     },
+     "moment": "Cho dân làng Human chạy loạn trú ở cổng mê cung"
+    },
+    {
+     "label": "Dẫn họ ra, rồi đóng cổng",
+     "text": "Họ đi. Bạn không biết họ đến được đâu.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "mng_c4_asterion",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "minotaur_guardian",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "mng_met_asterion"
+    ],
+    "notFlags": [
+     "mng_asterion_gone",
+     "mng_end"
+    ],
+    "anyFlags": [
+     "mng_path_heart",
+     "mng_path_maze",
+     "mng_path_door"
+    ]
+   },
+   "text": "Lão Asterion biết mình sắp chết. Lão muốn đi vào mê cung lần cuối, bịt mắt, một mình.",
+   "choices": [
+    {
+     "label": "Để lão đi",
+     "text": "Lão bịt mắt, lần tay theo vách, và biến mất sau ngã rẽ đầu tiên. Bạn chờ ở cửa ba ngày. Lão không ra. Bạn không đi tìm. Mê cung đã giữ lão.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "mng_asterion_gone"
+      ]
+     },
+     "moment": "Để lão Asterion đi vào mê cung lần cuối"
+    },
+    {
+     "label": "Đi theo sau, không để lão biết",
+     "text": "Lão dừng ở trung tâm mê cung, ngồi xuống, và ngủ. Bạn ngồi cách đó mười bước, đến khi lão thở hơi cuối. Lão nói: “Ta biết ngươi ở đó.”",
+     "effects": {
+      "joy": -4,
+      "jobXp": 3,
+      "flags": [
+       "mng_asterion_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mng_c4_thea",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "minotaur_guardian",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "mng_met_thea"
+    ],
+    "notFlags": [
+     "mng_end"
+    ]
+   },
+   "text": "Thea đã lớn. Cô muốn ra khỏi mê cung, đi xem thế giới mà cô chỉ nghe kể.",
+   "choices": [
+    {
+     "label": "Dẫn cô ra cổng",
+     "require": {
+      "flags": [
+       "mng_thea_friend"
+      ]
+     },
+     "text": "Ở cổng, cô ôm lấy sừng bạn. “Ta sẽ quay lại.” Một năm sau, cô quay lại, mang theo một cuốn sách về mê cung do chính cô viết.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 3,
+      "flags": [
+       "mng_thea_out"
+      ]
+     },
+     "moment": "Dẫn Thea ra khỏi mê cung lần đầu tiên"
+    },
+    {
+     "label": "Xin cô ở lại",
+     "text": "Cô ở lại thêm một mùa, rồi tự tìm đường ra, như mọi khi. Cô để lại một bản đồ vẽ tay ở ngõ cụt cũ.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "mng_c5_heart",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "minotaur_guardian",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "mng_path_heart"
+    ],
+    "notFlags": [
+     "mng_end"
+    ]
+   },
+   "text": "Bạn là Labyrinth Lord. Không ai lấy được thứ gì từ trái tim mê cung khi bạn còn sống.",
+   "choices": [
+    {
+     "label": "Đặt chiếc sừng cổ lên bệ đá",
+     "require": {
+      "flags": [
+       "mng_heart_horn"
+      ]
+     },
+     "text": "Bạn đặt sừng của người xây mê cung lên bệ đá giữa trái tim. Mê cung ngừng đổi hình. Lần đầu tiên sau nghìn năm, nó đứng yên.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "mng_end",
+       "mng_end_horn"
+      ]
+     },
+     "moment": "Đặt chiếc sừng cổ lên bệ đá giữa trái tim mê cung"
+    },
+    {
+     "label": "Chọn người kế nhiệm bằng bài thử bịt mắt",
+     "text": "Đứa trẻ đầu tiên tìm được đường ra bằng mùi rêu, bạn chọn. Bạn ngồi ở cửa, nhai cỏ, chờ nó.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "mng_end",
+       "mng_end_successor"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mng_c5_maze",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "minotaur_guardian",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "mng_path_maze"
+    ],
+    "notFlags": [
+     "mng_end"
+    ]
+   },
+   "text": "Bạn là Labyrinth Lord. Bản đồ mê cung của bạn đầy đủ hơn mọi bản đồ từng có.",
+   "choices": [
+    {
+     "label": "Mở hành lang những bức vẽ cổ cho mọi tộc",
+     "require": {
+      "flags": [
+       "mng_maze_murals"
+      ]
+     },
+     "text": "Học giả Human, Elf và Minotaur cùng đến xem. Lần đầu tiên, họ ngồi chung một hành lang mà không ai rút vũ khí.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "mng_end",
+       "mng_end_murals"
+      ]
+     },
+     "moment": "Mở hành lang bức vẽ cổ cho học giả mọi tộc"
+    },
+    {
+     "label": "Treo bản đồ ở cổng",
+     "text": "Ai muốn vào, cứ xem. Mê cung không còn ăn thịt kẻ lạc nữa.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "mng_end",
+       "mng_end_map"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mng_c5_door",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "minotaur_guardian",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "mng_path_door"
+    ],
+    "notFlags": [
+     "mng_end"
+    ]
+   },
+   "text": "Bạn là Labyrinth Lord. Cánh cổng mê cung giờ là nơi các tộc đến buôn bán, xin trú, hay chỉ để nhìn tộc Minotaur.",
+   "choices": [
+    {
+     "label": "Dựng chợ ở cổng mê cung",
+     "require": {
+      "flags": [
+       "mng_door_toll"
+      ]
+     },
+     "text": "Chợ cỏ khô, chợ sắt, chợ Tinh Bạc. Tộc Minotaur giàu lên, và lũ Minotaur con lớn lên không còn sợ Human.",
+     "effects": {
+      "fame": 12,
+      "wealth": 15,
+      "joy": 12,
+      "flags": [
+       "mng_end",
+       "mng_end_market"
+      ]
+     },
+     "moment": "Dựng chợ ở cổng mê cung"
+    },
+    {
+     "label": "Trao chìa khóa cổng cho những người đã trú ở đó",
+     "require": {
+      "flags": [
+       "mng_door_refuge"
+      ]
+     },
+     "text": "Con cháu của dân làng năm xưa giờ giữ cổng cùng tộc Minotaur. Mê cung có người giữ cửa là Human, lần đầu tiên.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "mng_end",
+       "mng_end_shared_gate"
+      ]
+     }
+    },
+    {
+     "label": "Đứng ở cổng đến ngày cuối",
+     "text": "Bạn đứng đó, mỗi ngày, gật đầu với từng người qua lại. Một ngày, bạn không đứng dậy nữa.",
+     "effects": {
+      "fame": 10,
+      "joy": 10,
+      "flags": [
+       "mng_end",
+       "mng_end_last_watch"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mng_daily_grass",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "minotaur_guardian",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Bạn tìm thấy một khoảng cỏ xanh mọc giữa hai bức vách mê cung, nơi một tia nắng lọt vào.",
+   "choices": [
+    {
+     "label": "Ăn",
+     "text": "Ngon nhất mùa.",
+     "effects": {
+      "joy": 5
+     }
+    },
+    {
+     "label": "Để nó mọc",
+     "text": "Bạn ghé thăm nó mỗi ngày. Nó lan dần.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "mng_daily_war",
+   "races": [
+    "minotaur"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "minotaur_guardian",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Kẻ chạy loạn đổ vào mê cung để trốn.",
+   "choices": [
+    {
+     "label": "Để mê cung lọc họ",
+     "text": "Những kẻ hiền lạc đường, những kẻ dữ chết. Mê cung có cách riêng của nó.",
+     "effects": {
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Dẫn họ đến những ngõ an toàn",
+     "text": "Họ sống. Mê cung đông đúc lạ thường suốt mùa đông ấy.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "mng_daily_old",
+   "races": [
+    "minotaur"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "minotaur_guardian",
+    "free": true
+   },
+   "text": "Sừng bạn đã mòn, chân bạn đã chậm. Mê cung vẫn nhớ bạn.",
+   "choices": [
+    {
+     "label": "Đi một vòng mê cung mỗi sáng, bịt mắt",
+     "text": "Bạn chưa bao giờ lạc.",
+     "effects": {
+      "joy": 8
+     }
+    },
+    {
+     "label": "Ngồi ở cửa nhai cỏ",
+     "text": "Lũ Minotaur con đến hỏi đường. Bạn chỉ, theo mùi rêu.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "mng_c5_heart_late",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "minotaur_guardian",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "mng_path_heart"
+    ],
+    "notFlags": [
+     "mng_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Labyrinth Lord. Không ai lấy được thứ gì từ trái tim mê cung khi bạn còn sống.",
+   "choices": [
+    {
+     "label": "Đặt chiếc sừng cổ lên bệ đá",
+     "require": {
+      "flags": [
+       "mng_heart_horn"
+      ]
+     },
+     "text": "Bạn đặt sừng của người xây mê cung lên bệ đá giữa trái tim. Mê cung ngừng đổi hình. Lần đầu tiên sau nghìn năm, nó đứng yên.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "mng_end",
+       "mng_end_horn"
+      ]
+     },
+     "moment": "Đặt chiếc sừng cổ lên bệ đá giữa trái tim mê cung"
+    },
+    {
+     "label": "Chọn người kế nhiệm bằng bài thử bịt mắt",
+     "text": "Đứa trẻ đầu tiên tìm được đường ra bằng mùi rêu, bạn chọn. Bạn ngồi ở cửa, nhai cỏ, chờ nó.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "mng_end",
+       "mng_end_successor"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "mng_c5_maze_late",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "minotaur_guardian",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "mng_path_maze"
+    ],
+    "notFlags": [
+     "mng_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Labyrinth Lord. Bản đồ mê cung của bạn đầy đủ hơn mọi bản đồ từng có.",
+   "choices": [
+    {
+     "label": "Mở hành lang những bức vẽ cổ cho mọi tộc",
+     "require": {
+      "flags": [
+       "mng_maze_murals"
+      ]
+     },
+     "text": "Học giả Human, Elf và Minotaur cùng đến xem. Lần đầu tiên, họ ngồi chung một hành lang mà không ai rút vũ khí.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "mng_end",
+       "mng_end_murals"
+      ]
+     },
+     "moment": "Mở hành lang bức vẽ cổ cho học giả mọi tộc"
+    },
+    {
+     "label": "Treo bản đồ ở cổng",
+     "text": "Ai muốn vào, cứ xem. Mê cung không còn ăn thịt kẻ lạc nữa.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "mng_end",
+       "mng_end_map"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "mng_c5_door_late",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "minotaur_guardian",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "mng_path_door"
+    ],
+    "notFlags": [
+     "mng_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Labyrinth Lord. Cánh cổng mê cung giờ là nơi các tộc đến buôn bán, xin trú, hay chỉ để nhìn tộc Minotaur.",
+   "choices": [
+    {
+     "label": "Dựng chợ ở cổng mê cung",
+     "require": {
+      "flags": [
+       "mng_door_toll"
+      ]
+     },
+     "text": "Chợ cỏ khô, chợ sắt, chợ Tinh Bạc. Tộc Minotaur giàu lên, và lũ Minotaur con lớn lên không còn sợ Human.",
+     "effects": {
+      "fame": 12,
+      "wealth": 15,
+      "joy": 12,
+      "flags": [
+       "mng_end",
+       "mng_end_market"
+      ]
+     },
+     "moment": "Dựng chợ ở cổng mê cung"
+    },
+    {
+     "label": "Trao chìa khóa cổng cho những người đã trú ở đó",
+     "require": {
+      "flags": [
+       "mng_door_refuge"
+      ]
+     },
+     "text": "Con cháu của dân làng năm xưa giờ giữ cổng cùng tộc Minotaur. Mê cung có người giữ cửa là Human, lần đầu tiên.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "mng_end",
+       "mng_end_shared_gate"
+      ]
+     }
+    },
+    {
+     "label": "Đứng ở cổng đến ngày cuối",
+     "text": "Bạn đứng đó, mỗi ngày, gật đầu với từng người qua lại. Một ngày, bạn không đứng dậy nữa.",
+     "effects": {
+      "fame": 10,
+      "joy": 10,
+      "flags": [
+       "mng_end",
+       "mng_end_last_watch"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}

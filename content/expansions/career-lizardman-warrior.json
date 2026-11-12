@@ -1,0 +1,1112 @@
+{
+ "_note": "Tuyến truyện Lizardman Warrior: ba đạo (lzw_path_border / lzw_path_tide / lzw_path_scale), nhân vật xuyên suốt bà Sszara Vảy Bạc (chiến binh già) và Ixil (bạn cùng ổ trứng).",
+ "origins": [],
+ "events": [
+  {
+   "id": "lzw_c1_sszara",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "lizard_warrior",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "lzw_met_sszara"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Sszara Vảy Bạc",
+     "race": "Lizardman",
+     "position": "Chiến binh già vảy bạc của bộ lạc"
+    }
+   ],
+   "text": "Bà Sszara Vảy Bạc đã già đến mức vảy chuyển màu bạc. Bà dìm đầu bạn xuống bùn đầm lầy và giữ chặt. “Chiến binh đầm lầy chết khi hết hơi, không phải khi hết máu. Đếm nhịp tim của ngươi.”",
+   "choices": [
+    {
+     "label": "Đếm, và giữ bình tĩnh",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn đếm đến ba trăm, tim chậm dần như tim cá sấu. Bà kéo bạn lên. “Ba trăm. Kẻ thù trên bờ chỉ chờ được một trăm.”",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "lzw_met_sszara",
+        "lzw_sszara_respect"
+       ]
+      },
+      "moment": "Nín thở dưới bùn đến nhịp tim thứ ba trăm"
+     },
+     "fail": {
+      "text": "Đến nhịp tim thứ tám mươi, bạn giãy giụa. Bà kéo bạn lên, không chê, chỉ dìm lại. Lần thứ hai bạn được trăm rưỡi.",
+      "effects": {
+       "health": -2,
+       "flags": [
+        "lzw_met_sszara"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Cắn vào tay bà để được thả",
+     "text": "Bà buông ra, nhìn vết răng trên vảy mình, và rít lên một tiếng cười. “Tốt. Ít nhất ngươi không chết ngoan ngoãn.” Bà dìm bạn lại, lâu hơn.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "lzw_met_sszara"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzw_c1_ixil",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "lizard_warrior",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "lzw_met_sszara"
+    ],
+    "notFlags": [
+     "lzw_met_ixil"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Ixil",
+     "race": "Lizardman",
+     "position": "Bạn cùng ổ trứng, đuôi ngắn"
+    }
+   ],
+   "text": "Ixil nở cùng ổ với bạn, vảy xanh rêu, đuôi ngắn bất thường. Các con non khác cắn đuôi nó mỗi ngày. Hôm nay nó trốn sau lưng bạn.",
+   "choices": [
+    {
+     "label": "Đứng chắn cho nó",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn quật đuôi, ba con non bay xuống bùn. Không ai cắn đuôi Ixil nữa. Từ đó, nó bơi cạnh bạn ở mọi nơi.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "lzw_met_ixil",
+        "lzw_ixil_friend"
+       ]
+      },
+      "moment": "Đứng chắn cho Ixil khỏi lũ con non cùng ổ"
+     },
+     "fail": {
+      "text": "Bạn bị cắn cùng nó. Hai đứa nằm liếm vết thương bên nhau.",
+      "effects": {
+       "health": -3,
+       "flags": [
+        "lzw_met_ixil",
+        "lzw_ixil_friend"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Mặc kệ, đó là luật đầm lầy",
+     "text": "Kẻ yếu thì bị cắn. Ixil nhìn bạn, rồi bơi đi. Sau này, nó lớn lên thành chiến binh, và nhớ ai đã quay đi.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "lzw_met_ixil"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzw_c2_first_blood",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "lizard_warrior",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "lzw_first_blood",
+     "lzw_end"
+    ]
+   },
+   "text": "Một toán Beastman tộc Trâu nước đi lạc vào bãi săn của bộ lạc. Luật bộ lạc: kẻ ngoài vào đầm, kẻ ngoài không ra.",
+   "choices": [
+    {
+     "label": "Phục kích dưới nước như được dạy",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn kéo kẻ đi đầu xuống nước. Những kẻ còn lại bỏ chạy, la hét về con quái vật dưới bùn. Bộ lạc gật đầu với bạn lần đầu tiên.",
+      "effects": {
+       "AGI": 1,
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "lzw_first_blood"
+       ]
+      },
+      "moment": "Trận phục kích dưới nước đầu tiên ở bãi săn"
+     },
+     "fail": {
+      "text": "Kẻ đi đầu quá nặng. Hắn kéo bạn lên bờ thay vì bị bạn kéo xuống.",
+      "effects": {
+       "health": -8,
+       "flags": [
+        "lzw_first_blood"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hiện lên, rít một tiếng cảnh cáo",
+     "text": "Chúng nhìn bạn, nhìn đầm lầy sau lưng bạn, và quay đầu. Không ai chết. Một chiến binh già cau mày, nhưng không nói gì.",
+     "effects": {
+      "jobXp": 2,
+      "flags": [
+       "lzw_first_blood",
+       "lzw_first_warned"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzw_c2_crossroads",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "lizard_warrior",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "lzw_path_border",
+     "lzw_path_tide",
+     "lzw_path_scale",
+     "lzw_end"
+    ],
+    "flags": [
+     "lzw_met_sszara"
+    ]
+   },
+   "text": "Bà Sszara dẫn bạn đến ba cột đá cổ giữa đầm: cột khắc hình mũi giáo hướng ra ngoài, cột khắc sóng nước, và cột khắc một chiếc vảy đơn độc.",
+   "choices": [
+    {
+     "label": "Mũi giáo: Kẻ Giữ Ranh Giới",
+     "text": "Bạn sẽ canh ranh giới đầm lầy. Không ai vào mà bộ lạc không biết.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "lzw_path_border"
+      ]
+     },
+     "moment": "Chọn canh giữ ranh giới đầm lầy"
+    },
+    {
+     "label": "Sóng nước: Kẻ Theo Thủy Triều",
+     "text": "Bạn sẽ dẫn chiến binh xuôi theo sông, ra ngoài đầm, đến những nơi mà Lizardman chưa từng đặt chân. Bà Sszara nheo mắt: “Bộ lạc sẽ gọi ngươi là kẻ phản bội.”",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 2,
+      "flags": [
+       "lzw_path_tide"
+      ]
+     },
+     "moment": "Chọn rời đầm lầy theo dòng sông"
+    },
+    {
+     "label": "Chiếc vảy: Kẻ Đấu Vảy",
+     "text": "Bạn sẽ thách đấu từng chiến binh mạnh nhất, cho đến khi vảy bạn là vảy cứng nhất bộ lạc.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "lzw_path_scale"
+      ]
+     },
+     "moment": "Chọn con đường đấu vảy với các chiến binh mạnh nhất"
+    }
+   ]
+  },
+  {
+   "id": "lzw_border_child",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "lizard_warrior",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lzw_path_border"
+    ],
+    "notFlags": [
+     "lzw_end"
+    ]
+   },
+   "text": "Một đứa trẻ Human lạc vào đầm lầy, đuổi theo con chó của nó. Luật bộ lạc không có ngoại lệ.",
+   "choices": [
+    {
+     "label": "Dẫn nó ra bìa đầm, không ai thấy",
+     "text": "Nó không sợ bạn. Nó nắm đuôi bạn suốt đường ra. Ở bìa đầm, con chó của nó chạy đến. Bạn lặn xuống trước khi ai khác đến.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "lzw_border_mercy"
+      ]
+     },
+     "moment": "Lén dẫn một đứa trẻ Human lạc ra khỏi đầm lầy"
+    },
+    {
+     "label": "Báo cho bộ lạc",
+     "text": "Bộ lạc giữ nó làm con tin, đổi lấy muối với làng Human. Nó về nhà sau một tháng. Không ai bị thương, nhưng nó sẽ không bao giờ quên đôi mắt vàng.",
+     "effects": {
+      "fame": 3,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzw_border_paladins",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "lizard_warrior",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lzw_path_border"
+    ],
+    "notFlags": [
+     "lzw_end"
+    ]
+   },
+   "text": "Một đội Thánh Kỵ Sĩ dựng trại ngay rìa đầm, chuẩn bị đốt lau sậy để mở đường.",
+   "choices": [
+    {
+     "label": "Đánh đêm dưới nước",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Đêm ấy, ba kỵ sĩ biến mất khỏi trại. Sáng ra, những kẻ còn lại nhổ trại. Lửa không bao giờ được đốt.",
+      "effects": {
+       "AGI": 1,
+       "fame": 8,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Chúng có chó canh. Bạn phải lặn sâu trốn suốt nửa ngày.",
+      "effects": {
+       "health": -10
+      }
+     }
+    },
+    {
+     "label": "Mở đường nước cho lửa không lan",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đào kênh suốt đêm. Lửa cháy lau sậy ngoài rìa rồi tắt ở mép nước. Đầm lầy sâu không hề hấn gì.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "lzw_border_canal"
+       ]
+      },
+      "moment": "Đào kênh chặn đám cháy của Thánh Kỵ Sĩ"
+     },
+     "fail": {
+      "text": "Kênh chưa xong thì lửa đến. Bộ lạc mất một bãi săn.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzw_tide_trade",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "lizard_warrior",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lzw_path_tide"
+    ],
+    "notFlags": [
+     "lzw_end"
+    ]
+   },
+   "text": "Xuôi theo sông, bạn đến một làng chài Human. Họ chĩa giáo vào bạn, rồi thấy bạn mang theo một xâu cá lớn.",
+   "choices": [
+    {
+     "label": "Đặt cá xuống, lùi lại",
+     "text": "Họ do dự rất lâu, rồi một ông già bước ra, đặt xuống một túi muối. Lần đầu tiên, Lizardman và Human đổi hàng mà không đổ máu.",
+     "effects": {
+      "joy": 8,
+      "wealth": 4,
+      "jobXp": 3,
+      "flags": [
+       "lzw_tide_trade"
+      ]
+     },
+     "moment": "Lần đầu đổi cá lấy muối với làng chài Human"
+    },
+    {
+     "label": "Rít lên đe dọa",
+     "text": "Họ bỏ chạy. Bạn lấy muối trong kho của họ. Lần sau quay lại, làng đã có hàng rào.",
+     "effects": {
+      "wealth": 6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzw_tide_cold",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "lizard_warrior",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lzw_path_tide"
+    ],
+    "notFlags": [
+     "lzw_end"
+    ]
+   },
+   "text": "Càng xuôi về hạ lưu, nước càng lạnh. Máu lạnh của Lizardman chậm lại. Đoàn chiến binh đi cùng bạn bắt đầu lờ đờ.",
+   "choices": [
+    {
+     "label": "Dừng lại, nằm phơi nắng trên đá",
+     "text": "Mất ba ngày, nhưng cả đoàn hồi sức. Bạn học được rằng thế giới ngoài đầm không chờ ai.",
+     "effects": {
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Đẩy đoàn đi tiếp đến nơi ấm hơn",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn kéo từng người qua đoạn sông lạnh. Ở phía bên kia, một hồ nước nóng chờ sẵn. Cả đoàn gọi bạn là Kẻ Dẫn Lửa.",
+      "effects": {
+       "STR": 1,
+       "fame": 6,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Một chiến binh già không theo kịp. Bạn để lại hắn trên đá, hứa sẽ quay lại. Khi bạn quay lại, đã muộn.",
+      "effects": {
+       "joy": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzw_scale_champion",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "lizard_warrior",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lzw_path_scale"
+    ],
+    "notFlags": [
+     "lzw_end"
+    ]
+   },
+   "text": "Nhà vô địch của bộ lạc, Krassh Hàm Sắt, chấp nhận lời thách của bạn. Hắn chưa thua ai trong mười năm.",
+   "choices": [
+    {
+     "label": "Đấu dưới nước, nơi bạn mạnh nhất",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Dưới nước, hàm sắt của hắn chậm hơn đuôi của bạn. Bạn giữ hắn dưới bùn đến nhịp tim thứ hai trăm. Hắn đầu hàng.",
+      "effects": {
+       "AGI": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "lzw_scale_champion"
+       ]
+      },
+      "moment": "Hạ nhà vô địch Krassh Hàm Sắt dưới nước"
+     },
+     "fail": {
+      "text": "Hắn nín thở lâu hơn bạn tưởng. Bạn trồi lên trước.",
+      "effects": {
+       "health": -8,
+       "fame": -3
+      }
+     }
+    },
+    {
+     "label": "Đấu trên bờ, như hắn muốn",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Một trận đấu dài, đẫm máu. Bạn thắng, rồi nằm gục cạnh hắn. Hai người phơi nắng bên nhau, và không ai nói gì.",
+      "effects": {
+       "STR": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "lzw_scale_champion"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Hàm sắt của hắn kẹp vào vai bạn. Bạn thua, nhưng hắn gật đầu.",
+      "effects": {
+       "health": -15,
+       "fame": 3
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzw_scale_shed",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "lizard_warrior",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lzw_path_scale"
+    ],
+    "notFlags": [
+     "lzw_end"
+    ]
+   },
+   "text": "Mùa lột vảy. Vảy cũ bong, vảy mới còn mềm. Đây là lúc chiến binh yếu nhất. Một đối thủ cũ chọn đúng lúc này để thách bạn.",
+   "choices": [
+    {
+     "label": "Nhận lời dù vảy còn mềm",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn thắng, với vảy mềm và máu chảy. Cả bộ lạc biết: kẻ này không cần vảy cứng để thắng.",
+      "effects": {
+       "fame": 8,
+       "health": -8,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Bạn thua, và vảy mới mọc lên với vết sẹo dài.",
+      "effects": {
+       "health": -12
+      }
+     }
+    },
+    {
+     "label": "Từ chối, nói hắn chờ đến khi vảy cứng",
+     "text": "Hắn cười chế nhạo. Một tháng sau, vảy bạn cứng lại. Hắn không còn dám thách.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzw_c4_sszara",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "lizard_warrior",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "lzw_met_sszara"
+    ],
+    "notFlags": [
+     "lzw_sszara_gone",
+     "lzw_end"
+    ],
+    "anyFlags": [
+     "lzw_path_border",
+     "lzw_path_tide",
+     "lzw_path_scale"
+    ]
+   },
+   "text": "Bà Sszara không còn bơi được. Theo tục lệ, chiến binh già sẽ tự bơi ra giữa hồ sâu và không trở lại. Bà nhờ bạn đưa bà ra.",
+   "choices": [
+    {
+     "label": "Đưa bà ra giữa hồ",
+     "text": "Bạn bơi chậm, bà bám vào lưng bạn. Giữa hồ, bà buông ra và nói: “Ba trăm nhịp tim. Ngươi nhớ chứ?” Bà chìm xuống. Bạn đếm đến ba trăm, rồi bơi về.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "lzw_sszara_gone"
+      ]
+     },
+     "moment": "Đưa bà Sszara ra giữa hồ sâu theo tục lệ"
+    },
+    {
+     "label": "Xin bà ở lại",
+     "text": "Bà rít lên, giận dữ, rồi im lặng. Bà ở lại bên bờ thêm một mùa, kể cho lũ con non nghe về những trận chiến cũ. Rồi một sáng, bà tự bơi đi.",
+     "effects": {
+      "joy": -2,
+      "jobXp": 3,
+      "flags": [
+       "lzw_sszara_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzw_c4_ixil",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "lizard_warrior",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "lzw_met_ixil"
+    ],
+    "notFlags": [
+     "lzw_end"
+    ]
+   },
+   "text": "Ixil bị bắt trong một trận đột kích của Human. Chúng giữ nó trong lồng ở làng ven sông, định bán cho viện nghiên cứu ở Sanctus.",
+   "choices": [
+    {
+     "label": "Đột nhập cứu nó",
+     "require": {
+      "flags": [
+       "lzw_ixil_friend"
+      ]
+     },
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn bơi ngược dòng trong đêm, phá lồng. Ixil bơi về cạnh bạn, như hồi còn là con non.",
+      "effects": {
+       "AGI": 1,
+       "joy": 10,
+       "jobXp": 3,
+       "flags": [
+        "lzw_ixil_saved"
+       ]
+      },
+      "moment": "Bơi ngược dòng cứu Ixil khỏi lồng ở làng ven sông"
+     },
+     "fail": {
+      "text": "Lính canh phát hiện. Bạn chỉ kịp mở lồng. Ixil chạy thoát, bạn bị một mũi giáo đâm vào sườn.",
+      "effects": {
+       "health": -15,
+       "flags": [
+        "lzw_ixil_saved"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Để bộ lạc thương lượng",
+     "text": "Bộ lạc không thương lượng với Human. Ixil không bao giờ trở về.",
+     "effects": {
+      "joy": -10,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzw_c5_border",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "lizard_warrior",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "lzw_path_border"
+    ],
+    "notFlags": [
+     "lzw_end"
+    ]
+   },
+   "text": "Không ai vào đầm lầy mà bạn không biết. Ranh giới của bộ lạc chưa bao giờ an toàn đến thế.",
+   "choices": [
+    {
+     "label": "Mở một lối đi cho kẻ lạc",
+     "require": {
+      "flags": [
+       "lzw_border_mercy"
+      ]
+     },
+     "text": "Bạn đánh dấu một lối đi an toàn ra khỏi đầm, cho những kẻ lạc đường. Trẻ con Human nào lạc vào cũng tìm được đường ra. Bộ lạc không biết, hoặc giả vờ không biết.",
+     "effects": {
+      "fame": 10,
+      "joy": 15,
+      "flags": [
+       "lzw_end",
+       "lzw_end_path_out"
+      ]
+     },
+     "moment": "Đánh dấu lối thoát an toàn cho kẻ lạc trong đầm lầy"
+    },
+    {
+     "label": "Dạy chiến binh trẻ giữ ranh giới",
+     "text": "Bạn dạy chúng nín thở ba trăm nhịp tim, và đọc từng gợn sóng trên mặt nước.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "lzw_end",
+       "lzw_end_teacher"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzw_c5_tide",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "lizard_warrior",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "lzw_path_tide"
+    ],
+    "notFlags": [
+     "lzw_end"
+    ]
+   },
+   "text": "Bạn đã đi xa hơn mọi Lizardman. Biển, núi, những thành phố bằng đá.",
+   "choices": [
+    {
+     "label": "Lập trạm đổi hàng ở cửa sông",
+     "require": {
+      "flags": [
+       "lzw_tide_trade"
+      ]
+     },
+     "text": "Cá đổi muối, da đổi sắt. Lizardman và Human ngồi chung một bờ sông mỗi phiên chợ. Bộ lạc vẫn gọi bạn là kẻ phản bội, nhưng ăn muối của bạn.",
+     "effects": {
+      "fame": 12,
+      "wealth": 15,
+      "joy": 12,
+      "flags": [
+       "lzw_end",
+       "lzw_end_market"
+      ]
+     },
+     "moment": "Lập trạm đổi hàng giữa Lizardman và Human ở cửa sông"
+    },
+    {
+     "label": "Quay về đầm, kể chuyện về biển",
+     "text": "Lũ con non nghe về biển như nghe chuyện cổ tích. Vài đứa thề sẽ bơi đến đó.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "lzw_end",
+       "lzw_end_sea_tales"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzw_c5_scale",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "lizard_warrior",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "lzw_path_scale"
+    ],
+    "notFlags": [
+     "lzw_end"
+    ]
+   },
+   "text": "Vảy bạn là vảy cứng nhất bộ lạc. Không ai dám thách bạn nữa.",
+   "choices": [
+    {
+     "label": "Trở thành Warlord",
+     "require": {
+      "flags": [
+       "lzw_scale_champion"
+      ]
+     },
+     "text": "Bộ lạc đặt bạn lên tảng đá cao nhất đầm lầy. Lần đầu tiên, một Warlord được chọn vì đã thắng tất cả, không phải vì dòng máu.",
+     "effects": {
+      "fame": 15,
+      "joy": 10,
+      "flags": [
+       "lzw_end",
+       "lzw_end_warlord"
+      ]
+     },
+     "moment": "Được tôn làm Warlord vì đã thắng mọi chiến binh"
+    },
+    {
+     "label": "Treo vảy cũ lên cột đá",
+     "text": "Bạn treo chiếc vảy lột lần cuối lên cột đá cổ. Từ đó, chiến binh trẻ đến chạm vào nó trước mỗi trận.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "lzw_end",
+       "lzw_end_scale_relic"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzw_daily_sun",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "lizard_warrior",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một buổi sáng nắng đẹp. Cả bộ lạc nằm phơi nắng trên đá.",
+   "choices": [
+    {
+     "label": "Nằm cùng họ",
+     "text": "Máu ấm dần. Bạn ngủ quên đến trưa.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Canh gác cho họ",
+     "text": "Không ai cảm ơn bạn. Nhưng không ai bị bất ngờ.",
+     "effects": {
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzw_daily_war",
+   "races": [
+    "lizardman"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "lizard_warrior",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh lan đến rìa đầm lầy. Những đạo quân đi qua để lại xác chết và rác rưởi.",
+   "choices": [
+    {
+     "label": "Giữ đầm, không ra ngoài",
+     "text": "Đầm lầy an toàn. Thế giới ngoài kia cháy.",
+     "effects": {
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Phục kích những kẻ đi lạc",
+     "text": "Bộ lạc có thêm vũ khí và giáp. Bạn có thêm sẹo.",
+     "effects": {
+      "health": -5,
+      "fame": 4,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzw_daily_old",
+   "races": [
+    "lizardman"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "lizard_warrior",
+    "free": true
+   },
+   "text": "Máu bạn chậm dần theo năm tháng. Bạn phải phơi nắng lâu hơn mới đủ ấm để đi lại.",
+   "choices": [
+    {
+     "label": "Kể chuyện cho lũ con non trong lúc phơi nắng",
+     "text": "Chúng nằm quanh bạn, nghe đến ngủ quên.",
+     "effects": {
+      "joy": 8
+     }
+    },
+    {
+     "label": "Bơi một vòng hồ mỗi sáng",
+     "text": "Chậm, nhưng không bỏ ngày nào.",
+     "effects": {
+      "health": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzw_c5_border_late",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "lizard_warrior",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "lzw_path_border"
+    ],
+    "notFlags": [
+     "lzw_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Không ai vào đầm lầy mà bạn không biết. Ranh giới của bộ lạc chưa bao giờ an toàn đến thế.",
+   "choices": [
+    {
+     "label": "Mở một lối đi cho kẻ lạc",
+     "require": {
+      "flags": [
+       "lzw_border_mercy"
+      ]
+     },
+     "text": "Bạn đánh dấu một lối đi an toàn ra khỏi đầm, cho những kẻ lạc đường. Trẻ con Human nào lạc vào cũng tìm được đường ra. Bộ lạc không biết, hoặc giả vờ không biết.",
+     "effects": {
+      "fame": 10,
+      "joy": 15,
+      "flags": [
+       "lzw_end",
+       "lzw_end_path_out"
+      ]
+     },
+     "moment": "Đánh dấu lối thoát an toàn cho kẻ lạc trong đầm lầy"
+    },
+    {
+     "label": "Dạy chiến binh trẻ giữ ranh giới",
+     "text": "Bạn dạy chúng nín thở ba trăm nhịp tim, và đọc từng gợn sóng trên mặt nước.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "lzw_end",
+       "lzw_end_teacher"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "lzw_c5_tide_late",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "lizard_warrior",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "lzw_path_tide"
+    ],
+    "notFlags": [
+     "lzw_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn đã đi xa hơn mọi Lizardman. Biển, núi, những thành phố bằng đá.",
+   "choices": [
+    {
+     "label": "Lập trạm đổi hàng ở cửa sông",
+     "require": {
+      "flags": [
+       "lzw_tide_trade"
+      ]
+     },
+     "text": "Cá đổi muối, da đổi sắt. Lizardman và Human ngồi chung một bờ sông mỗi phiên chợ. Bộ lạc vẫn gọi bạn là kẻ phản bội, nhưng ăn muối của bạn.",
+     "effects": {
+      "fame": 12,
+      "wealth": 15,
+      "joy": 12,
+      "flags": [
+       "lzw_end",
+       "lzw_end_market"
+      ]
+     },
+     "moment": "Lập trạm đổi hàng giữa Lizardman và Human ở cửa sông"
+    },
+    {
+     "label": "Quay về đầm, kể chuyện về biển",
+     "text": "Lũ con non nghe về biển như nghe chuyện cổ tích. Vài đứa thề sẽ bơi đến đó.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "lzw_end",
+       "lzw_end_sea_tales"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "lzw_c5_scale_late",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "lizard_warrior",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "lzw_path_scale"
+    ],
+    "notFlags": [
+     "lzw_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Vảy bạn là vảy cứng nhất bộ lạc. Không ai dám thách bạn nữa.",
+   "choices": [
+    {
+     "label": "Trở thành Warlord",
+     "require": {
+      "flags": [
+       "lzw_scale_champion"
+      ]
+     },
+     "text": "Bộ lạc đặt bạn lên tảng đá cao nhất đầm lầy. Lần đầu tiên, một Warlord được chọn vì đã thắng tất cả, không phải vì dòng máu.",
+     "effects": {
+      "fame": 15,
+      "joy": 10,
+      "flags": [
+       "lzw_end",
+       "lzw_end_warlord"
+      ]
+     },
+     "moment": "Được tôn làm Warlord vì đã thắng mọi chiến binh"
+    },
+    {
+     "label": "Treo vảy cũ lên cột đá",
+     "text": "Bạn treo chiếc vảy lột lần cuối lên cột đá cổ. Từ đó, chiến binh trẻ đến chạm vào nó trước mỗi trận.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "lzw_end",
+       "lzw_end_scale_relic"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}

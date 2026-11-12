@@ -1,0 +1,1081 @@
+{
+ "_note": "Tuyến truyện Venom Master (Lizardman): ba đạo (lzv_path_cure / lzv_path_war / lzv_path_trade), nhân vật xuyên suốt lão Krissk Nanh Xám (thợ pha độc già) và Pell Varga (thầy thuốc Human bị bắt).",
+ "origins": [],
+ "events": [
+  {
+   "id": "lzv_c1_krissk",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "lizard_venom",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "lzv_met_krissk"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Krissk Nanh Xám",
+     "race": "Lizardman",
+     "position": "Thợ pha độc già nhất đầm lầy"
+    }
+   ],
+   "text": "Lão Krissk Nanh Xám pha độc suốt bảy mươi năm. Lão rót một giọt nọc vào chén nước và đưa bạn: “Lizardman miễn nhiễm độc tự nhiên. Nhưng không miễn nhiễm độc của Lizardman. Uống một ngụm, và kể ta nghe ngươi thấy gì.”",
+   "choices": [
+    {
+     "label": "Uống một ngụm",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Lưỡi tê, rồi tim đập nhanh, rồi chậm lại. Bạn kể từng thứ một. Lão gật đầu: “Ngươi hiểu độc bằng cơ thể. Đó là cách duy nhất.”",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "lzv_met_krissk",
+        "lzv_krissk_respect"
+       ]
+      },
+      "moment": "Uống ngụm độc đầu tiên và kể lại từng cảm giác"
+     },
+     "fail": {
+      "text": "Bạn ngất. Khi tỉnh, lão ngồi cạnh, ghi chép. “Cũng là một cách hiểu.”",
+      "effects": {
+       "health": -5,
+       "flags": [
+        "lzv_met_krissk"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi lão giải độc là gì",
+     "text": "Lão cười rít. “Giải độc là độc, uống đúng lúc.” Lão dạy bạn pha thuốc giải trước khi dạy pha độc. Bạn không biết đó là điều hiếm hoi.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "lzv_met_krissk",
+       "lzv_krissk_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzv_c1_pell",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "lizard_venom",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "lzv_met_krissk"
+    ],
+    "notFlags": [
+     "lzv_met_pell"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Pell Varga",
+     "race": "Human",
+     "position": "Thầy thuốc Human bị bộ lạc bắt giữ"
+    }
+   ],
+   "text": "Bộ lạc bắt được một thầy thuốc Human tên Pell Varga, giam trong lồng gần hang pha độc của bạn. Ông ta nhìn các lọ độc của bạn bằng ánh mắt tò mò, không sợ hãi.",
+   "choices": [
+    {
+     "label": "Hỏi ông ta về thuốc của Human",
+     "text": "Ông ta nói không ngừng, như người đã lâu không có ai để nói chuyện. Thuốc Human dùng độc với liều cực nhỏ để chữa bệnh. Bạn chưa từng nghĩ đến điều đó.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "lzv_met_pell",
+       "lzv_pell_friend"
+      ]
+     },
+     "moment": "Học từ thầy thuốc Human Pell Varga qua song lồng"
+    },
+    {
+     "label": "Thử độc mới trên ông ta",
+     "text": "Ông ta nhìn bạn, không van xin, chỉ nói: “Liều này sẽ giết ta. Giảm một nửa, và ngươi sẽ biết nhiều hơn.” Bạn giảm một nửa. Ông ta đúng.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 1,
+      "flags": [
+       "lzv_met_pell"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzv_c2_first_brew",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "lizard_venom",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "lzv_first_brew",
+     "lzv_end"
+    ],
+    "flags": [
+     "lzv_met_krissk"
+    ]
+   },
+   "text": "Bạn chế ra một loại khí độc mới. Lão Krissk muốn bạn thử nó trên một nô lệ Kobold ốm yếu.",
+   "choices": [
+    {
+     "label": "Thử trên chính mình, liều nhỏ",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn ho ba ngày, nhưng hiểu được khí độc làm gì. Lão Krissk nhìn bạn, không nói gì, rồi thả tên Kobold ra.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 2,
+       "flags": [
+        "lzv_first_brew",
+        "lzv_first_self"
+       ]
+      },
+      "moment": "Thử khí độc mới trên chính mình thay vì nô lệ"
+     },
+     "fail": {
+      "text": "Liều quá mạnh. Bạn nằm liệt mười ngày.",
+      "effects": {
+       "health": -12,
+       "flags": [
+        "lzv_first_brew",
+        "lzv_first_self"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Thử trên chuột",
+     "text": "Lão Krissk khịt mũi: “Chuột không phải Kobold.” Nhưng lão chấp nhận. Khí độc hiệu quả trên chuột. Bạn không chắc nó sẽ làm gì với thứ khác.",
+     "effects": {
+      "jobXp": 2,
+      "flags": [
+       "lzv_first_brew"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzv_c2_crossroads",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "lizard_venom",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "lzv_path_cure",
+     "lzv_path_war",
+     "lzv_path_trade",
+     "lzv_end"
+    ],
+    "flags": [
+     "lzv_met_krissk"
+    ]
+   },
+   "text": "Lão Krissk đặt ba chiếc lọ lên bàn đá: một lọ thuốc giải màu xanh, một lọ độc chiến màu đen, và một lọ không màu, không mùi, thứ mà thương nhân trả giá cao nhất.",
+   "choices": [
+    {
+     "label": "Lọ xanh: Thầy Thuốc Độc",
+     "text": "Bạn sẽ dùng độc để chữa bệnh, như Human làm. Lão Krissk gật gù: “Khó hơn giết nhiều.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "lzv_path_cure"
+      ]
+     },
+     "moment": "Chọn dùng độc để chữa bệnh"
+    },
+    {
+     "label": "Lọ đen: Độc Chiến",
+     "text": "Bạn sẽ pha độc cho chiến binh: mũi tên, mũi giáo, khí độc. Đầm lầy sẽ là nơi không đạo quân nào dám vào.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "lzv_path_war"
+      ]
+     },
+     "moment": "Chọn pha độc chiến cho bộ lạc"
+    },
+    {
+     "label": "Lọ không màu: Độc Thương",
+     "text": "Thương nhân Sói Bạc trả vàng cho thứ độc không để lại dấu vết. Bạn sẽ bán nó, và không hỏi người mua dùng vào đâu. Hoặc có hỏi.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "lzv_path_trade"
+      ]
+     },
+     "moment": "Chọn bán độc cho thương nhân bên ngoài"
+    }
+   ]
+  },
+  {
+   "id": "lzv_cure_plague",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "lizard_venom",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lzv_path_cure"
+    ],
+    "notFlags": [
+     "lzv_end"
+    ]
+   },
+   "text": "Dịch nấm trắng lan trong bộ lạc. Vảy người bệnh bong ra từng mảng.",
+   "choices": [
+    {
+     "label": "Dùng nọc rắn liều nhỏ để giết nấm",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Liều nhỏ đến mức chỉ giết nấm, không giết người. Bộ lạc khỏi bệnh sau một tháng.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "lzv_cure_plague"
+       ]
+      },
+      "moment": "Chữa dịch nấm trắng bằng nọc rắn liều nhỏ"
+     },
+     "fail": {
+      "text": "Liều sai. Ba người bệnh nặng thêm.",
+      "effects": {
+       "fame": -6
+      }
+     }
+    },
+    {
+     "label": "Cách ly người bệnh",
+     "text": "Dịch dừng lại, nhưng không ai được chữa. Những người bệnh tự khỏi hoặc không.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzv_cure_human",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "lizard_venom",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lzv_path_cure"
+    ],
+    "notFlags": [
+     "lzv_end"
+    ]
+   },
+   "text": "Một đứa trẻ Human từ làng ven sông bị rắn đầm lầy cắn. Mẹ nó liều mạng mang nó vào đầm tìm Lizardman.",
+   "choices": [
+    {
+     "label": "Chữa cho nó",
+     "text": "Bạn có thuốc giải. Đứa trẻ sống. Người mẹ quỳ xuống trước bạn, và để lại một chiếc vòng bạc. Bộ lạc không vui.",
+     "effects": {
+      "joy": 10,
+      "fame": -3,
+      "jobXp": 3,
+      "flags": [
+       "lzv_cure_human"
+      ]
+     },
+     "moment": "Chữa cho đứa trẻ Human bị rắn đầm lầy cắn"
+    },
+    {
+     "label": "Đuổi họ đi",
+     "text": "Người mẹ ôm con chạy ra khỏi đầm. Bạn không biết đứa trẻ có sống không.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzv_war_arrows",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "lizard_venom",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lzv_path_war"
+    ],
+    "notFlags": [
+     "lzv_end"
+    ]
+   },
+   "text": "Một đạo quân Human đang tiến về đầm lầy. Tộc trưởng muốn mọi mũi tên của bộ lạc được tẩm độc chết người.",
+   "choices": [
+    {
+     "label": "Tẩm độc làm tê liệt, không giết",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Quân Human ngã như rạ, tê liệt, rồi tỉnh dậy sau hai ngày bị lột sạch vũ khí. Họ không bao giờ quay lại. Không ai chết.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "lzv_war_paralyze"
+       ]
+      },
+      "moment": "Đẩy lùi đạo quân Human bằng độc tê liệt thay vì độc chết người"
+     },
+     "fail": {
+      "text": "Độc tê liệt quá yếu. Quân Human tiến sâu vào đầm.",
+      "effects": {
+       "fame": -6,
+       "health": -8
+      }
+     }
+    },
+    {
+     "label": "Tẩm độc chết người",
+     "text": "Đạo quân bị đẩy lùi, để lại hàng trăm xác. Đầm lầy an toàn. Mùi chết bám vào bạn rất lâu.",
+     "effects": {
+      "fame": 8,
+      "joy": -8,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzv_war_leak",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "lizard_venom",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lzv_path_war"
+    ],
+    "notFlags": [
+     "lzv_end"
+    ]
+   },
+   "text": "Loài nấm độc bạn cấy làm vũ khí đã lan ra khỏi kiểm soát, ăn mòn vảy của chính đồng tộc.",
+   "choices": [
+    {
+     "label": "Đốt cả cánh đồng nấm",
+     "text": "Mất ba năm công sức. Nấm dừng lan. Bộ lạc an toàn.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Pha thuốc giải ngay trong đêm",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn thức trắng ba đêm, pha được thuốc giải từ chính loại nấm ấy. Bộ lạc khỏi, và bạn giữ được giống nấm.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Thuốc giải chỉ hiệu quả một nửa.",
+      "effects": {
+       "health": -10,
+       "joy": -6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzv_trade_silver",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "lizard_venom",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lzv_path_trade"
+    ],
+    "notFlags": [
+     "lzv_end"
+    ]
+   },
+   "text": "Một thương nhân Sói Bạc trả giá gấp mười cho loại độc không màu không mùi. Hắn không nói dùng vào việc gì.",
+   "choices": [
+    {
+     "label": "Hỏi rõ trước khi bán",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Hắn nói dối, nhưng bạn nếm được nỗi sợ trong mồ hôi hắn. Bạn bán cho hắn một lọ nước lã có mùi giống độc. Hắn không bao giờ quay lại.",
+      "effects": {
+       "INT": 1,
+       "wealth": 10,
+       "jobXp": 3,
+       "flags": [
+        "lzv_trade_honest"
+       ]
+      },
+      "moment": "Bán cho thương nhân Sói Bạc một lọ nước lã thay vì độc thật"
+     },
+     "fail": {
+      "text": "Hắn nói dối, và bạn tin. Ba tháng sau, bạn nghe tin một vị vua Human chết bất thường.",
+      "effects": {
+       "wealth": 20,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Bán, không hỏi",
+     "text": "Vàng. Rất nhiều vàng. Bạn không hỏi, và không ngủ ngon.",
+     "effects": {
+      "wealth": 25,
+      "wealthKind": "windfall",
+      "joy": -6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzv_trade_antidote",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "lizard_venom",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lzv_path_trade"
+    ],
+    "notFlags": [
+     "lzv_end"
+    ]
+   },
+   "text": "Một quý tộc Human đến đầm lầy, cầu xin thuốc giải. Con gái ông bị đầu độc bởi chính loại độc mà bạn từng bán.",
+   "choices": [
+    {
+     "label": "Bán thuốc giải với giá cắt cổ",
+     "text": "Ông trả, không mặc cả. Con gái ông sống. Bạn giàu thêm. Bạn bắt đầu thấy mình như một con nhện ngồi giữa mạng.",
+     "effects": {
+      "wealth": 20,
+      "joy": -4,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Cho không",
+     "text": "Ông nhìn bạn, không hiểu. Bạn cũng không hiểu mình. Nhưng con gái ông sống.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "lzv_trade_gift"
+      ]
+     },
+     "moment": "Cho không thuốc giải cho cô gái bị chính độc của mình đầu độc"
+    }
+   ]
+  },
+  {
+   "id": "lzv_c4_krissk",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "lizard_venom",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "lzv_met_krissk"
+    ],
+    "notFlags": [
+     "lzv_krissk_gone",
+     "lzv_end"
+    ],
+    "anyFlags": [
+     "lzv_path_cure",
+     "lzv_path_war",
+     "lzv_path_trade"
+    ]
+   },
+   "text": "Lão Krissk đã uống quá nhiều độc trong đời. Gan lão đang hỏng. Lão biết mình chỉ còn vài ngày.",
+   "choices": [
+    {
+     "label": "Pha thuốc giải cho lão",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Thuốc kéo dài thêm cho lão một mùa. Lão dùng mùa ấy để viết mọi công thức lão biết. Lão mất khi cuốn sổ vừa xong.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "lzv_krissk_gone",
+        "lzv_krissk_book"
+       ]
+      },
+      "moment": "Kéo dài sự sống cho lão Krissk để lão viết xong sổ công thức"
+     },
+     "fail": {
+      "text": "Thuốc không đủ mạnh. Lão mất ba ngày sau, tay vẫn cầm lọ độc đầu tiên lão pha.",
+      "effects": {
+       "joy": -8,
+       "flags": [
+        "lzv_krissk_gone"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Pha cho lão một liều độc êm",
+     "text": "Lão nhìn bạn, gật đầu. “Ngươi hiểu rồi.” Lão uống, và ngủ.",
+     "effects": {
+      "joy": -8,
+      "jobXp": 3,
+      "flags": [
+       "lzv_krissk_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzv_c4_pell",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "lizard_venom",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "lzv_met_pell"
+    ],
+    "notFlags": [
+     "lzv_end"
+    ]
+   },
+   "text": "Pell Varga đã ở trong lồng nhiều năm. Ông già yếu dần. Bộ lạc định thả ông ra cho đầm lầy, vì không còn dùng được nữa.",
+   "choices": [
+    {
+     "label": "Đưa ông ra bìa đầm, thả về làng",
+     "require": {
+      "flags": [
+       "lzv_pell_friend"
+      ]
+     },
+     "text": "Ông đi chậm, tay vịn vai bạn. Ở bìa đầm, ông trao cho bạn cuốn sổ thuốc của mình: “Ta dạy ngươi, ngươi dạy lại ai đó.”",
+     "effects": {
+      "joy": 8,
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "lzv_pell_free"
+      ]
+     },
+     "moment": "Thả Pell Varga về làng và nhận cuốn sổ thuốc của ông"
+    },
+    {
+     "label": "Để bộ lạc quyết",
+     "text": "Ông bị thả vào đầm. Bạn không đi theo nhìn.",
+     "effects": {
+      "joy": -10,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzv_c5_cure",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "lizard_venom",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "lzv_path_cure"
+    ],
+    "notFlags": [
+     "lzv_end"
+    ]
+   },
+   "text": "Lizardman và cả Human ở làng ven sông đều tìm đến bạn khi có người bệnh.",
+   "choices": [
+    {
+     "label": "Mở lều chữa bệnh ở bìa đầm",
+     "require": {
+      "flags": [
+       "lzv_cure_human"
+      ]
+     },
+     "text": "Lều chữa bệnh ở bìa đầm nhận cả Lizardman lẫn Human. Người mẹ năm xưa giờ là người phiên dịch. Bộ lạc phản đối, rồi quen dần.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "lzv_end",
+       "lzv_end_clinic"
+      ]
+     },
+     "moment": "Mở lều chữa bệnh cho cả Lizardman và Human ở bìa đầm"
+    },
+    {
+     "label": "Viết sách thuốc độc",
+     "text": "Cuốn sách dạy dùng độc để chữa. Học trò của bạn đọc nó trước khi học pha độc giết người.",
+     "effects": {
+      "fame": 12,
+      "INT": 1,
+      "flags": [
+       "lzv_end",
+       "lzv_end_book"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzv_c5_war",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "lizard_venom",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "lzv_path_war"
+    ],
+    "notFlags": [
+     "lzv_end"
+    ]
+   },
+   "text": "Không đạo quân nào dám vào đầm lầy nữa. Độc của bạn là bức tường vô hình.",
+   "choices": [
+    {
+     "label": "Dạy độc tê liệt cho mọi chiến binh",
+     "require": {
+      "flags": [
+       "lzv_war_paralyze"
+      ]
+     },
+     "text": "Đầm lầy vẫn an toàn, nhưng kẻ xâm nhập giờ tỉnh dậy ở bìa đầm, tay trắng, còn sống. Các vương quốc Human gọi đó là Đầm Lầy Ngủ.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "lzv_end",
+       "lzv_end_sleep"
+      ]
+     },
+     "moment": "Biến đầm lầy thành nơi kẻ xâm nhập chỉ ngủ chứ không chết"
+    },
+    {
+     "label": "Phong ấn những công thức chết người nhất",
+     "text": "Bạn đốt những trang công thức nguy hiểm nhất. Có những thứ không nên tồn tại lâu hơn người tạo ra chúng.",
+     "effects": {
+      "fame": 10,
+      "joy": 10,
+      "flags": [
+       "lzv_end",
+       "lzv_end_sealed"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzv_c5_trade",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "lizard_venom",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "lzv_path_trade"
+    ],
+    "notFlags": [
+     "lzv_end"
+    ]
+   },
+   "text": "Độc của bạn có mặt ở mọi chợ đen của Aethelgard. Bạn giàu hơn mọi tộc trưởng.",
+   "choices": [
+    {
+     "label": "Chỉ bán thuốc giải",
+     "require": {
+      "flags": [
+       "lzv_trade_gift"
+      ]
+     },
+     "text": "Từ nay, bạn chỉ bán thuốc giải. Những kẻ từng mua độc của bạn giờ sợ hãi, vì không biết ai đang giữ thuốc giải.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "lzv_end",
+       "lzv_end_antidotes"
+      ]
+     },
+     "moment": "Ngừng bán độc, chỉ bán thuốc giải"
+    },
+    {
+     "label": "Rút lui với kho vàng",
+     "text": "Bạn sống những năm cuối trong một hang đầy vàng. Thỉnh thoảng có kẻ lạ đến hỏi mua độc. Bạn đuổi họ đi.",
+     "effects": {
+      "wealth": 30,
+      "joy": 4,
+      "flags": [
+       "lzv_end",
+       "lzv_end_gold"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzv_daily_frog",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "lizard_venom",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một con ếch độc màu xanh nhảy vào nồi của bạn.",
+   "choices": [
+    {
+     "label": "Vớt ra, thả đi",
+     "text": "Nó nhảy đi, để lại chút nhựa độc trên tay bạn. Tay bạn tê cả buổi chiều.",
+     "effects": {
+      "joy": 3
+     }
+    },
+    {
+     "label": "Giữ lại nghiên cứu",
+     "text": "Nhựa của nó mạnh gấp đôi mọi thứ bạn có.",
+     "effects": {
+      "INT": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzv_daily_war",
+   "races": [
+    "lizardman"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "lizard_venom",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Mọi bên đều muốn mua độc của bạn.",
+   "choices": [
+    {
+     "label": "Bán cho bên ít người chết nhất",
+     "text": "Bạn không chắc đó là bên nào.",
+     "effects": {
+      "wealth": 8,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Không bán cho ai",
+     "text": "Các thương nhân bỏ đi, giận dữ. Bạn ngủ ngon.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzv_daily_old",
+   "races": [
+    "lizardman"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "lizard_venom",
+    "free": true
+   },
+   "text": "Bạn đã uống quá nhiều độc trong đời. Gan bạn bắt đầu đau.",
+   "choices": [
+    {
+     "label": "Pha thuốc cho chính mình",
+     "text": "Cơn đau dịu đi. Bạn biết nó sẽ quay lại.",
+     "effects": {
+      "health": 4
+     }
+    },
+    {
+     "label": "Dạy học trò thử độc trên mình liều nhỏ",
+     "text": "Chúng nhăn mặt. Bạn cười rít. Đó là cách duy nhất.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzv_c5_cure_late",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "lizard_venom",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "lzv_path_cure"
+    ],
+    "notFlags": [
+     "lzv_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Lizardman và cả Human ở làng ven sông đều tìm đến bạn khi có người bệnh.",
+   "choices": [
+    {
+     "label": "Mở lều chữa bệnh ở bìa đầm",
+     "require": {
+      "flags": [
+       "lzv_cure_human"
+      ]
+     },
+     "text": "Lều chữa bệnh ở bìa đầm nhận cả Lizardman lẫn Human. Người mẹ năm xưa giờ là người phiên dịch. Bộ lạc phản đối, rồi quen dần.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "lzv_end",
+       "lzv_end_clinic"
+      ]
+     },
+     "moment": "Mở lều chữa bệnh cho cả Lizardman và Human ở bìa đầm"
+    },
+    {
+     "label": "Viết sách thuốc độc",
+     "text": "Cuốn sách dạy dùng độc để chữa. Học trò của bạn đọc nó trước khi học pha độc giết người.",
+     "effects": {
+      "fame": 12,
+      "INT": 1,
+      "flags": [
+       "lzv_end",
+       "lzv_end_book"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "lzv_c5_war_late",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "lizard_venom",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "lzv_path_war"
+    ],
+    "notFlags": [
+     "lzv_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Không đạo quân nào dám vào đầm lầy nữa. Độc của bạn là bức tường vô hình.",
+   "choices": [
+    {
+     "label": "Dạy độc tê liệt cho mọi chiến binh",
+     "require": {
+      "flags": [
+       "lzv_war_paralyze"
+      ]
+     },
+     "text": "Đầm lầy vẫn an toàn, nhưng kẻ xâm nhập giờ tỉnh dậy ở bìa đầm, tay trắng, còn sống. Các vương quốc Human gọi đó là Đầm Lầy Ngủ.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "lzv_end",
+       "lzv_end_sleep"
+      ]
+     },
+     "moment": "Biến đầm lầy thành nơi kẻ xâm nhập chỉ ngủ chứ không chết"
+    },
+    {
+     "label": "Phong ấn những công thức chết người nhất",
+     "text": "Bạn đốt những trang công thức nguy hiểm nhất. Có những thứ không nên tồn tại lâu hơn người tạo ra chúng.",
+     "effects": {
+      "fame": 10,
+      "joy": 10,
+      "flags": [
+       "lzv_end",
+       "lzv_end_sealed"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "lzv_c5_trade_late",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "lizard_venom",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "lzv_path_trade"
+    ],
+    "notFlags": [
+     "lzv_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Độc của bạn có mặt ở mọi chợ đen của Aethelgard. Bạn giàu hơn mọi tộc trưởng.",
+   "choices": [
+    {
+     "label": "Chỉ bán thuốc giải",
+     "require": {
+      "flags": [
+       "lzv_trade_gift"
+      ]
+     },
+     "text": "Từ nay, bạn chỉ bán thuốc giải. Những kẻ từng mua độc của bạn giờ sợ hãi, vì không biết ai đang giữ thuốc giải.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "lzv_end",
+       "lzv_end_antidotes"
+      ]
+     },
+     "moment": "Ngừng bán độc, chỉ bán thuốc giải"
+    },
+    {
+     "label": "Rút lui với kho vàng",
+     "text": "Bạn sống những năm cuối trong một hang đầy vàng. Thỉnh thoảng có kẻ lạ đến hỏi mua độc. Bạn đuổi họ đi.",
+     "effects": {
+      "wealth": 30,
+      "joy": 4,
+      "flags": [
+       "lzv_end",
+       "lzv_end_gold"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}

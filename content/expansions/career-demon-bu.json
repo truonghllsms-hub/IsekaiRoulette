@@ -1,0 +1,1119 @@
+{
+ "_note": "Tuyến truyện Chấp Sự Ma Giới: ba đạo (dbu_path_clean / dbu_path_climb / dbu_path_reform), nhân vật xuyên suốt lão Vasch Sổ Đen (chấp sự già) và Tik (Imp thư ký).",
+ "origins": [],
+ "events": [
+  {
+   "id": "dbu_c1_vasch",
+   "races": [
+    "demon"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "demon_bu",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "dbu_met_vasch"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Vasch Sổ Đen",
+     "race": "Demon",
+     "position": "Chấp sự thu thuế già của Ma Giới"
+    }
+   ],
+   "text": "Lão Vasch Sổ Đen đã làm chấp sự thu thuế hai trăm năm. Lão đặt trước mặt bạn một cuốn sổ dày như bia mộ. “Mọi con số trong này đều đúng. Ngươi biết vì sao không?”",
+   "choices": [
+    {
+     "label": "Vì lão kiểm tra kỹ",
+     "text": "Lão cười khàn. “Vì ta biết con số nào sai, và ta ghi cả số sai lẫn số đúng.” Lão mở trang sau: hai cột song song. “Một cột cho Ma Vương. Một cột cho sự thật.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "dbu_met_vasch",
+       "dbu_vasch_trust"
+      ]
+     },
+     "moment": "Thấy cuốn sổ hai cột của lão Vasch: một cho Ma Vương, một cho sự thật"
+    },
+    {
+     "label": "Vì không ai dám kiểm tra",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Lão nhìn bạn rất lâu. “Đúng. Nhưng đó là câu trả lời của kẻ sẽ sớm bị xử tử. Học cách trả lời khác đi.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "dbu_met_vasch"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Lão không trả lời, chỉ đưa bạn một xấp sổ để chép.",
+      "effects": {
+       "flags": [
+        "dbu_met_vasch"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbu_c1_tik",
+   "races": [
+    "demon"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "demon_bu",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "dbu_met_vasch"
+    ],
+    "notFlags": [
+     "dbu_met_tik"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Tik",
+     "race": "Imp",
+     "position": "Imp thư ký được cấp cho bạn"
+    }
+   ],
+   "text": "Bạn được cấp một Imp thư ký tên Tik. Nó chép nhanh, đếm giỏi, và run lẩy bẩy mỗi khi bạn nhìn nó.",
+   "choices": [
+    {
+     "label": "Cho nó một cái tên thật và một chỗ ngủ",
+     "text": "Tik ngạc nhiên đến mức đánh rơi bút. Nó ngủ dưới bàn bạn, trên một tấm chăn. Nó không run nữa, và chép nhanh gấp đôi.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1,
+      "flags": [
+       "dbu_met_tik",
+       "dbu_tik_loyal"
+      ]
+     },
+     "moment": "Cho Imp thư ký Tik một chỗ ngủ và một cái tên"
+    },
+    {
+     "label": "Đối xử như mọi chấp sự",
+     "text": "Tik làm việc, run rẩy, không than. Nó chép đúng mọi thứ bạn bảo, và không nói gì thêm.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "dbu_met_tik"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbu_c2_first_bribe",
+   "races": [
+    "demon"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "demon_bu",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "flags": [
+     "dbu_met_vasch"
+    ],
+    "notFlags": [
+     "dbu_first_bribe",
+     "dbu_end"
+    ]
+   },
+   "text": "Một thương nhân lậu dúi vào tay bạn một viên Huyết Kim cỡ lớn, xin xóa phần thuế nợ đọng của hắn.",
+   "choices": [
+    {
+     "label": "Từ chối, ghi vào sổ",
+     "text": "Hắn trả đủ thuế, chửi bạn. Lão Vasch đọc sổ, gật đầu, không nói gì.",
+     "effects": {
+      "jobXp": 2,
+      "flags": [
+       "dbu_first_bribe",
+       "dbu_first_clean"
+      ]
+     }
+    },
+    {
+     "label": "Nhận, xóa nợ",
+     "text": "Viên Huyết Kim nằm trong ngăn kéo của bạn. Lão Vasch đọc sổ, dừng ở dòng ấy, rồi lật tiếp.",
+     "effects": {
+      "wealth": 12,
+      "jobXp": 2,
+      "flags": [
+       "dbu_first_bribe"
+      ]
+     }
+    },
+    {
+     "label": "Nhận, nhưng chuyển viên Huyết Kim vào ngân khố",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Thương nhân nghĩ mình đã mua được bạn. Ngân khố nhận một viên Huyết Kim không rõ nguồn gốc. Lão Vasch cười khàn khi đọc sổ.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 2,
+       "flags": [
+        "dbu_first_bribe",
+        "dbu_first_clean"
+       ]
+      },
+      "moment": "Chuyển tiền hối lộ vào ngân khố Ma Giới"
+     },
+     "fail": {
+      "text": "Thương nhân phát hiện, và tố bạn ăn hối lộ. Bạn mất ba tháng giải trình.",
+      "effects": {
+       "fame": -4,
+       "flags": [
+        "dbu_first_bribe"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbu_c2_crossroads",
+   "races": [
+    "demon"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "demon_bu",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "dbu_path_clean",
+     "dbu_path_climb",
+     "dbu_path_reform",
+     "dbu_end"
+    ],
+    "flags": [
+     "dbu_met_vasch"
+    ]
+   },
+   "text": "Lão Vasch đưa bạn ba thứ: cuốn sổ hai cột của lão, một lá thư mời của phe phái quyền lực nhất triều đình, và một bản thảo luật thuế mới chưa ai dám trình lên Ma Vương.",
+   "choices": [
+    {
+     "label": "Sổ hai cột: Người Giữ Sổ Thật",
+     "text": "Bạn sẽ ghi đúng mọi con số, dù không ai muốn đọc. Lão Vasch gật đầu: “Nghề nghèo nhất triều đình. Cũng sống lâu nhất.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "dbu_path_clean"
+      ]
+     },
+     "moment": "Nhận cuốn sổ hai cột của lão Vasch"
+    },
+    {
+     "label": "Thư mời: Kẻ Leo Thang",
+     "text": "Bạn sẽ leo lên. Đến chỗ có thể quyết định những con số, thay vì chỉ ghi chúng.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "dbu_path_climb"
+      ]
+     },
+     "moment": "Nhận lời mời của phe phái quyền lực nhất triều đình"
+    },
+    {
+     "label": "Bản thảo luật: Kẻ Cải Cách",
+     "text": "Luật thuế hiện tại vắt kiệt dân thường và tha cho quý tộc. Bạn sẽ đổi nó. Lão Vasch thở dài: “Ta viết bản thảo ấy một trăm năm trước. Chưa bao giờ dám trình.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "dbu_path_reform"
+      ]
+     },
+     "moment": "Nhận bản thảo luật thuế mới chưa ai dám trình"
+    }
+   ]
+  },
+  {
+   "id": "dbu_clean_frontline",
+   "races": [
+    "demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "demon_bu",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dbu_path_clean"
+    ],
+    "notFlags": [
+     "dbu_end"
+    ]
+   },
+   "text": "Quân đoàn tuyến đầu đòi tăng gấp đôi khẩu phần huyết nhục. Sổ cho thấy một nửa số khẩu phần trước đó đã biến mất trên đường.",
+   "choices": [
+    {
+     "label": "Lần theo khẩu phần mất tích",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Một sĩ quan hậu cần bán khẩu phần cho chợ đen. Bạn trình sổ lên. Hắn bị xử. Quân đoàn nhận đủ khẩu phần mà không cần tăng.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "dbu_clean_exposed"
+       ]
+      },
+      "moment": "Lần ra sĩ quan hậu cần bán khẩu phần cho chợ đen"
+     },
+     "fail": {
+      "text": "Dấu vết dẫn đến một Đại thần. Bạn phải dừng lại.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    },
+    {
+     "label": "Tăng khẩu phần như được yêu cầu",
+     "text": "Quân đoàn nhận gấp đôi, và một nửa vẫn biến mất. Bạn ghi cả hai con số vào sổ.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbu_clean_forged",
+   "races": [
+    "demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "demon_bu",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dbu_path_clean"
+    ],
+    "notFlags": [
+     "dbu_end"
+    ]
+   },
+   "text": "Phe đối lập trình lên Ma Vương một xấp tài liệu giả mạo, cáo buộc bạn biển thủ.",
+   "choices": [
+    {
+     "label": "Trình sổ hai cột",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Cột sự thật khớp từng con số. Ma Vương đọc, im lặng, rồi ra lệnh xử những kẻ làm giả. Từ đó, không ai dám làm giả sổ của bạn.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Ma Vương không có thời gian đọc. Bạn bị giáng chức mười năm.",
+      "effects": {
+       "fame": -8
+      }
+     }
+    },
+    {
+     "label": "Nhờ Tik làm chứng",
+     "require": {
+      "flags": [
+       "dbu_tik_loyal",
+       "dbu_met_tik"
+      ]
+     },
+     "text": "Tik, run rẩy, đứng trước Ma Vương và đọc thuộc lòng mọi con số bạn từng ghi. Ma Vương bật cười. Cáo buộc bị bác.",
+     "effects": {
+      "fame": 8,
+      "joy": 8,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbu_climb_rival",
+   "races": [
+    "demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "demon_bu",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dbu_path_climb"
+    ],
+    "notFlags": [
+     "dbu_end"
+    ]
+   },
+   "text": "Quan Thanh Tra cấp trên của bạn là kẻ bảo thủ ngáng đường. Phe phái của bạn đề nghị thuê sát thủ.",
+   "choices": [
+    {
+     "label": "Từ chối, tìm cách khác",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn tìm ra lỗi trong sổ của hắn, và để nó lọt đến tai Ma Vương. Hắn bị điều đi biên giới. Bạn lên thay, tay sạch.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "dbu_climb_clean"
+       ]
+      },
+      "moment": "Leo lên ghế Thanh Tra mà không cần sát thủ"
+     },
+     "fail": {
+      "text": "Không có lỗi nào. Hắn vẫn ngồi đó.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    },
+    {
+     "label": "Đồng ý",
+     "text": "Hắn chết trong một tai nạn. Bạn lên thay. Phe phái nhắc bạn rằng bạn nợ họ.",
+     "effects": {
+      "fame": 6,
+      "joy": -8,
+      "jobXp": 3,
+      "flags": [
+       "dbu_climb_debt"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbu_climb_feast",
+   "races": [
+    "demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "demon_bu",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dbu_path_climb"
+    ],
+    "notFlags": [
+     "dbu_end"
+    ]
+   },
+   "text": "Bạn được mời dự tiệc của Đại thần. Ở đây, mọi câu nói đều là một nước cờ.",
+   "choices": [
+    {
+     "label": "Nói ít, nghe nhiều",
+     "text": "Bạn nghe được ba bí mật và một âm mưu. Bạn không dùng cái nào ngay. Bạn chờ.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Kể một câu chuyện cười về Ma Vương",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Cả bàn tiệc cười. Đại thần cười to nhất. Từ đó, bạn được mời mọi bữa tiệc.",
+      "effects": {
+       "fame": 8,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Không ai cười. Một con Imp chạy đi báo cho Ma Vương.",
+      "effects": {
+       "fame": -6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbu_reform_draft",
+   "races": [
+    "demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "demon_bu",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dbu_path_reform"
+    ],
+    "notFlags": [
+     "dbu_end"
+    ]
+   },
+   "text": "Bạn trình bản thảo luật thuế mới lên Hội đồng. Các quý tộc đứng dậy phản đối.",
+   "choices": [
+    {
+     "label": "Trình con số: bao nhiêu dân thường đã chết đói vì thuế cũ",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Hội đồng im lặng. Ma Vương đọc con số, và ký. Luật thuế mới ra đời, chỉ một nửa so với bản thảo, nhưng là một nửa.",
+      "effects": {
+       "INT": 1,
+       "fame": 12,
+       "jobXp": 3,
+       "flags": [
+        "dbu_reform_passed"
+       ]
+      },
+      "moment": "Thuyết phục Ma Vương ký luật thuế mới bằng con số người chết đói"
+     },
+     "fail": {
+      "text": "Hội đồng bác bỏ. Bạn bị đưa vào danh sách đen của mọi quý tộc.",
+      "effects": {
+       "fame": -8
+      }
+     }
+    },
+    {
+     "label": "Rút bản thảo, chờ thời",
+     "text": "Lão Vasch gật đầu: “Một trăm năm ta cũng chờ.” Bạn hy vọng không phải chờ lâu thế.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbu_reform_village",
+   "races": [
+    "demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "demon_bu",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dbu_path_reform"
+    ],
+    "notFlags": [
+     "dbu_end"
+    ]
+   },
+   "text": "Bạn đi thu thuế ở một làng Ma tộc nghèo. Họ không có gì để nộp.",
+   "choices": [
+    {
+     "label": "Ghi thuế là đã nộp",
+     "text": "Cột cho Ma Vương: đã nộp. Cột sự thật: không có gì để nộp. Làng sống qua mùa đông.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "dbu_reform_mercy"
+      ]
+     },
+     "moment": "Ghi thuế đã nộp cho một làng Ma tộc không có gì để nộp"
+    },
+    {
+     "label": "Thu bằng hiện vật",
+     "text": "Bạn lấy hai con dê và một chiếc nồi. Làng sống, khó khăn hơn.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbu_c4_vasch",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_bu",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dbu_met_vasch"
+    ],
+    "notFlags": [
+     "dbu_vasch_gone",
+     "dbu_end"
+    ],
+    "anyFlags": [
+     "dbu_path_clean",
+     "dbu_path_climb",
+     "dbu_path_reform"
+    ]
+   },
+   "text": "Lão Vasch sắp mất. Lão đưa bạn cuốn sổ hai cột cuối cùng của lão, ghi hai trăm năm.",
+   "choices": [
+    {
+     "label": "Đọc cột sự thật",
+     "text": "Hai trăm năm thuế, chiến tranh, tham nhũng, đói kém. Không ai từng đọc nó. Bạn đọc suốt một tháng. Lão Vasch mất khi bạn đọc đến trang cuối.",
+     "effects": {
+      "INT": 1,
+      "joy": -4,
+      "jobXp": 3,
+      "flags": [
+       "dbu_vasch_gone",
+       "dbu_vasch_book"
+      ]
+     },
+     "moment": "Đọc cột sự thật trong cuốn sổ hai trăm năm của lão Vasch"
+    },
+    {
+     "label": "Chôn nó cùng lão",
+     "text": "Lão Vasch lắc đầu: “Không. Ai đó phải đọc.” Lão mất. Bạn giữ cuốn sổ trong ngăn kéo, chưa dám mở.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "dbu_vasch_gone",
+       "dbu_vasch_book"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbu_c4_tik",
+   "races": [
+    "demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "demon_bu",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dbu_met_tik"
+    ],
+    "notFlags": [
+     "dbu_end"
+    ]
+   },
+   "text": "Tik đã già, với một Imp. Nó vẫn chép, nhưng tay run, chữ méo. Luật triều đình: Imp không còn làm việc được thì bị trả về Vực Thẳm.",
+   "choices": [
+    {
+     "label": "Giữ nó lại, làm người giữ kho",
+     "require": {
+      "flags": [
+       "dbu_tik_loyal"
+      ]
+     },
+     "text": "Tik ngồi trong kho sổ, đếm những cuốn sổ cũ, và ngủ trên tấm chăn năm xưa. Nó mất trong kho, giữa những con số nó yêu.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "dbu_tik_kept"
+      ]
+     },
+     "moment": "Giữ Tik ở lại làm người giữ kho sổ đến cuối đời"
+    },
+    {
+     "label": "Theo luật",
+     "text": "Tik bị trả về Vực Thẳm. Nó không khóc. Nó cúi chào bạn, như ngày đầu.",
+     "effects": {
+      "joy": -8,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbu_c5_clean",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_bu",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dbu_path_clean"
+    ],
+    "notFlags": [
+     "dbu_end"
+    ]
+   },
+   "text": "Bạn là Minister of the Demon Realm. Sổ của bạn chưa bao giờ sai một con số.",
+   "choices": [
+    {
+     "label": "Công bố cột sự thật",
+     "require": {
+      "flags": [
+       "dbu_vasch_book"
+      ]
+     },
+     "text": "Bạn công bố cuốn sổ hai trăm năm của lão Vasch. Ma Giới chấn động. Ba Đại thần bị xử. Dân thường biết lần đầu tiên tiền thuế của họ đã đi đâu.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "dbu_end",
+       "dbu_end_published"
+      ]
+     },
+     "moment": "Công bố cột sự thật trong cuốn sổ hai trăm năm"
+    },
+    {
+     "label": "Truyền sổ hai cột cho người kế nhiệm",
+     "text": "Một chấp sự trẻ nhận cuốn sổ. Bạn hỏi nó câu lão Vasch từng hỏi bạn. Nó trả lời đúng.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "dbu_end",
+       "dbu_end_successor"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbu_c5_climb",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_bu",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dbu_path_climb"
+    ],
+    "notFlags": [
+     "dbu_end"
+    ]
+   },
+   "text": "Bạn là Minister of the Demon Realm. Chỉ Ma Vương đứng trên bạn.",
+   "choices": [
+    {
+     "label": "Dùng quyền lực để thanh lọc triều đình",
+     "require": {
+      "flags": [
+       "dbu_climb_clean"
+      ]
+     },
+     "text": "Bạn leo lên mà tay sạch. Giờ bạn có thể làm sạch những kẻ khác. Triều đình sợ bạn hơn sợ Ma Vương.",
+     "effects": {
+      "fame": 15,
+      "joy": 10,
+      "flags": [
+       "dbu_end",
+       "dbu_end_purge"
+      ]
+     },
+     "moment": "Dùng ghế Đại thần để thanh lọc triều đình Ma Giới"
+    },
+    {
+     "label": "Trả món nợ cho phe phái",
+     "require": {
+      "flags": [
+       "dbu_climb_debt"
+      ]
+     },
+     "text": "Phe phái nhận phần của họ. Bạn giữ ghế. Bạn không còn nhớ mình leo lên để làm gì.",
+     "effects": {
+      "fame": 12,
+      "wealth": 30,
+      "joy": -8,
+      "flags": [
+       "dbu_end",
+       "dbu_end_debt"
+      ]
+     }
+    },
+    {
+     "label": "Giữ ghế, lặng lẽ cân bằng các phe",
+     "text": "Không phe nào thắng tuyệt đối. Ma Giới ổn định hơn bao giờ hết.",
+     "effects": {
+      "fame": 12,
+      "joy": 8,
+      "flags": [
+       "dbu_end",
+       "dbu_end_balance"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbu_c5_reform",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_bu",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dbu_path_reform"
+    ],
+    "notFlags": [
+     "dbu_end"
+    ]
+   },
+   "text": "Bạn là Minister of the Demon Realm. Luật thuế của bạn đã thay đổi đời sống của triệu Ma tộc.",
+   "choices": [
+    {
+     "label": "Trình nửa còn lại của bản thảo",
+     "require": {
+      "flags": [
+       "dbu_reform_passed"
+      ]
+     },
+     "text": "Một trăm năm sau nửa đầu, nửa sau được ký. Lão Vasch đã không sống để thấy. Bạn khắc tên lão lên trang đầu của bộ luật.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "dbu_end",
+       "dbu_end_full_law"
+      ]
+     },
+     "moment": "Ký nốt nửa sau của luật thuế cải cách"
+    },
+    {
+     "label": "Đi thăm những làng nghèo",
+     "text": "Những làng nghèo năm xưa giờ đã khá hơn. Một bà già nhận ra bạn, và mời bạn ăn cháo.",
+     "effects": {
+      "fame": 10,
+      "joy": 15,
+      "flags": [
+       "dbu_end",
+       "dbu_end_villages"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbu_daily_ink",
+   "races": [
+    "demon"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "demon_bu",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Mực hết giữa một trang sổ quan trọng.",
+   "choices": [
+    {
+     "label": "Dùng máu",
+     "text": "Ma tộc thường làm thế. Trang sổ đỏ thẫm, và không ai dám sửa.",
+     "effects": {
+      "health": -1,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Chờ mực mới",
+     "text": "Bạn ngồi chờ cả buổi chiều. Lần đầu tiên sau nhiều năm, bạn không làm gì cả.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbu_daily_war",
+   "races": [
+    "demon"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "demon_bu",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Ngân khố cạn kiệt.",
+   "choices": [
+    {
+     "label": "Tăng thuế quý tộc",
+     "text": "Quý tộc phản đối. Ngân khố đầy lại.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Tăng thuế dân thường",
+     "text": "Ngân khố đầy nhanh hơn. Dân thường đói.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbu_daily_old",
+   "races": [
+    "demon"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "demon_bu",
+    "free": true
+   },
+   "text": "Mắt bạn mờ. Những con số bắt đầu nhảy múa trên trang.",
+   "choices": [
+    {
+     "label": "Đếm bằng ngón tay",
+     "text": "Chậm, nhưng không sai.",
+     "effects": {
+      "joy": 4
+     }
+    },
+    {
+     "label": "Để chấp sự trẻ đọc to cho bạn nghe",
+     "text": "Bạn nghe, và vẫn bắt được lỗi sai đầu tiên.",
+     "effects": {
+      "INT": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbu_c5_clean_late",
+   "races": [
+    "demon"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "demon_bu",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dbu_path_clean"
+    ],
+    "notFlags": [
+     "dbu_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Minister of the Demon Realm. Sổ của bạn chưa bao giờ sai một con số.",
+   "choices": [
+    {
+     "label": "Công bố cột sự thật",
+     "require": {
+      "flags": [
+       "dbu_vasch_book"
+      ]
+     },
+     "text": "Bạn công bố cuốn sổ hai trăm năm của lão Vasch. Ma Giới chấn động. Ba Đại thần bị xử. Dân thường biết lần đầu tiên tiền thuế của họ đã đi đâu.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "dbu_end",
+       "dbu_end_published"
+      ]
+     },
+     "moment": "Công bố cột sự thật trong cuốn sổ hai trăm năm"
+    },
+    {
+     "label": "Truyền sổ hai cột cho người kế nhiệm",
+     "text": "Một chấp sự trẻ nhận cuốn sổ. Bạn hỏi nó câu lão Vasch từng hỏi bạn. Nó trả lời đúng.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "dbu_end",
+       "dbu_end_successor"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "elder"
+   ]
+  },
+  {
+   "id": "dbu_c5_climb_late",
+   "races": [
+    "demon"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "demon_bu",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dbu_path_climb"
+    ],
+    "notFlags": [
+     "dbu_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Minister of the Demon Realm. Chỉ Ma Vương đứng trên bạn.",
+   "choices": [
+    {
+     "label": "Dùng quyền lực để thanh lọc triều đình",
+     "require": {
+      "flags": [
+       "dbu_climb_clean"
+      ]
+     },
+     "text": "Bạn leo lên mà tay sạch. Giờ bạn có thể làm sạch những kẻ khác. Triều đình sợ bạn hơn sợ Ma Vương.",
+     "effects": {
+      "fame": 15,
+      "joy": 10,
+      "flags": [
+       "dbu_end",
+       "dbu_end_purge"
+      ]
+     },
+     "moment": "Dùng ghế Đại thần để thanh lọc triều đình Ma Giới"
+    },
+    {
+     "label": "Trả món nợ cho phe phái",
+     "require": {
+      "flags": [
+       "dbu_climb_debt"
+      ]
+     },
+     "text": "Phe phái nhận phần của họ. Bạn giữ ghế. Bạn không còn nhớ mình leo lên để làm gì.",
+     "effects": {
+      "fame": 12,
+      "wealth": 30,
+      "joy": -8,
+      "flags": [
+       "dbu_end",
+       "dbu_end_debt"
+      ]
+     }
+    },
+    {
+     "label": "Giữ ghế, lặng lẽ cân bằng các phe",
+     "text": "Không phe nào thắng tuyệt đối. Ma Giới ổn định hơn bao giờ hết.",
+     "effects": {
+      "fame": 12,
+      "joy": 8,
+      "flags": [
+       "dbu_end",
+       "dbu_end_balance"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "elder"
+   ]
+  },
+  {
+   "id": "dbu_c5_reform_late",
+   "races": [
+    "demon"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "demon_bu",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dbu_path_reform"
+    ],
+    "notFlags": [
+     "dbu_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Minister of the Demon Realm. Luật thuế của bạn đã thay đổi đời sống của triệu Ma tộc.",
+   "choices": [
+    {
+     "label": "Trình nửa còn lại của bản thảo",
+     "require": {
+      "flags": [
+       "dbu_reform_passed"
+      ]
+     },
+     "text": "Một trăm năm sau nửa đầu, nửa sau được ký. Lão Vasch đã không sống để thấy. Bạn khắc tên lão lên trang đầu của bộ luật.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "dbu_end",
+       "dbu_end_full_law"
+      ]
+     },
+     "moment": "Ký nốt nửa sau của luật thuế cải cách"
+    },
+    {
+     "label": "Đi thăm những làng nghèo",
+     "text": "Những làng nghèo năm xưa giờ đã khá hơn. Một bà già nhận ra bạn, và mời bạn ăn cháo.",
+     "effects": {
+      "fame": 10,
+      "joy": 15,
+      "flags": [
+       "dbu_end",
+       "dbu_end_villages"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "elder"
+   ]
+  }
+ ]
+}

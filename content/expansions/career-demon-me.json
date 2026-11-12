@@ -1,0 +1,1083 @@
+{
+ "_note": "Tuyến truyện Blood Merchant (Ma tộc): ba đạo (dme_path_black / dme_path_bridge / dme_path_famine), nhân vật xuyên suốt bà Ozza Nhện Bạc (trùm chợ đen già) và Renny Gold (tay buôn lậu Human).",
+ "origins": [],
+ "events": [
+  {
+   "id": "dme_c1_ozza",
+   "races": [
+    "demon"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "demon_me",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "dme_met_ozza"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Ozza Nhện Bạc",
+     "race": "Demon",
+     "position": "Trùm chợ đen Ma Đô"
+    }
+   ],
+   "text": "Bà Ozza Nhện Bạc ngồi giữa chợ đen của Ma Đô như con nhện giữa mạng. Tám cánh tay bà đếm tiền cùng lúc. Bà nói: “Buôn bán là nói dối. Buôn bán giỏi là nói dối mà khách vẫn quay lại.”",
+   "choices": [
+    {
+     "label": "Hỏi bà làm sao để khách quay lại",
+     "text": "Bà dừng tám cánh tay. “Bán đúng thứ họ cần, với giá họ trả nổi, và để họ tưởng mình đã lời.” Bà ném cho bạn một túi hàng: “Bán hết trước tối.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "dme_met_ozza",
+       "dme_ozza_respect"
+      ]
+     },
+     "moment": "Nghe bài học buôn bán đầu tiên của bà Ozza Nhện Bạc"
+    },
+    {
+     "label": "Thử nói dối bà",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Bà cười, tám cánh tay vỗ tay cùng lúc. “Gần được. Lần sau, đừng chớp mắt khi nói dối.”",
+      "effects": {
+       "LUCK": 1,
+       "jobXp": 1,
+       "flags": [
+        "dme_met_ozza",
+        "dme_ozza_respect"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bà nhìn bạn, không cười. “Ngươi nói dối tệ. Học nói thật trước.”",
+      "effects": {
+       "flags": [
+        "dme_met_ozza"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dme_c1_renny",
+   "races": [
+    "demon"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "demon_me",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "dme_met_ozza"
+    ],
+    "notFlags": [
+     "dme_met_renny"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Renny Gold",
+     "race": "Human",
+     "position": "Tay buôn lậu Human ở chợ đen Ma Đô"
+    }
+   ],
+   "text": "Renny Gold là tay buôn lậu Human duy nhất dám vào chợ đen Ma Đô. Hắn cười nhiều, nói nhiều, và mang theo hàng mà Ma tộc chưa từng thấy: sô-cô-la.",
+   "choices": [
+    {
+     "label": "Đổi một túi Huyết Kim lấy một hộp sô-cô-la",
+     "text": "Bạn nếm thử. Rồi nếm nữa. Rồi bán hết hộp với giá gấp mười. Renny cười to: “Chúng ta sẽ làm ăn lâu dài.”",
+     "effects": {
+      "wealth": 6,
+      "joy": 6,
+      "jobXp": 1,
+      "flags": [
+       "dme_met_renny",
+       "dme_renny_partner"
+      ]
+     },
+     "moment": "Thương vụ sô-cô-la đầu tiên với tay buôn lậu Human Renny Gold"
+    },
+    {
+     "label": "Báo hắn với lính canh",
+     "text": "Lính canh bắt hắn. Bà Ozza nghe chuyện, lắc đầu: “Ngươi vừa giết con ngỗng đẻ trứng vàng.” Renny được thả sau một tháng, và không bao giờ nói chuyện với bạn nữa.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "dme_met_renny"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dme_c2_first_scam",
+   "races": [
+    "demon"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "demon_me",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "flags": [
+     "dme_met_ozza"
+    ],
+    "notFlags": [
+     "dme_first_scam",
+     "dme_end"
+    ]
+   },
+   "text": "Tên lính canh đập cửa lán của bạn, đòi lại tiền vì lọ thuốc tráng dương bạn bán cho hắn không có tác dụng.",
+   "choices": [
+    {
+     "label": "Trả lại tiền, xin lỗi",
+     "text": "Hắn ngạc nhiên, cầm tiền đi. Tuần sau hắn quay lại, mua thứ khác. Bà Ozza gật đầu khi nghe chuyện.",
+     "effects": {
+      "wealth": -3,
+      "jobXp": 2,
+      "flags": [
+       "dme_first_scam",
+       "dme_first_honest"
+      ]
+     }
+    },
+    {
+     "label": "Thuyết phục hắn rằng thuốc cần dùng lâu",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Hắn mua thêm ba lọ. Một tháng sau, hắn tin là có tác dụng. Có lẽ là thật.",
+      "effects": {
+       "wealth": 6,
+       "jobXp": 2,
+       "flags": [
+        "dme_first_scam"
+       ]
+      },
+      "moment": "Thuyết phục khách hàng giận dữ mua thêm ba lọ"
+     },
+     "fail": {
+      "text": "Hắn không tin. Hắn đập phá lán của bạn.",
+      "effects": {
+       "wealth": -6,
+       "flags": [
+        "dme_first_scam"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dme_c2_crossroads",
+   "races": [
+    "demon"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "demon_me",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "dme_path_black",
+     "dme_path_bridge",
+     "dme_path_famine",
+     "dme_end"
+    ],
+    "flags": [
+     "dme_met_ozza"
+    ]
+   },
+   "text": "Bà Ozza đưa bạn ba sợi tơ nhện: một sợi đen dẫn sâu vào chợ đen, một sợi bạc dẫn đến biên giới Human, và một sợi đỏ dẫn đến những kho lương bí mật dưới Ma Đô.",
+   "choices": [
+    {
+     "label": "Sợi đen: Vua Chợ Đen",
+     "text": "Bạn sẽ thay bà Ozza, một ngày nào đó. Tám cánh tay, hoặc ít nhất là tám đường dây.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "dme_path_black"
+      ]
+     },
+     "moment": "Chọn con đường làm vua chợ đen Ma Đô"
+    },
+    {
+     "label": "Sợi bạc: Đường Buôn Hai Cõi",
+     "text": "Bạn sẽ buôn qua biên giới, giữa Ma tộc và Human. Nguy hiểm, nhưng ở đó mọi thứ đều đáng giá gấp mười.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "dme_path_bridge"
+      ]
+     },
+     "moment": "Chọn mở đường buôn giữa Ma Giới và Human"
+    },
+    {
+     "label": "Sợi đỏ: Kho Lương Bí Mật",
+     "text": "Bà Ozza kể: dưới Ma Đô có những kho lương chỉ bà biết, dành cho nạn đói. Bạn sẽ giữ chúng.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "dme_path_famine"
+      ]
+     },
+     "moment": "Nhận giữ những kho lương bí mật dưới Ma Đô"
+    }
+   ]
+  },
+  {
+   "id": "dme_black_relic",
+   "races": [
+    "demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "demon_me",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dme_path_black"
+    ],
+    "notFlags": [
+     "dme_end"
+    ]
+   },
+   "text": "Một tên đào trộm mộ mang đến quyền trượng gãy của một cựu Thánh Nữ. Hàng cấm. Giá cao.",
+   "choices": [
+    {
+     "label": "Mua, bán cho Hắc Nguyệt Hội",
+     "text": "Hắc Nguyệt Hội trả gấp mười. Ba tháng sau, bạn nghe tin một nghi lễ đẫm máu dùng đến quyền trượng ấy.",
+     "effects": {
+      "wealth": 25,
+      "wealthKind": "windfall",
+      "joy": -8,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Mua, bán lại cho Giáo hội Thánh Quang",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Giáo hội trả ít hơn, nhưng họ đưa bạn một tấm giấy thông hành qua biên giới, thứ quý hơn vàng.",
+      "effects": {
+       "wealth": 10,
+       "jobXp": 3,
+       "flags": [
+        "dme_black_pass"
+       ]
+      },
+      "moment": "Bán quyền trượng Thánh Nữ lại cho Giáo hội đổi lấy giấy thông hành"
+     },
+     "fail": {
+      "text": "Giáo hội bắt giữ người mang hàng. Bạn mất cả hàng lẫn tiền.",
+      "effects": {
+       "wealth": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dme_black_war",
+   "races": [
+    "demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "demon_me",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dme_path_black"
+    ],
+    "notFlags": [
+     "dme_end"
+    ]
+   },
+   "text": "Silver Wolf Company bắt đầu bóp nghẹt tuyến đường của bạn, ép bạn phá sản.",
+   "choices": [
+    {
+     "label": "Hợp tác với chúng",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đề nghị chia tuyến đường. Chúng ngạc nhiên vì một Ma tộc biết thương lượng. Hai bên cùng giàu lên.",
+      "effects": {
+       "INT": 1,
+       "wealth": 10,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Chúng nhận lời, rồi phản bội. Bạn mất một nửa tuyến đường.",
+      "effects": {
+       "wealth": -15
+      }
+     }
+    },
+    {
+     "label": "Phá giá đến khi chúng bỏ cuộc",
+     "text": "Một năm lỗ nặng. Chúng bỏ cuộc trước bạn. Chợ đen Ma Đô là của bạn.",
+     "effects": {
+      "wealth": -10,
+      "fame": 8,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dme_bridge_border",
+   "races": [
+    "demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "demon_me",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dme_path_bridge"
+    ],
+    "notFlags": [
+     "dme_end"
+    ]
+   },
+   "text": "Lính biên giới cả hai bên đều muốn hối lộ. Mỗi chuyến hàng, bạn mất một phần ba lợi nhuận.",
+   "choices": [
+    {
+     "label": "Mở một trạm đổi hàng chính thức",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn thuyết phục được một lãnh chúa Human và một tướng Ma tộc cùng ký. Trạm đổi hàng biên giới ra đời. Thuế thay cho hối lộ.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "dme_bridge_post"
+       ]
+      },
+      "moment": "Mở trạm đổi hàng chính thức đầu tiên ở biên giới Ma Giới"
+     },
+     "fail": {
+      "text": "Cả hai bên đều từ chối. Bạn vẫn phải hối lộ.",
+      "effects": {
+       "wealth": -5
+      }
+     }
+    },
+    {
+     "label": "Tìm đường mòn khác",
+     "text": "Đường mòn xa hơn, nguy hiểm hơn, nhưng không có lính. Bạn đi một mình.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dme_bridge_renny",
+   "races": [
+    "demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "demon_me",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dme_path_bridge",
+     "dme_met_renny"
+    ],
+    "notFlags": [
+     "dme_end"
+    ]
+   },
+   "text": "Renny Gold bị Giáo hội bắt vì buôn hàng Ma tộc. Hắn sẽ bị xử như kẻ phản bội.",
+   "choices": [
+    {
+     "label": "Đút lót để cứu hắn",
+     "require": {
+      "flags": [
+       "dme_renny_partner"
+      ]
+     },
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn tốn cả một năm lợi nhuận. Renny được thả, gầy gò, cười như mọi khi. “Ta biết ngươi sẽ đến.”",
+      "effects": {
+       "wealth": -15,
+       "joy": 10,
+       "jobXp": 3,
+       "flags": [
+        "dme_renny_saved"
+       ]
+      },
+      "moment": "Cứu Renny Gold khỏi án phản bội của Giáo hội"
+     },
+     "fail": {
+      "text": "Tiền đến muộn. Renny bị đày sang đảo xa.",
+      "effects": {
+       "wealth": -15,
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Tìm đối tác Human khác",
+     "text": "Đối tác mới ít cười hơn, ít nói hơn, và không mang sô-cô-la.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dme_famine_hoard",
+   "races": [
+    "demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "demon_me",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dme_path_famine"
+    ],
+    "notFlags": [
+     "dme_end"
+    ]
+   },
+   "text": "Nạn đói lan tràn khắp Aethelgard. Kho lương bí mật của bạn có đủ cho một thành phố. Giá lương thực tăng gấp trăm.",
+   "choices": [
+    {
+     "label": "Phát lương thực miễn phí cho dân nghèo Ma Đô",
+     "text": "Bạn mất cả gia tài. Ma Đô không có ai chết đói mùa ấy. Không ai biết lương thực từ đâu ra.",
+     "effects": {
+      "wealth": -20,
+      "joy": 12,
+      "fame": 4,
+      "jobXp": 3,
+      "flags": [
+       "dme_famine_gave"
+      ]
+     },
+     "moment": "Mở kho lương bí mật phát cho dân nghèo Ma Đô"
+    },
+    {
+     "label": "Bán với giá vừa phải",
+     "text": "Bạn giàu lên, nhưng không quá nhiều. Người mua được, và nhớ bạn đã không cắt cổ họ.",
+     "effects": {
+      "wealth": 10,
+      "fame": 6,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Bán với giá thị trường",
+     "text": "Bạn giàu nhất Ma Đô. Những kẻ không trả nổi thì đói.",
+     "effects": {
+      "wealth": 40,
+      "wealthKind": "windfall",
+      "joy": -10,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dme_famine_army",
+   "races": [
+    "demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "demon_me",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dme_path_famine"
+    ],
+    "notFlags": [
+     "dme_end"
+    ]
+   },
+   "text": "Ma Vương biết về kho lương, và muốn tịch thu cho quân đội.",
+   "choices": [
+    {
+     "label": "Giấu một nửa",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Quân đội nhận một nửa. Nửa còn lại vẫn dưới Ma Đô, chờ nạn đói tiếp theo.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "dme_famine_hidden"
+       ]
+      },
+      "moment": "Giấu được một nửa kho lương khỏi quân đội Ma Vương"
+     },
+     "fail": {
+      "text": "Ma Vương tìm ra. Bạn bị phạt nặng.",
+      "effects": {
+       "wealth": -15,
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Giao hết",
+     "text": "Quân đội no. Dân thường sẽ phải tự lo.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dme_c4_ozza",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_me",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dme_met_ozza"
+    ],
+    "notFlags": [
+     "dme_ozza_gone",
+     "dme_end"
+    ],
+    "anyFlags": [
+     "dme_path_black",
+     "dme_path_bridge",
+     "dme_path_famine"
+    ]
+   },
+   "text": "Bà Ozza đã già. Tám cánh tay bà run rẩy khi đếm tiền. Bà muốn bán thương vụ cuối cùng: chính chợ đen.",
+   "choices": [
+    {
+     "label": "Mua lại chợ đen",
+     "text": "Bạn trả bằng mọi thứ bạn có. Bà Ozza đếm tiền lần cuối, bằng tám cánh tay, chậm rãi. “Đủ.” Bà mất đêm ấy, giữa đống tiền.",
+     "effects": {
+      "wealth": -20,
+      "fame": 8,
+      "jobXp": 3,
+      "flags": [
+       "dme_ozza_gone",
+       "dme_ozza_market"
+      ]
+     },
+     "moment": "Mua lại chợ đen Ma Đô từ tay bà Ozza"
+    },
+    {
+     "label": "Hỏi bà bí quyết cuối cùng",
+     "text": "Bà nói: “Đừng bao giờ bán thứ ngươi không muốn mua lại.” Bà mất đêm ấy.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "dme_ozza_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dme_c5_black",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_me",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dme_path_black"
+    ],
+    "notFlags": [
+     "dme_end"
+    ]
+   },
+   "text": "Bạn là Merchant Lord. Chợ đen Ma Đô nằm trong lòng bàn tay bạn.",
+   "choices": [
+    {
+     "label": "Biến chợ đen thành chợ trắng",
+     "require": {
+      "flags": [
+       "dme_ozza_market"
+      ]
+     },
+     "text": "Bạn trả thuế, công khai sổ sách, đặt luật cấm buôn người. Chợ đen của bà Ozza trở thành chợ lớn nhất Ma Đô, và không còn đen.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "dme_end",
+       "dme_end_white_market"
+      ]
+     },
+     "moment": "Biến chợ đen Ma Đô thành chợ công khai"
+    },
+    {
+     "label": "Giữ nó đen",
+     "text": "Có những thứ cần được buôn trong bóng tối. Bạn là người quyết định thứ gì.",
+     "effects": {
+      "fame": 10,
+      "wealth": 30,
+      "flags": [
+       "dme_end",
+       "dme_end_shadow"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dme_c5_bridge",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_me",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dme_path_bridge"
+    ],
+    "notFlags": [
+     "dme_end"
+    ]
+   },
+   "text": "Bạn là Merchant Lord. Hàng hóa của bạn đi qua biên giới mỗi ngày.",
+   "choices": [
+    {
+     "label": "Mở đường buôn chính thức giữa hai cõi",
+     "require": {
+      "flags": [
+       "dme_bridge_post"
+      ]
+     },
+     "text": "Trạm đổi hàng năm xưa giờ là một thị trấn. Ma tộc và Human sống cạnh nhau, buôn bán, cãi nhau, và đôi khi cưới nhau.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "dme_end",
+       "dme_end_border_town"
+      ]
+     },
+     "moment": "Trạm đổi hàng biên giới trở thành thị trấn của hai cõi"
+    },
+    {
+     "label": "Cùng Renny mở cửa hàng sô-cô-la ở Ma Đô",
+     "require": {
+      "flags": [
+       "dme_renny_saved"
+      ]
+     },
+     "text": "Hai người bán sô-cô-la cho Ma tộc. Hàng dài mỗi sáng. Renny cười suốt ngày.",
+     "effects": {
+      "fame": 10,
+      "wealth": 15,
+      "joy": 18,
+      "flags": [
+       "dme_end",
+       "dme_end_chocolate"
+      ]
+     }
+    },
+    {
+     "label": "Bán lại đường buôn, nghỉ hưu",
+     "text": "Bạn giàu, và mệt. Bạn sống những năm cuối trong một căn nhà nhìn ra biên giới.",
+     "effects": {
+      "wealth": 20,
+      "joy": 8,
+      "flags": [
+       "dme_end",
+       "dme_end_retire"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dme_c5_famine",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_me",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dme_path_famine"
+    ],
+    "notFlags": [
+     "dme_end"
+    ]
+   },
+   "text": "Bạn là Merchant Lord. Nhưng ở những khu nghèo Ma Đô, người ta gọi bạn là “Kho Lương”.",
+   "choices": [
+    {
+     "label": "Công khai kho lương cho Hội đồng",
+     "require": {
+      "flags": [
+       "dme_famine_gave"
+      ]
+     },
+     "text": "Kho lương trở thành kho dự trữ chính thức của Ma Đô, do một hội đồng dân thường giữ. Không ai còn phải chết đói vì giá lương thực.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "dme_end",
+       "dme_end_public_granary"
+      ]
+     },
+     "moment": "Trao kho lương bí mật cho hội đồng dân thường Ma Đô"
+    },
+    {
+     "label": "Truyền bí mật kho lương cho một người",
+     "text": "Một người, như bà Ozza đã truyền cho bạn. Kho lương vẫn ở đó, chờ nạn đói tiếp theo.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "dme_end",
+       "dme_end_secret_granary"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dme_daily_haggle",
+   "races": [
+    "demon"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "demon_me",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một Imp nhỏ mặc cả với bạn suốt một canh giờ vì một chiếc bánh.",
+   "choices": [
+    {
+     "label": "Bán theo giá nó đòi",
+     "text": "Nó vui như được cả thế giới.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Mặc cả lại đến cùng",
+     "text": "Nó thắng. Bạn tự hào về nó.",
+     "effects": {
+      "joy": 4,
+      "INT": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "dme_daily_war",
+   "races": [
+    "demon"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "demon_me",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Giá vũ khí tăng vọt.",
+   "choices": [
+    {
+     "label": "Bán vũ khí",
+     "text": "Bạn giàu lên. Đâu đó, có người chết vì vũ khí bạn bán.",
+     "effects": {
+      "wealth": 12,
+      "joy": -4,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Bán thuốc men",
+     "text": "Lời ít hơn. Nhưng không ai chết vì thuốc của bạn.",
+     "effects": {
+      "wealth": 5,
+      "joy": 4,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "dme_daily_old",
+   "races": [
+    "demon"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "demon_me",
+    "free": true
+   },
+   "text": "Bạn đã buôn bán ba trăm năm. Bạn không còn nhớ hết những thương vụ đã làm.",
+   "choices": [
+    {
+     "label": "Đọc lại sổ sách cũ",
+     "text": "Mỗi trang là một câu chuyện. Bạn cười, rồi khóc, rồi cười.",
+     "effects": {
+      "joy": 8
+     }
+    },
+    {
+     "label": "Dạy học trò mặc cả",
+     "text": "Nó học nhanh. Nó mặc cả với bạn, và thắng.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "dme_c5_black_late",
+   "races": [
+    "demon"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "demon_me",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dme_path_black"
+    ],
+    "notFlags": [
+     "dme_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Merchant Lord. Chợ đen Ma Đô nằm trong lòng bàn tay bạn.",
+   "choices": [
+    {
+     "label": "Biến chợ đen thành chợ trắng",
+     "require": {
+      "flags": [
+       "dme_ozza_market"
+      ]
+     },
+     "text": "Bạn trả thuế, công khai sổ sách, đặt luật cấm buôn người. Chợ đen của bà Ozza trở thành chợ lớn nhất Ma Đô, và không còn đen.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "dme_end",
+       "dme_end_white_market"
+      ]
+     },
+     "moment": "Biến chợ đen Ma Đô thành chợ công khai"
+    },
+    {
+     "label": "Giữ nó đen",
+     "text": "Có những thứ cần được buôn trong bóng tối. Bạn là người quyết định thứ gì.",
+     "effects": {
+      "fame": 10,
+      "wealth": 30,
+      "flags": [
+       "dme_end",
+       "dme_end_shadow"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "elder"
+   ]
+  },
+  {
+   "id": "dme_c5_bridge_late",
+   "races": [
+    "demon"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "demon_me",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dme_path_bridge"
+    ],
+    "notFlags": [
+     "dme_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Merchant Lord. Hàng hóa của bạn đi qua biên giới mỗi ngày.",
+   "choices": [
+    {
+     "label": "Mở đường buôn chính thức giữa hai cõi",
+     "require": {
+      "flags": [
+       "dme_bridge_post"
+      ]
+     },
+     "text": "Trạm đổi hàng năm xưa giờ là một thị trấn. Ma tộc và Human sống cạnh nhau, buôn bán, cãi nhau, và đôi khi cưới nhau.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "dme_end",
+       "dme_end_border_town"
+      ]
+     },
+     "moment": "Trạm đổi hàng biên giới trở thành thị trấn của hai cõi"
+    },
+    {
+     "label": "Cùng Renny mở cửa hàng sô-cô-la ở Ma Đô",
+     "require": {
+      "flags": [
+       "dme_renny_saved"
+      ]
+     },
+     "text": "Hai người bán sô-cô-la cho Ma tộc. Hàng dài mỗi sáng. Renny cười suốt ngày.",
+     "effects": {
+      "fame": 10,
+      "wealth": 15,
+      "joy": 18,
+      "flags": [
+       "dme_end",
+       "dme_end_chocolate"
+      ]
+     }
+    },
+    {
+     "label": "Bán lại đường buôn, nghỉ hưu",
+     "text": "Bạn giàu, và mệt. Bạn sống những năm cuối trong một căn nhà nhìn ra biên giới.",
+     "effects": {
+      "wealth": 20,
+      "joy": 8,
+      "flags": [
+       "dme_end",
+       "dme_end_retire"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "elder"
+   ]
+  },
+  {
+   "id": "dme_c5_famine_late",
+   "races": [
+    "demon"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "demon_me",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dme_path_famine"
+    ],
+    "notFlags": [
+     "dme_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Merchant Lord. Nhưng ở những khu nghèo Ma Đô, người ta gọi bạn là “Kho Lương”.",
+   "choices": [
+    {
+     "label": "Công khai kho lương cho Hội đồng",
+     "require": {
+      "flags": [
+       "dme_famine_gave"
+      ]
+     },
+     "text": "Kho lương trở thành kho dự trữ chính thức của Ma Đô, do một hội đồng dân thường giữ. Không ai còn phải chết đói vì giá lương thực.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "dme_end",
+       "dme_end_public_granary"
+      ]
+     },
+     "moment": "Trao kho lương bí mật cho hội đồng dân thường Ma Đô"
+    },
+    {
+     "label": "Truyền bí mật kho lương cho một người",
+     "text": "Một người, như bà Ozza đã truyền cho bạn. Kho lương vẫn ở đó, chờ nạn đói tiếp theo.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "dme_end",
+       "dme_end_secret_granary"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "elder"
+   ]
+  }
+ ]
+}

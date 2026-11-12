@@ -1,0 +1,1130 @@
+{
+ "_note": "Tuyến truyện Magic Slime: ba đạo (slg_path_tower / slg_path_ley / slg_path_heal), nhân vật xuyên suốt bà Orsolya Mù (pháp sư Human già) và Tobias (học viên Tháp Ngà).",
+ "origins": [],
+ "events": [
+  {
+   "id": "slg_c1_orsolya",
+   "races": [
+    "slime"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "slime_magic",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "slg_met_orsolya"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Orsolya",
+     "race": "Human",
+     "position": "Pháp sư mù sống trong tòa tháp đổ nát"
+    }
+   ],
+   "text": "Bà Orsolya đã mù, sống một mình trong một tòa tháp đổ nát. Bà không thấy bạn, nhưng cảm thấy ma lực của bạn. “Một Slime biết phát sáng. Lại đây, để ta xem nào.”",
+   "choices": [
+    {
+     "label": "Bò lại gần",
+     "text": "Bà đặt tay lên bạn. Ma lực trong bạn sáng rực lên. Bà cười: “Ồ. Ngươi ăn mana như ta ăn bánh. Ở lại đi. Tháp này có nhiều sách phép bị mọt gặm, ngươi có thể ăn phần mọt chưa gặm hết.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "slg_met_orsolya",
+       "slg_orsolya_home"
+      ]
+     },
+     "moment": "Được bà pháp sư mù Orsolya cho ở lại tòa tháp đổ nát"
+    },
+    {
+     "label": "Phát sáng thật mạnh để dọa bà",
+     "check": {
+      "stat": "INT",
+      "target": 4
+     },
+     "success": {
+      "text": "Bà không thấy, nhưng cảm thấy. Bà vỗ tay: “Mạnh đấy! Làm lại xem.” Bạn làm lại. Bà dạy bạn cách điều khiển nó.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "slg_met_orsolya"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn phát sáng quá mạnh và mệt lả. Bà Orsolya múc cho bạn một chén nước mana.",
+      "effects": {
+       "flags": [
+        "slg_met_orsolya"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "slg_c1_tobias",
+   "races": [
+    "slime"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "slime_magic",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "slg_met_orsolya"
+    ],
+    "notFlags": [
+     "slg_met_tobias"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Tobias",
+     "race": "Human",
+     "position": "Học viên Tháp Ngà vụng về"
+    }
+   ],
+   "text": "Tobias, một học viên Tháp Ngà, rải bột phát quang để bắt bạn về làm bồn chứa năng lượng. Cậu run tay, rải lệch, và tự dính bột lên mặt.",
+   "choices": [
+    {
+     "label": "Bò lại gần cậu",
+     "text": "Cậu hét lên, rồi thấy bạn không tấn công. Cậu ngồi xuống, lau mặt, và thú nhận: “Nếu không mang về một Slime, tôi bị đuổi khỏi Tháp.” Bạn đi theo cậu. Rồi bạn trốn về, mỗi tuần. Cậu không bị đuổi.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1,
+      "flags": [
+       "slg_met_tobias",
+       "slg_tobias_friend"
+      ]
+     },
+     "moment": "Theo học viên Tobias về Tháp Ngà để cậu không bị đuổi"
+    },
+    {
+     "label": "Trốn đi",
+     "text": "Cậu bị đuổi khỏi Tháp. Một năm sau, cậu quay lại khu rừng, không mang lưới, chỉ ngồi đọc sách. Bạn bò ra xem.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "slg_met_tobias"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slg_c2_first_spell",
+   "races": [
+    "slime"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "slime_magic",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "flags": [
+     "slg_met_orsolya"
+    ],
+    "notFlags": [
+     "slg_first_spell",
+     "slg_end"
+    ]
+   },
+   "text": "Bà Orsolya đọc một câu thần chú ánh sáng. Bạn rung theo, và một đốm sáng nhỏ bật ra từ người bạn.",
+   "choices": [
+    {
+     "label": "Làm lại",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Lần thứ hai, đốm sáng to hơn. Lần thứ ba, nó bay lên trần tháp. Bà Orsolya không thấy, nhưng cảm thấy hơi ấm, và mỉm cười.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 2,
+       "flags": [
+        "slg_first_spell"
+       ]
+      },
+      "moment": "Phát ra câu thần chú ánh sáng đầu tiên"
+     },
+     "fail": {
+      "text": "Đốm sáng bật ngược vào trong. Bạn sáng rực từ bên trong suốt một đêm, không ngủ được.",
+      "effects": {
+       "flags": [
+        "slg_first_spell"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Ăn đốm sáng",
+     "text": "Ngon. Bà Orsolya cười đến ho.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "slg_first_spell"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slg_c2_crossroads",
+   "races": [
+    "slime"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "slime_magic",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "slg_path_tower",
+     "slg_path_ley",
+     "slg_path_heal",
+     "slg_end"
+    ],
+    "flags": [
+     "slg_met_orsolya"
+    ]
+   },
+   "text": "Bà Orsolya đặt ba viên đá lên sàn tháp: một viên pha lê từ Tháp Ngà, một viên đá lấy từ giao điểm Leyline dưới lòng đất, và một viên thạch anh hồng ấm như da người.",
+   "choices": [
+    {
+     "label": "Pha lê Tháp Ngà: Slime Học Viện",
+     "text": "Bạn sẽ học phép như các pháp sư, từ sách, từ thầy, từ những câu thần chú. Có thể bạn sẽ là Slime đầu tiên được nhận vào Tháp Ngà.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "slg_path_tower"
+      ]
+     },
+     "moment": "Chọn học phép như các pháp sư Tháp Ngà"
+    },
+    {
+     "label": "Đá Leyline: Kẻ Uống Mạch",
+     "text": "Bạn sẽ đi xuống những giao điểm Leyline, uống trực tiếp từ mạch mana của thế giới. Bà Orsolya lo lắng: “Đừng uống quá nhiều.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "slg_path_ley"
+      ]
+     },
+     "moment": "Chọn uống mana trực tiếp từ mạch Leyline"
+    },
+    {
+     "label": "Thạch anh hồng: Slime Chữa Lành",
+     "text": "Ma lực của bạn có thể chữa vết thương. Bà Orsolya biết vì bà đã thử, khi bị ngã cầu thang. Bạn sẽ dùng nó cho người khác.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "slg_path_heal"
+      ]
+     },
+     "moment": "Chọn dùng ma lực để chữa lành"
+    }
+   ]
+  },
+  {
+   "id": "slg_tower_admit",
+   "races": [
+    "slime"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "slime_magic",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slg_path_tower",
+     "slg_met_tobias"
+    ],
+    "notFlags": [
+     "slg_end"
+    ]
+   },
+   "text": "Tobias mang bạn đến Tháp Ngà, xin cho bạn dự kỳ thi nhập học. Hội đồng pháp sư bật cười.",
+   "choices": [
+    {
+     "label": "Phát ra cả ba câu thần chú cơ bản",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Ánh sáng, gió nhẹ, lửa nhỏ. Hội đồng ngừng cười. Một lão pháp sư ghi tên bạn vào sổ: “Học viên dự thính. Không có tay. Không có miệng. Có ma lực.”",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "slg_tower_admitted"
+       ]
+      },
+      "moment": "Được nhận làm học viên dự thính ở Tháp Ngà"
+     },
+     "fail": {
+      "text": "Câu thần chú lửa bật ra quá mạnh. Bàn của Hội đồng cháy xém. Bạn bị đuổi ra.",
+      "effects": {
+       "fame": -4
+      }
+     }
+    },
+    {
+     "label": "Ăn một cuốn sách phép trước Hội đồng, rồi đọc lại nội dung bằng ánh sáng",
+     "text": "Hội đồng im lặng. Rồi tranh cãi suốt ba ngày về việc Slime có được tính là học viên không.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slg_tower_vessel",
+   "races": [
+    "slime"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "slime_magic",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slg_path_tower"
+    ],
+    "notFlags": [
+     "slg_end"
+    ]
+   },
+   "text": "Một pháp sư Tháp Ngà muốn dùng bạn làm bồn chứa mana cho một thí nghiệm lớn. Bạn sẽ không thể cử động suốt mười năm.",
+   "choices": [
+    {
+     "label": "Từ chối",
+     "text": "Ông ta tìm một Slime khác, vô tri hơn. Bạn thấy buồn cho nó.",
+     "effects": {
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Đồng ý, nếu được đọc sách trong lúc ấy",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Mười năm, một thư viện, và một Slime không cử động nhưng đọc được mọi cuốn sách mở trước mặt. Bạn ra khỏi thí nghiệm, thông thái hơn mọi học viên.",
+      "effects": {
+       "INT": 2,
+       "jobXp": 3,
+       "flags": [
+        "slg_tower_scholar"
+       ]
+      },
+      "moment": "Làm bồn chứa mana mười năm và đọc hết thư viện Tháp Ngà"
+     },
+     "fail": {
+      "text": "Thí nghiệm thất bại sau một năm. Bạn được thả, mệt lả.",
+      "effects": {
+       "health": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "slg_ley_overload",
+   "races": [
+    "slime"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "slime_magic",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slg_path_ley"
+    ],
+    "notFlags": [
+     "slg_end"
+    ]
+   },
+   "text": "Bạn tìm thấy một Mạch Mana Cổ Đại rỉ ra dưới lòng đất. Ngọt ngào. Quá ngọt ngào.",
+   "choices": [
+    {
+     "label": "Uống từ từ",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn uống chậm, từng ngụm, suốt một tháng. Bạn lớn gấp đôi, và sáng như một ngọn đèn.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "slg_ley_slow"
+       ]
+      },
+      "moment": "Uống chậm mạch Mana Cổ Đại suốt một tháng"
+     },
+     "fail": {
+      "text": "Bạn không dừng được. Bạn phình to, rồi nổ tung thành trăm mảnh nhỏ. Mất một năm để gom lại.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Bịt mạch lại",
+     "text": "Bạn bịt mạch bằng chính cơ thể mình. Không ai khác tìm thấy nó.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slg_ley_elements",
+   "races": [
+    "slime"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "slime_magic",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slg_path_ley"
+    ],
+    "notFlags": [
+     "slg_end"
+    ]
+   },
+   "text": "Hai lõi Băng và Lửa bạn vừa nuốt đang đánh nhau trong bụng bạn. Bạn bốc hơi và đóng băng cùng lúc.",
+   "choices": [
+    {
+     "label": "Ép chúng hòa vào nhau",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Băng và lửa thành hơi nước ấm. Bạn học được cách giữ hai nguyên tố đối nghịch trong một cơ thể.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Bạn nhả cả hai ra. Một nửa khu rừng đóng băng, nửa kia cháy.",
+      "effects": {
+       "fame": -4
+      }
+     }
+    },
+    {
+     "label": "Nhả lõi Lửa ra",
+     "text": "Bạn lạnh, nhưng yên. Lõi Lửa cháy rụi một gốc cây.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slg_heal_village",
+   "races": [
+    "slime"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "slime_magic",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slg_path_heal"
+    ],
+    "notFlags": [
+     "slg_end"
+    ]
+   },
+   "text": "Một làng dưới chân tháp bị dịch sốt. Dân làng không dám đến gần một Slime.",
+   "choices": [
+    {
+     "label": "Bò vào làng ban đêm",
+     "text": "Bạn bò qua từng nhà, bọc lấy từng người bệnh một lúc, rồi đi. Sáng ra, cơn sốt dịu. Không ai biết vì sao, nhưng có vết nhầy trên sàn.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 3,
+      "flags": [
+       "slg_heal_village"
+      ]
+     },
+     "moment": "Chữa dịch sốt cho cả làng trong đêm"
+    },
+    {
+     "label": "Nhờ bà Orsolya dẫn bạn vào",
+     "text": "Bà Orsolya bế bạn trong giỏ. Dân làng sợ, nhưng tin bà. Bạn chữa cho mười người. Họ không còn sợ Slime nữa.",
+     "effects": {
+      "fame": 6,
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "slg_heal_village"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slg_heal_hunter",
+   "races": [
+    "slime"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "slime_magic",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slg_path_heal"
+    ],
+    "notFlags": [
+     "slg_end"
+    ]
+   },
+   "text": "Một mạo hiểm giả săn Slime bị thương nặng, ngã gục ngay trước mặt bạn. Hắn đang chảy máu.",
+   "choices": [
+    {
+     "label": "Chữa cho hắn",
+     "text": "Hắn tỉnh dậy, thấy mình được một Slime bọc lấy. Hắn hét lên, rồi im lặng, rồi khóc. Hắn bẻ gãy lưới săn của mình.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "slg_heal_hunter"
+      ]
+     }
+    },
+    {
+     "label": "Để hắn lại",
+     "text": "Hắn đã săn bao nhiêu Slime? Bạn không muốn biết. Bạn đi.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slg_c4_orsolya",
+   "races": [
+    "slime"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "slime_magic",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "slg_met_orsolya"
+    ],
+    "notFlags": [
+     "slg_orsolya_gone",
+     "slg_end"
+    ],
+    "anyFlags": [
+     "slg_path_tower",
+     "slg_path_ley",
+     "slg_path_heal"
+    ]
+   },
+   "text": "Bà Orsolya không còn cảm nhận được ma lực nữa. Bà biết mình sắp đi. Bà muốn thấy, lần cuối, dù chỉ một chút.",
+   "choices": [
+    {
+     "label": "Bọc lên mắt bà, phát sáng",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Ánh sáng của bạn đi qua mắt bà. Lần đầu tiên sau ba mươi năm, bà thấy: một tòa tháp đổ, một bầu trời, và một Slime phát sáng màu tím. “Ngươi đẹp quá,” bà nói. Bà mất trong ánh sáng ấy.",
+      "effects": {
+       "INT": 1,
+       "joy": 2,
+       "jobXp": 3,
+       "flags": [
+        "slg_orsolya_gone"
+       ]
+      },
+      "moment": "Cho bà Orsolya nhìn thấy lần cuối bằng ánh sáng của mình"
+     },
+     "fail": {
+      "text": "Ánh sáng quá yếu. Bà chỉ thấy một đốm tím. Bà vẫn cười. Bà mất đêm ấy.",
+      "effects": {
+       "joy": -6,
+       "flags": [
+        "slg_orsolya_gone"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Nằm cạnh bà, phát sáng ấm",
+     "text": "Bà không thấy, nhưng cảm thấy hơi ấm. Bà ngủ, và không thức dậy.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "slg_orsolya_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slg_c4_tobias",
+   "races": [
+    "slime"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "slime_magic",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "slg_met_tobias"
+    ],
+    "notFlags": [
+     "slg_end"
+    ]
+   },
+   "text": "Tobias giờ là một pháp sư Tháp Ngà. Hội đồng giao cho cậu nghiên cứu Slime, và cậu biết họ muốn mổ xẻ.",
+   "choices": [
+    {
+     "label": "Để cậu nghiên cứu, không mổ xẻ",
+     "require": {
+      "flags": [
+       "slg_tobias_friend"
+      ]
+     },
+     "text": "Cậu viết luận văn về bạn, từ quan sát, không từ dao mổ. Hội đồng chấp nhận. Từ đó, Tháp Ngà cấm mổ xẻ Slime biết phát sáng.",
+     "effects": {
+      "fame": 8,
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "slg_tobias_thesis"
+      ]
+     },
+     "moment": "Giúp Tobias viết luận văn về Slime mà không cần dao mổ"
+    },
+    {
+     "label": "Trốn khỏi Tháp",
+     "text": "Tobias không ngăn. Cậu viết vào báo cáo: “Đối tượng đã trốn.” Cậu cười khi viết.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slg_c5_tower",
+   "races": [
+    "slime"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "slime_magic",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "slg_path_tower"
+    ],
+    "notFlags": [
+     "slg_end"
+    ]
+   },
+   "text": "Bạn là Arcane Slime. Tháp Ngà gọi bạn là “Học giả Nhầy”.",
+   "choices": [
+    {
+     "label": "Dạy lớp phép thuật cho các Slime khác",
+     "require": {
+      "flags": [
+       "slg_tower_admitted"
+      ]
+     },
+     "text": "Ba Slime biết phát sáng, rồi mười. Tháp Ngà phải mở thêm một phòng học có sàn dễ lau.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "slg_end",
+       "slg_end_class"
+      ]
+     },
+     "moment": "Mở lớp phép thuật cho Slime ở Tháp Ngà"
+    },
+    {
+     "label": "Trở thành thư viện sống",
+     "require": {
+      "flags": [
+       "slg_tower_scholar"
+      ]
+     },
+     "text": "Bạn nhớ mọi cuốn sách đã đọc. Học viên đến hỏi, bạn viết câu trả lời bằng ánh sáng lên tường.",
+     "effects": {
+      "fame": 12,
+      "INT": 1,
+      "flags": [
+       "slg_end",
+       "slg_end_library"
+      ]
+     }
+    },
+    {
+     "label": "Về lại tòa tháp đổ nát",
+     "text": "Bạn sống những năm cuối trong tòa tháp của bà Orsolya, phát sáng cho những ai lạc đường đi ngang qua.",
+     "effects": {
+      "fame": 8,
+      "joy": 12,
+      "flags": [
+       "slg_end",
+       "slg_end_old_tower"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slg_c5_ley",
+   "races": [
+    "slime"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "slime_magic",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "slg_path_ley"
+    ],
+    "notFlags": [
+     "slg_end"
+    ]
+   },
+   "text": "Bạn là Arcane Slime, lớn như một ngôi nhà, sáng như một vì sao.",
+   "choices": [
+    {
+     "label": "Trở thành nút Leyline",
+     "require": {
+      "flags": [
+       "slg_ley_slow"
+      ]
+     },
+     "text": "Bạn hòa vào giao điểm Leyline, giữ cho mạch mana chảy đều. Những năm sau, pháp sư khắp vùng thấy phép thuật ổn định lạ thường.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "slg_end",
+       "slg_end_node"
+      ]
+     },
+     "moment": "Hòa mình vào giao điểm Leyline để giữ mạch mana ổn định"
+    },
+    {
+     "label": "Chia mình thành trăm Slime nhỏ",
+     "text": "Trăm Slime nhỏ, mỗi con mang một chút ma lực của bạn, bò đi khắp thế giới.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "slg_end",
+       "slg_end_split"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slg_c5_heal",
+   "races": [
+    "slime"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "slime_magic",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "slg_path_heal"
+    ],
+    "notFlags": [
+     "slg_end"
+    ]
+   },
+   "text": "Bạn là Arcane Slime. Ở những làng quanh tháp, người ta gọi bạn là “Đốm Sáng Chữa Lành”.",
+   "choices": [
+    {
+     "label": "Mở trạm chữa bệnh ở làng",
+     "require": {
+      "flags": [
+       "slg_heal_village"
+      ]
+     },
+     "text": "Dân làng xây cho bạn một căn chòi có sàn đá dễ lau. Người bệnh đến, nằm xuống, và bạn bọc lấy họ. Không ai còn sợ.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "slg_end",
+       "slg_end_clinic"
+      ]
+     },
+     "moment": "Mở trạm chữa bệnh do một Slime chăm sóc"
+    },
+    {
+     "label": "Đi theo người thợ săn năm xưa",
+     "require": {
+      "flags": [
+       "slg_heal_hunter"
+      ]
+     },
+     "text": "Hắn giờ là một thầy thuốc lang thang. Bạn đi cùng hắn, trong giỏ. Hai kẻ, một tay, một ma lực.",
+     "effects": {
+      "fame": 10,
+      "joy": 15,
+      "flags": [
+       "slg_end",
+       "slg_end_hunter"
+      ]
+     }
+    },
+    {
+     "label": "Chữa lành đến cạn ma lực",
+     "text": "Bạn chữa cho người cuối cùng, và mờ dần thành một vũng nước trong.",
+     "effects": {
+      "fame": 12,
+      "joy": 8,
+      "flags": [
+       "slg_end",
+       "slg_end_last_light"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slg_daily_glow",
+   "races": [
+    "slime"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "slime_magic",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Bạn phát sáng trong đêm, và lũ đom đóm bay đến quanh bạn.",
+   "choices": [
+    {
+     "label": "Sáng mạnh hơn",
+     "text": "Chúng bay quanh bạn như một vòng sao.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Tắt đi",
+     "text": "Chúng bay đi. Đêm tối lại. Bạn thấy tiếc.",
+     "effects": {
+      "joy": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "slg_daily_war",
+   "races": [
+    "slime"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "slime_magic",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Pháp sư cả hai bên săn lõi mana.",
+   "choices": [
+    {
+     "label": "Trốn sâu trong tháp",
+     "text": "Không ai tìm thấy bạn.",
+     "effects": {
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Phát sáng giả làm ma pháp trận để dọa họ",
+     "text": "Họ bỏ đi, nghĩ tháp có pháp sư mạnh trấn giữ.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "slg_daily_old",
+   "races": [
+    "slime"
+   ],
+   "stages": [
+    "ancient"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "slime_magic",
+    "free": true
+   },
+   "text": "Ánh sáng của bạn đã nhạt màu theo năm tháng.",
+   "choices": [
+    {
+     "label": "Uống thêm mana",
+     "text": "Sáng lại một chút.",
+     "effects": {
+      "health": 3
+     }
+    },
+    {
+     "label": "Sáng nhạt cũng đẹp",
+     "text": "Như ánh trăng.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "slg_c5_tower_late",
+   "races": [
+    "slime"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "slime_magic",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "slg_path_tower"
+    ],
+    "notFlags": [
+     "slg_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Arcane Slime. Tháp Ngà gọi bạn là “Học giả Nhầy”.",
+   "choices": [
+    {
+     "label": "Dạy lớp phép thuật cho các Slime khác",
+     "require": {
+      "flags": [
+       "slg_tower_admitted"
+      ]
+     },
+     "text": "Ba Slime biết phát sáng, rồi mười. Tháp Ngà phải mở thêm một phòng học có sàn dễ lau.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "slg_end",
+       "slg_end_class"
+      ]
+     },
+     "moment": "Mở lớp phép thuật cho Slime ở Tháp Ngà"
+    },
+    {
+     "label": "Trở thành thư viện sống",
+     "require": {
+      "flags": [
+       "slg_tower_scholar"
+      ]
+     },
+     "text": "Bạn nhớ mọi cuốn sách đã đọc. Học viên đến hỏi, bạn viết câu trả lời bằng ánh sáng lên tường.",
+     "effects": {
+      "fame": 12,
+      "INT": 1,
+      "flags": [
+       "slg_end",
+       "slg_end_library"
+      ]
+     }
+    },
+    {
+     "label": "Về lại tòa tháp đổ nát",
+     "text": "Bạn sống những năm cuối trong tòa tháp của bà Orsolya, phát sáng cho những ai lạc đường đi ngang qua.",
+     "effects": {
+      "fame": 8,
+      "joy": 12,
+      "flags": [
+       "slg_end",
+       "slg_end_old_tower"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "ancient"
+   ]
+  },
+  {
+   "id": "slg_c5_ley_late",
+   "races": [
+    "slime"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "slime_magic",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "slg_path_ley"
+    ],
+    "notFlags": [
+     "slg_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Arcane Slime, lớn như một ngôi nhà, sáng như một vì sao.",
+   "choices": [
+    {
+     "label": "Trở thành nút Leyline",
+     "require": {
+      "flags": [
+       "slg_ley_slow"
+      ]
+     },
+     "text": "Bạn hòa vào giao điểm Leyline, giữ cho mạch mana chảy đều. Những năm sau, pháp sư khắp vùng thấy phép thuật ổn định lạ thường.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "slg_end",
+       "slg_end_node"
+      ]
+     },
+     "moment": "Hòa mình vào giao điểm Leyline để giữ mạch mana ổn định"
+    },
+    {
+     "label": "Chia mình thành trăm Slime nhỏ",
+     "text": "Trăm Slime nhỏ, mỗi con mang một chút ma lực của bạn, bò đi khắp thế giới.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "slg_end",
+       "slg_end_split"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "ancient"
+   ]
+  },
+  {
+   "id": "slg_c5_heal_late",
+   "races": [
+    "slime"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "slime_magic",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "slg_path_heal"
+    ],
+    "notFlags": [
+     "slg_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Arcane Slime. Ở những làng quanh tháp, người ta gọi bạn là “Đốm Sáng Chữa Lành”.",
+   "choices": [
+    {
+     "label": "Mở trạm chữa bệnh ở làng",
+     "require": {
+      "flags": [
+       "slg_heal_village"
+      ]
+     },
+     "text": "Dân làng xây cho bạn một căn chòi có sàn đá dễ lau. Người bệnh đến, nằm xuống, và bạn bọc lấy họ. Không ai còn sợ.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "slg_end",
+       "slg_end_clinic"
+      ]
+     },
+     "moment": "Mở trạm chữa bệnh do một Slime chăm sóc"
+    },
+    {
+     "label": "Đi theo người thợ săn năm xưa",
+     "require": {
+      "flags": [
+       "slg_heal_hunter"
+      ]
+     },
+     "text": "Hắn giờ là một thầy thuốc lang thang. Bạn đi cùng hắn, trong giỏ. Hai kẻ, một tay, một ma lực.",
+     "effects": {
+      "fame": 10,
+      "joy": 15,
+      "flags": [
+       "slg_end",
+       "slg_end_hunter"
+      ]
+     }
+    },
+    {
+     "label": "Chữa lành đến cạn ma lực",
+     "text": "Bạn chữa cho người cuối cùng, và mờ dần thành một vũng nước trong.",
+     "effects": {
+      "fame": 12,
+      "joy": 8,
+      "flags": [
+       "slg_end",
+       "slg_end_last_light"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "ancient"
+   ]
+  }
+ ]
+}

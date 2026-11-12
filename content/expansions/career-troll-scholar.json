@@ -1,0 +1,963 @@
+{
+ "_note": "Tuyến truyện Scholar Troll: ba đạo (trs_path_books / trs_path_spells / trs_path_teach), nhân vật xuyên suốt bà Hester Kính Dày (thủ thư Human) và cuốn sách đầu tiên bạn nhặt được.",
+ "origins": [],
+ "events": [
+  {
+   "id": "trs_c1_hester",
+   "races": [
+    "troll"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "troll_scholar",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "trs_met_hester"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Hester Kính Dày",
+     "race": "Human",
+     "position": "Thủ thư thư viện làng"
+    }
+   ],
+   "text": "Bà Hester Kính Dày, thủ thư của một thư viện làng, thấy bạn ngồi ngoài cửa sổ, cầm ngược một cuốn sách. Bà không hét lên. Bà nói: “Lật lại đi. Chữ đứng trên đầu ngươi rồi.”",
+   "choices": [
+    {
+     "label": "Lật lại",
+     "text": "Chữ vẫn khó hiểu, nhưng giờ chúng không còn lộn ngược. Bà Hester mở cửa sổ, chỉ vào chữ đầu tiên: “A.” Bạn nhắc lại: “A.” Đó là ngày đầu tiên.",
+     "effects": {
+      "INT": 1,
+      "joy": 8,
+      "jobXp": 1,
+      "flags": [
+       "trs_met_hester",
+       "trs_hester_teacher"
+      ]
+     },
+     "moment": "Học chữ cái đầu tiên từ bà thủ thư Hester"
+    },
+    {
+     "label": "Ăn cuốn sách",
+     "text": "Bà Hester nhìn bạn ăn sách, thở dài, và ném ra một cuốn khác. “Cuốn này dễ tiêu hơn. Và dễ đọc hơn.”",
+     "effects": {
+      "joy": 4,
+      "jobXp": 1,
+      "flags": [
+       "trs_met_hester"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "trs_c2_first_word",
+   "races": [
+    "troll"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "troll_scholar",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2,
+    "flags": [
+     "trs_met_hester"
+    ],
+    "notFlags": [
+     "trs_first_word"
+    ]
+   },
+   "text": "Bạn đọc được trọn một câu lần đầu tiên: “Con mèo ngồi trên tấm thảm.” Bạn không biết tấm thảm là gì, nhưng bạn đọc được.",
+   "choices": [
+    {
+     "label": "Hét lên vui sướng",
+     "text": "Cả khu rừng nghe thấy. Chim bay tán loạn. Bà Hester, ở thư viện cách nửa dặm, mỉm cười.",
+     "effects": {
+      "joy": 12,
+      "jobXp": 2,
+      "flags": [
+       "trs_first_word"
+      ]
+     },
+     "moment": "Đọc được trọn một câu lần đầu tiên"
+    },
+    {
+     "label": "Đi tìm một tấm thảm",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn tìm thấy tấm thảm trong một ngôi nhà bỏ hoang. Không có mèo. Bạn ngồi lên nó, và đọc lại câu ấy, vui sướng.",
+      "effects": {
+       "INT": 1,
+       "joy": 8,
+       "jobXp": 2,
+       "flags": [
+        "trs_first_word"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn không biết tấm thảm trông thế nào. Bạn mang về một con mèo.",
+      "effects": {
+       "joy": 6,
+       "flags": [
+        "trs_first_word"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "trs_c2_crossroads",
+   "races": [
+    "troll"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "troll_scholar",
+    "free": true,
+    "jobRank": 1,
+    "flags": [
+     "trs_met_hester"
+    ],
+    "notFlags": [
+     "trs_path_books",
+     "trs_path_spells",
+     "trs_path_teach",
+     "trs_end"
+    ]
+   },
+   "text": "Bà Hester đặt ba cuốn sách lên bậu cửa sổ: một cuốn từ điển dày như tảng đá, một cuốn sách phép cũ bìa cháy xém, và một cuốn sách vỡ lòng cho trẻ con.",
+   "choices": [
+    {
+     "label": "Từ điển: Kẻ Đọc Mọi Thứ",
+     "text": "Bạn sẽ đọc mọi cuốn sách trên đời. Có lẽ mất hàng trăm năm. Troll sống lâu, nếu không bị đốt.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "trs_path_books"
+      ]
+     },
+     "moment": "Chọn đọc mọi cuốn sách trên đời"
+    },
+    {
+     "label": "Sách phép: Pháp Sư Ném Đá",
+     "text": "Phép thuật! Bạn sẽ là pháp sư. Bà Hester lo lắng: “Cuốn đó có chữ ‘lửa’ trong đấy. Nhiều lắm.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "trs_path_spells"
+      ]
+     },
+     "moment": "Chọn học phép thuật từ cuốn sách bìa cháy xém"
+    },
+    {
+     "label": "Sách vỡ lòng: Người Dạy Chữ",
+     "text": "Bạn sẽ dạy lại những gì đã học. Cho ai? Bạn chưa biết. Nhưng chắc chắn có những kẻ khác cũng đang cầm sách ngược.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "trs_path_teach"
+      ]
+     },
+     "moment": "Chọn dạy chữ cho những kẻ khác"
+    }
+   ]
+  },
+  {
+   "id": "trs_books_library",
+   "races": [
+    "troll"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "troll_scholar",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "trs_path_books"
+    ],
+    "notFlags": [
+     "trs_end"
+    ]
+   },
+   "text": "Bạn đọc hết sách trong thư viện làng. Bà Hester nói thư viện lớn nhất ở Sanctus có mười nghìn cuốn.",
+   "choices": [
+    {
+     "label": "Đi đến Sanctus",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Lính gác Sanctus suýt bắn bạn, rồi thấy bạn cầm thư giới thiệu của bà Hester. Thủ thư trưởng cho bạn đọc ở hầm, ban đêm. Bạn đọc được ba nghìn cuốn trong một năm.",
+      "effects": {
+       "INT": 2,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "trs_books_sanctus"
+       ]
+      },
+      "moment": "Được vào đọc sách ở thư viện lớn nhất Sanctus"
+     },
+     "fail": {
+      "text": "Lính gác bắn tên. Bạn chạy về làng, sách còn trong tay.",
+      "effects": {
+       "health": -8
+      }
+     }
+    },
+    {
+     "label": "Đọc lại sách cũ, chậm hơn",
+     "text": "Lần thứ hai, bạn hiểu nhiều hơn. Lần thứ ba, bạn bắt đầu thấy những chỗ sách viết sai.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "trs_books_error",
+   "races": [
+    "troll"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "troll_scholar",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "trs_path_books"
+    ],
+    "notFlags": [
+     "trs_end"
+    ]
+   },
+   "text": "Bạn phát hiện một cuốn sách lịch sử viết sai: Troll không ăn trẻ con. Ít nhất, hầu hết không ăn.",
+   "choices": [
+    {
+     "label": "Viết thư cho tác giả",
+     "text": "Tác giả trả lời, ngạc nhiên vì nhận thư của một Troll. Lần tái bản, ông sửa lại: “Hầu hết Troll không ăn trẻ con.” Bạn coi đó là thắng lợi.",
+     "effects": {
+      "fame": 5,
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "trs_books_letter"
+      ]
+     },
+     "moment": "Viết thư sửa sai cho một học giả viết sách về Troll"
+    },
+    {
+     "label": "Viết lại cuốn sách",
+     "text": "Bạn viết bằng chữ to, nguệch ngoạc. Bà Hester đọc, và khóc vì cười. Rồi bà cất nó vào thư viện, ngăn đặc biệt.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "trs_spells_rock",
+   "races": [
+    "troll"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "troll_scholar",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "trs_path_spells"
+    ],
+    "notFlags": [
+     "trs_end"
+    ]
+   },
+   "text": "Bạn thử câu thần chú đầu tiên trong sách phép. Không có gì xảy ra. Bạn tức giận, ném một tảng đá. Tảng đá bay xa gấp đôi bình thường.",
+   "choices": [
+    {
+     "label": "Tin rằng đó là phép thuật",
+     "text": "Bạn lặp lại câu thần chú mỗi lần ném đá. Đá bay xa. Có lẽ là phép. Có lẽ là vì bạn tin. Pháp sư hạng S nào đó đi qua, nhìn thấy, và không nói gì.",
+     "effects": {
+      "STR": 1,
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "trs_spells_rock"
+      ]
+     },
+     "moment": "Câu thần chú đầu tiên làm tảng đá bay xa gấp đôi"
+    },
+    {
+     "label": "Đọc lại câu thần chú cho đúng",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đọc sai một chữ. Đọc đúng, một tia sáng nhỏ lóe trên đầu ngón tay. Không phải lửa. Ánh sáng. Bạn khóc.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "trs_spells_light"
+       ]
+      },
+      "moment": "Thắp được tia sáng phép thuật đầu tiên"
+     },
+     "fail": {
+      "text": "Bạn đọc sai thêm một chữ. Lông mày bạn bốc khói.",
+      "effects": {
+       "health": -5
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "trs_spells_archmage",
+   "races": [
+    "troll"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "troll_scholar",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "trs_path_spells"
+    ],
+    "notFlags": [
+     "trs_end"
+    ]
+   },
+   "text": "Một Đại Ma pháp sư hạng S tìm thấy bạn đang lầm bầm đọc chú bằng cách nhại tiếng ếch ộp.",
+   "choices": [
+    {
+     "label": "Mời ông ta ngồi xuống nghe",
+     "text": "Ông ta nghe, cố không cười, rồi không nhịn được nữa. Nhưng trước khi đi, ông ta sửa cho bạn ba chữ. Câu thần chú của bạn hiệu nghiệm hơn hẳn.",
+     "effects": {
+      "INT": 1,
+      "joy": 6,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Thách đấu phép",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Ông ta thắng, dễ dàng. Nhưng ông ta ấn tượng vì bạn dám. Ông ta để lại một cuốn sách phép cho người mới học, có hình minh họa.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Ông ta niệm một câu, và bạn thấy mình là một con ếch suốt một ngày.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "trs_teach_goblins",
+   "races": [
+    "troll"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "troll_scholar",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "trs_path_teach"
+    ],
+    "notFlags": [
+     "trs_end"
+    ]
+   },
+   "text": "Một bầy Goblin con tò mò kéo đến xem bạn đọc sách. Chúng chưa từng thấy chữ.",
+   "choices": [
+    {
+     "label": "Dạy chúng chữ “A”",
+     "text": "Chúng hét “A!” suốt ngày, khắp rừng. Một tuần sau, ba đứa biết viết tên mình. Bầy Goblin trưởng thành nhìn bạn ngờ vực.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 3,
+      "flags": [
+       "trs_teach_goblins"
+      ]
+     },
+     "moment": "Dạy bầy Goblin con chữ cái đầu tiên"
+    },
+    {
+     "label": "Đọc truyện cho chúng nghe",
+     "text": "Chúng ngồi im, lần đầu tiên trong đời. Truyện kết thúc, chúng đòi đọc lại.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "trs_teach_trolls",
+   "races": [
+    "troll"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "troll_scholar",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "trs_path_teach"
+    ],
+    "notFlags": [
+     "trs_end"
+    ]
+   },
+   "text": "Bạn thử dạy chữ cho những Troll khác. Họ cầm sách ngược, ăn sách, ngủ trên sách.",
+   "choices": [
+    {
+     "label": "Kiên nhẫn",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Một Troll trẻ lật sách đúng chiều. Rồi đọc được chữ “A”. Rồi khóc, như bạn ngày đầu.",
+      "effects": {
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "trs_teach_troll"
+       ]
+      },
+      "moment": "Dạy được một Troll khác đọc chữ cái đầu tiên"
+     },
+     "fail": {
+      "text": "Cả lớp ngủ. Bạn đọc cho chúng nghe trong lúc chúng ngủ.",
+      "effects": {
+       "joy": 2
+      }
+     }
+    },
+    {
+     "label": "Dạy bằng tranh",
+     "text": "Troll hiểu tranh. Bạn vẽ một con lợn quay và viết chữ “Lợn”. Lần đầu tiên, cả lớp chú ý.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "trs_c4_hester",
+   "races": [
+    "troll"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "troll_scholar",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "trs_met_hester"
+    ],
+    "notFlags": [
+     "trs_hester_gone",
+     "trs_end"
+    ],
+    "anyFlags": [
+     "trs_path_books",
+     "trs_path_spells",
+     "trs_path_teach"
+    ]
+   },
+   "text": "Bà Hester đã già, mắt mờ, không đọc được nữa. Bà ngồi bên cửa sổ thư viện, nơi lần đầu thấy bạn.",
+   "choices": [
+    {
+     "label": "Đọc sách cho bà",
+     "text": "Bạn đọc to, chậm, như bà từng dạy. Bà nghe, mỉm cười, sửa cho bạn một chữ đọc sai. Bà mất mùa đông ấy, với cuốn sách mở trên đùi.",
+     "effects": {
+      "joy": -4,
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "trs_hester_gone"
+      ]
+     },
+     "moment": "Đọc sách cho bà Hester nghe khi bà không còn đọc được"
+    },
+    {
+     "label": "Đọc cho bà nghe cuốn sách bạn tự viết",
+     "text": "Bà cười đến chảy nước mắt, rồi khóc thật. “Ngươi viết được sách rồi.” Bà mất mùa đông ấy.",
+     "effects": {
+      "joy": -2,
+      "jobXp": 3,
+      "flags": [
+       "trs_hester_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "trs_c5_books",
+   "races": [
+    "troll"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "troll_scholar",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "trs_path_books"
+    ],
+    "notFlags": [
+     "trs_end"
+    ]
+   },
+   "text": "Bạn là Fool Sage. Bạn đã đọc nhiều sách hơn hầu hết học giả Human.",
+   "choices": [
+    {
+     "label": "Viết bách khoa thư về Troll",
+     "require": {
+      "flags": [
+       "trs_books_sanctus"
+      ]
+     },
+     "text": "Cuốn sách đầu tiên về Troll do một Troll viết. Thư viện Sanctus giữ một bản, ở ngăn cạnh những cuốn viết sai.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "trs_end",
+       "trs_end_encyclopedia"
+      ]
+     },
+     "moment": "Viết bách khoa thư về Troll do chính một Troll viết"
+    },
+    {
+     "label": "Giữ thư viện làng thay bà Hester",
+     "text": "Bạn ngồi bên cửa sổ, nơi bà từng ngồi. Khi có ai cầm sách ngược, bạn nói: “Lật lại đi.”",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "trs_end",
+       "trs_end_librarian"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "trs_c5_spells",
+   "races": [
+    "troll"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "troll_scholar",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "trs_path_spells"
+    ],
+    "notFlags": [
+     "trs_end"
+    ]
+   },
+   "text": "Bạn là Fool Sage. Phép thuật của bạn kỳ quặc, nhưng hiệu nghiệm.",
+   "choices": [
+    {
+     "label": "Dạy câu thần chú ánh sáng cho Troll khác",
+     "require": {
+      "flags": [
+       "trs_spells_light"
+      ]
+     },
+     "text": "Troll sợ lửa, nhưng không sợ ánh sáng. Giờ các hang Troll có ánh sáng ban đêm mà không cần đuốc.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "trs_end",
+       "trs_end_light"
+      ]
+     },
+     "moment": "Dạy Troll khác thắp ánh sáng không cần lửa"
+    },
+    {
+     "label": "Lập trường phép ném đá",
+     "text": "Học trò của bạn ném đá xa gấp đôi, vừa ném vừa nhại tiếng ếch. Không ai biết có phải phép thuật không. Không ai quan tâm.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "trs_end",
+       "trs_end_rock_school"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "trs_c5_teach",
+   "races": [
+    "troll"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "troll_scholar",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "trs_path_teach"
+    ],
+    "notFlags": [
+     "trs_end"
+    ]
+   },
+   "text": "Bạn là Fool Sage. Những học trò đầu tiên của bạn giờ đã dạy lại học trò của chúng.",
+   "choices": [
+    {
+     "label": "Mở trường học dưới gầm cầu cho mọi tộc",
+     "require": {
+      "flags": [
+       "trs_teach_goblins"
+      ]
+     },
+     "text": "Goblin, Troll, Orc, thậm chí vài đứa trẻ Human. Tất cả học chữ “A” trước. Rồi chữ “Lợn”.",
+     "effects": {
+      "fame": 15,
+      "joy": 18,
+      "flags": [
+       "trs_end",
+       "trs_end_school"
+      ]
+     },
+     "moment": "Mở trường học cho trẻ con mọi tộc dưới gầm cầu"
+    },
+    {
+     "label": "Viết sách vỡ lòng cho Troll",
+     "text": "Chữ to, tranh nhiều, giấy dày, ăn được. Troll khắp vùng bắt đầu đọc.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "trs_end",
+       "trs_end_primer"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "trs_daily_upside",
+   "races": [
+    "troll"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "troll_scholar",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Bạn bắt gặp mình lại cầm ngược sách.",
+   "choices": [
+    {
+     "label": "Lật lại",
+     "text": "Thói quen cũ khó bỏ.",
+     "effects": {
+      "joy": 3
+     }
+    },
+    {
+     "label": "Đọc ngược luôn",
+     "text": "Hóa ra bạn đọc ngược cũng được. Bạn tự hào.",
+     "effects": {
+      "INT": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "trs_daily_war",
+   "races": [
+    "troll"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "troll_scholar",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Một thư viện bị đốt cháy.",
+   "choices": [
+    {
+     "label": "Lao vào cứu sách, dù sợ lửa",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn ôm ra hai chồng sách, lông cháy xém. Sách còn nguyên.",
+      "effects": {
+       "fame": 6,
+       "health": -6,
+       "jobXp": 2
+      }
+     },
+     "fail": {
+      "text": "Lửa bén vào bạn. Bạn chạy ra, ôm được một cuốn.",
+      "effects": {
+       "health": -12
+      }
+     }
+    },
+    {
+     "label": "Nhớ lại những cuốn đã đọc, chép lại",
+     "text": "Bạn chép từ trí nhớ, chậm, sai chính tả. Nhưng nội dung còn.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "trs_daily_old",
+   "races": [
+    "troll"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "troll_scholar",
+    "free": true
+   },
+   "text": "Bạn quên dần những gì đã đọc.",
+   "choices": [
+    {
+     "label": "Đọc lại từ đầu",
+     "text": "Sách cũ như mới. Bạn vui như lần đầu.",
+     "effects": {
+      "joy": 8
+     }
+    },
+    {
+     "label": "Nhờ học trò đọc cho nghe",
+     "text": "Học trò đọc to, chậm, như bạn từng đọc cho thầy mình.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "trs_c5_books_late",
+   "races": [
+    "troll"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "troll_scholar",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "trs_path_books"
+    ],
+    "notFlags": [
+     "trs_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Fool Sage. Bạn đã đọc nhiều sách hơn hầu hết học giả Human.",
+   "choices": [
+    {
+     "label": "Viết bách khoa thư về Troll",
+     "require": {
+      "flags": [
+       "trs_books_sanctus"
+      ]
+     },
+     "text": "Cuốn sách đầu tiên về Troll do một Troll viết. Thư viện Sanctus giữ một bản, ở ngăn cạnh những cuốn viết sai.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "trs_end",
+       "trs_end_encyclopedia"
+      ]
+     },
+     "moment": "Viết bách khoa thư về Troll do chính một Troll viết"
+    },
+    {
+     "label": "Giữ thư viện làng thay bà Hester",
+     "text": "Bạn ngồi bên cửa sổ, nơi bà từng ngồi. Khi có ai cầm sách ngược, bạn nói: “Lật lại đi.”",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "trs_end",
+       "trs_end_librarian"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "trs_c5_spells_late",
+   "races": [
+    "troll"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "troll_scholar",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "trs_path_spells"
+    ],
+    "notFlags": [
+     "trs_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Fool Sage. Phép thuật của bạn kỳ quặc, nhưng hiệu nghiệm.",
+   "choices": [
+    {
+     "label": "Dạy câu thần chú ánh sáng cho Troll khác",
+     "require": {
+      "flags": [
+       "trs_spells_light"
+      ]
+     },
+     "text": "Troll sợ lửa, nhưng không sợ ánh sáng. Giờ các hang Troll có ánh sáng ban đêm mà không cần đuốc.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "trs_end",
+       "trs_end_light"
+      ]
+     },
+     "moment": "Dạy Troll khác thắp ánh sáng không cần lửa"
+    },
+    {
+     "label": "Lập trường phép ném đá",
+     "text": "Học trò của bạn ném đá xa gấp đôi, vừa ném vừa nhại tiếng ếch. Không ai biết có phải phép thuật không. Không ai quan tâm.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "trs_end",
+       "trs_end_rock_school"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "trs_c5_teach_late",
+   "races": [
+    "troll"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "troll_scholar",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "trs_path_teach"
+    ],
+    "notFlags": [
+     "trs_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Fool Sage. Những học trò đầu tiên của bạn giờ đã dạy lại học trò của chúng.",
+   "choices": [
+    {
+     "label": "Mở trường học dưới gầm cầu cho mọi tộc",
+     "require": {
+      "flags": [
+       "trs_teach_goblins"
+      ]
+     },
+     "text": "Goblin, Troll, Orc, thậm chí vài đứa trẻ Human. Tất cả học chữ “A” trước. Rồi chữ “Lợn”.",
+     "effects": {
+      "fame": 15,
+      "joy": 18,
+      "flags": [
+       "trs_end",
+       "trs_end_school"
+      ]
+     },
+     "moment": "Mở trường học cho trẻ con mọi tộc dưới gầm cầu"
+    },
+    {
+     "label": "Viết sách vỡ lòng cho Troll",
+     "text": "Chữ to, tranh nhiều, giấy dày, ăn được. Troll khắp vùng bắt đầu đọc.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "trs_end",
+       "trs_end_primer"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}
