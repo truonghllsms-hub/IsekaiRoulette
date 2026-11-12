@@ -5,6 +5,7 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.join(__dirname, "..");
+require("./build-chronicle-assets")();
 const read = (f) => fs.readFileSync(path.join(ROOT, f), "utf8");
 const safeJs = (s) => s.replace(/<\/(script)/gi, "<\\/$1");
 
@@ -36,6 +37,12 @@ ${safeJs(read("presentation.js"))}
 </script>
 <script>
 ${safeJs(read("session.js"))}
+</script>
+<script>
+${safeJs(read("chronicle-assets.js"))}
+</script>
+<script>
+${safeJs(read("life-card.js"))}
 </script>
 <script>
 ${safeJs(read("ui.js"))}
