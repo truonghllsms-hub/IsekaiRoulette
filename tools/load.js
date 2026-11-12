@@ -160,6 +160,7 @@ function loadData() {
   require("./economy").installEconomy(data);
   require("./professions").installProfessions(data);
   require("../content/endings").install(data);
+  require("./storylines").install(data);
   require("../content/epoch-events").install(data);
   require("./economy").annotateRewards(data);
   pruneRemoved(data);

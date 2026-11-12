@@ -41,3 +41,42 @@ Dòng kết (`epitaphs`) nhận thêm `when`: `old`, `violent`, `rich`, `poor`, 
 `unknown`, `master`, `jobless`, `party`, `glad`, `sad`; có thể ghép nhiều khóa.
 
 Kiểm tra: `node tools/test-variety.js`.
+
+## Tuyến truyện nghề: thứ tự, danh hiệu và kết cục
+
+`tools/storylines.js` chạy khi tải dữ liệu và giữ cho mỗi tuyến truyện nghề
+(`content/expansions/career-*.json`) mạch lạc:
+
+- **Chương.** Mỗi cảnh được gắn `story: { job, chapter, kind }` theo id: gặp thầy
+  (`_c1_`), bước đầu (`_c2_`), ngã ba (`_c2_crossroads`), các cảnh của con đường đã
+  chọn (có cờ `_path_`), hồi tính sổ (`_c4_`), kết (`_c5_`). Engine đưa cảnh chương
+  nhỏ nhất đang đủ điều kiện lên trước sự kiện ngẫu nhiên (80% khi Làm việc, 55% với
+  hướng sống khác, 30% khi An dưỡng), cách nhau ít nhất một nhịp. Cảnh chương 1–4
+  không còn trần bậc nghề, nên thăng bậc nhanh không làm đứt tuyến.
+- **Cảnh nối tiếp.** Cảnh thứ hai trên cùng một con đường cần cảnh trước đã xảy ra:
+  `require.after = { event, years }`. Lời dẫn mở bằng khoảng thời gian (“Một trăm
+  năm sau…”) được đọc thành số năm thật phải trôi qua.
+- **Danh hiệu.** Cảnh kết nhắc danh hiệu nào thì chỉ mở khi nhân vật giữ danh hiệu
+  đó. Các bản sao kết cho bậc thấp (`_late`) bị bỏ. Biệt danh trao sớm (“Người ta gọi
+  bạn là…”) được kể thành lời hứa hẹn.
+- **Kết dang dở.** Mỗi nghề có một cảnh `<cờ kết>_unfinished` cho đời sắp khép lại
+  mà chưa có kết (`require.lateLife`: 1/5 cuối tuổi thọ, hoặc giai đoạn cuối của tộc
+  bất tử). Lời kể dùng `{job}` và `{rank}` nên luôn đúng bậc thật. Nó không khóa kết
+  thật: ai lên được đỉnh sau đó vẫn gặp cảnh kết của con đường mình.
+- **Thẻ cuối đời.** Lựa chọn ở ngã ba và ở cảnh kết luôn để lại một dòng (lấy nhãn
+  lựa chọn nếu kịch bản chưa viết `moment`). Dòng ấy mang `story: "path" | "end"`,
+  được đưa vào ba dấu ấn của thẻ ngay sau chức nghiệp và có mục riêng “Con đường đã
+  chọn và kết cục” trong biên niên, không bị sự kiện xảy ra sau đẩy xuống.
+
+## Lời lựa chọn trong nhiệm vụ nghề
+
+Thứ tự ưu tiên: lời viết riêng cho một nhiệm vụ (`QUEST` theo id trong
+`content/career-variety.js`), rồi lời của nhóm nghề (`FAMILY`: Rồng và Thượng Ma,
+đưa thư, buôn bán, thủ công, pháp sư, shaman/tu sĩ, nghề ngầm, thợ săn, thuần thú,
+hát rong, học giả, nông dân/thợ mỏ), cuối cùng là lời theo chỉ số (`WORDS`). Hiện
+có lời riêng cho 6 nhiệm vụ của Rồng và 4 nhiệm vụ của người đưa thư; thêm nhiệm vụ
+khác bằng cách thêm khóa vào `QUEST`.
+
+Phần lớn kịch bản viết chặng cuối như một kết quả (“Bạn thắng trận đấu trên mây…”).
+Câu ấy giờ là lời khi **thành công**; lời dẫn trước lựa chọn là câu `finale` của
+nhóm nghề.

@@ -167,3 +167,9 @@ Khi dùng `variants`, mọi chuỗi phải phù hợp cùng tập lựa chọn v
 khi người đó đã mất. Hai hiệu ứng được xử lý trước đổi thủ lĩnh/rời nhóm.
 Sự kiện nhóm trong lúc An dưỡng cần ghi rõ `focus: ["rest"]` nếu thích hợp
 với nghỉ ngơi; không thêm tag này cho trận đánh nhằm vượt bộ lọc.
+
+## Cảnh nối tiếp và cuối đời
+
+`require.after: { "event": "<id>", "years": N }` chỉ mở khi cảnh kia đã xảy ra ít nhất N năm trước.
+`require.lateLife: true` chỉ mở ở 1/5 cuối tuổi thọ (tộc bất tử: giai đoạn cuối). Trường `story` do
+`tools/storylines.js` gắn, không viết tay; xem [Đa dạng nghề và tuyến truyện](VARIETY.md).

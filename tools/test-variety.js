@@ -57,3 +57,51 @@ test('ending lines never leave a placeholder and need what they mention',()=>{
   assert.doesNotMatch(d.text.replace(/\{(age|spouse|name)\}/g,''),/\{/,d.id);
  }
 });
+
+// ---- storylines stay in order, name only titles that are held, and can close ----
+const storylines=require('./storylines');
+test('time-skip wording is read as years',()=>{
+ assert.equal(storylines.yearsLater('Một trăm năm sau, cháu của Dũng Giả đầu tiên đến.'),100);
+ assert.equal(storylines.yearsLater('Ba mươi năm sau, hắn quay lại.'),30);
+ assert.equal(storylines.yearsLater('Hai thế kỷ sau, rừng đã khác.'),200);
+ assert.equal(storylines.yearsLater('Dũng Giả đầu tiên đến.'),null);
+});
+test('a scene that follows another needs it to have happened, long enough ago',()=>{
+ const e=data.events.find(e=>e.id==='drw_hero_grandson');
+ assert.deepEqual(e.require.after,{event:'drw_hero_first',years:100});
+ const c=E.createCharacter(data,E.makeRng(3),'dragon');
+ Object.assign(c,{age:4000,captive:null,focus:'work',job:{id:'dragon_war',rank:2,xp:0},flags:[...c.flags,'drw_path_hero'],used:[],eventLast:{},pending:null});
+ const stage=E.currentStage(c).id;
+ assert.equal(E.eligible(e,c,stage,data),false);
+ c.used.push('drw_hero_first');c.eventLast.drw_hero_first=3950;assert.equal(E.eligible(e,c,stage,data),false);
+ c.eventLast.drw_hero_first=3900;assert.equal(E.eligible(e,c,stage,data),true);
+});
+test('an ending never names a title above the rank it asks for, and the copied late endings are gone',()=>{
+ assert.equal(data.events.filter(e=>/_late$/.test(e.id)).length,0);
+ const jobs=new Map(data.jobs.map(j=>[j.id,j]));
+ for(const e of data.events.filter(e=>e.story&&e.story.kind==='end'&&!e.story.unfinished)){
+  const j=jobs.get(e.story.job),said=JSON.stringify([e.text,e.choices]);
+  j.ranks.forEach((r,k)=>{if(k>(e.require.jobRank||0))assert.ok(!new RegExp(`(^|[^\\p{L}])${r.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}($|[^\\p{L}])`,'u').test(said),`${e.id} names ${r}`);});
+ }
+});
+test('every trade with a storyline has an unfinished ending that words the rank really held',()=>{
+ const withStory=new Set(data.events.filter(e=>e.story).map(e=>e.story.job));
+ for(const job of withStory){const u=data.events.filter(e=>e.story&&e.story.job===job&&e.story.unfinished);assert.equal(u.length,1,job);assert.equal(u[0].require.lateLife,true);assert.match(u[0].text,/\{rank\}/);}
+ const c=person('human_mage',2);c.maxAge=80;c.age=70;c.flags.push('mag_path_tower');
+ const u=data.events.find(e=>e.id==='mag_end_unfinished');
+ assert.equal(E.eligible(u,c,E.currentStage(c).id,data),true);
+ c.age=40;assert.equal(E.eligible(u,c,E.currentStage(c).id,data),false);
+});
+test('the road taken and the ending are kept for the Life Card',()=>{
+ const c=person('human_mage',4);c.flags.push('mag_path_tower');
+ const cross=data.events.find(e=>e.id==='mag_c2_crossroads'),end=data.events.find(e=>e.id==='mag_c5_tower');
+ for(const e of [cross,end]){c.ctx={eventId:e.id};c.pending={kind:'event',choices:[{label:'x',text:'y',moment:e.choices[0].moment||(e.choices[0].success||{}).moment}]};E.choose(c,data,0,()=>0);}
+ c.ctx=null;c.moments.push({age:c.age,text:'Một chuyện xảy ra sau đó'});
+ const s=E.summary(c,data,()=>0);
+ assert.ok(s.story.road&&s.story.ending);assert.ok(s.card.marks.includes(s.story.ending));
+});
+test('the last scene of a trade milestone no longer tells the outcome before the choice',()=>{
+ const q=data.quests.find(q=>q.id==='career_dragon_war_r2');
+ assert.doesNotMatch(q.steps[2].text,/Bạn thắng/);assert.match(q.steps[2].choices[0].success.text,/Bạn thắng trận đấu trên mây/);
+ assert.doesNotMatch(JSON.stringify(q),/Xắn tay|mồ hôi/);
+});

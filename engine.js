@@ -731,7 +731,13 @@
   }
 
   function addMoment(c, text, data) {
-    if (text) c.moments.push({ age: c.age, text: fmt(text, c, null, data) });
+    if (!text) return;
+    const m = { age: c.age, text: fmt(text, c, null, data) };
+    // a turning point of the trade's own story (the road taken, how it ended) is kept apart on the Life Card
+    const from = data && c.ctx && c.ctx.eventId && (data.events || []).find((e) => e.id === c.ctx.eventId);
+    if (from && from.story && ["path", "end"].includes(from.story.kind)) m.story = from.story.kind;
+    if (from && from.story && from.story.unfinished) m.unfinished = true;
+    c.moments.push(m);
   }
 
   // ---------- the story layer: recurring cast, bands, minions ----------
@@ -1571,6 +1577,11 @@
     return 0;
   }
 
+  // the closing stretch of a life: the last fifth of a mortal span, the last stage of an endless one
+  function lateLife(c) {
+    if (c.maxAge != null) return c.age >= c.maxAge * 0.8;
+    return stageIndex(c) >= stagesOf(c.race).length - 1;
+  }
   function meets(c, req, data) {
     if (req && req.subtype && c.subtype !== req.subtype) return false;
     if (req && req.notSubtypes && req.notSubtypes.includes(c.subtype)) return false;
@@ -1579,6 +1590,12 @@
     for (const k of STAT_KEYS) if (req[k] != null && c.stats[k] < req[k]) return false;
     for (const k of BAR_KEYS) if (req[k] != null && c.bars[k] < req[k]) return false;
     if (req.fame != null && c.fame < req.fame) return false;
+    // "a hundred years later…": the earlier scene must have happened, that long ago
+    if (req.after) {
+      const at = c.eventLast && c.eventLast[req.after.event];
+      if (at == null || c.age - at < (req.after.years || 0)) return false;
+    }
+    if (req.lateLife && !lateLife(c)) return false;
     if (req.below) {
       for (const k of Object.keys(req.below)) {
         if (k === "bond") {
@@ -2859,6 +2876,22 @@
     return due.length ? weightedPick(due, rng, (e) => e.weight || 10) : null;
   }
 
+  // The storyline of one's trade (mentor, crossroads, the road taken, the reckoning, the ending) is the spine
+  // of a working life: its next scene is due before random work scenes, whatever the years are spent on,
+  // so that a road once taken can reach an ending. Earlier chapters come first; scenes are spaced apart.
+  function careerStoryNode(c, data, rng, stageId) {
+    if (!c.job || c.captive || c.age < (c.nextStoryAge || 0) || c.clicks < (c.nextStoryClick || 0)) return null;
+    const due = data.events.filter((e) => e.story && e.story.job === c.job.id && eligible(e, c, stageId, data));
+    if (!due.length) return null;
+    const chance = c.focus === "work" ? 0.8 : c.focus === "rest" ? 0.3 : 0.55;
+    if (rng() >= chance) return null;
+    const first = Math.min(...due.map((e) => e.story.chapter));
+    const e = weightedPick(due.filter((x) => x.story.chapter === first), rng, (x) => x.weight || 10);
+    c.nextStoryAge = c.age + tickYears(c);
+    c.nextStoryClick = c.clicks + 1;
+    return e;
+  }
+
   function pickWorkEvent(c, data, rng, stageId) {
     if(!c.job||c.focus==='rest')return null;
     const j=jobDef(c,data);
@@ -3180,6 +3213,7 @@
             const asc = data.events.filter((e) => e.races && e.races.includes(c.race.id) && /"evolve"/.test(JSON.stringify(e.choices || e.effects || "")) && eligible(e, c, stageId, data));
             if (asc.length) node = weightedPick(asc, rng, (e) => e.weight || 10);
           }
+          if (!node && !c.pending) node = careerStoryNode(c, data, rng, stageId);
           if (!node && !c.pending && c.focus === "work" && c.job) { workConsidered = true; node = pickWorkEvent(c, data, rng, stageId); }
           if (!node && !c.pending) node = rng() < (lifePace(c.race) > 1 ? 0.85 : 0.6) ? storyNode(c, data, rng, stageId) : null;
           // a monster's evolution is the turning point of its life: when the body is ready, it comes
@@ -3482,6 +3516,12 @@
     // not the trade or form already shown, not a parting, not a birth
     const SKIP = /^Kết duyên|^Sinh |^Chào đời|chào đời|qua đời|^Trở thành|gia nhập|^Thu phục|^Đứa con|tiến hóa|rời đội|rời xa|rời bỏ|bỏ đi|tử trận|^Mất |mất đi|chia tay|phản bội|vì tuổi già/i;
     const big = (c.moments || []).filter((m) => m.text && m.text.length <= 70 && !SKIP.test(m.text) && !(formWord && m.text.toLowerCase().includes(formWord)));
+    // the road taken in one's trade and how it ended are the story of the life: they are not pushed out by a later scene
+    const told = (c.moments || []).filter((m) => m.story && m.text);
+    const ending = told.filter((m) => m.story === "end").slice(-1)[0];
+    const road = told.filter((m) => m.story === "path").slice(-1)[0];
+    const storyMark = ending || road;
+    if (storyMark && !seen.has(storyMark.text.toLowerCase())) { marks.push(storyMark.text); seen.add(storyMark.text.toLowerCase()); }
     for (const m of big.slice().reverse()) {
       if (marks.length >= 2) break;
       if (!seen.has(m.text.toLowerCase())) { marks.push(m.text); seen.add(m.text.toLowerCase()); }
@@ -3513,6 +3553,7 @@
       pct,
       card: { name: c.name, line: `${raceTitle(c)} · ${Math.floor(c.age)} tuổi`, origin: c.origin.name, marks: marks.slice(0, 3), cause: c.cause, epitaph, stats, rating },
       epitaph,
+      story: { road: road ? road.text : "", ending: ending ? ending.text : "", unfinished: !!(ending && ending.unfinished) },
       moments: c.moments.slice(-10),
       profile,
     };

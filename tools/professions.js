@@ -55,15 +55,17 @@ function installProfessions(data) {
   const arcList=[...p.arcs.map((arc,index)=>[index,arc,'']),...(extra.arcs||[]).map((arc,index)=>arc?[index,arc,'b']:null).filter(Boolean)];
   for(const [index,arc,suffix] of arcList){
    const visibleRank=index===0?2:4,rank=visibleRank-1,id=`career_${j.id}_r${visibleRank}${suffix}`;
-   const w=stepWords(j,family,arc[0]);
+   const w=stepWords(j,family,arc[0],id);
+   // most scripts wrote the last scene as how it ends: that is told when the trial succeeds, not before the choice
+   const told=!suffix&&!variety.SCENE_LIKE.test(arc[4]);
    const title=suffix?arc[0]:j.id==='human_assassin'&&index===0?'Kẻ phản đồ của Umbra Guild':j.id==='human_mage'&&index===1?'Di tích Đại Ngàn':arc[0];
    const org=data.orgs.find(o=>o.races?.some(r=>races.includes(r)))||data.orgs.find(o=>o.id==='guild');
    const target=visibleRank===2?6:10;
    const step=(text,n)=>({text:fill(text),choices:[
-    {label:n===2?w.last:w.go,check:{stat:j.stat,target:target+(n===2?1:0)},success:{text:n===2?w.lastOk:n===1?w.goOk2:w.goOk,effects:{jobXp:1}},fail:{text:n===2?w.lastBad:w.goBad,effects:{health:-(n===2?20:10),wealth:-4},...(n===2?{end:'fail'}:{})}},
+    {label:n===2?w.last:w.go,check:{stat:j.stat,target:target+(n===2?1:0)},success:{text:n===2?(told?fill(arc[4]):w.lastOk):n===1?w.goOk2:w.goOk,effects:{jobXp:1}},fail:{text:n===2?w.lastBad:w.goBad,effects:{health:-(n===2?20:10),wealth:-4},...(n===2?{end:'fail'}:{})}},
     ...(n===2?[{label:w.retreat,text:w.retreatText,effects:{joy:-5},end:'fail'}]:[{label:w.safe,text:w.safeText,effects:{wealth:-6,joy:-2}}]),
    ]});
-   const steps=[step(arc[2],0),step(arc[3],1),step(arc[4],2)];
+   const steps=[step(arc[2],0),step(arc[3],1),step(told?w.finale:arc[4],2)];
    steps[1].choices=[
     {label:w.keep,check:{stat:j.stat,target:target+1},success:{text:w.keepOk,effects:{fame:5,flags:[integrity]}},fail:{text:w.keepBad,effects:{health:-10,wealth:-8,flags:[integrity]}}},
     {label:family==='mage'?'Thiêu thọ nguyên để cưỡng ép trận pháp':w.bend,check:{stat:j.stat,target:target-1},success:{text:family==='mage'?'Trận pháp phục tùng, nhưng một phần thọ nguyên đã cháy thành năng lượng.':w.bendOk,effects:{joy:-8,...(family==='mage'?{lifeCost:3}:{}),flags:[compromise]}},fail:{text:family==='mage'?'Cấm thuật phản phệ, cướp đi sức lực cùng nhiều năm thọ nguyên.':w.bendBad,effects:{health:-20,wealth:-12,...(family==='mage'?{lifeCost:6}:{}),flags:[compromise]}}},

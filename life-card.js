@@ -29,7 +29,18 @@
     const add=(title,body)=>highlights.push({title,body:sentence(body)});
     if(c.form) add('Một hình thái mới',`Hành trình đã đưa bạn tới hình thái ${c.form}. Đây là dạng tiến hóa được ghi nhận khi cuộc đời khép lại${job?`, cùng chức nghiệp ${job.name}`:''}.`);
     if(job) add('Dấu ấn trên con đường chức nghiệp',`Trên con đường ${job.name}, bạn đã đạt danh hiệu ${job.rankName}, bậc ${job.rank+1}/${job.total}. ${job.rank===job.total-1?'Hành trình chức nghiệp ấy đã đi tới bậc cuối cùng.':'Đó là dấu mốc cao nhất bạn từng chạm tới trên con đường chức nghiệp.'}`);
-    const significant=moments.filter(m=>!/^Chào đời|^Sinh ra|^Trở thành|^Tiến hóa|^Kết duyên/i.test(m.text));
+    // the road taken in the trade and how it ended have a place of their own: a later scene cannot push them out
+    const told=(c.moments||[]).filter(m=>m.story&&clean(m.text)&&Number.isFinite(m.age));
+    const ending=told.filter(m=>m.story==='end').slice(-1)[0],road=told.filter(m=>m.story==='path').slice(-1)[0];
+    if(ending||road){
+      const parts=[];
+      if(road)parts.push(`Năm ${number(road.age)} tuổi, bạn chọn hướng đi của mình: ${sentence(clean(road.text))}`);
+      if(ending)parts.push(`${ending.unfinished?'Con đường ấy khép lại khi còn dang dở':'Kết cục của con đường ấy'}, năm ${number(ending.age)} tuổi: ${sentence(clean(ending.text))}`);
+      else parts.push('Cuộc đời khép lại trước khi con đường ấy đi tới hồi kết.');
+      add(ending?(ending.unfinished?'Con đường còn dang dở':'Con đường đã chọn và kết cục'):'Con đường đã chọn',parts.join(' '));
+    }
+    const storyTexts=new Set(told.map(m=>clean(m.text)));
+    const significant=moments.filter(m=>!storyTexts.has(m.text)&&!/^Chào đời|^Sinh ra|^Trở thành|^Tiến hóa|^Kết duyên/i.test(m.text));
     const moment=significant[significant.length-1];
     if(moment && highlights.length<3)add('Một bước ngoặt được ghi lại',`Năm ${number(moment.age)} tuổi: ${sentence(moment.text)} Khoảnh khắc này còn được lưu lại trong biên niên của cuộc đời bạn.`);
     const descendants=(c.children||[]).length;
