@@ -756,13 +756,22 @@
   let cardSvg = "";
   let cardReady = Promise.resolve();
   const cardMeasure = document.createElement("canvas").getContext("2d");
+  const chronicleFonts = Promise.all(window.ChronicleAssets.fonts.map(async source => {
+    const face = new FontFace('Chronicle Serif', `url("${source.src}")`, { weight: String(source.weight), style: source.style });
+    await face.load();
+    document.fonts.add(face);
+    return face;
+  }));
   function drawChronicle(portrait) {
     const rendered = window.LifeCard.render(card, portrait, (text, size, bold, italic) => {
-      cardMeasure.font = `${italic ? "italic " : ""}${bold ? "700" : "400"} ${size}px Georgia, "Times New Roman", serif`;
+      cardMeasure.font = `${italic ? "italic " : ""}${bold ? "700" : "400"} ${size}px "Chronicle Serif"`;
       return cardMeasure.measureText(text).width;
-    });
+    }, window.ChronicleAssets);
     cardSvg = rendered.svg;
-    $("lc-art").innerHTML = cardSvg;
+    // The screen uses the four already-loaded FontFace objects. Embedded copies belong to the
+    // standalone export; registering them again would introduce another asynchronous font swap.
+    $("lc-art").innerHTML = cardSvg.replace(/<style>[\s\S]*?<\/style>/, "");
+    $("lc-art").setAttribute("aria-busy", "false");
   }
   function renderCard(k) {
     card = window.LifeCard.model(c, D, k);
@@ -770,34 +779,40 @@
     const highest = window.LifeCard.highestJob(c, D);
     const imageLife = highest ? { ...c, job: [c.job, ...(c.pastJobs || [])].find(j => j && j.id === highest.id && j.rank === highest.rank) } : c;
     const sp = spriteOf(imageLife, true);
-    $("btn-save-card").disabled = !!sp;
+    $("btn-save-card").disabled = true;
     $("lc-note").hidden = true;
     $("lc-image")?.remove();
-    drawChronicle(null);
-    cardReady = sp ? new Promise(resolve => {
+    $("lc-art").setAttribute("aria-busy", "true");
+    $("lc-art").textContent = "Đang hoàn thiện biên niên…";
+    const portraitReady = sp ? new Promise(resolve => {
       const im = new Image();
       im.onload = () => {
-        if (card === thisCard) {
-          try {
-            const rect = window.SpritePresentation.rectangle(sp, D, "full");
-            const [sx, sy, sw, sh] = rect;
-            const scale = Math.min(1, 900 / sw, 900 / sh);
-            const portrait = document.createElement("canvas");
-            portrait.width = Math.max(1, Math.round(sw * scale));
-            portrait.height = Math.max(1, Math.round(sh * scale));
-            const ctx = portrait.getContext("2d");
-            ctx.imageSmoothingEnabled = true;
-            ctx.imageSmoothingQuality = "high";
-            ctx.drawImage(im, sx, sy, sw, sh, 0, 0, portrait.width, portrait.height);
-            drawChronicle(portrait.toDataURL("image/png"));
-          } catch (error) { say("Không tải được chân dung; phần biên niên vẫn có thể lưu."); }
-          $("btn-save-card").disabled = false;
-        }
-        resolve();
+        try {
+          const [sx, sy, sw, sh] = window.SpritePresentation.rectangle(sp, D, "full");
+          const scale = Math.min(1, 900 / sw, 900 / sh), portrait = document.createElement("canvas");
+          portrait.width = Math.max(1, Math.round(sw * scale));
+          portrait.height = Math.max(1, Math.round(sh * scale));
+          const ctx = portrait.getContext("2d");
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = "high";
+          ctx.drawImage(im, sx, sy, sw, sh, 0, 0, portrait.width, portrait.height);
+          resolve(portrait.toDataURL("image/png"));
+        } catch (error) { resolve(null); }
       };
-      im.onerror = () => { if (card === thisCard) { $("btn-save-card").disabled = false; say("Không tải được chân dung; phần biên niên vẫn có thể lưu."); } resolve(); };
+      im.onerror = () => resolve(null);
       im.src = D.sprites[sp.person]._src || `img/${sp.person}.png`;
-    }) : Promise.resolve();
+    }) : Promise.resolve(null);
+    cardReady = Promise.all([chronicleFonts, portraitReady]).then(([, portrait]) => {
+      if (card !== thisCard) return;
+      drawChronicle(portrait);
+      $("btn-save-card").disabled = false;
+      if (sp && !portrait) say("Không tải được chân dung; phần biên niên vẫn có thể lưu.");
+    }).catch(() => {
+      if (card !== thisCard) return;
+      $("lc-art").textContent = "Chưa hoàn thiện được thẻ. Bạn vẫn có thể sao chép nội dung cuộc đời.";
+      $("lc-art").setAttribute("aria-busy", "false");
+      say("Hãy tải lại trang để tải đầy đủ bộ chữ của thẻ.");
+    });
   }
   function cardText(k) { return window.LifeCard.text(k); }
   function say(t) { const n = $("lc-note"); n.textContent = t; n.hidden = false; }

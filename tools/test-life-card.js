@@ -21,11 +21,12 @@ test('former fame, a real family and completed tasks can supply remembered achie
 test('presentation model does not mutate the life, source data, or existing summary',()=>{
  const c=life('dragon');c.form='Dragon God';const k=E.summary(c,data,()=>0).card;const before=JSON.stringify(c),summary=JSON.stringify(k),definitions=JSON.stringify(data.races);L.model(c,data,k);assert.equal(JSON.stringify(c),before);assert.equal(JSON.stringify(k),summary);assert.equal(JSON.stringify(data.races),definitions);
 });
-test('all races use one complete chronicle without human-only headings',()=>{
- for(const race of data.races){const m=card(life(race.id)),r=L.render(m,null);assert.equal(m.highlights.length,3);assert.match(r.svg,/Chức nghiệp cao nhất:/);assert.match(r.svg,/MỘT KIẾP SỐNG/);assert.doesNotMatch(r.svg,/MỘT KIẾP NGƯỜI|Nghề cao nhất:/);assert.ok(r.height>=1620);assert.ok(r.geometry.every(q=>q.y<r.height-25));}
+test('all races use the same fixed 2:3 chronicle without human-only headings',()=>{
+ for(const race of data.races){const m=card(life(race.id)),r=L.render(m,null);assert.equal(m.highlights.length,3);assert.match(r.svg,/Chức nghiệp cao nhất:/);assert.match(r.svg,/MỘT KIẾP SỐNG/);assert.doesNotMatch(r.svg,/MỘT KIẾP NGƯỜI|Nghề cao nhất:/);assert.equal(r.height,1620);assert.equal(r.width,1080);assert.ok(r.geometry.every(q=>q.y<r.height-25));}
 });
-test('long names, origins, dates and unbroken words expand within the printable bounds',()=>{
+test('long names, origins, dates and unbroken words fit inside a fixed frame',()=>{
  const m=card(life('dragon'));m.name='Thượng cổ long '+('VAELTHAR'.repeat(14));m.origin='Một xuất thân có tên rất dài được ghi đầy đủ trong biên niên của thế giới';m.age=125000;m.timeline=[{age:125000,text:'Một biến cố '+('cổ xưa '.repeat(45))}];m.epitaph='Lời cuối '+('được lưu lại '.repeat(35));const r=L.render(m,null);
+ assert.equal(r.height,1620);assert.ok(r.geometry.some(q=>q.size<26));assert.ok(L.text(m).includes(m.name));
  for(const q of r.geometry){assert.ok(q.y<r.height-25);assert.ok(q.center?q.x-q.width/2>=50&&q.x+q.width/2<=1030:q.x+q.width<=1025);}
 });
 test('saved names and memories cannot inject SVG markup and copied text includes the same sections',()=>{
@@ -33,4 +34,11 @@ test('saved names and memories cannot inject SVG markup and copied text includes
 });
 test('portrait uses contain geometry, preserving wide Slimes and Dragons without distortion',()=>{
  const m=card(life('slime')),r=L.render(m,'data:image/png;base64,AAAA');assert.match(r.svg,/preserveAspectRatio="xMidYMid meet"/);assert.ok(r.portraitBox.x+r.portraitBox.width<540);assert.ok(r.portraitBox.y+r.portraitBox.height<r.height/2);
+});
+test('the same four self-contained fonts and painted assets are embedded in every SVG export',()=>{
+ const assets=require('../chronicle-assets'),r=L.render(card(life('demon')),null,null,assets);
+ assert.equal(assets.fonts.length,4);assert.equal(new Set(assets.fonts.map(f=>`${f.weight}/${f.style}`)).size,4);
+ for(const f of assets.fonts){assert.equal(Buffer.from(f.src.split(',')[1],'base64').subarray(0,4).toString(),'wOFF');assert.ok(r.svg.includes(f.src));}
+ for(const name of ['paper','rank-badge','wax-seal'])assert.ok(r.svg.includes(`data-part="${name}"`));
+ assert.doesNotMatch(r.svg,/Georgia|Times New Roman|fonts\.googleapis/);assert.match(r.svg,/font-family="Chronicle Serif"/);
 });

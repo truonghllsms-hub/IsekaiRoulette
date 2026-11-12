@@ -3,7 +3,7 @@
   'use strict';
   const STAT = {STR:'Sức mạnh',INT:'Trí tuệ',AGI:'Nhanh nhẹn',LUCK:'May mắn'};
   const number = n => Math.max(0,Math.floor(Number(n)||0)).toLocaleString('vi-VN');
-  const clean = s => String(s ?? '').replace(/\s+/g,' ').trim();
+  const clean = s => String(s ?? '').normalize('NFC').replace(/\s+/g,' ').trim();
   const sentence = s => { const t=clean(s); return t && !/[.!?…]$/.test(t) ? t+'.' : t; };
   const escape = s => String(s ?? '').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[ch]));
 
@@ -47,10 +47,10 @@
     return ['LUÂN HỒI DỊ GIỚI · BIÊN NIÊN MỘT KIẾP SỐNG',m.name,`${m.race} · ${number(m.age)} tuổi`,`Chức nghiệp cao nhất: ${m.job}${m.jobRank?' · '+m.jobRank:''}`,`Xuất thân: ${m.origin}`,`Hạng ${m.rating.grade} · ${m.rating.title}`,'','THÀNH TỰU NỔI BẬT',...m.highlights.map((h,i)=>`${i+1}. ${h.title}\n${h.body}`),'','NHỮNG NĂM ĐÁNG NHỚ',...m.timeline.map(t=>`${number(t.age)} tuổi — ${t.text}`),'','DẤU ẤN CÁ NHÂN',m.imprint.join(' · '),m.cause,m.epitaph?`“${m.epitaph}”`:''].filter(s=>s!==undefined).join('\n');
   }
 
-  function render(m,portrait,measure) {
-    const W=1080,ink='#49301f',rust='#984a36',gold='#a97b3f',muted='#80694c';
-    const family='Georgia, "Times New Roman", serif';
-    const width=(t,size,bold=false,italic=false)=>measure?measure(t,size,bold,italic):Array.from(t).length*size*.53;
+  function render(m,portrait,measure,assets=root.ChronicleAssets||{}) {
+    const W=1080,H=1620,ink='#492a17',rust='#95412e',gold='#a2783d',muted='#806548';
+    const family='Chronicle Serif';
+    const width=(t,size,bold=false,italic=false)=>measure?measure(t,size,bold,italic):Array.from(t).length*size*.56;
     function wrap(t,max,size,bold=false,italic=false) {
       const out=[];let line='';
       for(const word of clean(t).split(' ').filter(Boolean)){
@@ -60,54 +60,67 @@
       if(line)out.push(line);return out;
     }
     const body=[],geometry=[];
-    function label(t,x,y,max,size=29,{bold=false,italic=false,color=ink,center=false,lineHeight=size*1.28}={}){
-      const lines=wrap(t,max,size,bold,italic);
-      for(const line of lines){body.push(`<text x="${x}" y="${y}" fill="${color}" font-family='${family}' font-size="${size}" font-weight="${bold?700:400}" font-style="${italic?'italic':'normal'}" text-anchor="${center?'middle':'start'}">${escape(line)}</text>`);geometry.push({x,y,width:width(line,size,bold,italic),size,center});y+=lineHeight;}
-      return y;
+    function box(t,x,y,w,h,size=28,{bold=false,italic=false,color=ink,center=false,min=18,maxLines=20}={}) {
+      let lines,leading;
+      for(;;){leading=size*1.24;lines=wrap(t,w,size,bold,italic);if((lines.length*leading<=h&&lines.length<=maxLines)||size<=min)break;size=Math.max(min,size-.5);}
+      const count=Math.max(1,Math.min(maxLines,Math.floor(h/leading))),clipped=lines.length>count;
+      if(clipped){lines=lines.slice(0,count);let last=lines[count-1];while(last&&width(last+'…',size,bold,italic)>w)last=last.slice(0,-1);lines[count-1]=last.replace(/[ ,;:-]+$/,'')+'…';}
+      for(let i=0;i<lines.length;i++){
+        const line=lines[i],tx=center?x+w/2:x,ty=y+size*1.05+i*leading;
+        body.push(`<text x="${tx}" y="${ty}" fill="${color}" font-family="${family}" font-size="${size}" font-weight="${bold?700:400}" font-style="${italic?'italic':'normal'}" text-anchor="${center?'middle':'start'}">${escape(line)}</text>`);
+        geometry.push({x:tx,y:ty,width:width(line,size,bold,italic),size,center,clipped});
+      }
     }
-    const line=(y,x1=64,x2=1016)=>body.push(`<path d="M${x1} ${y}H${x2}" fill="none" stroke="${gold}" stroke-width="1.4" opacity=".65"/>`);
-    const diamond=(x,y,s=5)=>`<path d="M${x} ${y-s}l${s} ${s}-${s} ${s}-${s}-${s}Z" fill="${gold}"/>`;
-    function section(title,y){line(y+18);body.push(`<rect x="260" y="${y-6}" width="560" height="48" rx="8" fill="#fbefd7" stroke="${gold}" stroke-width="1.4"/>${diamond(246,y+18)}${diamond(834,y+18)}<path d="M212 ${y+18}q-20-19-37-10q14 18 37 10m656 0q20-19 37-10q-14 18-37 10" fill="${rust}" opacity=".7"/>`);label(title,W/2,y+27,535,30,{bold:true,center:true,color:rust});return y+82;}
-    label('LUÂN HỒI DỊ GIỚI',W/2,72,850,38,{bold:true,center:true});
-    label('BIÊN NIÊN MỘT KIẾP SỐNG',W/2,108,850,23,{center:true});
-    body.push(`<path d="M518 150V646" stroke="${gold}" opacity=".8"/>${diamond(518,150)}${diamond(518,646)}`);
-    const portraitBox={x:84,y:152,width:390,height:480};
-    if(portrait)body.push(`<image href="${escape(portrait)}" x="${portraitBox.x}" y="${portraitBox.y}" width="${portraitBox.width}" height="${portraitBox.height}" preserveAspectRatio="xMidYMid meet"/>`);
-    else body.push(`<g transform="translate(270 390) scale(2.6)" opacity=".15">${motif(m.motif,gold)}</g>`);
-    let y=label(m.name,564,203,442,58,{bold:true,lineHeight:64})+18;
-    body.push(`<path d="M565 ${y-9}q90 5 180-1l-110 8Z" fill="${rust}" opacity=".65"/>`);
-    y=label(`${m.race} · ${number(m.age)} tuổi`,564,y+32,438,29)+6;
-    line(y-11,564,1012);
-    y=label('Chức nghiệp cao nhất:',564,y+23,438,25,{bold:true,color:rust});
-    y=label(m.job,564,y+6,438,30,{bold:true});
-    if(m.jobRank)y=label(m.jobRank,564,y,438,22,{italic:true,color:muted});
-    y=label('Xuất thân: '+m.origin,564,y+25,438,27)+12;
-    const sealY=y+42,gradeColor={S:'#8f4030',A:'#9a6b31',B:'#a58340',C:'#80715b'}[m.rating.grade]||rust;
-    body.push(`<g transform="translate(647 ${sealY})"><path d="M-36 25l-10 55 45-22 43 22-9-55" fill="${rust}" opacity=".85"/><circle r="54" fill="#efd698" stroke="${gradeColor}" stroke-width="5"/><circle r="45" fill="none" stroke="${gradeColor}" stroke-width="1.4"/></g>`);
-    label('HẠNG',647,sealY-16,90,17,{bold:true,center:true,color:gradeColor});label(m.rating.grade,647,sealY+30,90,50,{bold:true,center:true,color:gradeColor});
-    const ratingEnd=label(m.rating.title,732,sealY-4,278,23,{italic:true,color:muted});
-    const headerEnd=Math.max(698,sealY+88,ratingEnd+25);line(headerEnd);
-    y=section('THÀNH TỰU NỔI BẬT',headerEnd+34);
-    for(let i=0;i<m.highlights.length;i++){
-      const h=m.highlights[i];body.push(`<path d="M76 ${y-27}l72-5 17 15-12 24-72 4-14-17Z" fill="${rust}" opacity=".78"/>`);
-      label(String(i+1).padStart(2,'0'),116,y+4,75,33,{bold:true,italic:true,center:true,color:'#fff6e5'});
-      y=label(h.title,189,y,815,32,{bold:true})+3;
-      y=label(h.body,189,y,815,28,{italic:true,lineHeight:35})+14;line(y-4,80,1006);y+=25;
+    const line=(y,x1=57,x2=1021)=>body.push(`<path d="M${x1} ${y}H${x2}" fill="none" stroke="${gold}" stroke-width="1.2" opacity=".75"/>`);
+    function leaves(x,y,flip=1,scale=1){return `<g transform="translate(${x} ${y}) scale(${flip*scale} ${scale})" fill="${rust}" stroke="${rust}" stroke-width="1.5"><path d="M0 30Q9 4 34-25" fill="none"/><path d="M7 15Q-8-1 3-6Q13 1 7 15M15 1Q7-16 19-19Q27-10 15 1M24-12Q22-32 36-33Q42-24 24-12M12 8Q36-1 38 9Q28 21 12 8" stroke="none"/></g>`;}
+    function section(title,y) {
+      line(y+24);body.push(`<path d="M300 ${y}H780q8 0 12 12l14 12-14 12q-4 12-12 12H300q-8 0-12-12l-14-12 14-12q4-12 12-12Z" fill="#f8eacb" stroke="${gold}" stroke-width="1.3"/>${leaves(247,y+23,-1,.45)}${leaves(833,y+23,1,.45)}`);
+      box(title,298,y+5,484,38,29,{bold:true,color:rust,center:true,min:23,maxLines:1});
     }
-    y=section('NHỮNG NĂM ĐÁNG NHỚ',y+7);
-    for(const t of m.timeline){label(number(t.age)+' tuổi',97,y,208,27,{bold:true,color:rust});const end=label(t.text,326,y,674,27,{lineHeight:35});y=Math.max(y+40,end+6);line(y-4,83,1000);y+=24;}
-    y=section('DẤU ẤN CÁ NHÂN',y+4);
-    y=label(m.imprint.join('   ·   '),W/2,y,880,26,{center:true})+19;
-    if(m.cause)y=label('Khép lại: '+m.cause,W/2,y,860,24,{center:true,color:muted})+15;
-    line(y);y+=44;
-    if(m.epitaph)y=label('“'+m.epitaph+'”',W/2,y,820,28,{italic:true,center:true,lineHeight:38})+8;
-    const H=Math.max(1620,Math.ceil((y+70)/10)*10);
-    body.push(`<g transform="translate(967 ${H-83})"><path d="M-40-9l8-29 26-12 32 8 18 25-3 30-26 20-31-3-22-20Z" fill="${rust}" stroke="#793324" stroke-width="3"/><circle r="28" fill="none" stroke="#d68c6a" stroke-width="1.3"/>${motif(m.motif,'#e3ac7b')}</g>`);
-    const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="chronicle-title chronicle-description"><title id="chronicle-title">${escape(m.name+' — Biên niên một kiếp sống')}</title><desc id="chronicle-description">${escape(text(m))}</desc><defs><linearGradient id="paper" x2=".8" y2="1"><stop stop-color="#fff6e3"/><stop offset="1" stop-color="#f0dcba"/></linearGradient><pattern id="grain" width="61" height="59" patternUnits="userSpaceOnUse"><circle cx="4" cy="8" r=".7" fill="#a3794e" opacity=".16"/><circle cx="34" cy="26" r=".6" fill="#a3794e" opacity=".12"/><path d="M12 45h3m35-29h2" stroke="#fffaf0" opacity=".5"/></pattern></defs><rect width="${W}" height="${H}" fill="url(#paper)"/><rect width="${W}" height="${H}" fill="url(#grain)"/><rect x="25" y="23" width="1030" height="${H-46}" rx="25" fill="none" stroke="${gold}" stroke-width="2.5"/><rect x="34" y="32" width="1012" height="${H-64}" rx="20" fill="none" stroke="${gold}" opacity=".4"/><g fill="none" stroke="${rust}" opacity=".23" stroke-width="1.4"><path d="M35 164q31-37 51-45t44-8q36 10 29-24t34-42M33 ${H-183}q65 38 87 9t41 16q37 41 42 87" stroke-dasharray="5 7"/><path d="M55 135l27-45 30 36 29-23 18 39m-96-5 21-36 18 22"/><path d="M${W-107} 91v-46m-23 23h46m-40-17 34 34m0-34-34 34"/></g>${body.join('')}</svg>`;
+    const icon=(kind,x,y,size=24)=>body.push(`<g transform="translate(${x} ${y}) scale(${size/28})">${motif(kind,gold)}</g>`);
+    function calendar(x,y){body.push(`<g transform="translate(${x} ${y})" fill="none" stroke="${gold}" stroke-width="2.5"><rect x="-12" y="-11" width="24" height="24" rx="2"/><path d="M-12-3H12M-6-16V-6M6-16V-6M-7 3h3m5 0h3m-11 6h3m5 0h3"/></g>`);}
+    box('LUÂN HỒI DỊ GIỚI',175,28,730,55,40,{bold:true,center:true,min:30,maxLines:1});
+    box('BIÊN NIÊN MỘT KIẾP SỐNG',220,89,640,31,23,{bold:true,center:true,min:19,maxLines:1});
+    body.push(`<path d="M519 139V688" stroke="${gold}" stroke-width="1.3"/><path d="M519 136l4 5-4 5-4-5Zm0 550l4 5-4 5-4-5Z" fill="${gold}"/>`);
+    const portraitBox={x:78,y:132,width:401,height:548};
+    if(portrait)body.push(`<image data-part="portrait" href="${escape(portrait)}" x="${portraitBox.x}" y="${portraitBox.y}" width="${portraitBox.width}" height="${portraitBox.height}" preserveAspectRatio="xMidYMid meet"/>`);
+    else body.push(`<g transform="translate(278 405) scale(3)" opacity=".12">${motif(m.motif,gold)}</g>`);
+    body.push(leaves(555,225,1,1.05));
+    // Prefer a smaller single-line name over unnecessary wrapping; unusually long names may use two.
+    const nameSize=Math.max(24,Math.min(66,66*382/Math.max(1,width(m.name,66,true))-.5));
+    box(m.name,620,159,382,95,nameSize,{bold:true,center:true,min:24,maxLines:2});
+    body.push(`<path d="M638 267q150-9 321-1-133 1-278 10Z" fill="${rust}" opacity=".8"/>`);
+    icon(m.motif,584,316,23);box(`${m.race} · ${number(m.age)} tuổi`,631,286,375,59,28,{min:20,maxLines:2});line(347,553,1008);
+    icon('swords',584,391,23);box('Chức nghiệp cao nhất:',631,358,375,34,26,{bold:true,min:23,maxLines:1});box(m.job,631,397,375,48,29,{bold:true,min:21,maxLines:2});line(449,553,1008);
+    icon('home',584,481,22);box('Xuất thân: '+m.origin,631,460,375,51,27,{min:19,maxLines:2});line(515,553,1008);
+    if(assets.badge)body.push(`<image data-part="rank-badge" href="${escape(assets.badge)}" x="656" y="461" width="310" height="310" preserveAspectRatio="xMidYMid meet"/>`);
+    else body.push(`<circle cx="811" cy="582" r="64" fill="#eac36b" stroke="${gold}" stroke-width="3"/>`);
+    box('HẠNG',763,547,96,30,23,{bold:true,center:true,min:23,maxLines:1});box(m.rating.grade,758,575,106,79,66,{bold:true,center:true,color:'#764315',min:66,maxLines:1});
+    line(724);line(729);
+    section('THÀNH TỰU NỔI BẬT',748);
+    m.highlights.forEach((h,i)=>{
+      const y=814+i*120;
+      body.push(`<path d="M85 ${y+3}q18-8 35-5l29-4 17 8-6 8 9 4-13 11 1 8-25 5-18-2-28 4-12-9 6-9-8-4Z" fill="${rust}" opacity=".77"/><path d="M81 ${y+4}l69-9m-72 36 81-8" stroke="${rust}" opacity=".3" stroke-width="5"/>`);
+      box(String(i+1).padStart(2,'0'),91,y,66,41,32,{italic:true,center:true,color:'#fff5e1',min:28,maxLines:1});
+      box(h.title,204,y-2,806,37,30,{bold:true,min:22,maxLines:1});
+      box(h.body,204,y+38,806,74,26,{italic:true,min:18,maxLines:3});line(y+115,76,1014);
+    });
+    section('NHỮNG NĂM ĐÁNG NHỚ',1186);
+    m.timeline.slice(0,3).forEach((t,i)=>{const y=1247+i*42;calendar(145,y+14);box(number(t.age)+' tuổi',190,y,177,35,27,{bold:true,color:rust,min:20,maxLines:1});box(t.text,401,y,607,38,27,{min:18,maxLines:2});line(y+39,112,1004);});
+    section('DẤU ẤN CÁ NHÂN',1386);
+    box(m.imprint.join('  ·  '),126,1444,828,35,25,{center:true,min:18,maxLines:1});
+    if(m.cause)box('Khép lại: '+m.cause,137,1484,806,35,21,{center:true,color:muted,min:17,maxLines:2});
+    line(1525,161,931);
+    if(m.epitaph)box('“'+m.epitaph+'”',155,1540,720,48,26,{italic:true,center:true,min:18,maxLines:2});
+    if(assets.wax)body.push(`<image data-part="wax-seal" href="${escape(assets.wax)}" x="924" y="1485" width="128" height="128"/>`);
+    body.push(`<g transform="translate(986 1548) scale(.63)">${motif(m.motif,'#e9b58a')}</g>`);
+    const fontCss=(assets.fonts||[]).map(f=>`@font-face{font-family:'Chronicle Serif';font-weight:${f.weight};font-style:${f.style};src:url('${f.src}') format('woff');}`).join('');
+    const background=assets.paper?`<image data-part="paper" href="${escape(assets.paper)}" width="1080" height="1620"/>`:`<rect width="1080" height="1620" fill="#f9e9c8"/><rect x="22" y="22" width="1036" height="1576" rx="16" fill="none" stroke="${gold}"/>`;
+    const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="chronicle-title chronicle-description"><title id="chronicle-title">${escape(m.name+' — Biên niên một kiếp sống')}</title><desc id="chronicle-description">${escape(text(m))}</desc><defs><style>${fontCss}</style></defs>${background}${body.join('')}</svg>`;
     return {svg,width:W,height:H,geometry,portraitBox};
   }
   function motif(kind,color) {
-    const paths={leaf:'M0 23C-31 7-22-23 23-27C26 5 12 19 0 23ZM-13 12L17-20',forge:'M-29-10H29L13 4H1V18H22V24H-23V18H-5V4H-18Z',paw:'M-19 9Q0-16 19 9Q30 31 0 22Q-30 31-19 9ZM-23-7a6 9 0 1 0 .1 0M-8-18a6 9 0 1 0 .1 0M9-18a6 9 0 1 0 .1 0M24-7a6 9 0 1 0 .1 0',drop:'M0-27C-8-8-27 1-23 16C-17 36 18 33 23 16C27 1 9-11 0-27Z',dragon:'M-25 22L-17-5 6-23 23-18 10-8 29 0 6 9-9 26-2 0-15 6Z',star:'M0-27L7-7 27 0 7 7 0 27-7 7-27 0-7-7Z'};
+    const paths={swords:'M-22-25L18 16M-18-27L22 12M-21 17L20-24M-17 21L24-20M-27 12L-10 29M10-29L29-10M-27-13L-9-28M10 10L28 28',home:'M-25-7L0-26 25-7M-20-10V24H20V-10M-6 24V5H6V24M-12-2H-6M6-2H12',leaf:'M0 23C-31 7-22-23 23-27C26 5 12 19 0 23ZM-13 12L17-20',forge:'M-29-10H29L13 4H1V18H22V24H-23V18H-5V4H-18Z',paw:'M-19 9Q0-16 19 9Q30 31 0 22Q-30 31-19 9ZM-23-7a6 9 0 1 0 .1 0M-8-18a6 9 0 1 0 .1 0M9-18a6 9 0 1 0 .1 0M24-7a6 9 0 1 0 .1 0',drop:'M0-27C-8-8-27 1-23 16C-17 36 18 33 23 16C27 1 9-11 0-27Z',dragon:'M-25 22L-17-5 6-23 23-18 10-8 29 0 6 9-9 26-2 0-15 6Z',star:'M0-27L7-7 27 0 7 7 0 27-7 7-27 0-7-7Z'};
     return `<path d="${paths[kind]||paths.star}" fill="none" stroke="${color}" stroke-width="2.8" stroke-linejoin="round"/>`;
   }
   const api={model,highestJob,render,text};
