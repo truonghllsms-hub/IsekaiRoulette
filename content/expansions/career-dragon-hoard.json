@@ -1,0 +1,1073 @@
+{
+ "_note": "Tuyến truyện Hoard Dragon: ba đạo (drh_path_gold / drh_path_tribute / drh_path_memory), nhân vật xuyên suốt Aurvandil Vảy Đồng (Rồng già kho báu) và dòng họ Kestrel (những tên trộm Human qua nhiều đời).",
+ "origins": [],
+ "events": [
+  {
+   "id": "drh_c1_aurvandil",
+   "races": [
+    "dragon"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "dragon_hoard",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "drh_met_aurvandil"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Aurvandil Vảy Đồng",
+     "race": "Dragon",
+     "position": "Rồng già nằm trên đống vàng năm nghìn năm"
+    }
+   ],
+   "text": "Aurvandil Vảy Đồng nằm trên đống vàng lớn nhất lục địa đã năm nghìn năm. Ông mở một con mắt khi bạn bay đến: “Rồng con. Ngươi biết vì sao chúng ta giữ vàng không?”",
+   "choices": [
+    {
+     "label": "Vì vàng đẹp",
+     "text": "Ông cười, một tiếng cười làm núi rung. “Đúng. Và vì vàng không chết. Mọi thứ khác đều chết.” Ông nhắm mắt. Bạn hiểu điều đó mất năm trăm năm.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 1,
+      "flags": [
+       "drh_met_aurvandil",
+       "drh_aurvandil_respect"
+      ]
+     },
+     "moment": "Nghe Aurvandil Vảy Đồng giải thích vì sao Rồng giữ vàng"
+    },
+    {
+     "label": "Vì quyền lực",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Ông mở cả hai mắt. “Ngươi thông minh hơn ta nghĩ.” Ông kể về những vương quốc đã quỳ trước đống vàng này.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "drh_met_aurvandil"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Ông nhắm mắt lại. “Ngươi sẽ hiểu sai lâu đấy.”",
+      "effects": {
+       "flags": [
+        "drh_met_aurvandil"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "drh_c1_kestrel",
+   "races": [
+    "dragon"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "dragon_hoard",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "drh_met_aurvandil"
+    ],
+    "notFlags": [
+     "drh_met_kestrel"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Tam Kestrel",
+     "race": "Human",
+     "position": "Tên trộm Human chỉ muốn nhìn thấy Rồng một lần"
+    }
+   ],
+   "text": "Một tên trộm Human gầy gò, Tam Kestrel, lẻn vào hang bạn khi bạn ngủ. Hắn chỉ lấy một đồng vàng, rồi đứng nhìn bạn rất lâu, như nhìn một kỳ quan.",
+   "choices": [
+    {
+     "label": "Mở mắt, nhìn hắn",
+     "text": "Hắn không chạy. Hắn cúi chào, đặt đồng vàng lại, và nói: “Tôi chỉ muốn thấy một con Rồng. Một lần trong đời.” Bạn để hắn đi. Năm mươi năm sau, con trai hắn đến, với cùng lời xin lỗi.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1,
+      "flags": [
+       "drh_met_kestrel",
+       "drh_kestrel_line"
+      ]
+     },
+     "moment": "Để tên trộm Tam Kestrel đi, mở đầu một dòng họ đến thăm Rồng"
+    },
+    {
+     "label": "Phun lửa đuổi hắn",
+     "text": "Hắn chạy, đồng vàng trong tay. Bạn đếm lại đống vàng. Thiếu một đồng. Nó làm bạn mất ngủ một trăm năm.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "drh_met_kestrel"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "drh_c2_first_thieves",
+   "races": [
+    "dragon"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "dragon_hoard",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "drh_first_thieves",
+     "drh_end"
+    ]
+   },
+   "text": "Một tổ đội mạo hiểm giả đột nhập hang khi bạn ngái ngủ. Họ đang chia nhau những đồng vàng đầu tiên của bạn.",
+   "choices": [
+    {
+     "label": "Thổi một luồng hơi nóng để dọa",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Họ bỏ chạy, vàng rơi lả tả. Họ kể với mọi quán rượu về con Rồng đã tha mạng. Không ai dám đến nữa, trong một trăm năm.",
+      "effects": {
+       "LUCK": 1,
+       "fame": 6,
+       "jobXp": 2,
+       "flags": [
+        "drh_first_thieves"
+       ]
+      },
+      "moment": "Đuổi tổ đội mạo hiểm giả đầu tiên mà không giết ai"
+     },
+     "fail": {
+      "text": "Họ không chạy. Pháp sư của họ dựng khiên. Bạn phải đánh thật.",
+      "effects": {
+       "health": -10,
+       "flags": [
+        "drh_first_thieves"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Thiêu họ",
+     "text": "Hang sạch sẽ. Vàng còn nguyên. Mùi khét bám vào hang ba trăm năm.",
+     "effects": {
+      "fame": 8,
+      "joy": -4,
+      "jobXp": 2,
+      "flags": [
+       "drh_first_thieves"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "drh_c2_crossroads",
+   "races": [
+    "dragon"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "dragon_hoard",
+    "free": true,
+    "jobRank": 1,
+    "flags": [
+     "drh_met_aurvandil"
+    ],
+    "notFlags": [
+     "drh_path_gold",
+     "drh_path_tribute",
+     "drh_path_memory",
+     "drh_end"
+    ]
+   },
+   "text": "Aurvandil mở cả hai mắt, lần đầu tiên sau nghìn năm, và chỉ bạn ba thứ trong đống vàng của ông: một đồng vàng cổ nhất, một chiếc vương miện của vị vua đầu tiên từng cống nạp, và một chiếc vòng cổ rẻ tiền bằng đồng.",
+   "choices": [
+    {
+     "label": "Đồng vàng cổ: Núi Vàng",
+     "text": "Bạn sẽ tích lũy, như mọi Rồng chân chính. Vàng không chết. Bạn cũng sẽ không, nếu đủ vàng.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "drh_path_gold"
+      ]
+     },
+     "moment": "Chọn tích lũy núi vàng như Rồng chân chính"
+    },
+    {
+     "label": "Vương miện: Chúa Cống Nạp",
+     "text": "Các vương quốc sẽ dâng vàng cho bạn, đổi lấy sự bảo hộ. Bạn sẽ cai trị bằng vàng, không bằng lửa.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "drh_path_tribute"
+      ]
+     },
+     "moment": "Chọn cai trị các vương quốc bằng cống nạp"
+    },
+    {
+     "label": "Vòng cổ đồng: Kẻ Giữ Ký Ức",
+     "text": "Aurvandil im lặng. “Của một cô bé Human. Năm nghìn năm trước. Nó không đáng một xu. Ta giữ nó lâu nhất.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "drh_path_memory"
+      ]
+     },
+     "moment": "Chọn giữ những món đồ có ký ức thay vì giá trị"
+    }
+   ]
+  },
+  {
+   "id": "drh_gold_cursed",
+   "races": [
+    "dragon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dragon_hoard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "drh_path_gold"
+    ],
+    "notFlags": [
+     "drh_end"
+    ]
+   },
+   "text": "Bức tượng nữ thần bằng Huyết Kim nguyên khối bạn vừa cướp được tỏa ra màn sương đỏ. Vàng xung quanh bắt đầu hóa đá.",
+   "choices": [
+    {
+     "label": "Ném nó xuống vực",
+     "text": "Đống vàng ngừng hóa đá. Bạn mất một phần mười kho báu. Bạn tiếc suốt một nghìn năm.",
+     "effects": {
+      "wealth": -15,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Phá lời nguyền",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn tìm ra tên nữ thần, và gọi nó ba lần. Lời nguyền tan. Bức tượng sáng lên, đẹp hơn bao giờ hết. Nó là món quý nhất trong kho của bạn.",
+      "effects": {
+       "INT": 1,
+       "wealth": 20,
+       "jobXp": 3,
+       "flags": [
+        "drh_gold_statue"
+       ]
+      },
+      "moment": "Phá lời nguyền trên bức tượng nữ thần Huyết Kim"
+     },
+     "fail": {
+      "text": "Lời nguyền lan vào vảy bạn. Một mảng vảy hóa đá.",
+      "effects": {
+       "health": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "drh_gold_rival",
+   "races": [
+    "dragon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dragon_hoard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "drh_path_gold"
+    ],
+    "notFlags": [
+     "drh_end"
+    ]
+   },
+   "text": "Một Rồng khác, trẻ hơn, tham lam hơn, đòi chia đôi kho báu của bạn.",
+   "choices": [
+    {
+     "label": "Đánh",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Trận chiến làm sập nửa ngọn núi. Bạn thắng. Rồng trẻ bay đi, mang theo vết sẹo và không một đồng vàng.",
+      "effects": {
+       "STR": 1,
+       "fame": 10,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Bạn thắng, nhưng nửa kho báu bị chôn dưới đá sập.",
+      "effects": {
+       "health": -15,
+       "wealth": -15
+      }
+     }
+    },
+    {
+     "label": "Dạy nó tích lũy",
+     "text": "Bạn cho nó một đồng vàng. “Bắt đầu từ đây.” Năm nghìn năm sau, nó có một núi vàng riêng, và gửi lời cảm ơn.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "drh_tribute_king",
+   "races": [
+    "dragon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dragon_hoard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "drh_path_tribute"
+    ],
+    "notFlags": [
+     "drh_end"
+    ]
+   },
+   "text": "Vị vua Đồng Bằng Thánh Quang quỳ trước hang, dâng vàng, xin bạn che chở vương quốc khỏi đạo quân Ma Vương.",
+   "choices": [
+    {
+     "label": "Nhận, và bảo vệ thật",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Đạo quân Ma Vương đến biên giới, thấy bóng bạn trên bầu trời, và quay đầu. Vương quốc nhớ ơn bạn mười đời vua.",
+      "effects": {
+       "STR": 1,
+       "fame": 12,
+       "jobXp": 3,
+       "flags": [
+        "drh_tribute_protector"
+       ]
+      },
+      "moment": "Bảo vệ Đồng Bằng Thánh Quang khỏi đạo quân Ma Vương"
+     },
+     "fail": {
+      "text": "Bạn đến muộn. Một thành phố đã cháy.",
+      "effects": {
+       "fame": -4
+      }
+     }
+    },
+    {
+     "label": "Nhận vàng, không làm gì",
+     "text": "Vàng của bạn. Vương quốc của ông ta. Đạo quân Ma Vương cũng của ông ta lo.",
+     "effects": {
+      "wealth": 20,
+      "fame": -6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "drh_tribute_rebel",
+   "races": [
+    "dragon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dragon_hoard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "drh_path_tribute"
+    ],
+    "notFlags": [
+     "drh_end"
+    ]
+   },
+   "text": "Một vương quốc nhỏ ngừng cống nạp. Vua của họ nói: “Rồng không bảo vệ chúng tôi gì cả. Chỉ ngồi trên vàng.”",
+   "choices": [
+    {
+     "label": "Bay đến, nghe họ nói",
+     "text": "Họ nói đúng. Bạn chưa từng đến đó. Bạn hủy cống nạp của họ, và từ đó bay qua vương quốc ấy mỗi trăm năm, để họ biết bạn ở đó.",
+     "effects": {
+      "fame": 6,
+      "joy": 4,
+      "jobXp": 3,
+      "flags": [
+       "drh_tribute_fair"
+      ]
+     }
+    },
+    {
+     "label": "Thiêu một thành làm gương",
+     "text": "Vương quốc cống nạp lại. Và mọi vương quốc khác cũng vậy. Họ ghét bạn. Họ trả đủ.",
+     "effects": {
+      "wealth": 15,
+      "fame": -8,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "drh_memory_trinket",
+   "races": [
+    "dragon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dragon_hoard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "drh_path_memory"
+    ],
+    "notFlags": [
+     "drh_end"
+    ]
+   },
+   "text": "Một bà già Human leo lên núi, đặt một chiếc thìa gỗ trước hang bạn. “Của chồng tôi. Ông ấy luôn muốn thấy Rồng. Ông không kịp.”",
+   "choices": [
+    {
+     "label": "Giữ chiếc thìa",
+     "text": "Chiếc thìa nằm cạnh vòng cổ đồng, trên đỉnh đống vàng. Bạn nhớ tên ông ta mãi, dù chưa từng gặp.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "drh_memory_spoon"
+      ]
+     },
+     "moment": "Giữ chiếc thìa gỗ của một người chồng chưa kịp thấy Rồng"
+    },
+    {
+     "label": "Cho bà một đồng vàng",
+     "text": "Bà từ chối. “Tôi không đến để lấy gì.” Bà xuống núi. Bạn giữ chiếc thìa.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "drh_memory_kestrel",
+   "races": [
+    "dragon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dragon_hoard",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "drh_path_memory",
+     "drh_met_kestrel"
+    ],
+    "notFlags": [
+     "drh_end"
+    ]
+   },
+   "text": "Một hậu duệ của dòng họ Kestrel đến hang, mang theo một cuốn sổ: ghi chép của mọi người trong họ đã đến thăm bạn, qua bảy đời.",
+   "choices": [
+    {
+     "label": "Đọc cuốn sổ",
+     "require": {
+      "flags": [
+       "drh_kestrel_line"
+      ]
+     },
+     "text": "Bảy đời. Mỗi người một trang. Một đứa trẻ vẽ bạn bằng bút chì. Một ông già viết: “Vẫn đẹp như cha tôi kể.” Bạn giữ cuốn sổ, và cho cô ta viết trang thứ tám.",
+     "effects": {
+      "joy": 12,
+      "jobXp": 3,
+      "flags": [
+       "drh_memory_book"
+      ]
+     },
+     "moment": "Đọc cuốn sổ bảy đời của dòng họ Kestrel"
+    },
+    {
+     "label": "Đuổi cô ta đi",
+     "text": "Cô ta đi. Dòng họ Kestrel không đến nữa.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "drh_c4_aurvandil",
+   "races": [
+    "dragon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dragon_hoard",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "drh_met_aurvandil"
+    ],
+    "notFlags": [
+     "drh_aurvandil_gone",
+     "drh_end"
+    ],
+    "anyFlags": [
+     "drh_path_gold",
+     "drh_path_tribute",
+     "drh_path_memory"
+    ]
+   },
+   "text": "Aurvandil Vảy Đồng sắp chết. Mười nghìn năm. Ông gọi bạn đến, và chỉ vào đống vàng của ông.",
+   "choices": [
+    {
+     "label": "Nhận đống vàng",
+     "text": "Ông nhắm mắt. “Vàng không chết. Nhưng ta thì có.” Ông ngủ, và không thức dậy. Đống vàng là của bạn. Chiếc vòng cổ đồng nằm trên đỉnh.",
+     "effects": {
+      "wealth": 30,
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "drh_aurvandil_gone",
+       "drh_aurvandil_hoard"
+      ]
+     },
+     "moment": "Nhận đống vàng mười nghìn năm của Aurvandil"
+    },
+    {
+     "label": "Chôn ông cùng đống vàng",
+     "text": "Bạn phủ vàng lên ông, đồng này qua đồng khác. Ngọn núi trở thành mộ của Rồng. Không ai dám đến.",
+     "effects": {
+      "joy": -4,
+      "fame": 6,
+      "jobXp": 3,
+      "flags": [
+       "drh_aurvandil_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "drh_c5_gold",
+   "races": [
+    "dragon"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "dragon_hoard",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "drh_path_gold"
+    ],
+    "notFlags": [
+     "drh_end"
+    ]
+   },
+   "text": "Bạn là Hoard Tyrant. Đống vàng của bạn lớn hơn cả của Aurvandil.",
+   "choices": [
+    {
+     "label": "Đặt bức tượng nữ thần trên đỉnh",
+     "require": {
+      "flags": [
+       "drh_gold_statue"
+      ]
+     },
+     "text": "Bức tượng Huyết Kim, giờ đã sạch lời nguyền, đứng trên đỉnh núi vàng. Mạo hiểm giả leo lên chỉ để nhìn nó, và bạn để họ nhìn.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "drh_end",
+       "drh_end_statue"
+      ]
+     },
+     "moment": "Đặt bức tượng nữ thần Huyết Kim trên đỉnh núi vàng"
+    },
+    {
+     "label": "Ngủ trên vàng mãi mãi",
+     "text": "Vàng không chết. Bạn cũng không, gần như thế.",
+     "effects": {
+      "fame": 12,
+      "wealth": 30,
+      "flags": [
+       "drh_end",
+       "drh_end_sleep"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "drh_c5_tribute",
+   "races": [
+    "dragon"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "dragon_hoard",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "drh_path_tribute"
+    ],
+    "notFlags": [
+     "drh_end"
+    ]
+   },
+   "text": "Bạn là Hoard Tyrant. Mười vương quốc cống nạp cho bạn.",
+   "choices": [
+    {
+     "label": "Đổi cống nạp thành giao ước",
+     "require": {
+      "flags": [
+       "drh_tribute_fair"
+      ]
+     },
+     "text": "Không còn vàng. Chỉ một lời hứa: bạn bảo vệ, họ không săn Rồng. Mười vương quốc ký. Bạn nghèo đi, và được yêu hơn.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "drh_end",
+       "drh_end_pact"
+      ]
+     },
+     "moment": "Đổi cống nạp thành giao ước bảo hộ với mười vương quốc"
+    },
+    {
+     "label": "Bảo vệ Đồng Bằng Thánh Quang đến cuối",
+     "require": {
+      "flags": [
+       "drh_tribute_protector"
+      ]
+     },
+     "text": "Họ khắc hình bạn lên cổng thủ đô. Trẻ con nơi ấy lớn lên tin Rồng là người bảo vệ.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "drh_end",
+       "drh_end_guardian"
+      ]
+     }
+    },
+    {
+     "label": "Giữ cống nạp như cũ",
+     "text": "Vàng chảy về mỗi năm. Các vương quốc thì thầm về ngày bạn chết.",
+     "effects": {
+      "fame": 10,
+      "wealth": 30,
+      "flags": [
+       "drh_end",
+       "drh_end_tribute"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "drh_c5_memory",
+   "races": [
+    "dragon"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "dragon_hoard",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "drh_path_memory"
+    ],
+    "notFlags": [
+     "drh_end"
+    ]
+   },
+   "text": "Bạn là Hoard Tyrant, nhưng kho báu của bạn kỳ lạ nhất thế giới: vòng cổ đồng, thìa gỗ, sổ ghi chép.",
+   "choices": [
+    {
+     "label": "Mở hang cho dòng họ Kestrel",
+     "require": {
+      "flags": [
+       "drh_memory_book"
+      ]
+     },
+     "text": "Cuốn sổ giờ có hai mươi trang. Dòng họ Kestrel đến mỗi thế hệ. Họ không lấy gì. Họ chỉ ngồi, và nhìn bạn.",
+     "effects": {
+      "fame": 10,
+      "joy": 20,
+      "flags": [
+       "drh_end",
+       "drh_end_kestrels"
+      ]
+     },
+     "moment": "Mở hang cho dòng họ Kestrel đến thăm mỗi thế hệ"
+    },
+    {
+     "label": "Đặt chiếc thìa cạnh vòng cổ",
+     "require": {
+      "flags": [
+       "drh_memory_spoon"
+      ]
+     },
+     "text": "Hai món đồ rẻ nhất, trên đỉnh đống vàng. Bạn nhớ cả hai câu chuyện. Không ai khác nhớ.",
+     "effects": {
+      "fame": 8,
+      "joy": 15,
+      "flags": [
+       "drh_end",
+       "drh_end_trinkets"
+      ]
+     }
+    },
+    {
+     "label": "Đổi vàng lấy câu chuyện",
+     "text": "Ai kể bạn nghe một câu chuyện, bạn cho một đồng vàng. Đống vàng vơi dần. Kho câu chuyện đầy lên.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "drh_end",
+       "drh_end_stories"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "drh_daily_coin",
+   "races": [
+    "dragon"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "dragon_hoard",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một đồng vàng lăn ra khỏi đống.",
+   "choices": [
+    {
+     "label": "Đặt lại đúng chỗ",
+     "text": "Bạn biết chỗ của mọi đồng.",
+     "effects": {
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Để nó nằm đó",
+     "text": "Một đồng lạc. Đẹp lạ.",
+     "effects": {
+      "joy": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "drh_daily_war",
+   "races": [
+    "dragon"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "dragon_hoard",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Các vương quốc bán vàng để mua vũ khí.",
+   "choices": [
+    {
+     "label": "Mua vàng rẻ",
+     "text": "Kho báu lớn thêm.",
+     "effects": {
+      "wealth": 10,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Ngủ qua chiến tranh",
+     "text": "Khi bạn tỉnh dậy, đã có vương quốc mới.",
+     "effects": {
+      "joy": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "drh_daily_old",
+   "races": [
+    "dragon"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "dragon_hoard",
+    "free": true
+   },
+   "text": "Bạn đã nằm trên vàng hàng nghìn năm. Vàng đã nguội.",
+   "choices": [
+    {
+     "label": "Thổi lửa sưởi lại",
+     "text": "Vàng ấm. Bạn ngủ ngon.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Đếm lại từng đồng",
+     "text": "Mất một trăm năm. Không thiếu đồng nào.",
+     "effects": {
+      "INT": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "drh_c5_gold_late",
+   "races": [
+    "dragon"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "dragon_hoard",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "drh_path_gold"
+    ],
+    "notFlags": [
+     "drh_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Hoard Tyrant. Đống vàng của bạn lớn hơn cả của Aurvandil.",
+   "choices": [
+    {
+     "label": "Đặt bức tượng nữ thần trên đỉnh",
+     "require": {
+      "flags": [
+       "drh_gold_statue"
+      ]
+     },
+     "text": "Bức tượng Huyết Kim, giờ đã sạch lời nguyền, đứng trên đỉnh núi vàng. Mạo hiểm giả leo lên chỉ để nhìn nó, và bạn để họ nhìn.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "drh_end",
+       "drh_end_statue"
+      ]
+     },
+     "moment": "Đặt bức tượng nữ thần Huyết Kim trên đỉnh núi vàng"
+    },
+    {
+     "label": "Ngủ trên vàng mãi mãi",
+     "text": "Vàng không chết. Bạn cũng không, gần như thế.",
+     "effects": {
+      "fame": 12,
+      "wealth": 30,
+      "flags": [
+       "drh_end",
+       "drh_end_sleep"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "drh_c5_tribute_late",
+   "races": [
+    "dragon"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "dragon_hoard",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "drh_path_tribute"
+    ],
+    "notFlags": [
+     "drh_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Hoard Tyrant. Mười vương quốc cống nạp cho bạn.",
+   "choices": [
+    {
+     "label": "Đổi cống nạp thành giao ước",
+     "require": {
+      "flags": [
+       "drh_tribute_fair"
+      ]
+     },
+     "text": "Không còn vàng. Chỉ một lời hứa: bạn bảo vệ, họ không săn Rồng. Mười vương quốc ký. Bạn nghèo đi, và được yêu hơn.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "drh_end",
+       "drh_end_pact"
+      ]
+     },
+     "moment": "Đổi cống nạp thành giao ước bảo hộ với mười vương quốc"
+    },
+    {
+     "label": "Bảo vệ Đồng Bằng Thánh Quang đến cuối",
+     "require": {
+      "flags": [
+       "drh_tribute_protector"
+      ]
+     },
+     "text": "Họ khắc hình bạn lên cổng thủ đô. Trẻ con nơi ấy lớn lên tin Rồng là người bảo vệ.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "drh_end",
+       "drh_end_guardian"
+      ]
+     }
+    },
+    {
+     "label": "Giữ cống nạp như cũ",
+     "text": "Vàng chảy về mỗi năm. Các vương quốc thì thầm về ngày bạn chết.",
+     "effects": {
+      "fame": 10,
+      "wealth": 30,
+      "flags": [
+       "drh_end",
+       "drh_end_tribute"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "drh_c5_memory_late",
+   "races": [
+    "dragon"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "dragon_hoard",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "drh_path_memory"
+    ],
+    "notFlags": [
+     "drh_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Hoard Tyrant, nhưng kho báu của bạn kỳ lạ nhất thế giới: vòng cổ đồng, thìa gỗ, sổ ghi chép.",
+   "choices": [
+    {
+     "label": "Mở hang cho dòng họ Kestrel",
+     "require": {
+      "flags": [
+       "drh_memory_book"
+      ]
+     },
+     "text": "Cuốn sổ giờ có hai mươi trang. Dòng họ Kestrel đến mỗi thế hệ. Họ không lấy gì. Họ chỉ ngồi, và nhìn bạn.",
+     "effects": {
+      "fame": 10,
+      "joy": 20,
+      "flags": [
+       "drh_end",
+       "drh_end_kestrels"
+      ]
+     },
+     "moment": "Mở hang cho dòng họ Kestrel đến thăm mỗi thế hệ"
+    },
+    {
+     "label": "Đặt chiếc thìa cạnh vòng cổ",
+     "require": {
+      "flags": [
+       "drh_memory_spoon"
+      ]
+     },
+     "text": "Hai món đồ rẻ nhất, trên đỉnh đống vàng. Bạn nhớ cả hai câu chuyện. Không ai khác nhớ.",
+     "effects": {
+      "fame": 8,
+      "joy": 15,
+      "flags": [
+       "drh_end",
+       "drh_end_trinkets"
+      ]
+     }
+    },
+    {
+     "label": "Đổi vàng lấy câu chuyện",
+     "text": "Ai kể bạn nghe một câu chuyện, bạn cho một đồng vàng. Đống vàng vơi dần. Kho câu chuyện đầy lên.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "drh_end",
+       "drh_end_stories"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}

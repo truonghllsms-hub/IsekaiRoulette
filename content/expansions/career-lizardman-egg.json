@@ -1,0 +1,1069 @@
+{
+ "_note": "Tuyến truyện Egg Watcher (Lizardman): ba đạo (lze_path_nest / lze_path_gold / lze_path_hatch), nhân vật xuyên suốt bà Vessith Mẹ Bùn (người canh trứng già) và Ziss (con non vảy vàng).",
+ "origins": [],
+ "events": [
+  {
+   "id": "lze_c1_vessith",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "lizard_egg",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "lze_met_vessith"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Vessith Mẹ Bùn",
+     "race": "Lizardman",
+     "position": "Người canh trứng già của bộ lạc"
+    }
+   ],
+   "text": "Bà Vessith Mẹ Bùn đã canh bãi trứng bốn mươi năm. Bà dạy bạn bài đầu tiên: nằm im trong bùn ấm cạnh trứng suốt một đêm, không ngủ, không động.",
+   "choices": [
+    {
+     "label": "Nằm im đến sáng",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Đến gần sáng, bạn nghe được tiếng gõ khẽ từ bên trong một quả trứng. Bà Vessith mỉm cười: “Nó chào ngươi đấy.”",
+      "effects": {
+       "LUCK": 1,
+       "jobXp": 1,
+       "flags": [
+        "lze_met_vessith",
+        "lze_vessith_respect"
+       ]
+      },
+      "moment": "Nghe tiếng gõ đầu tiên từ bên trong quả trứng"
+     },
+     "fail": {
+      "text": "Bạn ngủ quên. Sáng ra, bà Vessith đang nhìn bạn, không trách. “Trứng cũng ngủ. Không sao.”",
+      "effects": {
+       "flags": [
+        "lze_met_vessith"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi bà vì sao chọn canh trứng",
+     "text": "Bà kể: chiến binh chết trong trận, tư tế chết trên đá tế. Người canh trứng thì thấy sự sống bắt đầu, mỗi mùa. “Ta chưa từng chán.”",
+     "effects": {
+      "joy": 5,
+      "jobXp": 1,
+      "flags": [
+       "lze_met_vessith",
+       "lze_vessith_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lze_c1_ziss",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "lizard_egg",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "lze_met_vessith"
+    ],
+    "notFlags": [
+     "lze_met_ziss"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Ziss",
+     "race": "Lizardman",
+     "position": "Con non vảy vàng hiếm có"
+    }
+   ],
+   "text": "Một quả trứng nở ra con non có vảy màu hoàng kim, tỏa ra ma lực nhè nhẹ. Tư tế gọi nó là điềm, tốt hay xấu chưa biết. Nó tên Ziss, và nó bám theo bạn từ ngày nở.",
+   "choices": [
+    {
+     "label": "Nuôi nó như mọi con non khác",
+     "text": "Bạn không cho nó ăn nhiều hơn, không cho nó ăn ít hơn. Ziss lớn lên với những con non khác, và không đứa nào cắn đuôi nó.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1,
+      "flags": [
+       "lze_met_ziss",
+       "lze_ziss_ordinary"
+      ]
+     },
+     "moment": "Nuôi con non vảy vàng Ziss như mọi con non khác"
+    },
+    {
+     "label": "Mang nó đến tư tế",
+     "text": "Tư tế xem xét nó suốt ba ngày, rồi trả lại: “Chưa biết.” Ziss sợ đền từ đó, và chỉ ngủ được khi nằm cạnh bạn.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "lze_met_ziss"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lze_c2_first_thief",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "lizard_egg",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "lze_first_thief",
+     "lze_end"
+    ]
+   },
+   "text": "Một mạo hiểm giả tập sự lẻn vào bãi, ôm hai quả trứng định chuồn đi.",
+   "choices": [
+    {
+     "label": "Đuổi theo, lấy lại trứng",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn kéo hắn xuống bùn. Hắn buông trứng, bỏ chạy. Hai quả trứng nguyên vẹn, ấm.",
+      "effects": {
+       "AGI": 1,
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "lze_first_thief"
+       ]
+      },
+      "moment": "Giành lại hai quả trứng từ tay kẻ trộm"
+     },
+     "fail": {
+      "text": "Hắn chạy nhanh hơn. Một quả trứng vỡ trong lúc giằng co.",
+      "effects": {
+       "joy": -8,
+       "flags": [
+        "lze_first_thief"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Rít lên gọi cả bộ lạc",
+     "text": "Chiến binh đến, kẻ trộm bị bắt. Trứng an toàn. Bạn học được rằng người canh trứng không cần chiến đấu một mình.",
+     "effects": {
+      "jobXp": 2,
+      "flags": [
+       "lze_first_thief"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lze_c2_crossroads",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "lizard_egg",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "lze_path_nest",
+     "lze_path_gold",
+     "lze_path_hatch",
+     "lze_end"
+    ],
+    "flags": [
+     "lze_met_vessith"
+    ]
+   },
+   "text": "Bà Vessith đặt ba quả trứng trước mặt bạn: một quả bùn thường, một quả có vết vàng mờ, và một quả đã nứt, sắp nở.",
+   "choices": [
+    {
+     "label": "Quả bùn thường: Người Giữ Bãi",
+     "text": "Mọi quả trứng đều quý như nhau. Bạn sẽ canh cả bãi, mỗi mùa, không bỏ quả nào.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "lze_path_nest"
+      ]
+     },
+     "moment": "Chọn canh giữ cả bãi trứng của bộ lạc"
+    },
+    {
+     "label": "Quả vết vàng: Người Giữ Huyết Mạch",
+     "text": "Những quả trứng hiếm, mang ma lực, là tương lai của bộ lạc. Bạn sẽ tìm hiểu chúng, và bảo vệ chúng khỏi những kẻ muốn dùng chúng.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "lze_path_gold"
+      ]
+     },
+     "moment": "Chọn giữ những quả trứng hiếm mang ma lực"
+    },
+    {
+     "label": "Quả đã nứt: Người Đỡ Đẻ",
+     "text": "Bạn sẽ ở bên mỗi con non khi chúng phá vỏ, và dạy chúng những ngày đầu tiên. Bà Vessith gật đầu: “Đó là việc ta yêu nhất.”",
+     "effects": {
+      "joy": 4,
+      "jobXp": 2,
+      "flags": [
+       "lze_path_hatch"
+      ]
+     },
+     "moment": "Chọn đỡ đẻ và nuôi dạy những con non mới nở"
+    }
+   ]
+  },
+  {
+   "id": "lze_nest_flood",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "lizard_egg",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lze_path_nest"
+    ],
+    "notFlags": [
+     "lze_end"
+    ]
+   },
+   "text": "Nước từ Dãy Núi Răng Cưa đổ ập xuống đầm. Lũ đang dâng về phía bãi trứng.",
+   "choices": [
+    {
+     "label": "Đắp đê bùn quanh bãi",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn và mười Lizardman đắp đê suốt đêm. Nước dâng đến mép đê, rồi dừng. Không quả trứng nào mất.",
+      "effects": {
+       "STR": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "lze_nest_dike"
+       ]
+      },
+      "moment": "Đắp đê bùn cứu bãi trứng khỏi lũ"
+     },
+     "fail": {
+      "text": "Đê vỡ một góc. Hai mươi quả trứng trôi đi.",
+      "effects": {
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Chuyển trứng lên cây",
+     "text": "Mất cả đêm. Trứng nằm trên cành, quấn trong rêu. Lũ rút, bạn chuyển chúng về. Ba quả không nở.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "lze_nest_fungus",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "lizard_egg",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lze_path_nest"
+    ],
+    "notFlags": [
+     "lze_end"
+    ]
+   },
+   "text": "Dịch nấm trắng từ xác Goblin lan vào bãi ấp. Tộc trưởng ra lệnh trong một ngày phải thanh lọc bãi, kể cả đốt những quả nhiễm.",
+   "choices": [
+    {
+     "label": "Kiểm tra từng quả, chỉ đốt quả nhiễm",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Mất trọn một ngày một đêm. Bạn tìm ra mười hai quả nhiễm trong ba trăm. Những quả còn lại nở đủ.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Bạn bỏ sót vài quả. Nấm lan sang một góc bãi.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Đốt cả góc bãi bị nhiễm",
+     "text": "Nhanh, chắc. Năm mươi quả trứng cháy, trong đó có lẽ chỉ hai mươi quả nhiễm.",
+     "effects": {
+      "joy": -8,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "lze_gold_buyer",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "lizard_egg",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lze_path_gold"
+    ],
+    "notFlags": [
+     "lze_end"
+    ]
+   },
+   "text": "Một học giả từ Tháp Ngà đến, trả cả một rương vàng cho một quả trứng vàng.",
+   "choices": [
+    {
+     "label": "Từ chối",
+     "text": "Hắn bỏ đi, rồi quay lại vào ban đêm với lính đánh thuê. Bạn đã giấu quả trứng ở nơi khác.",
+     "effects": {
+      "jobXp": 3,
+      "flags": [
+       "lze_gold_kept"
+      ]
+     }
+    },
+    {
+     "label": "Hỏi hắn sẽ làm gì với nó",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Hắn nói thật: mổ ra nghiên cứu. Bạn đuổi hắn đi, và từ đó giấu mọi quả trứng vàng ở một bãi bí mật.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "lze_gold_kept",
+        "lze_gold_hidden"
+       ]
+      },
+      "moment": "Lập bãi trứng bí mật cho những quả trứng vàng"
+     },
+     "fail": {
+      "text": "Hắn nói dối, và bạn suýt tin.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "lze_gold_ziss",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "lizard_egg",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lze_path_gold",
+     "lze_met_ziss"
+    ],
+    "notFlags": [
+     "lze_end"
+    ]
+   },
+   "text": "Ziss, con non vảy vàng ngày nào, giờ đã lớn. Ma lực trong nó mạnh lên, và tư tế muốn dùng nó trong lễ hiến tế lớn.",
+   "choices": [
+    {
+     "label": "Giấu Ziss đi",
+     "require": {
+      "flags": [
+       "lze_met_ziss"
+      ]
+     },
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn dẫn Ziss đến bãi trứng bí mật. Tư tế tìm suốt một mùa, rồi bỏ cuộc.",
+      "effects": {
+       "joy": 8,
+       "jobXp": 3,
+       "flags": [
+        "lze_ziss_saved"
+       ]
+      },
+      "moment": "Giấu Ziss khỏi lễ hiến tế lớn"
+     },
+     "fail": {
+      "text": "Tư tế tìm thấy. Nhưng Ziss tự đứng lên trước bộ lạc, và từ chối. Ma lực của nó làm đá tế nứt. Không ai dám động vào nó nữa.",
+      "effects": {
+       "fame": 4,
+       "flags": [
+        "lze_ziss_saved"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Nói chuyện với tư tế",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn thuyết phục được tư tế rằng ma lực của Ziss sẽ có ích khi nó sống hơn khi nó chết.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "lze_ziss_saved"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Tư tế không nghe. Bạn phải giấu Ziss trong đêm.",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "lze_ziss_saved"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "lze_hatch_runt",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "lizard_egg",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lze_path_hatch"
+    ],
+    "notFlags": [
+     "lze_end"
+    ]
+   },
+   "text": "Một con non nở ra yếu ớt, nhỏ bằng nửa những con khác. Theo tục lệ, nó sẽ bị bỏ lại.",
+   "choices": [
+    {
+     "label": "Nuôi nó riêng",
+     "text": "Bạn cho nó ăn bằng tay, giữ nó ấm trong bùn. Nó sống. Nó không bao giờ to như những con khác, nhưng nó là kẻ bơi nhanh nhất bộ lạc.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 3,
+      "flags": [
+       "lze_hatch_runt"
+      ]
+     },
+     "moment": "Nuôi sống con non yếu ớt bị tục lệ bỏ lại"
+    },
+    {
+     "label": "Theo tục lệ",
+     "text": "Bạn đặt nó ở rìa bãi. Đến sáng, nó không còn ở đó.",
+     "effects": {
+      "joy": -8,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "lze_hatch_lesson",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "lizard_egg",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lze_path_hatch"
+    ],
+    "notFlags": [
+     "lze_end"
+    ]
+   },
+   "text": "Lũ con non mới nở muốn biết thế giới ngoài đầm lầy là gì.",
+   "choices": [
+    {
+     "label": "Dạy chúng về Human, Elf, Orc",
+     "text": "Chúng nghe, mắt tròn xoe. Một đứa hỏi: “Họ có nở từ trứng không?” Bạn bật cười.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Dạy chúng nín thở dưới bùn",
+     "text": "Ba trăm nhịp tim. Chúng sẽ cần điều này nhiều hơn mọi câu chuyện.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "lze_c4_vessith",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "lizard_egg",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "lze_met_vessith"
+    ],
+    "notFlags": [
+     "lze_vessith_gone",
+     "lze_end"
+    ],
+    "anyFlags": [
+     "lze_path_nest",
+     "lze_path_gold",
+     "lze_path_hatch"
+    ]
+   },
+   "text": "Bà Vessith không còn đủ sức nằm canh trứng qua đêm. Bà muốn nằm một đêm cuối trong bùn ấm cạnh bãi trứng.",
+   "choices": [
+    {
+     "label": "Nằm cạnh bà đến sáng",
+     "text": "Gần sáng, một quả trứng gõ khẽ. Bà Vessith mỉm cười: “Nó chào ta.” Bà nhắm mắt, và không mở ra nữa. Quả trứng nở lúc mặt trời lên.",
+     "effects": {
+      "joy": -2,
+      "LUCK": 1,
+      "jobXp": 3,
+      "flags": [
+       "lze_vessith_gone"
+      ]
+     },
+     "moment": "Nằm cạnh bà Vessith trong đêm canh trứng cuối cùng của bà"
+    },
+    {
+     "label": "Đắp thêm bùn ấm cho bà",
+     "text": "Bà ngủ, ấm áp, giữa những quả trứng. Bà không thức dậy nữa.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "lze_vessith_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lze_c4_ziss",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "lizard_egg",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "lze_met_ziss"
+    ],
+    "notFlags": [
+     "lze_end"
+    ]
+   },
+   "text": "Ziss đã trưởng thành. Ma lực của nó đủ mạnh để chữa vết thương bằng một cái chạm. Bộ lạc bắt đầu quỳ trước nó.",
+   "choices": [
+    {
+     "label": "Nhắc nó rằng nó cũng từng là một quả trứng",
+     "text": "Ziss cười rít. “Ta nhớ. Ngươi là người đầu tiên ta thấy.” Nó đứng dậy, và bảo bộ lạc thôi quỳ.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 3,
+      "flags": [
+       "lze_ziss_humble"
+      ]
+     },
+     "moment": "Nhắc Ziss rằng nó cũng từng là một quả trứng"
+    },
+    {
+     "label": "Để nó tự tìm đường",
+     "text": "Ziss trở thành một tư tế được kính sợ. Nó không còn đến bãi trứng nữa.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "lze_c5_nest",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "lizard_egg",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "lze_path_nest"
+    ],
+    "notFlags": [
+     "lze_end"
+    ]
+   },
+   "text": "Bạn là Warden of Generation. Bãi trứng của bộ lạc chưa bao giờ đầy như thế.",
+   "choices": [
+    {
+     "label": "Dạy lứa canh trứng mới",
+     "text": "Bạn bắt chúng nằm im trong bùn cả đêm. Đứa đầu tiên nghe thấy tiếng gõ, bạn chọn làm người kế nhiệm.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "lze_end",
+       "lze_end_successor"
+      ]
+     },
+     "moment": "Chọn người canh trứng kế nhiệm"
+    },
+    {
+     "label": "Xây đê đá quanh bãi",
+     "require": {
+      "flags": [
+       "lze_nest_dike"
+      ]
+     },
+     "text": "Đê bùn năm xưa được thay bằng đê đá. Lũ không bao giờ chạm đến bãi trứng nữa.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "lze_end",
+       "lze_end_stone_dike"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lze_c5_gold",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "lizard_egg",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "lze_path_gold"
+    ],
+    "notFlags": [
+     "lze_end"
+    ]
+   },
+   "text": "Bãi trứng bí mật của bạn đã cho ra mười hai con non vảy vàng.",
+   "choices": [
+    {
+     "label": "Công bố bãi trứng cho bộ lạc",
+     "require": {
+      "flags": [
+       "lze_gold_hidden"
+      ]
+     },
+     "text": "Bạn dẫn tộc trưởng đến bãi bí mật. Ông ta nhìn mười hai con non vảy vàng, và ra lệnh: không ai được dùng chúng làm lễ vật. Không bao giờ.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "lze_end",
+       "lze_end_gold_law"
+      ]
+     },
+     "moment": "Công bố bãi trứng vàng và có được luật bảo vệ chúng"
+    },
+    {
+     "label": "Giữ bí mật mãi mãi",
+     "text": "Chỉ bạn và người kế nhiệm biết. Những con non vảy vàng lớn lên lặng lẽ, giữa những con non bình thường.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "lze_end",
+       "lze_end_secret"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lze_c5_hatch",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "lizard_egg",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "lze_path_hatch"
+    ],
+    "notFlags": [
+     "lze_end"
+    ]
+   },
+   "text": "Gần nửa bộ lạc đã được bạn đỡ đẻ. Họ gọi bạn là Mẹ Bùn, như từng gọi bà Vessith.",
+   "choices": [
+    {
+     "label": "Kể cho họ nghe ngày họ nở",
+     "text": "Bạn nhớ từng đứa. Đứa nào cũng muốn nghe chuyện của mình. Bạn kể đến khi khản giọng.",
+     "effects": {
+      "fame": 12,
+      "joy": 18,
+      "flags": [
+       "lze_end",
+       "lze_end_stories"
+      ]
+     },
+     "moment": "Kể cho cả bộ lạc nghe ngày họ phá vỏ"
+    },
+    {
+     "label": "Đi xem đứa non yếu ớt năm xưa bơi",
+     "require": {
+      "flags": [
+       "lze_hatch_runt"
+      ]
+     },
+     "text": "Nó giờ là kẻ bơi nhanh nhất đầm. Nó dạy lũ non bơi, và nói với chúng rằng nó từng bị bỏ lại.",
+     "effects": {
+      "fame": 10,
+      "joy": 15,
+      "flags": [
+       "lze_end",
+       "lze_end_runt"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lze_daily_tap",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "lizard_egg",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một quả trứng gõ khẽ dưới tay bạn.",
+   "choices": [
+    {
+     "label": "Gõ lại",
+     "text": "Nó gõ đáp. Bạn mỉm cười cả ngày.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Áp tai nghe",
+     "text": "Tim nó đập nhanh, khỏe. Mùa này sẽ tốt.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "lze_daily_war",
+   "races": [
+    "lizardman"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "lizard_egg",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Bộ lạc cần mọi chiến binh, kể cả người canh trứng.",
+   "choices": [
+    {
+     "label": "Ở lại bãi trứng",
+     "text": "Chiến binh nhìn bạn khinh bỉ. Nhưng không quả trứng nào mất.",
+     "effects": {
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Ra trận, giao bãi cho người già",
+     "text": "Bạn trở về với vết thương. Bãi trứng vẫn an toàn.",
+     "effects": {
+      "health": -5,
+      "fame": 3,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "lze_daily_old",
+   "races": [
+    "lizardman"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "lizard_egg",
+    "free": true
+   },
+   "text": "Bạn không còn nằm được cả đêm trong bùn.",
+   "choices": [
+    {
+     "label": "Nằm nửa đêm, để học trò nằm nửa kia",
+     "text": "Hai người chia nhau một đêm canh. Bạn kể chuyện, nó nghe tiếng gõ.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Ngồi trên đá cạnh bãi",
+     "text": "Bạn ngồi đó mỗi ngày, nhìn trứng, nhìn con non. Đủ.",
+     "effects": {
+      "joy": 8
+     }
+    }
+   ]
+  },
+  {
+   "id": "lze_c5_nest_late",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "lizard_egg",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "lze_path_nest"
+    ],
+    "notFlags": [
+     "lze_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Warden of Generation. Bãi trứng của bộ lạc chưa bao giờ đầy như thế.",
+   "choices": [
+    {
+     "label": "Dạy lứa canh trứng mới",
+     "text": "Bạn bắt chúng nằm im trong bùn cả đêm. Đứa đầu tiên nghe thấy tiếng gõ, bạn chọn làm người kế nhiệm.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "lze_end",
+       "lze_end_successor"
+      ]
+     },
+     "moment": "Chọn người canh trứng kế nhiệm"
+    },
+    {
+     "label": "Xây đê đá quanh bãi",
+     "require": {
+      "flags": [
+       "lze_nest_dike"
+      ]
+     },
+     "text": "Đê bùn năm xưa được thay bằng đê đá. Lũ không bao giờ chạm đến bãi trứng nữa.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "lze_end",
+       "lze_end_stone_dike"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "lze_c5_gold_late",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "lizard_egg",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "lze_path_gold"
+    ],
+    "notFlags": [
+     "lze_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bãi trứng bí mật của bạn đã cho ra mười hai con non vảy vàng.",
+   "choices": [
+    {
+     "label": "Công bố bãi trứng cho bộ lạc",
+     "require": {
+      "flags": [
+       "lze_gold_hidden"
+      ]
+     },
+     "text": "Bạn dẫn tộc trưởng đến bãi bí mật. Ông ta nhìn mười hai con non vảy vàng, và ra lệnh: không ai được dùng chúng làm lễ vật. Không bao giờ.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "lze_end",
+       "lze_end_gold_law"
+      ]
+     },
+     "moment": "Công bố bãi trứng vàng và có được luật bảo vệ chúng"
+    },
+    {
+     "label": "Giữ bí mật mãi mãi",
+     "text": "Chỉ bạn và người kế nhiệm biết. Những con non vảy vàng lớn lên lặng lẽ, giữa những con non bình thường.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "lze_end",
+       "lze_end_secret"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "lze_c5_hatch_late",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "lizard_egg",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "lze_path_hatch"
+    ],
+    "notFlags": [
+     "lze_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Gần nửa bộ lạc đã được bạn đỡ đẻ. Họ gọi bạn là Mẹ Bùn, như từng gọi bà Vessith.",
+   "choices": [
+    {
+     "label": "Kể cho họ nghe ngày họ nở",
+     "text": "Bạn nhớ từng đứa. Đứa nào cũng muốn nghe chuyện của mình. Bạn kể đến khi khản giọng.",
+     "effects": {
+      "fame": 12,
+      "joy": 18,
+      "flags": [
+       "lze_end",
+       "lze_end_stories"
+      ]
+     },
+     "moment": "Kể cho cả bộ lạc nghe ngày họ phá vỏ"
+    },
+    {
+     "label": "Đi xem đứa non yếu ớt năm xưa bơi",
+     "require": {
+      "flags": [
+       "lze_hatch_runt"
+      ]
+     },
+     "text": "Nó giờ là kẻ bơi nhanh nhất đầm. Nó dạy lũ non bơi, và nói với chúng rằng nó từng bị bỏ lại.",
+     "effects": {
+      "fame": 10,
+      "joy": 15,
+      "flags": [
+       "lze_end",
+       "lze_end_runt"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}

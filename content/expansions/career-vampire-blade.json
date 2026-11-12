@@ -1,0 +1,1047 @@
+{
+ "_note": "Tuyến truyện Night Blade (Vampire): ba đạo (vpb_path_umbra / vpb_path_hunter / vpb_path_shield), nhân vật xuyên suốt Corvane Lưỡi Bạc (sát thủ Vampire cổ) và Sơ Agnes (nữ tu Human).",
+ "origins": [],
+ "events": [
+  {
+   "id": "vpb_c1_corvane",
+   "races": [
+    "vampire"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "vampire_blade",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "vpb_met_corvane"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Corvane Lưỡi Bạc",
+     "race": "Vampire",
+     "position": "Sát thủ Vampire cổ đã giết bảy vị vua"
+    }
+   ],
+   "text": "Corvane Lưỡi Bạc đã giết bảy vị vua. Anh ta dạy bạn trên mái nhà dưới trăng: “Huyết Tộc không cần dao. Nhưng dao không để lại vết răng. Và vết răng thì kể chuyện.”",
+   "choices": [
+    {
+     "label": "Học dùng dao",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Đến sáng, bạn ném trúng một ngọn nến cách năm mươi bước. Corvane gật đầu: “Giờ học cách không ném.”",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 1,
+       "flags": [
+        "vpb_met_corvane",
+        "vpb_corvane_respect"
+       ]
+      },
+      "moment": "Ném dao trúng ngọn nến cách năm mươi bước dưới sự chỉ dạy của Corvane"
+     },
+     "fail": {
+      "text": "Dao rơi xuống phố. Corvane thở dài: “Một vết dao trên đường phố cũng kể chuyện.”",
+      "effects": {
+       "flags": [
+        "vpb_met_corvane"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi anh ta vì sao giết vua",
+     "text": "Anh ta im lặng. “Vì họ trả. Và vì có người không trả.” Anh ta chỉ về phía khu ổ chuột. “Ta chọn ai để không giết.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "vpb_met_corvane",
+       "vpb_corvane_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpb_c2_first_target",
+   "races": [
+    "vampire"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "vampire_blade",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "flags": [
+     "vpb_met_corvane"
+    ],
+    "notFlags": [
+     "vpb_first_target",
+     "vpb_end"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Sơ Agnes",
+     "race": "Human",
+     "position": "Nữ tu chăm trẻ mồ côi ở khu ổ chuột"
+    }
+   ],
+   "text": "Umbra Assassins' Guild giao mục tiêu đầu tiên: một nữ tu trẻ, Sơ Agnes. Không ai giải thích vì sao.",
+   "choices": [
+    {
+     "label": "Theo dõi cô trước",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Cô chăm sóc trẻ mồ côi, chữa bệnh miễn phí. Kẻ thuê là một Giám mục, người cô đã tố cáo tham nhũng. Bạn quay lại Guild với tên Giám mục.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 2,
+       "flags": [
+        "vpb_first_target",
+        "vpb_met_agnes",
+        "vpb_agnes_spared"
+       ]
+      },
+      "moment": "Phát hiện mục tiêu đầu tiên là nữ tu vô tội và lật ngược hợp đồng"
+     },
+     "fail": {
+      "text": "Bạn theo dõi cô, nhưng không hiểu vì sao cô bị nhắm. Bạn trả hợp đồng lại cho Guild.",
+      "effects": {
+       "jobXp": 1,
+       "flags": [
+        "vpb_first_target",
+        "vpb_met_agnes"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Làm nhanh",
+     "text": "Gọn. Không vết răng. Ba ngày sau, bạn nghe cả khu ổ chuột khóc. Corvane không nói chuyện với bạn suốt một tháng.",
+     "effects": {
+      "wealth": 10,
+      "joy": -12,
+      "jobXp": 2,
+      "flags": [
+       "vpb_first_target"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpb_c2_crossroads",
+   "races": [
+    "vampire"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "vampire_blade",
+    "free": true,
+    "jobRank": 1,
+    "flags": [
+     "vpb_met_corvane"
+    ],
+    "notFlags": [
+     "vpb_path_umbra",
+     "vpb_path_hunter",
+     "vpb_path_shield",
+     "vpb_end"
+    ]
+   },
+   "text": "Corvane đưa bạn ba con dao: một con khắc dấu Umbra, một con bạc của thợ săn tà vật, và một con không có dấu gì.",
+   "choices": [
+    {
+     "label": "Dấu Umbra: Lưỡi Dao Của Hội",
+     "text": "Bạn sẽ là sát thủ của Umbra, chọn hợp đồng, và chọn không nhận hợp đồng nào.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 2,
+      "flags": [
+       "vpb_path_umbra"
+      ]
+     },
+     "moment": "Nhận con dao khắc dấu Umbra"
+    },
+    {
+     "label": "Dao bạc: Kẻ Săn Đồng Loại",
+     "text": "Bạn sẽ săn những Huyết Tộc đã mất kiểm soát, những kẻ giết vì khát chứ không vì cần.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "vpb_path_hunter"
+      ]
+     },
+     "moment": "Nhận con dao bạc, chọn săn những Huyết Tộc mất kiểm soát"
+    },
+    {
+     "label": "Dao không dấu: Cái Bóng Che Chở",
+     "text": "Bạn sẽ không giết theo hợp đồng. Bạn sẽ bảo vệ những người bị nhắm đến, trong bóng tối, không ai biết.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "vpb_path_shield"
+      ]
+     },
+     "moment": "Nhận con dao không dấu, chọn che chở trong bóng tối"
+    }
+   ]
+  },
+  {
+   "id": "vpb_umbra_betray",
+   "races": [
+    "vampire"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "vampire_blade",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vpb_path_umbra"
+    ],
+    "notFlags": [
+     "vpb_end"
+    ]
+   },
+   "text": "Kẻ thuê bạn ám sát một quý tộc Human thực chất đã bán bạn cho Giáo hội. Khi bạn đến, Inquisitor chờ sẵn.",
+   "choices": [
+    {
+     "label": "Thoát bằng mái nhà",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn biến mất trong sương đêm. Ba ngày sau, kẻ thuê được tìm thấy, không vết răng, với hợp đồng gốc nhét trong miệng.",
+      "effects": {
+       "AGI": 1,
+       "fame": 8,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Nước thánh bắn trúng vai bạn. Bạn thoát, nhưng mất một thế kỷ để lành.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Đầu hàng, đợi đêm",
+     "text": "Họ giam bạn trong hầm, chờ bình minh. Bạn trốn trước khi trời sáng. Họ không hiểu bằng cách nào.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpb_umbra_elf",
+   "races": [
+    "vampire"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "vampire_blade",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vpb_path_umbra"
+    ],
+    "notFlags": [
+     "vpb_end"
+    ]
+   },
+   "text": "Một sát thủ High Elf khét tiếng chặn đường bạn trên mái nhà, khinh bỉ: “Ngươi giết bằng răng. Ta giết bằng nghệ thuật.”",
+   "choices": [
+    {
+     "label": "Đấu",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Hai bóng đen trên mái nhà đến tận bình minh. Bạn thắng, sát nút, và để hắn sống. Hắn cúi đầu: “Nghệ thuật.”",
+      "effects": {
+       "AGI": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "vpb_umbra_elf"
+       ]
+      },
+      "moment": "Thắng sát thủ High Elf trên mái nhà và để hắn sống"
+     },
+     "fail": {
+      "text": "Hắn nhanh hơn. Bạn rơi xuống phố, gãy cánh tay. Nó lành, chậm.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Bỏ đi",
+     "text": "Hắn cười theo bạn. Một trăm năm sau, bạn gặp lại hắn. Hắn già. Bạn không.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpb_hunter_feral",
+   "races": [
+    "vampire"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "vampire_blade",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vpb_path_hunter"
+    ],
+    "notFlags": [
+     "vpb_end"
+    ]
+   },
+   "text": "Một Huyết Tộc trẻ mất kiểm soát, đã giết mười người trong một làng. Hắn là con của một gia tộc quyền lực.",
+   "choices": [
+    {
+     "label": "Săn hắn",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn tìm thấy hắn trong hầm nhà thờ, máu đầy miệng, khóc. Bạn kết thúc nhanh. Gia tộc hắn thề trả thù. Làng không mất thêm ai.",
+      "effects": {
+       "STR": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "vpb_hunter_feral"
+       ]
+      },
+      "moment": "Săn kẻ Huyết Tộc mất kiểm soát đã giết mười người"
+     },
+     "fail": {
+      "text": "Hắn trốn thoát. Làng bên cạnh mất năm người.",
+      "effects": {
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Bắt sống, mang về cho gia tộc hắn xử",
+     "text": "Gia tộc hắn nhốt hắn một nghìn năm. Có lẽ đó là cái chết chậm hơn.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpb_hunter_starve",
+   "races": [
+    "vampire"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "vampire_blade",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vpb_path_hunter"
+    ],
+    "notFlags": [
+     "vpb_end"
+    ]
+   },
+   "text": "Bão tuyết kỷ lục. Không một sinh vật sống nào đi qua lãnh địa của bạn suốt ba tháng. Cơn khát bắt đầu làm bạn mất kiểm soát.",
+   "choices": [
+    {
+     "label": "Tự xích mình trong hầm",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Ba tháng trong xích. Khi tuyết tan, bạn vẫn là bạn. Bạn hiểu những kẻ mình săn hơn bao giờ hết.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Xích gãy vào tuần thứ mười. Bạn tỉnh dậy ở một trang trại, bên xác ba con bò. May mắn, chỉ là bò.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    },
+    {
+     "label": "Ra ngoài săn thú hoang",
+     "text": "Máu thú hoang nhạt, lạnh. Đủ để sống.",
+     "effects": {
+      "health": -5,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpb_shield_target",
+   "races": [
+    "vampire"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "vampire_blade",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vpb_path_shield"
+    ],
+    "notFlags": [
+     "vpb_end"
+    ]
+   },
+   "text": "Bạn biết Umbra vừa nhận hợp đồng giết một thẩm phán trung thực. Bạn không có hợp đồng nào cả.",
+   "choices": [
+    {
+     "label": "Canh giữ ông ta trong bóng tối",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Ba sát thủ đến trong ba đêm. Không ai đến được giường ông. Ông sống đến già, không bao giờ biết.",
+      "effects": {
+       "AGI": 1,
+       "fame": 4,
+       "jobXp": 3,
+       "flags": [
+        "vpb_shield_judge"
+       ]
+      },
+      "moment": "Canh giữ một thẩm phán trung thực khỏi ba sát thủ mà ông không hề biết"
+     },
+     "fail": {
+      "text": "Sát thủ thứ ba lọt qua. Ông sống, nhưng bị thương nặng.",
+      "effects": {
+       "health": -10
+      }
+     }
+    },
+    {
+     "label": "Cảnh báo ông ta bằng một lá thư",
+     "text": "Ông rời thành phố trong đêm. Sống, nhưng mất mọi thứ.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpb_shield_trap",
+   "races": [
+    "vampire"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "vampire_blade",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vpb_path_shield"
+    ],
+    "notFlags": [
+     "vpb_end"
+    ]
+   },
+   "text": "Đột nhập hầm Order of Holy Knights để cứu một tù nhân, bạn dẫm phải trận pháp áp chế.",
+   "choices": [
+    {
+     "label": "Phá trận pháp bằng sức",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Trận pháp vỡ. Bạn mang tù nhân ra. Da bạn cháy xém, nhưng lành.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Trận pháp giữ bạn đến bình minh. Bạn thoát bằng cách đào xuống đất.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Bảo tù nhân chạy trước",
+     "text": "Tù nhân chạy. Bạn ở lại trong trận pháp, chờ đêm. Kỵ sĩ không dám vào hầm vì sợ bạn. Đêm xuống, bạn đi.",
+     "effects": {
+      "health": -8,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpb_c4_corvane",
+   "races": [
+    "vampire"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "vampire_blade",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "vpb_met_corvane"
+    ],
+    "notFlags": [
+     "vpb_corvane_gone",
+     "vpb_end"
+    ],
+    "anyFlags": [
+     "vpb_path_umbra",
+     "vpb_path_hunter",
+     "vpb_path_shield"
+    ]
+   },
+   "text": "Corvane bị Giáo hội bắt. Họ sẽ thiêu anh ta lúc bình minh, giữa quảng trường.",
+   "choices": [
+    {
+     "label": "Cứu anh ta",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn lao qua đám đông khi trời còn tối, cắt xích. Hai người biến mất. Corvane sống thêm ba trăm năm, rồi chọn đi vào bình minh, ở một nơi chỉ bạn biết.",
+      "effects": {
+       "AGI": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "vpb_corvane_gone",
+        "vpb_corvane_saved"
+       ]
+      },
+      "moment": "Cứu Corvane khỏi giàn thiêu giữa quảng trường"
+     },
+     "fail": {
+      "text": "Bạn đến muộn. Trời đã sáng. Bạn đứng trong bóng tối một con hẻm, nhìn.",
+      "effects": {
+       "joy": -14,
+       "flags": [
+        "vpb_corvane_gone"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Tôn trọng lời anh ta từng dặn",
+     "text": "Anh ta từng nói: “Đừng bao giờ cứu ta.” Bạn đứng xa, nhìn. Anh ta nhìn thấy bạn trong đám đông, và mỉm cười.",
+     "effects": {
+      "joy": -10,
+      "jobXp": 3,
+      "flags": [
+       "vpb_corvane_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpb_c4_agnes",
+   "races": [
+    "vampire"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "vampire_blade",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "vpb_met_agnes"
+    ],
+    "notFlags": [
+     "vpb_agnes_gone",
+     "vpb_end"
+    ]
+   },
+   "text": "Sơ Agnes đã già, sắp chết. Cô cho người gửi lời: cô muốn gặp cái bóng đã che chở cô suốt đời.",
+   "choices": [
+    {
+     "label": "Đến gặp",
+     "require": {
+      "flags": [
+       "vpb_agnes_spared"
+      ]
+     },
+     "text": "Cô nhìn bạn, không sợ. “Ta biết có ai đó. Ta không biết là một Huyết Tộc.” Cô cười. “Chúa có khiếu hài hước.” Cô mất trong đêm, tay trong tay bạn.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 3,
+      "flags": [
+       "vpb_agnes_gone"
+      ]
+     },
+     "moment": "Gặp Sơ Agnes lần đầu và cuối, người đã được bạn che chở cả đời"
+    },
+    {
+     "label": "Không đến",
+     "text": "Cô mất mà không biết. Bạn đứng ngoài cửa sổ.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "vpb_agnes_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpb_c5_umbra",
+   "races": [
+    "vampire"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "vampire_blade",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "vpb_path_umbra"
+    ],
+    "notFlags": [
+     "vpb_end"
+    ]
+   },
+   "text": "Bạn là Night Lord của Umbra Assassins' Guild.",
+   "choices": [
+    {
+     "label": "Đặt luật mới cho Hội",
+     "require": {
+      "flags": [
+       "vpb_umbra_elf"
+      ]
+     },
+     "text": "Hội không nhận hợp đồng giết người vô tội. Gã High Elf năm xưa, giờ đã già, là người đầu tiên ký vào luật.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "vpb_end",
+       "vpb_end_law"
+      ]
+     },
+     "moment": "Đặt luật cấm giết người vô tội cho Umbra Assassins' Guild"
+    },
+    {
+     "label": "Biến mất",
+     "text": "Một ngày, Night Lord không xuất hiện. Hội chờ một trăm năm. Rồi họ hiểu.",
+     "effects": {
+      "fame": 12,
+      "joy": 8,
+      "flags": [
+       "vpb_end",
+       "vpb_end_vanish"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpb_c5_hunter",
+   "races": [
+    "vampire"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "vampire_blade",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "vpb_path_hunter"
+    ],
+    "notFlags": [
+     "vpb_end"
+    ]
+   },
+   "text": "Bạn là Night Lord, kẻ mà mọi Huyết Tộc mất kiểm soát đều sợ.",
+   "choices": [
+    {
+     "label": "Lập hội săn đồng loại",
+     "require": {
+      "flags": [
+       "vpb_hunter_feral"
+      ]
+     },
+     "text": "Mười Huyết Tộc, mỗi người một vùng. Khi một kẻ mất kiểm soát, hội đến trước Giáo hội. Ít người chết hơn. Ít Huyết Tộc bị thiêu hơn.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "vpb_end",
+       "vpb_end_order"
+      ]
+     },
+     "moment": "Lập hội Huyết Tộc săn những đồng loại mất kiểm soát"
+    },
+    {
+     "label": "Săn đến kẻ cuối cùng",
+     "text": "Một đêm, kẻ mất kiểm soát cuối cùng mà bạn săn là chính bạn. Bạn biết khi nào phải dừng.",
+     "effects": {
+      "fame": 12,
+      "joy": 4,
+      "flags": [
+       "vpb_end",
+       "vpb_end_self"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpb_c5_shield",
+   "races": [
+    "vampire"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "vampire_blade",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "vpb_path_shield"
+    ],
+    "notFlags": [
+     "vpb_end"
+    ]
+   },
+   "text": "Bạn là Night Lord, nhưng không ai biết. Hàng trăm người sống nhờ bạn, và không ai biết.",
+   "choices": [
+    {
+     "label": "Tiếp tục canh giữ",
+     "require": {
+      "flags": [
+       "vpb_shield_judge"
+      ]
+     },
+     "text": "Thẩm phán, nữ tu, nhà văn, những người nói thật. Bạn canh họ, từng thế hệ. Không ai biết. Như thế là đủ.",
+     "effects": {
+      "fame": 8,
+      "joy": 18,
+      "flags": [
+       "vpb_end",
+       "vpb_end_watch"
+      ]
+     },
+     "moment": "Tiếp tục canh giữ những người nói thật, không ai biết"
+    },
+    {
+     "label": "Để lại con dao không dấu cho người kế nhiệm",
+     "text": "Một Huyết Tộc trẻ nhận con dao. Bạn dạy nó điều đầu tiên: chọn ai để không giết.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "vpb_end",
+       "vpb_end_heir"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpb_daily_roof",
+   "races": [
+    "vampire"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "vampire_blade",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một đêm trăng tròn, bạn ngồi trên mái nhà cao nhất thành phố.",
+   "choices": [
+    {
+     "label": "Ngồi đến gần sáng",
+     "text": "Thành phố ngủ dưới chân bạn.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Đi săn",
+     "text": "Một tên trộm, hai tên say. Không ai chết.",
+     "effects": {
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpb_daily_war",
+   "races": [
+    "vampire"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "vampire_blade",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Hợp đồng ám sát nhiều như lá rụng.",
+   "choices": [
+    {
+     "label": "Nhận hợp đồng tướng địch",
+     "text": "Một tướng ít hơn. Chiến tranh ngắn hơn một chút.",
+     "effects": {
+      "wealth": 8,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Không nhận gì",
+     "text": "Chiến tranh tự nó đủ chết chóc rồi.",
+     "effects": {
+      "joy": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpb_daily_old",
+   "races": [
+    "vampire"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "vampire_blade",
+    "free": true
+   },
+   "text": "Bạn đã giết quá nhiều, và cứu cũng quá nhiều. Bạn không còn đếm.",
+   "choices": [
+    {
+     "label": "Đếm lại",
+     "text": "Bạn không nhớ hết. Bạn nhớ những khuôn mặt cứu được rõ hơn.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Treo dao",
+     "text": "Bạn đặt con dao lên kệ. Nó nằm đó, một thế kỷ.",
+     "effects": {
+      "joy": 8
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpb_c5_umbra_late",
+   "races": [
+    "vampire"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "vampire_blade",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "vpb_path_umbra"
+    ],
+    "notFlags": [
+     "vpb_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Night Lord của Umbra Assassins' Guild.",
+   "choices": [
+    {
+     "label": "Đặt luật mới cho Hội",
+     "require": {
+      "flags": [
+       "vpb_umbra_elf"
+      ]
+     },
+     "text": "Hội không nhận hợp đồng giết người vô tội. Gã High Elf năm xưa, giờ đã già, là người đầu tiên ký vào luật.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "vpb_end",
+       "vpb_end_law"
+      ]
+     },
+     "moment": "Đặt luật cấm giết người vô tội cho Umbra Assassins' Guild"
+    },
+    {
+     "label": "Biến mất",
+     "text": "Một ngày, Night Lord không xuất hiện. Hội chờ một trăm năm. Rồi họ hiểu.",
+     "effects": {
+      "fame": 12,
+      "joy": 8,
+      "flags": [
+       "vpb_end",
+       "vpb_end_vanish"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "vpb_c5_hunter_late",
+   "races": [
+    "vampire"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "vampire_blade",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "vpb_path_hunter"
+    ],
+    "notFlags": [
+     "vpb_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Night Lord, kẻ mà mọi Huyết Tộc mất kiểm soát đều sợ.",
+   "choices": [
+    {
+     "label": "Lập hội săn đồng loại",
+     "require": {
+      "flags": [
+       "vpb_hunter_feral"
+      ]
+     },
+     "text": "Mười Huyết Tộc, mỗi người một vùng. Khi một kẻ mất kiểm soát, hội đến trước Giáo hội. Ít người chết hơn. Ít Huyết Tộc bị thiêu hơn.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "vpb_end",
+       "vpb_end_order"
+      ]
+     },
+     "moment": "Lập hội Huyết Tộc săn những đồng loại mất kiểm soát"
+    },
+    {
+     "label": "Săn đến kẻ cuối cùng",
+     "text": "Một đêm, kẻ mất kiểm soát cuối cùng mà bạn săn là chính bạn. Bạn biết khi nào phải dừng.",
+     "effects": {
+      "fame": 12,
+      "joy": 4,
+      "flags": [
+       "vpb_end",
+       "vpb_end_self"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "vpb_c5_shield_late",
+   "races": [
+    "vampire"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "vampire_blade",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "vpb_path_shield"
+    ],
+    "notFlags": [
+     "vpb_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Night Lord, nhưng không ai biết. Hàng trăm người sống nhờ bạn, và không ai biết.",
+   "choices": [
+    {
+     "label": "Tiếp tục canh giữ",
+     "require": {
+      "flags": [
+       "vpb_shield_judge"
+      ]
+     },
+     "text": "Thẩm phán, nữ tu, nhà văn, những người nói thật. Bạn canh họ, từng thế hệ. Không ai biết. Như thế là đủ.",
+     "effects": {
+      "fame": 8,
+      "joy": 18,
+      "flags": [
+       "vpb_end",
+       "vpb_end_watch"
+      ]
+     },
+     "moment": "Tiếp tục canh giữ những người nói thật, không ai biết"
+    },
+    {
+     "label": "Để lại con dao không dấu cho người kế nhiệm",
+     "text": "Một Huyết Tộc trẻ nhận con dao. Bạn dạy nó điều đầu tiên: chọn ai để không giết.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "vpb_end",
+       "vpb_end_heir"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}

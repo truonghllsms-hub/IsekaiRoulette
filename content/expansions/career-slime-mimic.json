@@ -1,0 +1,1134 @@
+{
+ "_note": "Tuyến truyện Mimic Slime: ba đạo (slx_path_hunter / slx_path_mask / slx_path_self), nhân vật xuyên suốt Rương Già (Mimic cổ xưa) và Corin (đạo chích Human).",
+ "origins": [],
+ "events": [
+  {
+   "id": "slx_c1_chest",
+   "races": [
+    "slime"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "slime_mimic",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "slx_met_chest"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Rương Già",
+     "race": "Slime",
+     "position": "Mimic sống lâu nhất hầm ngục"
+    }
+   ],
+   "text": "Trong hầm ngục có một chiếc rương gỗ cổ mà mạo hiểm giả nào cũng tránh. Nó là Rương Già, Mimic sống lâu nhất hầm ngục. Nó hé nắp, nói bằng tiếng gỗ kêu cót két: “Nhóc nhầy. Ngươi muốn học làm rương?”",
+   "choices": [
+    {
+     "label": "Học",
+     "check": {
+      "stat": "INT",
+      "target": 4
+     },
+     "success": {
+      "text": "Rương Già dạy bạn: rương giả phải có vết xước, có bụi, có một góc mục. “Rương hoàn hảo là rương đáng ngờ.” Bạn tập suốt một tuần, và lần đầu tiên, một con chuột tưởng bạn là rương thật.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "slx_met_chest",
+        "slx_chest_respect"
+       ]
+      },
+      "moment": "Học làm rương giả từ Rương Già"
+     },
+     "fail": {
+      "text": "Bạn biến thành một chiếc rương hoàn hảo, sáng bóng. Rương Già cót két cười: “Không ai tin một chiếc rương sạch như thế trong hầm ngục.”",
+      "effects": {
+       "flags": [
+        "slx_met_chest"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi nó vì sao chưa ai ăn được nó",
+     "text": "Rương Già im lặng. “Vì ta không ăn ai. Ta chỉ dọa. Kẻ bị dọa thì sống, và kể cho người khác. Kẻ bị ăn thì không kể được.”",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "slx_met_chest",
+       "slx_chest_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slx_c1_corin",
+   "races": [
+    "slime"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "slime_mimic",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "slx_met_chest"
+    ],
+    "notFlags": [
+     "slx_met_corin"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Corin",
+     "race": "Human",
+     "position": "Đạo chích nghèo mò đồ trong hầm ngục"
+    }
+   ],
+   "text": "Corin là một đạo chích Human gầy gò, nghèo, đến hầm ngục mỗi tuần để mò những gì mạo hiểm giả bỏ lại. Hôm nay hắn mở nắp bạn, đang giả làm rương.",
+   "choices": [
+    {
+     "label": "Không cắn, để hắn mở",
+     "text": "Hắn mở nắp, thấy bạn, hét lên, ngã ngửa. Rồi hắn thấy bạn không cắn. Hắn ngồi dậy, lau mồ hôi, và cười: “Ngươi suýt làm ta chết vì sợ.” Hắn để lại cho bạn nửa ổ bánh.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1,
+      "flags": [
+       "slx_met_corin",
+       "slx_corin_friend"
+      ]
+     },
+     "moment": "Không cắn đạo chích Corin khi hắn mở nắp"
+    },
+    {
+     "label": "Cắn nhẹ cho hắn sợ",
+     "text": "Hắn chạy, bỏ cả túi đồ. Tuần sau hắn quay lại, cầm gậy chọc vào mọi chiếc rương. Bạn thấy hơi tội hắn.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "slx_met_corin"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slx_c2_first_disguise",
+   "races": [
+    "slime"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "slime_mimic",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "flags": [
+     "slx_met_chest"
+    ],
+    "notFlags": [
+     "slx_first_disguise",
+     "slx_end"
+    ]
+   },
+   "text": "Một Ranger cựu binh bước vào phòng, nhìn bạn, đang giả làm rương. Lão lắc đầu: “Rương gì mà không có khóa.”",
+   "choices": [
+    {
+     "label": "Mọc ra một cái khóa",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Khóa mọc ra, gỉ, xấu xí, hoàn hảo. Lão Ranger nhún vai, đi qua. Rương Già, ở góc phòng, cót két tán thưởng.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 2,
+       "flags": [
+        "slx_first_disguise"
+       ]
+      },
+      "moment": "Mọc khóa kịp lúc để qua mặt một Ranger cựu binh"
+     },
+     "fail": {
+      "text": "Khóa mọc ra ở phía sau. Lão Ranger bật cười, ném một hòn đá vào bạn, rồi đi.",
+      "effects": {
+       "flags": [
+        "slx_first_disguise"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Bỏ chạy",
+     "text": "Lão Ranger không đuổi. “Mimic con,” lão lẩm bẩm. “Còn học nhiều.”",
+     "effects": {
+      "jobXp": 2,
+      "flags": [
+       "slx_first_disguise"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slx_c2_crossroads",
+   "races": [
+    "slime"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "slime_mimic",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "slx_path_hunter",
+     "slx_path_mask",
+     "slx_path_self",
+     "slx_end"
+    ],
+    "flags": [
+     "slx_met_chest"
+    ]
+   },
+   "text": "Rương Già mở nắp, bên trong có ba thứ: một chiếc răng nanh Mimic, một chiếc mặt nạ người bằng bạc, và một tấm gương vỡ.",
+   "choices": [
+    {
+     "label": "Răng nanh: Mimic Săn Mồi",
+     "text": "Bạn sẽ là Mimic đúng nghĩa: chờ, dụ, và ăn. Rương Già khép nắp, không nói gì.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "slx_path_hunter"
+      ]
+     },
+     "moment": "Chọn làm Mimic săn mồi"
+    },
+    {
+     "label": "Mặt nạ bạc: Kẻ Đội Lốt",
+     "text": "Bạn sẽ học cách giả làm người: mặt, giọng, dáng đi. Một ngày nào đó, bạn có thể đi giữa chợ mà không ai biết.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "slx_path_mask"
+      ]
+     },
+     "moment": "Chọn học giả làm người"
+    },
+    {
+     "label": "Tấm gương vỡ: Kẻ Tìm Mình",
+     "text": "Bạn đã giả làm mọi thứ. Nhưng bạn là gì? Rương Già cót két: “Câu hỏi nguy hiểm nhất cho một Mimic.”",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "slx_path_self"
+      ]
+     },
+     "moment": "Chọn đi tìm hình dạng thật của chính mình"
+    }
+   ]
+  },
+  {
+   "id": "slx_hunter_thief",
+   "races": [
+    "slime"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "slime_mimic",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slx_path_hunter",
+     "slx_met_corin"
+    ],
+    "notFlags": [
+     "slx_end"
+    ]
+   },
+   "text": "Một tên đạo chích lén lút vào hầm. Hắn không phải Corin. Hắn mang theo đầu một Mimic khác, để bán.",
+   "choices": [
+    {
+     "label": "Dụ hắn lại gần",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Hắn mở nắp bạn. Đó là điều cuối cùng hắn làm. Đầu Mimic kia được bạn chôn ở góc hầm.",
+      "effects": {
+       "AGI": 1,
+       "fame": 6,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Hắn nghi ngờ, chọc gậy trước. Bạn phải lộ diện. Hắn chạy.",
+      "effects": {
+       "jobXp": 2
+      }
+     }
+    },
+    {
+     "label": "Dọa hắn chạy",
+     "text": "Bạn mở nắp, gầm lên. Hắn chạy, vứt cả đầu Mimic. Rương Già, ở góc phòng, gật gù.",
+     "effects": {
+      "jobXp": 3,
+      "flags": [
+       "slx_hunter_scare"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slx_hunter_true",
+   "races": [
+    "slime"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "slime_mimic",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slx_path_hunter"
+    ],
+    "notFlags": [
+     "slx_end"
+    ]
+   },
+   "text": "Một Mimic thực thụ, một con Nhện Gỗ, nhắm tới bạn, tưởng bạn là rương thật.",
+   "choices": [
+    {
+     "label": "Để nó lại gần, rồi lộ diện",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Hai Mimic nhìn nhau. Nó lùi lại, xấu hổ. Từ đó, nó tránh phòng của bạn.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Nó cắn trước. Bạn thoát được, mất một miếng.",
+      "effects": {
+       "health": -8
+      }
+     }
+    },
+    {
+     "label": "Đề nghị chia phòng",
+     "text": "Hai Mimic, một phòng, hai chiếc rương. Mạo hiểm giả không biết mở cái nào. Tỷ lệ thành công tăng gấp đôi.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slx_mask_market",
+   "races": [
+    "slime"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "slime_mimic",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slx_path_mask"
+    ],
+    "notFlags": [
+     "slx_end"
+    ]
+   },
+   "text": "Lần đầu tiên, bạn giả làm một bà già Human, đi vào chợ.",
+   "choices": [
+    {
+     "label": "Mua một ổ bánh",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Người bán bánh không nhận ra gì. Bà ta còn cho thêm một cái bánh vì thấy bà già gầy quá. Bạn về hầm, run rẩy vì vui.",
+      "effects": {
+       "INT": 1,
+       "joy": 8,
+       "jobXp": 3,
+       "flags": [
+        "slx_mask_market"
+       ]
+      },
+      "moment": "Lần đầu giả làm người và mua được ổ bánh ở chợ"
+     },
+     "fail": {
+      "text": "Tay bạn chảy nhão ra khi cầm tiền. Người bán hét lên. Bạn chạy.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    },
+    {
+     "label": "Chỉ đi một vòng rồi về",
+     "text": "Không ai nhìn bạn hai lần. Bạn thấy mình vô hình, và cô đơn.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slx_mask_mirror",
+   "races": [
+    "slime"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "slime_mimic",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slx_path_mask"
+    ],
+    "notFlags": [
+     "slx_end"
+    ]
+   },
+   "text": "Trong một lâu đài hoang, bạn đi ngang một tấm gương ma thuật. Nó không phản chiếu hình người bạn đang giả, mà phản chiếu một vũng nhầy.",
+   "choices": [
+    {
+     "label": "Đập vỡ tấm gương",
+     "text": "Mảnh vỡ phản chiếu trăm vũng nhầy. Bạn đi tiếp, và không bao giờ nhìn gương nữa.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Nhìn vào nó lâu",
+     "text": "Vũng nhầy trong gương nhìn lại bạn. Bạn nhận ra mình đã quên hình dạng ấy. Bạn ngồi đó, rất lâu.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "slx_mask_seen"
+      ]
+     },
+     "moment": "Nhìn vào gương ma thuật và thấy lại hình dạng thật"
+    }
+   ]
+  },
+  {
+   "id": "slx_self_shapes",
+   "races": [
+    "slime"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "slime_mimic",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slx_path_self"
+    ],
+    "notFlags": [
+     "slx_end"
+    ]
+   },
+   "text": "Bạn thử không giả làm gì cả. Chỉ nằm đó, không hình dạng. Lần đầu tiên.",
+   "choices": [
+    {
+     "label": "Nằm yên một ngày",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Đến tối, bạn cảm thấy một hình dạng tự nhiên trong mình: không rương, không người, không đá. Một thứ chưa có tên. Bạn giữ nó.",
+      "effects": {
+       "LUCK": 1,
+       "joy": 10,
+       "jobXp": 3,
+       "flags": [
+        "slx_self_found"
+       ]
+      },
+      "moment": "Tìm ra một hình dạng tự nhiên không bắt chước thứ gì"
+     },
+     "fail": {
+      "text": "Bạn không chịu nổi. Đến trưa, bạn đã thành một chiếc ghế.",
+      "effects": {
+       "joy": -2
+      }
+     }
+    },
+    {
+     "label": "Hỏi Rương Già hình dạng thật của nó",
+     "text": "Rương Già im lặng rất lâu. “Ta làm rương ba nghìn năm. Ta không nhớ nữa.”",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slx_self_crown",
+   "races": [
+    "slime"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "slime_mimic",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slx_path_self"
+    ],
+    "notFlags": [
+     "slx_end"
+    ]
+   },
+   "text": "Dưới bùn, bạn nhặt được một chiếc vương miện hoàng tộc. Bạn có thể giả làm một vị vua đã mất.",
+   "choices": [
+    {
+     "label": "Đội vương miện, đi đến lâu đài",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Lính gác quỳ. Quần thần khóc. Bạn ở lại một ngày, rồi để lại vương miện trên ngai, và đi. Họ gọi đó là phép màu.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Một lão quần thần nhận ra. Bạn chạy, vương miện rơi lại.",
+      "effects": {
+       "fame": -3
+      }
+     }
+    },
+    {
+     "label": "Ăn vương miện",
+     "text": "Vàng. Ngọc. Không ngon lắm. Nhưng không ai còn tranh giành nó nữa.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slx_c4_chest",
+   "races": [
+    "slime"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "slime_mimic",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "slx_met_chest"
+    ],
+    "notFlags": [
+     "slx_chest_gone",
+     "slx_end"
+    ],
+    "anyFlags": [
+     "slx_path_hunter",
+     "slx_path_mask",
+     "slx_path_self"
+    ]
+   },
+   "text": "Rương Già không còn mở nắp được nữa. Gỗ của nó mục, bản lề gãy. Nó cót két lần cuối: “Ta muốn làm một thứ khác, trước khi đi.”",
+   "choices": [
+    {
+     "label": "Giúp nó thành một cái cây",
+     "text": "Bạn bọc lấy nó, mang ra khỏi hầm, đặt nó xuống đất ẩm. Rương Già nằm đó, và từ gỗ mục mọc lên một mầm xanh. Nó cót két, như cười.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "slx_chest_gone"
+      ]
+     },
+     "moment": "Giúp Rương Già trở thành một cái cây trước khi chết"
+    },
+    {
+     "label": "Ở bên nó trong hầm",
+     "text": "Bạn giả làm một chiếc rương thứ hai, nằm cạnh nó. Hai chiếc rương. Nó cót két lần cuối, và im lặng.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "slx_chest_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slx_c4_corin",
+   "races": [
+    "slime"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "slime_mimic",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "slx_met_corin"
+    ],
+    "notFlags": [
+     "slx_end"
+    ]
+   },
+   "text": "Corin bị bắt vì ăn trộm. Hắn sẽ bị treo cổ.",
+   "choices": [
+    {
+     "label": "Giả làm hắn trong ngục để hắn trốn",
+     "require": {
+      "flags": [
+       "slx_corin_friend"
+      ]
+     },
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đổi chỗ với hắn trong đêm. Sáng ra, lính kéo bạn ra pháp trường. Bạn chảy ra khỏi dây thòng lọng, giữa tiếng la hét. Corin đã đi xa.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "joy": 10,
+       "jobXp": 3,
+       "flags": [
+        "slx_corin_saved"
+       ]
+      },
+      "moment": "Giả làm Corin trong ngục để cứu hắn khỏi giá treo cổ"
+     },
+     "fail": {
+      "text": "Lính phát hiện trước khi kịp đổi chỗ. Corin bị đày đi xa.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Không làm gì",
+     "text": "Corin không còn đến hầm ngục nữa.",
+     "effects": {
+      "joy": -8,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slx_c5_hunter",
+   "races": [
+    "slime"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "slime_mimic",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "slx_path_hunter"
+    ],
+    "notFlags": [
+     "slx_end"
+    ]
+   },
+   "text": "Bạn là Perfect Mimic. Mạo hiểm giả kể về bạn ở mọi quán rượu.",
+   "choices": [
+    {
+     "label": "Chỉ dọa, như Rương Già",
+     "require": {
+      "flags": [
+       "slx_hunter_scare"
+      ]
+     },
+     "text": "Bạn không ăn ai nữa. Bạn chỉ dọa. Kẻ bị dọa thì sống, và kể cho người khác. Hầm ngục của bạn nổi tiếng là đáng sợ nhất, và ít người chết nhất.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "slx_end",
+       "slx_end_scare"
+      ]
+     },
+     "moment": "Theo cách của Rương Già: chỉ dọa, không ăn"
+    },
+    {
+     "label": "Trở thành rương báu thật",
+     "text": "Bạn giữ một kho báu trong mình. Kẻ đủ dũng cảm mở nắp sẽ được nó. Kẻ tham lam thì không.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "slx_end",
+       "slx_end_treasure"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slx_c5_mask",
+   "races": [
+    "slime"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "slime_mimic",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "slx_path_mask"
+    ],
+    "notFlags": [
+     "slx_end"
+    ]
+   },
+   "text": "Bạn là Perfect Mimic. Bạn có thể là bất kỳ ai.",
+   "choices": [
+    {
+     "label": "Sống như một người bình thường",
+     "require": {
+      "flags": [
+       "slx_mask_market"
+      ]
+     },
+     "text": "Bạn mở một tiệm bánh nhỏ, dưới hình dạng bà già năm xưa. Không ai biết. Mỗi sáng, bạn cho thêm một cái bánh cho đứa trẻ gầy nhất.",
+     "effects": {
+      "fame": 8,
+      "joy": 18,
+      "flags": [
+       "slx_end",
+       "slx_end_bakery"
+      ]
+     },
+     "moment": "Mở tiệm bánh nhỏ dưới hình dạng một bà già"
+    },
+    {
+     "label": "Đi tìm Corin",
+     "require": {
+      "flags": [
+       "slx_corin_saved"
+      ]
+     },
+     "text": "Hắn sống ở một thị trấn xa, có vợ, có con. Bạn đến dưới hình dạng một người lạ. Hắn nhìn bạn, và nhận ra, từ cách bạn đứng. Hắn mời bạn ở lại.",
+     "effects": {
+      "fame": 8,
+      "joy": 18,
+      "flags": [
+       "slx_end",
+       "slx_end_corin"
+      ]
+     }
+    },
+    {
+     "label": "Trở về hình dạng thật",
+     "require": {
+      "flags": [
+       "slx_mask_seen"
+      ]
+     },
+     "text": "Bạn cởi bỏ mọi lớp đội lốt, và trở về vũng nhầy trong gương. Lần đầu tiên sau trăm năm, bạn thấy nhẹ nhõm.",
+     "effects": {
+      "fame": 10,
+      "joy": 15,
+      "flags": [
+       "slx_end",
+       "slx_end_true_form"
+      ]
+     }
+    },
+    {
+     "label": "Biến mất giữa đám đông",
+     "text": "Bạn là một khuôn mặt trong ngàn khuôn mặt. Không ai tìm được bạn, vì không ai biết phải tìm ai.",
+     "effects": {
+      "fame": 10,
+      "joy": 8,
+      "flags": [
+       "slx_end",
+       "slx_end_crowd"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slx_c5_self",
+   "races": [
+    "slime"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "slime_mimic",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "slx_path_self"
+    ],
+    "notFlags": [
+     "slx_end"
+    ]
+   },
+   "text": "Bạn là Perfect Mimic, nhưng giờ bạn có một hình dạng của riêng mình.",
+   "choices": [
+    {
+     "label": "Giữ hình dạng ấy mãi",
+     "require": {
+      "flags": [
+       "slx_self_found"
+      ]
+     },
+     "text": "Không rương, không người, không đá. Một thứ chưa có tên, và là của bạn. Những Mimic trẻ đến nhìn bạn, và bắt đầu tự hỏi hình dạng của chúng là gì.",
+     "effects": {
+      "fame": 12,
+      "joy": 18,
+      "flags": [
+       "slx_end",
+       "slx_end_own_shape"
+      ]
+     },
+     "moment": "Giữ mãi hình dạng của riêng mình"
+    },
+    {
+     "label": "Trồng cây cạnh Rương Già",
+     "text": "Bạn nằm cạnh cái cây mọc lên từ Rương Già, và thành một bụi cây nhỏ.",
+     "effects": {
+      "fame": 8,
+      "joy": 15,
+      "flags": [
+       "slx_end",
+       "slx_end_tree"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slx_daily_dust",
+   "races": [
+    "slime"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "slime_mimic",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một lớp bụi phủ lên bạn khi bạn giả làm rương quá lâu.",
+   "choices": [
+    {
+     "label": "Giữ lớp bụi",
+     "text": "Rương có bụi trông thật hơn.",
+     "effects": {
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Rũ sạch",
+     "text": "Bạn thấy nhẹ người.",
+     "effects": {
+      "joy": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slx_daily_war",
+   "races": [
+    "slime"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "slime_mimic",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Hầm ngục vắng mạo hiểm giả.",
+   "choices": [
+    {
+     "label": "Giả làm một chiếc xe hàng, ra chiến trường nhặt đồ",
+     "text": "Bạn mang về một kho vũ khí bỏ lại.",
+     "effects": {
+      "wealth": 4,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Ngủ suốt chiến tranh",
+     "text": "Khi bạn tỉnh dậy, mạo hiểm giả đã quay lại.",
+     "effects": {
+      "joy": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slx_daily_old",
+   "races": [
+    "slime"
+   ],
+   "stages": [
+    "ancient"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "slime_mimic",
+    "free": true
+   },
+   "text": "Bạn giả làm quá nhiều thứ, quá lâu. Đôi khi bạn quên mất mình đang giả làm gì.",
+   "choices": [
+    {
+     "label": "Trở về hình tròn một lúc",
+     "text": "Tròn. Đơn giản. Bạn nhớ ra mình.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Giả làm thứ đầu tiên bạn từng giả",
+     "text": "Một chiếc rương. Có bụi, có vết xước, có một góc mục. Hoàn hảo.",
+     "effects": {
+      "joy": 8
+     }
+    }
+   ]
+  },
+  {
+   "id": "slx_c5_hunter_late",
+   "races": [
+    "slime"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "slime_mimic",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "slx_path_hunter"
+    ],
+    "notFlags": [
+     "slx_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Perfect Mimic. Mạo hiểm giả kể về bạn ở mọi quán rượu.",
+   "choices": [
+    {
+     "label": "Chỉ dọa, như Rương Già",
+     "require": {
+      "flags": [
+       "slx_hunter_scare"
+      ]
+     },
+     "text": "Bạn không ăn ai nữa. Bạn chỉ dọa. Kẻ bị dọa thì sống, và kể cho người khác. Hầm ngục của bạn nổi tiếng là đáng sợ nhất, và ít người chết nhất.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "slx_end",
+       "slx_end_scare"
+      ]
+     },
+     "moment": "Theo cách của Rương Già: chỉ dọa, không ăn"
+    },
+    {
+     "label": "Trở thành rương báu thật",
+     "text": "Bạn giữ một kho báu trong mình. Kẻ đủ dũng cảm mở nắp sẽ được nó. Kẻ tham lam thì không.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "slx_end",
+       "slx_end_treasure"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "ancient"
+   ]
+  },
+  {
+   "id": "slx_c5_mask_late",
+   "races": [
+    "slime"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "slime_mimic",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "slx_path_mask"
+    ],
+    "notFlags": [
+     "slx_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Perfect Mimic. Bạn có thể là bất kỳ ai.",
+   "choices": [
+    {
+     "label": "Sống như một người bình thường",
+     "require": {
+      "flags": [
+       "slx_mask_market"
+      ]
+     },
+     "text": "Bạn mở một tiệm bánh nhỏ, dưới hình dạng bà già năm xưa. Không ai biết. Mỗi sáng, bạn cho thêm một cái bánh cho đứa trẻ gầy nhất.",
+     "effects": {
+      "fame": 8,
+      "joy": 18,
+      "flags": [
+       "slx_end",
+       "slx_end_bakery"
+      ]
+     },
+     "moment": "Mở tiệm bánh nhỏ dưới hình dạng một bà già"
+    },
+    {
+     "label": "Đi tìm Corin",
+     "require": {
+      "flags": [
+       "slx_corin_saved"
+      ]
+     },
+     "text": "Hắn sống ở một thị trấn xa, có vợ, có con. Bạn đến dưới hình dạng một người lạ. Hắn nhìn bạn, và nhận ra, từ cách bạn đứng. Hắn mời bạn ở lại.",
+     "effects": {
+      "fame": 8,
+      "joy": 18,
+      "flags": [
+       "slx_end",
+       "slx_end_corin"
+      ]
+     }
+    },
+    {
+     "label": "Trở về hình dạng thật",
+     "require": {
+      "flags": [
+       "slx_mask_seen"
+      ]
+     },
+     "text": "Bạn cởi bỏ mọi lớp đội lốt, và trở về vũng nhầy trong gương. Lần đầu tiên sau trăm năm, bạn thấy nhẹ nhõm.",
+     "effects": {
+      "fame": 10,
+      "joy": 15,
+      "flags": [
+       "slx_end",
+       "slx_end_true_form"
+      ]
+     }
+    },
+    {
+     "label": "Biến mất giữa đám đông",
+     "text": "Bạn là một khuôn mặt trong ngàn khuôn mặt. Không ai tìm được bạn, vì không ai biết phải tìm ai.",
+     "effects": {
+      "fame": 10,
+      "joy": 8,
+      "flags": [
+       "slx_end",
+       "slx_end_crowd"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "ancient"
+   ]
+  },
+  {
+   "id": "slx_c5_self_late",
+   "races": [
+    "slime"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "slime_mimic",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "slx_path_self"
+    ],
+    "notFlags": [
+     "slx_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Perfect Mimic, nhưng giờ bạn có một hình dạng của riêng mình.",
+   "choices": [
+    {
+     "label": "Giữ hình dạng ấy mãi",
+     "require": {
+      "flags": [
+       "slx_self_found"
+      ]
+     },
+     "text": "Không rương, không người, không đá. Một thứ chưa có tên, và là của bạn. Những Mimic trẻ đến nhìn bạn, và bắt đầu tự hỏi hình dạng của chúng là gì.",
+     "effects": {
+      "fame": 12,
+      "joy": 18,
+      "flags": [
+       "slx_end",
+       "slx_end_own_shape"
+      ]
+     },
+     "moment": "Giữ mãi hình dạng của riêng mình"
+    },
+    {
+     "label": "Trồng cây cạnh Rương Già",
+     "text": "Bạn nằm cạnh cái cây mọc lên từ Rương Già, và thành một bụi cây nhỏ.",
+     "effects": {
+      "fame": 8,
+      "joy": 15,
+      "flags": [
+       "slx_end",
+       "slx_end_tree"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "ancient"
+   ]
+  }
+ ]
+}

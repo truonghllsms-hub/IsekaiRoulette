@@ -1,0 +1,1000 @@
+{
+ "_note": "Tuyến truyện War Dragon: ba đạo (drw_path_storm / drw_path_hero / drw_path_peace), nhân vật xuyên suốt Vaelstrasz Cánh Bão (Rồng đối thủ) và dòng Dũng Giả qua nhiều đời.",
+ "origins": [],
+ "events": [
+  {
+   "id": "drw_c1_vaelstrasz",
+   "races": [
+    "dragon"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "dragon_war",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "drw_met_vael"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Vaelstrasz Cánh Bão",
+     "race": "Dragon",
+     "position": "Rồng chiến đã thắng một trăm Rồng khác"
+    }
+   ],
+   "text": "Vaelstrasz Cánh Bão sà xuống từ đám mây, gầm lên thách thức quyền làm chủ bầu trời của bạn. Hắn lớn hơn bạn, già hơn bạn, và đã thắng một trăm Rồng.",
+   "choices": [
+    {
+     "label": "Nhận lời thách",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn thua, nhưng hắn không giết bạn. Hắn bay vòng trên đầu bạn: “Một trăm năm nữa, ta quay lại. Mạnh hơn đi.”",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "drw_met_vael",
+        "drw_vael_rival"
+       ]
+      },
+      "moment": "Thua Vaelstrasz Cánh Bão nhưng được hắn hẹn tái đấu"
+     },
+     "fail": {
+      "text": "Bạn thua nhanh đến nhục. Hắn cười, và bay đi. Bạn nằm trong hang một thế kỷ.",
+      "effects": {
+       "health": -10,
+       "flags": [
+        "drw_met_vael",
+        "drw_vael_rival"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi hắn vì sao cần làm chủ bầu trời",
+     "text": "Hắn khựng lại giữa không trung. Không ai từng hỏi. Hắn hạ xuống, ngồi cạnh bạn trên đỉnh núi, và nghĩ. Đến sáng, hắn vẫn chưa trả lời. Nhưng hắn không đánh bạn.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "drw_met_vael",
+       "drw_vael_friend"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "drw_c2_first_battle",
+   "races": [
+    "dragon"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "dragon_war",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "drw_first_battle",
+     "drw_end"
+    ]
+   },
+   "text": "Lần đầu tiên bạn ra chiến trường. Hai đạo quân Human đang giao chiến bên dưới. Không bên nào gọi bạn đến.",
+   "choices": [
+    {
+     "label": "Bay qua, không làm gì",
+     "text": "Cả hai đạo quân dừng lại, nhìn lên. Bóng bạn phủ chiến trường. Họ không đánh nhau nữa ngày hôm ấy.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2,
+      "flags": [
+       "drw_first_battle",
+       "drw_first_shadow"
+      ]
+     },
+     "moment": "Bóng Rồng phủ chiến trường khiến hai đạo quân dừng tay"
+    },
+    {
+     "label": "Thiêu một bên",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bên kia thắng. Họ dâng vàng cho bạn. Bạn không chắc mình đã chọn đúng bên.",
+      "effects": {
+       "STR": 1,
+       "fame": 6,
+       "wealth": 10,
+       "jobXp": 2,
+       "flags": [
+        "drw_first_battle"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Lửa lan sang cả hai bên. Không ai thắng.",
+      "effects": {
+       "joy": -8,
+       "flags": [
+        "drw_first_battle"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "drw_c2_crossroads",
+   "races": [
+    "dragon"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "dragon_war",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "drw_path_storm",
+     "drw_path_hero",
+     "drw_path_peace",
+     "drw_end"
+    ]
+   },
+   "text": "Trên đỉnh núi cao nhất, bạn nhìn xuống thế giới: những vương quốc đang chiến tranh, một Dũng Giả trẻ đang luyện kiếm để giết Rồng, và những làng mạc chưa bao giờ thấy Rồng.",
+   "choices": [
+    {
+     "label": "Vương quốc chiến tranh: Bão Tố",
+     "text": "Bạn sẽ là thảm họa mà mọi đạo quân sợ. Không chọn phe. Chỉ là cơn bão.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "drw_path_storm"
+      ]
+     },
+     "moment": "Chọn trở thành cơn bão mà mọi đạo quân sợ"
+    },
+    {
+     "label": "Dũng Giả: Kẻ Thù Của Anh Hùng",
+     "text": "Mỗi thế hệ, một Dũng Giả đến. Bạn sẽ là thử thách của họ, và có lẽ là người thầy của họ.",
+     "effects": {
+      "STR": 1,
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "drw_path_hero"
+      ]
+     },
+     "moment": "Chọn làm thử thách cho mỗi thế hệ Dũng Giả"
+    },
+    {
+     "label": "Làng mạc: Rồng Hòa Bình",
+     "text": "Bạn sẽ dùng sức mạnh để ngăn chiến tranh, không gây ra nó. Một Rồng chiến không đánh. Điều chưa từng có.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "drw_path_peace"
+      ]
+     },
+     "moment": "Chọn dùng sức mạnh của Rồng chiến để ngăn chiến tranh"
+    }
+   ]
+  },
+  {
+   "id": "drw_storm_crusade",
+   "races": [
+    "dragon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dragon_war",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "drw_path_storm"
+    ],
+    "notFlags": [
+     "drw_end"
+    ]
+   },
+   "text": "Giáo hội Thánh Quang tuyên bố bạn là Hiện thân của Ác thần, phái ba sư đoàn Thánh Kỵ Sĩ đến.",
+   "choices": [
+    {
+     "label": "Đối đầu cả ba",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Ba sư đoàn tan tác trong một ngày. Giáo hội không bao giờ phái thêm nữa. Họ khắc tên bạn vào sách cầu nguyện, như một lời cảnh báo.",
+      "effects": {
+       "STR": 1,
+       "fame": 12,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Thánh Quang làm cháy vảy bạn. Bạn thắng, nhưng mang vết sẹo sáng mãi mãi.",
+      "effects": {
+       "health": -20,
+       "fame": 8
+      }
+     }
+    },
+    {
+     "label": "Bay đi xa",
+     "text": "Ba sư đoàn đến hang trống. Giáo hội tuyên bố đã đuổi được Ác thần. Bạn không quan tâm.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "drw_storm_vael",
+   "races": [
+    "dragon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dragon_war",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "drw_path_storm",
+     "drw_met_vael"
+    ],
+    "notFlags": [
+     "drw_end"
+    ]
+   },
+   "text": "Một trăm năm sau, Vaelstrasz quay lại, như đã hứa.",
+   "choices": [
+    {
+     "label": "Đấu thật",
+     "require": {
+      "flags": [
+       "drw_vael_rival"
+      ]
+     },
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Lần này bạn thắng. Vaelstrasz rơi xuống thung lũng, cười. “Cuối cùng.” Hai Rồng nằm cạnh nhau đến sáng, thở khói.",
+      "effects": {
+       "STR": 1,
+       "fame": 12,
+       "jobXp": 3,
+       "flags": [
+        "drw_storm_beat_vael"
+       ]
+      },
+      "moment": "Thắng Vaelstrasz Cánh Bão trong trận tái đấu sau một trăm năm"
+     },
+     "fail": {
+      "text": "Hắn thắng lần nữa. “Một trăm năm nữa.”",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Bay cùng hắn thay vì đấu",
+     "text": "Hai Rồng bay cùng nhau qua bão. Hắn không thách nữa. Có lẽ hắn chỉ cô đơn.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "drw_hero_first",
+   "races": [
+    "dragon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dragon_war",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "drw_path_hero"
+    ],
+    "notFlags": [
+     "drw_end"
+    ]
+   },
+   "text": "Dũng Giả đầu tiên đến, mang thanh thánh kiếm. Cậu ta mười chín tuổi, run tay, nhưng không lùi.",
+   "choices": [
+    {
+     "label": "Đánh, nhưng để cậu ta sống",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đánh văng thanh kiếm của cậu, rồi thả cậu xuống núi. “Quay lại khi mạnh hơn.” Mười năm sau, cậu quay lại. Mạnh hơn nhiều.",
+      "effects": {
+       "STR": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "drw_hero_spared"
+       ]
+      },
+      "moment": "Đánh bại Dũng Giả đầu tiên và tha cho cậu ta"
+     },
+     "fail": {
+      "text": "Cậu ta mạnh hơn bạn nghĩ. Bạn thắng, nhưng thanh thánh kiếm để lại vết thương sâu.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Hỏi cậu ta vì sao muốn giết bạn",
+     "text": "Cậu ta lắp bắp: vì nhà vua bảo thế. Bạn cười. Cậu ta đỏ mặt. Hai người nói chuyện đến sáng, và cậu ta về nhà với câu hỏi mới.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 3,
+      "flags": [
+       "drw_hero_spared"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "drw_hero_grandson",
+   "races": [
+    "dragon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dragon_war",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "drw_path_hero"
+    ],
+    "notFlags": [
+     "drw_end"
+    ]
+   },
+   "text": "Một trăm năm sau, cháu của Dũng Giả đầu tiên đến, với cùng thanh kiếm. Cô gái có đôi mắt của ông nội.",
+   "choices": [
+    {
+     "label": "Kể cho cô về ông nội",
+     "require": {
+      "flags": [
+       "drw_hero_spared"
+      ]
+     },
+     "text": "Cô không tin. Rồi cô tin. Cô ngồi xuống, và hỏi bạn về thế giới trăm năm trước. Cô về nhà, không đánh.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 3,
+      "flags": [
+       "drw_hero_line"
+      ]
+     },
+     "moment": "Kể cho cháu gái của Dũng Giả đầu tiên nghe về ông nội cô"
+    },
+    {
+     "label": "Đánh như với ông nội cô",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Cô giỏi hơn ông. Bạn thắng sát nút, và tha. Cô cúi chào, như ông nội từng làm.",
+      "effects": {
+       "STR": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "drw_hero_line"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Cô thắng một hiệp. Bạn bay đi, chảy máu, tự hào một cách kỳ lạ.",
+      "effects": {
+       "health": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "drw_peace_border",
+   "races": [
+    "dragon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "dragon_war",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "drw_path_peace"
+    ],
+    "notFlags": [
+     "drw_end"
+    ]
+   },
+   "text": "Hai vương quốc sắp chiến tranh vì một con sông biên giới. Đạo quân đã dàn trận hai bờ.",
+   "choices": [
+    {
+     "label": "Đáp xuống giữa sông",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn nằm giữa dòng sông, chắn ngang. Cả hai đạo quân chờ. Một ngày. Hai ngày. Đến ngày thứ ba, hai vị vua phải gặp nhau giữa cầu, cạnh đầu bạn, để thương lượng. Không có chiến tranh.",
+      "effects": {
+       "LUCK": 1,
+       "fame": 12,
+       "jobXp": 3,
+       "flags": [
+        "drw_peace_river"
+       ]
+      },
+      "moment": "Nằm chắn giữa sông biên giới cho đến khi hai vị vua chịu thương lượng"
+     },
+     "fail": {
+      "text": "Một bên tấn công bạn. Bạn phải bay đi. Chiến tranh nổ ra.",
+      "effects": {
+       "health": -10,
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Thiêu cây cầu duy nhất",
+     "text": "Không đạo quân nào qua được sông. Chiến tranh hoãn mười năm. Mười năm đủ để một vị vua chết, và vị vua mới không muốn đánh.",
+     "effects": {
+      "fame": 6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "drw_peace_demonlord",
+   "races": [
+    "dragon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "dragon_war",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "drw_path_peace"
+    ],
+    "notFlags": [
+     "drw_end"
+    ]
+   },
+   "text": "Đạo quân Ma Vương tràn qua biên giới. Lần này, không phải chiến tranh giữa người với người.",
+   "choices": [
+    {
+     "label": "Chiến đấu",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Một Rồng chiến không đánh, cuối cùng đánh. Đạo quân Ma Vương rút lui khỏi bầu trời bạn canh.",
+      "effects": {
+       "STR": 1,
+       "fame": 12,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Bạn bị thương nặng, nhưng đạo quân cũng không qua được.",
+      "effects": {
+       "health": -20,
+       "fame": 6
+      }
+     }
+    },
+    {
+     "label": "Bay đến gặp Ma Vương",
+     "text": "Hai sinh vật cổ xưa nói chuyện suốt một đêm. Ma Vương rút quân. Không ai biết bạn đã nói gì.",
+     "effects": {
+      "INT": 1,
+      "fame": 8,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "drw_c4_vael",
+   "races": [
+    "dragon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "dragon_war",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "drw_met_vael"
+    ],
+    "notFlags": [
+     "drw_vael_gone",
+     "drw_end"
+    ],
+    "anyFlags": [
+     "drw_path_storm",
+     "drw_path_hero",
+     "drw_path_peace"
+    ]
+   },
+   "text": "Vaelstrasz Cánh Bão sắp chết. Mười nghìn năm, một nghìn trận đấu. Hắn gọi bạn đến đỉnh núi nơi hai người lần đầu gặp nhau.",
+   "choices": [
+    {
+     "label": "Đấu trận cuối với hắn",
+     "text": "Hắn muốn chết trong trận đấu. Bạn cho hắn điều đó. Trận đấu chậm, đẹp, như một điệu nhảy. Hắn rơi xuống thung lũng lần cuối, cười.",
+     "effects": {
+      "joy": -6,
+      "fame": 6,
+      "jobXp": 3,
+      "flags": [
+       "drw_vael_gone"
+      ]
+     },
+     "moment": "Cho Vaelstrasz Cánh Bão trận đấu cuối cùng hắn muốn"
+    },
+    {
+     "label": "Ngồi cạnh hắn",
+     "text": "Hắn hỏi: “Ngươi còn nhớ câu hỏi đầu tiên ngươi hỏi ta không? Vì sao cần làm chủ bầu trời?” Hắn cười. “Ta vẫn chưa biết.” Hắn ngủ, và không thức dậy.",
+     "effects": {
+      "joy": -8,
+      "jobXp": 3,
+      "flags": [
+       "drw_vael_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "drw_c5_storm",
+   "races": [
+    "dragon"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "dragon_war",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "drw_path_storm"
+    ],
+    "notFlags": [
+     "drw_end"
+    ]
+   },
+   "text": "Bạn là Dark Apocalypse. Bóng bạn trên bầu trời là lời cảnh báo cuối cùng.",
+   "choices": [
+    {
+     "label": "Nhận danh hiệu Chúa Bầu Trời",
+     "require": {
+      "flags": [
+       "drw_storm_beat_vael"
+      ]
+     },
+     "text": "Không còn Rồng nào thách bạn. Bầu trời là của bạn. Bạn bay một mình, và thấy hiểu Vaelstrasz hơn bao giờ hết.",
+     "effects": {
+      "fame": 15,
+      "joy": 6,
+      "flags": [
+       "drw_end",
+       "drw_end_sky"
+      ]
+     },
+     "moment": "Trở thành Chúa Bầu Trời không ai thách thức"
+    },
+    {
+     "label": "Ngủ một giấc mười nghìn năm",
+     "text": "Bão tố cần nghỉ. Bạn ngủ trong núi lửa, và thế giới thở phào.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "drw_end",
+       "drw_end_sleep"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "drw_c5_hero",
+   "races": [
+    "dragon"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "dragon_war",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "drw_path_hero"
+    ],
+    "notFlags": [
+     "drw_end"
+    ]
+   },
+   "text": "Bạn là Dark Apocalypse. Mười thế hệ Dũng Giả đã đến. Không ai giết được bạn. Nhiều người trở thành anh hùng thật nhờ bạn.",
+   "choices": [
+    {
+     "label": "Để Dũng Giả cuối cùng thắng",
+     "require": {
+      "flags": [
+       "drw_hero_line"
+      ]
+     },
+     "text": "Hậu duệ đời thứ mười của Dũng Giả đầu tiên. Bạn để cô thắng. Không chết. Chỉ thua. Cô biết, và cảm ơn bạn bằng cách giữ bí mật ấy mãi mãi.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "drw_end",
+       "drw_end_last_hero"
+      ]
+     },
+     "moment": "Để hậu duệ đời thứ mười của Dũng Giả đầu tiên chiến thắng mình"
+    },
+    {
+     "label": "Dạy Dũng Giả cách chiến đấu",
+     "text": "Mỗi thế hệ, một học trò. Bạn là người thầy kỳ lạ nhất lịch sử anh hùng.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "drw_end",
+       "drw_end_teacher"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "drw_c5_peace",
+   "races": [
+    "dragon"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "dragon_war",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "drw_path_peace"
+    ],
+    "notFlags": [
+     "drw_end"
+    ]
+   },
+   "text": "Bạn là Dark Apocalypse, nhưng các vương quốc gọi bạn là “Rồng Đình Chiến”.",
+   "choices": [
+    {
+     "label": "Nằm giữa sông biên giới mãi mãi",
+     "require": {
+      "flags": [
+       "drw_peace_river"
+      ]
+     },
+     "text": "Bạn ngủ giữa dòng sông. Hai vương quốc xây cầu qua lưng bạn. Không ai dám đánh nhau trên lưng một con Rồng đang ngủ.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "drw_end",
+       "drw_end_bridge"
+      ]
+     },
+     "moment": "Ngủ giữa sông biên giới, trở thành cây cầu hòa bình của hai vương quốc"
+    },
+    {
+     "label": "Bay khắp nơi, chấm dứt chiến tranh",
+     "text": "Nơi nào có chiến tranh, bóng bạn đến. Không cần lửa. Chỉ cần bóng.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "drw_end",
+       "drw_end_shadow"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "drw_daily_storm",
+   "races": [
+    "dragon"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "dragon_war",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một cơn bão đến. Bạn bay vào giữa nó.",
+   "choices": [
+    {
+     "label": "Bay đến khi bão tan",
+     "text": "Gió, sấm, mưa. Bạn thấy mình sống.",
+     "effects": {
+      "joy": 8
+     }
+    },
+    {
+     "label": "Nằm trong hang nghe",
+     "text": "Bão là bài hát của bầu trời.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "drw_daily_war",
+   "races": [
+    "dragon"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "dragon_war",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Cả hai bên cầu nguyện bạn đứng về phía họ.",
+   "choices": [
+    {
+     "label": "Không đứng về bên nào",
+     "text": "Họ đánh nhau, nhìn lên trời mỗi giờ.",
+     "effects": {
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Bay qua chiến trường một lần",
+     "text": "Chiến tranh dừng một ngày.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "drw_daily_old",
+   "races": [
+    "dragon"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "dragon_war",
+    "free": true
+   },
+   "text": "Cánh bạn đã nặng. Bạn bay ít hơn.",
+   "choices": [
+    {
+     "label": "Bay một vòng, chậm",
+     "text": "Thế giới bên dưới đổi khác. Bầu trời thì không.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Nằm trên đỉnh núi",
+     "text": "Gió vẫn như xưa.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "drw_c5_storm_late",
+   "races": [
+    "dragon"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "dragon_war",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "drw_path_storm"
+    ],
+    "notFlags": [
+     "drw_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Dark Apocalypse. Bóng bạn trên bầu trời là lời cảnh báo cuối cùng.",
+   "choices": [
+    {
+     "label": "Nhận danh hiệu Chúa Bầu Trời",
+     "require": {
+      "flags": [
+       "drw_storm_beat_vael"
+      ]
+     },
+     "text": "Không còn Rồng nào thách bạn. Bầu trời là của bạn. Bạn bay một mình, và thấy hiểu Vaelstrasz hơn bao giờ hết.",
+     "effects": {
+      "fame": 15,
+      "joy": 6,
+      "flags": [
+       "drw_end",
+       "drw_end_sky"
+      ]
+     },
+     "moment": "Trở thành Chúa Bầu Trời không ai thách thức"
+    },
+    {
+     "label": "Ngủ một giấc mười nghìn năm",
+     "text": "Bão tố cần nghỉ. Bạn ngủ trong núi lửa, và thế giới thở phào.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "drw_end",
+       "drw_end_sleep"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "drw_c5_hero_late",
+   "races": [
+    "dragon"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "dragon_war",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "drw_path_hero"
+    ],
+    "notFlags": [
+     "drw_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Dark Apocalypse. Mười thế hệ Dũng Giả đã đến. Không ai giết được bạn. Nhiều người trở thành anh hùng thật nhờ bạn.",
+   "choices": [
+    {
+     "label": "Để Dũng Giả cuối cùng thắng",
+     "require": {
+      "flags": [
+       "drw_hero_line"
+      ]
+     },
+     "text": "Hậu duệ đời thứ mười của Dũng Giả đầu tiên. Bạn để cô thắng. Không chết. Chỉ thua. Cô biết, và cảm ơn bạn bằng cách giữ bí mật ấy mãi mãi.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "drw_end",
+       "drw_end_last_hero"
+      ]
+     },
+     "moment": "Để hậu duệ đời thứ mười của Dũng Giả đầu tiên chiến thắng mình"
+    },
+    {
+     "label": "Dạy Dũng Giả cách chiến đấu",
+     "text": "Mỗi thế hệ, một học trò. Bạn là người thầy kỳ lạ nhất lịch sử anh hùng.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "drw_end",
+       "drw_end_teacher"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "drw_c5_peace_late",
+   "races": [
+    "dragon"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "dragon_war",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "drw_path_peace"
+    ],
+    "notFlags": [
+     "drw_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Dark Apocalypse, nhưng các vương quốc gọi bạn là “Rồng Đình Chiến”.",
+   "choices": [
+    {
+     "label": "Nằm giữa sông biên giới mãi mãi",
+     "require": {
+      "flags": [
+       "drw_peace_river"
+      ]
+     },
+     "text": "Bạn ngủ giữa dòng sông. Hai vương quốc xây cầu qua lưng bạn. Không ai dám đánh nhau trên lưng một con Rồng đang ngủ.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "drw_end",
+       "drw_end_bridge"
+      ]
+     },
+     "moment": "Ngủ giữa sông biên giới, trở thành cây cầu hòa bình của hai vương quốc"
+    },
+    {
+     "label": "Bay khắp nơi, chấm dứt chiến tranh",
+     "text": "Nơi nào có chiến tranh, bóng bạn đến. Không cần lửa. Chỉ cần bóng.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "drw_end",
+       "drw_end_shadow"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}

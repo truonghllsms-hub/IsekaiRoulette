@@ -1,0 +1,1014 @@
+{
+ "_note": "Tuyến truyện Blood Mage (Vampire): ba đạo (vpm_path_crimson / vpm_path_cure / vpm_path_abyss), nhân vật xuyên suốt Lady Morwenna Đỏ Thẫm (pháp sư máu cổ) và dịch bệnh của Necromancer.",
+ "origins": [],
+ "events": [
+  {
+   "id": "vpm_c1_morwenna",
+   "races": [
+    "vampire"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "vampire_mage",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "vpm_met_morwenna"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Morwenna Đỏ Thẫm",
+     "race": "Vampire",
+     "position": "Pháp sư máu cổ hai nghìn năm"
+    }
+   ],
+   "text": "Lady Morwenna Đỏ Thẫm dạy Huyết thuật đã hai nghìn năm. Bà nhỏ một giọt máu của mình vào chén nước, và nó nở thành một bông hoa đỏ. “Máu nhớ mọi thứ. Học cách nghe nó.”",
+   "choices": [
+    {
+     "label": "Nhỏ một giọt máu của mình",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Giọt máu của bạn nở thành một nụ nhỏ, chưa thành hoa. Lady Morwenna gật đầu: “Một nụ. Đủ cho thế kỷ đầu.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "vpm_met_morwenna",
+        "vpm_morwenna_respect"
+       ]
+      },
+      "moment": "Giọt máu đầu tiên nở thành nụ hoa dưới sự chỉ dạy của Lady Morwenna"
+     },
+     "fail": {
+      "text": "Giọt máu chìm xuống đáy chén. Bà cười: “Máu ngươi còn ngượng.”",
+      "effects": {
+       "flags": [
+        "vpm_met_morwenna"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi máu nhớ những gì",
+     "text": "Bà nhỏ một giọt máu người lên tay bạn. Bạn thấy: một cánh đồng, một tiếng cười, một nỗi sợ. Cuộc đời của ai đó trong một giọt máu. Bà nói: “Mỗi lần uống, ngươi uống cả điều đó.”",
+     "effects": {
+      "INT": 1,
+      "joy": -2,
+      "jobXp": 1,
+      "flags": [
+       "vpm_met_morwenna",
+       "vpm_morwenna_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpm_c2_first_ritual",
+   "races": [
+    "vampire"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "vampire_mage",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "flags": [
+     "vpm_met_morwenna"
+    ],
+    "notFlags": [
+     "vpm_first_ritual",
+     "vpm_end"
+    ]
+   },
+   "text": "Lần đầu tiên bạn tự làm nghi thức Huyết thuật: dựng một tấm khiên máu. Một Imp lang thang làm vỡ vòng tròn giữa chừng.",
+   "choices": [
+    {
+     "label": "Giữ nghi thức bằng ý chí",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Tấm khiên đứng vững. Imp bị bật ra khỏi phòng. Lady Morwenna vỗ tay ba cái.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 2,
+       "flags": [
+        "vpm_first_ritual"
+       ]
+      },
+      "moment": "Giữ vững tấm khiên máu đầu tiên dù vòng tròn bị phá"
+     },
+     "fail": {
+      "text": "Máu bắn tung tóe khắp phòng. Bạn mất một tuần dọn dẹp.",
+      "effects": {
+       "health": -5,
+       "flags": [
+        "vpm_first_ritual"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Dừng lại, vẽ lại vòng tròn",
+     "text": "Chậm, nhưng an toàn. Lady Morwenna gật đầu: “Kiên nhẫn là điều duy nhất Huyết Tộc có thừa.”",
+     "effects": {
+      "jobXp": 2,
+      "flags": [
+       "vpm_first_ritual"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpm_c2_crossroads",
+   "races": [
+    "vampire"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "vampire_mage",
+    "free": true,
+    "jobRank": 1,
+    "flags": [
+     "vpm_met_morwenna"
+    ],
+    "notFlags": [
+     "vpm_path_crimson",
+     "vpm_path_cure",
+     "vpm_path_abyss",
+     "vpm_end"
+    ]
+   },
+   "text": "Lady Morwenna mở ba cuốn sách: Huyết thuật Đỏ Thẫm của các đại pháp sư, ghi chép của một Huyết Tộc từng dùng máu để chữa bệnh, và một trang xé ra từ cuốn sách của Cổ Thần Vực Thẳm.",
+   "choices": [
+    {
+     "label": "Huyết thuật Đỏ Thẫm: Đại Pháp Sư Máu",
+     "text": "Bạn sẽ học Huyết thuật như các bậc thầy: chiến đấu, bảo vệ, cai trị.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "vpm_path_crimson"
+      ]
+     },
+     "moment": "Chọn học Huyết thuật Đỏ Thẫm của các đại pháp sư"
+    },
+    {
+     "label": "Ghi chép chữa bệnh: Huyết Y",
+     "text": "Máu nhớ mọi thứ, kể cả cách chữa lành. Lady Morwenna nói: “Hắn bị cả hai bên săn đuổi. Ngươi chắc chứ?”",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "vpm_path_cure"
+      ]
+     },
+     "moment": "Chọn dùng Huyết thuật để chữa bệnh"
+    },
+    {
+     "label": "Trang Vực Thẳm: Huyết Thuật Cổ Thần",
+     "text": "Lady Morwenna nhìn trang giấy rất lâu. “Ta xé nó ra khỏi sách vì một lý do.” Bạn vẫn cầm lấy.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "vpm_path_abyss"
+      ]
+     },
+     "moment": "Chọn nghiên cứu trang Huyết thuật Cổ Thần Vực Thẳm"
+    }
+   ]
+  },
+  {
+   "id": "vpm_crimson_apprentice",
+   "races": [
+    "vampire"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "vampire_mage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vpm_path_crimson"
+    ],
+    "notFlags": [
+     "vpm_end"
+    ]
+   },
+   "text": "Người học trò bạn truyền Huyết thuật đã lén biến đổi ma trận, định cướp quyền điều khiển máu của bạn.",
+   "choices": [
+    {
+     "label": "Đối mặt nó",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đảo ngược ma trận. Học trò quỳ xuống, máu của chính nó không nghe lời nó. Bạn tha, và dạy nó bài học thật sự: tham vọng không thay được kiên nhẫn.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "vpm_crimson_mercy"
+       ]
+      },
+      "moment": "Đảo ngược ma trận của học trò phản bội và tha cho nó"
+     },
+     "fail": {
+      "text": "Nó lấy được một phần máu của bạn trước khi bỏ trốn.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Đuổi nó đi",
+     "text": "Nó đi, mang theo một nửa những gì bạn dạy. Một thế kỷ sau, bạn nghe tên nó ở một vương quốc xa.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpm_crimson_book",
+   "races": [
+    "vampire"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "vampire_mage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vpm_path_crimson"
+    ],
+    "notFlags": [
+     "vpm_end"
+    ]
+   },
+   "text": "Bạn cướp được một cuốn Thánh thư cổ từ Tháp Ngà. Nó được ếm bùa tự thiêu nếu Huyết Tộc chạm vào.",
+   "choices": [
+    {
+     "label": "Đọc nó bằng máu của người khác",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Một giọt máu Human trên trang giấy. Bùa ngủ yên. Bạn đọc được những gì Thánh Quang làm với máu, và hiểu cách phòng thủ.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Bùa thức dậy. Cuốn sách cháy, và tay bạn cũng vậy.",
+      "effects": {
+       "health": -12
+      }
+     }
+    },
+    {
+     "label": "Trả nó về Tháp Ngà",
+     "text": "Một pháp sư Tháp Ngà nhận sách ở cổng, nhìn bạn rất lâu, và gật đầu. Không ai nói gì. Một tháng sau, bạn nhận được một bản chép tay.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpm_cure_plague",
+   "races": [
+    "vampire"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "vampire_mage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vpm_path_cure"
+    ],
+    "notFlags": [
+     "vpm_end"
+    ]
+   },
+   "text": "Dịch bệnh của Necromancer phe Ma Vương lan đến lãnh địa của bạn. Người sống chết hàng loạt, và Huyết Tộc cũng bắt đầu đói vì máu nhiễm bệnh.",
+   "choices": [
+    {
+     "label": "Dùng Huyết thuật lọc máu bệnh",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn uống máu bệnh, lọc nó qua cơ thể mình, và trả lại máu sạch. Một trăm người được chữa trước khi bạn kiệt sức. Đủ để làng sống.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "health": -10,
+       "jobXp": 3,
+       "flags": [
+        "vpm_cure_plague"
+       ]
+      },
+      "moment": "Lọc máu bệnh qua cơ thể mình để chữa dịch cho cả làng"
+     },
+     "fail": {
+      "text": "Bệnh quá nặng. Bạn ngất sau mười người.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Tìm kẻ gây dịch",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Necromancer bị bạn tìm thấy trong hầm mộ. Dịch dừng khi hắn dừng.",
+      "effects": {
+       "AGI": 1,
+       "fame": 6,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Hắn trốn trước khi bạn đến.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpm_cure_child",
+   "races": [
+    "vampire"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "vampire_mage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vpm_path_cure"
+    ],
+    "notFlags": [
+     "vpm_end"
+    ]
+   },
+   "text": "Một người mẹ Human mang đứa con hấp hối đến cửa lâu đài bạn, giữa đêm. Cô đã nghe tin đồn về một Huyết Tộc chữa bệnh.",
+   "choices": [
+    {
+     "label": "Chữa cho đứa trẻ",
+     "text": "Một giọt máu của bạn, pha với thảo dược. Đứa trẻ sống. Người mẹ không bao giờ kể với ai, nhưng đến cửa lâu đài mỗi năm, để lại một giỏ hoa.",
+     "effects": {
+      "joy": 12,
+      "jobXp": 3,
+      "flags": [
+       "vpm_cure_child"
+      ]
+     },
+     "moment": "Chữa cho đứa trẻ hấp hối mà người mẹ mang đến cửa lâu đài"
+    },
+    {
+     "label": "Đuổi cô đi",
+     "text": "Giáo hội có thể đang theo dõi. Bạn đóng cửa. Bạn nghe tiếng cô khóc suốt đêm.",
+     "effects": {
+      "joy": -10,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpm_abyss_ritual",
+   "races": [
+    "vampire"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "vampire_mage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vpm_path_abyss"
+    ],
+    "notFlags": [
+     "vpm_end"
+    ]
+   },
+   "text": "Bạn thử nghiệm nghi thức Cổ Thần Vực Thẳm để tăng ma lực trong máu. Máu bạn bắt đầu thì thầm.",
+   "choices": [
+    {
+     "label": "Nghe nó",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Máu thì thầm những bí mật của Vực Thẳm. Bạn ghi lại, và phong ấn nghi thức trước khi máu kịp đòi gì.",
+      "effects": {
+       "INT": 2,
+       "jobXp": 3,
+       "flags": [
+        "vpm_abyss_secrets"
+       ]
+      },
+      "moment": "Lấy được bí mật Vực Thẳm từ máu mình mà không để nó đòi giá"
+     },
+     "fail": {
+      "text": "Máu đòi máu. Bạn mất một trăm năm để làm nó im lặng.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Dừng nghi thức ngay",
+     "text": "Máu im lặng, rồi thì thầm lại, nhỏ hơn, mỗi đêm. Bạn quen dần.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpm_abyss_gate",
+   "races": [
+    "vampire"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "vampire_mage",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vpm_path_abyss"
+    ],
+    "notFlags": [
+     "vpm_end"
+    ]
+   },
+   "text": "Một Cổ Thần nhỏ muốn dùng máu bạn làm cửa để bước vào thế giới.",
+   "choices": [
+    {
+     "label": "Đóng cửa bằng máu mình",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đổ máu lên vòng tròn, ngược chiều. Cửa đóng. Bạn yếu đi một thế kỷ.",
+      "effects": {
+       "STR": 1,
+       "health": -15,
+       "fame": 6,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Cửa mở một khe. Thứ gì đó nhỏ lọt qua, và bạn phải săn nó mười năm.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Thương lượng với nó",
+     "text": "Nó cho bạn một bí mật, đổi lấy một giọt máu. Bạn không biết đã trao đi gì.",
+     "effects": {
+      "INT": 1,
+      "joy": -6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpm_c4_morwenna",
+   "races": [
+    "vampire"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "vampire_mage",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "vpm_met_morwenna"
+    ],
+    "notFlags": [
+     "vpm_morwenna_gone",
+     "vpm_end"
+    ],
+    "anyFlags": [
+     "vpm_path_crimson",
+     "vpm_path_cure",
+     "vpm_path_abyss"
+    ]
+   },
+   "text": "Lady Morwenna muốn làm nghi thức Huyết thuật cuối cùng: chuyển toàn bộ ký ức hai nghìn năm của bà vào máu bạn, trước khi bà đi vào bình minh.",
+   "choices": [
+    {
+     "label": "Nhận",
+     "text": "Hai nghìn năm chảy vào bạn trong một đêm. Sáng ra, bà đi ra ánh sáng. Bạn nhớ mọi thứ bà đã nhớ, kể cả khuôn mặt bà khi còn là người.",
+     "effects": {
+      "INT": 2,
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "vpm_morwenna_gone",
+       "vpm_morwenna_memory"
+      ]
+     },
+     "moment": "Nhận toàn bộ ký ức hai nghìn năm của Lady Morwenna vào máu mình"
+    },
+    {
+     "label": "Từ chối, để ký ức của bà là của bà",
+     "text": "Bà mỉm cười. “Ngươi hiểu rồi.” Bà đi lúc bình minh, mang theo hai nghìn năm.",
+     "effects": {
+      "joy": -8,
+      "jobXp": 3,
+      "flags": [
+       "vpm_morwenna_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpm_c5_crimson",
+   "races": [
+    "vampire"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "vampire_mage",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "vpm_path_crimson"
+    ],
+    "notFlags": [
+     "vpm_end"
+    ]
+   },
+   "text": "Bạn là Blood Lord, đại pháp sư Huyết thuật mạnh nhất.",
+   "choices": [
+    {
+     "label": "Mở trường Huyết thuật có luật lệ",
+     "require": {
+      "flags": [
+       "vpm_crimson_mercy"
+      ]
+     },
+     "text": "Học trò phải học kiên nhẫn trước khi học quyền năng. Người học trò phản bội năm xưa quay về, xin làm giáo viên. Bạn nhận.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "vpm_end",
+       "vpm_end_school"
+      ]
+     },
+     "moment": "Mở trường Huyết thuật lấy kiên nhẫn làm bài học đầu tiên"
+    },
+    {
+     "label": "Phong ấn Huyết thuật mạnh nhất",
+     "text": "Có những phép không nên ai biết. Bạn mang chúng theo.",
+     "effects": {
+      "fame": 12,
+      "joy": 8,
+      "flags": [
+       "vpm_end",
+       "vpm_end_sealed"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpm_c5_cure",
+   "races": [
+    "vampire"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "vampire_mage",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "vpm_path_cure"
+    ],
+    "notFlags": [
+     "vpm_end"
+    ]
+   },
+   "text": "Bạn là Blood Lord, nhưng ở các làng quanh lâu đài, người ta gọi bạn là “Thầy thuốc bóng đêm”.",
+   "choices": [
+    {
+     "label": "Mở cửa lâu đài cho người bệnh",
+     "require": {
+      "flags": [
+       "vpm_cure_child"
+      ]
+     },
+     "text": "Mỗi đêm, người bệnh xếp hàng trước cửa. Đứa trẻ năm xưa, giờ là một thầy thuốc già, làm phụ tá cho bạn.",
+     "effects": {
+      "fame": 15,
+      "joy": 18,
+      "flags": [
+       "vpm_end",
+       "vpm_end_clinic"
+      ]
+     },
+     "moment": "Mở cửa lâu đài mỗi đêm để chữa bệnh cho người sống"
+    },
+    {
+     "label": "Viết sách Huyết Y",
+     "require": {
+      "flags": [
+       "vpm_cure_plague"
+      ]
+     },
+     "text": "Cuốn sách dạy cách dùng máu để chữa bệnh. Cả Giáo hội lẫn Huyết Tộc đều cấm nó. Nó được chép tay khắp nơi.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "vpm_end",
+       "vpm_end_book"
+      ]
+     }
+    },
+    {
+     "label": "Đi chữa bệnh khắp lục địa",
+     "text": "Không lâu đài. Không tên. Chỉ một kẻ lạ đến lúc nửa đêm, và người bệnh khỏe lại lúc sáng.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "vpm_end",
+       "vpm_end_wanderer"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpm_c5_abyss",
+   "races": [
+    "vampire"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "vampire_mage",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "vpm_path_abyss"
+    ],
+    "notFlags": [
+     "vpm_end"
+    ]
+   },
+   "text": "Bạn là Blood Lord. Máu bạn mang trong mình bí mật của Vực Thẳm.",
+   "choices": [
+    {
+     "label": "Dùng bí mật để vá các khe nứt",
+     "require": {
+      "flags": [
+       "vpm_abyss_secrets"
+      ]
+     },
+     "text": "Bạn biết Vực Thẳm từ bên trong. Bạn đi khắp nơi, vá những khe nứt mà không pháp sư nào khác thấy.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "vpm_end",
+       "vpm_end_mender"
+      ]
+     },
+     "moment": "Dùng bí mật Vực Thẳm trong máu để vá các khe nứt của thế giới"
+    },
+    {
+     "label": "Tự phong ấn mình",
+     "text": "Máu bạn quá nguy hiểm. Bạn nằm vào quan tài bạc, và khóa từ bên trong.",
+     "effects": {
+      "fame": 10,
+      "joy": 4,
+      "flags": [
+       "vpm_end",
+       "vpm_end_sealed_self"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpm_daily_rose",
+   "races": [
+    "vampire"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "vampire_mage",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Bạn nhỏ một giọt máu vào chén nước, như ngày đầu.",
+   "choices": [
+    {
+     "label": "Xem nó nở",
+     "text": "Một bông hồng đỏ, đẹp hơn mọi lần.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Uống lại",
+     "text": "Máu của chính mình. Nhạt.",
+     "effects": {
+      "joy": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpm_daily_war",
+   "races": [
+    "vampire"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "vampire_mage",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Máu đổ khắp nơi.",
+   "choices": [
+    {
+     "label": "Tránh xa",
+     "text": "Quá nhiều máu, quá nhiều ký ức đau.",
+     "effects": {
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Dựng khiên máu bảo vệ một thành nhỏ",
+     "text": "Thành đứng vững. Bạn kiệt sức một thập kỷ.",
+     "effects": {
+      "fame": 5,
+      "health": -8,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpm_daily_old",
+   "races": [
+    "vampire"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "vampire_mage",
+    "free": true
+   },
+   "text": "Máu bạn đã nhớ quá nhiều. Đôi khi bạn không biết ký ức nào là của mình.",
+   "choices": [
+    {
+     "label": "Viết ra những gì chắc chắn là của mình",
+     "text": "Một trang. Bạn đọc nó mỗi đêm.",
+     "effects": {
+      "INT": 1
+     }
+    },
+    {
+     "label": "Để chúng hòa vào nhau",
+     "text": "Bạn là tổng của mọi giọt máu đã uống. Như thế cũng được.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpm_c5_crimson_late",
+   "races": [
+    "vampire"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "vampire_mage",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "vpm_path_crimson"
+    ],
+    "notFlags": [
+     "vpm_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Blood Lord, đại pháp sư Huyết thuật mạnh nhất.",
+   "choices": [
+    {
+     "label": "Mở trường Huyết thuật có luật lệ",
+     "require": {
+      "flags": [
+       "vpm_crimson_mercy"
+      ]
+     },
+     "text": "Học trò phải học kiên nhẫn trước khi học quyền năng. Người học trò phản bội năm xưa quay về, xin làm giáo viên. Bạn nhận.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "vpm_end",
+       "vpm_end_school"
+      ]
+     },
+     "moment": "Mở trường Huyết thuật lấy kiên nhẫn làm bài học đầu tiên"
+    },
+    {
+     "label": "Phong ấn Huyết thuật mạnh nhất",
+     "text": "Có những phép không nên ai biết. Bạn mang chúng theo.",
+     "effects": {
+      "fame": 12,
+      "joy": 8,
+      "flags": [
+       "vpm_end",
+       "vpm_end_sealed"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "vpm_c5_cure_late",
+   "races": [
+    "vampire"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "vampire_mage",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "vpm_path_cure"
+    ],
+    "notFlags": [
+     "vpm_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Blood Lord, nhưng ở các làng quanh lâu đài, người ta gọi bạn là “Thầy thuốc bóng đêm”.",
+   "choices": [
+    {
+     "label": "Mở cửa lâu đài cho người bệnh",
+     "require": {
+      "flags": [
+       "vpm_cure_child"
+      ]
+     },
+     "text": "Mỗi đêm, người bệnh xếp hàng trước cửa. Đứa trẻ năm xưa, giờ là một thầy thuốc già, làm phụ tá cho bạn.",
+     "effects": {
+      "fame": 15,
+      "joy": 18,
+      "flags": [
+       "vpm_end",
+       "vpm_end_clinic"
+      ]
+     },
+     "moment": "Mở cửa lâu đài mỗi đêm để chữa bệnh cho người sống"
+    },
+    {
+     "label": "Viết sách Huyết Y",
+     "require": {
+      "flags": [
+       "vpm_cure_plague"
+      ]
+     },
+     "text": "Cuốn sách dạy cách dùng máu để chữa bệnh. Cả Giáo hội lẫn Huyết Tộc đều cấm nó. Nó được chép tay khắp nơi.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "vpm_end",
+       "vpm_end_book"
+      ]
+     }
+    },
+    {
+     "label": "Đi chữa bệnh khắp lục địa",
+     "text": "Không lâu đài. Không tên. Chỉ một kẻ lạ đến lúc nửa đêm, và người bệnh khỏe lại lúc sáng.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "vpm_end",
+       "vpm_end_wanderer"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "vpm_c5_abyss_late",
+   "races": [
+    "vampire"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "vampire_mage",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "vpm_path_abyss"
+    ],
+    "notFlags": [
+     "vpm_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Blood Lord. Máu bạn mang trong mình bí mật của Vực Thẳm.",
+   "choices": [
+    {
+     "label": "Dùng bí mật để vá các khe nứt",
+     "require": {
+      "flags": [
+       "vpm_abyss_secrets"
+      ]
+     },
+     "text": "Bạn biết Vực Thẳm từ bên trong. Bạn đi khắp nơi, vá những khe nứt mà không pháp sư nào khác thấy.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "vpm_end",
+       "vpm_end_mender"
+      ]
+     },
+     "moment": "Dùng bí mật Vực Thẳm trong máu để vá các khe nứt của thế giới"
+    },
+    {
+     "label": "Tự phong ấn mình",
+     "text": "Máu bạn quá nguy hiểm. Bạn nằm vào quan tài bạc, và khóa từ bên trong.",
+     "effects": {
+      "fame": 10,
+      "joy": 4,
+      "flags": [
+       "vpm_end",
+       "vpm_end_sealed_self"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}

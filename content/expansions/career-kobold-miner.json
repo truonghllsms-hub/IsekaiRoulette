@@ -1,0 +1,310 @@
+{
+ "_note": "Kho cảnh độc lập cho Kobold Miner (đời Kobold quá ngắn cho một tuyến nhiều chương).",
+ "origins": [],
+ "events": [
+  {
+   "id": "kbm_first_pick",
+   "races": [
+    "kobold"
+   ],
+   "weight": 40,
+   "require": {
+    "job": "kobold_miner",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 1
+   },
+   "text": "Ngày đầu xuống hầm, người ta đưa cho bạn chiếc cuốc của một thợ đào vừa chết tuần trước. Cán cuốc còn mòn vết tay của hắn.",
+   "choices": [
+    {
+     "label": "Đào theo đúng vết tay cũ",
+     "text": "Bàn tay bạn nhỏ hơn, nhưng vết mòn dẫn tay bạn đến đúng chỗ đặt lực. Cuối ca, bạn đào được nhiều hơn mọi thợ mới.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2
+     },
+     "moment": "Đào ca đầu tiên bằng chiếc cuốc của người thợ đã khuất"
+    },
+    {
+     "label": "Quấn lại cán cuốc bằng dây mới",
+     "text": "Cuốc là của bạn bây giờ. Bạn khắc một dấu nhỏ lên cán, dưới dấu của người trước. Có lẽ người sau sẽ khắc thêm.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbm_canary",
+   "races": [
+    "kobold"
+   ],
+   "weight": 35,
+   "require": {
+    "job": "kobold_miner",
+    "free": true
+   },
+   "text": "Con thằn lằn đá mà cả tổ đào mang theo để báo khí độc bỗng nằm bất động trong lồng.",
+   "choices": [
+    {
+     "label": "Hét cả tổ chạy ra",
+     "text": "Cả tổ chạy. Ba hơi thở sau, một tiếng nổ nhỏ vang lên ở cuối hầm. Không ai chết. Bạn mang con thằn lằn ra ngoài, và nó tỉnh dậy dưới nắng.",
+     "effects": {
+      "fame": 5,
+      "jobXp": 2
+     },
+     "moment": "Cứu cả tổ đào khỏi túi khí độc"
+    },
+    {
+     "label": "Gõ vào lồng xem nó còn sống không",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Nó chỉ đang ngủ. Cả tổ cười, và đào tiếp.",
+      "effects": {
+       "joy": 3
+      }
+     },
+     "fail": {
+      "text": "Nó không ngủ. Bạn ngất trước khi kịp chạy, và tỉnh dậy ngoài hầm, đầu đau như búa bổ.",
+      "effects": {
+       "health": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbm_cavein_choice",
+   "races": [
+    "kobold"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "kobold_miner",
+    "free": true
+   },
+   "text": "Trần hầm sập. Bạn kẹt cùng hai thợ đào khác trong một hốc nhỏ. Có một khe hở vừa một Kobold chui lọt, dẫn lên trên.",
+   "choices": [
+    {
+     "label": "Đẩy đứa nhỏ nhất lên trước",
+     "text": "Nó chui lọt, gọi người đến. Đến tối, bạn và đứa còn lại được kéo ra. Đứa nhỏ ôm chân bạn không chịu buông.",
+     "effects": {
+      "joy": 8,
+      "fame": 3,
+      "jobXp": 2
+     },
+     "moment": "Đẩy thợ đào nhỏ nhất ra khỏi hầm sập trước"
+    },
+    {
+     "label": "Tự chui lên trước để gọi người",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn chui lên, gọi được người đến trước khi trần sập thêm. Cả ba sống.",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 2
+      }
+     },
+     "fail": {
+      "text": "Bạn kẹt giữa khe. Phải mất cả ngày mới được kéo ra.",
+      "effects": {
+       "health": -8
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbm_dwarf_drill",
+   "races": [
+    "kobold"
+   ],
+   "weight": 25,
+   "require": {
+    "job": "kobold_miner",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Bạn tìm thấy một cỗ máy đào hầm của Dwarf bị bỏ lại, rỉ sét nhưng còn nguyên. Không Kobold nào biết dùng nó.",
+   "choices": [
+    {
+     "label": "Mày mò cho nó chạy",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Sau mười ngày, nó gầm lên và khoan xuyên vách đá như xuyên bơ. Cả tổ đào nhảy múa. Lãnh chúa mỏ tịch thu nó ngay hôm sau.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3
+      },
+      "moment": "Làm sống lại cỗ máy đào hầm Dwarf bị bỏ rơi"
+     },
+     "fail": {
+      "text": "Nó chạy, rồi không dừng. Nó khoan xuống tận mạch nước ngầm. Hầm ngập.",
+      "effects": {
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Tháo lấy phần sắt tốt",
+     "text": "Sắt Dwarf làm được năm chiếc cuốc tốt nhất tổ đào từng có.",
+     "effects": {
+      "wealth": 4,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbm_goblins",
+   "races": [
+    "kobold"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "kobold_miner",
+    "free": true
+   },
+   "text": "Một toán Goblin đào hầm từ phía bên kia, đụng ngay vào hầm của bạn. Cả hai bên giơ cuốc lên, rồi khựng lại.",
+   "choices": [
+    {
+     "label": "Đề nghị chia vỉa quặng",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Goblin ngạc nhiên vì có ai đó đề nghị chia. Chúng đồng ý. Hai bên đào hai nửa, và thỉnh thoảng chia nhau nấm nướng.",
+      "effects": {
+       "fame": 4,
+       "jobXp": 2
+      },
+      "moment": "Chia vỉa quặng với một toán Goblin thay vì đánh nhau"
+     },
+     "fail": {
+      "text": "Goblin đồng ý, rồi đêm đó lẻn sang lấy hết quặng của bạn.",
+      "effects": {
+       "wealth": -3
+      }
+     }
+    },
+    {
+     "label": "Sập hầm giữa hai bên",
+     "text": "Vách đá đổ xuống. Không ai đánh nhau. Không ai lấy được quặng nữa.",
+     "effects": {
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbm_vein_song",
+   "races": [
+    "kobold"
+   ],
+   "weight": 25,
+   "require": {
+    "job": "kobold_miner",
+    "free": true
+   },
+   "text": "Đêm khuya một mình trong hầm, bạn nghe thấy tiếng ngân rất khẽ phát ra từ vách đá. Các thợ đào già nói đó là tiếng Rồng ngủ dưới núi.",
+   "choices": [
+    {
+     "label": "Áp tai vào vách nghe",
+     "text": "Tiếng ngân dẫn bạn đến một vỉa Tinh Bạc nhỏ mà không ai tìm thấy. Có lẽ là Rồng. Có lẽ là gió.",
+     "effects": {
+      "LUCK": 1,
+      "wealth": 5,
+      "jobXp": 2
+     },
+     "moment": "Theo tiếng ngân trong vách đá tìm ra vỉa Tinh Bạc"
+    },
+    {
+     "label": "Chạy về kể với thầy tế",
+     "text": "Thầy tế cầu nguyện cả đêm. Sáng ra, tổ đào được nghỉ một ngày để tạ ơn Rồng.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbm_war_tribute",
+   "races": [
+    "kobold"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 25,
+   "require": {
+    "job": "kobold_miner",
+    "free": true
+   },
+   "text": "Chiến tranh. Quân Ma Vương đòi tổ đào nộp gấp đôi quặng.",
+   "choices": [
+    {
+     "label": "Đào cả đêm",
+     "text": "Đủ quặng. Ba thợ đào ngã gục vì kiệt sức. Bạn là một trong số đó, nhưng còn tỉnh dậy được.",
+     "effects": {
+      "health": -8,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Giấu một phần trong hầm cũ",
+     "text": "Quân Ma Vương nhận ít hơn. Chúng không đếm kỹ. Mùa đông năm ấy, tổ đào có quặng để đổi lấy thức ăn.",
+     "effects": {
+      "wealth": 4,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbm_old_miner",
+   "races": [
+    "kobold"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "kobold_miner",
+    "free": true
+   },
+   "text": "Tay bạn đã cứng như đá sau bao năm cầm cuốc. Lũ thợ đào trẻ gọi bạn là “Vách Già”.",
+   "choices": [
+    {
+     "label": "Dạy chúng nghe tiếng vách",
+     "text": "Chúng áp tai vào đá, cười khúc khích, rồi im lặng khi thật sự nghe thấy.",
+     "effects": {
+      "joy": 8,
+      "fame": 2
+     }
+    },
+    {
+     "label": "Đào ca cuối cùng",
+     "text": "Bạn đào một mình, chậm, chắc. Khi lên khỏi hầm, bạn treo cuốc lên vách và không xuống nữa.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  }
+ ]
+}

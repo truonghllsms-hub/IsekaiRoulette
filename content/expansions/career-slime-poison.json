@@ -1,0 +1,1096 @@
+{
+ "_note": "Tuyến truyện Poison Slime: ba đạo (slp_path_purify / slp_path_plague / slp_path_cure), nhân vật xuyên suốt Mẹ Nhớt (Slime độc cổ xưa) và Wren (cô bé hái thuốc Human).",
+ "origins": [],
+ "events": [
+  {
+   "id": "slp_c1_mother",
+   "races": [
+    "slime"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "slime_poison",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "slp_met_mother"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Mẹ Nhớt",
+     "race": "Slime",
+     "position": "Slime độc cổ xưa to bằng cả hồ nước"
+    }
+   ],
+   "text": "Sâu trong Đầm Lầy Tử Khí có một Slime độc to bằng cả hồ nước, già hơn mọi thứ trong đầm. Lũ Slime nhỏ gọi nó là Mẹ Nhớt. Nó rung lên khi bạn bò lại gần, và bạn hiểu: “Độc là thức ăn. Độc là nhà. Độc không phải vũ khí.”",
+   "choices": [
+    {
+     "label": "Chìm vào Mẹ Nhớt một lúc",
+     "check": {
+      "stat": "LUCK",
+      "target": 4
+     },
+     "success": {
+      "text": "Bạn trôi trong độc của nó, và cảm nhận mọi chất độc trong đầm lầy: chất nào giết, chất nào nuôi, chất nào chữa. Khi bạn trồi lên, bạn hiểu nhiều hơn.",
+      "effects": {
+       "LUCK": 1,
+       "jobXp": 1,
+       "flags": [
+        "slp_met_mother",
+        "slp_mother_bond"
+       ]
+      },
+      "moment": "Chìm vào Mẹ Nhớt và hiểu được mọi chất độc của đầm lầy"
+     },
+     "fail": {
+      "text": "Độc của nó quá mạnh. Bạn trồi lên, run rẩy. Mẹ Nhớt rung nhẹ, như cười.",
+      "effects": {
+       "health": -3,
+       "flags": [
+        "slp_met_mother"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Bò quanh nó, lắng nghe",
+     "text": "Nó rung theo nhịp chậm rãi, như tim đập. Bạn bò quanh nó cả ngày, và học được nhịp đầm lầy.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "slp_met_mother"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slp_c1_wren",
+   "races": [
+    "slime"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "slime_poison",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "slp_met_mother"
+    ],
+    "notFlags": [
+     "slp_met_wren"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Wren",
+     "race": "Human",
+     "position": "Cô bé hái thuốc dám vào sâu đầm lầy"
+    }
+   ],
+   "text": "Wren là một cô bé hái thuốc Human, đi sâu vào đầm lầy hơn mọi người dám. Cô thấy bạn, và không bỏ chạy. Cô chìa ra một cây nấm độc: “Ngươi ăn được cái này không?”",
+   "choices": [
+    {
+     "label": "Ăn",
+     "text": "Bạn ăn. Cô bé vỗ tay: “Vậy ngươi biết nấm nào độc!” Từ đó, cô mang nấm đến cho bạn thử. Cái nào bạn ăn, cô không hái.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 1,
+      "flags": [
+       "slp_met_wren",
+       "slp_wren_friend"
+      ]
+     },
+     "moment": "Ăn thử nấm độc giúp cô bé hái thuốc Wren"
+    },
+    {
+     "label": "Bò đi",
+     "text": "Cô bé gọi theo. Hôm sau, cô quay lại, để lại một đống nấm ở chỗ bạn hay nằm.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "slp_met_wren"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slp_c2_first_holy",
+   "races": [
+    "slime"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "slime_poison",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "slp_first_holy",
+     "slp_end"
+    ]
+   },
+   "text": "Một phái đoàn tu sĩ đi ngang qua đầm. Một người giương Thánh Giá, và ánh sáng làm bạn bốc khói.",
+   "choices": [
+    {
+     "label": "Lặn xuống bùn",
+     "text": "Bùn che bạn khỏi ánh sáng. Họ đi qua. Bạn trồi lên, bỏng một mảng, và học được rằng không phải ai cũng muốn đầm lầy tồn tại.",
+     "effects": {
+      "health": -4,
+      "jobXp": 2,
+      "flags": [
+       "slp_first_holy"
+      ]
+     }
+    },
+    {
+     "label": "Phun một làn khí độc nhẹ",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Họ ho sặc sụa, bỏ đi, không ai bị thương nặng. Họ sẽ kể về đầm lầy có ma.",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 2,
+       "flags": [
+        "slp_first_holy"
+       ]
+      },
+      "moment": "Đuổi phái đoàn tu sĩ khỏi đầm bằng khí độc nhẹ"
+     },
+     "fail": {
+      "text": "Khí quá nặng. Một tu sĩ ngất. Những người khác kéo anh ta đi, thề sẽ quay lại.",
+      "effects": {
+       "fame": -3,
+       "flags": [
+        "slp_first_holy"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "slp_c2_crossroads",
+   "races": [
+    "slime"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "slime_poison",
+    "free": true,
+    "jobRank": 1,
+    "flags": [
+     "slp_met_mother"
+    ],
+    "notFlags": [
+     "slp_path_purify",
+     "slp_path_plague",
+     "slp_path_cure",
+     "slp_end"
+    ]
+   },
+   "text": "Mẹ Nhớt rung lên, và bạn hiểu ba điều nó muốn nói: đầm lầy đang bị đầu độc bởi thứ không thuộc về nó; độc có thể giết cả một vùng; và độc có thể chữa.",
+   "choices": [
+    {
+     "label": "Kẻ Lọc Đầm",
+     "text": "Bạn sẽ ăn những chất độc lạ, những thứ giả kim và tà thuật đổ vào đầm, để đầm lầy được là chính nó.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "slp_path_purify"
+      ]
+     },
+     "moment": "Chọn ăn những chất độc lạ để lọc sạch đầm lầy"
+    },
+    {
+     "label": "Dịch Hạch",
+     "text": "Bạn sẽ là thứ độc mạnh nhất từng tồn tại. Kẻ nào đe dọa đầm lầy sẽ chết. Mẹ Nhớt rung chậm, buồn bã.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "slp_path_plague"
+      ]
+     },
+     "moment": "Chọn trở thành thứ độc mạnh nhất từng tồn tại"
+    },
+    {
+     "label": "Độc Chữa",
+     "text": "Liều nhỏ của độc là thuốc. Bạn sẽ học cách chia nhỏ mình.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "slp_path_cure"
+      ]
+     },
+     "moment": "Chọn học cách biến độc thành thuốc"
+    }
+   ]
+  },
+  {
+   "id": "slp_purify_barrel",
+   "races": [
+    "slime"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "slime_poison",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slp_path_purify"
+    ],
+    "notFlags": [
+     "slp_end"
+    ]
+   },
+   "text": "Một thùng giả kim rò rỉ trôi vào đầm. Cá chết, ếch chết, rêu đổi màu.",
+   "choices": [
+    {
+     "label": "Ăn hết chất rò rỉ",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn ăn, và nó đốt bạn từ bên trong. Nhưng bạn tiêu hóa được. Đầm lầy hồi phục sau một mùa.",
+      "effects": {
+       "STR": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "slp_purify_barrel"
+       ]
+      },
+      "moment": "Ăn sạch chất giả kim rò rỉ để cứu đầm lầy"
+     },
+     "fail": {
+      "text": "Quá nhiều. Bạn ngất ba ngày. Một nửa đầm vẫn nhiễm.",
+      "effects": {
+       "health": -12
+      }
+     }
+    },
+    {
+     "label": "Đẩy thùng ra khỏi đầm",
+     "text": "Thùng trôi ra sông. Đầm lầy an toàn. Sông thì không.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slp_purify_cult",
+   "races": [
+    "slime"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "slime_poison",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slp_path_purify"
+    ],
+    "notFlags": [
+     "slp_end"
+    ]
+   },
+   "text": "Một nhóm tà giáo chuẩn bị đổ cháo máu nguyền rủa xuống đầu nguồn nước ngầm.",
+   "choices": [
+    {
+     "label": "Nuốt hết cháo máu",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Lời nguyền tan trong bụng bạn như đường tan trong nước. Tà giáo nhìn cái thùng trống, rồi nhìn bạn, và bỏ chạy.",
+      "effects": {
+       "LUCK": 1,
+       "fame": 6,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Lời nguyền bám vào bạn. Bạn chuyển màu đen một mùa.",
+      "effects": {
+       "health": -10
+      }
+     }
+    },
+    {
+     "label": "Bò lên làm đổ thùng trước",
+     "text": "Cháo máu đổ ra đất đá, không chảy vào nước. Tà giáo chửi rủa.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slp_plague_army",
+   "races": [
+    "slime"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "slime_poison",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slp_path_plague"
+    ],
+    "notFlags": [
+     "slp_end"
+    ]
+   },
+   "text": "Một đạo quân dựng trại bên đầm lầy, chuẩn bị đốt nó để mở đường.",
+   "choices": [
+    {
+     "label": "Phun khí độc vào trại trong đêm",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Sáng ra, cả đạo quân ho sặc sụa, rút lui. Không ai chết, nhưng không ai dám quay lại.",
+      "effects": {
+       "STR": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "slp_plague_mercy"
+       ]
+      },
+      "moment": "Đẩy lùi một đạo quân bằng khí độc mà không giết ai"
+     },
+     "fail": {
+      "text": "Khí quá mạnh. Một số lính không tỉnh dậy.",
+      "effects": {
+       "joy": -10,
+       "fame": 4
+      }
+     }
+    },
+    {
+     "label": "Phun khí độc chết người",
+     "text": "Đạo quân không còn. Đầm lầy an toàn. Mẹ Nhớt không rung với bạn suốt một mùa.",
+     "effects": {
+      "fame": 10,
+      "joy": -10,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slp_plague_rival",
+   "races": [
+    "slime"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "slime_poison",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slp_path_plague"
+    ],
+    "notFlags": [
+     "slp_end"
+    ]
+   },
+   "text": "Một con Rắn Đuôi Chuông khổng lồ tranh vũng nọc với bạn.",
+   "choices": [
+    {
+     "label": "Đấu nọc",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Nọc của bạn mạnh hơn. Con rắn bỏ đi, và từ đó không vào đầm nữa.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Nọc của nó mạnh hơn. Bạn tan một phần.",
+      "effects": {
+       "health": -10
+      }
+     }
+    },
+    {
+     "label": "Chia vũng nọc",
+     "text": "Con rắn nghiêng đầu, rồi uống phần của nó. Hai kẻ độc, một vũng nọc, một buổi chiều yên bình.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slp_cure_hunter",
+   "races": [
+    "slime"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "slime_poison",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slp_path_cure"
+    ],
+    "notFlags": [
+     "slp_end"
+    ]
+   },
+   "text": "Một mạo hiểm giả săn lõi Slime bị trúng độc cây đầm lầy, nằm co giật.",
+   "choices": [
+    {
+     "label": "Chia một giọt độc của mình cho hắn",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Độc của bạn đẩy độc cây ra. Hắn tỉnh dậy, thấy bạn, và hiểu. Hắn không bao giờ săn Slime nữa.",
+      "effects": {
+       "INT": 1,
+       "joy": 8,
+       "jobXp": 3,
+       "flags": [
+        "slp_cure_first"
+       ]
+      },
+      "moment": "Dùng một giọt độc của mình để giải độc cho thợ săn Slime"
+     },
+     "fail": {
+      "text": "Liều quá lớn. Hắn sống, nhưng ốm cả mùa.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    },
+    {
+     "label": "Để hắn lại",
+     "text": "Hắn đã định săn bạn. Bạn bò đi.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slp_cure_alchemist",
+   "races": [
+    "slime"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "slime_poison",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slp_path_cure"
+    ],
+    "notFlags": [
+     "slp_end"
+    ]
+   },
+   "text": "Một ma đạo sĩ hắc ám yêu cầu bạn chiết xuất loại nọc độc mạnh nhất, trả bằng một bình mana.",
+   "choices": [
+    {
+     "label": "Đưa cho hắn nọc pha loãng",
+     "text": "Hắn không biết. Thứ hắn mang về chỉ làm người ta ngủ ba ngày. Có lẽ ai đó đã thoát chết nhờ thế.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Từ chối",
+     "text": "Hắn đe dọa, rồi bỏ đi. Hắn sẽ tìm Slime khác.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slp_c4_mother",
+   "races": [
+    "slime"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "slime_poison",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "slp_met_mother"
+    ],
+    "notFlags": [
+     "slp_mother_gone",
+     "slp_end"
+    ],
+    "anyFlags": [
+     "slp_path_purify",
+     "slp_path_plague",
+     "slp_path_cure"
+    ]
+   },
+   "text": "Mẹ Nhớt đang tan dần. Nó đã sống quá lâu, nuốt quá nhiều độc lạ. Nó rung lên lần cuối, gọi bạn.",
+   "choices": [
+    {
+     "label": "Hòa vào nó",
+     "text": "Bạn chìm vào Mẹ Nhớt, và trong một khoảnh khắc, hai bạn là một. Bạn thấy mọi điều nó đã thấy trong nghìn năm. Khi bạn trồi lên, Mẹ Nhớt đã thành một hồ nước trong.",
+     "effects": {
+      "joy": -2,
+      "LUCK": 1,
+      "jobXp": 3,
+      "flags": [
+       "slp_mother_gone"
+      ]
+     },
+     "moment": "Hòa vào Mẹ Nhớt trong khoảnh khắc cuối của nó"
+    },
+    {
+     "label": "Canh hồ nước nó để lại",
+     "text": "Hồ nước trong ấy là nơi duy nhất trong đầm không có độc. Bạn canh nó mãi.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 3,
+      "flags": [
+       "slp_mother_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slp_c4_wren",
+   "races": [
+    "slime"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "slime_poison",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "slp_met_wren"
+    ],
+    "notFlags": [
+     "slp_end"
+    ]
+   },
+   "text": "Wren đã già, là thầy thuốc giỏi nhất vùng. Bà bị bệnh mà không thuốc nào chữa được, trừ một thứ độc rất hiếm.",
+   "choices": [
+    {
+     "label": "Cho bà giọt độc của mình",
+     "require": {
+      "flags": [
+       "slp_wren_friend"
+      ]
+     },
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Liều chính xác đến từng hạt. Bà sống thêm mười năm, và viết một cuốn sách về những Slime độc hiền lành.",
+      "effects": {
+       "INT": 1,
+       "joy": 12,
+       "jobXp": 3,
+       "flags": [
+        "slp_wren_saved"
+       ]
+      },
+      "moment": "Cứu bà Wren bằng một giọt độc chính xác"
+     },
+     "fail": {
+      "text": "Bệnh quá nặng. Bà mất, nhưng mỉm cười.",
+      "effects": {
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Ở bên bà",
+     "text": "Bà nằm bên đầm, nơi lần đầu gặp bạn. Bà mất lúc hoàng hôn.",
+     "effects": {
+      "joy": -8,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slp_c5_purify",
+   "races": [
+    "slime"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "slime_poison",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "slp_path_purify"
+    ],
+    "notFlags": [
+     "slp_end"
+    ]
+   },
+   "text": "Bạn là Plague Slime, nhưng đầm lầy chưa bao giờ trong lành như thế.",
+   "choices": [
+    {
+     "label": "Canh nguồn nước mãi mãi",
+     "require": {
+      "flags": [
+       "slp_purify_barrel"
+      ]
+     },
+     "text": "Bạn nằm ở đầu nguồn nước ngầm. Mọi thứ độc lạ chảy qua bạn và biến mất. Làng dưới hạ lưu không bao giờ biết vì sao nước của họ sạch.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "slp_end",
+       "slp_end_spring"
+      ]
+     },
+     "moment": "Canh giữ đầu nguồn nước ngầm để mọi chất độc lạ biến mất"
+    },
+    {
+     "label": "Trở thành Mẹ Nhớt mới",
+     "text": "Bạn lớn dần, to bằng cái hồ. Lũ Slime nhỏ gọi bạn là Mẹ.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "slp_end",
+       "slp_end_mother"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slp_c5_plague",
+   "races": [
+    "slime"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "slime_poison",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "slp_path_plague"
+    ],
+    "notFlags": [
+     "slp_end"
+    ]
+   },
+   "text": "Bạn là Plague Slime. Không đạo quân nào dám đến gần đầm lầy.",
+   "choices": [
+    {
+     "label": "Chỉ dùng độc để dọa",
+     "require": {
+      "flags": [
+       "slp_plague_mercy"
+      ]
+     },
+     "text": "Khí độc của bạn làm người ta ho, không làm người ta chết. Đầm lầy vẫn an toàn. Truyền thuyết về nó đáng sợ hơn sự thật.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "slp_end",
+       "slp_end_legend"
+      ]
+     },
+     "moment": "Bảo vệ đầm lầy bằng nỗi sợ thay vì cái chết"
+    },
+    {
+     "label": "Ngủ dưới đáy đầm",
+     "text": "Bạn chìm xuống, và ngủ. Độc của bạn lan ra, chậm rãi, giữ đầm lầy khỏi mọi kẻ xâm nhập.",
+     "effects": {
+      "fame": 10,
+      "joy": 6,
+      "flags": [
+       "slp_end",
+       "slp_end_sleep"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slp_c5_cure",
+   "races": [
+    "slime"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "slime_poison",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "slp_path_cure"
+    ],
+    "notFlags": [
+     "slp_end"
+    ]
+   },
+   "text": "Bạn là Plague Slime, nhưng thầy thuốc khắp vùng biết bạn là nguồn thuốc quý nhất.",
+   "choices": [
+    {
+     "label": "Để thầy thuốc đến lấy độc",
+     "require": {
+      "flags": [
+       "slp_cure_first"
+      ]
+     },
+     "text": "Mỗi tháng, một thầy thuốc đến đầm, mang theo lọ. Bạn cho họ một giọt. Họ mang nó đi chữa hàng trăm người.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "slp_end",
+       "slp_end_apothecary"
+      ]
+     },
+     "moment": "Trở thành nguồn thuốc quý cho thầy thuốc khắp vùng"
+    },
+    {
+     "label": "Đi cùng sách của bà Wren",
+     "require": {
+      "flags": [
+       "slp_wren_saved"
+      ]
+     },
+     "text": "Cuốn sách của bà Wren dạy người ta cách xin độc từ Slime. Học trò của bà tìm đến bạn, và đối xử với bạn như một người thầy.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "slp_end",
+       "slp_end_wren_book"
+      ]
+     }
+    },
+    {
+     "label": "Chia mình thành trăm giọt thuốc",
+     "text": "Trăm giọt độc chữa lành, mang đi khắp nơi. Bạn không còn, nhưng bạn ở khắp nơi.",
+     "effects": {
+      "fame": 12,
+      "joy": 8,
+      "flags": [
+       "slp_end",
+       "slp_end_drops"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slp_daily_bubble",
+   "races": [
+    "slime"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "slime_poison",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Bạn sủi bọt. Một con ếch nhảy vào.",
+   "choices": [
+    {
+     "label": "Nhả nó ra",
+     "text": "Ếch nhảy đi, hơi tê.",
+     "effects": {
+      "joy": 3
+     }
+    },
+    {
+     "label": "Ăn",
+     "text": "Ếch độc. Ngon.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "slp_daily_war",
+   "races": [
+    "slime"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "slime_poison",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Xác chết trôi vào đầm.",
+   "choices": [
+    {
+     "label": "Ăn sạch",
+     "text": "Đầm lầy không bị ô nhiễm. Bạn no suốt một năm.",
+     "effects": {
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Đẩy ra sông",
+     "text": "Đầm sạch. Không phải việc của bạn nữa.",
+     "effects": {
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "slp_daily_old",
+   "races": [
+    "slime"
+   ],
+   "stages": [
+    "ancient"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "slime_poison",
+    "free": true
+   },
+   "text": "Bạn đã ăn quá nhiều độc. Màu của bạn đổi liên tục.",
+   "choices": [
+    {
+     "label": "Chìm xuống bùn nghỉ ngơi",
+     "text": "Một năm sau, bạn trồi lên, màu xanh dịu.",
+     "effects": {
+      "health": 4
+     }
+    },
+    {
+     "label": "Kệ nó",
+     "text": "Bạn sặc sỡ như cầu vồng. Lũ trẻ con thích.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "slp_c5_purify_late",
+   "races": [
+    "slime"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "slime_poison",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "slp_path_purify"
+    ],
+    "notFlags": [
+     "slp_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Plague Slime, nhưng đầm lầy chưa bao giờ trong lành như thế.",
+   "choices": [
+    {
+     "label": "Canh nguồn nước mãi mãi",
+     "require": {
+      "flags": [
+       "slp_purify_barrel"
+      ]
+     },
+     "text": "Bạn nằm ở đầu nguồn nước ngầm. Mọi thứ độc lạ chảy qua bạn và biến mất. Làng dưới hạ lưu không bao giờ biết vì sao nước của họ sạch.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "slp_end",
+       "slp_end_spring"
+      ]
+     },
+     "moment": "Canh giữ đầu nguồn nước ngầm để mọi chất độc lạ biến mất"
+    },
+    {
+     "label": "Trở thành Mẹ Nhớt mới",
+     "text": "Bạn lớn dần, to bằng cái hồ. Lũ Slime nhỏ gọi bạn là Mẹ.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "slp_end",
+       "slp_end_mother"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "ancient"
+   ]
+  },
+  {
+   "id": "slp_c5_plague_late",
+   "races": [
+    "slime"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "slime_poison",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "slp_path_plague"
+    ],
+    "notFlags": [
+     "slp_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Plague Slime. Không đạo quân nào dám đến gần đầm lầy.",
+   "choices": [
+    {
+     "label": "Chỉ dùng độc để dọa",
+     "require": {
+      "flags": [
+       "slp_plague_mercy"
+      ]
+     },
+     "text": "Khí độc của bạn làm người ta ho, không làm người ta chết. Đầm lầy vẫn an toàn. Truyền thuyết về nó đáng sợ hơn sự thật.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "slp_end",
+       "slp_end_legend"
+      ]
+     },
+     "moment": "Bảo vệ đầm lầy bằng nỗi sợ thay vì cái chết"
+    },
+    {
+     "label": "Ngủ dưới đáy đầm",
+     "text": "Bạn chìm xuống, và ngủ. Độc của bạn lan ra, chậm rãi, giữ đầm lầy khỏi mọi kẻ xâm nhập.",
+     "effects": {
+      "fame": 10,
+      "joy": 6,
+      "flags": [
+       "slp_end",
+       "slp_end_sleep"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "ancient"
+   ]
+  },
+  {
+   "id": "slp_c5_cure_late",
+   "races": [
+    "slime"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "slime_poison",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "slp_path_cure"
+    ],
+    "notFlags": [
+     "slp_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Plague Slime, nhưng thầy thuốc khắp vùng biết bạn là nguồn thuốc quý nhất.",
+   "choices": [
+    {
+     "label": "Để thầy thuốc đến lấy độc",
+     "require": {
+      "flags": [
+       "slp_cure_first"
+      ]
+     },
+     "text": "Mỗi tháng, một thầy thuốc đến đầm, mang theo lọ. Bạn cho họ một giọt. Họ mang nó đi chữa hàng trăm người.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "slp_end",
+       "slp_end_apothecary"
+      ]
+     },
+     "moment": "Trở thành nguồn thuốc quý cho thầy thuốc khắp vùng"
+    },
+    {
+     "label": "Đi cùng sách của bà Wren",
+     "require": {
+      "flags": [
+       "slp_wren_saved"
+      ]
+     },
+     "text": "Cuốn sách của bà Wren dạy người ta cách xin độc từ Slime. Học trò của bà tìm đến bạn, và đối xử với bạn như một người thầy.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "slp_end",
+       "slp_end_wren_book"
+      ]
+     }
+    },
+    {
+     "label": "Chia mình thành trăm giọt thuốc",
+     "text": "Trăm giọt độc chữa lành, mang đi khắp nơi. Bạn không còn, nhưng bạn ở khắp nơi.",
+     "effects": {
+      "fame": 12,
+      "joy": 8,
+      "flags": [
+       "slp_end",
+       "slp_end_drops"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "ancient"
+   ]
+  }
+ ]
+}

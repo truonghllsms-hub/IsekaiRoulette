@@ -1,0 +1,1092 @@
+{
+ "_note": "Tuyến truyện Warlock (Ma tộc): ba đạo (dwl_path_abyss / dwl_path_bridge / dwl_path_ward), nhân vật xuyên suốt bà Ysmera Ngàn Mắt (pháp sư cổ) và Aldwin (pháp sư Human bị bắt).",
+ "origins": [],
+ "events": [
+  {
+   "id": "dwl_c1_ysmera",
+   "races": [
+    "demon"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "demon_wl",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "dwl_met_ysmera"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Ysmera Ngàn Mắt",
+     "race": "Demon",
+     "position": "Pháp sư cổ với một nghìn con mắt xăm trên da"
+    }
+   ],
+   "text": "Bà Ysmera Ngàn Mắt có một nghìn con mắt xăm trên da, mỗi con mắt là một cấm thuật bà đã học. Bà mở một cuốn sách đen và bảo bạn đọc trang đầu tiên. Chữ trên trang thì thầm.",
+   "choices": [
+    {
+     "label": "Đọc to",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn đọc hết trang. Tiếng thì thầm im bặt. Bà Ysmera gật đầu: “Ngươi đọc nó, không để nó đọc ngươi. Hiếm đấy.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "dwl_met_ysmera",
+        "dwl_ysmera_respect"
+       ]
+      },
+      "moment": "Đọc trang cấm thư đầu tiên mà không bị nó chiếm lấy"
+     },
+     "fail": {
+      "text": "Bạn đọc được nửa trang, rồi nghe thấy tên mình trong tiếng thì thầm. Bạn ngất. Bà Ysmera đóng sách: “Còn sớm.”",
+      "effects": {
+       "health": -5,
+       "flags": [
+        "dwl_met_ysmera"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đóng sách lại, hỏi bà nó nói gì",
+     "text": "Bà Ysmera mỉm cười, một nghìn con mắt trên da bà như cũng mỉm cười. “Kẻ biết đóng sách sẽ sống lâu hơn kẻ biết đọc.”",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 1,
+      "flags": [
+       "dwl_met_ysmera",
+       "dwl_ysmera_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dwl_c1_aldwin",
+   "races": [
+    "demon"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "demon_wl",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "dwl_met_ysmera"
+    ],
+    "notFlags": [
+     "dwl_met_aldwin"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Aldwin",
+     "race": "Human",
+     "position": "Pháp sư Tháp Ngà bị giam để dịch sách"
+    }
+   ],
+   "text": "Aldwin là một pháp sư Human từ Tháp Ngà, bị bắt trong chiến tranh, giam trong thư viện của Ysmera để dịch sách. Hắn nhìn bạn đọc sai một câu thần chú, và không nhịn được: “Sai trọng âm rồi.”",
+   "choices": [
+    {
+     "label": "Hỏi hắn đọc thế nào cho đúng",
+     "text": "Hắn sửa cho bạn, rồi sửa thêm ba lỗi nữa. Phép của bạn mạnh gấp đôi. Từ đó, mỗi đêm, bạn mang cho hắn một ngọn nến và một câu hỏi.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "dwl_met_aldwin",
+       "dwl_aldwin_friend"
+      ]
+     },
+     "moment": "Học sửa trọng âm thần chú từ pháp sư Human Aldwin"
+    },
+    {
+     "label": "Bảo hắn câm miệng",
+     "text": "Hắn im. Nhưng hôm sau, bạn đọc lại câu thần chú theo cách hắn nói, và nó hiệu nghiệm hơn.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "dwl_met_aldwin"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dwl_c2_first_summon",
+   "races": [
+    "demon"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "demon_wl",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "flags": [
+     "dwl_met_ysmera"
+    ],
+    "notFlags": [
+     "dwl_first_summon",
+     "dwl_end"
+    ]
+   },
+   "text": "Lần triệu hồi đầu tiên. Vòng tròn sáng lên, và một Imp nhỏ hiện ra, hoảng sợ, run rẩy, khóc.",
+   "choices": [
+    {
+     "label": "Thả nó về",
+     "text": "Imp biến mất, để lại một chiếc lông vũ đen. Bà Ysmera nhìn chiếc lông, nhìn bạn. “Lần đầu, ai cũng giữ chúng làm nô lệ. Ngươi thì không.”",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "dwl_first_summon",
+       "dwl_first_freed"
+      ]
+     },
+     "moment": "Thả Imp đầu tiên được triệu hồi về Vực Thẳm"
+    },
+    {
+     "label": "Ràng buộc nó làm người hầu",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Imp phục vụ bạn trung thành, dọn sách, mài mực. Nó không bao giờ cười.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 2,
+       "flags": [
+        "dwl_first_summon"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Vòng ràng buộc vỡ. Imp cắn bạn, và trốn vào thư viện. Bạn tìm nó ba ngày.",
+      "effects": {
+       "health": -4,
+       "flags": [
+        "dwl_first_summon"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dwl_c2_crossroads",
+   "races": [
+    "demon"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "demon_wl",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "dwl_path_abyss",
+     "dwl_path_bridge",
+     "dwl_path_ward",
+     "dwl_end"
+    ],
+    "flags": [
+     "dwl_met_ysmera"
+    ]
+   },
+   "text": "Bà Ysmera đặt ba cuốn sách trước mặt bạn: một cuốn đen thì thầm tên Cổ Thần Vực Thẳm, một cuốn song ngữ Ma tộc và Human, và một cuốn mỏng ghi những vòng phong ấn.",
+   "choices": [
+    {
+     "label": "Sách đen: Kẻ Đào Vực",
+     "text": "Bạn sẽ đào sâu vào cấm thuật Vực Thẳm, sâu hơn mọi Warlock. Bà Ysmera nói: “Ta đã đi một nửa con đường đó. Một nghìn con mắt là cái giá.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "dwl_path_abyss"
+      ]
+     },
+     "moment": "Chọn đào sâu vào cấm thuật Vực Thẳm"
+    },
+    {
+     "label": "Sách song ngữ: Cây Cầu Pháp Thuật",
+     "text": "Pháp thuật Ma tộc và pháp thuật Human có chung một gốc. Bạn sẽ tìm ra nó. Bà Ysmera nhướng mày, và một trăm con mắt trên da bà cũng nhướng theo.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "dwl_path_bridge"
+      ]
+     },
+     "moment": "Chọn tìm gốc chung của pháp thuật Ma tộc và Human"
+    },
+    {
+     "label": "Sách phong ấn: Người Khóa Cổng",
+     "text": "Không phải mọi thứ dưới Vực Thẳm nên được gọi lên. Bạn sẽ học cách đóng cửa, thay vì mở.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "dwl_path_ward"
+      ]
+     },
+     "moment": "Chọn học phong ấn và đóng cổng Vực Thẳm"
+    }
+   ]
+  },
+  {
+   "id": "dwl_abyss_whisper",
+   "races": [
+    "demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "demon_wl",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dwl_path_abyss"
+    ],
+    "notFlags": [
+     "dwl_end"
+    ]
+   },
+   "text": "Tiếng thì thầm của Cổ Thần vang trong đầu bạn mỗi đêm. Nó dạy bạn những thứ không sách nào có.",
+   "choices": [
+    {
+     "label": "Nghe, nhưng ghi lại mọi thứ",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn ghi lại từng chữ, và đọc lại vào ban ngày, khi nó im. Bạn học được nhiều mà không bị nó chiếm.",
+      "effects": {
+       "INT": 2,
+       "jobXp": 3,
+       "flags": [
+        "dwl_abyss_notes"
+       ]
+      },
+      "moment": "Ghi chép lời thì thầm của Cổ Thần mà không bị chiếm lấy"
+     },
+     "fail": {
+      "text": "Một đêm, bạn tỉnh dậy, thấy mình đang viết tên ai đó lên vách bằng máu. Bạn không biết đó là tên ai.",
+      "effects": {
+       "health": -10,
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Khắc một con mắt lên da để chặn nó",
+     "text": "Như bà Ysmera. Đau. Tiếng thì thầm nhỏ đi. Một con mắt. Còn chín trăm chín mươi chín.",
+     "effects": {
+      "health": -5,
+      "jobXp": 3,
+      "flags": [
+       "dwl_abyss_eye"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dwl_abyss_beast",
+   "races": [
+    "demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "demon_wl",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dwl_path_abyss"
+    ],
+    "notFlags": [
+     "dwl_end"
+    ]
+   },
+   "text": "Ma Vương ra lệnh triệu hồi Huyết Thú từ Vực Thẳm để phá cổng Sanctus. Bạn là một trong ba Warlock được chọn.",
+   "choices": [
+    {
+     "label": "Triệu hồi, nhưng giữ sợi xích trong tay",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Huyết Thú phá cổng, rồi bạn kéo nó về Vực Thẳm trước khi nó quay sang đội quân. Ma Vương thắng. Không ai biết bạn đã cứu cả quân đoàn.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Sợi xích tuột. Huyết Thú quay lại. Hai Warlock kia chết. Bạn sống, với một vết cào dài.",
+      "effects": {
+       "health": -20,
+       "fame": -4
+      }
+     }
+    },
+    {
+     "label": "Từ chối",
+     "text": "Ma Vương giận, nhưng không giết một Warlock. Bạn bị đày đến tiền đồn biên giới. Hai Warlock kia triệu hồi Huyết Thú, và không trở về.",
+     "effects": {
+      "fame": -4,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dwl_bridge_tower",
+   "races": [
+    "demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "demon_wl",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dwl_path_bridge"
+    ],
+    "notFlags": [
+     "dwl_end"
+    ]
+   },
+   "text": "Bạn lẻn đến ranh giới Đồng Bằng Thánh Quang để gặp một pháp sư Tháp Ngà. Ông ta hứa trao đổi sách.",
+   "choices": [
+    {
+     "label": "Đến điểm hẹn",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Ông ta đến một mình, như hứa. Hai người trao đổi sách dưới ánh trăng, và đọc thử vài trang cho nhau nghe. Bạn hiểu ra pháp thuật hai tộc dùng chung ba mươi phần trăm từ gốc.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "dwl_bridge_exchange"
+       ]
+      },
+      "moment": "Trao đổi sách bí mật với một pháp sư Tháp Ngà ở biên giới"
+     },
+     "fail": {
+      "text": "Ông ta đến cùng Thánh Kỵ Sĩ. Bạn trốn được, mất cuốn sách mang theo.",
+      "effects": {
+       "health": -10
+      }
+     }
+    },
+    {
+     "label": "Gửi Imp đến thay",
+     "text": "Imp mang về một cuốn sách Human, và một lá thư: “Lần sau tự đến. Ta không cắn.”",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dwl_bridge_aldwin",
+   "races": [
+    "demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "demon_wl",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dwl_path_bridge",
+     "dwl_met_aldwin"
+    ],
+    "notFlags": [
+     "dwl_end"
+    ]
+   },
+   "text": "Aldwin đã giúp bạn dịch được nửa cuốn sách song ngữ. Ma Vương ra lệnh xử tử mọi tù binh pháp sư, vì sợ chúng phản công.",
+   "choices": [
+    {
+     "label": "Giấu Aldwin trong thư viện cấm",
+     "require": {
+      "flags": [
+       "dwl_aldwin_friend"
+      ]
+     },
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Không ai dám vào thư viện cấm, kể cả lính của Ma Vương. Aldwin sống, và hai người dịch xong cuốn sách.",
+      "effects": {
+       "INT": 1,
+       "joy": 8,
+       "jobXp": 3,
+       "flags": [
+        "dwl_aldwin_saved"
+       ]
+      },
+      "moment": "Giấu Aldwin trong thư viện cấm khỏi lệnh xử tử"
+     },
+     "fail": {
+      "text": "Lính tìm thấy. Bạn chỉ kịp mở một cánh cửa bí mật cho hắn trốn về phía Human.",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "dwl_aldwin_saved"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Không làm gì",
+     "text": "Aldwin bị đưa đi. Nửa cuốn sách còn lại, bạn dịch một mình, chậm hơn nhiều.",
+     "effects": {
+      "joy": -8,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dwl_ward_rift",
+   "races": [
+    "demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "demon_wl",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dwl_path_ward"
+    ],
+    "notFlags": [
+     "dwl_end"
+    ]
+   },
+   "text": "Một vết nứt Vực Thẳm mở ra gần một làng Ma tộc. Thứ gì đó đang bò lên.",
+   "choices": [
+    {
+     "label": "Đóng vết nứt bằng vòng phong ấn",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Vòng phong ấn sáng lên. Thứ đang bò lên bị đẩy xuống. Vết nứt khép lại. Làng an toàn.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "dwl_ward_sealed"
+       ]
+      },
+      "moment": "Đóng vết nứt Vực Thẳm bằng vòng phong ấn"
+     },
+     "fail": {
+      "text": "Vòng phong ấn chỉ giữ được một nửa. Một con quái vật nhỏ lọt lên. Làng mất ba ngôi nhà.",
+      "effects": {
+       "health": -8
+      }
+     }
+    },
+    {
+     "label": "Sơ tán làng trước",
+     "text": "Làng sơ tán. Thứ bò lên không tìm thấy ai. Nó lang thang ba ngày rồi quay về. Bạn đóng vết nứt khi nó đã đi.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dwl_ward_order",
+   "races": [
+    "demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "demon_wl",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dwl_path_ward"
+    ],
+    "notFlags": [
+     "dwl_end"
+    ]
+   },
+   "text": "Ma Vương ra lệnh bạn mở một cổng Vực Thẳm lớn, thay vì đóng. Ông muốn một đạo quân từ bên dưới.",
+   "choices": [
+    {
+     "label": "Mở cổng, nhưng gài sẵn phong ấn",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Đạo quân bò lên. Bạn đóng cổng ngay sau con cuối cùng, trước khi thứ lớn hơn kịp theo sau. Ma Vương không biết điều gì đã suýt xảy ra.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Cổng mở rộng hơn bạn tính. Phải mất ba Warlock để đóng lại.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Nói dối là cổng không mở được",
+     "text": "Ma Vương tin, lần này. Bạn biết ông sẽ tìm Warlock khác.",
+     "effects": {
+      "jobXp": 3,
+      "flags": [
+       "dwl_ward_lied"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dwl_c4_ysmera",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_wl",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dwl_met_ysmera"
+    ],
+    "notFlags": [
+     "dwl_ysmera_gone",
+     "dwl_end"
+    ],
+    "anyFlags": [
+     "dwl_path_abyss",
+     "dwl_path_bridge",
+     "dwl_path_ward"
+    ]
+   },
+   "text": "Một nghìn con mắt trên da bà Ysmera bắt đầu mở ra, từng con một. Cấm thuật đang đòi lại cái giá. Bà gọi bạn đến.",
+   "choices": [
+    {
+     "label": "Đọc phong ấn cho bà",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đọc suốt đêm. Từng con mắt khép lại. Đến sáng, bà Ysmera mỉm cười, nhắm mắt thật của bà, và không mở ra nữa. Nhưng một nghìn con mắt kia cũng không.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "dwl_ysmera_gone",
+        "dwl_ysmera_peace"
+       ]
+      },
+      "moment": "Đọc phong ấn suốt đêm để bà Ysmera ra đi bình yên"
+     },
+     "fail": {
+      "text": "Bạn đọc chậm. Ba con mắt mở ra trước khi bà mất. Bạn không biết chúng đã nhìn thấy gì.",
+      "effects": {
+       "joy": -10,
+       "flags": [
+        "dwl_ysmera_gone"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi bà điều cuối cùng",
+     "text": "Bà nói: “Đừng học hết. Chừa lại một cuốn không đọc.” Bà mất trước bình minh.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "dwl_ysmera_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dwl_c5_abyss",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_wl",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dwl_path_abyss"
+    ],
+    "notFlags": [
+     "dwl_end"
+    ]
+   },
+   "text": "Bạn là Archmage of Chaos. Không ai biết về Vực Thẳm nhiều hơn bạn.",
+   "choices": [
+    {
+     "label": "Đốt những trang nguy hiểm nhất",
+     "require": {
+      "flags": [
+       "dwl_abyss_notes"
+      ]
+     },
+     "text": "Bạn đốt ba trăm trang ghi chép. Những gì còn lại đủ để Warlock sau hiểu Vực Thẳm, nhưng không đủ để đánh thức nó.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "dwl_end",
+       "dwl_end_burned"
+      ]
+     },
+     "moment": "Đốt những trang ghi chép nguy hiểm nhất về Vực Thẳm"
+    },
+    {
+     "label": "Chừa lại một cuốn không đọc",
+     "text": "Như bà Ysmera dặn. Cuốn sách nằm trên kệ, đóng chặt. Bạn không bao giờ biết bên trong có gì, và thấy bình yên.",
+     "effects": {
+      "fame": 10,
+      "joy": 15,
+      "flags": [
+       "dwl_end",
+       "dwl_end_unread"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dwl_c5_bridge",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_wl",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dwl_path_bridge"
+    ],
+    "notFlags": [
+     "dwl_end"
+    ]
+   },
+   "text": "Bạn là Archmage of Chaos, nhưng ở Tháp Ngà người ta gọi bạn là “đồng nghiệp”.",
+   "choices": [
+    {
+     "label": "Mở lớp học chung cho pháp sư hai tộc",
+     "require": {
+      "flags": [
+       "dwl_bridge_exchange"
+      ]
+     },
+     "text": "Mười pháp sư Ma tộc, mười pháp sư Human, một căn phòng ở biên giới. Ngày đầu, không ai nói chuyện. Ngày thứ mười, họ cãi nhau về trọng âm.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "dwl_end",
+       "dwl_end_school"
+      ]
+     },
+     "moment": "Mở lớp học pháp thuật chung cho Ma tộc và Human"
+    },
+    {
+     "label": "Xuất bản cuốn sách song ngữ",
+     "require": {
+      "flags": [
+       "dwl_aldwin_saved"
+      ]
+     },
+     "text": "Tên bạn và tên Aldwin cùng in trên bìa. Ma Vương cấm nó. Tháp Ngà cấm nó. Nó được chép tay khắp hai bên biên giới.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "dwl_end",
+       "dwl_end_book"
+      ]
+     }
+    },
+    {
+     "label": "Tiếp tục nghiên cứu một mình",
+     "text": "Bạn tìm ra gốc chung thứ ba mươi mốt. Không ai đọc, nhưng bạn biết.",
+     "effects": {
+      "INT": 1,
+      "joy": 8,
+      "flags": [
+       "dwl_end",
+       "dwl_end_alone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dwl_c5_ward",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_wl",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dwl_path_ward"
+    ],
+    "notFlags": [
+     "dwl_end"
+    ]
+   },
+   "text": "Bạn là Archmage of Chaos. Mọi cổng Vực Thẳm bạn đóng vẫn còn đóng.",
+   "choices": [
+    {
+     "label": "Dạy phong ấn cho mọi Warlock trẻ",
+     "require": {
+      "flags": [
+       "dwl_ward_sealed"
+      ]
+     },
+     "text": "Trước khi học mở, học đóng. Đó là luật mới của trường Warlock, và là luật duy nhất của bạn.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "dwl_end",
+       "dwl_end_ward_law"
+      ]
+     },
+     "moment": "Đặt luật học phong ấn trước khi học triệu hồi"
+    },
+    {
+     "label": "Canh vết nứt lớn nhất đến cuối đời",
+     "text": "Bạn dựng chòi bên vết nứt lớn nhất Ma Giới, và ngồi đó. Không gì bò lên được.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "dwl_end",
+       "dwl_end_watch"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dwl_daily_ink",
+   "races": [
+    "demon"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "demon_wl",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Mực của bạn đổi màu khi bạn viết một câu thần chú sai.",
+   "choices": [
+    {
+     "label": "Viết lại",
+     "text": "Mực trở lại màu đen. Bạn học được một cách kiểm tra mới.",
+     "effects": {
+      "INT": 1
+     }
+    },
+    {
+     "label": "Giữ trang ấy làm kỷ niệm",
+     "text": "Một trang đỏ giữa cuốn sách đen. Đẹp lạ.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "dwl_daily_war",
+   "races": [
+    "demon"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "demon_wl",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Warlock được gọi ra tiền tuyến.",
+   "choices": [
+    {
+     "label": "Dựng khiên phép cho quân đoàn",
+     "text": "Khiên giữ được. Bạn kiệt sức ba ngày.",
+     "effects": {
+      "fame": 4,
+      "health": -5,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Ở lại bảo vệ thư viện",
+     "text": "Thư viện an toàn. Quân đoàn thiếu một Warlock.",
+     "effects": {
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "dwl_daily_old",
+   "races": [
+    "demon"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "demon_wl",
+    "free": true
+   },
+   "text": "Bạn đã đọc quá nhiều. Đôi khi chữ trên trang bắt đầu tự di chuyển.",
+   "choices": [
+    {
+     "label": "Đóng sách, ra ngoài nhìn trời",
+     "text": "Trời Ma Giới đỏ như mọi khi. Bạn thấy bình yên.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Đọc tiếp",
+     "text": "Chữ ngừng di chuyển khi bạn nhìn thẳng vào chúng.",
+     "effects": {
+      "INT": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "dwl_c5_abyss_late",
+   "races": [
+    "demon"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "demon_wl",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dwl_path_abyss"
+    ],
+    "notFlags": [
+     "dwl_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Archmage of Chaos. Không ai biết về Vực Thẳm nhiều hơn bạn.",
+   "choices": [
+    {
+     "label": "Đốt những trang nguy hiểm nhất",
+     "require": {
+      "flags": [
+       "dwl_abyss_notes"
+      ]
+     },
+     "text": "Bạn đốt ba trăm trang ghi chép. Những gì còn lại đủ để Warlock sau hiểu Vực Thẳm, nhưng không đủ để đánh thức nó.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "dwl_end",
+       "dwl_end_burned"
+      ]
+     },
+     "moment": "Đốt những trang ghi chép nguy hiểm nhất về Vực Thẳm"
+    },
+    {
+     "label": "Chừa lại một cuốn không đọc",
+     "text": "Như bà Ysmera dặn. Cuốn sách nằm trên kệ, đóng chặt. Bạn không bao giờ biết bên trong có gì, và thấy bình yên.",
+     "effects": {
+      "fame": 10,
+      "joy": 15,
+      "flags": [
+       "dwl_end",
+       "dwl_end_unread"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "elder"
+   ]
+  },
+  {
+   "id": "dwl_c5_bridge_late",
+   "races": [
+    "demon"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "demon_wl",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dwl_path_bridge"
+    ],
+    "notFlags": [
+     "dwl_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Archmage of Chaos, nhưng ở Tháp Ngà người ta gọi bạn là “đồng nghiệp”.",
+   "choices": [
+    {
+     "label": "Mở lớp học chung cho pháp sư hai tộc",
+     "require": {
+      "flags": [
+       "dwl_bridge_exchange"
+      ]
+     },
+     "text": "Mười pháp sư Ma tộc, mười pháp sư Human, một căn phòng ở biên giới. Ngày đầu, không ai nói chuyện. Ngày thứ mười, họ cãi nhau về trọng âm.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "dwl_end",
+       "dwl_end_school"
+      ]
+     },
+     "moment": "Mở lớp học pháp thuật chung cho Ma tộc và Human"
+    },
+    {
+     "label": "Xuất bản cuốn sách song ngữ",
+     "require": {
+      "flags": [
+       "dwl_aldwin_saved"
+      ]
+     },
+     "text": "Tên bạn và tên Aldwin cùng in trên bìa. Ma Vương cấm nó. Tháp Ngà cấm nó. Nó được chép tay khắp hai bên biên giới.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "dwl_end",
+       "dwl_end_book"
+      ]
+     }
+    },
+    {
+     "label": "Tiếp tục nghiên cứu một mình",
+     "text": "Bạn tìm ra gốc chung thứ ba mươi mốt. Không ai đọc, nhưng bạn biết.",
+     "effects": {
+      "INT": 1,
+      "joy": 8,
+      "flags": [
+       "dwl_end",
+       "dwl_end_alone"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "elder"
+   ]
+  },
+  {
+   "id": "dwl_c5_ward_late",
+   "races": [
+    "demon"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "demon_wl",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dwl_path_ward"
+    ],
+    "notFlags": [
+     "dwl_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Archmage of Chaos. Mọi cổng Vực Thẳm bạn đóng vẫn còn đóng.",
+   "choices": [
+    {
+     "label": "Dạy phong ấn cho mọi Warlock trẻ",
+     "require": {
+      "flags": [
+       "dwl_ward_sealed"
+      ]
+     },
+     "text": "Trước khi học mở, học đóng. Đó là luật mới của trường Warlock, và là luật duy nhất của bạn.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "dwl_end",
+       "dwl_end_ward_law"
+      ]
+     },
+     "moment": "Đặt luật học phong ấn trước khi học triệu hồi"
+    },
+    {
+     "label": "Canh vết nứt lớn nhất đến cuối đời",
+     "text": "Bạn dựng chòi bên vết nứt lớn nhất Ma Giới, và ngồi đó. Không gì bò lên được.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "dwl_end",
+       "dwl_end_watch"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "elder"
+   ]
+  }
+ ]
+}

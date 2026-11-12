@@ -1,0 +1,1070 @@
+{
+ "_note": "Tuyến truyện Bounty Hunter (Ma tộc): ba đạo (dbh_path_law / dbh_path_coin / dbh_path_mercy), nhân vật xuyên suốt Varek Lưỡi Câu (thợ săn tiền thưởng già) và Nyx (Succubus đào tẩu).",
+ "origins": [],
+ "events": [
+  {
+   "id": "dbh_c1_varek",
+   "races": [
+    "demon"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "demon_bh",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "dbh_met_varek"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Varek Lưỡi Câu",
+     "race": "Demon",
+     "position": "Thợ săn tiền thưởng già với bốn trăm con mồi"
+    }
+   ],
+   "text": "Varek Lưỡi Câu đã săn được bốn trăm con mồi. Ông dạy bạn: “Con mồi nào cũng chạy. Con mồi giỏi thì biết chạy về đâu. Ngươi phải đến đó trước.”",
+   "choices": [
+    {
+     "label": "Hỏi làm sao biết nó chạy về đâu",
+     "text": "Ông cười. “Ai cũng chạy về nhà, hoặc về người họ yêu. Tìm nhà, tìm người. Ngươi sẽ tìm ra con mồi.” Bạn không thích bài học ấy. Nó hiệu quả.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "dbh_met_varek",
+       "dbh_varek_respect"
+      ]
+     },
+     "moment": "Học bài học đầu tiên của nghề săn tiền thưởng từ Varek"
+    },
+    {
+     "label": "Đòi đi săn ngay",
+     "check": {
+      "stat": "AGI",
+      "target": 5
+     },
+     "success": {
+      "text": "Ông cho bạn đi theo một vụ nhỏ. Bạn tìm ra con mồi trước ông, nhờ chạy nhanh. Ông gật đầu, rồi chỉ cho bạn ba dấu vết bạn đã bỏ qua.",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 1,
+       "flags": [
+        "dbh_met_varek"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn chạy nhầm hướng. Varek tìm ra con mồi, và tìm ra cả bạn.",
+      "effects": {
+       "flags": [
+        "dbh_met_varek"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbh_c2_first_mark",
+   "races": [
+    "demon"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "demon_bh",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "flags": [
+     "dbh_met_varek"
+    ],
+    "notFlags": [
+     "dbh_first_mark",
+     "dbh_end"
+    ]
+   },
+   "text": "Con mồi đầu tiên của bạn: một phó quan đào ngũ vì không chịu nổi việc tàn sát dân thường. Ma Vương treo thưởng hỏa tốc.",
+   "choices": [
+    {
+     "label": "Bắt hắn về",
+     "text": "Hắn không chống cự. Trên đường về, hắn kể cho bạn nghe về những ngôi làng hắn được lệnh thiêu. Bạn giao hắn, nhận tiền, và không ngủ được.",
+     "effects": {
+      "wealth": 8,
+      "joy": -6,
+      "jobXp": 2,
+      "flags": [
+       "dbh_first_mark"
+      ]
+     }
+    },
+    {
+     "label": "Báo là không tìm thấy",
+     "text": "Bạn mất tiền thưởng, và Varek nhìn bạn rất lâu. “Lần đầu, ai cũng thế. Lần thứ mười, ngươi sẽ quyết định ngươi là ai.”",
+     "effects": {
+      "joy": 4,
+      "jobXp": 2,
+      "flags": [
+       "dbh_first_mark",
+       "dbh_first_let_go"
+      ]
+     },
+     "moment": "Thả con mồi đầu tiên, một phó quan đào ngũ"
+    }
+   ]
+  },
+  {
+   "id": "dbh_c2_crossroads",
+   "races": [
+    "demon"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "demon_bh",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "dbh_path_law",
+     "dbh_path_coin",
+     "dbh_path_mercy",
+     "dbh_end"
+    ],
+    "flags": [
+     "dbh_met_varek"
+    ]
+   },
+   "text": "Varek bày ra ba tấm lệnh truy nã: một tấm có dấu ấn Ma Vương, một tấm của chợ đen với giá gấp ba, và một tấm do chính những nạn nhân viết, không có tiền thưởng.",
+   "choices": [
+    {
+     "label": "Dấu ấn Ma Vương: Thợ Săn Luật",
+     "text": "Bạn sẽ săn những kẻ luật pháp Ma Giới truy nã. Đúng hay sai không phải việc của bạn. Varek nói: “Nghề sạch tay nhất. Không phải sạch lòng nhất.”",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "dbh_path_law"
+      ]
+     },
+     "moment": "Chọn săn theo lệnh truy nã của Ma Vương"
+    },
+    {
+     "label": "Chợ đen: Thợ Săn Vàng",
+     "text": "Ai trả nhiều nhất, bạn săn cho người ấy. Không câu hỏi, không do dự.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 2,
+      "flags": [
+       "dbh_path_coin"
+      ]
+     },
+     "moment": "Chọn săn cho bất kỳ ai trả giá cao nhất"
+    },
+    {
+     "label": "Lệnh của nạn nhân: Thợ Săn Công Lý",
+     "text": "Những kẻ mà luật pháp không chạm tới. Không có tiền, chỉ có lời cảm ơn. Varek lắc đầu, nhưng không ngăn.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "dbh_path_mercy"
+      ]
+     },
+     "moment": "Chọn săn những kẻ mà luật pháp không chạm tới"
+    }
+   ]
+  },
+  {
+   "id": "dbh_law_nyx",
+   "races": [
+    "demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "demon_bh",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dbh_path_law"
+    ],
+    "notFlags": [
+     "dbh_end"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Nyx",
+     "race": "Demon",
+     "position": "Succubus đào tẩu vì tội phản nghịch"
+    }
+   ],
+   "text": "Con mồi là Nyx, một Succubus đào tẩu vì tội phản nghịch. Bị dồn vào ngõ cụt, ả không dùng mị thuật. Ả chỉ nói: “Ta phản nghịch vì Ma Vương bắt ta quyến rũ những đứa trẻ.”",
+   "choices": [
+    {
+     "label": "Bắt ả về, theo luật",
+     "text": "Ả không chống cự. Ma Vương xử ả. Bạn nhận tiền thưởng, và không biết lời ả có thật không.",
+     "effects": {
+      "wealth": 12,
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "dbh_met_nyx"
+      ]
+     }
+    },
+    {
+     "label": "Kiểm tra lời ả trước",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Lời ả là thật. Bạn trình bằng chứng lên Hội đồng. Lệnh truy nã bị hủy. Nyx sống, và nợ bạn một ân.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "dbh_met_nyx",
+        "dbh_nyx_owes"
+       ]
+      },
+      "moment": "Chứng minh Succubus Nyx vô tội trước Hội đồng"
+     },
+     "fail": {
+      "text": "Bạn không tìm được bằng chứng. Ả trốn trong lúc bạn đang tìm.",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "dbh_met_nyx"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbh_law_betrayal",
+   "races": [
+    "demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "demon_bh",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dbh_path_law"
+    ],
+    "notFlags": [
+     "dbh_end"
+    ]
+   },
+   "text": "Khách hàng ẩn danh thuê bạn thanh toán một kẻ nắm tài liệu mật. Ở điểm hẹn, bạn nhận ra mình bị gài: chính bạn là mục tiêu tiếp theo.",
+   "choices": [
+    {
+     "label": "Chạy",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn thoát, mang theo tài liệu mật. Trong đó có tên khách hàng ẩn danh: một Đại thần.",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 3,
+       "flags": [
+        "dbh_law_secret"
+       ]
+      },
+      "moment": "Thoát khỏi bẫy và mang theo tài liệu mật của một Đại thần"
+     },
+     "fail": {
+      "text": "Bạn thoát, nhưng mất tài liệu và một con mắt.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Đánh",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn hạ hết sát thủ được gửi đến. Kẻ cuối cùng khai tên khách hàng.",
+      "effects": {
+       "STR": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "dbh_law_secret"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Chúng quá đông.",
+      "effects": {
+       "health": -18
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbh_coin_umbra",
+   "races": [
+    "demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "demon_bh",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dbh_path_coin"
+    ],
+    "notFlags": [
+     "dbh_end"
+    ]
+   },
+   "text": "Ngay khi bạn chuẩn bị hạ con mồi, một sát thủ từ Umbra Assassins' Guild lao ra cướp mạng.",
+   "choices": [
+    {
+     "label": "Tranh giành",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn nhanh hơn. Con mồi là của bạn. Sát thủ Umbra gật đầu tôn trọng, và biến mất.",
+      "effects": {
+       "AGI": 1,
+       "wealth": 12,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Hắn nhanh hơn. Bạn mất tiền thưởng.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    },
+    {
+     "label": "Đề nghị chia đôi",
+     "text": "Sát thủ Umbra ngạc nhiên, rồi đồng ý. Từ đó, hai người đôi khi hợp tác.",
+     "effects": {
+      "wealth": 6,
+      "jobXp": 3,
+      "flags": [
+       "dbh_coin_umbra"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbh_coin_child",
+   "races": [
+    "demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "demon_bh",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dbh_path_coin"
+    ],
+    "notFlags": [
+     "dbh_end"
+    ]
+   },
+   "text": "Con mồi lần này là một đứa trẻ Ma tộc. Gia tộc nó trả gấp mười để bắt nó về. Nó đang trốn vì gia tộc định gả nó cho một lão già.",
+   "choices": [
+    {
+     "label": "Bắt về, tiền là tiền",
+     "text": "Bạn giao nó. Gia tộc trả đủ. Đứa trẻ nhìn bạn khi bị kéo đi.",
+     "effects": {
+      "wealth": 25,
+      "wealthKind": "windfall",
+      "joy": -12,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Giúp nó trốn xa hơn",
+     "text": "Bạn mất tiền thưởng, và mất khách hàng. Đứa trẻ trốn sang đất Human, và sống.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 3,
+      "flags": [
+       "dbh_coin_mercy"
+      ]
+     },
+     "moment": "Từ chối tiền thưởng gấp mười, giúp đứa trẻ trốn khỏi cuộc hôn nhân ép buộc"
+    }
+   ]
+  },
+  {
+   "id": "dbh_mercy_lord",
+   "races": [
+    "demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "demon_bh",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dbh_path_mercy"
+    ],
+    "notFlags": [
+     "dbh_end"
+    ]
+   },
+   "text": "Nạn nhân của một lãnh chúa Ma tộc tàn bạo đến tìm bạn. Hắn đứng trên luật pháp.",
+   "choices": [
+    {
+     "label": "Săn hắn",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn lẻn vào dinh thự hắn, mang hắn ra trói giữa quảng trường, kèm bằng chứng mọi tội ác. Dân chúng làm phần còn lại.",
+      "effects": {
+       "AGI": 1,
+       "fame": 12,
+       "jobXp": 3,
+       "flags": [
+        "dbh_mercy_lord"
+       ]
+      },
+      "moment": "Mang lãnh chúa tàn bạo ra trói giữa quảng trường cùng bằng chứng tội ác"
+     },
+     "fail": {
+      "text": "Vệ sĩ của hắn phát hiện. Bạn trốn được, bị thương nặng.",
+      "effects": {
+       "health": -18
+      }
+     }
+    },
+    {
+     "label": "Thu thập bằng chứng, trình lên Hội đồng",
+     "text": "Hội đồng nhận, rồi im lặng. Hắn quá quyền lực. Bạn học được rằng có những kẻ chỉ có thể bị săn.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbh_mercy_poor",
+   "races": [
+    "demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "demon_bh",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dbh_path_mercy"
+    ],
+    "notFlags": [
+     "dbh_end"
+    ]
+   },
+   "text": "Bạn không có tiền. Ba tháng săn những kẻ không có tiền thưởng. Varek mời bạn một vụ trả gấp mười.",
+   "choices": [
+    {
+     "label": "Nhận một vụ để sống",
+     "text": "Bạn nhận, làm xong, và quay lại săn miễn phí. Varek lắc đầu, nhưng cười.",
+     "effects": {
+      "wealth": 10,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Từ chối",
+     "text": "Bạn đói thêm một tháng. Một nạn nhân năm xưa mang đến cho bạn một giỏ bánh.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbh_c4_varek",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_bh",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dbh_met_varek"
+    ],
+    "notFlags": [
+     "dbh_varek_gone",
+     "dbh_end"
+    ],
+    "anyFlags": [
+     "dbh_path_law",
+     "dbh_path_coin",
+     "dbh_path_mercy"
+    ]
+   },
+   "text": "Varek bị một con mồi cũ phục kích. Ông sống, nhưng không đi được nữa. Ông nói: “Kẻ đó sẽ đến tìm ngươi tiếp theo.”",
+   "choices": [
+    {
+     "label": "Săn kẻ đó",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn tìm ra hắn trước khi hắn tìm ra bạn. Varek nghe tin, cười, và mất trong giấc ngủ một tuần sau.",
+      "effects": {
+       "AGI": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "dbh_varek_gone"
+       ]
+      },
+      "moment": "Săn kẻ đã phục kích Varek trước khi hắn kịp ra tay"
+     },
+     "fail": {
+      "text": "Hắn trốn thoát. Varek mất trong giấc ngủ, chưa thấy hắn bị bắt.",
+      "effects": {
+       "joy": -8,
+       "flags": [
+        "dbh_varek_gone"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Ở lại chăm ông",
+     "text": "Ông kể bạn nghe về bốn trăm con mồi, từng con một. Đến con thứ ba trăm, ông ngủ. Ông không kể tiếp nữa.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 3,
+      "flags": [
+       "dbh_varek_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbh_c4_nyx",
+   "races": [
+    "demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "demon_bh",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dbh_met_nyx"
+    ],
+    "notFlags": [
+     "dbh_end"
+    ]
+   },
+   "text": "Nyx xuất hiện trước cửa nhà bạn, lúc nửa đêm. Ả mang theo một danh sách: những kẻ trong triều đình đã ra lệnh cho ả làm những việc ả từ chối.",
+   "choices": [
+    {
+     "label": "Nhận danh sách",
+     "require": {
+      "flags": [
+       "dbh_nyx_owes"
+      ]
+     },
+     "text": "Ả nói: “Ta trả ơn.” Danh sách có tên ba Đại thần. Bạn giữ nó, chờ đúng lúc.",
+     "effects": {
+      "jobXp": 3,
+      "flags": [
+       "dbh_nyx_list"
+      ]
+     },
+     "moment": "Nhận danh sách tội ác triều đình từ Nyx"
+    },
+    {
+     "label": "Bắt ả",
+     "text": "Ả không chống cự. Ả nói: “Ta biết ngươi sẽ làm thế.” Danh sách rơi xuống đất. Bạn nhặt nó lên sau khi giao ả.",
+     "effects": {
+      "wealth": 10,
+      "joy": -8,
+      "jobXp": 3,
+      "flags": [
+       "dbh_nyx_list"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbh_c5_law",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_bh",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dbh_path_law"
+    ],
+    "notFlags": [
+     "dbh_end"
+    ]
+   },
+   "text": "Bạn là Reaper on the Hunt. Không con mồi nào của Ma Vương thoát khỏi bạn.",
+   "choices": [
+    {
+     "label": "Săn kẻ đứng sau bẫy năm xưa",
+     "require": {
+      "flags": [
+       "dbh_law_secret"
+      ]
+     },
+     "text": "Đại thần trong tài liệu mật bị bạn bắt về, giữa phiên họp triều đình. Ma Vương không ngăn. Lần đầu tiên, luật pháp chạm đến kẻ đứng trên nó.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "dbh_end",
+       "dbh_end_minister"
+      ]
+     },
+     "moment": "Bắt Đại thần đứng sau âm mưu ám sát mình giữa triều đình"
+    },
+    {
+     "label": "Treo móc câu",
+     "text": "Bạn treo móc câu của Varek lên vách. Con mồi cuối cùng của bạn là thời gian. Nó thắng.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "dbh_end",
+       "dbh_end_hook"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbh_c5_coin",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_bh",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dbh_path_coin"
+    ],
+    "notFlags": [
+     "dbh_end"
+    ]
+   },
+   "text": "Bạn là Reaper on the Hunt, thợ săn tiền thưởng giàu nhất Ma Giới.",
+   "choices": [
+    {
+     "label": "Lập Hội Thợ Săn với Umbra",
+     "require": {
+      "flags": [
+       "dbh_coin_umbra"
+      ]
+     },
+     "text": "Thợ săn Ma tộc và sát thủ Umbra cùng một hội. Không ai còn phải tranh giành con mồi. Giá cả công khai.",
+     "effects": {
+      "fame": 15,
+      "wealth": 20,
+      "flags": [
+       "dbh_end",
+       "dbh_end_guild"
+      ]
+     },
+     "moment": "Lập Hội Thợ Săn chung với Umbra Assassins' Guild"
+    },
+    {
+     "label": "Đi tìm đứa trẻ đã trốn năm xưa",
+     "require": {
+      "flags": [
+       "dbh_coin_mercy"
+      ]
+     },
+     "text": "Nó giờ đã lớn, sống ở một làng Human, có gia đình. Nó nhận ra bạn, và mời bạn vào nhà.",
+     "effects": {
+      "fame": 8,
+      "joy": 18,
+      "flags": [
+       "dbh_end",
+       "dbh_end_reunion"
+      ]
+     }
+    },
+    {
+     "label": "Nghỉ hưu với vàng",
+     "text": "Bạn giàu, cô đơn, và an toàn.",
+     "effects": {
+      "wealth": 30,
+      "joy": 2,
+      "flags": [
+       "dbh_end",
+       "dbh_end_gold"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbh_c5_mercy",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_bh",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dbh_path_mercy"
+    ],
+    "notFlags": [
+     "dbh_end"
+    ]
+   },
+   "text": "Bạn là Reaper on the Hunt. Những kẻ đứng trên luật pháp sợ tên bạn hơn sợ Ma Vương.",
+   "choices": [
+    {
+     "label": "Công bố danh sách của Nyx",
+     "require": {
+      "flags": [
+       "dbh_nyx_list"
+      ]
+     },
+     "text": "Ba Đại thần bị lôi ra ánh sáng. Ma Giới chấn động. Nyx, ở đâu đó, mỉm cười.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "dbh_end",
+       "dbh_end_list"
+      ]
+     },
+     "moment": "Công bố danh sách tội ác triều đình của Nyx"
+    },
+    {
+     "label": "Dạy những nạn nhân tự bảo vệ",
+     "text": "Thay vì săn, bạn dạy. Những làng từng là nạn nhân giờ có người biết dựng bẫy, biết đọc dấu vết.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "dbh_end",
+       "dbh_end_teacher"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbh_daily_rumor",
+   "races": [
+    "demon"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "demon_bh",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một kẻ say trong quán rượu tự xưng biết nơi ẩn náu của một tên truy nã giá cao.",
+   "choices": [
+    {
+     "label": "Mua rượu cho hắn",
+     "text": "Hắn kể hết. Một nửa là bịa. Nửa còn lại đáng giá.",
+     "effects": {
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Bỏ qua",
+     "text": "Tin đồn trong quán rượu thường là bẫy.",
+     "effects": {
+      "joy": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbh_daily_war",
+   "races": [
+    "demon"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "demon_bh",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Kẻ đào ngũ nhiều như kiến.",
+   "choices": [
+    {
+     "label": "Săn kẻ đào ngũ",
+     "text": "Tiền thưởng nhiều. Con mồi dễ. Bạn không thích công việc này.",
+     "effects": {
+      "wealth": 8,
+      "joy": -4,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Nghỉ săn trong chiến tranh",
+     "text": "Bạn đợi. Sau chiến tranh, những con mồi thật sẽ trở lại.",
+     "effects": {
+      "joy": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbh_daily_old",
+   "races": [
+    "demon"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "demon_bh",
+    "free": true
+   },
+   "text": "Chân bạn chậm. Những con mồi trẻ chạy nhanh hơn bạn.",
+   "choices": [
+    {
+     "label": "Săn bằng đầu, không bằng chân",
+     "text": "Bạn đến nơi con mồi sẽ đến, trước khi nó đến.",
+     "effects": {
+      "INT": 1
+     }
+    },
+    {
+     "label": "Nhận học trò",
+     "text": "Bạn dạy nó bài học đầu tiên: ai cũng chạy về nhà.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "dbh_c5_law_late",
+   "races": [
+    "demon"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "demon_bh",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dbh_path_law"
+    ],
+    "notFlags": [
+     "dbh_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Reaper on the Hunt. Không con mồi nào của Ma Vương thoát khỏi bạn.",
+   "choices": [
+    {
+     "label": "Săn kẻ đứng sau bẫy năm xưa",
+     "require": {
+      "flags": [
+       "dbh_law_secret"
+      ]
+     },
+     "text": "Đại thần trong tài liệu mật bị bạn bắt về, giữa phiên họp triều đình. Ma Vương không ngăn. Lần đầu tiên, luật pháp chạm đến kẻ đứng trên nó.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "dbh_end",
+       "dbh_end_minister"
+      ]
+     },
+     "moment": "Bắt Đại thần đứng sau âm mưu ám sát mình giữa triều đình"
+    },
+    {
+     "label": "Treo móc câu",
+     "text": "Bạn treo móc câu của Varek lên vách. Con mồi cuối cùng của bạn là thời gian. Nó thắng.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "dbh_end",
+       "dbh_end_hook"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "elder"
+   ]
+  },
+  {
+   "id": "dbh_c5_coin_late",
+   "races": [
+    "demon"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "demon_bh",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dbh_path_coin"
+    ],
+    "notFlags": [
+     "dbh_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Reaper on the Hunt, thợ săn tiền thưởng giàu nhất Ma Giới.",
+   "choices": [
+    {
+     "label": "Lập Hội Thợ Săn với Umbra",
+     "require": {
+      "flags": [
+       "dbh_coin_umbra"
+      ]
+     },
+     "text": "Thợ săn Ma tộc và sát thủ Umbra cùng một hội. Không ai còn phải tranh giành con mồi. Giá cả công khai.",
+     "effects": {
+      "fame": 15,
+      "wealth": 20,
+      "flags": [
+       "dbh_end",
+       "dbh_end_guild"
+      ]
+     },
+     "moment": "Lập Hội Thợ Săn chung với Umbra Assassins' Guild"
+    },
+    {
+     "label": "Đi tìm đứa trẻ đã trốn năm xưa",
+     "require": {
+      "flags": [
+       "dbh_coin_mercy"
+      ]
+     },
+     "text": "Nó giờ đã lớn, sống ở một làng Human, có gia đình. Nó nhận ra bạn, và mời bạn vào nhà.",
+     "effects": {
+      "fame": 8,
+      "joy": 18,
+      "flags": [
+       "dbh_end",
+       "dbh_end_reunion"
+      ]
+     }
+    },
+    {
+     "label": "Nghỉ hưu với vàng",
+     "text": "Bạn giàu, cô đơn, và an toàn.",
+     "effects": {
+      "wealth": 30,
+      "joy": 2,
+      "flags": [
+       "dbh_end",
+       "dbh_end_gold"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "elder"
+   ]
+  },
+  {
+   "id": "dbh_c5_mercy_late",
+   "races": [
+    "demon"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "demon_bh",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dbh_path_mercy"
+    ],
+    "notFlags": [
+     "dbh_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Reaper on the Hunt. Những kẻ đứng trên luật pháp sợ tên bạn hơn sợ Ma Vương.",
+   "choices": [
+    {
+     "label": "Công bố danh sách của Nyx",
+     "require": {
+      "flags": [
+       "dbh_nyx_list"
+      ]
+     },
+     "text": "Ba Đại thần bị lôi ra ánh sáng. Ma Giới chấn động. Nyx, ở đâu đó, mỉm cười.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "dbh_end",
+       "dbh_end_list"
+      ]
+     },
+     "moment": "Công bố danh sách tội ác triều đình của Nyx"
+    },
+    {
+     "label": "Dạy những nạn nhân tự bảo vệ",
+     "text": "Thay vì săn, bạn dạy. Những làng từng là nạn nhân giờ có người biết dựng bẫy, biết đọc dấu vết.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "dbh_end",
+       "dbh_end_teacher"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "elder"
+   ]
+  }
+ ]
+}

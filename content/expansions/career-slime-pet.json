@@ -1,0 +1,1198 @@
+{
+ "_note": "Tuyến truyện Tamer's Pet Slime: ba đạo (slt_path_star / slt_path_guard / slt_path_mind), nhân vật xuyên suốt bà Gấu Tuyết (gấu xiếc già) và Lia (bé gái con người quản đoàn). Không đặt tên chủ nhân để khớp với các cảnh dùng {maker}.",
+ "origins": [],
+ "events": [
+  {
+   "id": "slt_c1_bear",
+   "races": [
+    "slime"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "slime_pet",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "slt_met_bear"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Gấu Tuyết",
+     "race": "Beast",
+     "position": "Gấu xiếc già nhất đoàn"
+    }
+   ],
+   "text": "Trong đoàn xiếc, con thú già nhất là bà Gấu Tuyết, đã diễn bốn mươi năm. Bà nằm cạnh lồng bạn, thở phì phò, và đẩy cho bạn một quả táo bằng mõm. Bà không nói, nhưng bạn hiểu: “Ăn đi. Ở đây, chúng ta phải chăm nhau.”",
+   "choices": [
+    {
+     "label": "Ăn táo, nằm sát vào bà",
+     "text": "Lông bà ấm. Bạn ngủ ngon lần đầu tiên trong đoàn xiếc. Từ đó, đêm nào bạn cũng bò ra khỏi lồng, nằm cạnh bà.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 1,
+      "flags": [
+       "slt_met_bear",
+       "slt_bear_bond"
+      ]
+     },
+     "moment": "Ngủ cạnh bà Gấu Tuyết lần đầu tiên trong đoàn xiếc"
+    },
+    {
+     "label": "Ăn táo, về lồng",
+     "text": "Bà nhìn bạn đi, không giận. Đêm sau, lại có một quả táo.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "slt_met_bear"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slt_c1_lia",
+   "races": [
+    "slime"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "slime_pet",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "slt_met_bear"
+    ],
+    "notFlags": [
+     "slt_met_lia"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Lia",
+     "race": "Human",
+     "position": "Con gái người quản đoàn xiếc"
+    }
+   ],
+   "text": "Lia là con gái người quản đoàn, bảy tuổi, không có bạn. Cô bé ngồi trước lồng bạn, chọc ngón tay vào, cười khúc khích khi bạn rung lên.",
+   "choices": [
+    {
+     "label": "Nặn mình thành hình con mèo",
+     "check": {
+      "stat": "INT",
+      "target": 4
+     },
+     "success": {
+      "text": "Lia hét lên vui sướng. Từ đó, mỗi ngày cô bé đến xem bạn nặn một con vật mới. Bạn nặn giỏi dần, vì cô.",
+      "effects": {
+       "INT": 1,
+       "joy": 8,
+       "jobXp": 1,
+       "flags": [
+        "slt_met_lia",
+        "slt_lia_friend"
+       ]
+      },
+      "moment": "Nặn hình con mèo cho bé Lia xem"
+     },
+     "fail": {
+      "text": "Con mèo của bạn trông như cục đá có tai. Lia vẫn cười.",
+      "effects": {
+       "joy": 4,
+       "flags": [
+        "slt_met_lia",
+        "slt_lia_friend"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Bọc lấy ngón tay cô bé",
+     "text": "Lia giật mình, rồi cười. Nhầy, mát, nhột. Cô bé quay lại mỗi ngày.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1,
+      "flags": [
+       "slt_met_lia"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slt_c2_first_show",
+   "races": [
+    "slime"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "slime_pet",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "flags": [
+     "slt_met_bear"
+    ],
+    "notFlags": [
+     "slt_first_show",
+     "slt_end"
+    ]
+   },
+   "text": "Buổi diễn đầu tiên của bạn. Hàng trăm khán giả. Ánh đèn chói. Bạn phải nặn mình thành một chiếc cầu cho chó xiếc chạy qua.",
+   "choices": [
+    {
+     "label": "Nặn chiếc cầu thật chắc",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Ba con chó chạy qua. Rồi một con khỉ. Rồi người quản đoàn, để chứng minh. Khán giả vỗ tay. Bà Gấu Tuyết, trong lồng, gật gù.",
+      "effects": {
+       "STR": 1,
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "slt_first_show"
+       ]
+      },
+      "moment": "Làm chiếc cầu sống trong buổi diễn đầu tiên"
+     },
+     "fail": {
+      "text": "Con chó thứ ba lún xuống giữa cầu. Khán giả cười ầm. Người quản đoàn nghĩ đó là tiết mục hài, và giữ nó lại.",
+      "effects": {
+       "fame": 2,
+       "flags": [
+        "slt_first_show"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Sợ quá, co tròn lại",
+     "text": "Khán giả tưởng đó là tiết mục: Slime nhút nhát. Họ cười, thương cảm. Một cô bé ở hàng đầu vỗ tay to nhất.",
+     "effects": {
+      "jobXp": 2,
+      "flags": [
+       "slt_first_show"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slt_c2_crossroads",
+   "races": [
+    "slime"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "slime_pet",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "slt_path_star",
+     "slt_path_guard",
+     "slt_path_mind",
+     "slt_end"
+    ],
+    "flags": [
+     "slt_met_bear",
+     "slt_met_lia"
+    ]
+   },
+   "text": "Đêm ấy, nằm cạnh bà Gấu Tuyết, bạn nghĩ về ba điều: ánh đèn sân khấu, cô bé Lia, và giọng nói lạ bạn bắt đầu nghe thấy trong đầu mỗi khi bọc lấy ai đó, như thể bạn có thể đọc được họ.",
+   "choices": [
+    {
+     "label": "Ánh đèn: Ngôi Sao Đoàn Xiếc",
+     "text": "Bạn sẽ là tiết mục chính. Hàng nghìn khán giả. Mọi hình dạng có thể nặn được.",
+     "effects": {
+      "LUCK": 1,
+      "fame": 3,
+      "jobXp": 2,
+      "flags": [
+       "slt_path_star"
+      ]
+     },
+     "moment": "Chọn trở thành ngôi sao của đoàn xiếc"
+    },
+    {
+     "label": "Cô bé: Người Bảo Vệ",
+     "text": "Bạn sẽ ở bên Lia, và bảo vệ cô bé khỏi mọi thứ. Đoàn xiếc là nơi nguy hiểm cho một đứa trẻ.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "slt_path_guard"
+      ]
+     },
+     "moment": "Chọn ở bên bảo vệ bé Lia"
+    },
+    {
+     "label": "Giọng nói: Ký Sinh Tâm Trí",
+     "text": "Bạn có thể đọc được những ai bạn chạm vào. Có lẽ, một ngày, bạn có thể điều khiển họ. Bà Gấu Tuyết gầm nhẹ trong giấc ngủ.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "slt_path_mind"
+      ]
+     },
+     "moment": "Chọn đi theo giọng nói trong đầu, học đọc tâm trí"
+    }
+   ]
+  },
+  {
+   "id": "slt_star_fire",
+   "races": [
+    "slime"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "slime_pet",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slt_path_star"
+    ],
+    "notFlags": [
+     "slt_end"
+    ]
+   },
+   "text": "Người quản đoàn muốn một tiết mục mới: bạn nuốt lửa. Slime không chịu được lửa lâu.",
+   "choices": [
+    {
+     "label": "Học nuốt lửa thật",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn nuốt, giữ, rồi phun ra thành một bông hoa lửa. Khán giả đứng dậy vỗ tay. Bạn bỏng một chút bên trong, nhưng đáng.",
+      "effects": {
+       "STR": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "slt_star_fire"
+       ]
+      },
+      "moment": "Nuốt lửa và phun ra thành bông hoa lửa"
+     },
+     "fail": {
+      "text": "Bạn bốc hơi một phần. Mất một tháng để phục hồi.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Đề nghị tiết mục nước thay vì lửa",
+     "text": "Bạn nặn mình thành một đài phun nước. Khán giả trẻ con thích hơn. Người quản đoàn càu nhàu, rồi giữ lại.",
+     "effects": {
+      "fame": 5,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slt_star_rival",
+   "races": [
+    "slime"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "slime_pet",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slt_path_star"
+    ],
+    "notFlags": [
+     "slt_end"
+    ]
+   },
+   "text": "Một đoàn xiếc đối thủ có một con Slime khác, lớn hơn bạn, sặc sỡ hơn bạn. Nó đang lấy hết khán giả.",
+   "choices": [
+    {
+     "label": "Đến xem nó diễn",
+     "text": "Nó diễn giỏi. Nhưng sau buổi diễn, bạn thấy nó bị nhốt trong lồng sắt, bị đánh. Bạn không còn muốn thắng nó nữa.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 3,
+      "flags": [
+       "slt_star_rival_seen"
+      ]
+     }
+    },
+    {
+     "label": "Tập tiết mục mới khó hơn",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn nặn mình thành một con rồng nhỏ biết bay, bằng cách treo trên dây. Khán giả quay lại.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Dây đứt giữa tiết mục.",
+      "effects": {
+       "health": -8,
+       "fame": -3
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "slt_guard_wolf",
+   "races": [
+    "slime"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "slime_pet",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slt_path_guard"
+    ],
+    "notFlags": [
+     "slt_end"
+    ]
+   },
+   "text": "Một con sói xiếc sổng chuồng, lao về phía Lia đang ngồi chơi.",
+   "choices": [
+    {
+     "label": "Bọc lấy Lia",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Sói cắn vào bạn, không cắn được Lia. Bạn giữ cô bé trong mình cho đến khi người quản đoàn chạy đến. Lia không một vết xước.",
+      "effects": {
+       "STR": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "slt_guard_saved"
+       ]
+      },
+      "moment": "Bọc lấy bé Lia để che cô khỏi con sói sổng chuồng"
+     },
+     "fail": {
+      "text": "Sói cắn trúng bạn mạnh hơn bạn tưởng. Bạn vẫn giữ được Lia, nhưng mất một phần mình.",
+      "effects": {
+       "health": -12,
+       "flags": [
+        "slt_guard_saved"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Lao vào con sói",
+     "text": "Bạn bọc lấy đầu nó. Nó không thấy gì, quay vòng vòng, rồi ngã. Lia chạy đi gọi người.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slt_guard_sold",
+   "races": [
+    "slime"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "slime_pet",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slt_path_guard"
+    ],
+    "notFlags": [
+     "slt_end"
+    ]
+   },
+   "text": "Người quản đoàn hết tiền, định bán bạn cho một thương nhân mổ xẻ lấy vật liệu. Lia khóc.",
+   "choices": [
+    {
+     "label": "Trốn đi trong đêm",
+     "text": "Bạn trốn. Lia tìm thấy bạn ở rìa rừng sáng hôm sau, mang theo bánh. Cô bé giấu bạn trong rương quần áo của mình.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "slt_guard_hidden"
+      ]
+     }
+    },
+    {
+     "label": "Để Lia van xin cha",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Lia khóc đến khi người quản đoàn mềm lòng. Ông bán con ngựa già thay vì bạn.",
+      "effects": {
+       "joy": 8,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Người quản đoàn không nghe. Bạn bị bán, rồi trốn về sau ba ngày.",
+      "effects": {
+       "health": -8
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "slt_mind_first",
+   "races": [
+    "slime"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "slime_pet",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slt_path_mind"
+    ],
+    "notFlags": [
+     "slt_end"
+    ]
+   },
+   "text": "Bạn bọc lấy tay người quản đoàn khi ông ta cho bạn ăn. Bạn nghe thấy ông ta nghĩ: nợ nần, sợ hãi, và một khoản tiền ông ta giấu sau sân khấu.",
+   "choices": [
+    {
+     "label": "Không làm gì với điều ấy",
+     "text": "Bạn biết, và giữ cho riêng mình. Bà Gấu Tuyết nhìn bạn, như biết bạn vừa nghe thấy gì.",
+     "effects": {
+      "jobXp": 3,
+      "flags": [
+       "slt_mind_restraint"
+      ]
+     }
+    },
+    {
+     "label": "Đẩy một suy nghĩ vào đầu ông ta",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đẩy vào: “Cho Slime ăn thêm.” Hôm sau, khẩu phần của bạn gấp đôi. Ông ta không biết vì sao.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "slt_mind_push"
+       ]
+      },
+      "moment": "Đẩy một suy nghĩ vào đầu người quản đoàn"
+     },
+     "fail": {
+      "text": "Ông ta thấy nhức đầu, và nghi ngờ bạn.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "slt_mind_crowd",
+   "races": [
+    "slime"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "slime_pet",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slt_path_mind"
+    ],
+    "notFlags": [
+     "slt_end"
+    ]
+   },
+   "text": "Giữa buổi diễn, bạn cảm thấy hàng trăm tâm trí khán giả cùng lúc. Bạn có thể khiến tất cả họ cười, hoặc khóc, hoặc ngủ.",
+   "choices": [
+    {
+     "label": "Khiến họ cười",
+     "text": "Cả khán đài cười đến chảy nước mắt. Họ không biết vì sao. Họ về nhà, hạnh phúc.",
+     "effects": {
+      "fame": 8,
+      "joy": 6,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Không chạm vào ai",
+     "text": "Bạn rút lại. Khán giả vỗ tay vì tiết mục, không vì bạn điều khiển họ. Điều ấy làm bạn vui hơn.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "slt_mind_restraint"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slt_c4_bear",
+   "races": [
+    "slime"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "slime_pet",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "slt_met_bear"
+    ],
+    "notFlags": [
+     "slt_bear_gone",
+     "slt_end"
+    ],
+    "anyFlags": [
+     "slt_path_star",
+     "slt_path_guard",
+     "slt_path_mind"
+    ]
+   },
+   "text": "Bà Gấu Tuyết không đứng dậy được nữa. Người quản đoàn định bán bà cho lò mổ.",
+   "choices": [
+    {
+     "label": "Nằm cạnh bà, không cho ai đến gần",
+     "text": "Bạn bọc quanh bà như một tấm chăn, và gầm lên, theo cách của Slime, mỗi khi ai đến gần. Người quản đoàn bỏ cuộc. Bà mất ba ngày sau, trong vòng tay bạn.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "slt_bear_gone"
+      ]
+     },
+     "moment": "Bảo vệ bà Gấu Tuyết khỏi lò mổ trong những ngày cuối"
+    },
+    {
+     "label": "Mở lồng cho bà ra rừng",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn cạy khóa trong đêm. Bà đi chậm vào rừng, quay lại nhìn bạn một lần. Bà mất ở đó, dưới một gốc cây, tự do.",
+      "effects": {
+       "joy": 4,
+       "jobXp": 3,
+       "flags": [
+        "slt_bear_gone"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Khóa không mở. Bà mất trong lồng, đêm ấy. Bạn nằm ngoài lồng đến sáng.",
+      "effects": {
+       "joy": -10,
+       "flags": [
+        "slt_bear_gone"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "slt_c4_lia",
+   "races": [
+    "slime"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "slime_pet",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "slt_met_lia"
+    ],
+    "notFlags": [
+     "slt_end"
+    ]
+   },
+   "text": "Lia đã lớn, muốn rời đoàn xiếc để đi học ở thành phố. Cô bé, giờ là cô gái, đến trước lồng bạn.",
+   "choices": [
+    {
+     "label": "Đi theo cô",
+     "require": {
+      "flags": [
+       "slt_lia_friend"
+      ]
+     },
+     "text": "Cô giấu bạn trong túi xách. Ở thành phố, bạn sống trong phòng trọ của cô, nặn mình thành ghế, thành gối, thành bạn. Cô không bao giờ cô đơn.",
+     "effects": {
+      "joy": 12,
+      "jobXp": 3,
+      "flags": [
+       "slt_lia_city"
+      ]
+     },
+     "moment": "Theo Lia rời đoàn xiếc đến thành phố"
+    },
+    {
+     "label": "Ở lại đoàn",
+     "text": "Cô hứa sẽ quay lại. Cô giữ lời, mỗi mùa hè.",
+     "effects": {
+      "joy": 2,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slt_c5_star",
+   "races": [
+    "slime"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "slime_pet",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "slt_path_star"
+    ],
+    "notFlags": [
+     "slt_end"
+    ]
+   },
+   "text": "Bạn là ngôi sao lớn nhất của mọi đoàn xiếc. Khán giả xếp hàng từ sáng.",
+   "choices": [
+    {
+     "label": "Giải phóng con Slime đối thủ",
+     "require": {
+      "flags": [
+       "slt_star_rival_seen"
+      ]
+     },
+     "text": "Bạn lẻn vào đoàn đối thủ trong đêm, và mở lồng sắt. Con Slime kia bò ra, nhìn bạn, và đi theo bạn. Từ đó, đoàn xiếc của bạn có hai ngôi sao.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "slt_end",
+       "slt_end_two_stars"
+      ]
+     },
+     "moment": "Giải phóng con Slime của đoàn xiếc đối thủ"
+    },
+    {
+     "label": "Tiết mục cuối: hoa lửa",
+     "require": {
+      "flags": [
+       "slt_star_fire"
+      ]
+     },
+     "text": "Bông hoa lửa cuối cùng, to nhất. Khán giả đứng dậy. Bạn cúi chào, theo cách của Slime, và rời sân khấu mãi mãi.",
+     "effects": {
+      "fame": 15,
+      "joy": 10,
+      "flags": [
+       "slt_end",
+       "slt_end_fire_flower"
+      ]
+     }
+    },
+    {
+     "label": "Diễn đến khi không ai nhớ bạn",
+     "text": "Thế hệ khán giả này đến thế hệ khác. Bạn diễn mãi.",
+     "effects": {
+      "fame": 12,
+      "joy": 8,
+      "flags": [
+       "slt_end",
+       "slt_end_forever"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slt_c5_guard",
+   "races": [
+    "slime"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "slime_pet",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "slt_path_guard"
+    ],
+    "notFlags": [
+     "slt_end"
+    ]
+   },
+   "text": "Bạn là người bảo vệ trung thành nhất. Lia đã có gia đình, và bạn bảo vệ cả con cô.",
+   "choices": [
+    {
+     "label": "Làm gối cho đứa con của Lia",
+     "require": {
+      "flags": [
+       "slt_lia_city"
+      ]
+     },
+     "text": "Đứa bé ngủ trên bạn, như mẹ nó từng chọc ngón tay vào bạn. Lia nhìn, mỉm cười, và kể cho con nghe về đoàn xiếc.",
+     "effects": {
+      "fame": 8,
+      "joy": 20,
+      "flags": [
+       "slt_end",
+       "slt_end_family"
+      ]
+     },
+     "moment": "Làm gối cho đứa con của Lia"
+    },
+    {
+     "label": "Canh gác ngôi nhà mãi mãi",
+     "require": {
+      "flags": [
+       "slt_guard_saved"
+      ]
+     },
+     "text": "Bạn nặn mình thành tấm thảm trước cửa. Không kẻ lạ nào bước qua được.",
+     "effects": {
+      "fame": 10,
+      "joy": 15,
+      "flags": [
+       "slt_end",
+       "slt_end_doormat"
+      ]
+     }
+    },
+    {
+     "label": "Về lại đoàn xiếc, bảo vệ những đứa trẻ khác",
+     "text": "Đoàn xiếc luôn có trẻ con cô đơn. Bạn tìm chúng.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "slt_end",
+       "slt_end_circus_kids"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slt_c5_mind",
+   "races": [
+    "slime"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "slime_pet",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "slt_path_mind"
+    ],
+    "notFlags": [
+     "slt_end"
+    ]
+   },
+   "text": "Bạn là Mind Parasite. Bạn có thể nghe, và điều khiển, bất kỳ ai bạn chạm vào.",
+   "choices": [
+    {
+     "label": "Không bao giờ điều khiển ai nữa",
+     "require": {
+      "flags": [
+       "slt_mind_restraint"
+      ]
+     },
+     "text": "Bạn nghe, nhưng không đẩy. Bạn biết mọi bí mật của đoàn xiếc, và giữ tất cả. Người ta đến kể chuyện với bạn như kể với một linh mục.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "slt_end",
+       "slt_end_confessor"
+      ]
+     },
+     "moment": "Chọn chỉ lắng nghe, không bao giờ điều khiển ai"
+    },
+    {
+     "label": "Điều khiển người quản đoàn",
+     "require": {
+      "flags": [
+       "slt_mind_push"
+      ]
+     },
+     "text": "Ông ta làm theo mọi điều bạn muốn. Đoàn xiếc giàu lên, thú được đối xử tốt hơn. Nhưng ông ta không còn là mình nữa.",
+     "effects": {
+      "fame": 12,
+      "wealth": 15,
+      "joy": -6,
+      "flags": [
+       "slt_end",
+       "slt_end_puppet"
+      ]
+     }
+    },
+    {
+     "label": "Rời đoàn, sống một mình",
+     "text": "Quá nhiều giọng nói. Bạn đi vào rừng, nơi chỉ có giọng của cây.",
+     "effects": {
+      "fame": 6,
+      "joy": 10,
+      "flags": [
+       "slt_end",
+       "slt_end_forest"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slt_daily_treat",
+   "races": [
+    "slime"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "slime_pet",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một đứa trẻ khán giả ném cho bạn một viên kẹo.",
+   "choices": [
+    {
+     "label": "Ăn",
+     "text": "Ngọt. Bạn chuyển màu hồng một lúc.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Nặn thành hình viên kẹo trả lại",
+     "text": "Đứa trẻ cười to đến mức khán giả quay lại nhìn.",
+     "effects": {
+      "joy": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "slt_daily_war",
+   "races": [
+    "slime"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "slime_pet",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Đoàn xiếc diễn cho lính trước trận.",
+   "choices": [
+    {
+     "label": "Diễn hết mình",
+     "text": "Lính cười, lần cuối, với nhiều người.",
+     "effects": {
+      "joy": -2,
+      "fame": 4,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Diễn tiết mục buồn",
+     "text": "Lính im lặng. Một người khóc. Bạn không biết như thế là tốt hay xấu.",
+     "effects": {
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "slt_daily_old",
+   "races": [
+    "slime"
+   ],
+   "stages": [
+    "ancient"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "slime_pet",
+    "free": true
+   },
+   "text": "Bạn đã ở đoàn xiếc hàng trăm năm. Mọi người bạn quen đều đã đi.",
+   "choices": [
+    {
+     "label": "Kể chuyện cho thú xiếc mới",
+     "text": "Theo cách của Slime: bằng hình dạng. Chúng nhìn, và hiểu một chút.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Ngủ trong lồng của bà Gấu Tuyết cũ",
+     "text": "Lồng trống đã lâu. Vẫn còn mùi lông ấm.",
+     "effects": {
+      "joy": 4
+     },
+     "require": {
+      "flags": [
+       "slt_met_bear"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slt_c5_star_late",
+   "races": [
+    "slime"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "slime_pet",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "slt_path_star"
+    ],
+    "notFlags": [
+     "slt_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là ngôi sao lớn nhất của mọi đoàn xiếc. Khán giả xếp hàng từ sáng.",
+   "choices": [
+    {
+     "label": "Giải phóng con Slime đối thủ",
+     "require": {
+      "flags": [
+       "slt_star_rival_seen"
+      ]
+     },
+     "text": "Bạn lẻn vào đoàn đối thủ trong đêm, và mở lồng sắt. Con Slime kia bò ra, nhìn bạn, và đi theo bạn. Từ đó, đoàn xiếc của bạn có hai ngôi sao.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "slt_end",
+       "slt_end_two_stars"
+      ]
+     },
+     "moment": "Giải phóng con Slime của đoàn xiếc đối thủ"
+    },
+    {
+     "label": "Tiết mục cuối: hoa lửa",
+     "require": {
+      "flags": [
+       "slt_star_fire"
+      ]
+     },
+     "text": "Bông hoa lửa cuối cùng, to nhất. Khán giả đứng dậy. Bạn cúi chào, theo cách của Slime, và rời sân khấu mãi mãi.",
+     "effects": {
+      "fame": 15,
+      "joy": 10,
+      "flags": [
+       "slt_end",
+       "slt_end_fire_flower"
+      ]
+     }
+    },
+    {
+     "label": "Diễn đến khi không ai nhớ bạn",
+     "text": "Thế hệ khán giả này đến thế hệ khác. Bạn diễn mãi.",
+     "effects": {
+      "fame": 12,
+      "joy": 8,
+      "flags": [
+       "slt_end",
+       "slt_end_forever"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "ancient"
+   ]
+  },
+  {
+   "id": "slt_c5_guard_late",
+   "races": [
+    "slime"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "slime_pet",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "slt_path_guard"
+    ],
+    "notFlags": [
+     "slt_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là người bảo vệ trung thành nhất. Lia đã có gia đình, và bạn bảo vệ cả con cô.",
+   "choices": [
+    {
+     "label": "Làm gối cho đứa con của Lia",
+     "require": {
+      "flags": [
+       "slt_lia_city"
+      ]
+     },
+     "text": "Đứa bé ngủ trên bạn, như mẹ nó từng chọc ngón tay vào bạn. Lia nhìn, mỉm cười, và kể cho con nghe về đoàn xiếc.",
+     "effects": {
+      "fame": 8,
+      "joy": 20,
+      "flags": [
+       "slt_end",
+       "slt_end_family"
+      ]
+     },
+     "moment": "Làm gối cho đứa con của Lia"
+    },
+    {
+     "label": "Canh gác ngôi nhà mãi mãi",
+     "require": {
+      "flags": [
+       "slt_guard_saved"
+      ]
+     },
+     "text": "Bạn nặn mình thành tấm thảm trước cửa. Không kẻ lạ nào bước qua được.",
+     "effects": {
+      "fame": 10,
+      "joy": 15,
+      "flags": [
+       "slt_end",
+       "slt_end_doormat"
+      ]
+     }
+    },
+    {
+     "label": "Về lại đoàn xiếc, bảo vệ những đứa trẻ khác",
+     "text": "Đoàn xiếc luôn có trẻ con cô đơn. Bạn tìm chúng.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "slt_end",
+       "slt_end_circus_kids"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "ancient"
+   ]
+  },
+  {
+   "id": "slt_c5_mind_late",
+   "races": [
+    "slime"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "slime_pet",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "slt_path_mind"
+    ],
+    "notFlags": [
+     "slt_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Mind Parasite. Bạn có thể nghe, và điều khiển, bất kỳ ai bạn chạm vào.",
+   "choices": [
+    {
+     "label": "Không bao giờ điều khiển ai nữa",
+     "require": {
+      "flags": [
+       "slt_mind_restraint"
+      ]
+     },
+     "text": "Bạn nghe, nhưng không đẩy. Bạn biết mọi bí mật của đoàn xiếc, và giữ tất cả. Người ta đến kể chuyện với bạn như kể với một linh mục.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "slt_end",
+       "slt_end_confessor"
+      ]
+     },
+     "moment": "Chọn chỉ lắng nghe, không bao giờ điều khiển ai"
+    },
+    {
+     "label": "Điều khiển người quản đoàn",
+     "require": {
+      "flags": [
+       "slt_mind_push"
+      ]
+     },
+     "text": "Ông ta làm theo mọi điều bạn muốn. Đoàn xiếc giàu lên, thú được đối xử tốt hơn. Nhưng ông ta không còn là mình nữa.",
+     "effects": {
+      "fame": 12,
+      "wealth": 15,
+      "joy": -6,
+      "flags": [
+       "slt_end",
+       "slt_end_puppet"
+      ]
+     }
+    },
+    {
+     "label": "Rời đoàn, sống một mình",
+     "text": "Quá nhiều giọng nói. Bạn đi vào rừng, nơi chỉ có giọng của cây.",
+     "effects": {
+      "fame": 6,
+      "joy": 10,
+      "flags": [
+       "slt_end",
+       "slt_end_forest"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "ancient"
+   ]
+  }
+ ]
+}

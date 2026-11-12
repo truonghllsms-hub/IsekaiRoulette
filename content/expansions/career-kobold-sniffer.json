@@ -1,0 +1,341 @@
+{
+ "_note": "Kho cảnh độc lập cho Kobold Sniffer (đời Kobold quá ngắn cho một tuyến nhiều chương).",
+ "origins": [],
+ "events": [
+  {
+   "id": "kbs_first_scent",
+   "races": [
+    "kobold"
+   ],
+   "weight": 40,
+   "require": {
+    "job": "kobold_sniffer",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 1
+   },
+   "text": "Thầy dạy nghề nhét vào mũi bạn mười loại bột quặng, rồi bịt mắt bạn. “Đây là gì?”",
+   "choices": [
+    {
+     "label": "Ngửi từng loại, chậm rãi",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn đoán đúng bảy. Thầy gật đầu: “Bảy là đủ để không chết. Mười là đủ để giàu.”",
+      "effects": {
+       "LUCK": 1,
+       "jobXp": 2
+      },
+      "moment": "Ngửi đúng bảy loại quặng trong bài thử đầu tiên"
+     },
+     "fail": {
+      "text": "Bạn hắt hơi mười lần liền, và không đoán được gì. Thầy cười đến chảy nước mắt.",
+      "effects": {
+       "joy": 2
+      }
+     }
+    },
+    {
+     "label": "Hỏi thầy loại nào nguy hiểm nhất",
+     "text": "Thầy im lặng, rồi nhét thêm một loại bột vào mũi bạn. Mùi trứng thối. “Cái này. Khi ngửi thấy nó, chạy.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbs_demon_scent",
+   "races": [
+    "kobold"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "kobold_sniffer",
+    "free": true
+   },
+   "text": "Đang dò mạch sâu, mũi bạn bắt được mùi máu thối và lưu huỳnh. Không phải quặng. Là thứ gì đó đang sống, dưới kia.",
+   "choices": [
+    {
+     "label": "Báo cả tổ rút lên ngay",
+     "text": "Tổ đào rút. Ba ngày sau, một đội lính Ma Tộc trồi lên từ chính chỗ ấy, thấy hầm trống trơn.",
+     "effects": {
+      "fame": 6,
+      "jobXp": 2
+     },
+     "moment": "Đánh hơi thấy Ma Tộc dưới hầm và cứu cả tổ đào"
+    },
+    {
+     "label": "Bò xuống xem cho chắc",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn thấy một trại Ma Tộc nhỏ đang đào lên. Bạn quay về báo, có đủ chi tiết để lãnh chúa tin.",
+      "effects": {
+       "AGI": 1,
+       "fame": 6,
+       "jobXp": 2
+      }
+     },
+     "fail": {
+      "text": "Chúng ngửi thấy bạn trước. Bạn chạy, để lại một mảnh đuôi.",
+      "effects": {
+       "health": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbs_false_vein",
+   "races": [
+    "kobold"
+   ],
+   "weight": 25,
+   "require": {
+    "job": "kobold_sniffer",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Mũi bạn dẫn cả tổ đào suốt tuần về hướng một vỉa Huyết Kim lớn. Khi phá vỡ lớp đá cuối, chỉ có một hốc trống và mùi Huyết Kim còn vương lại. Ai đó đã lấy mất.",
+   "choices": [
+    {
+     "label": "Đánh hơi kẻ lấy trộm",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Mùi dẫn đến kho riêng của gã đốc công. Lãnh chúa mỏ treo hắn lên. Bạn được thưởng một phần mười.",
+      "effects": {
+       "LUCK": 1,
+       "wealth": 6,
+       "fame": 4,
+       "jobXp": 2
+      },
+      "moment": "Đánh hơi ra gã đốc công ăn trộm vỉa Huyết Kim"
+     },
+     "fail": {
+      "text": "Mùi lẫn vào hàng trăm mùi khác. Tổ đào mất một tuần công. Họ nhìn bạn khó chịu.",
+      "effects": {
+       "fame": -4
+      }
+     }
+    },
+    {
+     "label": "Thừa nhận mình đã đến muộn",
+     "text": "Tổ đào càu nhàu, nhưng tin bạn hơn những kẻ luôn đúng.",
+     "effects": {
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbs_adventurer_guide",
+   "races": [
+    "kobold"
+   ],
+   "weight": 25,
+   "require": {
+    "job": "kobold_sniffer",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Một đội mạo hiểm giả hạng B chặn đường bạn, ném ra một túi vàng: dẫn họ đến hang ổ một con Rồng con mà bạn đã đánh hơi thấy.",
+   "choices": [
+    {
+     "label": "Dẫn họ đi sai đường",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn dẫn họ đến một hang dơi. Họ mất ba ngày, bị dơi cắn, và bỏ về. Rồng con an toàn. Bạn giữ túi vàng.",
+      "effects": {
+       "INT": 1,
+       "wealth": 6,
+       "jobXp": 2
+      },
+      "moment": "Dẫn đội mạo hiểm giả lạc khỏi hang Rồng con"
+     },
+     "fail": {
+      "text": "Họ nhận ra, và lấy lại túi vàng cùng một cú đá.",
+      "effects": {
+       "health": -5
+      }
+     }
+    },
+    {
+     "label": "Từ chối, chạy mất",
+     "text": "Rồng là thần. Bạn không bán thần lấy vàng.",
+     "effects": {
+      "joy": 4
+     }
+    },
+    {
+     "label": "Dẫn họ đến đúng chỗ",
+     "text": "Bạn giàu. Đêm nào bạn cũng mơ thấy Rồng.",
+     "effects": {
+      "wealth": 10,
+      "joy": -10
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbs_shroom",
+   "races": [
+    "kobold"
+   ],
+   "weight": 20,
+   "require": {
+    "job": "kobold_sniffer",
+    "free": true
+   },
+   "text": "Bạn đói, và đánh hơi thấy một cây nấm ngũ sắc trên vách đá ướt. Mùi của nó ngon một cách đáng ngờ.",
+   "choices": [
+    {
+     "label": "Ăn",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn thấy màu sắc mà Kobold chưa từng thấy suốt một đêm. Sáng ra, mũi bạn thính gấp đôi.",
+      "effects": {
+       "LUCK": 1,
+       "joy": 6
+      }
+     },
+     "fail": {
+      "text": "Bạn ói suốt hai ngày.",
+      "effects": {
+       "health": -8
+      }
+     }
+    },
+    {
+     "label": "Hái mang về cho thầy tế xem",
+     "text": "Thầy tế nói đó là nấm thiêng. Thầy ăn nó. Thầy không dậy được ba ngày.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbs_water",
+   "races": [
+    "kobold"
+   ],
+   "weight": 25,
+   "require": {
+    "job": "kobold_sniffer",
+    "free": true
+   },
+   "text": "Hang bị cắt nguồn nước. Cả tổ khát. Chỉ có mũi của bạn có thể tìm ra nước ngầm.",
+   "choices": [
+    {
+     "label": "Đánh hơi khắp hầm",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Mùi ẩm dẫn bạn đến một vách đá mỏng. Đục ra, nước phun lên. Cả tổ hú lên vui sướng.",
+      "effects": {
+       "fame": 8,
+       "jobXp": 3
+      },
+      "moment": "Đánh hơi tìm ra mạch nước ngầm cứu cả tổ"
+     },
+     "fail": {
+      "text": "Bạn tìm thấy nước, nhưng nước đắng. Tổ phải dời hang.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    },
+    {
+     "label": "Dẫn tổ đi đến một con suối xa",
+     "text": "Nửa ngày đường mỗi lần đi lấy nước. Mệt, nhưng sống.",
+     "effects": {
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbs_war_smell",
+   "races": [
+    "kobold"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 25,
+   "require": {
+    "job": "kobold_sniffer",
+    "free": true
+   },
+   "text": "Chiến tranh. Mùi khói và máu lan khắp các hầm mỏ.",
+   "choices": [
+    {
+     "label": "Đánh hơi đường thoát cho tổ",
+     "text": "Bạn tìm ra một lối thoát mà không có mùi người. Cả tổ đi qua an toàn.",
+     "effects": {
+      "fame": 5,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Bịt mũi bằng rêu và đào tiếp",
+     "text": "Không ai cảm ơn bạn, nhưng tổ đào vẫn kịp nộp đủ quặng.",
+     "effects": {
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbs_old_nose",
+   "races": [
+    "kobold"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "kobold_sniffer",
+    "free": true
+   },
+   "text": "Mũi bạn kém đi. Những mùi quặng nhạt giờ chỉ là mùi đá.",
+   "choices": [
+    {
+     "label": "Dạy học trò nhận mười loại bột",
+     "text": "Chúng hắt hơi liên tục. Một đứa đoán đúng chín. Bạn gật đầu, như thầy bạn năm xưa.",
+     "effects": {
+      "joy": 8,
+      "fame": 2
+     }
+    },
+    {
+     "label": "Ngồi ở cửa hang ngửi gió",
+     "text": "Gió vẫn kể bạn nghe những gì đang đến. Chỉ là chậm hơn một chút.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  }
+ ]
+}

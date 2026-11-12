@@ -1,0 +1,1097 @@
+{
+ "_note": "Tuyến truyện Serpent Priest (Lizardman): ba đạo (lzp_path_old / lzp_path_new / lzp_path_dream), nhân vật xuyên suốt bà Ossira Mắt Rắn (đại tư tế) và Hissa (tư tế đối thủ cuồng tín).",
+ "origins": [],
+ "events": [
+  {
+   "id": "lzp_c1_ossira",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "lizard_priest",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "lzp_met_ossira"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Ossira Mắt Rắn",
+     "race": "Lizardman",
+     "position": "Đại tư tế của Thần Rắn"
+    }
+   ],
+   "text": "Bà Ossira Mắt Rắn là đại tư tế của Thần Rắn. Bà đặt một con rắn độc vào tay bạn. “Thần Rắn không cần ngươi sợ. Thần cần ngươi hiểu.”",
+   "choices": [
+    {
+     "label": "Để con rắn quấn quanh cổ tay",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Con rắn bò lên vai bạn, nằm im. Bà Ossira gật đầu: “Nó chọn ngươi. Rắn không bao giờ sai.”",
+      "effects": {
+       "LUCK": 1,
+       "jobXp": 1,
+       "flags": [
+        "lzp_met_ossira",
+        "lzp_ossira_respect"
+       ]
+      },
+      "moment": "Để con rắn thiêng quấn quanh cổ tay mà không run"
+     },
+     "fail": {
+      "text": "Con rắn cắn bạn. Vảy Lizardman chịu được độc, nhưng tay bạn sưng ba ngày. Bà cười: “Nó thử ngươi thôi.”",
+      "effects": {
+       "health": -3,
+       "flags": [
+        "lzp_met_ossira"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi bà Thần Rắn muốn gì",
+     "text": "Bà im lặng rất lâu. “Câu hỏi ấy, các tư tế khác đã quên hỏi từ ba đời trước.” Bà dẫn bạn vào đền, nơi những bức vẽ cổ không có cảnh hiến tế nào.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "lzp_met_ossira",
+       "lzp_ossira_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzp_c1_hissa",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "lizard_priest",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "lzp_met_ossira"
+    ],
+    "notFlags": [
+     "lzp_met_hissa"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Hissa",
+     "race": "Lizardman",
+     "position": "Tư tế trẻ cuồng tín của đền Rắn"
+    }
+   ],
+   "text": "Hissa là tư tế trẻ cuồng tín nhất đền. Hắn tin Thần Rắn chỉ nghe tiếng của máu. Hắn đưa bạn con dao hiến tế: “Ngươi dám không?”",
+   "choices": [
+    {
+     "label": "Từ chối",
+     "text": "Hissa cười khinh bỉ. “Kẻ yếu.” Từ đó hắn coi bạn là đối thủ, và theo dõi mọi lễ bạn làm.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "lzp_met_hissa",
+       "lzp_hissa_rival"
+      ]
+     }
+    },
+    {
+     "label": "Hỏi hắn đã thấy Thần Rắn trả lời chưa",
+     "text": "Hissa khựng lại. Hắn chưa từng thấy. Hắn không trả lời, và bỏ đi. Nhưng từ đó hắn hỏi bạn nhiều điều, khi không có ai nhìn.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "lzp_met_hissa",
+       "lzp_hissa_doubt"
+      ]
+     },
+     "moment": "Hỏi Hissa câu hỏi khiến hắn lần đầu nghi ngờ"
+    }
+   ]
+  },
+  {
+   "id": "lzp_c2_first_omen",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "lizard_priest",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "lzp_first_omen",
+     "lzp_end"
+    ]
+   },
+   "text": "Sương mù tím bao phủ bãi đẻ trứng. Tộc trưởng muốn bạn diễn dịch điềm báo ngay trước cả bộ lạc.",
+   "choices": [
+    {
+     "label": "Nói thật: chưa hiểu, cần ba ngày",
+     "text": "Tộc trưởng nổi giận. Ba ngày sau, bạn tìm ra: sương tím đến từ một mạch khí trong lòng đất. Bạn dời bãi trứng. Không quả nào hỏng.",
+     "effects": {
+      "INT": 1,
+      "fame": 4,
+      "jobXp": 2,
+      "flags": [
+       "lzp_first_omen"
+      ]
+     },
+     "moment": "Tìm ra nguồn gốc sương tím và dời bãi đẻ trứng"
+    },
+    {
+     "label": "Nói đó là điềm lành",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Sương tan sau hai ngày. Không có gì xảy ra. Bộ lạc tin bạn.",
+      "effects": {
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "lzp_first_omen"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Một nửa số trứng không nở. Bộ lạc nhớ bạn đã nói gì.",
+      "effects": {
+       "fame": -6,
+       "flags": [
+        "lzp_first_omen"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzp_c2_crossroads",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "lizard_priest",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "lzp_path_old",
+     "lzp_path_new",
+     "lzp_path_dream",
+     "lzp_end"
+    ],
+    "flags": [
+     "lzp_met_ossira"
+    ]
+   },
+   "text": "Bà Ossira dẫn bạn đến ba bức vách trong đền: bức vẽ lễ hiến tế cổ, bức vẽ một con rắn quấn quanh trứng, và bức vẽ một con rắn nuốt đuôi mình giữa giấc ngủ.",
+   "choices": [
+    {
+     "label": "Lễ hiến tế: Giữ Lễ Cổ",
+     "text": "Bạn sẽ giữ những nghi lễ cổ, đúng như tổ tiên làm, kể cả những lễ khó nhất.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "lzp_path_old"
+      ]
+     },
+     "moment": "Chọn giữ những nghi lễ cổ của Thần Rắn"
+    },
+    {
+     "label": "Rắn quấn trứng: Lễ Mới",
+     "text": "Bà Ossira chạm vào bức vẽ thứ hai. “Đây là bức vẽ cổ nhất. Trước khi có máu, Thần Rắn là thần của sự sống.” Bạn sẽ đưa đền trở về điều ấy.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "lzp_path_new"
+      ]
+     },
+     "moment": "Chọn đưa đền Rắn trở về thờ sự sống"
+    },
+    {
+     "label": "Rắn nuốt đuôi: Kẻ Mơ",
+     "text": "Bạn sẽ học cách nói chuyện với Thần Rắn trong giấc mơ, nơi thần thật sự trả lời. Bà Ossira cảnh báo: “Có những tư tế không bao giờ tỉnh lại.”",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "lzp_path_dream"
+      ]
+     },
+     "moment": "Chọn tìm Thần Rắn trong giấc mơ"
+    }
+   ]
+  },
+  {
+   "id": "lzp_old_knight",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "lizard_priest",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lzp_path_old"
+    ],
+    "notFlags": [
+     "lzp_end"
+    ]
+   },
+   "text": "Một nữ kỵ sĩ Thánh Quang bị bắt, sắp lên bàn tế theo lễ cổ. Cô nhìn bạn, không van xin.",
+   "choices": [
+    {
+     "label": "Làm lễ như tổ tiên",
+     "text": "Lễ hoàn tất. Bộ lạc tin Thần Rắn hài lòng. Bạn không ngủ được bảy đêm.",
+     "effects": {
+      "fame": 6,
+      "joy": -8,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Thay máu cô bằng máu của mình",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn cắt tay mình, để máu chảy lên đá tế. Đá vẫn sáng lên. Lễ cổ chưa bao giờ nói máu phải là của kẻ thù. Bạn thả cô đi trong đêm.",
+      "effects": {
+       "STR": 1,
+       "health": -10,
+       "fame": 4,
+       "jobXp": 3,
+       "flags": [
+        "lzp_old_selfblood"
+       ]
+      },
+      "moment": "Thay máu nữ kỵ sĩ bằng máu chính mình trên đá tế"
+     },
+     "fail": {
+      "text": "Đá không sáng. Một tư tế khác thấy, và bộ lạc đòi lễ phải làm lại.",
+      "effects": {
+       "health": -10,
+       "fame": -6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzp_old_cultist",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "lizard_priest",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lzp_path_old"
+    ],
+    "notFlags": [
+     "lzp_end"
+    ]
+   },
+   "text": "Một High Cultist già thách thức vị trí của bạn, cho rằng bạn đã làm ô uế dòng máu thánh.",
+   "choices": [
+    {
+     "label": "Đấu lễ trước đền",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đọc thuộc lòng mọi bài tụng cổ, không sai một chữ. Hắn quên ba chữ. Bộ lạc phán hắn thua.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Hắn đọc giỏi hơn. Bạn mất ghế trong đền một mùa.",
+      "effects": {
+       "fame": -6
+      }
+     }
+    },
+    {
+     "label": "Để hắn làm lễ, chờ hắn tự sai",
+     "text": "Hắn làm lễ quá tay, và đá tế nứt. Bộ lạc tự hiểu.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzp_new_eggs",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "lizard_priest",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lzp_path_new"
+    ],
+    "notFlags": [
+     "lzp_end"
+    ]
+   },
+   "text": "Bạn đề nghị thay lễ hiến tế mùa xuân bằng lễ chúc phúc trứng. Cả đền im lặng.",
+   "choices": [
+    {
+     "label": "Làm lễ chúc phúc trước toàn bộ lạc",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Mùa ấy, số trứng nở nhiều nhất trong mười năm. Không ai chắc vì sao. Nhưng lễ chúc phúc được giữ lại.",
+      "effects": {
+       "LUCK": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "lzp_new_blessing"
+       ]
+      },
+      "moment": "Thay lễ hiến tế mùa xuân bằng lễ chúc phúc trứng"
+     },
+     "fail": {
+      "text": "Mùa ấy, trứng nở ít. Bộ lạc đổ tại bạn.",
+      "effects": {
+       "fame": -8
+      }
+     }
+    },
+    {
+     "label": "Làm cả hai, lễ mới trước, lễ cũ sau",
+     "text": "Bộ lạc chấp nhận. Năm sau, bạn bỏ bớt một con vật trong lễ cũ. Năm sau nữa, thêm một con.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzp_new_hissa",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "lizard_priest",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lzp_path_new",
+     "lzp_met_hissa"
+    ],
+    "notFlags": [
+     "lzp_end"
+    ]
+   },
+   "text": "Hissa tố cáo bạn trước tộc trưởng: Thần Rắn sẽ nổi giận vì thiếu máu.",
+   "choices": [
+    {
+     "label": "Mời Hissa cùng nhìn bức vẽ cổ nhất",
+     "require": {
+      "flags": [
+       "lzp_hissa_doubt"
+      ]
+     },
+     "text": "Hissa nhìn bức vẽ con rắn quấn trứng rất lâu. Hắn không nói gì. Hôm sau, hắn rút lại lời tố cáo.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "lzp_hissa_turned"
+      ]
+     },
+     "moment": "Cùng Hissa nhìn bức vẽ cổ nhất của đền Rắn"
+    },
+    {
+     "label": "Đối chất trước tộc trưởng",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn hỏi: “Ngươi đã bao giờ nghe Thần Rắn đòi máu chưa?” Hissa không trả lời được.",
+      "effects": {
+       "fame": 6,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Tộc trưởng đứng về phía Hissa. Bạn bị cấm làm lễ một mùa.",
+      "effects": {
+       "fame": -6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzp_dream_deep",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "lizard_priest",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lzp_path_dream"
+    ],
+    "notFlags": [
+     "lzp_end"
+    ]
+   },
+   "text": "Trong giấc mơ, bạn thấy một con rắn khổng lồ nằm cuộn dưới đáy đầm. Nó mở mắt, và nói: “Các ngươi đã quên ta là gì.”",
+   "choices": [
+    {
+     "label": "Hỏi nó là gì",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Nó nói: “Ta là đầm lầy. Mọi thứ chết trong ta đều sinh ra từ ta.” Bạn tỉnh dậy, khóc, và ghi lại từng chữ.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "lzp_dream_truth"
+       ]
+      },
+      "moment": "Nghe Thần Rắn nói trong giấc mơ dưới đáy đầm"
+     },
+     "fail": {
+      "text": "Nó im lặng. Bạn tỉnh dậy với cơn đau đầu kéo dài ba ngày.",
+      "effects": {
+       "health": -6
+      }
+     }
+    },
+    {
+     "label": "Bỏ chạy khỏi giấc mơ",
+     "text": "Bạn tỉnh dậy, mồ hôi lạnh. Đêm sau, giấc mơ không trở lại.",
+     "effects": {
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzp_dream_tentacle",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "lizard_priest",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lzp_path_dream"
+    ],
+    "notFlags": [
+     "lzp_end"
+    ]
+   },
+   "text": "Bạn vô tình dâng lên trong lễ một trái tim mang ấn chú Ánh Sáng. Không gian nứt vỡ, một xúc tu khổng lồ thò ra từ khe nứt.",
+   "choices": [
+    {
+     "label": "Đi vào giấc mơ để đóng khe nứt",
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn nằm xuống giữa đền, nhắm mắt, và tìm thấy khe nứt trong giấc mơ. Bạn khâu nó lại bằng tiếng tụng. Khi tỉnh dậy, xúc tu đã biến mất.",
+      "effects": {
+       "LUCK": 1,
+       "fame": 10,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Bạn ngủ ba ngày. Khi tỉnh dậy, khe nứt đã đóng, nhưng đền mất một bức vách.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Chặt xúc tu",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Xúc tu rút lại, rỉ máu đen. Khe nứt khép lại.",
+      "effects": {
+       "STR": 1,
+       "fame": 6,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Xúc tu quật bạn vào cột đá.",
+      "effects": {
+       "health": -18
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzp_c4_ossira",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "lizard_priest",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "lzp_met_ossira"
+    ],
+    "notFlags": [
+     "lzp_ossira_gone",
+     "lzp_end"
+    ],
+    "anyFlags": [
+     "lzp_path_old",
+     "lzp_path_new",
+     "lzp_path_dream"
+    ]
+   },
+   "text": "Bà Ossira biết mình sắp chết. Bà muốn chết như một tư tế: trong vòng tay của con rắn thiêng.",
+   "choices": [
+    {
+     "label": "Mang con rắn thiêng đến",
+     "text": "Con rắn quấn quanh bà, nhẹ như một tấm chăn. Bà thì thầm: “Hiểu, không phải sợ.” Bà mất trong giấc ngủ. Con rắn không rời bà suốt ba ngày.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 3,
+      "flags": [
+       "lzp_ossira_gone"
+      ]
+     },
+     "moment": "Để con rắn thiêng ôm bà Ossira trong giờ cuối"
+    },
+    {
+     "label": "Hỏi bà câu hỏi cuối",
+     "text": "Bạn hỏi: Thần Rắn có thật không? Bà mỉm cười: “Ta đã hỏi câu đó suốt đời. Câu hỏi quan trọng hơn câu trả lời.” Bà mất đêm ấy.",
+     "effects": {
+      "INT": 1,
+      "joy": -4,
+      "jobXp": 3,
+      "flags": [
+       "lzp_ossira_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzp_c4_hissa",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "lizard_priest",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "lzp_met_hissa"
+    ],
+    "notFlags": [
+     "lzp_hissa_turned",
+     "lzp_end"
+    ]
+   },
+   "text": "Hissa làm một lễ hiến tế lớn trái phép, để chứng minh Thần Rắn chỉ nghe tiếng máu. Lễ đang diễn ra.",
+   "choices": [
+    {
+     "label": "Ngăn hắn lại",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đẩy hắn khỏi đá tế. Hắn nhìn bạn, rồi nhìn đá tế vẫn im lặng sau bao nhiêu máu. Hắn khóc.",
+      "effects": {
+       "fame": 8,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Hắn quá cuồng nộ. Lễ hoàn tất. Đá vẫn im lặng.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Để hắn làm, và để đá trả lời",
+     "text": "Đá không sáng. Hissa đứng giữa đền, máu đầy tay, và lần đầu tiên không biết phải làm gì.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzp_c5_old",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "lizard_priest",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "lzp_path_old"
+    ],
+    "notFlags": [
+     "lzp_end"
+    ]
+   },
+   "text": "Bạn là đại tư tế. Đền Rắn giữ mọi nghi lễ cổ, đúng như tổ tiên.",
+   "choices": [
+    {
+     "label": "Ghi luật: máu tế phải là máu tự nguyện",
+     "require": {
+      "flags": [
+       "lzp_old_selfblood"
+      ]
+     },
+     "text": "Lễ cổ vẫn còn. Nhưng từ nay, chỉ máu tư tế được nhỏ lên đá. Không còn ai bị trói lên bàn tế.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "lzp_end",
+       "lzp_end_willing_blood"
+      ]
+     },
+     "moment": "Ghi luật chỉ dùng máu tự nguyện cho lễ hiến tế"
+    },
+    {
+     "label": "Truyền mọi bài tụng cho học trò",
+     "text": "Học trò của bạn thuộc lòng từng chữ. Lễ cổ sẽ còn thêm ba đời nữa.",
+     "effects": {
+      "fame": 12,
+      "joy": 8,
+      "flags": [
+       "lzp_end",
+       "lzp_end_chants"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzp_c5_new",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "lizard_priest",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "lzp_path_new"
+    ],
+    "notFlags": [
+     "lzp_end"
+    ]
+   },
+   "text": "Bạn là đại tư tế. Lễ chúc phúc trứng đã thay lễ hiến tế mùa xuân.",
+   "choices": [
+    {
+     "label": "Phá bỏ đá tế",
+     "require": {
+      "flags": [
+       "lzp_new_blessing"
+      ]
+     },
+     "text": "Bạn đập vỡ đá tế, và đặt vào chỗ ấy một ổ trứng đá. Những tư tế cuồng tín nhất cũng lặng lẽ quỳ trước nó.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "lzp_end",
+       "lzp_end_egg_altar"
+      ]
+     },
+     "moment": "Thay đá tế bằng một ổ trứng đá trong đền Rắn"
+    },
+    {
+     "label": "Để đá tế lại, nhưng phủ rêu",
+     "text": "Không ai dùng nó nữa. Lũ con non trèo lên nó chơi.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "lzp_end",
+       "lzp_end_moss"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzp_c5_dream",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "lizard_priest",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "lzp_path_dream"
+    ],
+    "notFlags": [
+     "lzp_end"
+    ]
+   },
+   "text": "Bạn là Serpent Prophet. Bạn đã nói chuyện với Thần Rắn nhiều hơn bất kỳ tư tế nào.",
+   "choices": [
+    {
+     "label": "Kể cho bộ lạc lời của Thần",
+     "require": {
+      "flags": [
+       "lzp_dream_truth"
+      ]
+     },
+     "text": "Bạn kể: Thần Rắn là đầm lầy, và mọi thứ chết trong đầm đều sinh ra từ đầm. Bộ lạc im lặng, rồi bắt đầu chôn người chết dưới bùn thay vì để cho rắn.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "lzp_end",
+       "lzp_end_prophecy"
+      ]
+     },
+     "moment": "Kể cho bộ lạc lời thật của Thần Rắn"
+    },
+    {
+     "label": "Ngủ giấc cuối cùng",
+     "text": "Bạn nằm xuống giữa đền, nhắm mắt, và không tỉnh lại. Học trò của bạn nói bạn đang ở với Thần.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "lzp_end",
+       "lzp_end_last_dream"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzp_daily_snake",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "lizard_priest",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một con rắn nhỏ bò vào chỗ ngủ của bạn.",
+   "choices": [
+    {
+     "label": "Để nó ở lại",
+     "text": "Nó cuộn tròn cạnh bạn, ấm áp. Sáng ra nó đi mất.",
+     "effects": {
+      "joy": 5
+     }
+    },
+    {
+     "label": "Mang nó về đền",
+     "text": "Bà đại tư tế gật đầu. Rắn tự tìm đến là điềm tốt.",
+     "effects": {
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzp_daily_war",
+   "races": [
+    "lizardman"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "lizard_priest",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Bộ lạc muốn một lễ lớn để cầu thắng trận.",
+   "choices": [
+    {
+     "label": "Làm lễ bằng hương và lời tụng",
+     "text": "Bộ lạc không hài lòng hoàn toàn, nhưng chiến binh ra trận với tinh thần cao.",
+     "effects": {
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Nói thật: Thần Rắn không chọn phe",
+     "text": "Tộc trưởng giận. Nhưng chiến binh nhớ lời bạn khi họ đối mặt với cái chết.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzp_daily_old",
+   "races": [
+    "lizardman"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "lizard_priest",
+    "free": true
+   },
+   "text": "Những giấc mơ của bạn giờ dài hơn những ngày thức.",
+   "choices": [
+    {
+     "label": "Ghi lại mọi giấc mơ",
+     "text": "Học trò đọc, và hiểu được một nửa.",
+     "effects": {
+      "INT": 1
+     }
+    },
+    {
+     "label": "Kể cho lũ con non",
+     "text": "Chúng nghe như nghe chuyện cổ tích.",
+     "effects": {
+      "joy": 8
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzp_c5_old_late",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "lizard_priest",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "lzp_path_old"
+    ],
+    "notFlags": [
+     "lzp_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là đại tư tế. Đền Rắn giữ mọi nghi lễ cổ, đúng như tổ tiên.",
+   "choices": [
+    {
+     "label": "Ghi luật: máu tế phải là máu tự nguyện",
+     "require": {
+      "flags": [
+       "lzp_old_selfblood"
+      ]
+     },
+     "text": "Lễ cổ vẫn còn. Nhưng từ nay, chỉ máu tư tế được nhỏ lên đá. Không còn ai bị trói lên bàn tế.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "lzp_end",
+       "lzp_end_willing_blood"
+      ]
+     },
+     "moment": "Ghi luật chỉ dùng máu tự nguyện cho lễ hiến tế"
+    },
+    {
+     "label": "Truyền mọi bài tụng cho học trò",
+     "text": "Học trò của bạn thuộc lòng từng chữ. Lễ cổ sẽ còn thêm ba đời nữa.",
+     "effects": {
+      "fame": 12,
+      "joy": 8,
+      "flags": [
+       "lzp_end",
+       "lzp_end_chants"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "lzp_c5_new_late",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "lizard_priest",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "lzp_path_new"
+    ],
+    "notFlags": [
+     "lzp_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là đại tư tế. Lễ chúc phúc trứng đã thay lễ hiến tế mùa xuân.",
+   "choices": [
+    {
+     "label": "Phá bỏ đá tế",
+     "require": {
+      "flags": [
+       "lzp_new_blessing"
+      ]
+     },
+     "text": "Bạn đập vỡ đá tế, và đặt vào chỗ ấy một ổ trứng đá. Những tư tế cuồng tín nhất cũng lặng lẽ quỳ trước nó.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "lzp_end",
+       "lzp_end_egg_altar"
+      ]
+     },
+     "moment": "Thay đá tế bằng một ổ trứng đá trong đền Rắn"
+    },
+    {
+     "label": "Để đá tế lại, nhưng phủ rêu",
+     "text": "Không ai dùng nó nữa. Lũ con non trèo lên nó chơi.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "lzp_end",
+       "lzp_end_moss"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "lzp_c5_dream_late",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "lizard_priest",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "lzp_path_dream"
+    ],
+    "notFlags": [
+     "lzp_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Serpent Prophet. Bạn đã nói chuyện với Thần Rắn nhiều hơn bất kỳ tư tế nào.",
+   "choices": [
+    {
+     "label": "Kể cho bộ lạc lời của Thần",
+     "require": {
+      "flags": [
+       "lzp_dream_truth"
+      ]
+     },
+     "text": "Bạn kể: Thần Rắn là đầm lầy, và mọi thứ chết trong đầm đều sinh ra từ đầm. Bộ lạc im lặng, rồi bắt đầu chôn người chết dưới bùn thay vì để cho rắn.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "lzp_end",
+       "lzp_end_prophecy"
+      ]
+     },
+     "moment": "Kể cho bộ lạc lời thật của Thần Rắn"
+    },
+    {
+     "label": "Ngủ giấc cuối cùng",
+     "text": "Bạn nằm xuống giữa đền, nhắm mắt, và không tỉnh lại. Học trò của bạn nói bạn đang ở với Thần.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "lzp_end",
+       "lzp_end_last_dream"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}

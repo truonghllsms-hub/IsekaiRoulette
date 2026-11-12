@@ -1,0 +1,1113 @@
+{
+ "_note": "Tuyến truyện Swamp Hunter (Lizardman): ba đạo (lzh_path_feed / lzh_path_beast / lzh_path_ghost), nhân vật xuyên suốt lão Thessk Lưỡi Chẻ (thợ săn già) và Vessra (thợ săn đối thủ).",
+ "origins": [],
+ "events": [
+  {
+   "id": "lzh_c1_thessk",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "lizard_hunter",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "lzh_met_thessk"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Thessk Lưỡi Chẻ",
+     "race": "Lizardman",
+     "position": "Thợ săn già nếm gió bằng lưỡi chẻ"
+    }
+   ],
+   "text": "Lão Thessk Lưỡi Chẻ thè chiếc lưỡi chẻ đôi ra nếm không khí. “Cá chép, ở hướng đông. Rắn, ở hướng bắc. Và một con người, đang đái vào gốc cây, cách hai trăm bước.” Lão bảo bạn thử.",
+   "choices": [
+    {
+     "label": "Thè lưỡi nếm gió",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn nếm được cá, và một thứ ngọt ngọt mà lão không nhắc: mật ong của một tổ ong rừng. Lão gật gù: “Ngươi nếm được cả thứ ta quên.”",
+      "effects": {
+       "LUCK": 1,
+       "jobXp": 1,
+       "flags": [
+        "lzh_met_thessk",
+        "lzh_thessk_respect"
+       ]
+      },
+      "moment": "Nếm gió tìm ra tổ ong mà lão Thessk bỏ sót"
+     },
+     "fail": {
+      "text": "Bạn chỉ nếm được bùn. Lão cười rít: “Bùn cũng là một vị. Mai nếm tiếp.”",
+      "effects": {
+       "flags": [
+        "lzh_met_thessk"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi lão con người kia có nguy hiểm không",
+     "text": "Lão nhìn bạn, nghiêng đầu. “Câu hỏi của thợ săn sống lâu.” Lão dạy bạn cách nếm sợ hãi trong không khí, thứ mùi chua mà mọi con mồi đều có.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "lzh_met_thessk",
+       "lzh_thessk_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzh_c1_vessra",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "lizard_hunter",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "lzh_met_thessk"
+    ],
+    "notFlags": [
+     "lzh_met_vessra"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Vessra",
+     "race": "Lizardman",
+     "position": "Thợ săn trẻ giỏi nhất bộ lạc"
+    }
+   ],
+   "text": "Vessra là thợ săn trẻ giỏi nhất bộ lạc, và cô không giấu điều đó. Cô thả một con cá còn sống trước mặt bạn: “Ta bắt nó bằng tay. Ngươi làm được không?”",
+   "choices": [
+    {
+     "label": "Lao xuống nước bắt một con to hơn",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn ngoi lên với một con cá trắm to gấp đôi. Vessra nheo mắt, rồi cười rít. “Được. Ngày mai ta săn rắn.”",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 1,
+       "flags": [
+        "lzh_met_vessra",
+        "lzh_vessra_rival"
+       ]
+      },
+      "moment": "Bắt con cá trắm to gấp đôi để đáp lời thách của Vessra"
+     },
+     "fail": {
+      "text": "Bạn ngoi lên tay không, mũi đầy bùn. Vessra ăn con cá của cô trước mặt bạn.",
+      "effects": {
+       "joy": -3,
+       "flags": [
+        "lzh_met_vessra",
+        "lzh_vessra_rival"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi cô dạy bạn",
+     "text": "Vessra ngạc nhiên. Không ai từng hỏi cô điều đó. Cô dạy, cộc lốc, khó chịu, và rất giỏi.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 1,
+      "flags": [
+       "lzh_met_vessra",
+       "lzh_vessra_friend"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzh_c2_first_prey",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "lizard_hunter",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "lzh_first_prey",
+     "lzh_end"
+    ]
+   },
+   "text": "Con mồi lớn đầu tiên: một con nai đầm lầy. Bạn đã rình nó hai ngày. Giờ nó đứng uống nước ngay trên đầu bạn, và sau lưng nó là con nai con.",
+   "choices": [
+    {
+     "label": "Kéo nai mẹ xuống nước",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Gọn, nhanh. Bộ lạc ăn no ba ngày. Con nai con đứng trên bờ kêu suốt đêm. Bạn nếm được nỗi sợ của nó trong gió.",
+      "effects": {
+       "STR": 1,
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "lzh_first_prey"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Nai mẹ giãy mạnh, đá bạn văng ra. Cả hai mẹ con chạy mất.",
+      "effects": {
+       "health": -5,
+       "flags": [
+        "lzh_first_prey"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Chờ con nai đực đi qua sau",
+     "text": "Ba ngày nữa. Nai đực xuất hiện. Bộ lạc ăn no, và đàn nai năm sau vẫn còn.",
+     "effects": {
+      "jobXp": 2,
+      "flags": [
+       "lzh_first_prey",
+       "lzh_first_patient"
+      ]
+     },
+     "moment": "Tha cho nai mẹ có con, chờ thêm ba ngày để săn nai đực"
+    }
+   ]
+  },
+  {
+   "id": "lzh_c2_crossroads",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "lizard_hunter",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "lzh_path_feed",
+     "lzh_path_beast",
+     "lzh_path_ghost",
+     "lzh_end"
+    ],
+    "flags": [
+     "lzh_met_thessk"
+    ]
+   },
+   "text": "Lão Thessk thè lưỡi nếm gió một lúc lâu, rồi nói: “Có ba thứ ngươi có thể săn cả đời: thức ăn, quái thú, hoặc chính những kẻ săn ngươi.”",
+   "choices": [
+    {
+     "label": "Thức ăn: Kẻ Nuôi Bộ Lạc",
+     "text": "Bạn sẽ săn để bộ lạc không ai đói. Không vinh quang, chỉ có cá và nai, mỗi ngày.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "lzh_path_feed"
+      ]
+     },
+     "moment": "Chọn săn để nuôi bộ lạc"
+    },
+    {
+     "label": "Quái thú: Kẻ Săn Quái Đầm Lầy",
+     "text": "Nhện sáu mắt, cá sấu khổng lồ, và những thứ không ai dám gọi tên. Bạn sẽ săn chúng trước khi chúng săn bộ lạc.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "lzh_path_beast"
+      ]
+     },
+     "moment": "Chọn săn quái thú đầm lầy"
+    },
+    {
+     "label": "Kẻ săn ngươi: Bóng Ma Đầm Lầy",
+     "text": "Mạo hiểm giả, thợ săn trứng, Kiểm Lâm Elf. Bạn sẽ là thứ chúng sợ khi bước vào đầm.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 2,
+      "flags": [
+       "lzh_path_ghost"
+      ]
+     },
+     "moment": "Chọn trở thành bóng ma săn những kẻ xâm nhập đầm lầy"
+    }
+   ]
+  },
+  {
+   "id": "lzh_feed_drought",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "lizard_hunter",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lzh_path_feed"
+    ],
+    "notFlags": [
+     "lzh_end"
+    ]
+   },
+   "text": "Mùa khô. Đầm lầy co lại, cá chết hàng loạt trong những vũng nước nóng.",
+   "choices": [
+    {
+     "label": "Dẫn bộ lạc đến hồ sâu phía bắc",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn nhớ một hồ sâu lão Thessk từng kể. Ba ngày đường. Cá ở đó nhiều không đếm xuể.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "lzh_feed_lake"
+       ]
+      },
+      "moment": "Dẫn bộ lạc đến hồ sâu phía bắc trong mùa khô"
+     },
+     "fail": {
+      "text": "Hồ đã cạn từ lâu. Cả đoàn quay về tay trắng.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    },
+    {
+     "label": "Đào hố giữ cá còn sống",
+     "text": "Bạn đào những hố sâu giữ nước. Cá chen chúc, nhưng sống. Bộ lạc ăn dè sẻn qua mùa khô.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzh_feed_share",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "lizard_hunter",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lzh_path_feed"
+    ],
+    "notFlags": [
+     "lzh_end"
+    ]
+   },
+   "text": "Tộc trưởng muốn phần cá ngon nhất dành cho chiến binh. Bạn biết lũ con non đang gầy rộc.",
+   "choices": [
+    {
+     "label": "Chia đều, dù bị mắng",
+     "text": "Tộc trưởng rít lên, nhưng không làm gì. Mùa sau, lứa con non ấy khỏe mạnh hơn mọi lứa trước.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "lzh_feed_fair"
+      ]
+     }
+    },
+    {
+     "label": "Làm theo lệnh, rồi săn thêm cho lũ non",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn săn gấp đôi. Chiến binh no, con non cũng no.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Bạn kiệt sức, ngã bệnh nửa tháng.",
+      "effects": {
+       "health": -10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzh_beast_spider",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "lizard_hunter",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lzh_path_beast"
+    ],
+    "notFlags": [
+     "lzh_end"
+    ]
+   },
+   "text": "Con Nhện Đầm Lầy sáu mắt đã ăn ba thợ săn. Nọc của nó làm tan chảy cả thép.",
+   "choices": [
+    {
+     "label": "Dụ nó vào nước sâu",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Nhện không bơi được. Bạn kéo nó xuống. Sáu con mắt tắt dần dưới nước. Bộ lạc giữ chiếc đầu nhện làm chiến lợi phẩm.",
+      "effects": {
+       "AGI": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "lzh_beast_spider"
+       ]
+      },
+      "moment": "Dìm chết con Nhện Đầm Lầy sáu mắt"
+     },
+     "fail": {
+      "text": "Nó cắn vào chân bạn trước khi cả hai rơi xuống nước. Vảy Lizardman chịu được độc, nhưng không chịu được răng.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Đốt tổ nó khi nó đi săn",
+     "text": "Tổ cháy, trứng cháy. Con nhện trở về, phát điên, và rời đầm lầy. Nó sẽ làm tổ ở nơi khác.",
+     "effects": {
+      "fame": 5,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzh_beast_dragon",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "lizard_hunter",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lzh_path_beast"
+    ],
+    "notFlags": [
+     "lzh_end"
+    ]
+   },
+   "text": "Trong đêm bão, bạn bơi vào nhầm hang của một con Hắc Long đang ngủ. Hơi thở của nó làm nước sôi lên quanh bạn.",
+   "choices": [
+    {
+     "label": "Bơi ra thật chậm",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Nó không thức. Bạn ra khỏi hang, và lần đầu tiên trong đời thấy tim mình đập như tim máu nóng.",
+      "effects": {
+       "LUCK": 1,
+       "jobXp": 3,
+       "flags": [
+        "lzh_beast_dragon_seen"
+       ]
+      },
+      "moment": "Thoát ra khỏi hang Hắc Long đang ngủ"
+     },
+     "fail": {
+      "text": "Một con mắt vàng hé mở, nhìn bạn, rồi khép lại. Bạn không biết nó tha hay nó lười.",
+      "effects": {
+       "joy": -4,
+       "flags": [
+        "lzh_beast_dragon_seen"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Lấy một chiếc vảy rụng",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Chiếc vảy to bằng khiên. Bạn mang về, và cả bộ lạc im lặng khi nhìn thấy nó.",
+      "effects": {
+       "fame": 12,
+       "jobXp": 3,
+       "flags": [
+        "lzh_beast_dragon_seen"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Nó thức. Bạn sống, nhưng không bao giờ biết bằng cách nào.",
+      "effects": {
+       "health": -20
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzh_ghost_egghunters",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "lizard_hunter",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lzh_path_ghost"
+    ],
+    "notFlags": [
+     "lzh_end"
+    ]
+   },
+   "text": "Một nhóm mạo hiểm giả lẻn vào bãi đẻ, ôm theo trứng để bán cho viện nghiên cứu ở Sanctus.",
+   "choices": [
+    {
+     "label": "Săn từng kẻ một trong đêm",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Đến sáng, không kẻ nào ra được khỏi đầm. Trứng được trả về bãi. Tin đồn về Bóng Ma Đầm Lầy lan đến tận Sanctus.",
+      "effects": {
+       "AGI": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "lzh_ghost_legend"
+       ]
+      },
+      "moment": "Săn từng kẻ trộm trứng trong đêm, trả trứng về bãi"
+     },
+     "fail": {
+      "text": "Hai kẻ thoát được, mang theo ba quả trứng.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Cướp lại trứng, để chúng sống mà kể",
+     "text": "Chúng chạy ra khỏi đầm, tay trắng, run rẩy. Chúng kể với mọi quán rượu. Không ai dám vào đầm săn trứng trong nhiều năm.",
+     "effects": {
+      "fame": 6,
+      "jobXp": 3,
+      "flags": [
+       "lzh_ghost_legend"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzh_ghost_elf",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "lizard_hunter",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "lzh_path_ghost"
+    ],
+    "notFlags": [
+     "lzh_end"
+    ]
+   },
+   "text": "Một Kiểm Lâm Elf bất tỉnh trên rễ cây ngập nước, cổ đeo viên Lõi Mana phát sáng. Nước đang dâng.",
+   "choices": [
+    {
+     "label": "Kéo hắn lên đá cao rồi đi",
+     "text": "Hắn tỉnh dậy, thấy dấu chân Lizardman quanh mình, và viên Lõi Mana vẫn còn trên cổ. Hắn không bao giờ quay lại đầm, nhưng kể cho tộc Elf nghe rằng Lizardman không phải quái vật.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "lzh_ghost_mercy"
+      ]
+     },
+     "moment": "Kéo một Kiểm Lâm Elf bất tỉnh lên chỗ cao trước khi nước dâng"
+    },
+    {
+     "label": "Lấy viên Lõi Mana",
+     "text": "Nước dâng. Viên Lõi Mana sáng rực trên tay bạn. Bạn không quay lại nhìn.",
+     "effects": {
+      "wealth": 12,
+      "joy": -6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzh_c4_thessk",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "lizard_hunter",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "lzh_met_thessk"
+    ],
+    "notFlags": [
+     "lzh_thessk_gone",
+     "lzh_end"
+    ],
+    "anyFlags": [
+     "lzh_path_feed",
+     "lzh_path_beast",
+     "lzh_path_ghost"
+    ]
+   },
+   "text": "Lão Thessk không còn nếm được gì nữa. Lưỡi lão khô, mắt lão mờ. Lão xin bạn đưa lão đi săn lần cuối.",
+   "choices": [
+    {
+     "label": "Đưa lão đi, để lão chỉ đường",
+     "text": "Bạn cõng lão. Lão thè lưỡi, dù không nếm được gì, và chỉ về hướng đông. Ở đó có một con cá chép to. Có lẽ lão đoán. Có lẽ không. Lão mất đêm ấy, mỉm cười.",
+     "effects": {
+      "joy": -4,
+      "LUCK": 1,
+      "jobXp": 3,
+      "flags": [
+       "lzh_thessk_gone"
+      ]
+     },
+     "moment": "Đưa lão Thessk đi săn lần cuối"
+    },
+    {
+     "label": "Săn về cho lão một con cá",
+     "text": "Bạn mang về con cá chép to nhất bạn từng bắt. Lão sờ nó, gật đầu. Lão mất đêm ấy.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "lzh_thessk_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzh_c4_vessra",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "lizard_hunter",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "lzh_met_vessra"
+    ],
+    "notFlags": [
+     "lzh_end"
+    ]
+   },
+   "text": "Vessra bị một con cá sấu khổng lồ cắn mất nửa chân. Cô không còn săn được nữa. Cô nằm trong hang, không ăn.",
+   "choices": [
+    {
+     "label": "Mang cho cô một đôi giáo để chống",
+     "text": "Cô ném chúng vào bạn. Ngày hôm sau, cô dùng chúng đứng dậy. Một tháng sau, cô dạy lũ con non bắt cá bằng tay, từ trên bờ.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "lzh_vessra_teacher"
+      ]
+     },
+     "moment": "Giúp Vessra đứng dậy sau khi mất nửa chân"
+    },
+    {
+     "label": "Săn con cá sấu ấy",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn mang đầu nó về đặt trước hang cô. Cô nhìn nó rất lâu, rồi ra khỏi hang lần đầu sau một tháng.",
+      "effects": {
+       "STR": 1,
+       "fame": 8,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Con cá sấu quá lớn. Bạn thoát được, với vết răng trên đuôi.",
+      "effects": {
+       "health": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzh_c5_feed",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "lizard_hunter",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "lzh_path_feed"
+    ],
+    "notFlags": [
+     "lzh_end"
+    ]
+   },
+   "text": "Không lứa con non nào trong bộ lạc chết đói suốt những năm bạn đi săn.",
+   "choices": [
+    {
+     "label": "Chỉ cho bộ lạc hồ sâu phía bắc",
+     "require": {
+      "flags": [
+       "lzh_feed_lake"
+      ]
+     },
+     "text": "Bộ lạc có một nơi để đến mỗi mùa khô. Không ai còn sợ hạn hán.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "lzh_end",
+       "lzh_end_lake"
+      ]
+     },
+     "moment": "Để lại cho bộ lạc con đường đến hồ sâu phía bắc"
+    },
+    {
+     "label": "Dạy lũ non săn cá bằng tay",
+     "text": "Chúng học nhanh. Một đứa bắt được con cá to hơn bạn từng bắt. Bạn rít lên vui sướng.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "lzh_end",
+       "lzh_end_teacher"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzh_c5_beast",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "lizard_hunter",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "lzh_path_beast"
+    ],
+    "notFlags": [
+     "lzh_end"
+    ]
+   },
+   "text": "Đầu những quái thú bạn săn được treo kín cột đá giữa bộ lạc.",
+   "choices": [
+    {
+     "label": "Săn con mồi cuối cùng: con Hắc Long",
+     "require": {
+      "flags": [
+       "lzh_beast_dragon_seen"
+      ]
+     },
+     "text": "Bạn không săn nó. Bạn chỉ bơi vào hang, nhìn nó ngủ, rồi bơi ra. Có những con mồi để nhìn, không phải để giết.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "lzh_end",
+       "lzh_end_dragon_watch"
+      ]
+     },
+     "moment": "Bơi vào hang Hắc Long lần cuối chỉ để nhìn nó ngủ"
+    },
+    {
+     "label": "Gỡ những chiếc đầu xuống, chôn chúng",
+     "text": "Bộ lạc phản đối. Bạn nói: “Chúng đã đủ đáng sợ khi còn sống.”",
+     "effects": {
+      "fame": 10,
+      "joy": 10,
+      "flags": [
+       "lzh_end",
+       "lzh_end_buried"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzh_c5_ghost",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "lizard_hunter",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "lzh_path_ghost"
+    ],
+    "notFlags": [
+     "lzh_end"
+    ]
+   },
+   "text": "Ở Sanctus, người ta kể về Bóng Ma Đầm Lầy. Không ai dám vào đầm săn trứng nữa.",
+   "choices": [
+    {
+     "label": "Để lại lời cảnh báo trên cây ở bìa đầm",
+     "text": "Một chiếc vảy treo trên cành cây. Ai đi qua cũng hiểu. Không ai còn phải chết.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "lzh_end",
+       "lzh_end_warning"
+      ]
+     },
+     "moment": "Treo chiếc vảy cảnh báo ở bìa đầm"
+    },
+    {
+     "label": "Gặp tộc Elf ở bìa rừng",
+     "require": {
+      "flags": [
+       "lzh_ghost_mercy"
+      ]
+     },
+     "text": "Kiểm Lâm năm xưa đến cùng ba Elf khác. Họ không mang vũ khí. Lần đầu tiên, Lizardman và Elf ngồi nói chuyện bên bờ nước.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "lzh_end",
+       "lzh_end_elf_talk"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzh_daily_fly",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "lizard_hunter",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một con chuồn chuồn đậu lên mũi bạn.",
+   "choices": [
+    {
+     "label": "Đớp nó",
+     "text": "Ngon.",
+     "effects": {
+      "joy": 3
+     }
+    },
+    {
+     "label": "Nằm im nhìn nó",
+     "text": "Nó ở lại rất lâu. Bạn thấy mình bình yên lạ lùng.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzh_daily_war",
+   "races": [
+    "lizardman"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "lizard_hunter",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh đẩy những kẻ chạy trốn vào đầm lầy.",
+   "choices": [
+    {
+     "label": "Săn chúng như con mồi",
+     "text": "Đầm lầy ăn chúng trước khi bạn kịp. Bạn chỉ dọn dẹp.",
+     "effects": {
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Chỉ đường cho chúng ra",
+     "text": "Chúng không hiểu tiếng bạn, nhưng hiểu cử chỉ. Một vài người sống.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzh_daily_old",
+   "races": [
+    "lizardman"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "lizard_hunter",
+    "free": true
+   },
+   "text": "Lưỡi bạn không còn nếm gió được rõ như xưa.",
+   "choices": [
+    {
+     "label": "Dạy học trò nếm gió",
+     "text": "Chúng thè lưỡi, nhăn mặt vì bùn. Một đứa nếm được mật ong. Bạn rít lên cười.",
+     "effects": {
+      "joy": 8
+     }
+    },
+    {
+     "label": "Săn bằng mắt và tai",
+     "text": "Chậm hơn, nhưng vẫn về có cá.",
+     "effects": {
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "lzh_c5_feed_late",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "lizard_hunter",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "lzh_path_feed"
+    ],
+    "notFlags": [
+     "lzh_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Không lứa con non nào trong bộ lạc chết đói suốt những năm bạn đi săn.",
+   "choices": [
+    {
+     "label": "Chỉ cho bộ lạc hồ sâu phía bắc",
+     "require": {
+      "flags": [
+       "lzh_feed_lake"
+      ]
+     },
+     "text": "Bộ lạc có một nơi để đến mỗi mùa khô. Không ai còn sợ hạn hán.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "lzh_end",
+       "lzh_end_lake"
+      ]
+     },
+     "moment": "Để lại cho bộ lạc con đường đến hồ sâu phía bắc"
+    },
+    {
+     "label": "Dạy lũ non săn cá bằng tay",
+     "text": "Chúng học nhanh. Một đứa bắt được con cá to hơn bạn từng bắt. Bạn rít lên vui sướng.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "lzh_end",
+       "lzh_end_teacher"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "lzh_c5_beast_late",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "lizard_hunter",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "lzh_path_beast"
+    ],
+    "notFlags": [
+     "lzh_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Đầu những quái thú bạn săn được treo kín cột đá giữa bộ lạc.",
+   "choices": [
+    {
+     "label": "Săn con mồi cuối cùng: con Hắc Long",
+     "require": {
+      "flags": [
+       "lzh_beast_dragon_seen"
+      ]
+     },
+     "text": "Bạn không săn nó. Bạn chỉ bơi vào hang, nhìn nó ngủ, rồi bơi ra. Có những con mồi để nhìn, không phải để giết.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "lzh_end",
+       "lzh_end_dragon_watch"
+      ]
+     },
+     "moment": "Bơi vào hang Hắc Long lần cuối chỉ để nhìn nó ngủ"
+    },
+    {
+     "label": "Gỡ những chiếc đầu xuống, chôn chúng",
+     "text": "Bộ lạc phản đối. Bạn nói: “Chúng đã đủ đáng sợ khi còn sống.”",
+     "effects": {
+      "fame": 10,
+      "joy": 10,
+      "flags": [
+       "lzh_end",
+       "lzh_end_buried"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "lzh_c5_ghost_late",
+   "races": [
+    "lizardman"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "lizard_hunter",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "lzh_path_ghost"
+    ],
+    "notFlags": [
+     "lzh_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Ở Sanctus, người ta kể về Bóng Ma Đầm Lầy. Không ai dám vào đầm săn trứng nữa.",
+   "choices": [
+    {
+     "label": "Để lại lời cảnh báo trên cây ở bìa đầm",
+     "text": "Một chiếc vảy treo trên cành cây. Ai đi qua cũng hiểu. Không ai còn phải chết.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "lzh_end",
+       "lzh_end_warning"
+      ]
+     },
+     "moment": "Treo chiếc vảy cảnh báo ở bìa đầm"
+    },
+    {
+     "label": "Gặp tộc Elf ở bìa rừng",
+     "require": {
+      "flags": [
+       "lzh_ghost_mercy"
+      ]
+     },
+     "text": "Kiểm Lâm năm xưa đến cùng ba Elf khác. Họ không mang vũ khí. Lần đầu tiên, Lizardman và Elf ngồi nói chuyện bên bờ nước.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "lzh_end",
+       "lzh_end_elf_talk"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}

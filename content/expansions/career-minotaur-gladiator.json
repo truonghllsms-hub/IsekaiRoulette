@@ -1,0 +1,1082 @@
+{
+ "_note": "Tuyến truyện Gladiator (Minotaur): ba đạo (mgl_path_crowd / mgl_path_chain / mgl_path_bull), nhân vật xuyên suốt lão Brontes Tai Rách (đấu sĩ già) và Corvo (chủ đấu trường Human).",
+ "origins": [],
+ "events": [
+  {
+   "id": "mgl_c1_brontes",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "minotaur_gladiator",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "mgl_met_brontes"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Brontes Tai Rách",
+     "race": "Minotaur",
+     "position": "Đấu sĩ già ở Đấu trường Huyết Sa"
+    }
+   ],
+   "text": "Lão Brontes Tai Rách đã đấu ba trăm trận ở Đấu trường Huyết Sa. Lão nói với bạn qua song sắt chuồng: “Khán đài muốn thấy bò điên. Cho chúng thấy, nhưng đừng bao giờ thật sự điên.”",
+   "choices": [
+    {
+     "label": "Hỏi lão làm thế nào",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Lão dạy bạn gầm thật to, húc thật mạnh, nhưng luôn đếm hơi thở. “Cơn điên thật làm ngươi chết. Cơn điên giả làm ngươi sống, và nổi tiếng.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "mgl_met_brontes",
+        "mgl_brontes_respect"
+       ]
+      },
+      "moment": "Học cách giả cơn cuồng nộ từ đấu sĩ già Brontes"
+     },
+     "fail": {
+      "text": "Bạn không hiểu. Lão thở dài: “Ngươi sẽ hiểu sau trận đầu, nếu còn sống.”",
+      "effects": {
+       "flags": [
+        "mgl_met_brontes"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Gầm lên cho lão xem",
+     "text": "Lão bịt tai, rồi cười. “Tốt. Giờ làm lại, nhưng đếm đến năm trong lúc gầm.”",
+     "effects": {
+      "STR": 1,
+      "jobXp": 1,
+      "flags": [
+       "mgl_met_brontes"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mgl_c1_corvo",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "minotaur_gladiator",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "mgl_met_brontes"
+    ],
+    "notFlags": [
+     "mgl_met_corvo"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Corvo",
+     "race": "Human",
+     "position": "Chủ Đấu trường Huyết Sa"
+    }
+   ],
+   "text": "Corvo, chủ đấu trường, mua bạn với giá cao nhất mùa. Hắn đi quanh chuồng, đo sừng bạn bằng gang tay. “Ngươi sẽ làm ta giàu, con bò. Hoặc ngươi sẽ thành bít tết.”",
+   "choices": [
+    {
+     "label": "Nhìn thẳng vào mắt hắn",
+     "text": "Corvo dừng lại. Không con thú nào từng nhìn hắn như thế. Hắn cười, nhưng từ đó hắn luôn đứng xa chuồng bạn hơn một bước.",
+     "effects": {
+      "fame": 2,
+      "jobXp": 1,
+      "flags": [
+       "mgl_met_corvo"
+      ]
+     }
+    },
+    {
+     "label": "Húc vào song sắt",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Song sắt cong. Corvo ngã ngửa. Hắn đứng dậy, phủi áo, và tăng giá vé trận đầu của bạn gấp đôi.",
+      "effects": {
+       "STR": 1,
+       "fame": 3,
+       "jobXp": 1,
+       "flags": [
+        "mgl_met_corvo"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Song sắt không cong. Sừng bạn đau ba ngày. Corvo cười suốt.",
+      "effects": {
+       "health": -3,
+       "flags": [
+        "mgl_met_corvo"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "mgl_c2_first_fight",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "minotaur_gladiator",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "mgl_first_fight",
+     "mgl_end"
+    ]
+   },
+   "text": "Trận đầu. Đối thủ là một nô lệ Human gầy gò, cầm kiếm gỗ. Khán đài gào lên đòi máu.",
+   "choices": [
+    {
+     "label": "Giả điên, đánh rơi kiếm của hắn, tha",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn gầm, húc, hất kiếm gỗ bay lên khán đài. Rồi bạn đứng yên trên đầu hắn, thở phì phò. Khán đài đếm ngược. Bạn quay đi. Họ không hiểu, nhưng họ vỗ tay.",
+      "effects": {
+       "AGI": 1,
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "mgl_first_fight",
+        "mgl_first_spared"
+       ]
+      },
+      "moment": "Tha mạng đối thủ đầu tiên giữa tiếng gào đòi máu"
+     },
+     "fail": {
+      "text": "Bạn húc quá mạnh. Hắn không đứng dậy được nữa.",
+      "effects": {
+       "joy": -10,
+       "flags": [
+        "mgl_first_fight"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Cho khán đài thứ họ muốn",
+     "text": "Khán đài phát cuồng. Ông chủ đấu trường đếm tiền. Bạn về chuồng, không ăn được gì.",
+     "effects": {
+      "fame": 6,
+      "joy": -10,
+      "jobXp": 2,
+      "flags": [
+       "mgl_first_fight"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mgl_c2_crossroads",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "minotaur_gladiator",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "mgl_path_crowd",
+     "mgl_path_chain",
+     "mgl_path_bull",
+     "mgl_end"
+    ],
+    "flags": [
+     "mgl_met_brontes"
+    ]
+   },
+   "text": "Lão Brontes gọi bạn đến góc chuồng. “Ngươi đã sống qua mười trận. Giờ ngươi chọn: làm vua khán đài, làm kẻ phá xiềng, hay làm con bò thật sự.”",
+   "choices": [
+    {
+     "label": "Vua khán đài: Người Của Đám Đông",
+     "text": "Bạn sẽ học cách khiến hàng nghìn người hò reo. Khi khán đài yêu bạn, ông chủ đấu trường không dám làm gì bạn.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2,
+      "flags": [
+       "mgl_path_crowd"
+      ]
+     },
+     "moment": "Chọn trở thành vua của khán đài Huyết Sa"
+    },
+    {
+     "label": "Kẻ phá xiềng: Tự Do",
+     "text": "Bạn sẽ đấu để mua tự do, cho mình và những kẻ khác trong chuồng. Lão Brontes gật đầu chậm rãi. “Ta đã thử. Ta già trước khi đủ tiền.”",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "mgl_path_chain"
+      ]
+     },
+     "moment": "Chọn đấu để mua tự do"
+    },
+    {
+     "label": "Con bò thật: Cơn Thịnh Nộ",
+     "text": "Không giả vờ nữa. Bạn sẽ để cơn điên thật làm việc của nó, và trở thành thứ đáng sợ nhất Huyết Sa.",
+     "effects": {
+      "STR": 2,
+      "jobXp": 2,
+      "flags": [
+       "mgl_path_bull"
+      ]
+     },
+     "moment": "Chọn thả cơn cuồng nộ thật trên đấu trường"
+    }
+   ]
+  },
+  {
+   "id": "mgl_crowd_noble",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "minotaur_gladiator",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mgl_path_crowd"
+    ],
+    "notFlags": [
+     "mgl_end"
+    ]
+   },
+   "text": "Một quý tộc từ Đồng Bằng Thánh Quang đòi bạn xé xác một nữ Elf nô lệ trước khán đài.",
+   "choices": [
+    {
+     "label": "Biến nó thành màn kịch",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn gầm, nhấc cô lên cao, rồi “ném” cô qua hàng rào vào chuồng ngựa. Khán đài tưởng cô đã chết. Đêm ấy, cô được lén đưa ra khỏi đấu trường.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "mgl_crowd_trick"
+       ]
+      },
+      "moment": "Giả vờ ném chết nữ Elf nô lệ để cứu cô khỏi đấu trường"
+     },
+     "fail": {
+      "text": "Quý tộc nhận ra trò lừa. Ông chủ đấu trường phạt bạn nhịn đói mười ngày.",
+      "effects": {
+       "health": -10
+      }
+     }
+    },
+    {
+     "label": "Từ chối, quỳ xuống giữa đấu trường",
+     "text": "Khán đài im lặng. Rồi một người vỗ tay. Rồi trăm người. Quý tộc bỏ về, giận dữ. Cô Elf vẫn là nô lệ, nhưng còn sống.",
+     "effects": {
+      "fame": 6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "mgl_crowd_rival",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "minotaur_gladiator",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mgl_path_crowd",
+     "mgl_met_corvo"
+    ],
+    "notFlags": [
+     "mgl_end"
+    ]
+   },
+   "text": "Một đấu sĩ Orc mới nổi đang giành khán đài khỏi bạn. Corvo xếp hai người đấu nhau trong trận lớn nhất năm.",
+   "choices": [
+    {
+     "label": "Đấu thật, để khán đài tự chọn",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Trận đấu dài nhất mùa. Bạn thắng, và kéo hắn đứng dậy. Khán đài gào tên cả hai.",
+      "effects": {
+       "STR": 1,
+       "fame": 10,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Hắn thắng. Khán đài quay sang hắn. Bạn học được rằng tình yêu của đám đông ngắn ngủi.",
+      "effects": {
+       "fame": -5,
+       "health": -10
+      }
+     }
+    },
+    {
+     "label": "Thỏa thuận với hắn trước trận",
+     "text": "Hai người dàn dựng một trận đấu đẹp mắt, không ai bị thương nặng. Khán đài sướng điên. Corvo không biết.",
+     "effects": {
+      "fame": 6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "mgl_chain_rebels",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "minotaur_gladiator",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mgl_path_chain"
+    ],
+    "notFlags": [
+     "mgl_end"
+    ]
+   },
+   "text": "Một nhóm nô lệ Orc lên kế hoạch phá ngục. Chúng rủ bạn cùng giết lính canh trong đêm.",
+   "choices": [
+    {
+     "label": "Tham gia, nhưng không giết ai",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn bẻ song sắt, khóa lính canh trong chuồng ngựa. Mười hai nô lệ trốn thoát. Không ai chết. Bạn ở lại, vì một Minotaur không thể trốn mà không ai thấy.",
+      "effects": {
+       "STR": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "mgl_chain_freed"
+       ]
+      },
+      "moment": "Bẻ song sắt cho mười hai nô lệ trốn thoát"
+     },
+     "fail": {
+      "text": "Lính canh phát hiện. Cuộc nổi loạn bị dập. Bạn bị xích gấp đôi.",
+      "effects": {
+       "health": -12
+      }
+     }
+    },
+    {
+     "label": "Từ chối, giữ bí mật",
+     "text": "Họ trốn mà không có bạn. Một nửa bị bắt lại. Bạn không bao giờ biết nếu có bạn thì sẽ khác không.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "mgl_chain_price",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "minotaur_gladiator",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mgl_path_chain"
+    ],
+    "notFlags": [
+     "mgl_end"
+    ]
+   },
+   "text": "Bạn đã đủ tiền mua tự do cho chính mình. Nhưng số tiền ấy cũng đủ mua tự do cho ba nô lệ trẻ trong chuồng bên cạnh.",
+   "choices": [
+    {
+     "label": "Mua tự do cho ba đứa trẻ",
+     "text": "Chúng ra khỏi đấu trường, ngoái lại nhìn bạn. Bạn bắt đầu đấu lại từ đầu, để kiếm đủ cho chính mình.",
+     "effects": {
+      "joy": 10,
+      "wealth": -15,
+      "jobXp": 3,
+      "flags": [
+       "mgl_chain_gift"
+      ]
+     },
+     "moment": "Dùng tiền chuộc thân để mua tự do cho ba nô lệ trẻ"
+    },
+    {
+     "label": "Mua tự do cho mình",
+     "text": "Bạn bước ra khỏi cổng Huyết Sa. Ba đứa trẻ nhìn theo qua song sắt.",
+     "effects": {
+      "joy": 4,
+      "wealth": -15,
+      "jobXp": 3,
+      "flags": [
+       "mgl_chain_self"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mgl_bull_red",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "minotaur_gladiator",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mgl_path_bull"
+    ],
+    "notFlags": [
+     "mgl_end"
+    ]
+   },
+   "text": "Cơn điên thật đến. Bạn tỉnh lại giữa đấu trường, đối thủ nằm bất động. Khán đài im lặng, rồi gầm lên.",
+   "choices": [
+    {
+     "label": "Gầm lên đáp lại khán đài",
+     "text": "Bạn là thứ đáng sợ nhất Huyết Sa. Đêm ấy, bạn không nhớ được khuôn mặt đối thủ.",
+     "effects": {
+      "fame": 10,
+      "joy": -6,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Quỳ xuống bên đối thủ",
+     "text": "Khán đài không hiểu. Ông chủ đấu trường nổi giận. Đối thủ của bạn còn thở, nhờ bạn dừng lại kịp.",
+     "effects": {
+      "fame": 3,
+      "joy": 4,
+      "jobXp": 3,
+      "flags": [
+       "mgl_bull_stopped"
+      ]
+     },
+     "moment": "Dừng cơn điên thật kịp lúc, quỳ xuống bên đối thủ"
+    }
+   ]
+  },
+  {
+   "id": "mgl_bull_rot",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "minotaur_gladiator",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "mgl_path_bull"
+    ],
+    "notFlags": [
+     "mgl_end"
+    ]
+   },
+   "text": "Vũ khí của đối thủ tẩm độc Lizardman. Vết chém trên đùi bạn không liền mà bắt đầu thối rữa.",
+   "choices": [
+    {
+     "label": "Để cơn điên đốt độc",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Máu bạn sôi lên trong cơn cuồng nộ, và độc cháy theo. Vết thương liền sau một tuần.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Cơn điên không đủ. Bạn nằm liệt một tháng.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Xin thầy thuốc",
+     "text": "Ông chủ đấu trường trả tiền thầy thuốc, và trừ vào phần thưởng của bạn ba trận.",
+     "effects": {
+      "wealth": -6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "mgl_c4_brontes",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "minotaur_gladiator",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "mgl_met_brontes",
+     "mgl_met_corvo"
+    ],
+    "notFlags": [
+     "mgl_brontes_gone",
+     "mgl_end"
+    ],
+    "anyFlags": [
+     "mgl_path_crowd",
+     "mgl_path_chain",
+     "mgl_path_bull"
+    ]
+   },
+   "text": "Lão Brontes được xếp đấu trận cuối, với một con thú trẻ khỏe gấp ba lão. Corvo muốn khán đài xem một huyền thoại chết.",
+   "choices": [
+    {
+     "label": "Xin đấu thay lão",
+     "text": "Corvo đồng ý, vì vé sẽ bán chạy hơn. Bạn thắng. Lão Brontes được thả về, già và tự do. Lão mất ba năm sau, trên một đồng cỏ.",
+     "effects": {
+      "fame": 6,
+      "jobXp": 3,
+      "flags": [
+       "mgl_brontes_gone",
+       "mgl_brontes_free"
+      ]
+     },
+     "moment": "Đấu thay lão Brontes trong trận cuối của lão"
+    },
+    {
+     "label": "Dạy lão một mánh cuối",
+     "text": "Lão nghe, cười. Lão đấu, và chết như một đấu sĩ, giữa tiếng gào của khán đài. Lão gầm lần cuối, đúng năm nhịp, như lão dạy.",
+     "effects": {
+      "joy": -8,
+      "jobXp": 3,
+      "flags": [
+       "mgl_brontes_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mgl_c4_corvo",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "minotaur_gladiator",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "mgl_met_corvo"
+    ],
+    "notFlags": [
+     "mgl_end"
+    ]
+   },
+   "text": "Corvo phá sản. Đấu trường sắp bị bán cho một quý tộc tàn ác hơn hắn. Hắn đến chuồng bạn, lần đầu tiên không cười.",
+   "choices": [
+    {
+     "label": "Đề nghị đấu một trận cứu đấu trường",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Trận đấu lớn nhất lịch sử Huyết Sa. Vé bán hết. Corvo trả được nợ. Hắn xé giấy bán thân của bạn trước mặt bạn.",
+      "effects": {
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "mgl_corvo_debt"
+       ]
+      },
+      "moment": "Đấu trận cứu Đấu trường Huyết Sa khỏi tay quý tộc tàn ác"
+     },
+     "fail": {
+      "text": "Bạn thua. Đấu trường bị bán.",
+      "effects": {
+       "health": -15,
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Mặc kệ hắn",
+     "text": "Đấu trường đổi chủ. Chủ mới tàn ác hơn. Bạn nhớ Corvo, điều bạn không ngờ tới.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "mgl_c5_crowd",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "minotaur_gladiator",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "mgl_path_crowd"
+    ],
+    "notFlags": [
+     "mgl_end"
+    ]
+   },
+   "text": "Bạn là Arena Champion. Khán đài Huyết Sa gào tên bạn mỗi khi bạn bước ra.",
+   "choices": [
+    {
+     "label": "Dùng tình yêu của khán đài để đổi luật",
+     "require": {
+      "flags": [
+       "mgl_crowd_trick"
+      ]
+     },
+     "text": "Bạn tuyên bố trước khán đài: không đấu nữa nếu còn trận đấu đến chết. Khán đài đứng về phía bạn. Huyết Sa đổi luật.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "mgl_end",
+       "mgl_end_new_rules"
+      ]
+     },
+     "moment": "Dùng tình yêu của khán đài để cấm đấu đến chết"
+    },
+    {
+     "label": "Trận cuối, rồi giải nghệ",
+     "text": "Bạn đấu trận cuối, cúi chào khán đài, và bước ra khỏi cổng lần cuối, giữa tiếng gào tên bạn.",
+     "effects": {
+      "fame": 15,
+      "joy": 10,
+      "flags": [
+       "mgl_end",
+       "mgl_end_retire"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mgl_c5_chain",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "minotaur_gladiator",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "mgl_path_chain"
+    ],
+    "notFlags": [
+     "mgl_end"
+    ]
+   },
+   "text": "Bạn là Arena Champion, và bạn đã đủ tiền.",
+   "choices": [
+    {
+     "label": "Mua tự do cho cả dãy chuồng",
+     "require": {
+      "flags": [
+       "mgl_chain_gift"
+      ]
+     },
+     "text": "Mọi nô lệ trong dãy chuồng của bạn bước ra cùng lúc. Ba đứa trẻ năm xưa đứng chờ ở cổng, giờ đã lớn.",
+     "effects": {
+      "fame": 15,
+      "joy": 18,
+      "flags": [
+       "mgl_end",
+       "mgl_end_all_free"
+      ]
+     },
+     "moment": "Mua tự do cho cả dãy chuồng nô lệ"
+    },
+    {
+     "label": "Mua tự do cho mình, rời Huyết Sa",
+     "text": "Bạn đi về phía mê cung của tộc mình, nơi bạn chưa từng thấy. Huyết Sa ở lại sau lưng.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "mgl_end",
+       "mgl_end_home"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mgl_c5_bull",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "minotaur_gladiator",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "mgl_path_bull"
+    ],
+    "notFlags": [
+     "mgl_end"
+    ]
+   },
+   "text": "Bạn là Undefeated Warlord của Huyết Sa. Không đối thủ nào đứng dậy được sau khi đối mặt bạn.",
+   "choices": [
+    {
+     "label": "Dạy đấu sĩ trẻ kiểm soát cơn điên",
+     "require": {
+      "flags": [
+       "mgl_bull_stopped"
+      ]
+     },
+     "text": "Bạn dạy chúng điều bạn học được quá muộn: dừng lại trước khi quá muộn.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "mgl_end",
+       "mgl_end_teacher"
+      ]
+     },
+     "moment": "Dạy đấu sĩ trẻ kiểm soát cơn cuồng nộ"
+    },
+    {
+     "label": "Đấu cho đến khi ngã",
+     "text": "Bạn ngã giữa đấu trường, trong cơn điên cuối cùng. Khán đài im lặng lần đầu tiên.",
+     "effects": {
+      "fame": 15,
+      "joy": 4,
+      "flags": [
+       "mgl_end",
+       "mgl_end_fall"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mgl_daily_sand",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "minotaur_gladiator",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Cát đấu trường dính vào lông bạn mãi không sạch.",
+   "choices": [
+    {
+     "label": "Lăn trong bùn để gột",
+     "text": "Lính canh cười. Bạn thấy sạch hơn.",
+     "effects": {
+      "joy": 4
+     }
+    },
+    {
+     "label": "Kệ nó",
+     "text": "Cát Huyết Sa là một phần của bạn rồi.",
+     "effects": {
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "mgl_daily_war",
+   "races": [
+    "minotaur"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "minotaur_gladiator",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Đấu trường đóng cửa, đấu sĩ bị bán ra chiến trường.",
+   "choices": [
+    {
+     "label": "Ra trận",
+     "text": "Chiến trường không có khán đài. Bạn sống sót, và nhớ đấu trường lạ thường.",
+     "effects": {
+      "health": -8,
+      "fame": 4,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Trốn trong mê cung cũ",
+     "text": "Bạn trở về khi chiến tranh kết thúc. Ông chủ đấu trường vẫn chờ.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "mgl_daily_old",
+   "races": [
+    "minotaur"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "minotaur_gladiator",
+    "free": true
+   },
+   "text": "Sừng bạn đã mẻ, gối bạn đã mỏi. Khán đài mới không còn nhớ tên bạn.",
+   "choices": [
+    {
+     "label": "Ngồi trên khán đài xem đấu sĩ trẻ",
+     "text": "Không ai nhận ra bạn. Bạn gầm lên một tiếng cổ vũ, và cả khán đài quay lại nhìn.",
+     "effects": {
+      "joy": 8
+     }
+    },
+    {
+     "label": "Kể chuyện cho đấu sĩ trẻ trong chuồng",
+     "text": "Chúng nghe, im lặng. Một đứa hỏi bạn có sợ không. Bạn nói có, mỗi trận.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "mgl_c5_crowd_late",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "minotaur_gladiator",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "mgl_path_crowd"
+    ],
+    "notFlags": [
+     "mgl_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Arena Champion. Khán đài Huyết Sa gào tên bạn mỗi khi bạn bước ra.",
+   "choices": [
+    {
+     "label": "Dùng tình yêu của khán đài để đổi luật",
+     "require": {
+      "flags": [
+       "mgl_crowd_trick"
+      ]
+     },
+     "text": "Bạn tuyên bố trước khán đài: không đấu nữa nếu còn trận đấu đến chết. Khán đài đứng về phía bạn. Huyết Sa đổi luật.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "mgl_end",
+       "mgl_end_new_rules"
+      ]
+     },
+     "moment": "Dùng tình yêu của khán đài để cấm đấu đến chết"
+    },
+    {
+     "label": "Trận cuối, rồi giải nghệ",
+     "text": "Bạn đấu trận cuối, cúi chào khán đài, và bước ra khỏi cổng lần cuối, giữa tiếng gào tên bạn.",
+     "effects": {
+      "fame": 15,
+      "joy": 10,
+      "flags": [
+       "mgl_end",
+       "mgl_end_retire"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "mgl_c5_chain_late",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "minotaur_gladiator",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "mgl_path_chain"
+    ],
+    "notFlags": [
+     "mgl_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Arena Champion, và bạn đã đủ tiền.",
+   "choices": [
+    {
+     "label": "Mua tự do cho cả dãy chuồng",
+     "require": {
+      "flags": [
+       "mgl_chain_gift"
+      ]
+     },
+     "text": "Mọi nô lệ trong dãy chuồng của bạn bước ra cùng lúc. Ba đứa trẻ năm xưa đứng chờ ở cổng, giờ đã lớn.",
+     "effects": {
+      "fame": 15,
+      "joy": 18,
+      "flags": [
+       "mgl_end",
+       "mgl_end_all_free"
+      ]
+     },
+     "moment": "Mua tự do cho cả dãy chuồng nô lệ"
+    },
+    {
+     "label": "Mua tự do cho mình, rời Huyết Sa",
+     "text": "Bạn đi về phía mê cung của tộc mình, nơi bạn chưa từng thấy. Huyết Sa ở lại sau lưng.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "mgl_end",
+       "mgl_end_home"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "mgl_c5_bull_late",
+   "races": [
+    "minotaur"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "minotaur_gladiator",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "mgl_path_bull"
+    ],
+    "notFlags": [
+     "mgl_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Undefeated Warlord của Huyết Sa. Không đối thủ nào đứng dậy được sau khi đối mặt bạn.",
+   "choices": [
+    {
+     "label": "Dạy đấu sĩ trẻ kiểm soát cơn điên",
+     "require": {
+      "flags": [
+       "mgl_bull_stopped"
+      ]
+     },
+     "text": "Bạn dạy chúng điều bạn học được quá muộn: dừng lại trước khi quá muộn.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "mgl_end",
+       "mgl_end_teacher"
+      ]
+     },
+     "moment": "Dạy đấu sĩ trẻ kiểm soát cơn cuồng nộ"
+    },
+    {
+     "label": "Đấu cho đến khi ngã",
+     "text": "Bạn ngã giữa đấu trường, trong cơn điên cuối cùng. Khán đài im lặng lần đầu tiên.",
+     "effects": {
+      "fame": 15,
+      "joy": 4,
+      "flags": [
+       "mgl_end",
+       "mgl_end_fall"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}

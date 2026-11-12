@@ -1,0 +1,1110 @@
+{
+ "_note": "Tuyến truyện Orc Berserker: 5 chương theo bậc, ba đạo ở Bậc 2 (obk_path_circle / obk_path_spear / obk_path_throne), nhân vật xuyên suốt Mẹ Gorza Một Tay (Berserker già) và Urzog (huynh đệ kết máu).",
+ "origins": [],
+ "events": [
+  {
+   "id": "obk_c1_gorza",
+   "races": [
+    "orc"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "orc_berserker",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "obk_met_gorza"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Gorza Một Tay",
+     "race": "Orc",
+     "position": "Berserker già nhất bộ lạc"
+    }
+   ],
+   "text": "Mẹ Gorza Một Tay là Berserker già nhất bộ lạc, mất cánh tay trái từ trận Đồi Sọ. Bà ném cho bạn một khúc xương bò và bảo bạn cắn chặt nó trong khi bà đánh vào lưng bạn bằng gậy gai. “Ai nhả xương trước, kẻ đó chưa phải Berserker.”",
+   "choices": [
+    {
+     "label": "Cắn đến khi xương gãy",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Xương gãy trong răng bạn, nhưng bạn không kêu một tiếng. Gorza dừng gậy, cười khàn: “Cơn điên của ngươi biết nghe lời. Hiếm đấy.”",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "obk_met_gorza",
+        "obk_gorza_respect"
+       ]
+      },
+      "moment": "Cắn gãy khúc xương bò dưới gậy gai của Mẹ Gorza"
+     },
+     "fail": {
+      "text": "Bạn nhả xương ra, gầm lên, và lao vào bà. Gorza quật bạn ngã bằng một tay. “Cơn điên của ngươi là chủ. Ta sẽ dạy ngươi làm chủ nó.”",
+      "effects": {
+       "health": -4,
+       "flags": [
+        "obk_met_gorza"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi bà mất tay vì sao",
+     "text": "Gorza ngừng tay. “Vì ta để cơn điên quyết định thay ta, ở Đồi Sọ. Nó lao vào đúng chỗ kẻ địch muốn.” Bà vứt gậy. “Câu hỏi hay hơn cú cắn. Mai bắt đầu.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "obk_met_gorza",
+       "obk_gorza_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "obk_c1_urzog",
+   "races": [
+    "orc"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "orc_berserker",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "obk_met_gorza"
+    ],
+    "notFlags": [
+     "obk_met_urzog"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Urzog",
+     "race": "Orc",
+     "position": "Chiến binh trẻ cùng lứa trong bộ lạc"
+    }
+   ],
+   "text": "Urzog bằng tuổi bạn, to gấp rưỡi, và vừa đấm vỡ mũi bạn vì tranh chỗ ngồi gần lửa. Theo lệ Orc, có hai cách giải quyết: đánh tiếp đến khi một kẻ nằm, hoặc cắt tay kết máu làm huynh đệ.",
+   "choices": [
+    {
+     "label": "Đánh tiếp",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn đánh hắn nằm, rồi kéo hắn dậy. Urzog lau máu mũi, cười toe: “Được. Giờ ta là huynh đệ.” Chẳng cần cắt tay nữa.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "obk_met_urzog",
+        "obk_urzog_brother"
+       ]
+      },
+      "moment": "Đánh nhau rồi kết huynh đệ với Urzog bên đống lửa"
+     },
+     "fail": {
+      "text": "Bạn nằm. Urzog ngồi chỗ gần lửa cả mùa đông, nhưng mỗi tối đều ném cho bạn một miếng thịt.",
+      "effects": {
+       "health": -3,
+       "flags": [
+        "obk_met_urzog"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Cắt tay kết máu",
+     "text": "Hai bàn tay áp vào nhau, máu xanh thẫm hòa làm một. Urzog nói: “Giờ ngươi ngồi gần lửa. Ta ngồi cạnh ngươi.”",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1,
+      "flags": [
+       "obk_met_urzog",
+       "obk_urzog_brother"
+      ]
+     },
+     "moment": "Cắt tay kết máu huynh đệ với Urzog"
+    }
+   ]
+  },
+  {
+   "id": "obk_c2_first_rage",
+   "races": [
+    "orc"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "orc_berserker",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "obk_first_rage",
+     "obk_end"
+    ]
+   },
+   "text": "Trận đầu tiên, cơn điên đến như lũ. Khi bạn tỉnh lại, kẻ địch đã chạy hết, còn rìu của bạn đang giơ lên trên đầu một Orc cùng phe đang nằm ngửa.",
+   "choices": [
+    {
+     "label": "Ném rìu xuống đất",
+     "text": "Rìu cắm sâu vào bùn, cách đầu hắn một gang tay. Hắn bò dậy, run rẩy. Từ đó, bạn luôn buộc một sợi dây đỏ quanh cán rìu, để nhìn thấy nó trước khi vung.",
+     "effects": {
+      "jobXp": 2,
+      "flags": [
+       "obk_first_rage",
+       "obk_first_stopped"
+      ]
+     },
+     "moment": "Ghìm được nhát rìu trên đầu đồng đội trong trận đầu tiên"
+    },
+    {
+     "label": "Gầm lên để đẩy cơn điên đi",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Tiếng gầm vang khắp chiến trường. Cơn điên rút đi như sóng. Cả bộ lạc nghe thấy, và từ đó gọi bạn là Kẻ Gầm Ngược.",
+      "effects": {
+       "STR": 1,
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "obk_first_rage"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Cơn điên không chịu đi. Bạn chạy vào rừng, đấm cây cho đến khi kiệt sức.",
+      "effects": {
+       "health": -8,
+       "flags": [
+        "obk_first_rage"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "obk_c2_crossroads",
+   "races": [
+    "orc"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "orc_berserker",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "obk_path_circle",
+     "obk_path_spear",
+     "obk_path_throne",
+     "obk_end"
+    ],
+    "flags": [
+     "obk_met_gorza"
+    ]
+   },
+   "text": "Mẹ Gorza ngồi bên lửa, chỉ cho bạn ba lối: Vòng Tròn Máu, nơi các chiến binh đấu tay đôi vì danh dự; Mũi Giáo, đội xung kích đi đầu mọi trận cướp; và Đá Thách Đấu trước lều Warchief, nơi kẻ đủ gan có thể thách cả Tù trưởng.",
+   "choices": [
+    {
+     "label": "Vòng Tròn Máu: Kẻ Đấu Danh Dự",
+     "text": "Bạn bước vào vòng đất nện nhuộm đỏ. Ở đây không có cướp bóc, chỉ có hai chiến binh và luật lệ. Gorza gật đầu: “Nơi cơn điên học phép tắc.”",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "obk_path_circle"
+      ]
+     },
+     "moment": "Bước vào Vòng Tròn Máu của bộ lạc"
+    },
+    {
+     "label": "Mũi Giáo: Đội Xung Kích",
+     "text": "Bạn nhận chiếc mặt nạ xương của đội Mũi Giáo. Kẻ đi đầu là kẻ chết trước, và là kẻ được hát về sau.",
+     "effects": {
+      "STR": 1,
+      "AGI": 1,
+      "jobXp": 2,
+      "flags": [
+       "obk_path_spear"
+      ]
+     },
+     "moment": "Đeo mặt nạ xương của đội xung kích Mũi Giáo"
+    },
+    {
+     "label": "Đá Thách Đấu: Đường Lên Ngai",
+     "text": "Bạn đặt tay lên Đá Thách Đấu. Chưa phải lúc thách ai cả, nhưng từ nay cả bộ lạc biết bạn muốn gì. Gorza nhìn bạn rất lâu: “Ngai Warchief làm bằng xương của những kẻ đã thử.”",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2,
+      "flags": [
+       "obk_path_throne"
+      ]
+     },
+     "moment": "Đặt tay lên Đá Thách Đấu trước lều Warchief"
+    }
+   ]
+  },
+  {
+   "id": "obk_circle_young",
+   "races": [
+    "orc"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "orc_berserker",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "obk_path_circle"
+    ],
+    "notFlags": [
+     "obk_end"
+    ]
+   },
+   "text": "Trong Vòng Tròn Máu, đối thủ của bạn là một Orc trẻ mới mười bốn mùa, được gia tộc ép ra đấu để rửa nhục. Nó run đến mức rìu va vào khiên lách cách.",
+   "choices": [
+    {
+     "label": "Đánh rơi rìu của nó, rồi tuyên bố trận đã xong",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Một cú gạt, rìu của nó bay ra ngoài vòng. Bạn giơ tay: “Xong.” Theo luật, rơi vũ khí là thua, không cần đổ máu. Gia tộc nó được rửa nhục vì đã dám ra đấu với bạn.",
+      "effects": {
+       "AGI": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "obk_circle_mercy"
+       ]
+      },
+      "moment": "Kết thúc trận đấu danh dự mà không đổ máu đứa trẻ"
+     },
+     "fail": {
+      "text": "Bạn gạt hụt. Đứa trẻ hoảng loạn chém bừa, và bạn phải hạ nó. Nó sống, nhưng mất ba ngón tay.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Đánh như với mọi đối thủ",
+     "text": "Luật là luật. Đứa trẻ nằm xuống. Gia tộc nó gật đầu với bạn, như thể bạn đã làm điều đúng. Bạn không chắc.",
+     "effects": {
+      "fame": 4,
+      "joy": -4,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "obk_circle_human",
+   "races": [
+    "orc"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "orc_berserker",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "obk_path_circle"
+    ],
+    "notFlags": [
+     "obk_end"
+    ]
+   },
+   "text": "Một hiệp sĩ Human bị bắt đòi được đấu trong Vòng Tròn Máu thay vì bị xử. Các Orc cười. Không ai từng cho kẻ ngoài tộc quyền ấy.",
+   "choices": [
+    {
+     "label": "Nhận đấu với hắn",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Hắn đánh giỏi, giỏi hơn bạn tưởng. Bạn thắng, sát nút. Rồi bạn đề nghị bộ lạc thả hắn, vì hắn đã đấu như một Orc. Hắn đi, và nửa năm sau gửi lại một thùng rượu.",
+      "effects": {
+       "STR": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "obk_circle_human"
+       ]
+      },
+      "moment": "Đấu tay đôi với một hiệp sĩ Human trong Vòng Tròn Máu"
+     },
+     "fail": {
+      "text": "Hắn hạ bạn. Theo luật, hắn được tự do. Cả bộ lạc im lặng nhìn hắn đi.",
+      "effects": {
+       "fame": -5,
+       "health": -8
+      }
+     }
+    },
+    {
+     "label": "Từ chối, vòng tròn chỉ dành cho Orc",
+     "text": "Hiệp sĩ bị xử theo luật cướp. Bạn nghe tiếng hắn hát một bài hát Human trong ngục suốt đêm cuối.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "obk_spear_village",
+   "races": [
+    "orc"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "orc_berserker",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "obk_path_spear"
+    ],
+    "notFlags": [
+     "obk_end"
+    ]
+   },
+   "text": "Đội Mũi Giáo đến một làng Human chỉ toàn người già và trẻ con. Đàn ông đã đi lính hết. Warchief ra lệnh: lấy lương thực, đốt làng.",
+   "choices": [
+    {
+     "label": "Lấy lương thực, không đốt",
+     "text": "Đội đi qua làng như cơn gió, mang theo bao lúa, để lại mái nhà. Một số chiến binh càu nhàu. Warchief không biết, hoặc không hỏi.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 3,
+      "flags": [
+       "obk_spear_spared"
+      ]
+     }
+    },
+    {
+     "label": "Thi hành lệnh",
+     "text": "Làng cháy. Đội được khen. Mùi khói bám vào tóc bạn nhiều ngày.",
+     "effects": {
+      "fame": 5,
+      "joy": -8,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "obk_spear_ambush",
+   "races": [
+    "orc"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "orc_berserker",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "obk_path_spear"
+    ],
+    "notFlags": [
+     "obk_end"
+    ]
+   },
+   "text": "Đội Mũi Giáo lọt vào ổ phục kích của Kiểm Lâm Elf. Tên bay từ ba phía. Phía sau bạn là mười chiến binh trẻ chưa từng thấy máu.",
+   "choices": [
+    {
+     "label": "Lao thẳng vào rừng, kéo tên về phía mình",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Cơn điên đưa bạn vào giữa rừng tên. Bạn mang về bốn mũi tên trên lưng, và mười chiến binh trẻ còn đủ cả.",
+      "effects": {
+       "STR": 1,
+       "fame": 8,
+       "health": -10,
+       "jobXp": 3,
+       "flags": [
+        "obk_spear_shield"
+       ]
+      },
+      "moment": "Lao vào rừng tên Elf để kéo hỏa lực khỏi các chiến binh trẻ"
+     },
+     "fail": {
+      "text": "Bạn ngã giữa rừng. Mười chiến binh trẻ kéo bạn ra, mất hai người.",
+      "effects": {
+       "health": -20,
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Ra lệnh rút lui",
+     "text": "Rút lui là nhục với Orc. Nhưng mười chiến binh trẻ về đủ, và tối ấy một đứa trong số đó mang thịt đến lều bạn.",
+     "effects": {
+      "fame": -3,
+      "joy": 4,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "obk_throne_allies",
+   "races": [
+    "orc"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "orc_berserker",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "obk_path_throne"
+    ],
+    "notFlags": [
+     "obk_end"
+    ]
+   },
+   "text": "Muốn thách Warchief, bạn cần ba trưởng gia tộc đứng sau. Một trưởng gia tộc ra điều kiện: khi bạn lên ngai, gia tộc hắn được chia gấp đôi chiến lợi phẩm.",
+   "choices": [
+    {
+     "label": "Nhận điều kiện",
+     "text": "Hắn đứng sau bạn. Bạn biết khi lên ngai, món nợ ấy sẽ là sợi xích đầu tiên.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 3,
+      "flags": [
+       "obk_throne_debt"
+      ]
+     }
+    },
+    {
+     "label": "Từ chối, tìm người khác",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Một trưởng gia tộc nghèo đứng sau bạn, không đòi gì, chỉ nói: “Ta muốn một Warchief không nợ ai.”",
+      "effects": {
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "obk_throne_clean"
+       ]
+      },
+      "moment": "Tìm được người đứng sau mà không phải hứa chia chiến lợi phẩm"
+     },
+     "fail": {
+      "text": "Không ai khác đứng sau bạn mùa này. Bạn phải chờ thêm một năm.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "obk_throne_poison",
+   "races": [
+    "orc"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "orc_berserker",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "obk_path_throne"
+    ],
+    "notFlags": [
+     "obk_end"
+    ]
+   },
+   "text": "Một kẻ giấu mặt để lại trước lều bạn một lọ độc, kèm mẩu da ghi: “Cho rượu của Warchief. Dễ hơn đấu.”",
+   "choices": [
+    {
+     "label": "Đập vỡ lọ trước cửa lều Warchief",
+     "text": "Warchief bước ra, nhìn lọ vỡ, nhìn bạn. Lão hiểu. “Khi ngươi thách ta,” lão nói, “ta sẽ đấu hết sức.” Đó là lời khen lớn nhất một Warchief có thể nói.",
+     "effects": {
+      "fame": 8,
+      "jobXp": 3,
+      "flags": [
+       "obk_throne_honor"
+      ]
+     },
+     "moment": "Đập vỡ lọ độc trước lều Warchief"
+    },
+    {
+     "label": "Giữ lọ, tìm kẻ để lại nó",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Đó là một trưởng gia tộc muốn cả bạn lẫn Warchief cùng chết. Bạn đưa hắn ra Vòng Tròn Máu.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Không tìm ra ai. Lọ độc biến mất khỏi lều bạn một đêm. Bạn ngủ với rìu trong tay suốt mùa.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "obk_c4_gorza",
+   "races": [
+    "orc"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "orc_berserker",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "obk_met_gorza"
+    ],
+    "notFlags": [
+     "obk_gorza_gone",
+     "obk_end"
+    ],
+    "anyFlags": [
+     "obk_path_circle",
+     "obk_path_spear",
+     "obk_path_throne"
+    ]
+   },
+   "text": "Mẹ Gorza không muốn chết trên giường. Theo lệ Berserker, bà xin được đấu trận cuối cùng, và bà chọn bạn.",
+   "choices": [
+    {
+     "label": "Đấu hết sức",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bà đánh như cơn bão, một tay. Bạn ngăn được từng đòn, rồi hạ bà bằng một đòn sạch. Bà nằm trên đất, cười: “Cơn điên của ngươi biết nghe lời. Ta nói rồi mà.”",
+      "effects": {
+       "STR": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "obk_gorza_gone",
+        "obk_gorza_honored"
+       ]
+      },
+      "moment": "Cho Mẹ Gorza trận đấu cuối cùng bà xứng đáng"
+     },
+     "fail": {
+      "text": "Bà vẫn quá mạnh. Bạn nằm trên đất, và bà ngồi xuống cạnh bạn, thở dốc. Bà mất đêm ấy, ngồi đúng chỗ đó.",
+      "effects": {
+       "health": -10,
+       "joy": -6,
+       "flags": [
+        "obk_gorza_gone"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Từ chối đấu",
+     "text": "Bà nhìn bạn rất lâu, không giận. “Vậy ngồi đây với ta.” Bạn ngồi với bà đến khi lửa tàn. Bà mất trên giường, điều bà sợ nhất, nhưng tay bà nắm tay bạn.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "obk_gorza_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "obk_c4_urzog",
+   "races": [
+    "orc"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "orc_berserker",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "obk_met_urzog"
+    ],
+    "notFlags": [
+     "obk_end"
+    ]
+   },
+   "text": "Urzog bị thương nặng trong trận cướp. Thầy cúng nói hắn sẽ sống, nhưng không bao giờ cầm rìu được nữa. Hắn xin bạn kết thúc cho hắn, theo lệ cũ.",
+   "choices": [
+    {
+     "label": "Từ chối",
+     "require": {
+      "flags": [
+       "obk_urzog_brother"
+      ]
+     },
+     "text": "“Huynh đệ không giết huynh đệ,” bạn nói. Urzog chửi bạn suốt một tháng. Rồi hắn học làm thợ rèn, và rìu của bạn từ đó do chính tay hắn rèn.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "obk_urzog_smith"
+      ]
+     },
+     "moment": "Từ chối kết liễu Urzog, giữ huynh đệ sống"
+    },
+    {
+     "label": "Làm theo lệ cũ",
+     "text": "Bạn làm điều hắn xin. Cả bộ lạc hát cho hắn đêm ấy. Bạn không hát.",
+     "effects": {
+      "joy": -14,
+      "fame": 3,
+      "jobXp": 3,
+      "flags": [
+       "obk_urzog_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "obk_c5_circle",
+   "races": [
+    "orc"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "orc_berserker",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "obk_path_circle"
+    ],
+    "notFlags": [
+     "obk_end"
+    ]
+   },
+   "text": "Bạn chưa từng thách ngai, nhưng cả thảo nguyên biết tên kẻ bất bại của Vòng Tròn Máu.",
+   "choices": [
+    {
+     "label": "Viết luật tha mạng cho vòng tròn",
+     "require": {
+      "flags": [
+       "obk_circle_mercy"
+      ]
+     },
+     "text": "Luật mới: rơi vũ khí là thua, không ai phải chết. Các trưởng lão phản đối, rồi chấp nhận khi thấy bộ lạc mất ít chiến binh trẻ hơn mỗi mùa.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "obk_end",
+       "obk_end_mercy_law"
+      ]
+     },
+     "moment": "Viết luật rơi vũ khí là thua cho Vòng Tròn Máu"
+    },
+    {
+     "label": "Đấu đến trận cuối cùng",
+     "text": "Bạn đấu cho đến khi một Orc trẻ hạ được bạn. Bạn nằm trên đất, và cười như một Berserker già.",
+     "effects": {
+      "fame": 15,
+      "joy": 10,
+      "flags": [
+       "obk_end",
+       "obk_end_last_bout"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "obk_c5_spear",
+   "races": [
+    "orc"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "orc_berserker",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "obk_path_spear"
+    ],
+    "notFlags": [
+     "obk_end"
+    ]
+   },
+   "text": "Cả thảo nguyên đã nghe về đội Mũi Giáo. Từ ngày bạn dẫn đầu, đội chưa bao giờ bỏ lại một ai.",
+   "choices": [
+    {
+     "label": "Dẫn đội đi chuyến cuối cùng",
+     "text": "Bạn đi đầu, như mọi lần. Lần này bạn không về. Bộ lạc hát về bạn ba đêm liền.",
+     "effects": {
+      "fame": 15,
+      "joy": 6,
+      "flags": [
+       "obk_end",
+       "obk_end_last_charge"
+      ]
+     },
+     "moment": "Dẫn đội Mũi Giáo trong trận xung kích cuối cùng"
+    },
+    {
+     "label": "Trao mặt nạ xương cho chiến binh trẻ nhất",
+     "text": "Đứa trẻ năm xưa mang thịt đến lều bạn giờ đeo mặt nạ xương. Nó đi đầu, và nó cũng không bỏ lại ai.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "obk_end",
+       "obk_end_mask"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "obk_c5_throne",
+   "races": [
+    "orc"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "orc_berserker",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "obk_path_throne"
+    ],
+    "notFlags": [
+     "obk_end"
+    ]
+   },
+   "text": "Hôm nay bạn đứng trước Đá Thách Đấu, và Warchief già đã cầm rìu đợi sẵn.",
+   "choices": [
+    {
+     "label": "Đấu và lên ngai mà không nợ ai",
+     "require": {
+      "flags": [
+       "obk_throne_clean"
+      ]
+     },
+     "text": "Lão Warchief ngã, và lão là người đầu tiên quỳ. Bạn lên ngai không nợ gia tộc nào. Năm đầu tiên, bạn chia chiến lợi phẩm đều cho mọi lều.",
+     "effects": {
+      "fame": 18,
+      "joy": 12,
+      "flags": [
+       "obk_end",
+       "obk_end_clean_throne"
+      ]
+     },
+     "moment": "Lên ngai Warchief mà không nợ gia tộc nào"
+    },
+    {
+     "label": "Đấu, và trả món nợ của mình",
+     "text": "Bạn thắng. Gia tộc đã đứng sau bạn nhận gấp đôi chiến lợi phẩm, và các gia tộc khác bắt đầu thì thầm. Ngai Warchief nặng hơn bạn tưởng.",
+     "effects": {
+      "fame": 15,
+      "wealth": 20,
+      "joy": -4,
+      "flags": [
+       "obk_end",
+       "obk_end_heavy_throne"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "obk_daily_scar",
+   "races": [
+    "orc"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "orc_berserker",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một Orc nhỏ đếm sẹo trên người bạn, rồi hỏi cái nào đau nhất.",
+   "choices": [
+    {
+     "label": "Chỉ vào sẹo to nhất",
+     "text": "Nó há hốc mồm. Bạn kể chuyện con gấu, thêm thắt một chút.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Chỉ vào ngực, nơi không có sẹo",
+     "text": "Nó không hiểu. Vài năm sau, khi mất người đầu tiên, nó sẽ hiểu.",
+     "effects": {
+      "joy": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "obk_daily_war_drums",
+   "races": [
+    "orc"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "orc_berserker",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Trống chiến vang khắp thảo nguyên. Mọi bộ lạc đều được gọi.",
+   "choices": [
+    {
+     "label": "Đi theo trống",
+     "text": "Bạn trở về với hai vết thương mới và một chuỗi nanh.",
+     "effects": {
+      "health": -5,
+      "fame": 5,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Ở lại giữ trại",
+     "text": "Trại an toàn. Các chiến binh trở về nhìn bạn khác đi, một chút.",
+     "effects": {
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "obk_daily_old_rage",
+   "races": [
+    "orc"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "orc_berserker",
+    "free": true
+   },
+   "text": "Cơn điên không còn đến dễ như xưa. Đôi khi bạn gọi, nó không đáp.",
+   "choices": [
+    {
+     "label": "Mừng vì điều ấy",
+     "text": "Bạn ngủ ngon hơn. Lũ trẻ không còn sợ bạn.",
+     "effects": {
+      "joy": 8
+     }
+    },
+    {
+     "label": "Luyện tập để gọi nó về",
+     "text": "Nó về, chậm và mệt mỏi, như một con sói già.",
+     "effects": {
+      "STR": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "obk_c5_circle_late",
+   "races": [
+    "orc"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "orc_berserker",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "obk_path_circle"
+    ],
+    "notFlags": [
+     "obk_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn chưa từng thách ngai, nhưng cả thảo nguyên biết tên kẻ bất bại của Vòng Tròn Máu.",
+   "choices": [
+    {
+     "label": "Viết luật tha mạng cho vòng tròn",
+     "require": {
+      "flags": [
+       "obk_circle_mercy"
+      ]
+     },
+     "text": "Luật mới: rơi vũ khí là thua, không ai phải chết. Các trưởng lão phản đối, rồi chấp nhận khi thấy bộ lạc mất ít chiến binh trẻ hơn mỗi mùa.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "obk_end",
+       "obk_end_mercy_law"
+      ]
+     },
+     "moment": "Viết luật rơi vũ khí là thua cho Vòng Tròn Máu"
+    },
+    {
+     "label": "Đấu đến trận cuối cùng",
+     "text": "Bạn đấu cho đến khi một Orc trẻ hạ được bạn. Bạn nằm trên đất, và cười như một Berserker già.",
+     "effects": {
+      "fame": 15,
+      "joy": 10,
+      "flags": [
+       "obk_end",
+       "obk_end_last_bout"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "obk_c5_spear_late",
+   "races": [
+    "orc"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "orc_berserker",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "obk_path_spear"
+    ],
+    "notFlags": [
+     "obk_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Cả thảo nguyên đã nghe về đội Mũi Giáo. Từ ngày bạn dẫn đầu, đội chưa bao giờ bỏ lại một ai.",
+   "choices": [
+    {
+     "label": "Dẫn đội đi chuyến cuối cùng",
+     "text": "Bạn đi đầu, như mọi lần. Lần này bạn không về. Bộ lạc hát về bạn ba đêm liền.",
+     "effects": {
+      "fame": 15,
+      "joy": 6,
+      "flags": [
+       "obk_end",
+       "obk_end_last_charge"
+      ]
+     },
+     "moment": "Dẫn đội Mũi Giáo trong trận xung kích cuối cùng"
+    },
+    {
+     "label": "Trao mặt nạ xương cho chiến binh trẻ nhất",
+     "text": "Đứa trẻ năm xưa mang thịt đến lều bạn giờ đeo mặt nạ xương. Nó đi đầu, và nó cũng không bỏ lại ai.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "obk_end",
+       "obk_end_mask"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "obk_c5_throne_late",
+   "races": [
+    "orc"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "orc_berserker",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "obk_path_throne"
+    ],
+    "notFlags": [
+     "obk_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Hôm nay bạn đứng trước Đá Thách Đấu, và Warchief già đã cầm rìu đợi sẵn.",
+   "choices": [
+    {
+     "label": "Đấu và lên ngai mà không nợ ai",
+     "require": {
+      "flags": [
+       "obk_throne_clean"
+      ]
+     },
+     "text": "Lão Warchief ngã, và lão là người đầu tiên quỳ. Bạn lên ngai không nợ gia tộc nào. Năm đầu tiên, bạn chia chiến lợi phẩm đều cho mọi lều.",
+     "effects": {
+      "fame": 18,
+      "joy": 12,
+      "flags": [
+       "obk_end",
+       "obk_end_clean_throne"
+      ]
+     },
+     "moment": "Lên ngai Warchief mà không nợ gia tộc nào"
+    },
+    {
+     "label": "Đấu, và trả món nợ của mình",
+     "text": "Bạn thắng. Gia tộc đã đứng sau bạn nhận gấp đôi chiến lợi phẩm, và các gia tộc khác bắt đầu thì thầm. Ngai Warchief nặng hơn bạn tưởng.",
+     "effects": {
+      "fame": 15,
+      "wealth": 20,
+      "joy": -4,
+      "flags": [
+       "obk_end",
+       "obk_end_heavy_throne"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}

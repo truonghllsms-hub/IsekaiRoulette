@@ -1,0 +1,1056 @@
+{
+ "_note": "Tuyến truyện Hidden One (Vampire): ba đạo (vpx_path_crown / vpx_path_merchant / vpx_path_free), nhân vật xuyên suốt Lord Ambrosius Mặt Nạ Bạc (Vampire cố vấn cổ) và triều đại Valcourt (các vị vua Human qua nhiều đời).",
+ "origins": [],
+ "events": [
+  {
+   "id": "vpx_c1_ambrosius",
+   "races": [
+    "vampire"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "vampire_hidden",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "vpx_met_ambrosius"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Ambrosius Mặt Nạ Bạc",
+     "race": "Vampire",
+     "position": "Cố vấn của mười hai đời vua Human"
+    }
+   ],
+   "text": "Lord Ambrosius Mặt Nạ Bạc đã làm cố vấn cho mười hai đời vua Human, dưới mười hai cái tên khác nhau. Ông dạy bạn: “Đừng bao giờ ngồi trên ngai. Hãy đứng sau nó. Ngai đổi chủ. Người đứng sau thì không.”",
+   "choices": [
+    {
+     "label": "Hỏi ông không muốn tự cai trị sao",
+     "text": "Ông cười. “Ta đã thử. Một lần. Mười năm. Họ đốt lâu đài của ta. Từ đó, ta thì thầm.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "vpx_met_ambrosius",
+       "vpx_ambrosius_respect"
+      ]
+     },
+     "moment": "Nghe Lord Ambrosius kể về lần duy nhất ông thử ngồi lên ngai"
+    },
+    {
+     "label": "Gật đầu, quan sát",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Ông dẫn bạn đến triều đình Human, trong lốt một thư ký. Bạn quan sát một tuần. Bạn thấy ai thật sự ra quyết định.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "vpx_met_ambrosius"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bạn thấy mọi thứ, nhưng không hiểu gì. Ông vỗ vai bạn: “Một trăm năm.”",
+      "effects": {
+       "flags": [
+        "vpx_met_ambrosius"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpx_c2_first_mask",
+   "races": [
+    "vampire"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "vampire_hidden",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "flags": [
+     "vpx_met_ambrosius"
+    ],
+    "notFlags": [
+     "vpx_first_mask",
+     "vpx_end"
+    ]
+   },
+   "text": "Lần đầu bạn đóng vai một thương nhân Human giàu có. Một Công tước muốn đi dạo trong vườn với bạn, giữa trưa nắng.",
+   "choices": [
+    {
+     "label": "Viện cớ bị bệnh da",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Ông ta thông cảm, và đổi buổi gặp sang tối. Ông ta không bao giờ nghi ngờ.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 2,
+       "flags": [
+        "vpx_first_mask"
+       ]
+      },
+      "moment": "Qua mặt một Công tước Human với cái cớ bệnh da"
+     },
+     "fail": {
+      "text": "Ông ta nghi ngờ, và bắt đầu hỏi han.",
+      "effects": {
+       "flags": [
+        "vpx_first_mask"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Ra vườn, dưới chiếc dù đen",
+     "text": "Nắng xuyên qua mép dù, đốt một vệt trên tay bạn. Bạn mỉm cười suốt buổi. Công tước ký hợp đồng.",
+     "effects": {
+      "health": -6,
+      "wealth": 6,
+      "jobXp": 2,
+      "flags": [
+       "vpx_first_mask"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpx_c2_crossroads",
+   "races": [
+    "vampire"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "vampire_hidden",
+    "free": true,
+    "jobRank": 1,
+    "flags": [
+     "vpx_met_ambrosius"
+    ],
+    "notFlags": [
+     "vpx_path_crown",
+     "vpx_path_merchant",
+     "vpx_path_free",
+     "vpx_end"
+    ]
+   },
+   "text": "Lord Ambrosius đặt ba chiếc mặt nạ lên bàn: một chiếc mạ vàng của cố vấn hoàng gia, một chiếc bạc của thương nhân, và một chiếc không có gì, chỉ là khuôn mặt thật của bạn.",
+   "choices": [
+    {
+     "label": "Mặt nạ vàng: Người Đứng Sau Ngai",
+     "text": "Bạn sẽ thì thầm vào tai các vị vua, đời này qua đời khác.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "vpx_path_crown"
+      ]
+     },
+     "moment": "Chọn làm cố vấn ẩn sau ngai vàng Human"
+    },
+    {
+     "label": "Mặt nạ bạc: Đế Chế Thương Nhân",
+     "text": "Bạn sẽ xây một gia tộc thương nhân giả, với những người thừa kế giả, và một đế chế thật.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "vpx_path_merchant"
+      ]
+     },
+     "moment": "Chọn xây đế chế thương nhân qua những người thừa kế giả"
+    },
+    {
+     "label": "Không mặt nạ: Kẻ Thôi Ẩn Mình",
+     "text": "Ambrosius im lặng rất lâu. “Ngươi muốn sống thật? Giữa con người?” Ông không ngăn.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 2,
+      "flags": [
+       "vpx_path_free"
+      ]
+     },
+     "moment": "Chọn thôi ẩn mình, sống thật giữa con người"
+    }
+   ]
+  },
+  {
+   "id": "vpx_crown_heir",
+   "races": [
+    "vampire"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "vampire_hidden",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vpx_path_crown"
+    ],
+    "notFlags": [
+     "vpx_end"
+    ]
+   },
+   "text": "Vua Valcourt Đệ Nhất đã già. Hai người con tranh ngai: một người tài giỏi nhưng tàn nhẫn, một người hiền nhưng yếu.",
+   "choices": [
+    {
+     "label": "Thì thầm ủng hộ người hiền, và dạy cậu ta mạnh lên",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Valcourt Đệ Nhị lên ngai. Bạn dạy cậu ta suốt ba mươi năm. Cậu ta trở thành vị vua được yêu mến nhất triều đại.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "vpx_crown_good_king"
+       ]
+      },
+      "moment": "Đưa người con hiền lành lên ngai và dạy cậu ta trở thành vua giỏi"
+     },
+     "fail": {
+      "text": "Người tàn nhẫn đảo chính. Bạn phải bỏ trốn, đổi tên.",
+      "effects": {
+       "fame": -6
+      }
+     }
+    },
+    {
+     "label": "Ủng hộ người tài giỏi",
+     "text": "Vương quốc mạnh lên. Dân chúng sợ hãi. Bạn đứng sau một vị vua mà bạn không thích.",
+     "effects": {
+      "fame": 6,
+      "joy": -6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpx_crown_feast",
+   "races": [
+    "vampire"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "vampire_hidden",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vpx_path_crown"
+    ],
+    "notFlags": [
+     "vpx_end"
+    ]
+   },
+   "text": "Giữa quốc yến của hoàng gia, mùi máu tươi nồng nặc từ vết thương của một người hầu ngã vỡ ly. Mắt bạn bắt đầu đỏ.",
+   "choices": [
+    {
+     "label": "Rời phòng tiệc",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đi ra ban công, hít không khí lạnh, đến khi mắt trở lại bình thường. Không ai để ý.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Một Inquisitor ở góc phòng nhìn thấy mắt bạn trước khi bạn kịp quay đi.",
+      "effects": {
+       "fame": -4
+      }
+     }
+    },
+    {
+     "label": "Băng bó cho người hầu",
+     "text": "Bạn băng bó, tay run, mắt đỏ. Mọi người nghĩ bạn xúc động. Người hầu nhớ mãi sự tử tế của vị cố vấn.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpx_merchant_heir",
+   "races": [
+    "vampire"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "vampire_hidden",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vpx_path_merchant"
+    ],
+    "notFlags": [
+     "vpx_end"
+    ]
+   },
+   "text": "Đã đến lúc “người thừa kế” của gia tộc thương nhân giả của bạn xuất hiện. Bạn phải đóng vai con trai của chính mình.",
+   "choices": [
+    {
+     "label": "Tổ chức đám tang giả cho “người cha”",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Đám tang trang trọng. Cả thành phố đến dự. Bạn đứng bên quan tài trống, đóng vai người con đau buồn. Không ai nghi ngờ.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "vpx_merchant_dynasty"
+       ]
+      },
+      "moment": "Tổ chức đám tang giả cho chính mình và trở thành người thừa kế"
+     },
+     "fail": {
+      "text": "Một người hầu già nhận ra bạn qua cách cầm ly. Bạn phải mua sự im lặng của ông ta.",
+      "effects": {
+       "wealth": -10
+      }
+     }
+    },
+    {
+     "label": "Nhận nuôi một đứa trẻ làm người thừa kế thật",
+     "text": "Bạn nuôi nó, dạy nó kinh doanh. Khi nó lớn, bạn “chết”, và nó kế thừa thật. Nó không bao giờ biết người cha nuôi vẫn đứng ở cuối đám tang.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "vpx_merchant_real_heir"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpx_merchant_investigate",
+   "races": [
+    "vampire"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "vampire_hidden",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vpx_path_merchant"
+    ],
+    "notFlags": [
+     "vpx_end"
+    ]
+   },
+   "text": "Một Inquisitor với nhãn lực thấu thị nghi ngờ thân phận của bạn. Hắn bắt đầu điều tra sổ sách gia tộc, ba trăm năm.",
+   "choices": [
+    {
+     "label": "Làm sổ sách giả hoàn hảo",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Hắn đọc ba trăm năm sổ sách, và không tìm thấy gì. Hắn bỏ cuộc, và đi điều tra người khác.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Hắn tìm thấy một chữ ký giống nhau qua năm đời người. Bạn phải biến mất.",
+      "effects": {
+       "wealth": -20,
+       "fame": -6
+      }
+     }
+    },
+    {
+     "label": "Mời hắn ăn tối",
+     "text": "Bạn mời hắn ăn tối, và trò chuyện suốt đêm. Hắn nghi ngờ hơn, nhưng cũng thích bạn hơn. Hắn không bao giờ báo cáo.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpx_free_reveal",
+   "races": [
+    "vampire"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "vampire_hidden",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vpx_path_free"
+    ],
+    "notFlags": [
+     "vpx_end"
+    ]
+   },
+   "text": "Bạn quyết định sống không mặt nạ. Hàng xóm trong khu phố nhỏ thấy bạn chỉ ra ngoài ban đêm, và bắt đầu thì thầm.",
+   "choices": [
+    {
+     "label": "Nói thật với họ",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Họ sợ, rồi thôi sợ khi thấy bạn sửa mái nhà cho bà góa bên cạnh lúc nửa đêm. Khu phố giữ bí mật của bạn.",
+      "effects": {
+       "joy": 12,
+       "jobXp": 3,
+       "flags": [
+        "vpx_free_neighbors"
+       ]
+      },
+      "moment": "Nói thật với hàng xóm, và khu phố giữ bí mật của mình"
+     },
+     "fail": {
+      "text": "Một người báo Giáo hội. Bạn phải chuyển đi.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Để họ đoán",
+     "text": "Họ đoán. Một đứa trẻ hỏi thẳng. Bạn gật đầu. Nó không sợ. Nó hỏi bạn có biết bay không.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpx_free_lover",
+   "races": [
+    "vampire"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "vampire_hidden",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vpx_path_free"
+    ],
+    "notFlags": [
+     "vpx_end"
+    ]
+   },
+   "text": "Bạn yêu một người Human, không mặt nạ, không lời nói dối. Cô biết bạn là gì từ ngày đầu.",
+   "choices": [
+    {
+     "label": "Sống cùng cô đến khi cô già",
+     "text": "Năm mươi năm. Cô già đi, bạn thì không. Cô cười mỗi khi tìm thấy sợi tóc bạc: “Một sợi nữa cho cả hai ta.” Cô mất trong vòng tay bạn.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "vpx_free_love"
+      ]
+     },
+     "moment": "Sống trọn đời người cùng người mình yêu, không mặt nạ"
+    },
+    {
+     "label": "Đề nghị biến cô thành Huyết Tộc",
+     "text": "Cô từ chối. “Ta muốn già đi. Ngươi cứ ở lại, nhìn ta già.” Bạn ở lại.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 3,
+      "flags": [
+       "vpx_free_love"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpx_c4_ambrosius",
+   "races": [
+    "vampire"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "vampire_hidden",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "vpx_met_ambrosius"
+    ],
+    "notFlags": [
+     "vpx_ambrosius_gone",
+     "vpx_end"
+    ],
+    "anyFlags": [
+     "vpx_path_crown",
+     "vpx_path_merchant",
+     "vpx_path_free"
+    ]
+   },
+   "text": "Lord Ambrosius bị lộ thân phận sau mười hai đời vua. Vua Valcourt mới ra lệnh truy nã ông.",
+   "choices": [
+    {
+     "label": "Giúp ông trốn",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn tạo ra một cái chết giả cho ông, với một xác cháy trong lâu đài. Ông sống ba trăm năm nữa ở một vương quốc xa, rồi chọn bình minh.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "vpx_ambrosius_gone",
+        "vpx_ambrosius_saved"
+       ]
+      },
+      "moment": "Dựng cái chết giả để cứu Lord Ambrosius khỏi lệnh truy nã"
+     },
+     "fail": {
+      "text": "Kế hoạch thất bại. Ông bị bắt, và tự bước ra nắng trước khi bị thiêu.",
+      "effects": {
+       "joy": -12,
+       "flags": [
+        "vpx_ambrosius_gone"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Để ông tự quyết",
+     "text": "Ông mỉm cười, đeo mặt nạ bạc lần cuối, và bước ra nắng giữa quảng trường. Cả vương quốc thấy. Không ai quên.",
+     "effects": {
+      "joy": -10,
+      "jobXp": 3,
+      "flags": [
+       "vpx_ambrosius_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpx_c5_crown",
+   "races": [
+    "vampire"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "vampire_hidden",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "vpx_path_crown"
+    ],
+    "notFlags": [
+     "vpx_end"
+    ]
+   },
+   "text": "Bạn là Imperial Advisor. Triều đại Valcourt đã có mười đời vua, và bạn đứng sau tất cả.",
+   "choices": [
+    {
+     "label": "Để triều đại tự đứng",
+     "require": {
+      "flags": [
+       "vpx_crown_good_king"
+      ]
+     },
+     "text": "Vị vua thứ mười một không cần cố vấn. Bạn dạy cậu ta tốt đến mức cậu ta không cần bạn nữa. Bạn rời triều đình, tự hào.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "vpx_end",
+       "vpx_end_release"
+      ]
+     },
+     "moment": "Rời triều đình khi vị vua không còn cần cố vấn nữa"
+    },
+    {
+     "label": "Đứng sau ngai mãi mãi",
+     "text": "Mười đời vua nữa. Bạn không chắc mình đang giúp vương quốc, hay chỉ quen với việc đứng sau ngai.",
+     "effects": {
+      "fame": 12,
+      "joy": 4,
+      "flags": [
+       "vpx_end",
+       "vpx_end_forever"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpx_c5_merchant",
+   "races": [
+    "vampire"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "vampire_hidden",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "vpx_path_merchant"
+    ],
+    "notFlags": [
+     "vpx_end"
+    ]
+   },
+   "text": "Bạn là Imperial Advisor của một đế chế thương nhân qua mười đời người thừa kế giả.",
+   "choices": [
+    {
+     "label": "Trao đế chế cho người thừa kế thật",
+     "require": {
+      "flags": [
+       "vpx_merchant_real_heir"
+      ]
+     },
+     "text": "Đứa con nuôi năm xưa đã có con cháu. Bạn để họ giữ đế chế, và biến mất lần cuối. Không đám tang giả. Chỉ một lá thư không ký tên.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "vpx_end",
+       "vpx_end_true_heirs"
+      ]
+     },
+     "moment": "Trao đế chế thương nhân cho những người thừa kế thật"
+    },
+    {
+     "label": "Tiếp tục đóng vai",
+     "require": {
+      "flags": [
+       "vpx_merchant_dynasty"
+      ]
+     },
+     "text": "Người thừa kế thứ mười một. Thứ mười hai. Bạn bắt đầu quên mình là ai thật.",
+     "effects": {
+      "fame": 12,
+      "wealth": 30,
+      "joy": -6,
+      "flags": [
+       "vpx_end",
+       "vpx_end_endless_mask"
+      ]
+     }
+    },
+    {
+     "label": "Đóng cửa tiệm cuối cùng",
+     "text": "Đế chế tan rã. Bạn giữ lại một tiệm nhỏ, và ngồi đó, mỗi đêm.",
+     "effects": {
+      "fame": 8,
+      "joy": 8,
+      "flags": [
+       "vpx_end",
+       "vpx_end_small_shop"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpx_c5_free",
+   "races": [
+    "vampire"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "vampire_hidden",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "vpx_path_free"
+    ],
+    "notFlags": [
+     "vpx_end"
+    ]
+   },
+   "text": "Bạn là Imperial Advisor, nhưng ở khu phố nhỏ, mọi người chỉ gọi bạn là “người hàng xóm ban đêm”.",
+   "choices": [
+    {
+     "label": "Ở lại khu phố qua nhiều thế hệ",
+     "require": {
+      "flags": [
+       "vpx_free_neighbors"
+      ]
+     },
+     "text": "Cháu chắt của những người hàng xóm năm xưa vẫn mang bánh đến cửa nhà bạn vào ban đêm. Khu phố có một truyền thống: người hàng xóm ban đêm sửa mái nhà miễn phí.",
+     "effects": {
+      "fame": 10,
+      "joy": 20,
+      "flags": [
+       "vpx_end",
+       "vpx_end_neighborhood"
+      ]
+     },
+     "moment": "Sống không mặt nạ ở một khu phố qua nhiều thế hệ"
+    },
+    {
+     "label": "Thăm mộ người mình yêu",
+     "require": {
+      "flags": [
+       "vpx_free_love"
+      ]
+     },
+     "text": "Mỗi đêm, một bông hoa. Ba trăm năm. Ngôi mộ không bao giờ thiếu hoa.",
+     "effects": {
+      "fame": 6,
+      "joy": 12,
+      "flags": [
+       "vpx_end",
+       "vpx_end_grave"
+      ]
+     }
+    },
+    {
+     "label": "Đi tiếp đến thành phố mới",
+     "text": "Một thành phố mới, không mặt nạ. Bắt đầu lại.",
+     "effects": {
+      "fame": 8,
+      "joy": 10,
+      "flags": [
+       "vpx_end",
+       "vpx_end_new_city"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpx_daily_mask",
+   "races": [
+    "vampire"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "vampire_hidden",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Bạn nhìn chiếc mặt nạ cũ. Nó đã có vết nứt.",
+   "choices": [
+    {
+     "label": "Sửa nó",
+     "text": "Như mới.",
+     "effects": {
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Để vết nứt",
+     "text": "Mặt nạ cũng có tuổi.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpx_daily_war",
+   "races": [
+    "vampire"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "vampire_hidden",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh giữa các vương quốc. Bạn có người quen ở cả hai bên.",
+   "choices": [
+    {
+     "label": "Thì thầm cho cả hai bên hòa",
+     "text": "Chiến tranh ngắn hơn. Không ai biết vì sao.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Đứng ngoài",
+     "text": "Chiến tranh qua. Vương quốc nào cũng cần cố vấn mới.",
+     "effects": {
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpx_daily_old",
+   "races": [
+    "vampire"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "vampire_hidden",
+    "free": true
+   },
+   "text": "Bạn đã có hàng trăm cái tên. Bạn không nhớ cái nào là thật.",
+   "choices": [
+    {
+     "label": "Viết tất cả ra",
+     "text": "Một danh sách dài. Cái tên đầu tiên mờ nhất.",
+     "effects": {
+      "INT": 1
+     }
+    },
+    {
+     "label": "Chọn một cái tên, giữ mãi",
+     "text": "Cái tên mà người bạn yêu từng gọi. Đủ.",
+     "effects": {
+      "joy": 8
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpx_c5_crown_late",
+   "races": [
+    "vampire"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "vampire_hidden",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "vpx_path_crown"
+    ],
+    "notFlags": [
+     "vpx_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Imperial Advisor. Triều đại Valcourt đã có mười đời vua, và bạn đứng sau tất cả.",
+   "choices": [
+    {
+     "label": "Để triều đại tự đứng",
+     "require": {
+      "flags": [
+       "vpx_crown_good_king"
+      ]
+     },
+     "text": "Vị vua thứ mười một không cần cố vấn. Bạn dạy cậu ta tốt đến mức cậu ta không cần bạn nữa. Bạn rời triều đình, tự hào.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "vpx_end",
+       "vpx_end_release"
+      ]
+     },
+     "moment": "Rời triều đình khi vị vua không còn cần cố vấn nữa"
+    },
+    {
+     "label": "Đứng sau ngai mãi mãi",
+     "text": "Mười đời vua nữa. Bạn không chắc mình đang giúp vương quốc, hay chỉ quen với việc đứng sau ngai.",
+     "effects": {
+      "fame": 12,
+      "joy": 4,
+      "flags": [
+       "vpx_end",
+       "vpx_end_forever"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "vpx_c5_merchant_late",
+   "races": [
+    "vampire"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "vampire_hidden",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "vpx_path_merchant"
+    ],
+    "notFlags": [
+     "vpx_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Imperial Advisor của một đế chế thương nhân qua mười đời người thừa kế giả.",
+   "choices": [
+    {
+     "label": "Trao đế chế cho người thừa kế thật",
+     "require": {
+      "flags": [
+       "vpx_merchant_real_heir"
+      ]
+     },
+     "text": "Đứa con nuôi năm xưa đã có con cháu. Bạn để họ giữ đế chế, và biến mất lần cuối. Không đám tang giả. Chỉ một lá thư không ký tên.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "vpx_end",
+       "vpx_end_true_heirs"
+      ]
+     },
+     "moment": "Trao đế chế thương nhân cho những người thừa kế thật"
+    },
+    {
+     "label": "Tiếp tục đóng vai",
+     "require": {
+      "flags": [
+       "vpx_merchant_dynasty"
+      ]
+     },
+     "text": "Người thừa kế thứ mười một. Thứ mười hai. Bạn bắt đầu quên mình là ai thật.",
+     "effects": {
+      "fame": 12,
+      "wealth": 30,
+      "joy": -6,
+      "flags": [
+       "vpx_end",
+       "vpx_end_endless_mask"
+      ]
+     }
+    },
+    {
+     "label": "Đóng cửa tiệm cuối cùng",
+     "text": "Đế chế tan rã. Bạn giữ lại một tiệm nhỏ, và ngồi đó, mỗi đêm.",
+     "effects": {
+      "fame": 8,
+      "joy": 8,
+      "flags": [
+       "vpx_end",
+       "vpx_end_small_shop"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "vpx_c5_free_late",
+   "races": [
+    "vampire"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "vampire_hidden",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "vpx_path_free"
+    ],
+    "notFlags": [
+     "vpx_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Imperial Advisor, nhưng ở khu phố nhỏ, mọi người chỉ gọi bạn là “người hàng xóm ban đêm”.",
+   "choices": [
+    {
+     "label": "Ở lại khu phố qua nhiều thế hệ",
+     "require": {
+      "flags": [
+       "vpx_free_neighbors"
+      ]
+     },
+     "text": "Cháu chắt của những người hàng xóm năm xưa vẫn mang bánh đến cửa nhà bạn vào ban đêm. Khu phố có một truyền thống: người hàng xóm ban đêm sửa mái nhà miễn phí.",
+     "effects": {
+      "fame": 10,
+      "joy": 20,
+      "flags": [
+       "vpx_end",
+       "vpx_end_neighborhood"
+      ]
+     },
+     "moment": "Sống không mặt nạ ở một khu phố qua nhiều thế hệ"
+    },
+    {
+     "label": "Thăm mộ người mình yêu",
+     "require": {
+      "flags": [
+       "vpx_free_love"
+      ]
+     },
+     "text": "Mỗi đêm, một bông hoa. Ba trăm năm. Ngôi mộ không bao giờ thiếu hoa.",
+     "effects": {
+      "fame": 6,
+      "joy": 12,
+      "flags": [
+       "vpx_end",
+       "vpx_end_grave"
+      ]
+     }
+    },
+    {
+     "label": "Đi tiếp đến thành phố mới",
+     "text": "Một thành phố mới, không mặt nạ. Bắt đầu lại.",
+     "effects": {
+      "fame": 8,
+      "joy": 10,
+      "flags": [
+       "vpx_end",
+       "vpx_end_new_city"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}

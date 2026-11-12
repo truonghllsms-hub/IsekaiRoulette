@@ -1,0 +1,1155 @@
+{
+ "_note": "Tuyến truyện Dark Knight (Ma tộc): ba đạo (ddk_path_legion / ddk_path_oath / ddk_path_fallen), nhân vật xuyên suốt Thane Azrak Sừng Gãy (kỵ sĩ già) và Sereth (đồng đội cùng khóa).",
+ "origins": [],
+ "events": [
+  {
+   "id": "ddk_c1_azrak",
+   "races": [
+    "demon"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "demon_dk",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "ddk_met_azrak"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Thane Azrak Sừng Gãy",
+     "race": "Demon",
+     "position": "Kỵ sĩ già đã phục vụ ba đời Ma Vương"
+    }
+   ],
+   "text": "Thane Azrak Sừng Gãy đã phục vụ ba đời Ma Vương. Ông đặt trước mặt bạn một bộ giáp đen nặng như tội lỗi. “Mặc vào. Đứng một ngày. Kỵ sĩ Vực Thẳm không chạy, không ngồi, không than.”",
+   "choices": [
+    {
+     "label": "Đứng cả ngày trong giáp",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Đến tối, chân bạn run, nhưng bạn còn đứng. Azrak gõ vào mũ giáp bạn: “Giờ thì cởi ra, và nhớ cảm giác này. Kẻ thù sẽ không cho ngươi cởi giáp.”",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "ddk_met_azrak",
+        "ddk_azrak_respect"
+       ]
+      },
+      "moment": "Đứng trọn một ngày trong bộ giáp đen của Thane Azrak"
+     },
+     "fail": {
+      "text": "Bạn quỵ xuống lúc chiều. Azrak đỡ bạn dậy, không chê: “Ngày mai. Lâu hơn một canh giờ.”",
+      "effects": {
+       "health": -3,
+       "flags": [
+        "ddk_met_azrak"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi ông vì sao sừng ông gãy",
+     "text": "Azrak im lặng rất lâu. “Ta húc vào cổng thành Sanctus, theo lệnh. Cổng không vỡ. Sừng ta vỡ.” Ông nhìn bạn. “Có những lệnh không đáng để vỡ sừng. Học cách phân biệt.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "ddk_met_azrak",
+       "ddk_azrak_respect"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ddk_c1_sereth",
+   "races": [
+    "demon"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "demon_dk",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "ddk_met_azrak"
+    ],
+    "notFlags": [
+     "ddk_met_sereth"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Sereth",
+     "race": "Demon",
+     "position": "Kỵ sĩ trẻ cùng khóa, kiêu ngạo và tài năng"
+    }
+   ],
+   "text": "Sereth cùng khóa huấn luyện với bạn, nhanh hơn bạn, giỏi hơn bạn, và kiêu ngạo hơn tất cả. Hôm nay hắn thách bạn đấu kiếm trước cả doanh trại.",
+   "choices": [
+    {
+     "label": "Nhận lời",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn thắng, sát nút. Sereth nhìn bạn rất lâu, rồi cười lần đầu tiên. “Được. Ngươi đứng cạnh ta trong hàng.”",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "ddk_met_sereth",
+        "ddk_sereth_brother"
+       ]
+      },
+      "moment": "Thắng Sereth trong trận đấu kiếm trước doanh trại"
+     },
+     "fail": {
+      "text": "Hắn thắng, dễ dàng. Nhưng khi bạn ngã, hắn chìa tay ra kéo bạn dậy. Không ai trong doanh trại từng thấy hắn làm thế.",
+      "effects": {
+       "health": -4,
+       "flags": [
+        "ddk_met_sereth",
+        "ddk_sereth_brother"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Từ chối, bảo hắn đấu với chính mình",
+     "text": "Cả doanh trại cười. Sereth không cười. Đêm ấy, hắn ngồi xuống cạnh bạn bên lửa, và hỏi bạn ý gì.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "ddk_met_sereth"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ddk_c2_first_order",
+   "races": [
+    "demon"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "demon_dk",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "flags": [
+     "ddk_met_azrak"
+    ],
+    "notFlags": [
+     "ddk_first_order",
+     "ddk_end"
+    ]
+   },
+   "text": "Lệnh đầu tiên: dẫn năm kỵ sĩ thiêu một làng biên giới của Human. Làng ấy không có lính.",
+   "choices": [
+    {
+     "label": "Thiêu kho lúa, để nhà dân lại",
+     "text": "Làng mất lương thực mùa đông, nhưng không ai chết. Cấp trên không hỏi chi tiết. Azrak, khi nghe chuyện, chỉ gật đầu.",
+     "effects": {
+      "jobXp": 2,
+      "flags": [
+       "ddk_first_order",
+       "ddk_first_spared"
+      ]
+     },
+     "moment": "Chỉ thiêu kho lúa thay vì cả làng trong lệnh đầu tiên"
+    },
+    {
+     "label": "Thi hành đúng lệnh",
+     "text": "Làng cháy. Bạn được khen. Mùi khói ở lại trong mũ giáp nhiều năm.",
+     "effects": {
+      "fame": 4,
+      "joy": -8,
+      "jobXp": 2,
+      "flags": [
+       "ddk_first_order"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ddk_c2_crossroads",
+   "races": [
+    "demon"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "demon_dk",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "ddk_path_legion",
+     "ddk_path_oath",
+     "ddk_path_fallen",
+     "ddk_end"
+    ],
+    "flags": [
+     "ddk_met_azrak"
+    ]
+   },
+   "text": "Azrak dẫn bạn đến sảnh Kỵ Sĩ, nơi treo ba lá cờ: cờ đen của Quân Đoàn Ma Vương, cờ xám của Lời Thề Cổ, nơi kỵ sĩ thề với danh dự chứ không với chủ nhân, và một lá cờ rách, của những kỵ sĩ đã phản bội Vực Thẳm.",
+   "choices": [
+    {
+     "label": "Cờ đen: Quân Đoàn",
+     "text": "Bạn thề với Ma Vương. Mệnh lệnh là ý chí của bạn. Azrak nhìn bạn, không nói gì.",
+     "effects": {
+      "STR": 1,
+      "fame": 3,
+      "jobXp": 2,
+      "flags": [
+       "ddk_path_legion"
+      ]
+     },
+     "moment": "Thề trung thành với Quân Đoàn Ma Vương"
+    },
+    {
+     "label": "Cờ xám: Lời Thề Cổ",
+     "text": "Bạn thề với danh dự kỵ sĩ: không giết kẻ quỳ, không thiêu kẻ không vũ khí. Azrak gật đầu. “Lời thề của ta. Nó sẽ làm ngươi khổ.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "ddk_path_oath"
+      ]
+     },
+     "moment": "Thề Lời Thề Cổ của kỵ sĩ Vực Thẳm"
+    },
+    {
+     "label": "Cờ rách: Kẻ Sa Ngã",
+     "text": "Bạn đặt tay lên lá cờ rách. Azrak nắm cổ tay bạn: “Kẻ chạm vào nó sẽ bị săn suốt đời.” Bạn không rút tay.",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 2,
+      "flags": [
+       "ddk_path_fallen"
+      ]
+     },
+     "moment": "Chạm vào lá cờ rách của những kỵ sĩ phản bội Vực Thẳm"
+    }
+   ]
+  },
+  {
+   "id": "ddk_legion_siege",
+   "races": [
+    "demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "demon_dk",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ddk_path_legion"
+    ],
+    "notFlags": [
+     "ddk_end"
+    ]
+   },
+   "text": "Quân đoàn vây một thành Human. Đại tướng ra lệnh: tấn công vào lúc bình minh, khi dân thường đang ra giếng lấy nước.",
+   "choices": [
+    {
+     "label": "Đề nghị tấn công cổng phía bắc thay vì cổng giếng",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Đại tướng nghĩ, rồi đồng ý: cổng bắc yếu hơn. Thành thất thủ trước trưa. Ít dân thường chết hơn mọi trận trước.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "ddk_legion_smart"
+       ]
+      },
+      "moment": "Thuyết phục Đại tướng đổi hướng tấn công tránh khu dân thường"
+     },
+     "fail": {
+      "text": "Đại tướng gạt đi. Trận đánh diễn ra như lệnh.",
+      "effects": {
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Thi hành",
+     "text": "Thành thất thủ. Quân đoàn ăn mừng. Bạn đứng ở cổng giếng rất lâu sau đó.",
+     "effects": {
+      "fame": 6,
+      "joy": -6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "ddk_legion_mutiny",
+   "races": [
+    "demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "demon_dk",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ddk_path_legion"
+    ],
+    "notFlags": [
+     "ddk_end"
+    ]
+   },
+   "text": "Binh biến. Phó quan kích động kỵ sĩ đoàn nổi dậy, vì Đại tướng chém đầu lính vô tội để thị uy.",
+   "choices": [
+    {
+     "label": "Đứng về phía Đại tướng",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn dập binh biến mà không ai chết. Đại tướng tin bạn từ đó, và bạn dùng lòng tin ấy để ngăn những lần chém đầu sau.",
+      "effects": {
+       "STR": 1,
+       "fame": 6,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Binh biến lan rộng. Bạn bị thương, và quân đoàn chia đôi.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Đứng về phía kỵ sĩ",
+     "text": "Đại tướng bị trói, giải về Ma Đô. Bạn được bầu chỉ huy tạm thời. Ma Vương sẽ hỏi chuyện này.",
+     "effects": {
+      "fame": 8,
+      "jobXp": 3,
+      "flags": [
+       "ddk_legion_mutineer"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ddk_oath_kneel",
+   "races": [
+    "demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "demon_dk",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ddk_path_oath"
+    ],
+    "notFlags": [
+     "ddk_end"
+    ]
+   },
+   "text": "Một Thánh Kỵ Sĩ Human quỳ xuống, buông kiếm, trước mặt bạn giữa chiến trường. Những kỵ sĩ quanh bạn hét lên: “Giết hắn!”",
+   "choices": [
+    {
+     "label": "Giữ lời thề, không giết",
+     "text": "Bạn đứng chắn trước hắn. Đồng đội nhìn bạn như nhìn kẻ phản bội. Thánh Kỵ Sĩ sống, làm tù binh, và sau này được trao đổi. Hắn nhớ bạn.",
+     "effects": {
+      "fame": -3,
+      "jobXp": 3,
+      "flags": [
+       "ddk_oath_kept"
+      ]
+     },
+     "moment": "Giữ Lời Thề Cổ, không giết Thánh Kỵ Sĩ đã quỳ"
+    },
+    {
+     "label": "Phá lời thề một lần",
+     "text": "Gọn, nhanh. Đồng đội vỗ vai bạn. Đêm ấy, bạn tháo lá cờ xám khỏi giáp.",
+     "effects": {
+      "fame": 4,
+      "joy": -10,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "ddk_oath_trial",
+   "races": [
+    "demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "demon_dk",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ddk_path_oath"
+    ],
+    "notFlags": [
+     "ddk_end"
+    ]
+   },
+   "text": "Hội đồng Ma Giới đưa bạn ra xét xử vì đã tha mạng kẻ thù. Lời Thề Cổ không còn được luật pháp công nhận.",
+   "choices": [
+    {
+     "label": "Tự bào chữa bằng luật cổ",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn tìm ra điều luật chưa bao giờ bị bãi bỏ: Lời Thề Cổ đứng trên lệnh quân đội. Hội đồng không thể kết tội. Ba kỵ sĩ trẻ xin thề Lời Thề Cổ sau phiên xử.",
+      "effects": {
+       "INT": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "ddk_oath_law"
+       ]
+      },
+      "moment": "Thắng phiên xử bằng điều luật cổ chưa bị bãi bỏ"
+     },
+     "fail": {
+      "text": "Hội đồng phạt bạn trăm năm làm lính canh ngục.",
+      "effects": {
+       "fame": -6,
+       "joy": -8
+      }
+     }
+    },
+    {
+     "label": "Nhận tội, chịu phạt",
+     "text": "Bạn canh ngục mười năm. Những tù nhân bạn canh được đối xử tử tế hơn bao giờ hết.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "ddk_fallen_hunted",
+   "races": [
+    "demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "demon_dk",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ddk_path_fallen"
+    ],
+    "notFlags": [
+     "ddk_end"
+    ]
+   },
+   "text": "Thợ săn của Ma Vương tìm đến. Chúng biết bạn đã chạm vào lá cờ rách.",
+   "choices": [
+    {
+     "label": "Chạy về phía Human",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn vượt biên giới trong đêm. Human không chào đón bạn, nhưng cũng không giết bạn. Họ cho bạn một căn chòi ở bìa rừng, và theo dõi bạn.",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 3,
+       "flags": [
+        "ddk_fallen_exile"
+       ]
+      },
+      "moment": "Vượt biên giới trốn sang đất Human"
+     },
+     "fail": {
+      "text": "Thợ săn bắt kịp ở biên giới. Bạn thoát được, nhưng mất một cánh tay giáp.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Đối mặt chúng",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn hạ hai tên. Tên thứ ba bỏ chạy, mang tin về Ma Đô: kẻ sa ngã này không dễ bắt.",
+      "effects": {
+       "STR": 1,
+       "fame": 6,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Chúng đông hơn. Bạn bị thương nặng, nhưng sống.",
+      "effects": {
+       "health": -20
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "ddk_fallen_village",
+   "races": [
+    "demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "demon_dk",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "ddk_path_fallen"
+    ],
+    "notFlags": [
+     "ddk_end"
+    ]
+   },
+   "text": "Một làng Human biên giới bị lính Ma tộc tấn công. Đó là đồng tộc của bạn. Làng là nơi bạn đang trú.",
+   "choices": [
+    {
+     "label": "Bảo vệ làng",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Lính Ma tộc nhận ra giáp bạn, và do dự. Sự do dự ấy đủ để bạn đánh bật chúng. Làng giữ được. Dân làng không còn nhìn bạn như quái vật nữa.",
+      "effects": {
+       "STR": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "ddk_fallen_defender"
+       ]
+      },
+      "moment": "Bảo vệ làng Human khỏi chính đồng tộc mình"
+     },
+     "fail": {
+      "text": "Chúng quá đông. Bạn chỉ kịp dẫn dân làng chạy vào rừng.",
+      "effects": {
+       "health": -12,
+       "flags": [
+        "ddk_fallen_defender"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Rời làng trước khi chúng thấy bạn",
+     "text": "Bạn đi. Làng cháy sau lưng bạn. Bạn không biết mình có thể làm gì khác.",
+     "effects": {
+      "joy": -10,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "ddk_c4_azrak",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_dk",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "ddk_met_azrak"
+    ],
+    "notFlags": [
+     "ddk_azrak_gone",
+     "ddk_end"
+    ],
+    "anyFlags": [
+     "ddk_path_legion",
+     "ddk_path_oath",
+     "ddk_path_fallen"
+    ]
+   },
+   "text": "Thane Azrak bị Ma Vương ra lệnh xử tử vì từ chối một mệnh lệnh. Ông chọn chết bằng kiếm của một kỵ sĩ, và ông chọn bạn.",
+   "choices": [
+    {
+     "label": "Làm điều ông xin",
+     "text": "Ông quỳ, như kẻ thù quỳ trước bạn năm xưa. “Lời thề không giết kẻ quỳ,” ông nói, “trừ khi kẻ quỳ xin.” Bạn làm điều ông xin. Bạn giữ chiếc sừng gãy của ông.",
+     "effects": {
+      "joy": -12,
+      "jobXp": 3,
+      "flags": [
+       "ddk_azrak_gone",
+       "ddk_azrak_horn"
+      ]
+     },
+     "moment": "Thực hiện lời xin cuối cùng của Thane Azrak"
+    },
+    {
+     "label": "Giúp ông trốn",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Hai người vượt ngục trong đêm. Ông sống thêm mười năm ở một hang núi hẻo lánh, và mất trong giấc ngủ. Ma Vương không bao giờ biết.",
+      "effects": {
+       "AGI": 1,
+       "jobXp": 3,
+       "flags": [
+        "ddk_azrak_gone",
+        "ddk_azrak_escaped"
+       ]
+      },
+      "moment": "Giúp Thane Azrak trốn khỏi án tử của Ma Vương"
+     },
+     "fail": {
+      "text": "Hai người bị phát hiện. Azrak tự đứng ra nhận tội để bạn thoát.",
+      "effects": {
+       "joy": -14,
+       "flags": [
+        "ddk_azrak_gone"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "ddk_c4_sereth",
+   "races": [
+    "demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "demon_dk",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "ddk_met_sereth"
+    ],
+    "notFlags": [
+     "ddk_end"
+    ]
+   },
+   "text": "Sereth giờ là Death Knight, chỉ huy một quân đoàn. Hắn được lệnh đánh vào nơi bạn đang đóng quân.",
+   "choices": [
+    {
+     "label": "Gặp hắn trước trận",
+     "require": {
+      "flags": [
+       "ddk_sereth_brother"
+      ]
+     },
+     "text": "Hai người ngồi bên lửa, như ngày xưa. Sáng ra, quân đoàn của hắn đi vòng, không đánh. Ma Vương sẽ hỏi hắn. Hắn nói: “Ta sẽ tự trả lời.”",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3,
+      "flags": [
+       "ddk_sereth_spared"
+      ]
+     },
+     "moment": "Gặp Sereth bên lửa đêm trước trận chiến giữa hai người"
+    },
+    {
+     "label": "Chuẩn bị đánh",
+     "check": {
+      "stat": "STR",
+      "target": 8
+     },
+     "success": {
+      "text": "Trận đánh khốc liệt. Hai người gặp nhau giữa chiến trường, kiếm chạm kiếm. Không ai hạ được ai. Cả hai quân đoàn rút.",
+      "effects": {
+       "fame": 8,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Sereth giỏi hơn. Bạn rút, mang theo vết thương hắn để lại.",
+      "effects": {
+       "health": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "ddk_c5_legion",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_dk",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "ddk_path_legion"
+    ],
+    "notFlags": [
+     "ddk_end"
+    ]
+   },
+   "text": "Bạn là Abyss Knight, chỉ huy quân đoàn mạnh nhất Ma Giới.",
+   "choices": [
+    {
+     "label": "Viết luật chiến tranh cho quân đoàn",
+     "require": {
+      "flags": [
+       "ddk_legion_smart"
+      ]
+     },
+     "text": "Không tấn công giếng nước, không thiêu kho lương của dân thường khi chưa cần. Quân đoàn của bạn thắng nhiều hơn, và bị căm ghét ít hơn.",
+     "effects": {
+      "fame": 15,
+      "joy": 10,
+      "flags": [
+       "ddk_end",
+       "ddk_end_war_law"
+      ]
+     },
+     "moment": "Viết luật chiến tranh cho quân đoàn Ma Giới"
+    },
+    {
+     "label": "Dẫn quân đoàn đến cuối",
+     "text": "Bạn ngã trong trận lớn nhất thế kỷ. Quân đoàn khiêng bạn về Ma Đô, giáp vẫn còn trên người.",
+     "effects": {
+      "fame": 15,
+      "joy": 4,
+      "flags": [
+       "ddk_end",
+       "ddk_end_last_battle"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ddk_c5_oath",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_dk",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "ddk_path_oath"
+    ],
+    "notFlags": [
+     "ddk_end"
+    ]
+   },
+   "text": "Bạn là Abyss Knight, người giữ Lời Thề Cổ cuối cùng. Hoặc là đầu tiên của một thế hệ mới.",
+   "choices": [
+    {
+     "label": "Khôi phục Hội Lời Thề Cổ",
+     "require": {
+      "flags": [
+       "ddk_oath_law"
+      ]
+     },
+     "text": "Ba mươi kỵ sĩ quỳ trước lá cờ xám. Ma Vương không thể cấm, vì luật cổ chưa bao giờ bị bãi bỏ.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "ddk_end",
+       "ddk_end_oath_order"
+      ]
+     },
+     "moment": "Khôi phục Hội Lời Thề Cổ với ba mươi kỵ sĩ"
+    },
+    {
+     "label": "Treo chiếc sừng gãy trong sảnh",
+     "require": {
+      "flags": [
+       "ddk_azrak_horn"
+      ]
+     },
+     "text": "Chiếc sừng gãy của Azrak treo dưới lá cờ xám. Mọi kỵ sĩ trẻ đều hỏi nó là gì. Bạn kể.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "ddk_end",
+       "ddk_end_horn"
+      ]
+     }
+    },
+    {
+     "label": "Truyền lời thề cho một kỵ sĩ trẻ",
+     "text": "Một người. Đủ để lời thề không chết.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "ddk_end",
+       "ddk_end_one_heir"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ddk_c5_fallen",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_dk",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "ddk_path_fallen"
+    ],
+    "notFlags": [
+     "ddk_end"
+    ]
+   },
+   "text": "Ma Giới gọi bạn là kẻ phản bội. Ở biên giới, có những làng gọi bạn là người bảo vệ.",
+   "choices": [
+    {
+     "label": "Lập thành trì cho những kẻ sa ngã",
+     "require": {
+      "flags": [
+       "ddk_fallen_defender"
+      ]
+     },
+     "text": "Những Ma tộc bỏ trốn khỏi Vực Thẳm tìm đến bạn. Thành trì nhỏ ở biên giới không thuộc về Ma Vương hay Thánh Quang. Nó thuộc về những ai không muốn chọn phe.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "ddk_end",
+       "ddk_end_haven"
+      ]
+     },
+     "moment": "Lập thành trì cho những Ma tộc bỏ trốn khỏi Vực Thẳm"
+    },
+    {
+     "label": "Sống lặng lẽ ở bìa rừng",
+     "text": "Bạn treo giáp đen trên vách chòi. Lũ trẻ trong làng gọi bạn là “Ông Sừng”, và không sợ.",
+     "effects": {
+      "fame": 8,
+      "joy": 15,
+      "flags": [
+       "ddk_end",
+       "ddk_end_quiet"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ddk_daily_polish",
+   "races": [
+    "demon"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "demon_dk",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Giáp đen của bạn bị gỉ một vệt ở khớp gối.",
+   "choices": [
+    {
+     "label": "Đánh bóng cả đêm",
+     "text": "Sáng ra, giáp sáng như mới. Sĩ quan gật đầu.",
+     "effects": {
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Để vệt gỉ ấy",
+     "text": "Nó nhắc bạn rằng giáp cũng già, như người mặc nó.",
+     "effects": {
+      "joy": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "ddk_daily_war",
+   "races": [
+    "demon"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "demon_dk",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh lớn. Quân đoàn hành quân ngày đêm.",
+   "choices": [
+    {
+     "label": "Đi đầu",
+     "text": "Bạn mang về một vết thương mới và một huân chương.",
+     "effects": {
+      "health": -6,
+      "fame": 5,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Đi sau, chăm lính bị thương",
+     "text": "Ít vinh quang. Nhiều lính sống hơn.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "ddk_daily_old",
+   "races": [
+    "demon"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "demon_dk",
+    "free": true
+   },
+   "text": "Ba trăm năm mặc giáp. Lưng bạn cong theo hình giáp.",
+   "choices": [
+    {
+     "label": "Cởi giáp, đi dạo",
+     "text": "Bạn thấy nhẹ đến mức chóng mặt.",
+     "effects": {
+      "joy": 8
+     }
+    },
+    {
+     "label": "Dạy kỵ sĩ trẻ đứng trong giáp",
+     "text": "Bạn bắt chúng đứng một ngày. Như ai đó từng bắt bạn.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "ddk_c5_legion_late",
+   "races": [
+    "demon"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "demon_dk",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "ddk_path_legion"
+    ],
+    "notFlags": [
+     "ddk_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Abyss Knight, chỉ huy quân đoàn mạnh nhất Ma Giới.",
+   "choices": [
+    {
+     "label": "Viết luật chiến tranh cho quân đoàn",
+     "require": {
+      "flags": [
+       "ddk_legion_smart"
+      ]
+     },
+     "text": "Không tấn công giếng nước, không thiêu kho lương của dân thường khi chưa cần. Quân đoàn của bạn thắng nhiều hơn, và bị căm ghét ít hơn.",
+     "effects": {
+      "fame": 15,
+      "joy": 10,
+      "flags": [
+       "ddk_end",
+       "ddk_end_war_law"
+      ]
+     },
+     "moment": "Viết luật chiến tranh cho quân đoàn Ma Giới"
+    },
+    {
+     "label": "Dẫn quân đoàn đến cuối",
+     "text": "Bạn ngã trong trận lớn nhất thế kỷ. Quân đoàn khiêng bạn về Ma Đô, giáp vẫn còn trên người.",
+     "effects": {
+      "fame": 15,
+      "joy": 4,
+      "flags": [
+       "ddk_end",
+       "ddk_end_last_battle"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "elder"
+   ]
+  },
+  {
+   "id": "ddk_c5_oath_late",
+   "races": [
+    "demon"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "demon_dk",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "ddk_path_oath"
+    ],
+    "notFlags": [
+     "ddk_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Abyss Knight, người giữ Lời Thề Cổ cuối cùng. Hoặc là đầu tiên của một thế hệ mới.",
+   "choices": [
+    {
+     "label": "Khôi phục Hội Lời Thề Cổ",
+     "require": {
+      "flags": [
+       "ddk_oath_law"
+      ]
+     },
+     "text": "Ba mươi kỵ sĩ quỳ trước lá cờ xám. Ma Vương không thể cấm, vì luật cổ chưa bao giờ bị bãi bỏ.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "ddk_end",
+       "ddk_end_oath_order"
+      ]
+     },
+     "moment": "Khôi phục Hội Lời Thề Cổ với ba mươi kỵ sĩ"
+    },
+    {
+     "label": "Treo chiếc sừng gãy trong sảnh",
+     "require": {
+      "flags": [
+       "ddk_azrak_horn"
+      ]
+     },
+     "text": "Chiếc sừng gãy của Azrak treo dưới lá cờ xám. Mọi kỵ sĩ trẻ đều hỏi nó là gì. Bạn kể.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "ddk_end",
+       "ddk_end_horn"
+      ]
+     }
+    },
+    {
+     "label": "Truyền lời thề cho một kỵ sĩ trẻ",
+     "text": "Một người. Đủ để lời thề không chết.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "ddk_end",
+       "ddk_end_one_heir"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "elder"
+   ]
+  },
+  {
+   "id": "ddk_c5_fallen_late",
+   "races": [
+    "demon"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "demon_dk",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "ddk_path_fallen"
+    ],
+    "notFlags": [
+     "ddk_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Ma Giới gọi bạn là kẻ phản bội. Ở biên giới, có những làng gọi bạn là người bảo vệ.",
+   "choices": [
+    {
+     "label": "Lập thành trì cho những kẻ sa ngã",
+     "require": {
+      "flags": [
+       "ddk_fallen_defender"
+      ]
+     },
+     "text": "Những Ma tộc bỏ trốn khỏi Vực Thẳm tìm đến bạn. Thành trì nhỏ ở biên giới không thuộc về Ma Vương hay Thánh Quang. Nó thuộc về những ai không muốn chọn phe.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "ddk_end",
+       "ddk_end_haven"
+      ]
+     },
+     "moment": "Lập thành trì cho những Ma tộc bỏ trốn khỏi Vực Thẳm"
+    },
+    {
+     "label": "Sống lặng lẽ ở bìa rừng",
+     "text": "Bạn treo giáp đen trên vách chòi. Lũ trẻ trong làng gọi bạn là “Ông Sừng”, và không sợ.",
+     "effects": {
+      "fame": 8,
+      "joy": 15,
+      "flags": [
+       "ddk_end",
+       "ddk_end_quiet"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "elder"
+   ]
+  }
+ ]
+}

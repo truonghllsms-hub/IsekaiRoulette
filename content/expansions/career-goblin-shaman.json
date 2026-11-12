@@ -1,0 +1,316 @@
+{
+ "_note": "Kho cảnh độc lập cho Goblin Shaman (đời Goblin quá ngắn cho một tuyến nhiều chương).",
+ "origins": [],
+ "events": [
+  {
+   "id": "gbm_first_spell",
+   "races": [
+    "goblin"
+   ],
+   "weight": 40,
+   "require": {
+    "job": "goblin_shaman",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 1
+   },
+   "text": "Lần đầu tiên, bạn làm bùng được một đốm lửa xanh trên đầu ngón tay. Cả bầy kinh hãi lùi lại. Chief nhìn bạn, nheo mắt.",
+   "choices": [
+    {
+     "label": "Thổi tắt nó, giả vờ không biết gì",
+     "text": "Bầy quên dần. Chief thì không. Hắn bắt đầu cho bạn phần thịt ngon hơn, như cách người ta vỗ béo con gà sắp làm thịt.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Giơ cao ngọn lửa, tuyên bố mình được thần linh chọn",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Ngọn lửa bùng to đúng lúc. Cả bầy quỳ xuống. Chief cũng quỳ, chậm hơn một chút.",
+      "effects": {
+       "fame": 6,
+       "jobXp": 2
+      },
+      "moment": "Giơ cao ngọn lửa xanh đầu tiên trước cả bầy Goblin"
+     },
+     "fail": {
+      "text": "Ngọn lửa cháy vào tóc bạn. Cả bầy cười lăn lộn.",
+      "effects": {
+       "health": -3,
+       "fame": -3
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbm_sick_pup",
+   "races": [
+    "goblin"
+   ],
+   "weight": 35,
+   "require": {
+    "job": "goblin_shaman",
+    "free": true
+   },
+   "text": "Một Goblin con bị sốt, run lẩy bẩy. Mẹ nó ôm nó đến chỗ bạn. Bạn không chắc mình biết chữa.",
+   "choices": [
+    {
+     "label": "Thử nấu thuốc từ rễ cây Thắt Cổ",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn chỉ dùng một chút, đủ để hạ sốt mà không giết. Sáng ra, Goblin con đòi ăn. Mẹ nó mang đến cho bạn một con chuột nướng.",
+      "effects": {
+       "INT": 1,
+       "joy": 8,
+       "jobXp": 2
+      },
+      "moment": "Chữa khỏi cơn sốt cho một Goblin con"
+     },
+     "fail": {
+      "text": "Bạn dùng quá tay. Goblin con ngủ một ngày một đêm, rồi tỉnh, yếu nhưng sống.",
+      "effects": {
+       "joy": -3,
+       "jobXp": 1
+      }
+     }
+    },
+    {
+     "label": "Nhảy múa cầu thần và hy vọng",
+     "text": "Goblin con hết sốt sau ba ngày, có lẽ tự khỏi. Mẹ nó tin là nhờ bạn. Bạn không cãi.",
+     "effects": {
+      "fame": 2,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbm_old_shaman",
+   "races": [
+    "goblin"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "goblin_shaman",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Lão Shaman già của bầy phát hiện bạn học lỏm cuộn da cấm. Lão không đánh bạn. Lão chỉ hỏi: “Ngươi đọc được bao nhiêu chữ?”",
+   "choices": [
+    {
+     "label": "Nói thật: ba chữ",
+     "text": "Lão cười khàn. “Ta đọc được năm. Ngồi xuống, ta dạy hai chữ còn lại.” Lão dạy bạn cho đến khi lão chết, mùa sau.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "joy": 4
+     },
+     "moment": "Được lão Shaman già dạy hai chữ cổ cuối cùng lão biết"
+    },
+    {
+     "label": "Nói dối: không đọc được chữ nào",
+     "text": "Lão gật gù, lấy lại cuộn da. Lão chết mùa sau, mang theo năm chữ cổ xuống mồ.",
+     "effects": {
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbm_abyss_whisper",
+   "races": [
+    "goblin"
+   ],
+   "weight": 25,
+   "require": {
+    "job": "goblin_shaman",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Đêm nào cũng vậy, một giọng nói từ Vực Thẳm thì thầm trong giấc mơ của bạn. Nó hứa sẽ cho bạn đủ sức mạnh để không Goblin nào phải chết đói.",
+   "choices": [
+    {
+     "label": "Nghe tiếp",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn nghe đủ để học một câu thần chú gọi lửa mạnh hơn, rồi ngừng trước khi nó kịp đòi gì. Giọng nói nổi giận, rồi im.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3
+      },
+      "moment": "Lấy được một câu thần chú từ Vực Thẳm mà không trả giá"
+     },
+     "fail": {
+      "text": "Giọng nói đòi một thứ bạn không có. Nó lấy đi một năm tuổi thọ của bạn, với Goblin là rất nhiều.",
+      "effects": {
+       "health": -15,
+       "jobXp": 2
+      }
+     }
+    },
+    {
+     "label": "Nhét đá lạnh vào tai mỗi đêm",
+     "text": "Lạnh buốt. Giọng nói nhỏ dần, rồi im. Bạn không bao giờ biết nó có thật không.",
+     "effects": {
+      "joy": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbm_rain_dance",
+   "races": [
+    "goblin"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "goblin_shaman",
+    "free": true
+   },
+   "text": "Hạn hán. Đầm lầy cạn, ếch chết, bầy đói. Chief ra lệnh bạn gọi mưa, nếu không bạn sẽ là bữa ăn tiếp theo.",
+   "choices": [
+    {
+     "label": "Nhảy múa ba ngày ba đêm",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Đêm thứ ba, sấm nổ. Mưa trút xuống. Bạn ngã gục giữa bãi lầy, cười như điên. Không ai dám nhìn thẳng vào bạn nữa.",
+      "effects": {
+       "LUCK": 1,
+       "fame": 8,
+       "jobXp": 3
+      },
+      "moment": "Gọi được mưa sau ba ngày ba đêm nhảy múa"
+     },
+     "fail": {
+      "text": "Không có mưa. Bạn phải trốn khỏi hang trong đêm, chờ Chief nguôi giận.",
+      "effects": {
+       "health": -5,
+       "fame": -4
+      }
+     }
+    },
+    {
+     "label": "Dẫn bầy đến một đầm lầy khác",
+     "text": "Bạn biết một đầm lầy sâu hơn, cách nửa ngày đường. Không phải phép thuật, nhưng bầy sống.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbm_orc_insult",
+   "races": [
+    "goblin"
+   ],
+   "weight": 25,
+   "require": {
+    "job": "goblin_shaman",
+    "free": true
+   },
+   "text": "Một chiến binh Orc nhổ vào nồi thuốc của bạn: “Phép thuật là trò của Goblin.” Rồi hắn ngồi xuống, chìa ra cánh tay bị rắn cắn sưng tím.",
+   "choices": [
+    {
+     "label": "Chữa cho hắn",
+     "text": "Hắn không cảm ơn. Nhưng tuần sau, một con dê được buộc trước cửa hang của bầy. Không ai biết của ai.",
+     "effects": {
+      "wealth": 4,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Nhổ lại vào nồi, rồi chữa",
+     "text": "Hắn trợn mắt, rồi bật cười to đến mức con rắn trên cành gần đó rơi xuống. Hắn trả bạn gấp đôi.",
+     "effects": {
+      "wealth": 6,
+      "joy": 5,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbm_war_curse",
+   "races": [
+    "goblin"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 25,
+   "require": {
+    "job": "goblin_shaman",
+    "free": true
+   },
+   "text": "Chiến tranh. Một đội lính Human dựng trại cạnh đầm lầy. Chief muốn bạn nguyền rủa chúng.",
+   "choices": [
+    {
+     "label": "Bỏ một nắm lá Thắt Cổ vào giếng nước của chúng",
+     "text": "Nửa đội lính ốm liệt giường. Chúng rút đi. Không ai chết, nhưng chúng sẽ kể về lời nguyền của đầm lầy.",
+     "effects": {
+      "fame": 5,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Làm một con búp bê rơm và hét thật to",
+     "text": "Lính Human cười. Đêm ấy, trời mưa và trại chúng ngập. Bầy tin là nhờ bạn.",
+     "effects": {
+      "fame": 3,
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "gbm_old_bones",
+   "races": [
+    "goblin"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "goblin_shaman",
+    "free": true
+   },
+   "text": "Bạn đã già, và giờ bạn bói xương để đoán ngày mình chết.",
+   "choices": [
+    {
+     "label": "Đọc xương",
+     "text": "Xương nói còn lâu. Có lẽ xương nói dối. Bạn quyết định tin nó.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Ném xương đi, dạy học trò bói",
+     "text": "Học trò của bạn bói vụng. Nhưng nó sẽ còn sống lâu sau bạn, và sẽ giỏi dần.",
+     "effects": {
+      "joy": 5,
+      "fame": 2
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,311 @@
+{
+ "_note": "Kho cảnh độc lập cho Kobold Trapper (đời Kobold quá ngắn cho một tuyến nhiều chương).",
+ "origins": [],
+ "events": [
+  {
+   "id": "kbt_first_trap",
+   "races": [
+    "kobold"
+   ],
+   "weight": 40,
+   "require": {
+    "job": "kobold_trapper",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 1
+   },
+   "text": "Cái bẫy đầu tiên của bạn: một hố nhỏ phủ lá, cắm ba cọc nhọn. Sáng ra, trong hố là một con thỏ, và một Kobold thợ đào hàng xóm đang ngồi khóc vì kẹt chân.",
+   "choices": [
+    {
+     "label": "Kéo hàng xóm lên, xin lỗi",
+     "text": "Hắn tha thứ sau khi bạn cho hắn con thỏ. Từ đó bạn luôn cắm một cành cây đánh dấu cạnh bẫy, cho Kobold thấy, cho thú không thấy.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2
+     },
+     "moment": "Bẫy đầu tiên bắt được một con thỏ và một hàng xóm"
+    },
+    {
+     "label": "Giữ con thỏ, chỉ kéo hắn lên",
+     "text": "Hắn chửi bạn suốt một tuần. Nhưng bẫy của bạn hoạt động, và cả tổ biết điều đó.",
+     "effects": {
+      "fame": 2,
+      "jobXp": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbt_ranger_plans",
+   "races": [
+    "kobold"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "kobold_trapper",
+    "free": true
+   },
+   "text": "Một toán Kiểm Lâm Human đi ngang, đánh rơi một túi da chứa bản vẽ bẫy của họ. Những cái bẫy tinh xảo bạn chưa từng thấy.",
+   "choices": [
+    {
+     "label": "Học theo bản vẽ",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn làm được bẫy lò xo của Human, nhỏ hơn, nhẹ hơn, vừa với tay Kobold. Thú rừng quanh hang sợ cả tiếng lá động.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3
+      },
+      "moment": "Học được cách làm bẫy lò xo từ bản vẽ của Kiểm Lâm Human"
+     },
+     "fail": {
+      "text": "Bạn hiểu sai bản vẽ, và cái bẫy bật ngược vào mặt bạn.",
+      "effects": {
+       "health": -5
+      }
+     }
+    },
+    {
+     "label": "Trả lại túi cho họ",
+     "text": "Bạn đặt túi giữa đường mòn. Kiểm Lâm quay lại, nhặt túi, nhìn quanh. Họ để lại một miếng thịt khô trên tảng đá.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbt_minotaur",
+   "races": [
+    "kobold"
+   ],
+   "weight": 25,
+   "require": {
+    "job": "kobold_trapper",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Một con Minotaur điên loạn lạc vào hầm, đang lao thẳng về phía tổ ấp trứng. Bạn có một phút để làm gì đó.",
+   "choices": [
+    {
+     "label": "Kéo dây sập trần hầm phía trước nó",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Trần đổ xuống ngay trước mũi nó. Con Minotaur đâm vào đống đá, choáng váng, rồi lùi lại tìm đường khác. Tổ trứng an toàn.",
+      "effects": {
+       "AGI": 1,
+       "fame": 8,
+       "jobXp": 3
+      },
+      "moment": "Chặn một con Minotaur điên bằng cách sập trần hầm"
+     },
+     "fail": {
+      "text": "Trần đổ muộn một nhịp, đè lên chân nó. Nó gầm lên, giãy giụa, nhưng không tới được tổ trứng.",
+      "effects": {
+       "fame": 4,
+       "health": -6
+      }
+     }
+    },
+    {
+     "label": "Rải dầu và bột cay trên lối đi",
+     "text": "Con Minotaur trượt ngã, hắt hơi liên tục, rồi bỏ chạy về phía lối ra. Cả hầm cay xè ba ngày.",
+     "effects": {
+      "fame": 5,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbt_mana_trap",
+   "races": [
+    "kobold"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "kobold_trapper",
+    "free": true
+   },
+   "text": "Bạn vừa đào được một viên Lõi Mana. Nộp lên thì được thưởng một bữa ăn. Hoặc bạn có thể nhét nó vào hệ thống bẫy.",
+   "choices": [
+    {
+     "label": "Gắn vào bẫy",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Cái bẫy phát ra lưới sét xanh. Một đội mạo hiểm giả hạng C đi vào và chạy ra, tóc dựng đứng. Họ không bao giờ quay lại.",
+      "effects": {
+       "INT": 1,
+       "fame": 6,
+       "jobXp": 3
+      },
+      "moment": "Gắn Lõi Mana vào bẫy và đuổi được một đội mạo hiểm giả"
+     },
+     "fail": {
+      "text": "Lõi Mana phát nổ. Cái bẫy, và lông mày của bạn, biến mất.",
+      "effects": {
+       "health": -8
+      }
+     }
+    },
+    {
+     "label": "Nộp lên",
+     "text": "Bữa ăn ngon. Bạn tự hỏi lãnh chúa làm gì với nó.",
+     "effects": {
+      "wealth": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbt_wrong_victim",
+   "races": [
+    "kobold"
+   ],
+   "weight": 20,
+   "require": {
+    "job": "kobold_trapper",
+    "free": true
+   },
+   "text": "Bẫy lưới của bạn bắt được một sinh vật lạ: một Slime nhỏ màu hồng, đang run rẩy.",
+   "choices": [
+    {
+     "label": "Thả nó ra",
+     "text": "Nó lăn đi, rồi quay lại. Từ hôm ấy nó đi theo bạn khắp nơi, ăn sạch rác quanh bẫy.",
+     "effects": {
+      "joy": 8
+     },
+     "moment": "Thả một Slime nhỏ khỏi bẫy và được nó đi theo"
+    },
+    {
+     "label": "Đem bán cho thương nhân",
+     "text": "Một thương nhân Human trả hai đồng xu. Bạn nghe nói Slime hồng được quý tộc nuôi làm cảnh.",
+     "effects": {
+      "wealth": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbt_adventurers",
+   "races": [
+    "kobold"
+   ],
+   "weight": 25,
+   "require": {
+    "job": "kobold_trapper",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Một đội mạo hiểm giả đi thẳng vào hang. Họ đông, họ có phép thuật. Bẫy của bạn là thứ duy nhất đứng giữa họ và ổ trứng.",
+   "choices": [
+    {
+     "label": "Dẫn họ vào mê cung bẫy",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Họ đi vòng vòng hai ngày, mất hết đuốc, và bỏ về. Không ai chết, không ai tìm thấy ổ trứng.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3
+      },
+      "moment": "Dẫn một đội mạo hiểm giả lạc trong mê cung bẫy"
+     },
+     "fail": {
+      "text": "Pháp sư của họ đốt cháy mọi bẫy. Bạn phải dẫn cả tổ trốn qua lối sau.",
+      "effects": {
+       "health": -5,
+       "fame": -3
+      }
+     }
+    },
+    {
+     "label": "Đặt một cái rương giả đầy sỏi ở cửa hang",
+     "text": "Họ mở rương, thấy sỏi, chửi rủa, và bỏ đi vì nghĩ hang này nghèo. Bạn cười cả tuần.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbt_war_traps",
+   "races": [
+    "kobold"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 25,
+   "require": {
+    "job": "kobold_trapper",
+    "free": true
+   },
+   "text": "Chiến tranh. Một đạo quân sắp đi qua thung lũng gần hang.",
+   "choices": [
+    {
+     "label": "Gài bẫy khắp thung lũng",
+     "text": "Đạo quân mất nửa ngày gỡ bẫy, và quyết định đi đường khác. Hang an toàn.",
+     "effects": {
+      "fame": 5,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Giấu bẫy, để chúng đi qua",
+     "text": "Chúng đi qua mà không biết có hang. Đôi khi, bẫy tốt nhất là không có bẫy.",
+     "effects": {
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "kbt_old_trapper",
+   "races": [
+    "kobold"
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "kobold_trapper",
+    "free": true
+   },
+   "text": "Mắt bạn mờ, và bạn bắt đầu quên mình đã đặt bẫy ở đâu.",
+   "choices": [
+    {
+     "label": "Vẽ bản đồ bẫy cho học trò",
+     "text": "Bản đồ chi chít ký hiệu. Học trò của bạn học thuộc nó. Bạn thì giẫm vào bẫy của chính mình hai lần.",
+     "effects": {
+      "joy": 6,
+      "fame": 2
+     }
+    },
+    {
+     "label": "Gỡ hết bẫy cũ",
+     "text": "Mất một mùa. Khu rừng quanh hang yên bình hơn. Thú rừng quay lại.",
+     "effects": {
+      "joy": 8
+     }
+    }
+   ]
+  }
+ ]
+}

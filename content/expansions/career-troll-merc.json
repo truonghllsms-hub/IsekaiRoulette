@@ -1,0 +1,1086 @@
+{
+ "_note": "Tuyến truyện Mercenary Troll: ba đạo (trm_path_shield / trm_path_boss / trm_path_honest), nhân vật xuyên suốt Mags Một Mắt (nữ đội trưởng đánh thuê Human) và Lão Krug (Troll đánh thuê già).",
+ "origins": [],
+ "events": [
+  {
+   "id": "trm_c1_krug",
+   "races": [
+    "troll"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "troll_merc",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "trm_met_krug"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Krug",
+     "race": "Troll",
+     "position": "Troll đánh thuê già nhất vùng"
+    }
+   ],
+   "text": "Lão Krug là Troll đánh thuê già nhất vùng. Lão đã mất tay trái ba lần, và nó đã mọc lại ba lần. Lão dạy bạn bài đầu tiên: “Đếm tiền trước khi đánh. Sau khi đánh thì ngươi quên mất.”",
+   "choices": [
+    {
+     "label": "Học đếm",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn đếm được đến hai mươi, nhiều hơn lão Krug ba số. Lão vỗ vai bạn: “Ngươi sẽ giàu.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "trm_met_krug",
+        "trm_krug_respect"
+       ]
+      },
+      "moment": "Học đếm tiền đến hai mươi từ lão Krug"
+     },
+     "fail": {
+      "text": "Bạn đếm đến bảy, rồi quên. Lão Krug cũng quên. Hai người cười.",
+      "effects": {
+       "joy": 4,
+       "flags": [
+        "trm_met_krug"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi lão đếm tiền làm gì",
+     "text": "Lão Krug nghĩ rất lâu. “Ta không biết. Người ta bảo phải đếm.” Lão đưa bạn một túi đồng xu. Bạn dùng chúng làm đá ném.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1,
+      "flags": [
+       "trm_met_krug"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "trm_c1_mags",
+   "races": [
+    "troll"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "troll_merc",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "trm_met_krug"
+    ],
+    "notFlags": [
+     "trm_met_mags"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Mags Một Mắt",
+     "race": "Human",
+     "position": "Nữ đội trưởng đánh thuê"
+    }
+   ],
+   "text": "Mags Một Mắt, đội trưởng một nhóm đánh thuê Human, thuê bạn làm “bức tường di động”. Cô nói chậm, rõ, như với một đứa trẻ, nhưng không bao giờ cười nhạo bạn.",
+   "choices": [
+    {
+     "label": "Đồng ý",
+     "text": "Cô đưa tay ra bắt. Tay cô nhỏ bằng ngón cái của bạn. Từ đó, cô gọi bạn là “Ông Bạn Lớn”, và luôn chia phần ăn cho bạn trước.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 1,
+      "flags": [
+       "trm_met_mags",
+       "trm_mags_friend"
+      ]
+     },
+     "moment": "Gia nhập nhóm đánh thuê của Mags Một Mắt"
+    },
+    {
+     "label": "Đòi gấp đôi",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Mags cười, đồng ý. “Ngươi biết giá trị của mình. Tốt.”",
+      "effects": {
+       "wealth": 4,
+       "jobXp": 1,
+       "flags": [
+        "trm_met_mags",
+        "trm_mags_friend"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Mags nhún vai, thuê một Troll khác. Ba tháng sau cô quay lại, vì Troll kia ăn mất hai lính của cô.",
+      "effects": {
+       "flags": [
+        "trm_met_mags"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "trm_c2_first_contract",
+   "races": [
+    "troll"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "troll_merc",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "trm_first_contract",
+     "trm_end"
+    ]
+   },
+   "text": "Hợp đồng đầu tiên: giữ một cổng thành nhỏ qua một đêm. Bạn được trả mười đồng và một con lợn quay.",
+   "choices": [
+    {
+     "label": "Ăn lợn trước, đánh sau",
+     "text": "No bụng, bạn ngủ quên ở cổng. Kẻ địch thấy một Troll ngáy to như sấm, và quyết định đi đường khác. Hợp đồng hoàn thành.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2,
+      "flags": [
+       "trm_first_contract"
+      ]
+     },
+     "moment": "Hoàn thành hợp đồng đầu tiên bằng cách ngủ ngáy ở cổng thành"
+    },
+    {
+     "label": "Đứng canh cả đêm",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Kẻ địch đến lúc nửa đêm. Bạn đứng chắn cổng. Chúng chém, bạn mọc lại. Chúng bỏ chạy lúc bình minh.",
+      "effects": {
+       "STR": 1,
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "trm_first_contract"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Kẻ địch có đuốc. Bạn chạy. Cổng mất. Bạn vẫn ăn con lợn.",
+      "effects": {
+       "fame": -3,
+       "flags": [
+        "trm_first_contract"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "trm_c2_crossroads",
+   "races": [
+    "troll"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "troll_merc",
+    "free": true,
+    "jobRank": 1,
+    "flags": [
+     "trm_met_krug"
+    ],
+    "notFlags": [
+     "trm_path_shield",
+     "trm_path_boss",
+     "trm_path_honest",
+     "trm_end"
+    ]
+   },
+   "text": "Lão Krug ngồi nhai một khúc xương, suy nghĩ rất lâu, rồi nói: “Troll đánh thuê có ba kiểu: kiểu làm khiên cho người khác, kiểu làm đầu đàn, và kiểu… ừm… kiểu không nói dối.” Lão gãi đầu. “Kiểu thứ ba hiếm lắm.”",
+   "choices": [
+    {
+     "label": "Làm khiên: Bức Tường Sống",
+     "text": "Bạn sẽ đứng trước, để mọi người khác đứng sau. Bạn mọc lại được. Họ thì không.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "trm_path_shield"
+      ]
+     },
+     "moment": "Chọn làm bức tường sống cho đồng đội"
+    },
+    {
+     "label": "Làm đầu đàn: Troll Tướng Quân",
+     "text": "Bạn sẽ có đội riêng. Bạn không biết chỉ huy là gì, nhưng nghe nói tướng quân được ăn nhiều nhất.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "trm_path_boss"
+      ]
+     },
+     "moment": "Chọn tự lập đội đánh thuê riêng"
+    },
+    {
+     "label": "Không nói dối: Troll Thật Thà",
+     "text": "Bạn sẽ chỉ nhận hợp đồng tốt, và nói thật với mọi người. Lão Krug nhìn bạn như nhìn một con dê biết bay.",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "trm_path_honest"
+      ]
+     },
+     "moment": "Chọn làm Troll đánh thuê không bao giờ nói dối"
+    }
+   ]
+  },
+  {
+   "id": "trm_shield_holy",
+   "races": [
+    "troll"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "troll_merc",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "trm_path_shield"
+    ],
+    "notFlags": [
+     "trm_end"
+    ]
+   },
+   "text": "Đội bị Thánh Kỵ Sĩ phục kích. Lưỡi kiếm của chúng rực sáng Thánh Quang, và vết chém của Thánh Quang không mọc lại được.",
+   "choices": [
+    {
+     "label": "Vẫn đứng chắn",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đứng chắn cho cả đội rút. Ba vết chém trên lưng bạn không bao giờ lành. Nhưng cả đội sống.",
+      "effects": {
+       "STR": 1,
+       "fame": 10,
+       "health": -12,
+       "jobXp": 3,
+       "flags": [
+        "trm_shield_scars"
+       ]
+      },
+      "moment": "Đứng chắn kiếm Thánh Quang cho cả đội rút lui"
+     },
+     "fail": {
+      "text": "Bạn ngã sau ba nhát chém. Đội kéo bạn đi.",
+      "effects": {
+       "health": -20
+      }
+     }
+    },
+    {
+     "label": "Bế cả đội chạy",
+     "text": "Bạn ôm năm người chạy. Hai người rơi. Ba người sống. Bạn không biết đếm, nhưng biết ba ít hơn năm.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "trm_shield_friendlyfire",
+   "races": [
+    "troll"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "troll_merc",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "trm_path_shield"
+    ],
+    "notFlags": [
+     "trm_end"
+    ]
+   },
+   "text": "Giữa trận, cát bay vào mắt bạn. Bạn vung chùy loạn xạ, và cảm thấy chùy trúng thứ gì đó mềm.",
+   "choices": [
+    {
+     "label": "Dừng lại ngay, đứng yên",
+     "text": "Bạn đứng yên như đá cho đến khi thấy rõ. Thứ mềm là một bao lúa. Cả đội thở phào. Từ đó, bạn luôn mang theo một bình nước rửa mắt.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Vung tiếp",
+     "text": "Kẻ địch chạy, đồng đội cũng chạy. Khi mắt bạn hết cát, chỉ còn bạn đứng giữa chiến trường, một mình.",
+     "effects": {
+      "fame": -3,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "trm_boss_crew",
+   "races": [
+    "troll"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "troll_merc",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "trm_path_boss"
+    ],
+    "notFlags": [
+     "trm_end"
+    ]
+   },
+   "text": "Bạn có đội riêng: ba Troll, hai Orc, và một Goblin làm kế toán. Đội đói. Một hợp đồng đang chờ: cướp một làng cho một lãnh chúa.",
+   "choices": [
+    {
+     "label": "Từ chối, tìm hợp đồng khác",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Hai ngày sau, bạn tìm được hợp đồng hộ tống đoàn buôn. Đội ăn no, không ai phải cướp ai.",
+      "effects": {
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "trm_boss_clean"
+       ]
+      },
+      "moment": "Từ chối hợp đồng cướp làng, tìm được việc lương thiện cho cả đội"
+     },
+     "fail": {
+      "text": "Không có hợp đồng nào khác. Đội đói một tuần, và hai Orc bỏ đi.",
+      "effects": {
+       "joy": -6
+      }
+     }
+    },
+    {
+     "label": "Nhận",
+     "text": "Làng cháy. Đội ăn no. Gã Goblin kế toán ghi vào sổ: “Một làng.” Bạn không thích cách nó viết.",
+     "effects": {
+      "wealth": 12,
+      "joy": -8,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "trm_boss_vampire",
+   "races": [
+    "troll"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "troll_merc",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "trm_path_boss"
+    ],
+    "notFlags": [
+     "trm_end"
+    ]
+   },
+   "text": "Một Vampire của Hắc Nguyệt Hội thuê đội bạn bảo vệ một nghi lễ. Hắn chìa ra khế ước viết bằng máu.",
+   "choices": [
+    {
+     "label": "Nhờ gã Goblin đọc khế ước",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Gã Goblin đọc, rồi tái mặt: điều khoản cuối biến cả đội thành vật tế. Bạn xé khế ước, và đội bỏ chạy trước khi Vampire kịp đuổi.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Gã Goblin đọc sai. Đội suýt thành vật tế. Bạn phá cổng nghi lễ và chạy.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Ký luôn, tiền nhiều",
+     "text": "Bạn ký bằng ngón tay. Nghi lễ diễn ra. Đội trở về thiếu hai Orc. Vampire trả đủ tiền.",
+     "effects": {
+      "wealth": 15,
+      "joy": -10,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "trm_honest_lie",
+   "races": [
+    "troll"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "troll_merc",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "trm_path_honest"
+    ],
+    "notFlags": [
+     "trm_end"
+    ]
+   },
+   "text": "Chủ thuê hỏi bạn: kẻ địch có bao nhiêu người? Bạn đếm được ba mươi. Nếu nói ba mươi, hắn sẽ không trả tiền vì sợ. Nếu nói mười, hắn sẽ trả.",
+   "choices": [
+    {
+     "label": "Nói ba mươi",
+     "text": "Hắn sợ, không thuê. Một Troll khác nói mười, được thuê, và không bao giờ trở về. Lão Krug nghe chuyện, gật đầu: “Thật thà làm ngươi nghèo, nhưng sống.”",
+     "effects": {
+      "jobXp": 3,
+      "flags": [
+       "trm_honest_true"
+      ]
+     }
+    },
+    {
+     "label": "Nói “nhiều hơn hai mươi, ít hơn ba mươi mốt”",
+     "text": "Chủ thuê nhìn bạn, bối rối, rồi phá lên cười. Hắn thuê bạn, và thuê thêm hai mươi người nữa.",
+     "effects": {
+      "INT": 1,
+      "wealth": 6,
+      "jobXp": 3,
+      "flags": [
+       "trm_honest_true"
+      ]
+     },
+     "moment": "Nói thật về số kẻ địch theo cách khiến chủ thuê bật cười"
+    }
+   ]
+  },
+  {
+   "id": "trm_honest_bribe",
+   "races": [
+    "troll"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "troll_merc",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "trm_path_honest"
+    ],
+    "notFlags": [
+     "trm_end"
+    ]
+   },
+   "text": "Kẻ địch đề nghị trả gấp đôi nếu bạn đổi phe giữa trận.",
+   "choices": [
+    {
+     "label": "Từ chối",
+     "text": "Kẻ địch không tin một Troll có thể từ chối tiền. Chúng thua, và từ đó chúng kể về con Troll không mua được.",
+     "effects": {
+      "fame": 8,
+      "jobXp": 3,
+      "flags": [
+       "trm_honest_famous"
+      ]
+     }
+    },
+    {
+     "label": "Hỏi chủ thuê có trả gấp ba không",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Chủ thuê trả gấp ba. Bạn vẫn đánh cho chủ thuê. Không ai nói dối ai.",
+      "effects": {
+       "wealth": 10,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Chủ thuê đuổi bạn. Kẻ địch cũng không thuê bạn nữa.",
+      "effects": {
+       "joy": -4
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "trm_c4_krug",
+   "races": [
+    "troll"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "troll_merc",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "trm_met_krug"
+    ],
+    "notFlags": [
+     "trm_krug_gone",
+     "trm_end"
+    ],
+    "anyFlags": [
+     "trm_path_shield",
+     "trm_path_boss",
+     "trm_path_honest"
+    ]
+   },
+   "text": "Lão Krug bị một pháp sư lửa đốt. Lần này, tay lão không mọc lại. Lão nằm dưới gốc cây, và biết mình không mọc lại được nữa.",
+   "choices": [
+    {
+     "label": "Ngồi với lão, đếm tiền cùng lão",
+     "text": "Hai người đếm đến hai mươi, rồi quên, rồi đếm lại. Lão cười đến khi ngủ. Lão không thức dậy. Bạn chôn lão cùng túi tiền, vì lão chưa bao giờ biết dùng nó làm gì.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "trm_krug_gone"
+      ]
+     },
+     "moment": "Đếm tiền cùng lão Krug lần cuối"
+    },
+    {
+     "label": "Đi tìm pháp sư đã đốt lão",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn tìm thấy hắn. Hắn có lửa. Bạn có nước sông. Hắn không bao giờ đốt Troll nào nữa.",
+      "effects": {
+       "STR": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "trm_krug_gone"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Hắn đốt cả bạn. Bạn chạy về, và lão Krug đã đi rồi.",
+      "effects": {
+       "health": -15,
+       "joy": -8,
+       "flags": [
+        "trm_krug_gone"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "trm_c4_mags",
+   "races": [
+    "troll"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "troll_merc",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "trm_met_mags"
+    ],
+    "notFlags": [
+     "trm_end"
+    ]
+   },
+   "text": "Mags Một Mắt đã già, muốn giải tán nhóm đánh thuê. Cô hỏi bạn muốn làm gì tiếp.",
+   "choices": [
+    {
+     "label": "Đi theo cô về làng",
+     "require": {
+      "flags": [
+       "trm_mags_friend"
+      ]
+     },
+     "text": "Cô mở một quán trọ nhỏ. Bạn làm “bức tường” giữ cửa quán. Không ai dám gây sự ở quán của Mags.",
+     "effects": {
+      "joy": 12,
+      "jobXp": 3,
+      "flags": [
+       "trm_mags_inn"
+      ]
+     },
+     "moment": "Theo Mags Một Mắt về làng giữ cửa quán trọ của cô"
+    },
+    {
+     "label": "Tiếp tục đánh thuê một mình",
+     "text": "Cô ôm lấy ngón tay bạn, như cái bắt tay đầu tiên. “Đừng để ai đốt ngươi, Ông Bạn Lớn.”",
+     "effects": {
+      "joy": -2,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "trm_c5_shield",
+   "races": [
+    "troll"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "troll_merc",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "trm_path_shield"
+    ],
+    "notFlags": [
+     "trm_end"
+    ]
+   },
+   "text": "Bạn là Mercenary Lord. Mọi đội đánh thuê đều muốn có bạn đứng phía trước.",
+   "choices": [
+    {
+     "label": "Dạy Troll trẻ đứng chắn",
+     "require": {
+      "flags": [
+       "trm_shield_scars"
+      ]
+     },
+     "text": "Bạn chỉ cho chúng ba vết sẹo không lành trên lưng. “Có những thứ không mọc lại được. Vẫn phải đứng.”",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "trm_end",
+       "trm_end_scars"
+      ]
+     },
+     "moment": "Dạy Troll trẻ đứng chắn, chỉ cho chúng ba vết sẹo không lành"
+    },
+    {
+     "label": "Đứng chắn trận cuối cùng",
+     "text": "Trận cuối, bạn đứng chắn cho một đội trẻ. Lần này bạn không mọc lại. Đội trẻ sống.",
+     "effects": {
+      "fame": 15,
+      "joy": 6,
+      "flags": [
+       "trm_end",
+       "trm_end_last_wall"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "trm_c5_boss",
+   "races": [
+    "troll"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "troll_merc",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "trm_path_boss"
+    ],
+    "notFlags": [
+     "trm_end"
+    ]
+   },
+   "text": "Bạn là Mercenary Lord. Dưới tay bạn giờ có năm mươi Troll, Orc, và một gã Goblin kế toán đã già.",
+   "choices": [
+    {
+     "label": "Chỉ nhận hợp đồng lương thiện",
+     "require": {
+      "flags": [
+       "trm_boss_clean"
+      ]
+     },
+     "text": "Đội “Ông Bạn Lớn” nổi tiếng khắp vùng: đắt, chậm hiểu, và không bao giờ cướp làng. Các thương đoàn xếp hàng chờ thuê.",
+     "effects": {
+      "fame": 15,
+      "wealth": 15,
+      "joy": 12,
+      "flags": [
+       "trm_end",
+       "trm_end_clean_company"
+      ]
+     },
+     "moment": "Lập đội đánh thuê nổi tiếng vì không bao giờ cướp làng"
+    },
+    {
+     "label": "Trao đội cho gã Goblin kế toán",
+     "text": "Nó là đứa duy nhất biết đếm. Bạn về ngủ dưới gầm cầu. Đội vẫn chạy tốt.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "trm_end",
+       "trm_end_goblin_boss"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "trm_c5_honest",
+   "races": [
+    "troll"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "troll_merc",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "trm_path_honest"
+    ],
+    "notFlags": [
+     "trm_end"
+    ]
+   },
+   "text": "Bạn là Mercenary Lord. Ai cũng biết: Troll này không bao giờ nói dối.",
+   "choices": [
+    {
+     "label": "Làm người phân xử giữa các đội đánh thuê",
+     "require": {
+      "flags": [
+       "trm_honest_famous"
+      ]
+     },
+     "text": "Khi các đội tranh chấp, họ đến hỏi bạn. Bạn nói thật. Họ tin. Các cuộc tranh chấp kết thúc nhanh hơn.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "trm_end",
+       "trm_end_judge"
+      ]
+     },
+     "moment": "Trở thành người phân xử tranh chấp giữa các đội đánh thuê"
+    },
+    {
+     "label": "Kể cho lũ trẻ nghe chuyện thật",
+     "text": "Lũ trẻ hỏi: Troll có ăn thịt người không? Bạn nói thật: có, một số. Không phải bạn. Chúng tin.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "trm_end",
+       "trm_end_truth"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "trm_daily_count",
+   "races": [
+    "troll"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "troll_merc",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Bạn thử đếm số đồng xu trong túi.",
+   "choices": [
+    {
+     "label": "Đếm",
+     "text": "Hai mươi ba. Hoặc ba mươi hai. Bạn không chắc.",
+     "effects": {
+      "joy": 3
+     }
+    },
+    {
+     "label": "Đổi hết lấy lợn quay",
+     "text": "Lợn quay thì không cần đếm.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "trm_daily_war",
+   "races": [
+    "troll"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "troll_merc",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Mọi phe đều muốn thuê Troll.",
+   "choices": [
+    {
+     "label": "Nhận hợp đồng trả nhiều nhất",
+     "text": "Bạn đánh cho phe trả nhiều nhất. Phe ấy thua. Bạn vẫn được trả.",
+     "effects": {
+      "wealth": 8,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Nhận hợp đồng của phe yếu hơn",
+     "text": "Họ trả ít, nhưng cần bạn hơn. Bạn thấy mình quan trọng.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "trm_daily_old",
+   "races": [
+    "troll"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "troll_merc",
+    "free": true
+   },
+   "text": "Bạn mọc lại chậm hơn. Vết cắt hôm qua vẫn chưa lành.",
+   "choices": [
+    {
+     "label": "Nghỉ hưu",
+     "text": "Bạn tìm một gầm cầu, và ngủ.",
+     "effects": {
+      "joy": 8
+     }
+    },
+    {
+     "label": "Nhận hợp đồng nhẹ",
+     "text": "Giữ cửa quán rượu. Bạn đứng đó, và không ai gây sự.",
+     "effects": {
+      "wealth": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "trm_c5_shield_late",
+   "races": [
+    "troll"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "troll_merc",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "trm_path_shield"
+    ],
+    "notFlags": [
+     "trm_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Mercenary Lord. Mọi đội đánh thuê đều muốn có bạn đứng phía trước.",
+   "choices": [
+    {
+     "label": "Dạy Troll trẻ đứng chắn",
+     "require": {
+      "flags": [
+       "trm_shield_scars"
+      ]
+     },
+     "text": "Bạn chỉ cho chúng ba vết sẹo không lành trên lưng. “Có những thứ không mọc lại được. Vẫn phải đứng.”",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "trm_end",
+       "trm_end_scars"
+      ]
+     },
+     "moment": "Dạy Troll trẻ đứng chắn, chỉ cho chúng ba vết sẹo không lành"
+    },
+    {
+     "label": "Đứng chắn trận cuối cùng",
+     "text": "Trận cuối, bạn đứng chắn cho một đội trẻ. Lần này bạn không mọc lại. Đội trẻ sống.",
+     "effects": {
+      "fame": 15,
+      "joy": 6,
+      "flags": [
+       "trm_end",
+       "trm_end_last_wall"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "trm_c5_boss_late",
+   "races": [
+    "troll"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "troll_merc",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "trm_path_boss"
+    ],
+    "notFlags": [
+     "trm_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Mercenary Lord. Dưới tay bạn giờ có năm mươi Troll, Orc, và một gã Goblin kế toán đã già.",
+   "choices": [
+    {
+     "label": "Chỉ nhận hợp đồng lương thiện",
+     "require": {
+      "flags": [
+       "trm_boss_clean"
+      ]
+     },
+     "text": "Đội “Ông Bạn Lớn” nổi tiếng khắp vùng: đắt, chậm hiểu, và không bao giờ cướp làng. Các thương đoàn xếp hàng chờ thuê.",
+     "effects": {
+      "fame": 15,
+      "wealth": 15,
+      "joy": 12,
+      "flags": [
+       "trm_end",
+       "trm_end_clean_company"
+      ]
+     },
+     "moment": "Lập đội đánh thuê nổi tiếng vì không bao giờ cướp làng"
+    },
+    {
+     "label": "Trao đội cho gã Goblin kế toán",
+     "text": "Nó là đứa duy nhất biết đếm. Bạn về ngủ dưới gầm cầu. Đội vẫn chạy tốt.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "trm_end",
+       "trm_end_goblin_boss"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "trm_c5_honest_late",
+   "races": [
+    "troll"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "troll_merc",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "trm_path_honest"
+    ],
+    "notFlags": [
+     "trm_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Mercenary Lord. Ai cũng biết: Troll này không bao giờ nói dối.",
+   "choices": [
+    {
+     "label": "Làm người phân xử giữa các đội đánh thuê",
+     "require": {
+      "flags": [
+       "trm_honest_famous"
+      ]
+     },
+     "text": "Khi các đội tranh chấp, họ đến hỏi bạn. Bạn nói thật. Họ tin. Các cuộc tranh chấp kết thúc nhanh hơn.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "trm_end",
+       "trm_end_judge"
+      ]
+     },
+     "moment": "Trở thành người phân xử tranh chấp giữa các đội đánh thuê"
+    },
+    {
+     "label": "Kể cho lũ trẻ nghe chuyện thật",
+     "text": "Lũ trẻ hỏi: Troll có ăn thịt người không? Bạn nói thật: có, một số. Không phải bạn. Chúng tin.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "trm_end",
+       "trm_end_truth"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}

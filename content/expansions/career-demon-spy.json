@@ -1,0 +1,1098 @@
+{
+ "_note": "Tuyến truyện Parasite Spy (Ma tộc): ba đạo (dsp_path_loyal / dsp_path_human / dsp_path_double), nhân vật xuyên suốt Phu Nhân Mặt Nạ (người điều khiển gián điệp) và Elsbeth (tiểu thư Human).",
+ "origins": [],
+ "events": [
+  {
+   "id": "dsp_c1_mask",
+   "races": [
+    "demon"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "demon_spy",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "dsp_met_mask"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Phu Nhân Mặt Nạ",
+     "race": "Demon",
+     "position": "Người điều khiển gián điệp của Ma Giới"
+    }
+   ],
+   "text": "Phu Nhân Mặt Nạ chưa từng để ai thấy mặt thật. Bà dạy bạn đổi hình dạng: sừng giấu dưới tóc, da tái nhợt thành hồng hào, giọng nói mất đi âm vang Vực Thẳm. “Ngươi sẽ sống như Human. Lâu đến mức có lúc ngươi quên mình là gì.”",
+   "choices": [
+    {
+     "label": "Tập trước gương suốt đêm",
+     "check": {
+      "stat": "INT",
+      "target": 5
+     },
+     "success": {
+      "text": "Sáng ra, gương phản chiếu một thanh niên Human bình thường. Phu Nhân Mặt Nạ gật đầu: “Giờ học cách ăn bánh mì mà không nhăn mặt.”",
+      "effects": {
+       "INT": 1,
+       "jobXp": 1,
+       "flags": [
+        "dsp_met_mask",
+        "dsp_mask_trust"
+       ]
+      },
+      "moment": "Lần đầu tiên đổi hình thành Human hoàn hảo"
+     },
+     "fail": {
+      "text": "Sừng bạn cứ mọc lại. Phu Nhân Mặt Nạ thở dài: “Mũ. Ngươi sẽ đội mũ.”",
+      "effects": {
+       "flags": [
+        "dsp_met_mask"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi bà có từng quên mình là gì chưa",
+     "text": "Bà im lặng rất lâu. Rồi, lần đầu tiên, bà tháo mặt nạ. Bên dưới là một gương mặt Human. Bà đã quên mặt thật của mình từ lâu.",
+     "effects": {
+      "joy": -2,
+      "jobXp": 1,
+      "flags": [
+       "dsp_met_mask",
+       "dsp_mask_secret"
+      ]
+     },
+     "moment": "Thấy gương mặt Human dưới mặt nạ của Phu Nhân"
+    }
+   ]
+  },
+  {
+   "id": "dsp_c1_elsbeth",
+   "races": [
+    "demon"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "demon_spy",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "dsp_met_mask"
+    ],
+    "notFlags": [
+     "dsp_met_elsbeth"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Elsbeth",
+     "race": "Human",
+     "position": "Tiểu thư của một gia tộc Human quyền lực"
+    }
+   ],
+   "text": "Vỏ bọc quý tộc của bạn khiến tiểu thư Elsbeth, con gái một gia tộc Human quyền lực, để ý. Cô thông minh, hài hước, và hỏi những câu bạn không biết trả lời.",
+   "choices": [
+    {
+     "label": "Kết bạn với cô, như nhiệm vụ đòi hỏi",
+     "text": "Nhiệm vụ đòi hỏi. Nhưng bạn bắt đầu chờ những buổi chiều đi dạo với cô, không vì nhiệm vụ.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 1,
+      "flags": [
+       "dsp_met_elsbeth",
+       "dsp_elsbeth_close"
+      ]
+     },
+     "moment": "Bắt đầu tình bạn với tiểu thư Elsbeth"
+    },
+    {
+     "label": "Giữ khoảng cách",
+     "text": "Cô tò mò hơn. Cô bắt đầu hỏi về quê hương bạn. Bạn bịa ra một thị trấn không có thật.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "dsp_met_elsbeth"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsp_c2_first_hound",
+   "races": [
+    "demon"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "demon_spy",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "notFlags": [
+     "dsp_first_hound",
+     "dsp_end"
+    ]
+   },
+   "text": "Một con Thánh Khuyển của Giáo hội đánh hơi thấy mùi Vực Thẳm trên gấu quần bạn. Nó sủa vang giữa quảng trường.",
+   "choices": [
+    {
+     "label": "Cho nó ăn một miếng thịt",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Con chó ăn, liếm tay bạn, và thôi sủa. Chủ nó cười: “Nó thích ngươi.” Bạn thở ra.",
+      "effects": {
+       "LUCK": 1,
+       "jobXp": 2,
+       "flags": [
+        "dsp_first_hound"
+       ]
+      },
+      "moment": "Thoát khỏi Thánh Khuyển bằng một miếng thịt"
+     },
+     "fail": {
+      "text": "Nó không ăn. Bạn phải bỏ chạy qua ba con phố.",
+      "effects": {
+       "health": -4,
+       "flags": [
+        "dsp_first_hound"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Đi thẳng, không nhìn nó",
+     "text": "Bạn đi qua như không có gì. Con chó sủa theo đến cuối phố. Không ai để ý một con chó sủa.",
+     "effects": {
+      "jobXp": 2,
+      "flags": [
+       "dsp_first_hound"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsp_c2_crossroads",
+   "races": [
+    "demon"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "demon_spy",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "dsp_path_loyal",
+     "dsp_path_human",
+     "dsp_path_double",
+     "dsp_end"
+    ],
+    "flags": [
+     "dsp_met_mask"
+    ]
+   },
+   "text": "Phu Nhân Mặt Nạ đưa bạn ba chiếc mặt nạ: một chiếc đen có dấu ấn Ma Vương, một chiếc trắng trơn, không dấu ấn gì, và một chiếc chia đôi, nửa đen nửa trắng.",
+   "choices": [
+    {
+     "label": "Mặt nạ đen: Gián Điệp Trung Thành",
+     "text": "Bạn sẽ phục vụ Ma Vương, dù phải sống cả đời trong vỏ bọc. Phu Nhân Mặt Nạ gật đầu.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "dsp_path_loyal"
+      ]
+     },
+     "moment": "Nhận chiếc mặt nạ đen của gián điệp trung thành"
+    },
+    {
+     "label": "Mặt nạ trắng: Kẻ Ở Lại",
+     "text": "Bạn sẽ ở lại với Human. Không phải như gián điệp. Như một người. Phu Nhân Mặt Nạ nhìn bạn rất lâu. “Ta đã chọn chiếc này. Ngươi thấy kết quả rồi đấy.”",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "dsp_path_human"
+      ]
+     },
+     "moment": "Nhận chiếc mặt nạ trắng, chọn sống như Human"
+    },
+    {
+     "label": "Mặt nạ hai màu: Gián Điệp Hai Mang",
+     "text": "Bạn sẽ bán tin cho cả hai bên. Phu Nhân Mặt Nạ cười: “Nguy hiểm nhất. Và hấp dẫn nhất.”",
+     "effects": {
+      "AGI": 1,
+      "jobXp": 2,
+      "flags": [
+       "dsp_path_double"
+      ]
+     },
+     "moment": "Nhận chiếc mặt nạ hai màu của gián điệp hai mang"
+    }
+   ]
+  },
+  {
+   "id": "dsp_loyal_poison",
+   "races": [
+    "demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "demon_spy",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dsp_path_loyal"
+    ],
+    "notFlags": [
+     "dsp_end"
+    ]
+   },
+   "text": "Mật lệnh từ Ma Vương: thả Lõi Tử Khí vào hồ chứa nước của thủ đô Sanctus. Hàng nghìn người sẽ chết.",
+   "choices": [
+    {
+     "label": "Thi hành",
+     "text": "Thủ đô ngập trong dịch bệnh. Ma Vương thưởng bạn. Bạn không dám nhìn vào mắt những người Human quen biết nữa.",
+     "effects": {
+      "fame": 10,
+      "joy": -15,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Thả lõi vào một hồ bỏ hoang",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Hồ bỏ hoang đổi màu. Báo cáo gửi về: nhiệm vụ hoàn thành. Ma Vương không kiểm tra. Thủ đô không ai chết.",
+      "effects": {
+       "INT": 1,
+       "joy": 8,
+       "jobXp": 3,
+       "flags": [
+        "dsp_loyal_fake"
+       ]
+      },
+      "moment": "Thả Lõi Tử Khí vào hồ bỏ hoang thay vì hồ nước thủ đô"
+     },
+     "fail": {
+      "text": "Một gián điệp khác kiểm tra. Bạn bị gọi về.",
+      "effects": {
+       "fame": -8
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsp_loyal_report",
+   "races": [
+    "demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "demon_spy",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dsp_path_loyal"
+    ],
+    "notFlags": [
+     "dsp_end"
+    ]
+   },
+   "text": "Bạn biết được kế hoạch phòng thủ của Sanctus. Nếu báo về, Ma Vương sẽ thắng trận tới.",
+   "choices": [
+    {
+     "label": "Báo về",
+     "text": "Ma Vương thắng. Bạn được thăng chức.",
+     "effects": {
+      "fame": 8,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Báo một nửa",
+     "text": "Ma Vương thắng, nhưng không quá dễ dàng. Hai bên mất ít người hơn.",
+     "effects": {
+      "fame": 4,
+      "joy": 4,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsp_human_life",
+   "races": [
+    "demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "demon_spy",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dsp_path_human"
+    ],
+    "notFlags": [
+     "dsp_end"
+    ]
+   },
+   "text": "Bạn đã sống như Human mười năm. Bạn có nhà, có bạn bè, có một con mèo. Phu Nhân Mặt Nạ gửi thư: đã đến lúc trở về.",
+   "choices": [
+    {
+     "label": "Không trả lời",
+     "text": "Thư thứ hai đến. Rồi thứ ba. Rồi không còn thư nào nữa. Bạn không biết đó là tha thứ hay là sát thủ.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "dsp_human_stayed"
+      ]
+     },
+     "moment": "Không trả lời thư triệu hồi về Ma Giới"
+    },
+    {
+     "label": "Trở về một lần, để nói lời từ biệt",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Phu Nhân Mặt Nạ nghe bạn, rồi gật đầu. “Ta đã muốn làm điều này ba trăm năm trước.” Bà để bạn đi.",
+      "effects": {
+       "joy": 10,
+       "jobXp": 3,
+       "flags": [
+        "dsp_human_released"
+       ]
+      },
+      "moment": "Được Phu Nhân Mặt Nạ cho phép rời khỏi nghề gián điệp"
+     },
+     "fail": {
+      "text": "Bà không để bạn đi. Bạn phải trốn.",
+      "effects": {
+       "health": -10,
+       "flags": [
+        "dsp_human_stayed"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsp_human_inquisition",
+   "races": [
+    "demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "demon_spy",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dsp_path_human"
+    ],
+    "notFlags": [
+     "dsp_end"
+    ]
+   },
+   "text": "Một chiến dịch thanh trừng ma vật quét qua thủ đô. Đội Thẩm Môn Quan bắt giữ bạn để thẩm vấn.",
+   "choices": [
+    {
+     "label": "Giữ vỏ bọc đến cùng",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Ba ngày thẩm vấn. Bạn không để lộ. Họ thả bạn, xin lỗi.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Sừng bạn mọc ra trong lúc ngủ. Họ biết.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Nhờ Elsbeth làm chứng",
+     "require": {
+      "flags": [
+       "dsp_elsbeth_close",
+       "dsp_met_elsbeth"
+      ]
+     },
+     "text": "Elsbeth đến, nói bạn là bạn cô từ nhỏ. Gia tộc cô quyền lực. Bạn được thả. Đêm ấy, cô hỏi: “Ngươi là gì?” Bạn trả lời thật.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "dsp_elsbeth_knows"
+      ]
+     },
+     "moment": "Elsbeth làm chứng cứu bạn, rồi biết sự thật"
+    }
+   ]
+  },
+  {
+   "id": "dsp_double_both",
+   "races": [
+    "demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "demon_spy",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dsp_path_double"
+    ],
+    "notFlags": [
+     "dsp_end"
+    ]
+   },
+   "text": "Cả Ma Vương lẫn Giáo hội đều tin bạn là người của họ. Giờ cả hai cùng đặt bạn một câu hỏi: kẻ thù sẽ tấn công ở đâu?",
+   "choices": [
+    {
+     "label": "Nói cho cả hai cùng một nơi",
+     "check": {
+      "stat": "INT",
+      "target": 8
+     },
+     "success": {
+      "text": "Cả hai quân đoàn đến cùng một thung lũng, cùng một lúc, và thấy nhau đông như thế nào. Không bên nào dám đánh. Họ rút.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "dsp_double_stalemate"
+       ]
+      },
+      "moment": "Lừa cả hai bên đến cùng một thung lũng để không bên nào dám đánh"
+     },
+     "fail": {
+      "text": "Một bên đến sớm hơn. Trận đánh xảy ra. Cả hai bên nghi ngờ bạn.",
+      "effects": {
+       "fame": -8
+      }
+     }
+    },
+    {
+     "label": "Nói thật cho một bên",
+     "text": "Bên ấy thắng. Bên kia bắt đầu nghi ngờ bạn.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsp_double_caught",
+   "races": [
+    "demon"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "demon_spy",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "dsp_path_double"
+    ],
+    "notFlags": [
+     "dsp_end"
+    ]
+   },
+   "text": "Một gián điệp Ma tộc khác nhận ra bạn đang bán tin cho Giáo hội.",
+   "choices": [
+    {
+     "label": "Mua chuộc hắn",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Hắn nhận, và từ đó hai người cùng bán tin cho cả hai bên. Bạn có thêm một đồng phạm.",
+      "effects": {
+       "wealth": -10,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Hắn nhận tiền, rồi vẫn báo cáo.",
+      "effects": {
+       "wealth": -10,
+       "fame": -8
+      }
+     }
+    },
+    {
+     "label": "Đổ tội cho hắn",
+     "text": "Hắn bị Ma Vương xử. Bạn sống. Bạn không còn biết mình đang phục vụ ai.",
+     "effects": {
+      "joy": -10,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsp_c4_mask",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_spy",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dsp_met_mask"
+    ],
+    "notFlags": [
+     "dsp_mask_gone",
+     "dsp_end"
+    ],
+    "anyFlags": [
+     "dsp_path_loyal",
+     "dsp_path_human",
+     "dsp_path_double"
+    ]
+   },
+   "text": "Phu Nhân Mặt Nạ bị Ma Vương nghi ngờ phản bội. Bà biết mình sắp chết. Bà gặp bạn lần cuối, ở một quán trọ Human.",
+   "choices": [
+    {
+     "label": "Giúp bà trốn",
+     "check": {
+      "stat": "AGI",
+      "target": 8
+     },
+     "success": {
+      "text": "Bạn đưa bà ra khỏi thành trong đêm. Bà sống những năm cuối ở một làng chài, không mặt nạ, như một bà già Human bình thường.",
+      "effects": {
+       "AGI": 1,
+       "joy": 8,
+       "jobXp": 3,
+       "flags": [
+        "dsp_mask_gone",
+        "dsp_mask_saved"
+       ]
+      },
+      "moment": "Giúp Phu Nhân Mặt Nạ trốn khỏi án tử của Ma Vương"
+     },
+     "fail": {
+      "text": "Sát thủ đến trước. Bà đẩy bạn ra cửa sau, và ở lại.",
+      "effects": {
+       "joy": -12,
+       "flags": [
+        "dsp_mask_gone"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Hỏi bà mặt thật của bà trông thế nào",
+     "text": "Bà mỉm cười. “Ta không nhớ. Đừng để mình quên.” Bà tháo mặt nạ, đặt vào tay bạn, và đi. Bạn không bao giờ gặp lại bà.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "dsp_mask_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsp_c4_elsbeth",
+   "races": [
+    "demon"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "demon_spy",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dsp_met_elsbeth"
+    ],
+    "notFlags": [
+     "dsp_end"
+    ]
+   },
+   "text": "Elsbeth sắp được gả cho một quý tộc Human. Cô gặp bạn ở vườn sau, và hỏi bạn có điều gì muốn nói không.",
+   "choices": [
+    {
+     "label": "Nói sự thật về mình",
+     "require": {
+      "flags": [
+       "dsp_elsbeth_close"
+      ]
+     },
+     "check": {
+      "stat": "LUCK",
+      "target": 8
+     },
+     "success": {
+      "text": "Cô nghe, im lặng, rồi nắm tay bạn. “Ta biết từ lâu rồi. Ta chỉ chờ ngươi nói.”",
+      "effects": {
+       "joy": 15,
+       "jobXp": 3,
+       "flags": [
+        "dsp_elsbeth_truth"
+       ]
+      },
+      "moment": "Nói sự thật với Elsbeth, và cô đã biết từ lâu"
+     },
+     "fail": {
+      "text": "Cô lùi lại, sợ hãi. Rồi cô đi. Cô không báo ai.",
+      "effects": {
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Chúc cô hạnh phúc",
+     "text": "Cô gật đầu, buồn. Cô cưới. Bạn đứng ở cuối nhà thờ, trong vỏ bọc Human, và không ai biết.",
+     "effects": {
+      "joy": -8,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsp_c5_loyal",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_spy",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dsp_path_loyal"
+    ],
+    "notFlags": [
+     "dsp_end"
+    ]
+   },
+   "text": "Bạn là Master Parasite, gián điệp vĩ đại nhất của Ma Vương.",
+   "choices": [
+    {
+     "label": "Trở về Ma Giới, cởi bỏ vỏ bọc",
+     "text": "Sừng mọc lại, da tái lại, giọng nói vang âm Vực Thẳm. Bạn nhìn mình trong gương, và lần đầu tiên sau trăm năm, nhận ra mình.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "dsp_end",
+       "dsp_end_return"
+      ]
+     },
+     "moment": "Trở về Ma Giới và cởi bỏ vỏ bọc Human"
+    },
+    {
+     "label": "Trình báo cáo cuối cùng",
+     "require": {
+      "flags": [
+       "dsp_loyal_fake"
+      ]
+     },
+     "text": "Báo cáo cuối cùng của bạn ghi: Sanctus không thể bị đánh bại bằng độc. Hãy tìm cách khác. Ma Vương đọc, và lần đầu tiên, cân nhắc hòa ước.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "dsp_end",
+       "dsp_end_last_report"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsp_c5_human",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_spy",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dsp_path_human"
+    ],
+    "notFlags": [
+     "dsp_end"
+    ]
+   },
+   "text": "Bạn là Master Parasite, nhưng không ai còn gọi bạn như thế. Ở thủ đô, bạn chỉ là một người hàng xóm già.",
+   "choices": [
+    {
+     "label": "Sống những năm cuối cạnh Elsbeth",
+     "require": {
+      "flags": [
+       "dsp_elsbeth_truth"
+      ]
+     },
+     "text": "Hai người già ngồi trong vườn, uống trà. Cô biết bạn là gì. Cô không quan tâm.",
+     "effects": {
+      "fame": 8,
+      "joy": 20,
+      "flags": [
+       "dsp_end",
+       "dsp_end_garden"
+      ]
+     },
+     "moment": "Sống những năm cuối trong vườn cùng Elsbeth"
+    },
+    {
+     "label": "Mở một quán trọ cho những Ma tộc lạc lõng",
+     "text": "Những gián điệp đã quên mình là ai tìm đến quán trọ của bạn. Ở đó, họ được tháo mặt nạ.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "dsp_end",
+       "dsp_end_inn"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsp_c5_double",
+   "races": [
+    "demon"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "demon_spy",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "dsp_path_double"
+    ],
+    "notFlags": [
+     "dsp_end"
+    ]
+   },
+   "text": "Bạn là Master Parasite. Cả Ma Vương lẫn Giáo hội đều tin bạn là người của họ, sau trăm năm.",
+   "choices": [
+    {
+     "label": "Dùng cả hai để ép hòa ước",
+     "require": {
+      "flags": [
+       "dsp_double_stalemate"
+      ]
+     },
+     "text": "Bạn đưa cho mỗi bên đúng những thông tin khiến chiến tranh trở nên vô nghĩa. Hòa ước được ký. Không bên nào biết người viết nó là cùng một người.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "dsp_end",
+       "dsp_end_peace"
+      ]
+     },
+     "moment": "Dùng vị trí gián điệp hai mang để ép hai bên ký hòa ước"
+    },
+    {
+     "label": "Biến mất",
+     "text": "Một ngày, bạn không còn ở đâu cả. Cả hai bên đều tìm. Không bên nào tìm ra.",
+     "effects": {
+      "fame": 10,
+      "joy": 10,
+      "flags": [
+       "dsp_end",
+       "dsp_end_vanish"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsp_daily_bread",
+   "races": [
+    "demon"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "demon_spy",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Bạn ăn bánh mì Human. Nó vẫn có vị như giấy.",
+   "choices": [
+    {
+     "label": "Ăn hết, mỉm cười",
+     "text": "Một người Human tốt sẽ làm thế.",
+     "effects": {
+      "jobXp": 1
+     }
+    },
+    {
+     "label": "Lén rắc thêm muối Vực Thẳm",
+     "text": "Ngon hơn nhiều. Không ai thấy.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsp_daily_war",
+   "races": [
+    "demon"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "demon_spy",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Thủ đô Human ngập trong nghi kỵ. Ai cũng có thể là gián điệp.",
+   "choices": [
+    {
+     "label": "Tố cáo một người vô tội để giữ vỏ bọc",
+     "text": "Họ bắt người đó. Bạn an toàn.",
+     "effects": {
+      "joy": -10,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Ở trong nhà, chờ qua",
+     "text": "Bạn sống. Hàng xóm nghi ngờ, nhưng không có bằng chứng.",
+     "effects": {
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsp_daily_old",
+   "races": [
+    "demon"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "demon_spy",
+    "free": true
+   },
+   "text": "Bạn đã đóng vai Human lâu đến mức quên mất hình dạng thật của mình.",
+   "choices": [
+    {
+     "label": "Thử biến lại",
+     "text": "Sừng mọc ra, chậm, đau. Bạn nhìn gương, và nhận ra mình. Bạn khóc.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Không biến lại nữa",
+     "text": "Có lẽ đây là hình dạng thật của bạn bây giờ.",
+     "effects": {
+      "joy": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "dsp_c5_loyal_late",
+   "races": [
+    "demon"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "demon_spy",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dsp_path_loyal"
+    ],
+    "notFlags": [
+     "dsp_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Master Parasite, gián điệp vĩ đại nhất của Ma Vương.",
+   "choices": [
+    {
+     "label": "Trở về Ma Giới, cởi bỏ vỏ bọc",
+     "text": "Sừng mọc lại, da tái lại, giọng nói vang âm Vực Thẳm. Bạn nhìn mình trong gương, và lần đầu tiên sau trăm năm, nhận ra mình.",
+     "effects": {
+      "fame": 12,
+      "joy": 10,
+      "flags": [
+       "dsp_end",
+       "dsp_end_return"
+      ]
+     },
+     "moment": "Trở về Ma Giới và cởi bỏ vỏ bọc Human"
+    },
+    {
+     "label": "Trình báo cáo cuối cùng",
+     "require": {
+      "flags": [
+       "dsp_loyal_fake"
+      ]
+     },
+     "text": "Báo cáo cuối cùng của bạn ghi: Sanctus không thể bị đánh bại bằng độc. Hãy tìm cách khác. Ma Vương đọc, và lần đầu tiên, cân nhắc hòa ước.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "dsp_end",
+       "dsp_end_last_report"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "elder"
+   ]
+  },
+  {
+   "id": "dsp_c5_human_late",
+   "races": [
+    "demon"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "demon_spy",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dsp_path_human"
+    ],
+    "notFlags": [
+     "dsp_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Master Parasite, nhưng không ai còn gọi bạn như thế. Ở thủ đô, bạn chỉ là một người hàng xóm già.",
+   "choices": [
+    {
+     "label": "Sống những năm cuối cạnh Elsbeth",
+     "require": {
+      "flags": [
+       "dsp_elsbeth_truth"
+      ]
+     },
+     "text": "Hai người già ngồi trong vườn, uống trà. Cô biết bạn là gì. Cô không quan tâm.",
+     "effects": {
+      "fame": 8,
+      "joy": 20,
+      "flags": [
+       "dsp_end",
+       "dsp_end_garden"
+      ]
+     },
+     "moment": "Sống những năm cuối trong vườn cùng Elsbeth"
+    },
+    {
+     "label": "Mở một quán trọ cho những Ma tộc lạc lõng",
+     "text": "Những gián điệp đã quên mình là ai tìm đến quán trọ của bạn. Ở đó, họ được tháo mặt nạ.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "dsp_end",
+       "dsp_end_inn"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "elder"
+   ]
+  },
+  {
+   "id": "dsp_c5_double_late",
+   "races": [
+    "demon"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "demon_spy",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "dsp_path_double"
+    ],
+    "notFlags": [
+     "dsp_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Master Parasite. Cả Ma Vương lẫn Giáo hội đều tin bạn là người của họ, sau trăm năm.",
+   "choices": [
+    {
+     "label": "Dùng cả hai để ép hòa ước",
+     "require": {
+      "flags": [
+       "dsp_double_stalemate"
+      ]
+     },
+     "text": "Bạn đưa cho mỗi bên đúng những thông tin khiến chiến tranh trở nên vô nghĩa. Hòa ước được ký. Không bên nào biết người viết nó là cùng một người.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "dsp_end",
+       "dsp_end_peace"
+      ]
+     },
+     "moment": "Dùng vị trí gián điệp hai mang để ép hai bên ký hòa ước"
+    },
+    {
+     "label": "Biến mất",
+     "text": "Một ngày, bạn không còn ở đâu cả. Cả hai bên đều tìm. Không bên nào tìm ra.",
+     "effects": {
+      "fame": 10,
+      "joy": 10,
+      "flags": [
+       "dsp_end",
+       "dsp_end_vanish"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "elder"
+   ]
+  }
+ ]
+}

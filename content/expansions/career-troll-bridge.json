@@ -1,0 +1,1065 @@
+{
+ "_note": "Tuyến truyện Bridge Troll: ba đạo (trb_path_toll / trb_path_keeper / trb_path_riddle), nhân vật xuyên suốt ông Gorm Mũi To (Troll giữ cầu già) và Pip (thằng bé Human bán bánh).",
+ "origins": [],
+ "events": [
+  {
+   "id": "trb_c1_gorm",
+   "races": [
+    "troll"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "troll_bridge",
+    "free": true,
+    "jobRankMax": 1,
+    "notFlags": [
+     "trb_met_gorm"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Gorm Mũi To",
+     "race": "Troll",
+     "position": "Troll giữ cầu đá già"
+    }
+   ],
+   "text": "Ông Gorm Mũi To giữ cây cầu đá suốt bốn mươi năm. Ông dạy bạn bài đầu tiên của nghề giữ cầu: “Ai qua cầu thì trả. Trả gì cũng được. Nhưng phải trả.”",
+   "choices": [
+    {
+     "label": "Hỏi trả gì cũng được thật à",
+     "text": "Ông Gorm gật đầu nghiêm trọng, rồi lôi ra một cái túi: một chiếc giày, ba hòn sỏi đẹp, một bài hát viết trên vỏ cây, và một con ếch đã ngủ. “Bài hát là cái ông thích nhất.”",
+     "effects": {
+      "joy": 6,
+      "jobXp": 1,
+      "flags": [
+       "trb_met_gorm",
+       "trb_gorm_fond"
+      ]
+     },
+     "moment": "Xem túi đồ trả phí qua cầu kỳ lạ của ông Gorm"
+    },
+    {
+     "label": "Đòi vàng",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Người đầu tiên bạn chặn trả một đồng vàng, run rẩy. Ông Gorm nhìn đồng vàng, rồi nhìn bạn. “Vàng thì ăn không được.” Ông đưa bạn một con ếch.",
+      "effects": {
+       "wealth": 2,
+       "jobXp": 1,
+       "flags": [
+        "trb_met_gorm"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Người đầu tiên bạn chặn là một hiệp sĩ. Bạn ngồi dưới gầm cầu cả buổi chiều, đợi vết chém lành.",
+      "effects": {
+       "health": -5,
+       "flags": [
+        "trb_met_gorm"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "trb_c1_pip",
+   "races": [
+    "troll"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "troll_bridge",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "trb_met_gorm"
+    ],
+    "notFlags": [
+     "trb_met_pip"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Pip",
+     "race": "Human",
+     "position": "Thằng bé Human bán bánh qua cầu mỗi sáng"
+    }
+   ],
+   "text": "Một thằng bé Human tên Pip qua cầu mỗi sáng, mang bánh ra chợ. Nó không sợ bạn. Nó nói: “Bánh hôm nay hơi cháy, ông Troll ăn không?”",
+   "choices": [
+    {
+     "label": "Ăn",
+     "text": "Bánh cháy ngon nhất đời bạn. Từ đó, mỗi sáng, Pip để lại một chiếc bánh cháy làm phí qua cầu.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 1,
+      "flags": [
+       "trb_met_pip",
+       "trb_pip_friend"
+      ]
+     },
+     "moment": "Nhận chiếc bánh cháy đầu tiên của Pip làm phí qua cầu"
+    },
+    {
+     "label": "Gầm lên dọa nó",
+     "text": "Pip nhìn bạn, rồi cười khúc khích. “Ông Troll gầm như con bò.” Nó để lại bánh và đi. Bạn ăn bánh, hơi xấu hổ.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 1,
+      "flags": [
+       "trb_met_pip"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "trb_c2_first_fire",
+   "races": [
+    "troll"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "troll_bridge",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "flags": [
+     "trb_met_gorm"
+    ],
+    "notFlags": [
+     "trb_first_fire",
+     "trb_end"
+    ]
+   },
+   "text": "Một pháp sư mạo hiểm giả đứng ở đầu cầu, niệm chú. Ngọn lửa trên tay hắn to dần. Troll sợ lửa, vì lửa là thứ duy nhất làm Troll không mọc lại được.",
+   "choices": [
+    {
+     "label": "Nhảy xuống sông",
+     "text": "Bạn ướt sũng, nhưng còn nguyên. Pháp sư đi qua cầu, không trả gì. Ông Gorm nói: “Lần này ngươi thua. Không sao. Troll thua vẫn còn sống.”",
+     "effects": {
+      "jobXp": 2,
+      "flags": [
+       "trb_first_fire"
+      ]
+     }
+    },
+    {
+     "label": "Thổi tắt lửa bằng một cái hắt hơi",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn hắt hơi thật to. Ngọn lửa tắt phụt. Pháp sư nhìn tay mình, nhìn bạn, và trả phí qua cầu bằng chiếc mũ của hắn.",
+      "effects": {
+       "LUCK": 1,
+       "fame": 4,
+       "jobXp": 2,
+       "flags": [
+        "trb_first_fire"
+       ]
+      },
+      "moment": "Hắt hơi thổi tắt ngọn lửa của pháp sư"
+     },
+     "fail": {
+      "text": "Bạn hắt hơi vào lửa. Râu bạn cháy. Bạn nhảy xuống sông.",
+      "effects": {
+       "health": -8,
+       "flags": [
+        "trb_first_fire"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "trb_c2_crossroads",
+   "races": [
+    "troll"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "troll_bridge",
+    "free": true,
+    "jobRank": 1,
+    "flags": [
+     "trb_met_gorm"
+    ],
+    "notFlags": [
+     "trb_path_toll",
+     "trb_path_keeper",
+     "trb_path_riddle",
+     "trb_end"
+    ]
+   },
+   "text": "Ông Gorm ngồi trên lan can cầu, chân đung đưa trên mặt nước. “Có ba kiểu Troll giữ cầu. Kiểu thu tiền, kiểu sửa cầu, và kiểu hỏi đố. Ông là kiểu thứ ba. Ngươi là kiểu gì?”",
+   "choices": [
+    {
+     "label": "Kiểu thu tiền: Vua Thu Phí",
+     "text": "Bạn sẽ thu phí qua cầu, và một ngày nào đó, có cả một túi vàng. Bạn chưa biết làm gì với vàng, nhưng nghe nói nó tốt.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "trb_path_toll"
+      ]
+     },
+     "moment": "Chọn làm Troll thu phí qua cầu"
+    },
+    {
+     "label": "Kiểu sửa cầu: Người Giữ Đá",
+     "text": "Cây cầu già rồi. Bạn sẽ giữ cho nó đứng. Ông Gorm vỗ vai bạn: “Kiểu hiếm nhất.”",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "trb_path_keeper"
+      ]
+     },
+     "moment": "Chọn sửa và giữ cho cây cầu đá đứng vững"
+    },
+    {
+     "label": "Kiểu hỏi đố: Câu Đố Dưới Gầm Cầu",
+     "text": "Ai trả lời được câu đố thì qua miễn phí. Ai không trả lời được thì phải kể bạn nghe một câu chuyện. Ông Gorm cười to đến nỗi suýt ngã xuống sông.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "trb_path_riddle"
+      ]
+     },
+     "moment": "Chọn đặt câu đố cho người qua cầu"
+    }
+   ]
+  },
+  {
+   "id": "trb_toll_goats",
+   "races": [
+    "troll"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "troll_bridge",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "trb_path_toll"
+    ],
+    "notFlags": [
+     "trb_end"
+    ]
+   },
+   "text": "Ba con dê đi qua cầu. Con nhỏ nhất bảo hãy đợi con lớn hơn phía sau. Con nhỡ cũng bảo vậy.",
+   "choices": [
+    {
+     "label": "Đợi con lớn nhất",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Con dê lớn nhất húc bạn. Bạn đứng vững, và nó bất ngờ. Ba con dê trả phí bằng ba bình sữa.",
+      "effects": {
+       "STR": 1,
+       "wealth": 3,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Con dê lớn nhất húc bạn rơi xuống sông. Ba con dê đi qua. Bạn nghe như có ai đó đã kể câu chuyện này trước rồi.",
+      "effects": {
+       "health": -6
+      }
+     }
+    },
+    {
+     "label": "Ăn con nhỏ nhất ngay",
+     "text": "Bạn mở miệng, rồi dừng lại. Nó nhỏ quá, và nó nhìn bạn. Bạn để cả ba con đi, không lấy gì. Ông Gorm, nếu biết, sẽ cười.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "trb_toll_merchant",
+   "races": [
+    "troll"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "troll_bridge",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "trb_path_toll"
+    ],
+    "notFlags": [
+     "trb_end"
+    ]
+   },
+   "text": "Một thương nhân Sói Bạc ném cho bạn một đồng Cẩm Thạch giả, rồi thúc xe qua cầu.",
+   "choices": [
+    {
+     "label": "Cắn đồng xu thử",
+     "check": {
+      "stat": "LUCK",
+      "target": 6
+     },
+     "success": {
+      "text": "Răng Troll gãy được mọi thứ, trừ Cẩm Thạch thật. Đồng xu gãy làm đôi. Bạn chặn xe lại, và thương nhân phải trả gấp ba.",
+      "effects": {
+       "wealth": 8,
+       "fame": 3,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Đồng xu giả cứng hơn bạn tưởng. Răng bạn mẻ. Nó mọc lại sau một tuần, nhưng thương nhân đã đi xa.",
+      "effects": {
+       "health": -3
+      }
+     }
+    },
+    {
+     "label": "Ngồi lên xe hàng của hắn",
+     "text": "Xe không đi được. Thương nhân trả đủ phí, cộng thêm một thùng táo để bạn chịu đứng dậy.",
+     "effects": {
+      "wealth": 5,
+      "joy": 4,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "trb_keeper_flood",
+   "races": [
+    "troll"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "troll_bridge",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "trb_path_keeper"
+    ],
+    "notFlags": [
+     "trb_end"
+    ]
+   },
+   "text": "Mưa lớn. Nước sông dâng cao, đập vào trụ cầu. Một trụ đá bắt đầu nghiêng.",
+   "choices": [
+    {
+     "label": "Đứng dưới nước chống trụ cầu bằng lưng",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn đứng suốt đêm, nước chảy qua cổ. Trụ cầu không đổ. Sáng ra, dân làng hai bờ đứng nhìn một Troll ướt sũng, ngủ gật dưới cầu.",
+      "effects": {
+       "STR": 1,
+       "fame": 10,
+       "jobXp": 3,
+       "flags": [
+        "trb_keeper_flood"
+       ]
+      },
+      "moment": "Đứng dưới nước cả đêm chống trụ cầu khỏi đổ"
+     },
+     "fail": {
+      "text": "Trụ cầu nghiêng thêm. Bạn bị đá đè, nhưng Troll mọc lại được. Cầu thì không.",
+      "effects": {
+       "health": -15
+      }
+     }
+    },
+    {
+     "label": "Kéo đá chèn chân trụ",
+     "text": "Bạn kéo những tảng đá to bằng con bò. Trụ cầu đứng vững, hơi nghiêng. Từ đó cây cầu có một chỗ cong đặc biệt.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "trb_keeper_mason",
+   "races": [
+    "troll"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "troll_bridge",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "trb_path_keeper"
+    ],
+    "notFlags": [
+     "trb_end"
+    ]
+   },
+   "text": "Một thợ đá Dwarf đi qua, nhìn cây cầu, lắc đầu: “Năm năm nữa là sập.” Rồi ông ta nhìn bạn: “Trừ khi có ai đó học cách sửa nó.”",
+   "choices": [
+    {
+     "label": "Xin học",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Ông ta ở lại một mùa, dạy bạn cách đẽo đá, chèn vữa. Bạn chậm, nhưng nhớ. Khi ông ta đi, cây cầu chắc hơn bao giờ hết.",
+      "effects": {
+       "INT": 1,
+       "jobXp": 3,
+       "flags": [
+        "trb_keeper_mason"
+       ]
+      },
+      "moment": "Học nghề sửa cầu từ một thợ đá Dwarf đi ngang"
+     },
+     "fail": {
+      "text": "Bạn học được cách đẽo đá, nhưng quên mất cách chèn vữa.",
+      "effects": {
+       "jobXp": 1
+      }
+     }
+    },
+    {
+     "label": "Bảo ông ta sửa giùm, trả bằng ếch",
+     "text": "Ông ta nhìn con ếch, thở dài, và sửa một nửa cây cầu. Nửa còn lại vẫn kêu cót két.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "trb_riddle_scholar",
+   "races": [
+    "troll"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "troll_bridge",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "trb_path_riddle"
+    ],
+    "notFlags": [
+     "trb_end"
+    ]
+   },
+   "text": "Một học giả Elf dừng ở đầu cầu, nghe câu đố của bạn, và cười. Rồi ông ta hỏi lại bạn một câu đố.",
+   "choices": [
+    {
+     "label": "Suy nghĩ thật lâu",
+     "check": {
+      "stat": "INT",
+      "target": 6
+     },
+     "success": {
+      "text": "Ba ngày sau, bạn trả lời được. Học giả vẫn ngồi chờ ở đầu cầu. Ông ta vỗ tay, và để lại cho bạn một cuốn sách đố.",
+      "effects": {
+       "INT": 1,
+       "fame": 5,
+       "jobXp": 3,
+       "flags": [
+        "trb_riddle_book"
+       ]
+      },
+      "moment": "Giải được câu đố của học giả Elf sau ba ngày suy nghĩ"
+     },
+     "fail": {
+      "text": "Bạn không trả lời được. Học giả qua cầu miễn phí, và để lại đáp án viết trên một chiếc lá.",
+      "effects": {
+       "joy": -2
+      }
+     }
+    },
+    {
+     "label": "Ăn câu đố",
+     "text": "Bạn không biết “ăn câu đố” nghĩa là gì, nhưng bạn nói thế. Học giả cười đến chảy nước mắt, và trả phí bằng một câu chuyện dài.",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "trb_riddle_children",
+   "races": [
+    "troll"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "troll_bridge",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "trb_path_riddle"
+    ],
+    "notFlags": [
+     "trb_end"
+    ]
+   },
+   "text": "Trẻ con trong làng bắt đầu đến cầu chỉ để nghe câu đố của bạn. Một bà mẹ lo lắng đứng xa nhìn.",
+   "choices": [
+    {
+     "label": "Đố chúng những câu dễ",
+     "text": "Chúng trả lời được, hò reo. Bà mẹ thôi đứng xa.",
+     "effects": {
+      "joy": 10,
+      "jobXp": 3,
+      "flags": [
+       "trb_riddle_kids"
+      ]
+     },
+     "moment": "Lũ trẻ làng bắt đầu đến cầu nghe câu đố của Troll"
+    },
+    {
+     "label": "Đố chúng những câu khó",
+     "text": "Chúng nghĩ cả ngày. Một đứa trả lời được, và nó tự hào đến mức kể với cả làng.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "trb_c4_gorm",
+   "races": [
+    "troll"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "troll_bridge",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "trb_met_gorm"
+    ],
+    "notFlags": [
+     "trb_gorm_gone",
+     "trb_end"
+    ],
+    "anyFlags": [
+     "trb_path_toll",
+     "trb_path_keeper",
+     "trb_path_riddle"
+    ]
+   },
+   "text": "Ông Gorm không ra khỏi gầm cầu nữa. Rêu mọc lên người ông. Ông nói ông muốn thành một phần của cây cầu.",
+   "choices": [
+    {
+     "label": "Ngồi cạnh ông, hát bài hát trong túi",
+     "text": "Bạn hát bài hát viết trên vỏ cây, bài ông thích nhất. Ông nhắm mắt, mỉm cười, và từ từ hóa đá. Giờ cây cầu có thêm một trụ, hình như một Troll đang ngủ.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 3,
+      "flags": [
+       "trb_gorm_gone"
+      ]
+     },
+     "moment": "Hát cho ông Gorm nghe khi ông hóa đá dưới gầm cầu"
+    },
+    {
+     "label": "Mang cho ông chiếc bánh cháy",
+     "text": "Ông ăn, chậm rãi. “Ngon.” Ông ngủ, và không thức dậy. Rêu phủ kín ông trong một mùa.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "trb_gorm_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "trb_c4_pip",
+   "races": [
+    "troll"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "troll_bridge",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "trb_met_pip"
+    ],
+    "notFlags": [
+     "trb_end"
+    ]
+   },
+   "text": "Pip đã lớn, giờ là thợ làm bánh chính của làng. Nó vẫn qua cầu mỗi sáng, mang theo một chiếc bánh cháy, và giờ có cả con trai nó đi cùng.",
+   "choices": [
+    {
+     "label": "Dọa thằng bé cho vui",
+     "require": {
+      "flags": [
+       "trb_pip_friend"
+      ]
+     },
+     "text": "Bạn gầm lên. Thằng bé cười khúc khích: “Ông Troll gầm như con bò.” Pip cười đến ngồi bệt xuống cầu.",
+     "effects": {
+      "joy": 12,
+      "jobXp": 3,
+      "flags": [
+       "trb_pip_family"
+      ]
+     },
+     "moment": "Gầm dọa con trai Pip, và nó cười y như bố nó ngày xưa"
+    },
+    {
+     "label": "Hỏi Pip vì sao vẫn mang bánh cháy",
+     "text": "Pip cười: “Vì ông thích bánh cháy. Ta cố tình làm cháy một chiếc mỗi sáng.”",
+     "effects": {
+      "joy": 8,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "trb_c5_toll",
+   "races": [
+    "troll"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "troll_bridge",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "trb_path_toll"
+    ],
+    "notFlags": [
+     "trb_end"
+    ]
+   },
+   "text": "Bạn là Stone Bridge King. Túi vàng dưới gầm cầu của bạn to bằng một con bò.",
+   "choices": [
+    {
+     "label": "Dùng vàng xây cây cầu thứ hai",
+     "text": "Bạn không biết làm gì với vàng, nên bạn xây một cây cầu nữa. Rồi một cây nữa. Giờ có ba cây cầu, và ba Troll trẻ giữ chúng.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "trb_end",
+       "trb_end_three_bridges"
+      ]
+     },
+     "moment": "Dùng túi vàng thu phí xây thêm cầu cho Troll trẻ giữ"
+    },
+    {
+     "label": "Ngủ trên đống vàng",
+     "text": "Vàng cứng, lạnh, và khó ngủ. Bạn nhận ra ông Gorm nói đúng: vàng thì ăn không được.",
+     "effects": {
+      "wealth": 20,
+      "joy": 4,
+      "flags": [
+       "trb_end",
+       "trb_end_gold_bed"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "trb_c5_keeper",
+   "races": [
+    "troll"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "troll_bridge",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "trb_path_keeper"
+    ],
+    "notFlags": [
+     "trb_end"
+    ]
+   },
+   "text": "Bạn là Stone Bridge King. Cây cầu đá chưa bao giờ chắc chắn như thế.",
+   "choices": [
+    {
+     "label": "Dạy dân làng sửa cầu",
+     "require": {
+      "flags": [
+       "trb_keeper_mason"
+      ]
+     },
+     "text": "Bạn dạy họ những gì thợ đá Dwarf đã dạy bạn. Giờ hai bờ sông cùng giữ cây cầu.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "trb_end",
+       "trb_end_village_bridge"
+      ]
+     },
+     "moment": "Dạy dân làng hai bờ sông cách sửa cầu"
+    },
+    {
+     "label": "Trở thành một trụ cầu, như ông Gorm",
+     "text": "Bạn ngồi xuống cạnh trụ đá hình ông Gorm, và nhắm mắt. Rêu mọc lên. Cây cầu có thêm một trụ.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "trb_end",
+       "trb_end_pillar"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "trb_c5_riddle",
+   "races": [
+    "troll"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "troll_bridge",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "trb_path_riddle"
+    ],
+    "notFlags": [
+     "trb_end"
+    ]
+   },
+   "text": "Bạn là Stone Bridge King. Người ta đi từ xa đến chỉ để nghe câu đố dưới gầm cầu.",
+   "choices": [
+    {
+     "label": "Mở trường đố dưới gầm cầu",
+     "require": {
+      "flags": [
+       "trb_riddle_kids"
+      ]
+     },
+     "text": "Trẻ con hai bờ sông học đọc, học đếm, học nghĩ, dưới gầm cầu của một con Troll. Không ai trong làng tin được điều đó, nhưng con họ thông minh hơn.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "trb_end",
+       "trb_end_school"
+      ]
+     },
+     "moment": "Mở trường học dưới gầm cầu cho trẻ con hai bờ sông"
+    },
+    {
+     "label": "Đặt câu đố cuối cùng",
+     "text": "Câu đố cuối cùng của bạn khắc lên đá đầu cầu. Đến giờ vẫn chưa ai giải được. Có lẽ không có đáp án. Có lẽ đó chính là đáp án.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "trb_end",
+       "trb_end_last_riddle"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "trb_daily_frog",
+   "races": [
+    "troll"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "troll_bridge",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một con ếch nhảy lên đầu bạn và ngủ.",
+   "choices": [
+    {
+     "label": "Để nó ngủ",
+     "text": "Bạn ngồi yên cả buổi chiều. Không ai qua cầu.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Ăn",
+     "text": "Ếch ngon.",
+     "effects": {
+      "joy": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "trb_daily_war",
+   "races": [
+    "troll"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "troll_bridge",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Một đạo quân muốn qua cầu.",
+   "choices": [
+    {
+     "label": "Đòi phí như mọi người",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Đạo quân trả. Một bao lúa cho mỗi trăm lính. Bạn ăn no cả mùa đông.",
+      "effects": {
+       "wealth": 5,
+       "jobXp": 2
+      }
+     },
+     "fail": {
+      "text": "Đạo quân không trả. Họ có đuốc. Bạn nhảy xuống sông.",
+      "effects": {
+       "health": -6
+      }
+     }
+    },
+    {
+     "label": "Phá cầu",
+     "text": "Đạo quân phải đi vòng mười ngày. Bạn mất cả mùa xây lại cầu.",
+     "effects": {
+      "fame": 4,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "trb_daily_old",
+   "races": [
+    "troll"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "troll_bridge",
+    "free": true
+   },
+   "text": "Rêu mọc dày trên lưng bạn. Bạn ngủ nhiều hơn thức.",
+   "choices": [
+    {
+     "label": "Để rêu mọc",
+     "text": "Chim làm tổ trên lưng bạn. Bạn không phiền.",
+     "effects": {
+      "joy": 8
+     }
+    },
+    {
+     "label": "Lăn xuống sông tắm",
+     "text": "Rêu trôi đi. Bạn thấy trẻ ra một chút.",
+     "effects": {
+      "health": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "trb_c5_toll_late",
+   "races": [
+    "troll"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "troll_bridge",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "trb_path_toll"
+    ],
+    "notFlags": [
+     "trb_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Stone Bridge King. Túi vàng dưới gầm cầu của bạn to bằng một con bò.",
+   "choices": [
+    {
+     "label": "Dùng vàng xây cây cầu thứ hai",
+     "text": "Bạn không biết làm gì với vàng, nên bạn xây một cây cầu nữa. Rồi một cây nữa. Giờ có ba cây cầu, và ba Troll trẻ giữ chúng.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "trb_end",
+       "trb_end_three_bridges"
+      ]
+     },
+     "moment": "Dùng túi vàng thu phí xây thêm cầu cho Troll trẻ giữ"
+    },
+    {
+     "label": "Ngủ trên đống vàng",
+     "text": "Vàng cứng, lạnh, và khó ngủ. Bạn nhận ra ông Gorm nói đúng: vàng thì ăn không được.",
+     "effects": {
+      "wealth": 20,
+      "joy": 4,
+      "flags": [
+       "trb_end",
+       "trb_end_gold_bed"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "trb_c5_keeper_late",
+   "races": [
+    "troll"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "troll_bridge",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "trb_path_keeper"
+    ],
+    "notFlags": [
+     "trb_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Stone Bridge King. Cây cầu đá chưa bao giờ chắc chắn như thế.",
+   "choices": [
+    {
+     "label": "Dạy dân làng sửa cầu",
+     "require": {
+      "flags": [
+       "trb_keeper_mason"
+      ]
+     },
+     "text": "Bạn dạy họ những gì thợ đá Dwarf đã dạy bạn. Giờ hai bờ sông cùng giữ cây cầu.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "trb_end",
+       "trb_end_village_bridge"
+      ]
+     },
+     "moment": "Dạy dân làng hai bờ sông cách sửa cầu"
+    },
+    {
+     "label": "Trở thành một trụ cầu, như ông Gorm",
+     "text": "Bạn ngồi xuống cạnh trụ đá hình ông Gorm, và nhắm mắt. Rêu mọc lên. Cây cầu có thêm một trụ.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "trb_end",
+       "trb_end_pillar"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "trb_c5_riddle_late",
+   "races": [
+    "troll"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "troll_bridge",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "trb_path_riddle"
+    ],
+    "notFlags": [
+     "trb_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Stone Bridge King. Người ta đi từ xa đến chỉ để nghe câu đố dưới gầm cầu.",
+   "choices": [
+    {
+     "label": "Mở trường đố dưới gầm cầu",
+     "require": {
+      "flags": [
+       "trb_riddle_kids"
+      ]
+     },
+     "text": "Trẻ con hai bờ sông học đọc, học đếm, học nghĩ, dưới gầm cầu của một con Troll. Không ai trong làng tin được điều đó, nhưng con họ thông minh hơn.",
+     "effects": {
+      "fame": 15,
+      "joy": 15,
+      "flags": [
+       "trb_end",
+       "trb_end_school"
+      ]
+     },
+     "moment": "Mở trường học dưới gầm cầu cho trẻ con hai bờ sông"
+    },
+    {
+     "label": "Đặt câu đố cuối cùng",
+     "text": "Câu đố cuối cùng của bạn khắc lên đá đầu cầu. Đến giờ vẫn chưa ai giải được. Có lẽ không có đáp án. Có lẽ đó chính là đáp án.",
+     "effects": {
+      "fame": 12,
+      "joy": 12,
+      "flags": [
+       "trb_end",
+       "trb_end_last_riddle"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}

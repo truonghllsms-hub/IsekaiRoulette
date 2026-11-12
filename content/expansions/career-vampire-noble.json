@@ -1,0 +1,1074 @@
+{
+ "_note": "Tuyến truyện Night Noble (Vampire): ba đạo (vpn_path_court / vpn_path_mortal / vpn_path_old), nhân vật xuyên suốt Phu nhân Seraphel (Vampire cổ, người tạo ra bạn) và gia tộc Ashcombe (con người qua nhiều đời).",
+ "origins": [],
+ "events": [
+  {
+   "id": "vpn_c1_seraphel",
+   "races": [
+    "vampire"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "vampire_noble",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "vpn_met_seraphel"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Seraphel",
+     "race": "Vampire",
+     "position": "Vampire cổ ba nghìn năm, người đã tạo ra bạn"
+    }
+   ],
+   "text": "Phu nhân Seraphel đã sống ba nghìn năm. Bà dạy bạn bài học đầu tiên của giới quý tộc Huyết Tộc: “Đừng bao giờ uống từ chiếc cốc người khác rót. Đừng bao giờ yêu thứ gì sống ngắn hơn một bông hồng.”",
+   "choices": [
+    {
+     "label": "Hỏi bà đã từng yêu thứ gì như thế chưa",
+     "text": "Bà im lặng rất lâu. Rồi bà mở một chiếc hộp nhỏ: bên trong là một bông hồng khô, đã ba trăm năm. Bà đóng hộp lại, không nói gì thêm.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 1,
+      "flags": [
+       "vpn_met_seraphel",
+       "vpn_seraphel_secret"
+      ]
+     },
+     "moment": "Thấy bông hồng khô ba trăm năm trong hộp của Phu nhân Seraphel"
+    },
+    {
+     "label": "Gật đầu, ghi nhớ",
+     "check": {
+      "stat": "LUCK",
+      "target": 5
+     },
+     "success": {
+      "text": "Bà mỉm cười. “Ngươi sẽ sống lâu.” Bà dạy bạn cách nhận ra độc trong rượu vang, chỉ bằng mùi.",
+      "effects": {
+       "LUCK": 1,
+       "jobXp": 1,
+       "flags": [
+        "vpn_met_seraphel"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bà nhìn bạn, biết bạn chưa hiểu. “Rồi ngươi sẽ học. Cách đau.”",
+      "effects": {
+       "flags": [
+        "vpn_met_seraphel"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpn_c1_ashcombe",
+   "races": [
+    "vampire"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "vampire_noble",
+    "free": true,
+    "jobRankMax": 2,
+    "flags": [
+     "vpn_met_seraphel"
+    ],
+    "notFlags": [
+     "vpn_met_ashcombe"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Edmund Ashcombe",
+     "race": "Human",
+     "position": "Quý tộc Human trẻ không sợ Huyết Tộc"
+    }
+   ],
+   "text": "Edmund Ashcombe là một quý tộc Human trẻ, thông minh, nghèo, và không sợ bạn. Anh ta đề nghị một thỏa thuận: anh ta làm người đại diện cho bạn ban ngày, bạn bảo vệ gia tộc anh ta ban đêm.",
+   "choices": [
+    {
+     "label": "Đồng ý",
+     "text": "Edmund giữ lời suốt đời. Khi anh ta già, con trai anh ta tiếp tục. Rồi cháu. Gia tộc Ashcombe trở thành bàn tay ban ngày của bạn.",
+     "effects": {
+      "wealth": 5,
+      "jobXp": 1,
+      "flags": [
+       "vpn_met_ashcombe",
+       "vpn_ashcombe_pact"
+      ]
+     },
+     "moment": "Ký thỏa thuận với Edmund Ashcombe, mở đầu một mối giao ước qua nhiều đời"
+    },
+    {
+     "label": "Từ chối, con người chết quá nhanh",
+     "text": "Edmund nhún vai, cười, và rời đi. Năm mươi năm sau, bạn nghe tin anh ta mất, giàu có, con cháu đầy nhà. Bạn tự hỏi mình đã bỏ lỡ gì.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "vpn_met_ashcombe"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpn_c2_first_ball",
+   "races": [
+    "vampire"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "vampire_noble",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "flags": [
+     "vpn_met_seraphel"
+    ],
+    "notFlags": [
+     "vpn_first_ball",
+     "vpn_end"
+    ]
+   },
+   "text": "Vũ hội đầu tiên của bạn trong giới Huyết Tộc. Một Hầu tước nâng ly mời bạn rượu vang Huyết Kim. Khứu giác của bạn bắt được mùi lạ.",
+   "choices": [
+    {
+     "label": "Đổi ly với ông ta, mỉm cười",
+     "check": {
+      "stat": "AGI",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn đổi ly nhanh đến mức không ai thấy. Hầu tước uống, rồi ngất. Cả phòng vũ hội biết bạn đã qua bài thử đầu tiên.",
+      "effects": {
+       "AGI": 1,
+       "fame": 5,
+       "jobXp": 2,
+       "flags": [
+        "vpn_first_ball"
+       ]
+      },
+      "moment": "Đổi ly rượu độc với Hầu tước giữa vũ hội đầu tiên"
+     },
+     "fail": {
+      "text": "Ông ta thấy. Ông ta cười, và đổ ly rượu xuống sàn: “Lần sau.”",
+      "effects": {
+       "flags": [
+        "vpn_first_ball"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Từ chối lịch sự",
+     "text": "Hầu tước nhún vai. “Ngươi được dạy tốt.” Ông ta biết Seraphel đã dạy bạn.",
+     "effects": {
+      "jobXp": 2,
+      "flags": [
+       "vpn_first_ball"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpn_c2_crossroads",
+   "races": [
+    "vampire"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "vampire_noble",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "vpn_path_court",
+     "vpn_path_mortal",
+     "vpn_path_old",
+     "vpn_end"
+    ],
+    "flags": [
+     "vpn_met_seraphel"
+    ]
+   },
+   "text": "Phu nhân Seraphel đặt trước mặt bạn ba vật: một chiếc quạt lông đen của triều đình Huyết Tộc, một chiếc chìa khóa đồng của một ngôi nhà Human, và chiếc hộp đựng bông hồng khô.",
+   "choices": [
+    {
+     "label": "Quạt lông đen: Triều Đình Bóng Đêm",
+     "text": "Bạn sẽ leo lên trong giới quý tộc Huyết Tộc, nơi mỗi lời nói là một nước cờ kéo dài hàng thế kỷ.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "vpn_path_court"
+      ]
+     },
+     "moment": "Chọn bước vào triều đình bóng đêm của Huyết Tộc"
+    },
+    {
+     "label": "Chìa khóa đồng: Kẻ Sống Giữa Người",
+     "text": "Bạn sẽ sống giữa con người, kết bạn, và nhìn họ chết, đời này qua đời khác. Seraphel nói: “Con đường đau nhất.”",
+     "effects": {
+      "LUCK": 1,
+      "jobXp": 2,
+      "flags": [
+       "vpn_path_mortal"
+      ]
+     },
+     "moment": "Chọn sống giữa con người qua nhiều thế hệ"
+    },
+    {
+     "label": "Chiếc hộp: Người Giữ Ký Ức",
+     "text": "Seraphel mở hộp, đưa bông hồng cho bạn. “Có những thứ chỉ chúng ta nhớ được. Hãy giữ chúng.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "vpn_path_old"
+      ]
+     },
+     "moment": "Nhận bông hồng khô, chọn làm người giữ ký ức"
+    }
+   ]
+  },
+  {
+   "id": "vpn_court_gossip",
+   "races": [
+    "vampire"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "vampire_noble",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vpn_path_court"
+    ],
+    "notFlags": [
+     "vpn_end"
+    ]
+   },
+   "text": "Tin đồn lan khắp giới quý tộc: dòng máu của bạn không thuần khiết. Ai đó muốn bạn bị loại khỏi triều đình.",
+   "choices": [
+    {
+     "label": "Tìm ra kẻ tung tin",
+     "check": {
+      "stat": "INT",
+      "target": 7
+     },
+     "success": {
+      "text": "Một Bá tước ghen tị. Bạn không trả thù. Bạn mời hắn dự tiệc, và trước cả triều đình, cảm ơn hắn vì đã quan tâm đến dòng máu của bạn. Cả triều đình cười. Hắn không bao giờ ngẩng mặt lên được.",
+      "effects": {
+       "INT": 1,
+       "fame": 8,
+       "jobXp": 3,
+       "flags": [
+        "vpn_court_wit"
+       ]
+      },
+      "moment": "Làm bẽ mặt kẻ tung tin trước cả triều đình mà không cần trả thù"
+     },
+     "fail": {
+      "text": "Không tìm ra. Tin đồn sống thêm một trăm năm.",
+      "effects": {
+       "fame": -5
+      }
+     }
+    },
+    {
+     "label": "Mặc kệ",
+     "text": "Một trăm năm sau, không ai nhớ tin đồn nữa. Thời gian là vũ khí của Huyết Tộc.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpn_court_inquisitor",
+   "races": [
+    "vampire"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "vampire_noble",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vpn_path_court"
+    ],
+    "notFlags": [
+     "vpn_end"
+    ]
+   },
+   "text": "Bọn Inquisitor của Giáo hội đột kích lâu đài giữa trưa, khi bạn đang ngủ. Rèm cửa bị kéo toang.",
+   "choices": [
+    {
+     "label": "Trốn xuống hầm qua lối bí mật",
+     "check": {
+      "stat": "AGI",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn lăn qua vệt nắng, da bỏng rộp, xuống hầm. Đêm ấy, bạn trở lại, và Inquisitor không ai trở về Giáo hội.",
+      "effects": {
+       "AGI": 1,
+       "health": -10,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Nắng thiêu nửa người bạn. Bạn mất một thế kỷ để lành.",
+      "effects": {
+       "health": -25
+      }
+     }
+    },
+    {
+     "label": "Gọi gia tộc Ashcombe",
+     "require": {
+      "flags": [
+       "vpn_ashcombe_pact"
+      ]
+     },
+     "text": "Hậu duệ Ashcombe đời thứ tư, một luật sư trẻ, chặn Inquisitor ở cổng với một xấp giấy tờ quyền sở hữu. Họ phải rút. Lâu đài này, về mặt pháp lý, thuộc về một gia đình Human.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpn_mortal_friend",
+   "races": [
+    "vampire"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "vampire_noble",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vpn_path_mortal"
+    ],
+    "notFlags": [
+     "vpn_end"
+    ]
+   },
+   "text": "Bạn kết bạn với một họa sĩ Human trẻ. Anh ta vẽ chân dung bạn, dù bạn không có bóng trong gương.",
+   "choices": [
+    {
+     "label": "Ngồi làm mẫu mỗi đêm",
+     "text": "Anh ta vẽ suốt mười năm. Bức chân dung là bức đẹp nhất của anh ta. Anh ta mất khi bạn vẫn còn trẻ như ngày đầu. Bạn treo bức tranh trong phòng ngủ.",
+     "effects": {
+      "joy": 4,
+      "jobXp": 3,
+      "flags": [
+       "vpn_mortal_portrait"
+      ]
+     },
+     "moment": "Làm mẫu cho bức chân dung duy nhất về mình, của một họa sĩ Human"
+    },
+    {
+     "label": "Biến anh ta thành Huyết Tộc",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Anh ta tỉnh dậy, bất tử. Rồi anh ta nhận ra mình không còn vẽ được ánh sáng nữa. Anh ta không bao giờ tha thứ cho bạn, và cũng không bao giờ rời xa bạn.",
+      "effects": {
+       "jobXp": 3,
+       "flags": [
+        "vpn_mortal_turned"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Anh ta không qua được. Bạn ôm xác anh ta đến sáng.",
+      "effects": {
+       "joy": -15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpn_mortal_lover",
+   "races": [
+    "vampire"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "vampire_noble",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vpn_path_mortal"
+    ],
+    "notFlags": [
+     "vpn_end"
+    ]
+   },
+   "text": "Người tình Human của bạn nhìn thấy bạn hút máu một con chuột bạch trong bóng tối.",
+   "choices": [
+    {
+     "label": "Nói thật mọi điều",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Cô im lặng rất lâu. Rồi cô nói: “Ta già đi, ngươi thì không. Ta chấp nhận được phần đó. Phần con chuột thì cần thời gian.”",
+      "effects": {
+       "joy": 12,
+       "jobXp": 3,
+       "flags": [
+        "vpn_mortal_truth"
+       ]
+      },
+      "moment": "Nói thật với người tình Human về bản chất của mình"
+     },
+     "fail": {
+      "text": "Cô bỏ chạy. Cô không báo Giáo hội. Cô chỉ không bao giờ quay lại.",
+      "effects": {
+       "joy": -10
+      }
+     }
+    },
+    {
+     "label": "Xóa ký ức của cô",
+     "text": "Sáng ra, cô không nhớ gì. Cô vẫn yêu bạn. Bạn không chắc mình xứng đáng.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpn_old_library",
+   "races": [
+    "vampire"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "vampire_noble",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vpn_path_old"
+    ],
+    "notFlags": [
+     "vpn_end"
+    ]
+   },
+   "text": "Bạn bắt đầu viết lại những gì mình nhớ: những thành phố đã biến mất, những ngôn ngữ đã chết, những người không ai còn nhớ tên.",
+   "choices": [
+    {
+     "label": "Viết bằng ngôn ngữ cổ",
+     "text": "Ba trăm trang. Không ai còn đọc được. Bạn đọc nó mỗi đêm.",
+     "effects": {
+      "INT": 1,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Viết bằng ngôn ngữ hiện tại, để lại cho đời sau",
+     "text": "Một học giả Human tìm thấy bản thảo của bạn một thế kỷ sau, và gọi nó là sử thi vĩ đại nhất từng viết.",
+     "effects": {
+      "fame": 8,
+      "jobXp": 3,
+      "flags": [
+       "vpn_old_chronicle"
+      ]
+     },
+     "moment": "Viết lại ký ức về những thế giới đã mất cho đời sau"
+    }
+   ]
+  },
+  {
+   "id": "vpn_old_ruin",
+   "races": [
+    "vampire"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "vampire_noble",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "vpn_path_old"
+    ],
+    "notFlags": [
+     "vpn_end"
+    ]
+   },
+   "text": "Bạn trở lại một thành phố bạn từng sống, năm trăm năm trước. Giờ chỉ còn đống đổ nát, và một ngôi làng nhỏ mọc trên đó.",
+   "choices": [
+    {
+     "label": "Kể cho dân làng về thành phố cũ",
+     "text": "Họ không tin, rồi tin. Một bà già khóc khi bạn kể về ngôi đền trên đồi, nơi bà cố của bà từng cầu nguyện.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Đi qua, không nói gì",
+     "text": "Có những thứ chỉ một người nhớ, và người ấy cũng sẽ quên.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpn_c4_seraphel",
+   "races": [
+    "vampire"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "vampire_noble",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "vpn_met_seraphel"
+    ],
+    "notFlags": [
+     "vpn_seraphel_gone",
+     "vpn_end"
+    ],
+    "anyFlags": [
+     "vpn_path_court",
+     "vpn_path_mortal",
+     "vpn_path_old"
+    ]
+   },
+   "text": "Phu nhân Seraphel quyết định đón ánh bình minh. Ba nghìn năm là đủ, bà nói. Bà muốn bạn đứng cạnh bà, trong bóng râm.",
+   "choices": [
+    {
+     "label": "Đứng cạnh bà",
+     "text": "Mặt trời lên. Bà mở hộp, đặt bông hồng khô vào tay mình, và bước ra ánh sáng. Bà không cháy ngay. Bà mỉm cười một khoảnh khắc, rồi tan thành tro, nhẹ như cánh hoa.",
+     "effects": {
+      "joy": -10,
+      "jobXp": 3,
+      "flags": [
+       "vpn_seraphel_gone"
+      ]
+     },
+     "moment": "Đứng trong bóng râm tiễn Phu nhân Seraphel đón bình minh"
+    },
+    {
+     "label": "Xin bà ở lại thêm một thế kỷ",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Bà ở lại. Một thế kỷ. Rồi một sáng, bà đi, để lại lá thư: “Cảm ơn vì thêm một trăm năm. Chúng đẹp hơn ba nghìn năm trước.”",
+      "effects": {
+       "joy": -4,
+       "jobXp": 3,
+       "flags": [
+        "vpn_seraphel_gone"
+       ]
+      }
+     },
+     "fail": {
+      "text": "Bà lắc đầu. “Ngươi sẽ hiểu, một ngày.” Bà đi lúc bình minh.",
+      "effects": {
+       "joy": -12,
+       "flags": [
+        "vpn_seraphel_gone"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpn_c4_ashcombe",
+   "races": [
+    "vampire"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "vampire_noble",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "vpn_met_ashcombe"
+    ],
+    "notFlags": [
+     "vpn_end"
+    ]
+   },
+   "text": "Hậu duệ cuối cùng của gia tộc Ashcombe, một bà già không con, đến gặp bạn. Gia tộc sẽ tuyệt tự với bà.",
+   "choices": [
+    {
+     "label": "Ngồi với bà, kể về Edmund",
+     "require": {
+      "flags": [
+       "vpn_ashcombe_pact"
+      ]
+     },
+     "text": "Bạn kể về chàng trai trẻ thông minh và nghèo, ba trăm năm trước. Bà khóc, rồi cười. “Vậy là chúng ta đã giữ lời suốt mười đời.” Bà mất mùa đông ấy. Bạn dự đám tang, đứng trong bóng tối.",
+     "effects": {
+      "joy": -4,
+      "jobXp": 3,
+      "flags": [
+       "vpn_ashcombe_end"
+      ]
+     },
+     "moment": "Kể cho hậu duệ cuối cùng của gia tộc Ashcombe nghe về Edmund"
+    },
+    {
+     "label": "Nhận một đứa trẻ mồ côi làm người kế thừa gia tộc",
+     "text": "Bà đồng ý. Đứa trẻ mang họ Ashcombe. Giao ước tiếp tục.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3,
+      "flags": [
+       "vpn_ashcombe_end",
+       "vpn_ashcombe_renewed"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpn_c5_court",
+   "races": [
+    "vampire"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "vampire_noble",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "vpn_path_court"
+    ],
+    "notFlags": [
+     "vpn_end"
+    ]
+   },
+   "text": "Bạn là Night Monarch. Triều đình Huyết Tộc cúi đầu trước bạn.",
+   "choices": [
+    {
+     "label": "Cai trị bằng lời, không bằng máu",
+     "require": {
+      "flags": [
+       "vpn_court_wit"
+      ]
+     },
+     "text": "Không ai bị giết dưới triều đại của bạn. Kẻ thù bị làm bẽ mặt, rồi bị lãng quên. Đó là triều đại dài nhất và êm ả nhất của Huyết Tộc.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "vpn_end",
+       "vpn_end_quiet_reign"
+      ]
+     },
+     "moment": "Cai trị triều đình Huyết Tộc bằng lời thay vì máu"
+    },
+    {
+     "label": "Giữ ngai bằng mọi giá",
+     "text": "Bạn giữ ngai một nghìn năm. Bạn không còn nhớ vì sao mình muốn nó.",
+     "effects": {
+      "fame": 15,
+      "joy": -4,
+      "flags": [
+       "vpn_end",
+       "vpn_end_long_reign"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpn_c5_mortal",
+   "races": [
+    "vampire"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "vampire_noble",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "vpn_path_mortal"
+    ],
+    "notFlags": [
+     "vpn_end"
+    ]
+   },
+   "text": "Bạn là Night Monarch, nhưng thứ bạn trân trọng nhất là những ngôi mộ của những người bạn đã yêu.",
+   "choices": [
+    {
+     "label": "Treo bức chân dung ở đại sảnh",
+     "require": {
+      "flags": [
+       "vpn_mortal_portrait"
+      ]
+     },
+     "text": "Bức chân dung của người họa sĩ treo giữa đại sảnh. Mọi khách đến đều hỏi ai vẽ. Bạn kể. Mỗi lần kể, anh ta sống thêm một chút.",
+     "effects": {
+      "fame": 10,
+      "joy": 15,
+      "flags": [
+       "vpn_end",
+       "vpn_end_portrait"
+      ]
+     },
+     "moment": "Treo bức chân dung của người họa sĩ giữa đại sảnh"
+    },
+    {
+     "label": "Đi thăm mộ từng người",
+     "text": "Hàng trăm ngôi mộ, khắp lục địa. Bạn đi thăm từng cái, mỗi thế kỷ một lần.",
+     "effects": {
+      "fame": 8,
+      "joy": 10,
+      "flags": [
+       "vpn_end",
+       "vpn_end_graves"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpn_c5_old",
+   "races": [
+    "vampire"
+   ],
+   "weight": 300,
+   "require": {
+    "job": "vampire_noble",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "vpn_path_old"
+    ],
+    "notFlags": [
+     "vpn_end"
+    ]
+   },
+   "text": "Bạn là Night Monarch, kẻ nhớ nhiều nhất trên đời.",
+   "choices": [
+    {
+     "label": "Mở thư viện ký ức cho mọi tộc",
+     "require": {
+      "flags": [
+       "vpn_old_chronicle"
+      ]
+     },
+     "text": "Lâu đài của bạn trở thành thư viện. Học giả Human, Elf, thậm chí Dwarf, đến đọc. Bạn ngồi ở góc, sửa những chỗ họ hiểu sai.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "vpn_end",
+       "vpn_end_library"
+      ]
+     },
+     "moment": "Mở lâu đài thành thư viện ký ức cho mọi tộc"
+    },
+    {
+     "label": "Đón bình minh, như Seraphel",
+     "text": "Bạn mang bông hồng khô ra ánh sáng. Một khoảnh khắc, bạn thấy mặt trời. Đẹp như bà nói.",
+     "effects": {
+      "fame": 10,
+      "joy": 15,
+      "flags": [
+       "vpn_end",
+       "vpn_end_dawn"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpn_daily_wine",
+   "races": [
+    "vampire"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "vampire_noble",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Một chai rượu vang cổ, năm trăm năm, được dâng lên bạn.",
+   "choices": [
+    {
+     "label": "Uống",
+     "text": "Ngon. Bạn nhớ năm nó được làm. Không ai khác còn nhớ.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Giữ thêm năm trăm năm",
+     "text": "Có những thứ cần được giữ cho những người chưa ra đời.",
+     "effects": {
+      "joy": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpn_daily_war",
+   "races": [
+    "vampire"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "vampire_noble",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh giữa các vương quốc Human. Với bạn, đó chỉ là một mùa.",
+   "choices": [
+    {
+     "label": "Đứng ngoài",
+     "text": "Chiến tranh qua. Bạn vẫn ở đây.",
+     "effects": {
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Che chở một làng nhỏ",
+     "text": "Làng sống. Họ không bao giờ biết vì sao lính không vào.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpn_daily_old",
+   "races": [
+    "vampire"
+   ],
+   "stages": [
+    "elder"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "vampire_noble",
+    "free": true,
+    "flags": [
+     "vpn_met_seraphel"
+    ]
+   },
+   "text": "Ba nghìn năm. Bạn bắt đầu hiểu vì sao Seraphel chọn bình minh.",
+   "choices": [
+    {
+     "label": "Ngồi trên tháp, nhìn trời trước khi sáng",
+     "text": "Bầu trời chuyển màu tím. Bạn vào trong vừa kịp.",
+     "effects": {
+      "joy": 6
+     }
+    },
+    {
+     "label": "Tìm điều gì đó mới",
+     "text": "Một bông hoa chưa từng thấy. Bạn chưa chán thế giới.",
+     "effects": {
+      "joy": 8
+     }
+    }
+   ]
+  },
+  {
+   "id": "vpn_c5_court_late",
+   "races": [
+    "vampire"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "vampire_noble",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "vpn_path_court"
+    ],
+    "notFlags": [
+     "vpn_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Night Monarch. Triều đình Huyết Tộc cúi đầu trước bạn.",
+   "choices": [
+    {
+     "label": "Cai trị bằng lời, không bằng máu",
+     "require": {
+      "flags": [
+       "vpn_court_wit"
+      ]
+     },
+     "text": "Không ai bị giết dưới triều đại của bạn. Kẻ thù bị làm bẽ mặt, rồi bị lãng quên. Đó là triều đại dài nhất và êm ả nhất của Huyết Tộc.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "vpn_end",
+       "vpn_end_quiet_reign"
+      ]
+     },
+     "moment": "Cai trị triều đình Huyết Tộc bằng lời thay vì máu"
+    },
+    {
+     "label": "Giữ ngai bằng mọi giá",
+     "text": "Bạn giữ ngai một nghìn năm. Bạn không còn nhớ vì sao mình muốn nó.",
+     "effects": {
+      "fame": 15,
+      "joy": -4,
+      "flags": [
+       "vpn_end",
+       "vpn_end_long_reign"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "vpn_c5_mortal_late",
+   "races": [
+    "vampire"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "vampire_noble",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "vpn_path_mortal"
+    ],
+    "notFlags": [
+     "vpn_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Night Monarch, nhưng thứ bạn trân trọng nhất là những ngôi mộ của những người bạn đã yêu.",
+   "choices": [
+    {
+     "label": "Treo bức chân dung ở đại sảnh",
+     "require": {
+      "flags": [
+       "vpn_mortal_portrait"
+      ]
+     },
+     "text": "Bức chân dung của người họa sĩ treo giữa đại sảnh. Mọi khách đến đều hỏi ai vẽ. Bạn kể. Mỗi lần kể, anh ta sống thêm một chút.",
+     "effects": {
+      "fame": 10,
+      "joy": 15,
+      "flags": [
+       "vpn_end",
+       "vpn_end_portrait"
+      ]
+     },
+     "moment": "Treo bức chân dung của người họa sĩ giữa đại sảnh"
+    },
+    {
+     "label": "Đi thăm mộ từng người",
+     "text": "Hàng trăm ngôi mộ, khắp lục địa. Bạn đi thăm từng cái, mỗi thế kỷ một lần.",
+     "effects": {
+      "fame": 8,
+      "joy": 10,
+      "flags": [
+       "vpn_end",
+       "vpn_end_graves"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  },
+  {
+   "id": "vpn_c5_old_late",
+   "races": [
+    "vampire"
+   ],
+   "weight": 50,
+   "require": {
+    "job": "vampire_noble",
+    "free": true,
+    "jobRank": 2,
+    "flags": [
+     "vpn_path_old"
+    ],
+    "notFlags": [
+     "vpn_end"
+    ],
+    "jobRankMax": 2
+   },
+   "text": "Bạn là Night Monarch, kẻ nhớ nhiều nhất trên đời.",
+   "choices": [
+    {
+     "label": "Mở thư viện ký ức cho mọi tộc",
+     "require": {
+      "flags": [
+       "vpn_old_chronicle"
+      ]
+     },
+     "text": "Lâu đài của bạn trở thành thư viện. Học giả Human, Elf, thậm chí Dwarf, đến đọc. Bạn ngồi ở góc, sửa những chỗ họ hiểu sai.",
+     "effects": {
+      "fame": 15,
+      "joy": 12,
+      "flags": [
+       "vpn_end",
+       "vpn_end_library"
+      ]
+     },
+     "moment": "Mở lâu đài thành thư viện ký ức cho mọi tộc"
+    },
+    {
+     "label": "Đón bình minh, như Seraphel",
+     "text": "Bạn mang bông hồng khô ra ánh sáng. Một khoảnh khắc, bạn thấy mặt trời. Đẹp như bà nói.",
+     "effects": {
+      "fame": 10,
+      "joy": 15,
+      "flags": [
+       "vpn_end",
+       "vpn_end_dawn"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "middle",
+    "elder"
+   ]
+  }
+ ]
+}

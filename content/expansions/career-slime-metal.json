@@ -1,0 +1,954 @@
+{
+ "_note": "Tuyến truyện Metal Slime: ba đạo (slm_path_forge / slm_path_armor / slm_path_wild), nhân vật xuyên suốt bà Brisa Tay Bỏng (thợ rèn Dwarf già) và con Rock Golem ở mỏ Tinh Bạc.",
+ "origins": [],
+ "events": [
+  {
+   "id": "slm_c1_brisa",
+   "races": [
+    "slime"
+   ],
+   "weight": 120,
+   "require": {
+    "job": "slime_metal",
+    "free": true,
+    "jobRankMax": 2,
+    "notFlags": [
+     "slm_met_brisa"
+    ]
+   },
+   "npcs": [
+    {
+     "name": "Brisa Tay Bỏng",
+     "race": "Dwarf",
+     "position": "Thợ rèn Dwarf già sống một mình ở chân núi"
+    }
+   ],
+   "text": "Bà Brisa Tay Bỏng, một thợ rèn Dwarf sống một mình ở chân núi, bắt gặp bạn đang nuốt đống sắt vụn sau lò rèn. Bà không đuổi bạn. Bà ném thêm một thanh sắt gỉ: “Ăn cái này xem.”",
+   "choices": [
+    {
+     "label": "Nuốt thanh sắt",
+     "check": {
+      "stat": "STR",
+      "target": 4
+     },
+     "success": {
+      "text": "Sắt tan trong người bạn, và bạn cứng lên một chút, sáng lên một chút. Bà Brisa ngồi xuống, châm tẩu. “Thú vị. Ngươi ở lại đây đi. Ta có cả núi sắt vụn.”",
+      "effects": {
+       "STR": 1,
+       "jobXp": 1,
+       "flags": [
+        "slm_met_brisa",
+        "slm_brisa_home"
+       ]
+      },
+      "moment": "Được bà thợ rèn Dwarf Brisa cho ở lại lò rèn"
+     },
+     "fail": {
+      "text": "Bạn nhả nó ra. Quá gỉ. Bà Brisa cười khùng khục và ném cho bạn một chiếc đinh mới. Ngon hơn.",
+      "effects": {
+       "flags": [
+        "slm_met_brisa"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Rụt vào bóng tối",
+     "text": "Bà Brisa không đuổi theo. Bà để lại một đống đinh cũ ở chỗ bạn trốn. Sáng hôm sau, đống đinh biến mất. Hôm sau nữa, bà để lại nhiều hơn.",
+     "effects": {
+      "jobXp": 1,
+      "flags": [
+       "slm_met_brisa"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slm_c2_first_shape",
+   "races": [
+    "slime"
+   ],
+   "weight": 60,
+   "require": {
+    "job": "slime_metal",
+    "free": true,
+    "jobRank": 1,
+    "jobRankMax": 2,
+    "flags": [
+     "slm_met_brisa"
+    ],
+    "notFlags": [
+     "slm_first_shape",
+     "slm_end"
+    ]
+   },
+   "text": "Lần đầu tiên, bạn tự nặn mình thành một hình có góc cạnh: một lưỡi dao. Bà Brisa nhìn thấy, và đánh rơi búa.",
+   "choices": [
+    {
+     "label": "Giữ hình dạng ấy",
+     "check": {
+      "stat": "STR",
+      "target": 5
+     },
+     "success": {
+      "text": "Bạn giữ được một lúc lâu. Bà Brisa cầm bạn lên, cắt thử một miếng da. Sắc. Bà cười to đến ho sặc.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 2,
+       "flags": [
+        "slm_first_shape"
+       ]
+      },
+      "moment": "Lần đầu tự nặn mình thành một lưỡi dao sắc"
+     },
+     "fail": {
+      "text": "Lưỡi dao chảy nhão ra sau ba hơi thở. Bà Brisa vỗ vỗ bạn như vỗ một con mèo: “Mai thử lại.”",
+      "effects": {
+       "flags": [
+        "slm_first_shape"
+       ]
+      }
+     }
+    },
+    {
+     "label": "Trở lại hình tròn",
+     "text": "Tròn dễ chịu hơn. Bà Brisa gật đầu: “Không vội. Sắt cũng mất ba nghìn năm mới thành quặng.”",
+     "effects": {
+      "jobXp": 2,
+      "flags": [
+       "slm_first_shape"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slm_c2_crossroads",
+   "races": [
+    "slime"
+   ],
+   "weight": 200,
+   "require": {
+    "job": "slime_metal",
+    "free": true,
+    "jobRank": 1,
+    "notFlags": [
+     "slm_path_forge",
+     "slm_path_armor",
+     "slm_path_wild",
+     "slm_end"
+    ],
+    "flags": [
+     "slm_met_brisa"
+    ]
+   },
+   "text": "Bà Brisa đặt trước mặt bạn ba thứ: chiếc búa rèn của bà, một bộ giáp hiệp sĩ cũ, và một tảng quặng Tinh Bạc thô từ mỏ trên núi.",
+   "choices": [
+    {
+     "label": "Chiếc búa: Slime Lò Rèn",
+     "text": "Bạn sẽ ở lại lò, học cách biến thành khuôn, thành đe, thành công cụ. Bà Brisa nói: “Ta luôn muốn có một người phụ việc không biết mỏi.”",
+     "effects": {
+      "INT": 1,
+      "jobXp": 2,
+      "flags": [
+       "slm_path_forge"
+      ]
+     },
+     "moment": "Chọn ở lại lò rèn làm phụ việc cho bà Brisa"
+    },
+    {
+     "label": "Bộ giáp: Giáp Sống",
+     "text": "Bạn sẽ học cách bọc quanh một chiến binh, cứng như sắt, mềm như da. Một bộ giáp tự lành, tự thở.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "slm_path_armor"
+      ]
+     },
+     "moment": "Chọn trở thành bộ giáp sống"
+    },
+    {
+     "label": "Quặng Tinh Bạc: Kẻ Ăn Núi",
+     "text": "Trên núi có mỏ Tinh Bạc, nơi một Rock Golem canh giữ. Bạn sẽ đến đó, và ăn đến khi trở thành thứ cứng nhất thế giới.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2,
+      "flags": [
+       "slm_path_wild"
+      ]
+     },
+     "moment": "Chọn lên núi ăn quặng Tinh Bạc"
+    }
+   ]
+  },
+  {
+   "id": "slm_forge_mold",
+   "races": [
+    "slime"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "slime_metal",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slm_path_forge"
+    ],
+    "notFlags": [
+     "slm_end"
+    ]
+   },
+   "text": "Bà Brisa nhận đơn rèn một trăm lưỡi cày cho làng dưới núi trong một tuần. Không đủ khuôn.",
+   "choices": [
+    {
+     "label": "Biến thành khuôn",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn nặn mình thành mười khuôn cùng lúc. Sắt nóng chảy vào người bạn, và bạn giữ hình. Một trăm lưỡi cày trong năm ngày. Bà Brisa ôm bạn, dù bạn còn nóng.",
+      "effects": {
+       "STR": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "slm_forge_mold"
+       ]
+      },
+      "moment": "Biến mình thành mười khuôn đúc lưỡi cày"
+     },
+     "fail": {
+      "text": "Sắt quá nóng. Bạn chảy ra một góc. Ba lưỡi cày méo.",
+      "effects": {
+       "health": -8
+      }
+     }
+    },
+    {
+     "label": "Ăn sắt thừa để dọn lò",
+     "text": "Lò sạch bóng. Bà Brisa làm việc nhanh gấp đôi vì không phải dọn dẹp.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slm_forge_fire",
+   "races": [
+    "slime"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "slime_metal",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slm_path_forge"
+    ],
+    "notFlags": [
+     "slm_end"
+    ]
+   },
+   "text": "Mạo hiểm giả tưởng bạn là một cục quặng lạ, quăng bạn thẳng vào lò lửa đang rực.",
+   "choices": [
+    {
+     "label": "Chịu lửa, không giãy",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Lửa đốt sạch tạp chất trong người bạn. Bạn bước ra, sáng bóng như bạc. Mạo hiểm giả bỏ chạy.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 3,
+       "flags": [
+        "slm_forge_tempered"
+       ]
+      },
+      "moment": "Bước ra khỏi lò lửa, sáng bóng như bạc"
+     },
+     "fail": {
+      "text": "Bạn chảy thành vũng. Bà Brisa múc bạn lên bằng gáo, đặt vào chậu nước lạnh.",
+      "effects": {
+       "health": -12
+      }
+     }
+    },
+    {
+     "label": "Bò ra ngay",
+     "text": "Bạn bò ra, bốc khói. Bà Brisa đuổi mạo hiểm giả đi bằng búa.",
+     "effects": {
+      "health": -4,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slm_armor_knight",
+   "races": [
+    "slime"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "slime_metal",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slm_path_armor"
+    ],
+    "notFlags": [
+     "slm_end"
+    ]
+   },
+   "text": "Một hiệp sĩ trẻ nghèo không đủ tiền mua giáp. Bà Brisa đề nghị: “Mặc con Slime này đi. Nó không cắn đâu.”",
+   "choices": [
+    {
+     "label": "Bọc lấy cậu ta",
+     "check": {
+      "stat": "STR",
+      "target": 6
+     },
+     "success": {
+      "text": "Bạn bọc quanh cậu, cứng lại ở ngực và vai, mềm ở khớp. Cậu ra trận, và về không một vết xước. Cậu ngủ cạnh bạn mỗi đêm, như ngủ cạnh một người bạn.",
+      "effects": {
+       "STR": 1,
+       "joy": 8,
+       "jobXp": 3,
+       "flags": [
+        "slm_armor_knight"
+       ]
+      },
+      "moment": "Làm bộ giáp sống cho một hiệp sĩ trẻ nghèo"
+     },
+     "fail": {
+      "text": "Bạn cứng lại sai chỗ. Cậu không cúi người được, ngã sấp mặt giữa trận.",
+      "effects": {
+       "fame": -3
+      }
+     }
+    },
+    {
+     "label": "Từ chối, chui vào gầm bàn",
+     "text": "Cậu hiệp sĩ đi mua giáp cũ. Bạn thấy hơi tiếc.",
+     "effects": {
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "slm_armor_cursed",
+   "races": [
+    "slime"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "slime_metal",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slm_path_armor"
+    ],
+    "notFlags": [
+     "slm_end"
+    ]
+   },
+   "text": "Bạn tìm thấy một thanh Hắc Kiếm rỉ máu. Tà khí trong nó hứa sẽ cho bạn sức mạnh của một bộ giáp vô địch.",
+   "choices": [
+    {
+     "label": "Nuốt thanh kiếm",
+     "check": {
+      "stat": "LUCK",
+      "target": 7
+     },
+     "success": {
+      "text": "Bạn tiêu hóa tà khí trước khi nó kịp tiêu hóa bạn. Bạn cứng hơn bao giờ hết, và lời nguyền tan biến trong bụng bạn.",
+      "effects": {
+       "STR": 1,
+       "jobXp": 3
+      }
+     },
+     "fail": {
+      "text": "Tà khí chiếm bạn một đêm. Bạn tỉnh dậy, không nhớ mình đã làm gì.",
+      "effects": {
+       "joy": -8,
+       "health": -8
+      }
+     }
+    },
+    {
+     "label": "Mang nó về cho bà Brisa",
+     "text": "Bà nhìn thanh kiếm, rồi ném nó vào lò. “Có những thứ không nên ăn.”",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slm_wild_golem",
+   "races": [
+    "slime"
+   ],
+   "weight": 55,
+   "require": {
+    "job": "slime_metal",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slm_path_wild"
+    ],
+    "notFlags": [
+     "slm_end"
+    ]
+   },
+   "text": "Con Rock Golem canh mỏ Tinh Bạc vung nắm đấm đá xuống chỗ bạn.",
+   "choices": [
+    {
+     "label": "Để nó đấm, rồi bọc lấy nắm tay nó",
+     "check": {
+      "stat": "STR",
+      "target": 7
+     },
+     "success": {
+      "text": "Nắm đấm đá lún vào người bạn, và bạn khép lại. Golem kéo, không ra. Nó đứng yên một lúc lâu, rồi... ngồi xuống. Từ đó, nó để bạn ăn quặng ở góc mỏ.",
+      "effects": {
+       "STR": 1,
+       "fame": 6,
+       "jobXp": 3,
+       "flags": [
+        "slm_wild_golem"
+       ]
+      },
+      "moment": "Bọc lấy nắm đấm của Rock Golem cho đến khi nó chịu thua"
+     },
+     "fail": {
+      "text": "Nắm đấm đá văng bạn ra ngoài mỏ. Bạn mất ba ngày gom lại mình.",
+      "effects": {
+       "health": -12
+      }
+     }
+    },
+    {
+     "label": "Lén vào lúc nó ngủ",
+     "text": "Golem không ngủ. Nhưng nó chậm. Bạn ăn được một tảng quặng, và bò ra trước khi nó quay lại.",
+     "effects": {
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slm_wild_treasure",
+   "races": [
+    "slime"
+   ],
+   "weight": 45,
+   "require": {
+    "job": "slime_metal",
+    "free": true,
+    "jobRank": 2,
+    "jobRankMax": 3,
+    "flags": [
+     "slm_path_wild"
+    ],
+    "notFlags": [
+     "slm_end"
+    ]
+   },
+   "text": "Kẻ cướp đánh rơi hai túi khi tháo chạy: một túi Đồng Cẩm Thạch, một túi đinh sắt.",
+   "choices": [
+    {
+     "label": "Ăn túi Đồng Cẩm Thạch",
+     "text": "Cẩm Thạch ngon, nhưng không làm bạn cứng hơn. Bạn sáng lên màu xanh lục, đẹp lạ.",
+     "effects": {
+      "joy": 6,
+      "jobXp": 3
+     }
+    },
+    {
+     "label": "Ăn túi đinh sắt",
+     "text": "Đinh sắt. Cứng. Bạn cứng thêm. Kẻ cướp quay lại tìm túi Cẩm Thạch, và không hiểu vì sao túi đinh biến mất.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "slm_c4_brisa",
+   "races": [
+    "slime"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "slime_metal",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "slm_met_brisa"
+    ],
+    "notFlags": [
+     "slm_brisa_gone",
+     "slm_end"
+    ],
+    "anyFlags": [
+     "slm_path_forge",
+     "slm_path_armor",
+     "slm_path_wild"
+    ]
+   },
+   "text": "Bà Brisa đã quá già để cầm búa. Bà ngồi bên lò nguội, và gọi bạn lại gần. “Ta sắp đi rồi. Lò này là của ngươi.”",
+   "choices": [
+    {
+     "label": "Biến thành chiếc búa trong tay bà",
+     "text": "Bạn nặn mình thành chiếc búa, đặt vào tay bà. Bà đập một nhát cuối lên đe. Tiếng búa vang khắp chân núi. Bà mỉm cười, và đi.",
+     "effects": {
+      "joy": -6,
+      "jobXp": 3,
+      "flags": [
+       "slm_brisa_gone"
+      ]
+     },
+     "moment": "Biến mình thành chiếc búa trong tay bà Brisa cho nhát rèn cuối cùng"
+    },
+    {
+     "label": "Bọc lấy bà cho ấm",
+     "text": "Bạn bọc quanh bà như một tấm chăn ấm. Bà ngủ, và không thức dậy. Bạn giữ hình dạng ấy suốt đêm.",
+     "effects": {
+      "joy": -8,
+      "jobXp": 3,
+      "flags": [
+       "slm_brisa_gone"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slm_c5_forge",
+   "races": [
+    "slime"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "slime_metal",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "slm_path_forge"
+    ],
+    "notFlags": [
+     "slm_end"
+    ]
+   },
+   "text": "Bạn là Metal Slime, sáng như bạc, cứng như thép. Lò rèn của bà Brisa vẫn đỏ lửa.",
+   "choices": [
+    {
+     "label": "Giữ lò rèn cho làng dưới núi",
+     "require": {
+      "flags": [
+       "slm_forge_mold"
+      ]
+     },
+     "text": "Làng dưới núi gửi sắt vụn lên, và nhận về lưỡi cày, dao, nồi. Không ai hỏi ai rèn chúng. Một vài đứa trẻ biết, và mang bánh lên cho bạn.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "slm_end",
+       "slm_end_village_forge"
+      ]
+     },
+     "moment": "Giữ lò rèn của bà Brisa cho làng dưới núi"
+    },
+    {
+     "label": "Trở thành chiếc đe",
+     "text": "Bạn nằm xuống giữa lò, cứng lại thành một chiếc đe sáng bạc. Thợ rèn sau này sẽ đập lên bạn. Bạn sẽ nghe tiếng búa mãi.",
+     "effects": {
+      "fame": 10,
+      "joy": 10,
+      "flags": [
+       "slm_end",
+       "slm_end_anvil"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slm_c5_armor",
+   "races": [
+    "slime"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "slime_metal",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "slm_path_armor"
+    ],
+    "notFlags": [
+     "slm_end"
+    ]
+   },
+   "text": "Bạn là Metal Slime, bộ giáp sống huyền thoại.",
+   "choices": [
+    {
+     "label": "Đi cùng hiệp sĩ năm xưa trận cuối",
+     "require": {
+      "flags": [
+       "slm_armor_knight"
+      ]
+     },
+     "text": "Cậu hiệp sĩ trẻ giờ đã già. Trận cuối của cậu, bạn bọc quanh cậu như ngày đầu. Cậu về, không một vết xước, và treo giáp. Bạn ngủ cạnh cậu đến ngày cậu mất.",
+     "effects": {
+      "fame": 12,
+      "joy": 18,
+      "flags": [
+       "slm_end",
+       "slm_end_knight"
+      ]
+     },
+     "moment": "Bọc quanh hiệp sĩ già trong trận cuối của cậu"
+    },
+    {
+     "label": "Bảo vệ một đứa trẻ suốt đời nó",
+     "text": "Bạn chọn một đứa trẻ yếu ớt trong làng. Không ai biết vì sao nó không bao giờ bị thương.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "slm_end",
+       "slm_end_guardian"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slm_c5_wild",
+   "races": [
+    "slime"
+   ],
+   "weight": 70,
+   "require": {
+    "job": "slime_metal",
+    "free": true,
+    "jobRank": 4,
+    "flags": [
+     "slm_path_wild"
+    ],
+    "notFlags": [
+     "slm_end"
+    ]
+   },
+   "text": "Bạn là Metal Slime, cứng hơn mọi kim loại. Núi Tinh Bạc giờ là nhà của bạn.",
+   "choices": [
+    {
+     "label": "Canh mỏ cùng con Golem",
+     "require": {
+      "flags": [
+       "slm_wild_golem"
+      ]
+     },
+     "text": "Hai kẻ canh mỏ: một tảng đá biết đi và một vũng bạc biết bò. Không mạo hiểm giả nào lọt qua. Golem không nói gì, nhưng mỗi sáng nó để dành cho bạn một tảng quặng.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "slm_end",
+       "slm_end_golem"
+      ]
+     },
+     "moment": "Cùng Rock Golem canh mỏ Tinh Bạc"
+    },
+    {
+     "label": "Ngủ trong lòng núi",
+     "text": "Bạn chìm vào mạch Tinh Bạc, và ngủ. Một nghìn năm sau, thợ mỏ sẽ tìm thấy một mạch quặng biết thở.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "slm_end",
+       "slm_end_vein"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "slm_daily_rust",
+   "races": [
+    "slime"
+   ],
+   "weight": 12,
+   "require": {
+    "job": "slime_metal",
+    "free": true,
+    "jobRank": 0,
+    "jobRankMax": 2
+   },
+   "text": "Mưa. Bạn gỉ một chút.",
+   "choices": [
+    {
+     "label": "Lăn trong cát cho sạch",
+     "text": "Sáng bóng trở lại.",
+     "effects": {
+      "joy": 3
+     }
+    },
+    {
+     "label": "Kệ nó",
+     "text": "Gỉ cũng có màu đẹp.",
+     "effects": {
+      "joy": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "slm_daily_war",
+   "races": [
+    "slime"
+   ],
+   "eras": [
+    "holy_war",
+    "demon_lord"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "slime_metal",
+    "free": true,
+    "jobRank": 1
+   },
+   "text": "Chiến tranh. Chiến trường đầy sắt vụn.",
+   "choices": [
+    {
+     "label": "Đi ăn sắt vụn",
+     "text": "Bữa tiệc lớn nhất đời bạn. Bạn cứng thêm.",
+     "effects": {
+      "STR": 1,
+      "jobXp": 2
+     }
+    },
+    {
+     "label": "Ở lại lò rèn",
+     "text": "Lò rèn bận rộn. Bạn làm khuôn suốt mùa.",
+     "effects": {
+      "jobXp": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "slm_daily_old",
+   "races": [
+    "slime"
+   ],
+   "stages": [
+    "ancient"
+   ],
+   "weight": 16,
+   "require": {
+    "job": "slime_metal",
+    "free": true
+   },
+   "text": "Bạn đã sống hàng trăm năm. Những vết rạn nhỏ bắt đầu xuất hiện trên lớp vỏ bạc.",
+   "choices": [
+    {
+     "label": "Ăn thêm sắt để lấp",
+     "text": "Vết rạn liền lại. Bạn biết chúng sẽ quay lại.",
+     "effects": {
+      "health": 3
+     }
+    },
+    {
+     "label": "Để chúng ở đó",
+     "text": "Mỗi vết rạn là một kỷ niệm.",
+     "effects": {
+      "joy": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "slm_c5_forge_late",
+   "races": [
+    "slime"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "slime_metal",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "slm_path_forge"
+    ],
+    "notFlags": [
+     "slm_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Metal Slime, sáng như bạc, cứng như thép. Lò rèn của bà Brisa vẫn đỏ lửa.",
+   "choices": [
+    {
+     "label": "Giữ lò rèn cho làng dưới núi",
+     "require": {
+      "flags": [
+       "slm_forge_mold"
+      ]
+     },
+     "text": "Làng dưới núi gửi sắt vụn lên, và nhận về lưỡi cày, dao, nồi. Không ai hỏi ai rèn chúng. Một vài đứa trẻ biết, và mang bánh lên cho bạn.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "slm_end",
+       "slm_end_village_forge"
+      ]
+     },
+     "moment": "Giữ lò rèn của bà Brisa cho làng dưới núi"
+    },
+    {
+     "label": "Trở thành chiếc đe",
+     "text": "Bạn nằm xuống giữa lò, cứng lại thành một chiếc đe sáng bạc. Thợ rèn sau này sẽ đập lên bạn. Bạn sẽ nghe tiếng búa mãi.",
+     "effects": {
+      "fame": 10,
+      "joy": 10,
+      "flags": [
+       "slm_end",
+       "slm_end_anvil"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "ancient"
+   ]
+  },
+  {
+   "id": "slm_c5_armor_late",
+   "races": [
+    "slime"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "slime_metal",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "slm_path_armor"
+    ],
+    "notFlags": [
+     "slm_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Metal Slime, bộ giáp sống huyền thoại.",
+   "choices": [
+    {
+     "label": "Đi cùng hiệp sĩ năm xưa trận cuối",
+     "require": {
+      "flags": [
+       "slm_armor_knight"
+      ]
+     },
+     "text": "Cậu hiệp sĩ trẻ giờ đã già. Trận cuối của cậu, bạn bọc quanh cậu như ngày đầu. Cậu về, không một vết xước, và treo giáp. Bạn ngủ cạnh cậu đến ngày cậu mất.",
+     "effects": {
+      "fame": 12,
+      "joy": 18,
+      "flags": [
+       "slm_end",
+       "slm_end_knight"
+      ]
+     },
+     "moment": "Bọc quanh hiệp sĩ già trong trận cuối của cậu"
+    },
+    {
+     "label": "Bảo vệ một đứa trẻ suốt đời nó",
+     "text": "Bạn chọn một đứa trẻ yếu ớt trong làng. Không ai biết vì sao nó không bao giờ bị thương.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "slm_end",
+       "slm_end_guardian"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "ancient"
+   ]
+  },
+  {
+   "id": "slm_c5_wild_late",
+   "races": [
+    "slime"
+   ],
+   "weight": 30,
+   "require": {
+    "job": "slime_metal",
+    "free": true,
+    "jobRank": 3,
+    "flags": [
+     "slm_path_wild"
+    ],
+    "notFlags": [
+     "slm_end"
+    ],
+    "jobRankMax": 3
+   },
+   "text": "Bạn là Metal Slime, cứng hơn mọi kim loại. Núi Tinh Bạc giờ là nhà của bạn.",
+   "choices": [
+    {
+     "label": "Canh mỏ cùng con Golem",
+     "require": {
+      "flags": [
+       "slm_wild_golem"
+      ]
+     },
+     "text": "Hai kẻ canh mỏ: một tảng đá biết đi và một vũng bạc biết bò. Không mạo hiểm giả nào lọt qua. Golem không nói gì, nhưng mỗi sáng nó để dành cho bạn một tảng quặng.",
+     "effects": {
+      "fame": 12,
+      "joy": 15,
+      "flags": [
+       "slm_end",
+       "slm_end_golem"
+      ]
+     },
+     "moment": "Cùng Rock Golem canh mỏ Tinh Bạc"
+    },
+    {
+     "label": "Ngủ trong lòng núi",
+     "text": "Bạn chìm vào mạch Tinh Bạc, và ngủ. Một nghìn năm sau, thợ mỏ sẽ tìm thấy một mạch quặng biết thở.",
+     "effects": {
+      "fame": 10,
+      "joy": 12,
+      "flags": [
+       "slm_end",
+       "slm_end_vein"
+      ]
+     }
+    }
+   ],
+   "stages": [
+    "ancient"
+   ]
+  }
+ ]
+}
