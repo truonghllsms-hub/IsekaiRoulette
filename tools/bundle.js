@@ -38,6 +38,9 @@ ${safeJs(read("presentation.js"))}
 ${safeJs(read("session.js"))}
 </script>
 <script>
+${safeJs(read("life-card.js"))}
+</script>
+<script>
 ${safeJs(read("ui.js"))}
 </script>
 `;

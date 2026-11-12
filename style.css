@@ -650,3 +650,12 @@ body[data-screen="screen-life"] #app { max-width:1440px; padding-inline:clamp(16
 .track-fame { position: relative; }
 .track-fame::after { content: ""; position: absolute; inset: 0; pointer-events: none;
   background: linear-gradient(90deg, transparent calc(10.5% - 1px), rgba(0,0,0,.25) calc(10.5% - 1px) 10.5%, transparent 10.5% calc(35.5% - 1px), rgba(0,0,0,.25) calc(35.5% - 1px) 35.5%, transparent 35.5% calc(60.5% - 1px), rgba(0,0,0,.25) calc(60.5% - 1px) 60.5%, transparent 60.5% calc(85.5% - 1px), rgba(0,0,0,.25) calc(85.5% - 1px) 85.5%, transparent 85.5%); }
+
+/* The chronicle is a single responsive SVG: screen and downloadable PNG share its layout. */
+.life-card.chronicle-card { width:100%; max-width:760px; padding:0; margin:0; border:0; border-radius:5px; background:#f8ecd3; box-shadow:0 14px 42px #49301f24; overflow:hidden; }
+.chronicle-art { width:100%; line-height:0; }
+.chronicle-art > svg { display:block; width:100%; height:auto; }
+.chronicle-art text { user-select:text; }
+#screen-death .lc-actions { flex-wrap:wrap; }
+#screen-death .lc-image { max-width:760px; width:100%; }
+@media print { .chronicle-card { box-shadow:none; } }

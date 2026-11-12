@@ -749,50 +749,57 @@
     activeRun.clear();
     archiveLife();
     show("screen-death");
-    setSprite("lc-sprite", c, true); // after show: the box needs its real height
   }
 
   // ---------- the life card (to copy or save and show around) ----------
   let card = null;
-  let cardSprite = null;
+  let cardSvg = "";
+  let cardReady = Promise.resolve();
+  const cardMeasure = document.createElement("canvas").getContext("2d");
+  function drawChronicle(portrait) {
+    const rendered = window.LifeCard.render(card, portrait, (text, size, bold, italic) => {
+      cardMeasure.font = `${italic ? "italic " : ""}${bold ? "700" : "400"} ${size}px Georgia, "Times New Roman", serif`;
+      return cardMeasure.measureText(text).width;
+    });
+    cardSvg = rendered.svg;
+    $("lc-art").innerHTML = cardSvg;
+  }
   function renderCard(k) {
-    card = k;
-    const sp = spriteOf(c, true);
-    cardSprite = null;
+    card = window.LifeCard.model(c, D, k);
     const thisCard = card;
+    const highest = window.LifeCard.highestJob(c, D);
+    const imageLife = highest ? { ...c, job: [c.job, ...(c.pastJobs || [])].find(j => j && j.id === highest.id && j.rank === highest.rank) } : c;
+    const sp = spriteOf(imageLife, true);
     $("btn-save-card").disabled = !!sp;
-    if (sp) {
-      const im = new Image();
-      im.onload = () => { if (card === thisCard) { cardSprite = { im, rect: window.SpritePresentation.rectangle(sp,D,"full") }; $("btn-save-card").disabled = false; } };
-      im.onerror = () => { if (card === thisCard) $("btn-save-card").disabled = false; };
-      im.src = D.sprites[sp.person]._src || `img/${sp.person}.png`;
-    }
-    $("lc-name").textContent = k.name;
-    $("lc-line").textContent = k.line + (k.origin ? " · " + k.origin : "");
-    $("lc-stats").textContent = k.stats || "";
-    const stamp = $("lc-stamp");
-    stamp.hidden = !k.rating;
-    if (k.rating) {
-      stamp.className = "lc-stamp grade-" + k.rating.grade;
-      stamp.querySelector("b").textContent = k.rating.grade;
-      stamp.querySelector("span").textContent = k.rating.title;
-    }
-    const ul = $("lc-marks");
-    ul.innerHTML = "";
-    for (const m of k.marks) {
-      const li = document.createElement("li");
-      li.textContent = m;
-      ul.appendChild(li);
-    }
-    $("lc-epitaph").textContent = k.epitaph ? `“${k.epitaph}”` : "";
-    $("lc-cause").textContent = k.cause || "";
     $("lc-note").hidden = true;
-    const old = $("lc-image");
-    if (old) old.remove();
+    $("lc-image")?.remove();
+    drawChronicle(null);
+    cardReady = sp ? new Promise(resolve => {
+      const im = new Image();
+      im.onload = () => {
+        if (card === thisCard) {
+          try {
+            const rect = window.SpritePresentation.rectangle(sp, D, "full");
+            const [sx, sy, sw, sh] = rect;
+            const scale = Math.min(1, 900 / sw, 900 / sh);
+            const portrait = document.createElement("canvas");
+            portrait.width = Math.max(1, Math.round(sw * scale));
+            portrait.height = Math.max(1, Math.round(sh * scale));
+            const ctx = portrait.getContext("2d");
+            ctx.imageSmoothingEnabled = true;
+            ctx.imageSmoothingQuality = "high";
+            ctx.drawImage(im, sx, sy, sw, sh, 0, 0, portrait.width, portrait.height);
+            drawChronicle(portrait.toDataURL("image/png"));
+          } catch (error) { say("Không tải được chân dung; phần biên niên vẫn có thể lưu."); }
+          $("btn-save-card").disabled = false;
+        }
+        resolve();
+      };
+      im.onerror = () => { if (card === thisCard) { $("btn-save-card").disabled = false; say("Không tải được chân dung; phần biên niên vẫn có thể lưu."); } resolve(); };
+      im.src = D.sprites[sp.person]._src || `img/${sp.person}.png`;
+    }) : Promise.resolve();
   }
-  function cardText(k) {
-    return [`${k.name} — ${k.line}`, k.marks.join(" · "), k.epitaph ? `“${k.epitaph}”` : "", k.cause, "— Luân Hồi Dị Giới"].filter(Boolean).join("\n");
-  }
+  function cardText(k) { return window.LifeCard.text(k); }
   function say(t) { const n = $("lc-note"); n.textContent = t; n.hidden = false; }
   $("btn-copy-life").onclick = () => {
     if (!card) return;
@@ -808,76 +815,16 @@
     try { document.execCommand("copy"); done(); } catch (e) { say("Trình duyệt chặn sao chép."); }
     ta.remove();
   }
-  function wrap(ctx, text, maxW) {
-    const words = text.split(/\s+/), lines = [];
-    let line = "";
-    for (const w of words) {
-      const tryL = line ? line + " " + w : w;
-      if (ctx.measureText(tryL).width > maxW && line) { lines.push(line); line = w; } else line = tryL;
-    }
-    if (line) lines.push(line);
-    return lines;
-  }
-  function cardImage(k) {
-    const W = 1080, pad = 90, inner = W - pad * 2;
+  async function cardImage() {
+    await cardReady;
+    const image = new Image();
+    image.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(cardSvg);
+    await image.decode();
     const cv = document.createElement("canvas");
+    cv.width = image.naturalWidth;
+    cv.height = image.naturalHeight;
     const ctx = cv.getContext("2d");
-    const serif = '"Noto Serif", Georgia, serif', sans = '"Be Vietnam Pro", system-ui, sans-serif';
-    // measure first, then draw
-    const plan = [];
-    let y = pad + 20;
-    const add = (font, color, text, gap, lh, align) => {
-      ctx.font = font;
-      for (const l of wrap(ctx, text, inner)) { plan.push({ font, color, text: l, y, align }); y += lh; }
-      y += gap;
-    };
-    add(`500 30px ${sans}`, "#88632e", "LUÂN HỒI DỊ GIỚI · MỘT KIẾP NGƯỜI", 30, 40, "center");
-    // the character at the height of their life
-    let spr = null;
-    if (cardSprite) {
-      const [, , sw, sh] = cardSprite.rect;
-      const k = Math.min(2.4, 300 / sh, 360 / sw);
-      spr = { y, w: Math.round(sw * k), h: Math.round(sh * k) };
-      y += spr.h + 30;
-    }
-    add(`600 76px ${serif}`, "#472d1b", k.name, 10, 88, "center");
-    add(`400 34px ${sans}`, "#735d42", k.line + (k.origin ? " · " + k.origin : ""), 14, 46, "center");
-    if (k.stats) add(`500 26px ${sans}`, "#88632e", k.stats, 40, 36, "center");
-    for (const m of k.marks) add(`400 36px ${sans}`, "#493323", "✦  " + m, 6, 48, "left");
-    y += 30;
-    if (k.epitaph) add(`italic 400 40px ${serif}`, "#472d1b", `“${k.epitaph}”`, 30, 56, "center");
-    if (k.cause) add(`400 30px ${sans}`, "#806e58", k.cause, 0, 42, "center");
-    cv.width = W; cv.height = Math.max(W, y + pad);
-    const g = ctx.createLinearGradient(0, 0, 0, cv.height);
-    g.addColorStop(0, "#fcf3df"); g.addColorStop(1, "#e9d5b0");
-    ctx.fillStyle = g; ctx.fillRect(0, 0, W, cv.height);
-    ctx.strokeStyle = "#af8c50"; ctx.lineWidth = 3; ctx.strokeRect(36, 36, W - 72, cv.height - 72);
-    if (spr) {
-      const [sx, sy, sw, sh] = cardSprite.rect;
-      ctx.imageSmoothingEnabled = true;
-      ctx.imageSmoothingQuality = "high";
-      ctx.drawImage(cardSprite.im, sx, sy, sw, sh, Math.round((W - spr.w) / 2), spr.y, spr.w, spr.h);
-    }
-    ctx.textBaseline = "top";
-    // the grade, stamped in the corner like a seal
-    if (k.rating) {
-      const col = { S: "#9c7428", A: "#8b4d3f", B: "#54775b", C: "#796b55" }[k.rating.grade] || "#8b4d3f";
-      ctx.save();
-      ctx.translate(W - 150, 150);
-      ctx.rotate(-0.22);
-      ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = 6;
-      ctx.beginPath(); ctx.arc(0, 0, 92, 0, Math.PI * 2); ctx.stroke();
-      ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(0, 0, 80, 0, Math.PI * 2); ctx.stroke();
-      ctx.textAlign = "center"; ctx.textBaseline = "middle";
-      ctx.font = `700 84px ${serif}`; ctx.fillText(k.rating.grade, 0, -12);
-      ctx.font = `600 17px ${sans}`; ctx.fillText(k.rating.title.toUpperCase(), 0, 48);
-      ctx.restore();
-      ctx.textBaseline = "top";
-    }
-    for (const p of plan) {
-      ctx.font = p.font; ctx.fillStyle = p.color; ctx.textAlign = p.align;
-      ctx.fillText(p.text, p.align === "center" ? W / 2 : pad, p.y);
-    }
+    ctx.drawImage(image, 0, 0);
     return cv;
   }
   // the artifact viewer saves files through its downloads capability; elsewhere a plain link works
@@ -889,33 +836,28 @@
     img.src = url;
     say(msg);
   }
-  $("btn-save-card").onclick = () => {
-    if (!card) return;
-    let cv = cardImage(card);
-    const name = `luan-hoi-${card.name.replace(/\s+/g, "-")}.png`;
-    let url;
-    try { url = cv.toDataURL("image/png"); } catch (e) {
-      // the browser would not let the picture of the character out: the card without it
-      cardSprite = null; cv = cardImage(card); url = cv.toDataURL("image/png");
-    }
-    const fallback = "Nhấn giữ hoặc chuột phải vào ảnh bên dưới để lưu.";
-    if (dl) {
-      cv.toBlob((blob) => {
-        dl.save({ filename: name, data: blob }).then(
-          () => say("Đã lưu ảnh thẻ cuộc đời."),
-          (err) => { if (!err || err.code !== "declined") showCardImage(url, fallback); }
-        );
-      }, "image/png");
-      return;
-    }
-    if (!window.claude) {
-      try {
-        const a = document.createElement("a");
-        a.href = url; a.download = name;
-        document.body.appendChild(a); a.click(); a.remove();
-      } catch (e) {}
-    }
-    showCardImage(url, window.claude ? fallback : "Nếu ảnh chưa tải về: " + fallback.toLowerCase());
+  $("btn-save-card").onclick = async () => {
+    if (!card || $("btn-save-card").disabled) return;
+    $("btn-save-card").disabled = true;
+    try {
+      const cv = await cardImage();
+      const name = `luan-hoi-${card.name.replace(/[^\p{L}\p{N}_-]+/gu, "-")}.png`;
+      const url = cv.toDataURL("image/png");
+      const fallback = "Nhấn giữ hoặc chuột phải vào ảnh bên dưới để lưu.";
+      if (dl) {
+        const blob = await new Promise(resolve => cv.toBlob(resolve, "image/png"));
+        try { await dl.save({ filename: name, data: blob }); say("Đã lưu ảnh thẻ cuộc đời."); }
+        catch (err) { if (!err || err.code !== "declined") showCardImage(url, fallback); }
+      } else {
+        if (!window.claude) {
+          const a = document.createElement("a");
+          a.href = url; a.download = name;
+          document.body.appendChild(a); a.click(); a.remove();
+        }
+        showCardImage(url, window.claude ? fallback : "Nếu ảnh chưa tải về: " + fallback.toLowerCase());
+      }
+    } catch (error) { say("Chưa lưu được ảnh. Bạn có thể thử lại hoặc sao chép nội dung cuộc đời."); }
+    finally { $("btn-save-card").disabled = false; }
   };
 
   $("btn-resume").onclick = resumeLife;
