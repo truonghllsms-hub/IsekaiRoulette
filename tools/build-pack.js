@@ -67,7 +67,7 @@ function build(raceId, opts) {
     if (parts.length > 2) t = (parts[0] + " " + parts[1]).trim();
     // conditions the script wrote into the story itself, and the other choice it left beside a word
     // ("bộ giáp cũ (hoặc kỷ vật)", "(Nếu Kael còn sống, …)") are not read aloud
-    return t.replace(/\s*\((THẮNG NGAY|THẤT BẠI NGAY)[^)]*\)\s*/g, " ").replace(/\s*\((?:Nếu|nếu|Chỉ khi|chỉ khi|khi còn|Khi còn)[^()]{0,160}\)/g, "").replace(/\s*\((?:hoặc|hay là|hay) [^()]{1,80}\)/g, "").replace(/Cậu bé\/cô bé/g, "Nhóc").replace(/cậu bé\/cô bé/g, "nhóc").replace(/\s+/g, " ").trim().replace(/^[.,;:·]+\s*/, "");
+    return t.replace(/\s*\((THẮNG NGAY|THẤT BẠI NGAY)[^)]*\)\s*/g, " ").replace(/\s*\((?:Nếu|nếu|Chỉ khi|chỉ khi|khi còn|Khi còn)[^()]{0,160}\)/g, "").replace(/\s*\((?:hoặc|hay là|hay) [^()]{1,80}\)/g, "").replace(/([^.])\.\s*\.(?!\.)/g, "$1.").replace(/Cậu bé\/cô bé/g, "Nhóc").replace(/cậu bé\/cô bé/g, "nhóc").replace(/\s+/g, " ").trim().replace(/^[.,;:·]+\s*/, "");
   };
   const target = (stat, diff) => {
     const table = STAT_KEYS.includes(stat) || stat === "best" || stat === "jobstat" ? meta.diff.stat : meta.diff.bar;

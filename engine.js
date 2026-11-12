@@ -840,7 +840,7 @@
   }
   function cleanProse(text) {
     return String(text || "").trim().replace(/[ \t]+([,.;:!?])/g, "$1")
-      .replace(/(^|[.!?]\s+|\n\s*)([“"']?)(\p{Ll})/gu, (_, pre, quote, letter) => pre + quote + letter.toLocaleUpperCase("vi"));
+      .replace(/(^|(?<!\.\.)[.!?]\s+|\n\s*)([“"']?)(\p{Ll})/gu, (_, pre, quote, letter) => pre + quote + letter.toLocaleUpperCase("vi"));
   }
   function introduceNpcs(c, data, text) {
     const st = storyOf(c, data);
