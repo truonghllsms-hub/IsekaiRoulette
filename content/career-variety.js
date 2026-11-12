@@ -4,6 +4,7 @@
 // birth comes to the choice of a trade (lead). Written per race in content/career-variety-<race>.js.
 //
 // A trade:  { start:[text,…], promo:[rank1,rank2,rank3,rank4], arcs:[milestone 2, milestone 4],
+//             quiet:[text,…],
 //             events:[ { r:[minRank,maxRank], t:text, a:[label,stat,target,success,fail,okFx,failFx], b:[label,text,fx], c:[…] } ] }
 // An arc is [title, premise, scene 1, scene 2, scene 3], like content/careers.js.
 const files = ['human', 'beastman', 'elf', 'demon', 'dwarf'].map((r) => require(`./career-variety-${r}`));
@@ -59,6 +60,8 @@ function install(data, list) {
     if (!x) continue;
     const races = j.races;
     if (x.start) j.startAlt = [j.start, ...x.start];
+    // long lives spend many quiet years at work: more lines so they do not come round so soon
+    if (x.quiet) j.quiet = [...(j.quiet || []), ...x.quiet];
     if (x.promo) {
       // a trade whose trials were written for it keeps them beside the new ones; a trade that only had
       // the shared wording of its kind (craft, commerce, legacy) gets its own
@@ -89,7 +92,9 @@ function install(data, list) {
     if (!lead) continue;
     const cur = data.systems.race[race] = data.systems.race[race] || {};
     const base = cur.jobSelect || data.systems.jobSelect;
-    const own = Object.entries(lead.origins || {}).map(([id, text]) => `(${race}_${id}) ${text}`);
+    // a birth is named with or without its race in front (human_bg_farmer, bm_bg_nomad)
+    const known = new Set(data.origins.map((o) => o.id));
+    const own = Object.entries(lead.origins || {}).map(([id, text]) => `(${known.has(id) ? id : `${race}_${id}`}) ${text}`);
     cur.jobSelect = Object.assign({}, base, { teen: [...lead.teen, ...own], adult: [...lead.adult, ...own] });
   }
 }

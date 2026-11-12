@@ -46,6 +46,7 @@ npm test                 # Kiểm tra dữ liệu và mô phỏng 1.000 đời m
 - [Cast theo xuất thân và giam giữ](docs/CAST_CONTEXT.md)
 - [Định danh NPC, câu đệm và lời kể tuổi thơ](docs/NARRATION.md)
 - [Xếp hạng cuộc đời](docs/RATINGS.md)
+- [Đa dạng nghề, lời dẫn chọn nghề và cái kết](docs/VARIETY.md)
 - [Cách viết pack](docs/PACKS.md)
 
 Chỉnh nguồn trong `content/` và `data/`, sau đó build lại. Không chỉnh thủ công
