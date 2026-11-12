@@ -5,7 +5,7 @@ function person(race='human') {const c=E.createCharacter(data,E.makeRng(42),race
 function effect(c,effects,check){c.pending={kind:'event',text:'Một thử thách chuyên môn.',choices:[{label:'Thực hiện',...(check?{check,success:{text:'Thành công.',effects},fail:{text:'Thất bại.'}}:{effects})}]};E.choose(c,data,0,()=>0);}
 const scene=(text,choices=[{label:'Tiếp tục',text:'Bạn tiếp tục.'}])=>({id:'audit_scene',pack:true,races:['human'],text,choices});
 test('fourteen audited careers have explicit families, with courier arcs independent of bard',()=>{
- for(const [id,family]of Object.entries(corrections.jobFamilies)){const j=data.jobs.find(j=>j.id===id);assert.equal(j.family,family,id);const q=data.quests.filter(q=>q.id.startsWith(`career_${id}_`));assert.equal(q.length,2,id);if(family==='courier'){assert.deepEqual(q.map(q=>q.name.split(" · ").at(-1)),['Chuyến thư qua làn tên mũi đạn','Mật ước niêm phong huyết ấn']);assert.doesNotMatch(JSON.stringify(q),/gảy đàn|trường ca|khúc hát|sân khấu/);}}
+ for(const [id,family]of Object.entries(corrections.jobFamilies)){const j=data.jobs.find(j=>j.id===id);assert.equal(j.family,family,id);const q=data.quests.filter(q=>q.id.startsWith(`career_${id}_`)&&!q.career.alt);assert.equal(q.length,2,id);if(family==='courier'){assert.deepEqual(q.map(q=>q.name.split(" · ").at(-1)),['Chuyến thư qua làn tên mũi đạn','Mật ước niêm phong huyết ấn']);assert.doesNotMatch(JSON.stringify(q),/gảy đàn|trường ca|khúc hát|sân khấu/);}}
  assert.equal(data.jobs.find(j=>j.id==='human_bard').family,'bard');assert.equal(data.jobs.find(j=>j.id==='human_priest').family,'priest');
  for(const id of ['kobold_overseer'])assert.notEqual(data.jobs.find(j=>j.id===id).progression,'commerce');
 });

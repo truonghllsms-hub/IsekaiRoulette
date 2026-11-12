@@ -3,6 +3,8 @@
 const content = require('../content/careers');
 const progression = require('../content/progression');
 const longLives = require('../content/long-lives');
+const variety = require('../content/career-variety');
+const { stepWords } = variety;
 const fam = (job) => {
   if(content.jobFamilies?.[job.id])return content.jobFamilies[job.id];
   const suffix=job.id.replace(/^[a-z]+_/, '');
@@ -48,23 +50,28 @@ function installProfessions(data) {
    {label:'Chỉ môi giới, nhận phí nhỏ và không ôm hàng',text:'Bạn nối hai đầu mua bán và nhận phí, giữ nguyên vốn cho dịp khác.',effects:{wealth:5,jobXp:0.5}},
    {label:'Không tham gia thương vụ',text:'Bạn bỏ qua lô hàng, tiếp tục công việc thường ngày.'}
   ]});
-  for(const [index,arc] of p.arcs.entries()){
-   const visibleRank=index===0?2:4,rank=visibleRank-1,id=`career_${j.id}_r${visibleRank}`;
-   const title=j.id==='human_assassin'&&index===0?'Kẻ phản đồ của Umbra Guild':j.id==='human_mage'&&index===1?'Di tích Đại Ngàn':arc[0];
+  const extra=variety.jobs[j.id]||{};
+  // a milestone may have a second trial written for it (content/career-variety-*.js): a life meets one of the two
+  const arcList=[...p.arcs.map((arc,index)=>[index,arc,'']),...(extra.arcs||[]).map((arc,index)=>arc?[index,arc,'b']:null).filter(Boolean)];
+  for(const [index,arc,suffix] of arcList){
+   const visibleRank=index===0?2:4,rank=visibleRank-1,id=`career_${j.id}_r${visibleRank}${suffix}`;
+   const w=stepWords(j,family,arc[0]);
+   const title=suffix?arc[0]:j.id==='human_assassin'&&index===0?'Kẻ phản đồ của Umbra Guild':j.id==='human_mage'&&index===1?'Di tích Đại Ngàn':arc[0];
    const org=data.orgs.find(o=>o.races?.some(r=>races.includes(r)))||data.orgs.find(o=>o.id==='guild');
    const target=visibleRank===2?6:10;
    const step=(text,n)=>({text:fill(text),choices:[
-    {label:n===2?'Dồn chuyên môn hoàn tất thử thách':'Làm rõ vấn đề bằng chuyên môn',check:{stat:j.stat,target:target+(n===2?1:0)},success:{text:`Bạn giải quyết được chặng ${n+1} của thử thách “${title}” bằng kinh nghiệm ${j.name}.`,effects:{jobXp:1}},fail:{text:n===2?'Nỗ lực cuối cùng thất bại. Bạn phải dừng nhiệm vụ và đối diện tổn thất.':'Bạn đánh giá sai một phần tình hình, mất thời gian và sức lực nhưng vẫn tiếp tục được.',effects:{health:-(n===2?20:10),wealth:-4},...(n===2?{end:'fail'}:{})}},
-    ...(n===2?[{label:'Rút lui để bảo toàn mạng sống',text:'Bạn dừng lại trước khi cái giá vượt quá khả năng chịu đựng.',effects:{joy:-5},end:'fail'}]:[{label:'Tìm cách ít mạo hiểm hơn, chấp nhận tốn nguồn lực',text:'Bạn đổi thêm thời gian và vật tư lấy một chặng đường an toàn hơn.',effects:{wealth:-6,joy:-2}}]),
+    {label:n===2?w.last:w.go,check:{stat:j.stat,target:target+(n===2?1:0)},success:{text:n===2?w.lastOk:n===1?w.goOk2:w.goOk,effects:{jobXp:1}},fail:{text:n===2?w.lastBad:w.goBad,effects:{health:-(n===2?20:10),wealth:-4},...(n===2?{end:'fail'}:{})}},
+    ...(n===2?[{label:w.retreat,text:w.retreatText,effects:{joy:-5},end:'fail'}]:[{label:w.safe,text:w.safeText,effects:{wealth:-6,joy:-2}}]),
    ]});
    const steps=[step(arc[2],0),step(arc[3],1),step(arc[4],2)];
    steps[1].choices=[
-    {label:'Giữ nguyên tắc, tìm con đường khó hơn',check:{stat:j.stat,target:target+1},success:{text:'Bạn giữ được giới hạn đã đặt ra và tìm ra một phương án không phải hy sinh người khác.',effects:{fame:5,flags:[integrity]}},fail:{text:'Lựa chọn đúng đắn không khiến con đường dễ dàng hơn. Bạn chịu tổn thất để giữ nguyên tắc.',effects:{health:-10,wealth:-8,flags:[integrity]}}},
-    {label:family==='mage'?'Thiêu thọ nguyên để cưỡng ép trận pháp':'Chấp nhận thỏa hiệp để giành lợi thế',check:{stat:j.stat,target:target-1},success:{text:family==='mage'?'Trận pháp phục tùng, nhưng một phần thọ nguyên đã cháy thành năng lượng.':'Bạn đạt lợi thế bằng một thỏa hiệp sẽ còn để lại hậu quả.',effects:{joy:-8,...(family==='mage'?{lifeCost:3}:{}),flags:[compromise]}},fail:{text:family==='mage'?'Cấm thuật phản phệ, cướp đi sức lực cùng nhiều năm thọ nguyên.':'Thỏa hiệp phản tác dụng, khiến bạn tổn thất cả nguồn lực lẫn uy tín.',effects:{health:-20,wealth:-12,...(family==='mage'?{lifeCost:6}:{}),flags:[compromise]}}},
+    {label:w.keep,check:{stat:j.stat,target:target+1},success:{text:w.keepOk,effects:{fame:5,flags:[integrity]}},fail:{text:w.keepBad,effects:{health:-10,wealth:-8,flags:[integrity]}}},
+    {label:family==='mage'?'Thiêu thọ nguyên để cưỡng ép trận pháp':w.bend,check:{stat:j.stat,target:target-1},success:{text:family==='mage'?'Trận pháp phục tùng, nhưng một phần thọ nguyên đã cháy thành năng lượng.':w.bendOk,effects:{joy:-8,...(family==='mage'?{lifeCost:3}:{}),flags:[compromise]}},fail:{text:family==='mage'?'Cấm thuật phản phệ, cướp đi sức lực cùng nhiều năm thọ nguyên.':w.bendBad,effects:{health:-20,wealth:-12,...(family==='mage'?{lifeCost:6}:{}),flags:[compromise]}}},
    ];
-   data.quests.push({id,org:org.id,name:`${j.name} · ${title}`,minRank:0,career:{job:j.id,rank:visibleRank},require:{job:j.id,jobRank:rank,free:true},hint:`Thử thách bậc ${visibleRank}, ba chặng; không cần gia nhập hội.`,intro:fill(arc[1]),steps,complete:long?`Bạn hoàn tất “${title}”. Di sản ${j.name} của bạn đã có người kế thừa, cùng một trách nhiệm khó lòng rũ bỏ.`:`Bạn hoàn tất “${title}”. Những người cùng nghề ghi nhận dấu ấn ${j.name} của bạn.`,failText:`Thử thách “${title}” khép lại với tổn thất. Bạn giữ lấy những điều đã học để tiếp tục hành nghề.`,reward:{fame:visibleRank===2?8:15,jobXp:visibleRank===2?5:10,flags:[`${id}_complete`]},weight:1});
+   data.quests.push({id,org:org.id,name:`${j.name} · ${title}`,minRank:0,career:{job:j.id,rank:visibleRank,...(suffix?{alt:true}:{})},require:{job:j.id,jobRank:rank,free:true},hint:`Thử thách bậc ${visibleRank}, ba chặng; không cần gia nhập hội.`,intro:fill(arc[1]),steps,complete:long?`Bạn hoàn tất “${title}”. Di sản ${j.name} của bạn đã có người kế thừa, cùng một trách nhiệm khó lòng rũ bỏ.`:`Bạn hoàn tất “${title}”. Những người cùng nghề ghi nhận dấu ấn ${j.name} của bạn.`,failText:`Thử thách “${title}” khép lại với tổn thất. Bạn giữ lấy những điều đã học để tiếp tục hành nghề.`,reward:{fame:visibleRank===2?8:15,jobXp:visibleRank===2?5:10,flags:[`${id}_complete`]},weight:1});
   }
  }
+ variety.install(data,jobs);
  const group=family=>jobs.filter(j=>families.get(j.id)===family).map(j=>j.id);
  const special=(family,label,stat,target,text,flags=[],item=false)=>({label,require:{job:group(family)},check:{stat,target},success:{text,effects:{[stat]:1,jobXp:1,wealth:10,...(flags.length?{flags}:{}),...(item?{item:'gargoyle_mana_core'}:{})}},fail:{text:'Kế hoạch chuyên môn không diễn ra như dự tính. Bạn phải dùng sức vượt qua nguy hiểm và cuối cùng tìm được lối đi tiếp.',effects:{health:-20,...(flags.length?{flags}:{})}}});
  const options=(kind,flags=[])=>[

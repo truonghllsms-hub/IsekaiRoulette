@@ -2380,17 +2380,32 @@
 
   function pickDeath(c, data, rng, kind) {
     const st = currentStage(c).id;
+    // what the life looked like at its end: a death told for that is preferred over a plain one
+    const frail = c.maxAge != null && c.age > c.maxAge * 0.75;
+    const kids = livingChildren(c).length > 0;
+    const WHEN = {
+      frail, prime: !frail && !["infant", "child", "teen"].includes(st),
+      poor: usesCurrency(c, data) && c.bars.wealth <= 10, rich: c.bars.wealth >= 70,
+      sad: c.bars.joy < 25, glad: c.bars.joy >= 65,
+      work: c.focus === "work" && !!c.job, adventure: c.focus === "adventure", rest: c.focus === "rest",
+      spouse: !!c.spouse, children: kids, alone: !c.spouse && !kids && aliveParty(c).length === 0, party: aliveParty(c).length > 0,
+      famous: (c.fame || 0) >= 45, captive: !!c.captive, free: !c.captive,
+    };
     const pool = data.deaths.filter(
       (d) =>
-        d.kind === kind &&
+        (d.kinds || [d.kind]).includes(kind) &&
         (!d.races || !d.races.length || d.races.includes(c.race.id)) &&
-        (!d.stages || !d.stages.length || d.stages.includes(st))
+        (!d.stages || !d.stages.length || d.stages.includes(st)) &&
+        (!d.when || [].concat(d.when).every((w) => WHEN[w])) &&
+        (!d.require || meets(c, d.require, data))
     );
     // a captive dies where it is kept, not on a road or in a forest
     if (c.captive) { const inside = pool.filter((d) => captiveOk(d.text, c) && !/mạo hiểm giả|đi ngang qua|Rừng Tân Thủ/i.test(d.text)); if (inside.length) pool.splice(0, pool.length, ...inside); }
     // Ancient magical races do not die of a fever or a roadside robbery.
     const mythic = ["dragon", "high_demon", "demon", "vampire", "elf"].includes(c.race.id);
     if (mythic) { const grand = pool.filter((d) => !/vô duyên|đạo chích|cơn sốt|cảm lạnh|bọn cướp|ngủ quên quá giờ/i.test(d.text)); if (grand.length) pool.splice(0, pool.length, ...grand); }
+    const told = pool.filter((d) => d.when || d.require);
+    if (told.length && rng() < 0.7) return weightedPick(told, rng, (d) => d.weight || (d.require ? 3 : 1)).text;
     const specific = pool.filter((d) => d.races && d.races.length);
     const d = weightedPick(specific.length && (mythic || rng() < 0.7) ? specific : pool, rng);
     return d ? d.text : "Bạn qua đời.";
@@ -2498,7 +2513,7 @@
         hint: j.desc,
         disabled: !ok,
         reason: ok ? "" : unmetReason(c, j.require, data) + (j.alt && j.alt.hint ? ` (hoặc ${j.alt.hint})` : ""),
-        text: j.start,
+        text: j.startAlt && j.startAlt.length ? pick(rng, j.startAlt) : j.start,
         act: { type: "job", id: j.id },
         moment: `Trở thành ${j.name}`,
       };
@@ -2530,7 +2545,8 @@
           // "(origin_id) line": a line written for one birth only
           const all = [].concat(["infant", "child", "teen"].includes(st) ? s.teen : s.adult);
           const own = all.filter((l) => l.startsWith(`(${c.origin.id}) `));
-          const lines = (own.length ? own : all.filter((l) => !/^\([a-z_0-9]+\)\s/.test(l))).map((l) => l.replace(/^\([a-z_0-9]+\)\s/, ""));
+          const general = all.filter((l) => !/^\([a-z_0-9]+\)\s/.test(l));
+          const lines = (own.length && (!general.length || rng() < 0.6) ? own : general).map((l) => l.replace(/^\([a-z_0-9]+\)\s/, ""));
           const ok = lines.filter((l) => parentsOk(l, c, {}));
           return ok.length ? ok : ["Đã đến lúc tự kiếm cho mình một cái nghề để sống."];
         })());
@@ -2548,7 +2564,11 @@
     c.promoTries = c.promoTries || {};
     const key = `${c.job.id}:${r}`;
     const tries = (c.promoTries[key] = (c.promoTries[key] || 0) + 1);
-    let text = fmt(j.promo[r], c, { next }, data);
+    // a trade may have several trials written for one rank: a life meets one of them, and keeps it on a retry
+    c.promoPick = c.promoPick || {};
+    const trials = (j.promoAlt && j.promoAlt[r]) || [j.promo[r]];
+    if (c.promoPick[key] == null || c.promoPick[key] >= trials.length) c.promoPick[key] = Math.floor(rng() * trials.length);
+    let text = fmt(trials[c.promoPick[key]], c, { next }, data);
     if (tries > 1) text = text.replace(/^Thử thách để trở thành ([^:]+): /, (m0, who) => pick(rng, [`Cơ hội trở thành ${who} lại đến, vẫn là thử thách cũ: `, `Lần thử thứ ${tries} để trở thành ${who}. Thử thách vẫn vậy: `, `Bạn lại đứng trước thử thách để trở thành ${who}: `]));
     scene(c, "promotion", text, [
       {
@@ -2739,8 +2759,17 @@
   function careerQuestScene(c, data, rng) {
     if (c.captive || c.age < (c.nextCareer || 0) || c.clicks < (c.nextCareerClick || 0)) return false;
     c.careerLast = c.careerLast || {};
-    const q = (data.quests || []).filter(q => q.career && q.career.job === c.job.id && meets(c, q.require, data) && !c.used.includes("quest:" + q.id) && (c.careerLast[q.id] == null || c.age - c.careerLast[q.id] >= tickYears(c) * 2)).sort((a, b) => a.career.rank - b.career.rank)[0];
-    if (!q) return false;
+    // a milestone may have more than one trial written for it: each life is offered one of them, never both
+    c.careerPick = c.careerPick || {};
+    const mine = (data.quests || []).filter(q => q.career && q.career.job === c.job.id);
+    const taken = new Set(mine.filter(q => c.used.includes("quest:" + q.id)).map(q => q.career.rank));
+    const open = mine.filter(q => !taken.has(q.career.rank) && meets(c, q.require, data)).sort((a, b) => a.career.rank - b.career.rank);
+    if (!open.length) return false;
+    const same = open.filter(x => x.career.rank === open[0].career.rank);
+    const pickKey = `${c.job.id}:${open[0].career.rank}`;
+    if (!same.some(x => x.id === c.careerPick[pickKey])) c.careerPick[pickKey] = same[Math.floor(rng() * same.length)].id;
+    const q = same.find(x => x.id === c.careerPick[pickKey]);
+    if (c.careerLast[q.id] != null && c.age - c.careerLast[q.id] < tickYears(c) * 2) return false;
     const rank = rankNames(c, jobDef(c, data))[c.job.rank];
     scene(c, "career", `Ở bậc ${rank}, ${c.race.pacing?.mode === "epoch" ? "một biến cố trên đạo thống" : "một thử thách nghề nghiệp"} đang chờ bạn: ${q.name}. ${q.hint}`, [
       { label: c.race.pacing?.mode === "epoch" ? "Đón nhận biến cố đạo thống" : "Nhận thử thách nghề", act: { type: "quest", id: q.id } },
@@ -3426,8 +3455,13 @@
       warrior: look === "chienbinh" || look === "thosan",
       mage: look === "phapsu",
       worker: look === "tho" || look === "thuongdan",
+      old: c.causeKind === "old", violent: c.causeKind === "violent",
+      rich: c.bars.wealth >= 70, poor: c.bars.wealth <= 8,
+      famous: (c.famePeak || 0) >= 50, unknown: (c.famePeak || 0) < 10 && c.age >= 25,
+      master: !!(j0 && c.job && c.job.rank >= j0.ranks.length - 1), jobless: !c.job && !(c.pastJobs || []).length && c.age >= 25,
+      party: (c.party || []).length > 0, glad: c.bars.joy >= 70, sad: c.bars.joy < 25,
     };
-    const eps = data.epitaphs.filter((e) => (!e.races || e.races.includes(c.race.id)) && !(e.excludeRaces || []).includes(c.race.id) && (!e.when || WHEN[e.when]));
+    const eps = data.epitaphs.filter((e) => (!e.races || e.races.includes(c.race.id)) && !(e.excludeRaces || []).includes(c.race.id) && (!e.when || [].concat(e.when).every((w) => WHEN[w])) && (!e.job || (c.job && [].concat(e.job).includes(c.job.id))));
     const ep = weightedPick(eps, rng, (e) => e.weight || (e.when || e.races ? 6 : 2));
     const profile = [];
     if (c.form) profile.push(`Tiến hóa: ${c.form}`);

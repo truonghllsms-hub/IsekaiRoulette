@@ -159,6 +159,7 @@ function loadData() {
   for (const race of data.races) if (data.chronology[race.id]) race.pacing = data.chronology[race.id];
   require("./economy").installEconomy(data);
   require("./professions").installProfessions(data);
+  require("../content/endings").install(data);
   require("../content/epoch-events").install(data);
   require("./economy").annotateRewards(data);
   pruneRemoved(data);

@@ -46,7 +46,7 @@ test('shared encounters reveal only the player’s profession option and preserv
  }
 });
 test('all available careers have exactly two three-step arcs at displayed ranks 2 and 4',()=>{
- const arcs=data.quests.filter(q=>q.career);assert.equal(arcs.length,188);const jobs=[...new Set(arcs.map(q=>q.career.job))];assert.equal(jobs.length,94);for(const job of jobs){const qs=arcs.filter(q=>q.career.job===job);assert.deepEqual(qs.map(q=>q.career.rank),[2,4]);for(const q of qs){assert.equal(q.steps.length,3);assert.equal(q.require.jobRank,q.career.rank-1);}}
+ const arcs=data.quests.filter(q=>q.career&&!q.career.alt);assert.equal(arcs.length,188);const jobs=[...new Set(arcs.map(q=>q.career.job))];assert.equal(jobs.length,94);for(const job of jobs){const qs=arcs.filter(q=>q.career.job===job);assert.deepEqual(qs.map(q=>q.career.rank),[2,4]);for(const q of qs){assert.equal(q.steps.length,3);assert.equal(q.require.jobRank,q.career.rank-1);}}
 });
 test('career milestones are available without a guild, obey ranks and do not repeat after acceptance',()=>{
  const c=person('human_mage',0);c.focus='work';E.advance(c,{...quiet,quests:data.quests},()=>0);assert.notEqual(c.pending?.kind,'career');
@@ -64,7 +64,7 @@ test('the mage specialist route awards a real mana core without taking health',(
  const c=person('human_mage');c.focus='adventure';const e=data.events.find(e=>e.id==='professional_common_gargoyle');const d={...quiet,events:[e],systems:{...quiet.systems,race:{...quiet.systems.race,human:{...quiet.systems.race.human,romance:false}}}};for(let i=0;i<10&&!c.used.includes(e.id);i++)E.advance(c,d,()=>0);assert.ok(c.used.includes(e.id));const index=c.pending.choices.findIndex(ch=>ch.require?.job);E.choose(c,d,index,()=>0);assert.equal(c.bars.health,100);assert.ok(c.items.some(i=>i.name==='Lõi Ma Lực'));
 });
 test('all fourteen Human professions have distinct milestone narratives and no authoring tokens leak',()=>{
- const human=data.quests.filter(q=>q.career&&q.career.job.startsWith('human_'));
+ const human=data.quests.filter(q=>q.career&&!q.career.alt&&q.career.job.startsWith('human_'));
  for(const rank of [2,4])assert.equal(new Set(human.filter(q=>q.career.rank===rank).map(q=>q.intro)).size,14);
  for(const e of [...data.events.filter(e=>e._file==='careers'),...data.quests.filter(q=>q.career)])assert.doesNotMatch(JSON.stringify(e),/\[\[\w+\]\]/);
 });
