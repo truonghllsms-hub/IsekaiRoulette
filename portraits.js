@@ -39,7 +39,7 @@
     const raw = slug(member.race);
     // The source sheets contain humanoid Beastmen, not these animal companions.
     if (/^(giant_rat|bat|soi_hoang|soi_bong_toi|cao_ma_thuat|tho_tuyet|tinh_linh_dat|golem)/.test(raw)) return null;
-    const aliases = { elf: ['dark_elf', 'tinh_linh'], demon: ['succubus'], goblin: ['hobgoblin'], ghoul: ['skeleton'] };
+    const aliases = { elf: ['dark_elf', 'tinh_linh'], demon: ['succubus'], goblin: ['hobgoblin'] };
     const matches = (data.races || []).flatMap(r => [slug(r.name), slug(r.id), ...(aliases[r.id] || [])].filter(a => has(raw, a)).map(a => ({ race: r, at: raw.indexOf(a), length: a.length })));
     matches.sort((a, b) => a.at - b.at || b.length - a.length);
     let race = matches[0]?.race;

@@ -18,12 +18,12 @@ function play(c,e,index,success=true){
  c.pending={kind:'event',text:E.fmt(e.text,c,null,data),choices:e.choices.map(ch=>({...ch,label:E.fmt(ch.label,c,null,data)}))};c.ctx={eventId:e.id,ally:E.aliveParty(c)[0]||null};
  E.choose(c,data,index,()=>success?0:.99999);return c;
 }
-test('204 reviewed additions and four new origins load once and survive bundling filters',()=>{
+test('172 reviewed additions and four new origins load once and survive bundling filters',()=>{
  const reviewed=additions.filter(e=>!e._file.startsWith('expansions/career-'));
- assert.equal(reviewed.length,204);assert.equal(data.origins.filter(o=>o.id.startsWith('gm_high_demon_origin_')).length,4);
+ assert.equal(reviewed.length,172);assert.equal(data.origins.filter(o=>o.id.startsWith('gm_high_demon_origin_')).length,4);
  assert.equal(new Set(additions.map(e=>e.id)).size,additions.length);
  for(const e of additions)assert.ok(e.pack&&e.races.some(r=>!(e.excludeRaces||[]).includes(r)),e.id);
- assert.equal(data.jobs.filter(j=>data.races.some(r=>(!j.races||j.races.includes(r.id))&&!(j.excludeRaces||[]).includes(r.id))).length,94);
+ assert.equal(data.jobs.filter(j=>data.races.some(r=>(!j.races||j.races.includes(r.id))&&!(j.excludeRaces||[]).includes(r.id))).length,91);
 });
 test('every added event and every variant has a legitimate eligible life context',()=>{
  for(const e of additions){assert.ok(witness(e),e.id);for(const text of e.variants||[])assert.ok(witness({...e,text}),`${e.id}: ${text}`);}
@@ -57,10 +57,6 @@ test('High Demon origin chains can finish beyond their initial chapter on every 
 test('a cleared Slime leaves the hunt closed while actual exposure opens it',()=>{
  const check=additions.find(e=>e.id==='gm_slime_humanoid_inquisition'),hunt=additions.find(e=>e.id==='gm_slime_humanoid_hunt');
  for(const [idx,success,expected]of [[0,true,false],[0,false,true],[1,true,false],[1,false,true],[2,true,true]]){const c=witness(check);play(c,check,idx,success);assert.equal(E.eligible(hunt,c,E.currentStage(c).id,data),expected,`${idx}:${success}`);}
-});
-test('both Ghoul ascensions require every previous step and cannot overwrite another form',()=>{
- for(const kind of ['ghast','lich']){const e=additions.find(e=>e.id===`gm_ghoul_${kind}_arc_3`),c=witness(e);assert.ok(E.eligible(e,c,E.currentStage(c).id,data));c.flags=[];assert.equal(E.eligible(e,c,E.currentStage(c).id,data),false);const other=witness(e);other.form=kind==='lich'?'Ghast':'Lich';assert.equal(E.eligible(e,other,E.currentStage(other).id,data),false);}
- for(const e of additions.filter(e=>e.choices.some(ch=>ch.success?.effects?.evolve))){if(e.races.includes('goblin')||e.races.includes('kobold'))assert.equal(e.require.form,'none',e.id);}
 });
 test('repeatable scenes with calendar cooldowns remain renewable after the second occurrence',()=>{
  for(const e of additions.filter(e=>e.once===false)){

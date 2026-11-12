@@ -139,10 +139,6 @@ const byRace = {
     ["h", null, "Lõi của bạn đục dần sau quá nhiều lần tan rồi tụ. Năm {age} tuổi, nó nứt một tiếng rất khẽ, và bạn thấm xuống nền hang."],
     ["o", null, "Sau {age} năm, bạn không còn giữ nổi hình dạng. Bạn tan thành một vũng nước trong, và sáng hôm sau có rêu mọc quanh mép."],
   ],
-  ghoul: [
-    ["h", null, "Xác thân này đã được mượn quá lâu. Năm thứ {age}, các khớp xương của bạn rời nhau trong một đêm, lặng lẽ như lúc bạn trỗi dậy."],
-    ["h", null, "Cơn đói mà bạn kìm suốt bao năm cuối cùng ăn luôn cả bạn. Năm thứ {age}, chỉ còn lại một đống xương xếp rất gọn."],
-  ],
   vampire: [
     ["h", null, "Bạn để cơn khát kéo dài quá lâu, vì kiêu hãnh hoặc vì chán. Năm thứ {age}, bạn khô lại thành tro trong chính cỗ quan tài của mình."],
     ["h", null, "Dòng máu bất tử cũng có ngày loãng. Năm thứ {age}, gương mặt mấy trăm năm không đổi của bạn già đi trong một đêm, rồi vỡ như sứ."],

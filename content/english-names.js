@@ -17,7 +17,7 @@ module.exports = {
     ["Đội Ranger Đại Ngàn", "Greatwood Rangers"],
   ],
   orgs: {
-    dragon: "Hoard & Dominion", ghoul: "Carrion Horde", goblin: "Goblin Tribe", high_demon: "Abyssal Court",
+    dragon: "Hoard & Dominion", goblin: "Goblin Tribe", high_demon: "Abyssal Court",
     imp: "Infernal Service", kobold: "The Mines", lizardman: "Lizardfolk Tribe", minotaur: "The Labyrinth",
     orc: "Orc Horde", slime: "Slime Domain", troll: "Troll Territory", vampire: "Bloodline Clan", demon: "Demon Lord's Legion",
   },
@@ -30,7 +30,6 @@ module.exports = {
     demon: [["Hắc Quạ", "Black Crows"], ["Cuồng Hỏa", "Wildfire"], ["Huyết Cốt", "Bloodbone"], ["Bóng Đêm Lưu Lạc", "Wandering Night"], ["Nanh Vuốt", "Fang & Claw"], ["Giáo Phái Tinh Huyết", "Cult of Pure Blood"]],
     dwarf: [["Móng Vuốt Đá", "Stoneclaw"], ["Huyết Phán", "Blood Verdict"], ["Khiên Thép Vĩnh Cửu", "Eternal Steel Shield"], ["Búa Lang Thang", "Wandering Hammer"], ["Mũi Khoan Mặt Trời", "Sun Drill"], ["Bình Minh Hỗn Huyết", "Mixed-Blood Dawn"]],
     elf: [["Mũi Tên Xanh", "Green Arrow"], ["Lữ Đoàn Chạng Vạng", "Twilight Brigade"], ["Bạch Ngọc", "White Jade"], ["Quạ Đen", "Black Raven"], ["Suối Tơ", "Silkstream"], ["Chân Trời Cũ", "Old Horizon"]],
-    ghoul: [["Bầy Hắc Cốt", "Blackbone Pack"], ["Đội Quân Sương Mù", "Mist Legion"], ["Nhóm Khất Thực", "The Beggars"], ["Thực Khách Chiến Trường", "Battlefield Diners"], ["Hội Ái Tử", "Necrophile Society"]],
     goblin: [["Đuôi Chuột Cháy", "Burnt Rat-Tail"], ["Rìu Máu", "Blood Axe"], ["Mắt Trắng", "White Eye"], ["Nanh Cuồng", "Mad Fang"], ["Sẹo Đỏ", "Red Scar"]],
     human: [["Đuốc Bình Minh", "Dawn Torch"], ["Thiết Huyết Đoàn", "Iron Blood Company"], ["Thiết Huyết", "Iron Blood"], ["Hắc Kim", "Black Gold"], ["Dạ Hành", "Nightwalkers"], ["Hoa Hồng Vàng", "Golden Rose"], ["Bức Tường Hoàng Hôn", "Dusk Wall"]],
     imp: [["Hội Đổ Xỉ", "Slag Dumpers' Club"], ["Cánh Lủng", "Torn Wings"], ["Móng Chồn", "Weasel Claw"], ["Hội Đội Bình", "Jar Bearers' Club"], ["Liên Minh Cắt Xích", "Chainbreaker Alliance"]],
@@ -43,7 +42,6 @@ module.exports = {
     vampire: [["Hội Kính Đỏ", "Red Mirror Society"], ["Hừng Đông Tội Lỗi", "Sinful Dawn"], ["Mặc Huyết Viện", "Ink-Blood Hall"], ["Lưỡi Dao Huyết Nguyệt", "Blood Moon Blade"], ["Huyết Hồng Đen", "Black Blood Rose"], ["Giao Ước Bụi Phai", "Faded Dust Pact"]],
   },
   people: {
-    ghoul: [["Ông lão Ren", "Old Ren"], ["Bọc Nhỏ", "Little Bundle"], ["Thống soái Kark", "Marshal Kark"], ["Nanh Nhọn", "Sharpfang"], ["Cỏ Úa", "Witherweed"], ["Bá tước Valerius", "Count Valerius"], ["Tiểu thư Lilith", "Lady Lilith"], ["Răng Sứt", "Chiptooth"]],
     goblin: [["Huyết Tinh", "Bloodshard"], ["Ragnok Đồ Tể", "Ragnok the Butcher"], ["Zikzak Cụt Ngón", "Zikzak Stubfinger"]],
     imp: [["Giáo sư Morzan", "Professor Morzan"]],
     troll: [["Míp", "Mip"]],

@@ -923,7 +923,6 @@
     rival: (n, r) => `${n}, kẻ thù ${r} năm xưa, đã chết già trên giường. Mối thù chưa kịp ngã ngũ, còn bạn vẫn như ngày đầu.`,
   };
   const MORTAL_BODY_END = {
-    ghoul: (name) => `Thân xác của ${name} mục rữa hoàn toàn, ngọn lửa linh hồn tắt ngấm.`,
     slime: (name) => `Lõi ma lực của ${name} cạn kiệt, khối nhầy hòa tan vào đất cát.`,
   };
   function familyRace(c, p, data) {
@@ -2041,7 +2040,6 @@
   };
   const GEAR_RACE = {
     slime: "khối nhầy của bạn đặc lại và ánh lên màu sắc mới, những thứ bạn nuốt vào giờ hiện rõ trong thân như một bộ giáp.",
-    ghoul: "móng vuốt bạn dài và cứng hơn, mớ giáp nhặt từ xác kẻ thù giờ là thứ tốt nhất bạn từng khoác lên người.",
     dragon: "lớp vảy bạn cứng lại và sẫm màu hơn, những vết sẹo cũ thành dấu ấn của một kẻ đã sống sót qua mọi trận chiến.",
   };
   function checkVeteran(c, data, rng, how) {
@@ -2261,7 +2259,7 @@
   // Stats (about 1–15) move the odds 8% per point; bars and fame (0–100) about 1.5% per point.
   // years with no joy at all: the end comes from inside
   function despairDeath(c, rng) {
-    const monster = (c.race.tags || []).includes("monster") || /demon|vampire|ghoul|dragon|slime/.test(c.race.id);
+    const monster = (c.race.tags || []).includes("monster") || /demon|vampire|dragon|slime/.test(c.race.id);
     const human = [
       "Năm {age} tuổi, sau nhiều năm không còn thấy lý do để thức dậy, bạn bước xuống dòng sông lạnh và không quay lên nữa.",
       "Bạn buông xuôi tất cả ở tuổi {age}. Một buổi sáng, người ta thấy bạn ngồi bất động bên cửa sổ, ánh mắt đã tắt từ lâu.",
@@ -2918,7 +2916,6 @@
       "Người tình cuối cùng của bạn đã già và nằm xuống. Bạn vẫn giữ chiếc khăn tay của họ trong ngăn kéo.",
       "Thời trang đổi, ngôn ngữ đổi, giá bánh mì đổi. Chỉ cơn khát là không.",
     ],
-    ghoul: ["Nghĩa địa bạn trú ngụ được mở rộng ba lần. Bạn biết tên tất cả những người nằm dưới đó."],
     slime: ["Hang động nhỏ giọt từng chút một. Bạn lớn lên cùng nhịp với những thạch nhũ."],
     default: [
       "Ba đời vua loài người lên ngôi rồi nằm xuống. Bạn vẫn ở đây.",

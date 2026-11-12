@@ -27,8 +27,8 @@ test('prison Cast requires both explicit context and a prison role description',
  const cast={friend_a:{...simple.friend_a,contexts:['arena'],desc:'Bạn tù cùng xà lim.'},mentor_a:{...simple.mentor_a,desc:'Một lão tù nhân.'},rival_a:{...simple.rival_a,contexts:['arena'],desc:'Quý tộc đi xe ngựa.'}};
  const d=birthData('human','human_bg_gladiator',cast,all);const c=E.createCharacter(d,E.makeRng(5),'human');assert.deepEqual(Object.keys(c.cast),['friend']);
 });
-test('solitary Slime and wild Ghoul births exclude other humanoid Cast',()=>{
- for(const [race,origin] of [['slime',null],['ghoul','ghoul_origin_massgrave']]){const cast={friend_a:{...simple.friend_a,desc:'Nam, Human. Một người tốt bụng.'},mentor_a:{...simple.mentor_a,desc:race==='slime'?'Vô tính, Slime. Một giọt nhầy già.':'Nam, Ghoul. Một xác sống già.'}};const d=birthData(race,origin,cast,all);const c=E.createCharacter(d,E.makeRng(3),race);assert.equal(c.cast.friend,undefined);assert.ok(c.cast.mentor);}
+test('solitary Slime births exclude other humanoid Cast',()=>{
+ for(const [race,origin] of [['slime',null]]){const cast={friend_a:{...simple.friend_a,desc:'Nam, Human. Một người tốt bụng.'},mentor_a:{...simple.mentor_a,desc:race==='slime'?'Vô tính, Slime. Một giọt nhầy già.':'Nam, Ghoul. Một xác sống già.'}};const d=birthData(race,origin,cast,all);const c=E.createCharacter(d,E.makeRng(3),race);assert.equal(c.cast.friend,undefined);assert.ok(c.cast.mentor);}
 });
 test('generated Cast scenes require freedom except the explicitly tagged mine meeting',()=>{
  const evs=data.events.filter(e=>/^human_cast_(friend|mentor|rival)_/.test(e.id));assert.ok(evs.length>40);for(const e of evs){if(e.id==='human_cast_friend_b_1'){assert.deepEqual(e.require.captiveKinds,['slave']);assert.equal(e.require.free,undefined);}else assert.equal(e.require.free,true,e.id);}
@@ -57,5 +57,5 @@ test('freedom restores career offers without discarding the existing job or XP',
  const c=person();c.captive={kind:'arena',since:0};const d={...quiet,quests:data.quests};E.advance(c,d,()=>0);const xp=c.job.xp;c.captive=null;E.advance(c,d,()=>0);assert.equal(c.pending?.kind,'career');assert.equal(c.job.id,'human_mage');assert.ok(c.job.xp>=xp);
 });
 test('generated profession events and career quests explicitly require freedom',()=>{
- const events=data.events.filter(e=>e._file==='careers'&&e.require?.job);assert.ok(events.length>=192);for(const e of events)assert.equal(e.require.free,true,e.id);for(const q of data.quests.filter(q=>q.career))assert.equal(q.require.free,true,q.id);
+ const events=data.events.filter(e=>e._file==='careers'&&e.require?.job);assert.ok(events.length>=186);for(const e of events)assert.equal(e.require.free,true,e.id);for(const q of data.quests.filter(q=>q.career))assert.equal(q.require.free,true,q.id);
 });

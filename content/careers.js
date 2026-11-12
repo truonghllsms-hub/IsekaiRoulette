@@ -187,5 +187,5 @@ Object.assign(module.exports.overrides,require('./career-overrides-orc'));
 for (const [k, v] of Object.entries(require('./career-overrides-goblin-kobold'))) module.exports.overrides[k] = { ...module.exports.overrides[k], ...v };
 Object.assign(module.exports.overrides,require('./career-overrides-lizard-mino-troll'));
 Object.assign(module.exports.overrides,require('./career-overrides-demon'));
-Object.assign(module.exports.overrides,require('./career-overrides-slime-ghoul'));
+Object.assign(module.exports.overrides,require('./career-overrides-slime'));
 Object.assign(module.exports.overrides,require('./career-overrides-epic'));

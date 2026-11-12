@@ -66,7 +66,6 @@ const BODY = {
   orc: "an orc with green skin, big lower tusks and a muscular build",
   minotaur: "a minotaur, bull head with large horns on a giant muscular body",
   troll: "a troll, huge hunched grey-green giant with mossy warty skin and long arms",
-  ghoul: "a ghoul, gaunt undead corpse with grey rotting skin and long sharp claws",
   dragon: "a red dragon standing on its hind legs, wings folded, horns, scaly belly",
   high_demon: "a high demon, tall and elegant, black horns and purple skin",
 };

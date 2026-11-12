@@ -5,7 +5,7 @@
   const RACE_MOTIFS = {
     human:'crest',elf:'leaf',dwarf:'forge',beastman:'paw',slime:'drop',dragon:'dragon',
     demon:'horns',high_demon:'sovereign',vampire:'fangs',goblin:'ears',kobold:'pickaxe',
-    lizardman:'scales',orc:'tusks',minotaur:'bull',troll:'stone',ghoul:'skull'
+    lizardman:'scales',orc:'tusks',minotaur:'bull',troll:'stone'
   };
   const number = n => Math.max(0,Math.floor(Number(n)||0)).toLocaleString('vi-VN');
   const clean = s => String(s ?? '').normalize('NFC').replace(/\s+/g,' ').trim();

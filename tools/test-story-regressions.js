@@ -113,20 +113,6 @@ test("sharing bread grants the flag required by the Kobold rescue", () => {
   assert.ok((rescue.require.flags || rescue.require.anyFlags).includes("kobold_friend"));
 });
 
-test("Black Bone training applies the stats and unlocks the Lich requirement", () => {
-  const e = event("ghoul_action_grave_mana");
-  assert.ok(e.text.length > 50);
-  assert.equal(e.result, undefined);
-  const c = character("ghoul", [], 400);
-  const str = c.stats.STR;
-  start(e.id, c);
-  assert.ok(c.flags.includes("black_bone_evolution"));
-  assert.ok(c.stats.STR >= str + 3);
-  assert.deepEqual(e.effects, { STR: 3, INT: 2, health: 50, fame: 10, flags: ["black_bone_evolution"] });
-  const lich = require("../content/packs/ghoul.meta").evos.find((e) => e.key === "lich");
-  assert.ok(lich.require.anyFlags.includes("black_bone_evolution"));
-});
-
 test("hiding from the young dragon keeps the Kobold origin arc reachable", () => {
   const stages = data.races.find((r) => r.id === "kobold").stages;
   const c = character("kobold", ["dragon_2_hut"], stages.find((s) => s.id === "teen").start + 1);
@@ -223,15 +209,6 @@ test("turning away Goblins or young Orcs unlocks the corresponding memory", () =
   }
 });
 
-test("the Ghoul king quest retains the full ID and all four scenes", () => {
-  const full = "ghoul_q_cot_truyen_3_cuoc_tuan_hanh_cua_vua_kho_cot";
-  const q = data.quests.find((q) => q.id === full);
-  assert.ok(q);
-  assert.equal(q.steps.length, 4);
-  assert.equal(data.quests.some((q) => q.id === full.slice(0, -3)), false);
-  assert.equal(data.quests.filter((q) => q.id.startsWith("ghoul_q_cot_truyen_3_")).length, 1);
-});
-
 test("the fang event excludes rabbit, rat and hawk but keeps the other Beastman kins", () => {
   const e = event("bm_play_tooth");
   for (const subtype of data.races.find((r) => r.id === "beastman").subtypes) {
@@ -275,7 +252,6 @@ test("a Metal Slime cannot receive the weapon epitaph while a Human warrior stil
 
 test("aging companions receive a farewell appropriate to their race", () => {
   for (const [raceId, expected] of [
-    ["ghoul", /mục rữa hoàn toàn.*linh hồn tắt ngấm/],
     ["slime", /Lõi ma lực.*cạn kiệt.*hòa tan/],
     ["human", /Tóc họ bạc trắng/],
     ["elf", /Tóc họ bạc trắng/],
@@ -291,12 +267,12 @@ test("aging companions receive a farewell appropriate to their race", () => {
     const loss = c.log.find((e) => e.kind === "loss" && e.text.includes("Kael"));
     assert.ok(loss, raceId);
     assert.match(loss.text, expected);
-    if (["ghoul", "slime"].includes(raceId)) assert.doesNotMatch(loss.text, /Tóc họ bạc trắng|ra đi thanh thản/);
+    if (raceId === "slime") assert.doesNotMatch(loss.text, /Tóc họ bạc trắng|ra đi thanh thản/);
   }
 });
 
-test("Ghoul and Slime recurring cast also avoid mortal bedside farewells", () => {
-  for (const raceId of ["ghoul", "slime"]) {
+test("Slime recurring cast also avoid mortal bedside farewells", () => {
+  for (const raceId of ["slime"]) {
     const race = data.races.find((r) => r.id === raceId);
     const c = character("dragon", [], 3000);
     c.maxAge = 10400;
@@ -304,7 +280,7 @@ test("Ghoul and Slime recurring cast also avoid mortal bedside farewells", () =>
     E.advance(c, { ...data, events: [] }, E.makeRng(42));
     assert.equal(c.cast.rival.alive, false);
     const loss = c.log.find((e) => e.kind === "loss" && e.text.includes("Kael"));
-    assert.match(loss.text, raceId === "ghoul" ? /linh hồn tắt ngấm/ : /Lõi ma lực/);
+    assert.match(loss.text, /Lõi ma lực/);
     assert.doesNotMatch(loss.text, /chết già trên giường/);
   }
 });
@@ -376,17 +352,6 @@ test("an ancient Elf depleted of health receives a magical death instead of a fe
   const newDeath = data.deaths.find((d) => d.id === "health_elf_soul_exhaustion");
   assert.ok(newDeath);
   assert.match(newDeath.text, /rễ Cây Thế Giới/);
-});
-
-test("the Slime-remnant quest is narrated by a horde priest for a masterless Ghoul", () => {
-  const origin = data.origins.find((o) => o.id === "ghoul_origin_massgrave");
-  const c = E.createCharacter({ ...data, origins: [origin] }, E.makeRng(42), "ghoul");
-  assert.equal(c.parents.maker.alive, false);
-  const q = data.quests.find((q) => q.id === "ghoul_q_thu_gom_tan_du_slime");
-  assert.doesNotMatch(JSON.stringify(q), /\{maker\}/);
-  const intro = E.fmt(q.intro, c, null, data);
-  assert.match(intro, /Đại tư tế chiêu hồn cần nguyên liệu/);
-  assert.doesNotMatch(intro, /Kẻ đã tạo ra bạn/);
 });
 
 test("life-card age titles change at 1000 and 10000 years", () => {
