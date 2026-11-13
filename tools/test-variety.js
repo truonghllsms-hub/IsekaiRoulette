@@ -166,3 +166,16 @@ test('a death at work is told for the trade, in one voice',()=>{
  const miner=data.deaths.filter(d=>d.require&&d.require.job==='dwarf_miner');assert.equal(miner.filter(d=>d.kind==='violent').length,1);assert.match(miner.find(d=>d.kind==='violent').text,/Trần hầm tầng sâu sập/);
  assert.doesNotMatch(JSON.stringify(data.deaths),/vô duyên|điểm kinh nghiệm|nát bạn thành tương|tỉ lệ tử vong 75%/);
 });
+
+test('each people has its own guild wording, and no trade keeps filled-in promotion copy',()=>{
+ const org=(id)=>data.orgs.find(o=>o.id===id);
+ assert.match(org('dwarf_guild').rankUp[3],/phiến đá/);assert.match(org('bm_guild').rankUp[3],/cột lều/);assert.match(org('elf_guild').rankUp[3],/chữ loài người/);
+ for(const id of ['bm_guild','dwarf_guild','elf_guild'])assert.doesNotMatch(JSON.stringify(org(id).rankUp),/tấm bảng gỗ|ngoài chợ/);
+ // S must not be a matter of a few quests for one people and out of reach for another
+ const top=['human_guild','bm_guild','dwarf_guild','elf_guild'].map(id=>org(id).points[6]);
+ assert.ok(Math.max(...top)/Math.min(...top)<4.5,top.join(','));
+ const copy=JSON.stringify(data.jobs.filter(j=>j.races).map(j=>j.promotionCopy));
+ assert.doesNotMatch(copy,/chưa được thấu hiểu|đã để lại dấu ấn trong|Quyền năng chưa ổn định/);
+ assert.equal(data.jobs.filter(j=>j.promotionCopy&&j.promotionCopy.promo).length,0);
+ assert.doesNotMatch(JSON.stringify(data.deaths),/Thiên kiếp|lôi đình|đầy chất Goblin|bầy Imp/);
+});

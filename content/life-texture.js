@@ -162,19 +162,27 @@ const guilds = {
     board: ['Tấm bảng nhiệm vụ đóng trên cột lều, giấy da phần phật trong gió Thảo Nguyên. Vài tờ có ghi thêm: “không nhận á nhân”. Vài tờ khác thì chỉ á nhân mới dám nhận.', 'Tiếp tân đẩy cho bạn một xấp việc: “Mũi của ngươi thính hơn bọn ta. Mấy việc này hợp đấy.”', 'Lũ mạo hiểm giả loài người tránh ra khi bạn bước tới bảng. Nhiệm vụ thì không kén người nhận.'],
     failText: 'Bạn trở về chi hội với cái đuôi cụp. Nhiệm vụ thất bại, và sẽ có kẻ nói rằng lẽ ra không nên giao việc cho á nhân.',
     joinMoment: 'Ấn dấu vuốt vào sổ bộ Dawnbreak ở rìa Thảo Nguyên',
+    points: [0, 15, 30, 50, 80, 105, 116],
+    rankUp: { 1: 'Gã tiếp tân khắc thêm một vạch lên thẻ của bạn: hạng E. Lần này hắn đưa nó mà không ngần ngừ.', 2: 'Hạng D. Vài tờ “không nhận á nhân” trên cột lều được ai đó lặng lẽ gỡ xuống.', 3: 'Hạng C. Móng vuốt con thú bạn hạ được treo lên cột lều, cạnh tên bạn.', 4: 'Hạng B. Mạo hiểm giả loài người bắt đầu xin đi chung đội với bạn, thay vì né sang bên.', 5: 'Hạng A. Các bộ lạc gửi con cháu đến xem một á nhân mang thẻ bạc trông thế nào.', 6: 'Hạng S. Chưa đến một nắm á nhân từng cầm tấm thẻ ánh vàng này. Cả Thảo Nguyên tru lên khi tin lan đi.', default: 'Thẻ của bạn được khắc thêm một vạch.' },
   },
   dwarf_guild: {
     join: ['Sảnh Dawnbreak của Dãy Núi Răng Cưa đục thẳng vào vách đá, cạnh quán bia. Lão tiếp tân Dwarf cân thử cánh tay bạn rồi mới chịu đưa tấm thẻ đồng hạng F.', 'Tên bạn được khắc, chứ không viết, lên phiến đá sổ bộ. Dwarf không tin thứ gì viết bằng mực.'],
     board: ['Nhiệm vụ ở đây khắc trên thẻ đá treo móc sắt. Thẻ nào còn bụi là việc khó chưa ai dám gỡ.', 'Lão tiếp tân gõ vại bia xuống bàn: “Hầm sâu, đường xa, trả bằng vàng thật. Lấy hay không?”', 'Tiếng búa từ xưởng bên vọng sang làm rung cả hàng thẻ nhiệm vụ. Bạn đọc chúng giữa hai nhịp búa.'],
     failText: 'Bạn về sảnh tay trắng. Lão tiếp tân lẳng lặng treo lại thẻ nhiệm vụ lên móc, và không rót bia cho bạn.',
     joinMoment: 'Khắc tên lên sổ đá của Dawnbreak tại Răng Cưa',
+    points: [0, 7, 15, 24, 35, 44, 52],
+    rankUp: { 1: 'Lão tiếp tân đục thêm một nét vào thẻ đá của bạn: hạng E. “Chưa chết à? Tốt.”', 2: 'Hạng D. Thẻ của bạn được dời lên hàng móc thứ hai, nơi treo những việc trả bằng vàng.', 3: 'Hạng C. Tên bạn được khắc sâu thêm một tấc trên phiến đá sổ bộ.', 4: 'Hạng B. Lão tiếp tân tự tay rót cho bạn một vại bia. Ở sảnh này, đó là huân chương.', 5: 'Hạng A. Các gia tộc bắt đầu nhắc tên bạn khi cần người xuống những tầng không ai dám xuống.', 6: 'Hạng S. Thẻ đá của bạn được dát một đường vàng. Cả sảnh gõ vại xuống bàn cho đến khi bụi rơi từ trần.', default: 'Thẻ đá của bạn được khắc thêm một nét.' },
   },
   elf_guild: {
     join: ['Trạm Dawnbreak ở bìa Đại Ngàn là một căn nhà gỗ của loài người, vội vã và ồn ào. Cô tiếp tân nhìn đôi tai bạn hơi lâu rồi đưa tấm thẻ đồng hạng F như đưa cho một vị khách lạ.', 'Bạn viết tên mình bằng chữ loài người, lần đầu tiên. Tấm thẻ hạng F sẽ mòn trước khi bạn kịp già đi.'],
     board: ['Bảng nhiệm vụ đầy những việc gấp gáp của loài người: trong ba ngày, trước mùa gặt, nội đêm nay. Bạn đọc chúng với sự kiên nhẫn của kẻ sống nghìn năm.', 'Cô tiếp tân đã già đi trông thấy kể từ lần trước bạn đến. Xấp nhiệm vụ cô đưa thì vẫn thế.', 'Một tờ yêu cầu đã ngả vàng trên bảng từ đời tiếp tân trước. Không ai nhận, và nó vẫn chờ.'],
     failText: 'Bạn trở lại trạm tay không. Với loài người, thất bại là chuyện của hôm nay; với bạn, nó sẽ còn được nhớ rất lâu.',
     joinMoment: 'Ghi tên bằng chữ loài người tại trạm Dawnbreak bìa Đại Ngàn',
+    points: [0, 35, 50, 68, 80, 88, 93],
+    rankUp: { 1: 'Cô tiếp tân đổi cho bạn tấm thẻ hạng E, vội vàng như mọi việc của loài người.', 2: 'Hạng D. Cô tiếp tân thôi nhìn đôi tai bạn, và bắt đầu nhìn vào sổ thành tích.', 3: 'Hạng C. Tên bạn, viết bằng chữ loài người, được ghim lên bảng của trạm.', 4: 'Hạng B. Người tiếp tân mới không biết rằng bạn đã ở trạm này từ thời bà của cô.', 5: 'Hạng A. Các lãnh chúa loài người gửi thư mời, mỗi đời một lá, và bạn nhận ra nét chữ đang đổi dần.', 6: 'Hạng S. Tấm thẻ ánh vàng sẽ còn nằm trong tay bạn khi trạm này đã thành phế tích.', default: 'Hạng của bạn được nâng lên, và trạm lại vội vã như cũ.' },
   },
+  // thresholds only: set from how many points adventuring lives really gather, so that S stays rare for every people
+  human_guild: { points: [0, 20, 55, 95, 145, 175, 195] },
 };
 
 // ---- older death lines told in the same quiet voice as the rest ----
@@ -193,6 +201,9 @@ const deathRewrites = {
   troll_troll_death_starve: 'Ở tuổi {age}, bạn mắc kẹt trong một hẻm núi quá hẹp so với thân mình. Không ai nghe thấy, và cơn đói làm nốt phần còn lại.',
   orc_death_old_shame: 'Sống đến {age} tuổi, bạn chết trên giường, không tiếng gươm đao đưa tiễn. Với một Orc, đó là cái chết người ta không hát về.',
   vampire_death_sun: 'Bạn tính sai giờ và bình minh đuổi kịp giữa đường về. Ở tuổi {age}, sau ngần ấy thế kỷ cẩn trọng, chỉ một lần chậm chân là đủ.',
+  health_dragon_2: 'Ma lực trong bạn dâng quá ngưỡng thân xác chịu nổi. Sét từ chính cơn bão bạn gọi lên xé rách đôi cánh, và tiếng gầm cuối cùng vang khắp Dãy Núi Răng Cưa.',
+  goblin_old_legacy: 'Bạn nằm trên ổ rơm mục, lũ Goblin nhỏ đứng quanh chờ lột ủng. Bạn mỉm cười, siết chặt lọ thuốc nổ giấu trong vạt áo. Cả hang nghe tiếng nổ.',
+  hd_end_slumber: 'Lửa trong lò đã tắt, bầy tiểu quỷ tản đi tìm chủ mới. Bạn ngồi một mình trên ngai rạn nứt, khép đôi mắt đã thấy nghìn vương triều sụp đổ, và tan thành những hạt sáng đen chìm vào lòng đất Ma giới.',
   slime_death_frozen: 'Mùa đông dưới hầm ngục đóng băng bạn ở tuổi {age}. Một bước chân vô ý của kẻ qua đường kết thúc phần còn lại.',
 };
 
@@ -219,8 +230,24 @@ const REQUISITION = {
   demon: ['Quân đoàn đóng dấu sắt nung lên cửa sạp của bạn: mọi thứ bên trong giờ thuộc về Ma Vương, kể cả sổ nợ.', 'Giao nộp không một lời', 'Chúng dọn sạch trong một canh giờ. Bạn còn lại cái sạp trống và cái đầu trên cổ.', 'Tuồn hàng quý sang chợ đen trước một đêm', 'Hàng đi trót lọt. Khi chiến tranh qua, bạn sẽ là một trong số ít kẻ còn vốn.', 'Kẻ nhận hàng bán đứng bạn. Quân đoàn lấy cả hàng lẫn một ngón tay của bạn.'],
 };
 
+// how a trial is taken, won and lost among the long-lived, in place of one sentence filled in per trade
+const promotionCopy = {
+  elf: { try: 'Đứng ra nhận thử thách của Đại Ngàn', wait: 'Xin thêm một mùa lá', waitText: 'Bạn lui về Đại Ngàn. Với Elf, chờ thêm một mùa chẳng là bao.', success: 'Cả khoảng rừng lặng đi khi bạn trở về. Từ hôm nay, Đại Ngàn gọi bạn là {next}.', fail: ['Bạn chưa làm được. Không ai trách; ở Đại Ngàn, người ta chỉ lặng lẽ đợi bạn thử lại sau vài mùa.', 'Việc dang dở giữa chừng. Bạn mang nó về, đặt xuống, và hiểu mình còn thiếu điều gì.'] },
+  dwarf: { try: 'Nhận thử thách trước cả phường', wait: 'Xin thêm thời gian bên lò', waitText: 'Bạn trở về chỗ làm quen thuộc. Dwarf không vội, miễn là làm cho đến nơi.', success: 'Cả phường gõ búa xuống đe ba lần. Từ hôm nay, Dãy Núi Răng Cưa gọi bạn là {next}.', fail: ['Việc chưa đạt. Thợ cả chỉ nói: “Làm lại.” Ở đây, đó chưa phải lời chê.', 'Bạn hỏng ở công đoạn cuối. Vại bia tối đó đắng hơn thường lệ.'] },
+  demon: { try: 'Bước ra nhận thử thách', wait: 'Lùi lại, chờ thời', waitText: 'Bạn lùi vào bóng tối. Ở Ma Giới, kẻ biết chờ thường sống lâu hơn kẻ vội.', success: 'Không ai chúc mừng, nhưng kẻ đứng trên bạn hôm qua giờ tránh đường. Từ hôm nay, Vực Thẳm gọi bạn là {next}.', fail: ['Bạn thất bại, và ở Ma Giới thất bại luôn có kẻ nhìn thấy. Bạn ghi nhớ từng gương mặt đã cười.', 'Chưa đủ. Bạn sống sót qua lần thử, và thế đã là một kết quả.'] },
+  vampire: { try: 'Nhận thử thách của huyết tộc', wait: 'Chờ thêm một thế hệ người phàm', waitText: 'Bạn lui về lâu đài. Thời gian là thứ duy nhất huyết tộc không bao giờ thiếu.', success: 'Các trưởng lão nâng ly. Từ đêm nay, huyết tộc gọi bạn là {next}.', fail: ['Các trưởng lão trả lời bằng sự im lặng. Thêm một trăm năm nữa rồi thử lại.', 'Việc không thành. Bạn kéo rèm lại và nghĩ về nó suốt một mùa đông.'] },
+  dragon: { try: 'Đón nhận thử thách của loài Rồng', wait: 'Ngủ thêm một giấc dài', waitText: 'Bạn cuộn mình lại. Khi tỉnh dậy, thử thách vẫn sẽ ở đó.', success: 'Tiếng gầm của bạn vang qua ba dãy núi và được đáp lại. Từ hôm nay, loài Rồng gọi bạn là {next}.', fail: ['Bạn chưa đủ lớn cho danh xưng ấy. Vảy sẽ dày thêm; thử thách thì không đi đâu cả.', 'Bạn bay về với một bên cánh rách. Rồng nhớ những lần thua lâu hơn những lần thắng.'] },
+  high_demon: { try: 'Bước tới nhận lấy thử thách', wait: 'Để nó chờ thêm một kỷ', waitText: 'Bạn quay lưng lại. Thứ gì đáng có thì vẫn còn đó sau một kỷ nguyên.', success: 'Vực Thẳm lặng đi một nhịp. Từ hôm nay, mọi tầng bên dưới gọi bạn là {next}.', fail: ['Quyền năng chưa chịu theo ý bạn. Triều đình ghi nhận điều đó, và bạn ghi nhận ai đã mỉm cười.', 'Chưa phải lúc. Bạn lui về, kiên nhẫn như chỉ kẻ bất tử mới có thể.'] },
+};
+
 function install(data) {
   const job = (id) => data.jobs.find((j) => j.id === id);
+  for (const j of data.jobs) {
+    const copy = j.races && j.races.length === 1 && promotionCopy[j.races[0]];
+    if (copy && j.promotionCopy) j.promotionCopy = Object.assign({}, copy, { fail: copy.fail.slice() });
+    // the trials themselves live in promo / promoAlt: no second, stale copy of them
+    if (j.promotionCopy && j.promotionCopy.promo) { j.promotionCopy = Object.assign({}, j.promotionCopy); delete j.promotionCopy.promo; }
+  }
   for (const [id, flags] of Object.entries(originTrades)) {
     const j = job(id);
     if (!j) continue;
@@ -242,6 +269,9 @@ function install(data) {
   for (const [id, copy] of Object.entries(guilds)) {
     const o = data.orgs.find((x) => x.id === id);
     if (!o) continue;
+    if (copy.points) o.points = copy.points.slice();
+    if (copy.rankUp) o.rankUp = copy.rankUp;
+    if (!copy.join) continue;
     o.join = copy.join; o.failText = copy.failText; o.joinMoment = copy.joinMoment;
     o.board = Object.assign({}, o.board, { text: copy.board });
   }
