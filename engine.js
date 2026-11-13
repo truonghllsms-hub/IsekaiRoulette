@@ -1592,8 +1592,10 @@
     if (req.fame != null && c.fame < req.fame) return false;
     // "a hundred years later…": the earlier scene must have happened, that long ago
     if (req.after) {
-      const at = c.eventLast && c.eventLast[req.after.event];
-      if (at == null || c.age - at < (req.after.years || 0)) return false;
+      for (const need of [].concat(req.after)) {
+        const at = c.eventLast && c.eventLast[need.event];
+        if (at == null || c.age - at < (need.years || 0)) return false;
+      }
     }
     if (req.lateLife && !lateLife(c)) return false;
     if (req.below) {

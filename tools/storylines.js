@@ -2,6 +2,8 @@
 //  - every scene knows its chapter, so the engine can bring the next one due before random scenes;
 //  - a scene that follows another on the same road needs that scene to have happened, and as long ago
 //    as its own words say ("Một trăm năm sau…");
+//  - an ending needs every scene its road requires to have been lived, the last of them some time ago:
+//    bringing the earliest chapter first only sets the pace, this is what keeps the story whole;
 //  - an ending that names a title is only for a life that holds that title; the copies once made for
 //    lower ranks ("_late") are dropped, and a nickname given early is told as a promise, not a fact;
 //  - a life that closes before its road is finished gets an ending of its own, worded by what it
@@ -72,6 +74,11 @@ function install(data) {
     const allFlags = events.flatMap((e) => [].concat(e.require && e.require.notFlags || []));
     const endFlag = allFlags.find((f) => /_end$/.test(f)) || `${job.id}_story_end`;
     const lastOnRoad = {};
+    const mustOnRoad = {};
+    const endings = [];
+    // how long a road must have been walked before it can end: an age for the long-lived, a couple of years otherwise
+    const pace = data.races.find((r) => (job.races || []).includes(r.id) && r.pacing);
+    const walked = pace ? Math.round(pace.pacing.period / 2) : 2;
     for (const e of events) {
       const q = e.require = e.require || {};
       if (/_late$/.test(e.id)) { drop.add(e.id); continue; }
@@ -83,11 +90,19 @@ function install(data) {
       // an early chapter missed while rising fast can still be caught up, or the road would dead-end
       if (CHAPTER[kind] <= CHAPTER.path) delete q.jobRankMax;
       if (kind === "path") {
-        const before = lastOnRoad[road];
+        // A scene every life on this road can reach (it asks for nothing but the road itself) must be lived
+        // before the road ends. One that also needs an earlier choice is optional: it may never come.
+        const must = [].concat(q.flags || []).length === 1 && !q.anyFlags && !e.stages && !e.eras && ![].concat(q.notFlags || []).some((f) => f !== endFlag);
+        const list = mustOnRoad[road] = mustOnRoad[road] || [];
+        // it follows the scene before it; a scene that must happen never waits on one that may not
+        const before = must ? list[list.length - 1] : lastOnRoad[road];
         const years = yearsLater(e.text);
         if (before) q.after = { event: before.id, years: years || 0 };
         lastOnRoad[road] = e;
+        if (must) list.push(e);
+        e.story.must = must;
       }
+      if (kind === "c5") endings.push([e, road]);
       const said = JSON.stringify([e.text, e.choices]);
       const named = titles.filter(([k, re]) => k > (q.jobRank || 0) && re.test(said));
       if (kind === "c5" && named.length) q.jobRank = Math.max(...named.map(([k]) => k));
@@ -100,6 +115,14 @@ function install(data) {
       }
       if (kind === "crossroads" || kind === "c5")
         for (const ch of e.choices || []) if (!outcomesOf(ch).some((o) => o.moment)) (ch.success || ch).moment = ch.label.replace(/[.…]+$/, "");
+    }
+    // An ending is prepared: every scene its road requires has been lived, the last of them long enough ago
+    // for the ending's own words ("mười thế hệ Dũng Giả đã đến") to be true.
+    for (const [e, road] of endings) {
+      const must = mustOnRoad[road] || [];
+      if (!must.length) continue;
+      const span = Math.max(walked, yearsLater(e.text) || 0);
+      e.require.after = must.map((m, i) => ({ event: m.id, years: i === must.length - 1 ? span : 0 }));
     }
     const endless = !data.races.some((r) => (job.races || []).includes(r.id) && r.lifespan);
     extra.push(unfinishedEnding(job, events[0].races, endFlag, endless));

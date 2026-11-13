@@ -105,3 +105,33 @@ test('the last scene of a trade milestone no longer tells the outcome before the
  assert.doesNotMatch(q.steps[2].text,/Bạn thắng/);assert.match(q.steps[2].choices[0].success.text,/Bạn thắng trận đấu trên mây/);
  assert.doesNotMatch(JSON.stringify(q),/Xắn tay|mồ hôi/);
 });
+
+// ---- an ending is prepared by its road, and choices belong to the trade ----
+test('an ending cannot come before the scenes its road requires, nor lock them out',()=>{
+ const end=data.events.find(e=>e.id==='drw_c5_hero'),grand=data.events.find(e=>e.id==='drw_hero_grandson');
+ const c=E.createCharacter(data,E.makeRng(3),'dragon');
+ Object.assign(c,{age:4050,captive:null,focus:'work',job:{id:'dragon_war',rank:4,xp:0},flags:[...c.flags,'drw_path_hero'],used:['drw_hero_first'],eventLast:{drw_hero_first:4000},pending:null});
+ const ok=(e)=>E.eligible(e,c,E.currentStage(c).id,data);
+ // top rank, met the first Hero fifty years ago: neither the granddaughter nor the ending yet
+ assert.equal(ok(grand),false);assert.equal(ok(end),false);
+ c.age=4100;assert.equal(ok(grand),true);assert.equal(ok(end),false);
+ c.used.push('drw_hero_grandson');c.eventLast.drw_hero_grandson=4100;assert.equal(ok(end),false);
+ c.age=4150;assert.equal(ok(end),true);
+});
+test('every ending waits for its road, and no required scene waits on an optional one',()=>{
+ const byId=new Map(data.events.map(e=>[e.id,e]));
+ for(const e of data.events.filter(e=>e.story&&e.story.kind==='end'&&!e.story.unfinished)){
+  const road=e.require.flags.find(f=>/_path_/.test(f));
+  const must=data.events.filter(x=>x.story&&x.story.must&&x.require.flags.includes(road));
+  assert.deepEqual([].concat(e.require.after||[]).map(a=>a.event),must.map(m=>m.id),e.id);
+  for(const m of must)for(const a of [].concat(m.require.after||[]))assert.equal(byId.get(a.event).story.must,true,`${m.id} waits on optional ${a.event}`);
+ }
+});
+test('priests and miners have their own wording, and borrowed wording is gone',()=>{
+ const said=(job)=>JSON.stringify(data.quests.filter(q=>q.career&&q.career.job===job));
+ assert.doesNotMatch(said('human_priest'),/tổ tiên|Lửa lễ|cả bầy/);
+ assert.match(said('human_priest'),/Chia đều thuốc, rồi tự đi tìm nguồn tiếp tế/);
+ for(const job of ['dwarf_miner','kobold_miner'])assert.doesNotMatch(said(job),/Trời của|ruộng|cả làng/);
+ assert.doesNotMatch(said('elf_herb'),/ruộng|buông cuốc/);
+ assert.doesNotMatch(said('slime_metal'),/bàn thợ|khách không nhìn ra/);
+});

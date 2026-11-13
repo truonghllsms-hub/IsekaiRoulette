@@ -158,9 +158,44 @@ const FAMILY = {
     retreat: 'Thôi, giữ sức cho vụ sau', retreatText: 'Bạn buông cuốc. Đất còn đó, năm sau lại gieo.',
   },
 };
-FAMILY.priest = FAMILY.shaman;
-FAMILY.miner = FAMILY.farmer;
-FAMILY.cave_scholar = FAMILY.scholar;
+// A priest of the Church is not a tribal shaman, and a miner is not a farmer: each has its own wording.
+FAMILY.priest = {
+  finale: 'Chặng cuối của “{t}”: không còn ai để hỏi ý, chỉ còn bạn, lời nguyện và những người đang trông vào bạn.',
+  go: 'Đến tận nơi, hỏi từng người trước khi cầu nguyện', goOk: 'Bạn nghe hết rồi mới mở sách kinh. Người ta bắt đầu kể cho bạn những điều họ giấu cả cha xứ cũ, và chặng đầu của “{t}” sáng tỏ dần.', goBad: 'Bạn vội phán đoán khi chưa nghe đủ, và phải đi lại từ đầu với một giáo dân đã mất lòng tin.',
+  safe: 'Xin giáo phận cử thêm người, chờ trả lời', safeText: 'Thư đi rồi thư về mất nhiều ngày và một khoản lộ phí. Nhưng bạn không phải gánh việc này một mình.',
+  keep: 'Làm theo lương tâm, dù trái ý bề trên', keepOk: 'Bạn chọn điều mình tin là đúng trước Nữ thần, rồi tự viết thư trình lên giáo phận. Không ai dám quở một việc đã cứu được người.', keepBad: 'Giáo phận khiển trách và cắt phần trợ cấp của bạn. Điều bạn làm thì đã làm xong.',
+  bend: 'Làm đúng lệnh trên, không hỏi thêm', bendOk: 'Mọi sự diễn ra đúng quy định, và bề trên hài lòng. Đêm ấy bạn đọc kinh lâu hơn thường lệ.', bendBad: 'Lệnh trên hóa ra sai, và người ta nhớ ai là kẻ đã thi hành nó.',
+  last: 'Ở lại đến cùng với những người cần mình', lastBad: 'Sức bạn không đủ cho đêm dài ấy. Bạn gục xuống trước khi việc xong, và người ta phải khiêng bạn ra.',
+  retreat: 'Giao lại cho giáo phận, lui về tu viện', retreatText: 'Bạn viết thư xin người thay. Có những gánh nặng mà một tu sĩ không nên tự mình mang hết.',
+};
+FAMILY.miner = {
+  finale: 'Chặng cuối của “{t}” nằm ở tầng sâu nhất. Đèn chỉ còn đủ dầu cho một lượt xuống và một lượt lên.',
+  go: 'Gõ vách, nghe đá trước khi bổ nhát cuốc nào', goOk: 'Tiếng vọng cho bạn biết chỗ nào rỗng, chỗ nào chắc. Chặng đầu của “{t}” được đào đúng hướng ngay từ nhát đầu.', goBad: 'Bạn đào trúng một túi nước ngầm, mất nửa ngày tát hầm và một cây đèn.',
+  safe: 'Chống thêm cột, chậm mà yên', safeText: 'Gỗ chống tốn tiền và tốn công. Trần hầm thì đứng yên trên đầu bạn.',
+  keep: 'Giữ luật hầm: an toàn của thợ trước quặng', keepOk: 'Bạn cho chống đủ từng đoạn rồi mới đào tiếp. Chậm hơn dự tính, và cả tổ cùng lên mặt đất.', keepBad: 'Giữ luật hầm khiến tổ hụt định mức. Bạn chịu phạt thay cả tổ.',
+  bend: 'Đào liều cho kịp, bỏ qua chống trần', bendOk: 'Quặng lên kịp hạn. Mỗi tiếng đá kêu răng rắc trên đầu từ đó làm bạn giật mình.', bendBad: 'Một đoạn trần sập. Bạn mất đồ nghề, mất quặng, và suýt mất cả người.',
+  last: 'Xuống tầng sâu nhất, đào nhát quyết định', lastBad: 'Đá ở dưới ấy cứng hơn sức bạn. Bạn phải leo lên tay trắng trước khi đèn tắt.',
+  retreat: 'Quay lên khi đèn còn sáng', retreatText: 'Bạn đếm dầu đèn, rồi ra hiệu cho cả tổ lên. Thợ mỏ già là thợ mỏ biết lúc nào nên quay lên.',
+};
+// Which trades each wording really fits. A trade not listed here keeps the plain wording of its gift:
+// better plain than borrowed from a trade it only resembles on paper.
+const FITS = {
+  courier: ['bm_courier'],
+  merchant: ['human_merchant', 'elf_merchant', 'dwarf_merchant', 'demon_me'],
+  smith: ['human_smith', 'demon_bs', 'dwarf_runesmith', 'orc_smith', 'bm_leather', 'dwarf_eng', 'dwarf_carver', 'elf_wood', 'goblin_tinker'],
+  mage: ['human_mage', 'bm_mage', 'demon_wl', 'vampire_mage'],
+  shaman: ['bm_shaman', 'goblin_shaman', 'kobold_priest', 'lizard_priest', 'minotaur_shaman', 'orc_shaman'],
+  priest: ['human_priest'],
+  miner: ['dwarf_miner', 'kobold_miner'],
+  assassin: ['human_assassin', 'bm_thief', 'demon_spy', 'vampire_blade'],
+  ranger: ['human_ranger', 'bm_hunter', 'elf_ranger', 'lizard_hunter', 'orc_ranger'],
+  tamer: ['human_tamer', 'bm_herder', 'goblin_rider', 'orc_rider'],
+  bard: ['human_bard', 'elf_bard'],
+  scholar: ['human_scholar', 'troll_scholar'],
+  farmer: ['human_farmer'],
+};
+const WORDING_OF = {};
+for (const [set, ids] of Object.entries(FITS)) for (const id of ids) WORDING_OF[id] = set;
 const FINALE = {
   STR: 'Mọi thứ dồn về chặng cuối của “{t}”. Từ đây chỉ còn sức và gan.',
   INT: 'Chặng cuối của “{t}” không còn chỗ cho phép thử. Mọi tính toán phải đúng ngay lần này.',
@@ -220,11 +255,86 @@ const QUEST = {
     bend: 'Giao thư ân xá cho hắn để được đi tiếp', bendOk: 'Bạn được đi. Lá thư ân xá thì không bao giờ đến nơi, và bạn biết rõ điều đó ngay khi buông tay.', bendBad: 'Hắn giữ luôn cả bạn lại “để hỏi vài câu”. Trống pháp trường điểm khi bạn còn ngồi trong lều hắn.',
   },
 };
+Object.assign(QUEST, {
+  career_human_priest_r2: {
+    go: 'Đi từng nhà đếm người bệnh, lần ra giếng nhiễm', goOk: 'Bạn tìm ra cái giếng ở cuối xóm, nơi nước đầm ngấm vào. Lấp nó lại, số người đổ bệnh mới ngừng tăng.', goBad: 'Bạn uống nhầm nước giếng trước khi kịp nhận ra. Cơn sốt quật bạn ba ngày.',
+    safe: 'Thuê người chở nước sạch từ làng trên', safeText: 'Xe nước đến mỗi sáng, tốn gần hết tiền giáo xứ cấp cho bạn. Nhưng không ai phải múc nước đầm nữa.',
+    keep: 'Chia đều thuốc, rồi tự đi tìm nguồn tiếp tế', keepOk: 'Bạn chia mỗi người nửa liều để cầm cự, rồi cưỡi lừa suốt đêm đến tu viện bên kia đầm xin thêm. Thuốc về kịp cho phần lớn dân làng.', keepBad: 'Nửa liều không đủ giữ những người nặng nhất. Bạn mang thuốc về kịp cho số còn lại, kiệt sức và cạn túi.',
+    bend: 'Theo lệnh giáo phận: chọn nửa số người để chữa', bendOk: 'Bạn chọn trẻ con và người còn sức làm. Một nửa làng sống, và nửa kia biết rõ ai đã gạch tên mình.', bendBad: 'Người bị gạch tên giật lấy hòm thuốc trong đêm. Thuốc đổ vỡ, và không ai được chữa đủ liều.',
+    finale: 'Đêm thứ bảy ở làng dịch. Người bệnh nặng nhất vẫn chưa hạ sốt, và ngoài bạn ra không còn ai thức.',
+    last: 'Thức trọn đêm chữa trị và cầu nguyện', lastBad: 'Cơn dịch quật ngã luôn cả bạn. Dân làng phải chăm ngược lại người đến cứu họ.',
+    retreat: 'Rời làng trước khi tự mình nhiễm bệnh', retreatText: 'Bạn để lại số thuốc còn lại cùng lời dặn cách dùng, rồi đi khi trời chưa sáng. Không ai trách, và không ai tiễn.',
+  },
+  career_human_priest_r4: {
+    go: 'Gặp riêng từng bị cáo, không có lính canh', goOk: 'Sau song sắt, họ nói những điều lời khai không ghi: họ chỉ chữa bệnh cho dân nghèo bằng bài thuốc mà Tòa Thánh chưa duyệt.', goBad: 'Việc gặp riêng bị báo lên trên. Bạn bị nhắc nhở và mất quyền xem một phần hồ sơ.',
+    safe: 'Chỉ xét trên hồ sơ, đúng thủ tục', safeText: 'Bạn đọc từng trang lời khai trong phòng lưu trữ lạnh lẽo. Không ai bắt bẻ được bạn, và bạn cũng không biết gì hơn những gì giấy ghi.',
+    keep: 'Từ chối ký, viết phán quyết của riêng mình', keepOk: 'Bản án thiếu chữ ký thứ ba không thể thi hành. Bạn buộc Tòa Thánh phải mở lại phiên xét xử công khai.', keepBad: 'Hai quan tòa kia tố bạn bao che dị giáo. Bạn mất chỗ trong hội đồng, nhưng tên bạn không nằm dưới bản án.',
+    bend: 'Ký tên cho xong, giữ lấy chỗ đứng', bendOk: 'Con dấu đỏ đóng xuống. Bạn giữ được ghế trong hội đồng và mất ngủ nhiều đêm sau đó.', bendBad: 'Bản án bị dân chúng phản đối dữ dội, và hai quan tòa kia đẩy hết trách nhiệm sang chữ ký cuối cùng: của bạn.',
+    last: 'Đọc to phán quyết của mình trước Tòa Thánh', lastOk: 'Giọng bạn không run. Khi bạn đọc xong, cả đại sảnh im lặng rất lâu, rồi vị Giáo chủ già chậm rãi gật đầu.', lastBad: 'Phán quyết của bạn bị bác ngay tại chỗ. Bạn rời đại sảnh giữa hai hàng lính.',
+    retreat: 'Xin rút khỏi ghế quan tòa', retreatText: 'Bạn viện cớ bệnh. Phiên tòa tiếp tục mà không có bạn, và kết quả thì ai cũng đoán được.',
+  },
+  career_human_priest_r2b: {
+    go: 'Ở lại làng bảy ngày, tự nếm nước giếng', goOk: 'Nước chỉ là nước. Nhưng bạn thấy điều khác: người hành hương được nghỉ ngơi, ăn no và có người hỏi han, có lẽ lần đầu sau nhiều năm.', goBad: 'Trưởng làng nghi bạn đến để phá phép lạ, và cấm dân làng nói chuyện với bạn.',
+    keep: 'Nói thật rằng nước giếng chỉ là nước', keepOk: 'Bạn nói thật, rồi chỉ cho làng cách biến quán trọ hành hương thành nhà dưỡng bệnh. Khách vẫn đến, vì một lý do có thật.', keepBad: 'Dòng người hành hương thưa hẳn. Làng oán bạn, và bạn bỏ tiền túi ra giúp họ qua mùa đông.',
+    bend: 'Im lặng, để làng giữ lấy phép lạ', bendOk: 'Làng tiếp tục sống nhờ cái giếng. Mỗi lần nghe ai kể về phép lạ ấy, bạn lại cúi xuống nhìn tay mình.', bendBad: 'Một người bệnh nặng bỏ thuốc để chỉ uống nước giếng, rồi chết. Người ta hỏi vì sao vị tu sĩ biết mà không nói.',
+    last: 'Bước đến bên giếng, đỡ lấy đứa trẻ', lastOk: 'Bạn không hứa phép lạ. Bạn hạ sốt cho đứa trẻ bằng nước mát, lá thuốc và một đêm không ngủ, trước mắt cả trăm người. Sáng ra, nó mở mắt.', lastBad: 'Đứa trẻ không qua khỏi. Đám đông im lặng tản đi, và người mẹ không nhìn bạn.',
+    retreat: 'Lùi lại, để đám đông tự cầu nguyện', retreatText: 'Bạn đứng lẫn vào đám đông. Dù điều gì xảy ra bên giếng, đó không phải việc bạn làm.',
+  },
+  career_human_priest_r4b: {
+    go: 'Xem xét cả hai bộ di cốt và văn tự đi kèm', goOk: 'Mực của cả hai bản văn tự đều trẻ hơn vị thánh ba trăm năm. Bạn là người duy nhất biết điều đó.', goBad: 'Một trong hai thành nghi bạn thiên vị và đòi đổi người phân xử.',
+    keep: 'Nói thật: cả hai bộ di cốt đều là giả', keepOk: 'Bạn nói thật trước cả hai thành, rồi nói tiếp: vị thánh ấy để lại lời dạy chứ không để lại xương. Không còn gì để đánh nhau vì nó nữa.', keepBad: 'Cả hai thành cùng nổi giận với kẻ đưa tin. Bạn rời quảng trường dưới mưa đá cuội.',
+    bend: 'Tuyên bố mỗi thành giữ một nửa di cốt thật', bendOk: 'Hai thành hài lòng ra về, mỗi bên ôm một nửa lời nói dối. Hòa bình ấy đứng trên một thứ bạn biết là không có.', bendBad: 'Một học giả phát hiện ra sự thật và công bố. Giờ cả hai thành cùng căm ghét Tòa Thánh.',
+    last: 'Bước lên bục, nói với đám đông của cả hai thành', lastOk: 'Bạn nói về người đã khuất chứ không nói về nắm xương. Khi bạn dứt lời, hai vị thị trưởng bước lại gần nhau lần đầu sau ba mươi năm.', lastBad: 'Tiếng la ó át cả giọng bạn. Lính phải mở đường cho bạn rời bục.',
+    retreat: 'Trả vụ việc về Tòa Thánh', retreatText: 'Bạn niêm phong hồ sơ gửi về Sanctus. Hai thành tiếp tục gườm nhau qua bờ sông.',
+  },
+  career_dwarf_miner_r2: {
+    go: 'Buộc dây quanh lưng, xuống trước cả tổ', goOk: 'Bạn xuống từng nấc, giật dây báo an toàn sau mỗi mười sải. Ba người phía trên đáp lại đều tay.', goBad: 'Dây vướng vào một gờ đá sắc và sờn mất nửa. Bạn phải leo lên thay dây.',
+    keep: 'Giữ dây, bịt tai bằng sáp mà đi tiếp', keepOk: 'Sáp nến trong tai, dây quanh lưng, bạn xuống đến tận nơi tiếng hát phát ra mà vẫn còn đường về.', keepBad: 'Sáp không chặn hết tiếng hát. Ba người bạn phải kéo bạn lên trong lúc bạn giãy giụa.',
+    bend: 'Cắt dây, đi theo tiếng hát', bendOk: 'Không còn dây, bạn đi sâu hơn bất cứ ai. Bạn tìm được đường về nhờ may mắn, và ba người phía trên đã khóc bạn suốt một ngày.', bendBad: 'Bạn lạc trong tầng sâu hai ngày không đèn. Người ta tìm thấy bạn nằm bất tỉnh cạnh một khe gió.',
+    finale: 'Tiếng hát ở ngay sau vách đá cuối cùng. Đèn của bạn bắt đầu chập chờn.',
+    last: 'Lần đến tận nguồn tiếng hát', lastBad: 'Tiếng hát kéo bạn đi quá xa. Bạn tỉnh lại khi đang được kéo lên, không nhớ mình đã thấy gì.',
+  },
+  career_dwarf_miner_r4: {
+    go: 'Chuẩn bị trọn một năm, chọn từng người một', goOk: 'Dây thừng, đèn đá, lương khô và mười hai thợ tin bạn hơn tin trần hầm. Không ai phải quay lên giữa chừng.', goBad: 'Một thợ giấu bệnh phổi và gục ở tầng thứ ba. Cả đoàn phải lên rồi xuống lại.',
+    keep: 'Để yên mạch Lõi Mana, chỉ vẽ bản đồ', keepOk: 'Bạn đo đạc, đánh dấu và không bổ một nhát cuốc nào vào cây cột đang đỡ cả hang. Hội đồng có bản đồ, còn núi giữ được trần.', keepBad: 'Hội đồng giận vì bạn về tay trắng trước một kho báu. Chuyến đi không được trả công.',
+    bend: 'Đục lấy một phần Lõi Mana mang về', bendOk: 'Bạn mang về đủ Lõi Mana để được tung hô. Dưới kia, trần hang nghiêng đi một độ mà chỉ mình bạn biết.', bendBad: 'Trần hang rạn ngay khi bạn đục. Bạn chạy thoát, bỏ lại đồ nghề và một đường nứt đang lan dần lên các tầng trên.',
+    finale: 'Dưới chân bạn không còn đường hầm nào nữa, chỉ có đá liền. Đây có thể là đáy của thế giới.',
+    last: 'Đào nhát cuối xuống đá liền', lastBad: 'Đá liền không chịu thua. Bạn leo lên với cây cuốc gãy và câu hỏi còn nguyên.',
+  },
+  career_dwarf_miner_r2b: {
+    go: 'Gõ lại bằng mã thợ mỏ, chờ trả lời', goOk: 'Ba tiếng, nghỉ, hai tiếng. Bên kia đáp bằng thứ mã mà chỉ các cụ thợ già còn nhớ: “Còn sống. Bảy người.”', goBad: 'Tiếng gõ của bạn làm rơi một mảng trần. Cả tổ phải lùi ra chống lại hầm.',
+    keep: 'Chống vách chính cho chắc rồi mới đào qua', keepOk: 'Mất thêm hai ngày chống cột. Khi vách thủng, hầm chính vẫn đứng vững, và bạn nhìn thấy thứ ở bên kia.', keepBad: 'Hai ngày chống cột là quá lâu. Khi bạn đào qua, bên kia chỉ còn im lặng.',
+    bend: 'Đào thẳng qua ngay, mặc vách chính', bendOk: 'Bạn tới nơi kịp lúc. Sau lưng, vách chính nứt một đường dài mà cả mỏ sẽ phải sống chung.', bendBad: 'Vách chính sập sau lưng bạn. Giờ có hai tổ thợ cần được cứu.',
+    last: 'Bổ nhát cuốc cuối cùng vào vách', lastOk: 'Vách vỡ. Ánh đèn của bạn rọi vào những gương mặt đã ba mươi năm không thấy ánh sáng, già nua, hốc hác và đang cười.', lastBad: 'Vách vỡ ra một khoảng trống đen ngòm, không có ai. Thứ đã gõ trả lời bạn không còn ở đó.',
+    retreat: 'Lấp vách lại, báo lên Hội đồng', retreatText: 'Bạn chèn đá vào chỗ đào dở. Có những thứ dưới lòng núi không nên gặp khi chỉ có một tổ thợ.',
+  },
+  career_dwarf_miner_r4b: {
+    go: 'Đo vỉa vàng trong im lặng, không nói với ai', goOk: 'Vỉa vàng chạy chếch xuống ngay dưới nền mộ. Bạn tìm ra thêm một nhánh phụ, mỏng hơn, không chạm vào Sảnh Tổ Tiên.', goBad: 'Người gác Sảnh bắt gặp bạn đang đo. Tin đồn lan nhanh hơn bạn tưởng.',
+    keep: 'Chỉ đào nhánh phụ, không chạm vào nền mộ', keepOk: 'Nhánh phụ cho ít vàng hơn nhiều, vừa đủ để gia tộc trả hết nợ. Tổ tiên của người ta nằm yên.', keepBad: 'Nhánh phụ cạn sớm. Gia tộc vẫn còn nợ, và bạn bị trách là đã chê vàng.',
+    bend: 'Đào dưới nền mộ trong đêm', bendOk: 'Vàng lên đầy xe trước khi trời sáng. Nền Sảnh Tổ Tiên của gia tộc kia lún xuống một đốt ngón tay, và chưa ai để ý.', bendBad: 'Nền mộ sụt giữa đêm. Hai gia tộc sẽ không nói chuyện với nhau trong mười đời tới.',
+    last: 'Cầm lấy cây cuốc trưởng tộc trao', lastOk: 'Bạn cầm cuốc, rồi dẫn cả gia tộc sang Sảnh bên kia xin phép đào chung và chia đôi. Chưa Dwarf nào từng làm thế, và họ đồng ý.', lastBad: 'Gia tộc kia từ chối mọi thỏa thuận. Vỉa vàng nằm lại dưới nền mộ, và món nợ vẫn còn đó.',
+    retreat: 'Trả lại cây cuốc cho trưởng tộc', retreatText: 'Bạn đặt cây cuốc xuống. Trưởng tộc nhìn bạn rất lâu, rồi tự mình nhặt nó lên.',
+  },
+  career_kobold_miner_r2: {
+    go: 'Gõ từng vách, áp tai nghe tiếng vọng', goOk: 'Một chỗ vách kêu đục hơn hẳn. Sau lớp đá mỏng ấy có thứ gì đó nặng hơn đá.', goBad: 'Bạn gõ nhầm vào ổ rết đá. Cả tổ mất nửa ngày vì những cái chân sưng vù.',
+    keep: 'Không đào trộm, tự tìm vỉa của tổ mình', keepOk: 'Bạn bỏ ngoài tai lời rủ rê và đào tiếp ở vách của mình. Tổ bên cạnh không bao giờ biết mình suýt mất gì.', keepBad: 'Tổ của bạn về tay trắng thêm ba ngày, và cái bụng đói làm mọi con mắt quay sang nhìn bạn.',
+    bend: 'Đào trộm sang hầm tổ bên cạnh', bendOk: 'Quặng của tổ bên giúp tổ bạn có cái ăn qua mùa đông. Bên kia vách, có những Kobold sẽ đói thay.', bendBad: 'Tổ bên cạnh bắt quả tang. Trận cắn xé trong hầm tối làm cả hai tổ cùng mất quặng.',
+    finale: 'Vách đá kêu đục nằm ngay trước mũi bạn. Mùa đông thì đã ở ngay cửa hang.',
+    last: 'Đào thủng lớp vách kêu đục', lastBad: 'Sau lớp vách chỉ là đá câm. Tổ đào phải vào mùa đông với những cái túi rỗng.',
+  },
+  career_kobold_miner_r4: {
+    go: 'Đào từng tấc, tự tay chống từng đoạn', goOk: 'Hầm xuống sâu đều đặn, cột chống thẳng hàng. Chưa con Kobold nào phải bị đào ra khỏi đất.', goBad: 'Một đoạn hầm ngập nước. Bạn mất mấy ngày tát và một xe gỗ chống.',
+    keep: 'Vẫn chống trần đủ, mặc lời đốc công', keepOk: 'Bạn cho chống đủ từng cột dù roi của đốc công quất trên lưng. Hầm chậm ba ngày, và không ai bị chôn.', keepBad: 'Đốc công phạt cả tổ vì chậm. Bạn nhận phần roi nhiều nhất.',
+    bend: 'Bỏ chống trần, đào cho kịp ý Rồng', bendOk: 'Hầm xong sớm, lãnh chúa Rồng hài lòng. Mỗi lần đi qua đoạn không cột chống, cả tổ đều nín thở.', bendBad: 'Trần sập ở đoạn sâu nhất. Lãnh chúa Rồng mất hầm, còn tổ đào mất bốn đứa.',
+    finale: 'Đoạn cuối của hầm Rồng là đá đen cứng nhất núi. Lãnh chúa đang chờ ở trên.',
+    last: 'Đào nốt đoạn đá đen', lastBad: 'Đá đen làm gãy hết cuốc của tổ. Lãnh chúa Rồng không thích nghe chữ “chưa xong”.',
+  },
+});
 // what the last scene of a milestone looks like when the script only wrote how it ends
 const SCENE_LIKE = /^Bạn (bước vào|chờ|đứng trước|đứng chắn|đứng giữa|đối mặt|đối diện|phải|cần)|\?$|đang chờ|trước mặt|sắp /;
 function stepWords(j, family, title, questId) {
   const epic = (j.races || []).some((r) => r === 'dragon' || r === 'high_demon');
-  const set = Object.assign({ finale: FINALE[j.stat] || FINALE.INT }, WORDS[j.stat] || WORDS.INT, epic ? FAMILY.epic : FAMILY[family] || {}, QUEST[questId] || {});
+  const set = Object.assign({ finale: FINALE[j.stat] || FINALE.INT }, WORDS[j.stat] || WORDS.INT, epic ? FAMILY.epic : FAMILY[WORDING_OF[j.id]] || {}, QUEST[questId] || {});
   const out = {};
   for (const k of Object.keys(set)) out[k] = set[k].replace('{t}', title).replace('{job}', j.name);
   return out;

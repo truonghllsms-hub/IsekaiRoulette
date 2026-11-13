@@ -56,6 +56,12 @@ Kiểm tra: `node tools/test-variety.js`.
 - **Cảnh nối tiếp.** Cảnh thứ hai trên cùng một con đường cần cảnh trước đã xảy ra:
   `require.after = { event, years }`. Lời dẫn mở bằng khoảng thời gian (“Một trăm
   năm sau…”) được đọc thành số năm thật phải trôi qua.
+- **Kết phải được chuẩn bị.** Cảnh của một con đường chỉ đòi đúng cờ con đường đó là cảnh
+  *bắt buộc* (`story.must`); cảnh còn cần một lựa chọn trước đó là cảnh tùy chọn. Cảnh kết
+  mang `require.after` là danh sách mọi cảnh bắt buộc của con đường mình, và cảnh bắt buộc
+  cuối phải cách đó một quãng: nửa kỷ của tộc sống lâu, 2 năm với tộc thường, hoặc số năm
+  ghi ngay trong lời kết. Cảnh bắt buộc không bao giờ chờ một cảnh tùy chọn. Thứ tự chương
+  chỉ giữ nhịp kể; chính điều kiện này mới bảo đảm câu chuyện liền mạch.
 - **Danh hiệu.** Cảnh kết nhắc danh hiệu nào thì chỉ mở khi nhân vật giữ danh hiệu
   đó. Các bản sao kết cho bậc thấp (`_late`) bị bỏ. Biệt danh trao sớm (“Người ta gọi
   bạn là…”) được kể thành lời hứa hẹn.
@@ -73,8 +79,11 @@ Kiểm tra: `node tools/test-variety.js`.
 Thứ tự ưu tiên: lời viết riêng cho một nhiệm vụ (`QUEST` theo id trong
 `content/career-variety.js`), rồi lời của nhóm nghề (`FAMILY`: Rồng và Thượng Ma,
 đưa thư, buôn bán, thủ công, pháp sư, shaman/tu sĩ, nghề ngầm, thợ săn, thuần thú,
-hát rong, học giả, nông dân/thợ mỏ), cuối cùng là lời theo chỉ số (`WORDS`). Hiện
-có lời riêng cho 6 nhiệm vụ của Rồng và 4 nhiệm vụ của người đưa thư; thêm nhiệm vụ
+hát rong, học giả, nông dân/thợ mỏ), cuối cùng là lời theo chỉ số (`WORDS`). Lời nhóm nghề chỉ
+áp cho những nghề ghi trong `FITS`; nghề không có trong đó dùng lời theo chỉ số, vì lời
+mượn của nghề khác sẽ sai bối cảnh (tu sĩ không phải shaman, thợ mỏ không phải nông dân).
+Hiện có lời riêng cho 6 nhiệm vụ của Rồng, 4 của người đưa thư, 4 của tu sĩ Human và 6 của
+thợ mỏ Dwarf/Kobold; thêm nhiệm vụ
 khác bằng cách thêm khóa vào `QUEST`.
 
 Phần lớn kịch bản viết chặng cuối như một kết quả (“Bạn thắng trận đấu trên mây…”).
