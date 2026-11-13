@@ -2349,7 +2349,9 @@
       c.job.xp += per * (0.8 + statValue(c, j.stat) / 25);
       if (c.race.pacing?.mode !== "epoch" && !c.captive) {
         const savingsRate=j.finance === "commerce" ? 0.5 : 0.25;
-        bars.wealth = ((bars.wealth || 0) + j.income[c.job.rank]) * savingsRate;
+        // war and dark years starve the trades that do not carry a weapon
+        const hardTimes = !j.combat && c.era && c.era.civilIncome != null ? c.era.civilIncome : 1;
+        bars.wealth = ((bars.wealth || 0) + j.income[c.job.rank] * hardTimes) * savingsRate;
         if (capitalEligible(c,data) && c.bars.wealth > (data.economy?.capitalMinimum ?? 30)) bars.wealth += c.bars.wealth*(data.economy?.capitalRate ?? 0.02);
       } else delete bars.wealth;
     }
@@ -3015,6 +3017,11 @@
     const fallback = ["Bạn lặng lẽ quan sát những đổi thay nhỏ quanh mình.", "Một ngày nữa qua đi, để lại thêm một điều bạn học được.", "Bạn giữ lấy những điều quen thuộc để đi tiếp qua ngày tháng.", "Nhịp sống chậm lại, đủ để bạn nhìn rõ những gì đang ở bên mình."];
     return pick(rng, fallback.filter(t => !recent.has(t)));
   }
+  // the quiet years of an apprentice, of a seasoned hand and of a master are not the same years
+  function quietOfRank(c, j) {
+    const tier = j.quietByRank && (c.job.rank <= 1 ? j.quietByRank.low : c.job.rank >= j.ranks.length - 2 ? j.quietByRank.high : null);
+    return tier && tier.length ? tier.concat(j.quiet) : j.quiet;
+  }
   function quietText(c, data, rng, stageId, avoid = []) {
     // born in chains: the years pass in chains too
     if (c.captive && !c.captive.temp && ["infant", "child", "teen"].includes(stageId) && rng() < 0.6) return freshQuiet(c, rng, CAPTIVE_CHILD[c.captive.kind] || CAPTIVE_CHILD.slave, avoid);
@@ -3031,7 +3038,7 @@
     const f = c.focus ? focusDef(c, data, c.focus) : null;
     const j = jobDef(c, data);
     let list = null;
-    if (c.focus === "work" && j && j.quiet && ["teen", "adult", "middle", "elder", "ancient"].includes(stageId)) list = j.quiet;
+    if (c.focus === "work" && j && j.quiet && ["teen", "adult", "middle", "elder", "ancient"].includes(stageId)) list = quietOfRank(c, j);
     else if (f && f.quiet) list = f.quiet[stageId] || f.quiet.default;
     if (!list || !list.length) {
       const pool = data.fillers.filter((x) => (!x.stages || x.stages.includes(stageId)) && (!x.races || x.races.includes(c.race.id)) && captiveLine(x.text, c));

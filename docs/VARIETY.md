@@ -89,3 +89,25 @@ khác bằng cách thêm khóa vào `QUEST`.
 Phần lớn kịch bản viết chặng cuối như một kết quả (“Bạn thắng trận đấu trên mây…”).
 Câu ấy giờ là lời khi **thành công**; lời dẫn trước lựa chọn là câu `finale` của
 nhóm nghề.
+
+## Nối xuất thân, bậc nghề, thời đại và cái chết
+
+`content/life-texture.js` (nạp sau `endings.js`):
+
+- **Xuất thân mở nghề.** `originTrades` thêm cờ xuất thân vào `alt.anyFlags` của nghề hợp
+  với nó. Mọi cờ xuất thân của 15 tộc giờ mở ít nhất một nghề (test kiểm tra điều này).
+- **Bài thi riêng.** `promo` thay lời mẫu chung cho 14 nghề cuối còn dùng nó (Rồng, Thượng
+  Ma, Vampire, Goblin Tinker, Orc Smith, Metal Slime). Nghề nào đã có bài riêng thì trường
+  `promo` cũng mang bài đó, không còn câu mẫu.
+- **“Năm yên ả” theo bậc.** `quiet[nghề] = [bậc thấp, bậc cao]`: bậc 1–2 thêm các câu
+  tập sự, hai bậc cuối thêm các câu của người đứng đỉnh; các câu sẵn có dùng chung.
+- **Chết khi đang hành nghề.** `workDeaths`: mỗi nghề của năm tộc chính có một cái chết
+  bạo lực riêng (`require.job`).
+- **Hội theo tộc.** `guilds` viết lại lời ghi danh, bảng nhiệm vụ và lời thất bại của
+  Dawnbreak cho Beastman, Dwarf và Elf.
+- **Thời đại bẻ lái nghề.** `civilIncome` trong `data/eras.json` giảm thu nhập của nghề
+  không cầm vũ khí (chiến tranh 0,7; tăm tối 0,6; Ma Vương 0,5). Sự kiện `era_draft_<tộc>`
+  (trưng binh: xin miễn, nhập ngũ và đổi sang nghề chiến đấu bằng `setJob`, hoặc nộp tiền
+  thế thân) và `era_requisition_<tộc>` (trưng dụng xưởng, kho, gia súc) chỉ xảy ra trong
+  thời chiến.
+- **Giọng văn tử vong.** `deathRewrites` viết lại các câu chết cũ còn giọng bông đùa.

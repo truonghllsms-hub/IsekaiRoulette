@@ -135,3 +135,34 @@ test('priests and miners have their own wording, and borrowed wording is gone',(
  assert.doesNotMatch(said('elf_herb'),/ruộng|buông cuốc/);
  assert.doesNotMatch(said('slime_metal'),/bàn thợ|khách không nhìn ra/);
 });
+
+// ---- births, standing, war and work shape the trade ----
+test('every birth of the main races opens at least one trade, and no trade keeps the shared trial wording',()=>{
+ for(const race of data.races){
+  const alt=new Set(data.jobs.filter(j=>j.races&&j.races.includes(race.id)).flatMap(j=>(j.alt&&j.alt.anyFlags)||[]));
+  for(const o of data.origins.filter(o=>o.races[0]===race.id))for(const f of (o.effects&&o.effects.flags)||[])assert.ok(alt.has(f),`${o.id}: ${f}`);
+ }
+ const shared=/đặt nền móng bền vững|Một khách hàng đặt món đồ cần độ chính xác|Bạn tự chọn một kẻ buôn tin|Bạn tìm được một quầy hàng sắp sang nhượng/;
+ for(const j of data.jobs.filter(j=>j.races))for(const t of j.promo)assert.doesNotMatch(t,shared,j.id);
+ assert.deepEqual(data.jobs.find(j=>j.id==='bm_thief').alt.anyFlags,['slum_rat','stray_cat','sewer_rat']);
+});
+test('quiet years differ for an apprentice and a master',()=>{
+ const seen=(rank)=>{const out=new Set();for(let i=1;i<=60;i++){const c=person('human_smith',rank,i);c.nextPromo=Infinity;c.nextCareer=Infinity;E.advance(c,quiet,E.makeRng(i));for(const l of c.log)if(l.kind==='quiet')out.add(l.text);}return [...out].join(' ');};
+ assert.match(seen(0),/đạp bễ và quét xỉ|rèn hàng nghìn cái đinh|tạp dề da/);assert.doesNotMatch(seen(0),/Thợ trẻ làm phần nặng/);
+ assert.match(seen(4),/Thợ trẻ làm phần nặng|Vai bạn đau|nghe thép ngân/);assert.doesNotMatch(seen(4),/đạp bễ và quét xỉ/);
+});
+test('war years cut the income of trades that carry no weapon, and can draft them',()=>{
+ const earn=(job,era)=>{const c=person(job,2);c.bars.wealth=20;c.nextPromo=Infinity;c.nextCareer=Infinity;c.era={...data.eras.find(e=>e.id===era),perTurn:{},hazard:1};E.advance(c,quiet,()=>0.99);return c.bars.wealth;};
+ assert.ok(earn('human_farmer','demon_lord')<earn('human_farmer','peace'));
+ assert.equal(earn('human_swordsman','demon_lord'),earn('human_swordsman','peace'));
+ const draft=data.events.find(e=>e.id==='era_draft_human');const c=person('human_farmer',2);
+ c.era=data.eras.find(e=>e.id==='holy_war');assert.equal(E.eligible(draft,c,'adult',data),true);
+ c.ctx={eventId:draft.id};c.pending={kind:'event',choices:draft.choices};E.choose(c,data,1,()=>0);
+ assert.equal(c.job.id,'human_mercenary');assert.ok(c.pastJobs.some(j=>j.id==='human_farmer'));
+});
+test('a death at work is told for the trade, in one voice',()=>{
+ const texts=new Set();
+ for(let i=1;i<=80;i++){const c=person('dwarf_miner',2,i);c.race=data.races.find(r=>r.id==='dwarf');c.pending={kind:'event',choices:[{label:'x',check:{stat:'STR',target:99},success:{text:'ok'},fail:{text:'Hầm sập.',death:'x'}}]};c.pending=null;}
+ const miner=data.deaths.filter(d=>d.require&&d.require.job==='dwarf_miner');assert.equal(miner.filter(d=>d.kind==='violent').length,1);assert.match(miner.find(d=>d.kind==='violent').text,/Trần hầm tầng sâu sập/);
+ assert.doesNotMatch(JSON.stringify(data.deaths),/vô duyên|điểm kinh nghiệm|nát bạn thành tương|tỉ lệ tử vong 75%/);
+});

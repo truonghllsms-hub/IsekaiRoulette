@@ -117,7 +117,7 @@ module.exports = {
       ],
       promo: [
         ['bán sạch một sạp hàng ế trong một đêm chợ mà không nói dối câu nào bắt được quả tang.', 'thu hồi một món nợ từ kẻ mà không ai dám đòi.'],
-        ['mở một quầy hàng ở chợ đen và giữ được nó qua lần càn quét đầu tiên của lính Ma Vương.', 'tìm được nguồn cung riêng cho một thứ hàng mà cả chợ đang khan.'],
+        ['dựng một sạp ở chợ đen và giữ được nó qua lần càn quét đầu tiên của lính Ma Vương.', 'tìm được nguồn cung riêng cho một thứ hàng mà cả chợ đang khan.'],
         ['đưa một lô ma cụ cấm qua ba trạm gác mà không tốn một giọt máu.', 'thâu tóm sạp của đối thủ bằng cách mua hết nợ của hắn.'],
         ['đứng ra bảo lãnh cho một phiên chợ đêm, và không ai dám gây chuyện trong đêm ấy.', 'bán cùng một món hàng cho hai phe thù địch mà cả hai đều cảm ơn.'],
       ],
