@@ -329,7 +329,17 @@ function build(raceId, opts) {
     const p = s.split("·").map((x) => x.trim());
     const unknown = /^không rõ/i.test(p[0]);
     const st = (p.length > 1 ? p[p.length - 1] : p[0]).toLowerCase();
-    const status = /đã chết|đã mất|vừa chết|bị .*giết|tử trận|đã khuất|đã tự sát|qua đời/.test(st) ? "dead" : /bỏ đi|lang thang|không tung tích|biến mất/.test(st) ? "gone" : /còn sống|còn tồn tại/.test(st) ? "alive" : unknown ? "unknown" : "alive";
+    // A parent the script tells as killed, sacrificed or lost at the birth is not waiting at home
+    // ("Bị hành quyết khi bạn vừa ra đời", "Chết cóng…", "rồi mất tích"). "Không rõ sống chết" stays unknown,
+    // a nameless parent "không rõ tung tích" stays unknown, and "còn sống, đã bỏ đi" is gone.
+    const dead = /đã chết|đã mất|vừa chết|chết|bị .*giết|giết chết|tử trận|đã khuất|tự sát|qua đời|hành quyết|hiến tế|thanh trừng|sát hại|thiêu rụi|cắt cổ|kéo tuột xuống|nhảy xuống vực|bị xử tử/;
+    const gone = /bỏ đi|bỏ chạy|bỏ trốn|bỏ rơi|lang thang|không tung tích|không rõ tung tích|biệt tích|mất tích|biến mất|bị bán|bán đi/;
+    const status = /(?:không|chưa) rõ sống chết/.test(st) ? "unknown"
+      : dead.test(st) ? "dead"
+      : unknown && /không (?:rõ )?tung tích/.test(st) ? "unknown"
+      : gone.test(st) ? "gone"
+      : unknown ? "unknown"
+      : "alive";
     let name = unknown ? null : ren(p[0]).replace(/\{(father|mother|maker)\}\s*/g, "").trim() || null; // "{maker} Xanthus" → "Xanthus"
     if (name && /^\{(father|mother|maker)\}$/.test(name)) name = null; // the script left the name to the game
     if (name && name.length > 40) name = null;

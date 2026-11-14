@@ -179,3 +179,19 @@ test('each people has its own guild wording, and no trade keeps filled-in promot
  assert.equal(data.jobs.filter(j=>j.promotionCopy&&j.promotionCopy.promo).length,0);
  assert.doesNotMatch(JSON.stringify(data.deaths),/Thiên kiếp|lôi đình|đầy chất Goblin|bầy Imp/);
 });
+
+test('every race declares its own life stages, and Beastmen reach old age within their span',()=>{
+ for(const r of data.races)assert.ok(r.stages&&r.stages.length>=5,r.id);
+ const b=data.races.find(r=>r.id==='beastman');
+ assert.ok(b.stages.find(s=>s.id==='elder').start<b.lifespan[0]);
+});
+test('a parent the birth story tells as dead or lost is not waiting at home',()=>{
+ const DEAD=/(?<!sống )chết|hành quyết|hiến tế|thanh trừng|sát hại|thiêu rụi|cắt cổ|qua đời|tử trận/i,GONE=/mất tích|biệt tích|bỏ chạy|bỏ đi|bán đi|không rõ tung tích/i;
+ for(const o of data.origins)for(const w of ['father','mother','maker']){const p=o[w];if(!p||p.status!=='alive')continue;const t=p.note||'';
+  if(/còn sống/i.test(t))continue;
+  assert.doesNotMatch(t,DEAD,`${o.id}.${w}`);assert.doesNotMatch(t,GONE,`${o.id}.${w}`);}
+ const st=(id,w)=>data.origins.find(o=>o.id===id)[w].status;
+ assert.equal(st('demon_origin_forest','mother'),'dead');assert.equal(st('troll_origin_cave','mother'),'gone');assert.equal(st('vampir_bg_cult','mother'),'gone');
+ const c=E.createCharacter({...data,origins:[data.origins.find(o=>o.id==='troll_origin_ice')]},E.makeRng(4),'troll');
+ assert.equal(c.parents.father.alive,false);
+});

@@ -2,7 +2,15 @@
   { "id": "human", "name": "Human", "gloss": "loài người: tuổi thọ ngắn, tham vọng không đáy", "weight": 35.5, "lifespan": [70, 80], "hazard": 0.003,
     "mult": { "STR": 1.0, "INT": 1.0, "AGI": 1.0, "LUCK": 1.2 }, "tags": ["civil", "humanoid"] },
   { "id": "beastman", "name": "Beastman", "gloss": "thú nhân mang tai, đuôi và bản năng của loài thú", "weight": 18, "lifespan": [50, 60], "hazard": 0.006,
-    "mult": { "STR": 1.3, "INT": 0.8, "AGI": 1.3, "LUCK": 1.0 }, "tags": ["civil", "humanoid"] },
+    "mult": { "STR": 1.3, "INT": 0.8, "AGI": 1.3, "LUCK": 1.0 }, "tags": ["civil", "humanoid"],
+    "stages": [
+      { "id": "infant", "name": "Sơ sinh", "start": 0 },
+      { "id": "child", "name": "Thơ ấu", "start": 3 },
+      { "id": "teen", "name": "Thiếu niên", "start": 9 },
+      { "id": "adult", "name": "Trưởng thành", "start": 15 },
+      { "id": "middle", "name": "Trung niên", "start": 32 },
+      { "id": "elder", "name": "Tuổi già", "start": 45 }
+    ] },
   { "id": "dwarf", "name": "Dwarf", "gloss": "tộc thợ rèn lùn và vạm vỡ, sống trong lòng núi", "weight": 12, "lifespan": [150, 200], "hazard": 0.003,
     "mult": { "STR": 1.4, "INT": 1.0, "AGI": 0.7, "LUCK": 0.9 }, "tags": ["civil", "humanoid"] },
   { "id": "demon", "name": "Demon", "gloss": "ma tộc mang sừng và ma lực Vực Thẳm, sống hàng thế kỷ", "weight": 7, "lifespan": [300, 500], "hazard": 0.0012,
