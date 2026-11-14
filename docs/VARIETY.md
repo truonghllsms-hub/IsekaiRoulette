@@ -138,3 +138,24 @@ Miner 3.
 
 Câu lựa chọn của nhiệm vụ nghề theo chỉ số có thêm hai bộ lời thay thế cho mỗi chỉ số;
 mỗi nhiệm vụ cố định một bộ theo id.
+
+## Nghề hiện tại và những năm đầu ở hội
+
+`content/occupation-life.js` sửa các cảnh lao động kể sai nghề bằng điều kiện nghề cụ thể:
+không mặc định mọi Human đều đào mỏ, mọi Dwarf đều luyện kim, mọi Elf đều trồng thuốc,
+hay một quan lại Demon đang làm thuê ở xưởng. Những cảnh kể về chủ xưởng và việc học
+việc còn giới hạn bậc thấp; chuyện thời cuộc, gia đình và các lựa chọn tự nguyện vẫn có.
+
+Gói này thêm 29 cảnh nghề (14 của tu sĩ, 15 của các nghề khác), 14 nhiệm vụ hỗ trợ hạng
+đầu cho bốn hội dân sự và các lựa chọn cứu thương/hậu cần trong sáu nhiệm vụ mở đầu tổ
+đội Human cùng bốn cuộc khủng hoảng tiếp theo. Lựa chọn hỗ trợ dùng cùng cờ tiếp diễn
+với kết quả tương ứng; nhánh thất bại vẫn ghi đúng người chết/rời đội.
+
+Engine mời thành viên mới xem bảng nhiệm vụ ở nhịp hoạt động tiếp theo, ưu tiên hiện
+một việc hợp nghề nếu có. Khi chọn Mạo hiểm, bảng không bị tuyến nghề chen mất quá ba
+nhịp đủ điều kiện. Kịch bản đánh số của tổ đội đã gia nhập được dành lượt sau hai nhịp
+và hai lần tiếp tục. An dưỡng, giam cầm, nhiệm vụ đang làm và thời hạn hoãn đều được tôn
+trọng; người chơi luôn có thể từ chối nhận nhiệm vụ.
+
+Kiểm tra: `node tools/test-occupation-life.js` (bao gồm tuổi 14, trạm cứu thương, Dawn
+Torch, nghề thợ thay vì tu sĩ, các cảnh sai nghề và việc lưu đúng thương vong).

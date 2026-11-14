@@ -1178,7 +1178,7 @@
     leaveBand(c, false);
     const available = b.members.filter(m=>!wasCompanionKilled(c,m.name));
     const leader = available.find((m) => /đầu băng|đội trưởng|thủ lĩnh/i.test(m.position)) || available[0];
-    c.band = { id, name: b.name || b.title, leaderName: leader ? leader.name : null, lead: false, gone: false, since: c.age, party: !!b.party };
+    c.band = { id, name: b.name || b.title, leaderName: leader ? leader.name : null, lead: false, gone: false, since: c.age, storyClick: c.clicks, party: !!b.party };
     for (const m of b.members) {
       if (m === leader || wasCompanionKilled(c,m.name)) continue;
       if (aliveParty(c).length >= MAX_PARTY) break;
@@ -2639,15 +2639,20 @@
     const s = (o && o.board) || data.systems.board;
     const pool = questPool(c, data).slice();
     const offered = [];
+    // A healer, artisan or scholar has work on the board too; make their own commission visible.
+    const own = pool.filter(q => c.job && [].concat(q.require?.job || []).includes(c.job.id));
+    if (own.length) offered.push(weightedPick(own, rng));
     // Story quests first when available, then fill with smaller jobs.
     const story = pool.filter((q) => !q.repeat);
-    if (story.length) offered.push(weightedPick(story, rng));
+    if (story.length && !offered.some(q => !q.repeat)) offered.push(weightedPick(story.filter(q => !offered.includes(q)), rng));
     while (offered.length < 3) {
       const rest = pool.filter((q) => !offered.includes(q));
       if (!rest.length) break;
       offered.push(weightedPick(rest, rng));
     }
     if (!offered.length) return false;
+    c.guild.boardSeen = true;
+    c.guild.lastBoardAt = c.age;
     const choices = offered.map((q) => ({
       label: `${q.name} · ${o.rankLabel ? o.rankLabel + " " : ""}${o.ranks[q.minRank || 0]}`,
       hint: q.hint,
@@ -2802,6 +2807,30 @@
     return true;
   }
 
+  // Joining is a promise of work, not a thirteen-year lottery. Timers still honour a refusal
+  // and time spent resting; only the invitation is guaranteed, never accepting the commission.
+  function dueGuildBoard(c, data, rng) {
+    if (!c.guild || c.captive || c.quest || c.focus === "rest" || ["infant", "child"].includes(currentStage(c).id)) return false;
+    const o = orgDef(c, data);
+    const first = !c.guild.boardSeen && !o?.auto;
+    if (!first && c.focus !== "adventure") return false;
+    if (c.age < (c.nextQuestBoard || 0) || c.clicks < (c.nextQuestBoardClick || 0)) return false;
+    const last = c.guild.lastBoardAt ?? c.guild.since ?? c.age;
+    if (!first && c.age - last < tickYears(c) * 3) return false;
+    return boardScene(c, data, rng);
+  }
+
+  // The next numbered chapter of a group already joined cannot be crowded out by career scenes.
+  // Member conversations remain random; an ongoing quest and recovery always take precedence.
+  function dueBandStory(c, data, rng, stageId) {
+    if (!c.band || c.band.gone || c.captive || c.quest || c.focus === "rest") return null;
+    const last = c.band.storyAt ?? c.band.since ?? c.age;
+    if (c.age - last < tickYears(c) * 2 || c.clicks < (c.band.storyClick || 0) + 2) return null;
+    const due = data.events.filter(e => e.arc === c.band.id && e.require?.band === c.band.id && /_\d+$/.test(e.id) && eligible(e, c, stageId, data));
+    due.sort((a, b) => Number(a.id.match(/_(\d+)$/)[1]) - Number(b.id.match(/_(\d+)$/)[1]));
+    return due[0] || null;
+  }
+
   function scheduled(c, data, rng, years) {
     if (c.captive) return false;
     const st = currentStage(c).id;
@@ -2843,6 +2872,10 @@
 
   // ---------- random events ----------
   function resolveEvent(c, data, e, rng) {
+    if (c.band && e.arc === c.band.id && e.require?.band === c.band.id && /_\d+$/.test(e.id)) {
+      c.band.storyAt = c.age;
+      c.band.storyClick = c.clicks;
+    }
     if (e.variants?.length) e = {...e,text:pick(rng,e.variants)};
     // Meeting the same situation again is not reading the same page again: the n-th return is told from
     // what was chosen the time before (again[pick]) or simply from having been here before (again.any).
@@ -3251,7 +3284,9 @@
             const pool=data.events.filter(e=>e.races?.includes(c.race.id)&&(/_evo_/.test(e.id))&&eligible(e,c,stageId,data));
             if(pool.length) node=weightedPick(pool,rng,e=>e.weight||10);
           }
-          if (!node) careerScene(c, data, rng);
+          if (!node && dueGuildBoard(c, data, rng)) stop = true;
+          if (!node && !c.pending) node = dueBandStory(c, data, rng, stageId);
+          if (!node && !c.pending) careerScene(c, data, rng);
           let workConsidered = false;
           // the omen has come: the change of form goes before the rest of the story
           if (!node && !c.pending && !c.form && c.flags.some((f) => /^evo_sign/.test(f)) && rng() < 0.7) {

@@ -19,8 +19,8 @@ const boardData={...quiet,quests:[q]};
 test('quest completion and failure both leave a quiet turn before another board',()=>{
  for(const index of [0,1]){const c=boardPerson();c.quest={id:q.id,step:0};c.ctx={quest:q};c.pending={kind:'quest',choices:q.steps[0].choices};E.choose(c,boardData,index,()=>0);assert.equal(c.quest,null);assert.ok(c.nextQuestBoard>c.age);step(c,boardData);assert.notEqual(c.pending?.kind,'board');}
 });
-test('boards obey their timer and the flat thirty percent chance',()=>{
- const c=boardPerson();c.nextQuestBoard=1000;step(c,boardData);assert.notEqual(c.pending?.kind,'board');c.nextQuestBoard=0;step(c,boardData,()=>0.31);assert.notEqual(c.pending?.kind,'board');step(c,boardData,()=>0.29);assert.equal(c.pending?.kind,'board');E.choose(c,boardData,c.pending.choices.length-1,()=>0);assert.ok(c.nextQuestBoard>c.age);step(c,boardData);assert.notEqual(c.pending?.kind,'board');
+test('boards obey their timer, offer new members work, and honour postponement',()=>{
+ const c=boardPerson();c.nextQuestBoard=1000;step(c,boardData);assert.notEqual(c.pending?.kind,'board');c.nextQuestBoard=0;step(c,boardData,()=>0.99);assert.equal(c.pending?.kind,'board');assert.equal(c.guild.boardSeen,true);E.choose(c,boardData,c.pending.choices.length-1,()=>0);assert.ok(c.nextQuestBoard>c.age);step(c,boardData);assert.notEqual(c.pending?.kind,'board');
 });
 test('merchant capital returns apply only while working with sufficient free capital',()=>{
  function balance(wealth,focus,enabled){const c=person('human_merchant');c.bars.wealth=wealth;c.focus=focus;c.nextPromo=Infinity;const d={...quiet,events:[{id:'pause',text:'Một ngày thường.',choices:[{label:'Tiếp tục'}]}],economy:{...quiet.economy,capitalRate:enabled?quiet.economy.capitalRate:0}};step(c,d,()=>0);return c.bars.wealth;}

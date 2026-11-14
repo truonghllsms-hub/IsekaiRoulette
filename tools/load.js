@@ -161,6 +161,7 @@ function loadData() {
   require("./professions").installProfessions(data);
   require("../content/endings").install(data);
   require("../content/life-texture").install(data);
+  require("../content/occupation-life").install(data);
   require("../content/sagas").install(data);
   require("./storylines").install(data);
   require("../content/epoch-events").install(data);
