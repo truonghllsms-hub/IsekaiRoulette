@@ -195,3 +195,28 @@ test('a parent the birth story tells as dead or lost is not waiting at home',()=
  const c=E.createCharacter({...data,origins:[data.origins.find(o=>o.id==='troll_origin_ice')]},E.makeRng(4),'troll');
  assert.equal(c.parents.father.alive,false);
 });
+
+// ---- meeting a situation again is told as a return ----
+test('a returning chronicle is told from the option taken last time, and stops after three',()=>{
+ const e=data.events.find(e=>e.id==='epoch_dragon_champion');
+ assert.equal(e.maxTimes,3);assert.deepEqual(e.choices.map(c=>c.pick),['a','b','c']);
+ const c=E.createCharacter(data,E.makeRng(5),'dragon');Object.assign(c,{age:3000,captive:null,pending:null,used:[],eventLast:{},eventPick:{}});
+ E.resolveEvent(c,data,e,()=>0);assert.match(c.pending.text,/Ngọn cờ của thế hệ Dũng Giả/);
+ E.choose(c,data,c.pending.choices.findIndex(ch=>ch.pick==='b'),()=>0);assert.equal(c.eventPick[e.id],'b');
+ c.pending=null;E.resolveEvent(c,data,e,()=>0);assert.match(c.pending.text,/Biểu tượng bạn phá năm ấy/);
+ c.used.push(e.id);assert.equal(E.eligible(e,c,'adult',data),false);
+});
+test('the follow-on chains need the decision they continue, and every link exists',()=>{
+ const sagas=data.events.filter(e=>e._file==='sagas');assert.ok(sagas.length>=40);
+ const ids=new Set(data.events.map(e=>e.id));
+ for(const e of sagas){if(e.require.after)assert.ok(ids.has(e.require.after.event),e.id);}
+ const e=data.events.find(e=>e.id==='saga_drw_sword');const c=E.createCharacter(data,E.makeRng(3),'dragon');
+ Object.assign(c,{age:5000,captive:null,focus:'work',job:{id:'dragon_war',rank:2,xp:0},used:['drw_hero_grandson'],eventLast:{drw_hero_grandson:4900},pending:null});
+ assert.equal(E.eligible(e,c,E.currentStage(c).id,data),false); // no Hero line yet
+ c.flags.push('drw_hero_line');assert.equal(E.eligible(e,c,E.currentStage(c).id,data),false); // too soon
+ c.age=5100;assert.equal(E.eligible(e,c,E.currentStage(c).id,data),true);
+});
+test('trying a change of form again reads differently from the first try',()=>{
+ const e=data.events.find(e=>e.id==='slime_evo_elemental_event');assert.ok(e.again&&e.again.any.length>=2);
+ assert.notEqual(e.again.any[0],e.text);
+});

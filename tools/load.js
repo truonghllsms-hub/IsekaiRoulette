@@ -161,8 +161,11 @@ function loadData() {
   require("./professions").installProfessions(data);
   require("../content/endings").install(data);
   require("../content/life-texture").install(data);
+  require("../content/sagas").install(data);
   require("./storylines").install(data);
   require("../content/epoch-events").install(data);
+  // after the epoch chronicles exist: their returns are told from what was chosen before
+  require("../content/recurrence").install(data);
   require("./economy").annotateRewards(data);
   pruneRemoved(data);
   return data;

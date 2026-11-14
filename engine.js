@@ -1717,6 +1717,7 @@
     if (e.minAge != null && c.age < e.minAge) return false;
     if (e.maxAge != null && c.age > e.maxAge) return false;
     if (e.once !== false && c.used.includes(e.id)) return false;
+    if (e.maxTimes && c.used.filter((id) => id === e.id).length >= e.maxTimes) return false;
     if (e.focus && !(c.focus && e.focus.includes(c.focus))) return false;
     if (!implicitOk(e, c, data)) return false;
     return meets(c, e.require, data);
@@ -2569,7 +2570,11 @@
           const ok = lines.filter((l) => parentsOk(l, c, {}));
           return ok.length ? ok : ["Đã đến lúc tự kiếm cho mình một cái nghề để sống."];
         })());
-    scene(c, "job", fmt(intro, c, null, data), choices);
+    // the second time the question comes, it comes as a return
+    c.jobOffers = (c.jobOffers || 0) + 1;
+    const again = ["Câu hỏi năm xưa lại quay về: bạn vẫn chưa có một con đường của riêng mình.", "Người ta bắt đầu nhìn bạn như nhìn kẻ đã để lỡ quá nhiều mùa. Đã đến lúc thôi chần chừ.", "Lần này không ai hỏi bạn muốn làm gì. Họ chỉ chờ xem bạn còn định đợi đến bao giờ.", "Bạn đã hoãn đủ lâu để những kẻ cùng lứa đều có chỗ đứng. Câu hỏi ấy giờ nặng hơn trước."];
+    const said = c.jobOffers > 1 && !c.captive ? again[(c.jobOffers - 2) % again.length] : intro;
+    scene(c, "job", fmt(said, c, null, data), choices);
   }
 
   function promotionScene(c, data, rng) {
@@ -2839,6 +2844,14 @@
   // ---------- random events ----------
   function resolveEvent(c, data, e, rng) {
     if (e.variants?.length) e = {...e,text:pick(rng,e.variants)};
+    // Meeting the same situation again is not reading the same page again: the n-th return is told from
+    // what was chosen the time before (again[pick]) or simply from having been here before (again.any).
+    if (e.again) {
+      const before = c.used.filter((id) => id === e.id).length;
+      const last = c.eventPick && c.eventPick[e.id];
+      const list = before > 0 && ((last && e.again[last]) || e.again.any);
+      if (list && list.length) e = { ...e, text: list[Math.min(before - 1, list.length - 1)] };
+    }
     groupBridge(c, data, e, rng);
     c.used.push(e.id);
     c.eventLast=c.eventLast||{};c.eventLast[e.id]=c.age;
@@ -2932,11 +2945,23 @@
       "Đống vàng trong hang nguội dần. Bạn nằm trên nó và nghe tiếng gió đổi mùa.",
       "Những ngôi làng dưới thung lũng mọc lên, cháy rụi, rồi lại mọc lên. Bạn không còn nhớ tên chúng.",
       "Một hiệp sĩ trẻ leo đến cửa hang, nhìn bạn rất lâu, rồi quay về. Có lẽ cháu chắt hắn giờ cũng đã thành tro.",
+      "Một ngôi làng mọc lên dưới chân núi bạn nằm. Lũ trẻ ở đó đặt tên cho ngọn núi, mà không biết nó đang thở.",
+      "Bạn mơ thấy những Rồng cùng thời đã khuất, và tỉnh dậy thấy mình đã ngủ qua một triều đại.",
+      "Một người chăn dê lạc vào hang và ngủ quên dựa lưng vào bạn suốt đêm. Hắn không bao giờ biết.",
+      "Một con Rồng non bay ngang trời, hét lên thách thức cả dãy núi. Bạn mở một mắt, rồi nhắm lại.",
+      "Mưa và gió bào mòn đỉnh núi thấp xuống một sải tay. Bạn thì không mòn đi chút nào.",
+      "Bạn đếm lại kho báu và thấy thiếu một đồng. Bạn mất ba mươi năm để nhớ ra mình đã cho ai.",
     ],
     high_demon: [
       "Ngọn lửa Vực Thẳm đổi màu ba lần. Những kẻ từng quỳ trước bạn, không còn ai sống sót.",
       "Bạn ngủ một giấc dài. Khi mở mắt, ngôn ngữ của loài người đã khác hẳn.",
       "Các lãnh chúa trẻ tranh nhau những mảnh đất mà bạn từng chán chẳng buồn giữ.",
+      "Những Ma Tướng từng quỳ trước bạn đã có con cháu quỳ trước người khác. Bạn nhìn từ xa và không can thiệp.",
+      "Bạn đổi tên mình một lần nữa, vì cái tên cũ đã thành lời nguyền trong miệng phàm nhân.",
+      "Vực Thẳm sâu thêm một tầng. Bạn xuống xem, và không thấy gì đáng để ở lại.",
+      "Một giáo phái phàm nhân thờ bạn dưới một cái tên bạn chưa từng mang. Bạn để yên, vì nó buồn cười.",
+      "Bạn ngủ qua một cuộc chiến giữa các Ma Vương. Khi tỉnh dậy, kẻ thắng đã chết vì tuổi già.",
+      "Lò lửa trong cung điện tắt rồi được nhóm lại bởi những bàn tay bạn không biết tên.",
     ],
     demon: [
       "Ma Giới đổi chủ vài lần. Bạn học được rằng kẻ sống lâu là kẻ biết lúc nào nên im lặng.",
@@ -2952,12 +2977,20 @@
       "Thành phố bên dưới tháp chuông thay đổi đến mức bạn phải học lại đường về nhà.",
       "Người tình cuối cùng của bạn đã già và nằm xuống. Bạn vẫn giữ chiếc khăn tay của họ trong ngăn kéo.",
       "Thời trang đổi, ngôn ngữ đổi, giá bánh mì đổi. Chỉ cơn khát là không.",
+      "Bạn dự đám cưới của chắt một người bạn cũ, dưới một cái tên khác. Cô dâu có đôi mắt giống hệt ông cố.",
+      "Bạn thay toàn bộ người hầu trong lâu đài một lần nữa, trước khi ai kịp nhận ra chủ nhân không già đi.",
+      "Một nhà thờ mới mọc lên cuối phố. Tiếng chuông của nó làm bạn mất ngủ suốt mười năm, rồi bạn quen.",
+      "Bạn đọc lại nhật ký của chính mình từ ba thế kỷ trước, và không nhận ra người đã viết nó.",
     ],
     slime: ["Hang động nhỏ giọt từng chút một. Bạn lớn lên cùng nhịp với những thạch nhũ."],
     default: [
       "Ba đời vua loài người lên ngôi rồi nằm xuống. Bạn vẫn ở đây.",
       "Những gương mặt quen thuộc cứ thưa dần, rồi biến mất hẳn.",
       "Thế giới đổi thay theo cách của nó. Bạn đổi thay theo cách của bạn, chậm hơn nhiều.",
+      "Một con đường lát đá giờ chạy qua nơi từng là khu rừng bạn quen. Bạn đi trên nó, và thấy lạ.",
+      "Bạn gặp một người mang đúng gương mặt của một người quen cũ, và mất cả buổi chiều mới nhớ ra người ấy đã mất từ lâu.",
+      "Ngôn ngữ của loài người đổi khác đến mức bạn phải học lại cách mặc cả ở chợ.",
+      "Những bài hát bạn từng nghe ở quán rượu giờ được dạy như cổ ca trong trường học.",
     ],
   };
   function deepTime(c, rng, n, memory) {
@@ -3083,6 +3116,9 @@
     const lead = pick(rng, [
       `${span}, vẫn là ${act}${with_}.`,
       `${span} trôi đi trong ${act}${with_}.`,
+      `${span} qua đi lặng lẽ, phần lớn dành cho ${act}${with_}.`,
+      `Suốt ${n <= 4 ? "mấy năm ấy" : `${n} năm ấy`}, ngày nào cũng là ${act}${with_}.`,
+      `${span} không có gì lớn xảy ra. Chỉ có ${act}${with_}.`,
     ]);
     const parts = [lead, flavor];
     if (memory) parts.push(memory);
@@ -3397,6 +3433,8 @@
     const ch = p.choices[index];
     if (!ch || ch.disabled) return c;
     if(deferRestGroup(c,data))return c;
+    // a scene that comes back remembers what was chosen the last time
+    if (p.kind === "event" && ch.pick && c.ctx && c.ctx.eventId) { c.eventPick = c.eventPick || {}; c.eventPick[c.ctx.eventId] = ch.pick; }
     if((c.focus==='rest' && createsParty(ch)) || unavailableCompanion(c,p.text) || (/\{ally(?:Job)?\}/.test((p.text||'')+' '+sceneText(ch))&&!currentAlly(c)) || unavailableCompanion(c,ch)) {
       c.pending=null;
       if(p.kind==='quest'&&c.quest)finishQuest(c,data,rng,false);
@@ -3589,6 +3627,7 @@
     makeRng,
     weightedPick,
     pickEvent,
+    resolveEvent,
     stagesOf,
     currentStage,
     tickYears,

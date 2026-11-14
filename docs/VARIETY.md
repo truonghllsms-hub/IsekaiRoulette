@@ -111,3 +111,30 @@ nhóm nghề.
   thế thân) và `era_requisition_<tộc>` (trưng dụng xưởng, kho, gia súc) chỉ xảy ra trong
   thời chiến.
 - **Giọng văn tử vong.** `deathRewrites` viết lại các câu chết cũ còn giọng bông đùa.
+
+## Gặp lại không phải đọc lại
+
+`content/recurrence.js` (nạp sau các biến cố kỷ nguyên):
+
+- **Sự kiện quay lại có nhớ.** `again: { a: [...], b: [...], any: [...] }` thay lời dẫn ở lần gặp
+  thứ hai, thứ ba bằng lời viết theo lựa chọn lần trước (`pick` của lựa chọn đó; `any` khi
+  không ghi nhận lựa chọn). `maxTimes` giới hạn số lần gặp trong một đời. Áp cho 12 biến cố
+  kỷ nguyên của Rồng, Thượng Ma, Vampire, 4 biến cố thế hệ của Dwarf, Demon, Elf, quả trứng
+  Rồng và phân thân Thượng Ma. Engine ghi lựa chọn vào `c.eventPick`.
+- **Thử tiến hóa lại.** Mọi cảnh tiến hóa thử lại được có lời dẫn riêng cho lần thử sau (lõi
+  còn nứt, đổi phương pháp, thiếu vật liệu), theo từng tộc.
+- **Câu sinh hoạt.** Thêm câu an dưỡng và rèn luyện cho Elf, câu "thời gian trôi" cho Rồng,
+  Thượng Ma, Vampire, ba khuôn mới cho câu dẫn "N năm sau đó…", và 2–3 lời mới cho mỗi
+  hoàn cảnh của cảnh tai họa.
+- **Lời mời chọn nghề lần hai** được kể như câu hỏi quay lại, không lặp lời mời đầu.
+
+`content/sagas.js`: 45 cảnh nối tiếp quyết định đã có, mỗi cảnh cần cờ của con đường và
+cảnh trước nó (`require.after`): Rồng 12 (dòng Dũng Giả, thành phố được bảo hộ, học trò
+truyền sai, kho báu), Thượng Ma 8 (lãnh địa sau khi bỏ thuế máu, Quân đoàn thời bình, luật
+và học trò của Đại pháp sư), Slime 8 (Mimic bị nhận nhầm người đã khuất, Pet khi chủ lớn
+lên, ký ức lẫn vào nhau, trước và sau tiến hóa), Vampire 8 (người thừa kế giả và thật, huyết
+y bị lệ thuộc, thợ săn được cứu, bức chân dung), Elf an dưỡng 4, Goblin Tinker 3, Kobold
+Miner 3.
+
+Câu lựa chọn của nhiệm vụ nghề theo chỉ số có thêm hai bộ lời thay thế cho mỗi chỉ số;
+mỗi nhiệm vụ cố định một bộ theo id.
